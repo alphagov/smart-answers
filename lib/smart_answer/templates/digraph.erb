@@ -1,0 +1,23 @@
+digraph "<%= tree.display_name %>" {
+<% tree.nodes.each_pair do |name, node|
+    label_text = if options[:show_explanatory_summary] && !node.explanatory.nil?
+                   "{ #{node.display_name} | #{node.explanatory.split("\n").first + ' ...'} }"
+                 else
+                   node.display_name
+                 end
+    attrs = { 'style' => 'rounded', 'shape' => 'record', 'label' => label_text}
+    attrs['style'] = 'bold' if node.is_a? Outcome
+-%>
+    <%= no_q(node.name) %> <%= render_attrs(attrs) %>;
+<% end %>
+
+<%= options %>
+
+<% # Render the answers (edges)
+
+   tree.nodes.select {|name, node| node.is_a? Question}.each_pair do |name, node| %>
+    <% node.answers.each_pair do |answer_name, leads_to| %>
+    <%= no_q(node.name) %> -> <%= no_q(leads_to) %> [label="<%= no_q(answer_name.to_s.humanize) %>"];
+    <% end %>
+<% end %>
+}
