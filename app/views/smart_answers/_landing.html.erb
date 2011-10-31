@@ -1,0 +1,11 @@
+<div class="introduction">
+  <div class="inner">
+    <h1><%= @presenter.display_name %></h1>
+    <% if @presenter.body.present? %>
+      <%= @presenter.body.present? %>
+    <% end %>
+  
+    <div class="arrow-down"></div>
+  </div>
+  <p class="start"><%= link_to "Get started", smart_answer_path(@smart_answer_name, started: 'y')%></p>
+</div>

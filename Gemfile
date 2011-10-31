@@ -25,7 +25,8 @@ group :test do
   gem 'simplecov-rcov'
   gem 'webmock', :require => false
   gem 'ci_reporter'
-  gem 'test-unit'
+  # gem 'test-unit'
+  gem 'minitest', '2.7.0'
   # Pretty printed test output
   gem 'turn', :require => false
 end

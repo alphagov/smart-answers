@@ -10,8 +10,12 @@ module SmartAnswer
     end
 
     def display_name text=nil
-      return @display_name if text.nil?
+      return (@display_name || default_display_name) if text.nil?
       @display_name = text
+    end
+    
+    def default_display_name
+      @name.to_s.humanize
     end
   end
 end

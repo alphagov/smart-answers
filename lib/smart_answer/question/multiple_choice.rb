@@ -7,12 +7,12 @@ module SmartAnswer
       end
 
       def next_node_for(current_state, input)
-        raise "Illegal option #{input} for #{name}" unless valid_option?(input)
-        @transitions[input]
+        raise SmartAnswer::InvalidResponse, "Illegal option #{input} for #{name}", caller unless valid_option?(input)
+        @transitions[input.to_s]
       end
       
       def option(transitions, options = {})
-        transitions.each_pair { |option, next_node| @transitions[option] = next_node }
+        transitions.each_pair { |option, next_node| @transitions[option.to_s] = next_node }
       end
     
       def options
@@ -20,7 +20,7 @@ module SmartAnswer
       end
     
       def valid_option?(option)
-        @transitions.has_key?(option)
+        @transitions.has_key?(option.to_s)
       end
     end
   end

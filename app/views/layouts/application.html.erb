@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>SmartAnswers</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
+  <head>
+    <title><%= yield :title %> | www.gov.uk</title>
+    <%= stylesheet_link_tag "application" %>
+    <meta name="x-section-name" content="Smart Answers" />
+    <meta name="x-section-link" content="smart_answers" />
+    <%= csrf_meta_tags %>
+    <%= yield :head %>
+  </head>
+<body class="foo">
+  <div id="wrapper" class="smart_answers">
+    <%= yield %>
+  </div>
 </body>
 </html>

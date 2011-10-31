@@ -1,0 +1,18 @@
+<div class="steps">
+  <div class="step current" data-step="employment-status">
+    <div class="inner">
+      <h3>
+        <span class="decision-number"><%= @presenter.current_question_number %></span>
+        <%= question.display_name %>
+      </h3>
+
+      <%= render partial: "#{question.class.name.demodulize.underscore}_question", locals: {question: question} %>
+
+      <div class="arrow-down"></div>
+
+    </div>
+    <div class="next-decision">
+      <input type="submit" value="Next">
+    </div>
+  </div>
+</div>

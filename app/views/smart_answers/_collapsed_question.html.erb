@@ -1,0 +1,9 @@
+<li class="done">
+  <h3 class="question">
+    <span class="decision-number"><%= question.number %></span>
+    <%= question.display_name %>
+  </h3>
+
+  <p class="answer"><%= @presenter.response_for(question) %></p>
+  <p class="undo"><a>Change this answer</a></p>
+</li>

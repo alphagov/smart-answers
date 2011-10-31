@@ -1,9 +1,12 @@
 module SmartAnswer
   module Question
     class Base < Node
+      attr_accessor :number
+      
       def initialize(name, options = {}, &block)
         @calculations = []
         @save_input_as = nil
+        @number = options.delete(:number)
         @next_node_function = lambda {|_,_|}
         super
       end

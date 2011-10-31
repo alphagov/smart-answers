@@ -1,0 +1,8 @@
+<ul>
+  <% question.options.each do |option| %>
+    <li>
+      <%= radio_button_tag "response", option %>
+      <label for="response_<%= option %>"><%= option %></label>
+    </li>
+ <% end %>
+</ul>
