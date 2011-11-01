@@ -2,9 +2,9 @@ $(document).ready(function() {
 	var hasPushState = false,
 		formSelector = ".steps .current form";
 	
-	if(window.history){
+	if(history && history.pushState){
 		hasPushState = true;
-	}
+	};
 
 	// if hashed, means it's a non-pushstated URL that we need to generate the content for
 	if(window.location.hash){		
@@ -17,8 +17,9 @@ $(document).ready(function() {
 	// events
 	// get new questions on submit
   $(formSelector).live('submit', function(event) {
-    var $form = $(this);
-    getNextQuestion($form)
+		$('input[type=submit]', this).attr('disabled', 'disabled');
+    var form = $(this);
+    getNextQuestion(form)
     event.preventDefault();
     return false;
   });
@@ -37,38 +38,44 @@ $(document).ready(function() {
       updateContent(data['html_fragment']);
       updateURL(data, data['url']);
     }, 'json');
-	}
+	};
 	
-	// send the answer to last Q and get next question set90
-	function getNextQuestion($form){
-		$.get($form.attr('action'), $form.serializeArray(), function(data) {
+	// send the answer to last Q and get next question set
+	function getNextQuestion(form){
+		$.get(form.attr('action'), form.serializeArray(), function(data) {
       updateContent(data['html_fragment']);
       updateURL(data, data['url']);
     }, 'json');
-	}
-	
+	};
 	
 	// manage the URL
 	function updateURL(data, url){
 		if(hasPushState){
-			window.history.pushState(data, "???", url);
+			history.pushState(data, "???", url);
 		}
 		else{
 			window.location.hash = url;
 			$(formSelector).attr("action", url);		
-		}
-	}
+		};
+	};
 
 	// update the content (i.e. plonk in the html fragment)
 	function updateContent(fragment){
-		$('section').html(fragment);
+		$('.smart_answers section').html(fragment);
+		
+		//$(formSelector+' input[type=submit]').attr('disabled', 'disabled');
+	};
+	
+	window.onpopstate = function (event) {
+		var url = window.location;
+		if(event.state != null){
+			url = event.state.url;
+		}
+	  $.get(url, function(data) {
+      updateContent(data['html_fragment']);
+      
+    }, 'json');
 	}
-	
-	
-/*	window.onpopstate = function (event) {
-	  // see what is available in the event object
-	  console.log(event)
-	}*/
 	
 
 });

@@ -37,6 +37,19 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal 1, s.questions.size
   end
 
+  test "Can build date question nodes" do
+    s = SmartAnswer::Flow.new do
+      date_question :when_is_your_birthday? do
+        from { Date.parse('2011-01-01') }
+        to { Date.parse('2014-01-01') }
+      end
+    end
+    
+    assert_equal 1, s.nodes.size
+    assert_equal 1, s.questions.size
+    assert_equal Date.parse('2011-01-01')..Date.parse('2014-01-01'), s.questions.first.range
+  end
+  
   test "Question nodes are automatically numbered" do
     s = SmartAnswer::Flow.new do
       multiple_choice :do_you_like_chocolate?
@@ -46,6 +59,22 @@ class FlowTest < ActiveSupport::TestCase
     
     assert_equal 1, s.questions[0].number
     assert_equal 2, s.questions[1].number
+  end
+  
+  test "Can load a flow from a file" do
+    SmartAnswer::Flow.with_load_path(File.dirname(__FILE__) + '/../fixtures/') do
+      flow = SmartAnswer::Flow.load('flow_sample')
+      assert_equal 1, flow.questions.size
+      assert_equal :hotter_or_colder?, flow.questions.first.name
+      assert_equal %w{hotter colder}, flow.questions.first.options
+      assert_equal [:hot, :cold], flow.outcomes.map(&:name)
+    end
+  end
+
+  test "Dodgy filenames are blocked when loading" do
+    assert_raises RuntimeError do
+      SmartAnswer::Flow.load("/etc/passwd")
+    end
   end
 
   context "sequence of two questions" do
@@ -85,6 +114,33 @@ class FlowTest < ActiveSupport::TestCase
       assert_raises SmartAnswer::InvalidResponse do
         @flow.path(%w{maybe})
       end
+    end
+  end
+  
+  should "normalize responses" do
+    flow = SmartAnswer::Flow.new do
+      multiple_choice :colour? do
+        option red: :when?
+        option blue: :blue
+      end
+      date_question :when? do
+        next_node :blue
+      end
+      outcome :blue
+    end
+    
+    assert_equal [], flow.normalize_responses([])
+    assert_equal ['red'], flow.normalize_responses(['red'])
+    assert_equal ['red', '2011-02-01'], flow.normalize_responses(['red', {year: 2011, month: 2, day: 1}])
+  end
+  
+  should "raise an error if next state is not defined" do
+    flow = SmartAnswer::Flow.new do
+      date_question :when?
+    end
+    
+    assert_raises RuntimeError do
+      flow.process(['2011-01-01'])
     end
   end
 end

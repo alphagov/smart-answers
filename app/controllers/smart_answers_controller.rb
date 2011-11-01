@@ -27,14 +27,9 @@ class SmartAnswersController < ApplicationController
     end
     
     def smart_answer(label)
-      case label
-      when :maternity
-        MaternityAnswer.new
-      when :sweet_tooth
-        SweetToothAnswer.new
-      else
-        raise ActionController::RoutingError, 'Not Found', caller
-      end
+      SmartAnswer::Flow.load(label.to_s)
+    # rescue
+    #   raise ActionController::RoutingError, 'Not Found', caller
     end
     
     def find_smart_answer
@@ -44,8 +39,11 @@ class SmartAnswersController < ApplicationController
     
     def redirect_response_to_canonical_url
       if params[:response]
-        responses = @presenter.responses + [params[:response]]
-        redirect_to action: :show, id: @name, started: 'y', responses: responses
+        responses = @presenter.responses.dup
+        responses << params[:response]
+        redirect_to action: :show, id: @name, 
+          started: 'y', 
+          responses: @presenter.flow.normalize_responses(responses)
       end
     end
 end
