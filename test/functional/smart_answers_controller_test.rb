@@ -1,5 +1,4 @@
 require_relative '../test_helper'
-require_relative '../fixtures/sample_smart_answer'
 
 class SmartAnswersControllerTest < ActionController::TestCase
   def setup

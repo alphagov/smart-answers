@@ -24,9 +24,20 @@ module SmartAnswer
       end
       
       private
-       def parse_date_input(input)
-         ::Date.parse("#{input[0]}-#{input[1]}-#{input[2]}")
-       end
+        def parse_date_input(input)
+          date = case input
+          when Hash, ActiveSupport::HashWithIndifferentAccess
+            input = input.symbolize_keys
+            ::Date.parse("#{input[:year]}-#{input[:month]}-#{input[:day]}")
+          when String
+            ::Date.parse(input)
+          when Date
+            input
+          else
+            raise "Bad date input #{input}"
+          end
+          date.strftime('%Y-%m-%d')
+        end
     end
   end
 end

@@ -39,8 +39,11 @@ class SmartAnswersController < ApplicationController
     
     def redirect_response_to_canonical_url
       if params[:response]
-        responses = @presenter.responses + [params[:response]]
-        redirect_to action: :show, id: @name, started: 'y', responses: responses
+        responses = @presenter.responses.dup
+        responses << params[:response]
+        redirect_to action: :show, id: @name, 
+          started: 'y', 
+          responses: @presenter.flow.normalize_responses(responses)
       end
     end
 end
