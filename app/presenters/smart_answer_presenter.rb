@@ -1,5 +1,6 @@
 class SmartAnswerPresenter
   extend Forwardable
+  include Rails.application.routes.url_helpers
   
   attr_reader :params, :flow
   
@@ -35,6 +36,11 @@ class SmartAnswerPresenter
   
   def current_node
     @flow.node(current_state.current_node)
+  end
+  
+  def change_collapsed_question_link(question_number)
+    previous_responses = responses[0...question_number - 1]
+    smart_answer_path(id: @params[:id], started: 'y', responses: previous_responses)
   end
   
   def responses

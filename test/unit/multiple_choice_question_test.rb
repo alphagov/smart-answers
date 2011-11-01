@@ -10,7 +10,7 @@ class MultipleChoiceQuestionTest < ActiveSupport::TestCase
       option :no => :bob
     end
     
-    assert_equal [:yes, :no], q.options 
+    assert_equal ["yes", "no"], q.options 
   end
   
   test "Can determine next state on provision of an input" do

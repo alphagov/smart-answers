@@ -50,6 +50,13 @@ class SmartAnswersControllerTest < ActionController::TestCase
       should "show the next question" do
         assert_select ".current", /2\s+Do you like jam\?/
       end
+      
+      should "link back to change the response" do
+        assert_select ".done a", /Change this/ do |link_nodes|
+          assert_equal '/sample/y?', link_nodes.first['href']
+        end
+      end
+      
     end
 
   end

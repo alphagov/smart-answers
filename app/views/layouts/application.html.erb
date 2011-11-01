@@ -3,6 +3,7 @@
   <head>
     <title><%= yield :title %> | www.gov.uk</title>
     <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application", defer: true %>
     <meta name="x-section-name" content="Smart Answers" />
     <meta name="x-section-link" content="smart_answers" />
     <%= csrf_meta_tags %>
