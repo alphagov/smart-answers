@@ -27,14 +27,9 @@ class SmartAnswersController < ApplicationController
     end
     
     def smart_answer(label)
-      case label
-      when :maternity
-        MaternityAnswer.new
-      when :sweet_tooth
-        SweetToothAnswer.new
-      else
-        raise ActionController::RoutingError, 'Not Found', caller
-      end
+      SmartAnswer::Flow.load(label.to_s)
+    # rescue
+    #   raise ActionController::RoutingError, 'Not Found', caller
     end
     
     def find_smart_answer

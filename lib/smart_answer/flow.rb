@@ -7,12 +7,28 @@ module SmartAnswer
     attr_reader :nodes
     attr_reader :outcomes
     attr_accessor :state
+    class_attribute :load_path
     
     def initialize(&block)
       @nodes = []
       @next_question_number = 1
       @state = nil
       instance_eval(&block) if block_given?
+    end
+    
+    def self.with_load_path(path, &block)
+      old_load_path, self.load_path = self.load_path, path
+      result = yield
+      self.load_path = old_load_path
+      result
+    end
+    
+    def self.load(name)
+      raise "Illegal flow name" unless name =~ /\A[a-zA-Z_]+\z/
+      absolute_path = File.expand_path("#{name}.rb", load_path || Rails.root.join('lib', 'flows'))
+      Flow.new do
+        eval File.read(absolute_path)
+      end
     end
     
     def display_name(text = nil)
