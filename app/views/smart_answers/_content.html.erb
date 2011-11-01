@@ -13,9 +13,7 @@
       <% if @presenter.finished? %>
         <%= render partial: "result" %>
       <% else %>
-        <form>
-          <%= render partial: "current_question", locals: {question: @presenter.current_node} %>
-        </form>
+				<%= render partial: "current_question", locals: {question: @presenter.current_node} %>
       <% end %>
   <% end %>
 </section>

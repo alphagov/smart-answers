@@ -61,7 +61,7 @@ $(document).ready(function() {
 
 	// update the content (i.e. plonk in the html fragment)
 	function updateContent(fragment){
-		$('.content').html(fragment);
+		$('section').html(fragment);
 	}
 	
 	
