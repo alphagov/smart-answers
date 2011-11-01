@@ -1,19 +1,16 @@
-<section>
-  <% if ! @presenter.started? %>
-    <%= render partial: "landing" %>
-  <% else %>
-      <ol class="done-decisions">
-        <li class="intro-mini">
-          <h2><%= @presenter.display_name %></h2>
-        </li>
+<% if ! @presenter.started? %>
+  <%= render partial: "landing" %>
+<% else %>
+	<div class="intro-mini">
+	  <h2><%= @presenter.display_name %></h2>
+	</div>
+  <ol class="done-decisions">
+    <%= render partial: "collapsed_question", collection: @presenter.collapsed_questions, as: :question %>
+  </ol>
 
-        <%= render partial: "collapsed_question", collection: @presenter.collapsed_questions, as: :question %>
-      </ol>
-      
-      <% if @presenter.finished? %>
-        <%= render partial: "result" %>
-      <% else %>
-				<%= render partial: "current_question", locals: {question: @presenter.current_node} %>
-      <% end %>
+  <% if @presenter.finished? %>
+    <%= render partial: "result" %>
+  <% else %>
+	<%= render partial: "current_question", locals: {question: @presenter.current_node} %>
   <% end %>
-</section>
+<% end %>
