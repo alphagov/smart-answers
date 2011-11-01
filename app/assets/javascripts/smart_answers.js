@@ -1,5 +1,6 @@
 $(document).ready(function() {
-	var hasPushState = false;
+	var hasPushState = false,
+		formSelector = ".steps .current form";
 	
 	if(history && history.pushState){
 		hasPushState = true;
@@ -15,7 +16,7 @@ $(document).ready(function() {
 
 	// events
 	// get new questions on submit
-  $(".steps .current form").live('submit', function(event) {
+  $(formSelector).live('submit', function(event) {
 		$('input[type=submit]', this).attr('disabled', 'disabled');
     var form = $(this);
     getNextQuestion(form)
@@ -47,7 +48,6 @@ $(document).ready(function() {
     }, 'json');
 	};
 	
-	
 	// manage the URL
 	function updateURL(data, url){
 		if(hasPushState){
@@ -61,14 +61,21 @@ $(document).ready(function() {
 
 	// update the content (i.e. plonk in the html fragment)
 	function updateContent(fragment){
-		$('section').html(fragment);
+		$('.smart_answers section').html(fragment);
+		
+		//$(formSelector+' input[type=submit]').attr('disabled', 'disabled');
 	};
 	
-	
-/*	window.onpopstate = function (event) {
-	  // see what is available in the event object
-	  console.log(event)
-	}*/
+	window.onpopstate = function (event) {
+		var url = window.location;
+		if(event.state != null){
+			url = event.state.url;
+		}
+	  $.get(url, function(data) {
+      updateContent(data['html_fragment']);
+      
+    }, 'json');
+	}
 	
 
 });
