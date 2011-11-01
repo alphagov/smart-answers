@@ -1,9 +1,8 @@
 $(document).ready(function() {
-	var hasPushState = false,
-		formSelector = ".steps .current form";
+	var hasPushState = false;
 	
 	if(history && history.pushState){
-		hasPushState = false;
+		hasPushState = true;
 	};
 
 	// if hashed, means it's a non-pushstated URL that we need to generate the content for
@@ -16,7 +15,7 @@ $(document).ready(function() {
 
 	// events
 	// get new questions on submit
-  $(formSelector).live('submit', function(event) {
+  $(".steps .current form").live('submit', function(event) {
 		$('input[type=submit]', this).attr('disabled', 'disabled');
     var form = $(this);
     getNextQuestion(form)
