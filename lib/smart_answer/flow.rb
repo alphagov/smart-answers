@@ -39,6 +39,10 @@ module SmartAnswer
     def multiple_choice(name, options = {}, &block)
       add_node Question::MultipleChoice.new(name, options, &block)
     end
+
+    def date_question(name, &block)
+      add_node Question::Date.new(name, &block)
+    end
     
     def outcome(name, options = {}, &block)
       add_node Outcome.new(name, options, &block)
@@ -61,21 +65,36 @@ module SmartAnswer
       @nodes.find {|n| n.name == name }
     end
     
+    def start_state
+      OpenStruct.new(current_node: questions.first.name, responses: []).freeze
+    end
+
     def process(responses)
-      start_state = OpenStruct.new(current_node: questions.first.name).freeze
       responses.inject(start_state) do |state, response|
-        node(state.current_node).transition(state, response)
+        new_state = node(state.current_node).transition(state, response)
+        validate!(new_state)
       end
+    end
+
+    def validate!(state)
+      if state.current_node.nil? || ! node_exists?(state.current_node)
+        raise "Flow error, can't transition to #{state.current_node}"
+      end
+      state
     end
     
     def path(responses)
-      start_state = OpenStruct.new(current_node: questions.first.name).freeze
       path, final_state = responses.inject([[], start_state]) do |memo, response|
         path, state = memo
         new_state = node(state.current_node).transition(state, response)
+        validate!(new_state)
         [path + [state.current_node], new_state]
       end
       path
+    end
+    
+    def normalize_responses(responses)
+      process(responses).responses
     end
     
     private

@@ -1,19 +1,20 @@
 # coding:utf-8
 
 require_relative '../test_helper'
+require 'ostruct'
 
 class DateQuestionTest < ActiveSupport::TestCase
   def setup
     @initial_state = OpenStruct.new(current_state: :example).freeze
   end
   
-  test "Dates are parsed from array form before being saved" do
+  test "Dates are parsed from hash form before being saved" do
     q = SmartAnswer::Question::Date.new(:example) do
       save_input_as :date
     end
     
-    new_state = q.transition(@initial_state, ["2011", '2', '1'])
-    assert_equal Date.new(2011, 2, 1), new_state.date
+    new_state = q.transition(@initial_state, {year: "2011", month: '2', day: '1'})
+    assert_equal '2011-02-01', new_state.date
   end
 
   test "Can define allowable range of dates" do

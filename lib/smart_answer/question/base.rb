@@ -37,6 +37,8 @@ module SmartAnswer
         next_node = next_node_for(current_state, input)
         new_state = current_state.dup
         new_state.current_node = next_node
+        new_state.responses ||= []
+        new_state.responses += [input]
         new_state.send("#{@save_input_as}=", input) if @save_input_as
         new_state.freeze
         @calculations.each do |calculation|

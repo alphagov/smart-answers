@@ -43,6 +43,12 @@ class QuestionBaseTest < ActiveSupport::TestCase
     assert_equal :red, new_state.colour_preference
   end
   
+  test "Input is saved into responses as well" do
+    q = SmartAnswer::Question::Base.new(:favourite_colour?)
+    new_state = q.transition(@initial_state, :red)
+    assert_equal [:red], new_state.responses
+  end
+  
   test "Can calculate other variables based input" do
     q = SmartAnswer::Question::Base.new(:favourite_colour?) do
       save_input_as :colour_preference

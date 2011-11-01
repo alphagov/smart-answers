@@ -37,6 +37,19 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal 1, s.questions.size
   end
 
+  test "Can build date question nodes" do
+    s = SmartAnswer::Flow.new do
+      date_question :when_is_your_birthday? do
+        from { Date.parse('2011-01-01') }
+        to { Date.parse('2014-01-01') }
+      end
+    end
+    
+    assert_equal 1, s.nodes.size
+    assert_equal 1, s.questions.size
+    assert_equal Date.parse('2011-01-01')..Date.parse('2014-01-01'), s.questions.first.range
+  end
+  
   test "Question nodes are automatically numbered" do
     s = SmartAnswer::Flow.new do
       multiple_choice :do_you_like_chocolate?
@@ -101,6 +114,33 @@ class FlowTest < ActiveSupport::TestCase
       assert_raises SmartAnswer::InvalidResponse do
         @flow.path(%w{maybe})
       end
+    end
+  end
+  
+  should "normalize responses" do
+    flow = SmartAnswer::Flow.new do
+      multiple_choice :colour? do
+        option red: :when?
+        option blue: :blue
+      end
+      date_question :when? do
+        next_node :blue
+      end
+      outcome :blue
+    end
+    
+    assert_equal [], flow.normalize_responses([])
+    assert_equal ['red'], flow.normalize_responses(['red'])
+    assert_equal ['red', '2011-02-01'], flow.normalize_responses(['red', {year: 2011, month: 2, day: 1}])
+  end
+  
+  should "raise an error if next state is not defined" do
+    flow = SmartAnswer::Flow.new do
+      date_question :when?
+    end
+    
+    assert_raises RuntimeError do
+      flow.process(['2011-01-01'])
     end
   end
 end
