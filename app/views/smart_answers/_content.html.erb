@@ -1,4 +1,4 @@
-<div class="content">
+<section>
   <% if ! @presenter.started? %>
     <%= render partial: "landing" %>
   <% else %>
@@ -13,7 +13,9 @@
       <% if @presenter.finished? %>
         <%= render partial: "result" %>
       <% else %>
-        <%= render partial: "current_question", locals: {question: @presenter.current_node} %>
+        <form>
+          <%= render partial: "current_question", locals: {question: @presenter.current_node} %>
+        </form>
       <% end %>
   <% end %>
-</div>
+</section>
