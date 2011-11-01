@@ -2,9 +2,9 @@ $(document).ready(function() {
 	var hasPushState = false,
 		formSelector = ".steps .current form";
 	
-	if(window.history){
-		hasPushState = true;
-	}
+	if(history && history.pushState){
+		hasPushState = false;
+	};
 
 	// if hashed, means it's a non-pushstated URL that we need to generate the content for
 	if(window.location.hash){		
@@ -17,8 +17,9 @@ $(document).ready(function() {
 	// events
 	// get new questions on submit
   $(formSelector).live('submit', function(event) {
-    var $form = $(this);
-    getNextQuestion($form)
+		$('input[type=submit]', this).attr('disabled', 'disabled');
+    var form = $(this);
+    getNextQuestion(form)
     event.preventDefault();
     return false;
   });
@@ -37,32 +38,32 @@ $(document).ready(function() {
       updateContent(data['html_fragment']);
       updateURL(data, data['url']);
     }, 'json');
-	}
+	};
 	
-	// send the answer to last Q and get next question set90
-	function getNextQuestion($form){
-		$.get($form.attr('action'), $form.serializeArray(), function(data) {
+	// send the answer to last Q and get next question set
+	function getNextQuestion(form){
+		$.get(form.attr('action'), form.serializeArray(), function(data) {
       updateContent(data['html_fragment']);
       updateURL(data, data['url']);
     }, 'json');
-	}
+	};
 	
 	
 	// manage the URL
 	function updateURL(data, url){
 		if(hasPushState){
-			window.history.pushState(data, "???", url);
+			history.pushState(data, "???", url);
 		}
 		else{
 			window.location.hash = url;
 			$(formSelector).attr("action", url);		
-		}
-	}
+		};
+	};
 
 	// update the content (i.e. plonk in the html fragment)
 	function updateContent(fragment){
 		$('.content').html(fragment);
-	}
+	};
 	
 	
 /*	window.onpopstate = function (event) {
