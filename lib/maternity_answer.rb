@@ -1,12 +1,12 @@
 class MaternityAnswer
   def initialize
     @flow = SmartAnswer::Flow.new do
-      display_name "fsaasd"
+      display_name "Maternity benefits entitlement"
 
       multiple_choice :what_is_your_employment_status? do
-        answer :employed => :employed_when_is_your_baby_due?
-        answer :self_employed => :self_employed_when_is_your_baby_due?
-        answer :unemployed => :nothing_maybe_benefits
+        option :employed => :employed_when_is_your_baby_due?
+        option :self_employed => :self_employed_when_is_your_baby_due?
+        option :unemployed => :nothing_maybe_benefits
       end
 
       date_question :employed_when_is_your_baby_due? do
@@ -20,8 +20,8 @@ class MaternityAnswer
         calculate :start_of_test_period do
           due_date - 66.weeks
         end
-        answer :no => :when_did_you_start_your_job?
-        answer :yes => :will_you_be_employed_for_26_weeks_including_qualifying_week?
+        option :no => :when_did_you_start_your_job?
+        option :yes => :will_you_be_employed_for_26_weeks_including_qualifying_week?
       end
 
       date_question :when_did_you_start_your_job? do
@@ -33,8 +33,8 @@ class MaternityAnswer
 
       date_question :self_employed_when_is_your_baby_due? do
         display_name "When is your baby due?"
-        answer :first_jan_2012 => :undefined_will_appear_as_ellipse
-        answer :no => :you_should_register_as_a_non_established_taxable_person
+        option :first_jan_2012 => :undefined_will_appear_as_ellipse
+        option :no => :you_should_register_as_a_non_established_taxable_person
       end
 
       outcome :nothing_maybe_benefits
