@@ -61,22 +61,6 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal 2, s.questions[1].number
   end
   
-  test "Can load a flow from a file" do
-    SmartAnswer::Flow.with_load_path(File.dirname(__FILE__) + '/../fixtures/') do
-      flow = SmartAnswer::Flow.load('flow_sample')
-      assert_equal 1, flow.questions.size
-      assert_equal :hotter_or_colder?, flow.questions.first.name
-      assert_equal %w{hotter colder}, flow.questions.first.options
-      assert_equal [:hot, :cold], flow.outcomes.map(&:name)
-    end
-  end
-
-  test "Dodgy filenames are blocked when loading" do
-    assert_raises RuntimeError do
-      SmartAnswer::Flow.load("/etc/passwd")
-    end
-  end
-
   context "sequence of two questions" do
     setup do
       @flow = SmartAnswer::Flow.new do

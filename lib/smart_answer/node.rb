@@ -17,5 +17,13 @@ module SmartAnswer
     def default_display_name
       @name.to_s.humanize
     end
+    
+    def to_sym
+      name.to_sym
+    end
+    
+    def to_s
+      name.to_s
+    end
   end
 end
