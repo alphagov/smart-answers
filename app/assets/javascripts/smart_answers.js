@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	var formSelector = ".steps .current form";
+	var formSelector = ".current form";
 	
 	// if hashed, means it's a non-pushstated URL that we need to generate the content for
 	if(window.location.hash){		
@@ -58,7 +58,7 @@ $(document).ready(function() {
 	function updateURL(data, url){
 		if(history && history.pushState){
 			// need the title from the json
-			history.pushState(data, "???", url);
+			history.pushState(data, "Question", url);
 		}
 		else{
 			window.location.hash = url;
@@ -69,7 +69,12 @@ $(document).ready(function() {
 	// update the content (i.e. plonk in the html fragment)
 	function updateContent(fragment){
 		$('.smart_answers section').html(fragment);
-		
+	//	$('.next-question input[type=submit]').attr('disabled');
+		// check if value or selected
+		// if that
+		// undisable
+		// else
+		// set event listener for change in value or selected
 		//$(formSelector+' input[type=submit]').attr('disabled', 'disabled');
 	};
 	
