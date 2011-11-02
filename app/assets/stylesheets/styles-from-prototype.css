@@ -1,11 +1,21 @@
 /*
-  questions
+	landing page
 */
 
-.item {
-  margin-bottom: 0.5em;
-  padding: 0.5em;
+.introduction {
+	background-color: #fff;
+	padding: 1em 2em;
+	position: relative;
 }
+
+.start a {
+	font-size: 1.5em;
+	margin: 0.5em 0 0 0;
+}
+
+/*
+  questions
+*/
 
 .hint {
   color: #666;
@@ -67,28 +77,6 @@ li.done .undo {
 	position: relative;
 }
 
-div.arrow-down {
-  bottom: -40px;
-  position: absolute;
-/*  margin-left: -100px;*/
-  width:0px; 
-  height:0px; 
-  border-top: 40px solid #fff;
-  border-left: 80px solid transparent;
-  border-right: 80px solid transparent;
-  font-size:0px;
-  line-height:0px;
-  z-index: 1;
-}
-
-.introduction .arrow-down {
-	
-}
-
-.current .arrow-down,  {
-/*  left: 20em;*/
-}
-
 .current ul {
   list-style: none;
   padding-left: 2em;
@@ -100,12 +88,12 @@ div.arrow-down {
 }
 
 .next-question {
-	padding: 1em 2em;
+	padding: 0 2em;
 }
 
 .next-question input {
 	font-size: 1.5em;
-	margin: 1.5em 0 0 1.75em;
+	margin: 0.5em 0;
 }
 
 /*

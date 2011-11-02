@@ -1,12 +1,18 @@
+<header>
+  <hgroup>
+    <h1>
+      <span>Quick answer </span>
+      <%= @presenter.display_name %>
+    </h1>
+  </hgroup>
+</header>
 <div class="introduction">
-  <h1><%= @presenter.display_name %></h1>
-	<div>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	</div>
-  <% if @presenter.body.present? %>
-    <%= @presenter.body.present? %>
-  <% end %>
-
-  <div class="arrow-down"></div>
+	<p>I am placeholder text</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <!-- <div class="arrow-down"></div> -->
   <p class="start"><%= link_to "Get started", smart_answer_path(@smart_answer_name, started: 'y')%></p>
 </div>
+
+<% if @presenter.body.present? %>
+  <%= @presenter.body.present? %>
+<% end %>

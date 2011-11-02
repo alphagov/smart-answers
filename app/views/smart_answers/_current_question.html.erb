@@ -7,11 +7,10 @@
       </h3>
 
       <%= render partial: "#{question.class.name.demodulize.underscore}_question", locals: {question: question} %>
-      <div class="arrow-down"></div>
-    </div>
-
-    <div class="next-question">
-      <input type="submit" value="Next">
+      <!-- <div class="arrow-down"></div> -->
+      <div class="next-question">
+        <input type="submit" value="Next">
+      </div>
     </div>
   </form>
 </div>
