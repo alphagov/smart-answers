@@ -18,10 +18,16 @@ class SmartAnswersControllerTest < ActionController::TestCase
       outcome :you_have_a_savoury_tooth
       outcome :you_have_a_sweet_tooth
     end
-    @controller.stubs(:smart_answer).returns(@flow)
+    SmartAnswer::FlowRegistry.stubs(:find).returns(@flow)
   end
   
   context "GET /" do
+    should "respond with 404 if not found" do
+      SmartAnswer::FlowRegistry.stubs(:find).raises(SmartAnswer::FlowRegistry::NotFound)
+      get :show, id: 'sample'
+      assert_response :missing
+    end
+    
     should "display landing page if no questions answered yet" do
       get :show, id: 'sample'
       assert_select "h1", @flow.display_name

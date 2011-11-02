@@ -22,7 +22,7 @@ module SmartAnswer
       end
       
       def next_node_for(current_state, input)
-        @next_node_function.call(current_state, input)
+        @next_node_function.call(current_state, input) or raise "Next node undefined (#{current_state.current_node}(#{input}))"
       end
     
       def save_input_as(variable_name)
@@ -35,12 +35,9 @@ module SmartAnswer
   
       def transition(current_state, input)
         next_node = next_node_for(current_state, input)
-        new_state = current_state.dup
-        new_state.current_node = next_node
-        new_state.responses ||= []
-        new_state.responses += [input]
-        new_state.send("#{@save_input_as}=", input) if @save_input_as
-        new_state.freeze
+        new_state = current_state.transition_to(next_node, input) do |state|
+          state.save_input_as @save_input_as if @save_input_as
+        end
         @calculations.each do |calculation|
           new_state = calculation.evaluate(new_state)
         end
