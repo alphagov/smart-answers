@@ -29,8 +29,12 @@ class SmartAnswersController < ApplicationController
     
     def find_smart_answer
       @name = params[:id].to_sym
-      smart_answer = SmartAnswer::FlowRegistry.find(@name.to_s)
+      smart_answer = flow_registry.find(@name.to_s)
       @presenter = SmartAnswerPresenter.new(params, smart_answer)
+    end
+    
+    def flow_registry
+      @flow_registry ||= SmartAnswer::FlowRegistry.new
     end
     
     def redirect_response_to_canonical_url
