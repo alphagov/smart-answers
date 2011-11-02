@@ -1,17 +1,12 @@
 $(document).ready(function() {
-	var hasPushState = false,
-		formSelector = ".steps .current form";
+	var formSelector = ".current form";
 	
-	if(history && history.pushState){
-		hasPushState = true;
-	};
-
 	// if hashed, means it's a non-pushstated URL that we need to generate the content for
 	if(window.location.hash){		
 		var hash = window.location.hash,
 			hash = hash.split('#')[1];
-			reloadQuestions(hash);
-			
+		
+		reloadQuestions(hash);	
 	};
 
 	// events
@@ -30,11 +25,21 @@ $(document).ready(function() {
 		return false;
 	});
 
+	// manage next/back by tracking popstate event
+	window.onpopstate = function (event) {
+		var url = window.location;
+		if(event.state != null){
+			url = event.state.url;
+		}
+	  $.get(url+"?format=json", function(data) {
+      updateContent(data['html_fragment']);
+    }, 'json');
+	}
 
 	// helper functions
 	// replace all the questions currently in the page with whatever is returned for given url
 	function reloadQuestions(url){
-		$.get(url, function(data) {
+		$.get(url+"?format=json", function(data) {
       updateContent(data['html_fragment']);
       updateURL(data, data['url']);
     }, 'json');
@@ -42,7 +47,8 @@ $(document).ready(function() {
 	
 	// send the answer to last Q and get next question set
 	function getNextQuestion(form){
-		$.get(form.attr('action'), form.serializeArray(), function(data) {
+		var url = form.attr('action');
+		$.get(url+"?format=json", form.serializeArray(), function(data) {
       updateContent(data['html_fragment']);
       updateURL(data, data['url']);
     }, 'json');
@@ -50,8 +56,9 @@ $(document).ready(function() {
 	
 	// manage the URL
 	function updateURL(data, url){
-		if(hasPushState){
-			history.pushState(data, "???", url);
+		if(history && history.pushState){
+			// need the title from the json
+			history.pushState(data, "Question", url);
 		}
 		else{
 			window.location.hash = url;
@@ -62,20 +69,16 @@ $(document).ready(function() {
 	// update the content (i.e. plonk in the html fragment)
 	function updateContent(fragment){
 		$('.smart_answers section').html(fragment);
-		
+	//	$('.next-question input[type=submit]').attr('disabled');
+		// check if value or selected
+		// if that
+		// undisable
+		// else
+		// set event listener for change in value or selected
 		//$(formSelector+' input[type=submit]').attr('disabled', 'disabled');
 	};
 	
-	window.onpopstate = function (event) {
-		var url = window.location;
-		if(event.state != null){
-			url = event.state.url;
-		}
-	  $.get(url, function(data) {
-      updateContent(data['html_fragment']);
-      
-    }, 'json');
-	}
+
 	
 
 });
