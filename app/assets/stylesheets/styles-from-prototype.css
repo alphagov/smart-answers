@@ -1,100 +1,23 @@
+#wrapper header.intro-mini {
+/*	border-bottom: solid 0.25em #bbb;*/
+}
+
+#wrapper header.intro-mini hgroup {
+/*	margin: 0;*/
+}
+
 /*
-  decisions
+  questions
 */
-
-hgroup {
-  margin-bottom: 2em;
-  overflow: auto;
-}
-
-hgroup p {
-/*  margin-right: 22em;*/
-  float: left;
-  width: 34em;
-}
-
-hgroup .expectations {
-/*  float: left;*/
-/*  width: 20em;*/
-  margin-left: 36em;
-}
-
-.controls-results-wrapper {
-
-}
-
-.items-wrapper {
-  background: #fff;
-/*  border-color: #545DFD;*/
-  border-color: #fff;
-  border-style: solid;
-  border-width: 5px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  display: inline-block;
-  padding: 1em;
-  position: relative;
-  vertical-align: top;
-  width: 54%;
-}
-
-.items-wrapper .item label {
-  font-size: 1.18em;
-}
-
-.items-wrapper.results {
-  margin-left: 5%;
-  position: relative;
-  text-align: center;
-  width: 40%;
-}
-
-.items-wrapper.results .arrow-down {
-  top: -70px;
-}
-
-.no-result-yet {
-  font-size: 1.5em;
-}
-
-p.giant-result  {
-  font-size: 2em;
-}
-
-.items-wrapper.results ul {
-  text-align: left;
-}
 
 .item {
   margin-bottom: 0.5em;
   padding: 0.5em;
 }
 
-.item.calculate {
-  text-align: center;
-  margin-bottom: 0;
-}
-
 .hint {
   color: #666;
   display: block;
-}
-
-div.arrow-right {
-  position: absolute;
-  right: -50px;
-  top: 50%;
-  margin-top: -50px;
-  width:0px; 
-  height:0px; 
-  border-bottom: 50px solid transparent;
-  border-top: 50px solid transparent;
-/*  border-left: 50px solid #545DFD;*/
-  border-left: 50px solid #fff;
-  font-size:0px;
-  line-height:0px;
-  z-index: 1;
 }
 
 div.arrow-down {
@@ -111,124 +34,22 @@ div.arrow-down {
   z-index: 1;
 }
 
-/*
-  full screen decisions
-*/
-
-.full-width .content {
-  width: auto;
-  margin: 0 2em;
-  padding-top: 15px;
-}
-
-.full-width .bookend {
-  font-size: 1.5em;
-  margin: 0 auto;
-  width: 75%;
-}
-
-.full-width .results {
-/*  background: #EAECFF;*/
-  background: #fff;
-  border-bottom: solid 1px #bbb;
-  padding: 1em;
-  text-align: center;
-}
-
-.full-width .start {
-  font-size: 2em;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 2.5em;
-}
-
-.full-width .results .inner {
-  width: 75%;
-}
-
-.full-width .results h2 {
-  font-size: 2em;
-  margin-top: 0;
-  margin-bottom: 1em;
-}
-
-.results .caveats, .results .details {
-  font-size: 1.25em;
-/*  margin: 0 auto;*/
-  text-align: left;
-}
-
-.results .details ul, .results .details ol, .results .details p {
-  margin: 0 auto;
-  width: 70%;
-}
-
-.results .details p {
-  font-weight: bold;
-}
-
-.expectations, .results .follow-on-actions, .results .readmore {
-  border: dashed 1px #999;
-  list-style: none;
-  margin: 1.5em 0;
-  padding: 0;
-}
-
-.results .follow-on-actions, .results .readmore {
-  background: #fff888;
-  text-align: center;
-}
-
-.expectations li, .results .follow-on-actions li, .results .readmore li {
-  padding: 0.5em 1em;
-}
-
-.expectations li {
-  border-bottom: dashed 1px #999;
-}
-
-.expectations li:last-child {
-  border: none;
-}
-
-.results .follow-on-actions .primary, .results .readmore .primary {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-ol.done-decisions {
-  -webkit-box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
-  -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
-  box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
+ol.done-questions {
   margin: 0;
   padding: 0;
   position: relative;
   z-index: 1;
 }
 
-.done-decisions > li {
+.done-questions > li {
   position: relative;
-  padding: 0.5em 1em;
+  padding: 0.5em 2em;
 }
 
-.done-decisions > li.done, .intro-mini {
-  background: #EFECE0;
+.done-questions > li.done {
+  background: #ddd;
   border-bottom: solid 1px #bbb;
   overflow: hidden;
-}
-
-.intro-mini {
-  background: #fff;
-  border-bottom: solid 3px #bbb;
-}
-
-.intro-mini h2 {
-  background: url(../images/icon-tool-24-temp.png) no-repeat 0 0.2em;
-/*  color: #FA0000;*/
-/*  font-size: 1.25em;*/
-  line-height: 1.7em;
-  margin: 0;
-  padding-left: 2em;
 }
 
 li.done h3 {
@@ -248,32 +69,23 @@ li.done .answer {
 
 li.done .undo {
   display: inline;
+/*	float: right;*/
 /*  font-weight: normal;*/
-/*  font-size: 0.75em;*/
-  margin-left: 1.5em;
+  font-size: 0.8em;
+  margin: 0 0 0 0.5em;
 }
 
-.decision-number {
+.question-number {
   margin-right: 0.75em;
 }
 
 .current {
-/*  font-size: 1.5em;*/
 }
 
-.inner {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 1em 2em;
-  position: relative;
-}
-
-.current .inner, .introduction .inner {
-  background: #fff;
-/*  border-color: #EFECE0;
-  border-style: solid;
-  border-width: 0 10px 10px 10px;
-  box-sizing: border-box;*/
+.current-question {
+	background-color: #fff;
+	border-bottom: solid 1px #bbb;
+	padding: 1em 2em;
 }
 
 .current .arrow-down, .introduction .arrow-down {
@@ -290,45 +102,21 @@ li.done .undo {
   margin: 0.5em 0;
 }
 
-.current ul li input:first-child {
-/*  margin-left: 0.75em;*/
+.next-question {
+	padding: 1em 2em;
 }
 
-.decisions li.done .expand-control {
-  display: inline;
-  font-weight: normal;
+.next-question input {
+	font-size: 1.5em;
 }
 
-.decisions li.deprecated-answer {
-  font-size: 0.88em;
-}
+/*
+	results
+*/
 
-.next-decision {
-  margin-top: 4.5em;
-  text-align: center;
-}
-
-.next-decision input, .calculate input {
-  background: #F2F2F2;
-  border-color: #CCC;
-  border-radius: 0.5em;
-  border-width: 0.25em;
-  color: #999;
-  font-size: 1.13em;
-  margin: 0.5em 0;
-  padding: 0.75em 2em;
-  cursor: default;
-}
-
-form.valid .calculate input, form.valid .next-decision input {
-  background: #B5FFC3;
-  border-color: #16D769;
-  color: inherit;
-  cursor: pointer;
-}
-
-.dimmed {
-  opacity: 0.5;
+.results {
+	background-color: #fff;
+	padding: 2em;
 }
 
 /*
@@ -337,19 +125,12 @@ form.valid .calculate input, form.valid .next-decision input {
 
 #error-header {
   border: solid 5px #F00;
-/*  box-sizing: border-box;*/
   padding: 0.5em 1em;
-}
-
-.error {
-/*  border: solid 1px #F00;*/
-/*  box-sizing: border-box;*/
 }
 
 .error, #error-header {
   background: #FFE5EC;
   color: #F00;
-/*  font-weight: bold;*/
 }
 
 .error-message, #error-header {
@@ -381,12 +162,4 @@ span.error-message .arrow-left {
   font-size:0px;
   line-height:0px;
   z-index: 1;
-}
-
-/*
-  bespoke stuff
-*/
-
-.national-insurance .items-wrapper {
-  min-height: 16em;
 }

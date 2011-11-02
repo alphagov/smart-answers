@@ -1,10 +1,15 @@
 <% if ! @presenter.started? %>
   <%= render partial: "landing" %>
 <% else %>
-	<div class="intro-mini">
-	  <h2><%= @presenter.display_name %></h2>
-	</div>
-  <ol class="done-decisions">
+	<header class="intro-mini">
+	  <hgroup>
+	    <h1>
+	      <span>Quick answer </span>
+	      <%= @presenter.display_name %>
+	    </h1>
+	  </hgroup>
+	</header>
+  <ol class="done-questions">
     <%= render partial: "collapsed_question", collection: @presenter.collapsed_questions, as: :question %>
   </ol>
 
