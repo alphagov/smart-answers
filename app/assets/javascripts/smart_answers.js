@@ -5,7 +5,8 @@ $(document).ready(function() {
 	if(window.location.hash){		
 		var hash = window.location.hash,
 			hash = hash.split('#')[1];
-			reloadQuestions(hash);	
+		
+		reloadQuestions(hash);	
 	};
 
 	// events
@@ -24,12 +25,13 @@ $(document).ready(function() {
 		return false;
 	});
 
+	// manage next/back by tracking popstate event
 	window.onpopstate = function (event) {
 		var url = window.location;
 		if(event.state != null){
 			url = event.state.url;
 		}
-	  $.get(url, function(data) {
+	  $.get(url+"?format=json", function(data) {
       updateContent(data['html_fragment']);
     }, 'json');
 	}
@@ -37,7 +39,7 @@ $(document).ready(function() {
 	// helper functions
 	// replace all the questions currently in the page with whatever is returned for given url
 	function reloadQuestions(url){
-		$.get(url, function(data) {
+		$.get(url+"?format=json", function(data) {
       updateContent(data['html_fragment']);
       updateURL(data, data['url']);
     }, 'json');
@@ -45,7 +47,8 @@ $(document).ready(function() {
 	
 	// send the answer to last Q and get next question set
 	function getNextQuestion(form){
-		$.get(form.attr('action'), form.serializeArray(), function(data) {
+		var url = form.attr('action');
+		$.get(url+"?format=json", form.serializeArray(), function(data) {
       updateContent(data['html_fragment']);
       updateURL(data, data['url']);
     }, 'json');
