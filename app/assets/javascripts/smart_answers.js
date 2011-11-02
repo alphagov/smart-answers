@@ -68,7 +68,7 @@ $(document).ready(function() {
 
 	// update the content (i.e. plonk in the html fragment)
 	function updateContent(fragment){
-		$('.smart_answers section').html(fragment);
+		$('.smart_answer section').html(fragment);
 	//	$('.next-question input[type=submit]').attr('disabled');
 		// check if value or selected
 		// if that
