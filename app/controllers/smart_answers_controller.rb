@@ -1,17 +1,19 @@
 class SmartAnswersController < ApplicationController
   before_filter :find_smart_answer
-  before_filter :redirect_response_to_canonical_url
+  before_filter :redirect_response_to_canonical_url, only: %w{show}
   rescue_from SmartAnswer::FlowRegistry::NotFound, with: :render_404
 
   def show
     respond_to do |format|
       format.html { render }
       format.json { 
+        html_fragment = with_format('html') {
+          render_to_string(partial: "content")
+        }
         render :json => {
           url: smart_answer_path(params[:id], 'y', @presenter.responses),
-          html_fragment: with_format('html') {
-            render_to_string(partial: "content")
-          }
+          html_fragment: html_fragment,
+          title: @presenter.current_node.display_name
         }
       }
     end
@@ -41,7 +43,8 @@ class SmartAnswersController < ApplicationController
       if params[:response]
         responses = @presenter.responses.dup
         responses << params[:response]
-        redirect_to action: :show, id: @name, 
+        redirect_to action: :show, 
+          id: @name, 
           started: 'y', 
           responses: @presenter.flow.normalize_responses(responses)
       end
