@@ -21,8 +21,6 @@
   // manage next/back by tracking popstate event
   window.onpopstate = function (event) {
     if(event.state != null) {
-			console.log(event)
-			console.log(event.state)
       updateContent(event.state);
     }
     else if (urlFromHashtag()) {
