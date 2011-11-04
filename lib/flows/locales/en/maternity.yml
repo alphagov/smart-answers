@@ -1,0 +1,24 @@
+en:
+  flow:
+    maternity:
+      title: Maternity benefits entitlement
+      what_is_your_employment_status?: 
+        title: What is your employment status?
+        options:
+          employed: Employed
+          self_employed: Self employed
+          unemployed: Unemployed
+      employed_when_is_your_baby_due?: 
+        title: When is your baby due?
+      did_you_start_your_job_on_or_before_start_of_test_period?: 
+        title: Did you start your job on or before %{start_of_test_period}?
+        options:
+          no: No
+          yes: Yes
+      when_did_you_start_your_job?: 
+        title: When did you start your job
+      self_employed_when_is_your_baby_due?: 
+        title: When is your baby due?
+      nothing_maybe_benefits: Nothing, maybe benefits
+      you_qualify_for_statutory_maternity_pay: You qualify for statutory maternity pay
+      you_qualify_for_maternity_allowance: You qualify for maternity allowance

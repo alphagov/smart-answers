@@ -1,4 +1,11 @@
 GIT
+  remote: git@github.com:alphagov/govspeak.git
+  revision: 97febc380c9291670f981b2e9ca5c0afc986de5c
+  specs:
+    govspeak (0.8.4)
+      kramdown (~> 0.13.3)
+
+GIT
   remote: git@github.com:alphagov/slimmer.git
   revision: 8385a991d18ac4559f999fb4f12018d422ddf39b
   specs:
@@ -72,6 +79,7 @@ GEM
       railties (~> 3.0)
       thor (~> 0.14)
     json (1.6.1)
+    kramdown (0.13.3)
     libv8 (3.3.10.2)
     linecache19 (0.5.12)
       ruby_core_source (>= 0.1.4)
@@ -166,6 +174,7 @@ DEPENDENCIES
   coffee-rails (~> 3.1.0)
   compass (~> 0.12.alpha.0)
   factory_girl_rails
+  govspeak!
   jquery-rails
   json
   minitest (= 2.7.0)

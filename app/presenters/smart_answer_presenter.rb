@@ -4,9 +4,25 @@ class SmartAnswerPresenter
   
   attr_reader :params, :flow
   
-  def_delegator :flow, :display_name
-
+  def i18n_prefix
+    "flow.#{@flow.name}"
+  end
+  
+  def display_name
+    I18n.translate!("#{i18n_prefix}.title")
+  rescue I18n::MissingTranslationData
+    @flow.name.to_s.humanize
+  end
+  
   def body
+    translated = I18n.translate!("#{i18n_prefix}.body")
+    Govspeak::Document.new(translated).to_html.html_safe
+  end
+  
+  def has_body?
+    true if I18n.translate!("#{i18n_prefix}.body")
+  rescue I18n::MissingTranslationData
+    false
   end
   
   def started?
@@ -14,7 +30,7 @@ class SmartAnswerPresenter
   end
   
   def finished?
-    current_node.is_a?(SmartAnswer::Outcome)
+    current_node.is_outcome?
   end
   
   def initialize(params, flow)
@@ -27,7 +43,7 @@ class SmartAnswerPresenter
   end
   
   def collapsed_questions
-    @flow.path(responses).map { |name| @flow.node(name) }
+    @flow.path(responses).map { |name| present_node(@flow.node(name)) }
   end
   
   def current_question_number
@@ -35,7 +51,11 @@ class SmartAnswerPresenter
   end
   
   def current_node
-    @flow.node(current_state.current_node)
+    present_node(@flow.node(current_state.current_node))
+  end
+  
+  def present_node(node)
+    NodePresenter.new("flow.#{@flow.name}.", node)
   end
   
   def change_collapsed_question_link(question_number)
@@ -55,6 +75,6 @@ class SmartAnswerPresenter
   end
   
   def response_for(question)
-    responses[question.number - 1]
+    question.response_label(responses[question.number - 1])
   end
 end

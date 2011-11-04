@@ -15,9 +15,9 @@ module SmartAnswer
       instance_eval(&block) if block_given?
     end
     
-    def display_name(text = nil)
-      @display_name = text unless text.nil?
-      @display_name
+    def name(name = nil)
+      @name = name unless name.nil?
+      @name
     end
     
     def multiple_choice(name, options = {}, &block)

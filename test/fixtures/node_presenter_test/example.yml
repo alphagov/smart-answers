@@ -1,0 +1,11 @@
+en:
+  flow:
+    test:
+      options:
+        maybe: Mebbe
+      example_question?:
+        title: Foo
+        body: The body copy
+        options:
+          "yes": Oui
+          "no": Non

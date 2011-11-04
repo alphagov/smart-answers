@@ -12,6 +12,7 @@ module SmartAnswer
       absolute_path = @load_path.join("#{name}.rb").to_s
       preloaded(name) || Flow.new do
         eval(File.read(absolute_path), binding, absolute_path)
+        name(name)
       end
     end
     

@@ -4,9 +4,12 @@
       <h3>
         <span class="question-number"><%= @presenter.current_question_number %></span>
         <%= question.display_name %>
+        <% if question.has_body? %>
+          <%= question.body %>
+        <% end %>
       </h3>
 
-      <%= render partial: "#{question.class.name.demodulize.underscore}_question", locals: {question: question} %>
+      <%= render partial: "#{question.type}_question", locals: {question: question} %>
       <!-- <div class="arrow-down"></div> -->
       <div class="next-question">
         <input type="submit" value="Next step &rarr;">

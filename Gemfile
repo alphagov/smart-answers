@@ -17,6 +17,12 @@ else
   gem 'slimmer', :git => 'git@github.com:alphagov/slimmer.git'
 end
 
+if ENV['GOVSPEAK_DEV']
+  gem 'govspeak', :path => '../govspeak'
+else
+  gem 'govspeak', :git => 'git@github.com:alphagov/govspeak.git'
+end
+
 group :test do
   gem 'factory_girl_rails'
   gem 'mocha', :require => false

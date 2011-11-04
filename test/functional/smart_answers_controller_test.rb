@@ -3,8 +3,8 @@ require_relative '../test_helper'
 class SmartAnswersControllerTest < ActionController::TestCase
   def setup
     @flow = SmartAnswer::Flow.new do
-      display_name "What's your favourite food?"
-
+      name :sample
+      
       multiple_choice :do_you_like_chocolate? do
         option :yes => :you_have_a_sweet_tooth
         option :no => :do_you_like_jam?
@@ -32,7 +32,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
     
     should "display landing page if no questions answered yet" do
       get :show, id: 'sample'
-      assert_select "h1", /#{@flow.display_name}/
+      assert_select "h1", /#{@flow.name.to_s.humanize}/
     end
 
     should "display first question after starting" do
@@ -71,10 +71,10 @@ class SmartAnswersControllerTest < ActionController::TestCase
         data = JSON.parse(response.body)
         assert_equal '/sample/y/no', data['url']
         doc = Nokogiri::HTML(data['html_fragment'])
-        assert_match /#{@flow.display_name}/, doc.xpath('//h1').first.to_s
+        assert_match /#{@flow.name.to_s.humanize}/, doc.xpath('//h1').first.to_s
         assert_equal 0, doc.xpath('//head').size, "Should not have layout"
         assert_equal '/sample/y/no', doc.xpath('//form').first.attributes['action'].to_s
-        assert_equal @flow.node(:do_you_like_jam?).display_name, data['title']
+        assert_equal @flow.node(:do_you_like_jam?).name.to_s.humanize, data['title']
       end
       
       should "redirect to canonical url and retain format=fragment" do

@@ -8,14 +8,9 @@ module SmartAnswer
       @name = name
       instance_eval(&block) if block_given?
     end
-
-    def display_name text=nil
-      return (@display_name || default_display_name) if text.nil?
-      @display_name = text
-    end
     
-    def default_display_name
-      @name.to_s.humanize
+    def type
+      self.class.name.demodulize.underscore
     end
     
     def to_sym
@@ -24,6 +19,10 @@ module SmartAnswer
     
     def to_s
       name.to_s
+    end
+    
+    def is_outcome?
+      false
     end
   end
 end
