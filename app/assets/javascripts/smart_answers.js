@@ -21,7 +21,9 @@
   // manage next/back by tracking popstate event
   window.onpopstate = function (event) {
     if(event.state != null) {
-      updateContent(event.state['html_fragment']);
+			console.log(event)
+			console.log(event.state)
+      updateContent(event.state);
     }
     else if (urlFromHashtag()) {
       $.get(toJsonUrl(urlFromHashtag()), function(data) {
@@ -70,6 +72,7 @@
   // update the content (i.e. plonk in the html fragment)
   function updateContent(fragment){
     $('.smart_answer section').html(fragment);
+		
   //  $('.next-question input[type=submit]').attr('disabled');
     // check if value or selected
     // if that
@@ -86,7 +89,11 @@
     }
     
     if (history && history.replaceState) {
-      history.replaceState($('.smart_answer section').html(), "Question", window.location.toString());
+      history.replaceState(
+				$('.smart_answer section').html(), 
+				"Question", 
+				window.location.toString()
+			);
     }
   }
 });

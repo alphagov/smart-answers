@@ -13,8 +13,8 @@ en:
       did_you_start_your_job_on_or_before_start_of_test_period?: 
         title: Did you start your job on or before %{start_of_test_period}?
         options:
-          no: No
-          yes: Yes
+          "no": "No"
+          "yes": "Yes"
       when_did_you_start_your_job?: 
         title: When did you start your job
       self_employed_when_is_your_baby_due?: 
