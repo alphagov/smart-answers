@@ -2,10 +2,15 @@
 	landing page
 */
 
-.introduction {
+.landing {
 	background-color: #fff;
+	margin-right: 12em;
 	padding: 1em 2em;
 	position: relative;
+}
+
+.start {
+	display: inline-block;
 }
 
 .start a {
@@ -133,19 +138,4 @@ span.error-message {
   display: block;
   font-size: 0.88em;
   margin-top: 0.75em;
-}
-
-span.error-message .arrow-left {
-  position: absolute;
-  left: -5px;
-  top: 50%;
-  margin-top: -5px;
-  width:0px; 
-  height:0px; 
-  border-bottom: 5px solid transparent;
-  border-top: 5px solid transparent;
-  border-right: 5px solid #F00;
-  font-size:0px;
-  line-height:0px;
-  z-index: 1;
 }
