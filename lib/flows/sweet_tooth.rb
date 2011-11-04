@@ -8,7 +8,7 @@ end
 multiple_choice :do_you_like_jam? do
   option :yes => :you_have_a_sweet_tooth
   option :no => :do_you_like_chocolate?
-end
-
+end  
+  
 outcome :you_have_a_savoury_tooth
 outcome :you_have_a_sweet_tooth

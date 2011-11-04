@@ -18,19 +18,21 @@ class SmartAnswersControllerTest < ActionController::TestCase
       outcome :you_have_a_savoury_tooth
       outcome :you_have_a_sweet_tooth
     end
-    SmartAnswer::FlowRegistry.stubs(:find).returns(@flow)
+    @controller.stubs(:flow_registry).returns(stub("Flow registry", find: @flow))
   end
   
   context "GET /" do
     should "respond with 404 if not found" do
-      SmartAnswer::FlowRegistry.stubs(:find).raises(SmartAnswer::FlowRegistry::NotFound)
+      @registry = stub("Flow registry")
+      @registry.stubs(:find).raises(SmartAnswer::FlowRegistry::NotFound)
+      @controller.stubs(:flow_registry).returns(@registry)
       get :show, id: 'sample'
       assert_response :missing
     end
     
     should "display landing page if no questions answered yet" do
       get :show, id: 'sample'
-      assert_select "h1", @flow.display_name
+      assert_select "h1", /#{@flow.display_name}/
     end
 
     should "display first question after starting" do
@@ -61,8 +63,25 @@ class SmartAnswersControllerTest < ActionController::TestCase
           assert_equal '/sample/y?', link_nodes.first['href']
         end
       end
+    end
+    
+    context "format=fragment" do
+      should "render content without layout" do
+        get :show, id: 'sample', started: 'y', responses: ["no"], format: "json"
+        data = JSON.parse(response.body)
+        assert_equal '/sample/y/no', data['url']
+        doc = Nokogiri::HTML(data['html_fragment'])
+        assert_match /#{@flow.display_name}/, doc.xpath('//h1').first.to_s
+        assert_equal 0, doc.xpath('//head').size, "Should not have layout"
+        assert_equal '/sample/y/no', doc.xpath('//form').first.attributes['action'].to_s
+        assert_equal @flow.node(:do_you_like_jam?).display_name, data['title']
+      end
+      
+      should "redirect to canonical url and retain format=fragment" do
+        get :show, id: 'sample', started: 'y', response: "yes", format: "json"
+        assert_redirected_to '/sample/y/yes.json'
+      end
       
     end
-
   end
 end

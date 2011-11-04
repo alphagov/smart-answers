@@ -1,5 +1,5 @@
 <div class="step current" data-step="employment-status">
-  <%= form_tag smart_answer_path(params) %>
+  <%= form_tag smart_answer_path(params.reject {|k,v| k == 'format'}) %>
     <div class="current-question">
       <h3>
         <span class="question-number"><%= @presenter.current_question_number %></span>
