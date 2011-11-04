@@ -4,14 +4,38 @@
       <span>Quick answer </span>
       <%= @presenter.display_name %>
     </h1>
+    <h2>
+      This is probably a less friendly and more technical subheading
+    </h2>
   </hgroup>
 </header>
-<div class="introduction">
-	<p>I am placeholder text</p>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <!-- <div class="arrow-down"></div> -->
+<div class="landing group">
+  <div class="introduction">
+  	<p>I am placeholder text</p>
+  	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+	</div>
+  
   <p class="start"><%= link_to "Get started", smart_answer_path(@smart_answer_name, started: 'y')%></p>
 </div>
+
+<!-- related -->
+<div class="related-positioning">
+	<div class="related-container">
+		<div class="related">
+			<div class="inner group">
+				<h2>Related tools &amp; topics</h2>
+				<nav role="navigation">
+				  <ul>
+            <li class="guide"><a href="parental-rights-and-responsibilities">Parental rights and responsibilities</a></li> 
+            <li class="guide"><a href="#">Looking after children after divorce</a></li> 
+				    <li class="related-topic"><a href="/travel">View more in <span>Travel→</span></a></li>
+				  </ul>
+				</nav>
+      </div>
+	  </div>
+	</div>
+</div>
+<!-- end related -->
 
 <% if @presenter.body.present? %>
   <%= @presenter.body.present? %>
