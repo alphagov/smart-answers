@@ -3,7 +3,7 @@
     <div class="current-question">
       <h3>
         <span class="question-number"><%= @presenter.current_question_number %></span>
-        <%= question.display_name %>
+        <%= question.title %>
         <% if question.has_body? %>
           <%= question.body %>
         <% end %>

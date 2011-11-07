@@ -1,4 +1,3 @@
-
 class NodePresenter
   def initialize(i18n_prefix, node, state = nil)
     @i18n_prefix = i18n_prefix
@@ -11,7 +10,17 @@ class NodePresenter
     I18n.translate!(*args)
   end
   
-  def display_name
+  def subtitle
+    translate!('subtitle')
+  rescue I18n::MissingTranslationData
+    nil
+  end
+  
+  def has_subtitle?
+    !! subtitle
+  end
+  
+  def title
     translate!('title')
   rescue I18n::MissingTranslationData
     @node.name.to_s.humanize
@@ -39,14 +48,6 @@ class NodePresenter
         end
       end
       OpenStruct.new(label: label, value: option)
-    end
-  end
-  
-  def response_label(value)
-    if @node.respond_to?(:options)
-      options.find {|option| option.value == value}.label
-    else
-      value
     end
   end
   

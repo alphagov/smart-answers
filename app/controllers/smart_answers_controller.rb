@@ -13,7 +13,7 @@ class SmartAnswersController < ApplicationController
         render :json => {
           url: smart_answer_path(params[:id], 'y', @presenter.responses),
           html_fragment: html_fragment,
-          title: @presenter.current_node.display_name
+          title: @presenter.current_node.title
         }
       }
     end

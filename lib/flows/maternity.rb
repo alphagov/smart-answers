@@ -7,12 +7,12 @@ end
 date_question :employed_when_is_your_baby_due? do
   save_input_as :due_date
   next_node :did_you_start_your_job_on_or_before_start_of_test_period?
+  calculate :start_of_test_period do
+    I18n.localize(Date.parse(due_date) - 66.weeks, format: :long)
+  end
 end
 
 multiple_choice :did_you_start_your_job_on_or_before_start_of_test_period? do
-  calculate :start_of_test_period do
-    Date.parse(due_date) - 66.weeks
-  end
   option :no => :when_did_you_start_your_job?
   # option :yes => :will_you_be_employed_for_26_weeks_including_qualifying_week?
   option yes: :nothing_maybe_benefits

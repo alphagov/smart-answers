@@ -1,9 +1,9 @@
-digraph "<%= tree.display_name %>" {
+digraph "<%= tree.title %>" {
 <% tree.nodes.each_pair do |name, node|
     label_text = if options[:show_explanatory_summary] && !node.explanatory.nil?
-                   "{ #{node.display_name} | #{node.explanatory.split("\n").first + ' ...'} }"
+                   "{ #{node.title} | #{node.explanatory.split("\n").first + ' ...'} }"
                  else
-                   node.display_name
+                   node.title
                  end
     attrs = { 'style' => 'rounded', 'shape' => 'record', 'label' => label_text}
     attrs['style'] = 'bold' if node.is_a? Outcome

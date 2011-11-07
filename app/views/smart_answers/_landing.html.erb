@@ -2,11 +2,11 @@
   <hgroup>
     <h1>
       <span>Quick answer </span>
-      <%= @presenter.display_name %>
+      <%= @presenter.title %>
     </h1>
-    <h2>
-      This is probably a less friendly and more technical subheading
-    </h2>
+    <% if @presenter.has_subtitle? %>
+      <h2><%= @presenter.subtitle %></h2>
+    <% end %>
   </hgroup>
 </header>
 

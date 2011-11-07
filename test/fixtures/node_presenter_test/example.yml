@@ -5,6 +5,7 @@ en:
         maybe: Mebbe
       example_question?:
         title: Foo
+        subtitle: This is the subtitle
         body: The body copy
         options:
           "yes": Oui
