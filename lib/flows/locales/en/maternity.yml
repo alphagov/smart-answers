@@ -20,9 +20,8 @@ en:
       employed_when_is_your_baby_due?: 
         title: When is your baby due?
         body: |
-          You can write some stuff here too
-          
-          With paras.
+          TODO: Maybe mention the need to give notice to the employer, 
+          and the minimum notice period?
       did_you_start_your_job_on_or_before_start_of_test_period?: 
         title: Did you start your job on or before %{start_of_test_period}?
         options:

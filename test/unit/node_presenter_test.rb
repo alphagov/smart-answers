@@ -34,6 +34,15 @@ module SmartAnswer
       assert_equal 'Is today a Monday?', presenter.title
       assert_match /Today is Monday/, presenter.body
     end    
+
+    test "Interpolated dates are localized" do
+      question = Question::Date.new(:interpolated_question)
+      state = State.new(question.name)
+      state.day = Date.parse('2011-04-05')
+      presenter = NodePresenter.new("flow.test", question, state)
+      
+      assert_match /Today is  5 April 2011/, presenter.body
+    end
     
     test "Node body looked up from translation file, rendered using govspeak" do
       question = Question::Date.new(:example_question?)

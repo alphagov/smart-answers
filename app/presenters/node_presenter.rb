@@ -6,8 +6,18 @@ class NodePresenter
   end
   
   def translate!(subkey)
-    args = "#{@i18n_prefix}.#{@node.name}.#{subkey}", @state.to_hash
-    I18n.translate!(*args)
+    I18n.translate!("#{@i18n_prefix}.#{@node.name}.#{subkey}", state_for_interpolation)
+  end
+  
+  def state_for_interpolation
+    Hash[@state.to_hash.map { |k,v| [k, value_for_interpolation(v)] }]
+  end
+  
+  def value_for_interpolation(value)
+    case value
+    when Date then I18n.localize(value, format: :long)
+    else value
+    end
   end
   
   def subtitle
