@@ -1,0 +1,19 @@
+en:
+  flow:
+    uk_work_visa:
+      title: Check if you can work in the UK
+      country_is_listed_in_your_passport?: 
+        title: Where are you from (Country listed in your passport)?
+        options:
+          eu_and_swiss: European Union or Switzerland
+          bulgaria_or_romania: Bulgaria or Romania
+          non_eu: Outside of the European Union
+      are_you_a_skilled_worker_with_a_job_offer_in_the_UK?: 
+        title: Are you a skilled worker with a job offer in the UK?
+      nature_of_work?: 
+        title: How would you describe the nature of your work?
+      eligiable_to_work_eu: You can work in the UK without special permission
+      eligiable_to_work_tier2: You may qualify to work in the UK as a Tier 2 skilled worker
+      not_eligiable_to_work: You may not work in the UK
+      maybe_eligiable_to_work: You may be able to work in the UK
+      maybe_eligiable_if_self_employed: You may be able to work in the UK if you are self-employed
