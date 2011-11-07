@@ -58,8 +58,7 @@
   function addToHistory(data) {
     var url = data['url'];
     if (history && history.pushState) {
-      // need the title from the json
-      history.pushState(data, "Question", url);
+      history.pushState(data, data['title'], url);
     }
     else {
       window.location.hash = url;
