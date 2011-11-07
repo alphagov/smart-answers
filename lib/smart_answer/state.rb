@@ -16,6 +16,10 @@ module SmartAnswer
       }
     end
     
+    def to_hash
+      @table
+    end
+    
     def save_input_as(name)
       __send__ "#{name}=", responses.last
     end

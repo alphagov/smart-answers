@@ -10,13 +10,25 @@ module SmartAnswer
       @example_translation_file = 
         File.expand_path('../../fixtures/node_presenter_test/example.yml', __FILE__)
       I18n.config.load_path.unshift(@example_translation_file)
+      I18n.reload!
     end
     
     def teardown
       I18n.config.load_path = @old_load_path
+      I18n.reload!
     end
   
     test "Node display name looked up from translation file" do
+      question = Question::Date.new(:interpolated_question)
+      state = State.new(question.name)
+      state.day = 'Monday'
+      presenter = NodePresenter.new("flow.test", question, state)
+
+      assert_equal 'Is today a Monday?', presenter.display_name
+      assert_match /Today is Monday/, presenter.body
+    end
+    
+    test "Node display name can be interpolated with state" do
       question = Question::Date.new(:example_question?)
       presenter = NodePresenter.new("flow.test", question)
       
@@ -31,8 +43,8 @@ module SmartAnswer
     end
     
     test "Can check if a node has body" do
-      assert NodePresenter.new("flow.test", Question::Date.new(:example_question?)).has_body?
-      assert ! NodePresenter.new("flow.test", Question::Date.new(:missing)).has_body?
+      assert NodePresenter.new("flow.test", Question::Date.new(:example_question?)).has_body?, "example_question? has body"
+      assert ! NodePresenter.new("flow.test", Question::Date.new(:missing)).has_body?, "missing has no body"
     end
     
     test "Options can be looked up from translation file" do

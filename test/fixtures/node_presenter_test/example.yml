@@ -9,3 +9,6 @@ en:
         options:
           "yes": Oui
           "no": Non
+      interpolated_question:
+        title: "Is today a %{day}?"
+        body: "Today is %{day}"

@@ -4,7 +4,7 @@
     <%= question.display_name %>
   </h3>
 
-  <p class="answer"><%= @presenter.response_for(question) %></p>
+  <p class="answer"><%= question.response_label(@presenter.responses[question_counter]) %></p>
   <p class="undo">
     <%= link_to "Change this answer", @presenter.change_collapsed_question_link(question_counter + 1) %>
   </p>

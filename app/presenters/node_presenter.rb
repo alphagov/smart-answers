@@ -1,12 +1,14 @@
 
 class NodePresenter
-  def initialize(i18n_prefix, node)
+  def initialize(i18n_prefix, node, state = nil)
     @i18n_prefix = i18n_prefix
     @node = node
+    @state = state || SmartAnswer::State.new(nil)
   end
   
   def translate!(subkey)
-    I18n.translate!("#{@i18n_prefix}.#{@node.name}.#{subkey}")
+    args = "#{@i18n_prefix}.#{@node.name}.#{subkey}", @state.to_hash
+    I18n.translate!(*args)
   end
   
   def display_name
@@ -31,7 +33,7 @@ class NodePresenter
         translate!("options.#{option}")
       rescue I18n::MissingTranslationData
         begin
-          I18n.translate!("#{@i18n_prefix}.options.#{option}")
+          I18n.translate!("#{@i18n_prefix}.options.#{option}", @state.to_hash)
         rescue I18n::MissingTranslationData
           option
         end
@@ -43,6 +45,8 @@ class NodePresenter
   def response_label(value)
     if @node.respond_to?(:options)
       options.find {|option| option.value == value}.label
+    else
+      value
     end
   end
   
