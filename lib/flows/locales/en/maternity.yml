@@ -30,6 +30,8 @@ en-GB:
         title: When did you start your job?
       will_you_work_at_least_26_weeks_during_test_period?:
         title: Will you work at least 26 weeks full- or part-time between %{start_of_test_period} and %{end_of_test_period}
-      nothing_maybe_benefits: Nothing, maybe benefits
+      nothing_maybe_benefits: 
+        title: Nothing, maybe benefits
+        body: fasdas
       you_qualify_for_statutory_maternity_pay: You qualify for statutory maternity pay
       you_qualify_for_maternity_allowance: You qualify for maternity allowance

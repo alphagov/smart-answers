@@ -31,6 +31,9 @@ end
 multiple_choice :did_you_start_your_job_on_or_before_start_of_test_period? do
   option :yes => :will_you_be_employed_long_enough_to_qualify_for_maternity_allowance?
   option :no => :when_did_you_start_your_job?
+  calculate :job_start_date do
+    start_of_test_period
+  end
   calculate :earliest_job_can_finish_to_qualify_for_maternity_allowance do
     qualifying_week.first
   end
@@ -63,7 +66,13 @@ money_question :how_much_are_you_paid_per_week? do
     if weekly_salary >= 102
       :you_qualify_for_statutory_maternity_pay
     elsif weekly_salary >= 30
-      :will_you_work_at_least_26_weeks_during_test_period?
+      job_start = (job_start_date && Date.parse(job_start_date))
+      job_end = earliest_job_can_finish_to_qualify_for_maternity_allowance
+      if job_end - job_start >= 26 * 7
+        :you_qualify_for_maternity_allowance
+      else
+        :will_you_work_at_least_26_weeks_during_test_period?
+      end
     else
       :nothing_maybe_benefits
     end
@@ -71,8 +80,19 @@ money_question :how_much_are_you_paid_per_week? do
 end
 
 multiple_choice :will_you_work_at_least_26_weeks_during_test_period? do
-  option :yes => :how_much_do_you_earn_per_week?
-  option :no => :nothing_maybe_benefits
+  option :yes => nil
+  option :no => nil
+  next_node do |input|
+    if input == 'yes'
+      if weekly_salary
+        :you_qualify_for_maternity_allowance
+      else
+        :how_much_do_you_earn_per_week?
+      end
+    else
+      :nothing_maybe_benefits
+    end
+  end
 end
 
 money_question :how_much_do_you_earn_per_week? do
