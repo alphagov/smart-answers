@@ -50,17 +50,6 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal Date.parse('2011-01-01')..Date.parse('2014-01-01'), s.questions.first.range
   end
   
-  test "Question nodes are automatically numbered" do
-    s = SmartAnswer::Flow.new do
-      multiple_choice :do_you_like_chocolate?
-      outcome :sweet_tooth
-      multiple_choice :do_you_like_apples?
-    end
-    
-    assert_equal 1, s.questions[0].number
-    assert_equal 2, s.questions[1].number
-  end
-  
   context "sequence of two questions" do
     setup do
       @flow = SmartAnswer::Flow.new do

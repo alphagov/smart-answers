@@ -10,7 +10,6 @@ module SmartAnswer
     
     def initialize(&block)
       @nodes = []
-      @next_question_number = 1
       @state = nil
       instance_eval(&block) if block_given?
     end
@@ -74,10 +73,6 @@ module SmartAnswer
     private
       def add_node(node)
         raise "Node #{node.name} already defined" if node_exists?(node)
-        if node.is_a?(Question::Base)
-          node.number = @next_question_number
-          @next_question_number += 1
-        end
         @nodes << node
       end
   end
