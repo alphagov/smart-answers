@@ -9,7 +9,6 @@ end
 gem 'rails', '3.1.1'
 gem 'json'
 gem 'jquery-rails'
-gem 'compass', '~> 0.12.alpha.0'
 
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
