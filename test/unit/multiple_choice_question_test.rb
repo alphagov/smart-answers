@@ -13,6 +13,15 @@ module SmartAnswer
     
       assert_equal ["yes", "no"], q.options 
     end
+    
+    test "Can list options without transitions" do
+      q = Question::MultipleChoice.new(:example) do
+        option :yes
+        option :no
+      end
+    
+      assert_equal ["yes", "no"], q.options 
+    end
   
     test "Can determine next state on provision of an input" do
       q = Question::MultipleChoice.new(:example) do

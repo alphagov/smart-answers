@@ -80,8 +80,8 @@ money_question :how_much_are_you_paid_per_week? do
 end
 
 multiple_choice :will_you_work_at_least_26_weeks_during_test_period? do
-  option :yes => nil
-  option :no => nil
+  option :yes
+  option :no
   next_node do |input|
     if input == 'yes'
       if weekly_salary

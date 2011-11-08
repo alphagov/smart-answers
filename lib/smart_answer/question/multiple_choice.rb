@@ -8,7 +8,11 @@ module SmartAnswer
       end
       
       def option(transitions, options = {})
-        transitions.each_pair { |option, next_node| @transitions[option.to_s] = next_node }
+        if transitions.is_a?(Hash)
+          transitions.each_pair { |option, next_node| @transitions[option.to_s] = next_node }
+        else
+          [*transitions].each { |option| @transitions[option.to_s] = nil }
+        end
       end
     
       def options
