@@ -16,6 +16,8 @@ class NodePresenter
   def value_for_interpolation(value)
     case value
     when Date then I18n.localize(value, format: :long)
+    when SmartAnswer::Money then
+      number_to_currency(value, precision: value > 10 ? 0 : 2)
     else value
     end
   end

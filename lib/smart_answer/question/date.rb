@@ -19,25 +19,20 @@ module SmartAnswer
         @from_func.call..@to_func.call
       end
       
-      def transition(current_state, input)
-        super(current_state, parse_date_input(input))
-      end
-      
-      private
-        def parse_date_input(input)
-          date = case input
-          when Hash, ActiveSupport::HashWithIndifferentAccess
-            input = input.symbolize_keys
-            ::Date.parse("#{input[:year]}-#{input[:month]}-#{input[:day]}")
-          when String
-            ::Date.parse(input)
-          when Date
-            input
-          else
-            raise "Bad date input #{input}"
-          end
-          date.strftime('%Y-%m-%d')
+      def parse_input(input)
+        date = case input
+        when Hash, ActiveSupport::HashWithIndifferentAccess
+          input = input.symbolize_keys
+          ::Date.parse("#{input[:year]}-#{input[:month]}-#{input[:day]}")
+        when String
+          ::Date.parse(input)
+        when Date
+          input
+        else
+          raise "Bad date input #{input}"
         end
+        date.strftime('%Y-%m-%d')
+      end
     end
   end
 end

@@ -65,6 +65,8 @@ class SmartAnswerPresenter
       DateQuestionPresenter
     when SmartAnswer::Question::MultipleChoice
       MultipleChoiceQuestionPresenter
+    when SmartAnswer::Question::Value
+      ValueQuestionPresenter
     when SmartAnswer::Question::Base
       QuestionPresenter
     else NodePresenter

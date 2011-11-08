@@ -50,6 +50,30 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal Date.parse('2011-01-01')..Date.parse('2014-01-01'), s.questions.first.range
   end
   
+  test "Can build value question nodes" do
+    s = SmartAnswer::Flow.new do
+      value_question :how_many_green_bottles? do
+        save_input_as :num_bottles
+      end
+    end
+    
+    assert_equal 1, s.nodes.size
+    assert_equal 1, s.questions.size
+    assert_equal :how_many_green_bottles?, s.questions.first.name
+  end
+  
+  test "Can build money question nodes" do
+    s = SmartAnswer::Flow.new do
+      money_question :how_much? do
+        save_input_as :price
+      end
+    end
+    
+    assert_equal 1, s.nodes.size
+    assert_equal 1, s.questions.size
+    assert_equal :how_much?, s.questions.first.name
+  end
+  
   context "sequence of two questions" do
     setup do
       @flow = SmartAnswer::Flow.new do
@@ -105,6 +129,23 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal [], flow.normalize_responses([])
     assert_equal ['red'], flow.normalize_responses(['red'])
     assert_equal ['red', '2011-02-01'], flow.normalize_responses(['red', {year: 2011, month: 2, day: 1}])
+  end
+  
+  should "perform calculations on saved inputs" do
+    flow = SmartAnswer::Flow.new do
+      money_question :how_much? do
+        next_node :done
+        save_input_as :price
+        calculate :double do
+          price * 2
+        end
+      end
+      outcome :done
+    end
+    
+    state = flow.process(["1"])
+    assert_equal 1, state.price
+    assert_equal 2, state.double
   end
   
   should "raise an error if next state is not defined" do

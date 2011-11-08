@@ -17,20 +17,19 @@ en:
           employed: Employed
           self_employed: Self employed
           unemployed: Unemployed
-      employed_when_is_your_baby_due?: 
+      when_is_your_baby_due?: 
         title: When is your baby due?
         body: |
           TODO: Maybe mention the need to give notice to the employer, 
           and the minimum notice period?
       did_you_start_your_job_on_or_before_start_of_test_period?: 
         title: Did you start your job on or before %{start_of_test_period}?
-        options:
-          "no": "No"
-          "yes": "Yes"
+      will_you_be_employed_long_enough_to_qualify_for_maternity_allowance?:
+        title: Will you still be employed on %{earliest_job_can_finish_to_qualify_for_maternity_allowance} 
       when_did_you_start_your_job?: 
         title: When did you start your job?
-      self_employed_when_is_your_baby_due?: 
-        title: When is your baby due?
+      will_you_work_at_least_26_weeks_during_test_period?:
+        title: Will you work at least 26 weeks full- or part-time between %{start_of_test_period} and %{end_of_test_period}
       nothing_maybe_benefits: Nothing, maybe benefits
       you_qualify_for_statutory_maternity_pay: You qualify for statutory maternity pay
       you_qualify_for_maternity_allowance: You qualify for maternity allowance
