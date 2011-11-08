@@ -7,6 +7,7 @@ group :passenger_compatibility do
 end
 
 gem 'rails', '3.1.1'
+gem 'rails-i18n'
 gem 'json'
 gem 'jquery-rails'
 
