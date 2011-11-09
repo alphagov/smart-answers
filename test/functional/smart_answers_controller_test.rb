@@ -34,12 +34,22 @@ class SmartAnswersControllerTest < ActionController::TestCase
       get :show, id: 'sample'
       assert_select "h1", /#{@flow.name.to_s.humanize}/
     end
+    
+    should "not have noindex tag on landing page" do
+      get :show, id: 'sample'
+      assert_select "meta[name=robots][content=noindex]", count: 0
+    end
 
     should "display first question after starting" do
       get :show, id: 'sample', started: 'y'
       assert_select ".step.current h3", /1\s+Do you like chocolate\?/
       assert_select "input[name=response][value=yes]"
       assert_select "input[name=response][value=no]"
+    end
+    
+    should "have meta robots noindex on question pages" do
+      get :show, id: 'sample', started: 'y'
+      assert_select "head meta[name=robots][content=noindex]"
     end
     
     context "value question" do

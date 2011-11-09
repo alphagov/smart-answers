@@ -1,14 +1,18 @@
 <% if ! @presenter.started? %>
   <%= render partial: "landing" %>
 <% else %>
-	<header class="intro-mini">
-	  <hgroup>
-	    <h1>
-	      <span>Quick answer </span>
-	      <%= @presenter.title %>
-	    </h1>
-	  </hgroup>
-	</header>
+  <% content_for :head do %>
+    <meta name="robots" content="noindex">
+  <% end %>
+
+  <header class="intro-mini">
+    <hgroup>
+      <h1>
+        <span>Quick answer </span>
+        <%= @presenter.title %>
+      </h1>
+    </hgroup>
+  </header>
   <ol class="done-questions">
     <%= render partial: "collapsed_question", collection: @presenter.collapsed_questions, as: :question %>
   </ol>
@@ -16,6 +20,6 @@
   <% if @presenter.finished? %>
     <%= render partial: "result" %>
   <% else %>
-	<%= render partial: "current_question", locals: {question: @presenter.current_node} %>
+    <%= render partial: "current_question", locals: {question: @presenter.current_node} %>
   <% end %>
 <% end %>
