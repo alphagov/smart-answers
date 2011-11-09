@@ -4,10 +4,11 @@
       <h3>
         <span class="question-number"><%= @presenter.current_question_number %></span>
         <%= question.title %>
-        <% if question.has_body? %>
-          <%= question.body %>
-        <% end %>
       </h3>
+
+      <% if question.has_body? %>
+        <%= question.body %>
+      <% end %>
 
       <%= render partial: "#{question.type}_question", locals: {question: question} %>
       <!-- <div class="arrow-down"></div> -->
