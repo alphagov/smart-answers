@@ -41,6 +41,54 @@ class SmartAnswersControllerTest < ActionController::TestCase
       assert_select "input[name=response][value=yes]"
       assert_select "input[name=response][value=no]"
     end
+    
+    context "value question" do
+      setup do
+        @flow = SmartAnswer::Flow.new do
+          name :sample
+          value_question :how_many_green_bottles? do
+            next_node :done
+          end
+          
+          outcome :done
+        end
+        @controller.stubs(:flow_registry).returns(stub("Flow registry", find: @flow))
+      end
+      
+      should "display question" do
+        get :show, id: 'sample', started: 'y'
+        assert_select ".step.current h3", /1\s+How many green bottles\?/
+        assert_select "input[type=text][name=response]"
+      end
+      
+      should "accept question input and redirect to canonical url" do
+        get :show, id: 'sample', started: 'y', response: "10"
+        assert_redirected_to '/sample/y/10'
+      end
+      
+      should "display collapsed question, and format number" do
+        get :show, id: 'sample', started: 'y', responses: ["12345"]
+        assert_select ".done", /1\s+How many green bottles\?\s+12,345/
+      end
+    end
+    
+    context "money question" do
+      setup do
+        @flow = SmartAnswer::Flow.new do
+          money_question :how_much? do
+            next_node :done
+          end
+          outcome :done
+        end
+        @controller.stubs(:flow_registry).returns(stub("Flow registry", find: @flow))
+      end
+      
+      should "display question" do
+        get :show, id: 'sample', started: 'y'
+        assert_select ".step.current h3", /1\s+How much\?/
+        assert_select "input[type=text][name=response]"
+      end
+    end
 
     should "accept responses as GET params and redirect to canonical url" do
       get :show, id: 'sample', started: 'y', response: "yes"
@@ -81,7 +129,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
         get :show, id: 'sample', started: 'y', response: "yes", format: "json"
         assert_redirected_to '/sample/y/yes.json'
       end
-      
     end
   end
 end

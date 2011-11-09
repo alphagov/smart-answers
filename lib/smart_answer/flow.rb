@@ -1,8 +1,6 @@
 require 'ostruct'
 
 module SmartAnswer
-  class InvalidResponse < StandardError; end
-  
   class Flow
     attr_reader :nodes
     attr_reader :outcomes
@@ -27,6 +25,14 @@ module SmartAnswer
       add_node Question::Date.new(name, &block)
     end
     
+    def value_question(name, &block)
+      add_node Question::Value.new(name, &block)
+    end
+    
+    def money_question(name, &block)
+      add_node Question::Money.new(name, &block)
+    end
+    
     def outcome(name, options = {}, &block)
       add_node Outcome.new(name, options, &block)
     end
@@ -44,7 +50,7 @@ module SmartAnswer
     end
     
     def node(node_or_name)
-      @nodes.find {|n| n.name == node_or_name.to_sym } or raise "Node #{name} does not exist"
+      @nodes.find {|n| n.name == node_or_name.to_sym } or raise "Node '#{node_or_name}' does not exist"
     end
     
     def start_state

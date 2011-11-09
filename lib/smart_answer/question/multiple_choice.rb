@@ -2,17 +2,17 @@ module SmartAnswer
   module Question
     class MultipleChoice < Base
       def initialize(name, options = {}, &block)
-        @transitions = {}
+        transitions = @transitions = {}
+        next_node { |input| transitions[input.to_s] }
         super
-      end
-
-      def next_node_for(current_state, input)
-        raise SmartAnswer::InvalidResponse, "Illegal option #{input} for #{name}", caller unless valid_option?(input)
-        @transitions[input.to_s]
       end
       
       def option(transitions, options = {})
-        transitions.each_pair { |option, next_node| @transitions[option.to_s] = next_node }
+        if transitions.is_a?(Hash)
+          transitions.each_pair { |option, next_node| @transitions[option.to_s] = next_node }
+        else
+          [*transitions].each { |option| @transitions[option.to_s] = nil }
+        end
       end
     
       def options
@@ -21,6 +21,11 @@ module SmartAnswer
     
       def valid_option?(option)
         @transitions.has_key?(option.to_s)
+      end
+      
+      def parse_input(raw_input)
+        raise SmartAnswer::InvalidResponse, "Illegal option #{raw_input} for #{name}", caller unless valid_option?(raw_input)
+        super
       end
     end
   end

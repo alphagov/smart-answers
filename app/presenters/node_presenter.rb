@@ -1,4 +1,6 @@
 class NodePresenter
+  include ActionView::Helpers::NumberHelper
+  
   def initialize(i18n_prefix, node, state = nil)
     @i18n_prefix = i18n_prefix
     @node = node
@@ -16,6 +18,8 @@ class NodePresenter
   def value_for_interpolation(value)
     case value
     when Date then I18n.localize(value, format: :long)
+    when ::SmartAnswer::Money then
+      number_to_currency(value, precision: 0)
     else value
     end
   end

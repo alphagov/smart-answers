@@ -41,6 +41,32 @@ class QuestionBaseTest < ActiveSupport::TestCase
     new_state = q.transition(initial_state, :anything)
     assert_equal :done_done, new_state.current_node
   end
+
+  test "next_node block can refer to state" do
+    q = SmartAnswer::Question::Base.new(:example) {
+      next_node do
+        colour == 'red' ? :was_red : :wasnt_red
+      end
+    }
+    initial_state = SmartAnswer::State.new(q.name)
+    initial_state.colour = 'red'
+    new_state = q.transition(initial_state, 'anything')
+    assert_equal :was_red, new_state.current_node
+  end
+  
+  test "next_node block is passed input" do
+    input_was = nil
+    q = SmartAnswer::Question::Base.new(:example) {
+      next_node do |input|
+        input_was = input
+        :done
+      end
+    }
+    initial_state = SmartAnswer::State.new(q.name)
+    new_state = q.transition(initial_state, 'something')
+    assert_equal 'something', input_was
+  end
+  
   
   test "Input can be saved into the state" do
     q = SmartAnswer::Question::Base.new(:favourite_colour?) do

@@ -22,7 +22,7 @@
   // manage next/back by tracking popstate event
   window.onpopstate = function (event) {
     if(event.state != null) {
-      updateContent(event.state);
+      updateContent(event.state['html_fragment']);
     }
     else if (urlFromHashtag()) {
       $.get(toJsonUrl(urlFromHashtag()), function(data) {
@@ -57,13 +57,12 @@
     
   // manage the URL
   function addToHistory(data) {
-    var url = data['url'];
     if (history && history.pushState) {
-      history.pushState(data, data['title'], url);
+      history.pushState(data, data['title'], data['url']);
     }
     else {
-      window.location.hash = url;
-      $(formSelector).attr("action", url);    
+      window.location.hash = data['url'];
+      $(formSelector).attr("action", data['url']);    
     };
   };
 
@@ -93,11 +92,12 @@
     }
     
     if (history && history.replaceState) {
-      history.replaceState(
-				$('.smart_answer section').html(), 
-				"Question", 
-				window.location.toString()
-			);
+      data = {
+        html_fragment: $('.smart_answer section').html(),
+        title: "Question",
+        url: window.location.toString()
+      };
+      history.replaceState(data, data['title'], data['url']);
     }
   }
 });
