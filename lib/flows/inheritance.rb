@@ -1,6 +1,6 @@
 multiple_choice :do_you_have_a_living_spouse_or_civil_partner? do
-  option yes: :do_you_have_children?
-  option :no => :is_your_estate_worth_more_than_250000?
+  option :no => :do_you_have_children?
+  option yes: :is_your_estate_worth_more_than_250000?
 end
 
 multiple_choice :do_you_have_children? do
@@ -19,8 +19,8 @@ multiple_choice :are_either_of_your_parents_living? do
 end
 
 multiple_choice :do_you_have_any_children? do
-  option :yes => :do_you_have_any_parents_or_brothers_or_sisters_living?
-  option no: :partner_receives_first_250000_children_receive_share_of_remainder
+  option no: :do_you_have_any_parents_or_brothers_or_sisters_living?
+  option :yes => :partner_receives_first_250000_children_receive_share_of_remainder
 end
 
 multiple_choice :do_you_have_brothers_or_sisters? do
@@ -51,7 +51,7 @@ end
 outcome :shared_equally_between_children
 outcome :shared_equally_between_parents
 outcome :your_partner_receives_all_of_your_estate
-outcome :partner_receives_first_250000_children_receive_remainder
+outcome :partner_receives_first_250000_children_receive_share_of_remainder
 outcome :shared_equally_between_brothers_or_sisters
 outcome :shared_equally_between_grandparents
 outcome :partner_receives_first_450000_remainder_to_parents_or_siblings
