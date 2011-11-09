@@ -1,6 +1,7 @@
  $(document).ready(function() {
   var formSelector = ".current form";
   initializeHistory();
+	toggleSubmit();
   
   // events
   // get new questions on submit
@@ -69,16 +70,22 @@
   // update the content (i.e. plonk in the html fragment)
   function updateContent(fragment){
     $('.smart_answer section').html(fragment);
-		
-  //  $('.next-question input[type=submit]').attr('disabled');
-    // check if value or selected
-    // if that
-    // undisable
-    // else
-    // set event listener for change in value or selected
-    //$(formSelector+' input[type=submit]').attr('disabled', 'disabled');
+		toggleSubmit();
   };
   
+	function toggleSubmit(){
+		$('input[type=submit]', this).attr('disabled', 'disabled');
+		if($($(formSelector)+ " select:selected", $(formSelector)+ " radio").is(':checked')){
+			$('input[type=submit]', this).removeAttr('disabled');
+		}
+		else{
+			$($(formSelector)+ " select", $(formSelector)+ " radio").live('change', 
+			function(){
+				$('input[type=submit]', this).removeAttr('disabled');
+			});
+		};
+	};
+	
   function initializeHistory(data) {
     // if hashed, means it's a non-pushstated URL that we need to generate the content for
     if (urlFromHashtag()) {

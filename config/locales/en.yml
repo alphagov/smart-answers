@@ -4,4 +4,4 @@
 en:
   date:
     formats:
-      long: %e %B %Y
+      long: "%e %B %Y"
