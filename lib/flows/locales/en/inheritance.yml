@@ -1,0 +1,39 @@
+en:
+  flow:
+    inheritance:
+      title: "Who receives your inheritance if you have leave no will"
+      subtitle: Subtitle goes here
+      body: |
+        This is the body
+        
+        You can write anything you want using Govspeak.
+        
+      do_you_have_a_living_spouse_or_civil_partner:
+        title: "Do you have a husband, wife, or civil partner?"
+        
+      is_your_estate_worth_more_than_250000:
+        title: "Is your estate worth more than £250,000?"
+        
+      are_either_of_your_parents_living:
+        title: "Are either of your parents still living?"
+        
+      do_you_have_any_children:
+        title: "Do you have any children?"
+        
+      do_you_have_any_parents_or_brothers_or_sisters_living:
+        title: "You have any living parents, or brothers or sisters?"
+        
+      do_you_have_brothers_or_sisters:
+        title: "Do you have any brothers or sisters?"
+      
+      
+      shared_equally_between_children:
+        title: "Your estate will be shared equally between your children"
+      your_partner_receives_all_of_your_estate:
+        title: "Your partner will receive all of your estate"
+      shared_equally_between_parents:
+        title: "Your estate will be shared evenly between your parents"
+      partner_receives_first_250000_children_receive_share_of_remainder:
+        title: "Your partner will receive the first £250,000 and your children will equally share the remainder"
+      shared_equally_between_brothers_or_sisters:
+        title: "Your estate will be shared between your brothers and sisters"
