@@ -19,8 +19,8 @@ multiple_choice :are_either_of_your_parents_living? do
 end
 
 multiple_choice :do_you_have_any_children? do
-  option yes: :partner_receives_first_250000_children_receive_share_of_remainder
-  option :no => :do_you_have_any_parents_or_brothers_or_sisters_living?
+  option :yes => :do_you_have_any_parents_or_brothers_or_sisters_living?
+  option no: :partner_receives_first_250000_children_receive_share_of_remainder
 end
 
 multiple_choice :do_you_have_brothers_or_sisters? do
