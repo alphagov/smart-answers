@@ -26,7 +26,7 @@ en-GB:
       will_you_still_be_employed_in_qualifying_week?:
         title: Will you still be in the same job on %{start_of_qualifying_week}?
       will_you_work_at_least_26_weeks_during_test_period?:
-        title: Will you work at least 26 weeks full- or part-time between %{start_of_test_period} and %{end_of_test_period}?
+        title: Will you have worked at least 26 weeks (full- or part-time) between %{start_of_test_period} and %{end_of_test_period}?
       nothing_maybe_benefits: 
         title: Nothing, maybe benefits
         body: fasdas

@@ -1,3 +1,7 @@
+function browserSupportsHtml5HistoryApi() {
+  return !! (history && history.replaceState && history.pushState);
+};
+
 $(document).ready(function() {
   var formSelector = ".current form";
   initializeHistory();
@@ -57,7 +61,7 @@ $(document).ready(function() {
     
   // manage the URL
   function addToHistory(data) {
-    if (history && history.pushState) {
+    if (browserSupportsHtml5HistoryApi()) {
       history.pushState(data, data['title'], data['url']);
     }
     else {
@@ -89,9 +93,13 @@ $(document).ready(function() {
     // if hashed, means it's a non-pushstated URL that we need to generate the content for
     if (urlFromHashtag()) {
       reloadQuestions(urlFromHashtag(), "");
+    } else {
+      if (! browserSupportsHtml5HistoryApi() && window.location.pathname.match(/\/.*\//) ) {
+        addToHistory({url: window.location.pathname});
+      }
     }
     
-    if (history && history.replaceState) {
+    if (browserSupportsHtml5HistoryApi()) {
       data = {
         html_fragment: $('.smart_answer section').html(),
         title: "Question",

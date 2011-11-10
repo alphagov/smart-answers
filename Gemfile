@@ -24,7 +24,7 @@ else
 end
 
 group :test do
-  gem 'capybara', '~> 1.0.0'
+  gem 'capybara', '~> 1.1.0'
   gem 'ci_reporter'
   gem 'factory_girl_rails'
   gem 'minitest', '2.7.0'

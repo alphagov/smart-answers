@@ -2,21 +2,7 @@
 require_relative '../integration_test_helper'
 
 class MaternityAnswerTest < ActionDispatch::IntegrationTest
-
-  def expect_question(question_substring)
-    begin
-      actual_question = page.find('.current-question h3')
-      assert_match question_regexp(question_substring), actual_question.text
-    rescue Capybara::ElementNotFound
-      assert false, "Expected question '#{question_substring}', but no question found"
-    end
-  end
-  
-  def question_regexp(question_substring)
-    quoted = Regexp.quote(question_substring)
-    quoted_with_ellipsis_as_wildcard = quoted.gsub(Regexp.quote('...'), ".*")
-    Regexp.new(quoted_with_ellipsis_as_wildcard)
-  end
+  include SmartAnswerTestHelper
   
   def self.should_be_entitled_to(outcome)
     should "be entitled to #{outcome}" do
@@ -32,20 +18,6 @@ class MaternityAnswerTest < ActionDispatch::IntegrationTest
       end
     end
   end  
-  
-  def respond_with(value)
-    if page.has_css?("input[name=response][type=text]")
-      fill_in "response", with: value
-    elsif page.has_css?("input[name=response][type=radio]")
-      choose value
-    elsif page.has_css?("select[name='response[day]']")
-      date = Date.parse(value.to_s)
-      select date.day.to_s, from: "response[day]"
-      select date.strftime('%B'), from: "response[month]"
-      select date.year.to_s, from: "response[year]"
-    end
-    click_on "Next step →"
-  end
   
   def week_containing(date_or_string)
     date = Date.parse(date_or_string.to_s)
@@ -69,32 +41,33 @@ class MaternityAnswerTest < ActionDispatch::IntegrationTest
     start .. finish
   end
   
-  def format(date)
-    Date.parse(date.to_s).strftime('%e %B %Y')
-  end
-
-  test "landing page" do
-    visit "/maternity"
-    assert page.has_no_selector?("meta[name=robots][content=noindex]"), "Should not have meta noindex"
-    assert_match /Maternity benefits entitlement/, page.find("#wrapper h1").text
-  end
-
   context "Everybody" do
     setup do
       visit "/maternity"
+    end
+    
+    should "see landing page" do
+      assert page.has_no_selector?("meta[name=robots][content=noindex]"), "Should not have meta noindex"
+      assert_match /Maternity benefits entitlement/, page.find("#wrapper h1").text
+    end
+
+    should "have meta robots=noindex on first question page" do
       click_on "Get started"
+      assert page.has_selector?("meta[name=robots][content=noindex]"), "Should have meta noindex"
     end
     
     should "be asked due date first" do
+      click_on "Get started"
       expect_question "When is your baby due?"
     end
 
-    should "be asked employment state second" do
+    should "be asked if employed second" do
+      click_on "Get started"
       respond_with Date.today + 30.weeks
       expect_question "Are you employed?"
     end
   end
-    
+
   context "Employed person" do
     setup do
       @employed = "Yes"
@@ -150,13 +123,21 @@ class MaternityAnswerTest < ActionDispatch::IntegrationTest
             setup { respond_with "29" }
             should_be_entitled_to :nothing
           end
+          
+          context "entering a non-number for weekly pay" do
+            setup { respond_with "blah" }
+            should "see a validation error" do
+              assert page.has_content? "Sorry, I couldn't understand that. Please enter a number."
+              expect_question "How much are you paid per week?"
+            end
+          end
         end
 
         context "not still working in qualifying week" do
           setup { respond_with "No" }
 
           should "considering them for maternity allowance, ask if they worked 26 weeks in test period" do
-            expect_question "Will you work at least 26 weeks full- or part-time between " \
+            expect_question "Will you have worked at least 26 weeks...between " \
               "#{format(maternity_allowance_test_period.first)} and " \
               "#{format(maternity_allowance_test_period.last)}"
           end
@@ -235,7 +216,7 @@ class MaternityAnswerTest < ActionDispatch::IntegrationTest
       end
       
       should "ask if they worked 26 weeks in test period" do
-        expect_question "Will you work at least 26 weeks...between " \
+        expect_question "Will you have worked at least 26 weeks...between " \
           "#{format(maternity_allowance_test_period.first)} and " \
           "#{format(maternity_allowance_test_period.last)}"
       end
@@ -276,7 +257,7 @@ class MaternityAnswerTest < ActionDispatch::IntegrationTest
     end
     
     should "considering them for maternity allowance, ask if they worked 26 weeks in test period" do
-      expect_question "Will you work at least 26 weeks...between " \
+      expect_question "Will you have worked at least 26 weeks...between " \
         "#{format(maternity_allowance_test_period.first)} and " \
         "#{format(maternity_allowance_test_period.last)}"
     end
