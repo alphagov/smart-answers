@@ -8,6 +8,6 @@ for dir in images javascript templates stylesheets; do
   ln -s /var/lib/jenkins/jobs/Static/workspace/public/$dir /var/lib/jenkins/jobs/Smart_Answers/workspace/public/$dir
 done
 
-bundle exec rake ci:setup:testunit test:units test:functionals
+bundle exec rake test:units test:functionals
 RESULT=$?
 exit $RESULT
