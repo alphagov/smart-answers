@@ -24,17 +24,14 @@ else
 end
 
 group :test do
-  gem 'factory_girl_rails'
-  gem 'mocha', :require => false
-  gem "shoulda", "~> 2.11.3"
-  gem 'simplecov', '0.4.2'
-  gem 'simplecov-rcov'
-  gem 'webmock', :require => false
+  gem 'capybara', '~> 1.0.0'
   gem 'ci_reporter'
-  # gem 'test-unit'
+  gem 'factory_girl_rails'
   gem 'minitest', '2.7.0'
-  # Pretty printed test output
-  gem 'turn', :require => false
+  gem 'mocha', :require => false
+  gem 'selenium-webdriver'
+  gem "shoulda", "~> 2.11.3"
+  gem 'webmock', :require => false
 end
 
 group :development do
