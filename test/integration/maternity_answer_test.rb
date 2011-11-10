@@ -4,14 +4,18 @@ require_relative '../integration_test_helper'
 class MaternityAnswerTest < ActionDispatch::IntegrationTest
 
   def expect_question(question_substring)
-    regexp = Regexp.quote(question_substring)
-    regexp.gsub(Regexp.quote('...'), ".*")
     begin
       actual_question = page.find('.current-question h3')
-      assert_match Regexp.new(regexp), actual_question.text
+      assert_match question_regexp(question_substring), actual_question.text
     rescue Capybara::ElementNotFound
       assert false, "Expected question '#{question_substring}', but no question found"
     end
+  end
+  
+  def question_regexp(question_substring)
+    quoted = Regexp.quote(question_substring)
+    quoted_with_ellipsis_as_wildcard = quoted.gsub(Regexp.quote('...'), ".*")
+    Regexp.new(quoted_with_ellipsis_as_wildcard)
   end
   
   def self.should_be_entitled_to(outcome)
@@ -66,7 +70,7 @@ class MaternityAnswerTest < ActionDispatch::IntegrationTest
   end
   
   def format(date)
-    Date.parse(date.to_s).strftime('%d %B %Y').strip
+    Date.parse(date.to_s).strftime('%e %B %Y')
   end
 
   test "landing page" do
@@ -75,9 +79,8 @@ class MaternityAnswerTest < ActionDispatch::IntegrationTest
     assert_match /Maternity benefits entitlement/, page.find("#wrapper h1").text
   end
 
-  context "Employed person" do
+  context "Everybody" do
     setup do
-      @employed = "Yes"
       visit "/maternity"
       click_on "Get started"
     end
@@ -89,6 +92,14 @@ class MaternityAnswerTest < ActionDispatch::IntegrationTest
     should "be asked employment state second" do
       respond_with Date.today + 30.weeks
       expect_question "Are you employed?"
+    end
+  end
+    
+  context "Employed person" do
+    setup do
+      @employed = "Yes"
+      visit "/maternity"
+      click_on "Get started"
     end
     
     should "be asked about start date third" do
@@ -211,6 +222,89 @@ class MaternityAnswerTest < ActionDispatch::IntegrationTest
         
       end
     end
+    
+    context "who started less than 26 weeks before qualifying week" do
+      # If they started less than 26 weeks before the qualifying week, they 
+      # can't possibly satisfy the 26 week continuous employment requirement,
+      # so consider Maternity allowance instead
+      setup do
+        @due_date = Date.today + 20.weeks
+        respond_with @due_date
+        respond_with @employed
+        respond_with "No"
+      end
+      
+      should "ask if they worked 26 weeks in test period" do
+        expect_question "Will you work at least 26 weeks...between " \
+          "#{format(maternity_allowance_test_period.first)} and " \
+          "#{format(maternity_allowance_test_period.last)}"
+      end
+      
+      context "worked 26 weeks in Maternity Allowance test period" do
+        setup { respond_with "Yes" }
+
+        should "Ask weekly earnings" do
+          expect_question "How much do you earn per week?"
+        end
+        
+        context "Earns £30 per week" do
+          setup { respond_with "30" }
+          should_be_entitled_to :maternity_allowance
+        end
+
+        context "Earns £29 per week" do
+          setup { respond_with "29" }
+          should_be_entitled_to :nothing
+        end
+      end
+      
+      context "did not work 26 weeks in Maternity Allowance test period" do
+        setup { respond_with "No" }
+
+        should_be_entitled_to :nothing
+      end
+    end
+  end
+  
+  context "Self- or un-employed person" do
+    setup do
+      visit "/maternity"
+      click_on "Get started"
+      @due_date = Date.today + 30.weeks
+      respond_with @due_date
+      respond_with "No"
+    end
+    
+    should "considering them for maternity allowance, ask if they worked 26 weeks in test period" do
+      expect_question "Will you work at least 26 weeks...between " \
+        "#{format(maternity_allowance_test_period.first)} and " \
+        "#{format(maternity_allowance_test_period.last)}"
+    end
+    
+    context "worked 26 weeks in Maternity Allowance test period" do
+      setup { respond_with "Yes" }
+
+      should "Ask weekly earnings" do
+        expect_question "How much do you earn per week?"
+      end
+      
+      context "Earns £30 per week" do
+        setup { respond_with "30" }
+        should_be_entitled_to :maternity_allowance
+      end
+
+      context "Earns £29 per week" do
+        setup { respond_with "29" }
+        should_be_entitled_to :nothing
+      end
+    end
+    
+    context "did not work 26 weeks in Maternity Allowance test period" do
+      setup { respond_with "No" }
+
+      should_be_entitled_to :nothing
+    end
+    
   end
 end
 
