@@ -5,19 +5,20 @@ en-GB:
         "no": "No"
         "yes": "Yes"
       title: Maternity benefits entitlement
-      subtitle: Subtitle goes here
+      subtitle: You could get Statutory Maternity Pay (SMP) or Maternity Allowance, depending on how long you've been with your employer and how much you earn. If you aren't working, you might be able to claim benefits or a pregnancy grant.
+
       body: |
-        This is the body
-        
-        You can write anything you want using Govspeak.
+        We'll ask you some questions about your employment and when your baby's due. You'll then get an idea of what maternity pay or benefits you could claim.
+
 
       when_is_your_baby_due?: 
         title: When is your baby due?
-        body: |
-          TODO: Maybe mention the need to give notice to the employer, 
-          and the minimum notice period?
+        body: | 
+          To claim Statutory Maternity Pay you need to give your employer at least 28 days' notice.
       did_you_start_26_weeks_before_qualifying_week?: 
-        title: Did you start your job on or before %{twenty_six_weeks_before_qualifying_week}?
+        title: Did you start your current job on or before %{twenty_six_weeks_before_qualifying_week}?
+      how_much_are_you_paid_per_week?:
+        title: How much are you paid per week? (before deductions)
       will_you_be_employed_long_enough_to_qualify_for_maternity_allowance?:
         title: Will you still be in the same job on %{earliest_job_can_finish_to_qualify_for_maternity_allowance}?
       when_did_you_start_your_job?: 
@@ -29,5 +30,16 @@ en-GB:
       nothing_maybe_benefits: 
         title: Nothing, maybe benefits
         body: fasdas
-      you_qualify_for_statutory_maternity_pay: You qualify for statutory maternity pay
+      you_qualify_for_statutory_maternity_pay: 
+        title: You may qualify for Statutory Maternity Pay (SMP) from your employer.
+        body: |
+          You could get:
+
+          6 weeks at 90% of your average weekly earnings 
+
+          33 weeks at &pound;124.88 (or 90% of your average weekly earnings, whichever is lower)
+          
+          [Statutory Maternity Pay](# "Statutory Maternity Pay")
+        
+
       you_qualify_for_maternity_allowance: You qualify for maternity allowance
