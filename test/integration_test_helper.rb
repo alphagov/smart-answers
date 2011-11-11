@@ -17,8 +17,12 @@ class JavascriptIntegrationTest < ActionDispatch::IntegrationTest
   end
 end
 
-Capybara.javascript_driver = 
-  Gem.loaded_specs.keys.include?('capybara-webkit') ? :webkit : :selenium
+if Gem.loaded_specs.keys.include?('capybara-webkit')
+  require 'capybara-webkit'
+  Capybara.javascript_driver = :webkit
+else
+  Capybara.javascript_driver = :selenium
+end
 Capybara.default_driver = :rack_test
 Capybara.app = Rack::Builder.new do
   map "/" do

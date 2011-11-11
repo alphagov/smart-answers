@@ -7,7 +7,7 @@ module SmartAnswer
     end
     
     def transition_to(new_node, input, &blk)
-      deep_clone.tap { |new_state|
+      clone.tap { |new_state|
         new_state.path << self.current_node
         new_state.current_node = new_node
         new_state.responses << input
@@ -16,17 +16,16 @@ module SmartAnswer
       }
     end
     
+    def clone
+      Marshal.load(Marshal.dump(self))
+    end
+    
     def to_hash
       @table
     end
     
     def save_input_as(name)
       __send__ "#{name}=", responses.last
-    end
-  
-  private
-    def deep_clone
-      Marshal.load(Marshal.dump(self))
     end
   end
 end

@@ -12,6 +12,10 @@ gem 'json'
 gem 'jquery-rails'
 gem 'plek', '0.1.7'
 
+group :development do
+  gem 'ruby-debug19', :require => 'ruby-debug'
+end
+
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
 else
@@ -33,6 +37,10 @@ group :test do
   gem 'selenium-webdriver'
   gem "shoulda", "~> 2.11.3"
   gem 'webmock', :require => false
+end
+
+group :webkit do
+  gem 'capybara-webkit'
 end
 
 group :assets do

@@ -2,15 +2,16 @@
 	landing page
 */
 
-.landing {
-	background-color: #fff;
-	margin-right: 12em;
-	padding: 1em 2em;
-	position: relative;
-}
+/*.landing {
+  background-color: #fff;
+  margin-right: 12em;
+  padding: 1em 2em;
+  position: relative;
+}*/
 
 .start {
 	display: inline-block;
+/*  padding: 0 2em;*/
 }
 
 .start a {
@@ -36,7 +37,8 @@ ol.done-questions {
 
 .done-questions > li {
   position: relative;
-  padding: 0.5em 2em;
+/*  padding: 0.5em 2em;*/
+  padding: 0.5em 2em 0.5em 3em;
 }
 
 .done-questions > li.done {
@@ -69,7 +71,15 @@ li.done .undo {
 }
 
 .question-number {
-  margin-right: 0.75em;
+/*  float: left;*/
+/*  display: inline-block;*/
+/*  margin-right: 0.75em;*/
+  margin-left: -1.5em;
+/*  width: 1.5em;*/
+}
+
+.question-body {
+/*  margin: 0 0 0 1.5em;*/
 }
 
 .current {
@@ -78,22 +88,36 @@ li.done .undo {
 .current-question {
 	background-color: #fff;
 /*	border-bottom: solid 1px #bbb;*/
-	padding: 1em 2em;
+	padding: 1em 2em 1em 3em;
 	position: relative;
 }
 
-.current ul {
-  list-style: none;
-  padding-left: 2em;
+.current-question h3 {
+/*  margin-left: 1.5em;*/
 }
 
-.current ul li {
+.current-question ul {
+  list-style: none;
+  padding: 0;
+}
+
+.current-question ul li {
   line-height: 1.5em;
   margin: 0.5em 0;
 }
 
+.current-question label {
+  margin-left: 0.25em;
+}
+
+.current-question select {
+  margin-right: 0.25em;
+}
+
 .next-question {
-	padding: 0 2em;
+/*  margin: 1em 0 0 1.5em;*/
+  margin: 1em 0 0 0;
+/*  padding: 0 2em;*/
 }
 
 .next-question input {

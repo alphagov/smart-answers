@@ -4,17 +4,18 @@ require_relative '../integration_test_helper'
 class MaternityAnswerTest < ActionDispatch::IntegrationTest
   include SmartAnswerTestHelper
   
-  def self.should_be_entitled_to(outcome)
-    should "be entitled to #{outcome}" do
-      case outcome
+  def self.should_be_entitled_to(expected_outcome)
+    should "be entitled to #{expected_outcome}" do
+      actual_outcome = page.find('.results').text
+      case expected_outcome
       when :nothing
-        assert page.has_content? "Nothing, maybe benefits"
+        assert_match /Nothing, maybe benefits/, actual_outcome
       when :maternity_allowance
-        assert page.has_content? "You qualify for maternity allowance"
+        assert_match /qualify.*maternity allowance/i, actual_outcome
       when :statutory_maternity_pay
-        assert page.has_content? "You qualify for statutory maternity pay"
+        assert_match  /qualify.*statutory maternity pay/i, actual_outcome
       else
-        raise "Expected outcome '#{outcome}' not known"
+        raise "Expected outcome '#{expected_outcome}' not known"
       end
     end
   end  
@@ -79,7 +80,7 @@ class MaternityAnswerTest < ActionDispatch::IntegrationTest
       @due_date = Date.today + 30.weeks
       respond_with @due_date
       respond_with @employed
-      expect_question "Did you start your job on or before #{format(qualifying_week.first - 26.weeks)}?"
+      expect_question "Did you start your current job on or before #{format(qualifying_week.first - 26.weeks)}?"
     end
     
     context "who started 26 weeks before qualifying week" do
@@ -127,7 +128,8 @@ class MaternityAnswerTest < ActionDispatch::IntegrationTest
           context "entering a non-number for weekly pay" do
             setup { respond_with "blah" }
             should "see a validation error" do
-              assert page.has_content? "Sorry, I couldn't understand that. Please enter a number."
+              assert page.has_content? "Sorry, I couldn't understand that number. Please try again."
+              assert_equal "blah", page.find('input[name=response]').value
               expect_question "How much are you paid per week?"
             end
           end
