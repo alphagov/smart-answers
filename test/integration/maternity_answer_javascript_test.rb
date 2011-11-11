@@ -18,11 +18,7 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
   end
 
   def go(direction)
-    if page.driver.browser.respond_to? :navigate
-      page.driver.browser.navigate.send(direction)
-    else
-      page.execute_script("window.history.#{direction}()")
-    end
+    page.execute_script("window.history.#{direction}()")
   end
   
   test "HTML5 History API is supported" do
@@ -46,6 +42,12 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
     
     should_not_reload_after "giving due date" do
       respond_with Date.today + 30.weeks
+    end
+    
+    should "use url for browser history" do
+      respond_with @due_date
+      wait_until { has_question? "...employed...?" }
+      assert_equal "/maternity/y/#{@due_date.strftime('%Y-%m-%d')}", current_path
     end
   end
   
@@ -76,7 +78,9 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
     
     should_not_reload_after "going back in history" do
       respond_with @due_date
+      wait_until { has_question? "...employed...?" }
       respond_with "Yes"
+      wait_until { has_question? "Did you start your current job...?" }
       go :back
       wait_until(30) { has_question? "...employed...?" }
     end
