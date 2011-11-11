@@ -84,11 +84,11 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
     should_not_reload_after "going back then forward in history" do
       respond_with @due_date
       respond_with "Yes"
-      expect_question "Did you start your job...?"
+      expect_question "Did you start your current job...?"
       go_back
       wait_until(30) { has_question? "...employed...?" }
       go_forward
-      wait_until(30) { has_question? "Did you start your job...?" }
+      wait_until(30) { has_question? "Did you start your current job...?" }
     end
   end
 end
