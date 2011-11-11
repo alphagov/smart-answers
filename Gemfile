@@ -10,6 +10,7 @@ gem 'rails', '3.1.1'
 gem 'rails-i18n'
 gem 'json'
 gem 'jquery-rails'
+gem 'plek', '0.1.7'
 
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
