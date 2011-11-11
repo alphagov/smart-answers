@@ -1,1 +1,1 @@
-&pound; <%= text_field_tag('response', nil, size: 5, value: @presenter.responses.last) %>
+&pound; <%= text_field_tag('response', nil, size: 5, value: @presenter.responses[@presenter.current_question_number - 1]) %>
