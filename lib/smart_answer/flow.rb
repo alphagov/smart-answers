@@ -59,17 +59,20 @@ module SmartAnswer
 
     def process(responses)
       responses.inject(start_state) do |state, response|
-        node(state.current_node).transition(state, response)
+        return state if state.error
+        begin
+          node(state.current_node).transition(state, response)
+        rescue InvalidResponse => e
+          state.clone.tap do |new_state| 
+            new_state.error = e.message
+            new_state.freeze
+          end
+        end
       end
     end
 
     def path(responses)
-      path, final_state = responses.inject([[], start_state]) do |memo, response|
-        path, state = memo
-        new_state = node(state.current_node).transition(state, response)
-        [path + [state.current_node], new_state]
-      end
-      path
+      process(responses).path
     end
     
     def normalize_responses(responses)

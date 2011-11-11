@@ -17,12 +17,12 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
     page.execute_script(%q{browserSupportsHtml5HistoryApi = function() {return false;}})
   end
 
-  def go_back
-    page.driver.browser.navigate.back
-  end
-  
-  def go_forward
-    page.driver.browser.navigate.forward
+  def go(direction)
+    if page.driver.browser.respond_to? :navigate
+      page.driver.browser.navigate.send(direction)
+    else
+      page.execute_script("window.history.#{direction}()")
+    end
   end
   
   test "HTML5 History API is supported" do
@@ -77,18 +77,18 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
     should_not_reload_after "going back in history" do
       respond_with @due_date
       respond_with "Yes"
-      go_back
+      go :back
       wait_until(30) { has_question? "...employed...?" }
     end
     
     should_not_reload_after "going back then forward in history" do
       respond_with @due_date
       respond_with "Yes"
-      expect_question "Did you start your job...?"
-      go_back
+      expect_question "Did you start your current job...?"
+      go :back
       wait_until(30) { has_question? "...employed...?" }
-      go_forward
-      wait_until(30) { has_question? "Did you start your job...?" }
+      go :forward
+      wait_until(30) { has_question? "Did you start your current job...?" }
     end
   end
 end

@@ -98,6 +98,13 @@ class SmartAnswersControllerTest < ActionController::TestCase
         assert_select ".step.current h3", /1\s+How much\?/
         assert_select "input[type=text][name=response]"
       end
+
+      should "show a validation error if invalid input" do
+        get :show, id: 'sample', started: 'y', response: 'bad_number'
+        assert_select ".step.current h3", /1\s+How much\?/
+        assert_select "body", /Sorry, I couldn't understand that/
+      end
+
     end
 
     should "accept responses as GET params and redirect to canonical url" do

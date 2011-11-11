@@ -9,8 +9,15 @@
           <%= question.body %>
         <% end %>
 
+        <% if @presenter.error %>
+          <div class="error">
+            <%= @presenter.error %>
+          </div>
+        <% end %>
+
         <%= render partial: "#{question.type}_question", locals: {question: question} %>
       </div>
+
       <div class="next-question">
         <input type="submit" value="Next step &rarr;">
       </div>

@@ -97,21 +97,43 @@ class FlowTest < ActiveSupport::TestCase
       assert_equal :sweet, @flow.process(%w{no yes}).current_node
       assert_equal :sweet, @flow.process(%w{yes}).current_node
       assert_equal :savoury, @flow.process(%w{no no}).current_node
-      assert_raises SmartAnswer::InvalidResponse do
-        @flow.process(%w{maybe})
-      end
     end
   
+    context "a question raises an error" do
+      setup do
+        @error_message = "Sorry, that's not valid"
+        @flow.node(:do_you_like_jam?)
+          .stubs(:parse_input)
+          .with('bad')
+          .raises(SmartAnswer::InvalidResponse.new(@error_message))
+      end
+      
+      should "skip a transation and set error flag" do
+        assert_equal :do_you_like_jam?, @flow.process(%w{no bad}).current_node
+        assert_equal @error_message, @flow.process(%w{no bad}).error
+      end
+      
+      should "not process any further input after error" do
+        @flow.node(:do_you_like_jam?)
+          .expects(:parse_input)
+          .with('yes')
+          .never
+        assert_equal :do_you_like_jam?, @flow.process(%w{no bad yes yes}).current_node
+      end
+
+      should "truncate path after error" do
+        assert_equal [:do_you_like_chocolate?], @flow.path(%w{no bad})
+      end
+    end
+    
     should "calculate the path traversed by a series of responses" do
       assert_equal [], @flow.path([])
       assert_equal [:do_you_like_chocolate?], @flow.path(%w{no})
       assert_equal [:do_you_like_chocolate?, :do_you_like_jam?], @flow.path(%w{no yes})
       assert_equal [:do_you_like_chocolate?], @flow.path(%w{yes})
       assert_equal [:do_you_like_chocolate?, :do_you_like_jam?], @flow.path(%w{no no})
-      assert_raises SmartAnswer::InvalidResponse do
-        @flow.path(%w{maybe})
-      end
     end
+    
   end
   
   should "normalize responses" do
@@ -126,9 +148,9 @@ class FlowTest < ActiveSupport::TestCase
       outcome :blue
     end
     
-    assert_equal [], flow.normalize_responses([])
-    assert_equal ['red'], flow.normalize_responses(['red'])
-    assert_equal ['red', '2011-02-01'], flow.normalize_responses(['red', {year: 2011, month: 2, day: 1}])
+    assert_equal [], flow.process([]).responses
+    assert_equal ['red'], flow.process(['red']).responses
+    assert_equal ['red', '2011-02-01'], flow.process(['red', {year: 2011, month: 2, day: 1}]).responses
   end
   
   should "perform calculations on saved inputs" do
