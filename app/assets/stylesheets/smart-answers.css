@@ -128,28 +128,23 @@ li.done .undo {
   errors
 */
 
-#error-header {
-  border: solid 0.25em #F00;
-  padding: 0.5em 1em;
-}
-
-.error, #error-header {
+.error {
   background: #FFE5EC;
   color: #F00;
 }
 
 .error-message, #error-header {
-  display: none;
+  padding: 0.5em;
 }
 
-span.error-message {
+/*span.error-message {
   display: inline;
   padding: 0 0.25em;
   position: relative;
 }
-
-.error .error-message {
+*/
+/*.error .error-message {
   display: block;
   font-size: 0.88em;
   margin-top: 0.75em;
-}
+}*/

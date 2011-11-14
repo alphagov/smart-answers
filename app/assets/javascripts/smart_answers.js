@@ -16,6 +16,8 @@ $(document).ready(function() {
     event.preventDefault();
     return false;
   });
+  
+  $('#current-error').focus();
 
   // we want to start over with whatever gets provided if someone clicks to change the answer
   $(".undo a").live('click', function() {
