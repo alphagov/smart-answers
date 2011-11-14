@@ -4,7 +4,6 @@ en-GB:
       options: 
         "no": "No"
         "yes": "Yes"
-      title: Maternity benefits entitlement
       body: |
         $!You could get Statutory Maternity Pay (SMP) or Maternity Allowance, 
         depending on how long you've been with your employer and how much
@@ -41,7 +40,7 @@ en-GB:
 
           6 weeks at 90% of your average weekly earnings 
 
-          33 weeks at &pound;124.88 (or 90% of your average weekly earnings, whichever is lower)
+          33 weeks at &pound;128.73 (or 90% of your average weekly earnings, whichever is lower)
           
           [Statutory Maternity Pay](# "Statutory Maternity Pay")
         
