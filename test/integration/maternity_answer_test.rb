@@ -49,7 +49,7 @@ class MaternityAnswerTest < ActionDispatch::IntegrationTest
     
     should "see landing page" do
       assert page.has_no_selector?("meta[name=robots][content=noindex]"), "Should not have meta noindex"
-      assert_match /Maternity benefits entitlement/, page.find("#wrapper h1").text
+      assert_match /Maternity/, page.find("#wrapper h1").text
     end
 
     should "have meta robots=noindex on first question page" do
