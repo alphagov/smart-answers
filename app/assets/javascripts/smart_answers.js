@@ -69,12 +69,12 @@
   // update the content (i.e. plonk in the html fragment)
   function updateContent(fragment){
     $('.smart_answer section').html(fragment);
-		toggleSubmit();
+		//toggleSubmit();
   };
   
 	function toggleSubmit(){
 		$('input[type=submit]', this).attr('disabled', 'disabled');
-		if($($(formSelector)+ " select:selected", $(formSelector)+ " radio").is(':checked')){
+	/*	if($($(formSelector)+ " select:selected", $(formSelector)+ " radio").is(':checked')){
 			$('input[type=submit]', this).removeAttr('disabled');
 		}
 		else{
@@ -82,7 +82,7 @@
 			function(){
 				$('input[type=submit]', this).removeAttr('disabled');
 			});
-		};
+		};*/
 	};
 	
   function initializeHistory(data) {
