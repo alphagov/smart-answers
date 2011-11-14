@@ -73,7 +73,7 @@ $(document).ready(function() {
   // update the content (i.e. plonk in the html fragment)
   function updateContent(fragment){
     $('.smart_answer section').html(fragment);
-<<<<<<< HEAD
+
 		//toggleSubmit();
   };
   
@@ -90,24 +90,8 @@ $(document).ready(function() {
 		};*/
 	};
 	
-=======
-    toggleSubmit();
-  };
 
-  function toggleSubmit(){
-    $('input[type=submit]', this).attr('disabled', 'disabled');
-    if($($(formSelector)+ " select:selected", $(formSelector)+ " radio").is(':checked')){
-      $('input[type=submit]', this).removeAttr('disabled');
-    }
-    else{
-      $($(formSelector)+ " select", $(formSelector)+ " radio").live('change', 
-      function(){
-        $('input[type=submit]', this).removeAttr('disabled');
-      });
-    };
-  };
 
->>>>>>> ae0d2aff2a30761c8a070b906b7694618ea5fcb0
   function initializeHistory(data) {
     // if hashed, means it's a non-pushstated URL that we need to generate the content for
     if (urlFromHashtag()) {
