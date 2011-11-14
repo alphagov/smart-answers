@@ -73,6 +73,8 @@ class SmartAnswerPresenter
       ValueQuestionPresenter
     when SmartAnswer::Question::Money
       MoneyQuestionPresenter
+    when SmartAnswer::Question::Salary
+      SalaryQuestionPresenter
     when SmartAnswer::Question::Base
       QuestionPresenter
     else NodePresenter

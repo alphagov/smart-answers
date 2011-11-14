@@ -1,3 +1,34 @@
+require 'bigdecimal'
 module SmartAnswer
-  class Money < BigDecimal; end
+  class Money
+    include Comparable
+    extend Forwardable
+    
+    delegate [:to_f, :to_s, :*, :+, :-, :/] => :value
+    
+    attr_reader :value
+    
+    def initialize(raw_input)
+      if ! self.class.valid?(raw_input)
+        raise InvalidResponse, "Sorry, I couldn't understand that number. Please try again.", caller
+      end
+      @value = BigDecimal.new(raw_input.to_s)
+    end
+
+    def to_s
+      @value.to_s
+    end
+    
+    def <=>(other)
+      if other.is_a?(Money) 
+        @value <=> other.value
+      elsif other.is_a?(Numeric)
+        @value <=> other
+      end
+    end
+    
+    def self.valid?(raw_input)
+      raw_input.is_a?(Numeric) || raw_input =~ /\A *[0-9]+(\.[0-9]{1,2})? *\z/
+    end
+  end
 end

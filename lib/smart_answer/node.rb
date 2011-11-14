@@ -9,10 +9,6 @@ module SmartAnswer
       instance_eval(&block) if block_given?
     end
     
-    def type
-      self.class.name.demodulize.underscore
-    end
-    
     def to_sym
       name.to_sym
     end

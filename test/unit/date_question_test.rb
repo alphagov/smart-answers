@@ -28,5 +28,13 @@ module SmartAnswer
       end
       assert_equal ::Date.parse('2011-01-01')..::Date.parse('2011-01-03'), q.range
     end
+    
+    test "Can define default date" do
+      q = Question::Date.new(:example) do
+        default { Date.today }
+      end
+      assert_equal Date.today, q.default
+    end
+    
   end
 end

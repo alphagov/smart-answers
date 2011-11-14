@@ -74,6 +74,11 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal :how_much?, s.questions.first.name
   end
   
+  test "Can build salary question nodes" do
+    s = SmartAnswer::Flow.new { salary_question :how_much? }
+    assert_equal [:how_much?], s.questions.map(&:name)
+  end
+  
   context "sequence of two questions" do
     setup do
       @flow = SmartAnswer::Flow.new do
@@ -159,15 +164,15 @@ class FlowTest < ActiveSupport::TestCase
         next_node :done
         save_input_as :price
         calculate :double do
-          price * 2
+          price.value * 2
         end
       end
       outcome :done
     end
     
     state = flow.process(["1"])
-    assert_equal 1, state.price
-    assert_equal 2, state.double
+    assert_equal SmartAnswer::Money.new('1'), state.price
+    assert_equal 2.0, state.double
   end
   
   should "raise an error if next state is not defined" do

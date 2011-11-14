@@ -34,49 +34,19 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
     end
   end
   
-  context "HTML5 history api is supported" do
-    setup do
-      visit "/maternity"
-      click_on "Get started"
-      @due_date = Date.today + 30.weeks
-    end
-    
+  def self.should_not_reload_after_accepting_responses
     should_not_reload_after "giving due date" do
       respond_with @due_date
     end
-    
-    should "use url for browser history" do
-      respond_with @due_date
-      wait_until { has_question? "...employed...?" }
-      assert_equal "/maternity/y/#{@due_date.strftime('%Y-%m-%d')}", current_path
-    end
-  end
-  
-  context "HTML5 history api is not supported" do
-    setup do
-      visit "/maternity"
-      click_on "Get started"
-      disable_history_api_support
-      @due_date = Date.today + 30.weeks
-    end
-    
-    should_not_reload_after "giving due date" do
-      respond_with @due_date
-    end
-    
-    should "use hash tags for browser history" do
-      respond_with @due_date
-      wait_until { has_question? "...employed...?" }
-      assert_equal "#/maternity/y/#{@due_date.strftime('%Y-%m-%d')}", evaluate_script('window.location.hash')
-      assert_equal "/maternity/y", current_path
-    end
-    
+
     should_not_reload_after "giving due date and employment status" do
       respond_with @due_date
       wait_until { has_question? "...employed...?" }
       respond_with "Yes"
     end
-    
+  end
+  
+  def self.should_support_browser_back_and_forward  
     should_not_reload_after "going back in history" do
       respond_with @due_date
       wait_until { has_question? "...employed...?" }
@@ -95,5 +65,41 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
       go :forward
       wait_until(30) { has_question? "Did you start your current job...?" }
     end
+  end
+  
+  context "HTML5 history api is supported" do
+    setup do
+      visit "/maternity"
+      click_on "Get started"
+      @due_date = Date.today + 30.weeks
+    end
+        
+    should "use url for browser history" do
+      respond_with @due_date
+      wait_until { has_question? "...employed...?" }
+      assert_equal "/maternity/y/#{@due_date.strftime('%Y-%m-%d')}", current_path
+    end
+
+    should_support_browser_back_and_forward
+    should_not_reload_after_accepting_responses    
+  end
+  
+  context "HTML5 history api is not supported" do
+    setup do
+      visit "/maternity"
+      click_on "Get started"
+      disable_history_api_support
+      @due_date = Date.today + 30.weeks
+    end
+    
+    should "use hash tags for browser history" do
+      respond_with @due_date
+      wait_until { has_question? "...employed...?" }
+      assert_equal "#/maternity/y/#{@due_date.strftime('%Y-%m-%d')}", evaluate_script('window.location.hash')
+      assert_equal "/maternity/y", current_path
+    end
+    
+    should_support_browser_back_and_forward
+    should_not_reload_after_accepting_responses
   end
 end

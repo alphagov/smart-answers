@@ -1,1 +1,3 @@
-<%= select_date(Date.current, prefix: 'response', :order => [:day, :month, :year]) %>
+<%= select_date(question.default, prefix: 'response', 
+                :order => [:day, :month, :year],
+                :prompt => {:day => '- day -', :month => '- month -', :year => '- year -'}) %>

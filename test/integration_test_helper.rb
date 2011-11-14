@@ -52,8 +52,9 @@ module SmartAnswerTestHelper
   end
 
   def respond_with(value)
-    if page.has_css?("input[name=response][type=text]")
-      fill_in "response", with: value
+    if page.has_css?("select[name='response[period]']")
+      fill_in "response[amount]", with: value[:amount]
+      select value[:period], from: "response[period]"
     elsif page.has_css?("input[name=response][type=radio]")
       choose value
     elsif page.has_css?("select[name='response[day]']")
@@ -61,6 +62,8 @@ module SmartAnswerTestHelper
       select date.day.to_s, from: "response[day]"
       select date.strftime('%B'), from: "response[month]"
       select date.year.to_s, from: "response[year]"
+    elsif page.has_css?("input[name=response][type=text]")
+      fill_in "response", with: value
     end
     click_on "Next step →"
   end

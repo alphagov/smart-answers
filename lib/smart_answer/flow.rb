@@ -33,6 +33,10 @@ module SmartAnswer
       add_node Question::Money.new(name, &block)
     end
     
+    def salary_question(name, &block)
+      add_node Question::Salary.new(name, &block)
+    end
+    
     def outcome(name, options = {}, &block)
       add_node Outcome.new(name, options, &block)
     end

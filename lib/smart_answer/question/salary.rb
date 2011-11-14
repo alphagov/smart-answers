@@ -1,8 +1,8 @@
 module SmartAnswer
   module Question
-    class Money < Base
+    class Salary < Base
       def parse_input(raw_input)
-        SmartAnswer::Money.new(raw_input)
+        SmartAnswer::Salary.new(raw_input)
       end
     end
   end

@@ -20,6 +20,8 @@ class NodePresenter
     when Date then I18n.localize(value, format: :long)
     when ::SmartAnswer::Money then
       number_to_currency(value, precision: 0)
+    when ::SmartAnswer::Salary then
+      number_to_currency(value.amount, precision: 0) + " per " + value.period
     else value
     end
   end

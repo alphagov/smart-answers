@@ -24,10 +24,11 @@ en-GB:
         hint: You have a contract of employment to work a fixed number of hours in a set period of time, eg 40 hours per week.
       did_you_start_26_weeks_before_qualifying_week?: 
         title: Did you start your current job on or before %{twenty_six_weeks_before_qualifying_week}?
-      how_much_are_you_paid_per_week?:
-        title: How much are you paid per week?
+      how_much_are_you_paid?:
+        title: How much are you paid?
         hint: Your total pay before any deductions, eg tax.
-      how_much_do_you_earn_per_week?:
+      how_much_do_you_earn?:
+        title: How much do you earn?
         hint: Your total earnings before any deductions, eg tax.      
       will_you_be_employed_long_enough_to_qualify_for_maternity_allowance?:
         title: Will you still be in the same job on %{earliest_job_can_finish_to_qualify_for_maternity_allowance}?

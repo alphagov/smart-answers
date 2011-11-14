@@ -102,35 +102,35 @@ class MaternityAnswerTest < ActionDispatch::IntegrationTest
           setup { respond_with "Yes" }
 
           should "be asked weekly pay" do
-            expect_question "How much are you paid per week?"
+            expect_question "How much are you paid?"
           end
           
           context "paid £102 per week" do
-            setup { respond_with "102" }
+            setup { respond_with amount: "102", period: "week" }
             should_be_entitled_to :statutory_maternity_pay
           end
           
           context "paid £101 per week" do
-            setup { respond_with "101" }
+            setup { respond_with amount: "101", period: "week" }
             should_be_entitled_to :maternity_allowance
           end
           
           context "paid £30 per week" do
-            setup { respond_with "30" }
+            setup { respond_with amount: "30", period: "week" }
             should_be_entitled_to :maternity_allowance
           end
           
           context "paid £29 per week" do
-            setup { respond_with "29" }
+            setup { respond_with amount: "29", period: "week" }
             should_be_entitled_to :nothing
           end
           
           context "entering a non-number for weekly pay" do
-            setup { respond_with "blah" }
+            setup { respond_with amount: "blah", period: "week" }
             should "see a validation error" do
               assert page.has_content? "Sorry, I couldn't understand that number. Please try again."
-              assert_equal "blah", page.find('input[name=response]').value
-              expect_question "How much are you paid per week?"
+              assert_equal "blah", page.find("input[name='response[amount]']").value
+              expect_question "How much are you paid?"
             end
           end
         end
@@ -148,16 +148,16 @@ class MaternityAnswerTest < ActionDispatch::IntegrationTest
             setup { respond_with "Yes" }
 
             should "Ask weekly earnings" do
-              expect_question "How much do you earn per week?"
+              expect_question "How much do you earn?"
             end
             
             context "Earns £30 per week" do
-              setup { respond_with "30" }
+              setup { respond_with amount: "30", period: "week" }
               should_be_entitled_to :maternity_allowance
             end
 
             context "Earns £29 per week" do
-              setup { respond_with "29" }
+              setup { respond_with amount: "29", period: "week" }
               should_be_entitled_to :nothing
             end
           end
@@ -180,26 +180,26 @@ class MaternityAnswerTest < ActionDispatch::IntegrationTest
       
         should "not be asked to confirm employment during qualifying week, skip straight to weekly pay" do
           assert ! page.has_content?("Will you still be in the same job")
-          expect_question "How much are you paid per week?"
+          expect_question "How much are you paid?"
         end
 
         context "paid £102 per week" do
-          setup { respond_with "102" }
+          setup { respond_with amount: "102", period: "week" }
           should_be_entitled_to :statutory_maternity_pay
         end
         
         context "paid £101 per week" do
-          setup { respond_with "101" }
+          setup { respond_with amount: "101", period: "week" }
           should_be_entitled_to :maternity_allowance
         end
         
         context "paid £30 per week" do
-          setup { respond_with "30" }
+          setup { respond_with amount: "30", period: "week" }
           should_be_entitled_to :maternity_allowance
         end
         
         context "paid £29 per week" do
-          setup { respond_with "29" }
+          setup { respond_with amount: "29", period: "week" }
           should_be_entitled_to :nothing
         end
         
@@ -227,16 +227,16 @@ class MaternityAnswerTest < ActionDispatch::IntegrationTest
         setup { respond_with "Yes" }
 
         should "Ask weekly earnings" do
-          expect_question "How much do you earn per week?"
+          expect_question "How much do you earn?"
         end
         
         context "Earns £30 per week" do
-          setup { respond_with "30" }
+          setup { respond_with amount: "30", period: "week" }
           should_be_entitled_to :maternity_allowance
         end
 
         context "Earns £29 per week" do
-          setup { respond_with "29" }
+          setup { respond_with amount: "29", period: "week" }
           should_be_entitled_to :nothing
         end
       end
@@ -268,16 +268,16 @@ class MaternityAnswerTest < ActionDispatch::IntegrationTest
       setup { respond_with "Yes" }
 
       should "Ask weekly earnings" do
-        expect_question "How much do you earn per week?"
+        expect_question "How much do you earn?"
       end
       
       context "Earns £30 per week" do
-        setup { respond_with "30" }
+        setup { respond_with amount: "30", period: "week" }
         should_be_entitled_to :maternity_allowance
       end
 
       context "Earns £29 per week" do
-        setup { respond_with "29" }
+        setup { respond_with amount: "29", period: "week" }
         should_be_entitled_to :nothing
       end
     end

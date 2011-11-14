@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require_relative '../test_helper'
 
 class SmartAnswersControllerTest < ActionController::TestCase
@@ -105,6 +106,48 @@ class SmartAnswersControllerTest < ActionController::TestCase
         assert_select "body", /Sorry, I couldn't understand that/
       end
 
+    end
+    
+    context "salary question" do
+      setup do
+        @flow = SmartAnswer::Flow.new do
+          salary_question(:how_much?) { next_node :done }
+          outcome :done
+        end
+        @controller.stubs(:flow_registry).returns(stub("Flow registry", find: @flow))
+      end
+      
+      should "display question" do
+        get :show, id: 'sample', started: 'y'
+        assert_select ".step.current h3", /1\s+How much\?/
+        assert_select "input[type=text][name='response[amount]']"
+        assert_select "select[name='response[period]']"
+      end
+
+      should "show a validation error if invalid amount" do
+        get :show, id: 'sample', started: 'y', response: {amount: 'bad_number'}
+        assert_select ".step.current h3", /1\s+How much\?/
+        assert_select ".error", /Sorry, I couldn't understand that/
+      end
+
+      should "show a validation error if invalid period" do
+        get :show, id: 'sample', started: 'y', response: {amount: '1', period: 'bad_period'}
+        assert_select ".step.current h3", /1\s+How much\?/
+        assert_select ".error", /Sorry, I couldn't understand that/
+      end
+
+      should "accept responses as GET params and redirect to canonical url" do
+        get :show, id: 'sample', started: 'y', response: {amount: '1', period: 'month'}
+        assert_redirected_to '/sample/y/1.0-month'
+      end
+
+      context "a response has been accepted" do
+        setup { get :show, id: 'sample', started: 'y', responses: ["1.0-month"] }
+
+        should "show response summary" do
+          assert_select ".done", /1\s+How much\?\s+£1 per month/
+        end
+      end
     end
 
     should "accept responses as GET params and redirect to canonical url" do

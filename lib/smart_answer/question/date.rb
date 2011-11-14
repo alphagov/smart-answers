@@ -8,11 +8,33 @@ module SmartAnswer
       end
 
       def from(from = nil, &block)
-        @from_func = block_given? ? block : lambda { from }
+        if block_given?
+          @from_func = block
+        elsif from
+          @from_func = lambda { from }
+        else
+          @from_func && @from_func.call
+        end
       end
 
       def to(to = nil, &block)
-        @to_func = block_given? ? block : lambda { to }
+        if block_given?
+          @to_func = block
+        elsif to
+          @to_func = lambda { to }
+        else
+          @to_func && @to_func.call
+        end
+      end
+      
+      def default(default = nil, &block)
+        if block_given?
+          @default_func = block
+        elsif default
+          @default_func = lambda { default }
+        else
+          @default_func && @default_func.call
+        end
       end
       
       def range
