@@ -32,8 +32,10 @@ en-GB:
       will_you_work_at_least_26_weeks_during_test_period?:
         title: Will you have worked at least 26 weeks (full or part-time) between %{start_of_test_period} and %{end_of_test_period}?
       nothing_maybe_benefits: 
-        title: Nothing, maybe benefits
-        body: TODO - write something here
+        title: You don't qualify for maternity pay.
+        body: |
+          You may qualify for other benefits, eg [Employment Support Allowance](# "Employment Support Allowance") or [Income Support](# "Income Support"), or a [Sure Start Maternity Grant](# "Sure Start Maternity Grant").
+     
       you_qualify_for_statutory_maternity_pay: 
         title: You may qualify for Statutory Maternity Pay (SMP) from your employer.
         body: |
