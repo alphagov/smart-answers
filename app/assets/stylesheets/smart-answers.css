@@ -1,0 +1,152 @@
+/*
+	landing page
+*/
+
+.start {
+	display: inline-block;
+}
+
+.start a {
+	font-size: 1.5em;
+	margin: 0.5em 0 0 0;
+}
+
+/*
+  questions
+*/
+
+.hint {
+  color: #666;
+  display: block;
+}
+
+ol.done-questions {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.done-questions > li {
+  position: relative;
+  padding: 0.5em 2em 0.5em 5em;
+}
+
+.done-questions > li.done {
+  background: #ddd;
+  border-bottom: solid 1px #bbb;
+  overflow: hidden;
+}
+
+li.done h3 {
+  display: inline;
+  font-size: 1em;
+  margin: 0;
+}
+
+li.done .answer {
+  background-color: #f4f4f4;
+  border: dashed 1px #bbb;
+  display: inline;
+  padding: 0.1em 0.3em;
+  margin-left: 0.5em;
+}
+
+li.done .undo {
+  display: inline;
+  font-size: 0.8em;
+  margin: 0 0 0 0.5em;
+}
+
+.current {
+}
+
+.current-question {
+	background-color: #fff;
+	padding: 1em 2em 1em 5em;
+	position: relative;
+}
+
+.current-question h3 {
+  margin-bottom: 1em;
+}
+
+.question-number {
+  display: inline-block;
+  margin-left: -1.5em;
+  width: 1.5em;
+}
+
+.done .question-number {
+  margin-left: -1.7em;
+}
+
+.question-body {
+
+}
+
+.current-question ul {
+  list-style: none;
+  padding: 0;
+}
+
+.current-question ul li {
+  line-height: 1.5em;
+  margin: 0.5em 0;
+}
+
+.current-question label {
+  margin-left: 0.25em;
+}
+
+.current-question select {
+  margin-right: 0.25em;
+}
+
+.next-question {
+  margin: 1em 0 0 0;
+}
+
+.next-question input {
+	font-size: 1.5em;
+	margin: 0.5em 0;
+}
+
+/*
+	results
+*/
+
+.results {
+	background-color: #fff;
+	padding: 2em 3em;
+}
+
+/*
+  errors
+*/
+
+#error-header {
+  border: solid 0.25em #F00;
+  padding: 0.5em 1em;
+}
+
+.error, #error-header {
+  background: #FFE5EC;
+  color: #F00;
+}
+
+.error-message, #error-header {
+  display: none;
+}
+
+span.error-message {
+  display: inline;
+  padding: 0 0.25em;
+  position: relative;
+}
+
+.error .error-message {
+  display: block;
+  font-size: 0.88em;
+  margin-top: 0.75em;
+}
