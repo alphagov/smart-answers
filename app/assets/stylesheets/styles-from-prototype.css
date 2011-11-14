@@ -2,16 +2,8 @@
 	landing page
 */
 
-/*.landing {
-  background-color: #fff;
-  margin-right: 12em;
-  padding: 1em 2em;
-  position: relative;
-}*/
-
 .start {
 	display: inline-block;
-/*  padding: 0 2em;*/
 }
 
 .start a {
@@ -37,8 +29,7 @@ ol.done-questions {
 
 .done-questions > li {
   position: relative;
-/*  padding: 0.5em 2em;*/
-  padding: 0.5em 2em 0.5em 3em;
+  padding: 0.5em 2em 0.5em 5em;
 }
 
 .done-questions > li.done {
@@ -57,29 +48,14 @@ li.done .answer {
   background-color: #f4f4f4;
   border: dashed 1px #bbb;
   display: inline;
-/*  font-weight: bold;*/
-  padding: 0.25em 0.5em;
+  padding: 0.1em 0.3em;
   margin-left: 0.5em;
 }
 
 li.done .undo {
   display: inline;
-/*	float: right;*/
-/*  font-weight: normal;*/
   font-size: 0.8em;
   margin: 0 0 0 0.5em;
-}
-
-.question-number {
-/*  float: left;*/
-/*  display: inline-block;*/
-/*  margin-right: 0.75em;*/
-  margin-left: -1.5em;
-/*  width: 1.5em;*/
-}
-
-.question-body {
-/*  margin: 0 0 0 1.5em;*/
 }
 
 .current {
@@ -87,13 +63,26 @@ li.done .undo {
 
 .current-question {
 	background-color: #fff;
-/*	border-bottom: solid 1px #bbb;*/
-	padding: 1em 2em 1em 3em;
+	padding: 1em 2em 1em 5em;
 	position: relative;
 }
 
 .current-question h3 {
-/*  margin-left: 1.5em;*/
+  margin-bottom: 1em;
+}
+
+.question-number {
+  display: inline-block;
+  margin-left: -1.5em;
+  width: 1.5em;
+}
+
+.done .question-number {
+  margin-left: -1.7em;
+}
+
+.question-body {
+
 }
 
 .current-question ul {
@@ -115,9 +104,7 @@ li.done .undo {
 }
 
 .next-question {
-/*  margin: 1em 0 0 1.5em;*/
   margin: 1em 0 0 0;
-/*  padding: 0 2em;*/
 }
 
 .next-question input {
@@ -131,7 +118,7 @@ li.done .undo {
 
 .results {
 	background-color: #fff;
-	padding: 2em;
+	padding: 2em 3em;
 }
 
 /*
