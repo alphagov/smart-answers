@@ -17,7 +17,7 @@ en-GB:
       when_is_your_baby_due?: 
         title: When is your baby due?
         body: | 
-          To claim Statutory Maternity Pay you need to give your employer at least 28 days' notice.
+          (To claim Statutory Maternity Pay you need to give your employer at least 28 days' notice.)
       did_you_start_26_weeks_before_qualifying_week?: 
         title: Did you start your current job on or before %{twenty_six_weeks_before_qualifying_week}?
       how_much_are_you_paid_per_week?:
@@ -29,20 +29,26 @@ en-GB:
       will_you_still_be_employed_in_qualifying_week?:
         title: Will you still be in the same job on %{start_of_qualifying_week}?
       will_you_work_at_least_26_weeks_during_test_period?:
-        title: Will you have worked at least 26 weeks (full- or part-time) between %{start_of_test_period} and %{end_of_test_period}?
+        title: Will you have worked at least 26 weeks (full or part-time) between %{start_of_test_period} and %{end_of_test_period}?
       nothing_maybe_benefits: 
         title: Nothing, maybe benefits
-        body: fasdas
+        body: TODO - write something here
       you_qualify_for_statutory_maternity_pay: 
         title: You may qualify for Statutory Maternity Pay (SMP) from your employer.
         body: |
           You could get:
 
-          6 weeks at 90% of your average weekly earnings 
-
-          33 weeks at &pound;128.73 (or 90% of your average weekly earnings, whichever is lower)
+          * 6 weeks at 90% of your average weekly earnings 
+          * 33 weeks at &pound;128.73 (or 90% of your average weekly earnings, whichever is lower)
           
-          [Statutory Maternity Pay](# "Statutory Maternity Pay")
+          Read our guide to [Statutory Maternity Pay](# "Statutory Maternity Pay").
         
 
-      you_qualify_for_maternity_allowance: You qualify for maternity allowance
+      you_qualify_for_maternity_allowance: 
+        title: You may qualify for Maternity Allowance - a benefit paid by Jobcentre Plus.
+        body: |
+          You could get &pound;128.73/week or 90% of your average earnings, whichever is lower. You can get Maternity Allowance for up to 39 weeks.
+          
+          Read our guide to [Maternity Allowance](# "Maternity Allowance").
+          
+          
