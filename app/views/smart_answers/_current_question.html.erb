@@ -16,6 +16,10 @@
         <% end %>
 
         <%= render partial: "#{question.type}_question", locals: {question: question} %>
+        
+        <% if question.has_hint? %>
+          <p class="hint"><%= question.hint %></p>
+        <% end %>
       </div>
 
       <div class="next-question">
