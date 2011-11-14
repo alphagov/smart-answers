@@ -1,7 +1,11 @@
- $(document).ready(function() {
+function browserSupportsHtml5HistoryApi() {
+  return !! (history && history.replaceState && history.pushState);
+};
+
+$(document).ready(function() {
   var formSelector = ".current form";
   initializeHistory();
-	toggleSubmit();
+  toggleSubmit();
   
   // events
   // get new questions on submit
@@ -57,7 +61,7 @@
     
   // manage the URL
   function addToHistory(data) {
-    if (history && history.pushState) {
+    if (browserSupportsHtml5HistoryApi()) {
       history.pushState(data, data['title'], data['url']);
     }
     else {
@@ -69,6 +73,7 @@
   // update the content (i.e. plonk in the html fragment)
   function updateContent(fragment){
     $('.smart_answer section').html(fragment);
+<<<<<<< HEAD
 		//toggleSubmit();
   };
   
@@ -85,13 +90,35 @@
 		};*/
 	};
 	
+=======
+    toggleSubmit();
+  };
+
+  function toggleSubmit(){
+    $('input[type=submit]', this).attr('disabled', 'disabled');
+    if($($(formSelector)+ " select:selected", $(formSelector)+ " radio").is(':checked')){
+      $('input[type=submit]', this).removeAttr('disabled');
+    }
+    else{
+      $($(formSelector)+ " select", $(formSelector)+ " radio").live('change', 
+      function(){
+        $('input[type=submit]', this).removeAttr('disabled');
+      });
+    };
+  };
+
+>>>>>>> ae0d2aff2a30761c8a070b906b7694618ea5fcb0
   function initializeHistory(data) {
     // if hashed, means it's a non-pushstated URL that we need to generate the content for
     if (urlFromHashtag()) {
       reloadQuestions(urlFromHashtag(), "");
+    } else {
+      if (! browserSupportsHtml5HistoryApi() && window.location.pathname.match(/\/.*\//) ) {
+        addToHistory({url: window.location.pathname});
+      }
     }
     
-    if (history && history.replaceState) {
+    if (browserSupportsHtml5HistoryApi()) {
       data = {
         html_fragment: $('.smart_answer section').html(),
         title: "Question",

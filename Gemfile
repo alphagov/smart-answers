@@ -10,6 +10,11 @@ gem 'rails', '3.1.1'
 gem 'rails-i18n'
 gem 'json'
 gem 'jquery-rails'
+gem 'plek', '0.1.7'
+
+group :development do
+  gem 'ruby-debug19', :require => 'ruby-debug'
+end
 
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
@@ -24,21 +29,18 @@ else
 end
 
 group :test do
-  gem 'factory_girl_rails'
-  gem 'mocha', :require => false
-  gem "shoulda", "~> 2.11.3"
-  gem 'simplecov', '0.4.2'
-  gem 'simplecov-rcov'
-  gem 'webmock', :require => false
+  gem 'capybara', '~> 1.1.0'
   gem 'ci_reporter'
-  # gem 'test-unit'
+  gem 'factory_girl_rails'
   gem 'minitest', '2.7.0'
-  # Pretty printed test output
-  gem 'turn', :require => false
+  gem 'mocha', :require => false
+  gem 'selenium-webdriver'
+  gem "shoulda", "~> 2.11.3"
+  gem 'webmock', :require => false
 end
 
-group :development do
-  gem 'ruby-debug19', :require => 'ruby-debug'
+group :webkit do
+  gem 'capybara-webkit'
 end
 
 group :assets do

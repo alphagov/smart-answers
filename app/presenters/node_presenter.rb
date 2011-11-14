@@ -49,6 +49,16 @@ class NodePresenter
   rescue I18n::MissingTranslationData
     false
   end
+
+  def hint
+    translate!('hint')
+  rescue I18n::MissingTranslationData
+    nil
+  end
+  
+  def has_hint?
+    !! hint
+  end
   
   def options
     @node.options.map do |option|

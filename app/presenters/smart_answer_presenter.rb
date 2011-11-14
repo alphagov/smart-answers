@@ -53,6 +53,10 @@ class SmartAnswerPresenter
     @current_state ||= @flow.process(responses)
   end
   
+  def error
+    current_state.error
+  end
+  
   def collapsed_questions
     @flow.path(responses).map do |name| 
       presenter_for(@flow.node(name))
@@ -77,7 +81,7 @@ class SmartAnswerPresenter
   end
   
   def current_question_number
-    responses.size + 1
+    current_state.path.size + 1
   end
   
   def current_node
@@ -89,7 +93,7 @@ class SmartAnswerPresenter
     smart_answer_path(id: @params[:id], started: 'y', responses: previous_responses)
   end
   
-  def responses
+  def normalize_responses_param
     case params[:responses]
     when NilClass
       []
@@ -98,5 +102,9 @@ class SmartAnswerPresenter
     else
       params[:responses].to_s.split('/')
     end
+  end
+  
+  def responses
+    normalize_responses_param + (params[:response] ? [params[:response]] : [])
   end
 end

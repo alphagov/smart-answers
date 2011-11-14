@@ -4,34 +4,52 @@ en-GB:
       options: 
         "no": "No"
         "yes": "Yes"
-      title: Maternity benefits entitlement
-      subtitle: Subtitle goes here
       body: |
-        This is the body
-        
-        You can write anything you want using Govspeak.
-        
-      what_is_your_employment_status?: 
-        title: What is your employment status?
-        options:
-          employed: Employed
-          self_employed: Self employed
-          unemployed: Unemployed
+        $!You could get Statutory Maternity Pay (SMP) or Maternity Allowance, 
+        depending on how long you've been with your employer and how much
+        you earn. If you aren't working, you might be able to claim benefits
+        or a pregnancy grant.$!
+      
+        We'll ask you some questions about your employment and when your
+        baby's due. You'll then get an idea of what maternity pay or benefits
+        you could claim.
+
       when_is_your_baby_due?: 
         title: When is your baby due?
-        body: |
-          TODO: Maybe mention the need to give notice to the employer, 
-          and the minimum notice period?
-      did_you_start_your_job_on_or_before_start_of_test_period?: 
-        title: Did you start your job on or before %{start_of_test_period}?
+        body: | 
+        hint: To claim Statutory Maternity Pay you need to give your employer at least 28 days' notice.
+      did_you_start_26_weeks_before_qualifying_week?: 
+        title: Did you start your current job on or before %{twenty_six_weeks_before_qualifying_week}?
+      how_much_are_you_paid_per_week?:
+        title: How much are you paid per week?
+        hint: This is what you are paid before deductions
       will_you_be_employed_long_enough_to_qualify_for_maternity_allowance?:
-        title: Will you still be employed on %{earliest_job_can_finish_to_qualify_for_maternity_allowance} 
+        title: Will you still be in the same job on %{earliest_job_can_finish_to_qualify_for_maternity_allowance}?
       when_did_you_start_your_job?: 
         title: When did you start your job?
+      will_you_still_be_employed_in_qualifying_week?:
+        title: Will you still be in the same job on %{start_of_qualifying_week}?
       will_you_work_at_least_26_weeks_during_test_period?:
-        title: Will you work at least 26 weeks full- or part-time between %{start_of_test_period} and %{end_of_test_period}
+        title: Will you have worked at least 26 weeks (full or part-time) between %{start_of_test_period} and %{end_of_test_period}?
       nothing_maybe_benefits: 
         title: Nothing, maybe benefits
-        body: fasdas
-      you_qualify_for_statutory_maternity_pay: You qualify for statutory maternity pay
-      you_qualify_for_maternity_allowance: You qualify for maternity allowance
+        body: TODO - write something here
+      you_qualify_for_statutory_maternity_pay: 
+        title: You may qualify for Statutory Maternity Pay (SMP) from your employer.
+        body: |
+          You could get:
+
+          * 6 weeks at 90% of your average weekly earnings 
+          * 33 weeks at &pound;128.73 (or 90% of your average weekly earnings, whichever is lower)
+          
+          Read our guide to [Statutory Maternity Pay](# "Statutory Maternity Pay").
+        
+
+      you_qualify_for_maternity_allowance: 
+        title: You may qualify for Maternity Allowance - a benefit paid by Jobcentre Plus.
+        body: |
+          You could get &pound;128.73/week or 90% of your average earnings, whichever is lower. You can get Maternity Allowance for up to 39 weeks.
+          
+          Read our guide to [Maternity Allowance](# "Maternity Allowance").
+          
+          

@@ -39,4 +39,6 @@ SmartAnswers::Application.configure do
 
   # Allow pass debug_assets=true as a query parameter to load pages with unpackaged assets
   config.assets.allow_debugging = true
+  
+  config.middleware.use Slimmer::App, :template_path => "#{config.root}/public/templates"
 end

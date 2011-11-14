@@ -1,78 +1,68 @@
-multiple_choice :what_is_your_employment_status? do
-  save_input_as :employment_status
-  option :employed => :when_is_your_baby_due?
-  option :self_employed => :when_is_your_baby_due?
-  option :unemployed => :nothing_maybe_benefits
-end
-
 date_question :when_is_your_baby_due? do
   save_input_as :due_date
-  calculate :qualifying_week do
+  calculate :expected_week_of_childbirth do
     due_on = Date.parse(due_date)
-    start_of_expected_week_of_childbirth = due_on - due_on.wday
-    start = start_of_expected_week_of_childbirth - 15.weeks
-    start..start + 6.days
+    start = due_on - due_on.wday
+    start .. start + 6.days
+  end
+  calculate :qualifying_week do
+    start = expected_week_of_childbirth.first - 15.weeks
+    start .. start + 6.days
+  end
+  calculate :start_of_qualifying_week do
+    qualifying_week.first
   end
   calculate :start_of_test_period do
     qualifying_week.first - 51.weeks
   end
   calculate :end_of_test_period do
-    Date.parse(due_date)
+    expected_week_of_childbirth.first - 1.day
   end
-  next_node do
-    if employment_status == "employed"
-      :did_you_start_your_job_on_or_before_start_of_test_period?
+  calculate :twenty_six_weeks_before_qualifying_week do
+    qualifying_week.first - 26.weeks
+  end
+  next_node :are_you_employed?
+end
+
+multiple_choice :are_you_employed? do
+  option :yes => :did_you_start_26_weeks_before_qualifying_week?
+  option :no => :will_you_work_at_least_26_weeks_during_test_period?
+end
+
+multiple_choice :did_you_start_26_weeks_before_qualifying_week? do
+  option :yes
+  option :no
+  next_node do |response|
+    if response == 'yes'
+      # We assume that if they are employed, that means they are 
+      # employed *today* and if today is after the start of the qualifying
+      # week we can skip that question
+      if Date.today < qualifying_week.first
+        :will_you_still_be_employed_in_qualifying_week?
+      else
+        :how_much_are_you_paid_per_week?
+      end
     else
+      # If they weren't employed 26 weeks before qualifying week, there's no
+      # way they can qualify for SMP, so consider MA instead.
       :will_you_work_at_least_26_weeks_during_test_period?
     end
   end
 end
 
-multiple_choice :did_you_start_your_job_on_or_before_start_of_test_period? do
-  option :yes => :will_you_be_employed_long_enough_to_qualify_for_maternity_allowance?
-  option :no => :when_did_you_start_your_job?
-  calculate :job_start_date do
-    start_of_test_period
-  end
-  calculate :earliest_job_can_finish_to_qualify_for_maternity_allowance do
-    qualifying_week.first
-  end
-end
-
-date_question :when_did_you_start_your_job? do
-  save_input_as :job_start_date
-  
-  calculate :earliest_job_can_finish_to_qualify_for_maternity_allowance do
-    [qualifying_week.first, Date.parse(job_start_date) + 26.weeks].max
-  end
-  
-  next_node do |job_start_date|
-    if Date.parse(job_start_date) < (Date.parse(due_date) - 26.weeks)
-      :maybe_maternity_allowance
-    else
-      :will_you_be_employed_long_enough_to_qualify_for_maternity_allowance?
-    end
-  end
-end
-
-multiple_choice :will_you_be_employed_long_enough_to_qualify_for_maternity_allowance? do
+multiple_choice :will_you_still_be_employed_in_qualifying_week? do
   option :yes => :how_much_are_you_paid_per_week?
   option :no => :will_you_work_at_least_26_weeks_during_test_period?
 end
 
-# Note this is only reached for 'employed' people
+# Note this is only reached for 'employed' people who 
+# have worked 26 weeks for the same employer
 money_question :how_much_are_you_paid_per_week? do
   next_node do |weekly_salary|
     if weekly_salary >= 102
       :you_qualify_for_statutory_maternity_pay
     elsif weekly_salary >= 30
-      job_start = (job_start_date && Date.parse(job_start_date))
-      job_end = earliest_job_can_finish_to_qualify_for_maternity_allowance
-      if job_end - job_start >= 26 * 7
-        :you_qualify_for_maternity_allowance
-      else
-        :will_you_work_at_least_26_weeks_during_test_period?
-      end
+      :you_qualify_for_maternity_allowance
     else
       :nothing_maybe_benefits
     end
@@ -85,6 +75,7 @@ multiple_choice :will_you_work_at_least_26_weeks_during_test_period? do
   next_node do |input|
     if input == 'yes'
       if weekly_salary
+        raise "Problem" unless weekly_salary >= 30
         :you_qualify_for_maternity_allowance
       else
         :how_much_do_you_earn_per_week?

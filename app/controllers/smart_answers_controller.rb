@@ -34,19 +34,17 @@ class SmartAnswersController < ApplicationController
       smart_answer = flow_registry.find(@name.to_s)
       @presenter = SmartAnswerPresenter.new(params, smart_answer)
     end
-    
+
     def flow_registry
       @flow_registry ||= SmartAnswer::FlowRegistry.new
     end
     
     def redirect_response_to_canonical_url
-      if params[:response]
-        responses = @presenter.responses.dup
-        responses << params[:response]
+      if params[:response] && ! @presenter.current_state.error
         redirect_to action: :show, 
           id: @name, 
           started: 'y', 
-          responses: @presenter.flow.normalize_responses(responses)
+          responses: @presenter.current_state.responses
       end
     end
     

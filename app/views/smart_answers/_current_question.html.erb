@@ -2,16 +2,26 @@
   <%= form_tag smart_answer_path(params.reject {|k,v| k == 'format'}) %>
     <div class="current-question">
       <h3>
-        <span class="question-number"><%= @presenter.current_question_number %></span>
-        <%= question.title %>
+        <span class="question-number"><%= @presenter.current_question_number %> </span><%= question.title %>
       </h3>
+      <div class="question-body">
+        <% if question.has_body? %>
+          <%= question.body %>
+        <% end %>
 
-      <% if question.has_body? %>
-        <%= question.body %>
-      <% end %>
+        <% if @presenter.error %>
+          <div class="error">
+            <%= @presenter.error %>
+          </div>
+        <% end %>
 
-      <%= render partial: "#{question.type}_question", locals: {question: question} %>
-      <!-- <div class="arrow-down"></div> -->
+        <%= render partial: "#{question.type}_question", locals: {question: question} %>
+        
+        <% if question.has_hint? %>
+          <p class="hint"><%= question.hint %></p>
+        <% end %>
+      </div>
+
       <div class="next-question">
         <input type="submit" value="Next step &rarr;">
       </div>

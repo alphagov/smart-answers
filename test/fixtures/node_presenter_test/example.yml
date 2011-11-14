@@ -7,6 +7,7 @@ en-GB:
         title: Foo
         subtitle: This is the subtitle
         body: The body copy
+        hint: Hint for foo
         options:
           "yes": Oui
           "no": Non
