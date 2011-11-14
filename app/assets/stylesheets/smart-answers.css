@@ -118,7 +118,10 @@ li.done .undo {
 
 .results {
 	background-color: #fff;
-	padding: 2em 3em;
+	float: none;
+	margin-right: 0;
+	min-height: 0;
+/*  padding: 2em 3em;*/
 }
 
 /*
