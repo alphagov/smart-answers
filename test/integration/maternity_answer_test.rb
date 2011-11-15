@@ -9,7 +9,7 @@ class MaternityAnswerTest < ActionDispatch::IntegrationTest
       actual_outcome = page.find('.results').text
       case expected_outcome
       when :nothing
-        assert_match /Nothing, maybe benefits/, actual_outcome
+        assert_match /You don't qualify for maternity pay/, actual_outcome
       when :maternity_allowance
         assert_match /qualify.*maternity allowance/i, actual_outcome
       when :statutory_maternity_pay
@@ -49,7 +49,7 @@ class MaternityAnswerTest < ActionDispatch::IntegrationTest
     
     should "see landing page" do
       assert page.has_no_selector?("meta[name=robots][content=noindex]"), "Should not have meta noindex"
-      assert_match /Maternity/, page.find("#wrapper h1").text
+      assert_match /maternity/i, page.find("#wrapper h1").text
     end
 
     should "have meta robots=noindex on first question page" do
