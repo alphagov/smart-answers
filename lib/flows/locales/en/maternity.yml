@@ -20,7 +20,7 @@ en-GB:
 
       when_is_your_baby_due?: 
         title: When is your baby due?
-        are_you_employed?:
+      are_you_employed?:
         hint: You have a contract of employment to work a fixed number of hours in a set period of time, eg 40 hours per week.
       did_you_start_26_weeks_before_qualifying_week?: 
         title: Did you start your current job on or before %{twenty_six_weeks_before_qualifying_week}?
