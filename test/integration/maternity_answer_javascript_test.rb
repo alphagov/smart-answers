@@ -83,23 +83,4 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
     should_support_browser_back_and_forward
     should_not_reload_after_accepting_responses    
   end
-  
-  context "HTML5 history api is not supported" do
-    setup do
-      visit "/maternity"
-      click_on "Get started"
-      disable_history_api_support
-      @due_date = Date.today + 30.weeks
-    end
-    
-    should "use hash tags for browser history" do
-      respond_with @due_date
-      wait_until { has_question? "...employed...?" }
-      assert_equal "#/maternity/y/#{@due_date.strftime('%Y-%m-%d')}", evaluate_script('window.location.hash')
-      assert_equal "/maternity/y", current_path
-    end
-    
-    should_support_browser_back_and_forward
-    should_not_reload_after_accepting_responses
-  end
 end
