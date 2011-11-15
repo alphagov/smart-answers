@@ -1,28 +1,34 @@
 en-GB:
   flow:
     maternity:
+      title:
+        Can you get maternity pay?
       options: 
         "no": "No"
         "yes": "Yes"
       body: |
-        $!You could get Statutory Maternity Pay (SMP) or Maternity Allowance, 
+        $!You could get Statutory Maternity Pay or Maternity Allowance, 
         depending on how long you've been with your employer and how much
         you earn. If you aren't working, you might be able to claim benefits
-        or a pregnancy grant.$!
-      
-        We'll ask you some questions about your employment and when your
-        baby's due. You'll then get an idea of what maternity pay or benefits
-        you could claim.
+        or a Sure Start Maternity Grant.$!
+
+        We'll ask you some questions about your employment and your
+        baby's due date. You'll then get an idea of what maternity pay or benefits you could claim. 
+        
+        Click 'Get started' to begin.
+        
 
       when_is_your_baby_due?: 
         title: When is your baby due?
-        body: | 
-        hint: To claim Statutory Maternity Pay you need to give your employer at least 28 days' notice.
+        are_you_employed?:
+        hint: You have a contract of employment to work a fixed number of hours in a set period of time, eg 40 hours per week.
       did_you_start_26_weeks_before_qualifying_week?: 
         title: Did you start your current job on or before %{twenty_six_weeks_before_qualifying_week}?
       how_much_are_you_paid_per_week?:
         title: How much are you paid per week?
-        hint: This is what you are paid before deductions
+        hint: Your total pay before any deductions, eg tax.
+      how_much_do_you_earn_per_week?:
+        hint: Your total earnings before any deductions, eg tax.      
       will_you_be_employed_long_enough_to_qualify_for_maternity_allowance?:
         title: Will you still be in the same job on %{earliest_job_can_finish_to_qualify_for_maternity_allowance}?
       when_did_you_start_your_job?: 
@@ -30,11 +36,20 @@ en-GB:
       will_you_still_be_employed_in_qualifying_week?:
         title: Will you still be in the same job on %{start_of_qualifying_week}?
       will_you_work_at_least_26_weeks_during_test_period?:
-        title: Will you have worked at least 26 weeks (full or part-time) between %{start_of_test_period} and %{end_of_test_period}?
+        title: Will you have worked at least 26 weeks between %{start_of_test_period} and %{end_of_test_period}?
+        hint: This can be full or part weeks, and the 26 weeks don't have to be in a row.
       nothing_maybe_benefits: 
-        title: You don't qualify for maternity pay.
+        title: You don't qualify for maternity pay, but you could get other benefits.
         body: |
-          You may qualify for other benefits, eg [Employment Support Allowance](# "Employment Support Allowance") or [Income Support](# "Income Support"), or a [Sure Start Maternity Grant](# "Sure Start Maternity Grant").
+          You could get [Employment and Support Allowance (ESA)](# "Employment and Support Allowance") for 6 weeks before the week your baby is due, up to 14 days after your baby is born. 
+
+          If you're already claiming [Jobseeker’s Allowance](# "Jobseeer's Allowance"), you can carry on claiming, but only if you're able to work.
+
+          You could claim [Income Support](# "Income Support") from 11 weeks before your due date until 15 weeks after your baby is born. You could also claim at any time during your pregnancy if your pregnancy means you can't work.
+
+          If this is your first baby, you could get a [Sure Start Maternity Grant](# "Sure Start Maternity Grant").
+          
+          If you're under 18 you may qualify for the [Healthy Start scheme](# "Healthy Start scheme"). 
      
       you_qualify_for_statutory_maternity_pay: 
         title: You may qualify for Statutory Maternity Pay (SMP) from your employer.
@@ -48,9 +63,13 @@ en-GB:
         
 
       you_qualify_for_maternity_allowance: 
-        title: You may qualify for Maternity Allowance - a benefit paid by Jobcentre Plus.
+        title: You may qualify for Maternity Allowance. 
         body: |
-          You could get &pound;128.73/week or 90% of your average earnings, whichever is lower. You can get Maternity Allowance for up to 39 weeks.
+          Maternity Allowance is a benefit paid by Jobcentre Plus.
+          
+          You could get &pound;128.73/week or 90% of your average earnings, whichever is lower. 
+          
+          You can get Maternity Allowance for up to 39 weeks.
           
           Read our guide to [Maternity Allowance](# "Maternity Allowance").
           
