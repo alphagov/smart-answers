@@ -74,12 +74,6 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
       @due_date = Date.today + 30.weeks
     end
         
-    should "use url for browser history" do
-      respond_with @due_date
-      wait_until { has_question? "...employed...?" }
-      assert_equal "/maternity/y/#{@due_date.strftime('%Y-%m-%d')}", current_path
-    end
-
     should_support_browser_back_and_forward
     should_not_reload_after_accepting_responses    
   end
