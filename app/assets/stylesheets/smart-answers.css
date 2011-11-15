@@ -128,7 +128,10 @@ li.done .undo {
 }
 
 .next-steps {
-  background-color: #ffcccc;
+  background-color: #ffffcc;
+  border: solid 1px #ddd;
+  margin: 1.5em 0 0 0;
+  padding: 1em;
 }
 
 /*
