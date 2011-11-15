@@ -4,5 +4,10 @@
     <% if @presenter.current_node.has_body? %>
       <%= @presenter.current_node.body %>
     <% end %>
+    <% if @presenter.current_node.has_next_steps? %>
+      <div class="next_steps">
+        <%= @presenter.current_node.next_steps %>
+      </div>
+    <% end %>
   </div>
 </article>

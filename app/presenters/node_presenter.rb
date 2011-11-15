@@ -62,6 +62,16 @@ class NodePresenter
     !! hint
   end
   
+  def next_steps
+    Govspeak::Document.new(translate!('next_steps')).to_html.html_safe
+  rescue I18n::MissingTranslationData
+    nil
+  end
+  
+  def has_next_steps?
+    !! next_steps
+  end
+  
   def options
     @node.options.map do |option|
       label = begin
