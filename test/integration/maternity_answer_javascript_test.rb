@@ -38,10 +38,11 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
     setup do
       visit "/maternity"
       click_on "Get started"
+      @due_date = Date.today + 30.weeks
     end
     
     should_not_reload_after "giving due date" do
-      respond_with Date.today + 30.weeks
+      respond_with @due_date
     end
     
     should "use url for browser history" do
