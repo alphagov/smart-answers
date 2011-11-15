@@ -123,15 +123,28 @@ li.done .undo {
 	min-height: 0;
 }
 
-.results h2:first-child {
+.results h2.result-title {
   margin-top: 0;
+}
+
+.result-info {
+  float: left;
+  width: 60%;
 }
 
 .next-steps {
   background-color: #ffffcc;
   border: solid 1px #ddd;
-  margin: 1.5em 0 0 0;
-  padding: 1em;
+  float: right;
+  margin: 0 0 2.5em 0;
+  padding: 1em 1.5em;
+  width: 30%;
+}
+
+.next-steps h3 {
+  font-style: none;
+  margin-bottom: 0.75em;
+  margin-top: 0.25em;
 }
 
 /*
