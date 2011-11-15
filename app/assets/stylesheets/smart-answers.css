@@ -127,6 +127,10 @@ li.done .undo {
   margin-top: 0;
 }
 
+.next-steps {
+  background-color: #ffcccc;
+}
+
 /*
   errors
 */
