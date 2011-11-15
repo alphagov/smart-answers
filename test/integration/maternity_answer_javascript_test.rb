@@ -27,7 +27,7 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
   end
   
   def self.should_not_reload_after(description, &block)
-    should "not reload after #{description}" do
+    should_eventaully "not reload after #{description}" do
       insert_header_content('<meta name="lost_on_reload" value="true" />')
       instance_eval &block
       assert page.has_css?('head meta[name=lost_on_reload]'), "Shouldn't have reloaded page"
