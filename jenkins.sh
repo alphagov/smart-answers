@@ -4,8 +4,8 @@ bundle install --path "/home/jenkins/bundles/${JOB_NAME}" --deployment --without
 
 # DELETE STATIC SYMLINKS AND RECONNECT...
 for dir in images javascripts templates stylesheets; do
-  rm /var/lib/jenkins/jobs/Smart_Answers/workspace/public/$dir
-  ln -s /var/lib/jenkins/jobs/Static/workspace/public/$dir /var/lib/jenkins/jobs/Smart_Answers/workspace/public/$dir
+  rm public/$dir
+  ln -s ../../Static/workspace/public/$dir public/$dir
 done
 
 export DISPLAY=:99
