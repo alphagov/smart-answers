@@ -41,7 +41,7 @@ ol.done-questions {
 li.done h3 {
   display: inline;
   font-size: 1em;
-  margin: 0;
+  margin: 0 0.5em 0 0;
 }
 
 li.done .answer {
@@ -49,7 +49,7 @@ li.done .answer {
   border: dashed 1px #bbb;
   display: inline;
   padding: 0.1em 0.3em;
-  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 li.done .undo {
@@ -121,6 +121,10 @@ li.done .undo {
 	float: none;
 	margin-right: 0;
 	min-height: 0;
+}
+
+.results h2:first-child {
+  margin-top: 0;
 }
 
 /*
