@@ -3,9 +3,9 @@ source '/usr/local/lib/rvm'
 bundle install --path "/home/jenkins/bundles/${JOB_NAME}" --deployment --without=development
 
 # DELETE STATIC SYMLINKS AND RECONNECT...
-for dir in images javascripts templates stylesheets; do
-  rm public/$dir
-  ln -s ../../Static/workspace/public/$dir public/$dir
+for d in images javascripts templates stylesheets; do
+  rm public/$d
+  ln -s ../../Static/public/$d public/
 done
 
 export DISPLAY=:99
