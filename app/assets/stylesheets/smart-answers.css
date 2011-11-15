@@ -124,11 +124,12 @@ li.done .undo {
 }
 
 .results h2.result-title {
-  margin-top: 0;
+  margin: 0;
 }
 
 .result-info {
   float: left;
+  margin: 0 0 2.5em 0;
   width: 60%;
 }
 
