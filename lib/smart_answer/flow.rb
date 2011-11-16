@@ -66,7 +66,7 @@ module SmartAnswer
         return state if state.error
         begin
           node(state.current_node).transition(state, response)
-        rescue InvalidResponse => e
+        rescue ArgumentError, InvalidResponse => e
           state.clone.tap do |new_state| 
             new_state.error = e.message
             new_state.freeze
