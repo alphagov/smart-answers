@@ -1,9 +1,9 @@
 <div class="step current" data-step="employment-status">
   <%= form_tag smart_answer_path(params.reject {|k,v| k == 'format'}) %>
     <div class="current-question" id="current-question">
-      <h3>
+      <h2>
         <span class="question-number"><%= @presenter.current_question_number %> </span><%= question.title %>
-      </h3>
+      </h2>
       <div class="question-body <%= @presenter.error && 'error' %>">
         <% if question.has_body? %>
           <%= question.body %>
