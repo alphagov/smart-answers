@@ -43,7 +43,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     should "display first question after starting" do
       get :show, id: 'sample', started: 'y'
-      assert_select ".step.current h3", /1\s+Do you like chocolate\?/
+      assert_select ".step.current h2", /1\s+Do you like chocolate\?/
       assert_select "input[name=response][value=yes]"
       assert_select "input[name=response][value=no]"
     end
@@ -68,7 +68,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
       
       should "display question" do
         get :show, id: 'sample', started: 'y'
-        assert_select ".step.current h3", /1\s+How many green bottles\?/
+        assert_select ".step.current h2", /1\s+How many green bottles\?/
         assert_select "input[type=text][name=response]"
       end
       
@@ -96,13 +96,13 @@ class SmartAnswersControllerTest < ActionController::TestCase
       
       should "display question" do
         get :show, id: 'sample', started: 'y'
-        assert_select ".step.current h3", /1\s+How much\?/
+        assert_select ".step.current h2", /1\s+How much\?/
         assert_select "input[type=text][name=response]"
       end
 
       should "show a validation error if invalid input" do
         get :show, id: 'sample', started: 'y', response: 'bad_number'
-        assert_select ".step.current h3", /1\s+How much\?/
+        assert_select ".step.current h2", /1\s+How much\?/
         assert_select "body", /Sorry, I couldn't understand that/
       end
 
@@ -119,20 +119,20 @@ class SmartAnswersControllerTest < ActionController::TestCase
       
       should "display question" do
         get :show, id: 'sample', started: 'y'
-        assert_select ".step.current h3", /1\s+How much\?/
+        assert_select ".step.current h2", /1\s+How much\?/
         assert_select "input[type=text][name='response[amount]']"
         assert_select "select[name='response[period]']"
       end
 
       should "show a validation error if invalid amount" do
         get :show, id: 'sample', started: 'y', response: {amount: 'bad_number'}
-        assert_select ".step.current h3", /1\s+How much\?/
+        assert_select ".step.current h2", /1\s+How much\?/
         assert_select ".error", /Sorry, I couldn't understand that/
       end
 
       should "show a validation error if invalid period" do
         get :show, id: 'sample', started: 'y', response: {amount: '1', period: 'bad_period'}
-        assert_select ".step.current h3", /1\s+How much\?/
+        assert_select ".step.current h2", /1\s+How much\?/
         assert_select ".error", /Sorry, I couldn't understand that/
       end
 
