@@ -8,7 +8,7 @@ Flows are stored in lib/flows/*.rb. Corresponding text is in lib/flows/locales/*
 Issues/todos
 ============
 
-The way that values are presented is badly factored. Values need to be formatted for presentation in two places:- (i) when displaying a collapsed question; (ii) when interpolating values into question text. 
+The way that values are presented is badly factored. Values need to be formatted for presentation in two places:- (i) when displaying a collapsed question; (ii) when interpolating values into question text.
 
 Values can come from two places:- (i) directly from a response (save_input_as); (ii) via a calculation.
 
