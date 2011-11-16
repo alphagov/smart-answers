@@ -7,17 +7,12 @@ en-GB:
         "no": "No"
         "yes": "Yes"
       body: |
-        $!You could get Statutory Maternity Pay or Maternity Allowance, 
-        depending on how long you've been with your employer and how much
-        you earn. If you aren't working, you might be able to claim benefits
-        or a Sure Start Maternity Grant.$!
-
+       
         We'll ask you some questions about your employment and your
-        baby's due date. You'll then get an idea of what maternity pay or benefits you could claim. 
+        baby's due date. 
         
-        Click 'Get started' to begin.
-        
-
+        You'll then get an idea of which of the different maternity pay schemes or benefits you could claim. 
+      
       when_is_your_baby_due?: 
         title: When is your baby due?
       are_you_employed?:
