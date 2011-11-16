@@ -70,13 +70,7 @@ $(document).ready(function() {
     
   // manage the URL
   function addToHistory(data) {
-    if (browserSupportsHtml5HistoryApi()) {
-      history.pushState(data, data['title'], data['url']);
-    }
-    else {
-      window.location.hash = data['url'];
-      $(formSelector).attr("action", data['url']);    
-    };
+		history.pushState(data, data['title'], data['url']);
   };
 
   // update the content (i.e. plonk in the html fragment)
@@ -90,14 +84,13 @@ $(document).ready(function() {
 		if (! browserSupportsHtml5HistoryApi() && window.location.pathname.match(/\/.*\//) ) {
 			addToHistory({url: window.location.pathname});
 		}
-    
-    if (browserSupportsHtml5HistoryApi()) {
-      data = {
-        html_fragment: $('.smart_answer section').html(),
-        title: "Question",
-        url: window.location.toString()
-      };
-      history.replaceState(data, data['title'], data['url']);
-    }
-  }
+
+		data = {
+			html_fragment: $('.smart_answer section').html(),
+			title: "Question",
+			url: window.location.toString()
+		};
+		history.replaceState(data, data['title'], data['url']);
+  };
+
 });
