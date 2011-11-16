@@ -1,8 +1,5 @@
 date_question :when_is_your_baby_due? do
   save_input_as :due_date
-  default {
-    Date.today + 6.months
-  }
   calculate :expected_week_of_childbirth do
     due_on = Date.parse(due_date)
     start = due_on - due_on.wday
@@ -37,7 +34,7 @@ multiple_choice :did_you_start_26_weeks_before_qualifying_week? do
   option :no
   next_node do |response|
     if response == 'yes'
-      # We assume that if they are employed, that means they are 
+      # We assume that if they are employed, that means they are
       # employed *today* and if today is after the start of the qualifying
       # week we can skip that question
       if Date.today < qualifying_week.first
@@ -58,7 +55,7 @@ multiple_choice :will_you_still_be_employed_in_qualifying_week? do
   option :no => :will_you_work_at_least_26_weeks_during_test_period?
 end
 
-# Note this is only reached for 'employed' people who 
+# Note this is only reached for 'employed' people who
 # have worked 26 weeks for the same employer
 salary_question :how_much_are_you_paid? do
   next_node do |salary|

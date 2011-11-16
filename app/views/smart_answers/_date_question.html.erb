@@ -1,3 +1,11 @@
-<%= select_date(question.default, prefix: 'response', 
-                :order => [:day, :month, :year],
-                :prompt => {:day => '- day -', :month => '- month -', :year => '- year -'}) %>
+<fieldset>
+  <label>Day
+    <%= select_day question.default, prefix: 'response', :prompt => '' %>
+  </label>
+  <label>Month
+    <%= select_month question.default, prefix: 'response', prompt: '' %>
+  </label>
+  <label>Year
+    <%= select_year question.default, prefix: 'response', prompt: '' %>
+  </label>
+</fieldset>
