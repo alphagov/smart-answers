@@ -33,15 +33,15 @@ end
 module SmartAnswerTestHelper
   def expect_question(question_substring)
     begin
-      actual_question = page.find('.current-question h3')
+      actual_question = page.find('.current-question h2')
       assert_match question_regexp(question_substring), actual_question.text
     rescue Capybara::ElementNotFound
-      assert false, "Expected question '#{question_substring}', but no question found"
+      raise "Expected question '#{question_substring}', but no question found"
     end
   end
 
   def has_question?(question_substring)
-    actual_question = page.find('.current-question h3')
+    actual_question = page.find('.current-question h2')
     !! question_regexp(question_substring).match(actual_question.text)
   end
   
