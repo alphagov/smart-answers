@@ -42,16 +42,28 @@ en-GB:
       nothing_maybe_benefits: 
         title: You don't qualify for maternity pay, but you could get other benefits.
         body: |
-          You could get [Employment and Support Allowance (ESA)](# "Employment and Support Allowance") for 6 weeks before the week your baby is due, up to 14 days after your baby is born. 
+          You could get [Employment and Support Allowance](# "Employment and Support Allowance") for 6 weeks before the week your baby is due, up to 14 days after your baby is born. 
 
-          If you're already claiming [Jobseeker’s Allowance](# "Jobseeer's Allowance"), you can carry on claiming, but only if you're able to work.
+          If you're already claiming [Jobseeker’s Allowance](# "Jobseeker's Allowance"), you can carry on claiming, but only if you're able to work.
 
           You could claim [Income Support](# "Income Support") from 11 weeks before your due date until 15 weeks after your baby is born. You could also claim at any time during your pregnancy if your pregnancy means you can't work.
 
           If this is your first baby, you could get a [Sure Start Maternity Grant](# "Sure Start Maternity Grant").
           
           If you're under 18 you may qualify for the [Healthy Start scheme](# "Healthy Start scheme"). 
-     
+          
+        next_steps: |
+          
+          Read our guides to:
+            
+            * [Employment and Support Allowance](# "Employment and Support Allowance")
+            * [Jobseeker's Allowance](# "Jobseeker's Allowance")
+            * [Income Support](# "Income Support")
+            * [Sure Start Maternity Grant](# "Sure Start Maternity Grant")
+            * [Healthy Start Scheme](# "Healthy Start Scheme") 
+            * [Maternity Leave](# "Maternity Leave")
+          
+              
       you_qualify_for_statutory_maternity_pay: 
         title: You may qualify for Statutory Maternity Pay (SMP) from your employer.
         body: |
@@ -78,6 +90,9 @@ en-GB:
           You could get &pound;128.73/week or 90% of your average earnings, whichever is lower. 
           
           You can get Maternity Allowance for up to 39 weeks.
+        next_steps: |
           
-          Read our guide to [Maternity Allowance](# "Maternity Allowance").
+          * read our guide to [Maternity Allowance](# "Maternity Allowance").
+          * read our guide to [Maternity Leave](# "Maternity Leave")
+          * plan your maternity leave and pay period using our [Maternity Planner](# "Maternity Planner")
           
