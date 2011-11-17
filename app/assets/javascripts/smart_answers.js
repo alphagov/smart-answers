@@ -6,7 +6,6 @@ $(document).ready(function() {
 	if(browserSupportsHtml5HistoryApi()){
   		var formSelector = ".current form";
   		initializeHistory();
-  		toggleSubmit();
 			
 			// events
 		  // get new questions on submit
