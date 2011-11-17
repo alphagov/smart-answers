@@ -37,6 +37,9 @@ group :test do
   gem 'selenium-webdriver'
   gem "shoulda", "~> 2.11.3"
   gem 'webmock', :require => false
+end
+
+group :webkit do
   gem 'capybara-webkit'
 end
 
