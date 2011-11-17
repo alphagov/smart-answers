@@ -129,6 +129,11 @@ class FlowTest < ActiveSupport::TestCase
       should "truncate path after error" do
         assert_equal [:do_you_like_chocolate?], @flow.path(%w{no bad})
       end
+      
+      should_eventually "permit custom error messages per question" do
+        assert_equal :do_you_like_this_custom_thing?, @flow.process(%w{no bad}).current_node
+        assert_equal "Custom error message", @flow.process(%w{no bad}).error
+      end
     end
     
     should "calculate the path traversed by a series of responses" do

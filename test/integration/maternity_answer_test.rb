@@ -128,7 +128,7 @@ class MaternityAnswerTest < ActionDispatch::IntegrationTest
           context "entering a non-number for weekly pay" do
             setup { respond_with amount: "blah", period: "week" }
             should "see a validation error" do
-              assert page.has_content? "Sorry, I couldn't understand that number. Please try again."
+              assert page.has_css? "div.error"
               assert_equal "blah", page.find("input[name='response[amount]']").value
               expect_question "How much are you paid?"
             end

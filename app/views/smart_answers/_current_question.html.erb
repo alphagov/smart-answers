@@ -1,9 +1,9 @@
 <div class="step current" data-step="employment-status">
-  <%= form_tag smart_answer_path(params.reject {|k,v| k == 'format'}) %>
+  <%= form_tag smart_answer_path(params.slice(:responses, :id, :started)), :authenticity_token => false %>
     <div class="current-question" id="current-question">
-      <h3>
+      <h2>
         <span class="question-number"><%= @presenter.current_question_number %> </span><%= question.title %>
-      </h3>
+      </h2>
       <div class="question-body <%= @presenter.error && 'error' %>">
         <% if question.has_body? %>
           <%= question.body %>
@@ -15,8 +15,8 @@
           </div>
         <% end %>
 
-        <%= render partial: "#{question.partial_template_name}", locals: {question: question} %>
-        
+        <%= render partial: question.partial_template_name, locals: { question: question } %>
+
         <% if question.has_hint? %>
           <p class="hint"><%= question.hint %></p>
         <% end %>

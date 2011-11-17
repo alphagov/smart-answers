@@ -18,6 +18,7 @@
 .hint {
   color: #666;
   display: block;
+  margin-bottom: 0;
 }
 
 ol.done-questions {
@@ -67,7 +68,7 @@ li.done .undo {
 	position: relative;
 }
 
-.current-question h3 {
+.current-question h2 {
   margin-bottom: 0.75em;
 }
 
@@ -155,7 +156,7 @@ li.done .undo {
 .error {
   background: #FFE5EC;
   color: #F00;
-  margin: -0.5em 0 -0.5em -0.5em;
+  margin: 0 0 -0.5em -0.5em;
   padding: 0.5em;
 }
 

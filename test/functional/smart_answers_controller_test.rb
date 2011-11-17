@@ -43,7 +43,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     should "display first question after starting" do
       get :show, id: 'sample', started: 'y'
-      assert_select ".step.current h3", /1\s+Do you like chocolate\?/
+      assert_select ".step.current h2", /1\s+Do you like chocolate\?/
       assert_select "input[name=response][value=yes]"
       assert_select "input[name=response][value=no]"
     end
@@ -68,7 +68,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
       
       should "display question" do
         get :show, id: 'sample', started: 'y'
-        assert_select ".step.current h3", /1\s+How many green bottles\?/
+        assert_select ".step.current h2", /1\s+How many green bottles\?/
         assert_select "input[type=text][name=response]"
       end
       
@@ -96,14 +96,14 @@ class SmartAnswersControllerTest < ActionController::TestCase
       
       should "display question" do
         get :show, id: 'sample', started: 'y'
-        assert_select ".step.current h3", /1\s+How much\?/
+        assert_select ".step.current h2", /1\s+How much\?/
         assert_select "input[type=text][name=response]"
       end
 
       should "show a validation error if invalid input" do
         get :show, id: 'sample', started: 'y', response: 'bad_number'
-        assert_select ".step.current h3", /1\s+How much\?/
-        assert_select "body", /Sorry, I couldn't understand that/
+        assert_select ".step.current h2", /1\s+How much\?/
+        assert_select "body", /Please answer this question/
       end
 
     end
@@ -111,6 +111,8 @@ class SmartAnswersControllerTest < ActionController::TestCase
     context "salary question" do
       setup do
         @flow = SmartAnswer::Flow.new do
+          name :sample
+          
           salary_question(:how_much?) { next_node :done }
           outcome :done
         end
@@ -119,21 +121,44 @@ class SmartAnswersControllerTest < ActionController::TestCase
       
       should "display question" do
         get :show, id: 'sample', started: 'y'
-        assert_select ".step.current h3", /1\s+How much\?/
+        assert_select ".step.current h2", /1\s+How much\?/
         assert_select "input[type=text][name='response[amount]']"
         assert_select "select[name='response[period]']"
       end
 
-      should "show a validation error if invalid amount" do
-        get :show, id: 'sample', started: 'y', response: {amount: 'bad_number'}
-        assert_select ".step.current h3", /1\s+How much\?/
-        assert_select ".error", /Sorry, I couldn't understand that/
+      context "error message overridden in translation file" do
+        setup do
+          @old_load_path = I18n.config.load_path.dup
+          @example_translation_file = 
+            File.expand_path('../../fixtures/smart_answers_controller_test/sample.yml', __FILE__)
+          I18n.config.load_path.unshift(@example_translation_file)
+          I18n.reload!
+        end
+
+        teardown do
+          I18n.config.load_path = @old_load_path
+          I18n.reload!
+        end
+        
+        should "show a validation error if invalid amount" do
+          get :show, id: 'sample', started: 'y', response: {amount: 'bad_number'}
+          assert_select ".step.current h2", /1\s+How much\?/
+          assert_select ".error", /No, really, how much\?/
+        end
+      end
+
+      context "error message not overridden in translation file" do
+        should "show a generic message" do
+          get :show, id: 'sample', started: 'y', response: {amount: 'bad_number'}
+          assert_select ".step.current h2", /1\s+How much\?/
+          assert_select ".error", /Please answer this question./
+        end
       end
 
       should "show a validation error if invalid period" do
         get :show, id: 'sample', started: 'y', response: {amount: '1', period: 'bad_period'}
-        assert_select ".step.current h3", /1\s+How much\?/
-        assert_select ".error", /Sorry, I couldn't understand that/
+        assert_select ".step.current h2", /1\s+How much\?/
+        assert_select ".error", /Please answer this question./
       end
 
       should "accept responses as GET params and redirect to canonical url" do
