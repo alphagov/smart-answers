@@ -54,7 +54,9 @@ class SmartAnswerPresenter
   end
 
   def error
-    current_state.error
+    if current_state.error.present? 
+      current_node.error_message || I18n.translate('flow.defaults.error_message')
+    end
   end
 
   def collapsed_questions

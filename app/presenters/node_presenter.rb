@@ -42,6 +42,16 @@ class NodePresenter
     @node.name.to_s.humanize
   end
   
+  def error_message
+    translate!('error_message')
+  rescue I18n::MissingTranslationData
+    nil
+  end
+  
+  def has_error_message?
+    !! error_message
+  end
+  
   def body
     Govspeak::Document.new(translate!('body')).to_html.html_safe
   end

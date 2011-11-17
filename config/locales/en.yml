@@ -5,3 +5,6 @@ en-GB:
   date:
     formats:
       long: "%e %B %Y"
+  flow:
+    defaults:
+      error_message: Please answer this question.
