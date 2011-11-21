@@ -28,14 +28,20 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
   end
 
   def self.should_not_reload_after(description, &block)
-    should_eventually "not reload after #{description}" do
+    should "not reload after #{description}" do
       insert_header_content('<meta name="lost_on_reload" value="true" />')
       instance_eval &block
       assert page.has_css?('head meta[name=lost_on_reload]'), "Shouldn't have reloaded page"
     end
   end
 
-  def self.should_not_reload_after_accepting_responses
+  context "HTML5 Pushstate/Ajax behaviour" do
+    setup do
+      visit "/maternity"
+      click_on "Get started"
+      @due_date = Date.today + 30.weeks
+    end
+    
     should_not_reload_after "giving due date" do
       respond_with @due_date
     end
@@ -45,9 +51,7 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
       wait_until { has_question? "...employed...?" }
       respond_with "Yes"
     end
-  end
-
-  def self.should_support_browser_back_and_forward  
+    
     should_not_reload_after "going back in history" do
       respond_with @due_date
       wait_until { has_question? "...employed...?" }
@@ -66,16 +70,17 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
       go :forward
       wait_until(30) { has_question? "Did you start your current job...?" }
     end
-  end
-
-  context "HTML5 history api is supported" do
-    setup do
-      visit "/maternity"
-      click_on "Get started"
-      @due_date = Date.today + 30.weeks
+    
+    context "visiting another page then going back" do
+      should "reload page correctly" do
+        respond_with @due_date
+        wait_until { has_question? "...employed...?" }
+        visit "/materninty"
+        wait_until { has_css?("a", /Get started/) }
+        go :back
+        wait_until { has_question? "...employed...?" }
+      end
     end
-    should_support_browser_back_and_forward
-    should_not_reload_after_accepting_responses    
   end
 
   context "Visiting a smart answer" do
@@ -83,10 +88,8 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
       visit "/maternity"
     end
 
-    should_eventually "demonstrate the history API is available" do
+    should "demonstrate the history API is available" do
       assert page.evaluate_script('browserSupportsHtml5HistoryApi()'), "History api supported"
     end
   end
-  
-  should_implement_materntiy_answer_logic
 end
