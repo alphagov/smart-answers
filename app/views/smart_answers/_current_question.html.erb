@@ -4,7 +4,7 @@
       <h2>
         <span class="question-number"><%= @presenter.current_question_number %> </span><%= question.title %>
       </h2>
-      <div class="question-body <%= @presenter.error && 'error' %>">
+      <div class="question-body">
         <% if question.has_body? %>
           <%= question.body %>
         <% end %>
@@ -13,14 +13,15 @@
           <p class="hint"><%= question.hint %></p>
         <% end %>
 
-        <% if @presenter.error %>
-          <div class="error-message" id="current-error" role="alert">
-            <%= @presenter.error %>
-          </div>
-        <% end %>
+        <div class="<%= @presenter.error && 'error' %>">
+          <% if @presenter.error %>
+            <div class="error-message" id="current-error" role="alert">
+              <%= @presenter.error %>
+            </div>
+          <% end %>
 
-        <%= render partial: question.partial_template_name, locals: { question: question } %>
-
+          <%= render partial: question.partial_template_name, locals: { question: question } %>
+        </div>
       </div>
 
       <div class="next-question">
