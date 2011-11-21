@@ -7,4 +7,4 @@ en-GB:
       long: "%e %B %Y"
   flow:
     defaults:
-      error_message: Please answer this question.
+      error_message: Please answer this question
