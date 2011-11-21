@@ -9,6 +9,10 @@
           <%= question.body %>
         <% end %>
 
+        <% if question.has_hint? %>
+          <p class="hint"><%= question.hint %></p>
+        <% end %>
+
         <% if @presenter.error %>
           <div class="error-message" id="current-error" role="alert">
             <%= @presenter.error %>
@@ -17,9 +21,6 @@
 
         <%= render partial: question.partial_template_name, locals: { question: question } %>
 
-        <% if question.has_hint? %>
-          <p class="hint"><%= question.hint %></p>
-        <% end %>
       </div>
 
       <div class="next-question">
