@@ -5,17 +5,17 @@ class SmartAnswersControllerTest < ActionController::TestCase
   def setup
     @flow = SmartAnswer::Flow.new do
       name :sample
-      
+
       multiple_choice :do_you_like_chocolate? do
         option :yes => :you_have_a_sweet_tooth
         option :no => :do_you_like_jam?
       end
-      
+
       multiple_choice :do_you_like_jam? do
         option :yes => :you_have_a_sweet_tooth
         option :no => :you_have_a_savoury_tooth
       end
-      
+
       outcome :you_have_a_savoury_tooth
       outcome :you_have_a_sweet_tooth
     end
@@ -24,25 +24,25 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
   def submit_response(response = nil, other_params = {})
     params = {
-      id: 'sample', 
-      started: 'y', 
+      id: 'sample',
+      started: 'y',
       :next => "Next Question"
     }
     params[:response] = response if response
     get :show, params.merge(other_params)
   end
-  
+
   def submit_json_response(response = nil, other_params = {})
     params = {
-      id: 'sample', 
-      started: 'y', 
+      id: 'sample',
+      started: 'y',
       format: "json",
       :next => "1"
     }
     params[:response] = response if response
     get :show, params.merge(other_params)
   end
-  
+
   context "GET /" do
     should "respond with 404 if not found" do
       @registry = stub("Flow registry")
@@ -51,12 +51,12 @@ class SmartAnswersControllerTest < ActionController::TestCase
       get :show, id: 'sample'
       assert_response :missing
     end
-    
+
     should "display landing page if no questions answered yet" do
       get :show, id: 'sample'
       assert_select "h1", /#{@flow.name.to_s.humanize}/
     end
-    
+
     should "not have noindex tag on landing page" do
       get :show, id: 'sample'
       assert_select "meta[name=robots][content=noindex]", count: 0
@@ -68,12 +68,12 @@ class SmartAnswersControllerTest < ActionController::TestCase
       assert_select "input[name=response][value=yes]"
       assert_select "input[name=response][value=no]"
     end
-    
+
     should "have meta robots noindex on question pages" do
       get :show, id: 'sample', started: 'y'
       assert_select "head meta[name=robots][content=noindex]"
     end
-    
+
     context "date question" do
       setup do
         @flow = SmartAnswer::Flow.new do
@@ -84,7 +84,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
         end
         @controller.stubs(:flow_registry).returns(stub("Flow registry", find: @flow))
       end
-      
+
       should "display question" do
         get :show, id: 'sample', started: 'y'
         assert_select ".step.current h2", /1\s+When\?/
@@ -115,7 +115,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
             data = JSON.parse(response.body)
             assert_equal '/sample/y?', data['url']
           end
-          
+
           should "show an error message" do
             submit_json_response(day: "", month: "", year: "")
             data = JSON.parse(response.body)
@@ -131,7 +131,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
         assert_select ".done", /1\s+When\?\s+1 January 2011/
       end
     end
-    
+
     context "value question" do
       setup do
         @flow = SmartAnswer::Flow.new do
@@ -139,29 +139,29 @@ class SmartAnswersControllerTest < ActionController::TestCase
           value_question :how_many_green_bottles? do
             next_node :done
           end
-          
+
           outcome :done
         end
         @controller.stubs(:flow_registry).returns(stub("Flow registry", find: @flow))
       end
-      
+
       should "display question" do
         get :show, id: 'sample', started: 'y'
         assert_select ".step.current h2", /1\s+How many green bottles\?/
         assert_select "input[type=text][name=response]"
       end
-      
+
       should "accept question input and redirect to canonical url" do
         submit_response "10"
         assert_redirected_to '/sample/y/10'
       end
-      
+
       should "display collapsed question, and format number" do
         get :show, id: 'sample', started: 'y', responses: ["12345"]
         assert_select ".done", /1\s+How many green bottles\?\s+12,345/
       end
     end
-    
+
     context "money question" do
       setup do
         @flow = SmartAnswer::Flow.new do
@@ -172,7 +172,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
         end
         @controller.stubs(:flow_registry).returns(stub("Flow registry", find: @flow))
       end
-      
+
       should "display question" do
         get :show, id: 'sample', started: 'y'
         assert_select ".step.current h2", /1\s+How much\?/
@@ -186,18 +186,18 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
 
     end
-    
+
     context "salary question" do
       setup do
         @flow = SmartAnswer::Flow.new do
           name :sample
-          
+
           salary_question(:how_much?) { next_node :done }
           outcome :done
         end
         @controller.stubs(:flow_registry).returns(stub("Flow registry", find: @flow))
       end
-      
+
       should "display question" do
         get :show, id: 'sample', started: 'y'
         assert_select ".step.current h2", /1\s+How much\?/
@@ -208,7 +208,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
       context "error message overridden in translation file" do
         setup do
           @old_load_path = I18n.config.load_path.dup
-          @example_translation_file = 
+          @example_translation_file =
             File.expand_path('../../fixtures/smart_answers_controller_test/sample.yml', __FILE__)
           I18n.config.load_path.unshift(@example_translation_file)
           I18n.reload!
@@ -218,7 +218,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
           I18n.config.load_path = @old_load_path
           I18n.reload!
         end
-        
+
         should "show a validation error if invalid amount" do
           submit_response amount: "bad_number"
           assert_select ".step.current h2", /1\s+How much\?/
@@ -253,7 +253,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
         end
       end
     end
-    
+
     context "multiple choice question" do
       setup do
         @flow = SmartAnswer::Flow.new do
@@ -264,7 +264,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
         end
         @controller.stubs(:flow_registry).returns(stub("Flow registry", find: @flow))
       end
-      
+
       context "format=json" do
         context "no response given" do
           should "show an error message" do
@@ -284,7 +284,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     context "a response has been accepted" do
       setup { get :show, id: 'sample', started: 'y', responses: ["no"] }
-      
+
       should "show response summary" do
         assert_select ".done", /1\s+Do you like chocolate\?\s+no/
       end
@@ -292,14 +292,14 @@ class SmartAnswersControllerTest < ActionController::TestCase
       should "show the next question" do
         assert_select ".current", /2\s+Do you like jam\?/
       end
-      
+
       should "link back to change the response" do
         assert_select ".done a", /Change this/ do |link_nodes|
           assert_equal '/sample/y?&amp;previous_response=no', link_nodes.first['href']
         end
       end
     end
-    
+
     context "format=json" do
       should "render content without layout" do
         get :show, id: 'sample', started: 'y', responses: ["no"], format: "json"
