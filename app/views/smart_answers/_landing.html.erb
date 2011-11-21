@@ -1,3 +1,9 @@
+<% if @presenter.has_meta_description? %>
+  <% content_for :head do %>
+    <meta name="description" content="<%= @presenter.meta_description %>">
+  <% end %>
+<% end %>
+
 <header class="page-header group">
   <hgroup>
     <h1>

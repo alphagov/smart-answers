@@ -1,7 +1,10 @@
 # encoding: UTF-8
 require_relative '../test_helper'
+require_relative '../helpers/i18n_test_helper'
 
 class SmartAnswersControllerTest < ActionController::TestCase
+  include I18nTestHelper
+  
   def setup
     @flow = SmartAnswer::Flow.new do
       name :sample
@@ -62,6 +65,17 @@ class SmartAnswersControllerTest < ActionController::TestCase
       assert_select "meta[name=robots][content=noindex]", count: 0
     end
 
+    context "meta description in translation file" do
+      should "be shown" do
+        using_translation_file(fixture_file('smart_answers_controller_test/meta_description.yml')) do
+          get :show, id: 'sample'
+        end
+        assert_select "head meta[name=description]" do |meta_tags|
+          assert_equal 'This is a test description', meta_tags.first['content']
+        end
+      end
+    end
+    
     should "display first question after starting" do
       get :show, id: 'sample', started: 'y'
       assert_select ".step.current h2", /1\s+Do you like chocolate\?/
@@ -207,20 +221,12 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       context "error message overridden in translation file" do
         setup do
-          @old_load_path = I18n.config.load_path.dup
-          @example_translation_file =
-            File.expand_path('../../fixtures/smart_answers_controller_test/sample.yml', __FILE__)
-          I18n.config.load_path.unshift(@example_translation_file)
-          I18n.reload!
-        end
-
-        teardown do
-          I18n.config.load_path = @old_load_path
-          I18n.reload!
+          using_translation_file(fixture_file('smart_answers_controller_test/error_message_for_how_much.yml')) do
+            submit_response amount: "bad_number"
+          end
         end
 
         should "show a validation error if invalid amount" do
-          submit_response amount: "bad_number"
           assert_select ".step.current h2", /1\s+How much\?/
           assert_select ".error", /No, really, how much\?/
         end

@@ -15,31 +15,39 @@ class SmartAnswerPresenter
     "flow.#{@flow.name}"
   end
 
-  def title
-    I18n.translate!("#{i18n_prefix}.title")
+  def lookup_translation(key)
+    I18n.translate!("#{i18n_prefix}.#{key}")
   rescue I18n::MissingTranslationData
-    @flow.name.to_s.humanize
+    nil
+  end
+  
+  def title
+    lookup_translation(:title) || @flow.name.to_s.humanize
   end
 
   def subtitle
-    I18n.translate!("#{i18n_prefix}.subtitle")
-  rescue I18n::MissingTranslationData
-    nil
+    lookup_translation(:subtitle)
+  end
+
+  def body
+    markdown = lookup_translation('body')
+    markdown && Govspeak::Document.new(markdown).to_html.html_safe
   end
 
   def has_subtitle?
     !! subtitle
   end
 
-  def body
-    translated = I18n.translate!("#{i18n_prefix}.body")
-    Govspeak::Document.new(translated).to_html.html_safe
+  def has_body?
+    !! body
   end
 
-  def has_body?
-    true if I18n.translate!("#{i18n_prefix}.body")
-  rescue I18n::MissingTranslationData
-    false
+  def has_meta_description?
+    !! lookup_translation('meta.description')
+  end
+
+  def meta_description
+    lookup_translation('meta.description')
   end
 
   def started?
