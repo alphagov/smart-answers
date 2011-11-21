@@ -26,6 +26,10 @@ class NodePresenter
     end
   end
   
+  def to_response(input)
+    @node.to_response(input)
+  end
+  
   def subtitle
     translate!('subtitle')
   rescue I18n::MissingTranslationData

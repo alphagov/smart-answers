@@ -51,9 +51,20 @@ module SmartAnswer
         when Date
           input
         else
-          raise "Bad date input #{input}"
+          raise InvalidResponse, "Bad date", caller
         end
         date.strftime('%Y-%m-%d')
+      end
+      
+      def to_response(input)
+        date = ::Date.parse(parse_input(input))
+        {
+          day: date.day,
+          month: date.month,
+          year: date.year
+        }
+      rescue
+        nil
       end
     end
   end

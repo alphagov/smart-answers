@@ -12,7 +12,8 @@ $(document).ready(function() {
 		  $(formSelector).live('submit', function(event) {
 		    $('input[type=submit]', this).attr('disabled', 'disabled');
 		    var form = $(this);
-		    reloadQuestions(form.attr('action'), form.serializeArray());
+		    var postData = form.serializeArray().concat({name: "next", value: "1"});
+		    reloadQuestions(form.attr('action'), postData);
 		    event.preventDefault();
 		    return false;
 		  });
@@ -38,12 +39,7 @@ $(document).ready(function() {
 		  }
 	}
   
-  
   $('#current-error').focus();
-
-  
-
-  
 
   // helper functions
   function urlFromHashtag() {
@@ -52,7 +48,12 @@ $(document).ready(function() {
 
   function toJsonUrl(url) {
     var parts = url.split('?');
-    return parts[0] + ".json";
+    var json_url = parts[0] + ".json";
+    if (parts[1]) {
+      json_url += "?";
+      json_url += parts[1];
+    }
+    return json_url;
   }
   
   function fromJsonUrl(url) {

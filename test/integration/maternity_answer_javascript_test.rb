@@ -1,8 +1,14 @@
 # encoding: UTF-8
 require_relative '../integration_test_helper'
+require_relative 'maternity_answer_logic'
+require_relative 'smart_answer_test_helper'
 
 class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
   include SmartAnswerTestHelper
+  include MaternityAnswerHelpers
+  extend MaternityAnswerLogic
+  
+  should_implement_materntiy_answer_logic
 
   def escape_for_js(value)
     value.gsub("'", "\\'").gsub('\\', '\\\\')
@@ -81,4 +87,6 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
       assert page.evaluate_script('browserSupportsHtml5HistoryApi()'), "History api supported"
     end
   end
+  
+  should_implement_materntiy_answer_logic
 end

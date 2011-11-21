@@ -3,7 +3,13 @@ class SmartAnswerPresenter
   extend Forwardable
   include Rails.application.routes.url_helpers
 
-  attr_reader :params, :flow
+  attr_reader :request, :params, :flow
+
+  def initialize(request, flow)
+    @request = request
+    @params = request.params
+    @flow = flow
+  end
 
   def i18n_prefix
     "flow.#{@flow.name}"
@@ -44,13 +50,8 @@ class SmartAnswerPresenter
     current_node.is_outcome?
   end
 
-  def initialize(params, flow)
-    @params = params
-    @flow = flow
-  end
-
   def current_state
-    @current_state ||= @flow.process(responses)
+    @current_state ||= @flow.process(all_responses)
   end
 
   def error
@@ -60,7 +61,7 @@ class SmartAnswerPresenter
   end
 
   def collapsed_questions
-    @flow.path(responses).map do |name|
+    @flow.path(all_responses).map do |name|
       presenter_for(@flow.node(name))
     end
   end
@@ -93,8 +94,12 @@ class SmartAnswerPresenter
   end
 
   def change_collapsed_question_link(question_number)
-    previous_responses = responses[0...question_number - 1]
-    smart_answer_path(id: @params[:id], started: 'y', responses: previous_responses)
+    smart_answer_path(
+      id: @params[:id], 
+      started: 'y', 
+      responses: accepted_responses[0...question_number - 1], 
+      previous_response: accepted_responses[question_number - 1]
+    )
   end
 
   def normalize_responses_param
@@ -108,7 +113,15 @@ class SmartAnswerPresenter
     end
   end
 
-  def responses
-    normalize_responses_param + (params[:response] ? [params[:response]] : [])
+  def accepted_responses
+    @current_state.responses
+  end
+
+  def all_responses
+    normalize_responses_param.dup.tap do |responses|
+      if params[:next]
+        responses << params[:response]
+      end
+    end
   end
 end
