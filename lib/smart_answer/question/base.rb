@@ -47,6 +47,10 @@ module SmartAnswer
       def parse_input(raw_input)
         raw_input
       end
+      
+      def to_response(input)
+        input
+      end
     end
   end
 end

@@ -3,56 +3,48 @@ function browserSupportsHtml5HistoryApi() {
 };
 
 $(document).ready(function() {
-	if(browserSupportsHtml5HistoryApi()){
-  		var formSelector = ".current form";
-  		initializeHistory();
-			
-			// events
-		  // get new questions on submit
-		  $(formSelector).live('submit', function(event) {
-		    $('input[type=submit]', this).attr('disabled', 'disabled');
-		    var form = $(this);
-		    reloadQuestions(form.attr('action'), form.serializeArray());
-		    event.preventDefault();
-		    return false;
-		  });
-		
-			// we want to start over with whatever gets provided if someone clicks to change the answer
-		  $(".undo a").live('click', function() {
-		    reloadQuestions($(this).attr("href"), "");
-		    return false;
-		  });
-		
-			// manage next/back by tracking popstate event
-		  window.onpopstate = function (event) {
-		    if(event.state != null) {
-		      updateContent(event.state['html_fragment']);
-		    }
-		    else if (urlFromHashtag()) {
-		      $.get(toJsonUrl(urlFromHashtag()), function(data) {
-		        updateContent(data['html_fragment']);
-		      });
-		    } else {
-		      return false;
-		    }
-		  }
-	}
+  if(browserSupportsHtml5HistoryApi()) {
+    var formSelector = ".current form";
+    initializeHistory();
+    
+    // events
+    // get new questions on submit
+    $(formSelector).live('submit', function(event) {
+      $('input[type=submit]', this).attr('disabled', 'disabled');
+      var form = $(this);
+      var postData = form.serializeArray().concat({name: "next", value: "1"});
+      reloadQuestions(form.attr('action'), postData);
+      event.preventDefault();
+      return false;
+    });
   
+    // we want to start over with whatever gets provided if someone clicks to change the answer
+    $(".undo a").live('click', function() {
+      reloadQuestions($(this).attr("href"), "");
+      return false;
+    });
+  
+    // manage next/back by tracking popstate event
+    window.onpopstate = function (event) {
+      if(event.state != null) {
+        updateContent(event.state['html_fragment']);
+      } else {
+        return false;
+      }
+    }
+  }
   
   $('#current-error').focus();
 
-  
-
-  
-
   // helper functions
-  function urlFromHashtag() {
-    return window.location.hash.split('#')[1];
-  }
-
   function toJsonUrl(url) {
     var parts = url.split('?');
-    return parts[0] + ".json";
+    var json_url = parts[0] + ".json";
+    if (parts[1]) {
+      json_url += "?";
+      json_url += parts[1];
+    }
+    return json_url;
   }
   
   function fromJsonUrl(url) {
@@ -69,27 +61,25 @@ $(document).ready(function() {
     
   // manage the URL
   function addToHistory(data) {
-		history.pushState(data, data['title'], data['url']);
+    history.pushState(data, data['title'], data['url']);
   };
 
   // update the content (i.e. plonk in the html fragment)
   function updateContent(fragment){
     $('.smart_answer section').html(fragment);
   };
-  
-	
 
   function initializeHistory(data) {
-		if (! browserSupportsHtml5HistoryApi() && window.location.pathname.match(/\/.*\//) ) {
-			addToHistory({url: window.location.pathname});
-		}
+    if (! browserSupportsHtml5HistoryApi() && window.location.pathname.match(/\/.*\//) ) {
+      addToHistory({url: window.location.pathname});
+    }
 
-		data = {
-			html_fragment: $('.smart_answer section').html(),
-			title: "Question",
-			url: window.location.toString()
-		};
-		history.replaceState(data, data['title'], data['url']);
+    data = {
+      html_fragment: $('.smart_answer section').html(),
+      title: "Question",
+      url: window.location.toString()
+    };
+    history.replaceState(data, data['title'], data['url']);
   };
 
 });

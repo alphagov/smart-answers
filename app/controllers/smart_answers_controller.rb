@@ -11,7 +11,7 @@ class SmartAnswersController < ApplicationController
           render_to_string(partial: "content")
         }
         render :json => {
-          url: smart_answer_path(params[:id], 'y', @presenter.responses),
+          url: smart_answer_path(params[:id], 'y', @presenter.current_state.responses),
           html_fragment: html_fragment,
           title: @presenter.current_node.title
         }
@@ -19,7 +19,11 @@ class SmartAnswersController < ApplicationController
     end
   end
 
-  private
+private
+  def json_request?
+    request.format == Mime::JSON
+  end
+  
   def with_format(format, &block)
     old_formats = self.formats
     self.formats = [format]
@@ -31,7 +35,7 @@ class SmartAnswersController < ApplicationController
   def find_smart_answer
     @name = params[:id].to_sym
     smart_answer = flow_registry.find(@name.to_s)
-    @presenter = SmartAnswerPresenter.new(params, smart_answer)
+    @presenter = SmartAnswerPresenter.new(request, smart_answer)
   end
 
   def flow_registry
@@ -39,7 +43,7 @@ class SmartAnswersController < ApplicationController
   end
 
   def redirect_response_to_canonical_url
-    if params[:response] && ! @presenter.current_state.error
+    if params[:next] && ! @presenter.current_state.error
       redirect_to action: :show,
         id: @name,
         started: 'y',

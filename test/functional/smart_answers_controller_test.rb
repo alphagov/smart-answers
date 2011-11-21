@@ -21,6 +21,27 @@ class SmartAnswersControllerTest < ActionController::TestCase
     end
     @controller.stubs(:flow_registry).returns(stub("Flow registry", find: @flow))
   end
+
+  def submit_response(response = nil, other_params = {})
+    params = {
+      id: 'sample', 
+      started: 'y', 
+      :next => "Next Question"
+    }
+    params[:response] = response if response
+    get :show, params.merge(other_params)
+  end
+  
+  def submit_json_response(response = nil, other_params = {})
+    params = {
+      id: 'sample', 
+      started: 'y', 
+      format: "json",
+      :next => "1"
+    }
+    params[:response] = response if response
+    get :show, params.merge(other_params)
+  end
   
   context "GET /" do
     should "respond with 404 if not found" do
@@ -53,6 +74,64 @@ class SmartAnswersControllerTest < ActionController::TestCase
       assert_select "head meta[name=robots][content=noindex]"
     end
     
+    context "date question" do
+      setup do
+        @flow = SmartAnswer::Flow.new do
+          date_question :when? do
+            next_node :done
+          end
+          outcome :done
+        end
+        @controller.stubs(:flow_registry).returns(stub("Flow registry", find: @flow))
+      end
+      
+      should "display question" do
+        get :show, id: 'sample', started: 'y'
+        assert_select ".step.current h2", /1\s+When\?/
+        assert_select "select[name='response[day]']"
+        assert_select "select[name='response[month]']"
+        assert_select "select[name='response[year]']"
+      end
+
+      should "accept question input and redirect to canonical url" do
+        submit_response day: "1", month: "1", year: "2011"
+        assert_redirected_to '/sample/y/2011-01-01'
+      end
+
+      context "no response given" do
+        should "redisplay question" do
+          submit_response(day: "", month: "", year: "")
+          assert_select ".step.current h2", /1\s+When\?/
+        end
+
+        should "show an error message" do
+          submit_response(day: "", month: "", year: "")
+          assert_select ".step.current .error"
+        end
+
+        context "format=json" do
+          should "give correct canonical url" do
+            submit_json_response(day: "", month: "", year: "")
+            data = JSON.parse(response.body)
+            assert_equal '/sample/y?', data['url']
+          end
+          
+          should "show an error message" do
+            submit_json_response(day: "", month: "", year: "")
+            data = JSON.parse(response.body)
+            doc = Nokogiri::HTML(data['html_fragment'])
+            current_step = doc.css('.step.current')
+            assert current_step.css('.error').size > 0, "#{current_step.to_s} should contain .error"
+          end
+        end
+      end
+
+      should "display collapsed question, and format number" do
+        get :show, id: 'sample', started: 'y', responses: ["2011-01-01"]
+        assert_select ".done", /1\s+When\?\s+1 January 2011/
+      end
+    end
+    
     context "value question" do
       setup do
         @flow = SmartAnswer::Flow.new do
@@ -73,7 +152,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
       
       should "accept question input and redirect to canonical url" do
-        get :show, id: 'sample', started: 'y', response: "10"
+        submit_response "10"
         assert_redirected_to '/sample/y/10'
       end
       
@@ -101,7 +180,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
 
       should "show a validation error if invalid input" do
-        get :show, id: 'sample', started: 'y', response: 'bad_number'
+        submit_response "bad_number"
         assert_select ".step.current h2", /1\s+How much\?/
         assert_select "body", /Please answer this question/
       end
@@ -141,7 +220,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
         end
         
         should "show a validation error if invalid amount" do
-          get :show, id: 'sample', started: 'y', response: {amount: 'bad_number'}
+          submit_response amount: "bad_number"
           assert_select ".step.current h2", /1\s+How much\?/
           assert_select ".error", /No, really, how much\?/
         end
@@ -149,20 +228,20 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       context "error message not overridden in translation file" do
         should "show a generic message" do
-          get :show, id: 'sample', started: 'y', response: {amount: 'bad_number'}
+          submit_response amount: "bad_number"
           assert_select ".step.current h2", /1\s+How much\?/
           assert_select ".error", /Please answer this question./
         end
       end
 
       should "show a validation error if invalid period" do
-        get :show, id: 'sample', started: 'y', response: {amount: '1', period: 'bad_period'}
+        submit_response amount: "1", period: "bad_period"
         assert_select ".step.current h2", /1\s+How much\?/
         assert_select ".error", /Please answer this question./
       end
 
       should "accept responses as GET params and redirect to canonical url" do
-        get :show, id: 'sample', started: 'y', response: {amount: '1', period: 'month'}
+        submit_response amount: "1", period: "month"
         assert_redirected_to '/sample/y/1.0-month'
       end
 
@@ -174,9 +253,32 @@ class SmartAnswersControllerTest < ActionController::TestCase
         end
       end
     end
+    
+    context "multiple choice question" do
+      setup do
+        @flow = SmartAnswer::Flow.new do
+          multiple_choice :what? do
+            option :cheese => :done
+          end
+          outcome :done
+        end
+        @controller.stubs(:flow_registry).returns(stub("Flow registry", find: @flow))
+      end
+      
+      context "format=json" do
+        context "no response given" do
+          should "show an error message" do
+            submit_json_response(nil)
+            data = JSON.parse(response.body)
+            doc = Nokogiri::HTML(data['html_fragment'])
+            assert doc.css('.error').size > 0, "#{data['html_fragment']} should contain .error"
+          end
+        end
+      end
+    end
 
     should "accept responses as GET params and redirect to canonical url" do
-      get :show, id: 'sample', started: 'y', response: "yes"
+      submit_response "yes"
       assert_redirected_to '/sample/y/yes'
     end
 
@@ -193,26 +295,21 @@ class SmartAnswersControllerTest < ActionController::TestCase
       
       should "link back to change the response" do
         assert_select ".done a", /Change this/ do |link_nodes|
-          assert_equal '/sample/y?', link_nodes.first['href']
+          assert_equal '/sample/y?&amp;previous_response=no', link_nodes.first['href']
         end
       end
     end
     
-    context "format=fragment" do
+    context "format=json" do
       should "render content without layout" do
         get :show, id: 'sample', started: 'y', responses: ["no"], format: "json"
         data = JSON.parse(response.body)
         assert_equal '/sample/y/no', data['url']
         doc = Nokogiri::HTML(data['html_fragment'])
-        assert_match /#{@flow.name.to_s.humanize}/, doc.xpath('//h1').first.to_s
-        assert_equal 0, doc.xpath('//head').size, "Should not have layout"
-        assert_equal '/sample/y/no', doc.xpath('//form').first.attributes['action'].to_s
+        assert_match /#{@flow.name.to_s.humanize}/, doc.css('h1').first.to_s
+        assert_equal 0, doc.css('head').size, "Should not have layout"
+        assert_equal '/sample/y/no', doc.css('form').first.attributes['action'].to_s
         assert_equal @flow.node(:do_you_like_jam?).name.to_s.humanize, data['title']
-      end
-      
-      should "redirect to canonical url and retain format=fragment" do
-        get :show, id: 'sample', started: 'y', response: "yes", format: "json"
-        assert_redirected_to '/sample/y/yes.json'
       end
     end
   end
