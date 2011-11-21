@@ -230,14 +230,14 @@ class SmartAnswersControllerTest < ActionController::TestCase
         should "show a generic message" do
           submit_response amount: "bad_number"
           assert_select ".step.current h2", /1\s+How much\?/
-          assert_select ".error", /Please answer this question./
+          assert_select ".error", /Please answer this question/
         end
       end
 
       should "show a validation error if invalid period" do
         submit_response amount: "1", period: "bad_period"
         assert_select ".step.current h2", /1\s+How much\?/
-        assert_select ".error", /Please answer this question./
+        assert_select ".error", /Please answer this question/
       end
 
       should "accept responses as GET params and redirect to canonical url" do
