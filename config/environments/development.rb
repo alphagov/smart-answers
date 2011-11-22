@@ -27,6 +27,4 @@ SmartAnswers::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-  
-  config.middleware.use Slimmer::App, :template_path => "#{config.root}/public/templates"
 end
