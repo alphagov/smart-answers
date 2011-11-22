@@ -19,8 +19,10 @@ en-GB:
         error_message: Use the arrows to choose the date from the drop-downs
       are_you_employed?:
         hint: You have a formal arrangement with an employer, eg a contract of employment to work a fixed number of hours in a set period of time.
+        error_message: Please choose 'yes' or 'no'
       did_you_start_26_weeks_before_qualifying_week?: 
         title: Did you start your current job on or before %{twenty_six_weeks_before_qualifying_week}?
+        error_message: Please choose 'yes' or 'no'
       how_much_are_you_paid?:
         title: How much are you paid?
         hint: This is your total take-home pay before any deductions, eg tax.
@@ -31,6 +33,7 @@ en-GB:
         error_message: Use only numbers, eg 500
       will_you_be_employed_long_enough_to_qualify_for_maternity_allowance?:
         title: Will you still be in the same job on %{earliest_job_can_finish_to_qualify_for_maternity_allowance}?
+        error_message: Please choose 'yes' or 'no'
       when_did_you_start_your_job?: 
         title: When did you start your job?
       will_you_still_be_employed_in_qualifying_week?:
@@ -38,6 +41,7 @@ en-GB:
       will_you_work_at_least_26_weeks_during_test_period?:
         title: Will you have worked at least 26 weeks between %{start_of_test_period} and %{end_of_test_period}?
         hint: This can be full or part weeks, and the 26 weeks don't have to be in a row.
+        error_message: Please choose 'yes' or 'no'
       nothing_maybe_benefits: 
         title: You don't qualify for maternity pay, but you could get other benefits.
         body: |
