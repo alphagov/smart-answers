@@ -1,39 +1,160 @@
-en:
+en-GB:
   flow:
     inheritance:
-      title: "Who receives your inheritance if you have leave no will"
-      subtitle: Subtitle goes here
+      title: 
+        Who inherits if someone dies without a will?
+      subtitle: Intestacy - how an estate is divided up if there is no will
+      options:
+        "no": "No"
+        "yes": "Yes"
       body: |
-        This is the body
+       
+        You can use this tool to work out who is entitled to a share of the estate (property, possessions and money) if someone dies without making a will (dying intestate).
+       
+        %This tool is correct for deaths after 1 February 2009.%
+
+      do_you_have_a_living_spouse_or_civil_partner?:
+        title: Is there a living husband, wife or civil partner?
+        hint: A surviving unmarried or un-civil-partnered partner has no automatic right to inherit. 
+      is_your_estate_worth_more_than_250000?:
+        title: Is the estate (property, possessions and money) likely to be worth more than £250,000?
+      are_either_of_your_parents_living?:
+        title: Are there any living parents?
+      do_you_have_any_children?:
+        title: Are there any living children?
+        hint: Children include legally-adopted sons or daughters, but not step-children.
+      do_you_have_children?:
+        title: Are there any living children?
+        hint: Children include legally-adopted sons or daughters, but not step-children.
+      do_you_have_grandparents_living?:
+        title: Are there any living grandparents?
+      do_you_have_any_parents_or_brothers_or_sisters_living?:
+        title: Are there any living brothers, sisters or parents?
         
-        You can write anything you want using Govspeak.
-        
-      do_you_have_a_living_spouse_or_civil_partner:
-        title: "Do you have a husband, wife, or civil partner?"
-        
-      is_your_estate_worth_more_than_250000:
-        title: "Is your estate worth more than £250,000?"
-        
-      are_either_of_your_parents_living:
-        title: "Are either of your parents still living?"
-        
-      do_you_have_any_children:
-        title: "Do you have any children?"
-        
-      do_you_have_any_parents_or_brothers_or_sisters_living:
-        title: "You have any living parents, or brothers or sisters?"
-        
-      do_you_have_brothers_or_sisters:
-        title: "Do you have any brothers or sisters?"
-      
+      do_you_have_brothers_or_sisters?:
+        title: Are there any living brothers or sisters?
+      do_you_have_any_living_aunts_or_uncles?:
+        title: Are there any living aunts or uncles?
+      do_you_have_any_living_half_aunts_or_uncles?:
+        title: Are there any living half-aunts or half-uncles?
+        hint: Half-aunts and half-uncles are a brother or sister who shares only one parent with the deceased.
       
       shared_equally_between_children:
-        title: "Your estate will be shared equally between your children"
+        title: The estate is shared equally between the children.
+        body: |
+          If there's only one child, they inherit the whole estate.
+          
+          They may have to pay Inheritance Tax.
+        next_steps: |
+          Read the guide to [Wills, probate and inheritance](# "Wills, probate and inheritance") to:
+            
+          * see if you can apply for probate (the legal right to deal with the person’s estate)
+
+          * apply for a ‘Grant of letters of administration’ making you the ‘administrator’ of the estate
+          
+          Read the guide to [Inheritance Tax](# "Inheritance Tax").
+          
+      partner_receives_first_450000_remainder_to_parents_or_siblings:
+        title: The husband, wife or civil partner keeps all the assets (including property) up to £450,000.
+        body: |
+          They also get half of the amount left over.
+
+          They also keep **all** the person's personal possessions whatever their value.
+
+          The remainder goes to the parent(s).
+
+          If both parents are dead, it is divided equally between brothers or sisters.
+          
+          They may have to pay Inheritance Tax.
+
+      next_steps: |
+        Read the guide to [Inheritance Tax](# "Inheritance Tax").
+          
       your_partner_receives_all_of_your_estate:
-        title: "Your partner will receive all of your estate"
+        title: The husband, wife or civil partner gets all of the estate.
+        body: |
+          
       shared_equally_between_parents:
-        title: "Your estate will be shared evenly between your parents"
+        title: The estate is shared equally between the parents.
+        body: |
+          If there's only one parent, they inherit the whole estate.
+          They may have to pay Inheritance Tax.
+
+        next_steps: |
+          Read the guide to [Wills, probate and inheritance](# "Wills, probate and inheritance") to:
+            
+          * see if you can apply for probate (the legal right to deal with the person’s estate)
+
+          * apply for a ‘Grant of letters of administration’ making you the administrator of the estate
+             
       partner_receives_first_250000_children_receive_share_of_remainder:
-        title: "Your partner will receive the first £250,000 and your children will equally share the remainder"
+        title: The husband, wife or civil partner keeps all the assets (including property), up to £250,000. They also keep all the person's personal possessions, whatever their value.
+        body: |
+          
+          The remainder of the estate is divided in half:
+            
+          * one half to the husband, wife or civil partner
+          * the other half shared between their children
+
+          The husband, wife or civil partner gets interest only on their half during their lifetime. 
+          
+          When they die, the capital is shared between their children. If there's only 1 child, they get it all.
+          
+          They may have to pay Inheritance Tax.
+          
+        next_steps:
+          Read the guide to [Inheritance Tax](# "Inheritance Tax").
+          
       shared_equally_between_brothers_or_sisters:
-        title: "Your estate will be shared between your brothers and sisters"
+        title: The estate is shared equally between the brothers and sisters.
+        body: |
+          If there's only one brother or sister, they inherit the whole estate.
+          
+        next_steps: |
+          Read the guide to [Wills, probate and inheritance](# "Wills, probate and inheritance") to:
+            
+          * see if you can apply for probate (the legal right to deal with the person’s estate)
+
+          * apply for a ‘Grant of letters of administration’ making you the ‘administrator’ of the estate
+          
+          Read the guide to [Inheritance Tax](# "Inheritance Tax").
+          
+          
+      shared_equally_between_grandparents:
+         title: The estate is shared equally between the grandparents.
+         body: |
+          If there's only one grandparent, they inherit the whole estate.
+          
+          They may have to pay Inheritance Tax.
+         next_steps: |
+           Read the guide to [Wills, probate and inheritance](# "Wills, probate and inheritance") to:
+            
+           * see if you can apply for probate (the legal right to deal with the person’s estate)
+
+           * apply for a ‘Grant of letters of administration’ making you the ‘administrator’ of the estate
+      shared_equally_between_aunts_or_uncles:
+        title: The estate is shared equally between the aunts and uncles.
+        body: |
+          If there is only one aunt or uncle, they get the whole estate.
+        hint: Only blood-related aunts and uncles can inherit.
+      shared_equally_between_children_of_aunts_or_uncles:
+        title: The estate is shared equally between the children of the aunts and uncles.
+        body: |
+          If there is only one child, they get the whole estate.
+        hint: The children of aunts and uncles can only inherit if the aunt or uncle died before the estate owner died.
+      shared_equally_between_half_aunts_or_uncles:
+        title: The estate is shared equally between the half-aunts and half-uncles.
+        body: |
+          If there is only one half-aunt or half-uncle, they get the whole estate.
+        hint: Half-aunts and half-uncles are a brother or sister who shares only one parent with the deceased.
+      shared_equally_between_children_of_half_aunts_or_uncles:
+        title: The estate is shared equally between the children of the half-aunts and half-uncles.
+        body: |
+          If there is only one child, they get the whole estate.
+        hint: The children can only inherit if the half-aunts or half-uncles died before the estate owner died.
+          
+      everything_goes_to_crown:
+        title: The whole estate goes to the Crown.
+        body: |
+          The Crown is the Duchy of Lancaster or the Duke of Cornwall.
+       

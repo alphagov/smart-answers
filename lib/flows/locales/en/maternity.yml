@@ -10,23 +10,25 @@ en-GB:
         "yes": "Yes"
       body: |
        
-        You'll answer some questions about your employment and your
-        baby's due date. 
+        Maternity pay is money you could get when you take time off work to look after your baby. 
         
-        You'll then get an idea of which of the different maternity pay schemes or benefits you could claim. 
+        You can use this tool to work out which of the different maternity pay schemes or benefits you could claim. 
       
       when_is_your_baby_due?: 
         title: When is your baby due?
+        error_message: Use the arrows to choose the date from the drop-downs
       are_you_employed?:
-        hint: You have a contract of employment to work a fixed number of hours in a set period of time, eg 40 hours per week.
+        hint: You have a formal arrangement with an employer, eg a contract of employment to work a fixed number of hours in a set period of time.
       did_you_start_26_weeks_before_qualifying_week?: 
         title: Did you start your current job on or before %{twenty_six_weeks_before_qualifying_week}?
       how_much_are_you_paid?:
         title: How much are you paid?
-        hint: Your total pay before any deductions, eg tax.
+        hint: This is your total take-home pay before any deductions, eg tax.
+        error_message: Use only numbers, eg 500
       how_much_do_you_earn?:
         title: How much do you earn?
-        hint: Your total earnings before any deductions, eg tax.      
+        hint: This is your total earnings before any deductions, eg tax. 
+        error_message: Use only numbers, eg 500
       will_you_be_employed_long_enough_to_qualify_for_maternity_allowance?:
         title: Will you still be in the same job on %{earliest_job_can_finish_to_qualify_for_maternity_allowance}?
       when_did_you_start_your_job?: 
@@ -51,7 +53,7 @@ en-GB:
           
         next_steps: |
           
-          Read our guides to:
+          Read the guides to:
             
             * [Employment and Support Allowance](# "Employment and Support Allowance")
             * [Jobseeker's Allowance](# "Jobseeker's Allowance")
@@ -75,7 +77,7 @@ en-GB:
           * read the guide to [Maternity Leave](# "Maternity Leave")
           * plan your maternity leave and pay period using the [Maternity Planner](# "Maternity Planner")
           
-          You must give your employer at least 28 days' notice to claim Statutory Maternity Pay.
+          %You must give your employer at least 28 days' notice to claim Statutory Maternity Pay.%
                         
                   
           
@@ -84,7 +86,7 @@ en-GB:
         body: |
           Maternity Allowance is a benefit paid by Jobcentre Plus.
           
-          You could get &pound;128.73/week or 90% of your average earnings, whichever is lower. 
+          You could get &pound;128.73/week or 90% of your average earnings, **whichever is lower**. 
           
           You can get Maternity Allowance for up to 39 weeks.
         next_steps: |
