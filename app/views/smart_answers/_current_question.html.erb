@@ -15,9 +15,9 @@
 
         <div class="<%= @presenter.error && 'error' %>">
           <% if @presenter.error %>
-            <div class="error-message" id="current-error" role="alert">
+            <p class="error-message" id="current-error" role="alert">
               <%= @presenter.error %>
-            </div>
+            </p>
           <% end %>
 
           <%= render partial: question.partial_template_name, locals: { question: question } %>
