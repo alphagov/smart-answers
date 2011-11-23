@@ -37,6 +37,9 @@ ol.done-questions {
   border-bottom: solid 1px #bbb;
   overflow: hidden;
 }
+.lte-ie8 li.done {
+  position: relative;
+}
 
 li.done h3 {
   display: inline;
@@ -69,12 +72,19 @@ li.done .undo {
 
 .current-question h2 {
   margin-bottom: 0.5em;
+  position: relative;
 }
 
 .question-number {
   display: inline-block;
   margin-left: -1.5em;
   width: 1.5em;
+}
+.lte-ie8 .question-number {
+  display: block;
+  margin-left: 0;
+  left: -1.5em;
+  position: absolute;
 }
 
 .done .question-number {
