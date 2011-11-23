@@ -37,14 +37,15 @@ ol.done-questions {
   border-bottom: solid 1px #bbb;
   overflow: hidden;
 }
-.lte-ie8 li.done {
-  position: relative;
-}
 
 li.done h3 {
   display: inline;
   font-size: 1em;
   margin: 0 0.5em 0 0;
+}
+.lte-ie8 li.done h3 {
+  line-height: 1.5em;
+  position: relative;
 }
 
 li.done .answer {
@@ -61,9 +62,6 @@ li.done .undo {
   margin: 0 0 0 0.5em;
 }
 
-.current {
-}
-
 .current-question {
 	background-color: #fff;
 	padding: 1em 2em 1em 5em;
@@ -74,6 +72,9 @@ li.done .undo {
   margin-bottom: 0.5em;
   position: relative;
 }
+.lte-ie8 .current-question h2 {
+  line-height: 1.2em;
+}
 
 .question-number {
   display: inline-block;
@@ -82,17 +83,11 @@ li.done .undo {
 }
 .lte-ie8 .question-number {
   display: block;
-  margin-left: 0;
-  left: -1.5em;
   position: absolute;
 }
 
 .done .question-number {
   margin-left: -1.7em;
-}
-
-.question-body {
-
 }
 
 .current-question ul {
