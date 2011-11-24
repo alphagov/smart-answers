@@ -25,6 +25,10 @@ module SmartAnswer
         File.basename(path).gsub(/\.rb$/, '')
       end
     end
+
+    def flows
+      available_flows.map { |s| find(s) }
+    end
     
     def preload_flows!
       @preloaded = {}
