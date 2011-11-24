@@ -11,6 +11,7 @@ gem 'rails-i18n'
 gem 'json'
 gem 'jquery-rails'
 gem 'plek', '~> 0.1'
+gem 'rummageable', :git => 'git@github.com:alphagov/rummageable.git'
 
 group :development do
   gem 'ruby-debug19', :require => false
