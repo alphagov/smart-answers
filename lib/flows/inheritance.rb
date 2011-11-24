@@ -50,11 +50,11 @@ end
 
 multiple_choice :do_you_have_any_living_half_aunts_or_uncles? do
   option yes: :shared_equally_between_half_aunts_or_uncles
-  option :no => :are_there_living_children_of_deceased_half_aunts_or_uncles? 
+  option :no => :are_there_living_children_of_deceased_half_aunts_or_uncles?
 end
 
 multiple_choice :are_there_living_children_of_deceased_half_aunts_or_uncles? do
-	option yes: :shared_equally_between_children_of_half_aunts_or_uncles
+  option yes: :shared_equally_between_children_of_half_aunts_or_uncles
   option :no => :everything_goes_to_crown
 end
 

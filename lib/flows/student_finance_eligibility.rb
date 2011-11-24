@@ -13,7 +13,7 @@ multiple_choice :where_will_you_live_when_studying? do
   option "at home with my parents"
   option "away from home, outside of London"
   option "away from home, in London"
-  
+
   calculate :maintenance_loan_amount do |response|
     case response
     when /at home/ then Money.new("4375")
@@ -64,5 +64,3 @@ multiple_choice :will_you_be_studying_on_a_medical_or_social_work_course? do
 end
 
 outcome :done
-
-

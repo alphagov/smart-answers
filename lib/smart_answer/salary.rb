@@ -1,9 +1,9 @@
 module SmartAnswer
   class Salary
     include Comparable
-    
+
     attr_reader :amount, :period
-    
+
     def initialize(amount_or_options = {}, period = nil)
       if (amount_or_options.is_a?(Hash))
         amount = amount_or_options[:amount]
@@ -17,17 +17,17 @@ module SmartAnswer
       @period = period || 'week'
       raise InvalidResponse, "Sorry, I couldn't understand that salary period", caller unless %w{month week}.include?(@period)
     end
-    
+
     def <=>(other)
       return nil unless other.is_a?(Salary)
       return nil unless other.period == self.period
       return self.amount <=> other.amount
     end
-    
+
     def to_s
       "#{@amount}-#{@period}"
     end
-    
+
     def per_week
       if @period == 'week'
         return @amount

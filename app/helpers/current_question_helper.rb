@@ -6,7 +6,7 @@ module CurrentQuestionHelper
       prefill_value_for(field_name) && prefill_value_for(field_name).to_i
     end
   end
-  
+
   def prefill_value_is?(value)
     if params[:previous_response]
       params[:previous_response] == value
@@ -18,7 +18,7 @@ module CurrentQuestionHelper
   def default_for_date(value)
     value.blank? ? nil : value.to_i
   end
-  
+
   def prefill_value_for(question, attribute = nil)
     response = if params[:previous_response]
       question.to_response(params[:previous_response])

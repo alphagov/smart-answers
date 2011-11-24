@@ -7,7 +7,6 @@ class MaternityAnswerTest < ActionDispatch::IntegrationTest
   include SmartAnswerTestHelper
   include MaternityAnswerHelpers
   extend MaternityAnswerLogic
-  
+
   should_implement_materntiy_answer_logic
 end
-

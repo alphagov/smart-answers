@@ -20,7 +20,7 @@ class SmartAnswerPresenter
   rescue I18n::MissingTranslationData
     nil
   end
-  
+
   def title
     lookup_translation(:title) || @flow.name.to_s.humanize
   end
@@ -63,7 +63,7 @@ class SmartAnswerPresenter
   end
 
   def error
-    if current_state.error.present? 
+    if current_state.error.present?
       current_node.error_message || I18n.translate('flow.defaults.error_message')
     end
   end
@@ -103,9 +103,9 @@ class SmartAnswerPresenter
 
   def change_collapsed_question_link(question_number)
     smart_answer_path(
-      id: @params[:id], 
-      started: 'y', 
-      responses: accepted_responses[0...question_number - 1], 
+      id: @params[:id],
+      started: 'y',
+      responses: accepted_responses[0...question_number - 1],
       previous_response: accepted_responses[question_number - 1]
     )
   end

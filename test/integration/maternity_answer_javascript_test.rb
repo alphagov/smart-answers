@@ -7,7 +7,7 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
   include SmartAnswerTestHelper
   include MaternityAnswerHelpers
   extend MaternityAnswerLogic
-  
+
   should_implement_materntiy_answer_logic
 
   def escape_for_js(value)
@@ -41,7 +41,7 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
       click_on "Get started"
       @due_date = Date.today + 30.weeks
     end
-    
+
     should_not_reload_after "giving due date" do
       respond_with @due_date
     end
@@ -51,7 +51,7 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
       wait_until { has_question? "...employed...?" }
       respond_with "Yes"
     end
-    
+
     should_not_reload_after "going back in history" do
       respond_with @due_date
       wait_until { has_question? "...employed...?" }
@@ -70,7 +70,7 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
       go :forward
       wait_until(30) { has_question? "Did you start your current job...?" }
     end
-    
+
     context "visiting another page then going back" do
       should "reload page correctly" do
         respond_with @due_date

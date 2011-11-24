@@ -7,7 +7,7 @@ module SmartAnswer
     def setup
       @registry = FlowRegistry.new(File.dirname(__FILE__) + '/../fixtures/')
     end
-    
+
     test "Can load a flow from a file" do
       flow = @registry.find('flow_sample')
       assert_equal 1, flow.questions.size

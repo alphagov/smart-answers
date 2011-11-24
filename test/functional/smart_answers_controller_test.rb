@@ -4,7 +4,7 @@ require_relative '../helpers/i18n_test_helper'
 
 class SmartAnswersControllerTest < ActionController::TestCase
   include I18nTestHelper
-  
+
   def setup
     @flow = SmartAnswer::Flow.new do
       name :sample
@@ -75,7 +75,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
         end
       end
     end
-    
+
     should "display first question after starting" do
       get :show, id: 'sample', started: 'y'
       assert_select ".step.current h2", /1\s+Do you like chocolate\?/

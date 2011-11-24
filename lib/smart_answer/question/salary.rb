@@ -4,7 +4,7 @@ module SmartAnswer
       def parse_input(raw_input)
         SmartAnswer::Salary.new(raw_input)
       end
-      
+
       def to_response(input)
         salary = parse_input(input)
         {
