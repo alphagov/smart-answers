@@ -13,7 +13,7 @@ gem 'jquery-rails'
 gem 'plek', '~> 0.1'
 
 group :development do
-  gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'ruby-debug19', :require => false
 end
 
 if ENV['SLIMMER_DEV']
