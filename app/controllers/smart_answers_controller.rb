@@ -23,7 +23,7 @@ private
   def json_request?
     request.format == Mime::JSON
   end
-  
+
   def with_format(format, &block)
     old_formats = self.formats
     self.formats = [format]

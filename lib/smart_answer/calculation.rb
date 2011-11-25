@@ -4,7 +4,7 @@ module SmartAnswer
       @variable_name = variable_name
       @calculation = block
     end
-    
+
     def evaluate(previous_state)
       variable_value = previous_state.instance_eval(&@calculation)
       new_state = previous_state.dup

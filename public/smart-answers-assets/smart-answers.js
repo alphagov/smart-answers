@@ -6,7 +6,7 @@ $(document).ready(function() {
   if(browserSupportsHtml5HistoryApi()) {
     var formSelector = ".current form";
     initializeHistory();
-    
+
     // events
     // get new questions on submit
     $(formSelector).live('submit', function(event) {
@@ -17,13 +17,13 @@ $(document).ready(function() {
       event.preventDefault();
       return false;
     });
-  
+
     // we want to start over with whatever gets provided if someone clicks to change the answer
     $(".undo a").live('click', function() {
       reloadQuestions($(this).attr("href"), "");
       return false;
     });
-  
+
     // manage next/back by tracking popstate event
     window.onpopstate = function (event) {
       if(event.state != null) {
@@ -33,7 +33,7 @@ $(document).ready(function() {
       }
     }
   }
-  
+
   $('#current-error').focus();
 
   // helper functions
@@ -46,11 +46,11 @@ $(document).ready(function() {
     }
     return json_url;
   }
-  
+
   function fromJsonUrl(url) {
     return url.replace(/\.json$/, "");
   }
-  
+
   // replace all the questions currently in the page with whatever is returned for given url
   function reloadQuestions(url, params) {
     $.get(toJsonUrl(url), params, function(data) {
@@ -58,7 +58,7 @@ $(document).ready(function() {
       updateContent(data['html_fragment']);
     });
   };
-    
+
   // manage the URL
   function addToHistory(data) {
     history.pushState(data, data['title'], data['url']);

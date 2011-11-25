@@ -10,7 +10,7 @@ module SmartAnswer
       assert Money.new("3") > two
       assert Money.new("1") < two
     end
-    
+
     test "Can compare money with number" do
       m = Money.new("520")
       assert m == 520

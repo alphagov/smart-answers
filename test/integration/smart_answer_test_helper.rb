@@ -15,15 +15,15 @@ module SmartAnswerTestHelper
   rescue Capybara::ElementNotFound
     nil
   end
-  
+
   def normalize_whitespace(html_text)
     html_text.gsub(/\s+/, ' ')
   end
-  
+
   def has_question?(question_substring)
     !! question_regexp(question_substring).match(actual_question_text)
   end
-  
+
   def question_regexp(question_substring)
     quoted = Regexp.quote(normalize_whitespace(question_substring))
     quoted_with_ellipsis_as_wildcard = quoted.gsub(Regexp.quote('...'), ".*")
@@ -46,11 +46,11 @@ module SmartAnswerTestHelper
     end
     click_next_step
   end
-  
+
   def click_next_step
     click_on "Next step →"
   end
-  
+
   def format(date)
     Date.parse(date.to_s).strftime('%e %B %Y')
   end
