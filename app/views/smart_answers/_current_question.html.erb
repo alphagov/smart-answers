@@ -1,29 +1,31 @@
 <div class="step current" data-step="employment-status">
-  <%= form_tag smart_answer_path(params.slice(:responses, :id, :started)), :authenticity_token => false %>
+  <%= form_tag smart_answer_path(params.slice(:id, :started).merge(responses: @presenter.accepted_responses)), :authenticity_token => false %>
     <div class="current-question" id="current-question">
       <h2>
         <span class="question-number"><%= @presenter.current_question_number %> </span><%= question.title %>
       </h2>
-      <div class="question-body <%= @presenter.error && 'error' %>">
+      <div class="question-body">
         <% if question.has_body? %>
           <%= question.body %>
         <% end %>
 
-        <% if @presenter.error %>
-          <div class="error-message" id="current-error" role="alert">
-            <%= @presenter.error %>
-          </div>
-        <% end %>
-
-        <%= render partial: question.partial_template_name, locals: { question: question } %>
-
         <% if question.has_hint? %>
           <p class="hint"><%= question.hint %></p>
         <% end %>
+
+        <div class="<%= @presenter.error && 'error' %>">
+          <% if @presenter.error %>
+            <p class="error-message" id="current-error" role="alert">
+              <%= @presenter.error %>
+            </p>
+          <% end %>
+
+          <%= render partial: question.partial_template_name, locals: { question: question } %>
+        </div>
       </div>
 
       <div class="next-question">
-        <input type="submit" value="Next step &rarr;">
+        <input name="next" type="submit" value="Next step &rarr;" class="medium button">
       </div>
     </div>
   </form>

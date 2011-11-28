@@ -61,5 +61,4 @@ SmartAnswers::Application.configure do
   config.action_controller.asset_host = lambda { |path|
     path =~ /assets/ ? nil : Plek.current.find('assets')
   }
-  config.middleware.use Slimmer::App, :asset_host => Plek.current.find('assets')
 end

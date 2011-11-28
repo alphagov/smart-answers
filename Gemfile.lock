@@ -6,11 +6,13 @@ GIT
       kramdown (~> 0.13.3)
 
 GIT
-  remote: git@github.com:alphagov/slimmer.git
-  revision: 8385a991d18ac4559f999fb4f12018d422ddf39b
+  remote: git@github.com:alphagov/rummageable.git
+  revision: 3409afd6d1801cbe7fccfa6008298204421650ee
   specs:
-    slimmer (0.7.13)
-      nokogiri
+    rummageable (0.1.0)
+      json
+      plek
+      rest-client
 
 GEM
   remote: http://rubygems.org/
@@ -100,7 +102,7 @@ GEM
       metaclass (~> 0.0.1)
     multi_json (1.0.3)
     nokogiri (1.5.0)
-    plek (0.1.7)
+    plek (0.1.8)
       builder
     polyglot (0.3.2)
     rack (1.3.5)
@@ -132,6 +134,8 @@ GEM
     rake (0.9.2)
     rdoc (3.11)
       json (~> 1.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     ruby-debug-base19 (0.11.25)
       columnize (>= 0.3.1)
       linecache19 (>= 0.5.11)
@@ -156,6 +160,10 @@ GEM
       json_pure
       rubyzip
     shoulda (2.11.3)
+    slimmer (1.1.3)
+      nokogiri (~> 1.5.0)
+      plek (>= 0.1.8)
+      rack (~> 1.3.5)
     sprockets (2.0.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -191,16 +199,17 @@ DEPENDENCIES
   json
   minitest (= 2.7.0)
   mocha
-  plek (= 0.1.7)
+  plek (~> 0.1)
   rack (= 1.3.5)
   rails (= 3.1.1)
   rails-i18n
   rake (= 0.9.2)
   ruby-debug19
+  rummageable!
   sass-rails (~> 3.1.0)
   selenium-webdriver
   shoulda (~> 2.11.3)
-  slimmer!
+  slimmer (~> 1.1)
   therubyracer (~> 0.9.4)
   uglifier
   webmock

@@ -9,7 +9,7 @@ module SmartAnswer
       expected_weekly = Money.new("120")
       assert_equal expected_weekly, monthly.per_week
     end
-    
+
     test "Can compare salarys with same period" do
       m1 = Salary.new("520", "month")
       m2 = Salary.new("120", "month")
@@ -18,7 +18,7 @@ module SmartAnswer
       assert m2 < m1
       assert m1 == m3
     end
-    
+
     test "Converts to string" do
       assert_equal "520.0-month", Salary.new("520", "month").to_s
     end

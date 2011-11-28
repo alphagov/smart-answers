@@ -1,6 +1,6 @@
 multiple_choice :do_you_have_a_living_spouse_or_civil_partner? do
-  option :no => :do_you_have_children?
   option yes: :is_your_estate_worth_more_than_250000?
+  option :no => :do_you_have_children?
 end
 
 multiple_choice :do_you_have_children? do
@@ -40,12 +40,22 @@ end
 
 multiple_choice :do_you_have_any_living_aunts_or_uncles? do
   option yes: :shared_equally_between_aunts_or_uncles
+  option :no => :are_there_living_children_of_deceased_aunts_or_uncles?
+end
+
+multiple_choice :are_there_living_children_of_deceased_aunts_or_uncles? do
+  option yes: :shared_equally_between_children_of_aunts_or_uncles
   option :no => :do_you_have_any_living_half_aunts_or_uncles?
 end
 
 multiple_choice :do_you_have_any_living_half_aunts_or_uncles? do
   option yes: :shared_equally_between_half_aunts_or_uncles
-  option no: :everything_goes_to_crown 
+  option :no => :are_there_living_children_of_deceased_half_aunts_or_uncles?
+end
+
+multiple_choice :are_there_living_children_of_deceased_half_aunts_or_uncles? do
+  option yes: :shared_equally_between_children_of_half_aunts_or_uncles
+  option :no => :everything_goes_to_crown
 end
 
 outcome :shared_equally_between_children
@@ -56,5 +66,7 @@ outcome :shared_equally_between_brothers_or_sisters
 outcome :shared_equally_between_grandparents
 outcome :partner_receives_first_450000_remainder_to_parents_or_siblings
 outcome :shared_equally_between_aunts_or_uncles
+outcome :shared_equally_between_children_of_aunts_or_uncles
 outcome :shared_equally_between_half_aunts_or_uncles
+outcome :shared_equally_between_children_of_half_aunts_or_uncles
 outcome :everything_goes_to_crown

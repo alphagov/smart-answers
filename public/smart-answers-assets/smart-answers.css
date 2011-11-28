@@ -11,6 +11,10 @@
 	margin: 0.5em 0 0 0;
 }
 
+.get-started {
+  margin-top: 1.5em;
+}
+
 /*
   questions
 */
@@ -18,7 +22,6 @@
 .hint {
   color: #666;
   display: block;
-  margin-bottom: 0;
 }
 
 ol.done-questions {
@@ -44,6 +47,10 @@ li.done h3 {
   font-size: 1em;
   margin: 0 0.5em 0 0;
 }
+.lte-ie8 li.done h3 {
+  line-height: 1.5em;
+  position: relative;
+}
 
 li.done .answer {
   background-color: #f4f4f4;
@@ -59,9 +66,6 @@ li.done .undo {
   margin: 0 0 0 0.5em;
 }
 
-.current {
-}
-
 .current-question {
 	background-color: #fff;
 	padding: 1em 2em 1em 5em;
@@ -69,7 +73,11 @@ li.done .undo {
 }
 
 .current-question h2 {
-  margin-bottom: 0.75em;
+  margin-bottom: 0.5em;
+  position: relative;
+}
+.lte-ie8 .current-question h2 {
+  line-height: 1.2em;
 }
 
 .question-number {
@@ -77,13 +85,13 @@ li.done .undo {
   margin-left: -1.5em;
   width: 1.5em;
 }
+.lte-ie8 .question-number {
+  display: block;
+  position: absolute;
+}
 
 .done .question-number {
   margin-left: -1.7em;
-}
-
-.question-body {
-
 }
 
 .current-question ul {
@@ -105,12 +113,7 @@ li.done .undo {
 }
 
 .next-question {
-  margin: 1em 0 0 0;
-}
-
-.next-question input {
-	font-size: 1.5em;
-	margin: 0.5em 0;
+  margin: 1.5em 0 0.5em 0;
 }
 
 /*
@@ -160,6 +163,10 @@ li.done .undo {
   padding: 0.5em;
 }
 
-.error-message, #error-header {
-  padding: 0 0 0.5em 0;
+.error ul {
+  margin-bottom: 0;
+}
+
+.error-message {
+  margin-top: 0;
 }

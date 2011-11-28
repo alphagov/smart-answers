@@ -7,7 +7,7 @@ module SmartAnswer
     def setup
       @registry = FlowRegistry.new(File.dirname(__FILE__) + '/../fixtures/')
     end
-    
+
     test "Can load a flow from a file" do
       flow = @registry.find('flow_sample')
       assert_equal 1, flow.questions.size
@@ -22,5 +22,11 @@ module SmartAnswer
       end
     end
 
+    test "Should enumerate all flows" do
+      flows = @registry.flows
+      assert_kind_of Enumerable, flows
+      assert_kind_of Flow, flows.first
+      assert_equal "flow_sample", flows.first.name
+    end
   end
 end

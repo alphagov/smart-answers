@@ -26,7 +26,7 @@ module SmartAnswer
           @to_func && @to_func.call
         end
       end
-      
+
       def default(default = nil, &block)
         if block_given?
           @default_func = block
@@ -36,11 +36,11 @@ module SmartAnswer
           @default_func && @default_func.call
         end
       end
-      
+
       def range
         @from_func.call..@to_func.call
       end
-      
+
       def parse_input(input)
         date = case input
         when Hash, ActiveSupport::HashWithIndifferentAccess
@@ -51,9 +51,20 @@ module SmartAnswer
         when Date
           input
         else
-          raise "Bad date input #{input}"
+          raise InvalidResponse, "Bad date", caller
         end
         date.strftime('%Y-%m-%d')
+      end
+
+      def to_response(input)
+        date = ::Date.parse(parse_input(input))
+        {
+          day: date.day,
+          month: date.month,
+          year: date.year
+        }
+      rescue
+        nil
       end
     end
   end
