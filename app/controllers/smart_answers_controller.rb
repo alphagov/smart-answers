@@ -4,6 +4,7 @@ class SmartAnswersController < ApplicationController
   rescue_from SmartAnswer::FlowRegistry::NotFound, with: :render_404
 
   def show
+    expires_in 24.hours, :public => true unless Rails.env.development?
     respond_to do |format|
       format.html { render }
       format.json {
