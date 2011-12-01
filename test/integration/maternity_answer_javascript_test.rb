@@ -58,6 +58,7 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
       respond_with "Yes"
       wait_until { has_question? "Did you start your current job...?" }
       go :back
+      go :back
       wait_until(30) { has_question? "...employed...?" }
     end
 
@@ -66,7 +67,9 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
       respond_with "Yes"
       expect_question "Did you start your current job...?"
       go :back
+      go :back
       wait_until(30) { has_question? "...employed...?" }
+      go :forward
       go :forward
       wait_until(30) { has_question? "Did you start your current job...?" }
     end
