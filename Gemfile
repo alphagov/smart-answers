@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+source 'https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/'
 
 # passenger compatability
 group :passenger_compatibility do
