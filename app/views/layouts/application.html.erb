@@ -3,9 +3,9 @@
   <head>
     <title><%= yield :title %> | www.gov.uk</title>
     <%= stylesheet_link_tag "application" %>
-    <%= stylesheet_link_tag "/smart-answers-assets/smart-answers.css" %>
+    <%= stylesheet_link_tag "smart-answers" %>
     <%= javascript_include_tag "application", defer: true %>
-    <%= javascript_include_tag "/smart-answers-assets/smart-answers.js", defer: true %>
+    <%= javascript_include_tag "smart-answers", defer: true %>
     <meta name="x-section-name" content="Smart Answers" />
     <meta name="x-section-link" content="smart_answers" />
     <%= yield :head %>
