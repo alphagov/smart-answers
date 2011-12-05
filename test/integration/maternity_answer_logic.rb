@@ -46,7 +46,7 @@ module MaternityAnswerLogic
   def should_implement_materntiy_answer_logic
     context "Everybody" do
       setup do
-        visit "/maternity"
+        visit "/maternity-benefits"
       end
 
       should "see landing page" do
@@ -92,7 +92,7 @@ module MaternityAnswerLogic
     context "Employed person" do
       setup do
         @employed = "Yes"
-        visit "/maternity"
+        visit "/maternity-benefits"
         click_on "Get started"
       end
 
@@ -291,7 +291,7 @@ module MaternityAnswerLogic
 
     context "Self- or un-employed person" do
       setup do
-        visit "/maternity"
+        visit "/maternity-benefits"
         click_on "Get started"
         @due_date = Date.today + 30.weeks
         respond_with @due_date

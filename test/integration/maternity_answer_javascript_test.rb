@@ -37,7 +37,7 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
 
   context "HTML5 Pushstate/Ajax behaviour" do
     setup do
-      visit "/maternity"
+      visit "/maternity-benefits"
       click_on "Get started"
       @due_date = Date.today + 30.weeks
     end
@@ -75,7 +75,7 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
       should "reload page correctly" do
         respond_with @due_date
         wait_until { has_question? "...employed...?" }
-        visit "/materninty"
+        visit "/materninty-benefits"
         wait_until { has_css?("a", /Get started/) }
         go :back
         wait_until { has_question? "...employed...?" }
@@ -85,7 +85,7 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
 
   context "Visiting a smart answer" do
     setup do
-      visit "/maternity"
+      visit "/maternity-benefits"
     end
 
     should "demonstrate the history API is available" do
