@@ -1,7 +1,7 @@
 function browserSupportsHtml5HistoryApi() {
   return !! (history && history.replaceState && history.pushState);
 };
-
+_gaq.push(['_trackEvent', 'Citizen-Format-Smartanswer', 'Load']);
 $(document).ready(function() {
   if(browserSupportsHtml5HistoryApi()) {
     var formSelector = ".current form";
