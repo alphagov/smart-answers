@@ -1,8 +1,8 @@
 <ul>
-  <% question.options.each do |option| %>
+  <% question.options.each.with_index do |option, i| %>
     <li>
-      <label>
-        <%= radio_button_tag "response", option.value, prefill_value_is?(option.value) %>
+      <label for="response_<%= i %>">
+        <%= radio_button_tag "response", option.value, prefill_value_is?(option.value), id: "response_#{i}" %>
         <%= option.label %>
       </label>
     </li>
