@@ -3,7 +3,7 @@ function browserSupportsHtml5HistoryApi() {
 };
 
 $(document).ready(function() {
-  _gaq.push(['_trackEvent', 'Citizen-Format-Smartanswer', 'Load']);
+  //_gaq.push(['_trackEvent', 'Citizen-Format-Smartanswer', 'Load']);
   if(browserSupportsHtml5HistoryApi()) {
     var formSelector = ".current form";
     initializeHistory();
@@ -69,7 +69,7 @@ $(document).ready(function() {
   function updateContent(fragment){
     $('.smart_answer section').html(fragment);
     if($(".results").length != 0){
-      _gaq.push(['_trackEvent', 'Citizen-Format-Smartanswer', 'Success-results']);
+      //_gaq.push(['_trackEvent', 'Citizen-Format-Smartanswer', 'Success-results']);
     }
   };
 
