@@ -7,6 +7,7 @@ namespace :rummager do
         "title"             => presenter.title,
         "description"       => presenter.description,
         "format"            => "smart_answer",
+        "section"           => presenter.section,
         "link"              => "/#{flow.name}",
         "indexable_content" => presenter.text,
       }

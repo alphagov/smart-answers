@@ -5,6 +5,8 @@ en-GB:
         description: FLOW_DESCRIPTION
       title:
         FLOW_TITLE
+      section:
+        SECTION
       body: |
         FLOW_BODY
       hotter_or_colder?:

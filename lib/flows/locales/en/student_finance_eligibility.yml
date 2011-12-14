@@ -4,6 +4,7 @@ en-GB:
       body: |
         Here is the body.
 
+      section: education
       how_much_is_your_tution_fee_per_year?:
         title: asdsa
         body: vasdsai

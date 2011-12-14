@@ -24,6 +24,10 @@ module SmartAnswer
       assert_equal "FLOW_TITLE", @presenter.title
     end
 
+    test "should have a section" do
+      assert_equal "SECTION", @presenter.section
+    end
+
     test "should have description" do
       assert_equal "FLOW_DESCRIPTION", @presenter.description
     end

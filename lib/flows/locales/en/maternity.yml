@@ -5,6 +5,8 @@ en-GB:
         description: TBD
       title:
         Can you get maternity pay?
+      section:
+        "family"
       options:
         "no": "No"
         "yes": "Yes"

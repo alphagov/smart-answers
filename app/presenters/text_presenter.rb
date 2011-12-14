@@ -19,6 +19,10 @@ class TextPresenter
     translate("title")
   end
 
+  def section
+    translate("section")
+  end
+
   def description
     translate("meta.description")
   end

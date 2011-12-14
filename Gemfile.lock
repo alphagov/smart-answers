@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: git@github.com:alphagov/rummageable.git
-  revision: 3409afd6d1801cbe7fccfa6008298204421650ee
+  revision: e66b12f47dadd466db2d8407628b31b7f29e8054
   specs:
     rummageable (0.1.0)
       json
@@ -86,7 +86,7 @@ GEM
     jquery-rails (1.0.16)
       railties (~> 3.0)
       thor (~> 0.14)
-    json (1.6.1)
+    json (1.6.3)
     json_pure (1.6.1)
     kramdown (0.13.3)
     libv8 (3.3.10.2)
@@ -104,7 +104,7 @@ GEM
     multi_json (1.0.3)
     nokogiri (1.5.0)
     null_logger (0.0.1)
-    plek (0.1.8)
+    plek (0.1.11)
       builder
     polyglot (0.3.2)
     rack (1.3.5)
