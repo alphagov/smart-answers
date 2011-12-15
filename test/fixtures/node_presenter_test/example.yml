@@ -3,6 +3,10 @@ en-GB:
     test:
       options:
         maybe: Mebbe
+      phrases:
+        one: This is the first one
+        two: This is **the** second
+        three: The last!
       example_question?:
         title: Foo
         subtitle: This is the subtitle
@@ -14,3 +18,9 @@ en-GB:
       interpolated_question:
         title: "Is today a %{day}?"
         body: "Today is %{day}"
+      outcome_with_interpolated_phrase_list:
+        title: "All done"
+        body: |
+          Here are the phrases:
+
+          %{phrases}
