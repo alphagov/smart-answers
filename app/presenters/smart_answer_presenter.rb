@@ -5,6 +5,8 @@ class SmartAnswerPresenter
 
   attr_reader :request, :params, :flow
 
+  def_delegators :@flow, :section, :need_id
+
   def initialize(request, flow)
     @request = request
     @params = request.params

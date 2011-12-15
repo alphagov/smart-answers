@@ -79,6 +79,22 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal [:how_much?], s.questions.map(&:name)
   end
 
+  test "should have a need ID" do
+    s = SmartAnswer::Flow.new do
+      satisfies_need 1337
+    end
+
+    assert_equal 1337, s.need_id
+  end
+
+  test "should have a section" do
+    s = SmartAnswer::Flow.new do
+      section "Family"
+    end
+
+    assert_equal "Family", s.section
+  end
+
   context "sequence of two questions" do
     setup do
       @flow = SmartAnswer::Flow.new do

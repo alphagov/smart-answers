@@ -4,7 +4,7 @@ source 'https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/'
 # passenger compatability
 group :passenger_compatibility do
   gem 'rack', '1.3.5'
-  gem 'rake', '0.9.2'
+  gem 'rake'
 end
 
 group :router do
@@ -38,7 +38,6 @@ group :test do
   gem 'capybara', '~> 1.1.0'
   gem 'ci_reporter'
   gem 'factory_girl_rails'
-  gem 'minitest', '2.7.0'
   gem 'mocha', :require => false
   gem 'selenium-webdriver'
   gem "shoulda", "~> 2.11.3"

@@ -2,9 +2,8 @@ require 'ostruct'
 
 module SmartAnswer
   class Flow
-    attr_reader :nodes
-    attr_reader :outcomes
-    attr_accessor :state
+    attr_reader :nodes, :outcomes
+    attr_accessor :state, :need_id
 
     def initialize(&block)
       @nodes = []
@@ -15,6 +14,15 @@ module SmartAnswer
     def name(name = nil)
       @name = name unless name.nil?
       @name
+    end
+
+    def satisfies_need(need_id)
+      self.need_id = need_id
+    end
+
+    def section(s=nil)
+      @section = s if s
+      @section
     end
 
     def multiple_choice(name, options = {}, &block)

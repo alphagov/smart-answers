@@ -1,3 +1,6 @@
+satisfies_need 1481
+section "Work"
+
 multiple_choice :country_is_listed_in_your_passport? do
   option eu_and_swiss: :eligiable_to_work_eu
   option bulgaria_or_romania: :maybe_eligiable_if_self_employed

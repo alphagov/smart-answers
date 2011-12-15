@@ -1,3 +1,6 @@
+satisfies_need 177
+section "Education"
+
 money_question :how_much_is_your_tution_fee_per_year? do
   next_node :how_much_do_your_parents_earn?
   save_input_as :tuition_fee_amount

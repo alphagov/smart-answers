@@ -9,6 +9,9 @@ class SmartAnswersControllerTest < ActionController::TestCase
     @flow = SmartAnswer::Flow.new do
       name :sample
 
+      satisfies_need 1337
+      section "Family"
+
       multiple_choice :do_you_like_chocolate? do
         option :yes => :you_have_a_sweet_tooth
         option :no => :do_you_like_jam?
@@ -86,6 +89,14 @@ class SmartAnswersControllerTest < ActionController::TestCase
     should "have meta robots noindex on question pages" do
       get :show, id: 'sample', started: 'y'
       assert_select "head meta[name=robots][content=noindex]"
+    end
+
+    should "send slimmer analytics headers" do
+      get :show, id: 'sample'
+      assert_equal "Family",        @response.headers["X-Slimmer-Section"]
+      assert_equal "1337",          @response.headers["X-Slimmer-Need-ID"].to_s
+      assert_equal "smart_answers", @response.headers["X-Slimmer-Format"]
+      assert_equal "citizen",       @response.headers["X-Slimmer-Proposition"]
     end
 
     context "date question" do
