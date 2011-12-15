@@ -6,16 +6,15 @@ multiple_choice :are_you_a_full_time_or_part_time_student? do
 end
 
 money_question :how_much_is_your_tution_fee_per_year? do 
-  next_node :where_will_you_live_while_studying?
-  save_input_as :tuition_fee_amount                      
+  next_node :where_will_you_live_while_studying?   
   
-  calculate :tuition_fee_amount do |response|
-    if :course_type == "Full-time"
-      raise SmartAnswer::InvalidResponse if response.tuition_fee_amount > 9000
+  calculate :tuition_fee_amount do    
+    if course_type == "Full-time"    
+      raise SmartAnswer::InvalidResponse if responses.last > 9000
     else
-      raise SmartAnswer::InvalidResponse if response.tuition_fee_amount > 6750
+      raise SmartAnswer::InvalidResponse if responses.last > 6750
     end                                                                       
-    Money.new(response.tuition_fee_amount)
+    Money.new(responses.last)
   end
 end
 
@@ -25,8 +24,8 @@ multiple_choice :where_will_you_live_while_studying? do
   option "away from home, in London"  
   save_input_as :where_will_you_live_while_studying?
 
-  calculate :maintenance_loan_amount do |response|
-    case response.where_will_you_live_while_studying?
+  calculate :maintenance_loan_amount do
+    case responses.last
     when /at home/ then Money.new("4473")
     when /outside of London/ then Money.new("5500")
     when /in London/ then Money.new("7675")
@@ -48,8 +47,8 @@ multiple_choice :how_much_do_your_parents_or_partner_earn? do
   next_node :would_you_like_to_check_for_additional_grants_and_allowances?
   save_input_as :how_much_do_your_parents_earn?                                                 
   
-  calculate :maintenance_grant_amount do |response|
-    case response.how_much_do_your_parents_earn?
+  calculate :maintenance_grant_amount do
+    case responses.last
     when /Up to £25,000/ then Money.new('3250')
     when /£25,001 \- £30,000/ then Money.new('2341')
     when /£30,001 \- £35,000/ then Money.new('1432')
@@ -91,7 +90,7 @@ multiple_choice :does_another_adult_depend_on_you_financially? do
   option :no
   next_node :do_you_have_a_disability_or_health_condition?
 
-  calculate :additional_benefits do |response|
+  calculate :additional_benefits do
     responses.last == "yes" ? additional_benefits + :dependent_adult : additional_benefits
   end
 end
@@ -101,7 +100,7 @@ multiple_choice :do_you_have_a_disability_or_health_condition? do
   option :no                                    
   next_node :are_you_in_financial_hardship?     
   
-  calculate :additional_benefits do |response|
+  calculate :additional_benefits do
     responses.last == "yes" ? additional_benefits + :disability : additional_benefits
   end
 end
@@ -111,7 +110,7 @@ multiple_choice :are_you_in_financial_hardship? do
   option :no
   next_node :are_you_studying_one_of_these_courses?            
   
-  calculate :additional_benefits do |response|
+  calculate :additional_benefits do
     responses.last == "yes" ? additional_benefits + :financial_hardship : additional_benefits
   end
 end
@@ -122,8 +121,9 @@ multiple_choice :are_you_studying_one_of_these_courses? do
   option "Social work"         
   option "None of these"                                                      
   
-  calculate :additional_benefits do |response|
-    case response.last
+  calculate :additional_benefits do    
+    puts additional_benefits.inspect
+    case responses.last
     when "Teacher training" 
       additional_benefits + :teacher_training
     when "Dental, medical, or healthcare" 
