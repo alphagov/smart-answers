@@ -1,0 +1,78 @@
+en-GB:
+  flow:
+    student-finance-eligibility:
+      phrases:
+        dependent_children: |
+          ###[Childcare Grant](#)
+          
+          * up to £148 a week (one child)
+          * up to £255 a week (two or more children)   
+        
+          ### [Parents Learning Allowance](#)  
+          
+          For course costs like books and travel - £50 and £1,508
+        dependent_adult: |
+          ### [Adult Dependants' Grant](#)
+          
+          For additional help with living costs - up to £2,642  
+        disability: |
+          ### [Disabled Students' Allowance](#)
+        
+          For things like specialist equipment and non-medical helpers.
+        financial_hardship: |
+          ### [Access to Learning Fund](#)
+          
+          Extra money if you're in financial hardship
+        teacher_training: |
+          ### [Teacher Training](#)   
+        
+          Help with tuition and living costs.
+        medical: |
+          ### [NHS Bursary](#)
+          
+          Help with tuition fees and living costs.
+        social_work: |
+          ### [Social Work Bursary](#)
+          
+          Help with tuition fees and living costs.
+      title:
+        What money you can get for university and college
+      body: |
+        This tool is for UK students starting their course on or after 1 September 2012. 
+        
+        It gives you estimates for the main student finance package (loans and grants). You can also check additional grants and allowances.
+      section: education
+      how_much_is_your_tution_fee_per_year?:
+        hint: The maximum is £9000 for full-time students, and £6,750 for part-time students.                    
+        error_message: You can't enter more than the maximum amount
+      how_much_do_your_parents_or_partner_earn?:
+        hint: The amount of Maintenance Grant you could get depends on your parents'/partner's income. 
+      would_you_like_to_check_for_additional_grants_and_allowances?:   
+        body: For example, if you have children, a disability or health condition, dependent adults, or study on a teacher, medical or social work course.  
+      are_you_in_financial_hardship?:
+        body: For example, if you are from a low-income family, or if you find it hard to pay for basics like food and accommodation.
+      done:
+        title: You may get
+        body: |
+          The figures below are estimates. Always check with Student Finance England for final amounts.
+          
+          ## Help with tuition Fees
+          Tuition fee loan of %{tuition_fee_amount}.
+             
+          ## Help with living costs
+          * Maintenance Loan - up to %{maintenance_loan_amount}.
+          * Maintenance Grant - up to %{maintenance_grant_amount}.      
+          
+          ## Additional help
+          
+          %{additional_benefits}
+          
+          ### [Help from your university or college](#)
+          
+          Bursaries and scholarships to help with the costs of study.
+        next_steps: |
+
+          * read the guide to [Maternity Allowance](# "Maternity Allowance").
+          * read the guide to [Maternity Leave](# "Maternity Leave")
+          * plan your maternity leave and pay period using the [Maternity Planner](# "Maternity Planner")
+
