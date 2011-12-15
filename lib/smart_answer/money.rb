@@ -28,7 +28,7 @@ module SmartAnswer
     end
 
     def self.valid?(raw_input)
-      raw_input.is_a?(Numeric) || raw_input =~ /\A *[0-9]+(\.[0-9]{1,2})? *\z/
+      raw_input.is_a?(Numeric) || raw_input.is_a?(Money) || raw_input =~ /\A *[0-9]+(\.[0-9]{1,2})? *\z/
     end
   end
 end
