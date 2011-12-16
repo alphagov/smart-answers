@@ -75,7 +75,7 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
       should "reload page correctly" do
         respond_with @due_date
         wait_until { has_question? "...employed...?" }
-        visit "/materninty-benefits"
+        visit "/maternity-benefits"
         wait_until { has_css?("a", /Get started/) }
         go :back
         wait_until { has_question? "...employed...?" }
