@@ -1,5 +1,5 @@
 # encoding: UTF-8
-
+require 'slimmer/test'
 require_relative 'test_helper'
 require 'capybara/rails'
 
