@@ -48,7 +48,7 @@ en-GB:
         * [Student Awards Agency for Scotland](http://www.saas.gov.uk/)
         * [Student Finance Wales](http://www.studentfinancewales.co.uk)
         * [Student Finance Northern Ireland](http://www.studentfinanceni.co.uk)
-      section: education
+      section: Education
       how_much_is_your_tuition_fee_per_year?:
         hint: The maximum is £9000 for full-time students, and £6,750 for part-time students.                    
         error_message: You can't enter more than the maximum amount

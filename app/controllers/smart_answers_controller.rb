@@ -18,8 +18,11 @@ class SmartAnswersController < ApplicationController
         }
       }
     end
-
-    set_slimmer_headers section: @presenter.section, need_id: @presenter.need_id
+                                                   
+    set_slimmer_headers(
+      section: @presenter.section, 
+      need_id: @presenter.need_id
+    )
   end
 
 private

@@ -35,6 +35,10 @@ class SmartAnswerPresenter
   def subtitle
     lookup_translation(:subtitle)
   end
+            
+  def section
+    lookup_translation(:section)
+  end
 
   def body
     markdown_for('body')            

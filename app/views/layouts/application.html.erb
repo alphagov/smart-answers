@@ -4,8 +4,8 @@
     <title><%= yield :title %> | www.gov.uk</title>
     <%= stylesheet_link_tag "smart-answers" %>
     <%= javascript_include_tag "smart-answers", defer: true %>
-    <meta name="x-section-name" content="Smart Answers" />
-    <meta name="x-section-link" content="smart_answers" />
+    <meta name="x-section-name" content="<%= yield :section_name %>" />
+    <meta name="x-section-link" content="<%= yield(:section_name).downcase %>" />
     <%= yield :head %>
   </head>
 <body>
