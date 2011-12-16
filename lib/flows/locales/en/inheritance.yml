@@ -6,8 +6,8 @@ en-GB:
       subtitle: Intestacy - how an estate is divided up if there is no will
       section: money
       options:
-        no: No
-        yes: Yes
+        "no": "No"
+        "yes": "Yes"
       body: |
 
         You can use this tool to work out who is entitled to a share of the estate (property, possessions and money) if someone dies without making a will.
