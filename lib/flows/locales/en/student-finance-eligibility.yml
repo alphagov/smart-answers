@@ -41,6 +41,12 @@ en-GB:
         This tool is for UK students studying in England and starting their course on or after 1 September 2012. 
         
         It gives you estimates for the main student finance package (loans and grants). You can also check additional grants and allowances.
+        
+        If you're not studying in England, go to:   
+          
+        * [Student Awards Agency for Scotland](http://www.saas.gov.uk/)
+        * [Student Finance Wales](http://www.studentfinancewales.co.uk)
+        * [Student Finance Northern Ireland](http://www.studentfinanceni.co.uk)
       section: education
       how_much_is_your_tution_fee_per_year?:
         hint: The maximum is £9000 for full-time students, and £6,750 for part-time students.                    
@@ -72,7 +78,6 @@ en-GB:
           Bursaries and scholarships to help with the costs of study.
         next_steps: |
 
-          * read the guide to [Maternity Allowance](# "Maternity Allowance").
-          * read the guide to [Maternity Leave](# "Maternity Leave")
-          * plan your maternity leave and pay period using the [Maternity Planner](# "Maternity Planner")
+          * read the guide to [Student Finance](# "Student Finance")
+          * [Apply for Student Finance](http://www.studentfinance.direct.gov.uk/ "Apply for Student Finance")
 
