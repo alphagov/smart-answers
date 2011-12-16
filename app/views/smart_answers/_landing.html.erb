@@ -24,7 +24,8 @@
           <%= @presenter.body %>
         <% end %>
         <p class="get-started"><%= link_to "Get started &rarr;".html_safe, smart_answer_path(@smart_answer_name, started: 'y'), :class => 'big button' %></p>
-      </div>
+      </div> 
+      <%= @presenter.devolved_body if @presenter.has_devolved_body? %>
     </div>
   </article>
 </div>

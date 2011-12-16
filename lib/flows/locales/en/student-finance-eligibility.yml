@@ -36,12 +36,13 @@ en-GB:
           
           Help with tuition fees and living costs.
       title:
-        What money you can get for university and college
+        Money you can get for university and colleges in England
       body: |
-        This tool is for UK students studying in England and starting their course on or after 1 September 2012. 
+        This tool is for UK students starting their course on or after 1 September 2012. 
         
         It gives you estimates for the main student finance package (loans and grants). You can also check additional grants and allowances.
         
+      devolved_body: |
         If you're not studying in England, go to:   
           
         * [Student Awards Agency for Scotland](http://www.saas.gov.uk/)

@@ -21,6 +21,11 @@ class SmartAnswerPresenter
     I18n.translate!("#{i18n_prefix}.#{key}")
   rescue I18n::MissingTranslationData
     nil
+  end               
+  
+  def markdown_for(key)          
+    markdown = lookup_translation(key)
+    markdown && Govspeak::Document.new(markdown).to_html.html_safe
   end
 
   def title
@@ -32,9 +37,12 @@ class SmartAnswerPresenter
   end
 
   def body
-    markdown = lookup_translation('body')
-    markdown && Govspeak::Document.new(markdown).to_html.html_safe
-  end
+    markdown_for('body')            
+  end    
+  
+  def devolved_body
+    markdown_for('devolved_body')
+  end         
 
   def has_subtitle?
     !! subtitle
@@ -42,6 +50,10 @@ class SmartAnswerPresenter
 
   def has_body?
     !! body
+  end     
+
+  def has_devolved_body?
+    !! devolved_body
   end
 
   def has_meta_description?
