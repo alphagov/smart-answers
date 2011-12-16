@@ -1,11 +1,11 @@
 multiple_choice :are_you_a_full_time_or_part_time_student? do
   option "Full-time"
   option "Part-time"
-  next_node :how_much_is_your_tution_fee_per_year?
+  next_node :how_much_is_your_tuition_fee_per_year?
   save_input_as :course_type
 end
 
-money_question :how_much_is_your_tution_fee_per_year? do 
+money_question :how_much_is_your_tuition_fee_per_year? do 
   next_node :where_will_you_live_while_studying?   
   
   calculate :tuition_fee_amount do    
