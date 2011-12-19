@@ -20,9 +20,9 @@ namespace :router do
     SmartAnswer::FlowRegistry.new.flows.map do |flow|
       path = "/#{flow.name}"
       @logger.info "Registering #{path}"
-      @router.routes.update application_id: "smartanswers", route_type: :full,
+      @router.routes.update application_id: "smartanswers", route_type: :prefix,
         incoming_path: path
-      @router.routes.update application_id: "smartanswers", route_type: :full,
+      @router.routes.update application_id: "smartanswers", route_type: :prefix,
         incoming_path: "#{path}.json"
     end
   end
