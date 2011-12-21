@@ -15,7 +15,7 @@ class HolidayPayTest < ActionDispatch::IntegrationTest
     wait_until { page.has_content? "28.0 days" }
   end
 
-  test "Entering details for part of a year gives correct result" do       
+  pending_test "Entering details for part of a year gives correct result" do       
     visit "/calculate-holiday-pay"
     choose "Part of a year"
     select "leaving", from: "someone is"
