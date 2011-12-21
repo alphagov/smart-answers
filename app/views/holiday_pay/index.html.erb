@@ -1,0 +1,102 @@
+<% content_for :title do %>Calculate holiday pay<% end %>
+<% content_for :section_name do %>Section<% end %>
+	
+<section class="calculator" id="content">
+  <header class="page-header group">
+    <hgroup>
+      <h1>
+        <span>Calculator </span>
+        Calculate holiday pay
+      </h1>
+
+    </hgroup>
+  </header>
+
+  <div class="article-container group">
+    <article role="article" class="group">
+      <div class="inner">
+        <div class="summary"><p>A worker is entitled to 5.6 weeks paid annual leave. This entitlement starts from their first day of employment.</p></div>
+      </div>
+    </article>
+
+    <div class="current-question"> 
+      <%= form_tag "", :method => :get  do %>
+        <fieldset class="question">
+          <legend>What period for?</legend>
+          
+          <li>
+            <label for="period_full_year">
+              <%= radio_button_tag 'period', 'full_year', ( { :checked => true } unless @options[:period] == :leaving || @options[:period] == :joining ) %> A full year            
+            </label>
+          </li>     
+          
+          <li>
+            <label for="period_part_year">
+              <%= radio_button_tag 'period', 'part_year', ( { :checked => true } if @options[:period] == :leaving || @options[:period] == :joining ) %> Part of a year            
+            </label>
+            <label for="leave_join">someone is 
+              <%= select_tag "leave_join", options_for_select(["leaving","joining"], @options[:period] || "leaving") %>
+            </label>
+            <label for="leave_join_date">on
+              <%= date_select("leave_join_date", nil, :order => [:day, :month, :year], :default => { :day => @options[:date].day, :month => @options[:date].month, :year => @options[:date].year })%>
+            </label>
+          </li>              
+        </fieldset>
+
+        <fieldset class="question">
+          <legend>Is the employee paid hourly or daily?</legend>
+          
+          <li>
+            <label for="pay_period_daily">
+              <%= radio_button_tag 'pay_period', 'daily', ( { :checked => true } unless @options[:pay_period] == :hours ) %> Daily            
+            </label>&mdash;
+            <label for="days_per_week">
+              <%= select_tag "days_per_week", options_for_select(1..5, @options[:days_per_week]) %> days a week
+            </label>
+          </li>     
+
+          <li>
+            <label for="pay_period_hourly">
+              <%= radio_button_tag 'pay_period', 'hourly', ( { :checked => true } if @options[:pay_period] == :hours )   %> Hourly            
+            </label>&mdash;
+            <label for="hours_per_week">
+              <%= text_field_tag "hours_per_week", params[:hours_per_week] || 35, :size => 3 %> hours a week
+            </label>
+          </li>                   
+        </fieldset>
+
+        <fieldset class="question">
+          <legend>When does your holiday year start?</legend>
+          
+          <li>
+            <label for="start_date">
+              <%= date_select("start_date", nil, :order => [:day, :month], :default => { :day => @options[:start_date].day, :month => @options[:start_date].month } ) %>            
+            </label>
+          </li>                 
+        </fieldset>
+
+        <p><%= submit_tag "Calculate holidays" %></p>
+      <% end %>
+    </div>
+
+      <% if @result.present? -%>
+      <article id="holidays-answer">
+        <div class="inner">
+          <div class="summary"><h2>Your holiday entitlement would be <%= pluralize(@result[:final_amount], @result[:pay_period].to_s) %></h2></div>
+          <h2 id="result"></h2>
+          <p><%= @result[:workings] %></p>
+        </div>
+      </article>
+      <% end %>
+
+      <div class="meta-data">
+
+        <p>Re-use this data:</p>
+        
+        <ul class="api-links">
+          <li class="json"><a href="registrars-offices.json">JSON</a></li>
+        </ul>
+      </div>
+
+  </div>
+</section>

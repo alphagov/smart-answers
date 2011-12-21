@@ -1,0 +1,116 @@
+class HolidayPayController < ApplicationController
+  before_filter :calculate, :if => :params_present?
+
+  STATUTORY_WEEKS = 5.6
+
+  def index 
+    @defaults = { 
+      :period         => :full_year,
+      :date           => Time.now,
+      :start_date     => Time.parse('1 January 2011'),
+      :pay_period     => :days,
+      :days_per_week  => 5,
+      :hours_per_week => 35
+    }
+    @options = @options.nil? ? @defaults : @defaults.merge(@options)
+
+    respond_to do |format|
+      format.html { render }
+      format.json { 
+        if @result.present?
+          render :json => { "holiday_pay" => @result[:final_amount], "workings" => @result[:workings] }
+        else
+          render :json => { }
+        end
+      }
+    end
+  end
+
+  private
+    def calculate
+      @options = {}
+
+      case params[:period]
+      when "full_year"
+        @options[:period] = :full_year
+      else
+        @options[:period] = params["leave_join"] == "leaving" ? :leaving : :joining
+      end
+
+      case params[:pay_period]
+      when "daily"
+        @options[:pay_period] = :days
+      when "hourly"
+        @options[:pay_period] = :hours
+      end
+
+      @options[:date] = parse_date(params[:leave_join_date])
+      @options[:start_date] = parse_date(params[:start_date])
+      @options[:days_per_week] = params[:days_per_week].to_i
+      @options[:hours_per_week] = params[:hours_per_week].to_i
+
+      return false if params[:hours_per_week].blank? and @options[:pay_period] == :hours
+      return false if ( params[:period].blank? || params[:pay_period].blank? )
+
+      @result = evaluate_formula @options 
+    end
+
+    def evaluate_formula(options)
+      case options[:pay_period]
+         when :days
+            workings = "#{STATUTORY_WEEKS} (statutory requirement) x #{options[:days_per_week]} days"
+            annual_entitlement = STATUTORY_WEEKS * options[:days_per_week]
+         when :hours
+            workings = "#{STATUTORY_WEEKS} (statutory requirement) x #{options[:hours_per_week]} hours"
+            puts "Hours #{options[:hours_per_week]}"
+            annual_entitlement = STATUTORY_WEEKS * options[:hours_per_week]
+      end
+      puts "annual_entitlement: #{annual_entitlement}"
+
+      unless options[:period] == :full_year
+        count_days = days_difference(options[:start_date],options[:date])
+        proportion = count_days/365.0
+      end
+
+      case options[:period]
+        when :full_year
+          proportion = 1
+        when :joining
+            if options[:date] > options[:start_date]
+             proportion = 1 - proportion
+            end
+            workings += " x #{proportion.round(2)} (proportion of holiday year left)"
+        when :leaving
+            if options[:date] <= options[:start_date]
+              proportion = 1 - proportion
+            end
+            workings += " x #{proportion.round(2)} (proportion of holiday year worked)"
+        end  
+        puts "proportion: #{proportion}"
+
+      final_amount = annual_entitlement * proportion
+      puts "final_amount: #{final_amount}"
+      workings += " = #{final_amount.round(2)} #{options[:pay_period]}"
+      
+      { 
+        :final_amount => final_amount.round(2),
+        :pay_period   => options[:pay_period],
+        :workings     => workings,
+      }
+    end
+    
+    def parse_date(date)
+      puts date.inspect
+      day,month,year = "(3i)", "(2i)", "(1i)"
+      Time.utc(date[year],date[month],date[day])
+    end
+
+    def days_difference(date1,date2)
+      d1y,d2y = date1.yday,date2.yday
+      (d1y >= d2y) ? d1y - d2y : d2y - d1y
+    end
+
+    def params_present?
+      params[:commit].present?
+    end
+end
