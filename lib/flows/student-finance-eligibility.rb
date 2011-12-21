@@ -77,11 +77,11 @@ multiple_choice :do_you_have_any_children_under_17? do
   next_node :does_another_adult_depend_on_you_financially?
   
   calculate :additional_benefits do
+    additional_benefits = PhraseList.new(:body)
     if responses.last == "yes"
-      PhraseList.new(:dependent_children)
-    else
-      PhraseList.new
+      additional_benefits +:dependent_children
     end
+    additional_benefits
   end
 end
 

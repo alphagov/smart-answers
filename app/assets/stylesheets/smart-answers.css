@@ -169,3 +169,11 @@ li.done .undo {
 .error-message {
   margin-top: 0;
 }
+
+/*
+  calculators
+*/
+
+.calculator article {
+  min-height: 0;
+}
