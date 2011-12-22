@@ -8,8 +8,8 @@ end
 money_question :how_much_is_your_tuition_fee_per_year? do 
   next_node :where_will_you_live_while_studying?   
   
-  calculate :tuition_fee_amount do    
-    if course_type == "Full-time"    
+  calculate :tuition_fee_amount do
+    if course_type == "Full-time"
       raise SmartAnswer::InvalidResponse if responses.last > 9000
     else
       raise SmartAnswer::InvalidResponse if responses.last > 6750
@@ -19,14 +19,14 @@ money_question :how_much_is_your_tuition_fee_per_year? do
 end
 
 multiple_choice :where_will_you_live_while_studying? do
-  option "at home with my parents"
-  option "away from home, outside of London"
-  option "away from home, in London"  
+  option "At home with my parents"
+  option "Away from home, outside of London"
+  option "Away from home, in London"  
   save_input_as :where_will_you_live_while_studying?
 
   calculate :maintenance_loan_amount do
     case responses.last
-    when /at home/ then Money.new("4473")
+    when /At home/ then Money.new("4473")
     when /outside of London/ then Money.new("5500")
     when /in London/ then Money.new("7675")
     else

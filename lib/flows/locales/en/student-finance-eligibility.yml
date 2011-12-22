@@ -21,11 +21,12 @@ en-GB:
           - Help with social work copy.
       title:
         Money you can get for university and college in England
+      options:
+        "no": "No"
+        "yes": "Yes"
       body: |
-        You can use this tool to work out how much student finance you could get - both loans and grants. You can check if you could get extra grants and allowances, eg if you're disabled.
-        
-        %This tool is for UK students starting a course from 1 September 2012.%
-        
+        If you are a UK student starting a course from **1 September 2012** you can use this tool to work out how much student finance, including loans and grants, you could get.
+
       devolved_body: |
         If you're not studying in England, go to:   
           
@@ -37,7 +38,7 @@ en-GB:
         hint: The maximum is £9,000 for full-time students and £6,750 for part-time students.                    
         error_message: You can't enter more than the maximum amount
       how_much_do_your_parents_or_partner_earn?:
-        hint: Maintenance Grant depends on your parents'/partner's income. 
+        hint: Maintenance grants depend on your parents' or partner's income. 
       would_you_like_to_check_for_additional_grants_and_allowances?:   
         body: For example, if you have children, a disability or health condition, dependent adults, or you're studying a teacher, medical or social work course.  
       are_you_in_financial_hardship?:
