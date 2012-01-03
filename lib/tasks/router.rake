@@ -24,7 +24,10 @@ namespace :router do
         incoming_path: path
       @router.routes.update application_id: "smartanswers", route_type: :prefix,
         incoming_path: "#{path}.json"
-    end
+    end                                                                                                                   
+    
+    @router.routes.update application_id: "smartanswers", route_type: :full, incoming_path: "/calculate-your-annual-leave"
+    @router.routes.update application_id: "smartanswers", route_type: :full, incoming_path: "/calculate-your-annual-leave.json"
   end
 
   desc "Register smartanswers application and routes with the router (run this task on server in cluster)"

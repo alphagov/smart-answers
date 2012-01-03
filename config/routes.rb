@@ -1,5 +1,5 @@
 SmartAnswers::Application.routes.draw do
-  match '/calculate-holiday-pay', :to => 'holiday_pay#index', :as => :holiday_pay
+  match '/calculate-your-annual-leave', :to => 'holiday_pay#index', :as => :holiday_pay
 
   match '/:id(/:started(/*responses)).:format',
     :to => 'smart_answers#show',
