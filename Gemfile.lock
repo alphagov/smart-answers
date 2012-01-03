@@ -78,6 +78,8 @@ GEM
     columnize (0.3.5)
     crack (0.3.1)
     erubis (2.7.0)
+    exception_notification (2.5.2)
+      actionmailer (>= 3.0.4)
     execjs (1.2.12)
       multi_json (~> 1.0)
     factory_girl (2.3.2)
@@ -204,6 +206,7 @@ DEPENDENCIES
   capybara-webkit
   ci_reporter
   coffee-rails (~> 3.1.0)
+  exception_notification
   factory_girl_rails
   govspeak!
   jquery-rails
