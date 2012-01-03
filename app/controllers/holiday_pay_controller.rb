@@ -100,7 +100,6 @@ class HolidayPayController < ApplicationController
   end
 
   def parse_date(date)
-    puts date.inspect
     day,month,year = "(3i)", "(2i)", "(1i)"
     Time.utc(date[year],date[month],date[day])
   end
