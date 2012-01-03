@@ -17,6 +17,8 @@ gem 'json'
 gem 'jquery-rails'
 gem 'plek', '~> 0.1'
 gem 'rummageable', :git => 'git@github.com:alphagov/rummageable.git'
+gem 'aws-ses', :require => 'aws/ses'
+gem 'exception_notification'
 
 group :development do
   gem 'ruby-debug19', :require => false
