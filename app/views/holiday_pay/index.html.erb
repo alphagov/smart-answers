@@ -23,55 +23,61 @@
 
           <h2><span class="question-number">1</span> Calculate your annual leave based on:</h2>
 
-          <li>
-            <label for="period_full_year">
-              <%= radio_button_tag 'period', 'full_year', ( { :checked => true } unless @options[:period] == :leaving || @options[:period] == :joining ) %> A full year
-            </label>
-          </li>
+          <ul>
+            <li>
+              <label for="period_full_year">
+                <%= radio_button_tag 'period', 'full_year', ( { :checked => true } unless @options[:period] == :leaving || @options[:period] == :joining ) %> A full year
+              </label>
+            </li>
 
-          <li>
-            <label for="period_part_year">
-              <%= radio_button_tag 'period', 'part_year', ( { :checked => true } if @options[:period] == :leaving || @options[:period] == :joining ) %> Part of a year
-            </label>
-            <label for="leave_join">someone is
-              <%= select_tag "leave_join", options_for_select(["leaving","joining"], @options[:period] || "leaving") %>
-            </label>
-            <label for="leave_join_date">on
-              <%= date_select("leave_join_date", nil, :order => [:day, :month, :year], :default => { :day => @options[:date].day, :month => @options[:date].month, :year => @options[:date].year })%>
-            </label>
-          </li>
+            <li>
+              <label for="period_part_year">
+                <%= radio_button_tag 'period', 'part_year', ( { :checked => true } if @options[:period] == :leaving || @options[:period] == :joining ) %> Part of a year
+              </label>
+              <label for="leave_join">someone is
+                <%= select_tag "leave_join", options_for_select(["leaving","joining"], @options[:period] || "leaving") %>
+              </label>
+              <label for="leave_join_date">on
+                <%= date_select("leave_join_date", nil, :order => [:day, :month, :year], :default => { :day => @options[:date].day, :month => @options[:date].month, :year => @options[:date].year })%>
+              </label>
+            </li>
+          </ul>
         </fieldset>
 
         <fieldset class="question-body">
           <h2><span class="question-number">2</span> Are you paid hourly or daily?</h2>
 
-          <li>
-            <label for="pay_period_daily">
-              <%= radio_button_tag 'pay_period', 'daily', ( { :checked => true } unless @options[:pay_period] == :hours ) %> Daily
-            </label>&mdash;
-            <label for="days_per_week">
-              <%= select_tag "days_per_week", options_for_select(1..5, @options[:days_per_week]) %> days a week
-            </label>
-          </li>
+          <ul>
+            <li>
+              <label for="pay_period_daily">
+                <%= radio_button_tag 'pay_period', 'daily', ( { :checked => true } unless @options[:pay_period] == :hours ) %> Daily
+              </label>&mdash;
+              <label for="days_per_week">
+                <%= select_tag "days_per_week", options_for_select(1..5, @options[:days_per_week]) %> days a week
+              </label>
+            </li>
 
-          <li>
-            <label for="pay_period_hourly">
-              <%= radio_button_tag 'pay_period', 'hourly', ( { :checked => true } if @options[:pay_period] == :hours )   %> Hourly
-            </label>&mdash;
-            <label for="hours_per_week">
-              <%= text_field_tag "hours_per_week", params[:hours_per_week] || 35, :size => 3 %> hours a week
-            </label>
-          </li>
+            <li>
+              <label for="pay_period_hourly">
+                <%= radio_button_tag 'pay_period', 'hourly', ( { :checked => true } if @options[:pay_period] == :hours )   %> Hourly
+              </label>&mdash;
+              <label for="hours_per_week">
+                <%= text_field_tag "hours_per_week", params[:hours_per_week] || 35, :size => 3 %> hours a week
+              </label>
+            </li>
+          </ul>
         </fieldset>
 
         <fieldset class="question-body">
           <h2><span class="question-number">3</span> When does your holiday year start?</h2>
 
-          <li>
-            <label for="start_date">
-              <%= date_select("start_date", nil, :order => [:day, :month], :default => { :day => @options[:start_date].day, :month => @options[:start_date].month } ) %>
-            </label>
-          </li>
+          <ul>
+            <li>
+              <label for="start_date">
+                <%= date_select("start_date", nil, :order => [:day, :month], :default => { :day => @options[:start_date].day, :month => @options[:start_date].month } ) %>
+              </label>
+            </li>
+          </ul>
         </fieldset>
 
         <p><%= submit_tag "Calculate annual leave", :class => "button medium" %></p>
