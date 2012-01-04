@@ -15,108 +15,90 @@
   <div class="article-container group">
     <article role="article" class="group">
       <div class="inner">
-        <div class="Psummary"><p>You are entitled to 5.6 weeks paid annual leave. This starts from your first day of employment.</p></div>
-
-    <div class="current-question">
-      <%= form_tag "", :method => :get, :id => 'annual-leave'  do %>
-        <fieldset class="question-body">
-
-          <h2><span class="question-number">1</span> Calculate your annual leave based on:</h2>
-
-          <ul>
-            <li>
-              <label for="period_full_year">
-                <%= radio_button_tag 'period', 'full_year', ( { :checked => true } unless @options[:period] == :leaving || @options[:period] == :joining ) %> A full year
-              </label>
-            </li>
-
-            <li>
-              <label for="period_part_year">
-                <%= radio_button_tag 'period', 'part_year', ( { :checked => true } if @options[:period] == :leaving || @options[:period] == :joining ) %> Part of a year &mdash;
-              </label>
-              <label for="leave_join">I&rsquo;m
-                <%= select_tag "leave_join", options_for_select(["leaving","joining"], @options[:period] || "leaving") %>
-              </label>
-              <label for="leave_join_date">on
-                <%= date_select("leave_join_date", nil, :order => [:day, :month, :year], :default => { :day => @options[:date].day, :month => @options[:date].month, :year => @options[:date].year })%>
-              </label>
-            </li>
-          </ul>
-        </fieldset>
-
-        <fieldset class="question-body">
-          <h2><span class="question-number">2</span> Are you paid hourly or daily?</h2>
-
-          <ul>
-            <li>
-              <label for="pay_period_daily">
-                <%= radio_button_tag 'pay_period', 'daily', ( { :checked => true } unless @options[:pay_period] == :hours ) %> Daily
-              </label>&mdash;
-              <label for="days_per_week">
-                <%= select_tag "days_per_week", options_for_select(1..5, @options[:days_per_week]) %> days a week
-              </label>
-            </li>
-
-            <li>
-              <label for="pay_period_hourly">
-                <%= radio_button_tag 'pay_period', 'hourly', ( { :checked => true } if @options[:pay_period] == :hours )   %> Hourly
-              </label>&mdash;
-              <label for="hours_per_week">
-                <%= text_field_tag "hours_per_week", params[:hours_per_week] || 35, :size => 3 %> hours a week
-              </label>
-            </li>
-          </ul>
-        </fieldset>
-
-        <fieldset class="question-body">
-          <h2><span class="question-number">3</span> When does your holiday year start?</h2>
-
-          <ul>
-            <li>
-              <label for="start_date">
-                <%= date_select("start_date", nil, :order => [:day, :month], :default => { :day => @options[:start_date].day, :month => @options[:start_date].month } ) %>
-              </label>
-            </li>
-          </ul>
-        </fieldset>
-
-        <p><%= submit_tag "Calculate annual leave", :class => "button medium" %></p>
-      <% end %>
-    </div>
-
-  </div>
-  </article>
-
-      <article id="holidays-answer" <% unless @result.present? %>style="display: none"<% end %>>
-        <div class="inner">
-
-          <div class="result-info">
-            <div class="summary"><h2>Your annual leave is <span class="result"><%= pluralize(@result[:final_amount], @result[:pay_period].to_s) if @result.present? %></span></h2></div>
-            <p>Your employer must not round down your annual leave, but may round it up.</p>
-          </div>
-
-          <div class="next-steps">
-            <h3>Next steps</h3>
-
-            <ul>
-              <li>read the guide to <a href="#" title="Taking annual leave: your rights">Taking annual leave: your rights</a></li>
-            </ul>
-
-          </div>
+        <div class="summary">
+          <p>You are entitled to 5.6 weeks paid annual leave. This starts from your first day of employment.</p>
         </div>
-      </article>
 
-      <div class="meta-data group">
-        <div class="inner">
-          <div class="data-reuse">
-            <p>Re-use this data:</p>
+        <div class="current-question">
+          <%= form_tag "", :method => :get, :id => 'annual-leave'  do %>
+            <fieldset class="question-body">
+              <h2><span class="question-number">1</span> Calculate your annual leave based on:</h2>
+              <ul>
+                <li>
+                  <label for="period_full_year">
+                    <%= radio_button_tag 'period', 'full_year', ( { :checked => true } unless @options[:period] == :leaving || @options[:period] == :joining ) %> A full year
+                  </label>
+                </li>
+                <li>
+                  <label for="period_part_year">
+                    <%= radio_button_tag 'period', 'part_year', ( { :checked => true } if @options[:period] == :leaving || @options[:period] == :joining ) %> Part of a year &mdash;
+                  </label>
+                  <label for="leave_join">I&rsquo;m
+                    <%= select_tag "leave_join", options_for_select(["leaving","joining"], @options[:period] || "leaving") %>
+                  </label>
+                  <label for="leave_join_date">on
+                    <%= date_select("leave_join_date", nil, :order => [:day, :month, :year], :default => { :day => @options[:date].day, :month => @options[:date].month, :year => @options[:date].year })%>
+                  </label>
+                </li>
+              </ul>
+            </fieldset>
 
-            <ul class="api-links">
-              <li class="json"><a href="#">JSON</a></li>
-            </ul>
-          </div>
+            <fieldset class="question-body">
+              <h2><span class="question-number">2</span> Are you paid hourly or daily?</h2>
+              <ul>
+                <li>
+                  <label for="pay_period_daily">
+                    <%= radio_button_tag 'pay_period', 'daily', ( { :checked => true } unless @options[:pay_period] == :hours ) %> Daily
+                  </label>&mdash;
+                  <label for="days_per_week">
+                    <%= select_tag "days_per_week", options_for_select(1..5, @options[:days_per_week]) %> days a week
+                  </label>
+                </li>
+                <li>
+                  <label for="pay_period_hourly">
+                    <%= radio_button_tag 'pay_period', 'hourly', ( { :checked => true } if @options[:pay_period] == :hours )   %> Hourly
+                  </label>&mdash;
+                  <label for="hours_per_week">
+                    <%= text_field_tag "hours_per_week", params[:hours_per_week] || 35, :size => 3 %> hours a week
+                  </label>
+                </li>
+              </ul>
+            </fieldset>
+
+            <fieldset class="question-body">
+              <h2><span class="question-number">3</span> When does your holiday year start?</h2>
+              <ul>
+                <li>
+                  <label for="start_date">
+                    <%= date_select("start_date", nil, :order => [:day, :month], :default => { :day => @options[:start_date].day, :month => @options[:start_date].month } ) %>
+                  </label>
+                </li>
+              </ul>
+            </fieldset>
+
+            <p><%= submit_tag "Calculate annual leave", :class => "button medium" %></p>
+          <% end %>
         </div>
+
       </div>
+    </article>
 
+    <article id="holidays-answer" <% unless @result.present? %>style="display: none"<% end %>>
+      <div class="inner">
+
+        <div class="result-info">
+          <div class="summary"><h2>Your annual leave is <span class="result"><%= pluralize(@result[:final_amount], @result[:pay_period].to_s) if @result.present? %></span></h2></div>
+          <p>Your employer must not round down your annual leave, but may round it up.</p>
+        </div>
+
+        <div class="next-steps">
+          <h3>Next steps</h3>
+          <ul>
+            <li>read the guide to <a href="#" title="Taking annual leave: your rights">Taking annual leave: your rights</a></li>
+          </ul>
+        </div>
+        
+      </div>
+    </article>
   </div>
 </section>
