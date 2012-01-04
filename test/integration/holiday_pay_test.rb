@@ -5,7 +5,7 @@ require_relative 'smart_answer_test_helper'
 
 class HolidayPayTest < ActionDispatch::IntegrationTest
   test "Answering all questions and clicking calculate gives result" do       
-    visit "/calculate-holiday-pay"
+    visit "/calculate-your-annual-leave"
     choose "A full year"                                                      
     choose "Daily"
     select "5", from: "days a week"
@@ -16,7 +16,7 @@ class HolidayPayTest < ActionDispatch::IntegrationTest
   end
 
   test "Entering details for part of a year gives correct result" do       
-    visit "/calculate-holiday-pay"
+    visit "/calculate-your-annual-leave"
     choose "Part of a year"
     select "leaving", from: "someone is"
     select "5", from: "leave_join_date__3i"
@@ -34,7 +34,7 @@ class HolidayPayTest < ActionDispatch::IntegrationTest
   end
 
   test "The calculator remembers the values entered by the user on submit" do
-    visit "/calculate-holiday-pay"
+    visit "/calculate-your-annual-leave"
     
     choose "Part of a year"
     select "leaving", from: "someone is"
