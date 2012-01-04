@@ -90,7 +90,7 @@ class HolidayPayController < ApplicationController
     proportion = proportion.round(2)
 
     final_amount = annual_entitlement * proportion
-    final_amount = final_amount.round(1)
+    final_amount = round_up(final_amount, 1)
 
     workings += " = #{final_amount} #{options[:pay_period]}"
 
