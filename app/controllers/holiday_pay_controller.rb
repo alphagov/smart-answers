@@ -18,7 +18,7 @@ class HolidayPayController < ApplicationController
       format.html { render }
       format.json { 
         if @result.present?
-          render :json => { "holiday_pay" => @result[:final_amount], "workings" => @result[:workings] }
+          render :json => { "entitlement" => @result[:final_amount], "entitlement_period" => @result[:pay_period], "workings" => @result[:workings] }
         else
           render :json => { }
         end
@@ -34,14 +34,16 @@ class HolidayPayController < ApplicationController
     when "full_year"
       @options[:period] = :full_year
     else
-      @options[:period] = params["leave_join"] == "leaving" ? :leaving : :joining
-    end
+      @options[:period] = params["leave_join"] == "leaving" ? :leaving : :joining      
+    end                                           
 
     case params[:pay_period]
     when "daily"
       @options[:pay_period] = :days
     when "hourly"
-      @options[:pay_period] = :hours
+      @options[:pay_period] = :hours              
+    else
+      return false
     end
 
     @options[:date] = parse_date(params[:leave_join_date])
@@ -49,10 +51,10 @@ class HolidayPayController < ApplicationController
     @options[:days_per_week] = params[:days_per_week].to_i
     @options[:hours_per_week] = params[:hours_per_week].to_i
 
-    return false if params[:hours_per_week].blank? and @options[:pay_period] == :hours
-    return false if ( params[:period].blank? || params[:pay_period].blank? )
+    return false if @options[:hours_per_week] < 1 and @options[:pay_period] == :hours
+    return false if @options[:days_per_week] > 5 and @options[:pay_period] == :days
 
-    @result = evaluate_formula @options 
+    @result = evaluate_formula @options
   end
 
   def evaluate_formula(options)
@@ -100,7 +102,7 @@ class HolidayPayController < ApplicationController
   end
 
   def parse_date(date)
-    day,month,year = "(3i)", "(2i)", "(1i)"
+    day,month,year = "(3i)", "(2i)", "(1i)"  
     Time.utc(date[year],date[month],date[day])
   end
 
@@ -114,6 +116,7 @@ class HolidayPayController < ApplicationController
   end
 
   def params_present?
-    params[:commit].present?
+    #params[:commit].present?
+    [:period,:pay_period,:start_date].each {|key| return false unless params[key].present? }
   end
 end

@@ -18,7 +18,7 @@
         <div class="Psummary"><p>You are entitled to 5.6 weeks paid annual leave. This starts from your first day of employment.</p></div>
 
     <div class="current-question">
-      <%= form_tag "", :method => :get  do %>
+      <%= form_tag "", :method => :get, :id => 'annual-leave'  do %>
         <fieldset class="question-body">
 
           <h2><span class="question-number">1</span> Calculate your annual leave based on:</h2>
@@ -87,15 +87,12 @@
   </div>
   </article>
 
-      <% if @result.present? -%>
-      <article id="holidays-answer">
+      <article id="holidays-answer" <% unless @result.present? %>style="display: none"<% end %>>
         <div class="inner">
-          <div class="summary"><h2>Your annual leave would be <%= pluralize(@result[:final_amount], @result[:pay_period].to_s) %></h2></div>
-          <h2 id="result"></h2>
-          <p><%= @result[:workings] %></p>
+          <div class="summary"><h2>Your annual leave would be <span class="result"><%= pluralize(@result[:final_amount], @result[:pay_period].to_s) if @result.present? %></span></h2></div>            
+          <p>Your employer may round up your annual leave.</p>
         </div>
-      </article>
-      <% end %>
+      </article>                                                                               
 
       <div class="meta-data">
 
