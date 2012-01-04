@@ -89,8 +89,8 @@
 
       <article id="holidays-answer" <% unless @result.present? %>style="display: none"<% end %>>
         <div class="inner">
-          <div class="summary"><h2>Your annual leave would be <span class="result"><%= pluralize(@result[:final_amount], @result[:pay_period].to_s) if @result.present? %></span></h2></div>            
-          <p>Your employer may round up your annual leave.</p>
+          <div class="summary"><h2>Your annual leave is <span class="result"><%= pluralize(@result[:final_amount], @result[:pay_period].to_s) if @result.present? %></span></h2></div>            
+          <p>Your employer must not round down your annual leave, but may round it up.</p>
         </div>
       </article>                                                                               
 
