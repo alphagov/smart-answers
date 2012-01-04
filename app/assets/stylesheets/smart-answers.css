@@ -104,6 +104,11 @@ li.done .undo {
   margin: 0.5em 0;
 }
 
+.question-body + p input.button {
+  margin-top: 0.5em;
+}
+
+
 .current-question label {
   margin-left: 0.25em;
 }
