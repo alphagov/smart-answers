@@ -15,14 +15,13 @@
   <div class="article-container group">
     <article role="article" class="group">
       <div class="inner">
-        <div class="summary"><p>You are entitled to 5.6 weeks paid annual leave. This starts from your first day of employment.</p></div>
-      </div>
-    </article>
+        <div class="Psummary"><p>You are entitled to 5.6 weeks paid annual leave. This starts from your first day of employment.</p></div>
 
     <div class="current-question">
       <%= form_tag "", :method => :get  do %>
-        <fieldset class="question">
-          <legend>Calculate your annual leave based on:</legend>
+        <fieldset class="question-body">
+
+          <h2><span class="question-number">1</span> Calculate your annual leave based on:</h2>
 
           <li>
             <label for="period_full_year">
@@ -43,8 +42,8 @@
           </li>
         </fieldset>
 
-        <fieldset class="question">
-          <legend>Are you paid hourly or daily?</legend>
+        <fieldset class="question-body">
+          <h2><span class="question-number">2</span> Are you paid hourly or daily?</h2>
 
           <li>
             <label for="pay_period_daily">
@@ -65,8 +64,8 @@
           </li>
         </fieldset>
 
-        <fieldset class="question">
-          <legend>When does your holiday year start?</legend>
+        <fieldset class="question-body">
+          <h2><span class="question-number">3</span> When does your holiday year start?</h2>
 
           <li>
             <label for="start_date">
@@ -78,6 +77,9 @@
         <p><%= submit_tag "Calculate annual leave", :class => "button medium" %></p>
       <% end %>
     </div>
+
+  </div>
+  </article>
 
       <% if @result.present? -%>
       <article id="holidays-answer">
