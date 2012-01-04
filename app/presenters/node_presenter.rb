@@ -13,28 +13,32 @@ class NodePresenter
     nil
   end
 
-  def translate_and_render(subkey)
-    markup = translate!(subkey)
+  def translate_and_render(subkey)     
+    markup = translate!(subkey)        
     markup && Govspeak::Document.new(markup).to_html.html_safe
   end
 
-  def state_for_interpolation
-    Hash[@state.to_hash.map { |k,v| [k, value_for_interpolation(v)] }]
+  def state_for_interpolation( nested = false )
+    Hash[@state.to_hash.map { |k,v| [k, value_for_interpolation(v, nested)] }]
   end
 
-  def value_for_interpolation(value)
+  def value_for_interpolation(value, nested = false)
     case value
     when Date then I18n.localize(value, format: :long)
     when ::SmartAnswer::Money then
       number_to_currency(value, precision: 0)
     when ::SmartAnswer::Salary then
       number_to_currency(value.amount, precision: 0) + " per " + value.period
-    when ::SmartAnswer::PhraseList then
-      value.phrase_keys.map do |phrase_key| 
-        I18n.translate!("#{@i18n_prefix}.phrases.#{phrase_key}")
-      end.join("\n\n")
+    when ::SmartAnswer::PhraseList then                                  
+      if nested == false
+        value.phrase_keys.map do |phrase_key|                   
+          I18n.translate!("#{@i18n_prefix}.phrases.#{phrase_key}", state_for_interpolation( true ))
+        end.join("\n\n")  
+      else
+        false
+      end
     else value
-    end
+    end       
   end
 
   def to_response(input)
