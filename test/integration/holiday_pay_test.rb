@@ -49,7 +49,7 @@ class HolidayPayTest < ActionDispatch::IntegrationTest
     click_button "Calculate"
 
     wait_until {
-      has_content? "Calculator"
+      has_content? "Quick answer"
     }
 
     assert has_checked_field? "Part of a year"
