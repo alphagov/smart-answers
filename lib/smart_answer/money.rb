@@ -8,8 +8,8 @@ module SmartAnswer
 
     attr_reader :value
 
-    def initialize(raw_input)          
-      raw_input = raw_input.to_s.gsub(/,/,'').gsub(/\s/,'').to_i
+    def initialize(raw_input)                                      
+      raw_input = raw_input.to_s.gsub(/,/,'').gsub(/\s/,'')
       if ! self.class.valid?(raw_input)                         
         raise InvalidResponse, "Sorry, I couldn't understand that number. Please try again.", caller
       end
