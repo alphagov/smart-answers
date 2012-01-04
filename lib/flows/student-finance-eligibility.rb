@@ -5,8 +5,14 @@ multiple_choice :are_you_a_full_time_or_part_time_student? do
   save_input_as :course_type
 end
 
-money_question :how_much_is_your_tuition_fee_per_year? do 
-  next_node :where_will_you_live_while_studying?   
+money_question :how_much_is_your_tuition_fee_per_year? do       
+  next_node do
+    if course_type == "Full-time"
+      :where_will_you_live_while_studying?   
+    else
+      :do_you_want_to_check_for_additional_grants_and_allowances?
+    end
+  end
   
   calculate :tuition_fee_amount do
     if course_type == "Full-time"
@@ -15,6 +21,10 @@ money_question :how_much_is_your_tuition_fee_per_year? do
       raise SmartAnswer::InvalidResponse if responses.last > 6750
     end                                                                       
     Money.new(responses.last)
+  end               
+  
+  calculate :eligible_finance do
+    PhraseList.new(:tuition_fee_loan)
   end
 end
 
@@ -33,19 +43,22 @@ multiple_choice :where_will_you_live_while_studying? do
       raise SmartAnswer::InvalidResponse
     end
   end
-  next_node :how_much_do_your_parents_or_partner_earn?
+  next_node :whats_your_household_income?  
+  
+  calculate :eligible_finance do
+    eligible_finance + :maintenance_loan
+  end
 end
 
-multiple_choice :how_much_do_your_parents_or_partner_earn? do
+multiple_choice :whats_your_household_income? do
   option "Up to £25,000"
   option "£25,001 - £30,000"
   option "£30,001 - £35,000"
   option "£35,001 - £40,000"    
   option "£40,001 - £42,600"
   option "More than £42,600"      
-  option "I don't know"
-  next_node :would_you_like_to_check_for_additional_grants_and_allowances?
-  save_input_as :how_much_do_your_parents_earn?                                                 
+  next_node :do_you_want_to_check_for_additional_grants_and_allowances?
+  save_input_as :whats_your_household_income?                                                 
   
   calculate :maintenance_grant_amount do
     case responses.last
@@ -55,17 +68,32 @@ multiple_choice :how_much_do_your_parents_or_partner_earn? do
     when /£35,001 \- £40,000/ then Money.new('523')
     when /£40,001 \- £42,600/ then Money.new('50')
     when /More than £42,600/ then Money.new('0')
-    when /I don't know/ then :dont_know
-    end 
+    end        
+  end    
+  
+  calculate :eligible_finance do
+    eligible_finance + :maintenance_grant
   end
 end 
 
-multiple_choice :would_you_like_to_check_for_additional_grants_and_allowances? do
-  option :yes => :do_you_have_any_children_under_17?
-  option :no => :done
+multiple_choice :do_you_want_to_check_for_additional_grants_and_allowances? do
+  option :yes
+  option :no   
+  
+  save_input_as :check_for_additional_grants_and_allowances 
+  
+  next_node do |response|
+    if response == "yes"           
+      (course_type == "Full-time") ? :do_you_have_any_children_under_17? : :do_you_have_a_disability_or_health_condition?
+    else
+      :done
+    end
+  end
   
   calculate :additional_benefits do
-    if responses.last == "no"
+    if responses.last == "yes"
+      PhraseList.new(:body)
+    else
       PhraseList.new
     end
   end 
