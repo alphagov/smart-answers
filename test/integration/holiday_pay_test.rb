@@ -18,7 +18,7 @@ class HolidayPayTest < ActionDispatch::IntegrationTest
   test "Entering details for part of a year gives correct result" do       
     visit "/calculate-your-annual-leave"
     choose "Part of a year"
-    select "leaving", from: "someone is"
+    select "leaving", from: "I’m"
     select "5", from: "leave_join_date__3i"
     select "July", from: "leave_join_date__2i"
     select "2014", from: "leave_join_date__1i" 
@@ -37,7 +37,7 @@ class HolidayPayTest < ActionDispatch::IntegrationTest
     visit "/calculate-your-annual-leave"
     
     choose "Part of a year"
-    select "leaving", from: "someone is"
+    select "leaving", from: "I’m"
     select "5", from: "leave_join_date__3i"
     select "July", from: "leave_join_date__2i"
     select "2014", from: "leave_join_date__1i"
@@ -53,7 +53,7 @@ class HolidayPayTest < ActionDispatch::IntegrationTest
     }
 
     assert has_checked_field? "Part of a year"
-    assert has_select? "someone is", selected: "leaving"
+    assert has_select? "I'm", selected: "leaving"
 
     assert has_select? "leave_join_date__3i", selected: "5"
     assert has_select? "leave_join_date__2i", selected: "July"
