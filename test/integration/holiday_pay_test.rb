@@ -53,7 +53,7 @@ class HolidayPayTest < ActionDispatch::IntegrationTest
     }
 
     assert has_checked_field? "Part of a year"
-    assert has_select? "I'm", selected: "leaving"
+    assert has_select? "I’m", selected: "leaving"
 
     assert has_select? "leave_join_date__3i", selected: "5"
     assert has_select? "leave_join_date__2i", selected: "July"
