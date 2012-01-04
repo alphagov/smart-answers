@@ -32,9 +32,9 @@
 
             <li>
               <label for="period_part_year">
-                <%= radio_button_tag 'period', 'part_year', ( { :checked => true } if @options[:period] == :leaving || @options[:period] == :joining ) %> Part of a year
+                <%= radio_button_tag 'period', 'part_year', ( { :checked => true } if @options[:period] == :leaving || @options[:period] == :joining ) %> Part of a year &mdash;
               </label>
-              <label for="leave_join">someone is
+              <label for="leave_join">I&rsquo;m
                 <%= select_tag "leave_join", options_for_select(["leaving","joining"], @options[:period] || "leaving") %>
               </label>
               <label for="leave_join_date">on
