@@ -13,6 +13,8 @@ class HolidayPayController < ApplicationController
       :hours_per_week => 35
     }
     @options = @options.nil? ? @defaults : @defaults.merge(@options)
+                                                     
+    set_slimmer_headers :section => 'work'
 
     respond_to do |format|
       format.html { render }
