@@ -1,0 +1,29 @@
+<% if @artefact %>
+<!-- related -->
+<div class="related-positioning">
+	<div class="related-container">
+
+		<div class="related">
+			<div class="inner group">
+				<h2>Related tools &amp; topics</h2>
+				<nav role="navigation">
+				  <ul>
+				      <% (@artefact.related_items || []).each do |item| %>
+  				      <% if item.artefact %>
+  				      <li class="<%= item.artefact.kind %>">
+  				        <%= link_to item.artefact.name, item.artefact.slug %>
+  				      </li>
+  				      <% end %>
+              <% end %>
+				      <% if @artefact.section %>
+				        <li class="related-topic"><a href="/browse/<%= @artefact.section.parameterize %>">View more in <span><%= @artefact.section %>&rarr;</span></a></li>
+				      <% end %>
+				  </ul>
+				</nav>
+	   </div>
+	 </div>
+
+	</div>
+</div>
+<!-- end related -->
+<% end %>
