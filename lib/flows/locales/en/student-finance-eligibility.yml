@@ -44,18 +44,39 @@ en-GB:
       section: Education           
       are_you_a_full_time_or_part_time_student?:
         title: Are you a full-time or part-time student?
+        options:
+          full-time: Full-time
+          part-time: Part-time
       how_much_is_your_tuition_fee_per_year?:
         hint: The maximum is £9,000 for full-time students and £6,750 for part-time students.                    
-        error_message: You can't enter more than the maximum amount
+        error_message: You can't enter more than the maximum amount 
+      where_will_you_live_while_studying?:
+        options:
+          at-home: At home with my parents
+          away-outside-london: Away from home, outside of London
+          away-in-london: Away from home, in London
       whats_your_household_income?: 
         title: What's your household income?
-        hint: This is your parents’ or partner’s income plus your own. It affects how much Maintenance Grant you get. 
+        hint: This is your parents’ or partner’s income plus your own. It affects how much Maintenance Grant you get.      
+        options:
+          up-to-25000: Up to £25,000
+          25001-30000: £25,001 - £30,000
+          30001-35000: £30,001 - £35,000
+          35001-40000: £35,001 - £40,000
+          40001-42600: £40,001 - £42,600
+          more-than-42600: More than £42,600
       do_you_want_to_check_for_additional_grants_and_allowances?:   
         body: If you have children or dependent adults, a disability, learning difficulty or health condition, or you’re doing a teacher training, medical or social work course.                                      
       do_you_have_a_disability_or_health_condition?:
         hint: This includes a mental health condition or learning difficulty eg dyslexia.
       are_you_in_financial_hardship?:
         body: For example, if you're from a low-income family or you find it hard to pay for basics like food and accommodation.
+      are_you_studying_one_of_these_courses?:
+        options:
+          teacher-training: Teacher training
+          dental-medical-or-healthcare: Dental, medical, or healthcare 
+          social-work: Social work
+          none: None of these
       done:
         title: You may qualify for student finance towards your tuition fees and your living costs.
         body: |

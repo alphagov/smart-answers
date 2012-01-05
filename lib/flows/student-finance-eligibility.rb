@@ -1,13 +1,13 @@
 multiple_choice :are_you_a_full_time_or_part_time_student? do
-  option "Full-time"
-  option "Part-time"
+  option :'full-time'
+  option :'part-time'
   next_node :how_much_is_your_tuition_fee_per_year?
   save_input_as :course_type
 end
 
 money_question :how_much_is_your_tuition_fee_per_year? do       
   next_node do
-    if course_type == "Full-time"
+    if course_type == "full-time"
       :where_will_you_live_while_studying?   
     else
       :do_you_want_to_check_for_additional_grants_and_allowances?
@@ -15,7 +15,7 @@ money_question :how_much_is_your_tuition_fee_per_year? do
   end
   
   calculate :tuition_fee_amount do
-    if course_type == "Full-time"
+    if course_type == "full-time"
       raise SmartAnswer::InvalidResponse if responses.last > 9000
     else
       raise SmartAnswer::InvalidResponse if responses.last > 6750
@@ -29,16 +29,16 @@ money_question :how_much_is_your_tuition_fee_per_year? do
 end
 
 multiple_choice :where_will_you_live_while_studying? do
-  option "At home with my parents"
-  option "Away from home, outside of London"
-  option "Away from home, in London"  
+  option :'at-home'
+  option :'away-outside-london'
+  option :'away-in-london'  
   save_input_as :where_will_you_live_while_studying?
 
   calculate :maintenance_loan_amount do
     case responses.last
-    when /At home/ then Money.new("4473")
-    when /outside of London/ then Money.new("5500")
-    when /in London/ then Money.new("7675")
+    when "at-home" then Money.new("4473")
+    when "away-outside-london" then Money.new("5500")
+    when "away-in-london" then Money.new("7675")
     else
       raise SmartAnswer::InvalidResponse
     end
@@ -51,23 +51,23 @@ multiple_choice :where_will_you_live_while_studying? do
 end
 
 multiple_choice :whats_your_household_income? do
-  option "Up to £25,000"
-  option "£25,001 - £30,000"
-  option "£30,001 - £35,000"
-  option "£35,001 - £40,000"    
-  option "£40,001 - £42,600"
-  option "More than £42,600"      
+  option :'up-to-25000'
+  option :'25001-30000'
+  option :'30001-35000'
+  option :'35001-40000'    
+  option :'40001-42600'
+  option :'more-than-42600'      
   next_node :do_you_want_to_check_for_additional_grants_and_allowances?
   save_input_as :whats_your_household_income?                                                 
   
   calculate :maintenance_grant_amount do
     case responses.last
-    when /Up to £25,000/ then Money.new('3250')
-    when /£25,001 \- £30,000/ then Money.new('2341')
-    when /£30,001 \- £35,000/ then Money.new('1432')
-    when /£35,001 \- £40,000/ then Money.new('523')
-    when /£40,001 \- £42,600/ then Money.new('50')
-    when /More than £42,600/ then Money.new('0')
+    when "up-to-25000" then Money.new('3250')
+    when "25001-30000" then Money.new('2341')
+    when "30001-35000" then Money.new('1432')
+    when "35001-40000" then Money.new('523')
+    when "40001-42600" then Money.new('50')
+    when "more-than-42600" then Money.new('0')
     end        
   end    
   
@@ -84,7 +84,7 @@ multiple_choice :do_you_want_to_check_for_additional_grants_and_allowances? do
   
   next_node do |response|
     if response == "yes"           
-      (course_type == "Full-time") ? :do_you_have_any_children_under_17? : :do_you_have_a_disability_or_health_condition?
+      (course_type == "full-time") ? :do_you_have_any_children_under_17? : :do_you_have_a_disability_or_health_condition?
     else
       :done
     end
@@ -144,19 +144,19 @@ multiple_choice :are_you_in_financial_hardship? do
 end
 
 multiple_choice :are_you_studying_one_of_these_courses? do
-  option "Teacher training"
-  option "Dental, medical, or healthcare"
-  option "Social work"         
-  option "None of these"                                                      
+  option :'teacher-training'
+  option :'dental-medical-or-healthcare'
+  option :'social-work'         
+  option :'none'                                                      
   
   calculate :additional_benefits do    
     puts additional_benefits.inspect
     case responses.last
-    when "Teacher training" 
+    when "teacher-training" 
       additional_benefits + :teacher_training
-    when "Dental, medical, or healthcare" 
+    when "dental-medical-or-healthcare" 
       additional_benefits + :medical
-    when "Social work"
+    when "social-work"
       additional_benefits + :social_work
     else
       additional_benefits
