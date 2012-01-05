@@ -24,27 +24,10 @@
           <%= @presenter.body %>
         <% end %>
         <p class="get-started"><%= link_to "Get started &rarr;".html_safe, smart_answer_path(@smart_answer_name, started: 'y'), :class => 'big button' %></p>
-      </div> 
+      </div>
       <%= @presenter.devolved_body if @presenter.has_devolved_body? %>
     </div>
   </article>
 </div>
 
-<!-- related -->
-<div class="related-positioning">
-  <div class="related-container">
-    <div class="related">
-      <div class="inner group">
-        <h2>Related tools &amp; topics</h2>
-        <nav role="navigation">
-          <ul>
-            <li class="guide"><a href="parental-rights-and-responsibilities">Parental rights and responsibilities</a></li>
-            <li class="guide"><a href="#">Looking after children after divorce</a></li>
-            <li class="related-topic"><a href="/travel">View more in <span>Travel→</span></a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end related -->
+<%= render partial: "shared/related" %>
