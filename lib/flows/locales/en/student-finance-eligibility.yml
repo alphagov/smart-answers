@@ -10,15 +10,15 @@ en-GB:
         dependent_adult: |
           - up to £2,642 of [Adult Dependant's Grant](# "Adult Dedependants Grant")  
         disability: |
-          - You could get [Disabled Students' Allowance](# "Disabled Students' Allowance").
+          - [Disabled Students' Allowance](# "Disabled Students' Allowance")
         financial_hardship: |
-          - You could apply for the [Access to Learning Fund](# "Access to Learning Fund").
+          - [Access to Learning Fund](# "Access to Learning Fund") (extra help with course costs)
         teacher_training: |
-          - Help with teacher training copy.
+          - [Funding for teacher training](# "Funding for teacher training")
         medical: |
-          - Help with medical copy.
+          - [NHS Bursary](# "NHS Bursary") (NHS funding towards your fees and living costs)
         social_work: |
-          - Help with social work copy.
+          - [Social Work Bursary](# "Social Work Bursary") (NHS funding towards your fees and living costs)
         tuition_fee_loan: |
           - %{tuition_fee_amount} of tuition fee loan  
         maintenance_loan: |
@@ -86,7 +86,7 @@ en-GB:
           
           %{additional_benefits}
   
-          You could also get [bursaries or scholarships](# "Help from your university or college").
+          You could also get extra [bursaries or scholarships](# "Help from your university or college") from your university or college.
 
           %These figures are estimates based on your answers.%
         
