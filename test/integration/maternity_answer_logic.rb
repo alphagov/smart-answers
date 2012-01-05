@@ -43,7 +43,7 @@ module MaternityAnswerLogic
     end
   end
 
-  def should_implement_materntiy_answer_logic
+  def should_implement_maternity_answer_logic
     context "Everybody" do
       setup do
         visit "/maternity-benefits"
