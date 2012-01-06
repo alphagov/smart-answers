@@ -1,6 +1,6 @@
 en-GB:
   flow:
-    student-finance-eligibility:
+    student-finance-calculator:
       phrases:
         body:
           "You also qualify for extra grants and allowances:"
@@ -20,13 +20,13 @@ en-GB:
         social_work: |
           - [Social Work Bursary](# "Social Work Bursary") (NHS funding towards your fees and living costs)
         tuition_fee_loan: |
-          - %{tuition_fee_amount} of tuition fee loan  
+          - %{tuition_fee_amount} tuition fee loan  
         maintenance_loan: |
-          - up to %{maintenance_loan_amount} of maintenance loan (for living costs)
+          - up to %{maintenance_loan_amount} maintenance loan (for living costs)
         maintenance_grant: | 
-          - up to %{maintenance_grant_amount} of maintenance grant (for living costs)   
+          - up to %{maintenance_grant_amount} maintenance grant (for living costs)   
       title:
-        Money for university and college
+        Student Finance - how much you can get for 2012/13
       options:
         "no": "No"
         "yes": "Yes"
@@ -88,7 +88,9 @@ en-GB:
   
           You could also get extra [bursaries or scholarships](# "Help from your university or college") from your university or college.
 
-          %These figures are estimates based on your answers.%
+          ^Student loans have to be paid back - grants do not.^
+
+          @These figures are estimates based on your answers.@
         
         next_steps: |
           
