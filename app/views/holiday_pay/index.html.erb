@@ -1,4 +1,4 @@
-<% content_for :title do %>Calculate your annual leave<% end %>
+<% content_for :title do %>Calculate your holiday entitlement<% end %>
 <% content_for :section_name do %>Work<% end %>
 
 <section class="calculator" id="content">
@@ -6,7 +6,7 @@
     <hgroup>
       <h1>
         <span>Quick answer </span>
-        Calculate your annual leave
+        Calculate your holiday entitlement
       </h1>
 
     </hgroup>
@@ -15,12 +15,12 @@
   <div class="article-container group">
     <article role="article" class="group">
       <div class="inner">
-        <p>Use this calculator to work out how much annual leave you're entitled to.</p>
+        <p>Use this calculator to work out how much statutory holiday leave you're entitled to.</p>
 
         <div class="current-question">
           <%= form_tag "", :method => :get, :id => 'annual-leave'  do %>
             <fieldset class="question-body">
-              <h2><span class="question-number">1</span> Calculate your annual leave based on:</h2>
+              <h2><span class="question-number">1</span> Calculate your holiday entitlement based on:</h2>
               <ul>
                 <li>
                   <label for="period_full_year">
@@ -74,7 +74,7 @@
               </ul>
             </fieldset>
 
-            <p><%= submit_tag "Calculate annual leave", :class => "button medium" %></p>
+            <p><%= submit_tag "Calculate holiday entitlement", :class => "button medium" %></p>
           <% end %>
         </div>
 
@@ -85,8 +85,8 @@
       <div class="inner">
 
         <div class="result-info">
-          <div class="summary"><h2>Your annual leave is <span class="result"><%= pluralize(@result[:final_amount], @result[:pay_period].to_s) if @result.present? %></span></h2></div>
-          <p>Your employer must not round down your annual leave, but may round it up.</p>
+          <div class="summary"><h2>Your holiday entitlement is <span class="result"><%= pluralize(@result[:final_amount], @result[:pay_period].to_s) if @result.present? %></span></h2></div>
+          <p>Your employer must not round down your holiday entitlement, but may round it up.</p>
         </div>
 
         <div class="next-steps">
