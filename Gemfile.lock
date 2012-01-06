@@ -169,7 +169,7 @@ GEM
       multi_json (~> 1.0.4)
       rubyzip
     shoulda (2.11.3)
-    slimmer (1.1.14)
+    slimmer (1.1.17)
       json
       nokogiri (~> 1.5.0)
       null_logger
