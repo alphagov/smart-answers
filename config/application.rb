@@ -3,7 +3,6 @@ require File.expand_path('../boot', __FILE__)
 # Don't include all of rails, we don't need activerecord
 require "action_controller/railtie"
 require "action_mailer/railtie"
-require "active_resource/railtie"
 require "rails/test_unit/railtie"
 require "sprockets/railtie"
 

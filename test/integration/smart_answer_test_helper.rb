@@ -48,7 +48,7 @@ module SmartAnswerTestHelper
   end
 
   def click_next_step
-    click_on "Next step →"
+    click_on "Next step"
   end
 
   def format(date)

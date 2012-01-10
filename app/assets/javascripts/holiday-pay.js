@@ -5,7 +5,7 @@ $(document).ready(function(){
     var form = $(this);                              
     $('input[type=submit]', this).attr('disabled', 'disabled');
     
-    $.post('/calculate-your-annual-leave.json', form.serializeArray(), function(data){      
+    $.post('/calculate-your-holiday-entitlement.json', form.serializeArray(), function(data){      
       if (data.entitlement && data.entitlement_period) {
         $('#holidays-answer').show().find('.result').html(data.entitlement + ' ' + data.entitlement_period);
       } else {

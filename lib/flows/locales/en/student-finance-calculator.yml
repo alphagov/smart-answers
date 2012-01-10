@@ -1,6 +1,6 @@
 en-GB:
   flow:
-    student-finance-eligibility:
+    student-finance-calculator:
       phrases:
         body:
           "You also qualify for extra grants and allowances:"
@@ -20,13 +20,14 @@ en-GB:
         social_work: |
           - [Social Work Bursary](# "Social Work Bursary") (NHS funding towards your fees and living costs)
         tuition_fee_loan: |
-          - %{tuition_fee_amount} of tuition fee loan  
+          - %{tuition_fee_amount} tuition fee loan  
         maintenance_loan: |
-          - up to %{maintenance_loan_amount} of maintenance loan (for living costs)
+          - up to %{maintenance_loan_amount} maintenance loan (for living costs)
         maintenance_grant: | 
-          - up to %{maintenance_grant_amount} of maintenance grant (for living costs)   
+          - up to %{maintenance_grant_amount} maintenance grant (for living costs)   
       title:
-        Money for university and college
+        Student Finance - how much you can get for 2012/13
+      description: Estimate what loans and grants you could get and check additional grants and allowances for higher education.
       options:
         "no": "No"
         "yes": "Yes"
@@ -66,7 +67,7 @@ en-GB:
           40001-42600: £40,001 - £42,600
           more-than-42600: More than £42,600
       do_you_want_to_check_for_additional_grants_and_allowances?:   
-        body: If you have children or dependent adults, a disability, learning difficulty or health condition, or you’re doing a teacher training, medical or social work course.                                      
+        body: If you have children or dependent adults, a disability, learning difficulty or health condition, or you’re doing a teacher training, medical or social work course.
       do_you_have_a_disability_or_health_condition?:
         hint: This includes a mental health condition or learning difficulty eg dyslexia.
       are_you_in_financial_hardship?:
@@ -88,10 +89,9 @@ en-GB:
   
           You could also get extra [bursaries or scholarships](# "Help from your university or college") from your university or college.
 
-          %These figures are estimates based on your answers.%
-        
+          ^Student loans have to be paid back - grants do not.        
         next_steps: |
           
-          - [apply for student finance](# "Apply for student finance")
+          - [apply for student finance](http://www.studentfinance.direct.gov.uk/ "Apply for student finance")
           - [read the guide to student finance](# "Guide to student finance")
 
