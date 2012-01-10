@@ -73,6 +73,7 @@ li.done .undo {
 }
 
 .current-question h2 {
+  border: none;
   margin-bottom: 0.5em;
   position: relative;
 }
@@ -133,6 +134,7 @@ li.done .undo {
 }
 
 .results h2.result-title {
+  border: none;
   margin: 0;
 }
 
