@@ -18,7 +18,7 @@ namespace :rummager do
       "title"             => "Calculate your holiday entitlement",
       "description"       => "Calculate your annual leave",
       "format"            => "calculator",
-      "section"           => "Work",
+      "section"           => "work",
       "link"              => "/calculate-your-holiday-entitlement",
       "indexable_content" => "Use this calculator to work out how much statutory holiday leave you're entitled to."
     }

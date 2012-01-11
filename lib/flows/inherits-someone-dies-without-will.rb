@@ -1,5 +1,5 @@
 satisfies_need 2006
-section "Money and Tax"
+section "money-and-tax"
 
 multiple_choice :do_you_have_a_living_spouse_or_civil_partner? do
   option yes: :is_your_estate_worth_more_than_250000?
