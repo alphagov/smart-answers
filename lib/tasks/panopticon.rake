@@ -14,5 +14,8 @@ namespace :panopticon do
       record = OpenStruct.new(slug: flow.name, title: presenter.title)
       registerer.register(record)
     end
+    
+    record = OpenStruct.new(slug: 'calculate-your-holiday-entitlement', title: "Calculate your holiday entitlement")
+    registerer.register(record)
   end
 end
