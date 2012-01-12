@@ -5,7 +5,7 @@
     <%= stylesheet_link_tag "smart-answers" %>
     <%= javascript_include_tag "smart-answers", "holiday-pay", defer: true %>
     <meta name="x-section-name" content="<%= yield(:section_name).gsub('-', ' ').capitalize %>" />
-    <meta name="x-section-link" content="/browse/<%= yield:section_name %>" />
+    <meta name="x-section-link" content="/browse/<%= yield :section_name %>" />
     <%= yield :head %>
   </head>
 <body class="citizen">
