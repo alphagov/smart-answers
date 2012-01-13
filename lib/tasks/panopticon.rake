@@ -11,11 +11,11 @@ namespace :panopticon do
     registerer = GdsApi::Panopticon::Registerer.new(owning_app: "smart-answers")
     flow_registry.flows.each do |flow|
       presenter = SmartAnswerPresenter.new(OpenStruct.new(params: {}), flow)
-      record = OpenStruct.new(slug: flow.name, title: presenter.title)
+      record = OpenStruct.new(slug: flow.name, title: presenter.title, need_id: flow.need_id, section: flow.section)
       registerer.register(record)
     end
     
-    record = OpenStruct.new(slug: 'calculate-your-holiday-entitlement', title: "Calculate your holiday entitlement")
+    record = OpenStruct.new(slug: 'calculate-your-holiday-entitlement', title: "Calculate your holiday entitlement", section: "Work", need_id: "355")
     registerer.register(record)
   end
 end
