@@ -1,6 +1,8 @@
 source 'http://rubygems.org'
 source 'https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/'
 
+gem 'gds-warmup-controller'
+
 # passenger compatability
 group :passenger_compatibility do
   gem 'rack', '1.3.5'

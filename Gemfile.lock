@@ -91,6 +91,8 @@ GEM
     gds-api-adapters (0.0.36)
       null_logger
       plek
+    gds-warmup-controller (0.0.2)
+      rails (>= 3.0.0)
     hike (1.2.1)
     i18n (0.6.0)
     jquery-rails (1.0.19)
@@ -212,6 +214,7 @@ DEPENDENCIES
   exception_notification
   factory_girl_rails
   gds-api-adapters (~> 0.0.30)
+  gds-warmup-controller
   govspeak!
   jquery-rails
   json
