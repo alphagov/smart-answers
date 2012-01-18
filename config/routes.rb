@@ -1,4 +1,5 @@
 SmartAnswers::Application.routes.draw do
+  match '/warmup', controller: 'GdsWarmupController::Warmup', action: :index
   match '/calculate-your-holiday-entitlement', :to => 'holiday_pay#index', :as => :holiday_pay
 
   match '/:id(/:started(/*responses)).:format',
