@@ -98,7 +98,7 @@ GEM
     jquery-rails (1.0.19)
       railties (~> 3.0)
       thor (~> 0.14)
-    json (1.6.4)
+    json (1.6.5)
     kramdown (0.13.4)
     libv8 (3.3.10.4)
     linecache19 (0.5.12)
@@ -174,7 +174,7 @@ GEM
       multi_json (~> 1.0.4)
       rubyzip
     shoulda (2.11.3)
-    slimmer (1.1.21)
+    slimmer (1.1.22)
       json
       nokogiri (~> 1.5.0)
       null_logger
