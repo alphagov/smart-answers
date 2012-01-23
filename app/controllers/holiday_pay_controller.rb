@@ -3,6 +3,8 @@ class HolidayPayController < ApplicationController
 
   STATUTORY_WEEKS = 5.6
 
+  class InvalidParameter < StandardError; end
+
   def index 
     @defaults = { 
       :period         => :full_year,
@@ -118,7 +120,8 @@ class HolidayPayController < ApplicationController
   end
 
   def params_present?
-    #params[:commit].present?
     [:period,:pay_period,:start_date].each {|key| return false unless params[key].present? }
+  rescue ArgumentError
+    raise HolidayPayController::InvalidParameter
   end
 end
