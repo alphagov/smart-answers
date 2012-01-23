@@ -1,5 +1,6 @@
 satisfies_need 1481
 section "Work"
+status :draft
 
 multiple_choice :country_is_listed_in_your_passport? do
   option eu_and_swiss: :eligiable_to_work_eu
