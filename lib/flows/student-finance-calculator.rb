@@ -1,3 +1,5 @@
+section "education"
+
 multiple_choice :are_you_a_full_time_or_part_time_student? do
   option :'full-time'
   option :'part-time'
