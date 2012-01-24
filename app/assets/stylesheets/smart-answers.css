@@ -33,7 +33,6 @@
 }
 
 .done-questions {
-  border-bottom: solid 1px #C9D0D0;
   position: relative;
 }
 
@@ -50,10 +49,11 @@
   display: block;
   line-height: 2.5em;
   text-align: center;
+	text-decoration: none;
 }
 
 .start-again a:hover {
-  background-color: ;
+	text-decoration: underline;
 }
 
 .done-questions ol {
@@ -70,7 +70,7 @@
 
 .done-questions ol > li.done {
   background: #CCE0D5;
-  border-bottom: solid 2px #fff;
+  border-bottom: solid 1px #A1D1AE;
   overflow: hidden;
 }
 
@@ -118,11 +118,17 @@ li.done:hover .undo a {
   text-decoration: underline;
 }
 
-.current-question {
+.step.current {
 	background-color: #fff;
 	margin-right: 15em;
-	padding: 1em 2em 1em 5em;
+	padding: 0 2em 1em 5em;
 	position: relative;
+}
+
+.current-question {
+  border-top: solid 1px #C9D0D0;
+	margin-top: -1px;
+	padding: 1.5em 0 1.25em 0;
 }
 
 .current-question h2 {
@@ -246,8 +252,7 @@ li.done:hover .undo a {
 */
 
 .error {
-  background: #FFE5EC;
-  color: #F00;
+  background: #F8D6D5;
   margin: 0 0 -0.5em -0.5em;
   padding: 0.5em;
 }
@@ -257,6 +262,7 @@ li.done:hover .undo a {
 }
 
 .error-message {
+  color: #DD322D;
   margin-top: 0;
 }
 
