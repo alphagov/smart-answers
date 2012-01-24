@@ -14,12 +14,11 @@
     </hgroup>
   </header>
   <div class="done-questions">
-    <div class="start-again"><%= link_to "Start again", smart_answer_path(params[:id]) %></div>
+    <% if @presenter.current_question_number > 1 %><div class="start-again"><%= link_to "Start again", smart_answer_path(params[:id]) %></div><% end %>
     <ol>
       <%= render partial: "collapsed_question", collection: @presenter.collapsed_questions, as: :question %>
     </ol>
   </div>
-
   <% if @presenter.finished? %>
     <%= render partial: "result" %>
   <% else %>
