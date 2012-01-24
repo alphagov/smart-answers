@@ -1,6 +1,6 @@
 <% content_for :title do %><%= @presenter.title %><% end %>
 <% content_for :section_name do %><%= @presenter.section %><% end %>
-<section id="content">
+<section id="content"<% if @presenter.started? %> class="smart-answer-questions"<% end %>>
   <%= render partial: "content" %>
 
   <div class="meta-data">

@@ -13,6 +13,7 @@
       </h1>
     </hgroup>
   </header>
+  <p><%= link_to "Start again", smart_answer_path(params[:id]) %></p>
   <ol class="done-questions">
     <%= render partial: "collapsed_question", collection: @presenter.collapsed_questions, as: :question %>
   </ol>
