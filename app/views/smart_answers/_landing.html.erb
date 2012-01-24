@@ -23,7 +23,9 @@
         <% if @presenter.has_body? %>
           <%= @presenter.body %>
         <% end %>
-        <p class="get-started"><a href="<%= smart_answer_path(@smart_answer_name, started: 'y') %>" class="big button">Get started <span class="indicator"></span></a></p>
+        <p class="get-started">
+          <a href="<%= smart_answer_path(@smart_answer_name, started: 'y') %>" class="big button">Get started <span class="indicator"></span></a>
+        </p>
       </div>
       <%= @presenter.devolved_body if @presenter.has_devolved_body? %>
     </div>
