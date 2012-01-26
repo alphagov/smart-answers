@@ -10,7 +10,7 @@ module SmartAnswer
 
     def initialize(raw_input)
       if raw_input.is_a?(Numeric)
-        @value = BigDecimal.new(raw_input)
+        @value = BigDecimal.new(raw_input.to_s)
       else
         raw_input = raw_input.to_s.gsub(/,/,'').gsub(/\s/,'')
         if ! self.class.valid?(raw_input)
