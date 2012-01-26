@@ -1,7 +1,7 @@
 <% content_for :title do %><%= @presenter.title %><% end %>
 <% content_for :section_meta_tags do %>
 <meta name="x-section-name" content="<%= @presenter.section_name %>" />
-<meta name="x-section-link" content="<%= @presenter.section_slug %>" />
+<meta name="x-section-link" content="/browse/<%= @presenter.section_slug %>" />
 <% end %>
 <section id="content"<% if @presenter.started? %> class="smart-answer-questions"<% end %>>
   <%= render partial: "content" %>

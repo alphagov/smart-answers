@@ -94,7 +94,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
     should "send slimmer section meta tags" do
       get :show, id: 'sample'
       assert_select "head meta[name=x-section-name][content=Family]"
-      assert_select "head meta[name=x-section-link][content=family]"
+      assert_select "head meta[name=x-section-link][content=/browse/family]"
     end
 
     should "look up section name in translation file" do
@@ -102,7 +102,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
         get :show, id: 'sample'
       end
       assert_select 'head meta[name=x-section-name][content="Section Name From Translation File"]'
-      assert_select "head meta[name=x-section-link][content=family]"
+      assert_select "head meta[name=x-section-link][content=/browse/family]"
     end
 
     should "send slimmer analytics headers" do
