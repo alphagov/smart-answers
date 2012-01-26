@@ -1,5 +1,5 @@
 satisfies_need 1660
-section "Family"
+section_slug "family"
 status :published
 
 date_question :when_is_your_baby_due? do

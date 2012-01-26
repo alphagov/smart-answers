@@ -2,7 +2,7 @@ en-GB:
   flow:
     uk_work_visa:
       title: Check if you can work in the UK
-      section: work
+      section_name: Work
       country_is_listed_in_your_passport?:
         title: "Where are you from (Country listed in your passport)?"
         options:

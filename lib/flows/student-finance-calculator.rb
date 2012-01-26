@@ -1,4 +1,4 @@
-section "education"
+section_slug "education"
 satisfies_need 2175
 status :published
 

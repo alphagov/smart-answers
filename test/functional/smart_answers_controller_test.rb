@@ -10,7 +10,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
       name :sample
 
       satisfies_need 1337
-      section "Family"
+      section_slug "family"
 
       multiple_choice :do_you_like_chocolate? do
         option :yes => :you_have_a_sweet_tooth
@@ -94,11 +94,20 @@ class SmartAnswersControllerTest < ActionController::TestCase
     should "send slimmer section meta tags" do
       get :show, id: 'sample'
       assert_select "head meta[name=x-section-name][content=Family]"
+      assert_select "head meta[name=x-section-link][content=family]"
+    end
+
+    should "look up section name in translation file" do
+      using_translation_file(fixture_file('smart_answers_controller_test/section_name.yml')) do
+        get :show, id: 'sample'
+      end
+      assert_select 'head meta[name=x-section-name][content="Section Name From Translation File"]'
+      assert_select "head meta[name=x-section-link][content=family]"
     end
 
     should "send slimmer analytics headers" do
       get :show, id: 'sample'
-      assert_equal "Family",        @response.headers["X-Slimmer-Section"]
+      assert_equal "family",        @response.headers["X-Slimmer-Section"]
       assert_equal "1337",          @response.headers["X-Slimmer-Need-ID"].to_s
       assert_equal "smart_answers", @response.headers["X-Slimmer-Format"]
       assert_equal "citizen",       @response.headers["X-Slimmer-Proposition"]

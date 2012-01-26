@@ -87,12 +87,12 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal 1337, s.need_id
   end
 
-  test "should have a section" do
+  test "should have a section slug" do
     s = SmartAnswer::Flow.new do
-      section "Family"
+      section_slug "family"
     end
 
-    assert_equal "Family", s.section
+    assert_equal "family", s.section_slug
   end
 
   test "should have a status" do
