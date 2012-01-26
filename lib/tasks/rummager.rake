@@ -2,6 +2,7 @@ namespace :rummager do
   desc "Reindex search engine"
   task :index => :environment do
     documents = SmartAnswer::FlowRegistry.new.flows.map { |flow|
+      next unless flow.status == :published
       presenter = TextPresenter.new(flow)
       {
         "title"             => presenter.title,
@@ -23,6 +24,6 @@ namespace :rummager do
       "indexable_content" => "Use this calculator to work out how much statutory holiday leave you're entitled to."
     }
 
-    Rummageable.index documents
+    Rummageable.index documents.compact
   end
 end

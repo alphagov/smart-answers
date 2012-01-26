@@ -25,5 +25,11 @@ module SmartAnswer
       two = Money.new("2 000")
       assert two == 2000
     end
+
+    test "should be possible to initialize with a BigDecimal" do
+      v = BigDecimal.new("1234.5678")
+      money = Money.new(v)
+      assert_equal "1234.5678", money.to_s
+    end
   end
 end

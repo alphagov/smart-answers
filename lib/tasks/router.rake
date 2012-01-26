@@ -18,6 +18,7 @@ namespace :router do
 
   task :register_routes => [ :router_environment, :environment ] do
     SmartAnswer::FlowRegistry.new.flows.map do |flow|
+      next unless flow.status == :published
       path = "/#{flow.name}"
       @logger.info "Registering #{path}"
       @router.routes.update application_id: "smartanswers", route_type: :prefix,

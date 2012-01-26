@@ -5,20 +5,20 @@ en-GB:
         body:
           "You also qualify for extra grants and allowances:"
         dependent_children: |
-          - up to £148/week (1 child) or up to £255/week (2 or more children) of [Childcare Grant](# "Childcare Grant")
-          - £50 to £1,508 of [Parents Learning Allowance](# "Parents Learning Allowance") 
+          - up to £148/week (1 child) or up to £255/week (2 or more children) of [Childcare Grant](/childcare-grant "Childcare Grant")
+          - £50 to £1,508 of [Parents Learning Allowance](/parents-learning-allowance "Parents Learning Allowance") 
         dependent_adult: |
-          - up to £2,642 of [Adult Dependant's Grant](# "Adult Dedependants Grant")  
+          - up to £2,642 of [Adult Dependant's Grant](/adult-dependants-grant "Adult Dedependants Grant")  
         disability: |
-          - [Disabled Students' Allowance](# "Disabled Students' Allowance")
+          - [Disabled Students' Allowance](/disabled-students-allowances-dsas "Disabled Students' Allowance")
         financial_hardship: |
-          - [Access to Learning Fund](# "Access to Learning Fund") (extra help with course costs)
+          - [Access to Learning Fund](/access-to-learning-fund "Access to Learning Fund") (extra help with course costs)
         teacher_training: |
-          - [Funding for teacher training](# "Funding for teacher training")
+          - [Funding for teacher training](/teacher-training-funding "Funding for teacher training")
         medical: |
-          - [NHS Bursary](# "NHS Bursary") (NHS funding towards your fees and living costs)
+          - [NHS Bursary](/nhs-bursaries "NHS Bursary") (NHS funding towards your fees and living costs)
         social_work: |
-          - [Social Work Bursary](# "Social Work Bursary") (NHS funding towards your fees and living costs)
+          - [Social Work Bursary](/social-work-bursaries "Social Work Bursary") (NHS funding towards your fees and living costs)
         tuition_fee_loan: |
           - %{tuition_fee_amount} tuition fee loan  
         maintenance_loan: |
@@ -87,11 +87,11 @@ en-GB:
           
           %{additional_benefits}
   
-          You could also get extra [bursaries or scholarships](# "Help from your university or college") from your university or college.
+          You could also get extra [bursaries or scholarships](/extra-money-pay-university "Help from your university or college") from your university or college.
 
           ^Student loans have to be paid back - grants do not.        
         next_steps: |
           
           - [apply for student finance](http://www.studentfinance.direct.gov.uk/ "Apply for student finance")
-          - [read the guide to student finance](# "Guide to student finance")
+          - [read the guide to student finance](/apply-for-student-finance-2012-13 "Guide to student finance")
 

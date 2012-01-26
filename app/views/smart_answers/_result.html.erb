@@ -1,16 +1,20 @@
-<article class="results">
-  <div class="inner group">
-    <div class="result-info">
-      <div class="summary"><h2 class="result-title"><%= @presenter.current_node.title %></h2></div>
-      <% if @presenter.current_node.has_body? %>
-        <%= @presenter.current_node.body %>
+<div class="article-container">
+  <article class="results">
+    <div class="inner group">
+      <div class="result-info">
+        <div class="summary"><h2 class="result-title"><%= @presenter.current_node.title %></h2></div>
+        <% if @presenter.current_node.has_body? %>
+          <%= @presenter.current_node.body %>
+        <% end %>
+      </div>
+      <% if @presenter.current_node.has_next_steps? %>
+        <div class="related next-steps">
+          <div class="inner group">
+          <h2>Related</h2>
+          <%= @presenter.current_node.next_steps %>
+          </div>
+        </div>
       <% end %>
     </div>
-    <% if @presenter.current_node.has_next_steps? %>
-      <div class="next-steps">
-        <h3>Next steps</h3>
-        <%= @presenter.current_node.next_steps %>
-      </div>
-    <% end %>
-  </div>
-</article>
+  </article>
+</div>
