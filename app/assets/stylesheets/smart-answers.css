@@ -9,7 +9,6 @@
 /*
 	landing page
 */
-  
 .start {
 	display: inline-block;
 }
@@ -248,7 +247,7 @@ li.done:hover .undo a {
 }*/
 
 /*
-  errors
+  errors messages
 */
 
 .error {
@@ -258,11 +257,9 @@ li.done:hover .undo a {
   margin: 0 0 -0.5em -0.5em;
   padding: 0.5em;
 }
-
 .error ul {
   margin-bottom: 0;
 }
-
 .error-message {
   margin-top: 0;
   color:#B01117;
