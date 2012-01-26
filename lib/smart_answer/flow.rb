@@ -29,9 +29,9 @@ module SmartAnswer
       @status
     end    
 
-    def section(s=nil)
-      @section = s if s
-      @section
+    def section_slug(s=nil)
+      @section_slug = s if s
+      @section_slug
     end
 
     def multiple_choice(name, options = {}, &block)

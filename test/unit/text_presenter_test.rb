@@ -24,8 +24,8 @@ module SmartAnswer
       assert_equal "FLOW_TITLE", @presenter.title
     end
 
-    test "should have a section" do
-      assert_equal "SECTION", @presenter.section
+    test "section slug defined in flow file" do
+      assert_equal "sample", @presenter.section_slug
     end
 
     test "should have description" do

@@ -19,8 +19,8 @@ class TextPresenter
     translate("title")
   end
 
-  def section
-    translate("section")
+  def section_slug
+    @flow.section_slug
   end
 
   def description
