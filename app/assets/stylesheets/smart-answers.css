@@ -163,8 +163,9 @@ li.done .undo {
 */
 
 .error {
-  background: #FFE5EC;
-  color: #F00;
+  border:1px solid #B01117;
+  background-color:#FFF3CF;
+  color:#B01117;
   margin: 0 0 -0.5em -0.5em;
   padding: 0.5em;
 }
@@ -175,6 +176,7 @@ li.done .undo {
 
 .error-message {
   margin-top: 0;
+  color:#B01117;
 }
 
 /*
