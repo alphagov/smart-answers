@@ -45,7 +45,7 @@ $(document).ready(function() {
       json_url += "?";
       json_url += parts[1];
     }
-    return json_url;
+    return window.location.protocol + "//" + window.location.host + json_url;
   }
 
   function fromJsonUrl(url) {
