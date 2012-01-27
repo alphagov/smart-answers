@@ -2,7 +2,7 @@ en-GB:
   flow:
     maternity-benefits:
       meta:
-        description: TBD
+        description: "Use the maternity pay tool to work out if you can claim statutory maternity pay (SMP), maternity allowance (MA) or other benefits"
       title:
         Can you get maternity pay?
       section_name: Family

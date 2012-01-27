@@ -1,6 +1,8 @@
 en-GB:
   flow:
     student-finance-calculator:
+      meta:
+        description: "Use this student finance calculator to estimate what student finance you could get for university - student loans, student grants, bursaries and other funding"
       phrases:
         body:
           "You also qualify for extra grants and allowances:"
