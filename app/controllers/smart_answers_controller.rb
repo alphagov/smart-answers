@@ -53,7 +53,8 @@ private
       redirect_to action: :show,
         id: @name,
         started: 'y',
-        responses: @presenter.current_state.responses
+        responses: @presenter.current_state.responses,
+        protocol: request.ssl? ? 'https' : 'http'
     end
   end
 
