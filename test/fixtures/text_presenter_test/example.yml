@@ -22,5 +22,5 @@ en-GB:
       cold:
         title: NODE_3_TITLE
         subtitle: NODE_3_SUBTITLE
-        body: NODE_3_BODY <a href="/">LINK TEXT</a>
+        body: "NODE_3_BODY <a href=\"/\">LINK TEXT</a> &rarr;"
         hint: NODE_3_HINT

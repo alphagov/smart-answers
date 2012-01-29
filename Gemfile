@@ -22,6 +22,7 @@ gem 'rummageable', :git => 'git@github.com:alphagov/rummageable.git'
 gem 'aws-ses', :require => 'aws/ses'
 gem 'exception_notification'
 gem 'gds-api-adapters', '~> 0.0.30'
+gem 'htmlentities', '~> 4'
 
 group :development do
   gem 'ruby-debug19', :require => false

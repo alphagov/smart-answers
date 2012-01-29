@@ -7,12 +7,14 @@ class TextPresenter
   NODE_PRESENTER_METHODS = [:title, :subtitle, :body, :hint]
 
   def text
-    @flow.nodes.inject([translate("body")]) { |acc, node|
-      pres = NodePresenter.new(@i18n_prefix, node)
-      acc.concat(NODE_PRESENTER_METHODS.map { |method|
-        lookup_ignoring_interpolation_errors(pres, method)
-      })
-    }.compact.join(" ").gsub(/(?:<[^>]+>|\s)+/, " ")
+    HTMLEntities.new.decode(
+      @flow.nodes.inject([translate("body")]) { |acc, node|
+        pres = NodePresenter.new(@i18n_prefix, node)
+        acc.concat(NODE_PRESENTER_METHODS.map { |method|
+          lookup_ignoring_interpolation_errors(pres, method)
+        })
+      }.compact.join(" ").gsub(/(?:<[^>]+>|\s)+/, " ")
+    )
   end
 
   def title
