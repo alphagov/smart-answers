@@ -26,7 +26,7 @@ en-GB:
         maintenance_grant: |
           - up to %{maintenance_grant_amount} maintenance grant (for living costs)
       title:
-        Student Finance - how much you can get for 2012/13
+        Student finance - how much you can get for 2012/13
       description: Estimate what loans and grants you could get and check additional grants and allowances for higher education.
       options:
         "no": "No"
