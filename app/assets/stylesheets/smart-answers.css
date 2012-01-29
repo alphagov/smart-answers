@@ -192,7 +192,7 @@ li.done:hover .undo a {
 	background-color: #fff;
   float: none;
 	margin-right: 0;
-	min-height: 0;
+	min-height: 480px;
 }
 
 .result-info {
