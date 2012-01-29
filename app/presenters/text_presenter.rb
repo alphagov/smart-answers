@@ -12,7 +12,7 @@ class TextPresenter
       acc.concat(NODE_PRESENTER_METHODS.map { |method|
         lookup_ignoring_interpolation_errors(pres, method)
       })
-    }.compact.join(" ")
+    }.compact.join(" ").gsub(/(?:<[^>]+>|\s)+/, " ")
   end
 
   def title

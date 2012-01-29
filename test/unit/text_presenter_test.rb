@@ -59,5 +59,10 @@ module SmartAnswer
       assert_match %r{NODE_2_HINT}, @presenter.text
       assert_match %r{NODE_3_HINT}, @presenter.text
     end
+
+    test "should omit HTML" do
+      assert_no_match %r{<}, @presenter.text
+      assert_match %r{LINK TEXT}, @presenter.text
+    end
   end
 end
