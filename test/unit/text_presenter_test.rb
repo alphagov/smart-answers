@@ -64,5 +64,10 @@ module SmartAnswer
       assert_no_match %r{<}, @presenter.text
       assert_match %r{LINK TEXT}, @presenter.text
     end
+
+    test "should decode HTML entities" do
+      assert_no_match %r{&rarr;}, @presenter.text
+      assert_match %r{→}, @presenter.text
+    end
   end
 end

@@ -96,6 +96,7 @@ GEM
     gds-warmup-controller (0.0.2)
       rails (>= 3.0.0)
     hike (1.2.1)
+    htmlentities (4.3.1)
     i18n (0.6.0)
     jquery-rails (1.0.19)
       railties (~> 3.0)
@@ -220,6 +221,7 @@ DEPENDENCIES
   gds-api-adapters (~> 0.0.30)
   gds-warmup-controller
   govspeak!
+  htmlentities (~> 4)
   jquery-rails
   json
   mocha
