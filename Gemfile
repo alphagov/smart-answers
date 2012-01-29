@@ -6,7 +6,7 @@ gem 'gds-warmup-controller'
 # passenger compatability
 group :passenger_compatibility do
   gem 'rack', '1.3.5'
-  gem 'rake'
+  gem 'rake', '0.9.2'
 end
 
 group :router do
