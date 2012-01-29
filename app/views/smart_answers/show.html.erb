@@ -4,10 +4,10 @@
 <meta name="x-section-link" content="/browse/<%= @presenter.section_slug %>" />
 <meta name="x-section-format" content="smart_answer" />
 <% end %>
-<section id="content"<% if @presenter.started? %> class="smart-answer-questions"<% end %>>
+<section id="content"<% if @presenter.started? %> class="smart-answer-questions group"<% end %>>
   <%= render partial: "content" %>
 
-  <div class="meta-data">
+  <div class="meta-data group">
     <div class="inner">
       <div class="print-and-modified-date group">
         <p class="modified-date">Last updated: <%= last_updated_date.strftime('%d %B %Y') %></p>

@@ -246,6 +246,19 @@ li.done:hover .undo a {
   margin-top: 0.25em;
 }*/
 
+.meta-data {
+  background: #fff;
+  float: none;
+  font-size: 1em;
+  margin-right: 15em;
+  padding: 0 5em 0 0;
+  width: auto;
+}
+
+.meta-data .modified-date {
+  font-size: 0.85em;
+}
+
 /*
   errors messages
 */
