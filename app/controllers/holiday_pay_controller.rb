@@ -25,7 +25,7 @@ class HolidayPayController < ApplicationController
         if @result.present?
           render :json => { "entitlement" => @result[:final_amount], "entitlement_period" => @result[:pay_period], "workings" => @result[:workings] }
         else
-          render :json => { }
+          render :json => { :errors => @errors }
         end
       }
     end
@@ -34,6 +34,7 @@ class HolidayPayController < ApplicationController
   private
   def calculate
     @options = {}
+    @errors = []
 
     case params[:period]
     when "full_year"
@@ -56,8 +57,14 @@ class HolidayPayController < ApplicationController
     @options[:days_per_week] = params[:days_per_week].to_i
     @options[:hours_per_week] = params[:hours_per_week].to_i
 
-    return false if @options[:hours_per_week] < 1 and @options[:pay_period] == :hours
-    return false if @options[:days_per_week] > 5 and @options[:pay_period] == :days
+    case 
+    when @options[:hours_per_week] < 1
+      @errors << t('holiday_pay.error_messages.invalid_hours')
+    when !(1..5).cover?(@options[:days_per_week])
+      @errors << t('holiday_pay.error_messages.invalid_days')
+    end
+
+    return false if @errors.size > 0
 
     @result = evaluate_formula @options
   end
