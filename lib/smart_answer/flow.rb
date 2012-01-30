@@ -33,6 +33,11 @@ module SmartAnswer
       @section_slug = s if s
       @section_slug
     end
+    
+    def subsection_slug(s=nil)
+      @subsection_slug = s if s
+      @subsection_slug
+    end
 
     def multiple_choice(name, options = {}, &block)
       add_node Question::MultipleChoice.new(name, options, &block)
