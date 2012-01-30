@@ -6,6 +6,7 @@ class HolidayPayController < ApplicationController
   class InvalidParameter < StandardError; end
 
   def index 
+    @errors ||= []
     expires_in 24.hours, :public => true unless Rails.env.development?
     @defaults = { 
       :period         => :full_year,
