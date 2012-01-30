@@ -1,5 +1,6 @@
 satisfies_need 2006
-section_slug "money-and-tax"
+section_slug "family"
+subsection_slug "death-and-bereavement"
 status :published
 
 multiple_choice :do_you_have_a_living_spouse_or_civil_partner? do
