@@ -58,9 +58,9 @@ class HolidayPayController < ApplicationController
     @options[:hours_per_week] = params[:hours_per_week].to_i
 
     case 
-    when @options[:hours_per_week] < 1
+    when (@options[:hours_per_week] < 1 and @options[:pay_period] == :hours)
       @errors << t('holiday_pay.error_messages.invalid_hours')
-    when !(1..5).cover?(@options[:days_per_week])
+    when (!(1..5).cover?(@options[:days_per_week]) and @options[:pay_period] == :days)
       @errors << t('holiday_pay.error_messages.invalid_days')
     end
 
