@@ -1,5 +1,6 @@
 satisfies_need 1481
 section_slug "work"
+subsection_slug ""
 status :draft
 
 multiple_choice :country_is_listed_in_your_passport? do
