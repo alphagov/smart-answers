@@ -63,8 +63,9 @@
 }
 
 .done-questions ol > li {
+  list-style: none;
   position: relative;
-  padding: 0.5em 2em 0.5em 5em;
+  padding: 0.5em 1.5em 0.5em 5em;
 }
 
 .done-questions ol > li.done {
@@ -102,14 +103,23 @@ li.done .answer {
 li.done .undo {
   display: inline;
   float: right;
-  font-size: 0.8em;
+  font-size: 0.85em;
   margin: 0 0 0 0.5em;
+}
+.lte-ie8 li.done .undo {
+  margin: 0;
+  *position: absolute;
+  *bottom: 0.75em;
+  *right: 1em;
 }
 
 li.done .undo a {
   color: #839496;
   display: block;
   text-decoration: none;
+}
+.lte-ie8 li.done .undo a {
+  *color: #333;
 }
 
 li.done:hover .undo a {
