@@ -77,7 +77,11 @@ multiple_choice :whats_your_household_income? do
   end
 
   calculate :eligible_finance do
-    eligible_finance + :maintenance_grant
+    if maintenance_grant_amount > 0
+      eligible_finance + :maintenance_grant
+    else
+      eligible_finance
+    end
   end
 end
 
