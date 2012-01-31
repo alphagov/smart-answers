@@ -9,7 +9,10 @@ en-GB:
         "no": "No"
         "yes": "Yes"
       body: |
-        You can use this tool to help you find out who's is entitled to a share of someone’s property, possessions and money if they die without making a will. It applies to deaths after 1 February 2009. 
+
+        You can use this tool to work out who is entitled to a share of someone's property, possessions and money if they die without making a will. This tool is correct for deaths after 1 February 2009.
+
+        
 
       do_you_have_a_living_spouse_or_civil_partner?:
         title: Is there a living husband, wife or civil partner?
@@ -19,7 +22,7 @@ en-GB:
       are_either_of_your_parents_living?:
         title: Are there any living parents?
       do_you_have_any_children?:
-        title: Are there any living children, grandchildren or other descendants?
+        title: Are there any living children or grandchildren?
         hint: Children include legally-adopted sons or daughters, but not step-children.
       do_you_have_children?:
         title: Are there any living children or grandchildren?
@@ -45,8 +48,14 @@ en-GB:
           
           They may have to pay Inheritance Tax.
         next_steps: |
-          * Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance")
-          * Read the guide to [Inheritance Tax](/inheritance-tax "Inheritance Tax").
+          Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance") to:
+
+          * see if you can apply for probate (the legal right to deal with the person’s estate)
+
+          * apply for a ‘Grant of letters of administration’ making you the ‘administrator’ of the estate
+
+          Read the guide to [Inheritance Tax](/inheritance-tax "Inheritance Tax").
+
       partner_receives_first_450000_remainder_to_parents_or_siblings:
         title: The husband, wife or civil partner keeps all the assets (including property) up to £450,000.
         body: |
@@ -61,7 +70,7 @@ en-GB:
           They may have to pay Inheritance Tax.
 
       next_steps: |
-        * Read the guide to [Inheritance Tax](/inheritance-tax "Inheritance Tax").
+        Read the guide to [Inheritance Tax](/inheritance-tax "Inheritance Tax").
 
       your_partner_receives_all_of_your_estate:
         title: The husband, wife or civil partner gets all of the estate.
@@ -74,7 +83,12 @@ en-GB:
           They may have to pay Inheritance Tax.
 
         next_steps: |
-          * Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance")
+          Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance") to:
+
+          * see if you can apply for probate (the legal right to deal with the person’s estate)
+
+          * apply for a ‘Grant of letters of administration’ making you the administrator of the estate
+
       partner_receives_first_250000_children_receive_share_of_remainder:
         title: The husband, wife or civil partner keeps all the assets (including property), up to £250,000. They also keep all the person's personal possessions, whatever their value.
         body: |
@@ -82,16 +96,13 @@ en-GB:
           The remainder of the estate is divided in half:
 
           * one half to the husband, wife or civil partner
-          * the other half shared between their children
+          * the other half shared between their children*
 
           The husband, wife or civil partner gets interest only on their half during their lifetime. When they die, the capital is then shared between their children.
-
-          * If one (or more) of the children has already died, their children will inherit in their parent's place.
-
-          They may have to pay Inheritance Tax.
-
+        
+          *If one (or more) of the children has already died, their children will inherit in their parent's place.
         next_steps:
-          * Read the guide to [Inheritance Tax](/inheritance-tax "Inheritance Tax").
+          Read the guide to [Inheritance Tax](/inheritance-tax "Inheritance Tax").
 
       shared_equally_between_brothers_or_sisters:
         title: The estate is shared equally between the whole-blood brothers and sisters.
@@ -101,8 +112,14 @@ en-GB:
           
           If there are no children of whole-blood children, but there are half-blood children, they share the estate equally.
         next_steps: |
-          * Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance")
-          * Read the guide to [Inheritance Tax](/inheritance-tax "Inheritance Tax").
+          Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance") to:
+
+          * see if you can apply for probate (the legal right to deal with the person’s estate)
+
+          * apply for a ‘Grant of letters of administration’ making you the ‘administrator’ of the estate
+
+          Read the guide to [Inheritance Tax](/inheritance-tax "Inheritance Tax").
+
 
       shared_equally_between_grandparents:
          title: The estate is shared equally between the grandparents.
@@ -110,7 +127,11 @@ en-GB:
 
            They may have to pay Inheritance Tax.
          next_steps: |
-           * Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance")
+           Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance") to:
+
+           * see if you can apply for probate (the legal right to deal with the person’s estate)
+
+           * apply for a ‘Grant of letters of administration’ making you the ‘administrator’ of the estate
       shared_equally_between_aunts_or_uncles:
         title: The estate is shared equally between the aunts and uncles.
         hint: Only blood-related aunts and uncles can inherit.
