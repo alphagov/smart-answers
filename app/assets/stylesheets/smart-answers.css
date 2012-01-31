@@ -233,8 +233,8 @@ li.done:hover .undo a {
   padding: 0 0 0 1.5em;
 }
 
-.next-steps .inner p,
-.next-steps .inner li {
+#wrapper .related.next-steps .inner p,
+#wrapper .related.next-steps .inner li {
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 100%;
 }
@@ -245,9 +245,11 @@ li.done:hover .undo a {
 /*  padding-left: 0;*/
 }
 
-.next-steps .inner li a {
+#wrapper .next-steps.related .inner li a {
   margin: 0;
   padding: 0;
+  display: inline;
+  font-size: 100%;
 }
 
 /*.next-steps h3 {
