@@ -25,9 +25,9 @@ module SmartAnswer
         raise Flow::InvalidStatus unless [:published,:draft].include? s
         @status = s
       end
-      
+
       @status
-    end    
+    end
 
     def section_slug(s=nil)
       @section_slug = s if s
