@@ -22,7 +22,7 @@ en-GB:
       are_either_of_your_parents_living?:
         title: Are there any living parents?
       do_you_have_any_children?:
-        title: Are there any living children or grandchildren?
+        title: Are there any living children, grandchildren or other descendants?
         hint: Children include legally-adopted sons or daughters, but not step-children.
       do_you_have_children?:
         title: Are there any living children or grandchildren?
@@ -48,14 +48,8 @@ en-GB:
           
           They may have to pay Inheritance Tax.
         next_steps: |
-          Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance") to:
-
-          * see if you can apply for probate (the legal right to deal with the person’s estate)
-
-          * apply for a ‘Grant of letters of administration’ making you the ‘administrator’ of the estate
-
-          Read the guide to [Inheritance Tax](/inheritance-tax "Inheritance Tax").
-
+          * Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance")
+          * Read the guide to [Inheritance Tax](/inheritance-tax "Inheritance Tax").
       partner_receives_first_450000_remainder_to_parents_or_siblings:
         title: The husband, wife or civil partner keeps all the assets (including property) up to £450,000.
         body: |
@@ -83,12 +77,7 @@ en-GB:
           They may have to pay Inheritance Tax.
 
         next_steps: |
-          Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance") to:
-
-          * see if you can apply for probate (the legal right to deal with the person’s estate)
-
-          * apply for a ‘Grant of letters of administration’ making you the administrator of the estate
-
+          * Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance")
       partner_receives_first_250000_children_receive_share_of_remainder:
         title: The husband, wife or civil partner keeps all the assets (including property), up to £250,000. They also keep all the person's personal possessions, whatever their value.
         body: |
@@ -115,14 +104,8 @@ en-GB:
           
           If there are no children of whole-blood children, but there are half-blood children, they share the estate equally.
         next_steps: |
-          Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance") to:
-
-          * see if you can apply for probate (the legal right to deal with the person’s estate)
-
-          * apply for a ‘Grant of letters of administration’ making you the ‘administrator’ of the estate
-
-          Read the guide to [Inheritance Tax](/inheritance-tax "Inheritance Tax").
-
+          * Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance")
+          * Read the guide to [Inheritance Tax](/inheritance-tax "Inheritance Tax").
 
       shared_equally_between_grandparents:
          title: The estate is shared equally between the grandparents.
@@ -130,11 +113,7 @@ en-GB:
 
            They may have to pay Inheritance Tax.
          next_steps: |
-           Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance") to:
-
-           * see if you can apply for probate (the legal right to deal with the person’s estate)
-
-           * apply for a ‘Grant of letters of administration’ making you the ‘administrator’ of the estate
+           * Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance")
       shared_equally_between_aunts_or_uncles:
         title: The estate is shared equally between the aunts and uncles.
         hint: Only blood-related aunts and uncles can inherit.
