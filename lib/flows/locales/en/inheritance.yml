@@ -9,10 +9,7 @@ en-GB:
         "no": "No"
         "yes": "Yes"
       body: |
-
-        You can use this tool to work out who is entitled to a share of someone's property, possessions and money if they die without making a will. This tool is correct for deaths after 1 February 2009.
-
-        
+        You can use this tool to help you find out who's is entitled to a share of someone’s property, possessions and money if they die without making a will. It applies to deaths after 1 February 2009. 
 
       do_you_have_a_living_spouse_or_civil_partner?:
         title: Is there a living husband, wife or civil partner?
@@ -87,9 +84,9 @@ en-GB:
           * one half to the husband, wife or civil partner
           * the other half shared between their children
 
-          The husband, wife or civil partner gets interest only on their half during their lifetime.
+          The husband, wife or civil partner gets interest only on their half during their lifetime. When they die, the capital is then shared between their children.
 
-          When they die, the capital is shared between their children.
+          * If one (or more) of the children has already died, their children will inherit in their parent's place.
 
           They may have to pay Inheritance Tax.
 
