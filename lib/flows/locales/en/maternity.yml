@@ -19,7 +19,7 @@ en-GB:
         title: When is your baby due?
         error_message: Use the arrows to choose the date from the drop-downs
       are_you_employed?:
-        hint: You have a formal arrangement with an employer, eg a contract of employment to work a fixed number of hours in a set period of time.
+        hint: Are you an employee with an employment contract - rather than a 'worker' or self-employed.
         error_message: Please choose 'yes' or 'no'
       did_you_start_26_weeks_before_qualifying_week?:
         title: Did you start your current job on or before %{twenty_six_weeks_before_qualifying_week}?
@@ -55,6 +55,8 @@ en-GB:
           If this is your first baby, you could get a [Sure Start Maternity Grant](/sure-start-maternity-grant "Sure Start Maternity Grant").
 
           If you're under 18 you may qualify for the [Healthy Start scheme](/healthy-start "Healthy Start scheme").
+          
+          %This result is an estimate based on your answers.%
 
         next_steps: |
 
@@ -69,12 +71,17 @@ en-GB:
 
 
       you_qualify_for_statutory_maternity_pay:
-        title: You may qualify for Statutory Maternity Pay (SMP) from your employer.
+        title: You qualify for Statutory Maternity Pay (SMP) from your employer.
         body: |
+                    
+          ^You must give your employer at least 28 days' notice to claim Statutory Maternity Pay.^
+          
           You could get:
 
           * 6 weeks at 90% of your average weekly earnings
           * 33 weeks at &pound;128.73 (or 90% of your average weekly earnings, **whichever is lower**)
+                
+          %This result is an estimate based on your answers.%
 
           %You must give your employer at least 28 days' notice to claim Statutory Maternity Pay.%
 
@@ -82,18 +89,21 @@ en-GB:
 
           * read the guide to [Statutory Maternity Pay](/statutory-maternity-pay "Statutory Maternity Pay")
           * read the guide to [Maternity Leave](/maternity-leave "Maternity Leave")
-          * plan your maternity leave and pay period using the [Maternity Planner](/maternity "Maternity Planner")
-
+          * plan your Maternity Leave and Maternity Pay period using the [Maternity Planner](/maternity "Maternity Planner")
+       
       you_qualify_for_maternity_allowance:
-        title: You may qualify for Maternity Allowance.
+        title: You qualify for Maternity Allowance.
         body: |
           Maternity Allowance is a benefit paid by Jobcentre Plus.
 
           You could get &pound;128.73/week or 90% of your average earnings, **whichever is lower**.
 
           You can get Maternity Allowance for up to 39 weeks.
+          
+          %This result is an estimate based on your answers.%
+          
         next_steps: |
 
-          * read the guide to [Maternity Allowance](/maternity-allowance "Maternity Allowance").
+          * read the guide to [Maternity Allowance](/maternity-allowance "Maternity Allowance")
           * read the guide to [Maternity Leave](/maternity-leave "Maternity Leave")
-          * plan your maternity leave and pay period using the [Maternity Planner](/maternity "Maternity Planner")
+          * plan your Maternity Leave and Maternity Pay with the [Maternity Planner](/maternity "Maternity Planner")
