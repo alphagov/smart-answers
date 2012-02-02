@@ -69,7 +69,12 @@ en-GB:
           40001-42600: £40,001 - £42,600
           more-than-42600: More than £42,600
       do_you_want_to_check_for_additional_grants_and_allowances?:
-        body: If you have children or dependent adults, a disability, learning difficulty or health condition, or you’re doing a teacher training, medical or social work course.
+        body: |
+          Choose 'yes' if any of the following are true:
+
+          * you're doing a teacher training, medical or social work course 
+          * you have children or dependent adults 
+          * you have a disability, learning difficulty or health condition
       do_you_have_a_disability_or_health_condition?:
         hint: This includes a mental health condition or learning difficulty eg dyslexia.
       are_you_in_financial_hardship?:
