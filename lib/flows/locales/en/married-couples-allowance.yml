@@ -6,13 +6,21 @@ en-GB:
       options:
         "no": "No"
         "yes": "Yes"
+      phrases:
+        after_2005: |
+          The person with the higher income can claim Married Couples Allowance.
+        before_2005: |
+          The husband can claim Married Couples Allowance
       were_you_or_your_partner_born_on_or_before_6_april_1935?:
         title: Were you or your partner born on or before 6 April 1935?
       did_you_marry_or_civil_partner_before_5_december_2005?:
         title: Did you marry or civil partner before 5 December 2005?
       whats_your_income?:
         "title": "What's your income?"
+      sorry:
+        title: Sorry, you don't qualify for Married Couples Allowance.
       done:
-        title: You will qualify for married couples allowance.
+        title: You will qualify for Married Couples Allowance.
         body: |
           You qualify for %{allowance}.
+          %{result_strings}

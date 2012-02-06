@@ -35,4 +35,5 @@ money_question :whats_your_income? do
   next_node :done
 end
 
+outcome :done
 outcome :sorry
