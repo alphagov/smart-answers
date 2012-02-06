@@ -9,7 +9,7 @@ en-GB:
         "no": "No"
         "yes": "Yes"
       body: |
-        You can use this tool to help you find out who's is entitled to a share of someone’s property, possessions and money if they die without making a will. It applies to deaths after 1 February 2009.
+        You can use this tool to help you find out who is entitled to a share of someone’s property, possessions and money if they die without making a will. It applies to deaths after 1 February 2009.
       do_you_have_a_living_spouse_or_civil_partner?:
         title: Is there a living husband, wife or civil partner?
         hint: A surviving partner who wasn't married or in a civil partnership with the deceased has no automatic right to inherit.
