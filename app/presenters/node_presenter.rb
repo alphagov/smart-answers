@@ -32,7 +32,7 @@ class NodePresenter
     when ::SmartAnswer::PhraseList then                                  
       if nested == false
         value.phrase_keys.map do |phrase_key|                   
-          I18n.translate!("#{@i18n_prefix}.phrases.#{phrase_key}", state_for_interpolation( true ))
+          I18n.translate!("#{@i18n_prefix}.phrases.#{phrase_key}", state_for_interpolation( true )) rescue phrase_key
         end.join("\n\n")  
       else
         false
