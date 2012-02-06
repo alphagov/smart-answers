@@ -137,6 +137,16 @@ class SmartAnswersControllerTest < ActionController::TestCase
         assert_redirected_to '/sample/y/2011-01-01'
       end
 
+      should "not error if passed blank response" do
+        submit_response ''
+        assert_response :success
+      end
+
+      should "not error if passed string response" do
+        submit_response 'bob'
+        assert_response :success
+      end
+
       context "no response given" do
         should "redisplay question" do
           submit_response(day: "", month: "", year: "")

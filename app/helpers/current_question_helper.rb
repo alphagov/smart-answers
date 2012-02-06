@@ -25,8 +25,12 @@ module CurrentQuestionHelper
     elsif params[:response]
       params[:response]
     end
-    if response && attribute
-      response[attribute]
+    if !response.blank? && attribute
+      begin
+        response[attribute]
+      rescue TypeError
+        response
+      end
     else
       response
     end
