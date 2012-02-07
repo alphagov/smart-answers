@@ -15,8 +15,10 @@ en-GB:
         title: Were you or your partner born on or before 6 April 1935?
       did_you_marry_or_civil_partner_before_5_december_2005?:
         title: Did you marry or civil partner before 5 December 2005?
-      whats_your_income?:
-        "title": "What's your income?"
+      whats_the_husbands_income?:
+        "title": "What's the husband's income?"
+      whats_the_highest_earners_income?:
+        "title": "What's the highest earner's income?"
       sorry:
         title: Sorry, you don't qualify for Married Couples Allowance.
       done:

@@ -6,12 +6,17 @@ satisfies_need 2012
 
 class MarriedCouplesAllowanceAnswer
   def self.calculate_allowance(amount)
+    @maximum = 729.50
+    @minimum = 280
+
     if amount > 24000
-      income = (amount - 24000)/2 - 2651
+      income = (amount - 24000)/2 - 2615
       income = (7295-income) * 0.1
-      (income < 280) ? Money.new(280) : Money.new(income)
+
+      (income < @minimum) ? Money.new(@minimum) : Money.new(income) # minimum £280
+      (income > @maximum) ? Money.new(@maximum) : Money.new(income) # maximum £729.50
     else
-      Money.new(729.50)
+      Money.new(@maximum)
     end
   end
 end
