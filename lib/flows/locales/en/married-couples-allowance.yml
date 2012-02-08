@@ -1,8 +1,14 @@
 en-GB:
   flow:
     married-couples-allowance:
-      title: 
-        Can I get married couples allowance?
+      title: |
+        Married Couple's Allowance - how much you could get
+      body: |
+          
+        You can use this calculator to work out if you qualify for Married Couple's Allowance, and how much you might get. You need to be married or in a civil partnership to claim.
+          
+        ^Married Couple's Allowance is money off your tax bill.^
+          
       options:
         "no": "No"
         "yes": "Yes"
@@ -20,9 +26,16 @@ en-GB:
       whats_the_highest_earners_income?:
         "title": "What's the highest earner's income?"
       sorry:
-        title: Sorry, you don't qualify for Married Couples Allowance.
-      done:
-        title: You will qualify for Married Couples Allowance.
+        title: Sorry, you don't qualify for Married Couple's Allowance.
         body: |
-          You qualify for %{allowance}.
+          %This result is an estimate based on your answers.%
+          
+          
+      done:
+        title: You  qualify for Married Couple's Allowance.
+        body: |
+          You'll get %{allowance}.off your tax bill.
+          
+          %This result is an estimate based on your answers.%
+          
           %{result_strings}
