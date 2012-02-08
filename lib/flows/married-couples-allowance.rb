@@ -13,8 +13,14 @@ class MarriedCouplesAllowanceAnswer
       income = (amount - 24000)/2 - 2615
       income = (7295-income) * 0.1
 
-      (income < @minimum) ? Money.new(@minimum) : Money.new(income) # minimum £280
-      (income > @maximum) ? Money.new(@maximum) : Money.new(income) # maximum £729.50
+      if income < @minimum
+        Money.new(@minimum)
+      elsif (income > @maximum)
+        Money.new(@maximum)
+      else
+        Money.new(income)
+      end
+      
     else
       Money.new(@maximum)
     end
