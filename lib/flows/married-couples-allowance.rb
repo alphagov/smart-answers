@@ -1,7 +1,7 @@
 status :draft
 
-section_slug "family"
-subsection_slug "marriage-and-civil-partnership"
+section_slug "money-and-tax"
+subsection_slug "tax"
 satisfies_need 2012
 
 class MarriedCouplesAllowanceAnswer
