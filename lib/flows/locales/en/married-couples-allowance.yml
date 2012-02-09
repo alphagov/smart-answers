@@ -26,8 +26,10 @@ en-GB:
         title: Did you marry or civil partner before 5 December 2005?
       whats_the_husbands_income?:
         "title": "What's the husband's income?"
+        error_message: You can't enter an invalid income
       whats_the_highest_earners_income?:
         "title": "What's the highest earner's income?"
+        error_message: You can't enter an invalid income
       sorry:
         title: Sorry, you don't qualify for Married Couple's Allowance.
         body: |

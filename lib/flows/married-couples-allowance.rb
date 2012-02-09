@@ -6,6 +6,8 @@ satisfies_need 2012
 
 class MarriedCouplesAllowanceAnswer
   def self.calculate_allowance(amount)
+    validate amount
+
     @maximum = 729.50
     @minimum = 280
 
@@ -24,6 +26,10 @@ class MarriedCouplesAllowanceAnswer
     else
       Money.new(@maximum)
     end
+  end
+
+  def self.validate(amount)
+    raise SmartAnswer::InvalidResponse if amount < 1
   end
 end
 
