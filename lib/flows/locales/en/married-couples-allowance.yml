@@ -25,6 +25,7 @@ en-GB:
         error_message: Please choose 'Yes' or 'No'
       did_you_marry_or_civil_partner_before_5_december_2005?:
         title: Did you marry before 5 December 2005?
+        hint: Before this date the husband's income is used to work out your allowance, after this date it's the income of the highest earner.
         error_message: Please choose 'Yes' or 'No'
       whats_the_husbands_income?:
         "title": "What's the husband's income?"
