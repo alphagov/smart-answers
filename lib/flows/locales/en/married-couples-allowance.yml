@@ -2,16 +2,15 @@ en-GB:
   flow:
     married-couples-allowance:
       meta:
-        description: "Work out whether you can claim Married Couple's Allowance (MCA) and how much you could get taken off your tax bill."
+        description: "Work out whether you can claim Married Couple's Allowance (MCA) and find out how much you could get taken off your tax bill."
       title: |
-        Married Couple's Allowance - how much you could get
+        Calculate your Married Couple's Allowance
       section_name: Money and tax:Tax
       body: |
           
         You can use this calculator to work out if you qualify for Married Couple's Allowance, and how much you might get. You need to be married or in a civil partnership to claim.
-          
-        ^Married Couple's Allowance is money off your tax bill.^
-          
+        
+              
       options:
         "no": "No"
         "yes": "Yes"
@@ -22,25 +21,42 @@ en-GB:
           The husband can claim Married Couple's Allowance.
       were_you_or_your_partner_born_on_or_before_6_april_1935?:
         title: Were you or your partner born on or before 6 April 1935?
+        hint: You must be married or in a civil partnership to qualify.
+        error_message: Please choose 'Yes' or 'No'
       did_you_marry_or_civil_partner_before_5_december_2005?:
-        title: Did you marry or civil partner before 5 December 2005?
+        title: Did you marry before 5 December 2005?
+        error_message: Please choose 'Yes' or 'No'
       whats_the_husbands_income?:
         "title": "What's the husband's income?"
-        error_message: You can't enter an invalid income
+        hint: Add up your taxable income, eg earnings, pensions and any taxable benefits, eg Employment and Support Allowance.
+        error_message: Please use numbers only, eg 9000
       whats_the_highest_earners_income?:
         "title": "What's the highest earner's income?"
-        error_message: You can't enter an invalid income
+        hint: Add up your taxable income, eg earnings, pensions and any taxable benefits, eg Employment and Support Allowance.
+        error_message: Please use numbers only, eg 9000
       sorry:
         title: Sorry, you don't qualify for Married Couple's Allowance.
-        body: |
-          %This result is an estimate based on your answers.%
-          
+                                     
           
       done:
-        title: You  qualify for Married Couple's Allowance.
+        title: You  qualify for Married Couple's Allowance - you'll get %{allowance} off your tax bill.
         body: |
-          You'll get %{allowance} off your tax bill.
+                    
+          Contact HM Revenue & Customs to claim.
+          
+          
+          $C
+          **HM Revenue & Customs**  
+          **Telephone** 0845 300 0627  
+          **Textphone** 0845 302 1408  
+          $C
+          
           
           %This result is an estimate based on your answers.%
+        next_steps: |
+          Read the guide to [Married Couple's Allowance](/married-couples-allowance "Married Couple's Allowance") to:
           
-          %{result_strings}
+          - learn more about what you'll get and how to claim
+          - find out how to transfer your Married Couple's Allowance to your partner
+          
+       
