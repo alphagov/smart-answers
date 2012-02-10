@@ -26,13 +26,13 @@ class NodePresenter
     case value
     when Date then I18n.localize(value, format: :long)
     when ::SmartAnswer::Money then
-      number_to_currency(value, precision: 0)
+      number_to_currency(value, precision: ((value.to_f == value.to_f.round) ? 0 : 2 )) 
     when ::SmartAnswer::Salary then
       number_to_currency(value.amount, precision: 0) + " per " + value.period
     when ::SmartAnswer::PhraseList then                                  
       if nested == false
         value.phrase_keys.map do |phrase_key|                   
-          I18n.translate!("#{@i18n_prefix}.phrases.#{phrase_key}", state_for_interpolation( true ))
+          I18n.translate!("#{@i18n_prefix}.phrases.#{phrase_key}", state_for_interpolation( true )) rescue phrase_key
         end.join("\n\n")  
       else
         false
