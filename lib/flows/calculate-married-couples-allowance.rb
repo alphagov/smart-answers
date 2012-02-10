@@ -1,4 +1,4 @@
-status :draft
+status :published
 
 section_slug "money-and-tax"
 subsection_slug "tax"
