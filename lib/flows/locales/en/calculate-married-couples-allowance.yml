@@ -1,6 +1,6 @@
 en-GB:
   flow:
-    married-couples-allowance:
+    calculate-married-couples-allowance:
       meta:
         description: "Work out whether you can claim Married Couple's Allowance (MCA) and find out how much you could get taken off your tax bill."
       title: |
