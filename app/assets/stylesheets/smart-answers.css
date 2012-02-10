@@ -297,3 +297,10 @@ li.done:hover .undo a {
 .calculator article {
   min-height: 0;
 }
+
+@media only screen and (max-width:670px) {
+  .step.current,
+  .meta-data{
+    margin:0;
+  }
+}
