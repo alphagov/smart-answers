@@ -6,6 +6,6 @@
     <%= select_month default_for_date(prefill_value_for(question, :month)) || question.default, prefix: 'response', prompt: '' %>
   </label>
   <label for="response_year">Year
-    <%= select_year default_for_date(prefill_value_for(question, :year)) || question.default, prefix: 'response', prompt: '' %>
+    <%= select_year default_for_date(prefill_value_for(question, :year)) || question.default, prefix: 'response', prompt: '', :start_year => Time.now.year-1, :end_year => Time.now.year+3 %>
   </label>
 </fieldset>
