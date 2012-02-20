@@ -1,7 +1,9 @@
 class SmartAnswersController < ApplicationController
   before_filter :find_smart_answer
   before_filter :redirect_response_to_canonical_url, only: %w{show}
+
   rescue_from SmartAnswer::FlowRegistry::NotFound, with: :render_404
+  rescue_from SmartAnswer::InvalidNode, with: :render_404
 
   def show
     expires_in 24.hours, :public => true unless Rails.env.development?

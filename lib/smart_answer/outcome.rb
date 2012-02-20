@@ -3,5 +3,9 @@ module SmartAnswer
     def is_outcome?
       true
     end
+
+    def transition(*args)
+      raise InvalidNode
+    end
   end
 end
