@@ -174,7 +174,8 @@ GEM
       multi_json (~> 1.0.4)
       rubyzip
     shoulda (2.11.3)
-    slimmer (1.1.28)
+    slimmer (1.1.34)
+      gds-api-adapters (~> 0.0.33)
       json
       nokogiri (~> 1.5.0)
       null_logger
