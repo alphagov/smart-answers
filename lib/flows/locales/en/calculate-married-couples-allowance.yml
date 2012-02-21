@@ -28,11 +28,11 @@ en-GB:
         hint: Before this date the husband's income is used to work out your allowance, after this date it's the income of the highest earner.
         error_message: Please choose 'Yes' or 'No'
       whats_the_husbands_income?:
-        "title": "What's the husband's income?"
+        "title": "What's the husband's yearly income?"
         hint: Add up your taxable income, eg earnings, pensions and any taxable benefits, eg Employment and Support Allowance.
         error_message: Please use numbers only, eg 9000
       whats_the_highest_earners_income?:
-        "title": "What's the highest earner's income?"
+        "title": "What's the highest earner's yearly income?"
         hint: Add up your taxable income, eg earnings, pensions and any taxable benefits, eg Employment and Support Allowance.
         error_message: Please use numbers only, eg 9000
       sorry:
