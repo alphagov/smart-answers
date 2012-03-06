@@ -15,14 +15,24 @@ en-GB:
         age_16_under: Under 16 years
         age_16: 16 years
         age_16_over: 16 years and over
+        age_17_under: Under 17 years
+        age_17: 17 years
         age_17_over: 17 years and over
+        age_18_to_19: 18 to 19 years
+        age_18_to_20: 18 to 20 years
+        age_20: 20 years
+        age_21_over: 21 years and over
         
       what_do_you_want_to_drive?:
         title: What vehicle do you want to drive?
         options:
           car: Car or light vehicle (Category B)
           moped: Moped (Category P)
-        
+          medium: Medium sized vehicles (Category C1)
+          large: Large vehicles and lorries (Category C)
+          minibus: Minibus (Category D1)
+          bus: Bus (Category D)
+          tractor: Tractor (Category F)
         
       car_do_you_have_a_licence?:
         title: Do you have a driving licence?        
@@ -38,6 +48,30 @@ en-GB:
       moped_how_old_are_you?:
         title: How old are you?
         
+      medium_do_you_have_a_car_licence?:
+        title: Do you have a full car driving licence?
+      medium_how_old_are_you?:
+        title: How old are you?
+        
+      large_do_you_have_a_car_licence?:
+        title: Do you have a full car driving licence?
+      large_how_old_are_you?:
+        title: How old are you?
+      
+      minibus_do_you_have_a_car_licence?:
+        title: Do you have a full car driving licence?
+      minibus_how_old_are_you?:
+        title: How old are you?
+        
+      bus_do_you_have_a_car_licence?:
+        title: Do you have a full car driving licence?
+      bus_how_old_are_you?:
+        title: How old are you?
+        
+      tractor_do_you_have_a_licence?:
+        title: Do you have a driving licence?
+      tractor_how_old_are_you?:
+        title: How old are you?
         
         
       car_yes_have_licence:
@@ -45,16 +79,72 @@ en-GB:
       car_no_under_16:
         title: No, you are under 16
       car_yes:
-        title: Yes, you can apply for a licence
+        title: Yes, you can apply for a licence (category B)
       car_yes_with_dla:
-        title: Yes, you can as you are getting DLA
+        title: Yes, you can as you are getting DLA (category B)
         
       moped_yes_licence_ok:
         title: Yes, you are lucky - you don't need to take a CBT
       moped_yes_with_cbt:
-        title: Yes, but you need to take a CBT
+        title: Yes, but you need to take a CBT (category P)
       moped_yes:
-        title: Yes
+        title: Yes (category P)
       moped_no_under_16:
         title: No, go away
         
+      medium_no_need_car_licence:
+        title: You need a car licence (category B) before you can drive one of these
+      medium_no_under_17:
+        title: Sorry, you can't drive a van if you are under 17
+      medium_no_unless_armed_forces:
+        title: Sorry, you can't drive a van if you are 17 unless you are in the army
+      medium_yes_c1:
+        title: Yes, you can drive a van (category C1)
+      medium_yes_c1_plus_e:
+        title: Yes, you can drive a van WITH A TRAILER!!!!! (category C1+E)
+
+      large_no_need_car_licence:
+        title: You need a car licence (category B) before you can drive one of these
+      large_no_under_17:
+        title: Sorry, you can't drive a lorry if you are under 17
+      large_no_unless_armed_forces:
+        title: Sorry, you can't drive a lorry if you are 17 unless you are in the army
+      large_yes_with_special_circumstances:
+        title: Yes, you can drive a lorry (category C) under special circumstances which Graham will describe
+      large_yes:
+        title: Yes, you can drive a lorry (category C). Also a trailer if you take an additional test
+        
+      minibus_no_need_car_licence:
+        title: You need a car licence (category B) before you can drive one of these
+      minibus_no_under_17:
+        title: Sorry, you can't drive a minibus if you are under 17
+      minibus_no_unless_armed_forces:
+        title: Sorry, you can't drive a minibus if you are 17 unless you are in the army
+      minibus_yes_special_18_to_19:
+        title: Yes, with special circumstances (category D1) [18+19 years]
+      minibus_yes_special_20:
+        title: Yes, with special circumstances (category D1) [20 years]
+      minibus_yes:
+        title: Yes (category D1)
+        
+      bus_no_need_car_licence:
+        title: You need a car licence (category B) before you can drive one of these
+      bus_no_under_17:
+        title: Sorry, you can't drive a bus if you are under 17
+      bus_no_unless_armed_forces:
+        title: Sorry, you can't drive a bus if you are 17 unless you are in the army
+      bus_yes_special_18_to_19:
+        title: Yes, with special circumstances (category D) [18+19 years]
+      bus_yes_special_20:
+        title: Yes, with special circumstances (category D) [20 years]
+      bus_yes:
+        title: Yes (category D)
+        
+      tractor_yes_except:
+        title: Yes but no but... (category F)
+      tractor_no_under_16:
+        title: NO!
+      tractor_yes_16:
+        title: Yes, except when this and that (category F)
+      tractor_yes:
+        title: Woot! (category F)
