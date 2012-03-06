@@ -1,0 +1,60 @@
+en-GB:
+  flow:
+    what-can-i-drive:
+      meta:
+        description: "Blah. Give me tractors"
+      title: |
+        Can I drive a tractor?
+      section_name: Money and tax
+      body: |
+          
+        You can use this calculator to work out if you qualify to drive a pimped up tractor or camel
+      options:
+        "no": "No"
+        "yes": "Yes"
+        age_16_under: Under 16 years
+        age_16: 16 years
+        age_16_over: 16 years and over
+        age_17_over: 17 years and over
+        
+      what_do_you_want_to_drive?:
+        title: What vehicle do you want to drive?
+        options:
+          car: Car or light vehicle (Category B)
+          moped: Moped (Category P)
+        
+        
+      car_do_you_have_a_licence?:
+        title: Do you have a driving licence?        
+      car_how_old_are_you?:
+        title: How old are you?
+      car_are_you_getting_dla?:
+        title: Are you getting Disability Living Allowance (DLA)?
+        
+      moped_do_you_have_a_car_licence?:
+        title: Do you have a full car driving licence?        
+      moped_when_was_licence_issued?:
+        title: Was your licence issued before 1 February 2001?
+      moped_how_old_are_you?:
+        title: How old are you?
+        
+        
+        
+      car_yes_have_licence:
+        title: You already have a licence muppet
+      car_no_under_16:
+        title: No, you are under 16
+      car_yes:
+        title: Yes, you can apply for a licence
+      car_yes_with_dla:
+        title: Yes, you can as you are getting DLA
+        
+      moped_yes_licence_ok:
+        title: Yes, you are lucky - you don't need to take a CBT
+      moped_yes_with_cbt:
+        title: Yes, but you need to take a CBT
+      moped_yes:
+        title: Yes
+      moped_no_under_16:
+        title: No, go away
+        
