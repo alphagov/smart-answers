@@ -32,6 +32,22 @@ en-GB:
           british_partner: "A British partner"
           british_parent: "A British parent"
 
+      describe_your_british_nationality?:
+        title: "Describe your British nationality"
+        options:
+          british_overseas_territories_citizen: "I am a British overseas territories citizen"
+          british_overseas_citizen: "I am a British overseas citizen"
+          british_subject: "I am a British subject"
+          british_protected_person: "I am a British protected person"
+
+      mother_eligibility_at_birth?:
+        title: Was your mother a British citizen or naturalised in the UK when you were born?
+      parents_married_at_birth?:
+        title: Were your parents married when you were born?
+
+      parent_eligibility_at_birth?:
+        title: Were your mother or father a British citizen or naturalised in the UK when you were born?
+
       you_qualify?:
         title: "You qualify for a British passport"
         body: "You can get a British passport by contacting the IPS"

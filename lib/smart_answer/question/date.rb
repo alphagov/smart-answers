@@ -38,7 +38,9 @@ module SmartAnswer
       end
 
       def range
-        @from_func.call..@to_func.call
+        # require 'ruby-debug'
+        # debugger
+        @range ||= @from_func.present? and @to_func.present? ? @from_func.call..@to_func.call : false
       end
 
       def parse_input(input)
