@@ -1,0 +1,50 @@
+en-GB:
+  flow:
+    exchange-a-foreign-driving-licence:
+      title:
+        Exchange a foreign driving licence
+      section_name: Driving
+      options:
+        "no": "No"
+        "yes": "Yes"
+      body: |
+        You can use this tool to help you find out who is entitled to a share of someone’s property, possessions and money if they die without making a will. It applies to deaths after 1 February 2009.
+
+      are_you_resident_in_gb?:
+        title: Are you resident in GB?
+
+      what_vehicle_licence_do_you_have?:
+        options:
+          lorry_bus_minibus: "Lorry, bus or minibus"
+          car_motorcycle: "Car or motorcycle"
+
+      which_country_issued_licence?:
+        options:
+          eea_ec: "EEA/EC"
+          ni: "Northern Ireland"
+          jg: "Jersey / Guernsey"
+          gib: "Gibraltar"
+          other: "Other"
+
+      a1:
+        title: A1
+      a2:
+        title: A2
+      a3:
+        title: A3
+      a4:
+        title: A4
+      a5:
+        title: A5
+      a6:
+        title: A6
+      a7:
+        title: A7
+      a8:
+        title: A8
+      a9:
+        title: A9
+      a10:
+        title: A10
+      a11:
+        title: A11
