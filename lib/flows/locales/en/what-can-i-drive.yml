@@ -2,13 +2,13 @@ en-GB:
   flow:
     what-can-i-drive:
       meta:
-        description: "Blah. Give me tractors"
+        description: "What can you drive?"
       title: |
-        Can I drive a tractor?
-      section_name: Money and tax
+        What can I drive/ride?
+      section_name: Driving
       body: |
           
-        You can use this calculator to work out if you qualify to drive a pimped up tractor or camel
+        You can use this tool to work out whether to can drive certain vehicles
       options:
         "no": "No"
         "yes": "Yes"
@@ -17,11 +17,14 @@ en-GB:
         age_16_over: 16 years and over
         age_17_under: Under 17 years
         age_17: 17 years
+        age_17_to_20: 17 to 20 years
         age_17_over: 17 years and over
         age_18_to_19: 18 to 19 years
         age_18_to_20: 18 to 20 years
         age_20: 20 years
+        age_21: 21 years
         age_21_over: 21 years and over
+        age_22_over: 22 years and over
         
       what_do_you_want_to_drive?:
         title: What vehicle do you want to drive?
@@ -33,6 +36,9 @@ en-GB:
           minibus: Minibus (Category D1)
           bus: Bus (Category D)
           tractor: Tractor (Category F)
+          light: Three or Four wheeled light vehicles (Category B1)
+          motorbike: Motorbike (Category A)
+          other: Other vehicles (Categories G, H and K)
         
       car_do_you_have_a_licence?:
         title: Do you have a driving licence?        
@@ -73,9 +79,29 @@ en-GB:
       tractor_how_old_are_you?:
         title: How old are you?
         
+      light_do_you_have_a_car_licence?:
+        title: Do you have a full car driving licence?
+      light_how_old_are_you?:
+        title: How old are you?
+      light_are_you_getting_dla?:
+        title: Are you getting Disability Living Allowance (DLA)?
+        
+      other_how_old_are_you?:
+        title: How old are you?
+        
+      motorbike_how_old_are_you?:
+        title: How old are you?
+      motorbike_do_you_have_a_licence?:
+        title: Do you already have a motorbike licence?
+      motorbike_have_you_had_licence_for_two_years?:
+        title: Have you had your motorbike licence for over two years?
+      motorbike_do_you_have_a_licence_21?:
+        title: Do you already have a motorbike licence?
+      motorbike_have_you_had_licence_for_two_years_21?:
+        title: Have you had your motorbike licence for over two years?
         
       car_yes_have_licence:
-        title: You already have a licence muppet
+        title: You already have a licence
       car_no_under_16:
         title: No, you are under 16
       car_yes:
@@ -148,3 +174,50 @@ en-GB:
         title: Yes, except when this and that (category F)
       tractor_yes:
         title: Woot! (category F)
+        
+      light_yes:
+        title: Yes you can (category B1)
+      light_no_under_16:
+        title: No, you are under 16
+      light_yes_17_over:
+        title: Yes, you are over 17 (category B1)
+      light_yes_with_dla:
+        title: Yes as you are getting DLA (category B1)
+        
+      other_no:
+        title: No, you are under 16
+      other_yes_k:
+        title: Yes, you can drive category K vehicles
+        body: |
+          Mowing machines or vehicles controlled by a pedestrian
+      other_yes_k_with_g_h:
+        title: Yes, you can drive category K vehicles (and G/H under special circumstances)
+        body: |
+          G: Road rollers (not: steam, over 11,690kg or made for carrying loads)
+          
+          H: Tracked vehicles (not exceeds 3,500kg)
+          
+          K: Mowing machines or vehicles controlled by a pedestrian
+      other_yes:
+        title: Yes, you can drive category G, H and K vehicles
+        body: |
+          G: Road rollers
+          
+          H: Tracked vehicles
+          
+          K: Mowing machines or vehicles controlled by a pedestrian
+          
+      motorbike_no_under_17:
+        title: No, you are under 17
+      motorbike_yes_with_upgrade:
+        title: Yes. And you can now ride ANY type of motorbike as you've had your licence for over 2 years (category A, A1)
+      motorbike_yes_but_no_upgrade_available_yet:
+        title: Yes, but you can only ride bikes under X size (category A, A1)
+      motorbike_yes_within_limits:
+        title: Yes, but you can only ride bikes under X size for two years after passing your test (category A, A1)
+      motorbike_yes_full_licence:
+        title: Yes. And you can now ride ANY type of motorbike as you've had your licence for over 2 years (category A, A1)
+      motorbike_yes_accelerated_access:
+        title: Yes. And you can now undertake an accelerated access thing to let you ride any type of motorbike (category A, A1)
+      motorbike_yes_direct_access:
+        title: Yes. You can go through direct access to ride any type of motorbike (category A, A1)

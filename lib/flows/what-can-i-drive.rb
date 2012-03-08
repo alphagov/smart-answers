@@ -4,13 +4,16 @@ subsection_slug "driving"
 status :draft
 
 multiple_choice :what_do_you_want_to_drive? do
-  option :car     => :car_do_you_have_a_licence?
-  option :moped   => :moped_do_you_have_a_car_licence?
-  option :medium  => :medium_do_you_have_a_car_licence?
-  option :large   => :large_do_you_have_a_car_licence?
-  option :minibus => :minibus_do_you_have_a_car_licence?
-  option :bus     => :bus_do_you_have_a_car_licence?
-  option :tractor => :tractor_do_you_have_a_licence?
+  option :car       => :car_do_you_have_a_licence?
+  option :moped     => :moped_do_you_have_a_car_licence?
+  option :medium    => :medium_do_you_have_a_car_licence?
+  option :large     => :large_do_you_have_a_car_licence?
+  option :minibus   => :minibus_do_you_have_a_car_licence?
+  option :bus       => :bus_do_you_have_a_car_licence?
+  option :tractor   => :tractor_do_you_have_a_licence?
+  option :light     => :light_do_you_have_a_car_licence?
+  option :motorbike => :motorbike_how_old_are_you?
+  option :other     => :other_how_old_are_you?
 end
 
 multiple_choice :car_do_you_have_a_licence? do
@@ -105,6 +108,57 @@ multiple_choice :tractor_how_old_are_you? do
   option :age_17_over   => :tractor_yes
 end
 
+multiple_choice :light_do_you_have_a_car_licence? do
+  option :yes => :light_yes
+  option :no  => :light_how_old_are_you?
+end
+
+multiple_choice :light_how_old_are_you? do
+  option :age_16_under  => :light_no_under_16
+  option :age_16        => :light_are_you_getting_dla?
+  option :age_17_over   => :light_yes_17_over
+end
+
+multiple_choice :light_are_you_getting_dla? do
+  option :yes => :light_yes_with_dla
+  option :no  => :light_no_under_16
+end
+
+multiple_choice :other_how_old_are_you? do
+  option :age_16_under  => :other_no
+  option :age_16        => :other_yes_k
+  option :age_17_to_20  => :other_yes_k_with_g_h
+  option :age_21_over   => :other_yes
+end
+
+multiple_choice :motorbike_how_old_are_you? do
+  option :age_17_under  => :motorbike_no_under_17
+  option :age_17_to_20  => :motorbike_do_you_have_a_licence?
+  option :age_21        => :motorbike_do_you_have_a_licence_21?
+  option :age_22_over   => :motorbike_yes_direct_access
+end
+
+multiple_choice :motorbike_do_you_have_a_licence? do
+  option :yes => :motorbike_have_you_had_licence_for_two_years?
+  option :no  => :motorbike_yes_within_limits
+end
+
+multiple_choice :motorbike_have_you_had_licence_for_two_years? do
+  option :yes => :motorbike_yes_with_upgrade
+  option :no  => :motorbike_yes_but_no_upgrade_available_yet
+end
+
+multiple_choice :motorbike_do_you_have_a_licence_21? do
+  option :yes => :motorbike_have_you_had_licence_for_two_years_21?
+  option :no  => :motorbike_yes_direct_access
+end
+
+multiple_choice :motorbike_have_you_had_licence_for_two_years_21? do
+  option :yes => :motorbike_yes_full_licence
+  option :no  => :motorbike_yes_accelerated_access
+end
+
+
 outcome :car_yes_have_licence
 outcome :car_no_under_16
 outcome :car_yes
@@ -145,3 +199,21 @@ outcome :tractor_yes_except
 outcome :tractor_no_under_16
 outcome :tractor_yes_16
 outcome :tractor_yes
+
+outcome :light_yes
+outcome :light_no_under_16
+outcome :light_yes_17_over
+outcome :light_yes_with_dla
+
+outcome :other_no
+outcome :other_yes_k
+outcome :other_yes_k_with_g_h
+outcome :other_yes
+
+outcome :motorbike_no_under_17
+outcome :motorbike_yes_direct_access
+outcome :motorbike_yes_within_limits
+outcome :motorbike_yes_with_upgrade
+outcome :motorbike_yes_but_no_upgrade_available_yet
+outcome :motorbike_yes_full_licence
+outcome :motorbike_yes_accelerated_access
