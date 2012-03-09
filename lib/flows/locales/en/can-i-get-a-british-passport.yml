@@ -73,34 +73,50 @@ en-GB:
         body: |
           Immigration law is complex - you should get legal advice if you think you may have a claim to British nationality.
         next_steps: |
-          * Read the guide to [Becoming a British citizen]()
+          * Read the guide to [Becoming a British citizen](https://www.gov.uk/becoming-a-british-citizen "Becoming a British citizen")
 
       british_overseas_territories_citizen_info:
         title: You could apply for a British passport as a British overseas territories citizen.
         body: |
          Check if you're a British overseas territories citizen.
+      next_steps: |
+          * [Apply for a British passport](https://www.gov.uk/apply-renew-passport "Apply for a British passport")
+          * Read the guide to [Becoming a British citizen](https://www.gov.uk/becoming-a-british-citizen "Becoming a British citizen")   
 
       british_overseas_citizen_info:
         title: You could apply for a British passport as a British overseas citizen.
         body: |
           Check if you're a British overseas citizen.
-      
+      next_steps: |
+          * [Apply for a British passport](https://www.gov.uk/apply-renew-passport "Apply for a British passport")
+          * Read the guide to [Becoming a British citizen](https://www.gov.uk/becoming-a-british-citizen "Becoming a British citizen")
+
       british_subject_info:
         title: You could apply for a British passport as a British subject.
         body: |
           text
-        
+      next_steps: |
+          * [Apply for a British passport](https://www.gov.uk/apply-renew-passport "Apply for a British passport")
+          * Read the guide to [Becoming a British citizen](https://www.gov.uk/becoming-a-british-citizen "Becoming a British citizen")  
       british_protected_person_info:
         title: You could apply for a British passport as a British protected person.
         body: |
           Check if you're a British protected person.
-
+      next_steps: |
+          * [Apply for a British passport](https://www.gov.uk/apply-renew-passport "Apply for a British passport")
+          * Read the guide to [Becoming a British citizen](https://www.gov.uk/becoming-a-british-citizen "Becoming a British citizen")      
       british_partner_info:
-        title:
+        title: If you married a British man before 1949 you will have gained his citizenship automatically.
         body: |
-          text
-
+          
+      next_steps: |
+          * [Apply for a British passport](https://www.gov.uk/apply-renew-passport "Apply for a British passport")
+          * Read the guide to [Becoming a British citizen](https://www.gov.uk/becoming-a-british-citizen "Becoming a British citizen")
       british_parent_info:
-        title:
+        title: If you were born before 1 January 1983 to a British mother you can register as a British citizen.
         body: |
-          text
+          
+      next_steps: |
+          * Read the [full eligibility requirements (PDF, 1.1MB)](http://www.ukba.homeoffice.gov.uk/sitecontent/applicationforms/nationality/guide_ukm.pdf "Eligibility requirements, PDF, 1.1MB){:rel="external"}
+          * Download and fill in [form UKM - Register as a British citizen (PDF, 164kb)](http://www.ukba.homeoffice.gov.uk/sitecontent/applicationforms/nationality/form_ukm.pdf "Form UKM - Register as a British citizen, PDF, 164kb){:rel="external"}
+  
