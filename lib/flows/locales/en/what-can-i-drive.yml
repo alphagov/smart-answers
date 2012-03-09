@@ -45,7 +45,7 @@ en-GB:
           other: Other specialist vehicles (categories G, H and K)
         
       car_do_you_have_a_licence?:
-        title: Do you have a full car driving licence?
+        title: Do you have a driving licence?
         hint: |
           Choose yes if you already have a provisional or full driving licence for any kind of vehicle.
 
@@ -131,9 +131,9 @@ en-GB:
         
         
       car_yes_have_licence:
-        title: Your licence should let you drive cars and light vehicles (category B vehicles).
+        title: You may already be able to drive a car.
         body: |
-          If your driving licence shows category B you can drive motor vehicles with:
+          If you've already passed a car driving test then your driving licence should show category B on it. This means you can drive cars and light vehicles with:
 
           * a 'maximum authorised mass' (MAM) of up to 3,500kg
           * no more than 8 passenger seats
@@ -146,33 +146,37 @@ en-GB:
           * [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
           
       car_no_under_16:
-        title: No, you are under 16
+        title: No, you can't drive a car or light vehicle yet.
         body: |
-          Body text
+          You need to be 17 before you can get a provisional licence and start learning to drive a car. If you're getting the higher rate mobility component of Disability Living Allowance (DLA) then you can get your provisional licence when you're 16.
       car_yes:
-        title: Yes, you can apply for a licence (category B)
+        title: Yes, you can apply for a provisional licence and start learning to drive a car.
       car_yes_with_dla:
-        title: Yes, you can as you are getting DLA (category B)
+        title: Yes, you can start learning to drive a car.
+        body: |
+          People who are getting the higher rate mobility component of Disability Living Allowance (DLA) can start driving at 16.
         
       moped_yes_licence_ok:
-        title: Yes, you are lucky - you don't need to take a CBT
+        title: Yes, your driving licence should already let you drive a moped without taking compulsory basic training (CBT).
       moped_yes_with_cbt:
         title: Yes, but you need to take a CBT (category P)
       moped_yes:
         title: Yes (category P)
       moped_no_under_16:
-        title: No, go away
+        title: No, you can't start riding a moped until you're 16.
         
       medium_no_need_car_licence:
         title: You need a car licence (category B) before you can drive one of these
       medium_no_under_17:
-        title: Sorry, you can't drive a van if you are under 17
+        title: You can't drive a van if you're under 17.
+        body: |
+          You'll need to get a provisional category B car licence once you're 17 and pass the car driving test first. Then, if you're 18, you can apply for provisional entitlement to category C1 medium-sized vehicles. 
       medium_no_unless_armed_forces:
         title: Sorry, you can't drive a van if you are 17 unless you are in the army
       medium_yes_c1:
         title: Yes, you can drive a van (category C1)
       medium_yes_c1_plus_e:
-        title: Yes, you can drive a van WITH A TRAILER!!!!! (category C1+E)
+        title: Yes, you can drive a van with a trailer. (category C1+E)
 
       large_no_need_car_licence:
         title: You need a car licence (category B) before you can drive one of these
