@@ -56,11 +56,11 @@ en-GB:
       parent_eligibility_at_birth?:
         title: Was your mother or father a British citizen or naturalised in the UK when you were born?
 
-      you_qualify?:
+      you_qualify:
         title: You're eligible to apply for a British passport. 
       
         body: |
-          
+        
           %You must have 'right of abode' in the UK - you're free from immigration control and can live and work in the UK without restriction.%
           
         next_steps: |
@@ -86,7 +86,7 @@ en-GB:
       british_overseas_citizen_info:
         title: You could apply for a British passport as a British overseas citizen.
         body: |
-          Check if you're a British overseas citizen.
+          You have a connection with a former British colony, eg Kenya, and didn't get citizenship of that country when it became independent.
       next_steps: |
           * [Apply for a British passport](https://www.gov.uk/apply-renew-passport "Apply for a British passport")
           * Read the guide to [Becoming a British citizen](https://www.gov.uk/becoming-a-british-citizen "Becoming a British citizen")
@@ -94,7 +94,7 @@ en-GB:
       british_subject_info:
         title: You could apply for a British passport as a British subject.
         body: |
-          text
+          Generally, British subjects were born before 1 January 1949 and had a connection with British India or the Republic of Ireland (Southern Ireland).
       next_steps: |
           * [Apply for a British passport](https://www.gov.uk/apply-renew-passport "Apply for a British passport")
           * Read the guide to [Becoming a British citizen](https://www.gov.uk/becoming-a-british-citizen "Becoming a British citizen")  
