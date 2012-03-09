@@ -4,11 +4,11 @@ en-GB:
       meta:
         description: "What can you drive?"
       title: |
-        What can I drive?
+        What vehicles can I drive or ride?
       section_name: Driving
       body: |
           
-        You can use this tool to work out whether to can drive certain vehicles
+        This tool tells you if you are old enough or have the right kind of driving licence to drive different kinds of vehicle.
         
 
       options:
@@ -29,28 +29,39 @@ en-GB:
         age_22_over: 22 years and over
         
       what_do_you_want_to_drive?:
-        title: What vehicle do you want to drive?
+        title: What kind of vehicle do you want to drive?
+        hint: |
+          Choose the kind of vehicle you want to drive from the list. If you know the vehicle category you want to drive these are also shown.
+
         options:
-          car: Car or light vehicle (Category B)
-          moped: Moped (Category P)
-          medium: Medium sized vehicles (Category C1)
-          large: Large vehicles and lorries (Category C)
-          minibus: Minibus (Category D1)
-          bus: Bus (Category D)
-          tractor: Tractor (Category F)
-          light: Three or Four wheeled light vehicles (Category B1)
-          motorbike: Motorbike (Category A)
-          other: Other vehicles (Categories G, H and K)
+          car: Car or light vehicle (category B)
+          moped: Moped (category P)
+          medium: Medium-sized vehicles (category C1)
+          large: Large vehicles and lorries (category C)
+          minibus: Minibus (category D1)
+          bus: Bus (category D)
+          tractor: Agricultural tractor (category F)
+          light: Quad bike or trike (category B1)
+          motorbike: Motorbike (category A)
+          other: Other specialist vehicles (categories G, H and K)
         
       car_do_you_have_a_licence?:
-        title: Do you have a driving licence?        
+        title: Do you have a driving licence?
+        hint: |
+          Choose yes if you already have a provisional or full driving licence for any kind of vehicle.
+
       car_how_old_are_you?:
         title: How old are you?
       car_are_you_getting_dla?:
-        title: Are you getting Disability Living Allowance (DLA)?
-        
+        title: Are you getting the higher rate mobility component of Disability Living Allowance (DLA)?
+        hint: |
+          Some disabled people can drive a car from age 16. Choose no if this doesn't apply to you. 
+
       moped_do_you_have_a_car_licence?:
         title: Do you have a full car driving licence?        
+        hint: |
+          Choose no if you only have a provisional car licence.
+
       moped_when_was_licence_issued?:
         title: Was your licence issued before 1 February 2001?
       moped_how_old_are_you?:
@@ -58,21 +69,29 @@ en-GB:
         
       medium_do_you_have_a_car_licence?:
         title: Do you have a full car driving licence?
+        hint: |
+          Choose no if you only have a provisional car licence.      
       medium_how_old_are_you?:
         title: How old are you?
         
       large_do_you_have_a_car_licence?:
         title: Do you have a full car driving licence?
+        hint: |
+          Choose no if you only have a provisional car licence.
       large_how_old_are_you?:
         title: How old are you?
       
       minibus_do_you_have_a_car_licence?:
         title: Do you have a full car driving licence?
+        hint: |
+          Choose no if you only have a provisional car licence.
       minibus_how_old_are_you?:
         title: How old are you?
         
       bus_do_you_have_a_car_licence?:
         title: Do you have a full car driving licence?
+        hint: |
+          Choose no if you only have a provisional car licence.
       bus_how_old_are_you?:
         title: How old are you?
         
@@ -83,10 +102,14 @@ en-GB:
         
       light_do_you_have_a_car_licence?:
         title: Do you have a full car driving licence?
+          hint: |
+            Choose no if you only have a provisional car licence.
       light_how_old_are_you?:
         title: How old are you?
       light_are_you_getting_dla?:
-        title: Are you getting Disability Living Allowance (DLA)?
+        title: Are you getting the higher rate mobility component of Disability Living Allowance (DLA)?
+          hint: |
+            Don't worry if you don't know what this is - just choose no.
         
       other_how_old_are_you?:
         title: How old are you?
@@ -94,28 +117,35 @@ en-GB:
       motorbike_how_old_are_you?:
         title: How old are you?
       motorbike_do_you_have_a_licence?:
-        title: Do you already have a motorbike licence?
+        title: Do you already have a full motorcycle licence?
+          hint: |
+            If you only have a moped licence choose no.
       motorbike_have_you_had_licence_for_two_years?:
-        title: Have you had your motorbike licence for over two years?
+        title: Have you had your motorcycle licence for more than 2 years?
       motorbike_do_you_have_a_licence_21?:
-        title: Do you already have a motorbike licence?
+        title: Do you already have a motorcycle licence?
       motorbike_have_you_had_licence_for_two_years_21?:
-        title: Have you had your motorbike licence for over two years?
+        title: Have you had your motorcycle licence for more than 2 years?
         
         
         
         
         
       car_yes_have_licence:
-        title: You already have a licence TITLE
+        title: Your licence should let you drive cars and light vehicles (category B vehicles).
         body: |
-          Body text
+          If your driving licence shows category B you can drive motor vehicles with:
+
+          *a 'maximum authorised mass' (MAM) of up to 3,500kg
+          *no more than 8 passenger seats
+
+          MAM is the the total weight of the vehicle plus the maximum load it can carry safely.
+
+          ^If you took your driving test in a car with automatic transmission then you can only drive automatic cars and light vehicles. This will be shown on your licence as 'B auto'.^ 
+
         next_steps:
-          * Hello
+          * [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
           
-          * Test
-          
-          * Bullet 3
       car_no_under_16:
         title: No, you are under 16
         body: |
