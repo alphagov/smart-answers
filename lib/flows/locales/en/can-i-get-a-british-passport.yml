@@ -1,44 +1,72 @@
 en-GB:
   flow:
     can-i-get-a-british-passport:
-      title: "Can I get a British passport?"
-      description: "Find out whether you're eligible to apply for a British passport."
-      body: |
-        Use this tool to see if you can apply for a British passport.
-
-        You need British citizenship or British nationality to apply. Citizenship is different from nationality.
+      meta:
+        description: "Check if you're eligible to apply for a British passport."
+      title: 
+        British passport eligibility
+      section_name: Travel
       options:
         "no": "No"
         "yes": "Yes"
+      body: |
 
+        Use this tool to see if you're eligible for a British passport. 
+
+        You can claim eligibility for a British passport using one of the 6 types of British nationality, including British citizenship.
+    
       is_one_of_these_true?:
-        title: "Is one of the following true?"
+        title: "Choose one of the following:"
+        error_message: 
         options:
-          born_in_uk: "I was born in the UK"
-          born_in_british_colony: "I was born in a British colony"
-          naturalised: "I've been naturalised"
-          uk_citizen_or_citizen_of_british_colony: "I'm registered as a UK citizen or a citizen of a British colony"
-          father_is_eligible: "My father is one of the above"
-          none_of_the_above: "None of the above"
+          born_in_uk: 
+          title: I was born in the UK
+          born_in_british_colony:
+          title: I was born in a British colony
+          hint:
+          naturalised: 
+          title: I've been naturalised in the UK or a British colony
+          hint:
+          uk_citizen_or_citizen_of_british_colony: 
+          title: I'm registered as a UK citizen or as a citizen of a British colony
+          hint:
+          father_is_eligible: 
+          title: My father is one of the above
+          none_of_the_above: 
+          title: None of the above apply to me
 
       date_of_birth?:
         title: "What's your date of birth?"
+        error_message: 
 
       do_you_have?:
         title: "Do you have:"
+        error_message: 
         options:
-          british_citizenship: "British citizenship"
+          british_citizenship: 
+          title: British citizenship
           british_nationality: "British nationality"
+          hint: You're not a British citizen, but you have British nationality, eg you're a citizen of a former British colony.
           british_partner: "A British partner"
+          hint: You're married to a British citizen, or someone with British nationality.
           british_parent: "A British parent"
+          hint: Your mother or father is or was a British citizen, or held British nationality.
 
       describe_your_british_nationality?:
         title: "Describe your British nationality"
         options:
-          british_overseas_territories_citizen: "I am a British overseas territories citizen"
-          british_overseas_citizen: "I am a British overseas citizen"
-          british_subject: "I am a British subject"
-          british_protected_person: "I am a British protected person"
+          british_overseas_territories_citizen:
+          title: I'm a British overseas territories citizen
+          hint:
+          british_overseas_citizen:
+          title: I'm a British overseas citizen
+          hint: You have a connection with a former British colony (eg Kenya). 
+          british_subject: 
+          title: I'm a British subject
+          hint: You were born before 1 January 1949 and had a connection with British India or the Republic of Ireland
+          british_protected_person:
+          title: I'm a British protected person
+          hint: You've got a connection with territories that were previously British protectorates, protected states or mandated or trust territories.
 
       mother_eligibility_at_birth?:
         title: Was your mother a British citizen or naturalised in the UK when you were born?
@@ -46,8 +74,53 @@ en-GB:
         title: Were your parents married when you were born?
 
       parent_eligibility_at_birth?:
-        title: Were your mother or father a British citizen or naturalised in the UK when you were born?
+        title: Was your mother or father a British citizen or naturalised in the UK when you were born?
 
       you_qualify?:
-        title: "You qualify for a British passport"
-        body: "You can get a British passport by contacting the IPS"
+        title: You're eligible to apply for a British passport. 
+      
+        body: |
+          
+          %You must have 'right of abode' in the UK - you're free from immigration control and can live and work in the UK without restriction.%
+          
+        next_steps: |
+          * [Apply for a British passport](https://www.gov.uk/apply-renew-passport "Apply for a British passport")
+          * Read the guide to [Becoming a British citizen](https://www.gov.uk/becoming-a-british-citizen "Becoming a British citizen")
+
+
+      do_not_qualify:
+        title: Sorry - it looks like you don't have an automatic right to a British passport. 
+        body: |
+          Immigration law is complex - you should get legal advice if you think you may have a claim to British nationality.
+        next_steps: |
+          * Read the guide to [Becoming a British citizen]()
+
+      british_overseas_territories_citizen_info:
+        title: You could apply for a British passport as a British overseas territories citizen.
+        body: |
+         Check if you're a British overseas territories citizen.
+
+      british_overseas_citizen_info:
+        title: You could apply for a British passport as a British overseas citizen.
+        body: |
+          Check if you're a British overseas citizen.
+      
+      british_subject_info:
+        title: You could apply for a British passport as a British subject.
+        body: |
+          text
+        
+      british_protected_person_info:
+        title: You could apply for a British passport as a British protected person.
+        body: |
+          Check if you're a British protected person.
+
+      british_partner_info:
+        title:
+        body: |
+          text
+
+      british_parent_info:
+        title:
+        body: |
+          text
