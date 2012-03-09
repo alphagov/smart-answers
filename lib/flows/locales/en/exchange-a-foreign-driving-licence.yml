@@ -2,16 +2,17 @@ en-GB:
   flow:
     exchange-a-foreign-driving-licence:
       title:
-        Exchange a foreign driving licence
+        "Exchange a foreign driving licence"
       section_name: Driving
       options:
         "no": "No"
         "yes": "Yes"
+
       body: |
-        You can use this tool to help you find out who is entitled to a share of someone’s property, possessions and money if they die without making a will. It applies to deaths after 1 February 2009.
+        If you are the holder of a foreign driving licence and want or need to change to a Great Britain (GB) driving licence you may be able to exchange it.
 
       are_you_resident_in_gb?:
-        title: Are you resident in GB?
+        title: Are you resident in Great Britain?
 
       what_vehicle_licence_do_you_have?:
         options:
@@ -20,14 +21,14 @@ en-GB:
 
       which_country_issued_licence?:
         options:
-          eea_ec: "EEA/EC"
+          eea_ec: "European Economic Area/European Community"
           ni: "Northern Ireland"
-          jg: "Jersey / Guernsey"
+          jg: "Jersey/Guernsey"
           gib: "Gibraltar"
           other: "Other"
 
       a1:
-        title: A1
+        title: "You will not be able to exchange your driving licence as you are not a resident in Great Britain (GB) with a permanent British address"
       a2:
         title: A2
       a3:
