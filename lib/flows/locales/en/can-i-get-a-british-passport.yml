@@ -19,21 +19,12 @@ en-GB:
         title: "Choose one of the following:"
         error_message: 
         options:
-          born_in_uk: 
-          title: I was born in the UK
-          born_in_british_colony:
-          title: I was born in a British colony
-          hint:
-          naturalised: 
-          title: I've been naturalised in the UK or a British colony
-          hint:
-          uk_citizen_or_citizen_of_british_colony: 
-          title: I'm registered as a UK citizen or as a citizen of a British colony
-          hint:
-          father_is_eligible: 
-          title: My father is one of the above
-          none_of_the_above: 
-          title: None of the above apply to me
+          born_in_uk: "I was born in the UK"
+          born_in_british_colony: "I was born in a British colony"
+          naturalised: "I've been naturalised in the UK or a British colony"
+          uk_citizen_or_citizen_of_british_colony: "I'm registered as a UK citizen or as a citizen of a British colony"
+          father_is_eligible: "My father is one of the above"
+          none_of_the_above: "None of the above apply to me"
 
       date_of_birth?:
         title: "What's your date of birth?"
@@ -43,30 +34,19 @@ en-GB:
         title: "Do you have:"
         error_message: 
         options:
-          british_citizenship: 
-          title: British citizenship
+          british_citizenship: "British citizenship"
           british_nationality: "British nationality"
-          hint: You're not a British citizen, but you have British nationality, eg you're a citizen of a former British colony.
           british_partner: "A British partner"
-          hint: You're married to a British citizen, or someone with British nationality.
           british_parent: "A British parent"
-          hint: Your mother or father is or was a British citizen, or held British nationality.
+          
 
       describe_your_british_nationality?:
         title: "Describe your British nationality"
         options:
-          british_overseas_territories_citizen:
-          title: I'm a British overseas territories citizen
-          hint:
-          british_overseas_citizen:
-          title: I'm a British overseas citizen
-          hint: You have a connection with a former British colony (eg Kenya). 
-          british_subject: 
-          title: I'm a British subject
-          hint: You were born before 1 January 1949 and had a connection with British India or the Republic of Ireland
-          british_protected_person:
-          title: I'm a British protected person
-          hint: You've got a connection with territories that were previously British protectorates, protected states or mandated or trust territories.
+          british_overseas_territories_citizen: "British overseas territories citizen"
+          british_overseas_citizen: "British overseas citizen"
+          british_subject: "British subject"
+          british_protected_person: "British protected person"
 
       mother_eligibility_at_birth?:
         title: Was your mother a British citizen or naturalised in the UK when you were born?
