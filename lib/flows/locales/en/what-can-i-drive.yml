@@ -32,7 +32,6 @@ en-GB:
         title: What kind of vehicle do you want to drive?
         hint: |
           Choose the kind of vehicle you want to drive from the list. If you know the vehicle category you want to drive these are also shown.
-
         options:
           car: Car or light vehicle (category B)
           moped: Moped (category P)
@@ -46,7 +45,7 @@ en-GB:
           other: Other specialist vehicles (categories G, H and K)
         
       car_do_you_have_a_licence?:
-        title: Do you have a driving licence?
+        title: Do you have a full car driving licence?
         hint: |
           Choose yes if you already have a provisional or full driving licence for any kind of vehicle.
 
@@ -102,14 +101,14 @@ en-GB:
         
       light_do_you_have_a_car_licence?:
         title: Do you have a full car driving licence?
-          hint: |
-            Choose no if you only have a provisional car licence.
+        hint: |
+          Choose no if you only have a provisional car licence.
       light_how_old_are_you?:
         title: How old are you?
       light_are_you_getting_dla?:
         title: Are you getting the higher rate mobility component of Disability Living Allowance (DLA)?
-          hint: |
-            Don't worry if you don't know what this is - just choose no.
+        hint: |
+          Don't worry if you don't know what this is - just choose no.
         
       other_how_old_are_you?:
         title: How old are you?
@@ -118,8 +117,8 @@ en-GB:
         title: How old are you?
       motorbike_do_you_have_a_licence?:
         title: Do you already have a full motorcycle licence?
-          hint: |
-            If you only have a moped licence choose no.
+        hint: |
+          If you only have a moped licence choose no.
       motorbike_have_you_had_licence_for_two_years?:
         title: Have you had your motorcycle licence for more than 2 years?
       motorbike_do_you_have_a_licence_21?:
@@ -136,12 +135,12 @@ en-GB:
         body: |
           If your driving licence shows category B you can drive motor vehicles with:
 
-          *a 'maximum authorised mass' (MAM) of up to 3,500kg
-          *no more than 8 passenger seats
+          * a 'maximum authorised mass' (MAM) of up to 3,500kg
+          * no more than 8 passenger seats
 
           MAM is the the total weight of the vehicle plus the maximum load it can carry safely.
 
-          ^If you took your driving test in a car with automatic transmission then you can only drive automatic cars and light vehicles. This will be shown on your licence as 'B auto'.^ 
+          ^If you took your driving test in a car with automatic transmission then you can only drive automatic cars and light vehicles. This will be shown on your licence as 'B auto'.^
 
         next_steps:
           * [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
