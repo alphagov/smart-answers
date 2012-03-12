@@ -39,17 +39,13 @@ en-GB:
             * Check if you can drive in the UK on your foreign licence
 
       a2:
-        title: You can exchange your licence, but you don't need to straightaway.
+        title: You can drive on your foreign licence until you're 45 or been resident in the UK for 5 years (whichever is longer). If you're between 45 and 65 you don't need to exchange until you're 66 or for 5 years (whichever is shorter).
         body: |
-          You can drive on your foreign licence until you're 45 or been resident in the UK for 5 years (whichever is longer). If you're between 45 and 65 you don't need to exchange until you're 66 or for 5 years (whichever is shorter).
-            
-            Register with the DVLA within 12 months of becoming resident in the UK.        
-
-          s1. Order form D2 (and D4 if you're over 45) from the DVLA
-          s2. Send the forms with the fee and and documents needed to the DVLA (the form will explain what you need to send, how much the fee is and where you should send it)
-          s3.
-
-          *[DVLA]: Driver and Vehicle Licensing Agency
+          %You must register with the DVLA within 12 months of becoming resident in the UK.%
+          When you exchange your licence it will cost you £50.  
+          s1. [Order form D2 (and D4 if you're over 45)](https://www.dvla.gov.uk/dvla/onlineservices/order_forms.aspx?ext=dg "DVLA form ordering service") from the DVLA.
+          s2. Send the forms and any documents you need to (including your driving licence) to the address on the form.
+          s3. You should get your new licence within 3 weeks.
       a3:
         title: You can exchange your licence if it was issued on or after 1 April 1986. There is no fee.
         body: |
@@ -100,4 +96,10 @@ en-GB:
           % You can't exchange motorcycle entitlement from the Republic of Korea or Faroe Islands.%
           Japanese or Republic of Korea driving licences need an official translation - you'll need to pay your embassy to do this. 
       a11:
-        title: A11
+        title: You can't exchange your licence but you can drive for up to 12 months on your foreign licence.
+        body: |
+           You'll need to take a driving theory test and driving practical test and get a GB issued driving licence.
+        next_steps: |
+          * Apply for a [provisional driving licence](/apply-first-provisional-driving-licence "Apply for a provisional driving licence")
+          * Book a [driving theory test](/book-a-driving-theory-test "Book a driving theory test")
+          * Book a [practical driving test](/book-practical-driving-test "Book a practical driving test")
