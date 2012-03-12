@@ -32,28 +32,72 @@ en-GB:
           other: "Other"
 
       a1:
-        title: "Sorry, you can't exchange your driving licence because you're not a resident of Great Britain.
+        title: Sorry, you can't exchange your driving licence because you're not a resident of Great Britain.
         body: |
-          You may be able to drive in the UK for up to 12 months on your foreign licence.
+          ^You may be able to drive in the UK for up to 12 months on your foreign licence.^
         next_steps: |
-          * Check if you can drive in the UK on your foreign licence
+            * Check if you can drive in the UK on your foreign licence
+
       a2:
-        title: A2
+        title: You can exchange your licence, but you don't need to straightaway.
+        body: |
+          You can drive on your foreign licence until you're 45 or been resident in the UK for 5 years (whichever is longer). If you're between 45 and 65 you don't need to exchange until you're 66 or for 5 years (whichever is shorter).
+            
+            Register with the DVLA within 12 months of becoming resident in the UK.        
+
+          s1. Order form D2 (and D4 if you're over 45) from the DVLA
+          s2. Send the forms with the fee and and documents needed to the DVLA (the form will explain what you need to send, how much the fee is and where you should send it)
+          s3.
+
+          *[DVLA]: Driver and Vehicle Licensing Agency
       a3:
-        title: A3
+        title: You can exchange your licence if it was issued on or after 1 April 1986. There is no fee.
+        body: |
+          s1. [Order form D2 (and D4 if you're over 45)](https://www.dvla.gov.uk/dvla/onlineservices/order_forms.aspx?ext=dg "DVLA form ordering service") from the DVLA.
+          s2. Send the forms and any documents you need to (including your driving licence) to the address on the form.
+          s3. You should get your new licence within 3 weeks.
       a4:
-        title: A4
+        title: You can exchange your licence if it was issued on or after 1 April 1991. You must exchange it within 12 months of becoming resident in the UK. The fee will be £50.
+        body: |
+          s1. [Order form D2 (and D4 if you're over 45)](https://www.dvla.gov.uk/dvla/onlineservices/order_forms.aspx?ext=dg "DVLA form ordering service") from the DVLA.
+          s2. Send the forms, fee and any documents you need to (including your driving licence) to the address on the form.
+          s3. You should get your new licence within 3 weeks.
       a5:
-        title: A5
+        title: You can exchange your licence for up to 5 years after becoming resident in Great Britain. However you can drive on it for just 12 months. The fee will be £50.
+        body: |
+          s1. [Order form D2 (and D4 if you're over 45)](https://www.dvla.gov.uk/dvla/onlineservices/order_forms.aspx?ext=dg "DVLA form ordering service") from the DVLA.
+          s2. Send the forms, fee and any documents you need to (including your driving licence) to the address on the form.
+          s3. You should get your new licence within 3 weeks.
       a6:
-        title: A6
+        title: You can't exchange your licence and you must stop driving large vehicles. You can drive cars and motorcycles for up to 12 months. 
+        body: |
+           You'll need to take a driving theory test and driving practical test and get a GB issued driving licence.
+        next_steps: |
+          * Apply for a [provisional driving licence](/apply-first-provisional-driving-licence "Apply for a provisional driving licence")
+          * Book a [driving theory test](/book-a-driving-theory-test "Book a driving theory test")
+          * Book a [practical driving test](/book-practical-driving-test "Book a practical driving test") 
       a7:
-        title: A7
+        title: You can exchange your licence if it was previously issued in a designated country. The fee will be £50.
+        body: |
+          s1. [Order form D2](https://www.dvla.gov.uk/dvla/onlineservices/order_forms.aspx?ext=dg "DVLA form ordering service") from the DVLA.
+          s2. Send the form, fee and any documents you need to (including your driving licence) to the address on the form.
+          s3. You should get your new licence within 3 weeks.
       a8:
-        title: A8
+        title: You can exchange your licence if it was issued on or after 1 January 1976. There is no fee.
+        body: |
+          s1. [Order form D2](https://www.dvla.gov.uk/dvla/onlineservices/order_forms.aspx?ext=dg "DVLA form ordering service") from the DVLA.
+          s2. Send the form and any documents you need to (including your driving licence) to the address on the form.
+          s3. You should get your new licence within 3 weeks.
       a9:
-        title: A9
+        title: You can exchange your licence if it was issued on or after 1 April 1991. The fee will be £50.
+        body: |
+          s1. [Order form D2](https://www.dvla.gov.uk/dvla/onlineservices/order_forms.aspx?ext=dg "DVLA form ordering service") from the DVLA.
+          s2. Send the form, fee and any documents you need to (including your driving licence) to the address on the form.
+          s3. You should get your new licence within 3 weeks.
       a10:
-        title: A10
+        title: You can exchange your driving licence for up to 5 years after becoming resident in the UK so long as your licence remains valid.
+        body: |
+          % You can't exchange motorcycle entitlement from the Republic of Korea or Faroe Islands.%
+          Japanese or Republic of Korea driving licences need an official translation - you'll need to pay your embassy to do this. 
       a11:
         title: A11
