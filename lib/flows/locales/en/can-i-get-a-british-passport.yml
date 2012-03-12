@@ -107,7 +107,12 @@ en-GB:
       british_subject_info:
         title: You could apply for a British passport as a British subject.
         body: |
-          Generally, British subjects were born before 1 January 1949 and had a connection with British India or the Republic of Ireland (Southern Ireland).
+          You became a British subject on 1 January 1983 if you:
+
+          * were a British subject on 31 December 1948 and didn't become a citizen of the UK and Colonies, a citizen of a Commonwealth country, a citizen of Pakistan, or a citizen of the Republic of Ireland
+          * had been a citizen of Eire and a British subject on 31 December 1948 and had claimed to remain a British subject
+          * are a woman who had registered as a British subject on the basis of your marriage to a man who was in one of the 2 categories above
+          
         next_steps: |
           * [Apply for a British passport](https://www.gov.uk/apply-renew-passport "Apply for a British passport")
           * Read the guide to [Becoming a British citizen](https://www.gov.uk/becoming-a-british-citizen "Becoming a British citizen")  
@@ -121,7 +126,6 @@ en-GB:
       british_partner_info:
         title: If you married a British man before 1949 you will have gained his citizenship automatically.
         body: |
-          %There are extra eligibility criteria.%
         next_steps: |
           * [Apply for a British passport](https://www.gov.uk/apply-renew-passport "Apply for a British passport")
           * Read the guide to [Becoming a British citizen](https://www.gov.uk/becoming-a-british-citizen "Becoming a British citizen")
