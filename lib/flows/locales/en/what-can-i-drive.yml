@@ -221,10 +221,10 @@ en-GB:
         title: No, you can't drive a tractor. 
       tractor_yes_16:
         title: You can drive some smaller tractors.
-          body: |
-            You can apply for a provisional category F tractor licence at 16, but will only be able to drive tractors less than 2.45 metres wide, and only pulling trailers less than 2.45 metres wide with 2 wheels, or 4 close-coupled wheels.
+        body: |
+          You can apply for a provisional category F tractor licence at 16, but will only be able to drive tractors less than 2.45 metres wide, and only pulling trailers less than 2.45 metres wide with 2 wheels, or 4 close-coupled wheels.
 
-            If you've got a tractor entitlement on your licence you'll then be able to drive larger tractors when you are 17.
+          If you've got a tractor entitlement on your licence you'll then be able to drive larger tractors when you are 17.
       tractor_yes:
         title: You can apply for a provisional category F entitlement to drive any type of tractor.
         
