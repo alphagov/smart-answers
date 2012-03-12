@@ -4,7 +4,7 @@ en-GB:
       meta:
         description: "Check if you're eligible to apply for a British passport."
       title: 
-        British passport eligibility
+        Check British passport eligibility
       section_name: Travel
       options:
         "no": "No"
@@ -28,11 +28,11 @@ en-GB:
 
       date_of_birth?:
         title: "What's your date of birth?"
-        error_message: 
+        error_message: Choose your date of birth from the drop downs.
 
       do_you_have?:
         title: "Do you have:"
-        error_message: 
+        error_message: Please choose one of the options.
         options:
           british_citizenship: "British citizenship"
           british_nationality: "British nationality"
@@ -43,8 +43,8 @@ en-GB:
       describe_your_british_nationality?:
         title: "Describe your British nationality"
         options:
-          british_overseas_territories_citizen: "British overseas territories citizen"
-          british_overseas_citizen: "British overseas citizen"
+          british_overseas_territories_citizen: "British overseas territories citizen (British dependendencies, eg Gibraltar)"
+          british_overseas_citizen: "British overseas citizen (former British colonies, eg Kenya)"
           british_subject: "British subject"
           british_protected_person: "British protected person"
 
@@ -65,58 +65,71 @@ en-GB:
           
         next_steps: |
           * [Apply for a British passport](https://www.gov.uk/apply-renew-passport "Apply for a British passport")
-          * Read the guide to [Becoming a British citizen](https://www.gov.uk/becoming-a-british-citizen "Becoming a British citizen")
+          
 
 
       do_not_qualify:
         title: Sorry - it looks like you don't have an automatic right to a British passport. 
         body: |
-          Immigration law is complex - you should get legal advice if you think you may have a claim to British nationality.
+          ^Immigration law is complex - you should get legal advice if you think you may have a claim to British nationality.^
         next_steps: |
           * Read the guide to [Becoming a British citizen](https://www.gov.uk/becoming-a-british-citizen "Becoming a British citizen")
 
       british_overseas_territories_citizen_info:
         title: You could apply for a British passport as a British overseas territories citizen.
         body: |
-         You have a connection with a territory that is still a British dependency, eg Gibraltar or Bermuda.
-      next_steps: |
+          You must have:
+
+          * been a citizen of the UK and Colonies on 31 December 1982
+          * not become a British citizen on 1 January 1983
+          * had connections with a British overseas territory because you, your parents or your grandparents were born, registered or naturalised in that British overseas territory. 
+
+          ^Qualifying territories are: Anguilla, Bermuda, British Antarctic Territory, British Indian Ocean Territory, Cayman Islands, Falkland Islands and Dependencies, Gibraltar, Montserrat, Pitcairn, Henderson, Ducie and Oeno Islands, St Helena and Dependencies, Turks and Caicos Islands, the Virgin Islands.^
+
+        next_steps: |
           * [Apply for a British passport](https://www.gov.uk/apply-renew-passport "Apply for a British passport")
-          * Read the guide to [Becoming a British citizen](https://www.gov.uk/becoming-a-british-citizen "Becoming a British citizen")   
+           
 
       british_overseas_citizen_info:
         title: You could apply for a British passport as a British overseas citizen.
         body: |
-          You have a connection with a former British colony, eg Kenya, and didn't get citizenship of that country when it became independent.
-      next_steps: |
+          You must have:
+
+          * been a citizen of the United Kingdom and Colonies on 31 December 1982
+          * not become either a British citizen or a British overseas territories citizen on 1 January 1983
+
+          ^Qualifying territories are: Anguilla, Bermuda, British Antarctic Territory, British Indian Ocean Territory, Cayman Islands, Falkland Islands and Dependencies, Gibraltar, Montserrat, Pitcairn, Henderson, Ducie and Oeno Islands, St Helena and Dependencies, Turks and Caicos Islands, the Virgin Islands.^
+
+        next_steps: |
           * [Apply for a British passport](https://www.gov.uk/apply-renew-passport "Apply for a British passport")
-          * Read the guide to [Becoming a British citizen](https://www.gov.uk/becoming-a-british-citizen "Becoming a British citizen")
+        
 
       british_subject_info:
         title: You could apply for a British passport as a British subject.
         body: |
           Generally, British subjects were born before 1 January 1949 and had a connection with British India or the Republic of Ireland (Southern Ireland).
-      next_steps: |
+        next_steps: |
           * [Apply for a British passport](https://www.gov.uk/apply-renew-passport "Apply for a British passport")
           * Read the guide to [Becoming a British citizen](https://www.gov.uk/becoming-a-british-citizen "Becoming a British citizen")  
       british_protected_person_info:
         title: You could apply for a British passport as a British protected person.
         body: |
           Check if you're a British protected person.
-      next_steps: |
+        next_steps: |
           * [Apply for a British passport](https://www.gov.uk/apply-renew-passport "Apply for a British passport")
           * Read the guide to [Becoming a British citizen](https://www.gov.uk/becoming-a-british-citizen "Becoming a British citizen")      
       british_partner_info:
         title: If you married a British man before 1949 you will have gained his citizenship automatically.
         body: |
-          
-      next_steps: |
+          %There are extra eligibility criteria.%
+        next_steps: |
           * [Apply for a British passport](https://www.gov.uk/apply-renew-passport "Apply for a British passport")
           * Read the guide to [Becoming a British citizen](https://www.gov.uk/becoming-a-british-citizen "Becoming a British citizen")
       british_parent_info:
         title: If you were born before 1 January 1983 to a British mother you can register as a British citizen.
         body: |
-          
-      next_steps: |
+          %There are extra eligibility criteria.%
+        next_steps: |
           * Read the [full eligibility requirements (PDF, 1.1MB)](http://www.ukba.homeoffice.gov.uk/sitecontent/applicationforms/nationality/guide_ukm.pdf "Eligibility requirements, PDF, 1.1MB){:rel="external"}
           * Download and fill in [form UKM - Register as a British citizen (PDF, 164kb)](http://www.ukba.homeoffice.gov.uk/sitecontent/applicationforms/nationality/form_ukm.pdf "Form UKM - Register as a British citizen, PDF, 164kb){:rel="external"}
   
