@@ -13,8 +13,8 @@ class NodePresenter
     nil
   end
 
-  def translate_and_render(subkey)     
-    markup = translate!(subkey)        
+  def translate_and_render(subkey)
+    markup = translate!(subkey)
     markup && Govspeak::Document.new(markup).to_html.html_safe
   end
 
@@ -26,19 +26,19 @@ class NodePresenter
     case value
     when Date then I18n.localize(value, format: :long)
     when ::SmartAnswer::Money then
-      number_to_currency(value, precision: ((value.to_f == value.to_f.round) ? 0 : 2 )) 
+      number_to_currency(value, precision: ((value.to_f == value.to_f.round) ? 0 : 2 ))
     when ::SmartAnswer::Salary then
       number_to_currency(value.amount, precision: 0) + " per " + value.period
-    when ::SmartAnswer::PhraseList then                                  
+    when ::SmartAnswer::PhraseList then
       if nested == false
-        value.phrase_keys.map do |phrase_key|                   
+        value.phrase_keys.map do |phrase_key|
           I18n.translate!("#{@i18n_prefix}.phrases.#{phrase_key}", state_for_interpolation( true )) rescue phrase_key
-        end.join("\n\n")  
+        end.join("\n\n")
       else
         false
       end
     else value
-    end       
+    end
   end
 
   def to_response(input)

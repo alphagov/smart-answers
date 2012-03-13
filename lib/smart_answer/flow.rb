@@ -33,7 +33,7 @@ module SmartAnswer
       @section_slug = s if s
       @section_slug
     end
-    
+
     def subsection_slug(s=nil)
       @subsection_slug = s if s
       @subsection_slug
