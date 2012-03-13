@@ -119,20 +119,25 @@ en-GB:
       british_protected_person_info:
         title: You could apply for a British passport as a British protected person.
         body: |
-          Check if you're a British protected person.
+          You're a British protected person if on 1 January 1983 you were one of the following:
+
+            * a citizen or national of Brunei before Brunei became a fully sovereign state
+            * a British protected person already
+            * your mother or father was a British protected person and you would be born stateless if you couldn't inherit that nationality 
         next_steps: |
           * [Apply for a British passport](https://www.gov.uk/apply-renew-passport "Apply for a British passport")
-          * Read the guide to [Becoming a British citizen](https://www.gov.uk/becoming-a-british-citizen "Becoming a British citizen")      
+                
       british_partner_info:
-        title: If you married a British man before 1949 you will have gained his citizenship automatically.
+        title: If you married a British man before 1949 you have an automatic right to British citizenship. 
         body: |
+          After this date you don't have an automatic right to British nationality if you marry or civil partner a British person.
         next_steps: |
           * [Apply for a British passport](https://www.gov.uk/apply-renew-passport "Apply for a British passport")
           * Read the guide to [Becoming a British citizen](https://www.gov.uk/becoming-a-british-citizen "Becoming a British citizen")
       british_parent_info:
-        title: If you were born before 1 January 1983 to a British mother you can register as a British citizen.
+        title: If you were born before 1 January 1983 to a British mother you could register as a British citizen.
         body: |
-          %There are extra eligibility criteria.%
+          If you're eligible to register, you can then apply for a British passport.
         next_steps: |
           * Read the [full eligibility requirements (PDF, 1.1MB)](http://www.ukba.homeoffice.gov.uk/sitecontent/applicationforms/nationality/guide_ukm.pdf "Eligibility requirements, PDF, 1.1MB"){:rel="external"}
           * Download and fill in [form UKM - Register as a British citizen (PDF, 164kb)](http://www.ukba.homeoffice.gov.uk/sitecontent/applicationforms/nationality/form_ukm.pdf "Form UKM - Register as a British citizen, PDF, 164kb"){:rel="external"}
