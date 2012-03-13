@@ -73,7 +73,7 @@ class SmartAnswerPresenter
   end
 
   def finished?
-    current_node.is_outcome?
+    current_node.outcome?
   end
 
   def current_state

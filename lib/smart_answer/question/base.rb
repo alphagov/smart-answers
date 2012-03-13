@@ -51,6 +51,10 @@ module SmartAnswer
       def to_response(input)
         input
       end
+
+      def question?
+        true
+      end
     end
   end
 end
