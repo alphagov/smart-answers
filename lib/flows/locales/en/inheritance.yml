@@ -41,7 +41,7 @@ en-GB:
       shared_equally_between_children:
         title: The estate is shared equally between the children.
         body: |
-          
+
           They may have to pay Inheritance Tax.
         next_steps: |
           Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance") to:
@@ -95,7 +95,7 @@ en-GB:
           * the other half shared between their children*
 
           The husband, wife or civil partner gets interest only on their half during their lifetime. When they die, the capital is then shared between their children.
-        
+
           *If one (or more) of the children has already died, their children will inherit in their parent's place.
         next_steps:
           Read the guide to [Inheritance Tax](/inheritance-tax "Inheritance Tax").
@@ -103,9 +103,9 @@ en-GB:
       shared_equally_between_brothers_or_sisters:
         title: The estate is shared equally between the whole-blood brothers and sisters.
         body: |
- 
+
           If there're no whole-blood brothers or sisters surviving, the estate is shared between their children.
-          
+
           If there are no children of whole-blood children, but there are half-blood children, they share the estate equally.
         next_steps: |
           Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance") to:
@@ -142,4 +142,4 @@ en-GB:
         hint: The children can only inherit if the half-aunts or half-uncles died before the estate owner died.
 
       everything_goes_to_crown:
-        title: The whole estate goes to the Crown.          
+        title: The whole estate goes to the Crown.

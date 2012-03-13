@@ -72,8 +72,8 @@ en-GB:
         body: |
           Choose 'yes' if any of the following are true:
 
-          * you're doing a teacher training, medical or social work course 
-          * you have children or dependent adults 
+          * you're doing a teacher training, medical or social work course
+          * you have children or dependent adults
           * you have a disability, learning difficulty or health condition
       do_you_have_a_disability_or_health_condition?:
         hint: This includes a mental health condition or learning difficulty eg dyslexia.
@@ -101,4 +101,3 @@ en-GB:
 
           - [apply for student finance](http://www.studentfinance.direct.gov.uk/ "Apply for student finance")
           - [read the guide to student finance](/apply-for-student-finance-2012-13 "Guide to student finance")
-

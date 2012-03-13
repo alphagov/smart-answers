@@ -4,9 +4,9 @@ require_relative 'maternity_answer_logic'
 require_relative 'smart_answer_test_helper'
 
 class HolidayPayTest < ActionDispatch::IntegrationTest
-  test "Answering all questions and clicking calculate gives result" do       
+  test "Answering all questions and clicking calculate gives result" do
     visit "/calculate-your-holiday-entitlement"
-    choose "A full year"                                                      
+    choose "A full year"
     choose "Daily"
     select "5", from: "days a week"
     select "1", from: "start_date__3i"
@@ -15,27 +15,27 @@ class HolidayPayTest < ActionDispatch::IntegrationTest
     wait_until { page.has_content? "28.0 days" }
   end
 
-  test "Entering details for part of a year gives correct result" do       
+  test "Entering details for part of a year gives correct result" do
     visit "/calculate-your-holiday-entitlement"
     choose "Part of a year"
     select "leaving", from: "I’m"
     select "5", from: "leave_join_date__3i"
     select "July", from: "leave_join_date__2i"
-    select "2014", from: "leave_join_date__1i" 
-                                                         
+    select "2014", from: "leave_join_date__1i"
+
     choose "Daily"
     select "5", from: "days a week"
 
     select "1", from: "start_date__3i"
     select "February", from: "start_date__2i"
-    
-    click_button "Calculate"               
+
+    click_button "Calculate"
     wait_until { page.has_content? "11.8 days" }
   end
 
   test "The calculator remembers the values entered by the user on submit" do
     visit "/calculate-your-holiday-entitlement"
-    
+
     choose "Part of a year"
     select "leaving", from: "I’m"
     select "5", from: "leave_join_date__3i"
@@ -59,11 +59,11 @@ class HolidayPayTest < ActionDispatch::IntegrationTest
     assert has_select? "leave_join_date__2i", selected: "July"
     assert has_select? "leave_join_date__1i", selected: "2014"
 
-    assert has_checked_field? "Hourly" 
+    assert has_checked_field? "Hourly"
     assert has_field? "hours a week", with: "25"
     assert has_select? "days_per_week", selected: "3"
 
     assert has_select? "start_date__3i", selected: "12"
     assert has_select? "start_date__2i", selected: "November"
-  end    
+  end
 end

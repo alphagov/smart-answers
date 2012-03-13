@@ -7,15 +7,15 @@ module SmartAnswer
 
     test "the constructor arguments used as initial phrase keys" do
       phrase_list = PhraseList.new(:cat, :dog)
-      
+
       assert_equal [:cat, :dog], phrase_list.phrase_keys
-    end      
-    
+    end
+
     test "the plus operation returns a new phrase list with the given phrase added" do
       phrase_list = PhraseList.new(:one) + :two
-      
+
       assert_equal [:one, :two], phrase_list.phrase_keys
     end
-    
+
   end
 end

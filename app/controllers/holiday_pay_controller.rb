@@ -5,10 +5,10 @@ class HolidayPayController < ApplicationController
 
   class InvalidParameter < StandardError; end
 
-  def index 
+  def index
     @errors ||= []
     expires_in 24.hours, :public => true unless Rails.env.development?
-    @defaults = { 
+    @defaults = {
       :period         => :full_year,
       :date           => Time.now,
       :start_date     => Time.parse('1 January 2011'),
@@ -17,12 +17,12 @@ class HolidayPayController < ApplicationController
       :hours_per_week => 35
     }
     @options = @options.nil? ? @defaults : @defaults.merge(@options)
-                                                     
+
     set_slimmer_headers :section => 'work'
 
     respond_to do |format|
       format.html { render }
-      format.json { 
+      format.json {
         if @result.present?
           render :json => { "entitlement" => @result[:final_amount], "entitlement_period" => @result[:pay_period], "workings" => @result[:workings] }
         else
@@ -41,14 +41,14 @@ class HolidayPayController < ApplicationController
     when "full_year"
       @options[:period] = :full_year
     else
-      @options[:period] = params["leave_join"] == "leaving" ? :leaving : :joining      
-    end                                           
+      @options[:period] = params["leave_join"] == "leaving" ? :leaving : :joining
+    end
 
     case params[:pay_period]
     when "daily"
       @options[:pay_period] = :days
     when "hourly"
-      @options[:pay_period] = :hours              
+      @options[:pay_period] = :hours
     else
       return false
     end
@@ -58,7 +58,7 @@ class HolidayPayController < ApplicationController
     @options[:days_per_week] = params[:days_per_week].to_i
     @options[:hours_per_week] = params[:hours_per_week].to_i
 
-    case 
+    case
     when (@options[:hours_per_week] < 1 and @options[:pay_period] == :hours)
       @errors << t('holiday_pay.error_messages.invalid_hours')
     when (!(1..5).cover?(@options[:days_per_week]) and @options[:pay_period] == :days)
@@ -82,8 +82,8 @@ class HolidayPayController < ApplicationController
 
     unless options[:period] == :full_year
       count_days = days_difference(options[:start_date],options[:date])
-      days_in_year = Date.leap?(options[:date].year) ? 366.0 : 365.0  
-      proportion = count_days/days_in_year                               
+      days_in_year = Date.leap?(options[:date].year) ? 366.0 : 365.0
+      proportion = count_days/days_in_year
     end
 
     case options[:period]
@@ -99,7 +99,7 @@ class HolidayPayController < ApplicationController
         proportion = 1 - proportion
       end
       workings += " x #{proportion.round(2)} (proportion of holiday year worked)"
-    end                            
+    end
     proportion = proportion.round(2)
 
     final_amount = annual_entitlement * proportion
@@ -107,7 +107,7 @@ class HolidayPayController < ApplicationController
 
     workings += " = #{final_amount} #{options[:pay_period]}"
 
-    { 
+    {
       :final_amount => final_amount,
       :pay_period   => options[:pay_period],
       :workings     => workings,
@@ -115,14 +115,14 @@ class HolidayPayController < ApplicationController
   end
 
   def parse_date(date)
-    day,month,year = "(3i)", "(2i)", "(1i)"  
+    day,month,year = "(3i)", "(2i)", "(1i)"
     Time.utc(date[year],date[month],date[day])
   end
 
   def days_difference(date1,date2)
     d1y,d2y = date1.yday,date2.yday
     (d1y >= d2y) ? d1y - d2y : d2y - d1y
-  end                           
+  end
 
   def round_up(float, decimal_places)
     (float * 10**decimal_places).ceil.to_f / 10**decimal_places

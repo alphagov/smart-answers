@@ -89,8 +89,8 @@ class SmartAnswersControllerTest < ActionController::TestCase
     should "have meta robots noindex on question pages" do
       get :show, id: 'sample', started: 'y'
       assert_select "head meta[name=robots][content=noindex]"
-    end  
-    
+    end
+
     should "send slimmer section meta tags" do
       get :show, id: 'sample'
       assert_select "head meta[name=x-section-name][content=Family]"
