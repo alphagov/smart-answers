@@ -17,7 +17,11 @@ module SmartAnswer
       name.to_s
     end
 
-    def is_outcome?
+    def outcome?
+      false
+    end
+
+    def question?
       false
     end
   end

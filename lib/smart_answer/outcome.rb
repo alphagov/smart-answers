@@ -1,6 +1,6 @@
 module SmartAnswer
   class Outcome < Node
-    def is_outcome?
+    def outcome?
       true
     end
 
