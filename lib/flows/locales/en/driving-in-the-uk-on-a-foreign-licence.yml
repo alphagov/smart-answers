@@ -1,0 +1,153 @@
+en-GB:
+  flow:
+    driving-in-the-uk-on-a-foreign-licence:
+      title:
+        "Driving in the UK on a foreign licence"
+      section_name: Driving
+      options:
+        "no": "No"
+        "yes": "Yes"
+
+      body: |
+        Use this tool to see if you can drive in the UK with your foreign driving licence.
+
+      are_you?:
+        title: "Are you?"
+        options:
+          resident_of_gb: "A resident of Great Britain"
+          visitor_to_gb: "A visitor to Great Britain"
+          student_in_gb: "A student in Great Britain"
+
+      what_vehicle_licence_do_you_have?:
+        title: "What kind of driving licence do you have?"
+        options:
+          car_motorcycle: "Car or motorcycle"
+          lorry_bus_minibus: "Lorry, bus or minibus"
+
+      which_country_issued_car_licence?:
+        title: "Where was your licenced issued?"
+        options:
+          ni: "Northern Ireland"
+          eea_ec: "European Economic Area/European Community"
+          gib_j_g_iom_desig: "Gibraltar, Jersey, Guernsey, Isle of Man or designated country"
+          other: "Any other country"
+
+      which_country_issued_bus_licence?:
+        title: "Where was your licenced issued?"
+        options:
+          ni: "Northern Ireland"
+          eea_ec: "European Economic Area/European Community"
+          gib_j_g_iom: "Gibraltar, Jersey, Guernsey, or the Isle of Man"
+          designated: "Designated country"
+          other: "Any other country"
+
+      where_was_licence_issued?:
+        title: "Where was your licence issued?"
+        options:
+          ni_eea_ec: "Northern Ireland or European Economic Area/European Community"
+          j_g_iom: "Jersey, Guernsey, or the Isle of Man"
+          other: "Any other country"
+
+      where_are_you_from?:
+        title: "Where are you from?"
+        options:
+          eea_ec: "European Economic Area/European Community"
+          non_eea_ec: "Non-European Economic Area/European Community"
+
+      a1:
+        title: "Answer 1"
+        body: |
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        next_steps: |
+            * Check if you can drive in the UK on your foreign licence
+
+      a2:
+        title: "Answer 2"
+        body: |
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        next_steps: |
+            * Check if you can drive in the UK on your foreign licence
+
+      a3:
+        title: "Answer 3"
+        body: |
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        next_steps: |
+            * Check if you can drive in the UK on your foreign licence
+
+      a4:
+        title: "Answer 4"
+        body: |
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        next_steps: |
+            * Check if you can drive in the UK on your foreign licence
+
+      a5:
+        title: "Answer 5"
+        body: |
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        next_steps: |
+            * Check if you can drive in the UK on your foreign licence
+
+      a6:
+        title: "Answer 6"
+        body: |
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        next_steps: |
+            * Check if you can drive in the UK on your foreign licence
+
+      a7:
+        title: "Answer 7"
+        body: |
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        next_steps: |
+            * Check if you can drive in the UK on your foreign licence
+
+      a8:
+        title: "Answer 8"
+        body: |
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        next_steps: |
+            * Check if you can drive in the UK on your foreign licence
+
+      a9:
+        title: "Answer 9"
+        body: |
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        next_steps: |
+            * Check if you can drive in the UK on your foreign licence
+
+      a10:
+        title: "Answer 10"
+        body: |
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        next_steps: |
+            * Check if you can drive in the UK on your foreign licence
+
+      a11:
+        title: "Answer 11"
+        body: |
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        next_steps: |
+            * Check if you can drive in the UK on your foreign licence
+
+      a12:
+        title: "Answer 12"
+        body: |
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        next_steps: |
+            * Check if you can drive in the UK on your foreign licence
+
+      a13:
+        title: "Answer 13"
+        body: |
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        next_steps: |
+            * Check if you can drive in the UK on your foreign licence
+
+      a14:
+        title: "Answer 14"
+        body: |
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        next_steps: |
+            * Check if you can drive in the UK on your foreign licence
