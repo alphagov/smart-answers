@@ -14,45 +14,45 @@ en-GB:
       are_you?:
         title: "Are you?"
         options:
-          resident_of_gb: "A resident of Great Britain"
-          visitor_to_gb: "A visitor to Great Britain"
-          student_in_gb: "A student in Great Britain"
+          resident_of_gb: "A resident of Great Britain?"
+          visitor_to_gb: "A visitor to Great Britain?"
+          student_in_gb: "A student in Great Britain?"
 
       what_vehicle_licence_do_you_have?:
         title: "What kind of driving licence do you have?"
         options:
-          car_motorcycle: "Car or motorcycle"
-          lorry_bus_minibus: "Lorry, bus or minibus"
+          car_motorcycle: "Car and/or motorcycle"
+          lorry_bus_minibus: "Lorry, minibus and/or bus"
 
       which_country_issued_car_licence?:
-        title: "Where was your licenced issued?"
+        title: "Where was your driving licenced issued?"
         options:
           ni: "Northern Ireland"
-          eea_ec: "European Economic Area/European Community"
-          gib_j_g_iom_desig: "Gibraltar, Jersey, Guernsey, Isle of Man or designated country"
+          eea_ec: "European Community/European Economic Area (EC/EEA)"
+          gib_j_g_iom_desig: "Gibraltar, Jersey, Guernsey, Isle of Man or a 'designated country'"
           other: "Any other country"
 
       which_country_issued_bus_licence?:
         title: "Where was your licenced issued?"
         options:
           ni: "Northern Ireland"
-          eea_ec: "European Economic Area/European Community"
-          gib_j_g_iom: "Gibraltar, Jersey, Guernsey, or the Isle of Man"
-          designated: "Designated country"
+          eea_ec: "European Community/European Economic Area (EC/EEA)"
+          gib_j_g_iom: "Gibraltar, Jersey, Guernsey or the Isle of Man"
+          designated: "A 'designated country'"
           other: "Any other country"
 
       where_was_licence_issued?:
         title: "Where was your licence issued?"
         options:
-          ni_eea_ec: "Northern Ireland or European Economic Area/European Community"
-          j_g_iom: "Jersey, Guernsey, or the Isle of Man"
+          ni_eea_ec: "Northern Ireland or European Community/European Economic Area (EC/EEA)"
+          j_g_iom: "Jersey, Guernsey or the Isle of Man"
           other: "Any other country"
 
       where_are_you_from?:
         title: "Where are you from?"
         options:
-          eea_ec: "European Economic Area/European Community"
-          non_eea_ec: "Non-European Economic Area/European Community"
+          eea_ec: "European Community/European Economic Area (EC/EEA)"
+          non_eea_ec: "Non-European Community/European Economic Area (EC/EEA)"
 
       a1:
         title: "Answer 1"
