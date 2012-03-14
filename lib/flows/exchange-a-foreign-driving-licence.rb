@@ -10,8 +10,8 @@ end
 multiple_choice :what_vehicle_licence_do_you_have? do
   save_input_as :vehicle_licence
 
-  option :lorry_bus_minibus => :which_country_issued_licence?
   option :car_motorcycle => :which_country_issued_licence?
+  option :lorry_bus_minibus => :which_country_issued_licence?
 end
 
 multiple_choice :which_country_issued_licence? do
@@ -50,8 +50,17 @@ multiple_choice :which_country_issued_licence? do
   end
 end
 
+multiple_choice :a2 do
+  option :under_45 => :a2a
+  option :between_45_and_65 => :a2b
+  option :older_than_66 => :a2c
+end
+
+
 outcome :a1
-outcome :a2
+outcome :a2a
+outcome :a2b
+outcome :a2c
 outcome :a3
 outcome :a4
 outcome :a5
