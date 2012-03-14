@@ -39,39 +39,36 @@ en-GB:
             * Check if you can drive in the UK on your foreign licence
 
       a2:
-        title: "How old are you currently?"
+        title: "How old are you?"
         options:
           under_45: "Under 45"
-          between_45_and_65: "45-65"
-          older_than_66: "66+"
+          between_45_and_65: "45 - 65"
+          older_than_66: "66 or over"
 
       a2a:
-        title: "You can drive on your foreign licence until you're 45 or been resident in the UK for 5 years (whichever is longer). If you're between 45 and 65 you don't need to exchange until you're 66 or for 5 years (whichever is shorter)."
+        title: "You can drive on your foreign licence until you're 45 or for 5 years (whichever is longer). You must register with the DVLA within 12 months of becoming resident in the UK."
         body: |
-          %You must register with the DVLA within 12 months of becoming resident in the UK.%
-          When you exchange your licence it will cost you £50.
+          
+          After this time you must exchange your licence - there is a fee of £50.
 
           s1. [Order form D2 (and D4 if you're over 45)](https://www.dvla.gov.uk/dvla/onlineservices/order_forms.aspx?ext=dg "DVLA form ordering service") from the DVLA.
           s2. Send the forms and any documents you need to (including your driving licence) to the address on the form.
           s3. You should get your new licence within 3 weeks.
 
       a2b:
-        title: "You can drive on your foreign licence until you're 45 or been resident in the UK for 5 years (whichever is longer). If you're between 45 and 65 you don't need to exchange until you're 66 or for 5 years (whichever is shorter)."
+        title: "You can drive on your foreign licence until you're 66 or for 5 years (whichever is shorter). You must register with the DVLA within 12 months of becoming resident in the UK."
         body: |
-          %You must register with the DVLA within 12 months of becoming resident in the UK.%
-          When you exchange your licence it will cost you £50.
+          After this time you must exchange your licence - there is a fee of £50.
 
-          s1. [Order form D2 (and D4 if you're over 45)](https://www.dvla.gov.uk/dvla/onlineservices/order_forms.aspx?ext=dg "DVLA form ordering service") from the DVLA.
+          s1. [Order form D2 and D4](https://www.dvla.gov.uk/dvla/onlineservices/order_forms.aspx?ext=dg "DVLA form ordering service") from the DVLA.
           s2. Send the forms and any documents you need to (including your driving licence) to the address on the form.
           s3. You should get your new licence within 3 weeks.
 
       a2c:
-        title: "You can drive on your foreign licence until you're 45 or been resident in the UK for 5 years (whichever is longer). If you're between 45 and 65 you don't need to exchange until you're 66 or for 5 years (whichever is shorter)."
+        title: "You can exchange your licence - there is a fee of £50."
         body: |
-          %You must register with the DVLA within 12 months of becoming resident in the UK.%
-          When you exchange your licence it will cost you £50.
 
-          s1. [Order form D2 (and D4 if you're over 45)](https://www.dvla.gov.uk/dvla/onlineservices/order_forms.aspx?ext=dg "DVLA form ordering service") from the DVLA.
+          s1. [Order form D2 and D4](https://www.dvla.gov.uk/dvla/onlineservices/order_forms.aspx?ext=dg "DVLA form ordering service") from the DVLA.
           s2. Send the forms and any documents you need to (including your driving licence) to the address on the form.
           s3. You should get your new licence within 3 weeks.
 
