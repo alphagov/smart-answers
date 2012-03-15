@@ -25,9 +25,9 @@ en-GB:
       which_country_issued_licence?:
         title: Where was your licenced issued?
         options:
-          eea_ec: "European Economic Area/European Community"
+          eea_ec: "European Union"
           ni: "Northern Ireland"
-          jg: "Jersey/Guernsey"
+          jg: "Jersey, Guernsey or Isle of Man"
           gib: "Gibraltar"
           other: "Other"
 
@@ -128,8 +128,7 @@ en-GB:
       a10:
         title: "You can exchange your driving licence for up to 5 years after becoming resident in the UK so long as your licence remains valid."
         body: |
-          % You can't exchange motorcycle entitlement from the Republic of Korea or Faroe Islands.%
-          Japanese or Republic of Korea driving licences need an official translation - you'll need to pay your embassy to do this.
+          
       a11:
         title: "You can't exchange your licence but you can drive for up to 12 months on your foreign licence."
         body: |
