@@ -11,7 +11,7 @@ en-GB:
       body: |
         Use this tool to see if you can drive in Great Britain (GB) with your foreign driving licence.
 
-        ^GB counts as England, Wales and Scotland, but not Northern Ireland, the Channel Isles or the Isle of Man.^ 
+        ^GB counts as England, Wales and Scotland, but not Northern Ireland, the Channel Isles or the Isle of Man. 
 
         *[GB]: Great Britain
 
@@ -30,26 +30,26 @@ en-GB:
 
       which_country_issued_car_licence?:
         title: "Where was your driving licenced issued?"
+        hint: "The 'designated countries' are:
+          Australia, Barbados, British Virgin Islands, Canada, Falkland Islands, Faroe Islands, Hong Kong, Japan, Monaco, New Zealand, Republic of Korea, Singapore, South Africa, Switzerland, Zimbabwe."
         options:
           ni: "Northern Ireland"
           eea_ec: "European Union (EU)"
           gib_j_g_iom_desig: "Gibraltar, Jersey, Guernsey, Isle of Man or a 'designated country'"
           other: "Any other country"
-          hint: |
-          The 'designated countries' are:
-          Australia, Barbados, British Virgin Islands, Canada, Falkland Islands, Faroe Islands, Hong Kong, Japan, Monaco, New Zealand, Republic of Korea, Singapore, South Africa, Switzerland, Zimbabwe.
+          
           
       which_country_issued_bus_licence?:
         title: "Where was your licenced issued?"
+        hint: "The 'designated countries' are:
+          Australia, Barbados, British Virgin Islands, Canada, Falkland Islands, Faroe Islands, Hong Kong, Japan, Monaco, New Zealand, Republic of Korea, Singapore, South Africa, Switzerland, Zimbabwe."
         options:
           ni: "Northern Ireland"
           eea_ec: "European Union (EU)"
           gib_j_g_iom: "Gibraltar, Jersey, Guernsey or the Isle of Man"
-          designated: "A 'designated country'"
+          designated: "A designated country"
           other: "Any other country"
-          hint: |
-          The 'designated countries' are:
-          Australia, Barbados, British Virgin Islands, Canada, Falkland Islands, Faroe Islands, Hong Kong, Japan, Monaco, New Zealand, Republic of Korea, Singapore, South Africa, Switzerland, Zimbabwe.
+          
 
       where_was_licence_issued?:
         title: "Where was your licence issued?"
@@ -102,10 +102,11 @@ en-GB:
           *[GB]: Great Britain
 
         next_steps: |
-          [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence "Apply for your first provisional driving licence")
-          [The driving theory test for cars and motorcycles](/driving-theory-test "The driving theory test for cars and motorcycles")
-          [The car practical driving test](/practical-driving-test-for-cars "The car practical driving test")
-          [The motorcycle practical riding test](/motorcycle-practical-test "The motorcycle practical riding test")
+
+          - [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence "Apply for your first provisional driving licence")
+          - [The driving theory test for cars and motorcycles](/driving-theory-test "The driving theory test for cars and motorcycles")
+          - [The car practical driving test](/practical-driving-test-for-cars "The car practical driving test")
+          - [The motorcycle practical riding test](/motorcycle-practical-test "The motorcycle practical riding test")
 
       a5:
         title: "You can drive in Great Britain (GB) on your full, valid driving licence until it expires, or you can exchange it for a full GB licence."
