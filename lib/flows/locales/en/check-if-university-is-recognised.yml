@@ -10,7 +10,7 @@ en-GB:
         "no": "No"
         "yes": "Yes"
       body: |
-        Use this tool to see if the university you choose to study at is recognised in the UK as a recognised or listed body.
+        Use this tool to see if the university or where you want to study is officially recognised in the UK.
 
       name_of_institution?:
         title: "Enter the name of your institution:"
@@ -34,15 +34,10 @@ en-GB:
           * [Apply for a higher education course?](https://www.gov.uk/ "Apply for a higher education course maybe?")
 
       not_recognised:
-        title: Sorry - it looks like your university is not officially recognised.
+        title: Sorry, it looks like your university is not officially recognised in the UK.
         body: |
 
-          There are organisations which offer bogus degrees or degree courses. Often publicising themselves through the internet, these:
-          offer qualifications that are not recognised by the authorities in any country
-          use English-sounding names and addresses without actually being located in the UK
-          take your money but give nothing in return, and do not give a refund
-
-          If you suspect that an organisation which appears to be in the UK is awarding bogus degrees, contact the local Trading Standards office. The Trading Standards website allows you to locate the nearest office by entering the organisation's postcode.
+          Some organisations offer bogus qualifications that aren't recognised by the authorities in any country.
 
         next_steps: |
           * Report the institution to [your local Trading Standards office](http://www.tradingstandards.gov.uk/advice/index.cfm)
