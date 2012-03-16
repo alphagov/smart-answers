@@ -2,14 +2,18 @@ en-GB:
   flow:
     driving-in-the-uk-on-a-foreign-licence:
       title:
-        "Driving in the UK on a foreign licence"
+        "Driving in Great Britain (GB) on a foreign licence"
       section_name: Driving
       options:
         "no": "No"
         "yes": "Yes"
 
       body: |
-        Use this tool to see if you can drive in the UK with your foreign driving licence.
+        Use this tool to see if you can drive in Great Britain (GB) with your foreign driving licence.
+
+        ^GB counts as England, Wales and Scotland, but not Northern Ireland, the Channel Isles or the Isle of Man.^ 
+
+        *[GB]: Great Britain
 
       are_you?:
         title: "Are you?"
@@ -31,6 +35,12 @@ en-GB:
           eea_ec: "European Community/European Economic Area (EC/EEA)"
           gib_j_g_iom_desig: "Gibraltar, Jersey, Guernsey, Isle of Man or a 'designated country'"
           other: "Any other country"
+          hint: |
+          The **European Community/European Economic Area (EC/EEA)** countries are:
+          Austria, Belgium, Bulgaria, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Netherlands, Norway, Poland, Portugal, Republic of Cyprus, Romania, Slovakia, Slovenia, Spain, Sweden, United Kingdom.
+
+          The **'designated countries'** are:
+          Australia, Barbados, British Virgin Islands, Canada, Falkland Islands, Faroe Islands, Hong Kong, Japan, Monaco, New Zealand, Republic of Korea, Singapore, South Africa, Switzerland, Zimbabwe.
 
       which_country_issued_bus_licence?:
         title: "Where was your licenced issued?"
@@ -40,6 +50,12 @@ en-GB:
           gib_j_g_iom: "Gibraltar, Jersey, Guernsey or the Isle of Man"
           designated: "A 'designated country'"
           other: "Any other country"
+          hint: |
+          The **European Community/European Economic Area (EC/EEA)** countries are:
+          Austria, Belgium, Bulgaria, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Netherlands, Norway, Poland, Portugal, Republic of Cyprus, Romania, Slovakia, Slovenia, Spain, Sweden, United Kingdom.
+
+          The **'designated countries'** are:
+          Australia, Barbados, British Virgin Islands, Canada, Falkland Islands, Faroe Islands, Hong Kong, Japan, Monaco, New Zealand, Republic of Korea, Singapore, South Africa, Switzerland, Zimbabwe.
 
       where_was_licence_issued?:
         title: "Where was your licence issued?"
@@ -47,107 +63,139 @@ en-GB:
           ni_eea_ec: "Northern Ireland or European Community/European Economic Area (EC/EEA)"
           j_g_iom: "Jersey, Guernsey or the Isle of Man"
           other: "Any other country"
+          hint: |
+          The **European Community/European Economic Area (EC/EEA)** countries are:
+          Austria, Belgium, Bulgaria, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Netherlands, Norway, Poland, Portugal, Republic of Cyprus, Romania, Slovakia, Slovenia, Spain, Sweden, United Kingdom.
 
       where_are_you_from?:
         title: "Where are you from?"
         options:
           eea_ec: "European Community/European Economic Area (EC/EEA)"
           non_eea_ec: "Non-European Community/European Economic Area (EC/EEA)"
+          hint: |
+          The **European Community/European Economic Area (EC/EEA)** countries are:
+          Austria, Belgium, Bulgaria, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Netherlands, Norway, Poland, Portugal, Republic of Cyprus, Romania, Slovakia, Slovenia, Spain, Sweden, United Kingdom.
 
       a1:
-        title: "Answer 1"
-        body: |
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        title: "You can drive in Great Britain (GB) on your full, valid driving licence until it expires, or you can exchange it for a full GB licence."
         next_steps: |
-            * Check if you can drive in the UK on your foreign licence
+          [Exchange a foreign driving licence](/# "Exchange a foreign driving licence")
 
       a2:
-        title: "Answer 2"
+        title: "You can drive in Great Britain (GB) on your full, valid driving licence until you’re 70, or for 3 years after becoming resident in GB, whichever is longer."
         body: |
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          %If you’re licence was previously exchanged from a non-European Community/European Economic Area (EC/EEA) country you can only drive on it in GB for up to **12 months** from when you first become resident in GB. You’ll then have to stop driving, but might be able to exchange your licence for a GB one.%
+
+        *[GB]: Great Britain
+        *[EC/EEA]: European Community/European Economic Area
+
         next_steps: |
-            * Check if you can drive in the UK on your foreign licence
+          [Exchange a foreign driving licence](/# "Exchange a foreign driving licence")
 
       a3:
-        title: "Answer 3"
+        title: "You can drive in Great Britain (GB) on your full, valid driving licence for **12 months** from when you first become resident in GB."
         body: |
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          You have up to 5 years from becoming resident to exchange your licence for a GB one.
+
+          ^However, if you haven’t exchanged your licence within 12 months of becoming resident you won’t be able to drive on it any more.^          
+
+          *[GB]: Great Britain
+
         next_steps: |
-            * Check if you can drive in the UK on your foreign licence
+          [Exchange a foreign driving licence](/# "Exchange a foreign driving licence")
 
       a4:
-        title: "Answer 4"
+        title: "You can drive in Great Britain (GB) on your full, valid driving licence for **12 months** from when you first became resident in GB."
         body: |
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          After the 12 months you **can't** exchange your licence for a GB one and you'll have to stop driving on your foreign licence.
+
+          To continue driving in GB you'll have to apply for a GB provisional licence and then pass the theory and practical driving tests.
+
+          *[GB]: Great Britain
+
         next_steps: |
-            * Check if you can drive in the UK on your foreign licence
+          [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence "Apply for your first provisional driving licence")
+          [The driving theory test for cars and motorcycles](/driving-theory-test "The driving theory test for cars and motorcycles")
+          [The car practical driving test](/practical-driving-test-for-cars "The car practical driving test")
+          [The motorcycle practical riding test](/motorcycle-practical-test "The motorcycle practical riding test")
 
       a5:
-        title: "Answer 5"
-        body: |
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        title: "You can drive in Great Britain (GB) on your full, valid driving licence until it expires, or you can exchange it for a full GB licence."
         next_steps: |
-            * Check if you can drive in the UK on your foreign licence
+          [Exchange a foreign driving licence](/# "Exchange a foreign driving licence")
 
       a6:
-        title: "Answer 6"
+        title: "You can drive in Great Britain (GB) on your full, valid licence until you’re 45, or for 5 years after you become resident in GB, whichever is longer."
         body: |
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          If you’ve over 45 but under 65 you can drive for 5 years or until you are 66, whichever is shorter.
+
+          %You don’t need to exchange your licence before this, but must register your details with the Driver and Vehicle Licensing Agency (DVLA) within 12 months of becoming resident.%
+          
+          *[DVLA]: Driver and Vehicle Licensing Agency
         next_steps: |
-            * Check if you can drive in the UK on your foreign licence
+          [Contact DVLA](/# "Contact DVLA")
+          [Exchange a foreign driving licence](/# "Exchange a foreign driving licence")
 
       a7:
         title: "Answer 7"
         body: |
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         next_steps: |
-            * Check if you can drive in the UK on your foreign licence
+          * Check if you can drive in the UK on your foreign licence
+          [an example](/an-inline-link "Title") 
 
       a8:
         title: "Answer 8"
         body: |
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         next_steps: |
-            * Check if you can drive in the UK on your foreign licence
+          * Check if you can drive in the UK on your foreign licence
+          [an example](/an-inline-link "Title") 
 
       a9:
         title: "Answer 9"
         body: |
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         next_steps: |
-            * Check if you can drive in the UK on your foreign licence
+          * Check if you can drive in the UK on your foreign licence
+          [an example](/an-inline-link "Title") 
 
       a10:
         title: "Answer 10"
         body: |
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         next_steps: |
-            * Check if you can drive in the UK on your foreign licence
+          * Check if you can drive in the UK on your foreign licence
+          [an example](/an-inline-link "Title") 
 
       a11:
         title: "Answer 11"
         body: |
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         next_steps: |
-            * Check if you can drive in the UK on your foreign licence
+          * Check if you can drive in the UK on your foreign licence
+          [an example](/an-inline-link "Title") 
 
       a12:
         title: "Answer 12"
         body: |
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         next_steps: |
-            * Check if you can drive in the UK on your foreign licence
+          * Check if you can drive in the UK on your foreign licence
+          [an example](/an-inline-link "Title") 
 
       a13:
         title: "Answer 13"
         body: |
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         next_steps: |
-            * Check if you can drive in the UK on your foreign licence
+          * Check if you can drive in the UK on your foreign licence
+          [an example](/an-inline-link "Title") 
 
       a14:
         title: "Answer 14"
         body: |
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         next_steps: |
-            * Check if you can drive in the UK on your foreign licence
+          * Check if you can drive in the UK on your foreign licence
+          [an example](/an-inline-link "Title")
