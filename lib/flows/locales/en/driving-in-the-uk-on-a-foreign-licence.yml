@@ -137,65 +137,78 @@ en-GB:
           [Exchange a foreign driving licence](/# "Exchange a foreign driving licence")
 
       a7:
-        title: "Answer 7"
+        title: "You can drive in Great Britain (GB) on your full, valid driving licence for **12 months** from when you first became resident in GB."
         body: |
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          You have up to 5 years from becoming resident to exchange your licence for a GB one.
+
+          ^However, if you haven't exchanged your licence within 12 months of becoming resident you won't be able to drive on it any more.^
+          *[GB]: Great Britain
         next_steps: |
-          * Check if you can drive in the UK on your foreign licence
-          [an example](/an-inline-link "Title") 
+          [Exchange a foreign driving licence](/# "Exchange a foreign driving licence") 
 
       a8:
-        title: "Answer 8"
+        title: "You **can’t** drive a lorry, minibus or bus in Great Britain (GB) on your driving licence."
         body: |
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          You can drive a car and/or a motorcycle for 12 months after becoming resident in GB, as long as your licence remains valid.
+
+          You can exchange your car or motorcycle licence for a GB one, but need to do this within 12 months of becoming resident in GB.
+          *[GB]: Great Britain
         next_steps: |
-          * Check if you can drive in the UK on your foreign licence
-          [an example](/an-inline-link "Title") 
+          [Exchange a foreign driving licence](/# "Exchange a foreign driving licence")
 
       a9:
-        title: "Answer 9"
+        title: "You **can’t** drive a lorry, minibus or bus in Great Britain (GB) on your driving licence."
         body: |
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          You can drive a car and/or a motorcycle for 12 months after becoming resident in GB, as long as your licence remains valid.
+
+          After the 12 months you **can’t** exchange your licence for a GB one and you’ll have to stop driving on your foreign licence.
+
+          To continue driving in GB you’ll have to apply for a GB provisional driving licence and then pass the theory and practical driving tests.
         next_steps: |
-          * Check if you can drive in the UK on your foreign licence
-          [an example](/an-inline-link "Title") 
+          [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence "Apply for your first provisional driving licence")
+          [The driving theory test for cars and motorcycles](/driving-theory-test "The driving theory test for cars and motorcycles")
+          [The car practical driving test](/practical-driving-test-for-cars "The car practical driving test")
+          [The motorcycle practical riding test](/motorcycle-practical-test "The motorcycle practical riding test") 
 
       a10:
-        title: "Answer 10"
-        body: |
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        next_steps: |
-          * Check if you can drive in the UK on your foreign licence
-          [an example](/an-inline-link "Title") 
+        title: "If your licence is full and valid you can drive any type of vehicle shown on it in Great Britain (GB)."
 
       a11:
-        title: "Answer 11"
+        title: "If you’ve got a full and valid licence you can drive any small vehicles (like cars or motorcycles) shown on it for **12 months** from when you last entered Great Britain (GB)."
         body: |
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        next_steps: |
-          * Check if you can drive in the UK on your foreign licence
-          [an example](/an-inline-link "Title") 
+          If you’ve got a bus or lorry licence you can only drive buses or lorries in GB if you’ve actually **driven the vehicle into GB yourself**. The rules are the same whether the vehicle was registered in GB or not.
+          *[GB]: Great Britain
 
       a12:
-        title: "Answer 12"
+        title: "If you’ve got a full and valid licence you can drive any small vehicles (like cars or motorcycles) shown on it for **12 months** from when you last entered Great Britain (GB)."
         body: |
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        next_steps: |
-          * Check if you can drive in the UK on your foreign licence
-          [an example](/an-inline-link "Title") 
+          If you’ve got a bus or lorry licence you can only drive buses or lorries that are registered outside GB if you’ve actually **driven the vehicle into GB yourself**.
+          *[GB]: Great Britain 
 
       a13:
-        title: "Answer 13"
+        title: "If you've got a driving licence from a European Community/European Economic Area (EC/EEA) country you can drive in Great Britain (GB) for as long as your licence is valid, or until you are 70."
         body: |
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          If you don't have a driving licence yet you can't take a driving test in GB until you've been studying in GB for at least 6 months.
+          *[GB]: Great Britain
         next_steps: |
-          * Check if you can drive in the UK on your foreign licence
-          [an example](/an-inline-link "Title") 
+          [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence "Apply for your first provisional driving licence")
+          [The driving theory test for cars and motorcycles](/driving-theory-test "The driving theory test for cars and motorcycles")
+          [The car practical driving test](/practical-driving-test-for-cars "The car practical driving test")
+          [The motorcycle practical riding test](/motorcycle-practical-test "The motorcycle practical riding test") 
 
       a14:
-        title: "Answer 14"
+        title: "If you’ve got a non-European Community/European Economic Area (EC/EEA) driving licence or international driving permit you can drive in Great Britain (GB) for **12 months**."
         body: |
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          If your driving licence is from a 'designated country' you can then apply to exchange it for a GB licence up to 5 years after becoming a GB resident.
+
+          If you don't have a driving licence yet, or your licence is from a 'non-designated country', you'll first need to apply for a provisional GB licence. You can then take a driving test and apply for a full licence once you've been in GB for at least 6 months.
+
+          The **'designated countries'** are:
+          Australia, Barbados, British Virgin Islands, Canada, Falkland Islands, Faroe Islands, Hong Kong, Japan, Monaco, New Zealand, Republic of Korea, Singapore, South Africa, Switzerland, Zimbabwe.
+          *[GB]: Great Britain
         next_steps: |
-          * Check if you can drive in the UK on your foreign licence
-          [an example](/an-inline-link "Title")
+          [Exchange a foreign driving licence](/# "Exchange a foreign driving licence")
+          [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence "Apply for your first provisional driving licence")
+          [The driving theory test for cars and motorcycles](/driving-theory-test "The driving theory test for cars and motorcycles")
+          [The car practical driving test](/practical-driving-test-for-cars "The car practical driving test")
+          [The motorcycle practical riding test](/motorcycle-practical-test "The motorcycle practical riding test")
