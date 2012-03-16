@@ -30,17 +30,17 @@ en-GB:
 
       which_country_issued_car_licence?:
         title: "Where was your driving licenced issued?"
+        hint: "The European Community/European Economic Area (EC/EEA) countries are:
+          Austria, Belgium, Bulgaria, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Netherlands, Norway, Poland, Portugal, Republic of Cyprus, Romania, Slovakia, Slovenia, Spain, Sweden, United Kingdom. The **'designated countries'** are:
+          Australia, Barbados, British Virgin Islands, Canada, Falkland Islands, Faroe Islands, Hong Kong, Japan, Monaco, New Zealand, Republic of Korea, Singapore, South Africa, Switzerland, Zimbabwe."
         options:
           ni: "Northern Ireland"
           eea_ec: "European Community/European Economic Area (EC/EEA)"
           gib_j_g_iom_desig: "Gibraltar, Jersey, Guernsey, Isle of Man or a 'designated country'"
           other: "Any other country"
-          hint: |
-          The **European Community/European Economic Area (EC/EEA)** countries are:
-          Austria, Belgium, Bulgaria, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Netherlands, Norway, Poland, Portugal, Republic of Cyprus, Romania, Slovakia, Slovenia, Spain, Sweden, United Kingdom.
+          
 
-          The **'designated countries'** are:
-          Australia, Barbados, British Virgin Islands, Canada, Falkland Islands, Faroe Islands, Hong Kong, Japan, Monaco, New Zealand, Republic of Korea, Singapore, South Africa, Switzerland, Zimbabwe.
+      
 
       which_country_issued_bus_licence?:
         title: "Where was your licenced issued?"
