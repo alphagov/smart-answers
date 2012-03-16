@@ -13,7 +13,7 @@ en-GB:
 
         Use this tool to see if you're eligible for a British passport. 
 
-        You can claim eligibility for a British passport using one of the 6 types of British nationality, including British citizenship.
+        You can claim eligibility for a British passport if you have one of the 6 types of British nationality, including British citizenship.
     
       is_one_of_these_true?:
         title: "Choose one of the following:"
@@ -23,7 +23,7 @@ en-GB:
           born_in_british_colony: "I was born in a British colony"
           naturalised: "I've been naturalised in the UK or a British colony"
           uk_citizen_or_citizen_of_british_colony: "I'm registered as a UK citizen or as a citizen of a British colony"
-          father_is_eligible: "My father is one of the above"
+          father_is_eligible: "My father was born (or naturalised or registered) in the UK or a British colony"
           none_of_the_above: "None of the above apply to me"
 
       date_of_birth?:
