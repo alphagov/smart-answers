@@ -87,7 +87,6 @@ multiple_choice :a2 do
   option :older_than_66 => :a2c
 end
 
-
 outcome :a1
 outcome :a2a
 outcome :a2b
