@@ -7,10 +7,10 @@ en-GB:
         Calculate your Married Couple's Allowance
       section_name: Money and tax
       body: |
-          
+
         You can use this calculator to work out if you qualify for Married Couple's Allowance, and how much you might get. You need to be married or in a civil partnership to claim.
-        
-              
+
+
       options:
         "no": "No"
         "yes": "Yes"
@@ -37,27 +37,25 @@ en-GB:
         error_message: Please use numbers only, eg 9000
       sorry:
         title: Sorry, you don't qualify for Married Couple's Allowance.
-                                     
-          
+
+
       done:
         title: You  qualify for Married Couple's Allowance - you'll get %{allowance} off your tax bill.
         body: |
-                    
+
           Contact HM Revenue & Customs to claim.
-          
-          
+
+
           $C
-          **HM Revenue & Customs**  
-          **Telephone** 0845 300 0627  
-          **Textphone** 0845 302 1408  
+          **HM Revenue & Customs**
+          **Telephone** 0845 300 0627
+          **Textphone** 0845 302 1408
           $C
-          
-          
+
+
           %This result is an estimate based on your answers.%
         next_steps: |
           Read the guide to [Married Couple's Allowance](/married-couples-allowance "Married Couple's Allowance") to:
-          
+
           - learn more about what you'll get and how to claim
           - find out how to transfer your Married Couple's Allowance to your partner
-          
-       

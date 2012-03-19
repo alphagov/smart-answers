@@ -22,7 +22,7 @@ class MarriedCouplesAllowanceAnswer
       else
         Money.new(income)
       end
-      
+
     else
       Money.new(@maximum)
     end

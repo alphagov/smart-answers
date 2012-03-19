@@ -24,7 +24,7 @@ class TextPresenter
   def section_slug
     @flow.section_slug
   end
-  
+
   def subsection_slug
     @flow.subsection_slug
   end

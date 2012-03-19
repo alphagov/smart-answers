@@ -33,7 +33,7 @@ module SmartAnswer
       @section_slug = s if s
       @section_slug
     end
-    
+
     def subsection_slug(s=nil)
       @subsection_slug = s if s
       @subsection_slug
@@ -64,11 +64,11 @@ module SmartAnswer
     end
 
     def outcomes
-      @nodes.select { |n| n.is_a?(Outcome) }
+      @nodes.select(&:outcome?)
     end
 
     def questions
-      @nodes.select { |n| n.is_a?(Question::Base) }
+      @nodes.select(&:question?)
     end
 
     def node_exists?(node_or_name)

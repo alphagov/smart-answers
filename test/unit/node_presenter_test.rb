@@ -53,13 +53,13 @@ module SmartAnswer
       assert_match Regexp.new("<p>Here are the phrases:</p>
 
       <p>This is the first one</p>
-      
+
       <p>This is <strong>the</strong> second</p>
-      
+
       <p>The last!</p>
       ".gsub /^      /, ''), presenter.body
     end
-    
+
     test "Phrase lists fallback gracefully when no translation can be found" do
       outcome = Outcome.new(:outcome_with_interpolated_phrase_list)
       state = State.new(outcome.name)
@@ -67,13 +67,13 @@ module SmartAnswer
       presenter = NodePresenter.new("flow.test", outcome, state)
 
       assert_match Regexp.new("<p>Here are the phrases:</p>
-      
+
       <p>four</p>
 
       <p>This is the first one</p>
-      
+
       <p>This is <strong>the</strong> second</p>
-      
+
       <p>The last!</p>
       ".gsub /^      /, ''), presenter.body
     end
