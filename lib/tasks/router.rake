@@ -25,8 +25,8 @@ namespace :router do
         incoming_path: path
       @router.routes.update application_id: "smartanswers", route_type: :prefix,
         incoming_path: "#{path}.json"
-    end                                                                                                                   
-    
+    end
+
     @router.routes.update application_id: "smartanswers", route_type: :full, incoming_path: "/calculate-your-holiday-entitlement"
     @router.routes.update application_id: "smartanswers", route_type: :full, incoming_path: "/calculate-your-holiday-entitlement.json"
   end
