@@ -2,7 +2,6 @@ namespace :rummager do
   desc "Reindex search engine"
   task :index => :environment do
     documents = SmartAnswer::FlowRegistry.new(FLOW_REGISTRY_OPTIONS).flows.map { |flow|
-      next unless flow.status == :published
       presenter = TextPresenter.new(flow)
       {
         "title"             => presenter.title,
