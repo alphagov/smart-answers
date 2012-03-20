@@ -14,7 +14,7 @@ module SmartAnswer
     end
 
     def flows
-      available_flows.map { |s| find_by_name(s) }
+      available_flows.map { |s| find_by_name(s) }.compact
     end
 
   private
