@@ -47,7 +47,7 @@ private
   end
 
   def flow_registry
-    @flow_registry ||= SmartAnswer::FlowRegistry.new
+    @flow_registry ||= SmartAnswer::FlowRegistry.new(FLOW_REGISTRY_OPTIONS)
   end
 
   def redirect_response_to_canonical_url
