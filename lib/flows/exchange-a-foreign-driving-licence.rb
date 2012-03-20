@@ -10,11 +10,35 @@ end
 multiple_choice :what_vehicle_licence_do_you_have? do
   save_input_as :vehicle_licence
 
-  option :car_motorcycle => :which_country_issued_licence?
-  option :lorry_bus_minibus => :which_country_issued_licence?
+  option :car_motorcycle => :which_country_issued_car_licence?
+  option :lorry_bus_minibus => :which_country_issued_bus_licence?
 end
 
-multiple_choice :which_country_issued_licence? do
+multiple_choice :which_country_issued_car_licence? do
+  option :eea_ec
+  option :ni
+  option :jg
+  option :des
+  option :other
+
+  next_node do |response|
+    if vehicle_licence == 'car_motorcycle'
+      if response == 'eea_ec'
+        :a7
+      elsif response == 'ni'
+        :a8
+      elsif response == 'jg'
+        :a9
+      elsif response == 'des'
+        :which_designated_country_are_you_from?
+      elsif response == 'other'
+        :a11
+      end
+    end
+  end
+end
+
+multiple_choice :which_country_issued_bus_licence? do
   option :eea_ec
   option :ni
   option :jg
@@ -34,20 +58,27 @@ multiple_choice :which_country_issued_licence? do
       elsif response == 'other'
         :a6
       end
-    else
-      if response == 'eea_ec'
-        :a7
-      elsif response == 'ni'
-        :a8
-      elsif response == 'jg'
-        :a9
-      elsif response == 'gib'
-        :a10
-      elsif response == 'other'
-        :a11
-      end
     end
   end
+end
+
+multiple_choice :which_designated_country_are_you_from? do
+  option :aus => :a10
+  option :bar => :a10
+  option :bvi => :a10
+  option :can => :a10a
+  option :falk => :a10
+  option :far => :a10b
+  option :gib => :a10
+  option :hk => :a10
+  option :jap => :a10c
+  option :mon => :a10
+  option :nz => :a10
+  option :rok => :a10d
+  option :sing => :a10
+  option :sa => :a10e
+  option :sw => :a10
+  option :zim => :a10
 end
 
 multiple_choice :a2 do
@@ -55,7 +86,6 @@ multiple_choice :a2 do
   option :between_45_and_65 => :a2b
   option :older_than_66 => :a2c
 end
-
 
 outcome :a1
 outcome :a2a
@@ -69,4 +99,9 @@ outcome :a7
 outcome :a8
 outcome :a9
 outcome :a10
+outcome :a10a
+outcome :a10b
+outcome :a10c
+outcome :a10d
+outcome :a10e
 outcome :a11
