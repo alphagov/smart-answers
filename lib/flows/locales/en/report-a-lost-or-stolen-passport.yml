@@ -1,0 +1,20 @@
+en-GB:
+  flow:
+    report-a-lost-or-stolen-passport:
+      title: Report a lost or stolen passport
+      body: |
+
+        Use this tool to find out what to do and who to contact if your passport is lost or stolen in the UK or abroad. You'll also find out how to get a replacement, and how you can travel on temporary documents.
+      options:
+        in_the_uk: "in the UK"
+      contact_the_police:
+        title: You must contact the police and report your passport as stolen.
+        body: | 
+          Enter your postcode below to find your nearest police station.
+
+          +[location_form]
+        next_steps: |
+      contact_the_embassy:
+        title: You must contact the British embassy in %{country_name}
+        body: |
+          +[contact_list]
