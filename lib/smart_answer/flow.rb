@@ -20,6 +20,14 @@ module SmartAnswer
       self.need_id = need_id
     end
 
+    def preview
+      @preview = true
+    end
+
+    def preview?
+      !!@preview
+    end
+
     def status(s=nil)
       if s
         raise Flow::InvalidStatus unless [:published,:draft].include? s

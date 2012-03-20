@@ -87,6 +87,20 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal 1337, s.need_id
   end
 
+  test "should not be preview" do
+    s = SmartAnswer::Flow.new {}
+
+    refute s.preview?
+  end
+
+  test "should be preview is specified" do
+    s = SmartAnswer::Flow.new do
+      preview
+    end
+
+    assert s.preview?
+  end
+
   test "should have a section slug" do
     s = SmartAnswer::Flow.new do
       section_slug "family"
