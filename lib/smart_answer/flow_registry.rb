@@ -34,7 +34,7 @@ module SmartAnswer
 
     def available_flows
       Dir[@load_path.join('*.rb')].map do |path|
-        File.basename(path).gsub(/\.rb$/, '')
+        File.basename(path, ".rb")
       end
     end
 
