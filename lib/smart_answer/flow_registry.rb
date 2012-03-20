@@ -2,18 +2,30 @@ module SmartAnswer
   class FlowRegistry
     class NotFound < StandardError; end
 
-    def initialize(load_path = nil)
+    def initialize(load_path=nil, options={})
       @load_path = Pathname.new(load_path || Rails.root.join('lib', 'flows'))
+      @options = options
       preload_flows! if Rails.env.production?
     end
 
     def find(name)
       raise NotFound unless available?(name)
+      find_by_name(name) or raise NotFound
+    end
+
+    def flows
+      available_flows.map { |s| find_by_name(s) }
+    end
+
+  private
+    def find_by_name(name)
       absolute_path = @load_path.join("#{name}.rb").to_s
-      preloaded(name) || Flow.new do
+      flow = preloaded(name) || Flow.new {
         eval(File.read(absolute_path), binding, absolute_path)
         name(name)
-      end
+      }
+      return nil if flow && flow.preview? && !@options[:preview]
+      flow
     end
 
     def available?(name)
@@ -26,14 +38,10 @@ module SmartAnswer
       end
     end
 
-    def flows
-      available_flows.map { |s| find(s) }
-    end
-
     def preload_flows!
       @preloaded = {}
       available_flows.each do |flow_name|
-        @preloaded[flow_name] = find(flow_name)
+        @preloaded[flow_name] = find_by_name(flow_name)
       end
     end
 
