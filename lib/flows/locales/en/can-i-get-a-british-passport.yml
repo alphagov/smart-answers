@@ -1,0 +1,37 @@
+en-GB:
+  flow:
+    can-i-get-a-british-passport:
+      title: "Can I get a British passport?"
+      description: "Find out whether you're eligible to apply for a British passport."
+      body: |
+        Use this tool to see if you can apply for a British passport.
+
+        You need British citizenship or British nationality to apply. Citizenship is different from nationality.
+      options:
+        "no": "No"
+        "yes": "Yes"
+
+      is_one_of_these_true?:
+        title: "Is one of the following true?"
+        options:
+          born_in_uk: "I was born in the UK"
+          born_in_british_colony: "I was born in a British colony"
+          naturalised: "I've been naturalised"
+          uk_citizen_or_citizen_of_british_colony: "I'm registered as a UK citizen or a citizen of a British colony"
+          father_is_eligible: "My father is one of the above"
+          none_of_the_above: "None of the above"
+
+      date_of_birth?:
+        title: "What's your date of birth?"
+
+      do_you_have?:
+        title: "Do you have:"
+        options:
+          british_citizenship: "British citizenship"
+          british_nationality: "British nationality"
+          british_partner: "A British partner"
+          british_parent: "A British parent"
+
+      you_qualify?:
+        title: "You qualify for a British passport"
+        body: "You can get a British passport by contacting the IPS"

@@ -1,0 +1,11 @@
+<fieldset>
+  <label for="response_day">Day
+    <%= select_day default_for_date(prefill_value_for(question, :day)) || question.default, prefix: 'response', :prompt => '' %>
+  </label>
+  <label for="response_month">Month
+    <%= select_month default_for_date(prefill_value_for(question, :month)) || question.default, prefix: 'response', prompt: '' %>
+  </label>
+  <label for="response_year">Year
+    <%= select_year default_for_date(prefill_value_for(question, :year)) || question.default, prefix: 'response', prompt: '', :start_year => Time.now.year, :end_year => Time.now.year-125 %>
+w  </label>
+</fieldset>
