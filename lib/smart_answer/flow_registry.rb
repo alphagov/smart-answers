@@ -4,7 +4,7 @@ module SmartAnswer
 
     def initialize(options={})
       @load_path = Pathname.new(options[:load_path] || Rails.root.join('lib', 'flows'))
-      @show_preview = options[:show_preview]
+      @show_drafts = options[:show_drafts]
       preload_flows! if Rails.env.production?
     end
 
@@ -24,7 +24,7 @@ module SmartAnswer
         eval(File.read(absolute_path), binding, absolute_path)
         name(name)
       }
-      return nil if flow && flow.preview? && !@show_preview
+      return nil if flow && flow.draft? && !@show_drafts
       flow
     end
 

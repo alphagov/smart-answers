@@ -1,1 +1,1 @@
-FLOW_REGISTRY_OPTIONS = {show_preview: true}
+FLOW_REGISTRY_OPTIONS = {show_drafts: true}

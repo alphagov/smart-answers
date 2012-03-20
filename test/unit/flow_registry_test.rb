@@ -22,14 +22,14 @@ module SmartAnswer
       end
     end
 
-    test "should raise NotFound error for preview flow if preview is not specified" do
+    test "should raise NotFound error for draft flow if show_drafts is not specified" do
       assert_raises FlowRegistry::NotFound do
-        registry(show_preview: false).find("preview_flow_sample")
+        registry(show_drafts: false).find("draft_flow_sample")
       end
     end
 
-    test "should find preview flow if preview is specified" do
-      assert registry(show_preview: true).find("preview_flow_sample")
+    test "should find draft flow if show_drafts is specified" do
+      assert registry(show_drafts: true).find("draft_flow_sample")
     end
 
     test "Should enumerate all flows" do

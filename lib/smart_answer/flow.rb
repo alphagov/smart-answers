@@ -20,12 +20,8 @@ module SmartAnswer
       self.need_id = need_id
     end
 
-    def preview
-      @preview = true
-    end
-
-    def preview?
-      !!@preview
+    def draft?
+      status == :draft
     end
 
     def status(s=nil)

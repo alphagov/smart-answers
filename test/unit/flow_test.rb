@@ -87,18 +87,18 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal 1337, s.need_id
   end
 
-  test "should not be preview" do
+  test "should not be draft" do
     s = SmartAnswer::Flow.new {}
 
-    refute s.preview?
+    refute s.draft?
   end
 
-  test "should be preview is specified" do
+  test "should be draft if status is draft" do
     s = SmartAnswer::Flow.new do
-      preview
+      status :draft
     end
 
-    assert s.preview?
+    assert s.draft?
   end
 
   test "should have a section slug" do
