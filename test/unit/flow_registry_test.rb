@@ -5,7 +5,7 @@ require_relative '../test_helper'
 module SmartAnswer
   class FlowRegistryTest < ActiveSupport::TestCase
     def registry(options={})
-      FlowRegistry.new(File.dirname(__FILE__) + '/../fixtures/', options)
+      FlowRegistry.new(options.merge(load_path: File.dirname(__FILE__) + '/../fixtures/'))
     end
 
     test "Can load a flow from a file" do
@@ -24,12 +24,12 @@ module SmartAnswer
 
     test "should raise NotFound error for preview flow if preview is not specified" do
       assert_raises FlowRegistry::NotFound do
-        registry(preview: false).find("preview_flow_sample")
+        registry(show_preview: false).find("preview_flow_sample")
       end
     end
 
     test "should find preview flow if preview is specified" do
-      assert registry(preview: true).find("preview_flow_sample")
+      assert registry(show_preview: true).find("preview_flow_sample")
     end
 
     test "Should enumerate all flows" do

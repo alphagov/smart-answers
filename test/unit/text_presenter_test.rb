@@ -10,7 +10,7 @@ module SmartAnswer
         File.expand_path('../../fixtures/text_presenter_test/example.yml', __FILE__)
       I18n.config.load_path.unshift example_translation_file
       I18n.reload!
-      registry = FlowRegistry.new(File.expand_path('../../fixtures/', __FILE__))
+      registry = FlowRegistry.new(load_path: File.expand_path('../../fixtures/', __FILE__))
       flow = registry.flows.first
       @presenter = TextPresenter.new(flow)
     end

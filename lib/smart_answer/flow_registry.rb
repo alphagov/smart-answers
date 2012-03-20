@@ -2,9 +2,9 @@ module SmartAnswer
   class FlowRegistry
     class NotFound < StandardError; end
 
-    def initialize(load_path=nil, options={})
-      @load_path = Pathname.new(load_path || Rails.root.join('lib', 'flows'))
-      @options = options
+    def initialize(options={})
+      @load_path = Pathname.new(options[:load_path] || Rails.root.join('lib', 'flows'))
+      @show_preview = options[:show_preview]
       preload_flows! if Rails.env.production?
     end
 
@@ -24,7 +24,7 @@ module SmartAnswer
         eval(File.read(absolute_path), binding, absolute_path)
         name(name)
       }
-      return nil if flow && flow.preview? && !@options[:preview]
+      return nil if flow && flow.preview? && !@show_preview
       flow
     end
 
