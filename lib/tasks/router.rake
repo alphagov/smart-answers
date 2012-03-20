@@ -17,7 +17,7 @@ namespace :router do
   end
 
   task :register_routes => [ :router_environment, :environment ] do
-    SmartAnswer::FlowRegistry.new.flows.map do |flow|
+    SmartAnswer::FlowRegistry.new(FLOW_REGISTRY_OPTIONS).flows.map do |flow|
       next unless flow.status == :published
       path = "/#{flow.name}"
       @logger.info "Registering #{path}"
@@ -25,8 +25,8 @@ namespace :router do
         incoming_path: path
       @router.routes.update application_id: "smartanswers", route_type: :prefix,
         incoming_path: "#{path}.json"
-    end                                                                                                                   
-    
+    end
+
     @router.routes.update application_id: "smartanswers", route_type: :full, incoming_path: "/calculate-your-holiday-entitlement"
     @router.routes.update application_id: "smartanswers", route_type: :full, incoming_path: "/calculate-your-holiday-entitlement.json"
   end

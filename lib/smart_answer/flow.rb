@@ -20,6 +20,10 @@ module SmartAnswer
       self.need_id = need_id
     end
 
+    def draft?
+      status == :draft
+    end
+
     def status(s=nil)
       if s
         raise Flow::InvalidStatus unless [:published,:draft].include? s

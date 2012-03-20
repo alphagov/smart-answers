@@ -1,0 +1,87 @@
+en-GB:
+  flow:
+    what-can-i-drive-by-age:
+      meta:
+        description: "What can you drive?"
+      title: |
+        What vehicles can I drive or ride at my age?
+      section_name: Driving
+      body: |
+        This tool tells you if you are old enough or have the right kind of
+        driving licence to drive different kinds of vehicle.
+      options:
+        armed-forces: "I am a member of the Armed Forces"
+        not-armed-forces: "I am not a member of the Armed Forces"
+      how_old_are_you?:
+        title: How old are you?
+        options:
+          under-16: "Under 16"
+          16:       "16"
+          17:       "17"
+          18:       "18"
+          19-20:    "19 or 20"
+          21:       "21"
+          22-plus:  "22 or older"
+      age_16_are_you_getting_dla?:
+        title: "Are you getting Disability Living Allowance (DLA)?"
+        options:
+          dla:    "I get DLA"
+          no-dla: "I do not get DLA"
+      age_17_are_you_in_the_armed_forces?:
+        title: Are you in the armed forces?
+      age_18_are_you_in_the_armed_forces?:
+        title: Are you in the armed forces?
+      age_19_20_are_you_in_the_armed_forces?:
+        title: Are you in the armed forces?
+      age_under_16:
+        title: "Under 16 years old"
+        body: |
+          You can’t drive anything
+      age_16:
+        title: "16 years old"
+        body: |
+          You can drive a mower [K], moped [P], or small tractor [F].
+      age_16_with_dla:
+        title: "16 years old (getting DLA)"
+        body: |
+          You can drive a car [B], mower [K], small tractor [F], moped [P], or
+          quad bike or trike [B1].
+      age_17:
+        title: "17 years old"
+        body: |
+          You can drive a car [B], mower [K], tractor [F], moped [P],
+          quad bike or trike [B1], motorbike [A, A1]\*, or other [G, H]\*.
+
+          \* Subject to restrictions
+      age_18:
+        title: "18 years old"
+        body: |
+          You can drive a car [B], mower [K], tractor [F], moped [P], quad bike
+          or trike [B1], motorbike [A, A1]*, medium vehicle [C1]*, large
+          vehicle [C]*, or other [G, H]\*.
+
+          \* Subject to restrictions
+      age_19_20:
+        title: "19 or 20 years old"
+      age_17_20_armed_forces:
+        title: "17 to 20 years old (in the armed forces)"
+        body: |
+          You can drive a car [B], mower [K], tractor [F], moped [P], quad bike
+          or trike [B1], motorbike [A, A1]\*, medium vehicle [C1],
+          large vehicle [C], minibus [D1], bus [D], or other [G, H]\*.
+
+          \* Subject to restrictions
+      age_21:
+        title: "21 years old"
+        body: |
+          You can drive a car [B], mower [K], tractor [F], moped [P], quad bike
+          or trike [B1], motorbike [A, A1]\*, medium vehicle [C1],
+          large vehicle [C], minibus [D1], bus [D], or other [G, H].
+
+          \* Subject to restrictions
+      age_22_and_over:
+        title: "22 years old or older"
+        body: |
+          You can drive a car [B], mower [K], tractor [F], moped [P], quad bike
+          or trike [B1], motorbike [A, A1], medium vehicle [C1],
+          large vehicle [C], minibus [D1], bus [D], or other [G, H].
