@@ -63,14 +63,21 @@ end
 # Note this is only reached for 'employed' people who
 # have worked 26 weeks for the same employer
 salary_question :how_much_are_you_paid? do
+  weekly_salary_90 = nil
   next_node do |salary|
-    if salary.per_week >= 102
-      :you_qualify_for_statutory_maternity_pay
-    elsif salary.per_week >= 30
-      :you_qualify_for_maternity_allowance
+    if salary.per_week >= 107
+      weekly_salary_90 = Money.new(salary.per_week * 0.9)
+      if weekly_salary_90 < 135.35
+        :you_qualify_for_statutory_maternity_pay_below_threshold
+      else
+        :you_qualify_for_statutory_maternity_pay_above_threshold
+      end
     else
       :nothing_maybe_benefits
     end
+  end
+  calculate :eligible_amount do
+    weekly_salary_90
   end
 end
 
@@ -79,12 +86,7 @@ multiple_choice :will_you_work_at_least_26_weeks_during_test_period? do
   option :no
   next_node do |input|
     if input == 'yes'
-      if weekly_salary
-        raise "Problem" unless weekly_salary >= 30
-        :you_qualify_for_maternity_allowance
-      else
-        :how_much_do_you_earn?
-      end
+      :how_much_do_you_earn?
     else
       :nothing_maybe_benefits
     end
@@ -92,16 +94,27 @@ multiple_choice :will_you_work_at_least_26_weeks_during_test_period? do
 end
 
 salary_question :how_much_do_you_earn? do
+  weekly_salary_90 = nil
   next_node do |earnings|
     if earnings.per_week >= 30
-      :you_qualify_for_maternity_allowance
+      weekly_salary_90 = Money.new(earnings.per_week * 0.9)
+      if weekly_salary_90 < 135.35
+        :you_qualify_for_maternity_allowance_below_threshold
+      else
+        :you_qualify_for_maternity_allowance_above_threshold
+      end
     else
       :nothing_maybe_benefits
     end
   end
+  calculate :eligible_amount do
+    weekly_salary_90
+  end
 end
 
 outcome :nothing_maybe_benefits
-outcome :you_qualify_for_statutory_maternity_pay
-outcome :you_qualify_for_maternity_allowance
+outcome :you_qualify_for_statutory_maternity_pay_above_threshold
+outcome :you_qualify_for_statutory_maternity_pay_below_threshold
+outcome :you_qualify_for_maternity_allowance_above_threshold
+outcome :you_qualify_for_maternity_allowance_below_threshold
 outcome :maybe_maternity_allowance

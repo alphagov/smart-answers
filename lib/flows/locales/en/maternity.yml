@@ -70,7 +70,7 @@ en-GB:
             * [Maternity Leave](/maternity-leave "Maternity Leave")
 
 
-      you_qualify_for_statutory_maternity_pay:
+      you_qualify_for_statutory_maternity_pay_below_threshold:
         title: You qualify for Statutory Maternity Pay (SMP) from your employer.
         body: |
 
@@ -78,8 +78,7 @@ en-GB:
 
           You could get:
 
-          * 6 weeks at 90% of your average weekly earnings
-          * 33 weeks at &pound;128.73 (or 90% of your average weekly earnings, **whichever is lower**)
+          * 39 weeks at %{eligible_amount}
 
           %This result is an estimate based on your answers.%
 
@@ -89,12 +88,48 @@ en-GB:
           * read the guide to [Maternity Leave](/maternity-leave "Maternity Leave")
           * plan your Maternity Leave and Maternity Pay period using the [Maternity Planner](/maternity "Maternity Planner")
 
-      you_qualify_for_maternity_allowance:
+      you_qualify_for_statutory_maternity_pay_above_threshold:
+        title: You qualify for Statutory Maternity Pay (SMP) from your employer.
+        body: |
+
+          ^You must give your employer at least 28 days' notice to claim Statutory Maternity Pay.^
+
+          You could get:
+
+          * 6 weeks at %{eligible_amount}
+          * 33 weeks at &pound;135.35
+
+          %This result is an estimate based on your answers.%
+
+        next_steps: |
+
+          * read the guide to [Statutory Maternity Pay](/statutory-maternity-pay "Statutory Maternity Pay")
+          * read the guide to [Maternity Leave](/maternity-leave "Maternity Leave")
+          * plan your Maternity Leave and Maternity Pay period using the [Maternity Planner](/maternity "Maternity Planner")
+
+      you_qualify_for_maternity_allowance_below_threshold:
         title: You qualify for Maternity Allowance.
         body: |
           Maternity Allowance is a benefit paid by Jobcentre Plus.
 
-          You could get &pound;128.73/week or 90% of your average earnings, **whichever is lower**.
+          You could get %{eligible_amount}/week.
+
+          You can get Maternity Allowance for up to 39 weeks.
+
+          %This result is an estimate based on your answers.%
+
+        next_steps: |
+
+          * read the guide to [Maternity Allowance](/maternity-allowance "Maternity Allowance")
+          * read the guide to [Maternity Leave](/maternity-leave "Maternity Leave")
+          * plan your Maternity Leave and Maternity Pay with the [Maternity Planner](/maternity "Maternity Planner")
+
+      you_qualify_for_maternity_allowance_above_threshold:
+        title: You qualify for Maternity Allowance.
+        body: |
+          Maternity Allowance is a benefit paid by Jobcentre Plus.
+
+          You could get &pound;135.35/week.
 
           You can get Maternity Allowance for up to 39 weeks.
 
