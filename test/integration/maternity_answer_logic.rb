@@ -145,8 +145,8 @@ module MaternityAnswerLogic
               expect_question "How much are you paid?"
             end
 
-            context "paid £102 per week" do
-              setup { respond_with amount: "102", period: "week" }
+            context "paid £107 per week" do
+              setup { respond_with amount: "107", period: "week" }
               should_be_entitled_to :statutory_maternity_pay
             end
 
@@ -223,8 +223,8 @@ module MaternityAnswerLogic
             expect_question "How much are you paid?"
           end
 
-          context "paid £102 per week" do
-            setup { respond_with amount: "102", period: "week" }
+          context "paid £107 per week" do
+            setup { respond_with amount: "107", period: "week" }
             should_be_entitled_to :statutory_maternity_pay
           end
 
