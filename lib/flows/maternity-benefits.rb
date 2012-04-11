@@ -65,13 +65,15 @@ end
 salary_question :how_much_are_you_paid? do
   weekly_salary_90 = nil
   next_node do |salary|
+    weekly_salary_90 = Money.new(salary.per_week * 0.9)
     if salary.per_week >= 107
-      weekly_salary_90 = Money.new(salary.per_week * 0.9)
       if weekly_salary_90 < 135.35
         :you_qualify_for_statutory_maternity_pay_below_threshold
       else
         :you_qualify_for_statutory_maternity_pay_above_threshold
       end
+    elsif salary.per_week >= 30
+      :you_qualify_for_maternity_allowance_below_threshold
     else
       :nothing_maybe_benefits
     end
