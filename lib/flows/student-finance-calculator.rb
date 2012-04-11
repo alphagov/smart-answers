@@ -15,7 +15,7 @@ money_question :how_much_is_your_tuition_fee_per_year? do
     if course_type == "full-time"
       :where_will_you_live_while_studying?
     else
-      :do_you_want_to_check_for_additional_grants_and_allowances?
+      :part_time_do_you_want_to_check_for_additional_grants_and_allowances?
     end
   end
 
@@ -41,7 +41,7 @@ multiple_choice :where_will_you_live_while_studying? do
 
   calculate :maintenance_loan_amount do
     case responses.last
-    when "at-home" then Money.new("4473")
+    when "at-home" then Money.new("4375")
     when "away-outside-london" then Money.new("5500")
     when "away-in-london" then Money.new("7675")
     else
@@ -62,7 +62,13 @@ multiple_choice :whats_your_household_income? do
   option :'35001-40000'
   option :'40001-42600'
   option :'more-than-42600'
-  next_node :do_you_want_to_check_for_additional_grants_and_allowances?
+  next_node do |response|
+    if course_type == "full-time"
+      :full_time_do_you_want_to_check_for_additional_grants_and_allowances?
+    else
+      :part_time_do_you_want_to_check_for_additional_grants_and_allowances?
+    end
+  end
   save_input_as :whats_your_household_income?
 
   calculate :maintenance_grant_amount do
@@ -85,7 +91,7 @@ multiple_choice :whats_your_household_income? do
   end
 end
 
-multiple_choice :do_you_want_to_check_for_additional_grants_and_allowances? do
+multiple_choice :full_time_do_you_want_to_check_for_additional_grants_and_allowances? do
   option :yes
   option :no
 
@@ -93,7 +99,7 @@ multiple_choice :do_you_want_to_check_for_additional_grants_and_allowances? do
 
   next_node do |response|
     if response == "yes"
-      (course_type == "full-time") ? :do_you_have_any_children_under_17? : :do_you_have_a_disability_or_health_condition?
+      :do_you_have_any_children_under_17?
     else
       :done
     end
@@ -108,17 +114,37 @@ multiple_choice :do_you_want_to_check_for_additional_grants_and_allowances? do
   end
 end
 
+multiple_choice :part_time_do_you_want_to_check_for_additional_grants_and_allowances? do
+  option :yes
+  option :no
+
+  save_input_as :check_for_additional_grants_and_allowances
+
+  next_node do |response|
+    if response == "yes"
+      :do_you_have_a_disability_or_health_condition?
+    else
+      :done
+    end
+  end
+
+  calculate :additional_benefits do
+    if responses.last == "yes"
+      PhraseList.new(:body)
+    else
+      PhraseList.new
+    end
+  end
+end
+
+
 multiple_choice :do_you_have_any_children_under_17? do
   option :yes
   option :no
   next_node :does_another_adult_depend_on_you_financially?
 
   calculate :additional_benefits do
-    additional_benefits = PhraseList.new(:body)
-    if responses.last == "yes"
-      additional_benefits +:dependent_children
-    end
-    additional_benefits
+    responses.last == "yes" ? additional_benefits + :dependent_children : additional_benefits
   end
 end
 
@@ -159,7 +185,6 @@ multiple_choice :are_you_studying_one_of_these_courses? do
   option :'none'
 
   calculate :additional_benefits do
-    puts additional_benefits.inspect
     case responses.last
     when "teacher-training"
       additional_benefits + :teacher_training
