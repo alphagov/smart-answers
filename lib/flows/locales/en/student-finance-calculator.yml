@@ -9,6 +9,7 @@ en-GB:
         dependent_children: |
           - up to £148/week (1 child) or up to £255/week (2 or more children) of [Childcare Grant](/childcare-grant "Childcare Grant")
           - £50 to £1,508 of [Parents Learning Allowance](/parents-learning-allowance "Parents Learning Allowance")
+          - [Child Tax Credit](/child-tax-credit "Child Tax Credit")
         dependent_adult: |
           - up to £2,642 of [Adult Dependant's Grant](/adult-dependants-grant "Adult Dedependants Grant")
         disability: |
@@ -22,11 +23,11 @@ en-GB:
         social_work: |
           - [Social Work Bursary](/social-work-bursaries "Social Work Bursary") (NHS funding towards your fees and living costs)
         tuition_fee_loan: |
-          - %{tuition_fee_amount} tuition fee loan
+          - %{tuition_fee_amount} Tuition Fee Loan
         maintenance_loan: |
-          - up to %{maintenance_loan_amount} maintenance loan (for living costs)
+          - up to %{maintenance_loan_amount} Maintenance Loan (for living costs)
         maintenance_grant: |
-          - up to %{maintenance_grant_amount} maintenance grant (for living costs)
+          - up to %{maintenance_grant_amount} Maintenance Grant (for living costs)
       title:
         Student finance calculator 2012-13
       description: Estimate what loans and grants you could get and check additional grants and allowances for higher education.
@@ -68,13 +69,21 @@ en-GB:
           35001-40000: £35,001 - £40,000
           40001-42600: £40,001 - £42,600
           more-than-42600: More than £42,600
-      do_you_want_to_check_for_additional_grants_and_allowances?:
+      part_time_do_you_want_to_check_for_additional_grants_and_allowances?:
+        title: Do you want to check for additional grants and allowances?
         body: |
           Choose 'yes' if any of the following are true:
 
-          * you're doing a teacher training, medical or social work course
-          * you have children or dependent adults
-          * you have a disability, learning difficulty or health condition
+          - you're doing a teacher training, medical or social work course
+          - you have a disability, learning difficulty or health condition
+      full_time_do_you_want_to_check_for_additional_grants_and_allowances?:
+        title: Do you want to check for additional grants and allowances?
+        body: |
+          Choose 'yes' if any of the following are true:
+
+          - you're doing a teacher training, medical or social work course
+          - you have children or dependent adults
+          - you have a disability, learning difficulty or health condition
       do_you_have_a_disability_or_health_condition?:
         hint: This includes a mental health condition or learning difficulty eg dyslexia.
       are_you_in_financial_hardship?:

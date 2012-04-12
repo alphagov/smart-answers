@@ -29,9 +29,17 @@ class MaternityAnswerJavascriptTest < JavascriptIntegrationTest
 
   def self.should_not_reload_after(description, &block)
     should "not reload after #{description}" do
+      history_support = page.evaluate_script('history && history.pushState && history.replaceState')
       insert_header_content('<meta name="lost_on_reload" value="true" />')
+
       instance_eval &block
-      assert page.has_css?('head meta[name=lost_on_reload]'), "Shouldn't have reloaded page"
+
+      if history_support
+        assert page.has_css?('head meta[name=lost_on_reload]'), "Shouldn't have reloaded page"
+      else
+        # The test browser doesn't support the history API
+        puts 'No history API support: not checking for page reload'
+      end
     end
   end
 
