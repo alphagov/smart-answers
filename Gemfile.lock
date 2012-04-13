@@ -232,7 +232,7 @@ DEPENDENCIES
   sass-rails (~> 3.1.0)
   selenium-webdriver
   shoulda (~> 2.11.3)
-  slimmer (~> 1.1.38)
+  slimmer (~> 1.1.39)
   therubyracer (~> 0.9.4)
   uglifier
   webmock
