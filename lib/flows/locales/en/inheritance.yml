@@ -10,38 +10,35 @@ en-GB:
         "yes": "Yes"
       body: |
         You can use this tool to help you find out who is entitled to a share of someone’s property, possessions and money if they die without making a will. It applies to deaths after 1 February 2009.
-      do_you_have_a_living_spouse_or_civil_partner?:
+      is_there_a_living_spouse_or_civil_partner?:
         title: Is there a living husband, wife or civil partner?
         hint: A surviving partner who wasn't married or in a civil partnership with the deceased has no automatic right to inherit.
-      is_your_estate_worth_more_than_250000?:
+      is_the_estate_worth_more_than_250000?:
         title: Is the estate likely to be worth more than £250,000?
-      are_either_of_your_parents_living?:
+      are_there_living_parents?:
         title: Are there any living parents?
-      do_you_have_any_children?:
-        title: Are there any living children or grandchildren?
+      are_there_living_children?:
+        title: Are there any living children, grandchildren or other direct descendants (eg great-grandchildren)?
         hint: Children include legally-adopted sons or daughters, but not step-children.
-      do_you_have_children?:
-        title: Are there any living children or grandchildren?
-        hint: Children include legally-adopted sons or daughters, but not step-children.
-      do_you_have_grandparents_living?:
+      are_there_any_brothers_or_sisters_living?:
+        title: Are there any living whole-blood brothers or sisters (or nephews/nieces, great-nephews/nieces, etc)?
+        hint: Whole-blood means the brothers or sisters share both parents.
+      are_there_half_blood_brothers_or_sisters?:
+        title: Are there any living half-blood brothers or sisters (or half-nephews/nieces, half-great-nephews/nieces, etc)?
+        hint: Half-blood means the brothers or sisters share one parent.
+      are_there_grandparents_living?:
         title: Are there any living grandparents?
-      do_you_have_any_parents_or_brothers_or_sisters_living?:
-        title: Are there any living brothers, sisters or parents?
-        hint: Brothers and sisters includes those with the same parents (whole blood) and those with 1 parent in common (half blood).
-
-      do_you_have_brothers_or_sisters?:
-        title: Are there any living brothers or sisters?
-        hint: Brothers and sisters includes those with the same parents (whole-blood) and those with 1 parent in common (half-blood).
-      do_you_have_any_living_aunts_or_uncles?:
-        title: Are there any living aunts or uncles?
-      do_you_have_any_living_half_aunts_or_uncles?:
-        title: Are there any living half-aunts or half-uncles?
+      are_there_any_living_aunts_or_uncles?:
+        title: Are there any living whole-blood aunts, uncles (or cousins, second-cousins, etc)?
+      are_there_any_living_half_aunts_or_uncles?:
+        title: Are there any living half-aunts, half-uncles (or half-cousins, half-second cousins, etc)?
         hint: Half-aunts and half-uncles are a brother or sister who shares only one parent with the deceased.
 
       shared_equally_between_children:
-        title: The estate is shared equally between the children.
+        title: The estate is shared equally between the children or their descendants.
         body: |
-
+          If one (or more) of the children has already died, their children (the grandchildren of the deceased) inherit in their parent's place.
+          
           They may have to pay Inheritance Tax.
         next_steps: |
           Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance") to:
@@ -53,22 +50,18 @@ en-GB:
           Read the guide to [Inheritance Tax](/inheritance-tax "Inheritance Tax").
 
       partner_receives_first_450000_remainder_to_parents_or_siblings:
-        title: The husband, wife or civil partner keeps all the assets (including property) up to £450,000.
+        title: The husband, wife or civil partner keeps all the assets (including property) up to £450,000. They also keep all the person's personal possessions, whatever their value.
         body: |
           They also get half of the amount left over.
 
-          They also keep **all** the person's personal possessions whatever their value.
-
           The remainder goes to the parent(s).
-
-          If both parents are dead, it is divided equally between brothers or sisters.
 
           They may have to pay Inheritance Tax.
 
       next_steps: |
         Read the guide to [Inheritance Tax](/inheritance-tax "Inheritance Tax").
 
-      your_partner_receives_all_of_your_estate:
+      partner_receives_all_of_the_estate:
         title: The husband, wife or civil partner gets all of the estate.
         body: |
 
@@ -92,7 +85,7 @@ en-GB:
           The remainder of the estate is divided in half:
 
           * one half to the husband, wife or civil partner
-          * the other half shared between their children*
+          * the other half shared between their children (or their descendants)*
 
           The husband, wife or civil partner gets interest only on their half during their lifetime. When they die, the capital is then shared between their children.
 
@@ -104,9 +97,7 @@ en-GB:
         title: The estate is shared equally between the whole-blood brothers and sisters.
         body: |
 
-          If there're no whole-blood brothers or sisters surviving, the estate is shared between their children.
-
-          If there are no children of whole-blood children, but there are half-blood children, they share the estate equally.
+          If one (or more) whole-blooded brother or sister has already died, their children (nieces and nephews of the deceased) inherit in their place.
         next_steps: |
           Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance") to:
 
@@ -116,9 +107,41 @@ en-GB:
 
           Read the guide to [Inheritance Tax](/inheritance-tax "Inheritance Tax").
 
+      shared_equally_between_half_blood_brothers_sisters:
+        title: The estate is shared between the half-blood brothers and sisters or their descendants.
+        body: |
+
+          If one (or more) half-blood brother or sister has already died, their children (nieces and nephews of the deceased) inherit in their place.
+        next_steps: |
+          Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance") to:
+
+          * see if you can apply for probate (the legal right to deal with the person’s estate)
+
+          * apply for a ‘Grant of letters of administration’ making you the ‘administrator’ of the estate
+
+          Read the guide to [Inheritance Tax](/inheritance-tax "Inheritance Tax").
+
+      partner_receives_first_450000_remainder_shared_equally_between_brothers_or_sisters:
+        title: The husband, wife or civil partner keeps all the assets (including property) up to £450,000. They also keep all the person's possessions, whatever their value.
+        body: |
+
+          They also get half of the amount left over.
+
+          The remainder is divided between any brothers or sisters.
+
+          If any of the brothers or sisters are dead, their children (the deceased's nieces and nephews) inherit.
+        next_steps: |
+          TODO: Confirm what these should be!
+          Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance") to:
+
+          * see if you can apply for probate (the legal right to deal with the person’s estate)
+
+          * apply for a ‘Grant of letters of administration’ making you the ‘administrator’ of the estate
+
+          Read the guide to [Inheritance Tax](/inheritance-tax "Inheritance Tax").
 
       shared_equally_between_grandparents:
-         title: The estate is shared equally between the grandparents.
+         title: The estate is shared equally between the grandparent(s).
          body: |
 
            They may have to pay Inheritance Tax.
@@ -129,17 +152,11 @@ en-GB:
 
            * apply for a ‘Grant of letters of administration’ making you the ‘administrator’ of the estate
       shared_equally_between_aunts_or_uncles:
-        title: The estate is shared equally between the aunts and uncles.
+        title: The estate is shared equally between the whole-blood aunts, uncles or their descendants.
         hint: Only blood-related aunts and uncles can inherit.
-      shared_equally_between_children_of_aunts_or_uncles:
-        title: The estate is shared equally between the children of the aunts and uncles.
-        hint: The children of aunts and uncles can only inherit if the aunt or uncle died before the estate owner died.
       shared_equally_between_half_aunts_or_uncles:
-        title: The estate is shared equally between the half-aunts and half-uncles.
+        title: The estate is shared equally between the half-aunts, half-uncles, or their descendants.
         hint: Half-aunts and half-uncles are a brother or sister who shares only one parent with the deceased.
-      shared_equally_between_children_of_half_aunts_or_uncles:
-        title: The estate is shared equally between the children of the half-aunts and half-uncles.
-        hint: The children can only inherit if the half-aunts or half-uncles died before the estate owner died.
 
       everything_goes_to_crown:
         title: The whole estate goes to the Crown.
