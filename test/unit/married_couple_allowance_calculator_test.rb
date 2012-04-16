@@ -6,27 +6,19 @@ module SmartAnswer
     test  "maximum allowance when low annual income" do
       calculator = MarriedCouplesAllowanceCalculator.new()
       result = calculator.calculate_allowance(400)
-      assert_equal Money.new("729.5"), result
+      assert_equal Money.new("770.5"), result
     end
 
     test  "minimum allowance when high annual income" do
       calculator = MarriedCouplesAllowanceCalculator.new()
       result = calculator.calculate_allowance(50000)
-      assert_equal Money.new("280"), result
+      assert_equal Money.new("296"), result
     end
 
-    test  "maximum allowance of personal entitlement when medium but not over income limit" do
+    test  "worked example on HMRC site" do
       calculator = MarriedCouplesAllowanceCalculator.new()
-      #to do
-      result = calculator.calculate_allowance(40000)
-      assert_equal Money.new("729.5"), result
-    end
-
-
-    test  "10% of personal entitlement when medium" do
-      calculator = MarriedCouplesAllowanceCalculator.new()
-      result = calculator.calculate_allowance(30000)
-      assert_equal Money.new("691"), result
+      result = calculator.calculate_allowance(31500)
+      assert_equal Money.new("721"), result
     end
 
   end
