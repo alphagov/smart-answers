@@ -1,26 +1,28 @@
 module SmartAnswer
   class MarriedCouplesAllowanceCalculator
-    def calculate_allowance(income)
-     validate income
 
-      @maximum_mca = 7705
-      @minimum_mca = 2960
-      @income_limit = 25400
-      
-      @age_related_allowance = 10660
-      @personal_allowance = 8105
+    def initialize(current_figures = {})
+      @maximum_mca = current_figures[:maximum_mca]
+      @minimum_mca = current_figures[:minimum_mca]
+      @income_limit = current_figures[:income_limit]
+      @age_related_allowance = current_figures[:age_related_allowance]
+      @personal_allowance = current_figures[:personal_allowance]
+    end
+    
+    def calculate_allowance(income)
+      validate income
 
       mca_entitlement = @maximum_mca
        
       if income > @income_limit
-        calculated_reduction = (income - @income_limit) / 2
-        maximum_reduction_of_age_related_allowance = @age_related_allowance - @personal_allowance
-        calculated_adjustment = calculated_reduction - maximum_reduction_of_age_related_allowance
+        attempted_reduction = (income - @income_limit) / 2
+        maximum_reduction_of_allowances = @age_related_allowance - @personal_allowance
+        remaining_reduction = attempted_reduction - maximum_reduction_of_allowances
 
-        if calculated_adjustment > 0 
-          uncapped_entitlement = @maximum_mca - calculated_adjustment
-          if uncapped_entitlement > @minimum_mca
-            mca_entitlement = uncapped_entitlement
+        if remaining_reduction > 0 
+          reduced_mca = @maximum_mca - remaining_reduction
+          if reduced_mca > @minimum_mca
+            mca_entitlement = reduced_mca
           else
             mca_entitlement = @minimum_mca
           end
