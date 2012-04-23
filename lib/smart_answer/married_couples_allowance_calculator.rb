@@ -5,18 +5,21 @@ module SmartAnswer
       @maximum_mca = current_figures[:maximum_mca]
       @minimum_mca = current_figures[:minimum_mca]
       @income_limit = current_figures[:income_limit]
-      @age_related_allowance = current_figures[:age_related_allowance]
       @personal_allowance = current_figures[:personal_allowance]
     end
     
-    def calculate_allowance(income)
+    def calculate_allowance(age_related_allowance, income)
       validate income
 
       mca_entitlement = @maximum_mca
        
       if income > @income_limit
         attempted_reduction = (income - @income_limit) / 2
-        maximum_reduction_of_allowances = @age_related_allowance - @personal_allowance
+        
+        # \/ this reduction actually applies across the board for personal allowances,
+        # but extracting that was more than required for this piece of work. Please see
+        # note in AgeRelatedAllowanceChooser
+        maximum_reduction_of_allowances = age_related_allowance - @personal_allowance
         remaining_reduction = attempted_reduction - maximum_reduction_of_allowances
 
         if remaining_reduction > 0 

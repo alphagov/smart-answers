@@ -27,3 +27,7 @@ For now I don't think we ever need to interpolate in the responses of multiple c
 
 i) determining formatting from the type of the value
 ii) adding a money type
+
+The AgeRelatedAllowanceChooser has been created to return the age-related personal allowance to assist
+with the calculation of married couple's allowance. However, the reduction of allowances that takes place in MarriedCoupleAllowanceCalculator applies to other tax calculations, as your personal allowance depends on both your age and income. So the AgeRelatedAllowanceChooser could be changed to a PersonalAllowanceCalculator and extended such that it takes all those factors into account and can be used
+across the system to calculate someone's personal allowance depending on their age, income, and if required, other factors. http://www.hmrc.gov.uk/incometax/personal-allow.htm

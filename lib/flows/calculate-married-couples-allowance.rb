@@ -19,46 +19,40 @@ multiple_choice :did_you_marry_or_civil_partner_before_5_december_2005? do
 end
 
 date_question :whats_the_husbands_date_of_birth? do
+  to { Date.parse('1 Jan 1896') }
+  from { Date.today }
+
   save_input_as :birth_date 
   next_node :whats_the_husbands_income?
 end
 
 date_question :whats_the_highest_earners_date_of_birth? do
+  to { Date.parse('1 Jan 1896') }
+  from { Date.today }
+
   save_input_as :birth_date
   next_node :whats_the_highest_earners_income?
 end
+  
+personal_allowance = 8105
+over_65_allowance = 10500
+over_75_allowance = 10660
 
-
-# @personal_allowance = 8105
-# @over_65_allowance = 10500
-# @over_75_allowance = 10660
-
-# age_related_allowance_chooser = AgeRelatedAllowanceChooser.new(
-#   personal_allowance: @personal_allowance,
-#   over_65_allowance: @over_65_allowance,
-#   over_75_allowance: @over_75_allowance)    
+age_related_allowance_chooser = AgeRelatedAllowanceChooser.new(
+  personal_allowance: personal_allowance,
+  over_65_allowance: over_65_allowance,
+  over_75_allowance: over_75_allowance)
 
 calculator = MarriedCouplesAllowanceCalculator.new(
-      maximum_mca: 7705, 
-      minimum_mca: 2960, 
-      income_limit: 25400, 
-      age_related_allowance: 10660,
-      personal_allowance: 8105)
+  maximum_mca: 7705, 
+  minimum_mca: 2960, 
+  income_limit: 25400, 
+  personal_allowance: personal_allowance)
 
 money_question :whats_the_husbands_income? do
   calculate :allowance do
-
-    # age_related_allowance = age_related_allowance_chooser.get_age_related_allowance(Date.parse(birth_date))
-    # puts "at this point, age_related_allowance is #{age_related_allowance} and personal_allowance is #{@personal_allowance}"
-
-    # calculator = MarriedCouplesAllowanceCalculator.new(
-    #   maximum_mca: 7705, 
-    #   minimum_mca: 2960, 
-    #   income_limit: 25400, 
-    #   age_related_allowance: age_related_allowance,
-    #   personal_allowance: @personal_allowance)
-
-    calculator.calculate_allowance(responses.last)
+    age_related_allowance = age_related_allowance_chooser.get_age_related_allowance(Date.parse(birth_date))
+    calculator.calculate_allowance(age_related_allowance, responses.last)
   end
 
   next_node :done
@@ -66,15 +60,8 @@ end
 
 money_question :whats_the_highest_earners_income? do
   calculate :allowance do
-
-  # calculator = MarriedCouplesAllowanceCalculator.new(
-  #   maximum_mca: 7705, 
-  #   minimum_mca: 2960, 
-  #   income_limit: 25400, 
-  #   age_related_allowance: age_related_allowance_chooser.get_age_related_allowance(birth_date), 
-  #   personal_allowance: @personal_allowance)
-
-    calculator.calculate_allowance(responses.last)
+    age_related_allowance = age_related_allowance_chooser.get_age_related_allowance(Date.parse(birth_date))
+    calculator.calculate_allowance(age_related_allowance, responses.last)
   end
 
   next_node :done

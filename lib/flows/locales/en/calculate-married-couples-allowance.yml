@@ -27,6 +27,14 @@ en-GB:
         title: Did you marry before 5 December 2005?
         hint: Before this date the husband's income is used to work out your allowance, after this date it's the income of the highest earner.
         error_message: Please choose 'Yes' or 'No'
+      whats_the_husbands_date_of_birth?:
+        title: What's the husband's date of birth?
+        hint: Your date of birth is used to calculate your personal allowance
+        error_message: Please enter a valid date
+      whats_the_highest_earners_date_of_birth?:
+        title: What's the highest earner's date of birth?
+        hint: Your date of birth is used to calculate your personal allowance
+        error_message: Please enter a valid date
       whats_the_husbands_income?:
         "title": "What's the husband's yearly income?"
         hint: Add up your taxable income, eg earnings, pensions and any taxable benefits, eg Employment and Support Allowance.
