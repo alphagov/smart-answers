@@ -55,7 +55,7 @@ money_question :whats_the_husbands_income? do
     calculator.calculate_allowance(age_related_allowance, responses.last)
   end
 
-  next_node :done
+  next_node :husband_done
 end
 
 money_question :whats_the_highest_earners_income? do
@@ -64,8 +64,9 @@ money_question :whats_the_highest_earners_income? do
     calculator.calculate_allowance(age_related_allowance, responses.last)
   end
 
-  next_node :done
+  next_node :highest_earner_done
 end
 
-outcome :done
+outcome :husband_done
+outcome :highest_earner_done
 outcome :sorry

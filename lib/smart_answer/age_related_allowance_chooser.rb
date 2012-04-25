@@ -12,7 +12,9 @@ module SmartAnswer
     # reduced)
 
     # in addition, if you earn over the income limit for personal allowance
-    # your personal allwowance is reduced in the same way.
+    # your personal allwowance is reduced in the same way. In the year 2012-13
+    # this limit was £100,000 so no need to include it in this calculation
+    # as we've already gone way over where it would make a difference to your MCA.
 
     # so this class could be extended so that it returns the personal allowance
     # you are entitled to based on your age and income.
