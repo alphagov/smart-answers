@@ -27,6 +27,14 @@ en-GB:
         title: Did you marry before 5 December 2005?
         hint: Before this date the husband's income is used to work out your allowance, after this date it's the income of the highest earner.
         error_message: Please choose 'Yes' or 'No'
+      whats_the_husbands_date_of_birth?:
+        title: What's the husband's date of birth?
+        hint: We need your date of birth to work out your personal allowance (how much of your income is tax-free).
+        error_message: Please choose your date of birth using the drop downs
+      whats_the_highest_earners_date_of_birth?:
+        title: What's the highest earner's date of birth?
+        hint: We need your date of birth to work out your personal allowance (how much of your income is tax-free).
+        error_message: Please choose your date of birth using the drop downs
       whats_the_husbands_income?:
         "title": "What's the husband's yearly income?"
         hint: Add up your taxable income, eg earnings, pensions and any taxable benefits, eg Employment and Support Allowance.
@@ -39,8 +47,8 @@ en-GB:
         title: Sorry, you don't qualify for Married Couple's Allowance.
 
 
-      done:
-        title: You  qualify for Married Couple's Allowance - you'll get %{allowance} off your tax bill.
+      highest_earner_done:
+        title: The highest earner qualifies for Married Couple's Allowance - they'll get %{allowance} off their tax bill.
         body: |
 
           Contact HM Revenue & Customs to claim.
@@ -58,4 +66,25 @@ en-GB:
           Read the guide to [Married Couple's Allowance](/married-couples-allowance "Married Couple's Allowance") to:
 
           - learn more about what you'll get and how to claim
-          - find out how to transfer your Married Couple's Allowance to your partner
+          - find out how to transfer your Married Couple's Allowance to your  partner
+
+      husband_done:
+        title: The husband qualifies for Married Couple's Allowance - he'll get %{allowance} off his tax bill.
+        body: |
+
+          Contact HM Revenue & Customs to claim.
+
+
+          $C
+          **HM Revenue & Customs**
+          **Telephone** 0845 300 0627
+          **Textphone** 0845 302 1408
+          $C
+
+
+          %This result is an estimate based on your answers.%
+        next_steps: |
+          Read the guide to [Married Couple's Allowance](/married-couples-allowance "Married Couple's Allowance") to:
+
+          - learn more about what you'll get and how to claim
+          - find out how to transfer your Married Couple's Allowance to your  partner
