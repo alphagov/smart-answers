@@ -10,19 +10,27 @@ en-GB:
         This tool lets you work out if someone has a legal right to work in the UK.
       
       options:
-          yes: "Yes"
-          no: "No"
+        "no": "No"
+        "yes": "Yes"
       
-      have-uk-passport?:
-        title: "Does the employee have a UK passport?"
-      british_citizen_with_passport?:
-        title: "Is the employee a British citizen?"
-      british_citizen_without_passport?:
-        title: "Is the employee a British citizen?"
-      has_right_of_abode?:
-        title: "Does the employee have right of abode in the UK?"
+      have_uk_passport?:
+        title: Does the employee have a UK passport?
         
-      is_eligible: "You can work in the UK without special permission"
-      is_eligible_need_evidence: "Can work in the UK, but need to check the following documents..."
-      more_questions: "More questins to follow...."
+      is_british_citizen_with_passport?:
+        title: Is the employee a British citizen?
+        
+      is_british_citizen_without_passport?:
+        title: Is the employee a British citizen?
+        
+      has_right_of_abode?:
+        title: Does the employee have right of abode in the UK?
+        
+      is_eligible:
+        title: You can work in the UK without special permission
+        
+      is_eligible_need_evidence:
+        title: Can work in the UK, but need to check the following documents...
+        
+      more_questions:
+        title: More questions to follow....
       
