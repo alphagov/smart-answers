@@ -48,9 +48,17 @@ class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
   test "17 years old not in military" do
     choose_age "17"
 
-    choose_and_next "I am not a member of the Armed Forces"
+    not_in_armed_forces
 
     assert_contains_licence_codes ["B", "K", "F", "P", "B1", "A, A1"]
+  end
+
+  test "17 years old in military" do
+    choose_age "17"
+
+    in_armed_forces
+
+    assert_contains_licence_codes ["B", "K", "F", "P", "B1", "A, A1", "C1", "C", "D1", "D", "G, H"]
   end
 
 private
@@ -58,6 +66,14 @@ private
   def choose_and_next(choice)
     choose choice
     click_next_step
+  end
+
+  def in_armed_forces
+    choose_and_next "I am a member of the Armed Forces"
+  end
+
+  def not_in_armed_forces
+    choose_and_next "I am not a member of the Armed Forces"
   end
 
   def choose_age(age)
