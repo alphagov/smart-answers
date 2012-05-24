@@ -67,4 +67,53 @@ class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
     end # without a licence
   end # Car
 
+  context "Moped (Category P)" do
+    setup do
+      respond_with "Moped (category P)"
+    end
+
+    should "ask if you have a car licence" do
+      expect_question "Do you have a full car driving licence?"
+    end
+
+    context "with a car licence" do
+      setup do
+        respond_with "Yes"
+      end
+
+      should "be allowed if issued before Feb 2001" do
+        expect_question "Was your licence issued before 1 February 2001?"
+        respond_with "Yes"
+
+        assert_results_contain "Yes, your driving licence should already let you drive a moped without taking compulsory basic training (CBT)."
+      end
+
+      should "require CBT if issues after Feb 2001" do
+        expect_question "Was your licence issued before 1 February 2001?"
+        respond_with "No"
+
+        assert_results_contain "Yes, but you need to take a CBT (category P)"
+      end
+    end # With a car licence
+
+    context "without a car licence" do
+      setup do
+        respond_with "No"
+      end
+
+      should "not be allowed if under 16" do
+        expect_question "How old are you?"
+        respond_with "Under 16 years"
+
+        assert_results_contain "No, you can't start riding a moped until you're 16."
+      end
+
+      should "be allowed if 16 or over" do
+        expect_question "How old are you?"
+        respond_with "16 years and over"
+
+        assert_results_contain "Yes (category P)"
+      end
+    end # without a car licence
+  end # Moped
 end
