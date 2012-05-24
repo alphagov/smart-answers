@@ -1,6 +1,5 @@
 # encoding: UTF-8
 require_relative '../integration_test_helper'
-require_relative 'maternity_answer_logic'
 require_relative 'smart_answer_test_helper'
 
 class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
