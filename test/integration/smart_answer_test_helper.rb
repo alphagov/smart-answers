@@ -54,4 +54,10 @@ module SmartAnswerTestHelper
   def format(date)
     Date.parse(date.to_s).strftime('%e %B %Y')
   end
+
+  def assert_results_contain(string)
+    within '.results' do
+      assert page.has_content?(string)
+    end
+  end
 end

@@ -23,9 +23,7 @@ class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
       expect_question "Do you have a driving licence?"
       respond_with "Yes"
 
-      within '.results' do
-        assert page.has_content? "You may already be able to drive a car."
-      end
+      assert_results_contain "You may already be able to drive a car."
     end
 
     context "without a licence" do
@@ -37,18 +35,14 @@ class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
         expect_question "How old are you?"
         respond_with "Under 16 years"
 
-        within '.results' do
-          assert page.has_content? "No, you can't drive a car or light vehicle yet."
-        end
+        assert_results_contain "No, you can't drive a car or light vehicle yet."
       end
 
       should "be able to drive if 17 or over" do
         expect_question "How old are you?"
         respond_with "17 years and over"
 
-        within '.results' do
-          assert page.has_content? "Yes, you can apply for a provisional licence and start learning to drive a car."
-        end
+        assert_results_contain "Yes, you can apply for a provisional licence and start learning to drive a car."
       end
 
       context "if aged 16" do
@@ -60,22 +54,17 @@ class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
           expect_question "Are you getting the higher rate mobility component of Disability Living Allowance (DLA)?"
           respond_with "Yes"
 
-          within '.results' do
-            assert page.has_content? "Yes, you can start learning to drive a car."
-          end
+          assert_results_contain "Yes, you can start learning to drive a car."
         end
 
         should "not be able to drive otherwise" do
           expect_question "Are you getting the higher rate mobility component of Disability Living Allowance (DLA)?"
           respond_with "No"
 
-          within '.results' do
-            assert page.has_content? "No, you can't drive a car or light vehicle yet."
-          end
+          assert_results_contain "No, you can't drive a car or light vehicle yet."
         end
       end # aged 16
     end # without a licence
   end # Car
 
 end
-
