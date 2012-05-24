@@ -164,11 +164,15 @@ li.done:hover .undo a {
 }
 
 .current-question ul {
-  list-style: none;
-  padding: 0;
+  padding: 0; /* this is so the bullets hang */
 }
 
-.current-question ul li {
+/* this is the multiple choice selector */
+.current-question ul.options {
+  list-style: none;
+}
+
+.current-question ul.options li {
   line-height: 1.5em;
   margin: 0.5em 0;
 }
