@@ -28,7 +28,16 @@ class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
     choose "I get DLA"
     click_button "Next step"
 
-    contains_licence_codes %w(B K F P B1)
+    assert_contains_licence_codes %w(B K F P B1)
+  end
+
+  test "16 year olds without DLA" do
+    choose_age "16"
+
+    choose "I do not get DLA"
+    click_button "Next step"
+
+    assert_contains_licence_codes %w(K P F)
   end
 
 private
@@ -38,7 +47,7 @@ private
     click_button "Next step"
   end
 
-  def contains_licence_codes(codes)
+  def assert_contains_licence_codes(codes)
     for code in codes do
       assert_match "[#{code}]", page.body
     end
