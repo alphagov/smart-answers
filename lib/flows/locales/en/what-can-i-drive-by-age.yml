@@ -57,8 +57,8 @@ en-GB:
         title: "18 years old"
         body: |
           You can drive a car [B], mower [K], tractor [F], moped [P], quad bike
-          or trike [B1], motorbike [A, A1]*, medium vehicle [C1]*, large
-          vehicle [C]*, or other [G, H]\*.
+          or trike [B1], motorbike [A, A1]\*, medium vehicle [C1]\*, large
+          vehicle [C]\*, or other [G, H]\*.
 
           \* Subject to restrictions
       age_19_20:
