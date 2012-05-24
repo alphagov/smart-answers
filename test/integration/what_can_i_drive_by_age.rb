@@ -25,8 +25,7 @@ class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
   test "16 year olds with DLA" do
     choose_age "16"
 
-    choose "I get DLA"
-    click_button "Next step"
+    choose_and_next "I get DLA"
 
     assert_contains_licence_codes %w(B K F P B1)
   end
@@ -34,17 +33,20 @@ class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
   test "16 year olds without DLA" do
     choose_age "16"
 
-    choose "I do not get DLA"
-    click_button "Next step"
+    choose_and_next "I do not get DLA"
 
     assert_contains_licence_codes %w(K P F)
   end
 
 private
 
-  def choose_age(age)
-    choose age
+  def choose_and_next(choice)
+    choose choice
     click_button "Next step"
+  end
+
+  def choose_age(age)
+    choose_and_next age
   end
 
   def assert_contains_licence_codes(codes)
