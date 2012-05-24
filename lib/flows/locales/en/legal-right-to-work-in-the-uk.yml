@@ -1,0 +1,130 @@
+en-GB:
+  flow:
+    legal-right-to-work-in-the-uk:
+      meta:
+        description: "Check if someone can work in the UK"
+      title:
+        Check if someone can work in the UK
+      section_name: Work
+      body:
+        Find out if a potential employee has the right to work in the UK and what documents employers should check.
+      
+      options:
+        "no": "No"
+        "yes": "Yes"
+      
+      have_uk_passport?:
+        title: Does the person have a UK passport?
+        
+      is_british_or_wider_UK?:
+        title: Are they a British citizen or 'a citizen of the United Kingdom and Colonies'?
+        hint: |
+          Phrasing of 'a citizen of the United Kingdom and Colonies' needs to be changed and the term explained here.
+        options:
+          british_citizen: British citizen
+          wider_UK: Citizen of the 'United Kingdom and Colonies'
+                
+      has_right_of_abode?:
+        title: Is the worker's passport up to date and does it contain a Certificate of Entitlement to the Right of Abode in the UK?
+        options:
+          yes: Up to date with certificate
+          no: Not up to date or no certificate
+      
+      where_from?:
+        title: Is the potential employee...
+        hint: Do we need to list which countries belong to EU and/or EEA?
+        options:
+          british: A British citizen?
+          from_ci_iom_ri: From Channel Islands, Isle of Man, Republic of Ireland?
+          from_eu_eea_switzerland: From EU, EEA or Switzerland?
+          from_somewhere_else: From somewhere else?
+                  
+      has_eu_passport_or_id?:
+        title: Does the worker have an EU, EEA or Swiss passport or ID card?
+        
+      has_named_person?: 
+        title: Does the worker have a named person on their passport who is from the EU, EEA or Switzerland?
+        hint: A "named person" is...
+        
+      has_other_permit?:
+        title: Does the worker have a permit or visa stamp showing that they...
+        options:
+          exempt: Are exempt from immigration control
+          indefinite_leave: Have an indefinite leave to remain
+          no_time_limit: Have no time limit to their stay in the UK
+          right_of_abode: Have a Certificate of Entitlement to Right of Abode in a current, valid passport
+          none_of_the_above: None of the above
+          
+      has_nic_and_other_doc?:
+        title: Does the worker have an official NIC document AND either 1) immigration status document or 2) home office letter stating that they have a right to permanent residence?
+        
+      has_visa_or_other_doc?:
+        title: Does the worker have...
+        options:
+          work_visa: A work visa for the type of work they're applying for
+          biometric_permit: A biometric residence permit for the type of work they're applying for
+          residence_card: A residence card or document issued by the Home Office to a family member of an EU/EEA/Swiss national
+          none_of_the_above: None of the above
+      
+      is_eligible1:
+        title: The person is entitled to work in the UK
+        body: |
+          Take a copy of the (relevant parts of their passport)
+          
+          Link to checking documents quick answer
+        
+      is_eligible2:
+        title: The person is entitled to work in the UK
+        body: |
+          The worker needs to show proof of their permission to work in the UK.
+
+          They need to show **both**:
+          - an official letter or document from a government agency (eg HM Revenue & Customs, Department for Work and Pensions) showing their National Insurance number
+          - full birth, adoption certificate or naturalisation certificate
+
+          [Order a copy of a birth certificate](/order-copy-birth-death-marriage-certificate "Order a copy of a birth, death or marriage certificate")
+        
+        
+      is_eligible3:
+        title: The person is entitled to work in the UK
+        body: |
+          People from Bulgaria or Romania have permission to work in the UK but they must register with the UK Border Agency unless they're exempt.
+          
+      needs_up_to_date_docs:
+        title: The person may be eligible to work in the UK, but needs to get up to date documents first
+        body: |
+          They have a UK passport and are citizen of 'UK and Colonies', but the passport is not up to date or they do not have an up to date right to abode certificate...)
+      
+      maybe1:
+        title: The person may be eligible to work in the UK
+        body: |
+          The person must be able to demonstrate that they, or someone from their family, has one of:
+          - residence permit
+          - registration certificate
+          - document from the Home Office indicating permanent residence
+        
+          If they are unable to produce any of those documents they are not eligible to work in the UK...
+        
+      maybe2:
+        title: The person may be eligible to work in the UK
+        body: |
+          They might be eligible to work if they can provide one of the combinations of documents below. Otherwise, they are not eligible to work in the UK.
+
+          Combo 1
+          Permit or letter of approval from Home Office (or other govt dept)
+          AND
+          A certificate of sponsorship (link to quick answer about what that is)/sponsor-an-employee-to-work-in-the-uk/certificate-of-sponsorship
+          AND
+          Passport, travel doc indicating leave to remain or a Home Office letter showing the same
+
+          Combo 2
+          Certificate of application (from Home Office etc) to or for a family member of a EU/EEA/Swiss national - certificate must be less than 6 months old
+          If worker has that, can [apply for a residency card]()
+          If worker doesn't have that, can't work
+
+          Combo 3
+          National Insurance document
+          AND
+          - immigration status document indicating they can stay and are allowed to work
+          OR
+          - letter from Home Office indicating they can stay and are allowed to work
