@@ -20,7 +20,7 @@ class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
   test "16 year olds asked about DLA" do
     choose_age "16"
 
-    assert_match /I get DLA/, page.body
+    assert page.has_content? "Are you getting Disability Living Allowance (DLA)?"
   end
 
   test "16 year olds with DLA" do
@@ -28,7 +28,7 @@ class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
 
     choose_and_next "I get DLA"
 
-    assert_contains_licence_codes %w(B K F P B1)
+    assert_contains_licence_codes ["B", "K", "F", "P", "B1"]
   end
 
   test "16 year olds without DLA" do
@@ -36,7 +36,7 @@ class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
 
     choose_and_next "I do not get DLA"
 
-    assert_contains_licence_codes %w(K P F)
+    assert_contains_licence_codes ["K", "P", "F"]
   end
 
   test "17 years old" do
@@ -50,7 +50,8 @@ class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
 
     not_in_armed_forces
 
-    assert_contains_licence_codes ["B", "K", "F", "P", "B1", "A, A1"]
+    assert_contains_licence_codes ["B", "K", "F", "P", "B1"]
+    assert_contains_restricted_licence_codes ["A, A1", "G, H"]
   end
 
   test "17 years old in military" do
@@ -58,7 +59,8 @@ class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
 
     in_armed_forces
 
-    assert_contains_licence_codes ["B", "K", "F", "P", "B1", "A, A1", "C1", "C", "D1", "D", "G, H"]
+    assert_contains_licence_codes ["B", "K", "F", "P", "B1", "C1", "C", "D1", "D"]
+    assert_contains_restricted_licence_codes ["A, A1", "G, H"]
   end
 
   test "18 years old not in military" do
@@ -66,7 +68,8 @@ class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
 
     not_in_armed_forces
 
-    assert_contains_licence_codes ["B", "K", "F", "P", "B1", "A, A1", "C1", "C", "G, H"]
+    assert_contains_licence_codes ["B", "K", "F", "P", "B1"]
+    assert_contains_restricted_licence_codes ["A, A1", "C", "C1", "G, H"]
   end
 
   test "18 years old in military" do
@@ -74,7 +77,8 @@ class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
 
     in_armed_forces
 
-    assert_contains_licence_codes ["B", "K", "F", "P", "B1", "A, A1", "C1", "C", "D1", "D", "G, H"]
+    assert_contains_licence_codes ["B", "K", "F", "P", "B1", "C1", "C", "D1", "D"]
+    assert_contains_restricted_licence_codes ["A, A1", "G, H"]
   end
 
   test "19 or 20 years old not in military" do
@@ -82,7 +86,8 @@ class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
 
     not_in_armed_forces
 
-    assert_contains_licence_codes ["B", "K", "F", "P", "B1", "A, A1", "C1", "C", "D1", "D", "G, H"]
+    assert_contains_licence_codes ["B", "K", "F", "P", "B1"]
+    assert_contains_restricted_licence_codes ["C1", "C", "D1", "D", "A, A1", "G, H"]
   end
 
   test "19 or 20 years old in military" do
@@ -90,13 +95,15 @@ class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
 
     in_armed_forces
 
-    assert_contains_licence_codes ["B", "K", "F", "P", "B1", "A, A1", "C1", "C", "D1", "D", "G, H"]
+    assert_contains_licence_codes ["B", "K", "F", "P", "B1", "C1", "C", "D1", "D"]
+    assert_contains_restricted_licence_codes ["A, A1", "G, H"]
   end
 
   test "21 years old" do
     choose_age "21"
 
-    assert_contains_licence_codes ["B", "K", "F", "P", "B1", "A, A1", "C1", "C", "D1", "D", "G, H"]
+    assert_contains_licence_codes ["B", "K", "F", "P", "B1", "C1", "C", "D1", "D", "G, H"]
+    assert_contains_restricted_licence_codes ["A, A1"]
   end
 
   test "22 years old or older" do
@@ -126,7 +133,13 @@ private
 
   def assert_contains_licence_codes(codes)
     for code in codes do
-      assert_match "[#{code}]", page.body
+      assert_match %r|\[#{code}\](?!\*)|, page.body
+    end
+  end
+
+  def assert_contains_restricted_licence_codes(codes)
+    for code in codes do
+      assert_match %r|\[#{code}\]\*|, page.body
     end
   end
 end
