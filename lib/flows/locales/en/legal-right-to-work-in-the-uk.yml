@@ -18,7 +18,7 @@ en-GB:
         
       is_british_or_wider_UK?:
         title: Are they a British citizen or 'a citizen of the United Kingdom and Colonies'?
-          hint: Phrasing of 'a citizen of the United Kingdom and Colonies' needs to be changed and the term explained here.
+        hint: Phrasing of 'a citizen of the United Kingdom and Colonies' needs to be changed and the term explained here.
         options:
           british_citizen: British citizen
           wider_UK: Citizen of the 'United Kingdom and Colonies'
@@ -30,7 +30,7 @@ en-GB:
           no: Not up to date or no certificate
       
       where_from?:
-        title: Is the potential employee:
+        title: Is the potential employee
         hint: Do we need to list which countries belong to EU and/or EEA?
         options:
           british: A British citizen?
@@ -46,7 +46,7 @@ en-GB:
         hint: A named person is...
         
       has_other_permit?:
-        title: Does the worker have a permit or visa stamp showing that they:
+        title: Does the worker have a permit or visa stamp showing that they...
         options:
           exempt: Are exempt from immigration control
           indefinite_leave: Have an indefinite leave to remain
@@ -71,7 +71,7 @@ en-GB:
           - an official letter or document from a government agency (eg HM Revenue & Customs, Department for Work and Pensions) showing their National Insurance number
           - full birth, adoption certificate or naturalisation certificate
 
-         [Order a copy of a birth certificate](/order-copy-birth-death-marriage-certificate "Order a copy of a birth, death or marriage certificate")
+          * [Order a copy of a birth certificate](/order-copy-birth-death-marriage-certificate "Order a copy of a birth, death or marriage certificate")
         
         
       is_eligible3:
@@ -87,33 +87,33 @@ en-GB:
       maybe1:
         title: The person may be eligible to work in the UK
         body: |
-        The person must be able to demonstrate that they, or someone from their family, has one of:
-        - residence permit
-        - registration certificate
-        - document from the Home Office indicating permanent residence
+          The person must be able to demonstrate that they, or someone from their family, has one of:
+          - residence permit
+          - registration certificate
+          - document from the Home Office indicating permanent residence
         
-        If they are unable to produce any of those documents they are not eligible to work in the UK...
+          If they are unable to produce any of those documents they are not eligible to work in the UK...
         
       maybe2:
         title: The person may be eligible to work in the UK
         body: |
-        They might be eligible to work if they can provide one of the combinations of documents below. Otherwise, they are not eligible to work in the UK.
+          They might be eligible to work if they can provide one of the combinations of documents below. Otherwise, they are not eligible to work in the UK.
 
-        Combo 1
-        Permit or letter of approval from Home Office (or other govt dept)
-        AND
-        A certificate of sponsorship (link to quick answer about what that is)/sponsor-an-employee-to-work-in-the-uk/certificate-of-sponsorship
-        AND
-        Passport, travel doc indicating leave to remain or a Home Office letter showing the same
+          Combo 1
+          Permit or letter of approval from Home Office (or other govt dept)
+          AND
+          A certificate of sponsorship (link to quick answer about what that is)/sponsor-an-employee-to-work-in-the-uk/certificate-of-sponsorship
+          AND
+          Passport, travel doc indicating leave to remain or a Home Office letter showing the same
 
-        Combo 2
-        Certificate of application (from Home Office etc) to or for a family member of a EU/EEA/Swiss national - certificate must be less than 6 months old
-        If worker has that, can [apply for a residency card]()
-        If worker doesn't have that, can't work
+          Combo 2
+          Certificate of application (from Home Office etc) to or for a family member of a EU/EEA/Swiss national - certificate must be less than 6 months old
+          If worker has that, can [apply for a residency card]()
+          If worker doesn't have that, can't work
 
-        Combo 3
-        National Insurance document
-        AND
-        - immigration status document indicating they can stay and are allowed to work
-        OR
-        - letter from Home Office indicating they can stay and are allowed to work
+          Combo 3
+          National Insurance document
+          AND
+          - immigration status document indicating they can stay and are allowed to work
+          OR
+          - letter from Home Office indicating they can stay and are allowed to work
