@@ -31,7 +31,7 @@
           <%= form_tag "", :method => :get, :id => 'annual-leave'  do %>
             <fieldset class="question-body">
               <h2><span class="question-number">1</span> Calculate your holiday entitlement based on:</h2>
-              <ul>
+              <ul class="options">
                 <li>
                   <label for="period_full_year">
                     <%= radio_button_tag 'period', 'full_year', ( { :checked => true } unless @options[:period] == :leaving || @options[:period] == :joining ) %> A full year
@@ -53,7 +53,7 @@
 
             <fieldset class="question-body">
               <h2><span class="question-number">2</span> Are you paid hourly or daily?</h2>
-              <ul>
+              <ul class="options">
                 <li>
                   <label for="pay_period_daily">
                     <%= radio_button_tag 'pay_period', 'daily', ( { :checked => true } unless @options[:pay_period] == :hours ) %> Daily
@@ -75,7 +75,7 @@
 
             <fieldset class="question-body">
               <h2><span class="question-number">3</span> When does your holiday year start?</h2>
-              <ul>
+              <ul class="options">
                 <li>
                   <label for="start_date">
                     <%= date_select("start_date", nil, :order => [:day, :month], :default => { :day => @options[:start_date].day, :month => @options[:start_date].month } ) %>

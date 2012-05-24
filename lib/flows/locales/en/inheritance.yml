@@ -9,7 +9,7 @@ en-GB:
         "no": "No"
         "yes": "Yes"
       body: |
-        You can use this tool to help you find out who is entitled to a share of someone’s property, possessions and money if they die without making a will. It applies to deaths after 1 February 2009.
+        You can use this tool to help you find out who is entitled to a share of someone’s property, possessions and money if they die without making a will. It applies to deaths in England and Wales after 1 February 2009.
       is_there_a_living_spouse_or_civil_partner?:
         title: Is there a living husband, wife or civil partner?
         hint: A surviving partner who wasn't married or in a civil partnership with the deceased has no automatic right to inherit.
@@ -19,20 +19,19 @@ en-GB:
         title: Are there any living parents?
       are_there_living_children?:
         title: Are there any living children, grandchildren or other direct descendants (eg great-grandchildren)?
-        hint: Children include legally-adopted sons or daughters, but not step-children.
+        hint: Children include legally-adopted sons or daughters, but not stepchildren.
       are_there_any_brothers_or_sisters_living?:
-        title: Are there any living whole-blood brothers or sisters (or nephews/nieces, great-nephews/nieces, etc)?
-        hint: Whole-blood means the brothers or sisters share both parents.
+        title: Did the deceased have any brothers or sisters who had the same parents?
       are_there_half_blood_brothers_or_sisters?:
-        title: Are there any living half-blood brothers or sisters (or half-nephews/nieces, half-great-nephews/nieces, etc)?
+        title: Did the deceased have any half-blood brothers or sisters?
         hint: Half-blood means the brothers or sisters share one parent.
       are_there_grandparents_living?:
         title: Are there any living grandparents?
       are_there_any_living_aunts_or_uncles?:
-        title: Are there any living whole-blood aunts, uncles (or cousins, second-cousins, etc)?
+        title: Did the deceased have any aunts or uncles?
       are_there_any_living_half_aunts_or_uncles?:
-        title: Are there any living half-aunts, half-uncles (or half-cousins, half-second cousins, etc)?
-        hint: Half-aunts and half-uncles are a brother or sister who shares only one parent with the deceased.
+        title: Did the deceased have any half-blood aunts or half-blood uncles?
+        hint: Half-blood aunts and half-blood uncles are half-brothers or half-sisters of the deceased's parents.
 
       shared_equally_between_children:
         title: The estate is shared equally between the children or their descendants.
@@ -94,10 +93,12 @@ en-GB:
           Read the guide to [Inheritance Tax](/inheritance-tax "Inheritance Tax").
 
       shared_equally_between_brothers_or_sisters:
-        title: The estate is shared equally between the whole-blood brothers and sisters.
+        title: The estate is shared equally between the brothers or sisters.
         body: |
 
-          If one (or more) whole-blooded brother or sister has already died, their children (nieces and nephews of the deceased) inherit in their place.
+          If one (or more) brother or sister has already died, their children (nieces and nephews of the deceased) inherit in their place.
+
+          They may have to pay Inheritance Tax.
         next_steps: |
           Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance") to:
 
@@ -108,10 +109,12 @@ en-GB:
           Read the guide to [Inheritance Tax](/inheritance-tax "Inheritance Tax").
 
       shared_equally_between_half_blood_brothers_sisters:
-        title: The estate is shared between the half-blood brothers and sisters or their descendants.
+        title: The estate is shared between the half-blood brothers and sisters.
         body: |
 
           If one (or more) half-blood brother or sister has already died, their children (nieces and nephews of the deceased) inherit in their place.
+
+          They may have to pay Inheritance Tax.  
         next_steps: |
           Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance") to:
 
@@ -131,7 +134,6 @@ en-GB:
 
           If any of the brothers or sisters are dead, their children (the deceased's nieces and nephews) inherit.
         next_steps: |
-          TODO: Confirm what these should be!
           Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance") to:
 
           * see if you can apply for probate (the legal right to deal with the person’s estate)
@@ -152,11 +154,20 @@ en-GB:
 
            * apply for a ‘Grant of letters of administration’ making you the ‘administrator’ of the estate
       shared_equally_between_aunts_or_uncles:
-        title: The estate is shared equally between the whole-blood aunts, uncles or their descendants.
+        title: The estate is shared equally between the aunts or uncles.
         hint: Only blood-related aunts and uncles can inherit.
-      shared_equally_between_half_aunts_or_uncles:
-        title: The estate is shared equally between the half-aunts, half-uncles, or their descendants.
-        hint: Half-aunts and half-uncles are a brother or sister who shares only one parent with the deceased.
+        body: |
 
+          If one (or more) of the aunts or uncles have already died, their children (the cousins of the deceased) inherit in their place.
+
+          They may have to pay Inheritance Tax.
+
+      shared_equally_between_half_aunts_or_uncles:
+        title: The estate is shared equally between the half-blood aunts or half-blood uncles.
+        hint: Half-aunts and half-uncles are a brother or sister who shares only one parent with the deceased.
+        body: |
+          If one (or more) of the half-blood aunts or half-blood uncles have already died, their children inherit in their place.
+
+          They may have to pay Inheritance Tax.
       everything_goes_to_crown:
         title: The whole estate goes to the Crown.
