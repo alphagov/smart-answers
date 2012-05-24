@@ -61,6 +61,50 @@ class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
     assert_contains_licence_codes ["B", "K", "F", "P", "B1", "A, A1", "C1", "C", "D1", "D", "G, H"]
   end
 
+  test "18 years old not in military" do
+    choose_age "18"
+
+    not_in_armed_forces
+
+    assert_contains_licence_codes ["B", "K", "F", "P", "B1", "A, A1", "C1", "C", "G, H"]
+  end
+
+  test "18 years old in military" do
+    choose_age "18"
+
+    in_armed_forces
+
+    assert_contains_licence_codes ["B", "K", "F", "P", "B1", "A, A1", "C1", "C", "D1", "D", "G, H"]
+  end
+
+  test "19 or 20 years old not in military" do
+    choose_age "19 or 20"
+
+    not_in_armed_forces
+
+    assert_contains_licence_codes ["B", "K", "F", "P", "B1", "A, A1", "C1", "C", "D1", "D", "G, H"]
+  end
+
+  test "19 or 20 years old in military" do
+    choose_age "19 or 20"
+
+    in_armed_forces
+
+    assert_contains_licence_codes ["B", "K", "F", "P", "B1", "A, A1", "C1", "C", "D1", "D", "G, H"]
+  end
+
+  test "21 years old" do
+    choose_age "21"
+
+    assert_contains_licence_codes ["B", "K", "F", "P", "B1", "A, A1", "C1", "C", "D1", "D", "G, H"]
+  end
+
+  test "22 years old or older" do
+    choose_age "22 or older"
+
+    assert_contains_licence_codes ["B", "K", "F", "P", "B1", "A, A1", "C1", "C", "D1", "D", "G, H"]
+  end
+
 private
 
   def choose_and_next(choice)

@@ -63,6 +63,12 @@ en-GB:
           \* Subject to restrictions
       age_19_20:
         title: "19 or 20 years old"
+        body: |
+          You can drive a car [B], mower [K], tractor [F], moped [P], quad bike
+          or trike [B1], motorbike [A, A1]\*, medium vehicle [C1]\*,
+          large vehicle [C]\*, minibus [D1]\*, bus [D]*\, or other [G, H]\*.
+
+          \* Subject to restrictions
       age_17_20_armed_forces:
         title: "17 to 20 years old (in the armed forces)"
         body: |
