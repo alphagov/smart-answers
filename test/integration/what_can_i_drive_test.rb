@@ -296,4 +296,132 @@ class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
       end
     end # with a car licence
   end # Large vehicle
+
+  context "Minibus (category D)" do
+    setup do
+      respond_with "Minibus (category D1)"
+    end
+
+    should "not be allowed without a full car licence" do
+      expect_question "Do you have a full car driving licence?"
+      respond_with "No"
+
+      assert_results_contain "You need a car licence (category B) before you can drive one of these"
+    end
+
+    context "with a full car licence" do
+      setup do
+        respond_with "Yes"
+      end
+
+      should "ask for your age" do
+        expect_question "How old are you?"
+      end
+
+      should "be allowed if 21 or over" do
+        respond_with "21 years and over"
+
+        assert_results_contain "Yes (category D1)"
+      end
+
+      should "something if 20" do
+        respond_with "20 years"
+
+        assert_results_contain "Yes, with special circumstances (category D1) [20 years]"
+      end
+
+      should "allow C1 if 18-19" do
+        respond_with "18 to 19 years"
+
+        assert_results_contain "Yes, with special circumstances (category D1) [18+19 years]"
+      end
+
+      should "not be allowed if 17 unless in army" do
+        respond_with "17 years"
+
+        assert_results_contain "Sorry, you can't drive a minibus if you are 17 unless you are in the army"
+      end
+
+      should "not be allowed if under 17" do
+        respond_with "Under 17 years"
+
+        assert_results_contain "Sorry, you can't drive a minibus if you are under 17"
+      end
+    end # with a car licence
+  end # Minibus
+
+  context "Agricultural tractor (category F)" do
+    setup do
+      respond_with "Agricultural tractor (category F)"
+    end
+
+    should "be allowed with a full car licence" do
+      expect_question "Do you have a full car driving licence?"
+      respond_with "Yes"
+
+      assert_results_contain "Yes but no but... (category F)"
+    end
+
+    context "without a full car licence" do
+      setup do
+        respond_with "No"
+      end
+
+      should "ask for your age" do
+        expect_question "How old are you?"
+      end
+
+      should "be allowed if 17 or over" do
+        respond_with "17 years and over"
+
+        assert_results_contain "You can apply for a provisional category F entitlement to drive any type of tractor."
+      end
+
+      should "allow small tractors if 16" do
+        respond_with "16 years"
+
+        assert_results_contain "You can drive some smaller tractors."
+      end
+
+      should "not be allowed if under 16" do
+        respond_with "Under 16 years"
+
+        assert_results_contain "No, you can't drive a tractor."
+      end
+    end # with a car licence
+  end # Tractor
+
+  context "Other (categories G, H and K)" do
+    setup do
+      respond_with "Other specialist vehicles (categories G, H and K)"
+    end
+
+    should "ask for your age" do
+      expect_question "How old are you?"
+    end
+
+    should "allow G, H and K if 21 or over" do
+      respond_with "21 years and over"
+
+      assert_results_contain "Yes, you can drive category G, H and K vehicles"
+    end
+
+    should "allow G, H and K (with restricitons in H and K) if 17-20 years old" do
+      respond_with "17 to 20 years"
+
+      assert_results_contain "Yes, you can drive category K vehicles (and G/H under special circumstances)"
+    end
+
+    should "allow K if 16" do
+      respond_with "16 years"
+
+      assert_results_contain "Yes, you can drive category K vehicles"
+    end
+
+    should "not be allowed if under 16" do
+      respond_with "Under 16 years"
+
+      assert_results_contain "No, you are under 16"
+    end
+  end # Other
 end
