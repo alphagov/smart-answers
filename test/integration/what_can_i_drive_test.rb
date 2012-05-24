@@ -2,7 +2,7 @@
 require_relative '../integration_test_helper'
 require_relative 'smart_answer_test_helper'
 
-class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
+class WhatCanIDriveTest < ActionDispatch::IntegrationTest
   include SmartAnswerTestHelper
 
   setup do
