@@ -5,15 +5,15 @@ status :draft
 
 multiple_choice :what_do_you_want_to_drive? do
   option :car       => :car_do_you_have_a_licence?
+  option :motorbike => :motorbike_how_old_are_you?
   option :moped     => :moped_do_you_have_a_car_licence?
   option :medium    => :medium_do_you_have_a_car_licence?
   option :large     => :large_do_you_have_a_car_licence?
   option :minibus   => :minibus_do_you_have_a_car_licence?
   option :bus       => :bus_do_you_have_a_car_licence?
   option :tractor   => :tractor_do_you_have_a_licence?
-  option :light     => :light_do_you_have_a_car_licence?
-  option :motorbike => :motorbike_how_old_are_you?
   option :other     => :other_how_old_are_you?
+  option :light     => :light_do_you_have_a_car_licence?
 end
 
 multiple_choice :car_do_you_have_a_licence? do
