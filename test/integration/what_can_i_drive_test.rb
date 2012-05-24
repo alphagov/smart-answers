@@ -200,7 +200,100 @@ class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
           assert_results_contain "Yes. And you can now undertake an accelerated access thing to let you ride any type of motorbike (category A, A1)"
         end
       end # full licence
-
     end # 21
-  end
+  end # Motorbike
+
+  context "Medium vehicle (category C1)" do
+    setup do
+      respond_with "Medium-sized vehicles (category C1)"
+    end
+
+    should "not be allowed without a full car licence" do
+      expect_question "Do you have a full car driving licence?"
+      respond_with "No"
+
+      assert_results_contain "You need a car licence (category B) before you can drive one of these"
+    end
+
+    context "with a full car licence" do
+      setup do
+        respond_with "Yes"
+      end
+
+      should "ask for your age" do
+        expect_question "How old are you?"
+      end
+
+      should "allow C1 and E if 21 or over" do
+        respond_with "21 years and over"
+
+        assert_results_contain "Yes, you can drive a van with a trailer. (category C1+E)"
+      end
+
+      should "allow C1 if 18-20" do
+        respond_with "18 to 20 years"
+
+        assert_results_contain "Yes, you can drive a van (category C1)"
+      end
+
+      should "not be allowed if 17 unless in army" do
+        respond_with "17 years"
+
+        assert_results_contain "Sorry, you can't drive a van if you are 17 unless you are in the army"
+      end
+
+      should "not be allowed if under 17" do
+        respond_with "Under 17 years"
+
+        assert_results_contain "You can't drive a van if you're under 17."
+      end
+    end
+  end # Medium vehicle
+
+  context "Large vehicle (category C)" do
+    setup do
+      respond_with "Large vehicles and lorries (category C)"
+    end
+
+    should "not be allowed without a full car licence" do
+      expect_question "Do you have a full car driving licence?"
+      respond_with "No"
+
+      assert_results_contain "You need a car licence (category B) before you can drive one of these"
+    end
+
+    context "with a full car licence" do
+      setup do
+        respond_with "Yes"
+      end
+
+      should "ask for your age" do
+        expect_question "How old are you?"
+      end
+
+      should "allow C1 and E if 21 or over" do
+        respond_with "21 years and over"
+
+        assert_results_contain "Yes, you can drive a lorry (category C). Also a trailer if you take an additional test"
+      end
+
+      should "allow C1 if 18-20" do
+        respond_with "18 to 20 years"
+
+        assert_results_contain "Yes, you can drive a lorry (category C) under special circumstances which Graham will describe"
+      end
+
+      should "not be allowed if 17 unless in army" do
+        respond_with "17 years"
+
+        assert_results_contain "Sorry, you can't drive a lorry if you are 17 unless you are in the army"
+      end
+
+      should "not be allowed if under 17" do
+        respond_with "Under 17 years"
+
+        assert_results_contain "Sorry, you can't drive a lorry if you are under 17"
+      end
+    end # with a car licence
+  end # Large vehicle
 end
