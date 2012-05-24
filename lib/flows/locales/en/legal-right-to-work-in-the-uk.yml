@@ -18,7 +18,8 @@ en-GB:
         
       is_british_or_wider_UK?:
         title: Are they a British citizen or 'a citizen of the United Kingdom and Colonies'?
-        hint: Phrasing of 'a citizen of the United Kingdom and Colonies' needs to be changed and the term explained here.
+        hint: |
+          Phrasing of 'a citizen of the United Kingdom and Colonies' needs to be changed and the term explained here.
         options:
           british_citizen: British citizen
           wider_UK: Citizen of the 'United Kingdom and Colonies'
@@ -30,7 +31,7 @@ en-GB:
           no: Not up to date or no certificate
       
       where_from?:
-        title: Is the potential employee
+        title: Is the potential employee...
         hint: Do we need to list which countries belong to EU and/or EEA?
         options:
           british: A British citizen?
@@ -43,7 +44,7 @@ en-GB:
         
       has_named_person?: 
         title: Does the worker have a named person on their passport who is from the EU, EEA or Switzerland?
-        hint: A named person is...
+        hint: A "named person" is...
         
       has_other_permit?:
         title: Does the worker have a permit or visa stamp showing that they...
@@ -53,8 +54,18 @@ en-GB:
           no_time_limit: Have no time limit to their stay in the UK
           right_of_abode: Have a Certificate of Entitlement to Right of Abode in a current, valid passport
           none_of_the_above: None of the above
-
+          
+      has_nic_and_other_doc?:
+        title: Does the worker have an official NIC document AND either 1) immigration status document or 2) home office letter stating that they have a right to permanent residence?
         
+      has_visa_or_other_doc?:
+        title: Does the worker have...
+        options:
+          work_visa: A work visa for the type of work they're applying for
+          biometric_permit: A biometric residence permit for the type of work they're applying for
+          residence_card: A residence card or document issued by the Home Office to a family member of an EU/EEA/Swiss national
+          none_of_the_above: None of the above
+      
       is_eligible1:
         title: The person is entitled to work in the UK
         body: |
@@ -71,13 +82,13 @@ en-GB:
           - an official letter or document from a government agency (eg HM Revenue & Customs, Department for Work and Pensions) showing their National Insurance number
           - full birth, adoption certificate or naturalisation certificate
 
-          * [Order a copy of a birth certificate](/order-copy-birth-death-marriage-certificate "Order a copy of a birth, death or marriage certificate")
+          [Order a copy of a birth certificate](/order-copy-birth-death-marriage-certificate "Order a copy of a birth, death or marriage certificate")
         
         
       is_eligible3:
         title: The person is entitled to work in the UK
         body: |
-          However, registration is required for Bulgarians and Romanians...
+          People from Bulgaria or Romania have permission to work in the UK but they must register with the UK Border Agency unless they're exempt.
           
       needs_up_to_date_docs:
         title: The person may be eligible to work in the UK, but needs to get up to date documents first

@@ -41,12 +41,19 @@ multiple_choice :has_other_permit? do
   option :indefinite_leave => :is_eligible1
   option :no_time_limit => :is_eligible1
   option :right_of_abode => :is_eligible1
-  option :one_of_the_above => :has_nic_and_other_doc?
+  option :none_of_the_above => :has_nic_and_other_doc?
 end
 
 multiple_choice :has_nic_and_other_doc? do
   option :yes => :maybe1
-  option :no => :maybe2
+  option :no => :has_visa_or_other_doc?
+end
+
+multiple_choice :has_visa_or_other_doc? do
+  option :work_visa => :maybe1
+  option :biometric_permit => :maybe1
+  option :residence_card => :maybe1
+  option :none_of_the_above => :maybe2
 end
 
 
