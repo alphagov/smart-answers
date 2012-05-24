@@ -116,4 +116,91 @@ class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
       end
     end # without a car licence
   end # Moped
+
+  context "Motorbike (category A)" do
+    setup do
+      respond_with "Motorbike (category A)"
+    end
+
+    should "not be allowrd when under 17" do
+      expect_question "How old are you?"
+      respond_with "Under 17 years"
+
+      assert_results_contain "No, you are under 17"
+    end
+
+    should "be allowed when 22 or over" do
+      expect_question "How old are you?"
+      respond_with "22 years and over"
+
+      assert_results_contain "Yes. You can go through direct access to ride any type of motorbike (category A, A1)"
+    end
+
+    context "when 17-20" do
+      setup do
+        respond_with "17 to 20 years"
+      end
+
+      should "allow limited without a full licence" do
+        expect_question "Do you already have a full motorcycle licence?"
+        respond_with "No"
+
+        assert_results_contain "Yes, but you can only ride bikes under X size for two years after passing your test (category A, A1)"
+      end
+
+      context "with a full licence" do
+        setup do
+          respond_with "Yes"
+        end
+
+        should "Allow any bike if had licence for more than 2 years" do
+          expect_question "Have you had your motorcycle licence for more than 2 years?"
+          respond_with "Yes"
+
+          assert_results_contain "Yes. And you can now ride ANY type of motorbike as you've had your licence for over 2 years (category A, A1)"
+        end
+
+        should "Allow limited bikes if had licence for less than 2 years" do
+          expect_question "Have you had your motorcycle licence for more than 2 years?"
+          respond_with "No"
+
+          assert_results_contain "Yes, but you can only ride bikes under X size (category A, A1)"
+        end
+      end # full licence
+    end #17-20
+
+    context "when 21" do
+      setup do
+        respond_with "21 years"
+      end
+
+      should "allow limited without a full licence" do
+        expect_question "Do you already have a motorcycle licence?"
+        respond_with "No"
+
+        assert_results_contain "Yes. You can go through direct access to ride any type of motorbike (category A, A1)"
+      end
+
+      context "with a full licence" do
+        setup do
+          respond_with "Yes"
+        end
+
+        should "Allow any bike if had licence for more than 2 years" do
+          expect_question "Have you had your motorcycle licence for more than 2 years?"
+          respond_with "Yes"
+
+          assert_results_contain "Yes. And you can now ride ANY type of motorbike as you've had your licence for over 2 years (category A, A1)"
+        end
+
+        should "Allow limited bikes if had licence for less than 2 years" do
+          expect_question "Have you had your motorcycle licence for more than 2 years?"
+          respond_with "No"
+
+          assert_results_contain "Yes. And you can now undertake an accelerated access thing to let you ride any type of motorbike (category A, A1)"
+        end
+      end # full licence
+
+    end # 21
+  end
 end
