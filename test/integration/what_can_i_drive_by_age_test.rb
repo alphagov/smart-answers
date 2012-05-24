@@ -14,8 +14,7 @@ class WhatCanIDriveByAgeTest < ActionDispatch::IntegrationTest
   test "< 16 year olds can't drive" do
     choose_age "Under 16"
 
-    # FIXME: how can I get around this HTML encoding?
-    assert_match /You can&\#8217;t drive anything/, page.body
+    assert page.has_content? "You can’t drive anything"
   end
 
   test "16 year olds asked about DLA" do
