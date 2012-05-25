@@ -7,9 +7,8 @@ en-GB:
         What vehicles can I drive or ride?
       section_name: Driving
       body: |
-          
         This tool tells you if you are old enough or have the right kind of driving licence to drive different kinds of vehicle.
-        
+
 
       options:
         "no": "No"
@@ -142,7 +141,7 @@ en-GB:
 
           ^If you took your driving test in a car with automatic transmission then you can only drive automatic cars and light vehicles. This will be shown on your licence as 'B auto'.^
 
-        next_steps:
+        next_steps: |
           * [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
           
       car_no_under_16:

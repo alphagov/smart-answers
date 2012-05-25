@@ -74,8 +74,8 @@ en-GB:
         body: |
           %If you’re licence was previously exchanged from a non-European Union (EU) country you can only drive on it in GB for up to **12 months** from when you first become resident in GB. You’ll then have to stop driving, but might be able to exchange your licence for a GB one.%
 
-        *[GB]: Great Britain
-        *[EU]: European Union
+          *[GB]: Great Britain
+          *[EU]: European Union
 
         next_steps: |
           [Exchange a foreign driving licence](/exchange-a-foreign-driving-licence "Exchange a foreign driving licence")
