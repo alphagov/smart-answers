@@ -1,0 +1,457 @@
+--- 
+- :name: Afghanistan
+  :slug: afghanistan
+- :name: Albania
+  :slug: albania
+- :name: Algeria
+  :slug: algeria
+- :name: American Samoa
+  :slug: american-samoa
+- :name: Andorra
+  :slug: andorra
+- :name: Angola
+  :slug: angola
+- :name: Anguilla
+  :slug: anguilla
+- :name: Antigua and Barbuda
+  :slug: antigua-and-barbuda
+- :name: Argentina
+  :slug: argentina
+- :name: Armenia
+  :slug: armenia
+- :name: Aruba
+  :slug: aruba
+- :name: Ascension Island
+  :slug: ascension-island
+- :name: Australia
+  :slug: australia
+- :name: Austria
+  :slug: austria
+- :name: Azerbaijan
+  :slug: azerbaijan
+- :name: Bahamas
+  :slug: bahamas
+- :name: Bahrain
+  :slug: bahrain
+- :name: Bangladesh
+  :slug: bangladesh
+- :name: Barbados
+  :slug: barbados
+- :name: Belarus
+  :slug: belarus
+- :name: Belgium
+  :slug: belgium
+- :name: Belize
+  :slug: belize
+- :name: Benin
+  :slug: benin
+- :name: Bermuda
+  :slug: bermuda
+- :name: Bhutan
+  :slug: bhutan
+- :name: Bolivia
+  :slug: bolivia
+- :name: Bonaire/St Eustatius/Saba
+  :slug: bonaire-st-eustatius-saba
+- :name: Bosnia and Herzegovina
+  :slug: bosnia-and-herzegovina
+- :name: Botswana
+  :slug: botswana
+- :name: Brazil
+  :slug: brazil
+- :name: British Antarctic Territory
+  :slug: british-antarctic-territory
+- :name: British Consulate General Cape Town
+  :slug: british-consulate-general-cape-town
+- :name: British Indian Ocean Territory
+  :slug: british-indian-ocean-territory
+- :name: British Virgin Islands
+  :slug: british-virgin-islands
+- :name: Brunei
+  :slug: brunei
+- :name: Bulgaria
+  :slug: bulgaria
+- :name: Burkina Faso
+  :slug: burkina-faso
+- :name: Burma
+  :slug: burma
+- :name: Burundi
+  :slug: burundi
+- :name: Cambodia
+  :slug: cambodia
+- :name: Cameroon
+  :slug: cameroon
+- :name: Canada
+  :slug: canada
+- :name: Cape Verde
+  :slug: cape-verde
+- :name: Cayman Islands
+  :slug: cayman-islands
+- :name: Central African Republic
+  :slug: central-african-republic
+- :name: Chad
+  :slug: chad
+- :name: Chile
+  :slug: chile
+- :name: China
+  :slug: china
+- :name: Colombia
+  :slug: colombia
+- :name: Comoros
+  :slug: comoros
+- :name: Congo
+  :slug: congo
+- :name: Congo (Democratic Republic)
+  :slug: congo-(democratic-republic)
+- :name: Costa Rica
+  :slug: costa-rica
+- :name: "C\xC3\xB4te d\xE2\x80\x99Ivoire (Ivory Coast)"
+  :slug: cote-d_ivoire-(ivory-coast)
+- :name: Croatia
+  :slug: croatia
+- :name: Cuba
+  :slug: cuba
+- :name: "Cura\xC3\xA7ao"
+  :slug: curacao
+- :name: Cyprus
+  :slug: cyprus
+- :name: Czech Republic
+  :slug: czech-republic
+- :name: Denmark
+  :slug: denmark
+- :name: Djibouti
+  :slug: djibouti
+- :name: Dominica, Commonwealth of
+  :slug: dominica,-commonwealth-of
+- :name: Dominican Republic
+  :slug: dominican-republic
+- :name: Ecuador
+  :slug: ecuador
+- :name: Egypt
+  :slug: egypt
+- :name: El Salvador
+  :slug: el-salvador
+- :name: Equatorial Guinea
+  :slug: equatorial-guinea
+- :name: Eritrea
+  :slug: eritrea
+- :name: Estonia
+  :slug: estonia
+- :name: Ethiopia
+  :slug: ethiopia
+- :name: Falkland Islands
+  :slug: falkland-islands
+- :name: Fiji
+  :slug: fiji
+- :name: Finland
+  :slug: finland
+- :name: France
+  :slug: france
+- :name: French Guiana
+  :slug: french-guiana
+- :name: French Polynesia
+  :slug: french-polynesia
+- :name: Gabon
+  :slug: gabon
+- :name: Gambia
+  :slug: gambia
+- :name: Georgia
+  :slug: georgia
+- :name: Germany
+  :slug: germany
+- :name: Ghana
+  :slug: ghana
+- :name: Gibraltar
+  :slug: gibraltar
+- :name: Greece
+  :slug: greece
+- :name: Grenada
+  :slug: grenada
+- :name: Guadeloupe
+  :slug: guadeloupe
+- :name: Guatemala
+  :slug: guatemala
+- :name: Guinea
+  :slug: guinea
+- :name: Guinea-Bissau
+  :slug: guinea-bissau
+- :name: Guyana
+  :slug: guyana
+- :name: Haiti
+  :slug: haiti
+- :name: Honduras
+  :slug: honduras
+- :name: Hong Kong
+  :slug: hong-kong
+- :name: Hong Kong (SAR of China)
+  :slug: hong-kong-(sar-of-china)
+- :name: Hungary
+  :slug: hungary
+- :name: Iceland
+  :slug: iceland
+- :name: India
+  :slug: india
+- :name: Indonesia
+  :slug: indonesia
+- :name: Iran
+  :slug: iran
+- :name: Iraq
+  :slug: iraq
+- :name: Ireland
+  :slug: ireland
+- :name: Israel
+  :slug: israel
+- :name: Italy
+  :slug: italy
+- :name: Jamaica
+  :slug: jamaica
+- :name: Japan
+  :slug: japan
+- :name: Jordan
+  :slug: jordan
+- :name: Kazakhstan
+  :slug: kazakhstan
+- :name: Kenya
+  :slug: kenya
+- :name: Kiribati
+  :slug: kiribati
+- :name: Korea
+  :slug: korea
+- :name: Kosovo
+  :slug: kosovo
+- :name: Kuwait
+  :slug: kuwait
+- :name: Kyrgyzstan
+  :slug: kyrgyzstan
+- :name: Laos
+  :slug: laos
+- :name: Latvia
+  :slug: latvia
+- :name: Lebanon
+  :slug: lebanon
+- :name: Lesotho
+  :slug: lesotho
+- :name: Liberia
+  :slug: liberia
+- :name: Libya
+  :slug: libya
+- :name: Liechtenstein
+  :slug: liechtenstein
+- :name: Lithuania
+  :slug: lithuania
+- :name: Luxembourg
+  :slug: luxembourg
+- :name: Macao
+  :slug: macao
+- :name: Macedonia
+  :slug: macedonia
+- :name: Madagascar
+  :slug: madagascar
+- :name: Malawi
+  :slug: malawi
+- :name: Malaysia
+  :slug: malaysia
+- :name: Maldives
+  :slug: maldives
+- :name: Mali
+  :slug: mali
+- :name: Malta
+  :slug: malta
+- :name: Marshall Islands
+  :slug: marshall-islands
+- :name: Martinique
+  :slug: martinique
+- :name: Mauritania
+  :slug: mauritania
+- :name: Mauritius
+  :slug: mauritius
+- :name: Mayotte
+  :slug: mayotte
+- :name: Mexico
+  :slug: mexico
+- :name: Micronesia
+  :slug: micronesia
+- :name: Moldova
+  :slug: moldova
+- :name: Monaco
+  :slug: monaco
+- :name: Mongolia
+  :slug: mongolia
+- :name: Montenegro
+  :slug: montenegro
+- :name: Montserrat
+  :slug: montserrat
+- :name: Morocco
+  :slug: morocco
+- :name: Mozambique
+  :slug: mozambique
+- :name: Namibia
+  :slug: namibia
+- :name: Nauru
+  :slug: nauru
+- :name: Nepal
+  :slug: nepal
+- :name: Netherlands
+  :slug: netherlands
+- :name: New Caledonia
+  :slug: new-caledonia
+- :name: New Zealand
+  :slug: new-zealand
+- :name: Nicaragua
+  :slug: nicaragua
+- :name: Niger
+  :slug: niger
+- :name: Nigeria
+  :slug: nigeria
+- :name: North Korea
+  :slug: north-korea
+- :name: Norway
+  :slug: norway
+- :name: Oman
+  :slug: oman
+- :name: Pakistan
+  :slug: pakistan
+- :name: Palau
+  :slug: palau
+- :name: Panama
+  :slug: panama
+- :name: Papua New Guinea
+  :slug: papua-new-guinea
+- :name: Paraguay
+  :slug: paraguay
+- :name: Peru
+  :slug: peru
+- :name: Philippines
+  :slug: philippines
+- :name: Pitcairn
+  :slug: pitcairn
+- :name: Poland
+  :slug: poland
+- :name: Portugal
+  :slug: portugal
+- :name: Qatar
+  :slug: qatar
+- :name: "R\xC3\xA9union"
+  :slug: reunion
+- :name: Romania
+  :slug: romania
+- :name: Russian Federation
+  :slug: russian-federation
+- :name: Rwanda
+  :slug: rwanda
+- :name: Samoa
+  :slug: samoa
+- :name: San Marino
+  :slug: san-marino
+- :name: "S\xC3\xA3o Tom\xC3\xA9 and Principe"
+  :slug: sao-tome-and-principe
+- :name: Saudi Arabia
+  :slug: saudi-arabia
+- :name: Senegal
+  :slug: senegal
+- :name: Serbia
+  :slug: serbia
+- :name: Seychelles
+  :slug: seychelles
+- :name: Sierra Leone
+  :slug: sierra-leone
+- :name: Singapore
+  :slug: singapore
+- :name: Slovakia
+  :slug: slovakia
+- :name: Slovenia
+  :slug: slovenia
+- :name: Solomon Islands
+  :slug: solomon-islands
+- :name: Somalia
+  :slug: somalia
+- :name: South Africa
+  :slug: south-africa
+- :name: South Georgia and South Sandwich Islands
+  :slug: south-georgia-and-south-sandwich-islands
+- :name: South Sudan
+  :slug: south-sudan
+- :name: Spain
+  :slug: spain
+- :name: Sri Lanka
+  :slug: sri-lanka
+- :name: St Helena
+  :slug: st-helena
+- :name: St Kitts and Nevis
+  :slug: st-kitts-and-nevis
+- :name: St Lucia
+  :slug: st-lucia
+- :name: St Maarten
+  :slug: st-maarten
+- :name: St Pierre & Miquelon
+  :slug: st-pierre-and-miquelon
+- :name: St Vincent and the Grenadines
+  :slug: st-vincent-and-the-grenadines
+- :name: Sudan
+  :slug: sudan
+- :name: Suriname
+  :slug: suriname
+- :name: Swaziland
+  :slug: swaziland
+- :name: Sweden
+  :slug: sweden
+- :name: Switzerland
+  :slug: switzerland
+- :name: Syria
+  :slug: syria
+- :name: Taiwan
+  :slug: taiwan
+- :name: Tajikistan
+  :slug: tajikistan
+- :name: Tanzania
+  :slug: tanzania
+- :name: Thailand
+  :slug: thailand
+- :name: Timor-Leste
+  :slug: timor-leste
+- :name: Togo
+  :slug: togo
+- :name: Tonga
+  :slug: tonga
+- :name: Trinidad and Tobago
+  :slug: trinidad-and-tobago
+- :name: Tristan da Cunha
+  :slug: tristan-da-cunha
+- :name: Tunisia
+  :slug: tunisia
+- :name: Turkey
+  :slug: turkey
+- :name: Turkmenistan
+  :slug: turkmenistan
+- :name: Turks and Caicos Islands
+  :slug: turks-and-caicos-islands
+- :name: Tuvalu
+  :slug: tuvalu
+- :name: Uganda
+  :slug: uganda
+- :name: Ukraine
+  :slug: ukraine
+- :name: United Arab Emirates
+  :slug: united-arab-emirates
+- :name: United States
+  :slug: united-states
+- :name: Uruguay
+  :slug: uruguay
+- :name: Uzbekistan
+  :slug: uzbekistan
+- :name: Vanuatu
+  :slug: vanuatu
+- :name: Venezuela
+  :slug: venezuela
+- :name: Vietnam
+  :slug: vietnam
+- :name: Wallis and Futuna
+  :slug: wallis-and-futuna
+- :name: Western Sahara
+  :slug: western-sahara
+- :name: Yemen
+  :slug: yemen
+- :name: Zambia
+  :slug: zambia
+- :name: Zimbabwe
+  :slug: zimbabwe

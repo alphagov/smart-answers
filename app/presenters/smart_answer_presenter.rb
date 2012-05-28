@@ -96,6 +96,8 @@ class SmartAnswerPresenter
     presenter_class = case node
     when SmartAnswer::Question::Date
       DateQuestionPresenter
+    when SmartAnswer::Question::CountrySelect
+      CountrySelectQuestionPresenter
     when SmartAnswer::Question::MultipleChoice
       MultipleChoiceQuestionPresenter
     when SmartAnswer::Question::Value

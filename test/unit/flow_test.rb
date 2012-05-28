@@ -37,6 +37,16 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal 1, s.questions.size
   end
 
+  test "Can build country select question nodes" do
+    s = SmartAnswer::Flow.new do
+      country_select :which_country?
+    end
+
+    assert_equal 1, s.nodes.size
+    assert_equal 1, s.questions.size
+    assert_equal "afghanistan", s.questions.first.country_list.first[:slug]
+  end
+
   test "Can build date question nodes" do
     s = SmartAnswer::Flow.new do
       date_question :when_is_your_birthday? do

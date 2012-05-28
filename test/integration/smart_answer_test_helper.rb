@@ -43,6 +43,8 @@ module SmartAnswerTestHelper
       select date.year.to_s, from: "response[year]"
     elsif page.has_css?("input[name=response][type=text]")
       fill_in "response", with: value
+    elsif page.has_css?("select[name='response']")
+      select value, from: "response"
     end
     click_next_step
   end
