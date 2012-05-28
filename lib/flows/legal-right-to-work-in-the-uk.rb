@@ -4,13 +4,13 @@ subsection_slug ""
 status :draft
 
 multiple_choice :have_uk_passport? do
-  option :yes => :is_british_or_wider_UK?
+  option :yes => :is_british_citizen?
   option :no => :where_from?
 end
 
-multiple_choice :is_british_or_wider_UK? do
-  option :british_citizen => :is_eligible1
-  option :wider_UK => :has_right_of_abode?
+multiple_choice :is_british_citizen? do
+  option :yes => :is_eligible1
+  option :no => :has_right_of_abode?
 end
 
 multiple_choice :has_right_of_abode? do
@@ -37,11 +37,8 @@ multiple_choice :has_named_person? do
 end
 
 multiple_choice :has_other_permit? do
-  option :exempt => :is_eligible1
-  option :indefinite_leave => :is_eligible1
-  option :no_time_limit => :is_eligible1
-  option :right_of_abode => :is_eligible1
-  option :none_of_the_above => :has_nic_and_other_doc?
+  option :yes => :is_eligible1
+  option :no => :has_nic_and_other_doc?
 end
 
 multiple_choice :has_nic_and_other_doc? do
@@ -50,10 +47,8 @@ multiple_choice :has_nic_and_other_doc? do
 end
 
 multiple_choice :has_visa_or_other_doc? do
-  option :work_visa => :maybe1
-  option :biometric_permit => :maybe1
-  option :residence_card => :maybe1
-  option :none_of_the_above => :maybe2
+  option :yes => :maybe1
+  option :no => :maybe2
 end
 
 
