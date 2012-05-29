@@ -1,1 +1,5 @@
+<% if question.has_label? %>
+    <label for="response"><%= question.label %>
+<% end %>
 <%= text_field_tag('response') %>
+<% if question.has_label? %></label><% end %>

@@ -26,11 +26,8 @@ namespace :router do
         incoming_path: "#{path}.json"
     end
 
-    @router.routes.update application_id: "smartanswers", route_type: :full, incoming_path: "/calculate-your-holiday-entitlement"
-    @router.routes.update application_id: "smartanswers", route_type: :full, incoming_path: "/calculate-your-holiday-entitlement.json"
   end
 
   desc "Register smartanswers application and routes with the router (run this task on server in cluster)"
   task :register => [ :register_application, :register_routes ]
 end
-

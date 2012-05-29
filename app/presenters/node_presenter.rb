@@ -81,6 +81,14 @@ class NodePresenter
     !! hint
   end
 
+  def label
+    translate!('label')
+  end
+
+  def has_label?
+    !! label
+  end
+
   def next_steps
     translate_and_render('next_steps')
   end

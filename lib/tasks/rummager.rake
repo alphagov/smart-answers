@@ -14,17 +14,6 @@ namespace :rummager do
       }
     }
 
-    # Calculate your holiday entitlement
-    documents << {
-      "title"             => "Calculate your holiday entitlement",
-      "description"       => "Calculate your annual leave",
-      "format"            => "calculator",
-      "section"           => "work",
-      "subsection"        => "time-off",
-      "link"              => "/calculate-your-holiday-entitlement",
-      "indexable_content" => "Use this calculator to work out how much statutory holiday leave you're entitled to."
-    }
-
     Rummageable.index documents.compact
   end
 end
