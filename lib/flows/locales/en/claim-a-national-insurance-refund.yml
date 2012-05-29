@@ -22,6 +22,7 @@ en-GB:
         title: "Did you pay the National Insurance when you didn't need to?"
       
       outcome_1:
+        title: "Class 1 refunds"
         body: |
           What you must do
           ---------
@@ -62,6 +63,7 @@ en-GB:
           HMRC will write confirming what refund you'll get. There is no timeframe for this.
 
       outcome_1a:
+        title: "Class 2 refunds"
         body: |
           What you must do
           ---------
@@ -101,6 +103,7 @@ en-GB:
 
           HMRC will write confirming what refund you'll get. There is no timeframe for this.
       outcome_2:
+        title: "Class 3 refunds"
         body: |
           What you must do
           ---------
@@ -133,6 +136,7 @@ en-GB:
           HMRC will write confirming what refund you'll get. There is no timeframe for this.
 
       outcome_3:
+        title: "Class 4 refunds"
         body: |
           What you need to do
           --------
@@ -155,6 +159,7 @@ en-GB:
           Saturday 8.00am to 4.00pm
           $C
       outcome_4:
+        title: "Class 4 refunds"
         body: |
           What you must do
           --------
@@ -185,6 +190,7 @@ en-GB:
 
           HMRC will write confirming what refund you'll get. There is no timeframe for this.
       outcome_5:
+        title: "Class 2 refunds"
         body: |
           What you need to do
           --------
