@@ -42,7 +42,7 @@ multiple_choice :has_other_permit? do
 end
 
 multiple_choice :has_nic_and_other_doc? do
-  option :yes => :maybe1
+  option :yes => :is_eligible2
   option :no => :has_visa_or_other_doc?
 end
 

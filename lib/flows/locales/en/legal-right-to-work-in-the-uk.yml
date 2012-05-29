@@ -45,22 +45,46 @@ en-GB:
         
       has_other_permit?:
         title: Does the worker have a permit or visa showing their right to work in the UK?
-        hint: "A permit or visa would show: they’re exempt from immigration control, they have indefinite leave to remain, they have no time limit to their stay in the UK or they have a Certificate of Entitlement to Right of Abode (in a current, valid passport)."
+        body:
+          "A permit or visa would show one of these:
+          
+          
+          - they’re exempt from immigration control
+          
+          - they have indefinite leave to remain
+          
+          - they have no time limit to their stay in the UK
+          
+          - they have a Certificate of Entitlement to Right of Abode (in a current, valid passport)"
           
       has_nic_and_other_doc?:
         title: Does the worker have documents entitling them to work in the UK?
-        hint: "These documents will entitle the person to work in the UK: an official document from a UK government agency (eg DWP, HMRC) showing their National Insurance number and either an 'immigration status document' or a letter from the Home Office saying that they have a right to permanent residence."
+        body:
+          "The worker should have both of these documents to work in the UK:
+          
+          
+          - an official document from a UK government agency (eg HM Revenue & Customs, Department for Work and Pensions) showing their National Insurance number
+          
+          - either an 'immigration status document' or a letter from the Home Office saying that they have a right to permanent residence"
         
       has_visa_or_other_doc?:
         title: Does the worker have a visa, biometric permit or residence document?
-        hint: "The worker needs one of these: visa for the relevant type of work, biometric residence card for the right type of work (or a 'Certificate of Application' for a card less than 6 months old), residence card or document issued by the Home Office to a family member of an EU/EEA/Swiss national."
+        body:
+          "The worker needs one of these:
+          
+          
+          - visa for the relevant type of work
+          
+          - biometric residence card for the right type of work (or a 'Certificate of Application' for a card less than 6 months old)
+          
+          - residence card
+          
+          - document issued by the Home Office to a family member of an EU/EEA/Swiss national"
       
       is_eligible1:
         title: The person is entitled to work in the UK.
         body: |
-          Employers should take a copy of the relevant parts of their passport or documents, as specified in
-          
-          (Link to checking documents quick answer.)
+          Employers should take a copy of the [relevant parts of their passport or documents](/checking-an-employees-right-to-work-documents "Checking an employee's right to work documents").
         
       is_eligible2:
         title: The worker needs to show proof of their permission to work in the UK.
@@ -70,23 +94,23 @@ en-GB:
           - an official letter or document from a government agency (eg HM Revenue & Customs, Department for Work and Pensions) showing their National Insurance number
           - full birth, adoption certificate or naturalisation certificate
 
-          Employers should [take a copy](CHECKING DOCS) of the relevant documents.
+          Employers should [take a copy](/checking-an-employees-right-to-work-documents "Checking an employee's right to work documents") of the relevant documents.
         
       is_eligible3:
         title: The person is entitled to work in the UK.
         body: |
-          Employers should take a copy of the [relevant parts of their passport](LINK TO CHECKING DOCUMENTS QUICK ANSWER) (or their parent’s or child’s passport if they’re a ‘named person’ there). A ‘named person’ is someone who appears on someone else’s passport, eg a parent.
+          Employers should take a copy of the [relevant parts of their passport](/checking-an-employees-right-to-work-documents "Checking an employee's right to work documents") (or their parent’s or child’s passport if they’re a ‘named person’ there). A ‘named person’ is someone who appears on someone else’s passport, eg a parent.
 
           ##Romanians and Bulgarians
 
-          People from Romania Bulgaria have permission to live in the UK but must show [proof of permission to work](http://www.ukba.homeoffice.gov.uk/eucitizens/bulgaria-romania/work-permits/liveworkuk/ "Work permits and accession worker cards"){:rel="external"}, eg an 'accession worker card' or proof that they're exempt from this restriction.
+          People from Romania or Bulgaria have permission to live in the UK but must show [proof of permission to work](http://www.ukba.homeoffice.gov.uk/eucitizens/bulgaria-romania/work-permits/liveworkuk/ "Work permits and accession worker cards"){:rel="external"}, eg an 'accession worker card' or proof that they're exempt from this restriction.
 
           Employers can [apply for permits](http://www.ukba.homeoffice.gov.uk/business-sponsors/european-workers/ "Employing European workers"){:rel="external"} for Bulgarian and Romanian workers before they can work in the UK.
           
       needs_up_to_date_docs:
         title: The worker needs a Certificate of Entitlement to the Right of Abode in the UK in a current passport. 
         body: |
-          Employers should [check the documents](LINK TO CHECKING DOCS) before employing the worker.
+          Employers should [check the documents](/checking-an-employees-right-to-work-documents "Checking an employee's right to work documents") before employing the worker.
       
       maybe1:
         title: The person may be eligible to work in the UK.
@@ -97,7 +121,7 @@ en-GB:
           - registration certificate
           - document or letter from the Home Office indicating indefinite leave to remain in the UK
 
-          Employers should [check their documents](LINK TO CHECKING DOCS).
+          Employers should [check their documents](/checking-an-employees-right-to-work-documents "Checking an employee's right to work documents").
 
           If they can't produce any of those documents they aren't eligible to work in the UK.
         
