@@ -1,0 +1,22 @@
+en-GB:
+  flow:
+    claim-a-national-insurance-refund:
+      title:
+        "Claim a National Insurance refund"
+      options:
+        "no": "No"
+        "yes": "Yes"
+
+      body: |
+        This tool helps you find out how to claim money back from HMRC for national insurance that you have wrongly paid or overpaid.
+
+      which_class?:
+        title: "Which class of National Insurance do you want refunded?"
+        options:
+          class_1: "Class 1"
+          class_2: "Class 2"
+          class_3: "Class 3"
+          class_4: "Class 4"
+
+      did_you_pay_when_you_didnt_need_to?:
+        title: "Did you pay the National Insurance when you didn’t need to?"
