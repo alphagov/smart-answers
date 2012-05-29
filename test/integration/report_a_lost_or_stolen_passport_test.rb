@@ -187,6 +187,7 @@ class ReportALostOrStolenPassportTest < ActionDispatch::IntegrationTest
 
           should "tell you to report it to the embassy" do
             assert_results_contain "Report the loss to the UK embassy, consulate or high commission of Azerbaijan."
+            assert page.has_css?("div.contact")
           end
         end
       end

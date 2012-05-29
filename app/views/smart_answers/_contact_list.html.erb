@@ -1,0 +1,6 @@
+<% @contact_list.each do |contact| %>
+<div class="contact">
+  <p><%= prettify_contact contact['address'] %></p>
+  <p><%= contact['phone'] %></p>
+</div>
+<% end %>

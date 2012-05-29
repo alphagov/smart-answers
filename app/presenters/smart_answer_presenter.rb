@@ -108,6 +108,8 @@ class SmartAnswerPresenter
       SalaryQuestionPresenter
     when SmartAnswer::Question::Base
       QuestionPresenter
+    when SmartAnswer::Outcome
+      OutcomePresenter
     else NodePresenter
     end
     presenter_class.new(i18n_prefix, node, current_state)
