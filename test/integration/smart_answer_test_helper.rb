@@ -59,7 +59,7 @@ module SmartAnswerTestHelper
 
   def assert_results_contain(string)
     within '.results' do
-      assert page.has_content?(string), "Not found, page body: #{page.body}"
+      assert page.has_content?(string), %(expected there to be content #{string} in #{page.text.inspect})
     end
   end
 end
