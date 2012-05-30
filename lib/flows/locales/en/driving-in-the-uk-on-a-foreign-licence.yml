@@ -29,7 +29,7 @@ en-GB:
           lorry_bus_minibus: "Lorry, minibus and/or bus"
 
       which_country_issued_car_licence?:
-        title: "Where was your driving licenced issued?"
+        title: "Where was your driving licence issued?"
         hint: "The 'designated countries' are:
           Australia, Barbados, British Virgin Islands, Canada, Falkland Islands, Faroe Islands, Hong Kong, Japan, Monaco, New Zealand, Republic of Korea, Singapore, South Africa, Switzerland, Zimbabwe."
         options:
