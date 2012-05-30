@@ -39,35 +39,35 @@ en-GB:
           "7-days": "7 days per week"
 
       done_full_time_5_days:
-        title: Statutory entitlement of 28 days per year
+        title: Your paid statutory holiday entitlement is 28 of your working days.
         body: |
-          Your paid statutory holiday entitlement is 28 of your working days.
-
           Your employer can:
 
           - Include public and bank holidays as part of your statutory entitlement
           - Give you more paid holiday - this will be in your employment contract and is called 'contractual leave entitlement'
+
+          ^This is calculated as: (5 days per week) x 5.6 = **28 days**
 
       done_full_time_more_than_5:
-        title: Maximum entitlement of 28 days per year
+        title: Your paid statutory holiday entitlement is 28 of your working days - you can't get more statutory leave than this even if you work over 5 days a week.
         body: |
-          Your paid statutory holiday entitlement is 28 of your working days - you can't get more statutory leave than this even if you work over 5 days a week.
-
           Your employer can:
 
           - Include public and bank holidays as part of your statutory entitlement
           - Give you more paid holiday - this will be in your employment contract and is called 'contractual leave entitlement'
 
-      done_full_time_part_year:
-        title: Statutory entitlement is %{holiday_entitlement_days} days
-        body: |
-          Your paid statutory holiday entitlement is %{holiday_entitlement_days} of your working days.
+          ^This is calculated as: (5 days per week) x 5.6 = **28 days maximum**
 
+      done_full_time_part_year:
+        title: Your paid statutory holiday entitlement is %{holiday_entitlement_days} of your working days.
+        body: |
           Your employer:
 
           - Can include bank and public holidays as part of your statutory entitlement
           - Must not round down your holiday entitlement, but may round it up
           - Can give you more paid holiday - this will be in your employment contract and is called 'contractual leave entitlement'
+
+          ^This is calculated as: 5.6 x (fraction: %{fraction_of_year}) x %{days_per_week} days = **%{holiday_entitlement_days} days**
 
       part_time_worked?:
         title: How long will you be employed part-time?
@@ -127,75 +127,75 @@ en-GB:
         label: Days per pattern
 
       done_part_time_year:
-        title: Statutory holiday entitlement is %{part_time_holiday_entitlement} of your working days
+        title: Your paid statutory holiday entitlement is %{part_time_holiday_entitlement} of your working days.
         body: |
-          Your paid statutory holiday entitlement is %{part_time_holiday_entitlement} of your working days.
-
           Your employer can:
 
           - Include public and bank holidays as part of your statutory entitlement
           - Give you more paid holiday - this will be in your employment contract and is called 'contractual leave entitlement'
+
+          ^This is calculated as: 5.6 x %{part_time_days_worked} days per week = **%{part_time_holiday_entitlement}** of your working days
 
       done_part_time_part_year:
-        title: Statutory holiday entitlement is %{part_time_holiday_entitlement} of your working days
+        title: Your paid statutory holiday entitlement is %{part_time_holiday_entitlement} of your working days.
         body: |
-          Your paid statutory holiday entitlement is %{part_time_holiday_entitlement} of your working days.
-
           Your employer:
 
           - Can include public and bank holidays as part of your statutory entitlement
           - Must not round down your holiday entitlement, but may round it up
           - Can give you more paid holiday - this will be in your employment contract and is called 'contractual leave entitlement'
+
+          ^This is calculated as: 5.6 x %{part_time_days_worked} x %{display_fraction_of_year} (fraction of year worked) = **%{part_time_holiday_entitlement} days**
 
       done_casual_hours:
-        title: Statutory holiday entitlement is %{entitlement_hours} hours
+        title: Your paid statutory holiday entitlement is %{entitlement_hours} hours and %{entitlement_minutes} minutes.
         body: |
-          Your paid statutory holiday entitlement is %{entitlement_hours} hours and %{entitlement_minutes} minutes.
-
           Your employer can:
 
           - Include public and bank holidays as part of your statutory entitlement
           - Give you more paid holiday - this will be in your employment contract and is called 'contractual leave entitlement'
+
+          ^This is calculated as: 12.07% of %{total_hours} hours = **%{entitlement_hours} hours and %{entitlement_minutes} minutes**
 
       done_annualised_hours:
-        title: Statutory holiday entitlement is %{entitlement_hours} hours
+        title: Your paid statutory holiday entitlement is %{entitlement_hours} hours and %{entitlement_minutes} minutes for the year.
         body: |
-          Your paid statutory holiday entitlement is %{entitlement_hours} hours and %{entitlement_minutes} minutes for the year.
-
           Your employer can:
 
           - Include public and bank holidays as part of your statutory entitlement
           - Give you more paid holiday - this will be in your employment contract and is called 'contractual leave entitlement'
 
+          ^This is calculated as: 5.6 x (%{total_hours} / 46.4 = %{display_annualised_weekly_average} hours per week) = **%{entitlement_hours} hours and %{entitlement_minutes} minutes**
+
       done_compressed_hours:
-        title: Statutory holiday entitlement is %{hours} hours
+        title: Your paid statutory holiday entitlement is %{hours} hours and %{minutes} minutes. You should take %{hours_daily} hours and %{minutes_daily} minutes for each day of holiday.
 
         body: |
-          Your paid statutory holiday entitlement is %{hours} hours and %{minutes} minutes. You should take %{hours_daily} hours and %{minutes_daily} minutes for each day of holiday.
-
           Your employer:
 
           - Can include public and bank holidays as part of your statutory entitlement
           - Must not round down your holiday entitlement, but may round it up
           - Can give you more paid holiday - this will be in your employment contract and is called 'contractual leave entitlement'
 
-      done_shift_worker_year:
-        title: Statutory holiday entitlement is %{holiday_entitlement} %{shift_length} hour shifts
-        body: |
-          Your paid statutory holiday entitlement is %{holiday_entitlement} %{shift_length} hour shifts.
+          ^This is calculated as: (%{days_per_week} days / %{hours_per_week}) x 5.6 = **%{hours} hours and %{minutes} minutes**
 
+      done_shift_worker_year:
+        title: Your paid statutory holiday entitlement is %{holiday_entitlement} %{shift_length} hour shifts.
+        body: |
           Your employer:
 
           - Can include public and bank holidays as part of your statutory entitlement
           - Give you more paid holiday - this will be in your employment contract and is called 'contractual leave entitlement'
 
-      done_shift_worker_part_year:
-        title: Statutory holiday entitlement is %{holiday_entitlement} %{shift_length} hour shifts.
-        body: |
-          Your paid statutory holiday entitlement is %{holiday_entitlement} %{shift_length} hour shifts.
+          ^This is calculated as: %{shifts_per_week} shifts (of %{shift_length} hours) x 5.6 = **%{holiday_entitlement} x %{shift_length} hour shifts on holiday**
 
+      done_shift_worker_part_year:
+        title: Your paid statutory holiday entitlement is %{holiday_entitlement} %{shift_length} hour shifts.
+        body: |
           Your employer:
 
           - Can include public and bank holidays as part of your statutory entitlement
           - Must not round down your holiday entitlement, but may round it up
           - Give you more paid holiday - this will be in your employment contract and is called 'contractual leave entitlement'
+
+          ^This is calculated as: %{display_fraction_of_year} of whole year x (%{shifts_per_week} shifts x 5.6) = **%{holiday_entitlement} x %{shift_length} hours shifts**

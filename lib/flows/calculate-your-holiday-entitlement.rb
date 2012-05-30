@@ -48,8 +48,11 @@ multiple_choice :full_time_part_year_days? do
   option "5-days" => :done_full_time_part_year
   option "6-days" => :done_full_time_part_year
   option "7-days" => :done_full_time_part_year
+  calculate :days_per_week do
+    responses.last.sub('-days', '').to_f
+  end
   calculate :holiday_entitlement_days do
-    calculator.format_number 5.6 * fraction_of_year * responses.last.sub('-days', '').to_f
+    calculator.format_number 5.6 * fraction_of_year * days_per_week
   end
 end
 
@@ -81,6 +84,7 @@ end
 
 value_question :part_time_year_days_worked? do
   next_node :done_part_time_year
+  save_input_as :part_time_days_worked
   calculate :part_time_holiday_entitlement do
     calculator.format_number responses.last.to_f * 5.6
   end
@@ -88,8 +92,12 @@ end
 
 value_question :part_time_part_year_days_worked? do
   next_node :done_part_time_part_year
+  save_input_as :part_time_days_worked
   calculate :part_time_holiday_entitlement do
     calculator.format_number responses.last.to_f * 5.6 * fraction_of_year
+  end
+  calculate :display_fraction_of_year do
+    sprintf('%.2f', fraction_of_year)
   end
 end
 
@@ -112,6 +120,9 @@ value_question :annualised_hours? do
   save_input_as :total_hours
   calculate :annualised_weekly_average do
     total_hours.to_f / 46.4
+  end
+  calculate :display_annualised_weekly_average do
+    sprintf("%.2f", annualised_weekly_average)
   end
   calculate :holiday_entitlement do
     calculator.hours_as_seconds 5.6 * annualised_weekly_average.to_f
@@ -166,6 +177,9 @@ date_question :shift_worker_starting_date? do
   calculate :fraction_of_year do
     calculator.fraction_of_year Date.civil(Date.today.year, 12, 31), start_date
   end
+  calculate :display_fraction_of_year do
+    sprintf("%.2f", fraction_of_year)
+  end
 end
 
 date_question :shift_worker_leaving_date? do
@@ -175,6 +189,9 @@ date_question :shift_worker_leaving_date? do
   next_node :shift_worker_year_shift_length?
   calculate :fraction_of_year do
     calculator.fraction_of_year leaving_date, Date.civil(Date.today.year, 1, 1)
+  end
+  calculate :display_fraction_of_year do
+    sprintf("%.2f", fraction_of_year)
   end
 end
 
