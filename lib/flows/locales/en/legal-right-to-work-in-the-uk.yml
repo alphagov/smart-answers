@@ -20,14 +20,20 @@ en-GB:
         
       is_british_citizen?:
         title: Is the worker a British citizen?
-        hint: |
-          This does not include other kinds of citizenship, eg British Overseas Territories citizens.
-                
+        body: |
+          This does not include these kinds of British citizenship:
+
+          * British Nationals Overseas (eg from Hong Kong)
+          * British protected persons (from former British empire)
+          * British subjects (eg from India before 1949)
+          * British Overseas Territories citizens
+          * British Overseas citizens (eg from Malaysia, Kenya)
+
       has_right_of_abode?:
         title: Is the worker's passport up to date and does it contain a Certificate of Entitlement to the Right of Abode in the UK?
         options:
-          yes: It is up to date with certificate
-          no: It is not up to date or without certificate
+          "yes": It is up to date with certificate
+          "no": It is not up to date or without certificate
       
       where_from?:
         title: "Is the worker:"
@@ -69,17 +75,14 @@ en-GB:
         
       has_visa_or_other_doc?:
         title: Does the worker have a visa, biometric permit or residence document?
-        body:
-          "The worker needs one of these:
-          
-          
+        body: |
+          The worker needs one of these:
+
           - visa for the relevant type of work
-          
           - biometric residence card for the right type of work (or a 'Certificate of Application' for a card less than 6 months old)
-          
-          - residence card
-          
-          - document issued by the Home Office to a family member of an EU/EEA/Swiss national"
+          - document issued by the Home Office to a family member of an EU/EEA/Swiss national showing that they can work in the UK
+
+          *[EEA]: European Economic Area
       
       is_eligible1:
         title: The person is entitled to work in the UK.
@@ -99,17 +102,20 @@ en-GB:
       is_eligible3:
         title: The person is entitled to work in the UK.
         body: |
-          Employers should take a copy of the [relevant parts of their passport](/checking-an-employees-right-to-work-documents "Checking an employee's right to work documents") (or their parent’s or child’s passport if they’re a ‘named person’ there). A ‘named person’ is someone who appears on someone else’s passport, eg a parent.
+
+          Employers should take a copy of the [relevant parts of their passport or ID card](/checking-an-employees-right-to-work-documents "Checking an employee's right to work documents") (or their parent's or child's passport if they're a 'named person' there). A 'named person' is someone who appears on someone else's passport, eg a parent.
 
           ##Romanians and Bulgarians
 
           People from Romania or Bulgaria have permission to live in the UK but must show [proof of permission to work](http://www.ukba.homeoffice.gov.uk/eucitizens/bulgaria-romania/work-permits/liveworkuk/ "Work permits and accession worker cards"){:rel="external"}, eg an 'accession worker card' or proof that they're exempt from this restriction.
 
           Employers can [apply for permits](http://www.ukba.homeoffice.gov.uk/business-sponsors/european-workers/ "Employing European workers"){:rel="external"} for Bulgarian and Romanian workers before they can work in the UK.
-          
+
       needs_up_to_date_docs:
-        title: The worker needs a Certificate of Entitlement to the Right of Abode in the UK in a current passport. 
+        title: The worker needs up-to-date documents entitling them to work in the UK.
         body: |
+          The worker can apply for a [Certificate of Entitlement to the Right of Abode](http://www.ukba.homeoffice.gov.uk/britishcitizenship/right-of-abode/certificate-entitlement/ "How to apply for a certificate of entitlement"){:rel="external"} in the UK.
+
           Employers should [check the documents](/checking-an-employees-right-to-work-documents "Checking an employee's right to work documents") before employing the worker.
       
       maybe1:
@@ -117,28 +123,23 @@ en-GB:
         body: |
           The person must be able to show that they, or a named person (eg a family member) on their passport, has one of these:
 
-          - biometric residence permit
-          - registration certificate
+          - [biometric residence permit](http://www.ukba.homeoffice.gov.uk/visas-immigration/while-in-uk/do-i-need-brp/ "Biometric residence permits"){:rel="external"}
+          - [registration certificate](http://www.ukba.homeoffice.gov.uk/eucitizens/rightsandresponsibilites/#header5 "Registration certificates"){:rel="external"}
           - document or letter from the Home Office indicating indefinite leave to remain in the UK
+
+          If they can't produce any of those documents they aren't eligible to work in the UK.
 
           Employers should [check their documents](/checking-an-employees-right-to-work-documents "Checking an employee's right to work documents").
 
-          If they can't produce any of those documents they aren't eligible to work in the UK.
-        
-      maybe2:
-        title: The person may be eligible to work in the UK.
-        body: |
-          The worker must provide all of the following:
-
-          - permit or letter of approval from a UK government department, eg the Home Office
-          - letter from the Home Office showing they have leave to remain
-          - [certificate of sponsorship](/sponsor-an-employee-to-work-in-the-uk/certificate-of-sponsorship "Certificate of sponsorship")
-          - travel document (eg passport or immigration status document) or a Home Office letter showing leave to remain (there may be a limit on how long the worker can stay for and what work they can do)
-
-          These documents must be checked by the UK Border Agency Checking Service. For details, contact the UK Border Agency Employers and education providers' helpline.
+          If you want to make sure that the person is entitled to work in the UK, ask the UK Border Agency Checking Service to check these documents. For details, contact the UK Border Agency Employers and education providers' helpline.
 
 
           $C
           UK Border Agency Employers and education providers' helpline  
           Telephone: 0300 123 4699
           $C
+
+      maybe2:
+        title: The worker may be eligible to work in the UK.
+        body: |
+          The worker will need to be [sponsored to work in the UK](/sponsor-an-employee-to-work-in-the-uk/certificate-of-sponsorship "Certificate of sponsorship").
