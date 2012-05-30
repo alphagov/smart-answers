@@ -6,13 +6,13 @@ status :published
 
 multiple_choice :is_there_a_living_spouse_or_civil_partner? do
   save_input_as :living_spouse_partner
-  option yes: :is_the_estate_worth_more_than_250000?
+  option :yes => :is_the_estate_worth_more_than_250000?
   option :no => :are_there_living_children?
 end
 
 multiple_choice :is_the_estate_worth_more_than_250000? do
   option :yes => :are_there_living_children?
-  option no: :partner_receives_all_of_the_estate
+  option :no => :partner_receives_all_of_the_estate
 end
 
 multiple_choice :are_there_living_children? do
@@ -71,22 +71,22 @@ multiple_choice :are_there_any_brothers_or_sisters_living? do
 end
 
 multiple_choice :are_there_half_blood_brothers_or_sisters? do
-  option yes: :shared_equally_between_half_blood_brothers_sisters
+  option :yes => :shared_equally_between_half_blood_brothers_sisters
   option :no => :are_there_grandparents_living?
 end
 
 multiple_choice :are_there_grandparents_living? do
-  option yes: :shared_equally_between_grandparents
+  option :yes => :shared_equally_between_grandparents
   option :no => :are_there_any_living_aunts_or_uncles?
 end
 
 multiple_choice :are_there_any_living_aunts_or_uncles? do
-  option yes: :shared_equally_between_aunts_or_uncles
+  option :yes => :shared_equally_between_aunts_or_uncles
   option :no => :are_there_any_living_half_aunts_or_uncles?
 end
 
 multiple_choice :are_there_any_living_half_aunts_or_uncles? do
-  option yes: :shared_equally_between_half_aunts_or_uncles
+  option :yes => :shared_equally_between_half_aunts_or_uncles
   # TODO: Check
   option :no => :everything_goes_to_crown
 end
