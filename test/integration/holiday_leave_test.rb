@@ -54,7 +54,7 @@ class HolidayLeaveTest < ActionDispatch::IntegrationTest
     respond_with "Part of a year - I am leaving this year"
     respond_with "2012-08-01"
     respond_with "5 days per week"
-    assert_results_contain "16.2 days"
+    assert_results_contain "16.3 days"
   end
 
   test "Part-time" do
@@ -77,7 +77,7 @@ class HolidayLeaveTest < ActionDispatch::IntegrationTest
     respond_with "Part of a year - I am leaving this year"
     respond_with '2012-05-01'
     respond_with 3
-    assert_results_contain "5.5 of your working days"
+    assert_results_contain "5.6 of your working days"
   end
 
   test "Casual or irregular hours" do

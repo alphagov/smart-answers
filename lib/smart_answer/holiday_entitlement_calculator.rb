@@ -20,7 +20,7 @@ module SmartAnswer
     end
 
     def fraction_of_year(date1, date2)
-      days = (seconds_to_hash date1.to_time - date2.to_time)[:dd]
+      days = (seconds_to_hash date1.to_datetime.to_i - date2.to_datetime.to_i)[:dd]
       days.to_f / (Date.today.leap? ? 366 : 365)
     end
 
