@@ -12,10 +12,6 @@ end
 multiple_choice :did_you_marry_or_civil_partner_before_5_december_2005? do
   option :yes => :whats_the_husbands_date_of_birth?
   option :no => :whats_the_highest_earners_date_of_birth?
-
-  calculate :result_strings do
-    (responses.last == "yes") ? PhraseList.new(:before_2005) : PhraseList.new(:after_2005)
-  end
 end
 
 date_question :whats_the_husbands_date_of_birth? do

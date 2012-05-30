@@ -14,11 +14,6 @@ en-GB:
       options:
         "no": "No"
         "yes": "Yes"
-      phrases:
-        after_2005: |
-          Whoever has the highest income can claim Married Couple's Allowance.
-        before_2005: |
-          The husband can claim Married Couple's Allowance.
       were_you_or_your_partner_born_on_or_before_6_april_1935?:
         title: Were you or your partner born on or before 6 April 1935?
         hint: You must be married or in a civil partnership to qualify.
@@ -55,8 +50,8 @@ en-GB:
 
 
           $C
-          **HM Revenue & Customs**
-          **Telephone** 0845 300 0627
+          **HM Revenue & Customs**  
+          **Telephone** 0845 300 0627  
           **Textphone** 0845 302 1408
           $C
 
@@ -76,8 +71,8 @@ en-GB:
 
 
           $C
-          **HM Revenue & Customs**
-          **Telephone** 0845 300 0627
+          **HM Revenue & Customs**  
+          **Telephone** 0845 300 0627  
           **Textphone** 0845 302 1408
           $C
 
