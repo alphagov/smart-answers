@@ -16,7 +16,8 @@ module SmartAnswer
     end
 
     def hours_between_date(date1, date2)
-      (seconds_to_hash date1.to_time - date2.to_time)[:hh]
+      hash = seconds_to_hash date1.to_datetime.to_i - date2.to_datetime.to_i
+      hash[:dd] * 24 + hash[:hh]
     end
 
     def fraction_of_year(date1, date2)
