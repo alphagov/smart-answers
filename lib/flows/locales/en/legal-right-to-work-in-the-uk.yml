@@ -9,7 +9,7 @@ en-GB:
       body:
         Find out if a potential employee has the right to work in the UK and what documents employers should check.
       
-        You can also use this tool to find out if you're eligible to work in the UK.
+        You can also use this tool to find out which documents you need to produce to prove you are eligible to work in the UK.
 
       options:
         "no": "No"
@@ -87,7 +87,7 @@ en-GB:
       is_eligible1:
         title: The person is entitled to work in the UK.
         body: |
-          Employers should take a copy of the [relevant parts of their passport or documents](/checking-an-employees-right-to-work-documents "Checking an employee's right to work documents").
+          Employers should take a copy of the [relevant parts of their passport or documents](/check-an-employees-right-to-work-documents "Check an employee's right to work documents").
         
       is_eligible2:
         title: The worker needs to show proof of their permission to work in the UK.
@@ -97,13 +97,13 @@ en-GB:
           - an official letter or document from a government agency (eg HM Revenue & Customs, Department for Work and Pensions) showing their National Insurance number
           - full birth, adoption certificate or naturalisation certificate
 
-          Employers should [take a copy](/checking-an-employees-right-to-work-documents "Checking an employee's right to work documents") of the relevant documents.
+          Employers should [take a copy](/check-an-employees-right-to-work-documents "Check an employee's right to work documents") of the relevant documents.
         
       is_eligible3:
         title: The person is entitled to work in the UK.
         body: |
 
-          Employers should take a copy of the [relevant parts of their passport or ID card](/checking-an-employees-right-to-work-documents "Checking an employee's right to work documents") (or their parent's or child's passport if they're a 'named person' there). A 'named person' is someone who appears on someone else's passport, eg a parent.
+          Employers should take a copy of the [relevant parts of their passport or ID card](/check-an-employees-right-to-work-documents "Check an employee's right to work documents") (or their parent's or child's passport if they're a 'named person' there). A 'named person' is someone who appears on someone else's passport, eg a parent.
 
           ##Romanians and Bulgarians
 
@@ -116,7 +116,7 @@ en-GB:
         body: |
           The worker can apply for a [Certificate of Entitlement to the Right of Abode](http://www.ukba.homeoffice.gov.uk/britishcitizenship/right-of-abode/certificate-entitlement/ "How to apply for a certificate of entitlement"){:rel="external"} in the UK.
 
-          Employers should [check the documents](/checking-an-employees-right-to-work-documents "Checking an employee's right to work documents") before employing the worker.
+          Employers should [check the documents](/check-an-employees-right-to-work-documents "Check an employee's right to work documents") before employing the worker.
       
       maybe1:
         title: The person may be eligible to work in the UK.
@@ -129,7 +129,7 @@ en-GB:
 
           If they can't produce any of those documents they aren't eligible to work in the UK.
 
-          Employers should [check their documents](/checking-an-employees-right-to-work-documents "Checking an employee's right to work documents").
+          Employers should [check their documents](/check-an-employees-right-to-work-documents "Check an employee's right to work documents").
 
           If you want to make sure that the person is entitled to work in the UK, ask the UK Border Agency Checking Service to check these documents. For details, contact the UK Border Agency Employers and education providers' helpline.
 
