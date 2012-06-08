@@ -24,8 +24,3 @@ else
   Capybara.javascript_driver = :selenium
 end
 Capybara.default_driver = :rack_test
-Capybara.app = Rack::Builder.new do
-  map "/" do
-    run Capybara.app
-  end
-end
