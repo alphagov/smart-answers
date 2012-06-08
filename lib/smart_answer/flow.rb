@@ -11,6 +11,10 @@ module SmartAnswer
       instance_eval(&block) if block_given?
     end
 
+    def use_shared_logic(filename)
+      eval File.read(Rails.root.join('lib', 'flows', 'shared_logic', "#{filename}.rb")), binding
+    end
+
     def name(name = nil)
       @name = name unless name.nil?
       @name

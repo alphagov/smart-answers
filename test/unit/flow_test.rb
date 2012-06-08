@@ -245,4 +245,26 @@ class FlowTest < ActiveSupport::TestCase
       flow.process(['2011-01-01'])
     end
   end
+
+  test "should allow using shared logic" do
+    File.stubs(:read).with(Rails.root.join('lib', 'flows', 'shared_logic', "test_flow_logic.rb")).returns(<<-EOT)
+multiple_choice :do_you_like_chocolate? do
+  option :yes => :sweet_tooth
+  option :no => :savoury_tooth
+end
+
+outcome :sweet_tooth
+outcome :savoury_tooth
+    EOT
+
+    s = SmartAnswer::Flow.new do
+      use_shared_logic 'test_flow_logic'
+    end
+
+    assert_equal 3, s.nodes.size
+    assert_equal 1, s.questions.size
+    assert_equal :do_you_like_chocolate?, s.questions.first.name
+    assert_equal 2, s.outcomes.size
+    assert_equal [:sweet_tooth, :savoury_tooth], s.outcomes.map(&:name)
+  end
 end
