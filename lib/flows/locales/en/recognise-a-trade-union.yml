@@ -1,0 +1,39 @@
+en-GB:
+  flow:
+    recognise-a-trade-union:
+      title: Recognise or De-recognise a Trade Union
+      section_name: Work
+      what_do_you_need_to_do?:
+        title: "Do you need to:"
+        options:
+          recognise_a_trade_union: Recognise a trade union
+          derecoognise_a_trade_union: Derecognise a trade union
+      do_you_want_to_recognise_the_union_voluntarily?:
+        title: "Do you want to recognise the union voluntarily?"
+        options:
+          yes: Yes
+          no: No
+      how_many_employees_do_you_have?:
+        title: How many employees do you have?
+        options:
+          21_or_more: 21 or more
+          fewer_than_21: Fewer than 21
+      have_they_submitted_an_application?:
+        title: The union can apply for to the Central Arbitration Committee (CAC). Have they submitted an application?
+        options:
+          yes: Yes
+          no: No
+
+
+
+
+      you_agree_to_recognise_the_union:
+        body: |
+          Both parties should draw up an agreement setting out:
+
+          - the bargaining unit
+          - how collective bargaining will take place
+      the_union_cannot_apply_for_statutory_recognition:
+        title: The union can't apply for statutory recognition
+      no_action_required:
+        title: No action required - but the union may apply to the CAC at a later date.
