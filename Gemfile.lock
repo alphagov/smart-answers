@@ -1,10 +1,3 @@
-GIT
-  remote: git@github.com:alphagov/govspeak.git
-  revision: 56c115bd75584dbb1f8809dbe3006b2cf65e5349
-  specs:
-    govspeak (0.8.6)
-      kramdown (~> 0.13.3)
-
 GEM
   remote: http://rubygems.org/
   remote: https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/
@@ -86,6 +79,8 @@ GEM
       plek
     gds-warmup-controller (0.0.2)
       rails (>= 3.0.0)
+    govspeak (0.8.6)
+      kramdown (~> 0.13.3)
     hike (1.2.1)
     htmlentities (4.3.1)
     i18n (0.6.0)
@@ -216,7 +211,7 @@ DEPENDENCIES
   factory_girl_rails
   gds-api-adapters (~> 0.0.30)
   gds-warmup-controller
-  govspeak!
+  govspeak (~> 0.8.6)
   htmlentities (~> 4)
   jquery-rails
   json
