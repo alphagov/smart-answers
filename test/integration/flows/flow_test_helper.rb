@@ -24,6 +24,7 @@ module FlowTestHelper
 
   def assert_current_node(node_name)
     assert_equal node_name, current_state.current_node
+    assert @flow.node_exists?(node_name), "Node #{node_name} does not exist."
   end
 
   def assert_state_variable(name, value)
