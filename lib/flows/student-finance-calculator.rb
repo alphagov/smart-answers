@@ -6,19 +6,11 @@ status :published
 multiple_choice :are_you_a_full_time_or_part_time_student? do
   option :'full-time'
   option :'part-time'
-  next_node :how_much_is_your_tuition_fee_per_year?
   save_input_as :course_type
+  next_node :how_much_is_your_tuition_fee_per_year?
 end
 
 money_question :how_much_is_your_tuition_fee_per_year? do
-  next_node do
-    if course_type == "full-time"
-      :where_will_you_live_while_studying?
-    else
-      :part_time_do_you_want_to_check_for_additional_grants_and_allowances?
-    end
-  end
-
   calculate :tuition_fee_amount do
     if course_type == "full-time"
       raise SmartAnswer::InvalidResponse if responses.last > 9000
@@ -31,13 +23,20 @@ money_question :how_much_is_your_tuition_fee_per_year? do
   calculate :eligible_finance do
     PhraseList.new(:tuition_fee_loan)
   end
+
+  next_node do
+    if course_type == "full-time"
+      :where_will_you_live_while_studying?
+    else
+      :part_time_do_you_want_to_check_for_additional_grants_and_allowances?
+    end
+  end
 end
 
 multiple_choice :where_will_you_live_while_studying? do
   option :'at-home'
   option :'away-outside-london'
   option :'away-in-london'
-  save_input_as :where_will_you_live_while_studying?
 
   calculate :maintenance_loan_amount do
     case responses.last
@@ -48,11 +47,12 @@ multiple_choice :where_will_you_live_while_studying? do
       raise SmartAnswer::InvalidResponse
     end
   end
-  next_node :whats_your_household_income?
 
   calculate :eligible_finance do
     eligible_finance + :maintenance_loan
   end
+
+  next_node :whats_your_household_income?
 end
 
 multiple_choice :whats_your_household_income? do
@@ -62,14 +62,6 @@ multiple_choice :whats_your_household_income? do
   option :'35001-40000'
   option :'40001-42600'
   option :'more-than-42600'
-  next_node do |response|
-    if course_type == "full-time"
-      :full_time_do_you_want_to_check_for_additional_grants_and_allowances?
-    else
-      :part_time_do_you_want_to_check_for_additional_grants_and_allowances?
-    end
-  end
-  save_input_as :whats_your_household_income?
 
   calculate :maintenance_grant_amount do
     case responses.last
@@ -89,21 +81,19 @@ multiple_choice :whats_your_household_income? do
       eligible_finance
     end
   end
+
+  next_node do |response|
+    if course_type == "full-time"
+      :full_time_do_you_want_to_check_for_additional_grants_and_allowances?
+    else
+      :part_time_do_you_want_to_check_for_additional_grants_and_allowances?
+    end
+  end
 end
 
 multiple_choice :full_time_do_you_want_to_check_for_additional_grants_and_allowances? do
-  option :yes
-  option :no
-
-  save_input_as :check_for_additional_grants_and_allowances
-
-  next_node do |response|
-    if response == "yes"
-      :do_you_have_any_children_under_17?
-    else
-      :done
-    end
-  end
+  option :yes => :do_you_have_any_children_under_17?
+  option :no => :done
 
   calculate :additional_benefits do
     if responses.last == "yes"
@@ -115,18 +105,8 @@ multiple_choice :full_time_do_you_want_to_check_for_additional_grants_and_allowa
 end
 
 multiple_choice :part_time_do_you_want_to_check_for_additional_grants_and_allowances? do
-  option :yes
-  option :no
-
-  save_input_as :check_for_additional_grants_and_allowances
-
-  next_node do |response|
-    if response == "yes"
-      :do_you_have_a_disability_or_health_condition?
-    else
-      :done
-    end
-  end
+  option :yes => :do_you_have_a_disability_or_health_condition?
+  option :no => :done
 
   calculate :additional_benefits do
     if responses.last == "yes"
@@ -141,41 +121,45 @@ end
 multiple_choice :do_you_have_any_children_under_17? do
   option :yes
   option :no
-  next_node :does_another_adult_depend_on_you_financially?
 
   calculate :additional_benefits do
     responses.last == "yes" ? additional_benefits + :dependent_children : additional_benefits
   end
+
+  next_node :does_another_adult_depend_on_you_financially?
 end
 
 multiple_choice :does_another_adult_depend_on_you_financially? do
   option :yes
   option :no
-  next_node :do_you_have_a_disability_or_health_condition?
 
   calculate :additional_benefits do
     responses.last == "yes" ? additional_benefits + :dependent_adult : additional_benefits
   end
+
+  next_node :do_you_have_a_disability_or_health_condition?
 end
 
 multiple_choice :do_you_have_a_disability_or_health_condition? do
   option :yes
   option :no
-  next_node :are_you_in_financial_hardship?
 
   calculate :additional_benefits do
     responses.last == "yes" ? additional_benefits + :disability : additional_benefits
   end
+
+  next_node :are_you_in_financial_hardship?
 end
 
 multiple_choice :are_you_in_financial_hardship? do
   option :yes
   option :no
-  next_node :are_you_studying_one_of_these_courses?
 
   calculate :additional_benefits do
     responses.last == "yes" ? additional_benefits + :financial_hardship : additional_benefits
   end
+
+  next_node :are_you_studying_one_of_these_courses?
 end
 
 multiple_choice :are_you_studying_one_of_these_courses? do
