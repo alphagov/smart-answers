@@ -17,9 +17,11 @@ module FlowTestHelper
   end
 
   def current_state
-    state = @flow.process(@responses)
-    raise SmartAnswer::InvalidResponse.new(state.error) if state.error
-    state
+    @state ||= begin
+      state = @flow.process(@responses)
+      raise SmartAnswer::InvalidResponse.new(state.error) if state.error
+      state
+    end
   end
 
   def assert_current_node(node_name)
