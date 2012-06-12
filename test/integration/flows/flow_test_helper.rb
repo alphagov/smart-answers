@@ -30,4 +30,10 @@ module FlowTestHelper
   def assert_state_variable(name, value)
     assert_equal value, current_state.send(name)
   end
+
+  def assert_phrase_list(variable_name, expected_keys)
+    phrase_list = current_state.send(variable_name)
+    assert phrase_list.is_a?(SmartAnswer::PhraseList), "State variable #{variable_name} is not a PhraseList"
+    assert_equal expected_keys, phrase_list.phrase_keys
+  end
 end
