@@ -1,38 +1,46 @@
 en-GB:
   flow:
     claim-a-national-insurance-refund:
+      meta:
+        description: "Get the forms so you can apply for a refund on the National Insurance you’ve paid to HM Revenue and Customs"
       title:
         "Claim a National Insurance refund"
-      options:
-        "no": "No"
-        "yes": "Yes"
-
       body: |
-        This tool helps you find out how to claim money back from HMRC for national insurance that you have wrongly paid or overpaid.
+        This tool helps you apply for a refund on your National Insurance contributions from HM Revenue and Customs.
 
       which_class?:
-        title: "Which class of National Insurance do you want refunded?"
+        title: "Which class of National Insurance do you want a refund for?"
         options:
           class_1: "Class 1"
           class_2: "Class 2"
           class_3: "Class 3"
           class_4: "Class 4"
 
-      did_you_pay_when_you_didnt_need_to?:
-        title: "Did you pay the National Insurance when you didn't need to?"
+      why_are_you_applying_for_a_refund?:
+        title: "Why are you applying for a refund?"
+        options:
+          shouldnt_have_paid: "you shouldn’t have paid this Class"
+          paid_too_much: "you paid too much of this Class"
       
       outcome_1:
-        title: "Class 1 refunds"
+        title: "Write to HM Revenue & Customs (HMRC) by the deadline and ask for a refund, they’ll confirm what money you’ll get."
         body: |
           What you must do
           ---------
 
-          Write to HM Revenue & Customs confirming:
+          Write to HMRC confirming:
 
           * your National Insurance number
           * why you've overpaid
           * the tax year(s) you've overpaid
           * your P60 or a statement from your employer(s) showing what tax and NI has been paid
+
+          Deadlines
+          --------
+
+          Usually up to 6 years after the tax year you're applying for.
+
+          There's no timeframe for HMRC responding to you.
 
           Where to send your letter
           --------
@@ -52,31 +60,25 @@ en-GB:
           Monday to Friday 8.00am to 5.00pm
           $C
 
-          Deadline
-          --------
-
-          Usually within 6 years of the tax year you're applying for ending.
-
-          What happens next
-          --------
-
-          HMRC will write confirming what refund you'll get. There is no timeframe for this.
-
       outcome_1a:
-        title: "Class 2 refunds"
+        title: "Write to HM Revenue & Customs (HMRC) by the deadline and ask for a refund, they’ll confirm what money you’ll get."
         body: |
           What you must do
           ---------
 
-          Write to HM Revenue & Customs confirming:
+          Write to HMRC confirming:
 
           * your National Insurance number
           * why you've overpaid
           * the tax year(s) you've overpaid
           * a copy of the accounts for the tax year which confirms the low earnings
 
-          Where to send your letter
+          Deadlines
           --------
+
+          You can apply for a refund for the last tax year. You must apply by 31 January.
+
+          There's no timeframe for HMRC responding to you.
 
           $A
           HM Revenue & Customs
@@ -93,60 +95,44 @@ en-GB:
           Monday to Friday 8.30am to 5.00pm
           $C
 
-          Deadline
-          --------
-
-          Between 6 April and 31 January following the end of the tax year you made the payments.
-
-          What happens next
-          --------
-
-          HMRC will write confirming what refund you'll get. There is no timeframe for this.
       outcome_2:
-        title: "Class 3 refunds"
+        title: "Send a claim form to HM Revenue & Customs (HMRC) by the deadline, they’ll confirm what money you’ll get."
         body: |
           What you must do
           ---------
 
-          Send HM Revenue & Customs:
+          Send one of the following forms to HMRC:
 
-          * Form CW1A - if you live in the UK
-          * Form CW3A - if you live abroad
+          * form [CW1A](http://www.hmrc.gov.uk/nic/cw1a.pdf){:rel="external"} - if you live in the UK
+          * form [CW3A](http://www.hmrc.gov.uk/nic/cw3a.pdf){:rel="external"} - if you live abroad
 
-          Where to send your form
-          --------
-
-          The address is on the form
+          The postal address you need is on the form
 
 
           $C
+          **National Insurance Helpline**  
+          0845 302 1479  
+          Monday to Friday 8.00am to 5.00pm
+
           **National Insurance Helpline - non-UK Residents**  
           +44 (0)191 203 7010  
           Monday to Friday 8.00am to 5.00pm
           $C
 
-          Deadline
-          --------
-
-          Usually within 6 years of the tax year you're applying for ending.
-
-          What happens next
-          --------
-
-          HMRC will write confirming what refund you'll get. There is no timeframe for this.
-
       outcome_3:
-        title: "Class 4 refunds"
+        title: "Ask HM Revenue and Customs for a refund on your Self Assessment tax return by the deadline."
         body: |
           What you need to do
           --------
 
           Apply for a refund via your Self Assessment tax return.
 
-          Deadline
+          Deadlines
           --------
 
-          Usually within 6 years of the tax year you're applying for ending.
+          Usually up to 6 years after the tax year you're applying for.
+
+          There's no timeframe for HMRC responding to you.
 
           Contact
           --------
@@ -159,17 +145,22 @@ en-GB:
           Saturday 8.00am to 4.00pm
           $C
       outcome_4:
-        title: "Class 4 refunds"
+        title: "Send a claim form to HM Revenue & Customs (HMRC) by the deadline, they’ll confirm what money you’ll get."
         body: |
           What you must do
           --------
 
-          Send HM Revenue & Customs form CA5610
+          Send HMRC form [CA5610](http://www.hmrc.gov.uk/forms/ca5610.pdf){:rel="external"}. The postal address you need is on the form.
 
-          Where to send your form
+          Deadline
           --------
 
-          The address is on the form.
+          Usually you can apply:
+
+          + from 1 February following the tax year the refund is for
+          + up to 6 years after the tax year you’re applying for
+
+          There's no timeframe for HMRC responding to you.
 
 
           $C
@@ -179,39 +170,23 @@ en-GB:
           Fridays 8.00am to 4.30pm
           $C
 
-          Deadline
-          --------
-
-          You can apply from 1 February following the tax year the refund is for
-          Usually within 6 years of the tax year you're applying for ending.
-
-          What happens next
-          ---------
-
-          HMRC will write confirming what refund you'll get. There is no timeframe for this.
       outcome_5:
-        title: "Class 2 refunds"
+        title: "Send a claim form to HM Revenue & Customs (HMRC) by the deadline, they’ll confirm what money you’ll get."
         body: |
           What you need to do
           --------
 
-          Send one of the following forms to HM Revenue & Customs:
+          Send one of the following forms to HMRC:
 
-          * Form CA8480 - Class 2
-          * Form CW1A - Voluntary Class 2 payments if you live in the UK
-          * Form CW2A - Voluntary Class 2 payments if you live abroad
+          * form [CA8480](http://www.hmrc.gov.uk/forms/ca8480.pdf){:rel="external"} - Class 2 refund
+          * form [CW1A](http://www.hmrc.gov.uk/nic/cw1a.pdf){:rel="external"} - Voluntary Class 2 refund if you live in the UK
+          * form [CW2A](http://www.hmrc.gov.uk/nic/cw2a.pdf){:rel="external"} - Voluntary Class 2 refund if you live abroad
 
-          Where to send the form
+          The postal address you need is on the form.
+
+          Deadlines
           --------
 
-          The address is on the form.
+          Usually up to 6 years after the tax year you're applying for.
 
-          Deadline
-          --------
-
-          Usually within 6 years of the tax year you're applying for ending.
-
-          What happens next
-          --------
-
-          HMRC will write confirming what refund you'll get. There is no timeframe for this.
+          There's no timeframe for HMRC responding to you.

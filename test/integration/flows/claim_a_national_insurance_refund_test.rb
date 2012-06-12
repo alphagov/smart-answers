@@ -23,17 +23,17 @@ class ClaimANationalInsuranceRefundTest < ActiveSupport::TestCase
       add_response :class_2
     end
 
-    should "ask if you paid when you didn't need to" do
-      assert_current_node :did_you_pay_when_you_didnt_need_to?
+    should "ask why you are applying for a refund" do
+      assert_current_node :why_are_you_applying_for_a_refund?
     end
 
-    should "be outcome_5 if yes" do
-      add_response :yes
+    should "be outcome_5 if you shouldn't have paid" do
+      add_response :shouldnt_have_paid
       assert_current_node :outcome_5
     end
 
-    should "be outcome_1a if no" do
-      add_response :no
+    should "be outcome_1a if you paid too much" do
+      add_response :paid_too_much
       assert_current_node :outcome_1a
     end
   end
@@ -48,23 +48,23 @@ class ClaimANationalInsuranceRefundTest < ActiveSupport::TestCase
       add_response :class_4
     end
 
-    should "ask if you paid when you didn't need to" do
-      assert_current_node :did_you_pay_when_you_didnt_need_to?
+    should "ask why you are applying for a refund" do
+      assert_current_node :why_are_you_applying_for_a_refund?
     end
 
-    should "be outcome_3 if yes" do
-      add_response :yes
+    should "be outcome_3 if shouldn't have paid" do
+      add_response :shouldnt_have_paid
       assert_current_node :outcome_3
     end
 
-    should "be outcome_4 if no" do
-      add_response :no
+    should "be outcome_4 if paid too much" do
+      add_response :paid_too_much
       assert_current_node :outcome_4
     end
   end
 
   should "work with symbols as well as strings" do
-    @responses = [:class_4, :no]
+    @responses = [:class_4, :paid_too_much]
     assert_current_node :outcome_4
   end
 end
