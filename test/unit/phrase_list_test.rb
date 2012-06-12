@@ -17,5 +17,12 @@ module SmartAnswer
       assert_equal [:one, :two], phrase_list.phrase_keys
     end
 
+    test "the append operation adds the given phrase to the existing list and returns the list" do
+      phrase_list = PhraseList.new(:one)
+      return_value = phrase_list << :two
+
+      assert_equal [:one, :two], phrase_list.phrase_keys
+      assert_equal phrase_list, return_value
+    end
   end
 end

@@ -11,5 +11,9 @@ module SmartAnswer
       PhraseList.new( *phrase_keys + [ phrase_key ] )
     end
 
+    def <<(phrase_key)
+      phrase_keys << phrase_key
+      self
+    end
   end
 end
