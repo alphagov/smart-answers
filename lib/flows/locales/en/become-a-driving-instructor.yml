@@ -9,6 +9,109 @@ en-GB:
       body: |
         Find out if you can become an approved driving instructor (ADI) and what you need to do to qualify.
 
+      phrases:
+        apply_steps: |
+          s1. Get a criminal record check for driving instructors
+          s2. Apply to the Driving Standards Agency (DSA) to start the process
+          s3. Take and pass the 3 qualifying tests
+          s4. Apply to the DSA for your first ADI badge
+
+        apply_steps_with_emergency_control: |
+          s1. Apply for and take an emergency control assessment
+          s2. Get a criminal record check for driving instructors
+          s3. Apply to the Driving Standards Agency (DSA) to start the process
+          s4. Take and pass the 3 qualifying tests
+          s5. Apply to the DSA for your first ADI badge
+
+        apply_to_dsa: |
+          Apply to the DSA
+          --------
+
+          When you have your criminal record disclosure, you can [apply to become an ADI](/apply-to-become-a-driving-instructor "Apply to become an ADI").
+
+        criminal_record_check: |
+          Criminal record check
+          --------
+
+          You need to [get a criminal record check](http://tmgcrb.co.uk/default.asp?id=452 "Get a criminal record check"){:rel="external"} from a company called TMG CRB - they provide criminal record check services for the DSA.
+
+        criminal_record_warning: |
+          % The ADI registrar can refuse your application because you have a criminal record. They will consider the details carefully when deciding. %
+
+        emergency_control: |
+          Emergency control assessment
+          --------
+
+          You have to take an emergency control assessment to assess your ability to take control of a vehicle in an emergency.
+
+          To apply to take it, download the application form and send it to the DSA.
+
+
+          $D
+          [Download ‘ADI 3D - Emergency control assessment application’ form (PDF, 51K)](http://assets.dft.gov.uk/dsa-bl/dsa-adi-3d.pdf "Download ‘ADI 3D - Emergency control assessment application’ form (PDF, 51K)"){:rel="external"}
+          $D
+
+          $A
+          Emergency Control Certificate Assessor
+          Driving Standards Agency
+          Training and Development Centre
+          Harrowden Lane
+          Cardington
+          Bedfordshire
+          MK44 3EQ
+          $A
+
+          You’ll get an emergency control certificate if the assessment is satisfactory. It will state what extra controls on the front passenger side (if any) you need.
+
+        transfer_steps: |
+          s1. Get a GB counterpart licence if you got your driving licence in another EC country
+          s2. Apply to the Driving Standards Agency (DSA) to transfer your registration
+
+        transfer_steps_with_emergency_control: |
+          s1. Get a GB counterpart licence if you got your driving licence in another EC country
+          s2. Apply for an take an emergency control assessment
+          s3. Apply to the Driving Standards Agency (DSA) to transfer your registration
+
+        gb_counterpart_licence: |
+          GB counterpart licence
+          --------
+
+          To apply for a GB counterpart licence, download the application form and send it to the Driver and Vehicle Licensing Agency (DVLA).
+
+
+          $D
+          [Download 'D9 - Application for a GB counterpart licence' form (PDF, 351KB)](http://www.direct.gov.uk/en/Diol1/DoItOnline/Doitonlinemotoring/DG_10031645?IdcService=GET_FILE&dID=87496&Rendition=Web  "Download ‘D9 - Application for a GB counterpart licence’ form (PDF, 351KB)"){:rel="external"}
+          $D
+
+
+          $A
+          DVLA
+          Swansea
+          SA99 1BH
+          $A
+
+
+        transfer_registration: |
+          Transfer your registration
+          --------
+
+          When you have a GB counterpart licence you can [transfer your driving instructor registration to GB](/transfer-your-driving-instructor-registration-to-great-britain "Transfer your driving instructor registration to GB").
+
+        unlikely_apply_anyway: |
+          You must be a 'fit and proper' person to become an ADI. It's likely that the ADI registrar won't accept your application if you apply.
+
+          If you want to apply anyway, you’ll need to:
+
+        ADI_required_legal_warning: |
+          % It's against the law for you to charge a fee to teach someone to drive if you're not an ADI. %
+
+        acronym_definitions: |
+          *[ADI]: Approved driving instructor
+          *[EC]: European Community
+          *[GB]: Great Britain
+          *[DSA]: Driving Standards Agency
+          *[DVLA]: Driver and Vehicle Licensing Agency
+
       have_you_had_licence_for_4_of_6_years?:
         title: "Have you had a full car driving licence for 4 of the last 6 years?"
 
@@ -28,289 +131,28 @@ en-GB:
         title: "Are you already registered as a driving instructor in another European Community (EC) country?"
 
       can_start_process_of_applying:
-        title: "You can start the process of applying to become an approved driving instructor (ADI)."
+        title: "You can start applying to become an approved driving instructor (ADI)."
         body: |
-
-          s1. Get a criminal record check for driving instructors
-          s2. Apply to the Driving Standards Agency (DSA) to start the process
-          s3. Take and pass the 3 qualifying tests
-          s4. Apply to the DSA for your first ADI badge
-
-
-          Criminal record check
-          --------
-
-          You need to get a criminal record check from TMG CRB.
-
-          To [apply online](https://www.onlinecrb.tmgcrb.co.uk/Register.aspx){:rel="external"}, you will need this information:
-
-          * organsation PIN - 104499
-          * organisation name - DSA - PDI
-          * Secret Word: Nottingham
-
-          To apply by post, you will need to [order a pack from TMG CRB](http://tmgcrb.co.uk/default.asp?id=453){:rel="external"}.
-
-          Get training
-          --------
-
-          When the DSA accepts your application to start the process, you can find driving instructor training to help you qualify. You don’t have to take training if you don’t want to.
-
-      can_start_process_of_applying_with_criminal_record:
-        title: "You can start the process of applying to become an approved driving instructor (ADI)."
-        body: |
-          s1. Get a criminal record check for driving instructors
-          s2. Apply to the Driving Standards Agency (DSA) to start the process
-          s3. Take and pass the 3 qualifying tests
-          s4. Apply to the DSA for your first ADI badge
-
-
-          Your criminal record
-          --------
-
-          The ADI registrar can refuse your application because you have a criminal record. They will consider the details carefully when deciding.
-
-          Get training
-          --------
-
-          When the DSA accepts your application to start the process, you can find driving instructor training to help you qualify. You don’t have to take training if you don’t want to.
-
-      can_start_process_of_applying_with_emergency_control:
-        title: "You can start the process of applying to become an approved driving instructor (ADI)."
-        body: |
-          s1. Get a criminal record check for driving instructors
-          s2. Apply for and take an emergency control assessment
-          s3. Apply to the Driving Standards Agency (DSA) to start the process
-          s4. Take and pass the 3 qualifying tests
-          s5. Apply to the DSA for your first ADI badge
-
-
-          Emergency control assessment
-          --------
-
-          You have to take an emergency control assessment. This will assess your ability to take control of a vehicle in an emergency from the front passenger seat.
-
-          To apply to take it, download the application form and send it to the DSA.
-
-
-          $D 
-          ['ADI 3D - Emergency control assessment application' form (PDF, 51K)](http://assets.dft.gov.uk/dsa-bl/dsa-adi-3d.pdf "Download ‘ADI 3D - Emergency control assessment application’ form (PDF, 51K)"){:rel="external"}
-          $D
-
-
-          $A
-          Emergency Control Certificate Assessor
-          Driving Standards Agency
-          Training and Development Centre
-          Harrowden Lane
-          Cardington
-          Bedfordshire
-          MK44 3EQ
-          $A
-
-          The DSA will tell you where your assessment will be carried out.
-
-          The emergency control certificate
-          --------
-
-          If the assessment is satisfactory, you’ll get an emergency control certificate (ECC). It will state what extra controls on the front passenger side (if any) you need.
-
-          You’ll need to send a copy of the ECC with your application for the ADI part 1 test.
-
-          You can be given an ECC which is time limited. The ADI registrar may need you to complete another ECC assessment in the future if this happens.
-
-          The qualifying tests if you have a disability
-          --------
-
-          You’ll take the same tests as everyone applying to be an ADI, but you’ll be able to take the practical tests in an automatic car.
-
-          Vehicles you'll be able to give instruction in
-          --------
-
-          Your ADI certificate or trainee licence will restrict you to giving driving instruction in automatics only, subject to the fitting of extra controls as set out in the ECC.
-
-          If you have a licence to drive cars with manual transmission you can still accompany a learner driver. However, any extra controls you need to take control of the vehicle in an emergency must be fitted on the passenger side of the vehicle.
-          
-          Get training
-          --------
-
-          When the DSA accepts your application to start the process, you can find driving instructor training to help you qualify. You don’t have to take training if you don’t want to.
-
-      can_start_process_of_applying_with_emergency_control_with_criminal_record:
-        title: "You can start the process of applying to become an approved driving instructor (ADI)."
-        body: |
-          s1. Get a criminal record check for driving instructors
-          s2. Apply for and take an emergency control assessment
-          s3. Apply to the Driving Standards Agency (DSA) to start the process
-          s4. Take and pass the 3 qualifying tests
-          s5. Apply to the DSA for your first ADI badge
-
-
-          Your criminal record
-          --------
-
-          The ADI registrar can refuse your application because you have a criminal record. They will consider the details carefully when deciding.
-
-          Emergency control assessment
-          --------
-
-          You have to take an emergency control assessment. This will assess your ability to take control of a vehicle in an emergency from the front passenger seat.
-
-          To apply to take it, download the application form and send it to the DSA.
-
-
-          $D 
-          ['ADI 3D - Emergency control assessment application' form (PDF, 51K)](http://assets.dft.gov.uk/dsa-bl/dsa-adi-3d.pdf "Download ‘ADI 3D - Emergency control assessment application’ form (PDF, 51K)"){:rel="external"}
-          $D
-
-
-          $A
-          Emergency Control Certificate Assessor
-          Driving Standards Agency
-          Training and Development Centre
-          Harrowden Lane
-          Cardington
-          Bedfordshire
-          MK44 3EQ
-          $A
-
-          The DSA will tell you where your assessment will be carried out.
-
-          The emergency control certificate
-          --------
-
-          If the assessment is satisfactory, you’ll get an emergency control certificate (ECC). It will state what extra controls on the front passenger side (if any) you need.
-
-          You’ll need to send a copy of the ECC with your application for the ADI part 1 test.
-
-          You can be given an ECC which is time limited. The ADI registrar may need you to complete another ECC assessment in the future if this happens.
-
-          The qualifying tests if you have a disability
-          --------
-
-          You’ll take the same tests as everyone applying to be an ADI, but you’ll be able to take the practical tests in an automatic car.
-
-          Vehicles you'll be able to give instruction in
-          --------
-
-          Your ADI certificate or trainee licence will restrict you to giving driving instruction in automatics only, subject to the fitting of extra controls as set out in the ECC.
-
-          If you have a licence to drive cars with manual transmission you can still accompany a learner driver. However, any extra controls you need to take control of the vehicle in an emergency must be fitted on the passenger side of the vehicle.
-          
-          Get training
-          --------
-
-          When the DSA accepts your application to start the process, you can find driving instructor training to help you qualify. You don’t have to take training if you don’t want to.
+          %{content_sections}
 
       can_apply_to_transfer_registration:
-        title: "You can apply to transfer your European Community (EC) driving instructor registration to the Great Britain register."
+        title: "You can apply to transfer your European Community (EC) driving instructor registration to the Great Britain (GB) register."
         body: |
-          s1. Get a Great Britain counterpart licence if you got your driving licence in another EC country
-          s2. Get a criminal record check for driving instructors
-          s3. Apply to the Driving Standards Agency (DSA) to transfer your registration
-
-      can_apply_to_transfer_registration_with_criminal_record:
-        title: "You can apply to transfer your European Community (EC) driving instructor registration to the Great Britain register."
-        body: |
-          s1. Get a Great Britain counterpart licence if you got your driving licence in another EC country
-          s2. Get a criminal record check for driving instructors
-          s3. Apply to the Driving Standards Agency (DSA) to transfer your registration
-
-
-          Your criminal record
-          --------
-
-          The ADI registrar can refuse your application because you have a criminal record. They will consider the details carefully when deciding.
-
-      can_apply_to_transfer_registration_with_emergency_control:
-        title: "You can apply to transfer your European Community (EC) driving instructor egistration to the Great Britain register."
-        body: |
-          s1. Get a Great Britain counterpart licence if you got your driving licence in another EC country
-          s2. Get a criminal record check for driving instructors
-          s3. Apply for and take an emergency control assessment
-          s4. Apply to the Driving Standards Agency (DSA) to transfer your registration
-
-
-          Emergency control assessment
-          --------
-
-          You have to take an emergency control assessment. This will assess your ability to take control of a vehicle in an emergency from the front passenger seat.
-
-          To apply to take it, download the application form and send it to the DSA.
-
-
-          $D 
-          ['ADI 3D - Emergency control assessment application' form (PDF, 51K)](http://assets.dft.gov.uk/dsa-bl/dsa-adi-3d.pdf "Download ‘ADI 3D - Emergency control assessment application’ form (PDF, 51K)"){:rel="external"}
-          $D
-
-
-          $A
-          Emergency Control Certificate Assessor
-          Driving Standards Agency
-          Training and Development Centre
-          Harrowden Lane
-          Cardington
-          Bedfordshire
-          MK44 3EQ
-          $A
-
-          The DSA will tell you where your assessment will be carried out.
-
-      can_apply_to_transfer_registration_with_emergency_control_with_criminal_record:
-        title: "You can apply to transfer your European Community (EC) driving instructor egistration to the Great Britain register."
-        body: |
-          s1. Get a Great Britain counterpart licence if you got your driving licence in another EC country
-          s2. Get a criminal record check for driving instructors
-          s3. Apply for an take an emergency control assessment
-          s4. Apply to the Driving Standards Agency (DSA) to transfer your registration
-
-
-          Your criminal record
-          --------
-
-          The ADI registrar can refuse your application because you have a criminal record. They will consider the details carefully when deciding.
-
-          Emergency control assessment
-          --------
-
-          You have to take an emergency control assessment. This will assess your ability to take control of a vehicle in an emergency from the front passenger seat.
-
-          To apply to take it, download the application form and send it to the DSA.
-
-
-          $D 
-          ['ADI 3D - Emergency control assessment application' form (PDF, 51K)](http://assets.dft.gov.uk/dsa-bl/dsa-adi-3d.pdf "Download ‘ADI 3D - Emergency control assessment application’ form (PDF, 51K)"){:rel="external"}
-          $D
-
-
-          $A
-          Emergency Control Certificate Assessor
-          Driving Standards Agency
-          Training and Development Centre
-          Harrowden Lane
-          Cardington
-          Bedfordshire
-          MK44 3EQ
-          $A
-
-          The DSA will tell you where your assessment will be carried out.
+          %{content_sections}
 
       havent_had_licence_for_long_enough:
-        title: "You can’t become an approved driving instructor (ADI) because you haven’t had a full driving licence for long enough."
+        title: "You can’t become an approved driving instructor (ADI) if you haven’t had had a full driving licence for 4 out of the last 6 years when you join the register."
         body: |
-          You need to have had a full car driving licence for at least 4 out of the last 6 years to become an ADI.
+          You can still apply to become an ADI if you'll have had your licence for 4 years by the time you qualify.
 
-          %It's against the law for you to charge a fee to teach someone to drive if you're not an ADI.%
+          %{content_sections}
 
       cant_because_disqualified:
-        title: "You can’t become an approved driving instructor (ADI) because you’ve been disqualified from driving in the last 4 years."
+        title: "It’s unlikely that you can become an approved driving instructor (ADI) because you’ve been disqualified from driving."
         body: |
-          You must be a 'fit and proper' person to become an ADI. Your driving disqualification means that you aren’t a fit and proper person.
-
-          %It's against the law for you to charge a fee to teach someone to drive if you're not an ADI. %
+          %{content_sections}
 
       very_unlikely_because_of_criminal_record:
-        title: "It’s very unlikely that you can become an approved driving instructor (ADI) because of your criminal record."
+        title: "It’s unlikely that you can become an approved driving instructor (ADI) because of your criminal record."
         body: |
-          You must be a 'fit and proper' person to become an ADI. It's likely that the ADI registrar won't accept your application if you apply.
-
-          % It's against the law for you to charge a fee to teach someone to drive if you're not an ADI. %
+          %{content_sections}

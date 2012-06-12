@@ -13,9 +13,10 @@ class BecomeADrivingInstructorTest < ActiveSupport::TestCase
     assert_current_node :have_you_had_licence_for_4_of_6_years?
   end
 
-  should "not be possible if you've not have a licence for long enough" do
+  should "not be possible if you've not have a licence for long enough" do # response 1
     add_response :no
     assert_current_node :havent_had_licence_for_long_enough
+    assert_phrase_list :content_sections, [:ADI_required_legal_warning, :acronym_definitions]
   end
 
   context "having had a licence for long enough" do
@@ -27,9 +28,11 @@ class BecomeADrivingInstructorTest < ActiveSupport::TestCase
       assert_current_node :have_you_been_disqualified_in_last_4_years?
     end
 
-    should "not be allowed if you've been disqualified" do
+    should "not be allowed if you've been disqualified" do # response 2
       add_response :yes
       assert_current_node :cant_because_disqualified
+      assert_phrase_list :content_sections, [:unlikely_apply_anyway, :apply_steps, :criminal_record_check, 
+        :apply_to_dsa, :ADI_required_legal_warning, :acronym_definitions]
     end
 
     context "without disqualifications" do
@@ -59,14 +62,16 @@ class BecomeADrivingInstructorTest < ActiveSupport::TestCase
             assert_current_node :are_you_driving_instructor_in_ec_country?
           end
 
-          should "be able to apply if not an EC instructor" do
+          should "be able to apply if not an EC instructor" do # response 4
             add_response :no
             assert_current_node :can_start_process_of_applying
+            assert_phrase_list :content_sections, [:apply_steps, :criminal_record_check, :apply_to_dsa, :acronym_definitions]
           end
 
-          should "be able to apply to transfer if an EC instructor" do
+          should "be able to apply to transfer if an EC instructor" do # response 5
             add_response :yes
             assert_current_node :can_apply_to_transfer_registration
+            assert_phrase_list :content_sections, [:transfer_steps, :gb_counterpart_licence, :transfer_registration, :acronym_definitions]
           end
         end # without a disability
 
@@ -79,14 +84,18 @@ class BecomeADrivingInstructorTest < ActiveSupport::TestCase
             assert_current_node :are_you_driving_instructor_in_ec_country?
           end
 
-          should "be able to apply if not an EC instructor" do
+          should "be able to apply if not an EC instructor" do # response 6
             add_response :no
-            assert_current_node :can_start_process_of_applying_with_emergency_control
+            assert_current_node :can_start_process_of_applying
+            assert_phrase_list :content_sections,
+              [:apply_steps_with_emergency_control, :emergency_control, :criminal_record_check, :apply_to_dsa, :acronym_definitions]
           end
 
-          should "be able to apply to transfer if an EC instructor" do
+          should "be able to apply to transfer if an EC instructor" do # response 7
             add_response :yes
-            assert_current_node :can_apply_to_transfer_registration_with_emergency_control
+            assert_current_node :can_apply_to_transfer_registration
+            assert_phrase_list :content_sections,
+              [:transfer_steps_with_emergency_control, :gb_counterpart_licence, :emergency_control, :transfer_registration, :acronym_definitions]
           end
         end # with a disability
       end # without a criminal record
@@ -100,9 +109,11 @@ class BecomeADrivingInstructorTest < ActiveSupport::TestCase
           assert_current_node :was_offence_violent_or_sex_related?
         end
 
-        should "not be allowed if offence was violent or sex related" do
+        should "not be allowed if offence was violent or sex related" do # response 3
           add_response :yes
           assert_current_node :very_unlikely_because_of_criminal_record
+          assert_phrase_list :content_sections, [:unlikely_apply_anyway, :apply_steps, :criminal_record_check,
+            :apply_to_dsa, :ADI_required_legal_warning, :acronym_definitions]
         end
 
         context "non-voilent offence" do
@@ -123,14 +134,18 @@ class BecomeADrivingInstructorTest < ActiveSupport::TestCase
               assert_current_node :are_you_driving_instructor_in_ec_country?
             end
 
-            should "be able to apply if not an EC instructor" do
+            should "be able to apply if not an EC instructor" do # response 8
               add_response :no
-              assert_current_node :can_start_process_of_applying_with_criminal_record
+              assert_current_node :can_start_process_of_applying
+              assert_phrase_list :content_sections,
+                [:apply_steps, :criminal_record_check, :criminal_record_warning, :apply_to_dsa, :acronym_definitions]
             end
 
-            should "be able to apply to transfer if an EC instructor" do
+            should "be able to apply to transfer if an EC instructor" do # response 9
               add_response :yes
-              assert_current_node :can_apply_to_transfer_registration_with_criminal_record
+              assert_current_node :can_apply_to_transfer_registration
+              assert_phrase_list :content_sections,
+                [:transfer_steps, :gb_counterpart_licence, :transfer_registration, :criminal_record_warning, :acronym_definitions]
             end
           end # without a disability
 
@@ -143,14 +158,20 @@ class BecomeADrivingInstructorTest < ActiveSupport::TestCase
               assert_current_node :are_you_driving_instructor_in_ec_country?
             end
 
-            should "be able to apply if not an EC instructor" do
+            should "be able to apply if not an EC instructor" do # response 10
               add_response :no
-              assert_current_node :can_start_process_of_applying_with_emergency_control_with_criminal_record
+              assert_current_node :can_start_process_of_applying
+              assert_phrase_list :content_sections,
+                [:apply_steps_with_emergency_control, :emergency_control, :criminal_record_check, :criminal_record_warning,
+                  :apply_to_dsa, :acronym_definitions]
             end
 
-            should "be able to apply to transfer if an EC instructor" do
+            should "be able to apply to transfer if an EC instructor" do # response 11
               add_response :yes
-              assert_current_node :can_apply_to_transfer_registration_with_emergency_control_with_criminal_record
+              assert_current_node :can_apply_to_transfer_registration
+              assert_phrase_list :content_sections,
+                [:transfer_steps_with_emergency_control, :gb_counterpart_licence, :emergency_control, 
+                  :transfer_registration, :criminal_record_warning, :acronym_definitions]
             end
           end # with a disability
         end # non-voilent offence
