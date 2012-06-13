@@ -24,7 +24,7 @@ class WhatCanIDriveByAgeTest < ActiveSupport::TestCase
     end
 
     should "ask if getting DLA" do
-      assert_current_node :age_16_are_you_getting_dla?
+      assert_current_node :are_you_getting_dla?
     end
 
     should "be age_16_with_dla if getting DLA" do
@@ -44,7 +44,7 @@ class WhatCanIDriveByAgeTest < ActiveSupport::TestCase
     end
 
     should "ask if you're in the armed forces" do
-      assert_current_node :age_17_are_you_in_the_armed_forces?
+      assert_current_node :are_you_in_the_armed_forces?
     end
 
     should "be age_17 if not in armed forces" do
@@ -64,7 +64,7 @@ class WhatCanIDriveByAgeTest < ActiveSupport::TestCase
     end
 
     should "ask if you're in the armed forces" do
-      assert_current_node :age_18_are_you_in_the_armed_forces?
+      assert_current_node :are_you_in_the_armed_forces?
     end
 
     should "be age_18 if not in armed forces" do
@@ -84,7 +84,7 @@ class WhatCanIDriveByAgeTest < ActiveSupport::TestCase
     end
 
     should "ask if you're in the armed forces" do
-      assert_current_node :age_19_20_are_you_in_the_armed_forces?
+      assert_current_node :are_you_in_the_armed_forces?
     end
 
     should "be age_19_20 if not in armed forces" do

@@ -9,9 +9,6 @@ en-GB:
       body: |
         This tool tells you if you are old enough or have the right kind of
         driving licence to drive different kinds of vehicle.
-      options:
-        armed-forces: "I am a member of the Armed Forces"
-        not-armed-forces: "I am not a member of the Armed Forces"
       how_old_are_you?:
         title: How old are you?
         options:
@@ -22,17 +19,16 @@ en-GB:
           19-20:    "19 or 20"
           21:       "21"
           22-plus:  "22 or older"
-      age_16_are_you_getting_dla?:
+      are_you_getting_dla?:
         title: "Are you getting Disability Living Allowance (DLA)?"
         options:
           dla:    "I get DLA"
           no-dla: "I do not get DLA"
-      age_17_are_you_in_the_armed_forces?:
+      are_you_in_the_armed_forces?:
         title: Are you in the armed forces?
-      age_18_are_you_in_the_armed_forces?:
-        title: Are you in the armed forces?
-      age_19_20_are_you_in_the_armed_forces?:
-        title: Are you in the armed forces?
+        options:
+          armed-forces: "I am a member of the Armed Forces"
+          not-armed-forces: "I am not a member of the Armed Forces"
       age_under_16:
         title: "Under 16 years old"
         body: |
