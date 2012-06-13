@@ -140,6 +140,6 @@ en-GB:
           $C
 
       maybe2:
-        title: The worker may be eligible to work in the UK.
+        title: The worker is not currently entitled to work in the UK.
         body: |
-          The worker will need to be [sponsored to work in the UK](/sponsor-an-employee-to-work-in-the-uk/certificate-of-sponsorship "Certificate of sponsorship").
+          They'll need to be [sponsored](/sponsor-an-employee-to-work-in-the-uk/certificate-of-sponsorship "Certificate of sponsorship") if they're going to work in the UK.
