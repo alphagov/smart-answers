@@ -23,7 +23,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
 
     context "age provided" do
       setup do
-        add_response "32"
+        add_response "21_or_over"
       end
 
       should "ask how many hours you work per week" do
@@ -48,7 +48,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
 
     context "age provided" do
       setup do
-        add_response "32"
+        add_response "21_or_over"
       end
 
       should "ask how many pieces you produce per week" do

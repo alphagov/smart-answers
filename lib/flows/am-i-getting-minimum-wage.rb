@@ -3,13 +3,21 @@ status :draft
 section_slug "money-and-tax"
 
 multiple_choice :how_do_you_get_paid? do
-  option :per_hour => :how_old_are_you?
-  option :per_piece => :how_old_are_you?
+  option :per_hour
+  option :per_piece
 
   save_input_as :payment_method
+
+  next_node :how_old_are_you?
 end
 
-value_question :how_old_are_you? do
+multiple_choice :how_old_are_you? do
+  option :"21_or_over"
+  option :"18_to_20"
+  option :"under_18"
+  option :under_19
+  option :"19_and_over"
+
   save_input_as :age
 
   next_node do

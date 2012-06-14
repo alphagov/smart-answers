@@ -1,17 +1,30 @@
 en-GB:
   flow:
     am-i-getting-minimum-wage:
+      title: Am I getting minimum wage?
       meta:
-        description: "Work out whether you're getting minimum wage"
+        description: "Calculate the National Minimum Wage you’re entitled to per week."
       how_do_you_get_paid?:
         title: How do you get paid?
         options:
           per_hour: "Per hour"
-          per_piece: "Per piece"
+          per_piece: "Per piece you produce"
       how_old_are_you?:
         title: How old are you?
-      how_many_hours_per_week_worked?:
+        options:
+          18_to_20: 18 to 20
+          21_or_over: 21 or over
+          under_18: Under 18
+          under_19: Under 19 (first year apprentice only)
+          19_or_over: 19 or over and in first year of apprentice
+      how_many_hours_per_week_worked_per_hour?:
         title: How many hours per week do you work?
+        body: |
+          Include any extra hours you work, eg overtime, weekends.
+      how_many_hours_per_week_worked_per_peice?:
+        title: How many hours per week do you work?
+        body: |
+          If you work at home, include time taking piece to your employer.
       how_many_pieces_do_you_produce_per_week?:
         title: How many pieces do you produce per week?
       how_much_do_you_get_paid_per_piece?:
@@ -20,10 +33,12 @@ en-GB:
         title: How many hours do you work per week?
 
       per_hour_minimum_wage:
-        title: Minimum wage for per hour workers
+        title: Your minimum wage per hour
         body: |
-          Blah blah blah one
+          The National Minimum Wage per week you're entitled to is &pound;%{minimum_wage}
+
+          This is the basic pay you should get without any extra payments, eg for overtime or weekend work.
       per_piece_minimum_wage:
-        title: Minimum wage for per piece workers
+        title: Your minimum wage per piece
         body: |
           Blah blah blah two
