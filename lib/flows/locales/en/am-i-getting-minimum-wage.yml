@@ -1,0 +1,29 @@
+en-GB:
+  flow:
+    am-i-getting-minimum-wage:
+      meta:
+        description: "Work out whether you're getting minimum wage"
+      how_do_you_get_paid?:
+        title: How do you get paid?
+        options:
+          per_hour: "Per hour"
+          per_piece: "Per piece"
+      how_old_are_you?:
+        title: How old are you?
+      how_many_hours_per_week_worked?:
+        title: How many hours per week do you work?
+      how_many_pieces_do_you_produce_per_week?:
+        title: How many pieces do you produce per week?
+      how_much_do_you_get_paid_per_piece?:
+        title: How much do you get paid per piece?
+      how_many_hours_do_you_work_per_week?:
+        title: How many hours do you work per week?
+
+      per_hour_minimum_wage:
+        title: Minimum wage for per hour workers
+        body: |
+          Blah blah blah one
+      per_piece_minimum_wage:
+        title: Minimum wage for per piece workers
+        body: |
+          Blah blah blah two
