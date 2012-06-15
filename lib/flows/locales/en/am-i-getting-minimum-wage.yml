@@ -2,6 +2,8 @@ en-GB:
   flow:
     am-i-getting-minimum-wage:
       title: Am I getting minimum wage?
+      body: |
+        Calculate the National Minimum Wage you’re entitled to per week.
       meta:
         description: "Calculate the National Minimum Wage you’re entitled to per week."
       how_do_you_get_paid?:
