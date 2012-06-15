@@ -33,6 +33,9 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       should "show minimum wage if hours per week are provided" do
         add_response "40"
         assert_current_node :per_hour_minimum_wage
+        assert_state_variable :per_hour_minimum_wage, "6.08"
+        assert_state_variable :hours_per_week, "40"
+        assert_state_variable :per_week_minimum_wage, "243.20"
       end
     end
   end
@@ -76,6 +79,9 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           should "show minimum wage if pay per piece is provided" do
             add_response "40"
             assert_current_node :per_piece_minimum_wage
+            assert_state_variable :hourly_wage, "7.50"
+            assert_state_variable :per_hour_minimum_wage, "6.08"
+            assert_state_variable :above_below, "above"
           end
         end
       end

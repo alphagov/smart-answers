@@ -33,12 +33,13 @@ en-GB:
         title: How many hours do you work per week?
 
       per_hour_minimum_wage:
-        title: Your minimum wage per hour
+        title: The National Minimum Wage per week you're entitled to is £%{per_week_minimum_wage}
         body: |
-          The National Minimum Wage per week you're entitled to is &pound;%{minimum_wage}
-
           This is the basic pay you should get without any extra payments, eg for overtime or weekend work.
+
+          If you get less than this, check with your employer. There might be some benefits they pay that
+          count towards your National Minimum Wage.
       per_piece_minimum_wage:
-        title: Your minimum wage per piece
         body: |
-          Blah blah blah two
+          $!Your current pay per hour is £%{hourly_wage}.
+          This is **%{above_below}** the National Minimum Wage of £%{per_hour_minimum_wage}.$!
