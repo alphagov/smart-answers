@@ -2,7 +2,9 @@
   <article class="results">
     <div class="inner group">
       <div class="result-info">
+        <% if @presenter.current_node.has_title? %>
         <div class="summary"><h2 class="result-title"><%= @presenter.current_node.title %></h2></div>
+        <% end %>
         <% if @presenter.current_node.has_body? %>
           <%= @presenter.current_node.body %>
         <% end %>

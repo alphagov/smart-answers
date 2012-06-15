@@ -57,6 +57,10 @@ class NodePresenter
     translate!('title') || @node.name.to_s.humanize
   end
 
+  def has_title?
+    !! title
+  end
+
   def error_message
     translate!('error_message')
   end

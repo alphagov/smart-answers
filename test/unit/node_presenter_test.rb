@@ -25,6 +25,13 @@ module SmartAnswer
       assert_equal 'Foo', presenter.title
     end
 
+    test "Node title existence check" do
+      question = Question::Date.new(:example_question?)
+      presenter = NodePresenter.new("flow.test", question)
+
+      assert presenter.has_title?
+    end
+
     test "Node title can be interpolated with state" do
       question = Question::Date.new(:interpolated_question)
       state = State.new(question.name)
@@ -154,6 +161,20 @@ module SmartAnswer
       presenter = DateQuestionPresenter.new("flow.test", question)
 
       assert_equal " 1 March 2011", presenter.response_label("2011-03-01")
+    end
+
+    test "Outcome has a title if using the NodePresenter" do
+      outcome = Outcome.new(:outcome_with_no_title)
+      presenter = NodePresenter.new("flow.test", outcome)
+
+      assert presenter.has_title?
+    end
+
+    test "Outcome has no title if using the OutcomePresenter" do
+      outcome = Outcome.new(:outcome_with_no_title)
+      presenter = OutcomePresenter.new("flow.test", outcome)
+
+      refute presenter.has_title?
     end
 
   end

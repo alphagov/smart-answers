@@ -3,6 +3,10 @@ require 'erubis'
 class OutcomePresenter < NodePresenter
   include OutcomeHelper
 
+  def title
+    translate!('title')
+  end
+
   def translate!(subkey)
     output = super(subkey)
     output.gsub!(/\+\[contact_list\]/,contact_list) unless output.nil?
