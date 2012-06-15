@@ -1,0 +1,200 @@
+en-GB:
+  flow:
+    register-a-death:
+      title: "Register a death"
+      options:
+        "no": "No"
+        "yes": "Yes"
+
+      body: |
+        You can use this tool to find out how to register the death of someone who normally lived in England or Wales.
+
+        You need to read different information if:
+
+        - [the person was a resident of Scotland](http://www.gro-scotland.gov.uk/regscot/registering-a-death.html "registering a death - resident of Scotland"){:rel="external"}
+        - [the person was a resident of Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/death-and-bereavement/death-and-bereavement-what-to-do-when-someone-dies/registering-a-death.htm "registering a death - resident of Northern Ireland"){:rel="external"}
+
+      phrases:
+        intro_ew: |
+          $!You’ll need to register the death within 5 days. You can go to any [registry office](/register-offices "registry office") but it’s best to use the one in the area where the person died - otherwise the process can take longer.$!
+
+          ^Registering the death will take about half an hour - you might need to make an appointment.^
+
+        intro_other: |
+          $!If the death happened outside England and Wales, including on a foreign ship or aircraft, you need to register the death according to the regulations of that country. The local [British embassy or consulate](http://www.fco.gov.uk/en/travel-and-living-abroad/find-an-embassy/ "find a British embassy or consulate"){:rel="external"} can help you with this.$!
+
+          If the person died in Scotland or Northern Ireland, read about:
+
+          - [How to register a death in Scotland](http://www.gro-scotland.gov.uk/regscot/registering-a-death.html "how to register a death in Scotland"){:rel="external"}
+          - [How to register a death in Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/death-and-bereavement/death-and-bereavement-what-to-do-when-someone-dies/registering-a-death.htm "how to register a death in Northern Ireland"){:rel="external"}
+
+        intro_other_unexpected: |
+          If the body is being brought back to England or Wales, the death must be reported to the coroner.
+
+        who_can_register: |
+          Who can register the death
+          --------
+
+          You can register the death if you’re:
+
+        who_can_register_home_hospital: |
+          - a relative
+          - someone present at the death
+          - an official from the hospital
+          - the person arranging the funeral
+
+        who_can_register_elsewhere: |
+          - a relative
+          - someone present at the death
+          - the person who found the body
+          - the person in charge of the body
+          - the person arranging the funeral
+
+        what_you_need_to_do_expected: |
+          What you need to do
+          --------
+
+          Take the medical certificate showing the cause of death (signed by a doctor) with you. If available, also take the person’s:
+
+          - birth certificate
+          - marriage/civil partnership certificate
+          - NHS medical card
+
+        what_you_need_to_do_unexpected: |
+          What you need to do
+          --------
+
+          Take the medical certificate showing the cause of death (signed by a doctor) with you.
+
+          If the cause of death is unknown, sudden or unexplained it may be reported to the coroner.
+
+          You won’t have the medical certificate, but the coroner will give you the documents you need or send them direct to the registrar. The table below shows the documents needed.
+
+          Cause of death | Documents issued by coroner
+          - | -
+          Natural causes | Pink Form B - form 100 so the death can be registered - usually sent direct to the registrar, but sometimes given to you
+          Unnatural causes/not enough evidence of natural causes | Order for Burial (form 101) or Certificate for Cremation (form E) so the funeral can take place - given to you; Certificate After Inquest (form 99 (rev)) - states the cause of death and is sent to the registrar
+
+          If available, also take the person’s:
+
+          - birth certificate
+          - marriage/civil partnership certificate
+          - NHS medical card
+
+        need_to_tell_registrar: |
+          You’ll need to tell the registrar:
+
+          - the person’s full name at the time of death
+          - any names previously used, eg maiden name
+          - the person’s date and place of birth
+          - their last address
+          - their occupation
+          - the full name, date of birth and occupation of a surviving spouse or civil partner
+          - whether they were getting a State Pension or any other benefits
+
+        documents_youll_need: |
+          Documents you’ll need
+          --------
+
+          When registering a death abroad, you need to take the following information about the person who has died:
+
+          - their full name
+          - their date of birth
+          - their passport number
+          - where and when the passport was issued
+          - details of their next of kin, if you’re not their closest relative
+
+        documents_youll_get_ew_expected: |
+          Documents you’ll get
+          --------
+
+          When you register a death you’ll get:
+
+          - a Certificate for Burial or Cremation (the ‘green form’) - gives permission for burial or an application for cremation
+          - a Certificate of Registration of Death (form BD8 - a ‘death certificate’) - you may need to fill this out and return it if the person was getting a State Pension or benefits
+
+          You can buy extra death certificates - these will be needed for sorting out the person’s affairs.
+
+          ^The registrar will also give you a booklet telling you what to do after a death.^
+
+        documents_youll_get_ew_unexpected: |
+          Documents you’ll get
+          --------
+
+          When you register a death you’ll get a Certificate of Registration of Death (form BD8 - a ‘death certificate’). You may need to fill this out and return it if the person was getting a State Pension or benefits.
+
+          You can buy extra death certificates - these will be needed for sorting out the person’s affairs.
+
+          ^The registrar will also give you a booklet telling you what to do after a death.^
+
+        documents_youll_get_other_expected: |
+          Documents you’ll get
+          --------
+
+          You’ll get a death certificate issued by the relevant country.
+
+          If you want a UK death certificate as well, you can also register the death at the nearest [British embassy or consulate.](http://www.fco.gov.uk/en/travel-and-living-abroad/find-an-embassy/ "find a British embassy or consulate"){:rel="external"} You don’t have to do this but if you do it means the death gets registered at the General Register Office in the UK.
+
+          You can’t register a death with the British authorities in the following countries:
+
+          - Australia
+          - Canada
+          - New Zealand
+          - Ireland
+          - South Africa
+          - Zimbabwe
+
+          ^If the body’s being brought back to England or Wales to be cremated, this must be reported to the coroner, who needs to issue a Certificate for Cremation (form E).^
+
+        documents_youll_get_other_unexpected: |
+          Documents you’ll get
+          --------
+
+          You’ll get a death certificate issued by the relevant country.
+
+          If a post-mortem shows the death was due to natural causes, the coroner will issue Pink form B (form 100) so the death can be registered. This is usually sent directly to the registrar, but it might be given to you to deliver.
+
+          If available, you should also take the person’s:
+
+          - birth certificate
+          - marriage/civil partnership certificate
+          - NHS medical card
+
+          If the body’s being cremated the coroner will also give you the Certificate for Cremation so that the funeral can take place.
+
+          If the death was not due to natural causes, the coroner will order an inquest and give you an Order for Burial or Certificate for Cremation so that the funeral can take place.
+
+          The coroner will also send a Certificate After Inquest (form 99 (rev)) to the registrar so the death can be registered.
+
+          How to get a UK death certificate
+          --------
+
+          If you want a UK death certificate as well, you can also register the death at the nearest [British embassy or consulate.](http://www.fco.gov.uk/en/travel-and-living-abroad/find-an-embassy/ "find a British embassy or consulate"){:rel="external"} You don’t have to do this but if you do it means the death gets registered at the General Register Office in the UK.
+
+          You can’t register a death with the British authorities in the following countries:
+
+          - Australia
+          - Canada
+          - New Zealand
+          - Ireland
+          - South Africa
+          - Zimbabwe
+
+      where_did_the_death_happen?:
+        title: Where did the death happen?
+        options:
+          england_wales: England or Wales
+          scotland_northern_ireland_abroad: Scotland, Northern Ireland or abroad
+
+      did_the_person_die_at_home_hospital?:
+        title: Did the person die at home, in hospital or elsewhere?
+        options:
+          at_home_hospital: At home / in hospital
+          elsewhere: Elsewhere
+
+      was_death_expected?:
+        title: Was the death expected?
+
+      done:
+        body: |
+          %{content_sections}
