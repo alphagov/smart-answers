@@ -24,7 +24,7 @@ class CalculateAgriculturalHolidayEntitlementTest < ActionDispatch::IntegrationT
 
     context "6 or more days" do
       setup do
-        add_response '6-or-more-days'
+        add_response '7-days'
       end
 
       should "ask if you worked for the same employer all year" do
@@ -73,9 +73,9 @@ class CalculateAgriculturalHolidayEntitlementTest < ActionDispatch::IntegrationT
       end
     end
 
-    context "5 to 6 days" do
+    context "6 days" do
       setup do
-        add_response "5-to-6-days"
+        add_response "6-days"
       end
 
       should "show outcome of holidays" do
@@ -84,9 +84,9 @@ class CalculateAgriculturalHolidayEntitlementTest < ActionDispatch::IntegrationT
       end
     end
 
-    context "4 to 5 days" do
+    context "5 days" do
       setup do
-        add_response "4-to-5-days"
+        add_response "5-days"
       end
 
       should "show outcome of holidays" do
@@ -95,9 +95,9 @@ class CalculateAgriculturalHolidayEntitlementTest < ActionDispatch::IntegrationT
       end
     end
 
-    context "3 to 4 days" do
+    context "4 days" do
       setup do
-        add_response "3-to-4-days"
+        add_response "4-days"
       end
 
       should "show outcome of holidays" do
@@ -106,9 +106,9 @@ class CalculateAgriculturalHolidayEntitlementTest < ActionDispatch::IntegrationT
       end
     end
 
-    context "2 to 3 days" do
+    context "3 days" do
       setup do
-        add_response "2-to-3-days"
+        add_response "3-days"
       end
 
       should "show outcome of holidays" do
@@ -117,9 +117,9 @@ class CalculateAgriculturalHolidayEntitlementTest < ActionDispatch::IntegrationT
       end
     end
 
-    context "1 to 2 days" do
+    context "2 days" do
       setup do
-        add_response "1-to-2-days"
+        add_response "2-days"
       end
 
       should "show outcome of holidays" do
@@ -128,9 +128,9 @@ class CalculateAgriculturalHolidayEntitlementTest < ActionDispatch::IntegrationT
       end
     end
 
-    context "1 or less days" do
+    context "1 day" do
       setup do
-        add_response "up-to-1-day"
+        add_response "1-day"
       end
 
       should "show outcome of holidays" do

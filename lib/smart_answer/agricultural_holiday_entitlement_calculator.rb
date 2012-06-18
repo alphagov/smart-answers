@@ -25,17 +25,18 @@ module SmartAnswer
     end
 
     def holiday_days(days_worked_per_week)
+      days_worked_per_week = days_worked_per_week.to_f
       if days_worked_per_week > 6
         38
-      elsif days_worked_per_week <= 6 && days_worked_per_week > 5
+      elsif days_worked_per_week > 5
         35
-      elsif days_worked_per_week <= 5 && days_worked_per_week > 4
+      elsif days_worked_per_week > 4
         31
-      elsif days_worked_per_week <= 4 && days_worked_per_week > 3
+      elsif days_worked_per_week > 3
         25
-      elsif days_worked_per_week <= 3 && days_worked_per_week > 2
+      elsif days_worked_per_week > 2
         20
-      elsif days_worked_per_week <= 2 && days_worked_per_week > 1
+      elsif days_worked_per_week > 1
         13
       else
         7.5

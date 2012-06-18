@@ -11,19 +11,18 @@ multiple_choice :work_the_same_number_of_days_each_week? do
 end
 
 multiple_choice :how_many_days_per_week? do
-  option "6-or-more-days"
-  option "5-to-6-days"
-  option "4-to-5-days"
-  option "3-to-4-days"
-  option "2-to-3-days"
-  option "1-to-2-days"
-  option "up-to-1-day"
+  option "7-days"
+  option "6-days"
+  option "5-days"
+  option "4-days"
+  option "3-days"
+  option "2-days"
+  option "1-day"
 
   calculate :days_worked_per_week do
     # XXX: this is a bit nasty and takes advantage of the fact that
-    # to_i only looks for the very first integer, hence allowing us to
-    # bypass the "5-6" etc. issue
-    responses.last.to_i + 1
+    # to_i only looks for the very first integer
+    responses.last.to_i
   end
 
   next_node :worked_for_same_employer?
