@@ -8,6 +8,11 @@ en-GB:
       body: |
         This tool helps you apply for a refund on your National Insurance contributions from HM Revenue and Customs.
 
+        What you need to know
+        --------
+
+        There are different types of National Insurance called ‘classes’. You need to known which class you’ve paid eg, usually you pay class 2 or 4 if you’re self-employed or class 3 if you make a voluntary contribution.
+
       which_class?:
         title: "Which class of National Insurance do you want a refund for?"
         options:
@@ -19,8 +24,8 @@ en-GB:
       why_are_you_applying_for_a_refund?:
         title: "Why are you applying for a refund?"
         options:
-          shouldnt_have_paid: "you shouldn’t have paid this Class"
-          paid_too_much: "you paid too much of this Class"
+          shouldnt_have_paid: "You shouldn’t have paid this Class"
+          paid_too_much: "You paid too much of this Class"
       
       outcome_1:
         title: "Write to HM Revenue & Customs (HMRC) by the deadline and ask for a refund, they’ll confirm what money you’ll get."
@@ -71,14 +76,15 @@ en-GB:
           * your National Insurance number
           * why you've overpaid
           * the tax year(s) you've overpaid
-          * a copy of the accounts for the tax year which confirms the low earnings
+          * a copy of the accounts for the tax year(s) which confirms the low earnings
 
           Deadlines
           --------
 
-          You can apply for a refund for the last tax year. You must apply by 31 January.
+          Usually up to 6 years after the tax year you’re applying for.
 
           There's no timeframe for HMRC responding to you.
+
 
           $A
           HM Revenue & Customs
@@ -90,9 +96,9 @@ en-GB:
           $A
 
           $C
-          **Self-employed Helpline**  
-          0845 915 4655  
-          Monday to Friday 8.30am to 5.00pm
+          **National Insurance Helpline**  
+          0845 302 1479  
+          Monday to Friday 8.00am to 5.00pm
           $C
 
       outcome_2:
@@ -103,10 +109,17 @@ en-GB:
 
           Send one of the following forms to HMRC:
 
-          * form [CW1A](http://www.hmrc.gov.uk/nic/cw1a.pdf){:rel="external"} - if you live in the UK
-          * form [CW3A](http://www.hmrc.gov.uk/nic/cw3a.pdf){:rel="external"} - if you live abroad
+          * form [CW1A](http://www.hmrc.gov.uk/nic/cw1a.pdf){:rel="external"}(PDF, 65KB) - if you live in the UK
+          * form [CW3A](http://www.hmrc.gov.uk/nic/cw3a.pdf){:rel="external"}(PDF, 65KB) - if you live abroad
 
           The postal address you need is on the form
+
+          Deadlines
+          --------
+
+          Usually up to 6 years after the tax year you’re applying for.
+
+          There’s no timeframe for HMRC responding to you.
 
 
           $C
@@ -120,7 +133,7 @@ en-GB:
           $C
 
       outcome_3:
-        title: "Ask HM Revenue and Customs for a refund on your Self Assessment tax return by the deadline."
+        title: "Contact HM Revenue and Customs (HMRC) for a refund - you may be able to apply for a refund on your Self Assessment tax return."
         body: |
           What you need to do
           --------
@@ -150,7 +163,7 @@ en-GB:
           What you must do
           --------
 
-          Send HMRC form [CA5610](http://www.hmrc.gov.uk/forms/ca5610.pdf){:rel="external"}. The postal address you need is on the form.
+          Send HMRC form [CA5610](http://www.hmrc.gov.uk/forms/ca5610.pdf){:rel="external"}(PDF, 70 KB). The postal address you need is on the form.
 
           Deadline
           --------
@@ -178,9 +191,9 @@ en-GB:
 
           Send one of the following forms to HMRC:
 
-          * form [CA8480](http://www.hmrc.gov.uk/forms/ca8480.pdf){:rel="external"} - Class 2 refund
-          * form [CW1A](http://www.hmrc.gov.uk/nic/cw1a.pdf){:rel="external"} - Voluntary Class 2 refund if you live in the UK
-          * form [CW2A](http://www.hmrc.gov.uk/nic/cw2a.pdf){:rel="external"} - Voluntary Class 2 refund if you live abroad
+          * form [CA8480](http://www.hmrc.gov.uk/forms/ca8480.pdf){:rel="external"}(PDF, 70 KB) - Class 2 refund
+          * form [CW1A](http://www.hmrc.gov.uk/nic/cw1a.pdf){:rel="external"}(PDF, 65 KB) - Voluntary Class 2 refund if you live in the UK
+          * form [CW2A](http://www.hmrc.gov.uk/nic/cw2a.pdf){:rel="external"}(PDF, 65 KB) - Voluntary Class 2 refund if you live abroad
 
           The postal address you need is on the form.
 
@@ -190,3 +203,16 @@ en-GB:
           Usually up to 6 years after the tax year you're applying for.
 
           There's no timeframe for HMRC responding to you.
+
+
+          $C
+          **Helplines**  
+          For non-voluntary contributions contact:  
+          0845 915 4655  
+          Monday to Friday 8.30am to 5.00pm
+
+          For [voluntary contributions](/voluntary-national-insurance-contributions) contact:  
+          0845 302 1479  
+          +44 (0)191 203 7010 (for non-UK residents)  
+          Monday to Friday 8.00am to 5.00pm
+          $C
