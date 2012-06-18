@@ -169,7 +169,7 @@ class CalculateRedundancyPayTest < ActionDispatch::IntegrationTest
 
   context "Employee" do
     setup do
-      setup_for_testing_flow 'calculate-redundancy-pay'
+      setup_for_testing_flow 'calculate-your-redundancy-pay'
     end
 
     should "be in employee flow for age" do
