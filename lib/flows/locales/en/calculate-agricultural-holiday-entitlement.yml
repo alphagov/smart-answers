@@ -1,0 +1,44 @@
+en-GB:
+    flow:
+        calculate-agricultural-holiday-entitlement:
+            title: Calculate your agricultural worker holiday entitlement
+            body: |
+                Use this calculator to work out how much statutory holiday leave you're entitled to as an agricultural worker.
+            work_the_same_number_of_days_each_week?:
+                title: Do you work the same number of days each week?
+                options:
+                    "same-number-of-days": "Yes"
+                    "different-number-of-days": "No"
+
+            how_many_days_per_week?:
+                title: How many days per week do you work?
+                options:
+                    "6-or-more-days": More than 6
+                    "5-to-6-days": More than 5 but not more than 6
+                    "4-to-5-days": More than 4 but not more than 5
+                    "3-to-4-days": More than 3 but not more than 4
+                    "2-to-3-days": More than 2 but not more than 3
+                    "1-to-2-days": More than 1 but not more than 2
+                    "up-to-1-day": 1 or less
+
+            what_date_does_holiday_start?:
+                title: What date does your holiday start?
+
+            worked_for_same_employer?:
+                title: Have you worked for the same employer for a full year?
+                options:
+                    "same-employer": "Yes"
+                    "multiple-employers": "No"
+
+            how_many_weeks_at_current_employer?:
+                title: How many weeks have you been at your current employer?
+                label: Weeks worked at current employer
+
+            how_many_total_days?:
+                title: How many days have you worked since October 1?
+                hint: |
+                    You should include days at work as well as days of annual leave, statutory ordinary adoption leave, statutory ordinary maternity leave, statutory ordinary paternity leave, and sick leave (paid or unpaid).
+                label: Total days worked
+
+            done:
+                title: Your statutory holiday entitlement is %{holiday_entitlement_days} days.
