@@ -14,14 +14,14 @@ en-GB:
           s1. Get a criminal record check for driving instructors
           s2. Apply to the Driving Standards Agency (DSA) to start the process
           s3. Take and pass the 3 qualifying tests
-          s4. Apply to the DSA for your first ADI badge
+          s4. Apply for your first ADI badge
 
         apply_steps_with_emergency_control: |
           s1. Apply for and take an emergency control assessment
           s2. Get a criminal record check for driving instructors
           s3. Apply to the Driving Standards Agency (DSA) to start the process
           s4. Take and pass the 3 qualifying tests
-          s5. Apply to the DSA for your first ADI badge
+          s5. Apply for your first ADI badge
 
         apply_to_dsa: |
           Apply to the DSA
@@ -29,14 +29,41 @@ en-GB:
 
           When you have your criminal record disclosure, you can [apply to become an ADI](/apply-to-become-a-driving-instructor "Apply to become an ADI").
 
+        apply_to_dsa_with_endorsments: |
+          You have to [apply to start the qualifying process](/apply-to-become-a-driving-instructor "Apply to become a driving instructor") and give the Driving Standards Agency (DSA) more information about the endorsements on your driving licence.
+
+          % The ADI registrar can refuse your application because of your endorsements. They will consider the details carefully when deciding. %
+
+        apply_to_dsa_with_criminal_record: |
+          You have to [apply to start the qualifying process](/apply-to-become-a-driving-instructor "Apply to become a driving instructor") and give the Driving Standards Agency (DSA) more information about your criminal record.
+
+          % The ADI registrar can refuse your application because of your criminal record. They will consider the details carefully when deciding. %
+
+          Your application is unlikely to be accepted if you’ve been:
+
+          * convicted of a sexual, violent, financial or drug related crime
+          * banned from working with children
+
+        apply_with_caveats_what_next: |
+          The DSA will give you information about what to do next when you've applied. You’ll usually have to:
+
+          s1. Get a criminal record check for driving instructors
+          s2. Take and pass the 3 ADI qualifying tests
+          s3. Apply for your first ADI badge
+
+        apply_with_caveats_and_emergency_control_what_next: |
+          The DSA will give you information about what to do next when you've applied. You’ll usually have to:
+
+          s1. Get a criminal record check for driving instructors
+          s2. Take an emergency control assessment to assess your ability to take control of a vehicle in an emergency
+          s2. Take and pass the 3 ADI qualifying tests
+          s3. Apply for your first ADI badge
+
         criminal_record_check: |
           Criminal record check
           --------
 
           You need to [get a criminal record check](http://tmgcrb.co.uk/default.asp?id=452 "Get a criminal record check"){:rel="external"} from a company called TMG CRB - they provide criminal record check services for the DSA.
-
-        criminal_record_warning: |
-          % The ADI registrar can refuse your application because you have a criminal record. They will consider the details carefully when deciding. %
 
         emergency_control: |
           Emergency control assessment
@@ -44,7 +71,9 @@ en-GB:
 
           You have to take an emergency control assessment to assess your ability to take control of a vehicle in an emergency.
 
-          To apply to take it, download the application form and send it to the DSA.
+          You'll get an emergency control certificate if the assessment is satisfactory. It will state what extra controls (if any) you need on the front passenger side.
+
+          To apply to take the assessment, download the application form and send it to the DSA.
 
 
           $D
@@ -61,22 +90,56 @@ en-GB:
           MK44 3EQ
           $A
 
-          You’ll get an emergency control certificate if the assessment is satisfactory. It will state what extra controls on the front passenger side (if any) you need.
+        ADI_required_legal_warning: |
+          % It's against the law for you to charge a fee to teach someone to drive if you're not an ADI. %
 
-        transfer_steps: |
+        acronym_definitions: |
+          *[ADI]: Approved driving instructor
+          *[EC]: European Community
+          *[DSA]: Driving Standards Agency
+          *[DVLA]: Driver and Vehicle Licensing Agency
+
+      are_you_21_or_over?:
+        title: "Are you 21 or over?"
+
+      have_you_had_licence_for_3_years?:
+        title: "Have you had a full car driving licence for at least 3 years?"
+
+      are_you_driving_instructor_in_ec_country?:
+        title: "Are you already registered as a driving instructor in another European Community (EC) country?"
+
+      have_you_been_disqualified_or_6_points?:
+        title: "Have you been disqualified from driving or have you got 6 or more penalty points on your driving licence?"
+
+      what_licence_type?:
+        title: "What type of car is your driving licence for?"
+        options:
+          manual: "Manual"
+          automatic: "Automatic"
+
+      because_of_disability?:
+        title: "Is your licence limited to automatic cars because of a disability?"
+
+      non_motoring_offences?:
+        title: "Have you ever been convicted of any non-motoring offences?"
+
+
+      can_start_process_of_applying:
+        title: "You can start applying to become an approved driving instructor (ADI)."
+        body: |
+          %{content_sections}
+
+      can_apply_to_transfer_registration:
+        title: "You can apply to transfer your driving instructor registration to the Great Britain register."
+        body: |
           s1. Get a GB counterpart licence if you got your driving licence in another EC country
           s2. Apply to the Driving Standards Agency (DSA) to transfer your registration
 
-        transfer_steps_with_emergency_control: |
-          s1. Get a GB counterpart licence if you got your driving licence in another EC country
-          s2. Apply for an take an emergency control assessment
-          s3. Apply to the Driving Standards Agency (DSA) to transfer your registration
 
-        gb_counterpart_licence: |
-          GB counterpart licence
+          Great Britain counterpart licence
           --------
 
-          To apply for a GB counterpart licence, download the application form and send it to the Driver and Vehicle Licensing Agency (DVLA).
+          To apply for a Great Britain counterpart licence, download the application form and send it to the Driver and Vehicle Licensing Agency (DVLA).
 
 
           $D
@@ -90,69 +153,37 @@ en-GB:
           SA99 1BH
           $A
 
-
-        transfer_registration: |
           Transfer your registration
           --------
 
-          When you have a GB counterpart licence you can [transfer your driving instructor registration to GB](/transfer-your-driving-instructor-registration-to-great-britain "Transfer your driving instructor registration to GB").
+          When you have a Great Britain counterpart licence you can [transfer your driving instructor registration to Great Britain](/transfer-your-driving-instructor-registration-to-great-britain "Transfer your driving instructor registration to Great Britain").
 
-        unlikely_apply_anyway: |
-          You must be a 'fit and proper' person to become an ADI. It's likely that the ADI registrar won't accept your application if you apply.
-
-          If you want to apply anyway, you’ll need to:
-
-        ADI_required_legal_warning: |
-          % It's against the law for you to charge a fee to teach someone to drive if you're not an ADI. %
-
-        acronym_definitions: |
-          *[ADI]: Approved driving instructor
-          *[EC]: European Community
-          *[GB]: Great Britain
-          *[DSA]: Driving Standards Agency
-          *[DVLA]: Driver and Vehicle Licensing Agency
-
-      have_you_had_licence_for_4_of_6_years?:
-        title: "Have you had a full car driving licence for 4 of the last 6 years?"
-
-      have_you_been_disqualified_in_last_4_years?:
-        title: "Have you been disqualified from driving at any time in the last 4 years?"
-
-      do_you_have_a_criminal_record?:
-        title: "Do you have a criminal record or any convictions (including motoring convictions)?"
-
-      was_offence_violent_or_sex_related?:
-        title: "Is the offence financial or drugs related, or violent, sexual, or has it caused you to be put on the Sex Offenders Register or to be banned from working with children?"
-
-      do_you_have_a_disability?:
-        title: "Do you have a disability that limits you to driving automatic cars?"
-
-      are_you_driving_instructor_in_ec_country?:
-        title: "Are you already registered as a driving instructor in another European Community (EC) country?"
-
-      can_start_process_of_applying:
-        title: "You can start applying to become an approved driving instructor (ADI)."
-        body: |
           %{content_sections}
 
-      can_apply_to_transfer_registration:
-        title: "You can apply to transfer your European Community (EC) driving instructor registration to the Great Britain (GB) register."
+      not_old_enough:
+        title: "You can’t become an approved driving instructor (ADI) because you aren’t old enough yet."
         body: |
+          You have to be 21 or older to supervise a learner driver.
+
+          You can usually [apply to start the qualifying process](/apply-to-become-a-driving-instructor "Apply to become a driving instructor") 6 months before your 21st birthday. This is because it will take at least 6 months to qualify as an ADI.
+
           %{content_sections}
 
       havent_had_licence_for_long_enough:
-        title: "You can’t become an approved driving instructor (ADI) if you haven’t had had a full driving licence for 4 out of the last 6 years when you join the register."
+        title: "You can’t become an approved driving instructor (ADI) because you haven’t had your full licence for long enough yet."
         body: |
-          You can still apply to become an ADI if you'll have had your licence for 4 years by the time you qualify.
+          You have to have had your full licence for at least 3 years to supervise a learner driver.
+
+          You can usually [apply to start the qualifying process](/apply-to-become-a-driving-instructor "Apply to become a driving instructor") 6 months before the 3rd anniversary of getting your full licence. This is because it will take at least 6 months to qualify as an ADI.
 
           %{content_sections}
 
-      cant_because_disqualified:
-        title: "It’s unlikely that you can become an approved driving instructor (ADI) because you’ve been disqualified from driving."
+      cant_because_limited_licence:
+        title: "You can’t apply to become an approved driving instructor (ADI) because your licence is for automatic cars."
         body: |
-          %{content_sections}
+          You must have a full licence to drive manual cars to become an ADI. If you still want to become an ADI you must:
 
-      very_unlikely_because_of_criminal_record:
-        title: "It’s unlikely that you can become an approved driving instructor (ADI) because of your criminal record."
-        body: |
+          s1. Pass the [car driving test](/practical-driving-test-for-cars "Car driving test") in a manual car
+          s2. Wait until you’ve had your full manual licence for 3 years
+
           %{content_sections}
