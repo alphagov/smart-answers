@@ -15,6 +15,7 @@ en-GB:
 
       which_class?:
         title: "Which class of National Insurance do you want a refund for?"
+        hint: "The class (or type) of National Insurance contribution you paid. There are 4 classes. Check your paperwork to see what class you paid."
         options:
           class_1: "Class 1"
           class_2: "Class 2"
@@ -81,7 +82,7 @@ en-GB:
           Deadlines
           --------
 
-          Usually up to 6 years after the tax year you’re applying for.
+          Contact HMRC to find out the deadline.
 
           There's no timeframe for HMRC responding to you.
 
@@ -109,8 +110,8 @@ en-GB:
 
           Send one of the following forms to HMRC:
 
-          * form [CW1A](http://www.hmrc.gov.uk/nic/cw1a.pdf){:rel="external"}(PDF, 65KB) - if you live in the UK
-          * form [CW3A](http://www.hmrc.gov.uk/nic/cw3a.pdf){:rel="external"}(PDF, 65KB) - if you live abroad
+          * form [CW1A (PDF, 65KB)](http://www.hmrc.gov.uk/nic/cw1a.pdf){:rel="external"} - if you live in the UK
+          * form [CW3A (PDF, 65KB)](http://www.hmrc.gov.uk/nic/cw3a.pdf){:rel="external"} - if you live abroad
 
           The postal address you need is on the form
 
@@ -143,7 +144,7 @@ en-GB:
           Deadlines
           --------
 
-          Usually up to 6 years after the tax year you're applying for.
+          Usually 4 years after the tax year you're applying for.
 
           There's no timeframe for HMRC responding to you.
 
@@ -163,7 +164,7 @@ en-GB:
           What you must do
           --------
 
-          Send HMRC form [CA5610](http://www.hmrc.gov.uk/forms/ca5610.pdf){:rel="external"}(PDF, 70 KB). The postal address you need is on the form.
+          Send HMRC form [CA5610 (PDF, 70 KB)](http://www.hmrc.gov.uk/forms/ca5610.pdf){:rel="external"}. The postal address you need is on the form.
 
           Deadline
           --------
@@ -191,9 +192,9 @@ en-GB:
 
           Send one of the following forms to HMRC:
 
-          * form [CA8480](http://www.hmrc.gov.uk/forms/ca8480.pdf){:rel="external"}(PDF, 70 KB) - Class 2 refund
-          * form [CW1A](http://www.hmrc.gov.uk/nic/cw1a.pdf){:rel="external"}(PDF, 65 KB) - Voluntary Class 2 refund if you live in the UK
-          * form [CW2A](http://www.hmrc.gov.uk/nic/cw2a.pdf){:rel="external"}(PDF, 65 KB) - Voluntary Class 2 refund if you live abroad
+          * form [CA8480 (PDF, 70 KB)](http://www.hmrc.gov.uk/forms/ca8480.pdf){:rel="external"} - Class 2 refund
+          * form [CW1A (PDF, 65 KB)](http://www.hmrc.gov.uk/nic/cw1a.pdf){:rel="external"} - Voluntary Class 2 refund if you live in the UK
+          * form [CW2A (PDF, 65 KB)](http://www.hmrc.gov.uk/nic/cw2a.pdf){:rel="external"} - Voluntary Class 2 refund if you live abroad
 
           The postal address you need is on the form.
 
