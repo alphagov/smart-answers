@@ -37,7 +37,7 @@ end
 if ENV['GOVSPEAK_DEV']
   gem 'govspeak', :path => '../govspeak'
 else
-  gem 'govspeak', '~> 0.8.13'
+  gem 'govspeak', '~> 0.8.15'
 end
 
 group :test do

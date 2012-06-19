@@ -1,0 +1,63 @@
+en-GB:
+    flow:
+        calculate-your-redundancy-pay:
+            title: Calculate statutory redundancy pay
+            body: |
+                Calculate how much statutory redundancy you can get. It’s based on age, weekly pay and number of years in the job.
+            age_of_employee?:
+                title: Your age at the time of redundancy
+                options:
+                    "over-41": "Over 41 years"
+                    "22-41": "Over 21 and under 41"
+                    "under-22": "Under 22 years"
+
+            years_employed?:
+                title: Number of years you’ve worked for your employer
+                hint: |
+                    Only full years of service count - up to a maximum of 20 years. You’ll need to have worked for your employer for at least 2 years to qualify for statutory redundancy pay.
+                label: Full years worked
+
+            weekly_pay_before_tax?:
+                title: Your weekly pay before tax
+                hint: |
+                    £430 is the current maximum weekly pay (before tax) when working out statutory redundancy pay - any earnings above this will not count to your total entitlement.
+
+            done_no_statutory:
+                title: You are not entitled to statutory redundancy pay.
+                body: |
+                    You need to have worked for your employer continuously for at least 2 years’ before you can get statutory redundancy pay.
+
+            done:
+                title: Based on the figures you've given, you could get £%{statutory_redundancy_pay} statutory redundancy pay.
+                body: |
+                    [Find out more about redundancy pay](https://www.gov.uk/redundant-your-rights/statutory-redundancy-pay-)
+
+        calculate-employee-redundancy-pay:
+            title: Calculate statutory employee redundancy pay
+            body: |
+                Calculate how much statutory redundancy an employee can get. It’s based on age, weekly pay and number of years in the job.
+            age_of_employee?:
+                title: Age of your employee at the time of their redundancy
+                options:
+                    "over-41": "Over 41 years"
+                    "22-41": "Over 21 and under 41"
+                    "under-22": "Under 22 years"
+
+            years_employed?:
+                title: Number of years they’ve worked for you
+                hint: |
+                    Only full years of service count - up to a maximum of 20 years. An employee needs to have worked for you for at least 2 years to qualify for statutory redundancy pay.
+                label: Full years worked
+
+            weekly_pay_before_tax?:
+                title: Weekly pay before tax
+                hint: |
+                    £430 is the current maximum weekly pay (before tax) when working out statutory redundancy pay - any earnings above this will not count to the entitlement.
+
+            done_no_statutory:
+                title: Your employee is not entitled to statutory redundancy pay.
+                body: |
+                    A minimum of 2 years’ continuous service is needed before an employee can get statutory redundancy pay.
+
+            done:
+                title: Based on the figures you’ve given, your employee could get £%{statutory_redundancy_pay} statutory redundancy pay.

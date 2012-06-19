@@ -79,7 +79,7 @@ GEM
       plek
     gds-warmup-controller (0.0.2)
       rails (>= 3.0.0)
-    govspeak (0.8.13)
+    govspeak (0.8.15)
       htmlentities (~> 4)
       kramdown (~> 0.13.3)
     hike (1.2.1)
@@ -212,7 +212,7 @@ DEPENDENCIES
   factory_girl_rails
   gds-api-adapters (~> 0.0.30)
   gds-warmup-controller
-  govspeak (~> 0.8.13)
+  govspeak (~> 0.8.15)
   htmlentities (~> 4)
   jquery-rails
   json
