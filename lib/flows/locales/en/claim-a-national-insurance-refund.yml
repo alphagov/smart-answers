@@ -29,7 +29,6 @@ en-GB:
           paid_too_much: "You paid too much of this Class"
       
       outcome_1:
-        title: "Write to HM Revenue & Customs (HMRC) by the deadline and ask for a refund, they’ll confirm what money you’ll get."
         body: |
           What you must do
           ---------
@@ -67,7 +66,6 @@ en-GB:
           $C
 
       outcome_1a:
-        title: "Write to HM Revenue & Customs (HMRC) by the deadline and ask for a refund, they’ll confirm what money you’ll get."
         body: |
           What you must do
           ---------
@@ -103,7 +101,6 @@ en-GB:
           $C
 
       outcome_2:
-        title: "Send a claim form to HM Revenue & Customs (HMRC) by the deadline, they’ll confirm what money you’ll get."
         body: |
           What you must do
           ---------
@@ -134,7 +131,6 @@ en-GB:
           $C
 
       outcome_3:
-        title: "Contact HM Revenue and Customs (HMRC) for a refund - you may be able to apply for a refund on your Self Assessment tax return."
         body: |
           What you need to do
           --------
@@ -159,7 +155,6 @@ en-GB:
           Saturday 8.00am to 4.00pm
           $C
       outcome_4:
-        title: "Send a claim form to HM Revenue & Customs (HMRC) by the deadline, they’ll confirm what money you’ll get."
         body: |
           What you must do
           --------
@@ -185,7 +180,6 @@ en-GB:
           $C
 
       outcome_5:
-        title: "Send a claim form to HM Revenue & Customs (HMRC) by the deadline, they’ll confirm what money you’ll get."
         body: |
           What you need to do
           --------
