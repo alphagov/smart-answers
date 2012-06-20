@@ -52,7 +52,7 @@ class CalculateRedundancyPayTest < ActionDispatch::IntegrationTest
           end
 
           should "give me a figure no higher than 430 per week" do
-            assert_state_variable :statutory_redundancy_pay, "2580.00"
+            assert_state_variable :statutory_redundancy_pay, "2,580"
           end
         end
       end
@@ -96,7 +96,7 @@ class CalculateRedundancyPayTest < ActionDispatch::IntegrationTest
           end
 
           should "give me a figure no higher than 430 per week" do
-            assert_state_variable :statutory_redundancy_pay, "1720.00"
+            assert_state_variable :statutory_redundancy_pay, "1,720"
           end
         end
 
@@ -106,7 +106,7 @@ class CalculateRedundancyPayTest < ActionDispatch::IntegrationTest
           end
 
           should "give me a figure below 430" do
-            assert_state_variable :statutory_redundancy_pay, "1200.00"
+            assert_state_variable :statutory_redundancy_pay, "1,200"
           end
         end
       end
@@ -150,7 +150,7 @@ class CalculateRedundancyPayTest < ActionDispatch::IntegrationTest
           end
 
           should "give me a figure no higher than 430 per week" do
-            assert_state_variable :statutory_redundancy_pay, "1290.00"
+            assert_state_variable :statutory_redundancy_pay, "1,290"
           end
         end
 
@@ -160,7 +160,7 @@ class CalculateRedundancyPayTest < ActionDispatch::IntegrationTest
           end
 
           should "give me a figure below 430" do
-            assert_state_variable :statutory_redundancy_pay, "900.00"
+            assert_state_variable :statutory_redundancy_pay, "900"
           end
         end
       end
@@ -214,7 +214,7 @@ class CalculateRedundancyPayTest < ActionDispatch::IntegrationTest
           end
 
           should "give me a figure no higher than 430 per week" do
-            assert_state_variable :statutory_redundancy_pay, "2580.00"
+            assert_state_variable :statutory_redundancy_pay, "2,580"
           end
         end
       end
@@ -258,7 +258,7 @@ class CalculateRedundancyPayTest < ActionDispatch::IntegrationTest
           end
 
           should "give me a figure no higher than 430 per week" do
-            assert_state_variable :statutory_redundancy_pay, "1720.00"
+            assert_state_variable :statutory_redundancy_pay, "1,720"
           end
         end
 
@@ -268,7 +268,7 @@ class CalculateRedundancyPayTest < ActionDispatch::IntegrationTest
           end
 
           should "give me a figure below 430" do
-            assert_state_variable :statutory_redundancy_pay, "1200.00"
+            assert_state_variable :statutory_redundancy_pay, "1,200"
           end
         end
       end
@@ -312,7 +312,7 @@ class CalculateRedundancyPayTest < ActionDispatch::IntegrationTest
           end
 
           should "give me a figure no higher than 430 per week" do
-            assert_state_variable :statutory_redundancy_pay, "1290.00"
+            assert_state_variable :statutory_redundancy_pay, "1,290"
           end
         end
 
@@ -322,7 +322,7 @@ class CalculateRedundancyPayTest < ActionDispatch::IntegrationTest
           end
 
           should "give me a figure below 430" do
-            assert_state_variable :statutory_redundancy_pay, "900.00"
+            assert_state_variable :statutory_redundancy_pay, "900"
           end
         end
       end

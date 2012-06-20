@@ -25,7 +25,7 @@ end
 
 money_question :weekly_pay_before_tax? do
   calculate :statutory_redundancy_pay do
-    sprintf("%.2f", calculator.pay(employee_age, years_employed, responses.last).to_f)
+    calculator.format_money(calculator.pay(employee_age, years_employed, responses.last).to_f)
   end
   next_node do |response|
     if years_employed < 2
