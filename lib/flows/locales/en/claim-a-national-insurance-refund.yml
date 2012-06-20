@@ -2,7 +2,7 @@ en-GB:
   flow:
     claim-a-national-insurance-refund:
       meta:
-        description: "Get the forms so you can apply for a refund on the National Insurance you’ve paid to HM Revenue and Customs"
+        description: "Get the forms to apply for a refund on the National Insurance you’ve paid to HM Revenue and Customs"
       title:
         "Claim a National Insurance refund"
       body: |
@@ -11,11 +11,11 @@ en-GB:
         What you need to know
         --------
 
-        There are different types of National Insurance called ‘classes’. You need to known which class you’ve paid eg, usually you pay class 2 or 4 if you’re self-employed or class 3 if you make a voluntary contribution.
+        There are different classes of National Insurance. You'll be asked what class your refund is for.
 
       which_class?:
         title: "Which class of National Insurance do you want a refund for?"
-        hint: "The class (or type) of National Insurance contribution you paid. There are 4 classes. Check your paperwork to see what class you paid."
+        hint: "There are different classes of National Insurance. Check your paperwork to see what class you paid."
         options:
           class_1: "Class 1"
           class_2: "Class 2"
@@ -25,8 +25,8 @@ en-GB:
       why_are_you_applying_for_a_refund?:
         title: "Why are you applying for a refund?"
         options:
-          shouldnt_have_paid: "You shouldn’t have paid this Class"
-          paid_too_much: "You paid too much of this Class"
+          shouldnt_have_paid: "You shouldn’t have paid this class"
+          paid_too_much: "You paid too much of this class"
       
       outcome_1:
         body: |
@@ -135,7 +135,7 @@ en-GB:
           What you need to do
           --------
 
-          Apply for a refund via your Self Assessment tax return.
+          Contact the Self Assessment Helpline.
 
           Deadlines
           --------
@@ -144,8 +144,6 @@ en-GB:
 
           There's no timeframe for HMRC responding to you.
 
-          Contact
-          --------
 
           $C
           **Self Assessment Helpline**  
