@@ -25,3 +25,5 @@ else
   Capybara.javascript_driver = :selenium
 end
 Capybara.default_driver = :rack_test
+
+I18n.load_path += Dir[Rails.root.join(*%w{test fixtures flows locales * *.{rb,yml}})]

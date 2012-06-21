@@ -1,0 +1,17 @@
+en-GB:
+  flow:
+    question-sampler:
+      meta:
+        description: "Question sampler meta description"
+      title:
+        A smart answer that covers all question types.
+      subtitle:
+        ALL the question types...
+      section_name: Work
+      body:
+        Flag Hippo
+        --------
+
+      options:
+        "no": "No"
+        "yes": "Yes"
