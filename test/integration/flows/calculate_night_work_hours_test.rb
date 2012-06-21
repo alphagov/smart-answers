@@ -105,11 +105,25 @@ class CalculateNightWorkHoursTest < ActiveSupport::TestCase
             end
 
             should "calculate results and be done" do
-              # TODO: Set expectations on calculator
-              add_response '4'
-              add_response '8'
+              calc = mock()
+              SmartAnswer::Calculators::NightWorkHours.
+                expects(:new).
+                with(:weeks_worked => 4, :weeks_leave => 1,
+                     :work_cycle => 8, :nights_in_cycle => 5,
+                     :hours_per_shift => 9, :overtime_hours => 6).
+                returns(calc)
+              calc.expects(:total_hours).returns("stub total hours")
+              calc.expects(:average_hours).returns("stub average hours")
+              calc.expects(:potential_days).returns("stub potential days")
+
               add_response '5'
+              add_response '9'
+              add_response '6'
               assert_current_node :done
+
+              assert_state_variable :total_hours, "stub total hours"
+              assert_state_variable :average_hours, "stub average hours"
+              assert_state_variable :potential_days, "stub potential days"
             end
           end # with an 8 week cycle
         end # worked 4 weeks of nights
