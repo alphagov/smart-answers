@@ -1,0 +1,54 @@
+en-GB:
+  flow:
+    calculate-night-work-hours:
+      title: Calculate average night working time/night working hours
+      body: |
+        Calculate the average time worked during the night to check whether the working limits have been reached.
+      options:
+        "yes": "Yes"
+        "no": "No"
+
+      how_old?:
+        title: "Are you/your employee:"
+        options:
+          "18-or-over": "18 or over"
+          "under-18": "Under 18"
+
+      have_you_worked_more_than_13_hours_in_a_night?:
+        title: "Have you/your employee worked for more than 13 hours on any night?"
+
+      have_you_worked_more_than_6_nights_in_a_row?:
+        title: "Have you/your employee worked more than 6 nights in a row?"
+
+      how_many_weeks_have_you_worked_nights?:
+        title: "How many weeks have you/your employee worked as a nightworker (the reference period)?"
+        hint: "If you have worked almost a full week round up."
+
+      how_many_weeks_leave_have_you_taken?:
+        title: "If you have taken leave, how many weeks have you taken off?"
+
+      what_is_your_work_cycle?:
+        title: "What is your work cycle?"
+        hint: "eg if you work 5 nights and have three nights off, you have an 8-night work cycle?"
+
+      how_many_nights_do_you_work_in_your_cycle?:
+        title: "How many nights do you work in your cycle?"
+
+      how_many_hours_do_you_work_per_shift?:
+        title: "How many hours do you work per night shift?"
+
+      how_many_overtime_hours_have_you_worked?:
+        title: "How many overtime hours have you worked during this reference period?"
+
+      done:
+        title: "You/your employee worked %{total_hours} total hours."
+        body: |
+          On average, you/your employee worked %{average_hours} hours.
+
+          %{potential_days} are the days you/your employee can be asked to work.
+
+      not_old_enough:
+        title: "Employees under the age of 18 must not work at night."
+
+      exceeded_working_time_limit:
+        title: "You/your employee have exceeded your working time limit."

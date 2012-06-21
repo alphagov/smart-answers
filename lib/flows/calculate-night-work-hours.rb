@@ -1,8 +1,8 @@
 status :draft
 
 multiple_choice :how_old? do
-  option 'under-18' => :not_old_enough
   option '18-or-over' => :have_you_worked_more_than_13_hours_in_a_night?
+  option 'under-18' => :not_old_enough
 end
 
 multiple_choice :have_you_worked_more_than_13_hours_in_a_night? do
