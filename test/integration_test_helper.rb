@@ -5,15 +5,16 @@ require 'capybara/rails'
 
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
+
+  teardown do
+    Capybara.reset_sessions!
+    Capybara.use_default_driver
+  end
 end
 
 class JavascriptIntegrationTest < ActionDispatch::IntegrationTest
   setup do
     Capybara.current_driver = Capybara.javascript_driver
-  end
-
-  teardown do
-    Capybara.use_default_driver
   end
 end
 
