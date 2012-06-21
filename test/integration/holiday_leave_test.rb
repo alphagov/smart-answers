@@ -31,7 +31,7 @@ class HolidayLeaveTest < ActionDispatch::IntegrationTest
     respond_with "Full-time"
     respond_with "A full year"
     respond_with "5 days per week"
-    assert_results_contain "Your paid statutory holiday entitlement is 28 of your working days."
+    assert_results_contain "Your statutory holiday entitlement is 28 days."
   end
 
   test "Full-time all year more than 5 days flow" do
