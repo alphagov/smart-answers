@@ -1,7 +1,7 @@
 status :draft
 section_slug "work"
 
-calculator = HolidayEntitlementCalculator.new()
+calculator = Calculators::HolidayEntitlement.new()
 
 multiple_choice :what_is_your_employment_status? do
   option "full-time" => :full_time_worked?

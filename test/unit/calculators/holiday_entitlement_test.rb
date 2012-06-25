@@ -1,10 +1,10 @@
-require_relative '../test_helper'
+require_relative '../../test_helper'
 
-module SmartAnswer
-  class HolidayEntitlementCalculatorTest < ActiveSupport::TestCase
+module SmartAnswer::Calculators
+  class HolidayEntitlementTest < ActiveSupport::TestCase
 
     def setup
-      @calculator = HolidayEntitlementCalculator.new()
+      @calculator = HolidayEntitlement.new()
     end
 
     test "Hours in a time series" do

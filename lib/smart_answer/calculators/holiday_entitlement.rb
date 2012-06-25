@@ -1,7 +1,7 @@
 require 'date'
 
-module SmartAnswer
-  class HolidayEntitlementCalculator
+module SmartAnswer::Calculators
+  class HolidayEntitlement
     # created for the holiday entitlement calculator
 
     def hours_as_seconds(hours)
