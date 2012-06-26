@@ -22,7 +22,7 @@ module SmartAnswer::Calculators
     test "Fraction of a year" do
       start_of_year = Date.civil(Date.today.year, 1, 1)
       end_of_fraction = Date.civil(Date.today.year, 4, 1)
-      fraction = sprintf "%.3f", @calculator.fraction_of_year(end_of_fraction, start_of_year)
+      fraction = sprintf "%.3f", @calculator.old_fraction_of_year(end_of_fraction, start_of_year)
       assert_equal fraction, "0.249"
     end
 
@@ -33,6 +33,42 @@ module SmartAnswer::Calculators
 
       should "strip .0" do
         assert_equal '23', @calculator.format_days(23.0450)
+      end
+    end
+
+    context "calculating fraction of year" do
+      should "return 1 with no start date or leaving date" do
+        calc = HolidayEntitlement.new
+        assert_equal 1, calc.fraction_of_year
+      end
+
+      context "with a start_date" do
+        should "return the fraction of a year" do
+          calc = HolidayEntitlement.new(:start_date => '2011-02-21')
+          assert_equal '0.8575', sprintf('%.4f', calc.fraction_of_year)
+        end
+
+        should "account for a leap year" do
+          calc = HolidayEntitlement.new(:start_date => '2012-02-21')
+          assert_equal '0.8579', sprintf('%.4f', calc.fraction_of_year)
+        end
+      end
+
+      context "with a leaving_date" do
+        should "return the fraction of a year" do
+          calc = HolidayEntitlement.new(:leaving_date => '2011-06-21')
+          assert_equal '0.4685', sprintf('%.4f', calc.fraction_of_year)
+        end
+
+        should "account for a leap year" do
+          calc = HolidayEntitlement.new(:leaving_date => '2012-06-21')
+          assert_equal '0.4699', sprintf('%.4f', calc.fraction_of_year)
+        end
+      end
+
+      should "format the result" do
+        calc = HolidayEntitlement.new(:start_date => '2011-02-21')
+        assert_equal '0.86', calc.formatted_fraction_of_year
       end
     end
 

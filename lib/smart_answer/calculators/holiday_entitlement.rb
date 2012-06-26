@@ -21,7 +21,7 @@ module SmartAnswer::Calculators
       hash[:dd] * 24 + hash[:hh]
     end
 
-    def fraction_of_year(date1, date2)
+    def old_fraction_of_year(date1, date2)
       days = (seconds_to_hash date1.to_datetime.to_i - date2.to_datetime.to_i)[:dd]
       days.to_f / (Date.today.leap? ? 366 : 365)
     end
@@ -38,7 +38,7 @@ module SmartAnswer::Calculators
     end
 
     def full_time_part_time_days
-      days = 5.6 * _fraction_of_year * self.days_per_week
+      days = 5.6 * fraction_of_year * self.days_per_week
       days > 28 ? 28 : days
     end
 
@@ -46,9 +46,7 @@ module SmartAnswer::Calculators
       format_days full_time_part_time_days
     end
 
-    private
-
-    def _fraction_of_year
+    def fraction_of_year
       if self.start_date
         d = Date.parse(start_date)
         (d.end_of_year - d) / (d.leap? ? 366 : 365)
@@ -58,6 +56,10 @@ module SmartAnswer::Calculators
       else
         1
       end
+    end
+
+    def formatted_fraction_of_year
+      sprintf('%.2f', fraction_of_year)
     end
   end
 end
