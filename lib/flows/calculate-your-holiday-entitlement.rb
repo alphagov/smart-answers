@@ -49,10 +49,15 @@ multiple_choice :full_time_part_year_days? do
   option "6-days" => :done_full_time_part_year
   option "7-days" => :done_full_time_part_year
   calculate :days_per_week do
-    responses.last.sub('-days', '').to_f
+    responses.last.to_i
   end
   calculate :holiday_entitlement_days do
-    calculator.format_number 5.6 * fraction_of_year * days_per_week
+    calc = Calculators::HolidayEntitlement.new(
+      :days_per_week => days_per_week,
+      :start_date => start_date,
+      :leaving_date => leaving_date
+    )
+    calc.format_days calc.holiday_entitlement_days
   end
 end
 
@@ -86,7 +91,10 @@ value_question :part_time_year_days_worked? do
   next_node :done_part_time_year
   save_input_as :part_time_days_worked
   calculate :part_time_holiday_entitlement do
-    calculator.format_number responses.last.to_f * 5.6
+    calc = Calculators::HolidayEntitlement.new(
+      :days_per_week => part_time_days_worked.to_i
+    )
+    calc.format_days calc.holiday_entitlement_days
   end
 end
 
@@ -94,7 +102,12 @@ value_question :part_time_part_year_days_worked? do
   next_node :done_part_time_part_year
   save_input_as :part_time_days_worked
   calculate :part_time_holiday_entitlement do
-    calculator.format_number responses.last.to_f * 5.6 * fraction_of_year
+    calc = Calculators::HolidayEntitlement.new(
+      :days_per_week => part_time_days_worked.to_i,
+      :start_date => start_date,
+      :leaving_date => leaving_date
+    )
+    calc.format_days calc.holiday_entitlement_days
   end
   calculate :display_fraction_of_year do
     sprintf('%.2f', fraction_of_year)
