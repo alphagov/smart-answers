@@ -138,29 +138,31 @@ value_question :casual_or_irregular_hours? do
     self.calculator.casual_irregular_entitlement.last
   end
   calculate :content_sections do
-    PhraseList.new :answer_casual_irregular, :your_employer, :calculation_casual_irregular
+    PhraseList.new :answer_hours_minutes, :your_employer, :calculation_casual_irregular
   end
   next_node :done
 end
 
 value_question :annualised_hours? do
-  next_node :done_annualised_hours
-  save_input_as :total_hours
-  calculate :annualised_weekly_average do
-    total_hours.to_f / 46.4
+  calculate :total_hours do
+    responses.last.to_f
   end
-  calculate :display_annualised_weekly_average do
-    sprintf("%.2f", annualised_weekly_average)
+  calculate :calculator do
+    Calculators::HolidayEntitlement.new(:total_hours => total_hours)
   end
-  calculate :holiday_entitlement do
-    calculator.hours_as_seconds 5.6 * annualised_weekly_average.to_f
+  calculate :average_hours_per_week do
+    self.calculator.annualised_hours_per_week
   end
-  calculate :entitlement_hours do
-    (calculator.seconds_to_hash(holiday_entitlement)[:dd] * 24) + calculator.seconds_to_hash(holiday_entitlement)[:hh]
+  calculate :holiday_entitlement_hours do
+    self.calculator.annualised_entitlement.first
   end
-  calculate :entitlement_minutes do
-    calculator.seconds_to_hash(holiday_entitlement)[:mm]
+  calculate :holiday_entitlement_minutes do
+    self.calculator.annualised_entitlement.last
   end
+  calculate :content_sections do
+    PhraseList.new :answer_hours_minutes, :your_employer, :calculation_annualised
+  end
+  next_node :done
 end
 
 value_question :compressed_hours? do

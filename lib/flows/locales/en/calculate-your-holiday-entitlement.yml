@@ -12,7 +12,7 @@ en-GB:
         answer_ft_pt_capped: |
           $!Your statutory holiday entitlement is %{holiday_entitlement_days} days - you can't get more statutory leave than this even if you work over 5 days a week.$!
 
-        answer_casual_irregular: |
+        answer_hours_minutes: |
           $!Your statutory holiday entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes.$!
 
         your_employer: |
@@ -45,6 +45,9 @@ en-GB:
 
         calculation_casual_irregular: |
           ^This is calculated as: 12.07% of %{total_hours} hours = **%{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes**
+
+        calculation_annualised: |
+          ^This is calculated as: 5.6 (statutory entitlement) x (%{total_hours} / 46.4 = %{average_hours_per_week} hours per week) = **%{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes**
 
       options:
         "full-time": "Full-time"

@@ -51,6 +51,15 @@ module SmartAnswer::Calculators
       minutes.floor.divmod(60)
     end
 
+    def annualised_hours_per_week
+      total_hours / 46.4
+    end
+
+    def annualised_entitlement
+      # These are the same at the moment
+      casual_irregular_entitlement
+    end
+
     def fraction_of_year
       if self.start_date
         d = Date.parse(start_date)

@@ -370,7 +370,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       assert_state_variable :total_hours, 1500.0
       assert_state_variable :holiday_entitlement_hours, 'formatted hours'
       assert_state_variable :holiday_entitlement_minutes, 'formatted minutes'
-      assert_phrase_list :content_sections, [:answer_casual_irregular, :your_employer, :calculation_casual_irregular]
+      assert_phrase_list :content_sections, [:answer_hours_minutes, :your_employer, :calculation_casual_irregular]
     end
   end # casual or irregular
 
@@ -383,9 +383,21 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       assert_current_node :annualised_hours?
     end
 
-    should "be done with a response" do
-      add_response '1400'
-      assert_current_node :done_annualised_hours
+    should "calculate and be done with a response" do
+      SmartAnswer::Calculators::HolidayEntitlement.
+        expects(:new).
+        with(:total_hours => 1400.5).
+        returns(@stubbed_calculator)
+      @stubbed_calculator.expects(:annualised_entitlement).at_least_once.returns(['formatted hours', 'formatted minutes'])
+      @stubbed_calculator.expects(:annualised_hours_per_week).returns('average hours per week')
+
+      add_response '1400.5'
+      assert_current_node :done
+      assert_state_variable :total_hours, 1400.5
+      assert_state_variable :holiday_entitlement_hours, 'formatted hours'
+      assert_state_variable :holiday_entitlement_minutes, 'formatted minutes'
+      assert_state_variable :average_hours_per_week, 'average hours per week'
+      assert_phrase_list :content_sections, [:answer_hours_minutes, :your_employer, :calculation_annualised]
     end
   end # annualised hours
 
