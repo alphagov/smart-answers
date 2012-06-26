@@ -37,9 +37,13 @@ module SmartAnswer::Calculators
       str.sub(/\.0$/, '')
     end
 
-    def holiday_entitlement_days
+    def full_time_part_time_days
       days = 5.6 * _fraction_of_year * self.days_per_week
       days > 28 ? 28 : days
+    end
+
+    def formatted_full_time_part_time_days
+      format_days full_time_part_time_days
     end
 
     private

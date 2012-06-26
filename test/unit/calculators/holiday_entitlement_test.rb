@@ -37,7 +37,6 @@ module SmartAnswer::Calculators
     end
 
     context "calculating full-time or part-time holiday entitlement" do
-
       context "working for a full year" do
 
         should "calculate entitlement for 5 days a week" do
@@ -45,7 +44,7 @@ module SmartAnswer::Calculators
             :days_per_week => 5
           )
 
-          assert_equal 28, calc.holiday_entitlement_days
+          assert_equal 28, calc.full_time_part_time_days
         end
 
         should "calculate entitlement for more than 5 days a week" do
@@ -54,7 +53,7 @@ module SmartAnswer::Calculators
           )
 
           # 28 is the max
-          assert_equal 28, calc.holiday_entitlement_days
+          assert_equal 28, calc.full_time_part_time_days
         end
 
         should "calculate entitlement for less than 5 days a week" do
@@ -62,30 +61,26 @@ module SmartAnswer::Calculators
             :days_per_week => 3
           )
 
-          assert_equal '16.80', sprintf('%.2f', calc.holiday_entitlement_days)
+          assert_equal '16.80', sprintf('%.2f', calc.full_time_part_time_days)
         end
       end # full year
 
       context "starting this year" do
-        setup do
-          @start_date = "2012-03-12"
-        end
-
         should "calculate entitlement for 5 days a week" do
           calc = HolidayEntitlement.new(
-            :start_date => @start_date,
+            :start_date => "2012-03-12",
             :days_per_week => 5
           )
-          assert_equal '22.49', sprintf('%.2f', calc.holiday_entitlement_days)
+          assert_equal '22.49', sprintf('%.2f', calc.full_time_part_time_days)
         end
 
         should "calculate entitlement for more than 5 days a week" do
           calc = HolidayEntitlement.new(
-            :start_date => @start_date,
+            :start_date => "2012-03-12",
             :days_per_week => 6
           )
           # TODO: is this correct, or should the 28 day cap be pro-rated
-          assert_equal '26.99', sprintf('%.2f', calc.holiday_entitlement_days)
+          assert_equal '26.99', sprintf('%.2f', calc.full_time_part_time_days)
         end
 
         should "cap entitlement at 28 days" do
@@ -93,26 +88,25 @@ module SmartAnswer::Calculators
             :start_date => "2012-01-10",
             :days_per_week => 7
           )
-          assert_equal 28, calc.holiday_entitlement_days
+          assert_equal 28, calc.full_time_part_time_days
         end
 
         should "calculate entitlement for less than 5 days per week" do
           calc = HolidayEntitlement.new(
-            :start_date => @start_date,
+            :start_date => "2012-03-12",
             :days_per_week => 3
           )
-          assert_equal '13.50', sprintf('%.2f', calc.holiday_entitlement_days)
+          assert_equal '13.50', sprintf('%.2f', calc.full_time_part_time_days)
         end
       end # starting this year
 
       context "leaving this year" do
-
         should "calculate entitlement for 5 days a week" do
           calc = HolidayEntitlement.new(
             :leaving_date => '2012-07-24',
             :days_per_week => 5
           )
-          assert_equal '15.68', sprintf('%.2f', calc.holiday_entitlement_days)
+          assert_equal '15.68', sprintf('%.2f', calc.full_time_part_time_days)
         end
 
         should "calculate entitlement for more than 5 days a week" do
@@ -120,7 +114,7 @@ module SmartAnswer::Calculators
             :leaving_date => '2012-07-24',
             :days_per_week => 6
           )
-          assert_equal '18.82', sprintf('%.2f', calc.holiday_entitlement_days)
+          assert_equal '18.82', sprintf('%.2f', calc.full_time_part_time_days)
         end
 
         should "cap entitlement at 28 days" do
@@ -128,7 +122,7 @@ module SmartAnswer::Calculators
             :leaving_date => "2012-12-10",
             :days_per_week => 7
           )
-          assert_equal 28, calc.holiday_entitlement_days
+          assert_equal 28, calc.full_time_part_time_days
         end
 
         should "calculate entitlement for less than 5 days a week" do
@@ -136,9 +130,17 @@ module SmartAnswer::Calculators
             :leaving_date => '2012-07-24',
             :days_per_week => 3
           )
-          assert_equal '9.41', sprintf('%.2f', calc.holiday_entitlement_days)
+          assert_equal '9.41', sprintf('%.2f', calc.full_time_part_time_days)
         end
       end # leaving this year
+
+      should "format the result using format_days" do
+        calc = HolidayEntitlement.new
+        calc.expects(:full_time_part_time_days).returns(:raw_days)
+        calc.expects(:format_days).with(:raw_days).returns(:formatted_days)
+
+        assert_equal :formatted_days, calc.formatted_full_time_part_time_days
+      end
     end
   end
 end
