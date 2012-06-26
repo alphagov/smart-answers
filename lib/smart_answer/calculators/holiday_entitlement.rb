@@ -1,7 +1,8 @@
 require 'date'
+require 'ostruct'
 
 module SmartAnswer::Calculators
-  class HolidayEntitlement
+  class HolidayEntitlement < OpenStruct
     # created for the holiday entitlement calculator
 
     def hours_as_seconds(hours)
@@ -29,6 +30,30 @@ module SmartAnswer::Calculators
       # TODO: round decimal places?
       # TODO: clarify exact rounding with Simon Kaplan
       sprintf("%.1f", number)
+    end
+
+    def format_days(days)
+      str = sprintf('%.1f', days)
+      str.sub(/\.0$/, '')
+    end
+
+    def holiday_entitlement_days
+      days = 5.6 * _fraction_of_year * self.days_per_week
+      days > 28 ? 28 : days
+    end
+
+    private
+
+    def _fraction_of_year
+      if self.start_date
+        d = Date.parse(start_date)
+        (d.end_of_year - d) / (d.leap? ? 366 : 365)
+      elsif self.leaving_date
+        d = Date.parse(leaving_date)
+        (d - d.beginning_of_year) / (d.leap? ? 366 : 365)
+      else
+        1
+      end
     end
   end
 end
