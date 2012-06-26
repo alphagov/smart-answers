@@ -60,6 +60,16 @@ module SmartAnswer::Calculators
       casual_irregular_entitlement
     end
 
+    def compressed_hours_entitlement
+      minutes = 5.6 * hours_per_week * 60
+      minutes.floor.divmod(60)
+    end
+
+    def compressed_hours_daily_average
+      minutes = hours_per_week / days_per_week * 60
+      minutes.floor.divmod(60)
+    end
+
     def fraction_of_year
       if self.start_date
         d = Date.parse(start_date)

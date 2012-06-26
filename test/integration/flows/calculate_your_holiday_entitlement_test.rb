@@ -407,18 +407,32 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     end
 
     should "ask how many hours per week you work" do
-      assert_current_node :compressed_hours?
+      assert_current_node :compressed_hours_how_many_hours_per_week?
     end
 
     should "ask how many days per weeok you work" do
       add_response '20'
-      assert_current_node :compressed_hours_days?
+      assert_current_node :compressed_hours_how_many_days_per_week?
     end
 
-    should "be done with hours and days entered" do
-      add_response '20'
+    should "calculate and be done with hours and days entered" do
+      SmartAnswer::Calculators::HolidayEntitlement.
+        expects(:new).
+        with(:hours_per_week => 20.5, :days_per_week => 3).
+        returns(@stubbed_calculator)
+      @stubbed_calculator.expects(:compressed_hours_entitlement).at_least_once.returns(['formatted hours', 'formatted minutes'])
+      @stubbed_calculator.expects(:compressed_hours_daily_average).at_least_once.returns(['formatted daily hours', 'formatted daily minutes'])
+
+      add_response '20.5'
       add_response '3'
-      assert_current_node :done_compressed_hours
+      assert_current_node :done
+      assert_state_variable :hours_per_week, 20.5
+      assert_state_variable :days_per_week, 3
+      assert_state_variable :holiday_entitlement_hours, 'formatted hours'
+      assert_state_variable :holiday_entitlement_minutes, 'formatted minutes'
+      assert_state_variable :hours_daily, 'formatted daily hours'
+      assert_state_variable :minutes_daily, 'formatted daily minutes'
+      assert_phrase_list :content_sections, [:answer_compressed_hours, :your_employer_with_rounding, :calculation_compressed_hours]
     end
   end # compressed hours
 

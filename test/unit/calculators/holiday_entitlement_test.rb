@@ -197,5 +197,17 @@ module SmartAnswer::Calculators
         assert_equal [158, 38], calc.annualised_entitlement
       end
     end # annualised
+
+    context "calculating compressed hours entitlement" do
+      should "return the hours and minutes of entitlement" do
+        calc = HolidayEntitlement.new(:hours_per_week => 20.5, :days_per_week => 3)
+        assert_equal [114, 48], calc.compressed_hours_entitlement
+      end
+
+      should "return the hours and minutes of daily entitlement" do
+        calc = HolidayEntitlement.new(:hours_per_week => 20.5, :days_per_week => 3)
+        assert_equal [6, 50], calc.compressed_hours_daily_average
+      end
+    end
   end
 end

@@ -8,7 +8,7 @@ multiple_choice :what_is_your_employment_status? do
   option "part-time" => :part_time_how_long_employed?
   option "casual-or-irregular-hours" => :casual_or_irregular_hours?
   option "annualised-hours" => :annualised_hours?
-  option "compressed-hours" => :compressed_hours?
+  option "compressed-hours" => :compressed_hours_how_many_hours_per_week?
   option "shift-worker" => :shift_worker_basis?
 end
 
@@ -165,32 +165,39 @@ value_question :annualised_hours? do
   next_node :done
 end
 
-value_question :compressed_hours? do
-  next_node :compressed_hours_days?
-  save_input_as :hours_per_week
+value_question :compressed_hours_how_many_hours_per_week? do
+  calculate :hours_per_week do
+    responses.last.to_f
+  end
+  next_node :compressed_hours_how_many_days_per_week?
 end
 
-value_question :compressed_hours_days? do
-  next_node :done_compressed_hours
-  save_input_as :days_per_week
-  calculate :seconds_allowance do
-    calculator.hours_as_seconds hours_per_week.to_f * 5.6
+value_question :compressed_hours_how_many_days_per_week? do
+  calculate :days_per_week do
+    responses.last.to_i
   end
-  calculate :hours do
-    (calculator.seconds_to_hash(seconds_allowance)[:dd] * 24) + calculator.seconds_to_hash(seconds_allowance)[:hh]
+  calculate :calculator do
+    Calculators::HolidayEntitlement.new(
+      :hours_per_week => hours_per_week,
+      :days_per_week => days_per_week
+    )
   end
-  calculate :minutes do
-    calculator.seconds_to_hash(seconds_allowance)[:mm]
+  calculate :holiday_entitlement_hours do
+    self.calculator.compressed_hours_entitlement.first
   end
-  calculate :seconds_daily do
-    calculator.hours_as_seconds hours_per_week.to_f / days_per_week.to_f
+  calculate :holiday_entitlement_minutes do
+    self.calculator.compressed_hours_entitlement.last
   end
   calculate :hours_daily do
-    calculator.seconds_to_hash(seconds_daily)[:hh]
+    self.calculator.compressed_hours_daily_average.first
   end
   calculate :minutes_daily do
-    calculator.seconds_to_hash(seconds_daily)[:mm]
+    self.calculator.compressed_hours_daily_average.last
   end
+  calculate :content_sections do
+    PhraseList.new :answer_compressed_hours, :your_employer_with_rounding, :calculation_compressed_hours
+  end
+  next_node :done
 end
 
 multiple_choice :shift_worker_basis? do
@@ -248,8 +255,6 @@ value_question :shift_worker_days_pattern? do
   end
 end
 
-outcome :done_annualised_hours
-outcome :done_compressed_hours
 outcome :done_shift_worker_year
 outcome :done_shift_worker_part_year
 
