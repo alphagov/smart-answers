@@ -358,9 +358,19 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       assert_current_node :casual_or_irregular_hours?
     end
 
-    should "be done with a response" do
+    should "calculate and be done with a response" do
+      SmartAnswer::Calculators::HolidayEntitlement.
+        expects(:new).
+        with(:total_hours => 1500).
+        returns(@stubbed_calculator)
+      @stubbed_calculator.expects(:casual_irregular_entitlement).at_least_once.returns(['formatted hours', 'formatted minutes'])
+
       add_response '1500'
-      assert_current_node :done_casual_hours
+      assert_current_node :done
+      assert_state_variable :total_hours, 1500.0
+      assert_state_variable :holiday_entitlement_hours, 'formatted hours'
+      assert_state_variable :holiday_entitlement_minutes, 'formatted minutes'
+      assert_phrase_list :content_sections, [:answer_casual_irregular, :your_employer, :calculation_casual_irregular]
     end
   end # casual or irregular
 

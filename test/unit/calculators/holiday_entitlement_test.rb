@@ -178,5 +178,12 @@ module SmartAnswer::Calculators
         assert_equal :formatted_days, calc.formatted_full_time_part_time_days
       end
     end
+
+    context "calculating casual or irregular hours entitlement" do
+      should "return the hours ane minutes of entitlement" do
+        calc = HolidayEntitlement.new(:total_hours => 1314.4)
+        assert_equal [158, 38], calc.casual_irregular_entitlement
+      end
+    end
   end
 end

@@ -46,6 +46,11 @@ module SmartAnswer::Calculators
       format_days full_time_part_time_days
     end
 
+    def casual_irregular_entitlement
+      minutes = 5.6 / 46.4 * total_hours * 60
+      minutes.floor.divmod(60)
+    end
+
     def fraction_of_year
       if self.start_date
         d = Date.parse(start_date)

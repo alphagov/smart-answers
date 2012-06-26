@@ -12,6 +12,9 @@ en-GB:
         answer_ft_pt_capped: |
           $!Your statutory holiday entitlement is %{holiday_entitlement_days} days - you can't get more statutory leave than this even if you work over 5 days a week.$!
 
+        answer_casual_irregular: |
+          $!Your statutory holiday entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes.$!
+
         your_employer: |
           Your employer:
 
@@ -40,6 +43,8 @@ en-GB:
         calculation_pt_partial_year: |
           ^This is calculated as: 5.6 (statutory entitlement) x (fraction: %{fraction_of_year}) x %{days_per_week} days = **%{holiday_entitlement_days}** of your working days
 
+        calculation_casual_irregular: |
+          ^This is calculated as: 12.07% of %{total_hours} hours = **%{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes**
 
       options:
         "full-time": "Full-time"
@@ -121,17 +126,6 @@ en-GB:
       done:
         body: |
           %{content_sections}
-
-      done_casual_hours:
-        title: Your statutory holiday entitlement is %{entitlement_hours} hours and %{entitlement_minutes} minutes.
-        body: |
-          Your employer:
-
-          - can include public and bank holidays as part of your statutory entitlement
-          - can give you more paid holiday - this will be in your employment contract and is called 'contractual leave entitlement'
-          - must [pay](/holiday-entitlement-your-rights/holiday-pay "Holiday pay") you during your statutory leave
-
-          ^This is calculated as: 12.07% of %{total_hours} hours = **%{entitlement_hours} hours and %{entitlement_minutes} minutes**
 
       done_annualised_hours:
         title: Your statutory holiday entitlement is %{entitlement_hours} hours and %{entitlement_minutes} minutes.

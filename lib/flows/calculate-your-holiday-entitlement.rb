@@ -125,17 +125,22 @@ value_question :part_time_how_many_days_per_week? do
 end
 
 value_question :casual_or_irregular_hours? do
-  next_node :done_casual_hours
-  save_input_as :total_hours
-  calculate :casual_holiday_entitlement do
-    calculator.hours_as_seconds total_hours.to_f * (5.6 / (52.0 - 5.6))
+  calculate :total_hours do
+    responses.last.to_f
   end
-  calculate :entitlement_hours do
-    (calculator.seconds_to_hash(casual_holiday_entitlement)[:dd] * 24) + calculator.seconds_to_hash(casual_holiday_entitlement)[:hh]
+  calculate :calculator do
+    Calculators::HolidayEntitlement.new(:total_hours => total_hours)
   end
-  calculate :entitlement_minutes do
-    calculator.seconds_to_hash(casual_holiday_entitlement)[:mm]
+  calculate :holiday_entitlement_hours do
+    self.calculator.casual_irregular_entitlement.first
   end
+  calculate :holiday_entitlement_minutes do
+    self.calculator.casual_irregular_entitlement.last
+  end
+  calculate :content_sections do
+    PhraseList.new :answer_casual_irregular, :your_employer, :calculation_casual_irregular
+  end
+  next_node :done
 end
 
 value_question :annualised_hours? do
@@ -241,7 +246,6 @@ value_question :shift_worker_days_pattern? do
   end
 end
 
-outcome :done_casual_hours
 outcome :done_annualised_hours
 outcome :done_compressed_hours
 outcome :done_shift_worker_year
