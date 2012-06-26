@@ -4,23 +4,18 @@ section_slug "work"
 calculator = Calculators::HolidayEntitlement.new()
 
 multiple_choice :what_is_your_employment_status? do
-  option "full-time" => :full_time_worked?
-  option "part-time" => :part_time_worked?
+  option "full-time" => :full_time_how_long_employed?
+  option "part-time" => :part_time_how_long_employed?
   option "casual-or-irregular-hours" => :casual_or_irregular_hours?
   option "annualised-hours" => :annualised_hours?
   option "compressed-hours" => :compressed_hours?
   option "shift-worker" => :shift_worker_basis?
 end
 
-multiple_choice :full_time_worked? do
-  option "full-year" => :full_time_year?
+multiple_choice :full_time_how_long_employed? do
+  option "full-year" => :full_time_how_many_days_per_week?
   option "starting" => :full_time_starting_date?
   option "leaving" => :full_time_leaving_date?
-end
-
-multiple_choice :full_time_year? do
-  option "5-days-a-week" => :done_full_time_5_days
-  option "more-than-5-days-a-week" => :done_full_time_more_than_5
 end
 
 # TODO: can we factor this date range stuff out? It's all the same
@@ -28,41 +23,56 @@ date_question :full_time_starting_date? do
   from { Date.civil(Date.today.year, 1, 1) }
   to { Date.civil(Date.today.year, 12, 31) }
   save_input_as :start_date
-  next_node :full_time_part_year_days?
-  calculate :fraction_of_year do
-    calculator.fraction_of_year Date.civil(Date.today.year, 12, 31), start_date
-  end
+  next_node :full_time_how_many_days_per_week?
 end
 
 date_question :full_time_leaving_date? do
   from { Date.civil(Date.today.year, 1, 1) }
   to { Date.civil(Date.today.year, 12, 31) }
   save_input_as :leaving_date
-  next_node :full_time_part_year_days?
-  calculate :fraction_of_year do
-    calculator.fraction_of_year leaving_date, Date.civil(Date.today.year, 1, 1)
-  end
+  next_node :full_time_how_many_days_per_week?
 end
 
-multiple_choice :full_time_part_year_days? do
-  option "5-days" => :done_full_time_part_year
-  option "6-days" => :done_full_time_part_year
-  option "7-days" => :done_full_time_part_year
+multiple_choice :full_time_how_many_days_per_week? do
+  option "5-days"
+  option "6-days"
+  option "7-days"
+
   calculate :days_per_week do
     responses.last.to_i
   end
-  calculate :holiday_entitlement_days do
-    calc = Calculators::HolidayEntitlement.new(
+  calculate :calculator do
+    Calculators::HolidayEntitlement.new(
       :days_per_week => days_per_week,
       :start_date => start_date,
       :leaving_date => leaving_date
     )
-    calc.format_days calc.holiday_entitlement_days
   end
+  calculate :holiday_entitlement_days do
+    self.calculator.formatted_full_time_part_time_days
+  end
+  calculate :fraction_of_year do
+    self.calculator.formatted_fraction_of_year
+  end
+  calculate :content_sections do
+    full_year = start_date.nil? && leaving_date.nil?
+    capped = days_per_week != 5 && full_year
+
+    sections = PhraseList.new
+    sections << (capped ? :answer_ft_pt_capped : :answer_ft_pt)
+    sections << (full_year ? :your_employer : :your_employer_with_rounding)
+    if full_year
+      sections << (capped ? :calculation_ft_capped : :calculation_ft)
+    else
+      sections << :calculation_ft_partial_year
+    end
+    sections
+  end
+  next_node :done
 end
 
-multiple_choice :part_time_worked? do
-  option "full-year" => :part_time_year_days_worked?
+multiple_choice :part_time_how_long_employed? do
+  option "full-year" => :part_time_how_many_days_per_week?
   option "starting" => :part_time_starting_date?
   option "leaving" => :part_time_leaving_date?
 end
@@ -71,47 +81,47 @@ date_question :part_time_starting_date? do
   from { Date.civil(Date.today.year, 1, 1) }
   to { Date.civil(Date.today.year, 12, 31) }
   save_input_as :start_date
-  next_node :part_time_part_year_days_worked?
-  calculate :fraction_of_year do
-    calculator.fraction_of_year Date.civil(Date.today.year, 12, 31), start_date
-  end
+  next_node :part_time_how_many_days_per_week?
 end
 
 date_question :part_time_leaving_date? do
   from { Date.civil(Date.today.year, 1, 1) }
   to { Date.civil(Date.today.year, 12, 31) }
   save_input_as :leaving_date
-  next_node :part_time_part_year_days_worked?
-  calculate :fraction_of_year do
-    calculator.fraction_of_year leaving_date, Date.civil(Date.today.year, 1, 1)
-  end
+  next_node :part_time_how_many_days_per_week?
 end
 
-value_question :part_time_year_days_worked? do
-  next_node :done_part_time_year
-  save_input_as :part_time_days_worked
-  calculate :part_time_holiday_entitlement do
-    calc = Calculators::HolidayEntitlement.new(
-      :days_per_week => part_time_days_worked.to_i
-    )
-    calc.format_days calc.holiday_entitlement_days
+value_question :part_time_how_many_days_per_week? do
+  calculate :days_per_week do
+    responses.last.to_i
   end
-end
-
-value_question :part_time_part_year_days_worked? do
-  next_node :done_part_time_part_year
-  save_input_as :part_time_days_worked
-  calculate :part_time_holiday_entitlement do
-    calc = Calculators::HolidayEntitlement.new(
-      :days_per_week => part_time_days_worked.to_i,
+  calculate :calculator do
+    Calculators::HolidayEntitlement.new(
+      :days_per_week => days_per_week,
       :start_date => start_date,
       :leaving_date => leaving_date
     )
-    calc.format_days calc.holiday_entitlement_days
   end
-  calculate :display_fraction_of_year do
-    sprintf('%.2f', fraction_of_year)
+  calculate :holiday_entitlement_days do
+    self.calculator.formatted_full_time_part_time_days
   end
+  calculate :fraction_of_year do
+    self.calculator.formatted_fraction_of_year
+  end
+  calculate :content_sections do
+    full_year = start_date.nil? && leaving_date.nil?
+    capped = days_per_week != 5 && full_year
+
+    sections = PhraseList.new
+    sections << :answer_ft_pt
+    if full_year
+      sections << :your_employer << :calculation_pt
+    else
+      sections << :your_employer_with_rounding << :calculation_pt_partial_year
+    end
+    sections
+  end
+  next_node :done
 end
 
 value_question :casual_or_irregular_hours? do
@@ -188,7 +198,7 @@ date_question :shift_worker_starting_date? do
   save_input_as :start_date
   next_node :shift_worker_year_shift_length?
   calculate :fraction_of_year do
-    calculator.fraction_of_year Date.civil(Date.today.year, 12, 31), start_date
+    calculator.old_fraction_of_year Date.civil(Date.today.year, 12, 31), start_date
   end
   calculate :display_fraction_of_year do
     sprintf("%.2f", fraction_of_year)
@@ -201,7 +211,7 @@ date_question :shift_worker_leaving_date? do
   save_input_as :leaving_date
   next_node :shift_worker_year_shift_length?
   calculate :fraction_of_year do
-    calculator.fraction_of_year leaving_date, Date.civil(Date.today.year, 1, 1)
+    calculator.old_fraction_of_year leaving_date, Date.civil(Date.today.year, 1, 1)
   end
   calculate :display_fraction_of_year do
     sprintf("%.2f", fraction_of_year)
@@ -231,13 +241,10 @@ value_question :shift_worker_days_pattern? do
   end
 end
 
-outcome :done_full_time_5_days
-outcome :done_full_time_more_than_5
-outcome :done_full_time_part_year
-outcome :done_part_time_year
-outcome :done_part_time_part_year
 outcome :done_casual_hours
 outcome :done_annualised_hours
 outcome :done_compressed_hours
 outcome :done_shift_worker_year
 outcome :done_shift_worker_part_year
+
+outcome :done
