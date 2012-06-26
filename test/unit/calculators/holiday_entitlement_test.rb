@@ -26,15 +26,6 @@ module SmartAnswer::Calculators
       assert_equal fraction, "0.249"
     end
 
-    context "rounding and formatting days" do
-      should "round to 1 dp" do
-        assert_equal '123.7', @calculator.format_days(123.6593)
-      end
-
-      should "strip .0" do
-        assert_equal '23', @calculator.format_days(23.0450)
-      end
-    end
 
     context "calculating fraction of year" do
       should "return 1 with no start date or leaving date" do
@@ -172,10 +163,9 @@ module SmartAnswer::Calculators
 
       should "format the result using format_days" do
         calc = HolidayEntitlement.new
-        calc.expects(:full_time_part_time_days).returns(:raw_days)
-        calc.expects(:format_days).with(:raw_days).returns(:formatted_days)
+        calc.expects(:full_time_part_time_days).returns(18.342452)
 
-        assert_equal :formatted_days, calc.formatted_full_time_part_time_days
+        assert_equal '18.3', calc.formatted_full_time_part_time_days
       end
     end
 
@@ -207,6 +197,73 @@ module SmartAnswer::Calculators
       should "return the hours and minutes of daily entitlement" do
         calc = HolidayEntitlement.new(:hours_per_week => 20.5, :days_per_week => 3)
         assert_equal [6, 50], calc.compressed_hours_daily_average
+      end
+    end
+
+    context "calculating shift worker shifts" do
+      context "full year" do
+        setup do
+          @calc = HolidayEntitlement.new(
+            :hours_per_shift => 7.5,
+            :shifts_per_shift_pattern => 4,
+            :days_per_shift_pattern => 8
+          )
+        end
+
+        should "return the average shifts per week" do
+          assert_equal 3.5, @calc.shifts_per_week
+        end
+
+        should "return the holiday entitlement in shifts" do
+          assert_equal '19.600', sprintf('%.3f', @calc.shift_entitlement)
+        end
+      end # full year
+
+      context "starting this year" do
+        setup do
+          @calc = HolidayEntitlement.new(
+            :start_date => '2012-07-01',
+            :hours_per_shift => 7.5,
+            :shifts_per_shift_pattern => 4,
+            :days_per_shift_pattern => 8
+          )
+        end
+
+        should "return the holiday entitlement in shifts" do
+          assert_equal '9.800', sprintf('%.3f', @calc.shift_entitlement)
+        end
+      end
+
+      context "leaving this year" do
+        setup do
+          @calc = HolidayEntitlement.new(
+            :leaving_date => '2012-09-30',
+            :hours_per_shift => 7.5,
+            :shifts_per_shift_pattern => 4,
+            :days_per_shift_pattern => 8
+          )
+        end
+
+        should "return the holiday entitlement in shifts" do
+          assert_equal '14.620', sprintf('%.3f', @calc.shift_entitlement)
+        end
+      end
+    end
+
+    context "formatted version of anything" do
+      # implemented with method_missing
+      setup do
+        @calc = HolidayEntitlement.new
+      end
+
+      should "return foo to 1 dp" do
+        @calc.stubs(:foo).returns(123.6593)
+        assert_equal '123.7', @calc.formatted_foo
+      end
+
+      should "strip .0 from foo" do
+        @calc.stubs(:foo).returns(23.0493)
+        assert_equal '23', @calc.formatted_foo
       end
     end
   end

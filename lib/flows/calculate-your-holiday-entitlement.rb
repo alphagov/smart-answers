@@ -29,6 +29,8 @@ date_question :what_is_your_starting_date? do
       :full_time_how_many_days_per_week?
     when 'part-time'
       :part_time_how_many_days_per_week?
+    when 'shift-worker'
+      :shift_worker_hours_per_shift?
     end
   end
 end
@@ -43,6 +45,8 @@ date_question :what_is_your_leaving_date? do
       :full_time_how_many_days_per_week?
     when 'part-time'
       :part_time_how_many_days_per_week?
+    when 'shift-worker'
+      :shift_worker_hours_per_shift?
     end
   end
 end
@@ -201,61 +205,59 @@ value_question :compressed_hours_how_many_days_per_week? do
 end
 
 multiple_choice :shift_worker_basis? do
-  option "full-year" => :shift_worker_year_shift_length?
-  option "starting" => :shift_worker_starting_date?
-  option "leaving" => :shift_worker_leaving_date?
+  option "full-year" => :shift_worker_hours_per_shift?
+  option "starting" => :what_is_your_starting_date?
+  option "leaving" => :what_is_your_leaving_date?
 end
 
-date_question :shift_worker_starting_date? do
-  from { Date.civil(Date.today.year, 1, 1) }
-  to { Date.civil(Date.today.year, 12, 31) }
-  save_input_as :start_date
-  next_node :shift_worker_year_shift_length?
-  calculate :fraction_of_year do
-    calculator.old_fraction_of_year Date.civil(Date.today.year, 12, 31), start_date
+value_question :shift_worker_hours_per_shift? do
+  calculate :hours_per_shift do
+    responses.last.to_f
   end
-  calculate :display_fraction_of_year do
-    sprintf("%.2f", fraction_of_year)
-  end
+  next_node :shift_worker_shifts_per_shift_pattern?
 end
 
-date_question :shift_worker_leaving_date? do
-  from { Date.civil(Date.today.year, 1, 1) }
-  to { Date.civil(Date.today.year, 12, 31) }
-  save_input_as :leaving_date
-  next_node :shift_worker_year_shift_length?
-  calculate :fraction_of_year do
-    calculator.old_fraction_of_year leaving_date, Date.civil(Date.today.year, 1, 1)
+value_question :shift_worker_shifts_per_shift_pattern? do
+  calculate :shifts_per_shift_pattern do
+    responses.last.to_i
   end
-  calculate :display_fraction_of_year do
-    sprintf("%.2f", fraction_of_year)
-  end
+  next_node :shift_worker_days_per_shift_pattern?
 end
 
-value_question :shift_worker_year_shift_length? do
-  next_node :shift_worker_year_shift_count?
-  save_input_as :shift_length
-end
-
-value_question :shift_worker_year_shift_count? do
-  next_node :shift_worker_days_pattern?
-  save_input_as :shift_count
-end
-
-value_question :shift_worker_days_pattern? do
-  next_node do
-    fraction_of_year.nil? ? :done_shift_worker_year : :done_shift_worker_part_year
+value_question :shift_worker_days_per_shift_pattern? do
+  calculate :days_per_shift_pattern do
+    responses.last.to_i
   end
-
+  calculate :calculator do
+    Calculators::HolidayEntitlement.new(
+      :start_date => start_date,
+      :leaving_date => leaving_date,
+      :hours_per_shift => hours_per_shift,
+      :shifts_per_shift_pattern => shifts_per_shift_pattern,
+      :days_per_shift_pattern => days_per_shift_pattern
+    )
+  end
   calculate :shifts_per_week do
-    (shift_count.to_f / responses.last.to_f) * 7
+    self.calculator.formatted_shifts_per_week
   end
-  calculate :holiday_entitlement do
-    calculator.format_number shifts_per_week * 5.6 * (fraction_of_year || 1.0)
+  calculate :holiday_entitlement_shifts do
+    self.calculator.formatted_shift_entitlement
   end
-end
+  calculate :fraction_of_year do
+    self.calculator.formatted_fraction_of_year
+  end
+  calculate :content_sections do
+    full_year = start_date.nil? && leaving_date.nil?
 
-outcome :done_shift_worker_year
-outcome :done_shift_worker_part_year
+    sections = PhraseList.new :answer_shift_worker
+    if full_year
+      sections << :your_employer << :calculation_shift_worker
+    else
+      sections << :your_employer_with_rounding << :calculation_shift_worker_partial_year
+    end
+    sections
+  end
+  next_node :done
+end
 
 outcome :done
