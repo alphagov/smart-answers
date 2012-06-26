@@ -69,26 +69,20 @@ en-GB:
         "6-days": "6 days per week"
         "7-days": "7 days per week"
 
-      full_time_how_long_employed?:
-        title: How long will you be employed full-time?
+      what_is_your_starting_date?:
+        title: When are you starting?
 
-      full_time_leaving_date?:
+      what_is_your_leaving_date?:
         title: When are you leaving?
 
-      full_time_starting_date?:
-        title: When are you starting?
+      full_time_how_long_employed?:
+        title: How long will you be employed full-time?
 
       full_time_how_many_days_per_week?:
         title: How many days per week are you working?
 
       part_time_how_long_employed?:
         title: How long will you be employed part-time?
-
-      part_time_leaving_date?:
-        title: When are you leaving?
-
-      part_time_starting_date?:
-        title: When are you starting?
 
       part_time_how_many_days_per_week?:
         title: How many days do you work per week?

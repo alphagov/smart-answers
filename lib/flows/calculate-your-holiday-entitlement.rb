@@ -10,27 +10,41 @@ multiple_choice :what_is_your_employment_status? do
   option "annualised-hours" => :annualised_hours?
   option "compressed-hours" => :compressed_hours_how_many_hours_per_week?
   option "shift-worker" => :shift_worker_basis?
+  save_input_as :employment_status
 end
 
 multiple_choice :full_time_how_long_employed? do
   option "full-year" => :full_time_how_many_days_per_week?
-  option "starting" => :full_time_starting_date?
-  option "leaving" => :full_time_leaving_date?
+  option "starting" => :what_is_your_starting_date?
+  option "leaving" => :what_is_your_leaving_date?
 end
 
-# TODO: can we factor this date range stuff out? It's all the same
-date_question :full_time_starting_date? do
+date_question :what_is_your_starting_date? do
   from { Date.civil(Date.today.year, 1, 1) }
   to { Date.civil(Date.today.year, 12, 31) }
   save_input_as :start_date
-  next_node :full_time_how_many_days_per_week?
+  next_node do |response|
+    case employment_status
+    when 'full-time'
+      :full_time_how_many_days_per_week?
+    when 'part-time'
+      :part_time_how_many_days_per_week?
+    end
+  end
 end
 
-date_question :full_time_leaving_date? do
+date_question :what_is_your_leaving_date? do
   from { Date.civil(Date.today.year, 1, 1) }
   to { Date.civil(Date.today.year, 12, 31) }
   save_input_as :leaving_date
-  next_node :full_time_how_many_days_per_week?
+  next_node do |response|
+    case employment_status
+    when 'full-time'
+      :full_time_how_many_days_per_week?
+    when 'part-time'
+      :part_time_how_many_days_per_week?
+    end
+  end
 end
 
 multiple_choice :full_time_how_many_days_per_week? do
@@ -73,22 +87,8 @@ end
 
 multiple_choice :part_time_how_long_employed? do
   option "full-year" => :part_time_how_many_days_per_week?
-  option "starting" => :part_time_starting_date?
-  option "leaving" => :part_time_leaving_date?
-end
-
-date_question :part_time_starting_date? do
-  from { Date.civil(Date.today.year, 1, 1) }
-  to { Date.civil(Date.today.year, 12, 31) }
-  save_input_as :start_date
-  next_node :part_time_how_many_days_per_week?
-end
-
-date_question :part_time_leaving_date? do
-  from { Date.civil(Date.today.year, 1, 1) }
-  to { Date.civil(Date.today.year, 12, 31) }
-  save_input_as :leaving_date
-  next_node :part_time_how_many_days_per_week?
+  option "starting" => :what_is_your_starting_date?
+  option "leaving" => :what_is_your_leaving_date?
 end
 
 value_question :part_time_how_many_days_per_week? do

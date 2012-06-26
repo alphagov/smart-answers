@@ -76,7 +76,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       end
 
       should "ask when you are starting" do
-        assert_current_node :full_time_starting_date?
+        assert_current_node :what_is_your_starting_date?
       end
 
       context "with a date" do
@@ -156,7 +156,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       end
 
       should "ask when you are leaving" do
-        assert_current_node :full_time_leaving_date?
+        assert_current_node :what_is_your_leaving_date?
       end
 
       context "with a date" do
@@ -274,7 +274,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       end
 
       should "ask when you are starting" do
-        assert_current_node :part_time_starting_date?
+        assert_current_node :what_is_your_starting_date?
       end
 
       context "with a date" do
@@ -314,7 +314,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       end
 
       should "ask when you are leaving" do
-        assert_current_node :part_time_leaving_date?
+        assert_current_node :what_is_your_leaving_date?
       end
 
       context "with a date" do
