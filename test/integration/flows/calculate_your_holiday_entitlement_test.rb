@@ -7,10 +7,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
 
   setup do
     setup_for_testing_flow 'calculate-your-holiday-entitlement'
-    @stubbed_calculator = stub(
-      :formatted_full_time_part_time_days => 'stub days',
-      :formatted_fraction_of_year => 'stub fraction'
-    )
+    @stubbed_calculator = SmartAnswer::Calculators::HolidayEntitlement.new
   end
 
   should "ask your employment status" do
@@ -485,7 +482,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
 
         assert_current_node :done
 
-        assert_state_variable :hours_per_shift, 7.5
+        assert_state_variable :hours_per_shift, '7.5'
         assert_state_variable :shifts_per_shift_pattern, 4
         assert_state_variable :days_per_shift_pattern, 8
 
@@ -546,7 +543,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
 
           assert_current_node :done
 
-          assert_state_variable :hours_per_shift, 7.5
+          assert_state_variable :hours_per_shift, '7.5'
           assert_state_variable :shifts_per_shift_pattern, 4
           assert_state_variable :days_per_shift_pattern, 8
 
@@ -589,7 +586,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         end
 
         should "be done when all entered" do
-          add_response '7.5'
+          add_response '7'
           add_response '4'
           add_response '8'
 
@@ -598,7 +595,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             with(
               :start_date => nil,
               :leaving_date => "#{Date.today.year}-02-16",
-              :hours_per_shift => 7.5,
+              :hours_per_shift => 7,
               :shifts_per_shift_pattern => 4,
               :days_per_shift_pattern => 8
           ).
@@ -609,7 +606,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
 
           assert_current_node :done
 
-          assert_state_variable :hours_per_shift, 7.5
+          assert_state_variable :hours_per_shift, '7'
           assert_state_variable :shifts_per_shift_pattern, 4
           assert_state_variable :days_per_shift_pattern, 8
 

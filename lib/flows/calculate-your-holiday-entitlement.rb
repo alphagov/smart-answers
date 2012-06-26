@@ -1,8 +1,6 @@
 status :draft
 section_slug "work"
 
-calculator = Calculators::HolidayEntitlement.new()
-
 multiple_choice :what_is_your_employment_status? do
   option "full-time" => :full_time_how_long_employed?
   option "part-time" => :part_time_how_long_employed?
@@ -67,10 +65,10 @@ multiple_choice :full_time_how_many_days_per_week? do
     )
   end
   calculate :holiday_entitlement_days do
-    self.calculator.formatted_full_time_part_time_days
+    calculator.formatted_full_time_part_time_days
   end
   calculate :fraction_of_year do
-    self.calculator.formatted_fraction_of_year
+    calculator.formatted_fraction_of_year
   end
   calculate :content_sections do
     full_year = start_date.nil? && leaving_date.nil?
@@ -107,10 +105,10 @@ value_question :part_time_how_many_days_per_week? do
     )
   end
   calculate :holiday_entitlement_days do
-    self.calculator.formatted_full_time_part_time_days
+    calculator.formatted_full_time_part_time_days
   end
   calculate :fraction_of_year do
-    self.calculator.formatted_fraction_of_year
+    calculator.formatted_fraction_of_year
   end
   calculate :content_sections do
     full_year = start_date.nil? && leaving_date.nil?
@@ -136,10 +134,10 @@ value_question :casual_or_irregular_hours? do
     Calculators::HolidayEntitlement.new(:total_hours => total_hours)
   end
   calculate :holiday_entitlement_hours do
-    self.calculator.casual_irregular_entitlement.first
+    calculator.casual_irregular_entitlement.first
   end
   calculate :holiday_entitlement_minutes do
-    self.calculator.casual_irregular_entitlement.last
+    calculator.casual_irregular_entitlement.last
   end
   calculate :content_sections do
     PhraseList.new :answer_hours_minutes, :your_employer, :calculation_casual_irregular
@@ -155,13 +153,13 @@ value_question :annualised_hours? do
     Calculators::HolidayEntitlement.new(:total_hours => total_hours)
   end
   calculate :average_hours_per_week do
-    self.calculator.annualised_hours_per_week
+    calculator.annualised_hours_per_week
   end
   calculate :holiday_entitlement_hours do
-    self.calculator.annualised_entitlement.first
+    calculator.annualised_entitlement.first
   end
   calculate :holiday_entitlement_minutes do
-    self.calculator.annualised_entitlement.last
+    calculator.annualised_entitlement.last
   end
   calculate :content_sections do
     PhraseList.new :answer_hours_minutes, :your_employer, :calculation_annualised
@@ -187,16 +185,16 @@ value_question :compressed_hours_how_many_days_per_week? do
     )
   end
   calculate :holiday_entitlement_hours do
-    self.calculator.compressed_hours_entitlement.first
+    calculator.compressed_hours_entitlement.first
   end
   calculate :holiday_entitlement_minutes do
-    self.calculator.compressed_hours_entitlement.last
+    calculator.compressed_hours_entitlement.last
   end
   calculate :hours_daily do
-    self.calculator.compressed_hours_daily_average.first
+    calculator.compressed_hours_daily_average.first
   end
   calculate :minutes_daily do
-    self.calculator.compressed_hours_daily_average.last
+    calculator.compressed_hours_daily_average.last
   end
   calculate :content_sections do
     PhraseList.new :answer_compressed_hours, :your_employer_with_rounding, :calculation_compressed_hours
@@ -238,13 +236,17 @@ value_question :shift_worker_days_per_shift_pattern? do
     )
   end
   calculate :shifts_per_week do
-    self.calculator.formatted_shifts_per_week
+    calculator.formatted_shifts_per_week
   end
   calculate :holiday_entitlement_shifts do
-    self.calculator.formatted_shift_entitlement
+    calculator.formatted_shift_entitlement
   end
   calculate :fraction_of_year do
-    self.calculator.formatted_fraction_of_year
+    calculator.formatted_fraction_of_year
+  end
+  calculate :hours_per_shift do
+    # Prevent the .0 from being displayed
+    calculator.format_number hours_per_shift
   end
   calculate :content_sections do
     full_year = start_date.nil? && leaving_date.nil?
