@@ -5,29 +5,6 @@ module SmartAnswer::Calculators
   class HolidayEntitlement < OpenStruct
     # created for the holiday entitlement calculator
 
-    def hours_as_seconds(hours)
-      hours * 3600
-    end
-
-    def seconds_to_hash(seconds)
-      mm, ss = seconds.divmod(60)
-      hh, mm = mm.divmod(60)
-      dd, hh = hh.divmod(24)
-      {dd: dd, hh: hh, mm: mm, ss: ss}
-    end
-
-    def hours_between_date(date1, date2)
-      hash = seconds_to_hash date1.to_datetime.to_i - date2.to_datetime.to_i
-      hash[:dd] * 24 + hash[:hh]
-    end
-
-    def old_fraction_of_year(date1, date2)
-      days = (seconds_to_hash date1.to_datetime.to_i - date2.to_datetime.to_i)[:dd]
-      days.to_f / (Date.today.leap? ? 366 : 365)
-    end
-
-
-
     def full_time_part_time_days
       days = 5.6 * fraction_of_year * self.days_per_week
       days > 28 ? 28 : days
