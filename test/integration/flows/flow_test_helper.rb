@@ -11,11 +11,6 @@ module FlowTestHelper
     @responses << resp.to_s
   end
 
-  # Deprecated
-  def node_for_responses(responses)
-    @flow.process(responses).current_node
-  end
-
   def current_state
     @state ||= begin
       @flow.process(@responses)
