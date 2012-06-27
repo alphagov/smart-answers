@@ -37,7 +37,7 @@ class HolidayLeaveTest < ActionDispatch::IntegrationTest
   test "Full-time all year more than 5 days flow" do
     respond_with "Full-time"
     respond_with "A full year"
-    respond_with "6 or 7 days per week"
+    respond_with "6 days per week"
     assert_results_contain "get more statutory leave than this even if you work over 5 days a week"
   end
 

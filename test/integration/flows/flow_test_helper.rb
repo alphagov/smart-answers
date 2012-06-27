@@ -18,15 +18,18 @@ module FlowTestHelper
 
   def current_state
     @state ||= begin
-      state = @flow.process(@responses)
-      raise SmartAnswer::InvalidResponse.new(state.error) if state.error
-      state
+      @flow.process(@responses)
     end
   end
 
   def assert_current_node(node_name)
     assert_equal node_name, current_state.current_node
     assert @flow.node_exists?(node_name), "Node #{node_name} does not exist."
+  end
+
+  def assert_current_node_is_error(message = nil)
+    assert current_state.error, "Expected #{current_state.current_node} do be in error state"
+    assert_equal message, current_state.error if message
   end
 
   def assert_state_variable(name, value)
