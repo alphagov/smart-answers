@@ -58,7 +58,7 @@
 }
 
 .done-questions ol > li.done {
-  background: #CCE0D5;
+  background: #D5ECEA;
   border-bottom: solid 1px #A1D1AE;
   overflow: hidden;
 }
@@ -106,7 +106,6 @@ li.done .undo {
 li.done .undo a {
   color: #333;
   display: block;
-  text-decoration: none;
 }
 .lte-ie8 li.done .undo a {
   *color: #333;
@@ -114,7 +113,7 @@ li.done .undo a {
 
 li.done:hover .undo a {
   color: inherit;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .step.current {
