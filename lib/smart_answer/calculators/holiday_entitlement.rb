@@ -54,18 +54,23 @@ module SmartAnswer::Calculators
       end
     end
 
-    def formatted_fraction_of_year
-      sprintf('%.2f', fraction_of_year)
+    def formatted_fraction_of_year(dp = 2)
+      format_number fraction_of_year, dp
     end
 
-    def format_number(number)
-      str = sprintf("%.1f", number)
-      str.sub(/\.0$/, '')
+    def format_number(number, dp = 1)
+      str = sprintf("%.#{dp}f", number)
+      strip_zeros(str)
+    end
+
+    def strip_zeros(number)
+      number.to_s.sub(/\.0+$/, '')
     end
 
     def method_missing(*args)
+      # formatted_foo calls format_number on foo
       if args.first.to_s =~ /\Aformatted_(.*)\z/
-        format_number self.send($1.to_sym)
+        format_number self.send($1.to_sym), args[1] || 1
       else
         super
       end

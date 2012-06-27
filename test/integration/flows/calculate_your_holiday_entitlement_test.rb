@@ -410,7 +410,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         with(:total_hours => 1400.5).
         returns(@stubbed_calculator)
       @stubbed_calculator.expects(:annualised_entitlement).at_least_once.returns(['formatted hours', 'formatted minutes'])
-      @stubbed_calculator.expects(:annualised_hours_per_week).returns('average hours per week')
+      @stubbed_calculator.expects(:formatted_annualised_hours_per_week).returns('average hours per week')
 
       add_response '1400.5'
       assert_current_node :done
@@ -513,7 +513,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       end
 
       should "calculate and be done when all entered" do
-        add_response '7.5'
+        add_response '7.25'
         add_response '4'
         add_response '8'
 
@@ -522,7 +522,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           with(
             :start_date => nil,
             :leaving_date => nil,
-            :hours_per_shift => 7.5,
+            :hours_per_shift => 7.25,
             :shifts_per_shift_pattern => 4,
             :days_per_shift_pattern => 8
           ).
@@ -532,7 +532,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
 
         assert_current_node :done
 
-        assert_state_variable :hours_per_shift, '7.5'
+        assert_state_variable :hours_per_shift, '7.25'
         assert_state_variable :shifts_per_shift_pattern, 4
         assert_state_variable :days_per_shift_pattern, 8
 

@@ -226,15 +226,34 @@ module SmartAnswer::Calculators
       end
     end
 
+    context "strip_zeros" do
+      setup do
+        @calc = HolidayEntitlement.new
+      end
+
+      should "strip trailing zeroes after the dp from numbers" do
+        assert_equal "123", @calc.strip_zeros(123.0)
+      end
+
+      should "not strip significant zeroes" do
+        assert_equal "120", @calc.strip_zeros(120.0)
+      end
+    end
+
     context "formatted version of anything" do
       # implemented with method_missing
       setup do
         @calc = HolidayEntitlement.new
       end
 
-      should "return foo to 1 dp" do
+      should "return foo to 1 dp by default" do
         @calc.stubs(:foo).returns(123.6593)
         assert_equal '123.7', @calc.formatted_foo
+      end
+
+      should "allow overriding the dp" do
+        @calc.stubs(:foo).returns(123.6593)
+        assert_equal '123.66', @calc.formatted_foo(2)
       end
 
       should "strip .0 from foo" do

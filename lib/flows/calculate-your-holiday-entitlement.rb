@@ -1,4 +1,5 @@
 status :draft
+satisfies_need 355
 section_slug "work"
 
 multiple_choice :what_is_your_employment_status? do
@@ -159,7 +160,7 @@ value_question :annualised_hours? do
     Calculators::HolidayEntitlement.new(:total_hours => total_hours)
   end
   calculate :average_hours_per_week do
-    calculator.annualised_hours_per_week
+    calculator.formatted_annualised_hours_per_week
   end
   calculate :holiday_entitlement_hours do
     calculator.annualised_entitlement.first
@@ -255,8 +256,7 @@ value_question :shift_worker_days_per_shift_pattern? do
     calculator.formatted_fraction_of_year
   end
   calculate :hours_per_shift do
-    # Prevent the .0 from being displayed
-    calculator.format_number hours_per_shift
+    calculator.strip_zeros hours_per_shift
   end
   calculate :content_sections do
     full_year = start_date.nil? && leaving_date.nil?
