@@ -1,0 +1,57 @@
+en-GB:
+  flow:
+    estimate-self-assessment-penalties:
+      title: Estimate self assessment penalties
+      phrases:
+        result_part1_no_penalty: |
+          You sent your tax return on or before the deadline, so you don’t have to pay a penalty.
+        result_part1_penalty: |
+          Your penalty for sending the return late is %{late_filing_penalty}
+        result_part2_no_penalty: |
+          The amount of tax you owe, based on the estimate you gave:
+
+          Total: %{total_owed}
+
+          made up of
+
+          %{estimated_bill} - this is what you said your tax bill is
+          %{interest} - this is the interest added for paying your bill late
+
+          You don’t have to pay a late payment penalty on your tax bill.
+
+        result_part2_penalty: |
+          The amount of tax you owe, based on the estimate you gave:
+
+          Total: %{total_owed}
+
+          made up of
+
+          - %{estimated_bill} - this is what you said your tax bill is
+          - %{interest} - this is the interest added for paying your bill late
+          - %{late_payment_penalty} - this is the penalty for paying your bill late
+
+      how_submitted?:
+        title: Did you send your self assessment tax return online or on paper?
+        options:
+          online: Online
+          paper: Paper
+      when_submitted?:
+        title: When did you send your self assessment tax return?
+      when_paid?:
+        title: When did you pay the bill?
+      how_much_tax?:
+        title: How much is your tax bill?
+      filed_and_paid_on_time:
+        title: You filed and paid your tax on time
+        body: |
+          You sent your tax return on or before the deadline, so you don’t have to pay a penalty.
+
+          You paid your bill on time, so you don’t have to pay any interest or penalty for late payment
+      late:
+        title: You filed or paid your tax late
+        body: |
+          %{result_parts}
+
+          These figures are estimates based on the figures you gave.
+
+          If you send your return or pay later than you said or the estimate you’ve given is wrong, the figures will change.
