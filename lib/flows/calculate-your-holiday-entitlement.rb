@@ -95,7 +95,9 @@ end
 
 value_question :part_time_how_many_days_per_week? do
   calculate :days_per_week do
-    responses.last.to_i
+    days = responses.last.to_i
+    raise InvalidResponse if days > 4 or days < 1
+    days
   end
   calculate :calculator do
     Calculators::HolidayEntitlement.new(
@@ -128,7 +130,9 @@ end
 
 value_question :casual_or_irregular_hours? do
   calculate :total_hours do
-    responses.last.to_f
+    hours = responses.last.to_f
+    raise InvalidResponse if hours <= 0
+    hours
   end
   calculate :calculator do
     Calculators::HolidayEntitlement.new(:total_hours => total_hours)
@@ -147,7 +151,9 @@ end
 
 value_question :annualised_hours? do
   calculate :total_hours do
-    responses.last.to_f
+    hours = responses.last.to_f
+    raise InvalidResponse if hours <= 0
+    hours
   end
   calculate :calculator do
     Calculators::HolidayEntitlement.new(:total_hours => total_hours)
@@ -169,14 +175,18 @@ end
 
 value_question :compressed_hours_how_many_hours_per_week? do
   calculate :hours_per_week do
-    responses.last.to_f
+    hours = responses.last.to_f
+    raise InvalidResponse if hours <= 0 or hours > 168
+    hours
   end
   next_node :compressed_hours_how_many_days_per_week?
 end
 
 value_question :compressed_hours_how_many_days_per_week? do
   calculate :days_per_week do
-    responses.last.to_i
+    days = responses.last.to_i
+    raise InvalidResponse if days <= 0 or days > 7
+    days
   end
   calculate :calculator do
     Calculators::HolidayEntitlement.new(

@@ -246,6 +246,18 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         assert_current_node :part_time_how_many_days_per_week?
       end
 
+      should "be invalid if more than 4 entered" do
+        add_response '5'
+        assert_current_node_is_error
+        assert_current_node :part_time_how_many_days_per_week?
+      end
+
+      should "be invalid if less than 1 entered" do
+        add_response '0'
+        assert_current_node_is_error
+        assert_current_node :part_time_how_many_days_per_week?
+      end
+
       should "calculate and be done with a response" do
         SmartAnswer::Calculators::HolidayEntitlement.
           expects(:new).
@@ -355,6 +367,12 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       assert_current_node :casual_or_irregular_hours?
     end
 
+    should "be invalid if <= 0 entered" do
+      add_response '0.0'
+      assert_current_node_is_error
+      assert_current_node :casual_or_irregular_hours?
+    end
+
     should "calculate and be done with a response" do
       SmartAnswer::Calculators::HolidayEntitlement.
         expects(:new).
@@ -377,6 +395,12 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     end
 
     should "ask how many hours you work a year" do
+      assert_current_node :annualised_hours?
+    end
+
+    should "be invalid if <= 0 entered" do
+      add_response '0.0'
+      assert_current_node_is_error
       assert_current_node :annualised_hours?
     end
 
@@ -407,8 +431,34 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       assert_current_node :compressed_hours_how_many_hours_per_week?
     end
 
-    should "ask how many days per weeok you work" do
+    should "be invalid if <= 0 hours per week" do
+      add_response '0.0'
+      assert_current_node_is_error
+      assert_current_node :compressed_hours_how_many_hours_per_week?
+    end
+
+    should "be invalid if more than 168 hours per week" do
+      add_response '168.1'
+      assert_current_node_is_error
+      assert_current_node :compressed_hours_how_many_hours_per_week?
+    end
+
+    should "ask how many days per week you work" do
       add_response '20'
+      assert_current_node :compressed_hours_how_many_days_per_week?
+    end
+
+    should "be invalid with less than 1 day per week" do
+      add_response '20'
+      add_response '0'
+      assert_current_node_is_error
+      assert_current_node :compressed_hours_how_many_days_per_week?
+    end
+
+    should "be invalid with more than 7 days per week" do
+      add_response '20'
+      add_response '8'
+      assert_current_node_is_error
       assert_current_node :compressed_hours_how_many_days_per_week?
     end
 
