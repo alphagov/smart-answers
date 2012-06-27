@@ -7,9 +7,9 @@ en-GB:
             age_of_employee?:
                 title: Your age at the time of redundancy
                 options:
-                    "over-41": "Over 41 years"
+                    "over-41": "Over 41"
                     "22-41": "Over 21 and under 41"
-                    "under-22": "Under 22 years"
+                    "under-22": "Under 22"
 
             years_employed?:
                 title: Number of years you’ve worked for your employer
@@ -20,17 +20,20 @@ en-GB:
             weekly_pay_before_tax?:
                 title: Your weekly pay before tax
                 hint: |
-                    £430 is the current maximum weekly pay (before tax) when working out statutory redundancy pay - any earnings above this will not count to your total entitlement.
+                    £430 is the current maximum weekly pay (before tax) when working out statutory redundancy pay - any earnings above this won't count to your total entitlement.
 
             done_no_statutory:
                 title: You are not entitled to statutory redundancy pay.
                 body: |
-                    You need to have worked for your employer continuously for at least 2 years’ before you can get statutory redundancy pay.
+                    You need to have worked for your employer continuously for at least 2 years before you can get statutory redundancy pay.
 
             done:
                 title: Based on the figures you've given, you could get £%{statutory_redundancy_pay} statutory redundancy pay.
                 body: |
                     [Find out more about redundancy pay](https://www.gov.uk/redundant-your-rights/statutory-redundancy-pay-)
+                next_steps: |
+                    [Read the guide to Redundancy: your rights](https://www.gov.uk/redundant-your-rights)
+
 
         calculate-employee-redundancy-pay:
             title: Calculate statutory employee redundancy pay
@@ -39,9 +42,9 @@ en-GB:
             age_of_employee?:
                 title: Age of your employee at the time of their redundancy
                 options:
-                    "over-41": "Over 41 years"
+                    "over-41": "Over 41"
                     "22-41": "Over 21 and under 41"
-                    "under-22": "Under 22 years"
+                    "under-22": "Under 22"
 
             years_employed?:
                 title: Number of years they’ve worked for you
@@ -52,7 +55,7 @@ en-GB:
             weekly_pay_before_tax?:
                 title: Weekly pay before tax
                 hint: |
-                    £430 is the current maximum weekly pay (before tax) when working out statutory redundancy pay - any earnings above this will not count to the entitlement.
+                    £430 is the current maximum weekly pay (before tax) when working out statutory redundancy pay - any earnings above this won't count to the entitlement.
 
             done_no_statutory:
                 title: Your employee is not entitled to statutory redundancy pay.
@@ -61,3 +64,5 @@ en-GB:
 
             done:
                 title: Based on the figures you’ve given, your employee could get £%{statutory_redundancy_pay} statutory redundancy pay.
+                next_steps: |
+                    [Read the guide to Redundancy: your rights](https://www.gov.uk/redundant-your-rights)
