@@ -66,9 +66,8 @@ class CalculateNightWorkHoursTest < ActiveSupport::TestCase
 
           should "be invalid if you enter more weeks leave than you've worked" do
             add_response '4'
-            assert_raises SmartAnswer::InvalidResponse do
-              current_state
-            end
+            assert_current_node_is_error
+            assert_current_node :how_many_weeks_leave_have_you_taken?
           end
 
           should "ask what your work cycle is" do
@@ -88,9 +87,8 @@ class CalculateNightWorkHoursTest < ActiveSupport::TestCase
 
             should "be invalid if work more nights than in your cycle" do
               add_response '8'
-              assert_raises SmartAnswer::InvalidResponse do
-                current_state
-              end
+              assert_current_node_is_error
+              assert_current_node :how_many_nights_do_you_work_in_your_cycle?
             end
 
             should "ask how many hours you work per shift" do
