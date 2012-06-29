@@ -11,7 +11,7 @@ module SmartAnswer::Calculators
     end
 
     def paid_on_time?
-      (filing_date < filing_deadline) && (payment_date < payment_deadline)
+      (filing_date <= filing_deadline) && (payment_date <= payment_deadline)
     end
 
     def late_filing_penalty
@@ -39,7 +39,7 @@ module SmartAnswer::Calculators
     end
 
     def total_owed
-      SmartAnswer::Money.new((estimated_bill.value + interest.value + late_payment_penalty.value).round(2))
+      SmartAnswer::Money.new((estimated_bill.value + interest.to_f + late_payment_penalty.to_f).round(2))
     end
 
     def late_payment_penalty

@@ -1,7 +1,16 @@
 en-GB:
   flow:
     estimate-self-assessment-penalties:
-      title: Estimate self assessment penalties
+      title: 
+        Estimate self assessment penalties
+      body: |
+        Get an estimate of how much you’ll need to pay in penalties and interest if you’ve missed the deadline for:
+
+
+        - sending your Self Assessment tax return
+        - paying your Self Assessment tax bill 
+
+        ^ This calculator works for late returns or payments for the 2010-11 tax year. ^
       phrases:
         result_part1_no_penalty: |
           You sent your tax return on or before the deadline, so you don’t have to pay a penalty.
