@@ -23,7 +23,8 @@ class SmartAnswersController < ApplicationController
 
     set_slimmer_headers(
       section: @presenter.section_slug,
-      need_id: @presenter.need_id
+      need_id: @presenter.need_id,
+      proposition: @presenter.proposition
     )
   end
 
