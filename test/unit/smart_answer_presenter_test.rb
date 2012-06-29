@@ -5,18 +5,12 @@ class SmartAnswerPresenterTest < ActionController::TestCase
     @request = mock
     @request.stubs(:params).returns({})
     @flow = mock
-    @gds_api = mock
-    @presenter = SmartAnswerPresenter.new(@request, @flow, @gds_api)
+    @presenter = SmartAnswerPresenter.new(@request, @flow)
   end
 
   def setup_artefact_mocks(params={})
     @flow.stubs(:name).returns(:sample)
-    @gds_api.expects(:fetch_artefact).with(slug: :sample).returns(params[:artefact] || :my_artefact)
-  end
-
-  should "retrieve a valid artefact from panopticon" do
-    setup_artefact_mocks
-    assert_equal :my_artefact, @presenter.artefact
+    @presenter.expects(:fetch_artefact).with(slug: :sample).returns(params[:artefact] || :my_artefact)
   end
 
   should "retrieve the proposition name when business" do

@@ -2,6 +2,7 @@ require 'node_presenter'
 require 'gds_api/helpers'
 
 class SmartAnswerPresenter
+  include GdsApi::Helpers
   extend Forwardable
   include Rails.application.routes.url_helpers
 
@@ -9,15 +10,14 @@ class SmartAnswerPresenter
 
   def_delegators :@flow, :section_slug, :subsection_slug, :need_id
 
-  def initialize(request, flow, gds_api=GdsApi::Helpers)
+  def initialize(request, flow)
     @request = request
     @params = request.params
     @flow = flow
-    @gds_api = gds_api
   end
 
   def artefact
-    @artefact ||= @gds_api.fetch_artefact(slug: @flow.name)
+    @artefact ||= fetch_artefact(slug: @flow.name)
   end
 
   def proposition
