@@ -1,5 +1,5 @@
 <div class="article-container">
-  <article class="results">
+  <article class="outcome">
     <div class="inner group">
       <div class="result-info">
         <% if @presenter.current_node.has_title? %>
@@ -12,11 +12,18 @@
       <% if @presenter.current_node.has_next_steps? %>
         <div class="related next-steps">
           <div class="inner group">
-          <h2>Next Steps</h2>
+          <h2>Next steps</h2>
           <%= @presenter.current_node.next_steps %>
           </div>
         </div>
       <% end %>
     </div>
   </article>
+  <div class="meta-data group">
+    <div class="inner">
+      <div class="print-and-modified-date group">
+        <p class="modified-date">Last updated: <%= last_updated_date.strftime('%d %B %Y') %></p>
+      </div>
+    </div>
+  </div>
 </div>
