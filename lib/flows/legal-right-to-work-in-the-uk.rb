@@ -1,6 +1,5 @@
 satisfies_need "B91"
 section_slug "work"
-subsection_slug ""
 status :draft
 
 multiple_choice :have_uk_passport? do

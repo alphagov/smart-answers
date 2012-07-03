@@ -1,6 +1,5 @@
 satisfies_need "B193"
 section_slug "work"
-subsection_slug ""
 status :draft
 
 multiple_choice :what_do_you_need_to_do? do
