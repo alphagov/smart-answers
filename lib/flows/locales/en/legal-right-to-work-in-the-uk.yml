@@ -50,7 +50,7 @@ en-GB:
         title: Is the worker a parent or child of someone whose passport says the worker is entitled to work in the UK?
         
       has_other_permit?:
-        title: Does the worker have a permit or visa showing their right to work in the UK?
+        title: Does the worker have a permit or visa showing their ongoing right to work in the UK?
         body:
           "A permit or visa would show one of these:
           
