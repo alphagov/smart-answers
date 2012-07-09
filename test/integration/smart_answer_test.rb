@@ -12,21 +12,24 @@ class SmartAnswerTest < ActionDispatch::IntegrationTest
   end
 
   should "inspecting the start page" do
-    visit "/question-sampler"
+    visit "/bridge-of-death"
 
-    assert page.has_xpath?("//meta[@name = 'description'][@content = 'Question sampler meta description']")
+    assert page.has_xpath?("//meta[@name = 'description'][@content = 'The Gorge of Eternal Peril!!!']")
 
     within 'h1' do
-      assert page.has_content?("A smart answer that covers all question types.")
+      assert_page_has_content("Quick answer")
+      assert_page_has_content("The Bridge of Death")
     end
     within 'h2' do
-      assert page.has_content?("ALL the question types...")
+      assert_page_has_content("Avoid the Gorge of Eternal Peril!!!")
     end
     within '.intro' do
-      assert page.has_content?("Flag Hippo")
-      assert page.has_no_content?("--------") # markdown should be rendered, not output
+      within('h2') { assert_page_has_content("STOP!") }
+      assert_page_has_content("He who would cross the Bridge of Death Must answer me These questions three Ere the other side he see.")
 
-      assert page.has_link?("Get started", :href => "/question-sampler/y")
+      assert page.has_no_content?("-----") # markdown should be rendered, not output
+
+      assert page.has_link?("Get started", :href => "/bridge-of-death/y")
     end
   end
 end
