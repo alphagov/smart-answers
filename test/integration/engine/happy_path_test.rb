@@ -1,7 +1,7 @@
 # encoding: UTF-8
-require_relative '../integration_test_helper'
+require_relative '../../integration_test_helper'
 
-class SmartAnswerTest < ActionDispatch::IntegrationTest
+class HappyPathTest < ActionDispatch::IntegrationTest
   setup do
     fixture_flows_path = Rails.root.join(*%w{test fixtures flows})
     FLOW_REGISTRY_OPTIONS[:load_path] = fixture_flows_path
