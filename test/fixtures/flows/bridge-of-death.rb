@@ -6,7 +6,7 @@ value_question :what_is_your_name? do
 end
 
 multiple_choice :what_is_your_quest? do
-  option :to_find_the_holy_grail
+  option :to_seek_the_holy_grail
   option :to_rescue_the_princess
   option :dunno
 
