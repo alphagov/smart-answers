@@ -9,7 +9,13 @@ salary_question :how_much_do_you_earn? do
 end
 
 money_question :what_size_bonus_do_you_want? do
-  save_input_as :requested_bonus
+  calculate :requested_bonus do
+    value = Money.new(responses.last)
+    if value < annual_salary
+      raise InvalidResponse, "You can't request a bonus less than your annual salary.", caller
+    end
+    value
+  end
   next_node :ok
 end
 
