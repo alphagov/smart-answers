@@ -248,6 +248,45 @@ class HappyPathTest < ActionDispatch::IntegrationTest
           end
         end
       end
+
+    should "handle country questions" do
+      visit "/country-sample/y"
+
+      within '.current-question' do
+        within 'h2' do
+          within('.question-number') { assert_page_has_content "1" }
+          assert_page_has_content "Which country do you live in?"
+        end
+      end
+      within '.question-body' do
+        # TODO Check country list
+        assert page.has_select?("response")
+      end
+
+      select "Belarus", :from => "response"
+      click_on "Next step"
+
+      assert_current_url "/country-sample/y/belarus"
+
+      within '.done-questions' do
+        within('.start-again') { assert page.has_link?("Start again", :href => '/country-sample') }
+        within 'ol li.done:nth-child(1)' do
+          within 'h3' do
+            within('.question-number') { assert_page_has_content "1" }
+            assert_page_has_content "Which country do you live in?"
+          end
+          within('.answer') { assert_page_has_content "Belarus" }
+          # TODO: Fix weird ?& in link
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/country-sample/y?&previous_response=belarus") }
+        end
+      end
+
+      within '.outcome' do
+          within '.result-info' do
+            within('h2.result-title') { assert_page_has_content "Great, you live in belarus!" }
+          end
+        end
+      end
     end
   end # each test type
 
