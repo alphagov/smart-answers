@@ -1,0 +1,8 @@
+en-GB:
+  flow:
+    money-and-salary-sample:
+
+      ok:
+        title: "OK, here you go."
+        body: |
+          ^ This is allowed because %{requested_bonus} is more than your annual salary of %{annual_salary}
