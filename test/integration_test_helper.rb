@@ -10,6 +10,10 @@ class ActionDispatch::IntegrationTest
     Capybara.reset_sessions!
     Capybara.use_default_driver
   end
+
+  def assert_page_has_content(text)
+    assert page.has_content?(text), %(expected there to be content #{text} in #{page.text.inspect})
+  end
 end
 
 class JavascriptIntegrationTest < ActionDispatch::IntegrationTest
