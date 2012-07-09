@@ -3,7 +3,6 @@ en-GB:
     exchange-a-foreign-driving-licence:
       title:
         "Exchange a foreign driving licence"
-      section_name: Driving
       options:
         "no": "No"
         "yes": "Yes"

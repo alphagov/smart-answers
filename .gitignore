@@ -1,7 +1,15 @@
+# Vim
 *~
-.bundle
+
+# Mac
 .DS_Store
+
+# Rails
+.bundle
 db/*.sqlite3
 log/*.log
 tmp/
 .sass-cache/
+
+# SimplCov
+coverage

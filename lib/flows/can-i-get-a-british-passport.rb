@@ -1,4 +1,6 @@
 status :draft
+section_slug "travel"
+subsection_slug "passports"
 
 multiple_choice :do_you_have? do
   option :british_citizenship => :is_one_of_these_true?

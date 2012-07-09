@@ -1,4 +1,5 @@
 status :draft
+section_slug "work"
 
 multiple_choice :how_old? do
   option '18-or-over' => :have_you_worked_more_than_13_hours_in_a_night?

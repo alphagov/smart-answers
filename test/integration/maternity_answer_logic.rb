@@ -28,8 +28,8 @@ end
 module MaternityAnswerLogic
   def should_be_entitled_to(expected_outcome)
     should "be entitled to #{expected_outcome}" do
-      wait_until {page.find('.results')}
-      actual_outcome = page.find('.results').text
+      wait_until {page.find('.outcome')}
+      actual_outcome = page.find('.outcome').text
       case expected_outcome
       when :nothing
         assert_match /You don't qualify for maternity pay/, actual_outcome

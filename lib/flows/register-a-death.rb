@@ -1,5 +1,6 @@
 satisfies_need "2189"
 status :draft
+section_slug "family"
 
 
 multiple_choice :where_did_the_death_happen? do

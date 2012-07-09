@@ -1,5 +1,6 @@
 satisfies_need "B148"
 status :draft
+section_slug "money-and-tax"
 
 multiple_choice :which_class? do
   save_input_as :ni_class

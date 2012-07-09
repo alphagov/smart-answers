@@ -48,6 +48,7 @@ group :test do
   gem 'selenium-webdriver'
   gem "shoulda", "~> 2.11.3"
   gem 'webmock', :require => false
+  gem "simplecov", "0.4.2"
 end
 
 group :webkit do

@@ -5,7 +5,6 @@ en-GB:
         description: "Check if you're eligible to apply for a British passport."
       title: 
         Check British passport eligibility
-      section_name: Travel
       options:
         "no": "No"
         "yes": "Yes"
@@ -141,4 +140,3 @@ en-GB:
         next_steps: |
           * Read the [full eligibility requirements (PDF, 1.1MB)](http://www.ukba.homeoffice.gov.uk/sitecontent/applicationforms/nationality/guide_ukm.pdf "Eligibility requirements, PDF, 1.1MB"){:rel="external"}
           * Download and fill in [form UKM - Register as a British citizen (PDF, 164kb)](http://www.ukba.homeoffice.gov.uk/sitecontent/applicationforms/nationality/form_ukm.pdf "Form UKM - Register as a British citizen, PDF, 164kb"){:rel="external"}
-  

@@ -5,7 +5,6 @@ en-GB:
         description: "Check if someone can work in the UK"
       title:
         Check if someone can work in the UK
-      section_name: Work
       body:
         Find out if a potential employee has the right to work in the UK and what [documents employers should check](/check-an-employees-right-to-work-documents "Check an employee's right to work documents").
 
@@ -50,7 +49,7 @@ en-GB:
         title: Is the worker a parent or child of someone whose passport says the worker is entitled to work in the UK?
         
       has_other_permit?:
-        title: Does the worker have a permit or visa showing their right to work in the UK?
+        title: Does the worker have a permit or visa showing their ongoing right to work in the UK?
         body:
           "A permit or visa would show one of these:
           
@@ -142,4 +141,4 @@ en-GB:
       maybe2:
         title: The worker is not currently entitled to work in the UK.
         body: |
-          They'll need to be [sponsored](/sponsor-an-employee-to-work-in-the-uk/certificate-of-sponsorship "Certificate of sponsorship") if they're going to work in the UK.
+          They'll need to be [sponsored](/uk-visa-sponsorship-employers/before-you-can-sponsor-an-employee "UK visa sponsorship for employers") if they're going to work in the UK.

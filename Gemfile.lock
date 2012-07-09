@@ -170,6 +170,9 @@ GEM
       multi_json (~> 1.0.4)
       rubyzip
     shoulda (2.11.3)
+    simplecov (0.4.2)
+      simplecov-html (~> 0.4.4)
+    simplecov-html (0.4.5)
     slimmer (1.1.39)
       gds-api-adapters (~> 0.0.33)
       json
@@ -228,6 +231,7 @@ DEPENDENCIES
   sass-rails (~> 3.1.0)
   selenium-webdriver
   shoulda (~> 2.11.3)
+  simplecov (= 0.4.2)
   slimmer (~> 1.1.39)
   therubyracer (~> 0.9.4)
   uglifier

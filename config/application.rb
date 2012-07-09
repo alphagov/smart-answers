@@ -48,14 +48,14 @@ module SmartAnswers
 
     # Path within public/ where assets are compiled to
     config.assets.prefix = "smartanswers"
-    config.assets.manifest = Rails.root.join 'public/smartanswers'
 
-    # Paths used by helpers when generating links to assets
-    config.action_controller.assets_dir = Rails.root.join 'public/smartanswers'
-    config.action_controller.javascripts_dir = Rails.root.join 'public/smartanswers/javascripts'
-    config.action_controller.stylesheets_dir = Rails.root.join 'public/smartanswers/stylesheets'
+    # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
+    config.assets.precompile += %w( smart-answers.js )
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Disable Rack::Cache
+    config.action_dispatch.rack_cache = nil
   end
 end

@@ -24,9 +24,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
 
     should "be invalid if a fee over 9000 is entered" do
       add_response '9001'
-      assert_raises SmartAnswer::InvalidResponse do
-        current_state
-      end
+      assert_current_node_is_error
+      assert_current_node :how_much_is_your_tuition_fee_per_year?
     end
 
     context "with valid fees entered" do
@@ -231,9 +230,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
 
     should "be invalid if a fee over 6750 is entered" do
       add_response '6751'
-      assert_raises SmartAnswer::InvalidResponse do
-        current_state
-      end
+      assert_current_node_is_error
+      assert_current_node :how_much_is_your_tuition_fee_per_year?
     end
 
     context "with valid fees entered" do

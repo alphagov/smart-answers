@@ -64,13 +64,13 @@ class RecogniseATradeUnion < ActiveSupport::TestCase
           end
 
           should "not require you to recognise the union, although they can reapply" do
-            add_response :no
+            add_response :rejected
             assert_current_node :you_do_not_have_to_recognise_the_union_can_reapply
           end
 
           context "CAC have accepted the application" do
             setup do
-              add_response :yes
+              add_response :accepted
             end
 
             should "ask if CAC have ordered a ballot" do

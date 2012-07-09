@@ -1,5 +1,8 @@
 require 'node_presenter'
+require 'gds_api/helpers'
+
 class SmartAnswerPresenter
+  include GdsApi::Helpers
   extend Forwardable
   include Rails.application.routes.url_helpers
 
@@ -11,6 +14,14 @@ class SmartAnswerPresenter
     @request = request
     @params = request.params
     @flow = flow
+  end
+
+  def artefact
+    @artefact ||= fetch_artefact(slug: @flow.name)
+  end
+
+  def proposition
+    artefact.business_proposition ? "business" : "citizen"
   end
 
   def i18n_prefix

@@ -1,6 +1,5 @@
 satisfies_need "B193"
 section_slug "work"
-subsection_slug ""
 status :draft
 
 multiple_choice :what_do_you_need_to_do? do
@@ -24,8 +23,8 @@ multiple_choice :have_they_submitted_an_application? do
 end
 
 multiple_choice :have_cac_accepted_the_application? do
-  option :yes => :has_the_cac_ordered_a_ballot?
-  option :no => :you_do_not_have_to_recognise_the_union_can_reapply
+  option :accepted => :has_the_cac_ordered_a_ballot?
+  option :rejected => :you_do_not_have_to_recognise_the_union_can_reapply
 end
 
 multiple_choice :has_the_cac_ordered_a_ballot? do

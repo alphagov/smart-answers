@@ -1,7 +1,7 @@
 satisfies_need "B91"
-section_slug "work"
-subsection_slug ""
-status :draft
+section_slug "business"
+subsection_slug "employing-people"
+status :published
 
 multiple_choice :have_uk_passport? do
   option :yes => :is_british_citizen?
