@@ -12,237 +12,240 @@ class HappyPathTest < ActionDispatch::IntegrationTest
   end
 
   %w(non_javascript javascript).each do |test_type|
-    should "happy path through a flow (#{test_type})" do
-      if test_type == 'javascript'
-        Capybara.current_driver = Capybara.javascript_driver
+    context "with javascript #{test_type == 'javascript' ? 'enabled' : 'disabled'}" do
+      setup do
+        if test_type == 'javascript'
+          Capybara.current_driver = Capybara.javascript_driver
+        end
       end
+      should "happy path through a flow" do
+        visit "/bridge-of-death"
 
-      visit "/bridge-of-death"
+        assert_current_url "/bridge-of-death"
 
-      assert_current_url "/bridge-of-death"
+        assert page.has_xpath?("//meta[@name = 'description'][@content = 'The Gorge of Eternal Peril!!!']")
 
-      assert page.has_xpath?("//meta[@name = 'description'][@content = 'The Gorge of Eternal Peril!!!']")
-
-      within 'h1' do
-        assert_page_has_content("Quick answer")
-        assert_page_has_content("The Bridge of Death")
-      end
-      within 'h2' do
-        assert_page_has_content("Avoid the Gorge of Eternal Peril!!!")
-      end
-      within '.intro' do
-        within('h2') { assert_page_has_content("STOP!") }
-        assert_page_has_content("He who would cross the Bridge of Death Must answer me These questions three Ere the other side he see.")
-
-        assert page.has_no_content?("-----") # markdown should be rendered, not output
-
-        assert page.has_link?("Get started", :href => "/bridge-of-death/y")
-      end
-
-      click_on "Get started"
-
-      assert_current_url "/bridge-of-death/y"
-
-      within '.current-question' do
+        within 'h1' do
+          assert_page_has_content("Quick answer")
+          assert_page_has_content("The Bridge of Death")
+        end
         within 'h2' do
-          within('.question-number') { assert_page_has_content "1" }
-          assert_page_has_content "What...is your name?"
+          assert_page_has_content("Avoid the Gorge of Eternal Peril!!!")
         end
-        within '.question-body' do
-          assert page.has_field?("Name:", :type => :text)
+        within '.intro' do
+          within('h2') { assert_page_has_content("STOP!") }
+          assert_page_has_content("He who would cross the Bridge of Death Must answer me These questions three Ere the other side he see.")
+
+          assert page.has_no_content?("-----") # markdown should be rendered, not output
+
+          assert page.has_link?("Get started", :href => "/bridge-of-death/y")
         end
-      end
 
-      fill_in "Name:", :with => "Lancelot"
-      click_on "Next step"
+        click_on "Get started"
 
-      assert_current_url "/bridge-of-death/y/Lancelot"
+        assert_current_url "/bridge-of-death/y"
 
-      within '.done-questions' do
-        within('.start-again') { assert page.has_link?("Start again", :href => '/bridge-of-death') }
-        within 'ol li.done' do
-          within 'h3' do
+        within '.current-question' do
+          within 'h2' do
             within('.question-number') { assert_page_has_content "1" }
             assert_page_has_content "What...is your name?"
           end
-          within('.answer') { assert_page_has_content "Lancelot" }
-          # TODO: Fix wierd ?& in link...
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y?&previous_response=Lancelot") }
-        end
-      end
-
-      within '.current-question' do
-        within 'h2' do
-          within('.question-number') { assert_page_has_content "2" }
-          assert_page_has_content "What...is your quest?"
-        end
-        within '.question-body' do
-          assert page.has_field?("To seek the Holy Grail", :type => 'radio', :value => "to_seek_the_holy_grail")
-          assert page.has_field?("To rescue the princess", :type => 'radio', :value => "to_rescue_the_princess")
-          assert page.has_field?("I dunno", :type => 'radio', :value => "dunno")
-          # Assert they're in the correct order
-          options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
-          assert_equal ["To seek the Holy Grail", "To rescue the princess", "I dunno"], options
-        end
-      end
-
-      choose "To seek the Holy Grail"
-      click_on "Next step"
-
-      assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail"
-
-      within '.done-questions' do
-        within('.start-again') { assert page.has_link?("Start again", :href => '/bridge-of-death') }
-        within 'ol li.done:nth-child(1)' do
-          within 'h3' do
-            within('.question-number') { assert_page_has_content "1" }
-            assert_page_has_content "What...is your name?"
+          within '.question-body' do
+            assert page.has_field?("Name:", :type => :text)
           end
-          within('.answer') { assert_page_has_content "Lancelot" }
-          # TODO: Fix wierd ?& in link...
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y?&previous_response=Lancelot") }
         end
-        within 'ol li.done:nth-child(2)' do
-          within 'h3' do
+
+        fill_in "Name:", :with => "Lancelot"
+        click_on "Next step"
+
+        assert_current_url "/bridge-of-death/y/Lancelot"
+
+        within '.done-questions' do
+          within('.start-again') { assert page.has_link?("Start again", :href => '/bridge-of-death') }
+          within 'ol li.done' do
+            within 'h3' do
+              within('.question-number') { assert_page_has_content "1" }
+              assert_page_has_content "What...is your name?"
+            end
+            within('.answer') { assert_page_has_content "Lancelot" }
+            # TODO: Fix wierd ?& in link...
+            within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y?&previous_response=Lancelot") }
+          end
+        end
+
+        within '.current-question' do
+          within 'h2' do
             within('.question-number') { assert_page_has_content "2" }
             assert_page_has_content "What...is your quest?"
           end
-          within('.answer') { assert_page_has_content "To seek the Holy Grail" }
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y/Lancelot?previous_response=to_seek_the_holy_grail") }
-        end
-      end
-
-      within '.current-question' do
-        within 'h2' do
-          within('.question-number') { assert_page_has_content "3" }
-          assert_page_has_content "What...is your favorite colour?"
-        end
-        within '.question-body' do
-          assert page.has_field?("Blue", :type => 'radio', :value => "blue")
-          assert page.has_field?("Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", :type => 'radio', :value => "blue_no_yellow")
-          assert page.has_field?("Red", :type => 'radio', :value => "red")
-          # Assert they're in the correct order
-          options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
-          assert_equal ["Blue", "Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", "Red"], options
-        end
-      end
-
-      choose "Blue"
-      click_on "Next step"
-
-      assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail/blue"
-
-      within '.done-questions' do
-        within('.start-again') { assert page.has_link?("Start again", :href => '/bridge-of-death') }
-        within 'ol li.done:nth-child(1)' do
-          within 'h3' do
-            within('.question-number') { assert_page_has_content "1" }
-            assert_page_has_content "What...is your name?"
+          within '.question-body' do
+            assert page.has_field?("To seek the Holy Grail", :type => 'radio', :value => "to_seek_the_holy_grail")
+            assert page.has_field?("To rescue the princess", :type => 'radio', :value => "to_rescue_the_princess")
+            assert page.has_field?("I dunno", :type => 'radio', :value => "dunno")
+            # Assert they're in the correct order
+            options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
+            assert_equal ["To seek the Holy Grail", "To rescue the princess", "I dunno"], options
           end
-          within('.answer') { assert_page_has_content "Lancelot" }
-          # TODO: Fix wierd ?& in link...
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y?&previous_response=Lancelot") }
         end
-        within 'ol li.done:nth-child(2)' do
-          within 'h3' do
-            within('.question-number') { assert_page_has_content "2" }
-            assert_page_has_content "What...is your quest?"
+
+        choose "To seek the Holy Grail"
+        click_on "Next step"
+
+        assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail"
+
+        within '.done-questions' do
+          within('.start-again') { assert page.has_link?("Start again", :href => '/bridge-of-death') }
+          within 'ol li.done:nth-child(1)' do
+            within 'h3' do
+              within('.question-number') { assert_page_has_content "1" }
+              assert_page_has_content "What...is your name?"
+            end
+            within('.answer') { assert_page_has_content "Lancelot" }
+            # TODO: Fix wierd ?& in link...
+            within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y?&previous_response=Lancelot") }
           end
-          within('.answer') { assert_page_has_content "To seek the Holy Grail" }
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y/Lancelot?previous_response=to_seek_the_holy_grail") }
+          within 'ol li.done:nth-child(2)' do
+            within 'h3' do
+              within('.question-number') { assert_page_has_content "2" }
+              assert_page_has_content "What...is your quest?"
+            end
+            within('.answer') { assert_page_has_content "To seek the Holy Grail" }
+            within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y/Lancelot?previous_response=to_seek_the_holy_grail") }
+          end
         end
-        within 'ol li.done:nth-child(3)' do
-          within 'h3' do
+
+        within '.current-question' do
+          within 'h2' do
             within('.question-number') { assert_page_has_content "3" }
             assert_page_has_content "What...is your favorite colour?"
           end
-          within('.answer') { assert_page_has_content "Blue" }
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail?previous_response=blue") }
+          within '.question-body' do
+            assert page.has_field?("Blue", :type => 'radio', :value => "blue")
+            assert page.has_field?("Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", :type => 'radio', :value => "blue_no_yellow")
+            assert page.has_field?("Red", :type => 'radio', :value => "red")
+            # Assert they're in the correct order
+            options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
+            assert_equal ["Blue", "Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", "Red"], options
+          end
+        end
+
+        choose "Blue"
+        click_on "Next step"
+
+        assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail/blue"
+
+        within '.done-questions' do
+          within('.start-again') { assert page.has_link?("Start again", :href => '/bridge-of-death') }
+          within 'ol li.done:nth-child(1)' do
+            within 'h3' do
+              within('.question-number') { assert_page_has_content "1" }
+              assert_page_has_content "What...is your name?"
+            end
+            within('.answer') { assert_page_has_content "Lancelot" }
+            # TODO: Fix wierd ?& in link...
+            within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y?&previous_response=Lancelot") }
+          end
+          within 'ol li.done:nth-child(2)' do
+            within 'h3' do
+              within('.question-number') { assert_page_has_content "2" }
+              assert_page_has_content "What...is your quest?"
+            end
+            within('.answer') { assert_page_has_content "To seek the Holy Grail" }
+            within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y/Lancelot?previous_response=to_seek_the_holy_grail") }
+          end
+          within 'ol li.done:nth-child(3)' do
+            within 'h3' do
+              within('.question-number') { assert_page_has_content "3" }
+              assert_page_has_content "What...is your favorite colour?"
+            end
+            within('.answer') { assert_page_has_content "Blue" }
+            within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail?previous_response=blue") }
+          end
+        end
+
+        within '.outcome' do
+          within '.result-info' do
+            within('h2.result-title') { assert_page_has_content "Right, off you go." }
+            assert_page_has_content "Oh! Well, thank you. Thank you very much."
+          end
         end
       end
 
-      within '.outcome' do
-        within '.result-info' do
-          within('h2.result-title') { assert_page_has_content "Right, off you go." }
-          assert_page_has_content "Oh! Well, thank you. Thank you very much."
-        end
-      end
-    end
+      should "handle money and salary questions" do
+        visit "/money-and-salary-sample/y"
 
-    should "handle money and salary questions (#{test_type})" do
-      visit "/money-and-salary-sample/y"
-
-      within '.current-question' do
-        within 'h2' do
-          within('.question-number') { assert_page_has_content "1" }
-          assert_page_has_content "How much do you earn?"
-        end
-        within '.question-body' do
-          assert page.has_field?("£", :type => :text)
-          assert page.has_select?("per", :options => %w(week month))
-        end
-      end
-
-      fill_in "£", :with => "5000"
-      select "month", :from => "per"
-      click_on "Next step"
-
-      assert_current_url "/money-and-salary-sample/y/5000.0-month"
-
-      within '.done-questions' do
-        within('.start-again') { assert page.has_link?("Start again", :href => '/money-and-salary-sample') }
-        within 'ol li.done' do
-          within 'h3' do
+        within '.current-question' do
+          within 'h2' do
             within('.question-number') { assert_page_has_content "1" }
             assert_page_has_content "How much do you earn?"
           end
-          within('.answer') { assert_page_has_content "£5,000 per month" }
-          # TODO: Fix wierd ?& in link...
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/money-and-salary-sample/y?&previous_response=5000.0-month") }
-        end
-      end
-
-      within '.current-question' do
-        within 'h2' do
-          within('.question-number') { assert_page_has_content "2" }
-          assert_page_has_content "What size bonus do you want?"
-        end
-        within '.question-body' do
-          assert page.has_field?("£", :type => :text)
-        end
-      end
-
-      fill_in "£", :with => "1000000"
-      click_on "Next step"
-
-      assert_current_url "/money-and-salary-sample/y/5000.0-month/1000000.0"
-
-      within '.done-questions' do
-        within('.start-again') { assert page.has_link?("Start again", :href => '/money-and-salary-sample') }
-        within 'ol li.done:nth-child(1)' do
-          within 'h3' do
-            within('.question-number') { assert_page_has_content "1" }
-            assert_page_has_content "How much do you earn?"
+          within '.question-body' do
+            assert page.has_field?("£", :type => :text)
+            assert page.has_select?("per", :options => %w(week month))
           end
-          within('.answer') { assert_page_has_content "£5,000 per month" }
-          # TODO: Fix wierd ?& in link...
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/money-and-salary-sample/y?&previous_response=5000.0-month") }
         end
-        within 'ol li.done:nth-child(2)' do
-          within 'h3' do
+
+        fill_in "£", :with => "5000"
+        select "month", :from => "per"
+        click_on "Next step"
+
+        assert_current_url "/money-and-salary-sample/y/5000.0-month"
+
+        within '.done-questions' do
+          within('.start-again') { assert page.has_link?("Start again", :href => '/money-and-salary-sample') }
+          within 'ol li.done' do
+            within 'h3' do
+              within('.question-number') { assert_page_has_content "1" }
+              assert_page_has_content "How much do you earn?"
+            end
+            within('.answer') { assert_page_has_content "£5,000 per month" }
+            # TODO: Fix wierd ?& in link...
+            within('.undo') { assert page.has_link?("Change this answer", :href => "/money-and-salary-sample/y?&previous_response=5000.0-month") }
+          end
+        end
+
+        within '.current-question' do
+          within 'h2' do
             within('.question-number') { assert_page_has_content "2" }
             assert_page_has_content "What size bonus do you want?"
           end
-          within('.answer') { assert_page_has_content "£1,000,000" }
-          # TODO: Fix wierd ?& in link...
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/money-and-salary-sample/y/5000.0-month?previous_response=1000000.0") }
+          within '.question-body' do
+            assert page.has_field?("£", :type => :text)
+          end
         end
-      end
 
-      within '.outcome' do
-        within '.result-info' do
-          within('h2.result-title') { assert_page_has_content "OK, here you go." }
-          within('.info-notice') { assert_page_has_content "This is allowed because £1,000,000 is more than your annual salary of £60,000" }
+        fill_in "£", :with => "1000000"
+        click_on "Next step"
+
+        assert_current_url "/money-and-salary-sample/y/5000.0-month/1000000.0"
+
+        within '.done-questions' do
+          within('.start-again') { assert page.has_link?("Start again", :href => '/money-and-salary-sample') }
+          within 'ol li.done:nth-child(1)' do
+            within 'h3' do
+              within('.question-number') { assert_page_has_content "1" }
+              assert_page_has_content "How much do you earn?"
+            end
+            within('.answer') { assert_page_has_content "£5,000 per month" }
+            # TODO: Fix wierd ?& in link...
+            within('.undo') { assert page.has_link?("Change this answer", :href => "/money-and-salary-sample/y?&previous_response=5000.0-month") }
+          end
+          within 'ol li.done:nth-child(2)' do
+            within 'h3' do
+              within('.question-number') { assert_page_has_content "2" }
+              assert_page_has_content "What size bonus do you want?"
+            end
+            within('.answer') { assert_page_has_content "£1,000,000" }
+            # TODO: Fix wierd ?& in link...
+            within('.undo') { assert page.has_link?("Change this answer", :href => "/money-and-salary-sample/y/5000.0-month?previous_response=1000000.0") }
+          end
+        end
+
+        within '.outcome' do
+          within '.result-info' do
+            within('h2.result-title') { assert_page_has_content "OK, here you go." }
+            within('.info-notice') { assert_page_has_content "This is allowed because £1,000,000 is more than your annual salary of £60,000" }
+          end
         end
       end
     end
