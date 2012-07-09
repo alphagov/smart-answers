@@ -3,7 +3,7 @@ en-GB:
     money-and-salary-sample:
 
       what_size_bonus_do_you_want?:
-        error_message: %{error}
+        error_message: "%{error}"
 
       ok:
         title: "OK, here you go."
