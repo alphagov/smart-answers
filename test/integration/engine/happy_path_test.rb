@@ -163,4 +163,57 @@ class HappyPathTest < ActionDispatch::IntegrationTest
       end
     end
   end
+
+  should "calculate alternat path correctly" do
+    visit "/bridge-of-death/y"
+
+    fill_in "Name:", :with => "Robin"
+    click_on "Next step"
+
+    choose "To seek the Holy Grail"
+    click_on "Next step"
+
+    assert_current_url "/bridge-of-death/y/Robin/to_seek_the_holy_grail"
+
+    within '.done-questions' do
+      within('.start-again') { assert page.has_link?("Start again", :href => '/bridge-of-death') }
+      within 'ol li.done:nth-child(1)' do
+        within 'h3' do
+          within('.question-number') { assert_page_has_content "1" }
+          assert_page_has_content "What...is your name?"
+        end
+        within('.answer') { assert_page_has_content "Robin" }
+        # TODO: Fix wierd ?& in link...
+        within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y?&previous_response=Robin") }
+      end
+      within 'ol li.done:nth-child(2)' do
+        within 'h3' do
+          within('.question-number') { assert_page_has_content "2" }
+          assert_page_has_content "What...is your quest?"
+        end
+        within('.answer') { assert_page_has_content "To seek the Holy Grail" }
+        within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y/Robin?previous_response=to_seek_the_holy_grail") }
+      end
+    end
+
+    within '.current-question' do
+      within 'h2' do
+        within('.question-number') { assert_page_has_content "3" }
+        assert_page_has_content "What...is the capital of Assyria?"
+      end
+      within '.question-body' do
+        assert page.has_field?("Answer:", :type => :text)
+      end
+    end
+
+    fill_in "Answer:", :with => "I don't know THAT"
+    click_on "Next step"
+
+    within '.outcome' do
+      within '.result-info' do
+        within('h2.result-title') { assert_page_has_content "AAAAARRRRRRRRRRRRRRRRGGGGGHHH!!!!!!!" }
+        within('.info-notice') { assert_page_has_content "Robin is thrown into the Gorge of Eternal Peril" }
+      end
+    end
+  end
 end
