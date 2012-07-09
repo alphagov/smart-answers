@@ -14,6 +14,8 @@ class SmartAnswerTest < ActionDispatch::IntegrationTest
   should "happy path through a flow" do
     visit "/bridge-of-death"
 
+    assert_current_url "/bridge-of-death"
+
     assert page.has_xpath?("//meta[@name = 'description'][@content = 'The Gorge of Eternal Peril!!!']")
 
     within 'h1' do
@@ -34,6 +36,8 @@ class SmartAnswerTest < ActionDispatch::IntegrationTest
 
     click_on "Get started"
 
+    assert_current_url "/bridge-of-death/y"
+
     within '.current-question' do
       within 'h2' do
         within('.question-number') { assert_page_has_content "1" }
@@ -46,6 +50,8 @@ class SmartAnswerTest < ActionDispatch::IntegrationTest
 
     fill_in "Name:", :with => "Lancelot"
     click_on "Next step"
+
+    assert_current_url "/bridge-of-death/y/Lancelot"
 
     within '.done-questions' do
       within('.start-again') { assert page.has_link?("Start again", :href => '/bridge-of-death') }
@@ -77,6 +83,8 @@ class SmartAnswerTest < ActionDispatch::IntegrationTest
 
     choose "To seek the Holy Grail"
     click_on "Next step"
+
+    assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail"
 
     within '.done-questions' do
       within('.start-again') { assert page.has_link?("Start again", :href => '/bridge-of-death') }
@@ -116,6 +124,8 @@ class SmartAnswerTest < ActionDispatch::IntegrationTest
 
     choose "Blue"
     click_on "Next step"
+
+    assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail/blue"
 
     within '.done-questions' do
       within('.start-again') { assert page.has_link?("Start again", :href => '/bridge-of-death') }
