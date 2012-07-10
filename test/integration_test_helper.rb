@@ -18,9 +18,9 @@ class JavascriptIntegrationTest < ActionDispatch::IntegrationTest
   end
 end
 
-if Gem.loaded_specs.keys.include?('capybara-webkit')
-  require 'capybara-webkit'
-  Capybara.javascript_driver = :webkit
+if Gem.loaded_specs.keys.include?('poltergeist')
+  require 'capybara/poltergeist'
+  Capybara.javascript_driver = :poltergeist
 else
   Capybara.javascript_driver = :selenium
 end

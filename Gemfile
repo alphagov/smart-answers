@@ -52,7 +52,7 @@ group :test do
 end
 
 group :webkit do
-  gem 'capybara-webkit'
+  gem 'poltergeist'
 end
 
 group :assets do
