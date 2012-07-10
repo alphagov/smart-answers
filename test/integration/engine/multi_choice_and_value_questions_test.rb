@@ -10,6 +10,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
       assert_current_url "/bridge-of-death"
 
       assert page.has_xpath?("//meta[@name = 'description'][@content = 'The Gorge of Eternal Peril!!!']")
+      assert page.has_no_xpath?("//meta[@name = 'robots'][@content = 'noindex']")
 
       within 'h1' do
         assert_page_has_content("Quick answer")
@@ -30,6 +31,8 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
       click_on "Get started"
 
       assert_current_url "/bridge-of-death/y"
+
+      assert page.has_xpath?("//meta[@name = 'robots'][@content = 'noindex']")
 
       within '.current-question' do
         within 'h2' do
