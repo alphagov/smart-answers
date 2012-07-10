@@ -16,8 +16,7 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       within ('ol li.done:nth-child(1)') { click_on "Change this answer" }
 
-      # TODO: Fix changing answer with country questions
-      # within('.current-question .question-body') { assert page.has_select? "response", :selected => "Belarus" }
+      within('.current-question .question-body') { assert page.has_select? "response", :selected => "Belarus" }
 
       select "India", :from => "response"
       click_on "Next step"
@@ -73,8 +72,7 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       within ('ol li.done:nth-child(2)') { click_on "Change this answer" }
 
-      # TODO: Fix changing answer with country questions
-      #within ('.current-question .question-body') { assert page.has_field? "£", :with => "2000000.0" }
+      within ('.current-question .question-body') { assert page.has_field? "£", :with => "2000000.0" }
 
       fill_in "£", :with => "3000000"
       click_on "Next step"
@@ -96,8 +94,7 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       within ('ol li.done:nth-child(1)') { click_on "Change this answer" }
 
-      # TODO: Fix changing answer with country questions
-      #within ('.current-question .question-body') { assert page.has_field? "Name:", :with => "Lancelot" }
+      within ('.current-question .question-body') { assert page.has_field? "Name:", :with => "Lancelot" }
 
       fill_in "Name:", :with => "Bors"
       click_on "Next step"
