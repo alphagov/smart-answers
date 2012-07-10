@@ -1,10 +1,10 @@
 # encoding: UTF-8
 require_relative 'engine_test_helper'
 
-class HappyPathTest < EngineIntegrationTest
+class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
 
   with_and_without_javascript do
-    should "happy path through a flow" do
+    should "handle multiple-choice and value questions" do
       visit "/bridge-of-death"
 
       assert_current_url "/bridge-of-death"
@@ -156,165 +156,6 @@ class HappyPathTest < EngineIntegrationTest
         end
       end
     end
-
-    should "handle money and salary questions" do
-      visit "/money-and-salary-sample/y"
-
-      within '.current-question' do
-        within 'h2' do
-          within('.question-number') { assert_page_has_content "1" }
-          assert_page_has_content "How much do you earn?"
-        end
-        within '.question-body' do
-          assert page.has_field?("£", :type => :text)
-          assert page.has_select?("per", :options => %w(week month))
-        end
-      end
-
-      fill_in "£", :with => "5000"
-      select "month", :from => "per"
-      click_on "Next step"
-
-      assert_current_url "/money-and-salary-sample/y/5000.0-month"
-
-      within '.done-questions' do
-        within('.start-again') { assert page.has_link?("Start again", :href => '/money-and-salary-sample') }
-        within 'ol li.done' do
-          within 'h3' do
-            within('.question-number') { assert_page_has_content "1" }
-            assert_page_has_content "How much do you earn?"
-          end
-          within('.answer') { assert_page_has_content "£5,000 per month" }
-          # TODO: Fix wierd ?& in link...
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/money-and-salary-sample/y?&previous_response=5000.0-month") }
-        end
-      end
-
-      within '.current-question' do
-        within 'h2' do
-          within('.question-number') { assert_page_has_content "2" }
-          assert_page_has_content "What size bonus do you want?"
-        end
-        within '.question-body' do
-          assert page.has_field?("£", :type => :text)
-        end
-      end
-
-      fill_in "£", :with => "1000000"
-      click_on "Next step"
-
-      assert_current_url "/money-and-salary-sample/y/5000.0-month/1000000.0"
-
-      within '.done-questions' do
-        within('.start-again') { assert page.has_link?("Start again", :href => '/money-and-salary-sample') }
-        within 'ol li.done:nth-child(1)' do
-          within 'h3' do
-            within('.question-number') { assert_page_has_content "1" }
-            assert_page_has_content "How much do you earn?"
-          end
-          within('.answer') { assert_page_has_content "£5,000 per month" }
-          # TODO: Fix wierd ?& in link...
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/money-and-salary-sample/y?&previous_response=5000.0-month") }
-        end
-        within 'ol li.done:nth-child(2)' do
-          within 'h3' do
-            within('.question-number') { assert_page_has_content "2" }
-            assert_page_has_content "What size bonus do you want?"
-          end
-          within('.answer') { assert_page_has_content "£1,000,000" }
-          # TODO: Fix wierd ?& in link...
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/money-and-salary-sample/y/5000.0-month?previous_response=1000000.0") }
-        end
-      end
-
-      within '.outcome' do
-        within '.result-info' do
-          within('h2.result-title') { assert_page_has_content "OK, here you go." }
-          within('.info-notice') { assert_page_has_content "This is allowed because £1,000,000 is more than your annual salary of £60,000" }
-        end
-      end
-    end
-
-    should "handle country and date questions" do
-      visit "/country-and-date-sample/y"
-
-      within '.current-question' do
-        within 'h2' do
-          within('.question-number') { assert_page_has_content "1" }
-          assert_page_has_content "Which country do you live in?"
-        end
-      end
-      within '.question-body' do
-        # TODO Check country list
-        assert page.has_select?("response")
-      end
-
-      select "Belarus", :from => "response"
-      click_on "Next step"
-
-      assert_current_url "/country-and-date-sample/y/belarus"
-
-      within '.done-questions' do
-        within('.start-again') { assert page.has_link?("Start again", :href => '/country-and-date-sample') }
-        within 'ol li.done:nth-child(1)' do
-          within 'h3' do
-            within('.question-number') { assert_page_has_content "1" }
-            assert_page_has_content "Which country do you live in?"
-          end
-          within('.answer') { assert_page_has_content "Belarus" }
-          # TODO: Fix weird ?& in link
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/country-and-date-sample/y?&previous_response=belarus") }
-        end
-      end
-
-      within '.current-question' do
-        within 'h2' do
-          within('.question-number') { assert_page_has_content "2" }
-          assert_page_has_content "What date did you move there?"
-        end
-      end
-
-      within '.question-body' do
-        # TODO Check options for dates
-        assert page.has_select? 'Day'
-        assert page.has_select? 'Month'
-        assert page.has_select? 'Year'
-      end
-
-      select "5", :from => "Day"
-      select "May", :from => "Month"
-      select "1975", :from => "Year"
-      click_on "Next step"
-
-      assert_current_url "/country-and-date-sample/y/belarus/1975-05-05"
-
-      within '.done-questions' do
-        within('.start-again') { assert page.has_link?("Start again", :href => '/country-and-date-sample') }
-        within 'ol li.done:nth-child(1)' do
-          within 'h3' do
-            within('.question-number') { assert_page_has_content "1" }
-            assert_page_has_content "Which country do you live in?"
-          end
-          within('.answer') { assert_page_has_content "Belarus" }
-          # TODO: Fix wierd ?& in link...
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/country-and-date-sample/y?&previous_response=belarus") }
-        end
-        within 'ol li.done:nth-child(2)' do
-          within 'h3' do
-            within('.question-number') { assert_page_has_content "2" }
-            assert_page_has_content "What date did you move there?"
-          end
-          within('.answer') { assert_page_has_content "5 May 1975" }
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/country-and-date-sample/y/belarus?previous_response=1975-05-05") }
-        end
-      end
-
-      within '.outcome' do
-        within '.result-info' do
-          within('h2.result-title') { assert_page_has_content "Great - you've lived in belarus for 37 years!" }
-        end
-      end
-    end
   end # with_and_without_javascript
 
   should "calculate alternate path correctly" do
@@ -370,3 +211,4 @@ class HappyPathTest < EngineIntegrationTest
     end
   end
 end
+
