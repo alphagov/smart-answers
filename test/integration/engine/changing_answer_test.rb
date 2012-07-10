@@ -31,9 +31,7 @@ class HappyPathTest < ActionDispatch::IntegrationTest
         select "1975", :from => "Year"
         click_on "Next step"
 
-        within 'ol li.done:nth-child(1)' do
-          click_on "Change this answer"
-        end
+        within ('ol li.done:nth-child(1)') { click_on "Change this answer" }
 
         # TODO: Fix changing answer with country questions
         pending
@@ -49,9 +47,7 @@ class HappyPathTest < ActionDispatch::IntegrationTest
         select "1985", :from => "Year"
         click_on "Next step"
 
-        within 'ol li.done:nth-child(2)' do
-          click_on "Change this answer"
-        end
+        within ('ol li.done:nth-child(2)') { click_on "Change this answer" }
 
         within '.current-question .question-body' do
           assert page.has_select? "Day", :selected => "10"
@@ -77,9 +73,7 @@ class HappyPathTest < ActionDispatch::IntegrationTest
         fill_in "£", :with => "1000000"
         click_on "Next step"
 
-        within 'ol li.done:nth-child(1)' do
-          click_on "Change this answer"
-        end
+        within ('ol li.done:nth-child(1)') { click_on "Change this answer" }
 
         within '.current-question .question-body' do
           assert page.has_field? "£", :value => "5000"
@@ -95,9 +89,7 @@ class HappyPathTest < ActionDispatch::IntegrationTest
         fill_in "£", :with => "2000000"
         click_on "Next step"
 
-        within 'ol li.done:nth-child(2)'do
-          click_on "Change this answer"
-        end
+        within ('ol li.done:nth-child(2)') { click_on "Change this answer" }
 
         within ('.current-question .question-body') { assert page.has_field? "£", :value => "2000000" }
 
@@ -106,6 +98,65 @@ class HappyPathTest < ActionDispatch::IntegrationTest
 
         assert_current_url "/money-and-salary-sample/y/2000.0-week/3000000.0"
         end
+
+      should "be able to change value and multiple choice answers" do
+        visit "/bridge-of-death/y"
+
+        fill_in "Name:", :with => "Lancelot"
+        click_on "Next step"
+
+        choose "To seek the Holy Grail"
+        click_on "Next step"
+
+        choose "Blue"
+        click_on "Next step"
+
+        within ('ol li.done:nth-child(1)') { click_on "Change this answer" }
+
+        within ('.current-question .question-body') { assert page.has_field? "Name:", :value => "Lancelot" }
+
+        fill_in "Name:", :with => "Bors"
+        click_on "Next step"
+
+        assert_current_url "/bridge-of-death/y/Bors"
+
+        choose "To seek the Holy Grail"
+        click_on "Next step"
+
+        puts page.current_url
+
+        choose "Blue"
+        click_on "Next step"
+
+        within ('ol li.done:nth-child(2)') { click_on "Change this answer" }
+
+        within '.current-question .question-body' do
+           assert page.has_checked_field? "To seek the Holy Grail"
+           assert page.has_unchecked_field? "To rescue the princess"
+           assert page.has_unchecked_field? "I dunno"
+        end
+
+        choose "To rescue the princess"
+        click_on "Next step"
+
+        assert_current_url "/bridge-of-death/y/Bors/to_rescue_the_princess"
+
+        choose "Blue"
+        click_on "Next step"
+
+        within ('ol li.done:nth-child(3)') { click_on "Change this answer" }
+
+        within '.current-question .question-body' do
+          assert page.has_checked_field? "Blue"
+          assert page.has_unchecked_field? "Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!"
+          assert page.has_unchecked_field? "Red"
+        end
+
+        choose "Red"
+        click_on "Next step"
+
+        assert_current_url "/bridge-of-death/y/Bors/to_rescue_the_princess/red"
+      end
     end
   end
 end
