@@ -2,7 +2,7 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
-class DrivingInTheUKOnAForeignLicenceTest < ActionDispatch::IntegrationTest
+class DrivingInTheUKOnAForeignLicenceTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do

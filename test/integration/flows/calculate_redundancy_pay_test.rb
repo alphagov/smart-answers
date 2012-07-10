@@ -2,7 +2,7 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
-class CalculateRedundancyPayTest < ActionDispatch::IntegrationTest
+class CalculateRedundancyPayTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   context "Employer" do
