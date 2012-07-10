@@ -66,6 +66,46 @@ class HappyPathTest < ActionDispatch::IntegrationTest
 
         assert_current_url "/country-and-date-sample/y/india/2000-15-04"
       end
+
+      should "be able to change money and salary answers" do
+        visit "/money-and-salary-sample/y"
+
+        fill_in "£", :with => "5000"
+        select "month", :from => "per"
+        click_on "Next step"
+
+        fill_in "£", :with => "1000000"
+        click_on "Next step"
+
+        within 'ol li.done:nth-child(1)' do
+          click_on "Change this answer"
+        end
+
+        within '.current-question .question-body' do
+          assert page.has_field? "£", :value => "5000"
+          assert page.has_select? "per", :selected => "month"
+        end
+
+        fill_in "£", :with => "2000"
+        select "week", :from => "per"
+        click_on "Next step"
+
+        assert_current_url "/money-and-salary-sample/y/2000.0-week"
+
+        fill_in "£", :with => "2000000"
+        click_on "Next step"
+
+        within 'ol li.done:nth-child(2)'do
+          click_on "Change this answer"
+        end
+
+        within ('.current-question .question-body') { assert page.has_field? "£", :value => "2000000" }
+
+        fill_in "£", :with => "3000000"
+        click_on "Next step"
+
+        assert_current_url "/money-and-salary-sample/y/2000.0-week/3000000.0"
+        end
     end
   end
 end
