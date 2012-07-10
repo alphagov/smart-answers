@@ -23,6 +23,20 @@ class ActionDispatch::IntegrationTest
       assert_equal Rack::Utils.parse_query(expected.query), Rack::Utils.parse_query(current.query)
     end
   end
+
+  def self.with_and_without_javascript
+    [false, true].each do |js_enabled|
+      context "#{js_enabled ? 'with' : 'without'} javascript" do
+        setup do
+          if js_enabled
+            Capybara.current_driver = Capybara.javascript_driver
+          end
+        end
+
+        yield
+      end
+    end
+  end
 end
 
 class JavascriptIntegrationTest < ActionDispatch::IntegrationTest
