@@ -2,28 +2,22 @@ require_relative '../test_helper'
 
 class SmartAnswerPresenterTest < ActionController::TestCase
   def setup
-    @request = mock
-    @request.stubs(:params).returns({})
-    @flow = mock
-    @presenter = SmartAnswerPresenter.new(@request, @flow)
+    request = stub("request", params: {})
+    flow = stub("flow", name: "sample", slug: "sample")
+    @presenter = SmartAnswerPresenter.new(request, flow)
   end
 
-  def setup_artefact_mocks(params={})
-    @flow.stubs(:name).returns(:sample)
-    @presenter.expects(:fetch_artefact).with(slug: :sample).returns(params[:artefact] || :my_artefact)
-  end
-
-  should "retrieve the proposition name when business" do
-    artefact = mock
-    artefact.stubs(:business_proposition).returns(true)
-    setup_artefact_mocks(artefact: artefact)
+  should "detect the 'business' proposition when the artefact's business_proposition flag is true" do
+    @presenter.stubs(:fetch_artefact)
+      .with(slug: @presenter.flow.slug)
+      .returns(stub("artefact", business_proposition: true))
     assert_equal "business", @presenter.proposition
   end
 
-  should "retrieve the proposition name when citizen" do
-    artefact = mock
-    artefact.stubs(:business_proposition).returns(false)
-    setup_artefact_mocks(artefact: artefact)
+  should "detect the 'citizen' proposition when the artefact's business_proposition flag is false" do
+    @presenter.stubs(:fetch_artefact)
+      .with(slug: @presenter.flow.slug)
+      .returns(stub("artefact", business_proposition: false))
     assert_equal "citizen", @presenter.proposition
   end
 end
