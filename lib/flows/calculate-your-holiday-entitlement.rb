@@ -60,7 +60,8 @@ multiple_choice :full_time_how_many_days_per_week? do
     Calculators::HolidayEntitlement.new(
       :days_per_week => days_per_week,
       :start_date => start_date,
-      :leaving_date => leaving_date
+      :leaving_date => leaving_date,
+      :leave_year_start_date => leave_year_start_date
     )
   end
   calculate :holiday_entitlement_days do
@@ -102,7 +103,8 @@ value_question :part_time_how_many_days_per_week? do
     Calculators::HolidayEntitlement.new(
       :days_per_week => days_per_week,
       :start_date => start_date,
-      :leaving_date => leaving_date
+      :leaving_date => leaving_date,
+      :leave_year_start_date => leave_year_start_date
     )
   end
   calculate :holiday_entitlement_days do
@@ -239,6 +241,7 @@ value_question :shift_worker_days_per_shift_pattern? do
     Calculators::HolidayEntitlement.new(
       :start_date => start_date,
       :leaving_date => leaving_date,
+      :leave_year_start_date => leave_year_start_date,
       :hours_per_shift => hours_per_shift,
       :shifts_per_shift_pattern => shifts_per_shift_pattern,
       :days_per_shift_pattern => days_per_shift_pattern
