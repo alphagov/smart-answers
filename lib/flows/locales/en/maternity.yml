@@ -31,9 +31,6 @@ en-GB:
         title: How much do you earn?
         hint: This is your total earnings before any deductions, eg tax.
         error_message: Use only numbers, eg 500
-      will_you_be_employed_long_enough_to_qualify_for_maternity_allowance?:
-        title: Will you still be in the same job on %{earliest_job_can_finish_to_qualify_for_maternity_allowance}?
-        error_message: Please choose 'yes' or 'no'
       when_did_you_start_your_job?:
         title: When did you start your job?
       will_you_still_be_employed_in_qualifying_week?:
