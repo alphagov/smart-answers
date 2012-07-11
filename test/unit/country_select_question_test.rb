@@ -17,8 +17,8 @@ module SmartAnswer
     end
 
     test "Can convert key to pretty name" do
-      assert_equal(@question.to_response("antigua-and-barbuda"), {slug: "antigua-and-barbuda", name: "Antigua and Barbuda"})
-      assert_equal(@question.to_response("belgium"), {slug: "belgium", name: "Belgium"})
+      assert_equal({slug: "antigua-and-barbuda", name: "Antigua and Barbuda"}, @question.to_response("antigua-and-barbuda"))
+      assert_equal({slug: "belgium", name: "Belgium"}, @question.to_response("belgium"))
     end
   end
 end
