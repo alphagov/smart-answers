@@ -59,9 +59,7 @@ country_select :which_country? do
   next_node :contact_the_embassy
 end
 
-outcome :contact_the_police do
-  places :'police-stations'
-end
+outcome :contact_the_police
 outcome :contact_the_embassy do
   contact_list :embassies
 end
