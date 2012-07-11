@@ -37,6 +37,6 @@ class ContactListsAndPlacesTest < EngineIntegrationTest
   end
 
   should "handle places correctly" do
-    pending
+    pending "Places seems to only be half-implemented"
   end
 end
