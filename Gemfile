@@ -21,7 +21,11 @@ gem 'plek', '~> 0.1'
 gem 'rummageable'
 gem 'aws-ses', :require => 'aws/ses'
 gem 'exception_notification'
-gem 'gds-api-adapters', '~> 0.0.30'
+if ENV['API_DEV']
+  gem 'gds-api-adapters', :path => '../gds-api-adapters'
+else
+  gem 'gds-api-adapters', '~> 0.0.51'
+end
 gem 'htmlentities', '~> 4'
 
 if ENV['SLIMMER_DEV']
