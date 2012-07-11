@@ -10,6 +10,33 @@ class ActionDispatch::IntegrationTest
     Capybara.reset_sessions!
     Capybara.use_default_driver
   end
+
+  def assert_page_has_content(text)
+    assert page.has_content?(text), %(expected there to be content #{text} in #{page.text.inspect})
+  end
+
+  def assert_current_url(path_with_query, options = {})
+    expected = URI.parse(path_with_query)
+    current = URI.parse(current_url)
+    assert_equal expected.path, current.path
+    unless options[:ignore_query]
+      assert_equal Rack::Utils.parse_query(expected.query), Rack::Utils.parse_query(current.query)
+    end
+  end
+
+  def self.with_and_without_javascript
+    [false, true].each do |js_enabled|
+      context "#{js_enabled ? 'with' : 'without'} javascript" do
+        setup do
+          if js_enabled
+            Capybara.current_driver = Capybara.javascript_driver
+          end
+        end
+
+        yield
+      end
+    end
+  end
 end
 
 class JavascriptIntegrationTest < ActionDispatch::IntegrationTest
@@ -25,3 +52,8 @@ else
   Capybara.javascript_driver = :selenium
 end
 Capybara.default_driver = :rack_test
+
+I18n.load_path += Dir[Rails.root.join(*%w{test fixtures flows locales * *.{rb,yml}})]
+
+require 'webmock/test_unit'
+WebMock.disable_net_connect!(:allow_localhost => true)

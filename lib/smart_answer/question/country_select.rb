@@ -19,7 +19,7 @@ module SmartAnswer
       end
 
       def to_response(input)
-        country_list[input]
+        country_list.find { |el| el[:slug] == input }
       end
     end
   end

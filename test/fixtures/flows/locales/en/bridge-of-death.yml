@@ -1,0 +1,53 @@
+en-GB:
+  flow:
+    bridge-of-death:
+      meta:
+        description: "The Gorge of Eternal Peril!!!"
+      title:
+        The Bridge of Death
+      subtitle:
+        Avoid the Gorge of Eternal Peril!!!
+      body: |
+        STOP!
+        -----
+
+        He who would cross the Bridge of Death 
+        Must answer me 
+        These questions three 
+        Ere the other side he see.
+
+      options:
+        "no": "No"
+        "yes": "Yes"
+
+      what_is_your_name?:
+        title: "What...is your name?"
+        label: "Name:"
+
+      what_is_your_quest?:
+        title: "What...is your quest?"
+        options:
+          to_seek_the_holy_grail: "To seek the Holy Grail"
+          to_rescue_the_princess: "To rescue the princess"
+          dunno: "I dunno"
+
+      what_is_your_favorite_colour?:
+        title: "What...is your favorite colour?"
+        options:
+          blue: "Blue"
+          blue_no_yellow: "Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!"
+          red: "Red"
+
+      what_is_the_capital_of_assyria?:
+        title: "What...is the capital of Assyria?"
+        label: "Answer:"
+
+      done:
+        title: "Right, off you go."
+        body: |
+          Oh! Well, thank you. Thank you very much.
+
+      auuuuuuuugh:
+        title: "AAAAARRRRRRRRRRRRRRRRGGGGGHHH!!!!!!!"
+        body: |
+          ^ %{your_name} is thrown into the Gorge of Eternal Peril
