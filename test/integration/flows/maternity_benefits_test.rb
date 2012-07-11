@@ -5,6 +5,28 @@ require_relative 'flow_test_helper'
 class MaternityBenefitsTest < ActiveSupport::TestCase
   include FlowTestHelper
 
+  def week_containing(date_or_string)
+    date = Date.parse(date_or_string.to_s)
+    start_of_week = date - date.wday
+    start_of_week..(start_of_week + 6.days)
+  end
+
+  def expected_week_of_childbirth
+    raise "@due_date undefined - can't calculate expected_week_of_childbirth without it" unless @due_date
+    week_containing(@due_date)
+  end
+
+  def qualifying_week
+    start = expected_week_of_childbirth.first - 15.weeks
+    start .. (start + 6.days)
+  end
+
+  def maternity_allowance_test_period
+    start = expected_week_of_childbirth.first - 66.weeks
+    finish = expected_week_of_childbirth.first - 1.day
+    start .. finish
+  end
+
   setup do
     setup_for_testing_flow 'maternity-benefits'
   end
@@ -15,7 +37,8 @@ class MaternityBenefitsTest < ActiveSupport::TestCase
 
   context "qualifying week is not this week" do
     setup do
-      add_response (Date.today + 16.weeks)
+      @due_date = Date.today + 16.weeks
+      add_response @due_date
     end
 
     should "ask if you're employed" do
@@ -29,6 +52,7 @@ class MaternityBenefitsTest < ActiveSupport::TestCase
   
       should "ask if you started 26 weeks before qualifying week" do
         assert_current_node :did_you_start_26_weeks_before_qualifying_week?
+        assert_state_variable :twenty_six_weeks_before_qualifying_week, qualifying_week.first - 26.weeks
       end
   
       context "started 26 weeks before qualifying week" do
@@ -38,6 +62,7 @@ class MaternityBenefitsTest < ActiveSupport::TestCase
 
         should "ask if you will still be employed in qualifying week" do
           assert_current_node :will_you_still_be_employed_in_qualifying_week?
+          assert_state_variable :start_of_qualifying_week, qualifying_week.first
         end
 
         context "will still be employed in qualifying week" do
@@ -100,6 +125,8 @@ class MaternityBenefitsTest < ActiveSupport::TestCase
 
           should "ask if you will work at least 26 weeks during test period" do
             assert_current_node :will_you_work_at_least_26_weeks_during_test_period?
+            assert_state_variable :start_of_test_period, maternity_allowance_test_period.first
+            assert_state_variable :end_of_test_period, maternity_allowance_test_period.last
           end
 
           context "will work at least 26 weeks before during test period" do
@@ -163,6 +190,8 @@ class MaternityBenefitsTest < ActiveSupport::TestCase
   
         should "ask if you will work at least 26 weeks during test period" do
           assert_current_node :will_you_work_at_least_26_weeks_during_test_period?
+          assert_state_variable :start_of_test_period, maternity_allowance_test_period.first
+          assert_state_variable :end_of_test_period, maternity_allowance_test_period.last
         end
   
         context "will work at least 26 weeks before during test period" do
@@ -226,6 +255,8 @@ class MaternityBenefitsTest < ActiveSupport::TestCase
   
       should "ask if you will work at least 26 weeks during test period" do
         assert_current_node :will_you_work_at_least_26_weeks_during_test_period?
+        assert_state_variable :start_of_test_period, maternity_allowance_test_period.first
+        assert_state_variable :end_of_test_period, maternity_allowance_test_period.last
       end
   
       context "will work at least 26 weeks before during test period" do
@@ -284,7 +315,8 @@ class MaternityBenefitsTest < ActiveSupport::TestCase
   
   context "qualifying week is this week" do
     setup do
-      add_response (Date.today + 15.weeks)
+      @due_date = Date.today + 15.weeks
+      add_response @due_date
     end
 
     should "ask if you're employed" do
@@ -298,6 +330,7 @@ class MaternityBenefitsTest < ActiveSupport::TestCase
   
       should "ask if you started 26 weeks before qualifying week" do
         assert_current_node :did_you_start_26_weeks_before_qualifying_week?
+        assert_state_variable :twenty_six_weeks_before_qualifying_week, qualifying_week.first - 26.weeks
       end
   
       context "started 26 weeks before qualifying week" do
@@ -360,6 +393,8 @@ class MaternityBenefitsTest < ActiveSupport::TestCase
   
         should "ask if you will work at least 26 weeks during test period" do
           assert_current_node :will_you_work_at_least_26_weeks_during_test_period?
+          assert_state_variable :start_of_test_period, maternity_allowance_test_period.first
+          assert_state_variable :end_of_test_period, maternity_allowance_test_period.last
         end
   
         context "will work at least 26 weeks before during test period" do
@@ -423,6 +458,8 @@ class MaternityBenefitsTest < ActiveSupport::TestCase
   
       should "ask if you will work at least 26 weeks during test period" do
         assert_current_node :will_you_work_at_least_26_weeks_during_test_period?
+        assert_state_variable :start_of_test_period, maternity_allowance_test_period.first
+        assert_state_variable :end_of_test_period, maternity_allowance_test_period.last
       end
   
       context "will work at least 26 weeks before during test period" do
