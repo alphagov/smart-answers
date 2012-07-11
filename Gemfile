@@ -57,3 +57,7 @@ group :assets do
   gem "therubyracer", "~> 0.9.4"
   gem 'uglifier'
 end
+
+if ENV['RUBY_DEBUG']
+  gem 'ruby-debug19'
+end
