@@ -1,10 +1,10 @@
 
-engines
-this contains the integrations tests for the smart_answers engine itself.  This hits the full stack
-using some sample flows, and tests both Javascript and non-Javascript behaviour.
+engines/
+this contains the integration tests for the smart answers engine itself.  This hits the full stack
+using some sample flows (stored in test/fixtures/flows), and tests both Javascript and non-Javascript behaviour.
 
 
-flows
+flows/
 this contains integration tests for the individual flows in the app.  
 This is done at the level of the flows themselves, and not by hitting the whole stack, mainly for speed.
 
