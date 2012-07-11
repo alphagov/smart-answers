@@ -1,5 +1,5 @@
 satisfies_need "B188"
-status :draft
+status :publish
 section_slug "driving"
 subsection_slug "driving-instructors"
 
