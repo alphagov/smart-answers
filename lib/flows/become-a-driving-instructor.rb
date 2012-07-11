@@ -1,6 +1,7 @@
 satisfies_need "B188"
 status :draft
-section_slug "work"
+section_slug "driving"
+subsection_slug "driving-instructors"
 
 multiple_choice :are_you_21_or_over? do
   option :yes => :have_you_had_licence_for_3_years?
