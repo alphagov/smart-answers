@@ -200,8 +200,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :disability
           end
 
-          should "be question 29" do
-            assert_current_node :question_29
+          should "ask 'Are you currently getting any of the following?'" do
+            assert_current_node :getting_any_allowances
           end
         end
 
@@ -210,8 +210,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :bereavement
           end
 
-          should "be question 35" do
-            assert_current_node :question_35
+          should "ask 'Are you eligible for the following?'" do
+            assert_current_node :eligible_for_the_following
           end
         end
 

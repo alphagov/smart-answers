@@ -34,8 +34,8 @@ multiple_choice :question_5 do
   option :tax_credits => :question_18
   option :esa => :question_25
   option :industrial_injuries => :question_27
-  option :disability => :question_29
-  option :bereavement => :question_35
+  option :disability => :getting_any_allowances
+  option :bereavement => :eligible_for_the_following
 end
 
 multiple_choice :question_6 do
@@ -70,10 +70,10 @@ end
 multiple_choice :question_27 do
 end
 
-multiple_choice :question_29 do
+multiple_choice :getting_any_allowances do
 end
 
-multiple_choice :question_35 do
+multiple_choice :eligible_for_the_following do
 end
 
 outcome :answer_1
