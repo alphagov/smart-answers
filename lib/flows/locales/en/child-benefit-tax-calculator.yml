@@ -1,0 +1,55 @@
+en-GB:
+  flow:
+    child-benefit-tax-calculator:
+      title: Child benefit tax calculator
+      body: |
+        Estimate how much tax you may need to pay on Child Benefit you or your partner claim for 2012-13 financial year.
+
+        This tax applies only to Child Benefit you receive from 7 Jan 2013 onwards.
+
+      what_is_your_estimated_income_for_the_year?:
+        title: What is your estimated 'adjusted net income' for the year?
+        body: |
+          Enter your partner's estimated adjusted net income if it's more than yours.
+
+          Your adjusted net income is your taxable income minus [deductions, allowances and reliefs](http://www.hmrc.gov.uk/incometax/allowance-relief.htm "Allowances and reliefs"){:rel"external"} (eg pension contributions made from your pay and gift aid) plus any contributions to trade unions, police organisations etc that get deducted from your pay. It will be similar to (but not the same as) the net income on your payslip.
+
+      how_many_children_claiming_for?:
+        title: How many children are you claiming Child Benefit for?
+        error_message: You must have at least 1 child to claim Child Benefit.
+
+      when_did_you_start_claiming?:
+        title: When did you start claiming Child Benefit?
+        hint: If you haven't started claiming yet, when do you expect to start?
+        options:
+          on_or_before: On or before 6 April 2012
+          after: After 6 April 2012
+
+      what_date_did_you_start_claiming?:
+        title: On what date did you start claiming Child Benefit?
+        error_message: Please enter date after 6 April 2012
+
+      do_you_expect_to_stop_claiming_by_5_april_2013?:
+        options:
+          yes_s: "Yes"
+          no_s: "No"
+        title: Do you expect to stop claiming Child Benefit before 5 April 2013?
+        hint: You stop receiving Child Benefit when your child reaches 16 (or 20 if they're in education).
+
+      when_do_you_expect_to_stop_claiming?:
+        title: When do you expect to stop claiming Child Benefit?
+        error_message:  Please enter a date between %{child_benefit_start_date} and 5 April 2013
+
+      dont_need_to_pay:
+        title: You don't need to pay income tax on Child Benefit.
+
+      estimated_tax_charge:
+        title: Your estimated Child Benefit tax charge is £%{formatted_benefit_tax}
+        body: |
+          This is based on:
+
+          £%{formatted_benefit_taxable_amount} for Child Benefit claimed during %{benefit_taxable_weeks} after 7 Jan 2013
+
+          %{percent_tax_charge}% high income child benefit charge (1% for each £100 of income over £50,000)
+
+          £%{formatted_benefit_claimed_amount} total claimed Child Benefit for %{benefit_claimed_weeks} weeks (between %{child_benefit_start_date} and %{child_benefit_end_date})
