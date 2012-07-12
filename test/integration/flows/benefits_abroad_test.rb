@@ -82,9 +82,37 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
       end
 
       context "specific benefits for question 3" do
-        should "be question 5 for specific benefits" do
+        setup do
           add_response :specific_benefits
+        end
+
+        should "be question 5 for specific benefits" do
           assert_current_node :question_5
+        end
+
+        should "be answer 7 for pension" do
+          add_response :pension
+          assert_current_node :answer_7
+        end
+
+        context "jsa for question 5" do
+          setup do
+            add_response :jsa
+          end
+
+          should "be question 6 for jsa" do
+            assert_current_node :question_6
+          end
+        end
+
+        context "wfp for question 5" do
+          setup do
+            add_response :wfp
+          end
+
+          should "be question 7 for wfp" do
+            assert_current_node :question_7
+          end
         end
       end
     end
