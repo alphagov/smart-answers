@@ -136,5 +136,29 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       assert_current_url "/bridge-of-death/y/Bors/to_rescue_the_princess/red"
     end
+
+    should "be able to change checkbox answers" do
+      visit "/checkbox-sample/y"
+
+      check "Peppers"
+      check "Pepperoni"
+      click_on "Next step"
+
+      assert_current_url "/checkbox-sample/y/pepperoni,peppers"
+
+      within ('ol li.done:nth-child(1)') { click_on "Change this answer" }
+
+      within '.current-question .question-body' do
+        assert page.has_unchecked_field?("Ham")
+        assert page.has_checked_field?("Peppers")
+        assert page.has_unchecked_field?("Ice Cream!!!")
+        assert page.has_checked_field?("Pepperoni")
+      end
+
+      check "Ham"
+      click_on "Next step"
+
+      assert_current_url "/checkbox-sample/y/ham,pepperoni,peppers"
+    end
   end
 end
