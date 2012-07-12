@@ -265,6 +265,7 @@ en-GB:
       # Q21
       moving_to_eea:
         title: "Are you and your child living in or moving to an EEA country or Switzerland?"
+        body: |
           - Yes
           - No
         options:    
