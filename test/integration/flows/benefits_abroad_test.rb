@@ -27,14 +27,19 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
       assert_current_node :question_2
     end
   
-    should "be question 3 for yes" do
-      add_response :yes
-      assert_current_node :question_3
-    end
-
     should "be answer 2 for no" do
       add_response :no
       assert_current_node :answer_2
+    end
+
+    context "yes to question 2" do
+      setup do
+        add_response :yes
+      end
+
+      should "be question 3 for yes" do
+        assert_current_node :question_3
+      end
     end
   end
 end
