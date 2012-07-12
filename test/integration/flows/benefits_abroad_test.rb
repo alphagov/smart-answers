@@ -100,7 +100,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :jsa
           end
 
-          should "be question 6 for jsa" do
+          should "be question 6" do
             assert_current_node :question_6
           end
         end
@@ -110,7 +110,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :wfp
           end
 
-          should "be question 7 for wfp" do
+          should "be question 7" do
             assert_current_node :question_7
           end
         end
@@ -120,7 +120,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :maternity
           end
 
-          should "be question 9 for maternity" do
+          should "be question 9" do
             assert_current_node :question_9
           end
         end
@@ -130,7 +130,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :child_benefits
           end
 
-          should "be question 13 for child benefits" do
+          should "be question 13" do
             assert_current_node :question_13
           end
         end
@@ -140,7 +140,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :ssp
           end
 
-          should "be question 15 for ssp" do
+          should "be question 15" do
             assert_current_node :question_15
           end
         end
@@ -150,7 +150,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :tax_credits
           end
 
-          should "be question 18 for tax_credits" do
+          should "be question 18" do
             assert_current_node :question_18
           end
         end
@@ -160,7 +160,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :esa
           end
 
-          should "be question 25 for esa" do
+          should "be question 25" do
             assert_current_node :question_25
           end
         end
@@ -170,7 +170,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :industrial_injuries
           end
 
-          should "be question 27 for industrial injuries" do
+          should "be question 27" do
             assert_current_node :question_27
           end
         end
@@ -180,7 +180,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :disability
           end
 
-          should "be question 29 for disability" do
+          should "be question 29" do
             assert_current_node :question_29
           end
         end
@@ -190,7 +190,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :bereavement
           end
 
-          should "be question 35 for bereavement" do
+          should "be question 35" do
             assert_current_node :question_35
           end
         end
