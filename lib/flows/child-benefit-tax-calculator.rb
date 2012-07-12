@@ -41,6 +41,9 @@ multiple_choice :when_did_you_start_claiming? do
 end
 
 date_question :what_date_did_you_start_claiming? do
+  from { Date.new(2012, 4, 7) }
+  to { Date.today }
+
   calculate :child_benefit_start_date do
     if Date.parse(responses.last) <= Date.new(2012, 4, 6)
       raise SmartAnswer::InvalidResponse, "Please enter date after 6 April 2012"
@@ -110,6 +113,9 @@ multiple_choice :do_you_expect_to_stop_claiming_by_5_april_2013? do
 end
 
 date_question :when_do_you_expect_to_stop_claiming? do
+  from { Date.today }
+  to { Date.new(2013, 4, 4) }
+
   calculate :child_benefit_end_date do
     if Date.parse(responses.last) > Date.new(2013, 4, 5) or Date.parse(responses.last) < child_benefit_start_date
       raise SmartAnswer::InvalidResponse, "Please enter date before 5 April 2013"
