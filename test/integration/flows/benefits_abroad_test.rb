@@ -220,6 +220,44 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           should "ask 'Are you moving to?'" do
             assert_current_node :moving_to
           end
+          
+          context "Barbados, Canada, Israel for 'Are you moving to:'" do
+            should "be answer 16" do
+              add_response :barbados_canada_israel
+              assert_current_node :answer_16
+            end
+          end
+          
+          context "EEA or Switzerland for 'Are you moing to:'" do
+            setup do
+              add_response :eea_or_switzerland
+            end
+            
+            should "ask 'Paying NICs and receiving UK benefits?'" do
+              assert_current_node :paying_nics_and_receiving_uk_benefits
+            end
+            
+            context "yes to 'Paying NICs and receiving UK benefits?'" do
+              should "be answer 17" do
+                add_response :yes
+                assert_current_node :answer_17
+              end
+            end
+            context "no to 'Paying NICs and receiving UK benefits?'" do
+              should "be answer 18" do
+                add_response :no
+                assert_current_node :answer_18
+              end
+            end
+          end
+          
+          context "other for 'Are you moving to:'" do
+            should "be answer 16" do
+              add_response :other
+              assert_current_node :answer_18
+            end
+          end
+          
         end
 
         context "ssp for 'which benefit would you like to claim?'" do

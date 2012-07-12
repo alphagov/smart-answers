@@ -78,6 +78,14 @@ end
 
 # Q13
 multiple_choice :moving_to do
+  option :barbados_canada_israel => :answer_16
+  option :eea_or_switzerland => :paying_nics_and_receiving_uk_benefits
+  option :other => :answer_18
+end
+
+multiple_choice :paying_nics_and_receiving_uk_benefits do
+  option :yes => :answer_17
+  option :no => :answer_18
 end
 
 # Q15
@@ -116,3 +124,6 @@ outcome :answer_9
 outcome :answer_10
 outcome :answer_11
 outcome :answer_12
+outcome :answer_16
+outcome :answer_17
+outcome :answer_18
