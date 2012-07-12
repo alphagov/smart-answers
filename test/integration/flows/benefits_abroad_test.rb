@@ -343,6 +343,116 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             should "ask 'are you or your partner?'" do
               assert_current_node :you_or_partner
             end
+
+            context "for crown servant" do
+              should "get answer 22" do
+                add_response :crown_servant
+                assert_current_node :answer_22
+              end
+            end
+
+            context "for cross border worker" do
+              should "get answer 23" do
+                add_response :cross_border_worker
+                assert_current_node :answer_23
+              end
+            end
+
+            context "for neither" do
+              setup do
+                add_response :neither
+              end
+
+              # Q23
+              should "ask 'are going abroad for?'" do
+                assert_current_node :going_abroad_for
+              end
+
+              context "greater than a year" do
+                setup do
+                  add_response :greater_than_a_year
+                end
+
+                # Q20
+                should "ask 'do you have a child?'" do
+                  assert_current_node :got_a_child
+                end
+
+                context "no child" do
+                  should "get answer 21" do
+                    add_response :no
+                    assert_current_node :answer_21
+                  end
+                end
+
+                context "has child" do
+                  setup do
+                    add_response :yes
+                  end
+
+                  # Q21
+                  should "ask 'moving_to_eea'" do
+                    assert_current_node :moving_to_eea
+                  end
+
+                  context "no to 'moving to eea'" do
+                    should "get answer 21" do
+                      add_response :no
+                      assert_current_node :answer_21
+                    end
+                  end
+
+                  context "yes to 'moving to eea'" do
+                    setup do
+                      add_response :yes
+                    end
+
+                    # Q22
+                    should "ask 'are you claiming benefit or pension?'" do
+                      assert_current_node :claiming_benefit_or_pension
+                    end
+
+                    context "no to 'claiming benifit or pension'" do
+                      should "get answer_21" do
+                        add_response :no
+                        assert_current_node :answer_21
+                      end
+                    end
+
+                    context "yes to 'claiming benefit or pension'" do
+                      should "get answer_24" do
+                        add_response :yes
+                        assert_current_node :answer_24
+                      end
+                    end
+                  end
+                end
+              end
+
+              context "less than a year" do
+                setup do
+                  add_response :less_than_a_year
+                end
+
+                should "ask 'are you going abroad?'" do
+                  assert_current_node :going_abroad
+                end
+
+                context "for holiday" do
+                  should "get answer 25" do
+                    add_response :holiday
+                    assert_current_node :answer_25
+                  end
+                end
+
+                context "for medical treatment" do
+                  should "get answer 27" do
+                    add_response :medical_treatment
+                    assert_current_node :answer_27
+                  end
+                end
+              end
+            end
           end
         end
 
