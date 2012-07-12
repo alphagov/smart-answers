@@ -2,23 +2,32 @@ en-GB:
   flow:
     report-a-lost-or-stolen-passport:
       title: Report a lost or stolen passport
-      body: .....
+      body: |
+        Find out what you need to do if your passport has been lost or stolen.
       phrases:
         child_forms: |
           ^Your signature will be compared to the signature on the original passport application form. If the original application was made by someone else, then checks will be carried out to make sure you can take the child out of the country.^
       options:
+        lost: Lost
+        stolen: Stolen
+        adult: Adult
+        child: Child
         in_the_uk: "in the UK"
-      contact_the_police:
-        title: You must contact the police and report your passport as stolen.
-        body: | 
-          Enter your postcode below to find your nearest police station.
 
-          +[location_form]
+      adult_or_child_passport?:
+        title: Is it an adult or a child passport?
+
+
+      contact_the_police:
+        title: You must contact your nearest police station and report your passport as stolen.
+        body: | 
 
           Complete a lost or stolen (LS01) notification form online. The form will be sent to you to sign, date and return to the Identity and Passport Service (IPS).
 
           %{child_advice}
         next_steps: |
+          * Fill out the [LS01 form online](https://passports.ips.gov.uk/lsrr1a/index.aspx?c=1 "LS01 form")
+          * Once you’ve sent your LSO1 form you can apply for a new passport.
       contact_the_embassy:
         title: Report the loss to the UK embassy, consulate or high commission of %{country_name}.
         body: |
