@@ -1,6 +1,8 @@
 en-GB:
   flow:
     become-a-driving-instructor:
+      meta:
+        description: "Find out if you can become an approved driving instructor (ADI) and what you need to do to qualify."
       title: "Become a driving instructor"
       options:
         "no": "No"
@@ -63,7 +65,7 @@ en-GB:
           Criminal record check
           --------
 
-          You need to [get a criminal record check](http://tmgcrb.co.uk/default.asp?id=452 "Get a criminal record check"){:rel="external"} from a company called TMG CRB - they provide criminal record check services for the DSA.
+          You need to [get a criminal record check](/criminal-record-check-to-become-a-driving-instructor "Criminal record check to become a driving instructor") from a company called TMG CRB - they provide criminal record check services for the DSA.
 
         emergency_control: |
           Emergency control assessment

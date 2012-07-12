@@ -82,6 +82,8 @@ end
 
 # Q12
 multiple_choice :employer_paying_ni do
+  option :yes => :eligible_for_maternity_pay
+  option :no => :answer_15
 end
 
 # Q13
@@ -117,6 +119,12 @@ end
 
 # Q18
 multiple_choice :claiming_tax_credits_or_eligible do
+  option :no => :answer_20
+  option :yes => :you_or_partner
+end
+
+# Q19
+multiple_choice :you_or_partner do
 end
 
 # Q25
@@ -149,6 +157,7 @@ outcome :answer_11
 outcome :answer_12
 outcome :answer_13
 outcome :answer_14
+outcome :answer_15
 outcome :answer_16
 outcome :answer_17
 outcome :answer_18
