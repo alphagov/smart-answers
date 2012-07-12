@@ -465,7 +465,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
                       assert_current_node :claiming_benefit_or_pension
                     end
 
-                    context "no to 'claiming benifit or pension'" do
+                    context "no to 'claiming benefit or pension'" do
                       should "get answer_21" do
                         add_response :no
                         assert_current_node :answer_21
