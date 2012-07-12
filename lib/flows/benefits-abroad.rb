@@ -29,8 +29,8 @@ multiple_choice :question_5 do
   option :pension => :answer_7
   option :wfp => :question_7
   option :maternity => :question_9
-  option :child_benefits => :question_13
-  option :ssp => :question_15
+  option :child_benefits => :moving_to
+  option :ssp => :moving_country
   option :tax_credits => :claiming_tax_credits_or_eligible
   option :esa => :claiming_esa_abroad_for
   option :industrial_injuries => :claiming_iidb
@@ -45,20 +45,20 @@ multiple_choice :question_7 do
 end
 
 multiple_choice :question_9 do
-  option :eea => :question_10
-  option :not_eea => :question_12
+  option :eea => :uk_employer
+  option :not_eea => :employer_paying_ni
 end
 
-multiple_choice :question_10 do
+multiple_choice :uk_employer do
 end
 
-multiple_choice :question_12 do
+multiple_choice :employer_paying_ni do
 end
 
-multiple_choice :question_13 do
+multiple_choice :moving_to do
 end
 
-multiple_choice :question_15 do
+multiple_choice :moving_country do
 end
 
 multiple_choice :claiming_tax_credits_or_eligible do

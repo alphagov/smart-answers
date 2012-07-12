@@ -129,8 +129,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
               add_response :eea
             end
 
-            should "be question 10" do
-              assert_current_node :question_10
+            should "ask 'Are you working for a UK employer?'" do
+              assert_current_node :uk_employer
             end
           end
 
@@ -139,8 +139,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
               add_response :not_eea
             end
 
-            should "be question 12" do
-              assert_current_node :question_12
+            should "ask 'employer paying NI contributions for you?'" do
+              assert_current_node :employer_paying_ni
             end
           end
         end
@@ -150,8 +150,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :child_benefits
           end
 
-          should "be question 13" do
-            assert_current_node :question_13
+          should "ask 'Are you moving to?'" do
+            assert_current_node :moving_to
           end
         end
 
@@ -160,8 +160,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :ssp
           end
 
-          should "be question 15" do
-            assert_current_node :question_15
+          should "ask 'Are you moving to a country?'" do
+            assert_current_node :moving_country
           end
         end
 
