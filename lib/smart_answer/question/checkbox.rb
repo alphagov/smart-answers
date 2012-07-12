@@ -27,6 +27,10 @@ module SmartAnswer
         end
         raw_input.sort.join(',')
       end
+
+      def to_response(input)
+        input.split(',').reject {|v| v == NONE_OPTION }
+      end
     end
   end
 end

@@ -77,5 +77,24 @@ module SmartAnswer
         end
       end
     end
+
+    context "converting to a response" do
+      setup do
+        @question = Question::Checkbox.new(:something) do
+          option :red
+          option :blue
+          option :green
+        end
+      end
+
+      should "return an array of responses" do
+        assert_equal ['red', 'green'], @question.to_response('red,green')
+      end
+
+
+      should "remove the none option from the results" do
+        assert_equal [], @question.to_response('none')
+      end
+    end
   end
 end
