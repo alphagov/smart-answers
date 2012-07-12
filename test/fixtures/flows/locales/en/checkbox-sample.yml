@@ -10,12 +10,12 @@ en-GB:
           pepperoni: "Pepperoni" 
 
       on_its_way:
-        title: "Ok, your pizza is on it's way"
+        title: "Ok, your pizza is on its way"
         body: |
           You chose to have %{toppings} on your pizza.
 
       margherita:
-        title: "Ok, your margherita pizza is on it's way"
+        title: "Ok, your margherita pizza is on its way"
 
       no_way:
         title: "No way. That's disgusting!"

@@ -30,7 +30,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
       assert_current_url "/checkbox-sample/y/ham,pepperoni"
 
       within '.done-questions' do
-        within('.start-again') { assert page.has_link?("Start again", :href => '/money-and-salary-sample') }
+        within('.start-again') { assert page.has_link?("Start again", :href => '/checkbox-sample') }
         within 'ol li.done' do
           within 'h3' do
             within('.question-number') { assert_page_has_content "1" }
@@ -38,7 +38,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
           end
           within('.answer') { assert_page_has_content "Ham, Pepperoni" }
           # TODO: Fix wierd ?& in link...
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/checkbox-sample/y?&previous_response=ham,pepperoni") }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/checkbox-sample/y?&previous_response=ham%2Cpepperoni") }
         end
       end
 
