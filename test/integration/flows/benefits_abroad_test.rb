@@ -229,7 +229,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           end
         end
 
-        context "child benefits for question 5" do
+        context "child benefits for 'which benefit would you like to claim?'" do
           setup do
             add_response :child_benefits
           end
@@ -240,7 +240,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           end
         end
 
-        context "ssp for question 5" do
+        context "ssp for 'which benefit would you like to claim?'" do
           setup do
             add_response :ssp
           end
@@ -251,7 +251,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           end
         end
 
-        context "tax credits for question 5" do
+        context "tax credits for 'which benefit would you like to claim?'" do
           setup do
             add_response :tax_credits
           end
@@ -262,7 +262,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           end
         end
 
-        context "esa for question 5" do
+        context "esa for 'which benefit would you like to claim?'" do
           setup do
             add_response :esa
           end
@@ -273,7 +273,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           end
         end
 
-        context "industrial injuries for question 5" do
+        context "industrial injuries for 'which benefit would you like to claim?'" do
           setup do
             add_response :industrial_injuries
           end
@@ -284,7 +284,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           end
         end
 
-        context "disability for question 5" do
+        context "disability for 'which benefit would you like to claim?'" do
           setup do
             add_response :disability
           end
@@ -295,7 +295,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           end
         end
 
-        context "bereavement for question 5" do
+        context "bereavement for 'which benefit would you like to claim?'" do
           setup do
             add_response :bereavement
           end
