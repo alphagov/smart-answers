@@ -1,4 +1,4 @@
-status :draft
+status :published
 satisfies_need 355
 section_slug "work"
 

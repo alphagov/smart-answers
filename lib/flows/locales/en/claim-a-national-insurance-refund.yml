@@ -6,31 +6,36 @@ en-GB:
       title:
         "Claim a National Insurance refund"
       body: |
-        This tool helps you apply for a refund on your National Insurance contributions from HM Revenue and Customs.
+        This tool helps you apply for a refund on your National Insurance contributions from HM Revenue and Customs (HMRC).
 
         What you need to know
         --------
 
         There are different classes of National Insurance. You'll be asked what class your refund is for.
 
+      options:
+        shouldnt_have_paid: "You shouldn’t have paid this class"
+        paid_too_much: "You paid too much of this class"
+        low_earnings_exemption: "You qualified for a low earnings exemption"
+
+
       which_class?:
         title: "Which class of National Insurance do you want a refund for?"
-        hint: "There are different classes of National Insurance. Check your paperwork to see what class you paid."
         options:
           class_1: "Class 1"
           class_2: "Class 2"
           class_3: "Class 3"
           class_4: "Class 4"
 
-      why_are_you_applying_for_a_refund?:
+      why_are_you_applying_for_a_refund_class2?:
         title: "Why are you applying for a refund?"
-        options:
-          shouldnt_have_paid: "You shouldn’t have paid this class"
-          paid_too_much: "You paid too much of this class"
+
+      why_are_you_applying_for_a_refund_class4?:
+        title: "Why are you applying for a refund?"
       
       outcome_1:
         body: |
-          What you must do
+          What you need to do
           ---------
 
           Write to HMRC confirming:
@@ -65,9 +70,11 @@ en-GB:
           Monday to Friday 8.00am to 5.00pm
           $C
 
+          *[HMRC]: HM Revenue and Customs
+
       outcome_1a:
         body: |
-          What you must do
+          What you need to do
           ---------
 
           Write to HMRC confirming:
@@ -100,9 +107,11 @@ en-GB:
           Monday to Friday 8.00am to 5.00pm
           $C
 
+          *[HMRC]: HM Revenue and Customs
+
       outcome_2:
         body: |
-          What you must do
+          What you need to do
           ---------
 
           Send one of the following forms to HMRC:
@@ -130,6 +139,8 @@ en-GB:
           Monday to Friday 8.00am to 5.00pm
           $C
 
+          *[HMRC]: HM Revenue and Customs
+
       outcome_3:
         body: |
           What you need to do
@@ -152,9 +163,12 @@ en-GB:
           Monday to Friday 8.00am to 8pm  
           Saturday 8.00am to 4.00pm
           $C
+
+          *[HMRC]: HM Revenue and Customs
+
       outcome_4:
         body: |
-          What you must do
+          What you need to do
           --------
 
           Send HMRC form [CA5610 (PDF, 70 KB)](http://www.hmrc.gov.uk/forms/ca5610.pdf){:rel="external"}. The postal address you need is on the form.
@@ -176,6 +190,8 @@ en-GB:
           Monday to Thursday 8.00am to 5.00pm  
           Fridays 8.00am to 4.30pm
           $C
+
+          *[HMRC]: HM Revenue and Customs
 
       outcome_5:
         body: |
@@ -209,3 +225,45 @@ en-GB:
           +44 (0)191 203 7010 (for non-UK residents)  
           Monday to Friday 8.00am to 5.00pm
           $C
+
+          *[HMRC]: HM Revenue and Customs
+
+      outcome_6:
+        body: |
+          What you need to do
+          --------
+
+          Write to HMRC confirming:
+
+          + your National Insurance number 
+          + you want a refund because you had low earnings
+          + the tax year the refund is for 
+          + your earnings - eg, a copy of your accounts for the tax year
+
+          To have qualified for the low earnings exemption your earnings must be below £5,315 for the 2011 to 2012 tax year or £5,595 for the 2012 to 2013 tax year. 
+
+          Deadlines
+          --------
+
+          To get a refund for the 2011 to 2012 tax year the deadline is 31 January 2013. For the 2012 to 2013 tax year it’s 31 January 2014. 
+
+          There’s no timeframe for HMRC responding to you.
+
+
+          $A
+          HM Revenue & Customs
+          National Insurance Contributions Office
+          Self Employment Services
+          Benton Park View
+          Newcastle upon Tyne
+          NE98 1ZZ
+          $A
+
+          $C
+          **Self-employed helpline**  
+          0845 915 4655  
+          Monday to Friday 8.30am to 5.00pm
+          $C
+
+          *[HMRC]: HM Revenue and Customs
+

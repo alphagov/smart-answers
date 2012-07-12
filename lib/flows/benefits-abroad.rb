@@ -125,6 +125,39 @@ end
 
 # Q19
 multiple_choice :you_or_partner do
+  option :crown_servant => :answer_22
+  option :cross_border_worker => :answer_23
+  option :neither => :going_abroad_for
+end
+
+# Q20
+multiple_choice :got_a_child do
+  option :no => :answer_21
+  option :yes => :moving_to_eea
+end
+
+# Q21
+multiple_choice :moving_to_eea do
+  option :no => :answer_21
+  option :yes => :claiming_benefit_or_pension
+end
+
+# Q22
+multiple_choice :claiming_benefit_or_pension do
+  option :no => :answer_21
+  option :yes => :answer_24
+end
+
+# Q23
+multiple_choice :going_abroad_for do
+  option :less_than_a_year => :going_abroad
+  option :greater_than_a_year => :got_a_child
+end
+
+# Q24
+multiple_choice :going_abroad do
+  option :holiday => :answer_25
+  option :medical_treatment => :answer_27
 end
 
 # Q25
@@ -142,12 +175,12 @@ end
 
 # Q27
 multiple_choice :claiming_iidb do
-  option :yes => :moving_to_eea
+  option :yes => :moving_to_eea2
   option :no => :answer_31
 end
 
 # Q28
-multiple_choice :moving_to_eea do
+multiple_choice :moving_to_eea2 do
   option :yes => :answer_32
   option :no => :answer_33
 end
@@ -212,6 +245,12 @@ outcome :answer_17
 outcome :answer_18
 outcome :answer_19
 outcome :answer_20
+outcome :answer_21
+outcome :answer_22
+outcome :answer_23
+outcome :answer_24
+outcome :answer_25
+outcome :answer_26
 outcome :answer_27
 outcome :answer_28
 outcome :answer_29
