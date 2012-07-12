@@ -197,6 +197,24 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             should "ask 'Are you working for a UK employer?'" do
               assert_current_node :uk_employer
             end
+
+            context "no for 'working for a UK employer'" do
+              should "be answer 13" do
+                add_response :no
+                assert_current_node :answer_13
+              end
+            end
+
+            context "yes for 'working for a UK employer'" do
+              setup do
+                add_response :yes
+              end
+
+              # Q11
+              should "ask 'Are you eligibile for Statutory Maternity Pay?'" do
+                assert_current_node :eligible_for_maternity_pay
+              end
+            end
           end
 
           context "not EEA for 'are you moving to a country:'" do
