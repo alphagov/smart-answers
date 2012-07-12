@@ -170,8 +170,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :tax_credits
           end
 
-          should "be question 18" do
-            assert_current_node :question_18
+          should "ask 'Are you claiming tax credits or eligible?'" do
+            assert_current_node :claiming_tax_credits_or_eligible
           end
         end
 
@@ -180,8 +180,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :esa
           end
 
-          should "be question 25" do
-            assert_current_node :question_25
+          should "ask 'Are you claiming ESA and going abroad for?'" do
+            assert_current_node :claiming_esa_abroad_for
           end
         end
 
@@ -190,8 +190,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :industrial_injuries
           end
 
-          should "be question 27" do
-            assert_current_node :question_27
+          should "ask 'claiming Disablement Benefit before moving overseas?'" do
+            assert_current_node :claiming_iidb
           end
         end
 

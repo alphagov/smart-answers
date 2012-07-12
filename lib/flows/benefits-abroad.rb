@@ -31,9 +31,9 @@ multiple_choice :question_5 do
   option :maternity => :question_9
   option :child_benefits => :question_13
   option :ssp => :question_15
-  option :tax_credits => :question_18
-  option :esa => :question_25
-  option :industrial_injuries => :question_27
+  option :tax_credits => :claiming_tax_credits_or_eligible
+  option :esa => :claiming_esa_abroad_for
+  option :industrial_injuries => :claiming_iidb
   option :disability => :getting_any_allowances
   option :bereavement => :eligible_for_the_following
 end
@@ -61,13 +61,13 @@ end
 multiple_choice :question_15 do
 end
 
-multiple_choice :question_18 do
+multiple_choice :claiming_tax_credits_or_eligible do
 end
 
-multiple_choice :question_25 do
+multiple_choice :claiming_esa_abroad_for do
 end
 
-multiple_choice :question_27 do
+multiple_choice :claiming_iidb do
 end
 
 multiple_choice :getting_any_allowances do
