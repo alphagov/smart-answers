@@ -123,7 +123,7 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
 
         context "don't plan to stop claiming by 5 April 2013" do
           setup do
-            add_response "no"
+            add_response "no_s"
           end
 
           should "store 5 April 2013 as the child benefit end date" do
@@ -139,7 +139,7 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
 
         context "plan to stop claiming by 5 April 2013" do
           setup do
-            add_response "yes"
+            add_response "yes_s"
           end
 
           should "ask you when you plan to stop claiming child benefit" do
@@ -250,7 +250,7 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
   
           context "don't plan to stop claiming by 5 April 2013" do
             setup do
-              add_response "no"
+              add_response "no_s"
             end
   
             should "store 5 April 2013 as the child benefit end date" do
@@ -266,7 +266,7 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
   
           context "plan to stop claiming by 5 April 2013" do
             setup do
-              add_response "yes"
+              add_response "yes_s"
             end
   
             should "ask you when you plan to stop claiming child benefit" do

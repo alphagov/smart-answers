@@ -52,11 +52,11 @@ date_question :what_date_did_you_start_claiming? do
 end
 
 multiple_choice :do_you_expect_to_stop_claiming_by_5_april_2013? do
-  option "yes" => :when_do_you_expect_to_stop_claiming?
-  option "no" => :estimated_tax_charge
+  option "yes_s" => :when_do_you_expect_to_stop_claiming?
+  option "no_s" => :estimated_tax_charge
 
   calculate :child_benefit_end_date do
-    if responses.last == "no"
+    if responses.last == "no_s"
       Date.new(2013, 4, 5)
     else
       nil
