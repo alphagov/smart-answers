@@ -45,6 +45,14 @@ multiple_choice :question_7 do
 end
 
 multiple_choice :question_9 do
+  option :eea => :question_10
+  option :not_eea => :question_12
+end
+
+multiple_choice :question_10 do
+end
+
+multiple_choice :question_12 do
 end
 
 multiple_choice :question_13 do

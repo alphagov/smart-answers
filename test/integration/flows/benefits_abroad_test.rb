@@ -123,6 +123,26 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           should "be question 9" do
             assert_current_node :question_9
           end
+
+          context "EEA for question 9" do
+            setup do
+              add_response :eea
+            end
+
+            should "be question 10" do
+              assert_current_node :question_10
+            end
+          end
+
+          context "not EEA for question 9" do
+            setup do
+              add_response :not_eea
+            end
+
+            should "be question 12" do
+              assert_current_node :question_12
+            end
+          end
         end
 
         context "child benefits for question 5" do
