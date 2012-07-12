@@ -82,6 +82,8 @@ end
 
 # Q12
 multiple_choice :employer_paying_ni do
+  option :yes => :eligible_for_maternity_pay
+  option :no => :answer_15
 end
 
 # Q13
@@ -126,3 +128,4 @@ outcome :answer_11
 outcome :answer_12
 outcome :answer_13
 outcome :answer_14
+outcome :answer_15

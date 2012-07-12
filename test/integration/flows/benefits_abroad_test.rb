@@ -240,6 +240,20 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             should "ask 'employer paying NI contributions for you?'" do
               assert_current_node :employer_paying_ni
             end
+
+            context "yes for 'employer paying NI contributions'" do
+              should "ask 'eligible for SMP?'" do
+                add_response :yes
+                assert_current_node :eligible_for_maternity_pay
+              end
+            end
+
+            context "no for 'employer paying NI contributions'" do
+              should "be answer 15" do
+                add_response :no
+                assert_current_node :answer_15
+              end
+            end
           end
         end
 
