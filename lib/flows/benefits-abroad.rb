@@ -76,6 +76,8 @@ end
 
 #Q11
 multiple_choice :eligible_for_maternity_pay do
+  option :yes => :answer_14
+  option :no => :answer_13
 end
 
 # Q12
@@ -131,6 +133,7 @@ outcome :answer_10
 outcome :answer_11
 outcome :answer_12
 outcome :answer_13
+outcome :answer_14
 outcome :answer_16
 outcome :answer_17
 outcome :answer_18

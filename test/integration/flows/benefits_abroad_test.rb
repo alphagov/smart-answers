@@ -214,6 +214,20 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
               should "ask 'Are you eligibile for Statutory Maternity Pay?'" do
                 assert_current_node :eligible_for_maternity_pay
               end
+
+              context "yes for 'eligibile for Statutory Maternity Pay'" do
+                should "be answer 14" do
+                  add_response :yes
+                  assert_current_node :answer_14
+                end
+              end
+
+              context "no for 'eligibile for Statutory Maternity Pay'" do
+                should "be answer 13" do
+                  add_response :no
+                  assert_current_node :answer_13
+                end
+              end
             end
           end
 
