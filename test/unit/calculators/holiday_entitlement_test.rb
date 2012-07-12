@@ -11,11 +11,6 @@ module SmartAnswer::Calculators
 
       context "with a start_date" do
         should "return the fraction of a year" do
-          calc = HolidayEntitlement.new(:start_date => '2011-02-21')
-          assert_equal '0.8575', sprintf('%.4f', calc.fraction_of_year)
-        end
-
-        should "account for a leap year" do
           calc = HolidayEntitlement.new(:start_date => '2012-02-21')
           assert_equal '0.8579', sprintf('%.4f', calc.fraction_of_year)
         end
@@ -23,18 +18,29 @@ module SmartAnswer::Calculators
 
       context "with a leaving_date" do
         should "return the fraction of a year" do
-          calc = HolidayEntitlement.new(:leaving_date => '2011-06-21')
-          assert_equal '0.4685', sprintf('%.4f', calc.fraction_of_year)
-        end
-
-        should "account for a leap year" do
           calc = HolidayEntitlement.new(:leaving_date => '2012-06-21')
           assert_equal '0.4699', sprintf('%.4f', calc.fraction_of_year)
         end
       end
 
+      context "with a leave_year_start" do
+        context "with a start date" do
+          should "return the fraction of a year" do
+            calc = HolidayEntitlement.new(:start_date => '2012-02-21', :leave_year_start_date => '2012-02-01')
+            assert_equal '0.9426', sprintf('%.4f', calc.fraction_of_year)
+          end
+        end # context - with a start date
+
+        context "with a leaving date" do
+          should "return the fraction of a year" do
+            calc = HolidayEntitlement.new(:leaving_date => '2012-08-08', :leave_year_start_date => '2012-02-02')
+            assert_equal '0.5137', sprintf('%.4f', calc.fraction_of_year)
+          end
+        end # context - with a leaving date
+      end # context - with a leave_year_start
+
       should "format the result" do
-        calc = HolidayEntitlement.new(:start_date => '2011-02-21')
+        calc = HolidayEntitlement.new(:start_date => '2012-02-21')
         assert_equal '0.86', calc.formatted_fraction_of_year
       end
     end

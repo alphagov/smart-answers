@@ -43,12 +43,32 @@ module SmartAnswer::Calculators
     end
 
     def fraction_of_year
+      return 1 if not self.start_date and not self.leaving_date
+
       if self.start_date
-        d = Date.parse(start_date)
-        (d.end_of_year - d) / (d.leap? ? 366 : 365)
+        d_d = Date.parse start_date
+      else
+        d_d = Date.parse leaving_date
+      end
+
+      if self.leave_year_start_date
+        d_leave_year_start_date = Date.parse leave_year_start_date
+
+        needs_offset = d_d >= date_of_year(d_leave_year_start_date, d_d.year)
+        n_year = d_d.year - (needs_offset ? 0 : 1)
+        leave_year_start = date_of_year(d_leave_year_start_date, n_year)
+        leave_year_end = leave_year_start + (leave_year_start.leap? ? 365.days : 364.days)
+      else
+        leave_year_start = Date.today.beginning_of_year
+        leave_year_end = Date.today.end_of_year
+      end
+
+      if self.start_date
+        d = Date.parse start_date
+        (leave_year_end - d) / (d.leap? ? 366 : 365)
       elsif self.leaving_date
-        d = Date.parse(leaving_date)
-        (d - d.beginning_of_year) / (d.leap? ? 366 : 365)
+        d = Date.parse leaving_date
+        (d - leave_year_start) / (d.leap? ? 366 : 365)
       else
         1
       end
@@ -63,10 +83,14 @@ module SmartAnswer::Calculators
       strip_zeros(str)
     end
 
+    def date_of_year(date, year)
+      Date.civil(year, date.month, date.day)
+    end
+
     def strip_zeros(number)
       number.to_s.sub(/\.0+$/, '')
     end
-
+2
     def method_missing(*args)
       # formatted_foo calls format_number on foo
       if args.first.to_s =~ /\Aformatted_(.*)\z/
