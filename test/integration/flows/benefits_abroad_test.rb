@@ -114,6 +114,87 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             assert_current_node :question_7
           end
         end
+
+        context "maternity for question 5" do
+          setup do
+            add_response :maternity
+          end
+
+          should "be question 9 for maternity" do
+            assert_current_node :question_9
+          end
+        end
+
+        context "child benefits for question 5" do
+          setup do
+            add_response :child_benefits
+          end
+
+          should "be question 13 for child benefits" do
+            assert_current_node :question_13
+          end
+        end
+
+        context "ssp for question 5" do
+          setup do
+            add_response :ssp
+          end
+
+          should "be question 15 for ssp" do
+            assert_current_node :question_15
+          end
+        end
+
+        context "tax credits for question 5" do
+          setup do
+            add_response :tax_credits
+          end
+
+          should "be question 18 for tax_credits" do
+            assert_current_node :question_18
+          end
+        end
+
+        context "esa for question 5" do
+          setup do
+            add_response :esa
+          end
+
+          should "be question 25 for esa" do
+            assert_current_node :question_25
+          end
+        end
+
+        context "industrial injuries for question 5" do
+          setup do
+            add_response :industrial_injuries
+          end
+
+          should "be question 27 for industrial injuries" do
+            assert_current_node :question_27
+          end
+        end
+
+        context "disability for question 5" do
+          setup do
+            add_response :disability
+          end
+
+          should "be question 29 for disability" do
+            assert_current_node :question_29
+          end
+        end
+
+        context "bereavement for question 5" do
+          setup do
+            add_response :bereavement
+          end
+
+          should "be question 35 for bereavement" do
+            assert_current_node :question_35
+          end
+        end
+
       end
     end
   end
