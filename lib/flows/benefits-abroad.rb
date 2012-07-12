@@ -21,7 +21,17 @@ multiple_choice :question_4 do
 end
 
 multiple_choice :question_5 do
+  option :jsa => :question_6
+  option :pension => :answer_7
+  option :wfp => :question_7
+end
+
+multiple_choice :question_6 do
+end
+
+multiple_choice :question_7 do
 end
 
 outcome :answer_1
 outcome :answer_2
+outcome :answer_7
