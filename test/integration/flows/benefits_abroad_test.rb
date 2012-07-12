@@ -486,7 +486,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
                 setup do
                   add_response :less_than_a_year
                 end
-
+                
                 should "ask 'are you going abroad?'" do
                   assert_current_node :going_abroad
                 end
@@ -582,6 +582,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
               add_response :yes
             end
             
+            # Q28
             should "ask 'Moving to EEA?'" do
               assert_current_node :moving_to_eea2
             end
@@ -610,6 +611,102 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           # Q29
           should "ask 'Are you currently getting any of the following?'" do
             assert_current_node :getting_any_allowances
+          end
+          
+          context "no to 'Are you currently getting any of the following?'" do
+            should "be answer 34" do
+              add_response :no
+              assert_current_node :answer_34
+            end
+          end
+          
+          context "yes to 'Are you currently getting any of the following?'" do
+            setup do
+              add_response :yes
+            end
+            
+            # Q30
+            should "ask 'Going abroad?'" do
+              assert_current_node :going_abroad_q30
+            end
+            
+            context "temporarily to 'Going abroad?'" do
+              should "be answer 35" do
+                add_response :temporarily
+                assert_current_node :answer_35
+              end
+            end
+            context "permanently to 'Going abroad?'" do
+              setup do
+                add_response :permanently
+              end
+              
+              # Q31
+              should "ask 'Moving to:'" do
+                assert_current_node :moving_to_q31
+              end
+              
+              context "other to 'Moving to:'" do
+                should "be answer 34" do
+                  add_response :other
+                  assert_current_node :answer_34
+                end
+              end
+              
+              context "EEC, Switzerland, Gibraltar to 'Moving to:'" do
+                setup do
+                  add_response :eec_switzerland_gibraltar
+                end
+                
+                # Q32
+                should "ask 'Do you or a family member pay UK NICs?'" do
+                  assert_current_node :do_you_or_family_pay_uk_nic
+                end
+                
+                context "no to 'Do you or a family member pay UK NICs?'" do
+                  should "be answer 34" do
+                    add_response :no
+                    assert_current_node :answer_34
+                  end
+                end
+                context "yes to 'Do you or a family member pay UK NICs?'" do
+                  setup do
+                    add_response :yes
+                  end
+                  
+                  # Q33
+                  should "ask 'Paid enough to claim sickness benefit?'" do
+                    assert_current_node :enough_to_claim_sickness_benefit
+                  end
+                  
+                  context "yes to 'Paid enough to claim sickness benefit?'" do
+                    setup do
+                      add_response :yes
+                    end
+                    
+                    # Q34
+                    should "ask 'Getting SSP, IIB, ESA or bereavment?'" do
+                      assert_current_node :getting_ssp_iib_esa_or_bereavment
+                    end
+                    
+                    context "yes to 'Getting SSP, IIB, ESA or bereavment?'" do
+                      should "be answer 35" do
+                        add_response :yes
+                        assert_current_node :answer_35
+                      end
+                    end
+                    
+                    context "no to 'Getting SSP, IIB, ESA or bereavment?'" do
+                      should "be answer 34" do
+                        add_response :no
+                        assert_current_node :answer_34
+                      end
+                    end                    
+                  end
+                  
+                end
+              end
+            end
           end
         end
 

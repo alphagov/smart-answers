@@ -187,8 +187,40 @@ end
 
 # Q29
 multiple_choice :getting_any_allowances do
+  option :yes => :going_abroad_q30
+  option :no => :answer_34
 end
 
+# Q30
+multiple_choice :going_abroad_q30 do
+  option :temporarily => :answer_35
+  option :permanently => :moving_to_q31
+end
+
+# Q31
+multiple_choice :moving_to_q31 do
+  option :other => :answer_34
+  option :eec_switzerland_gibraltar => :do_you_or_family_pay_uk_nic
+end
+
+# Q32
+multiple_choice :do_you_or_family_pay_uk_nic do
+  option :yes => :enough_to_claim_sickness_benefit
+  option :no => :answer_34
+end
+
+# Q33
+multiple_choice :enough_to_claim_sickness_benefit do
+  option :yes => :getting_ssp_iib_esa_or_bereavment
+  option :no => :answer_34
+end
+
+# Q34
+multiple_choice :getting_ssp_iib_esa_or_bereavment do
+  option :yes => :answer_35
+  option :no => :answer_34
+end
+ 
 # Q35
 multiple_choice :eligible_for_the_following do
   option :no => :answer_36
@@ -234,6 +266,8 @@ outcome :answer_30
 outcome :answer_31
 outcome :answer_32
 outcome :answer_33
+outcome :answer_34
+outcome :answer_35
 outcome :answer_36
 outcome :answer_37
 outcome :answer_38
