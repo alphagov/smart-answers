@@ -103,6 +103,28 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           should "be question 6 for jsa" do
             assert_current_node :question_6
           end
+          
+          context "eea, switzerland, gibraltar for question 6" do
+            should "be answer 8" do
+              add_response :eea_switzerland_gibraltar
+              assert_current_node :answer_8
+            end
+          end
+          
+          context "jersey, etc. for question 6" do
+            should "be answer 9" do
+              add_response :jersey_etc
+              assert_current_node :answer_9
+            end            
+          end
+          
+          context "none of the above for question 6" do
+            should "be answer 9" do
+              add_response :none_of_the_above
+              assert_current_node :answer_10
+            end           
+          end
+          
         end
 
         context "wfp for question 5" do
@@ -113,6 +135,39 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           should "be question 7 for wfp" do
             assert_current_node :question_7
           end
+          
+          context "eea switzerland gibraltar for question 7" do
+            
+            setup do
+              add_response :eea_switzerland_gibraltar
+            end
+            
+            should "be question 8" do
+              assert_current_node :question_8
+            end
+            
+            context "yes for question 8" do
+              should "be answer 12" do
+                add_response :yes
+                assert_current_node :answer_12
+              end
+            end
+            
+            context "no for question 8" do
+              should "should be answer 11" do
+                add_response :no
+                assert_current_node :answer_11
+              end
+            end
+          end
+          
+          context "other for question 7" do
+            should "be answer 11" do
+              add_response :other
+              assert_current_node :answer_11
+            end
+          end
+          
         end
       end
     end

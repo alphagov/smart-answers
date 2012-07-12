@@ -31,9 +31,19 @@ multiple_choice :question_5 do
 end
 
 multiple_choice :question_6 do
+  option :eea_switzerland_gibraltar => :answer_8
+  option :jersey_etc => :answer_9
+  option :none_of_the_above => :answer_10
 end
 
 multiple_choice :question_7 do
+  option :eea_switzerland_gibraltar => :question_8
+  option :other => :answer_11
+end
+
+multiple_choice :question_8 do
+  option :yes => :answer_12
+  option :no => :answer_11
 end
 
 outcome :answer_1
@@ -43,3 +53,8 @@ outcome :answer_4
 outcome :answer_5
 outcome :answer_6
 outcome :answer_7
+outcome :answer_8
+outcome :answer_9
+outcome :answer_10
+outcome :answer_11
+outcome :answer_12
