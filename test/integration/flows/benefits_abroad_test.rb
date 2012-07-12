@@ -326,6 +326,24 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           should "ask 'Are you claiming tax credits or eligible?'" do
             assert_current_node :claiming_tax_credits_or_eligible
           end
+
+          context "no for 'claiming tax credits'" do
+            should "get answer 20" do
+              add_response :no
+              assert_current_node :answer_20
+            end
+          end
+
+          context "yes for 'claiming tax credits'" do
+            setup do
+              add_response :yes
+            end
+
+            # Q19
+            should "ask 'are you or your partner?'" do
+              assert_current_node :you_or_partner
+            end
+          end
         end
 
         context "esa for 'which benefit would you like to claim?'" do

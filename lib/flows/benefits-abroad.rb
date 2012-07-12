@@ -104,6 +104,12 @@ end
 
 # Q18
 multiple_choice :claiming_tax_credits_or_eligible do
+  option :no => :answer_20
+  option :yes => :you_or_partner
+end
+
+# Q19
+multiple_choice :you_or_partner do
 end
 
 # Q25
@@ -140,3 +146,4 @@ outcome :answer_15
 outcome :answer_16
 outcome :answer_17
 outcome :answer_18
+outcome :answer_20
