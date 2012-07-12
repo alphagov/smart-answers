@@ -408,6 +408,45 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           should "ask 'Are you claiming ESA and going abroad for?'" do
             assert_current_node :claiming_esa_abroad_for
           end
+          
+          context "less than a year and medical treatment to 'Are you claiming ESA and going abroad for?'" do
+            should "be answer 27" do
+              add_response :less_than_year_and_medical_treatment
+              assert_current_node :answer_27
+            end
+          end
+          
+          context "less than a year and different reason to 'Are you claiming ESA and going abroad for?'" do
+            should "be answer 28" do
+              add_response :less_than_year_and_different_reason
+              assert_current_node :answer_28
+            end
+          end
+          
+          context "greater than a year or permanently to 'Are you claiming ESA and going abroad for?'" do
+            setup do
+              add_response :greater_than_year_or_permanently
+            end
+            
+            should "ask 'Are you moving to:'" do
+              assert_current_node :are_you_moving_to_q26
+            end
+            
+            context "EEC, Switzerland, Gibraltar to 'Are you moving to:'" do
+              should "be answer 29" do
+                add_response :eec_switzerland_gibraltar
+                assert_current_node :answer_29
+              end
+            end
+
+            context "Other to 'Are you moving to:'" do
+              should "be answer 30" do
+                add_response :other
+                assert_current_node :answer_30
+              end
+            end
+            
+          end
         end
 
         context "industrial injuries for 'which benefit would you like to claim?'" do

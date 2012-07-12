@@ -129,6 +129,15 @@ end
 
 # Q25
 multiple_choice :claiming_esa_abroad_for do
+  option :less_than_year_and_medical_treatment => :answer_27
+  option :less_than_year_and_different_reason => :answer_28
+  option :greater_than_year_or_permanently => :are_you_moving_to_q26
+end
+
+# Q26
+multiple_choice :are_you_moving_to_q26 do
+  option :eec_switzerland_gibraltar => :answer_29
+  option :other => :answer_30
 end
 
 # Q27
@@ -163,3 +172,7 @@ outcome :answer_17
 outcome :answer_18
 outcome :answer_19
 outcome :answer_20
+outcome :answer_27
+outcome :answer_28
+outcome :answer_29
+outcome :answer_30
