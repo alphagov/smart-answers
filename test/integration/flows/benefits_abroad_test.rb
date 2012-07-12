@@ -100,7 +100,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :jsa
           end
 
-          should "be question 6 for jsa" do
+          should "be question 6" do
             assert_current_node :question_6
           end
           
@@ -132,7 +132,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :wfp
           end
 
-          should "be question 7 for wfp" do
+          should "be question 7" do
             assert_current_node :question_7
           end
           
@@ -169,6 +169,87 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           end
           
         end
+
+        context "maternity for question 5" do
+          setup do
+            add_response :maternity
+          end
+
+          should "be question 9" do
+            assert_current_node :question_9
+          end
+        end
+
+        context "child benefits for question 5" do
+          setup do
+            add_response :child_benefits
+          end
+
+          should "be question 13" do
+            assert_current_node :question_13
+          end
+        end
+
+        context "ssp for question 5" do
+          setup do
+            add_response :ssp
+          end
+
+          should "be question 15" do
+            assert_current_node :question_15
+          end
+        end
+
+        context "tax credits for question 5" do
+          setup do
+            add_response :tax_credits
+          end
+
+          should "be question 18" do
+            assert_current_node :question_18
+          end
+        end
+
+        context "esa for question 5" do
+          setup do
+            add_response :esa
+          end
+
+          should "be question 25" do
+            assert_current_node :question_25
+          end
+        end
+
+        context "industrial injuries for question 5" do
+          setup do
+            add_response :industrial_injuries
+          end
+
+          should "be question 27" do
+            assert_current_node :question_27
+          end
+        end
+
+        context "disability for question 5" do
+          setup do
+            add_response :disability
+          end
+
+          should "be question 29" do
+            assert_current_node :question_29
+          end
+        end
+
+        context "bereavement for question 5" do
+          setup do
+            add_response :bereavement
+          end
+
+          should "be question 35" do
+            assert_current_node :question_35
+          end
+        end
+
       end
     end
   end

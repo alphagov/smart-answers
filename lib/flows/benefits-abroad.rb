@@ -28,6 +28,14 @@ multiple_choice :question_5 do
   option :jsa => :question_6
   option :pension => :answer_7
   option :wfp => :question_7
+  option :maternity => :question_9
+  option :child_benefits => :question_13
+  option :ssp => :question_15
+  option :tax_credits => :question_18
+  option :esa => :question_25
+  option :industrial_injuries => :question_27
+  option :disability => :question_29
+  option :bereavement => :question_35
 end
 
 multiple_choice :question_6 do
@@ -44,6 +52,30 @@ end
 multiple_choice :question_8 do
   option :yes => :answer_12
   option :no => :answer_11
+end
+
+multiple_choice :question_9 do
+end
+
+multiple_choice :question_13 do
+end
+
+multiple_choice :question_15 do
+end
+
+multiple_choice :question_18 do
+end
+
+multiple_choice :question_25 do
+end
+
+multiple_choice :question_27 do
+end
+
+multiple_choice :question_29 do
+end
+
+multiple_choice :question_35 do
 end
 
 outcome :answer_1
