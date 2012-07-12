@@ -1,0 +1,16 @@
+en-GB:
+  flow:
+    benefits-abroad:
+      meta:
+        description: "Find out what benefits you might be able to get while abroad and how to claim them."
+      title: "Benefits if you're abroad"
+      body: 
+        "Find out what benefits you might be able to get while abroad and how to claim them."
+      have_you_told_jobcentre_plus: 
+        title: |
+          Have you told your local Jobcentre Plus that you’re going abroad?
+        body: |
+          You may also need to tell HMRC if you’re retiring abroad or claiming a pension.
+        options:
+          "no": "No"
+          "yes": "Yes"
