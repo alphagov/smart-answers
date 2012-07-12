@@ -187,12 +187,12 @@ end
 
 # Q29
 multiple_choice :getting_any_allowances do
-  option :yes => :going_abroad
+  option :yes => :going_abroad_q30
   option :no => :answer_34
 end
 
 # Q30
-multiple_choice :going_abroad do
+multiple_choice :going_abroad_q30 do
   option :temporarily => :answer_35
   option :permanently => :moving_to_q31
 end

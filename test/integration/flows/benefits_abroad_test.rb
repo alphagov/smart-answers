@@ -486,7 +486,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
                 setup do
                   add_response :less_than_a_year
                 end
-
+                
                 should "ask 'are you going abroad?'" do
                   assert_current_node :going_abroad
                 end
@@ -582,6 +582,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
               add_response :yes
             end
             
+            # Q28
             should "ask 'Moving to EEA?'" do
               assert_current_node :moving_to_eea2
             end
@@ -624,8 +625,9 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
               add_response :yes
             end
             
+            # Q30
             should "ask 'Going abroad?'" do
-              assert_current_node :going_abroad
+              assert_current_node :going_abroad_q30
             end
             
             context "temporarily to 'Going abroad?'" do
@@ -638,6 +640,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
               setup do
                 add_response :permanently
               end
+              
+              # Q31
               should "ask 'Moving to:'" do
                 assert_current_node :moving_to_q31
               end
@@ -654,6 +658,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
                   add_response :eec_switzerland_gibraltar
                 end
                 
+                # Q32
                 should "ask 'Do you or a family member pay UK NICs?'" do
                   assert_current_node :do_you_or_family_pay_uk_nic
                 end
@@ -669,6 +674,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
                     add_response :yes
                   end
                   
+                  # Q33
                   should "ask 'Paid enough to claim sickness benefit?'" do
                     assert_current_node :enough_to_claim_sickness_benefit
                   end
@@ -678,6 +684,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
                       add_response :yes
                     end
                     
+                    # Q34
                     should "ask 'Getting SSP, IIB, ESA or bereavment?'" do
                       assert_current_node :getting_ssp_iib_esa_or_bereavment
                     end
