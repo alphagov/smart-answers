@@ -1,5 +1,5 @@
 satisfies_need "B148"
-status :draft
+status :published
 section_slug "money-and-tax"
 
 multiple_choice :which_class? do
