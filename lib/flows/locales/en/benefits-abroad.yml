@@ -6,6 +6,7 @@ en-GB:
       title: "Benefits if you're abroad"
       body: 
         "Find out what benefits you might be able to get while abroad and how to claim them."
+      # Q1
       have_you_told_jobcentre_plus: 
         title: |
           Have you told your local Jobcentre Plus that you’re going abroad?
@@ -14,3 +15,98 @@ en-GB:
         options:
           "no": "No"
           "yes": "Yes"
+      # Q2
+      have_you_paid_ni_in_the_uk:
+        title: |
+          Have you paid National Insurance (NI) contributions in the UK?
+        body: |
+          If you’re moving to a country that’s in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries “List of countries in the EEA”){:rel=”external”} or has a benefits agreement with the UK, and you want to claim benefits there, you may need to have a record of how much NI you’ve paid in the UK.
+          
+          [Check your NI contributions record.](/national-insurance/check-your-contributions-record “check your contributions record”)
+        options:
+          "no": "No"
+          "yes": "Yes"
+      # Q3
+      certain_countries_or_specific_benefits:
+        title: "Would you like to find out:"
+        body: |
+          - which benefits you might be able to claim in certain countries
+          - about specific benefits
+        options:
+          "certain_countries": "Certain countries"
+          "specific_benefits": "Specific benefits"
+      # Q4
+      are_you_moving_to_q4:
+        title: "Are you moving to:"
+        body: |
+          - an [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries “List of countries in the EEA”){:rel=”external”} country 
+          - Barbados
+          - Bermuda
+          - Canada
+          - Gibraltar
+          - Israel
+          - Jamaica
+          - Channel Islands (Jersey or Guernsey)
+          - Mauritius
+          - New Zealand
+          - Philippines
+          - Bosnia-Hercegovina
+          - Croatia
+          - Kosovo
+          - the former Yugoslav Republic of Macedonia
+          - Montenegro 
+          - Serbia
+          - Switzerland
+          - Turkey
+          - USA
+          - none of the above
+
+          *[EEA]: European Economic Area
+        options:
+          "eea_or_switzerland": "EEA country or Switzerland"
+          "gibraltar": "Gibraltar"
+          "other_listed": "Other listed"
+          "none_of_the_above": "None of the above"
+      # Q5
+      which_benefit_would_you_like_to_claim:
+        title: "Which benefit would you like to claim?"
+        body: |
+          - Jobseeker’s Allowance (JSA)
+          - State Pension
+          - Winter Fuel Payment
+          - maternity benefits
+          - child benefits
+          - Industrial Injuries Disablement Benefit
+          - Statutory Sick Pay
+          - Employment and Support Allowance (ESA)
+          - Benefits for carers and people with disabilities 
+          - Bereavement benefits
+          - Tax Credits
+        options:
+          "jsa": "JSA"
+          "pension": "pension"
+          "wfp": "WFP"
+          "maternity": "maternity"
+          "child_benefits": "child benefits"
+          "ssp": "SSP"
+          "tax_credits": "tax credits"
+          "esa": "ESA"
+          "industrial_injuries": "industrial injuries"
+          "disability": "disability"
+          "bereavement": "bereavement"
+      # Q6
+      are_you_moving_to_q6:
+        title: "Are you moving to:"
+        body: |
+          - a country in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries “List of countries in the EEA”){:rel=”external”}
+          - Switzerland
+          - Gibraltar
+          - Jersey, Guernsey, Bosnia-Hercegovina, Croatia, Kosovo, the former Yugoslav Republic of Macedonia, Montenegro, Serbia or New Zealand
+          - none of the above
+
+
+          *[EEA]: European Economic Area
+        options:
+          "eea_switzerland_gibraltar": "EEA, Switzerland, Gibraltar"
+          "jersey_etc": "Jersey etc."
+          "none_of_the_above": "none of the above"
