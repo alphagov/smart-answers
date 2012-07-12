@@ -2,33 +2,38 @@ satisfies_need "9999"
 status :draft
 section_slug "money-and-tax"
 
-multiple_choice :question_1 do
-  option :yes => :question_2
+# Q1
+multiple_choice :have_you_told_jobcentre_plus do
+  option :yes => :have_you_paid_ni_in_the_uk
   option :no => :answer_1
 end
 
-multiple_choice :question_2 do
-  option :yes => :question_3
+# Q2
+multiple_choice :have_you_paid_ni_in_the_uk do
+  option :yes => :certain_countries_or_specific_benefits
   option :no => :answer_2
 end
 
-multiple_choice :question_3 do
-  option :certain_countries => :question_4
-  option :specific_benefits => :question_5
+# Q3
+multiple_choice :certain_countries_or_specific_benefits do
+  option :certain_countries => :are_you_moving_to_q4
+  option :specific_benefits => :which_benefit_would_you_like_to_claim
 end
 
-multiple_choice :question_4 do
+# Q4
+multiple_choice :are_you_moving_to_q4 do
   option :eea_or_switzerland => :answer_3
   option :gibraltar => :answer_4
   option :other_listed => :answer_5
   option :none_of_the_above => :answer_6
 end
 
-multiple_choice :question_5 do
-  option :jsa => :question_6
+# Q5
+multiple_choice :which_benefit_would_you_like_to_claim do
+  option :jsa => :are_you_moving_to_q6
   option :pension => :answer_7
-  option :wfp => :question_7
-  option :maternity => :question_9
+  option :wfp => :are_you_moving_to_q7
+  option :maternity => :are_you_moving_to_a_country
   option :child_benefits => :moving_to
   option :ssp => :moving_country
   option :tax_credits => :claiming_tax_credits_or_eligible
@@ -38,13 +43,27 @@ multiple_choice :question_5 do
   option :bereavement => :eligible_for_the_following
 end
 
-multiple_choice :question_6 do
+# Q6
+multiple_choice :are_you_moving_to_q6 do
+  option :eea_switzerland_gibraltar => :answer_8
+  option :jersey_etc => :answer_9
+  option :none_of_the_above => :answer_10
 end
 
-multiple_choice :question_7 do
+# Q7
+multiple_choice :are_you_moving_to_q7 do
+  option :eea_switzerland_gibraltar => :already_qualify_for_wfp_in_the_uk
+  option :other => :answer_11
 end
 
-multiple_choice :question_9 do
+# Q8
+multiple_choice :already_qualify_for_wfp_in_the_uk do
+  option :yes => :answer_12
+  option :no => :answer_11
+end
+
+# Q9
+multiple_choice :are_you_moving_to_a_country do
   option :eea => :uk_employer
   option :not_eea => :employer_paying_ni
 end
@@ -92,3 +111,8 @@ outcome :answer_4
 outcome :answer_5
 outcome :answer_6
 outcome :answer_7
+outcome :answer_8
+outcome :answer_9
+outcome :answer_10
+outcome :answer_11
+outcome :answer_12
