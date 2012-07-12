@@ -33,9 +33,9 @@ multiple_choice :which_benefit_would_you_like_to_claim do
   option :jsa => :are_you_moving_to_q6
   option :pension => :answer_7
   option :wfp => :are_you_moving_to_q7
-  option :maternity => :are_you_moving_to_a_country
+  option :maternity => :are_you_moving_to_a_country_q9
   option :child_benefits => :moving_to
-  option :ssp => :moving_country
+  option :ssp => :are_you_moving_to_a_country_q15
   option :tax_credits => :claiming_tax_credits_or_eligible
   option :esa => :claiming_esa_abroad_for
   option :industrial_injuries => :claiming_iidb
@@ -63,7 +63,7 @@ multiple_choice :already_qualify_for_wfp_in_the_uk do
 end
 
 # Q9
-multiple_choice :are_you_moving_to_a_country do
+multiple_choice :are_you_moving_to_a_country_q9 do
   option :eea => :uk_employer
   option :not_eea => :employer_paying_ni
 end
@@ -91,13 +91,28 @@ multiple_choice :moving_to do
   option :other => :answer_18
 end
 
+# Q14
 multiple_choice :paying_nics_and_receiving_uk_benefits do
   option :yes => :answer_17
   option :no => :answer_18
 end
 
 # Q15
-multiple_choice :moving_country do
+multiple_choice :are_you_moving_to_a_country_q15 do
+  option :in_eea => :working_for_a_uk_employer
+  option :outside_eea => :employer_paying_uk_nics
+end
+
+# Q16
+multiple_choice :working_for_a_uk_employer do
+  option :yes => :answer_19
+  option :no => :answer_20
+end
+
+# Q17
+multiple_choice :employer_paying_uk_nics do
+  option :yes => :answer_19
+  option :no => :answer_20
 end
 
 # Q18
@@ -137,3 +152,5 @@ outcome :answer_14
 outcome :answer_16
 outcome :answer_17
 outcome :answer_18
+outcome :answer_19
+outcome :answer_20

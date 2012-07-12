@@ -185,7 +185,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           
           # Q9
           should "ask 'are you moving to a country:'" do
-            assert_current_node :are_you_moving_to_a_country
+            assert_current_node :are_you_moving_to_a_country_q9
           end
 
           context "EEA for 'are you moving to a country:'" do
@@ -265,6 +265,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
               add_response :eea_or_switzerland
             end
             
+            # Q14
             should "ask 'Paying NICs and receiving UK benefits?'" do
               assert_current_node :paying_nics_and_receiving_uk_benefits
             end
@@ -299,8 +300,60 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
 
           # Q15
           should "ask 'Are you moving to a country?'" do
-            assert_current_node :moving_country
+            assert_current_node :are_you_moving_to_a_country_q15
           end
+          
+          context "in EEA to 'Are you moving to a country?'" do
+
+            setup do
+              add_response :in_eea
+            end
+            
+            # Q16
+            should "ask 'Working for a UK employer?'" do
+              assert_current_node :working_for_a_uk_employer
+            end
+            
+            context "yes to 'Working for a UK employer?'" do
+              should "be answer 19" do
+                add_response :yes
+                assert_current_node :answer_19
+              end
+            end
+            context "no to 'Working for a UK employer?'" do
+              should "be answer 20" do
+                add_response :no
+                assert_current_node :answer_20
+              end
+            end
+            
+          end
+          
+          context "outside EEA to 'Are you moving to a country?" do
+            setup do
+              add_response :outside_eea
+            end
+            
+            # Q17
+            should "ask 'Employer paying UK NICs?'" do
+              assert_current_node :employer_paying_uk_nics
+            end
+            
+            context "yes to 'Employer paying UK NICs?'" do
+              should "be answer 19" do
+                add_response :yes
+                assert_current_node :answer_19
+              end
+            end
+            
+            context "no to 'Employer paying UK NICs?'" do
+              should "be answer 20" do
+                add_response :no
+                assert_current_node :answer_20
+              end
+            end
+          end
+          
         end
 
         context "tax credits for 'which benefit would you like to claim?'" do
