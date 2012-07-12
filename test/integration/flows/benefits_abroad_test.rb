@@ -428,6 +428,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
               add_response :greater_than_year_or_permanently
             end
             
+            # Q26
             should "ask 'Are you moving to:'" do
               assert_current_node :are_you_moving_to_q26
             end
@@ -457,6 +458,37 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           # Q27
           should "ask 'claiming Disablement Benefit before moving overseas?'" do
             assert_current_node :claiming_iidb
+          end
+          
+          context "no to 'claiming Disablement Benefit before moving overseas?'" do
+            should "be answer 31" do
+              add_response :no
+              assert_current_node :answer_31
+            end
+          end
+          
+          context "yes to 'claiming Disablement Benefit before moving overseas?'" do
+            setup do
+              add_response :yes
+            end
+            
+            should "ask 'Moving to EEA?'" do
+              assert_current_node :moving_to_eea
+            end
+            
+            context "yes to 'Moving to EEA?'" do
+              should "be answer 32" do
+                add_response :yes
+                assert_current_node :answer_32
+              end
+            end
+            
+            context "no to 'Moving to EEA?'" do
+              should "be answer 33" do
+                add_response :no
+                assert_current_node :answer_33
+              end
+            end
           end
         end
 

@@ -142,6 +142,14 @@ end
 
 # Q27
 multiple_choice :claiming_iidb do
+  option :yes => :moving_to_eea
+  option :no => :answer_31
+end
+
+# Q28
+multiple_choice :moving_to_eea do
+  option :yes => :answer_32
+  option :no => :answer_33
 end
 
 # Q29
@@ -176,3 +184,6 @@ outcome :answer_27
 outcome :answer_28
 outcome :answer_29
 outcome :answer_30
+outcome :answer_31
+outcome :answer_32
+outcome :answer_33
