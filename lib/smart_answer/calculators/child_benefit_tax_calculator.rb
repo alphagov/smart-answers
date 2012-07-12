@@ -3,10 +3,12 @@ require 'ostruct'
 module SmartAnswer::Calculators
   class ChildBenefitTaxCalculator < OpenStruct
     def benefit_claimed_weeks
+      return 0 if child_benefit_end_date.nil? or child_benefit_start_date.nil?
       ((child_benefit_end_date - child_benefit_start_date)/7.0).round
     end
 
     def benefit_taxable_weeks
+      return 0 if child_benefit_end_date.nil?
       h_date = Date.new(2013, 1, 7)
       if child_benefit_end_date < h_date
         0
@@ -26,8 +28,16 @@ module SmartAnswer::Calculators
       benefit_claimed_weeks * weekly_amount
     end
 
+    def formatted_benefit_claimed_amount
+      format_money benefit_claimed_amount
+    end
+
     def benefit_taxable_amount
       benefit_taxable_weeks * weekly_amount
+    end
+
+    def formatted_benefit_taxable_amount
+      format_money benefit_taxable_amount
     end
 
     def percent_tax_charge
@@ -39,8 +49,16 @@ module SmartAnswer::Calculators
     end
 
     def benefit_tax
-      a
       percent_tax_charge * benefit_taxable_amount / 100.0
+    end
+
+    def formatted_benefit_tax
+      format_money benefit_tax
+    end
+
+    def format_money(value)
+      # regex strips zeros
+      str = sprintf("%.#{2}f", value).to_s.sub(/\.0+$/, '')
     end
   end
 end

@@ -62,6 +62,51 @@ multiple_choice :do_you_expect_to_stop_claiming_by_5_april_2013? do
       nil
     end
   end
+  
+  calculate :calculator do
+    Calculators::ChildBenefitTaxCalculator.new(
+      :child_benefit_start_date => child_benefit_start_date,
+      :child_benefit_end_date => child_benefit_end_date,
+      :children_claiming => children_claiming,
+      :income => income
+    )
+  end
+
+  calculate :benefit_tax do
+    calculator.benefit_tax
+  end
+  
+  calculate :formatted_benefit_tax do
+    calculator.formatted_benefit_tax
+  end
+
+  calculate :benefit_taxable_amount do
+    calculator.benefit_taxable_amount
+  end
+  
+  calculate :formatted_benefit_taxable_amount do
+    calculator.formatted_benefit_taxable_amount
+  end
+  
+  calculate :benefit_taxable_weeks do
+    calculator.benefit_taxable_wees
+  end
+
+  calculate :percent_tax_charge do
+    calculator.percent_tax_charge
+  end
+
+  calculate :benefit_claimed_amount do
+    calculator.benefit_claimed_amount
+  end
+
+  calculate :formatted_benefit_claimed_amount do
+    calculator.formatted_benefit_claimed_amount
+  end
+
+  calculate :benefit_claimed_weeks do
+    calculator.benefit_claimed_weeks
+  end
 end
 
 date_question :when_do_you_expect_to_stop_claiming? do
@@ -73,6 +118,51 @@ date_question :when_do_you_expect_to_stop_claiming? do
   end
 
   next_node :estimated_tax_charge
+
+  calculate :calculator do
+    Calculators::ChildBenefitTaxCalculator.new(
+      :child_benefit_start_date => child_benefit_start_date,
+      :child_benefit_end_date => child_benefit_end_date,
+      :children_claiming => children_claiming,
+      :income => income
+    )
+  end
+
+  calculate :benefit_tax do
+    calculator.benefit_tax
+  end
+  
+  calculate :formatted_benefit_tax do
+    calculator.formatted_benefit_tax
+  end
+
+  calculate :benefit_taxable_amount do
+    calculator.benefit_taxable_amount
+  end
+  
+  calculate :formatted_benefit_taxable_amount do
+    calculator.formatted_benefit_taxable_amount
+  end
+  
+  calculate :benefit_taxable_weeks do
+    calculator.benefit_taxable_wees
+  end
+
+  calculate :percent_tax_charge do
+    calculator.percent_tax_charge
+  end
+
+  calculate :benefit_claimed_amount do
+    calculator.benefit_claimed_amount
+  end
+
+  calculate :formatted_benefit_claimed_amount do
+    calculator.formatted_benefit_claimed_amount
+  end
+
+  calculate :benefit_claimed_weeks do
+    calculator.benefit_claimed_weeks
+  end
 end
 
 outcome :estimated_tax_charge
