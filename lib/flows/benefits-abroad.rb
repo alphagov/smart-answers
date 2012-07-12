@@ -13,6 +13,14 @@ multiple_choice :question_2 do
 end
 
 multiple_choice :question_3 do
+  option :certain_countries => :question_4
+  option :specific_benefits => :question_5
+end
+
+multiple_choice :question_4 do
+end
+
+multiple_choice :question_5 do
 end
 
 outcome :answer_1

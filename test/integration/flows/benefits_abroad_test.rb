@@ -40,6 +40,20 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
       should "be question 3 for yes" do
         assert_current_node :question_3
       end
+
+      context "certain countries for question 3" do
+        should "be question 4 for certain countries" do
+          add_response :certain_countries
+          assert_current_node :question_4
+        end
+      end
+
+      context "specific benefits for question 3" do
+        should "be question 5 for specific benefits" do
+          add_response :specific_benefits
+          assert_current_node :question_5
+        end
+      end
     end
   end
 end
