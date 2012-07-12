@@ -36,6 +36,12 @@ class ClaimANationalInsuranceRefundTest < ActiveSupport::TestCase
       add_response :paid_too_much
       assert_current_node :outcome_1a
     end
+
+    should "be outcome_6 if you qualified for low earnings exemption" do
+      add_response :low_earnings_exemption
+      assert_current_node :outcome_6
+    end
+
   end
 
   should "be outcome_2 for Class 3" do
