@@ -193,6 +193,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
               add_response :eea
             end
 
+            # Q10
             should "ask 'Are you working for a UK employer?'" do
               assert_current_node :uk_employer
             end
@@ -203,6 +204,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
               add_response :not_eea
             end
 
+            # Q12
             should "ask 'employer paying NI contributions for you?'" do
               assert_current_node :employer_paying_ni
             end
@@ -214,6 +216,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :child_benefits
           end
 
+          # Q13
           should "ask 'Are you moving to?'" do
             assert_current_node :moving_to
           end
@@ -224,6 +227,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :ssp
           end
 
+          # Q15
           should "ask 'Are you moving to a country?'" do
             assert_current_node :moving_country
           end
@@ -234,6 +238,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :tax_credits
           end
 
+          # Q18
           should "ask 'Are you claiming tax credits or eligible?'" do
             assert_current_node :claiming_tax_credits_or_eligible
           end
@@ -244,6 +249,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :esa
           end
 
+          # Q25
           should "ask 'Are you claiming ESA and going abroad for?'" do
             assert_current_node :claiming_esa_abroad_for
           end
@@ -254,6 +260,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :industrial_injuries
           end
 
+          # Q27
           should "ask 'claiming Disablement Benefit before moving overseas?'" do
             assert_current_node :claiming_iidb
           end
@@ -264,6 +271,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :disability
           end
 
+          # Q29
           should "ask 'Are you currently getting any of the following?'" do
             assert_current_node :getting_any_allowances
           end
@@ -274,6 +282,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :bereavement
           end
 
+          # Q35
           should "ask 'Are you eligible for the following?'" do
             assert_current_node :eligible_for_the_following
           end

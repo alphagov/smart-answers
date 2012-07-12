@@ -68,30 +68,39 @@ multiple_choice :are_you_moving_to_a_country do
   option :not_eea => :employer_paying_ni
 end
 
+# Q10
 multiple_choice :uk_employer do
 end
 
+# Q12
 multiple_choice :employer_paying_ni do
 end
 
+# Q13
 multiple_choice :moving_to do
 end
 
+# Q15
 multiple_choice :moving_country do
 end
 
+# Q18
 multiple_choice :claiming_tax_credits_or_eligible do
 end
 
+# Q25
 multiple_choice :claiming_esa_abroad_for do
 end
 
+# Q27
 multiple_choice :claiming_iidb do
 end
 
+# Q29
 multiple_choice :getting_any_allowances do
 end
 
+# Q35
 multiple_choice :eligible_for_the_following do
 end
 
