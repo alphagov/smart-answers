@@ -1,0 +1,21 @@
+en-GB:
+  flow:
+    checkbox-sample:
+      
+      what_do_you_want_on_your_pizza?:
+        options:
+          ham: "Ham"
+          peppers: "Peppers"
+          ice_cream: "Ice Cream!!!"
+          pepperoni: "Pepperoni" 
+
+      on_its_way:
+        title: "Ok, your pizza is on it's way"
+        body: |
+          You chose to have %{toppings} on your pizza.
+
+      margherita:
+        title: "Ok, your margherita pizza is on it's way"
+
+      no_way:
+        title: "No way. That's disgusting!"
