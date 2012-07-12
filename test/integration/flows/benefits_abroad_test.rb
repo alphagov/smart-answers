@@ -193,8 +193,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
               add_response :eea
             end
 
-            should "be question 10" do
-              assert_current_node :question_10
+            should "ask 'Are you working for a UK employer?'" do
+              assert_current_node :uk_employer
             end
           end
 
@@ -203,8 +203,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
               add_response :not_eea
             end
 
-            should "be question 12" do
-              assert_current_node :question_12
+            should "ask 'employer paying NI contributions for you?'" do
+              assert_current_node :employer_paying_ni
             end
           end
         end
@@ -214,8 +214,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :child_benefits
           end
 
-          should "be question 13" do
-            assert_current_node :question_13
+          should "ask 'Are you moving to?'" do
+            assert_current_node :moving_to
           end
         end
 
@@ -224,8 +224,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :ssp
           end
 
-          should "be question 15" do
-            assert_current_node :question_15
+          should "ask 'Are you moving to a country?'" do
+            assert_current_node :moving_country
           end
         end
 
@@ -234,8 +234,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :tax_credits
           end
 
-          should "be question 18" do
-            assert_current_node :question_18
+          should "ask 'Are you claiming tax credits or eligible?'" do
+            assert_current_node :claiming_tax_credits_or_eligible
           end
         end
 
@@ -244,8 +244,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :esa
           end
 
-          should "be question 25" do
-            assert_current_node :question_25
+          should "ask 'Are you claiming ESA and going abroad for?'" do
+            assert_current_node :claiming_esa_abroad_for
           end
         end
 
@@ -254,8 +254,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :industrial_injuries
           end
 
-          should "be question 27" do
-            assert_current_node :question_27
+          should "ask 'claiming Disablement Benefit before moving overseas?'" do
+            assert_current_node :claiming_iidb
           end
         end
 
@@ -264,8 +264,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :disability
           end
 
-          should "be question 29" do
-            assert_current_node :question_29
+          should "ask 'Are you currently getting any of the following?'" do
+            assert_current_node :getting_any_allowances
           end
         end
 
@@ -274,8 +274,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             add_response :bereavement
           end
 
-          should "be question 35" do
-            assert_current_node :question_35
+          should "ask 'Are you eligible for the following?'" do
+            assert_current_node :eligible_for_the_following
           end
         end
 

@@ -34,13 +34,13 @@ multiple_choice :which_benefit_would_you_like_to_claim do
   option :pension => :answer_7
   option :wfp => :are_you_moving_to_q7
   option :maternity => :are_you_moving_to_a_country
-  option :child_benefits => :question_13
-  option :ssp => :question_15
-  option :tax_credits => :question_18
-  option :esa => :question_25
-  option :industrial_injuries => :question_27
-  option :disability => :question_29
-  option :bereavement => :question_35
+  option :child_benefits => :moving_to
+  option :ssp => :moving_country
+  option :tax_credits => :claiming_tax_credits_or_eligible
+  option :esa => :claiming_esa_abroad_for
+  option :industrial_injuries => :claiming_iidb
+  option :disability => :getting_any_allowances
+  option :bereavement => :eligible_for_the_following
 end
 
 # Q6
@@ -64,35 +64,35 @@ end
 
 # Q9
 multiple_choice :are_you_moving_to_a_country do
-  option :eea => :question_10
-  option :not_eea => :question_12
+  option :eea => :uk_employer
+  option :not_eea => :employer_paying_ni
 end
 
-multiple_choice :question_10 do
+multiple_choice :uk_employer do
 end
 
-multiple_choice :question_12 do
+multiple_choice :employer_paying_ni do
 end
 
-multiple_choice :question_13 do
+multiple_choice :moving_to do
 end
 
-multiple_choice :question_15 do
+multiple_choice :moving_country do
 end
 
-multiple_choice :question_18 do
+multiple_choice :claiming_tax_credits_or_eligible do
 end
 
-multiple_choice :question_25 do
+multiple_choice :claiming_esa_abroad_for do
 end
 
-multiple_choice :question_27 do
+multiple_choice :claiming_iidb do
 end
 
-multiple_choice :question_29 do
+multiple_choice :getting_any_allowances do
 end
 
-multiple_choice :question_35 do
+multiple_choice :eligible_for_the_following do
 end
 
 outcome :answer_1
