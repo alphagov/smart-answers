@@ -18,6 +18,10 @@ multiple_choice :question_3 do
 end
 
 multiple_choice :question_4 do
+  option :eea_or_switzerland => :answer_3
+  option :gibraltar => :answer_4
+  option :other_listed => :answer_5
+  option :none_of_the_above => :answer_6
 end
 
 multiple_choice :question_5 do
@@ -25,3 +29,7 @@ end
 
 outcome :answer_1
 outcome :answer_2
+outcome :answer_3
+outcome :answer_4
+outcome :answer_5
+outcome :answer_6

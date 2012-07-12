@@ -42,10 +42,43 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
       end
 
       context "certain countries for question 3" do
-        should "be question 4 for certain countries" do
+      
+        setup do
           add_response :certain_countries
+        end
+      
+        should "be question 4 for certain countries" do
           assert_current_node :question_4
         end
+        
+        context "eea or switzerland for question 4" do
+          should "be answer 3 for eea or switzerland" do
+            add_response :eea_or_switzerland
+            assert_current_node :answer_3
+          end  
+        end
+
+        context "gibraltar for question 4" do
+          should "be answer 4 for gibraltar" do
+            add_response :gibraltar
+            assert_current_node :answer_4
+          end
+        end
+
+        context "other listed for question 4" do
+          should "be answer 5 for other listed" do
+            add_response :other_listed
+            assert_current_node :answer_5
+          end
+        end
+
+        context "none of the above for question 4" do
+          should "be answer 6 for none of the above" do
+            add_response :none_of_the_above
+            assert_current_node :answer_6
+          end
+        end
+      
       end
 
       context "specific benefits for question 3" do
