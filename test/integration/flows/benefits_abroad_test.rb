@@ -583,7 +583,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             end
             
             should "ask 'Moving to EEA?'" do
-              assert_current_node :moving_to_eea
+              assert_current_node :moving_to_eea2
             end
             
             context "yes to 'Moving to EEA?'" do

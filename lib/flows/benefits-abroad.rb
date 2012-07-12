@@ -175,12 +175,12 @@ end
 
 # Q27
 multiple_choice :claiming_iidb do
-  option :yes => :moving_to_eea
+  option :yes => :moving_to_eea2
   option :no => :answer_31
 end
 
 # Q28
-multiple_choice :moving_to_eea do
+multiple_choice :moving_to_eea2 do
   option :yes => :answer_32
   option :no => :answer_33
 end
