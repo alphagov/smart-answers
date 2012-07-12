@@ -622,8 +622,39 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           should "ask 'Are you eligible for the following?'" do
             assert_current_node :eligible_for_the_following
           end
-        end
 
+          context "no to 'are you eligible'" do
+            should "get answer 36" do
+              add_response :no
+              assert_current_node :answer_36
+            end
+          end
+
+          context "yes to 'are you eligible'" do
+            setup do
+              add_response :yes
+            end
+
+            # Q36
+            should "ask 'are you moving to?'" do
+              assert_current_node :are_you_moving_to_q36
+            end
+
+            context "eea to 'are you moving to'" do
+              should "get answer 37" do
+                add_response :eea_switzerland_gibraltar
+                assert_current_node :answer_37
+              end
+            end
+
+            context "none to 'are you moving to'" do
+              should "get answer 38" do
+                add_response :none
+                assert_current_node :answer_38
+              end
+            end
+          end
+        end
       end
     end
   end

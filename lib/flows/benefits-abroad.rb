@@ -191,6 +191,14 @@ end
 
 # Q35
 multiple_choice :eligible_for_the_following do
+  option :no => :answer_36
+  option :yes => :are_you_moving_to_q36
+end
+
+# Q36
+multiple_choice :are_you_moving_to_q36 do
+  option :eea_switzerland_gibraltar => :answer_37
+  option :none => :answer_38
 end
 
 outcome :answer_1
@@ -226,3 +234,6 @@ outcome :answer_30
 outcome :answer_31
 outcome :answer_32
 outcome :answer_33
+outcome :answer_36
+outcome :answer_37
+outcome :answer_38
