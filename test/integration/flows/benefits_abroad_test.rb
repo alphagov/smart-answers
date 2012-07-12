@@ -9,8 +9,9 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
     setup_for_testing_flow 'benefits-abroad'
   end
 
-  should "ask have you told JobCentre plus" do
-    assert_current_node :question_1
+  # Q1
+  should "ask have you told jobcentre plus?" do
+    assert_current_node :have_you_told_jobcentre_plus
   end
 
   should "be answer_1 for no" do
@@ -18,13 +19,13 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
     assert_current_node :answer_1
   end
 
-  context "yes to question 1" do
+  context "yes to 'have you told jobcentre plus?'" do
     setup do
       add_response :yes
     end
-
-    should "be question_2 for yes" do
-      assert_current_node :question_2
+    # Q2
+    should "ask 'have you paid ni in the uk?' for yes" do
+      assert_current_node :have_you_paid_ni_in_the_uk
     end
   
     should "be answer 2 for no" do
@@ -32,47 +33,49 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
       assert_current_node :answer_2
     end
 
-    context "yes to question 2" do
+    context "yes to 'have you paid ni in the uk?'" do
       setup do
         add_response :yes
       end
 
-      should "be question 3 for yes" do
-        assert_current_node :question_3
+      #Q3
+      should "ask 'certain countries or specific benefits?' for yes" do
+        assert_current_node :certain_countries_or_specific_benefits
       end
 
-      context "certain countries for question 3" do
+      context "certain countries for certain countries or specific benefits?" do
       
         setup do
           add_response :certain_countries
         end
-      
-        should "be question 4 for certain countries" do
-          assert_current_node :question_4
+        
+        # Q4
+        should "ask 'are you moving to?'" do
+          assert_current_node :are_you_moving_to_q4
         end
         
-        context "eea or switzerland for question 4" do
+        context "eea or switzerland for 'are you moving to:'" do
           should "be answer 3 for eea or switzerland" do
             add_response :eea_or_switzerland
             assert_current_node :answer_3
           end  
         end
 
-        context "gibraltar for question 4" do
+        context "gibraltar for 'are you moving to:'" do
           should "be answer 4 for gibraltar" do
             add_response :gibraltar
             assert_current_node :answer_4
           end
         end
 
-        context "other listed for question 4" do
+        context "other listed for 'are you moving to:'" do
           should "be answer 5 for other listed" do
             add_response :other_listed
             assert_current_node :answer_5
           end
         end
 
-        context "none of the above for question 4" do
+        context "none of the above for 'are you moving to:'" do
           should "be answer 6 for none of the above" do
             add_response :none_of_the_above
             assert_current_node :answer_6
@@ -80,14 +83,16 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
         end
       
       end
-
-      context "specific benefits for question 3" do
+      
+      context "specific benefits for 'certain countries or specific benefits?'" do
         setup do
           add_response :specific_benefits
         end
-
-        should "be question 5 for specific benefits" do
-          assert_current_node :question_5
+        
+        
+        # Q5
+        should "ask 'which benefit would you like to claim?' for specific benefits" do
+          assert_current_node :which_benefit_would_you_like_to_claim
         end
 
         should "be answer 7 for pension" do
@@ -95,30 +100,31 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           assert_current_node :answer_7
         end
 
-        context "jsa for question 5" do
+        context "jsa for 'which benefit would you like to claim?'" do
           setup do
             add_response :jsa
           end
-
-          should "be question 6" do
-            assert_current_node :question_6
+          
+          # Q6
+          should "ask 'are you moving to:'" do
+            assert_current_node :are_you_moving_to_q6
           end
           
-          context "eea, switzerland, gibraltar for question 6" do
+          context "eea, switzerland, gibraltar for 'are you moving to:'" do
             should "be answer 8" do
               add_response :eea_switzerland_gibraltar
               assert_current_node :answer_8
             end
           end
           
-          context "jersey, etc. for question 6" do
+          context "jersey, etc. for 'are you moving to:'" do
             should "be answer 9" do
               add_response :jersey_etc
               assert_current_node :answer_9
             end            
           end
           
-          context "none of the above for question 6" do
+          context "none of the above for 'are you moving to:'" do
             should "be answer 9" do
               add_response :none_of_the_above
               assert_current_node :answer_10
@@ -127,33 +133,35 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           
         end
 
-        context "wfp for question 5" do
+        context "wfp for 'which benefit would you like to claim?'" do
           setup do
             add_response :wfp
           end
-
-          should "be question 7" do
-            assert_current_node :question_7
+          
+          #Q7
+          should "ask 'are you moving to:'" do
+            assert_current_node :are_you_moving_to_q7
           end
           
-          context "eea switzerland gibraltar for question 7" do
+          context "eea switzerland gibraltar for 'are you moving to:'" do
             
             setup do
               add_response :eea_switzerland_gibraltar
             end
             
-            should "be question 8" do
-              assert_current_node :question_8
+            # Q8
+            should "ask 'do you already qualify for wfp payments in the uk?'" do
+              assert_current_node :already_qualify_for_wfp_in_the_uk
             end
             
-            context "yes for question 8" do
+            context "yes for 'do you already qualify for wfp payments in the uk?'" do
               should "be answer 12" do
                 add_response :yes
                 assert_current_node :answer_12
               end
             end
             
-            context "no for question 8" do
+            context "no for 'do you already qualify for wfp payments in the uk?'" do
               should "should be answer 11" do
                 add_response :no
                 assert_current_node :answer_11
@@ -161,7 +169,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             end
           end
           
-          context "other for question 7" do
+          context "other for 'are you moving to:'" do
             should "be answer 11" do
               add_response :other
               assert_current_node :answer_11
@@ -170,16 +178,17 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           
         end
 
-        context "maternity for question 5" do
+        context "maternity for 'which benefit would you like to claim?'" do
           setup do
             add_response :maternity
           end
-
-          should "be question 9" do
-            assert_current_node :question_9
+          
+          # Q9
+          should "ask 'are you moving to a country:'" do
+            assert_current_node :are_you_moving_to_a_country
           end
 
-          context "EEA for question 9" do
+          context "EEA for 'are you moving to a country:'" do
             setup do
               add_response :eea
             end
@@ -189,7 +198,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
             end
           end
 
-          context "not EEA for question 9" do
+          context "not EEA for 'are you moving to a country:'" do
             setup do
               add_response :not_eea
             end
