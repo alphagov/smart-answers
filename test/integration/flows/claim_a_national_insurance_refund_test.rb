@@ -24,7 +24,7 @@ class ClaimANationalInsuranceRefundTest < ActiveSupport::TestCase
     end
 
     should "ask why you are applying for a refund" do
-      assert_current_node :why_are_you_applying_for_a_refund?
+      assert_current_node :why_are_you_applying_for_a_refund_class2?
     end
 
     should "be outcome_5 if you shouldn't have paid" do
@@ -55,7 +55,7 @@ class ClaimANationalInsuranceRefundTest < ActiveSupport::TestCase
     end
 
     should "ask why you are applying for a refund" do
-      assert_current_node :why_are_you_applying_for_a_refund?
+      assert_current_node :why_are_you_applying_for_a_refund_class4?
     end
 
     should "be outcome_3 if shouldn't have paid" do
