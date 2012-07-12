@@ -111,6 +111,8 @@ class SmartAnswerPresenter
       CountrySelectQuestionPresenter
     when SmartAnswer::Question::MultipleChoice
       MultipleChoiceQuestionPresenter
+    when SmartAnswer::Question::Checkbox
+      CheckboxQuestionPresenter
     when SmartAnswer::Question::Value
       ValueQuestionPresenter
     when SmartAnswer::Question::Money

@@ -55,6 +55,19 @@ class CheckboxQuestionsTest < EngineIntegrationTest
 
       assert_current_url "/checkbox-sample/y/none"
 
+      within '.done-questions' do
+        within('.start-again') { assert page.has_link?("Start again", :href => '/checkbox-sample') }
+        within 'ol li.done' do
+          within 'h3' do
+            within('.question-number') { assert_page_has_content "1" }
+            assert_page_has_content "What do you want on your pizza?"
+          end
+          within('.answer') { assert_page_has_content "none" }
+          # TODO: Fix wierd ?& in link...
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/checkbox-sample/y?&previous_response=none") }
+        end
+      end
+
       within '.outcome' do
         assert_page_has_content "Ok, your margherita pizza is on its way"
       end
