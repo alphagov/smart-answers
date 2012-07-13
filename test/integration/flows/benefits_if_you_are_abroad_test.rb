@@ -171,7 +171,7 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
           
           context "other for 'are you moving to:'" do
             should "be answer 11" do
-              add_response :other
+              add_response :none
               assert_current_node :answer_11
             end
           end

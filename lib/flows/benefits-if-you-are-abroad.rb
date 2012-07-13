@@ -53,7 +53,7 @@ end
 # Q7
 multiple_choice :are_you_moving_to_q7 do
   option :eea_switzerland_gibraltar => :already_qualify_for_wfp_in_the_uk
-  option :other => :answer_11
+  option :none => :answer_11
 end
 
 # Q8
@@ -88,8 +88,8 @@ end
 
 # Q13
 multiple_choice :moving_to do
-  option :barbados_canada_israel => :answer_16
   option :eea_or_switzerland => :paying_nics_and_receiving_uk_benefits
+  option :barbados_canada_israel => :answer_16
   option :other => :answer_18
 end
 
@@ -119,8 +119,8 @@ end
 
 # Q18
 multiple_choice :claiming_tax_credits_or_eligible do
-  option :no => :answer_21
   option :yes => :you_or_partner
+  option :no => :answer_21
 end
 
 # Q19
@@ -132,20 +132,20 @@ end
 
 # Q20
 multiple_choice :got_a_child do
-  option :no => :answer_21
   option :yes => :moving_to_eea
+  option :no => :answer_21
 end
 
 # Q21
 multiple_choice :moving_to_eea do
-  option :no => :answer_21
   option :yes => :claiming_benefit_or_pension
+  option :no => :answer_21
 end
 
 # Q22
 multiple_choice :claiming_benefit_or_pension do
-  option :no => :answer_21
   option :yes => :answer_24
+  option :no => :answer_21
 end
 
 # Q23
@@ -200,8 +200,8 @@ end
 
 # Q31
 multiple_choice :moving_to_q31 do
-  option :other => :answer_34
   option :eec_switzerland_gibraltar => :do_you_or_family_pay_uk_nic
+  option :other => :answer_34
 end
 
 # Q32
@@ -224,8 +224,8 @@ end
  
 # Q35
 multiple_choice :eligible_for_the_following do
-  option :no => :answer_36
   option :yes => :are_you_moving_to_q36
+  option :no => :answer_36
 end
 
 # Q36
