@@ -1,7 +1,11 @@
 class CheckboxQuestionPresenter < QuestionPresenter
-  def response_label(values)
+  def response_labels(values)
     values.split(',').map do |value|
       translate_option(value)
-    end.join(', ')
+    end
+  end
+
+  def multiple_responses?
+    true
   end
 end
