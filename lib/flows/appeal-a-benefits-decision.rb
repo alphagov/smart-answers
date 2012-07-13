@@ -15,7 +15,17 @@ multiple_choice :problem_with_tribunal_proceedure? do
   option :none => :cant_challenge_or_appeal #A3
 end
 
-outcome :you_can_challenge_decision
-outcome :can_appeal_to_upper_tribunal
-outcome :cant_challenge_or_appeal
+# Q3
+multiple_choice :date_of_decision_letter? do
+  option :greater_than_thirteen_months_ago => :cant_challenge_or_appeal #A3
+  option :less_than_thirteen_months_ago => :had_written_explanation?
+end
+
+multiple_choice :had_written_explanation? do
+  #option :spoken_explanation => 
+end
+
+outcome :you_can_challenge_decision #A1
+outcome :can_appeal_to_upper_tribunal #A2
+outcome :cant_challenge_or_appeal #A3
 

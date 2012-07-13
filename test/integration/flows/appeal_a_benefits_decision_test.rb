@@ -17,6 +17,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
     setup do
       add_response :yes
     end
+    
     #Q2
     should "ask 'problem with tribunal procedure?'" do
       assert_current_node :problem_with_tribunal_proceedure?
@@ -40,6 +41,32 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
       should "say 'cant challenge or appeal'" do
         add_response :none
         assert_current_node :cant_challenge_or_appeal
+      end
+    end
+    
+  end
+  
+  context "answer 'no' to 'already appealed the decision?'" do
+    setup do
+      add_response :no
+    end
+    
+    #Q3
+    should "ask 'date of decision letter?'" do
+      assert_current_node :date_of_decision_letter?
+    end
+    
+    context "answer 'greater than thirteen months ago' to 'date of decision letter?'" do
+      should "say 'cant challenge or appeal'" do
+        add_response :greater_than_thirteen_months_ago
+        assert_current_node :cant_challenge_or_appeal
+      end
+    end
+    
+    context "answer 'less than thirteen months ago' to 'date of decision letter?'" do
+      should "ask 'had written explanation?'" do
+        add_response :less_than_thirteen_months_ago
+        assert_current_node :had_written_explanation?
       end
     end
     
