@@ -34,8 +34,8 @@ en-GB:
       certain_countries_or_specific_benefits:
         title: "Would you like to find out:"
         options:
-          "certain_countries": "Which benefits you might be able to claim in certain countries"
-          "specific_benefits": "About specific benefits"
+          "certain_countries": "which benefits you might be able to claim in certain countries"
+          "specific_benefits": "about specific benefits"
       # Q4
       are_you_moving_to_q4:
         title: "Are you moving to:"
@@ -133,10 +133,10 @@ en-GB:
 
           *[EEA]: European Economic Area
         options:   
-          "eea_or_switzerland": "a county in the EEA or Switzerland"
+          "eea_or_switzerland": "a country in the EEA or Switzerland"
           "barbados_canada_israel": |
             Barbados, Bosnia-Hercegovina, Canada, Croatia, Israel, Guernsey, Jersey, Kosovo, the former Yugoslav Republic of Macedonia, Mauritius, Montenegro, New Zealand or Serbia
-          "other": "None of the above"
+          "other": "none of the above"
       # Q14
       paying_nics_and_receiving_uk_benefits:
         title: "Does one of the following apply to you?"
@@ -289,8 +289,8 @@ en-GB:
 
           *[EEA]: European Economic Area
         options:
-          "eec_switzerland_gibraltar": "A country in the EEA, Gibraltar or Switzerland"
-          "other": "None of the above"
+          "eec_switzerland_gibraltar": "a country in the EEA, Gibraltar or Switzerland"
+          "other": "none of the above"
       # Q32
       do_you_or_family_pay_uk_nic:
         title: "Do you (or a family member) work in the UK or pay NI in the UK because of your work?"
@@ -338,8 +338,8 @@ en-GB:
 
           *[EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"}: European Economic Area
         options:
-          "eea_switzerland_gibraltar": "A country in the EEA, Gibraltar or Switzerland"
-          "none": "None of the above"                    
+          "eea_switzerland_gibraltar": "a country in the EEA, Gibraltar or Switzerland"
+          "none": "none of the above"                    
       answer_1: 
         body: |
           You should contact your local [Jobcentre Plus](http://los.direct.gov.uk/default.aspx?type=2&lang=en "Jobcentre Plus"){:rel="external"} to let them know.
