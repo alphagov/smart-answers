@@ -217,7 +217,7 @@ end
 
 # Q34
 multiple_choice :getting_ssp_iib_esa_or_bereavment do
-  option :yes => :answer_35
+  option :yes => :answer_35b
   option :no => :answer_34
 end
  
@@ -268,6 +268,7 @@ outcome :answer_32
 outcome :answer_33
 outcome :answer_34
 outcome :answer_35
+outcome :answer_35b
 outcome :answer_36
 outcome :answer_37
 outcome :answer_38

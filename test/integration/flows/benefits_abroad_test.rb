@@ -690,9 +690,9 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
                     end
                     
                     context "yes to 'Getting SSP, IIB, ESA or bereavment?'" do
-                      should "be answer 35" do
+                      should "be answer 35b" do
                         add_response :yes
-                        assert_current_node :answer_35
+                        assert_current_node :answer_35b
                       end
                     end
                     
