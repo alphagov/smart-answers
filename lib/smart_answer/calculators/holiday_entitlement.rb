@@ -42,35 +42,70 @@ module SmartAnswer::Calculators
       5.6 * fraction_of_year * shifts_per_week
     end
 
+    def date_calc
+      if self.start_date
+        Date.parse start_date
+      else
+        Date.parse leaving_date
+      end
+    end
+
+    def feb29th_in_year_of_date(date)
+      Date.new(date.year, 2, 29)
+    end
+
+    def feb29th_in_range(start_date, end_date)
+      iterator = start_date
+      while iterator <= end_date
+        return true if feb29th_in_year_range iterator, start_date, end_date
+        iterator = iterator + 1.year
+      end
+      # Helps with edge conditions - e.g 2011-12-31 to 2012-12-30
+      feb29th_in_year_range end_date, start_date, end_date
+    end
+
+    def feb29th_in_year_range(iterator, start_date, end_date)
+      if iterator.leap?
+        feb29th = feb29th_in_year_of_date iterator
+        start_date <= feb29th and end_date >= feb29th
+      else
+        false
+      end
+    end
+
+    def leave_year_start_end
+      if self.leave_year_start_date
+        date_leave_year_start_date = Date.parse leave_year_start_date
+
+        needs_offset = date_calc >= date_of_year(date_leave_year_start_date, date_calc.year)
+        number_years = date_calc.year - (needs_offset ? 0 : 1)
+
+        leave_year_start = date_of_year(date_leave_year_start_date, number_years)
+        leave_year_end = leave_year_start + 1.years - 1.days
+      else
+        leave_year_start = date_calc.beginning_of_year
+        leave_year_end = date_calc.end_of_year
+      end
+
+      [leave_year_start, leave_year_end]
+    end
+
     def fraction_of_year
       return 1 if not self.start_date and not self.leaving_date
 
-      if self.start_date
-        d_d = Date.parse start_date
-      else
-        d_d = Date.parse leaving_date
-      end
+      leave_year_start, leave_year_end = leave_year_start_end
 
-      if self.leave_year_start_date
-        d_leave_year_start_date = Date.parse leave_year_start_date
-
-        needs_offset = d_d >= date_of_year(d_leave_year_start_date, d_d.year)
-        n_year = d_d.year - (needs_offset ? 0 : 1)
-        leave_year_start = date_of_year(d_leave_year_start_date, n_year)
-        leave_year_end = leave_year_start + (leave_year_start.leap? ? 365.days : 364.days)
-      else
-        leave_year_start = Date.today.beginning_of_year
-        leave_year_end = Date.today.end_of_year
-      end
+      # TODO: Check if handling of leap years is correct
+      # Currently divides by 366 days if there is a Feb 29th between the start and end of
+      # the leave year, and 365 if not. This has the same effect as just checking for a leap
+      # year when leave_year_start_date is not set, but should work a little bit better
+      # when it is not set.
+      days_divide = feb29th_in_range(leave_year_start, leave_year_end) ? 366 : 365
 
       if self.start_date
-        d = Date.parse start_date
-        (leave_year_end - d) / (d.leap? ? 366 : 365)
-      elsif self.leaving_date
-        d = Date.parse leaving_date
-        (d - leave_year_start) / (d.leap? ? 366 : 365)
+        (leave_year_end - date_calc + 1) / days_divide
       else
-        1
+        (date_calc - leave_year_start + 1) / days_divide
       end
     end
 
@@ -90,7 +125,7 @@ module SmartAnswer::Calculators
     def strip_zeros(number)
       number.to_s.sub(/\.0+$/, '')
     end
-2
+    
     def method_missing(*args)
       # formatted_foo calls format_number on foo
       if args.first.to_s =~ /\Aformatted_(.*)\z/
