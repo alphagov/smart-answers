@@ -119,7 +119,7 @@ end
 
 # Q18
 multiple_choice :claiming_tax_credits_or_eligible do
-  option :no => :answer_20
+  option :no => :answer_21
   option :yes => :you_or_partner
 end
 

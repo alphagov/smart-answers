@@ -381,9 +381,9 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           end
 
           context "no for 'claiming tax credits'" do
-            should "get answer 20" do
+            should "get answer 21" do
               add_response :no
-              assert_current_node :answer_20
+              assert_current_node :answer_21
             end
           end
 
