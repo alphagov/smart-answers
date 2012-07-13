@@ -50,7 +50,12 @@ end
 multiple_choice :on_what_grounds_are_you_seeking_derecognition? do
   option :lack_of_support_for_bargaining => :does_the_union_agree_with_derecognition_lack_of_bargaining_support?
   option :falling_union_membership => :does_the_union_agree_with_derecognition_falling_union_membership?
-  option :reduced_workforce => :is_your_derecognition_valid?
+  option :reduced_workforce => :have_you_sent_notice?
+end
+
+multiple_choice :have_you_sent_notice? do
+  option :yes => :is_your_derecognition_valid?
+  option :no => :write_to_union
 end
 
 multiple_choice :does_the_union_agree_with_derecognition_lack_of_bargaining_support? do
@@ -92,3 +97,4 @@ outcome :the_union_is_derecognised_and_bargaining_ends
 outcome :the_union_is_derecognised_and_bargaining_will_end
 outcome :you_must_continue_with_the_existing_bargaining_arrangements
 outcome :you_do_not_have_to_recognise_the_union_cannot_reapply
+outcome :write_to_union

@@ -69,6 +69,21 @@ en-GB:
           falling_union_membership: union membership in the bargaining unit is lower than 50%
         body: |
           [More information about the statutory derecognition procedure](http://www.cac.gov.uk/index.aspx?articleid=2334 “More information about the statutory derecognition procedure”){:rel=”external”}
+      have_you_sent_notice?:
+        title: Have you sent a notice to the union and the CAC requesting derecognition?
+        body: |
+          Your notice should include:
+
+          - the specific 13 week period when you had fewer than 21 employees
+          - the date you want bargaining agreements to end
+          - the number of workers you employed in that time
+
+          The union may appeal if it believes:
+
+          - your 13 week period occurred within 3 years of them gaining recognition
+          - you employed 21 or more workers during that time
+
+          *[CAC]:Central Arbitration Committee
       is_your_derecognition_valid?:
         title: "Has the CAC decided that your notice is:"
         options:
@@ -102,6 +117,13 @@ en-GB:
         title: You can't seek derecognition.
         body: |
           You must continue with the existing bargaining arrangements.
+      write_to_union:
+        body: |
+          You can write to the union and the CAC requesting derecognition on these grounds.
+
+          Both parties must consider your notice.
+
+          Both parties can ask [Acas](http://www.acas.org.uk/ “Acas”){:rel=”external”} to help negotiate at this stage of the process.
       the_union_is_derecognised_and_bargaining_will_end:
         title: The union is derecognised.
         body: |

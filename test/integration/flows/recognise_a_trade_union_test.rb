@@ -278,18 +278,35 @@ class RecogniseATradeUnion < ActiveSupport::TestCase
           add_response :reduced_workforce
         end
 
-        should "ask if CAS has decided your notice is valid" do
-          assert_current_node :is_your_derecognition_valid?
+        should "ask if you have sent notice" do
+          assert_current_node :have_you_sent_notice?
         end
 
-        should "not be able to seek derecognition" do
-          add_response :not_valid
-          assert_current_node :you_cannot_seek_derecognition
+        context "has not sent notice" do
+          should "write to union" do
+            add_response :no
+            assert_current_node :write_to_union
+          end
         end
 
-        should "be derecognised" do
-          add_response :valid
-          assert_current_node :the_union_is_derecognised_and_bargaining_will_end
+        context "has sent notice" do
+          setup do
+            add_response :yes
+          end
+
+          should "ask if CAS has decided your notice is valid" do
+            assert_current_node :is_your_derecognition_valid?
+          end
+
+          should "not be able to seek derecognition" do
+            add_response :not_valid
+            assert_current_node :you_cannot_seek_derecognition
+          end
+
+          should "be derecognised" do
+            add_response :valid
+            assert_current_node :the_union_is_derecognised_and_bargaining_will_end
+          end
         end
       end
     end
