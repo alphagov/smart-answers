@@ -96,14 +96,17 @@ en-GB:
       part_time_how_many_days_per_week?:
         title: How many days do you work per week?
         label: Days per week
+        error_message: If you work part-time you should work less than 5 days a week.
 
       compressed_hours_how_many_hours_per_week?:
         title: How many hours per week do you work?
         label: Hours per week
+        error_message: There are only 168 hours in a week. Please check and enter a correct value.
 
       compressed_hours_how_many_days_per_week?:
         title: How many days per week do you work?
         label: Days per week
+        error_message: There are only 7 days in a week. Please check and enter a correct value.
 
       casual_or_irregular_hours?:
         title: How many hours have you worked?
@@ -114,6 +117,7 @@ en-GB:
         title: How many hours do you work a year?
         hint: This is calculated by excluding statutory entitlement. This calculation isn't suitable for term-time workers.
         label: Hours per year
+        error_message: You need to enter a number greater than 0
 
       shift_worker_basis?:
         title: How long are you working in shifts?
