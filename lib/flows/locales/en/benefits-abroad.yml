@@ -11,6 +11,8 @@ en-GB:
         title: |
           Have you told your local Jobcentre Plus that you’re going abroad?
         body: |
+          Find contact information for [your local Jobcentre Plus.](http://los.direct.gov.uk/default.aspx?type=2&lang=en "Jobcentre Plus"){:rel="external"}
+          
           You may also need to tell HMRC if you’re retiring abroad or claiming a pension.
         options:
           "no": "No"
@@ -20,117 +22,76 @@ en-GB:
         title: |
           Have you paid National Insurance (NI) contributions in the UK?
         body: |
-          If you’re moving to a country that’s in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries “List of countries in the EEA”){:rel=”external”} or has a benefits agreement with the UK, and you want to claim benefits there, you may need to have a record of how much NI you’ve paid in the UK.
+          If you’re moving to a country that’s in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} or has a benefits agreement with the UK, and you want to claim benefits there, you may need to have a record of how much National Insurance you’ve paid in the UK. 
+
+          [Check your National Insurance record.](/national-insurance/check-your-contributions-record "check your contributions record")
           
-          [Check your NI contributions record.](/national-insurance/check-your-contributions-record “check your contributions record”)
+          *[EEA]:European Economic Area
         options:
           "no": "No"
           "yes": "Yes"
       # Q3
       certain_countries_or_specific_benefits:
         title: "Would you like to find out:"
-        body: |
-          - which benefits you might be able to claim in certain countries
-          - about specific benefits
         options:
-          "certain_countries": "Certain countries"
-          "specific_benefits": "Specific benefits"
+          "certain_countries": "Which benefits you might be able to claim in certain countries"
+          "specific_benefits": "About specific benefits"
       # Q4
       are_you_moving_to_q4:
         title: "Are you moving to:"
         body: |
-          - an [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries “List of countries in the EEA”){:rel=”external”} country 
-          - Barbados
-          - Bermuda
-          - Canada
-          - Gibraltar
-          - Israel
-          - Jamaica
-          - Channel Islands (Jersey or Guernsey)
-          - Mauritius
-          - New Zealand
-          - Philippines
-          - Bosnia-Hercegovina
-          - Croatia
-          - Kosovo
-          - the former Yugoslav Republic of Macedonia
-          - Montenegro 
-          - Serbia
-          - Switzerland
-          - Turkey
-          - USA
-          - none of the above
+          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
 
-          *[EEA]: European Economic Area
+          *[EEA]:European Economic Area
         options:
-          "eea_or_switzerland": "EEA country or Switzerland"
+          "eea_or_switzerland": "an EEA country or Switzerland"
           "gibraltar": "Gibraltar"
-          "other_listed": "Other listed"
-          "none_of_the_above": "None of the above"
+          "other_listed": |
+            Barbados, Bermuda, Bosnia-Hercegovina, Canada, Channel Islands (Jersey or Guernsey), Croatia, Former Yugoslav Republic of Macedonia, Israel, Jamaica, Kosovo, Mauritius, Montenegro, New Zealand, Philippines, Serbia, Turkey or USA
+          "none_of_the_above": "none of the above"
       # Q5
       which_benefit_would_you_like_to_claim:
         title: "Which benefit would you like to claim?"
-        body: |
-          - Jobseeker’s Allowance (JSA)
-          - State Pension
-          - Winter Fuel Payment
-          - maternity benefits
-          - child benefits
-          - Industrial Injuries Disablement Benefit
-          - Statutory Sick Pay
-          - Employment and Support Allowance (ESA)
-          - Benefits for carers and people with disabilities 
-          - Bereavement benefits
-          - Tax Credits
         options:
-          "jsa": "JSA"
-          "pension": "pension"
-          "wfp": "WFP"
-          "maternity": "maternity"
-          "child_benefits": "child benefits"
-          "ssp": "SSP"
-          "tax_credits": "tax credits"
-          "esa": "ESA"
-          "industrial_injuries": "industrial injuries"
-          "disability": "disability"
-          "bereavement": "bereavement"
+          "jsa": "Jobseeker’s Allowance (JSA)"
+          "pension": "State Pension"
+          "wfp": "Winter Fuel Payment"
+          "maternity": "Maternity Benefits"
+          "child_benefits": "Child Benefits"
+          "ssp": "Statutory Sick Pay"
+          "tax_credits": "Tax Credits"
+          "esa": "Employment and Support Allowance (ESA)"
+          "industrial_injuries": "Industrial Injuries Disablement Benefit"
+          "disability": "Benefits for carers and people with disabilities"
+          "bereavement": "Bereavement benefits"
       # Q6
       are_you_moving_to_q6:
         title: "Are you moving to:"
         body: |
-          - a country in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries “List of countries in the EEA”){:rel=”external”}
-          - Switzerland
-          - Gibraltar
-          - Jersey, Guernsey, Bosnia-Hercegovina, Croatia, Kosovo, the former Yugoslav Republic of Macedonia, Montenegro, Serbia or New Zealand
-          - none of the above
-
+          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"}
 
           *[EEA]: European Economic Area
         options:
-          "eea_switzerland_gibraltar": "EEA, Switzerland, Gibraltar"
-          "jersey_etc": "Jersey etc."
-          "none_of_the_above": "none of the above"
+          "eea_switzerland_gibraltar": |
+            a country in the EEA, Switzerland or Gibraltar
+          "jersey_etc": |
+            Bosnia-Hercegovina, Croatia, Guernsey, Jersey, Kosovo, the former Yugoslav Republic of Macedonia, Montenegro, New Zealand, Serbia
+          "none_of_the_above": "None of the above"
       # Q7
       are_you_moving_to_q7:
         title: "Are you moving to:"
         body: |
-          - a country in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries “List of countries in the EEA”){:rel=”external”} 
-          - Gibraltar
-          - Switzerland
-          - none of the above
+          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
 
           *[EEA]: European Economic Area
         options:
-          "eea_switzerland_gibraltar": "EEA country, Gibraltar & Switzerland"
-          "none": "none"
+          "eea_switzerland_gibraltar": "a country in the EEA, Gibraltar or Switzerland" 
+          "none": "none of the above"
       # Q8
       already_qualify_for_wfp_in_the_uk:
         title: "Do you already qualify for Winter Fuel Payments in the UK?"
         body: |
-          [Find out if you’re eligible.](/winter-fuel-payment#eligibility “Eligibility for Winter Fuel Payments”)
-
-          - Yes
-          - No
+          [Find out if you're eligible.](/winter-fuel-payment#eligibility "Eligibility for Winter Fuel Payments")
         options:
           "no": "No"
           "yes": "Yes"
@@ -138,19 +99,15 @@ en-GB:
       are_you_moving_to_a_country_q9:
         title: "Are you moving to a country:"
         body: |
-          - in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries “List of countries in the EEA”){:rel=”external”}
-          - outside the EEA 
+          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
 
           *[EEA]: European Economic Area
         options:
-          "eea": "EEA"
-          "not_eea": "not EEA"
+          "eea": "in the EEA"
+          "not_eea": "outside the EEA"
       # Q10
       uk_employer:
         title: "Are you working for a UK employer?"
-        body: |
-          - Yes
-          - No
         options:
           "yes": "Yes"
           "no": "No"
@@ -158,17 +115,13 @@ en-GB:
       eligible_for_maternity_pay:
         title: "Are you eligible for Statutory Maternity Pay?"
         body: |
-          - Yes
-          - No
+          Find out about [your eligibility](/statutory-maternity-pay#eligibility "Eligibility for Statutory Maternity Pay").
         options:
           "yes": "Yes"
           "no": "No"          
       # Q12
       employer_paying_ni:
         title: "Is your employer paying UK National Insurance contributions for you?"
-        body: |
-          - Yes
-          - No
         options:        
           "yes": "Yes"
           "no": "No"  
@@ -176,16 +129,14 @@ en-GB:
       moving_to:
         title: "Are you moving to:"
         body: |
-          - a country in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries “List of countries in the EEA”){:rel=”external”} or Switzerland 
-          - Barbados, Canada, Israel, Jersey, Guernsey, Mauritius, New Zealand, Bosnia-Hercegovina, Croatia, Kosovo, the former Yugoslav Republic of Macedonia, Montenegro or Serbia
-
-          - none of the above
+          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
 
           *[EEA]: European Economic Area
         options:   
-          "eea_or_switzerland": "EEA and Switzerland"
-          "barbados_canada_israel": "Barbados, Canada, Israel"
-          "other": "none of the above"
+          "eea_or_switzerland": "a county in the EEA or Switzerland"
+          "barbados_canada_israel": |
+            Barbados, Bosnia-Hercegovina, Canada, Croatia, Israel, Guernsey, Jersey, Kosovo, the former Yugoslav Republic of Macedonia, Mauritius, Montenegro, New Zealand or Serbia
+          "other": "None of the above"
       # Q14
       paying_nics_and_receiving_uk_benefits:
         title: "Does one of the following apply to you?"
@@ -194,38 +145,28 @@ en-GB:
           * you’re currently receiving one or more UK benefits.
 
           Benefits that count include: Jobseeker's Allowance, Incapacity Benefit, Employment and Support Allowance, State Pension, Widows/Bereavement Benefit or Industrial Injuries Disablement Benefit
-
-          - Yes
-          - None
         options:
           "yes": "Yes"
           "no": "No"   
       # Q15
       are_you_moving_to_a_country_q15:
         title: "Are you moving to a country:"
-        body: |
-          - in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries “List of countries in the EEA”){:rel=”external”}
-          - outside the EEA 
+        body: | 
+          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
 
           *[EEA]: European Economic Area
         options: 
-          "in_eea": "EEA"
-          "outside_eea": "not EEA" 
+          "in_eea": "in the EEA"
+          "outside_eea": "outside the EEA" 
       # Q16
       working_for_a_uk_employer:
         title: "Are you working for a UK employer?"
-        body: |
-          - Yes
-          - No
         options:    
           "yes": "Yes"
           "no": "No" 
       # Q17
       employer_paying_uk_nics:
         title: "Is your employer paying UK National Insurance contributions for you?"
-        body: |
-          - Yes
-          - No
         options:    
           "yes": "Yes"
           "no": "No"
@@ -233,8 +174,7 @@ en-GB:
       claiming_tax_credits_or_eligible:
         title: "Are you claiming tax credits, or would you be eligible if you were living in the UK?"
         body: |
-          - Yes
-          - No
+          Check your [eligibility for Tax Credits](/claim-tax-credits#eligibility "Tax Credits eligibility"). 
         options:    
           "yes": "Yes"
           "no": "No"
@@ -242,32 +182,22 @@ en-GB:
       you_or_partner:
         title: "Are you or your partner:"    
         body: |
-          - a crown servant 
-          - a cross-border worker
-          - none of the above
-
           A crown servant is someone who works for the UK government overseas. 
 
           A cross-border worker is someone who regularly travels to or from another country to work. 
         options:
-          "crown_servant": "crown servant"
-          "cross_border_worker": "cross border worker"  
-          "neither": "none"
+          "crown_servant": "a crown servant"
+          "cross_border_worker": "a cross border worker"  
+          "neither": "none of the above"
       # Q20
       got_a_child:
         title: "Do you have a child?"
-        body: |
-          - Yes
-          - No
         options:    
           "yes": "Yes"
           "no": "No"
       # Q21
       moving_to_eea:
         title: "Are you and your child living in or moving to an EEA country or Switzerland?"
-        body: |
-          - Yes
-          - No
         options:    
           "yes": "Yes"
           "no": "No"
@@ -284,62 +214,44 @@ en-GB:
           * contribution-based Employment and Support Allowance
           * Severe Disablement Allowance
 
-          - Yes
-          - None
         options:    
           "yes": "Yes"
           "no": "No"
       # Q23
       going_abroad_for:
         title: "Are you going abroad for:"
-        body: |
-          - up to a year
-          - more than a year, or permanently
         options:
-          "less_than_a_year": "< year"
-          "greater_than_a_year": "> year"
+          "less_than_a_year": "up to a year"
+          "greater_than_a_year": "more than a year, or permanently"
       # Q24
       going_abroad:
         title: "Are you going abroad:"
-        body: |
-          - for a holiday or business trip
-          - for medical treatment for yourself, your partner or your child
-          - because of the death of your partner or close family member
         options:
-          "holiday": "holiday"
-          "medical_treatment": "medical treatment or death"
+          "holiday": "for a holiday or business trip"
+          "medical_treatment": "for medical treatment for yourself, your partner or your child"
+          "death" : "because of the death of your partner or close family member"
       # Q25
       claiming_esa_abroad_for:
         title: "Are you claiming ESA and going abroad for:"
         body: |
-          - less than a year, to get medical treatment for yourself or your child 
-          - less than a year, for a different reason
-          - more than a year or permanently
-
           *[ESA]: Employment and Support Allowance
         options:
-          "less_than_year_and_medical_treatment": "< year medical treatment"
-          "less_than_year_and_different_reason": "< year different reason"
-          "greater_than_year_or_permanently": "> year or permanently"
+          "less_than_year_and_medical_treatment": "less than a year, to get medical treatment for yourself or your child"
+          "less_than_year_and_different_reason": "less than a year, for a different reason"
+          "greater_than_year_or_permanently": "more than a year or permanently"
       # Q26
       are_you_moving_to_q26:
-        title: ""
+        title: "Are you moving to:"
         body: |
-          - a country in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries “List of countries in the EEA”){:rel=”external”}
-          - Gibraltar
-          - Switzerland
-          - none of the above
+          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
 
           *[EEA]: European Economic Area
         options:
-          "eec_switzerland_gibraltar": "Gib, Swz or EEC"
-          "other": "none"
+          "eec_switzerland_gibraltar": "a country in the EEA, Gibraltar or Switzerland"
+          "other": "none of the above"
       # Q27
       claiming_iidb:
         title: "Were you already claiming Industrial Injuries Disablement Benefit before moving overseas?"
-        body: |
-          - Yes
-          - None
         options:    
           "yes": "Yes"
           "no": "No"
@@ -347,8 +259,7 @@ en-GB:
       moving_to_eea2:
         title: "Are you moving to a country in the EEA"
         body: |
-          - Yes
-          - No
+          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
 
           *[EEA]: European Economic Area
         options:    
@@ -361,42 +272,31 @@ en-GB:
           * Attendance Allowance
           * Carer's Allowance
           * Disability Living Allowance (care component)
-
-          - Yes
-          - No
         options:
           "yes": "Yes"
           "no": "No" 
       # Q30
       going_abroad_q30:
         title: "Are you going abroad:"
-        body: |
-          - temporarily, eg for a holiday
-          - to live there permanently
         options:
-          "temporarily": "temporarily"
-          "permanently": "permanently"#
+          "temporarily": "temporarily, eg for a holiday"
+          "permanently": "to live there permanently"
       # Q31
       moving_to_q31:
         title: "Are you moving to:"
         body: |
-          - an [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries “List of countries in the EEA”){:rel=”external”} country 
-          - Switzerland
-          - Gibraltar
-          - none of the above
+          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
 
           *[EEA]: European Economic Area
         options:
-          "eec_switzerland_gibraltar": "EEC, Gib or Swz"
-          "other": "None"
+          "eec_switzerland_gibraltar": "A country in the EEA, Gibraltar or Switzerland"
+          "other": "None of the above"
       # Q32
       do_you_or_family_pay_uk_nic:
         title: "Do you (or a family member) work in the UK or pay NI in the UK because of your work?"
         body: |
-          - Yes
-          - No
-
-          In this situation, ‘family member’ means a spouse, partner or someone dependent on a parent.
+        
+          In this situation, 'family member' means a spouse, partner or someone dependent on a parent.
 
           *[NI]: National Insurance
         options:
@@ -406,8 +306,6 @@ en-GB:
       enough_to_claim_sickness_benefit:
         title: "Have you or a family member paid enough NI contributions to claim a contribution-based sickness benefit?"
         body: |
-          - Yes
-          - No
 
           *[NI]: National Insurance
         options:
@@ -417,8 +315,6 @@ en-GB:
       getting_ssp_iib_esa_or_bereavment:
         title: "Are you or a family member getting State Pension, Industrial Injuries Benefit, ESA or bereavement benefits?"
         body: |
-          - Yes
-          - No
 
           *[ESA]: Employment and Support Allowance
         options:
@@ -428,12 +324,10 @@ en-GB:
       eligible_for_the_following:
         title: "Are you eligible for any of the following?"
         body: |
-          * [Bereavement Allowance](/bereavement-allowance#eligibility “Eligibility for Bereavement Allowance”)
-          * [Bereavement Payment](/bereavement-payment#eligibility “Eligibility for Bereavement Payment”)
-          * [Widowed Parent's Allowance](/widowed-parents-allowance#eligibility “Widowed Parent’s Allowance”)
+          * [Bereavement Allowance](/bereavement-allowance#eligibility "Eligibility for Bereavement Allowance")
+          * [Bereavement Payment](/bereavement-payment#eligibility "Eligibility for Bereavement Payment")
+          * [Widowed Parent's Allowance](/widowed-parents-allowance#eligibility "Widowed Parent’s Allowance")
 
-          - Yes
-          - No
         options:
           "yes": "Yes"
           "no": "No"          
@@ -441,15 +335,11 @@ en-GB:
       are_you_moving_to_q36:
         title: "Are you moving to:"
         body: |
-          - a country in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries “List of countries in the EEA”){:rel=”external”} 
-          - Switzerland
-          - Gibraltar
-          - none of the above
 
-          *[EEA]: European Economic Area
+          *[EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"}: European Economic Area
         options:
-          "eea_switzerland_gibraltar": "EEA, Swz, Gibraltar"
-          "none": "none of the above"                      
+          "eea_switzerland_gibraltar": "A country in the EEA, Gibraltar or Switzerland"
+          "none": "None of the above"                    
       answer_1: 
         body: |
           You should contact your local [Jobcentre Plus](http://los.direct.gov.uk/default.aspx?type=2&lang=en "Jobcentre Plus"){:rel="external"} to let them know.
@@ -458,7 +348,7 @@ en-GB:
 
           You should also tell HMRC:
 
-          - if you’re [retiring abroad](/state-pension-if-you-retire-abroad/how-to-claim “State Pension if you retire abroad”)
+          - if you’re [retiring abroad](/state-pension-if-you-retire-abroad/how-to-claim "State Pension if you retire abroad")
           - returning to the UK after living abroad
       answer_2:
         body: |
@@ -506,14 +396,14 @@ en-GB:
           - Statutory Sick Pay
           - bereavement benefits
 
-          [Contact details for 'social security agreement' countries](http://www.dwp.gov.uk/international/further-help-and-advice/addresses-for-enquiries-about-contributions/ “Addresses for enquiries about contributions and benefits”){:rel=”external”} 
+          [Contact details for 'social security agreement' countries](http://www.dwp.gov.uk/international/further-help-and-advice/addresses-for-enquiries-about-contributions/ "Addresses for enquiries about contributions and benefits"){:rel="external"} 
 
           You can also [contact the International Pension Centre](/state-pension-if-you-retire-abroad/how-to-claim "State Pension if you retire abroad") to find out about your State Pension.
       answer_6:
         body: |
           You usually can’t claim UK-based benefits. 
 
-          However, you may be able to get [tax credits if you’re a crown servant](/tax-credits-if-you-are-moving-country-or-travelling/you-live-outside-the-uk “Tax Credits if you live outside the UK”) (you work for the UK government overseas).
+          However, you may be able to get [tax credits if you’re a crown servant](/tax-credits-if-you-are-moving-country-or-travelling/you-live-outside-the-uk "Tax Credits if you live outside the UK") (you work for the UK government overseas).
 
           [Contact the International Pension Centre](/state-pension-if-you-retire-abroad/how-to-claim "State Pension if you retire abroad") to find out about your State Pension.
 
@@ -596,7 +486,7 @@ en-GB:
 
           If you’re looking after a child whose parents have died, and are getting Child Benefit for them, you may also be able to claim [Guardian’s Allowance](/guardians-allowance "Guardian’s Allowance").
 
-          [Find out more.](http://www.dwp.gov.uk/international/benefits/benefits-for-children/social-security-agreement/ “Benefits for children in social security agreement countries”){:rel="external"}
+          [Find out more.](http://www.dwp.gov.uk/international/benefits/benefits-for-children/social-security-agreement/ "Benefits for children in social security agreement countries"){:rel="external"}
       answer_17:
         body: |
           You should be able to get Child Benefit for a child or children living with you.
@@ -717,7 +607,7 @@ en-GB:
 
           You can claim if you are eligible and if you have paid enough National Insurance contributions.  
 
-          Talk to your local [Jobcentre Plus](http://los.direct.gov.uk/default.aspx?type=2&lang=en "Jobcentre Plus"){:rel="external"} or find out [how to apply](/employment-support-allowance#how-to-claim “How to claim Employment Support Allowance”). 
+          Talk to your local [Jobcentre Plus](http://los.direct.gov.uk/default.aspx?type=2&lang=en "Jobcentre Plus"){:rel="external"} or find out [how to apply](/employment-support-allowance#how-to-claim "How to claim Employment Support Allowance"). 
 
           *[ESA]: Employment Support Allowance
       answer_30:
@@ -736,7 +626,7 @@ en-GB:
 
           $C
           **International Pension Centre  **  
-          [Email the International Pension Centre](https://www2.dwp.gov.uk/tps-directgov/en/contact-tps/ipc.asp “Email the International Pension Centre”)  
+          [Email the International Pension Centre](https://www2.dwp.gov.uk/tps-directgov/en/contact-tps/ipc.asp "Email the International Pension Centre")  
           Phone number  : +44 191 218 7777  
           Textphone:  +44 191 218 7280  
           Monday to Friday 8.00 am to 8.00 pm
@@ -762,7 +652,7 @@ en-GB:
 
           $C
           **International Pension Centre  **  
-          [Email the International Pension Centre](https://www2.dwp.gov.uk/tps-directgov/en/contact-tps/ipc.asp “Email the International Pension Centre”)  
+          [Email the International Pension Centre](https://www2.dwp.gov.uk/tps-directgov/en/contact-tps/ipc.asp "Email the International Pension Centre")  
           Phone number  : +44 191 218 7777  
           Textphone:  +44 191 218 7280  
           Monday to Friday 8.00 am to 8.00 pm
