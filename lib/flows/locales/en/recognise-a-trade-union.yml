@@ -37,6 +37,20 @@ en-GB:
 
           *[CAC]:Central Arbitration Committee
 
+      agreed_on_bargaining_unit?:
+        title: Have you agreed on the bargaining unit with the union?
+        body: |
+          The bargaining unit is the group of workers that the union will act for.   
+
+          You have 20 working days to agree on this, otherwise the CAC will make a decision for you. 
+
+          You may have to supply information about your employees if asked.
+
+          Both parties can ask [Acas](http://www.acas.org.uk/ "Acas"){:rel="external"} to help negotiate during this process.
+
+          *[CAC]:Central Arbitration Committee
+
+
       has_the_cac_ordered_a_ballot?:
         title: "Has the CAC:"
         options:

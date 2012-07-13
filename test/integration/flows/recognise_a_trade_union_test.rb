@@ -73,33 +73,76 @@ class RecogniseATradeUnion < ActiveSupport::TestCase
               add_response :accepted
             end
 
-            should "ask if CAC have ordered a ballot" do
-              assert_current_node :has_the_cac_ordered_a_ballot?
+            should "ask if agreed on the bargaining unit" do
+              assert_current_node :agreed_on_bargaining_unit?
             end
 
-            should "recognise the union if CAC have declared recognition" do
-              add_response :declared_recognition
-              assert_current_node :you_agree_to_recognise_the_union
-            end
-
-            context "ballot ordered" do
-              setup do
-                add_response :ordered_ballot
-              end
-
-              should "ask if the majority support the union" do
-                assert_current_node :did_the_majority_support_the_union_in_the_ballot?
-              end
-
-              should "recognise the union" do
+            context "agreed on the bargaining unit" do
+              should "ask if CAC have ordered a ballot" do
                 add_response :yes
+                assert_current_node :has_the_cac_ordered_a_ballot?
+              end
+            end
+
+            context "not agreed on the bargaining unit" do
+              setup do
+                add_response :no
+              end
+
+              should "ask if CAC have ordered a ballot" do
+                assert_current_node :has_the_cac_ordered_a_ballot?
+              end
+
+              should "recognise the union if CAC have declared recognition" do
+                add_response :declared_recognition
                 assert_current_node :you_agree_to_recognise_the_union
               end
 
-              should "not recognise the union and they cannot reapply within 3 years" do
-                add_response :no
-                assert_current_node :you_do_not_have_to_recognise_the_union_cannot_reapply
+              context "ballot ordered" do
+                setup do
+                  add_response :ordered_ballot
+                end
+
+                should "ask if the majority support the union" do
+                  assert_current_node :did_the_majority_support_the_union_in_the_ballot?
+                end
+
+                should "recognise the union" do
+                  add_response :yes
+                  assert_current_node :you_agree_to_recognise_the_union
+                end
+
+                should "not recognise the union and they cannot reapply within 3 years" do
+                  add_response :no
+                  assert_current_node :you_do_not_have_to_recognise_the_union_cannot_reapply
+                end
               end
+
+              should "recognise the union if CAC have declared recognition" do
+                add_response :declared_recognition
+                assert_current_node :you_agree_to_recognise_the_union
+              end
+
+              context "ballot ordered" do
+                setup do
+                  add_response :ordered_ballot
+                end
+
+                should "ask if the majority support the union" do
+                  assert_current_node :did_the_majority_support_the_union_in_the_ballot?
+                end
+
+                should "recognise the union" do
+                  add_response :yes
+                  assert_current_node :you_agree_to_recognise_the_union
+                end
+
+                should "not recognise the union and they cannot reapply within 3 years" do
+                  add_response :no
+                  assert_current_node :you_do_not_have_to_recognise_the_union_cannot_reapply
+                end
+              end
+
             end
           end
         end

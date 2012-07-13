@@ -23,8 +23,13 @@ multiple_choice :have_they_submitted_an_application? do
 end
 
 multiple_choice :have_cac_accepted_the_application? do
-  option :accepted => :has_the_cac_ordered_a_ballot?
+  option :accepted => :agreed_on_bargaining_unit?
   option :rejected => :you_do_not_have_to_recognise_the_union_can_reapply
+end
+
+multiple_choice :agreed_on_bargaining_unit? do
+  option :yes => :has_the_cac_ordered_a_ballot?
+  option :no => :has_the_cac_ordered_a_ballot?
 end
 
 multiple_choice :has_the_cac_ordered_a_ballot? do
