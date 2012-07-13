@@ -7,8 +7,13 @@ module SmartAnswer::Calculators
 
     def full_time_part_time_days
       days = 5.6 * fraction_of_year * self.days_per_week
-      days > 28 ? 28 : days
+      days > days_cap ? days_cap : days
     end
+
+    def days_cap
+      28 * fraction_of_year
+    end
+
 
     def casual_irregular_entitlement
       minutes = 5.6 / 46.4 * total_hours * 60

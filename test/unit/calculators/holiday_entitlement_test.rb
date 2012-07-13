@@ -203,15 +203,15 @@ module SmartAnswer::Calculators
         should "calculate entitlement for more than 5 days a week" do
           calc = HolidayEntitlement.new(
             :start_date => "2012-03-12",
-            :days_per_week => 6
+            :days_per_week => 7
           )
-          # TODO: is this correct, or should the 28 day cap be pro-rated
-          assert_equal '27.08', sprintf('%.2f', calc.full_time_part_time_days)
+          # Capped
+          assert_equal '22.57', sprintf('%.2f', calc.full_time_part_time_days)
         end
 
-        should "cap entitlement at 28 days" do
+        should "cap entitlement at 28 days if starting on first day" do
           calc = HolidayEntitlement.new(
-            :start_date => "2012-01-10",
+             :start_date => "2012-01-01",
             :days_per_week => 7
           )
           assert_equal 28, calc.full_time_part_time_days
@@ -240,12 +240,13 @@ module SmartAnswer::Calculators
             :leaving_date => '2012-07-24',
             :days_per_week => 6
           )
-          assert_equal '18.91', sprintf('%.2f', calc.full_time_part_time_days)
+          # Capped
+          assert_equal '15.76', sprintf('%.2f', calc.full_time_part_time_days)
         end
 
-        should "cap entitlement at 28 days" do
+        should "cap entitlement at 28 days if leaving at end of year" do
           calc = HolidayEntitlement.new(
-            :leaving_date => "2012-12-10",
+            :leaving_date => "2012-12-31",
             :days_per_week => 7
           )
           assert_equal 28, calc.full_time_part_time_days
