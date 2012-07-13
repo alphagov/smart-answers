@@ -7,7 +7,7 @@ en-GB:
 
       phrases:
         answer_ft_pt: |
-          $!Your statutory holiday entitlement is %{holiday_entitlement_days} days.$!
+          $!Your statutory holiday entitlement is %{holiday_entitlement_days} days during this leave year.$!
 
         answer_ft_pt_capped: |
           $!Your statutory holiday entitlement is %{holiday_entitlement_days} days - you can't get more statutory leave than this even if you work over 5 days a week.$!
@@ -19,7 +19,7 @@ en-GB:
           $!Your statutory holiday entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes. You should take %{hours_daily} hours and %{minutes_daily} minutes for each day of holiday.$!
 
         answer_shift_worker: |
-          $!Your statutory holiday entitlement is %{holiday_entitlement_shifts} %{hours_per_shift} hour shifts.$!
+          $!Your statutory holiday entitlement is %{holiday_entitlement_shifts} %{hours_per_shift} hour shifts during this leave year.$!
 
         your_employer: |
           Your employer:
@@ -50,16 +50,16 @@ en-GB:
           ^This is calculated as: 5.6 (statutory entitlement) x (fraction of year: %{fraction_of_year}) x %{days_per_week} days = **%{holiday_entitlement_days}** of your working days
 
         calculation_casual_irregular: |
-          ^This is calculated as: 12.07% of %{total_hours} hours = **%{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes**
+          ^This is calculated as: 12.07% (statutory entitlement as a percentage) of %{total_hours} hours = **%{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes**
 
         calculation_annualised: |
-          ^This is calculated as: 5.6 (statutory entitlement) x (%{total_hours} / 46.4 = %{average_hours_per_week} hours per week) = **%{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes**
+          ^This is calculated as: 5.6 (statutory entitlement) x (%{total_hours} / 46.4 (working weeks per year) = %{average_hours_per_week} hours per week) = **%{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes**
 
         calculation_compressed_hours: |
           ^This is calculated as: (%{days_per_week} days / %{hours_per_week}) x 5.6 (statutory entitlement) = **%{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes**
 
         calculation_shift_worker: |
-          ^This is calculated as: %{shifts_per_week} shifts (of %{hours_per_shift} hours) x 5.6 (statutory entitlement) = **%{holiday_entitlement_shifts} x %{hours_per_shift} hour shifts**
+          ^This is calculated as: %{shifts_per_week} shifts (of %{hours_per_shift} hours) x 5.6 (statutory entitlement) = **%{holiday_entitlement_shifts} x %{hours_per_shift} hour shifts on holiday**
 
         calculation_shift_worker_partial_year: |
           ^This is calculated as: %{fraction_of_year} of whole year x (%{shifts_per_week} shifts (of %{hours_per_shift} hours) x 5.6 (statutory entitlement)) = **%{holiday_entitlement_shifts} x %{hours_per_shift} hour shifts**
