@@ -24,7 +24,7 @@ class ClaimANationalInsuranceRefundTest < ActiveSupport::TestCase
     end
 
     should "ask why you are applying for a refund" do
-      assert_current_node :why_are_you_applying_for_a_refund?
+      assert_current_node :why_are_you_applying_for_a_refund_class2?
     end
 
     should "be outcome_5 if you shouldn't have paid" do
@@ -36,6 +36,12 @@ class ClaimANationalInsuranceRefundTest < ActiveSupport::TestCase
       add_response :paid_too_much
       assert_current_node :outcome_1a
     end
+
+    should "be outcome_6 if you qualified for low earnings exemption" do
+      add_response :low_earnings_exemption
+      assert_current_node :outcome_6
+    end
+
   end
 
   should "be outcome_2 for Class 3" do
@@ -49,7 +55,7 @@ class ClaimANationalInsuranceRefundTest < ActiveSupport::TestCase
     end
 
     should "ask why you are applying for a refund" do
-      assert_current_node :why_are_you_applying_for_a_refund?
+      assert_current_node :why_are_you_applying_for_a_refund_class4?
     end
 
     should "be outcome_3 if shouldn't have paid" do
