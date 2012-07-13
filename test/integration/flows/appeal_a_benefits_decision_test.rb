@@ -58,16 +58,42 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
     
     context "answer 'greater than thirteen months ago' to 'date of decision letter?'" do
       should "say 'cant challenge or appeal'" do
-        add_response :greater_than_thirteen_months_ago
+        @decision_letter_date = Date.today << 14
+        add_response @decision_letter_date
         assert_current_node :cant_challenge_or_appeal
       end
     end
     
-    context "answer 'less than thirteen months ago' to 'date of decision letter?'" do
+    context "answer 'less than thirteen months from decision letter date' to 'date of decision letter?'" do
+      
+      # Q4
       should "ask 'had written explanation?'" do
-        add_response :less_than_thirteen_months_ago
+        add_response Date.today << 12
         assert_current_node :had_written_explanation?
       end
+      
+      context "answer 'spoken explanation' to 'had written explanation?' when letter date was less than a month ago" do
+        setup do
+          add_response Date.today - 7
+          add_response :spoken_explanation
+        end
+        # Q8
+        should "ask 'have you been asked to reconsider?'" do
+          assert_current_node :asked_to_reconsider?
+        end
+      end
+      
+      context "answer 'spoken explanation' to 'had written explanation?' when letter date was more than a month ago" do
+        setup do
+          add_response Date.today << 3
+          add_response :spoken_explanation
+        end
+        # Q7
+        should "ask 'special circumstances?'" do
+          assert_current_node :special_circumstances?
+        end
+      end
+      
     end
     
   end
