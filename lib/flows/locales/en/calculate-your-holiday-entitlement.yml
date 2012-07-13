@@ -131,6 +131,9 @@ en-GB:
         title: How many days per shift pattern?
         label: Days per pattern
 
+      when_does_your_leave_year_start?:
+        hint: This is usually in your employment contract. If it isn’t and you started your job after 1 October 1998, your leave year will start on the 1st day of your job. If you started work on or after 1 October 1998, your leave year will start on 1 October.
+
       done:
         body: |
           %{content_sections}
