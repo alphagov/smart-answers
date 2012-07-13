@@ -2,11 +2,11 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
-class BenefitsAbroadTest < ActiveSupport::TestCase
+class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'benefits-abroad'
+    setup_for_testing_flow 'benefits-if-you-are-abroad'
   end
 
   # Q1
