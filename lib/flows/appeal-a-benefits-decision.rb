@@ -14,3 +14,8 @@ multiple_choice :problem_with_tribunal_proceedure? do
   option :mistake_in_law => :can_appeal_to_upper_tribunal #A2
   option :none => :cant_challenge_or_appeal #A3
 end
+
+outcome :you_can_challenge_decision
+outcome :can_appeal_to_upper_tribunal
+outcome :cant_challenge_or_appeal
+
