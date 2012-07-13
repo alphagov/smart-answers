@@ -158,6 +158,7 @@ end
 multiple_choice :going_abroad do
   option :holiday => :answer_25
   option :medical_treatment => :answer_27
+  option :death => :answer_27
 end
 
 # Q25
