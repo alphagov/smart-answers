@@ -124,6 +124,11 @@ en-GB:
           Both parties must consider your notice.
 
           Both parties can ask [Acas](http://www.acas.org.uk/ “Acas”){:rel=”external”} to help negotiate at this stage of the process.
+      write_to_union2:
+        body: |
+          You can write to the union to request derecognition on these grounds.
+
+          You must continue your existing bargaining arrangements in the meantime.
       the_union_is_derecognised_and_bargaining_will_end:
         title: The union is derecognised.
         body: |
@@ -133,4 +138,12 @@ en-GB:
           - the day after the CAC's 10-day decision period
 
           *[CAC]:Central Arbitration Committee
+      written_to_union?:
+        title: Have you written to the union requesting derecognition?
+        body: |
+          You should:
 
+          - identify the bargaining arrangements
+          - reference Schedule A1 of the Trade Union and Labour Relations (Consolidation) Act 1992
+
+          Both parties can ask [Acas](http://www.acas.org.uk/ “Acas”){:rel=”external”} to help you negotiate.

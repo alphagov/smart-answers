@@ -178,46 +178,63 @@ class RecogniseATradeUnion < ActiveSupport::TestCase
           add_response :lack_of_support_for_bargaining
         end
 
-        should "ask if the union agrees" do
-          assert_current_node :does_the_union_agree_with_derecognition_lack_of_bargaining_support?
+        should "ask if you have written to the union" do
+          assert_current_node :written_to_union?
         end
 
-        should "derecognise the union" do
-          add_response :agree
-          assert_current_node :the_union_is_derecognised_and_bargaining_ends
+        context "has not written to the union" do
+          should "be told to write to the union" do
+            add_response :no
+            assert_current_node :write_to_union2
+          end
         end
 
-        context "union does not agree" do
+        context "has written to the union" do
           setup do
-            add_response :does_not_agree
+            add_response :yes
           end
 
-          should "ask if CAC will hold a ballot" do
-            assert_current_node :will_the_cac_hold_a_ballot_lack_of_bargaining_support?
+          should "ask if the union agrees" do
+            assert_current_node :does_the_union_agree_with_derecognition_lack_of_bargaining_support?
           end
 
-          should "continue with the existing arrangements" do
-            add_response :do_not_hold_a_ballot
-            assert_current_node :you_must_continue_with_the_existing_bargaining_arrangements
+          should "derecognise the union" do
+            add_response :agree
+            assert_current_node :the_union_is_derecognised_and_bargaining_ends
           end
 
-          context "hold a ballot" do
+          context "union does not agree" do
             setup do
-              add_response :hold_a_ballot
+              add_response :does_not_agree
             end
 
-            should "ask what the CAS's decision on the ballot is" do
-              assert_current_node :what_is_the_cacs_decision_on_the_ballot?
+            should "ask if CAC will hold a ballot" do
+              assert_current_node :will_the_cac_hold_a_ballot_lack_of_bargaining_support?
             end
 
-            should "derecognise union" do
-              add_response :end_collective_bargaining
-              assert_current_node :the_union_is_derecognised_and_bargaining_ends
-            end
-
-            should "continue with existing bargaining arrangements" do
-              add_response :continue_collective_bargaining
+            should "continue with the existing arrangements" do
+              add_response :do_not_hold_a_ballot
               assert_current_node :you_must_continue_with_the_existing_bargaining_arrangements
+            end
+
+            context "hold a ballot" do
+              setup do
+                add_response :hold_a_ballot
+              end
+
+              should "ask what the CAS's decision on the ballot is" do
+                assert_current_node :what_is_the_cacs_decision_on_the_ballot?
+              end
+
+              should "derecognise union" do
+                add_response :end_collective_bargaining
+                assert_current_node :the_union_is_derecognised_and_bargaining_ends
+              end
+
+              should "continue with existing bargaining arrangements" do
+                add_response :continue_collective_bargaining
+                assert_current_node :you_must_continue_with_the_existing_bargaining_arrangements
+              end
             end
           end
         end
