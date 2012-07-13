@@ -17,10 +17,11 @@ end
 
 value_question :how_many_children_claiming_for? do
   calculate :children_claiming do
-    if responses.last.to_i < 2 or (responses.last.to_i.to_s != responses.last)
+    num_children = responses.last.to_i
+    if num_children < 1 or (num_children.to_s != responses.last)
       raise SmartAnswer::InvalidResponse, "You must have at least 1 child to claim Child Benefit."
     end
-    responses.last.to_i
+    num_children
   end
 
   next_node :when_did_you_start_claiming?
@@ -45,21 +46,22 @@ date_question :what_date_did_you_start_claiming? do
   to { Date.today }
 
   calculate :child_benefit_start_date do
-    if Date.parse(responses.last) <= Date.new(2012, 4, 6)
+    start_date = Date.parse(responses.last)
+    if start_date <= Date.new(2012, 4, 6)
       raise SmartAnswer::InvalidResponse, "Please enter date after 6 April 2012"
     end
-    Date.parse(responses.last)
+    start_date
   end
 
   next_node :do_you_expect_to_stop_claiming_by_5_april_2013?
 end
 
 multiple_choice :do_you_expect_to_stop_claiming_by_5_april_2013? do
-  option "yes_s" => :when_do_you_expect_to_stop_claiming?
-  option "no_s" => :estimated_tax_charge
+  option :yes => :when_do_you_expect_to_stop_claiming?
+  option :no => :estimated_tax_charge
 
   calculate :child_benefit_end_date do
-    if responses.last == "no_s"
+    if responses.last == "no"
       Date.new(2013, 4, 5)
     else
       nil
@@ -72,43 +74,31 @@ multiple_choice :do_you_expect_to_stop_claiming_by_5_april_2013? do
       :child_benefit_end_date => child_benefit_end_date,
       :children_claiming => children_claiming,
       :income => income
-    )
+    ) if responses.last == 'no'
   end
 
-  calculate :benefit_tax do
-    calculator.benefit_tax
-  end
-  
   calculate :formatted_benefit_tax do
-    calculator.formatted_benefit_tax
+    calculator.formatted_benefit_tax if calculator
   end
 
-  calculate :benefit_taxable_amount do
-    calculator.benefit_taxable_amount
-  end
-  
   calculate :formatted_benefit_taxable_amount do
-    calculator.formatted_benefit_taxable_amount
+    calculator.formatted_benefit_taxable_amount if calculator
   end
   
   calculate :benefit_taxable_weeks do
-    calculator.benefit_taxable_wees
+    calculator.benefit_taxable_weeks if calculator
   end
 
   calculate :percent_tax_charge do
-    calculator.percent_tax_charge
-  end
-
-  calculate :benefit_claimed_amount do
-    calculator.benefit_claimed_amount
+    calculator.percent_tax_charge if calculator
   end
 
   calculate :formatted_benefit_claimed_amount do
-    calculator.formatted_benefit_claimed_amount
+    calculator.formatted_benefit_claimed_amount if calculator
   end
 
   calculate :benefit_claimed_weeks do
-    calculator.benefit_claimed_weeks
+    calculator.benefit_claimed_weeks if calculator
   end
 end
 
@@ -117,10 +107,11 @@ date_question :when_do_you_expect_to_stop_claiming? do
   to { Date.new(2013, 4, 4) }
 
   calculate :child_benefit_end_date do
-    if Date.parse(responses.last) > Date.new(2013, 4, 5) or Date.parse(responses.last) < child_benefit_start_date
+    end_date = Date.parse(responses.last)
+    if end_date > Date.new(2013, 4, 5) or end_date < child_benefit_start_date
       raise SmartAnswer::InvalidResponse, "Please enter date before 5 April 2013"
     end
-    Date.parse(responses.last)
+    end_date
   end
 
   next_node :estimated_tax_charge
@@ -134,32 +125,20 @@ date_question :when_do_you_expect_to_stop_claiming? do
     )
   end
 
-  calculate :benefit_tax do
-    calculator.benefit_tax
-  end
-  
   calculate :formatted_benefit_tax do
     calculator.formatted_benefit_tax
   end
 
-  calculate :benefit_taxable_amount do
-    calculator.benefit_taxable_amount
-  end
-  
   calculate :formatted_benefit_taxable_amount do
     calculator.formatted_benefit_taxable_amount
   end
   
   calculate :benefit_taxable_weeks do
-    calculator.benefit_taxable_wees
+    calculator.benefit_taxable_weeks
   end
 
   calculate :percent_tax_charge do
     calculator.percent_tax_charge
-  end
-
-  calculate :benefit_claimed_amount do
-    calculator.benefit_claimed_amount
   end
 
   calculate :formatted_benefit_claimed_amount do

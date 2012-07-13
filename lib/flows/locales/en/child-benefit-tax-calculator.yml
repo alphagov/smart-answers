@@ -7,6 +7,10 @@ en-GB:
 
         This tax applies only to Child Benefit you receive from 7 Jan 2013 onwards.
 
+      options:
+        "yes": "Yes"
+        "no": "No"
+
       what_is_your_estimated_income_for_the_year?:
         title: What is your estimated 'adjusted net income' for the year?
         body: |
@@ -30,9 +34,6 @@ en-GB:
         error_message: Please enter date after 6 April 2012
 
       do_you_expect_to_stop_claiming_by_5_april_2013?:
-        options:
-          yes_s: "Yes"
-          no_s: "No"
         title: Do you expect to stop claiming Child Benefit before 5 April 2013?
         hint: You stop receiving Child Benefit when your child reaches 16 (or 20 if they're in education).
 
