@@ -487,6 +487,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
                   add_response :less_than_a_year
                 end
                 
+                # Q24
                 should "ask 'are you going abroad?'" do
                   assert_current_node :going_abroad
                 end
@@ -501,6 +502,13 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
                 context "for medical treatment" do
                   should "get answer 27" do
                     add_response :medical_treatment
+                    assert_current_node :answer_27
+                  end
+                end
+                
+                context "'because of the death of your partner or close family member'" do
+                  should "get answer 27" do
+                    add_response :death
                     assert_current_node :answer_27
                   end
                 end
