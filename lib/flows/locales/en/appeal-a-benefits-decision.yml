@@ -205,11 +205,13 @@ en-GB:
 
           You can do this by filling in the form on the leaflet, ‘Did you get what you wanted?’. Your Jobcentre Plus should have sent this leaflet with your decision letter. You can also download a copy.
 
+
           $D
           [Download ‘Did you get what you wanted?’ (PDF, 2,445KB)](http://www.irs-review.org.uk/infocent/leafbook/irs1/irs1.pdf “Download ‘Did you get what you wanted?’ (PDF, 2,445KB)”){:rel="external"}
           $D
 
           Sign the form, and send it to:
+
 
           $A
           FREEPOST
@@ -232,6 +234,7 @@ en-GB:
         body: |
           You can do this by downloading and filling in the form at the end of the leaflet, ‘How can I appeal against a child maintenance decision?’.
 
+
           $D
           [Download ‘How can I appeal against a child maintenance decision?’ (PDF, 346KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@benefits/documents/digitalasset/dg_198854.pdf “Download ‘How can I appeal against a child maintenance decision?’ (PDF, 346KB)”){:rel="external"}
           $D
@@ -245,6 +248,7 @@ en-GB:
 
           Sign the appeal form or letter, and send it to:
 
+
           $A
           Central Appeals Unit
           Child Support Agency
@@ -254,6 +258,7 @@ en-GB:
           $A
 
           You can also contact the CSA by phone.
+
 
           $C
           Telephone: 0845 713 3133
@@ -296,6 +301,7 @@ en-GB:
         body: |
           You can do this by downloading and filling in the form at the end of the leaflet, ‘What to do if you think your Child Tax Credit / Working Tax Credit is wrong’
 
+
           $D
           [Download ‘What to do if you think your Child Tax Credit / Working Tax Credit is wrong’ (PDF, 111KB)](http://www.hmrc.gov.uk/leaflets/wtc_ap.pdf “Download ‘What to do if you think your Child Tax Credit / Working Tax Credit is wrong’ (PDF, 111KB)”){:rel="external"}
           $D
@@ -329,6 +335,7 @@ en-GB:
         body: |
           You can do this by downloading and filling in the Child Benefit and Guardian’s Allowance appeal form.
 
+
           $D
           [Download Child Benefit and Guardian’s Allowance appeal form (PDF, 36KB)](http://www.hmrc.gov.uk/forms/ch24a.pdf “Download Child Benefit and Guardian’s Allowance appeal form (PDF, 36KB)”){:rel="external"}
           $D
@@ -360,6 +367,8 @@ en-GB:
         title: |
           You can appeal against a benefits decision by by downloading and filling in the form at the end of the leaflet, 'If you think our decision is wrong'.
         body: |
+        
+        
           $D
           [Download ‘If you think our decision is wrong’ (PDF, 4,915KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@benefits/documents/digitalasset/dg_201702.pdf “Download ‘If you think our decision is wrong’ (PDF, 4,915KB)”){:rel="external"}
           $D
@@ -367,6 +376,7 @@ en-GB:
           Sign the appeal form and send it to the address at the top of your decision letter.
 
           You can phone to order this leaflet in other formats, or if you’d like a paper version.
+
 
           $C
           Telephone: 0845 731 3233 
