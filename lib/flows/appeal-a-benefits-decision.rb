@@ -4,9 +4,6 @@ section_slug "money-and-tax"
 
 decision_appeal_limit_in_months = 13
 
-
-# TODO: Sanitize date picker values.
-
 # Q1
 multiple_choice :already_appealed_the_decision? do
   option :yes => :problem_with_tribunal_proceedure?
