@@ -39,7 +39,6 @@ class InputValidationTest < EngineIntegrationTest
     end
 
     should "allow custom validation in calculations" do
-      pending "Custom validation bug needs to be fixed"
       visit "/money-and-salary-sample/y/4000.0-month"
 
       fill_in "£", :with => "3000"

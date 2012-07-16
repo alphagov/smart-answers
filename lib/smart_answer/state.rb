@@ -23,5 +23,13 @@ module SmartAnswer
     def save_input_as(name)
       __send__ "#{name}=", responses.last
     end
+
+    private
+
+    def initialize_copy(orig)
+      super
+      self.responses = orig.responses.dup
+      self.path = orig.path.dup
+    end
   end
 end
