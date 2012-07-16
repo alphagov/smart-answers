@@ -64,7 +64,6 @@ end
 
 # Q6
 date_question :when_did_you_get_it? do
-  save_input_as :written_explanation_received_date
   next_node do |response|
     
     received_date = Date.parse(response)
