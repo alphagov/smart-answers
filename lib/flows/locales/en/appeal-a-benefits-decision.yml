@@ -30,7 +30,7 @@ en-GB:
         options:
           "missing_doc_or_not_present": "Yes - missing document or you couldn't go"
           "mistake_in_law": "Yes - tribunal made a mistake in the law"
-          "no": "No"
+          "none": "No"
       # Q3
       date_of_decision_letter?:
         title: "When did you get the decision letter?"
@@ -174,7 +174,7 @@ en-GB:
           * ask the benefits office to look at it again (reconsider)
           * appeal against the decision_date
       # A5
-      cant_appeal
+      cant_appeal:
         title: |
           You can’t challenge or appeal the decision.
         body: |
