@@ -500,16 +500,16 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
                 end
 
                 context "for medical treatment" do
-                  should "get answer 27" do
+                  should "get answer 26" do
                     add_response :medical_treatment
-                    assert_current_node :answer_27
+                    assert_current_node :answer_26
                   end
                 end
                 
                 context "'because of the death of your partner or close family member'" do
-                  should "get answer 27" do
+                  should "get answer 26" do
                     add_response :death
-                    assert_current_node :answer_27
+                    assert_current_node :answer_26
                   end
                 end
               end
