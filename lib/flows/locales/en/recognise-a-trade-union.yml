@@ -12,8 +12,8 @@ en-GB:
       what_do_you_need_to_do?:
         title: "Do you need to:"
         options:
-          recognise_a_trade_union: Recognise a trade union
-          derecoognise_a_trade_union: Derecognise a trade union
+          recognise_a_trade_union: recognise a trade union
+          derecoognise_a_trade_union: derecognise a trade union
       do_you_want_to_recognise_the_union_voluntarily?:
         title: "Do you want to recognise the union voluntarily?"
 
@@ -21,7 +21,7 @@ en-GB:
         title: How many employees do you have?
         options:
           21_or_more: 21 or more
-          fewer_than_21: Fewer than 21
+          fewer_than_21: fewer than 21
       have_they_submitted_an_application?:
         title: Has the union applied to the Central Arbitration Committee (CAC) for recognition?
 
@@ -96,7 +96,7 @@ en-GB:
         body: |
           Both parties should draw up an agreement setting out:
 
-          - the bargaining unit
+          - the bargaining unit (the group of workers the union will act for)
           - how collective bargaining will take place
 
           Both parties can ask [Acas](http://www.acas.org.uk/ "Acas"){:rel="external"} to help negotiate.
@@ -118,17 +118,16 @@ en-GB:
         body: |
           You must continue with the existing bargaining arrangements.
       write_to_union:
+        title: You can write to the union and the CAC requesting derecognition on these grounds.
         body: |
-          You can write to the union and the CAC requesting derecognition on these grounds.
-
           Both parties must consider your notice.
 
           Both parties can ask [Acas](http://www.acas.org.uk/ "Acas"){:rel="external"} to help negotiate at this stage of the process.
       write_to_union2:
+        title: You can write to the union to request derecognition on these grounds.
         body: |
-          You can write to the union to request derecognition on these grounds.
-
           You must continue your existing bargaining arrangements in the meantime.
+
       the_union_is_derecognised_and_bargaining_will_end:
         title: The union is derecognised.
         body: |
@@ -147,3 +146,11 @@ en-GB:
           - reference Schedule A1 of the Trade Union and Labour Relations (Consolidation) Act 1992
 
           Both parties can ask [Acas](http://www.acas.org.uk/ "Acas"){:rel="external"} to help you negotiate.
+
+      does_the_union_agree_with_derecognition_lack_of_bargaining_support?:
+        title: Does the union agree to your written request for derecognition?
+
+      the_union_is_derecognised_and_bargaining_ends:
+        title: The union is derecognised and all bargaining arrangements end.
+        body: |
+          The union can’t apply for statutory recognition for 3 years.

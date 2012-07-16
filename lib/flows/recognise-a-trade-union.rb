@@ -18,8 +18,8 @@ multiple_choice :how_many_employees_do_you_have? do
 end
 
 multiple_choice :have_they_submitted_an_application? do
-  option :yes => :no_action_required
-  option :no => :have_cac_accepted_the_application?
+  option :yes => :have_cac_accepted_the_application?
+  option :no => :no_action_required
 end
 
 multiple_choice :have_cac_accepted_the_application? do
@@ -48,9 +48,9 @@ multiple_choice :has_it_been_3_years_since_gaining_recognition? do
 end
 
 multiple_choice :on_what_grounds_are_you_seeking_derecognition? do
+  option :reduced_workforce => :have_you_sent_notice?
   option :lack_of_support_for_bargaining => :written_to_union?
   option :falling_union_membership => :does_the_union_agree_with_derecognition_falling_union_membership?
-  option :reduced_workforce => :have_you_sent_notice?
 end
 
 multiple_choice :written_to_union? do
