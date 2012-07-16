@@ -89,6 +89,20 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal [:how_much?], s.questions.map(&:name)
   end
 
+  test "Can build checkbox question nodes" do
+    s = SmartAnswer::Flow.new do
+      checkbox_question :choose_some do
+        option :foo
+        next_node :done
+      end
+      outcome :done
+    end
+
+    assert_equal 2, s.nodes.size
+    assert_equal 1, s.questions.size
+    assert_equal "SmartAnswer::Question::Checkbox", s.questions.first.class.name
+  end
+
   test "should have a need ID" do
     s = SmartAnswer::Flow.new do
       satisfies_need 1337

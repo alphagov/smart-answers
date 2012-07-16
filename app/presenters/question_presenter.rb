@@ -11,4 +11,8 @@ class QuestionPresenter < NodePresenter
       File.exist?(File.expand_path("../../views/smart_answers/_#{template_name}.html.erb", __FILE__))
     end
   end
+
+  def multiple_responses?
+    false
+  end
 end
