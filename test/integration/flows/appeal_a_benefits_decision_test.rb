@@ -94,6 +94,264 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
         end
       end
       
+      context "answer 'no' to 'had written explanation?' when letter date was less than a month ago" do
+        setup do
+          add_response Date.today - 7
+          add_response :no
+        end
+        # Q8
+        should "say 'ask for an explanation / statement of reasons'" do
+          assert_current_node :ask_for_an_explanation
+        end
+      end
+      
+      context "answer 'no' to 'had written explanation?' when letter date was more than a month ago" do
+        setup do
+          add_response Date.today << 3 # date of decision letter, three months ago
+          add_response :no
+        end
+        # Q7
+        should "ask 'special circumstances?'" do
+          assert_current_node :special_circumstances?
+        end
+      end
+      
+      # Various written explanation scenarios...
+      #
+      
+      # 1. The written statement was received within a month of requesting it 
+      #    and the decision letter was received less than 1 month and 14 days ago.
+      #
+      context "answer 'written statement' to 'had written explanation?'" do
+        setup do
+          add_response Date.today << 1 # Date of decision letter, 1 month ago
+          add_response :written_explanation
+        end
+        
+        # Q5
+        should "ask 'when did you ask for it?'" do
+          assert_current_node :when_did_you_ask_for_it?
+        end
+        
+        context "the statement was requested less than a month ago" do
+          setup do
+            add_response Date.today - 21 # Statement requested 21 days ago
+          end
+          
+          # Q6
+          should "ask 'when did you get it?'" do
+            assert_current_node :when_did_you_get_it?
+          end
+          
+          context "the statement was received within one month and the decision letter was received less than one month and 14 days ago" do
+            setup do
+              add_response Date.today - 7 # Statement received 7 days ago
+            end
+            
+            # Q7
+            should "ask 'asked to reconsider?'" do
+              assert_current_node :asked_to_reconsider?
+            end
+          end
+          
+        end
+      end
+
+      # 2. The written statement was received within a month of requesting it 
+      #    and the decision letter was received more than 1 month and 14 days ago.
+      #    
+      context "answer 'written statement' to 'had written explanation?'" do
+        setup do
+          add_response Date.today << 3 # Date of decision letter, 3 months ago
+          add_response :written_explanation
+        end
+        
+        # Q5
+        should "ask 'when did you ask for it?'" do
+          assert_current_node :when_did_you_ask_for_it?
+        end
+        
+        context "the statement was requested more than a month ago" do
+          setup do
+            add_response (Date.today << 1) - 21 # Statement requested a month and 21 days ago
+          end
+          
+          # Q6
+          should "ask 'when did you get it?'" do
+            assert_current_node :when_did_you_get_it?
+          end
+          
+          context "the statement was received after one month and 14 days have since passed" do
+            setup do
+              add_response Date.today - 15 # Statement received 15 days ago
+            end
+            
+            # Q7
+            should "ask 'special circumstances?'" do
+              assert_current_node :special_circumstances?
+            end
+          end
+          
+        end
+      end
+
+      # 3. The written statement was received after a month from request date 
+      #    but within the past 14 days.
+      #      
+      context "answer 'written statement' to 'had written explanation?'" do
+        setup do
+          add_response Date.today << 3 # Date of decision letter, 3 months ago
+          add_response :written_explanation
+        end
+        
+        # Q5
+        should "ask 'when did you ask for it?'" do
+          assert_current_node :when_did_you_ask_for_it?
+        end
+        
+        context "the statement was requested more than a month ago" do
+          setup do
+            add_response (Date.today << 1) - 21 # Statement requested a month and 21 days ago
+          end
+          
+          # Q6
+          should "ask 'when did you get it?'" do
+            assert_current_node :when_did_you_get_it?
+          end
+          
+          context "the statement was received after one month and 14 days have noy yet passed" do
+            setup do
+              add_response Date.today - 7 # Statement received 7 days ago
+            end
+            
+            # Q7
+            should "ask 'asked to reconsider?'" do
+              assert_current_node :asked_to_reconsider?
+            end
+          end
+          
+        end
+      end
+
+      # 4. The written statement was received after a month from request date 
+      #    and over 14 days ago.
+      #       
+      context "answer 'written statement' to 'had written explanation?'" do
+        setup do
+          add_response Date.today << 2 # Date of decision letter, 2 months ago
+          add_response :written_explanation
+        end
+        
+        # Q5
+        should "ask 'when did you ask for it?'" do
+          assert_current_node :when_did_you_ask_for_it?
+        end
+        
+        context "the statement was requested more than a month ago" do
+          setup do
+            add_response (Date.today << 1) - 21 # Statement requested one month and 21 days ago
+          end
+          
+          # Q6
+          should "ask 'when did you get it?'" do
+            assert_current_node :when_did_you_get_it?
+          end
+          
+          context "the statement was received within one month and the decision letter was received more than one month and 14 days ago" do
+            setup do
+              add_response (Date.today << 1) - 15 # Statement received one month and 15 days ago (received within a month)
+            end
+            
+            # Q7
+            should "ask 'special circumstances?'" do
+              assert_current_node :special_circumstances?
+            end
+            
+            context "answer 'no' to 'special circumstances?'" do
+              should "say 'cant appeal'" do
+                add_response :no
+                assert_current_node :cant_appeal
+              end
+            end
+            
+            context "answer 'yes' to 'special circumstances?'" do
+              setup do
+                add_response :yes
+              end
+              
+              # Q8
+              should "ask 'asked to reconsider?'" do
+                assert_current_node :asked_to_reconsider?
+              end
+              
+              context "answer 'no' to 'asked to reconsider?'" do
+                should "" do
+                  add_response :no
+                  assert_current_node :ask_to_reconsider
+                end
+              end
+              
+              context "answer 'yes' to 'asked to reconsider?'" do
+                setup do
+                  add_response :yes
+                end
+                
+                # Q9
+                should "ask 'kind of benefit or credit?'" do
+                  assert_current_node :kind_of_benefit_or_credit?
+                end
+                
+                context "answer 'budgeting loan' to 'kind of benefit or credit?'" do
+                  should "say 'apply to the independent service review'" do
+                    add_response :budgeting_loan
+                    assert_current_node :apply_to_the_independent_review_service
+                  end
+                end
+                
+                context "answer 'child maintenance' to 'kind of benefit or credit?'" do
+                  should "say 'appeal to the CSA'" do
+                    add_response :child_maintenance
+                    assert_current_node :appeal_to_the_child_support_agency
+                  end
+                end
+                
+                context "answer 'housing benefit' to 'kind of benefit or credit?'" do
+                  should "say 'appeal to your council'" do
+                    add_response :housing_benefit
+                    assert_current_node :appeal_to_your_council
+                  end
+                end
+                
+                context "answer 'tax credits' to 'kind of benefit or credit?'" do
+                  should "say 'appeal to HMRC leaflet WTC/AP'" do
+                    add_response :tax_credits
+                    assert_current_node :appeal_to_hmrc_wtc
+                  end
+                end
+                
+                context "answer 'child benefit' to 'kind of benefit or credit?'" do
+                  should "say 'appeal to HMRC leaflet CH24A'" do
+                    add_response :child_benefit
+                    assert_current_node :appeal_to_hmrc_ch24a
+                  end
+                end
+                
+                context "answer 'any other credit or benefit' to 'kind of benefit or credit?'" do
+                  should "say 'appeal to the social security'" do
+                    add_response :other_credit_or_benefit
+                    assert_current_node :appeal_to_social_security
+                  end
+                end
+                
+              end
+              
+            end
+            
+          end
+          
+        end
+      end
+      
     end
     
   end
