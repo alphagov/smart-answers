@@ -58,8 +58,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
     
     context "answer 'greater than thirteen months ago' to 'date of decision letter?'" do
       should "say 'cant challenge or appeal'" do
-        @decision_letter_date = Date.today << 14
-        add_response @decision_letter_date
+        add_response 13.months.ago.to_date
         assert_current_node :cant_challenge_or_appeal
       end
     end
@@ -68,13 +67,13 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
       
       # Q4
       should "ask 'had written explanation?'" do
-        add_response Date.today << 12
+        add_response 1.year.ago.to_date
         assert_current_node :had_written_explanation?
       end
       
       context "answer 'spoken explanation' to 'had written explanation?' when letter date was less than a month ago" do
         setup do
-          add_response Date.today - 7
+          add_response 7.days.ago.to_date
           add_response :spoken_explanation
         end
         # Q8
@@ -85,7 +84,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
       
       context "answer 'spoken explanation' to 'had written explanation?' when letter date was more than a month ago" do
         setup do
-          add_response Date.today << 3
+          add_response 3.months.ago.to_date # Decision letter received 3 months ago
           add_response :spoken_explanation
         end
         # Q7
@@ -96,7 +95,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
       
       context "answer 'no' to 'had written explanation?' when letter date was less than a month ago" do
         setup do
-          add_response Date.today - 7
+          add_response 7.days.ago.to_date
           add_response :no
         end
         # Q8
@@ -107,7 +106,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
       
       context "answer 'no' to 'had written explanation?' when letter date was more than a month ago" do
         setup do
-          add_response Date.today << 3 # date of decision letter, three months ago
+          add_response 3.months.ago.to_date # date of decision letter, three months ago
           add_response :no
         end
         # Q7
@@ -124,7 +123,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
       #
       context "answer 'written statement' to 'had written explanation?'" do
         setup do
-          add_response Date.today << 1 # Date of decision letter, 1 month ago
+          add_response 1.month.ago.to_date # Date of decision letter, 1 month ago
           add_response :written_explanation
         end
         
@@ -135,7 +134,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
         
         context "the statement was requested less than a month ago" do
           setup do
-            add_response Date.today - 21 # Statement requested 21 days ago
+            add_response 21.days.ago # Statement requested 21 days ago
           end
           
           # Q6
@@ -145,7 +144,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
           
           context "the statement was received within one month and the decision letter was received less than one month and 14 days ago" do
             setup do
-              add_response Date.today - 7 # Statement received 7 days ago
+              add_response 7.days.ago # Statement received 7 days ago
             end
             
             # Q7
@@ -162,7 +161,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
       #    
       context "answer 'written statement' to 'had written explanation?'" do
         setup do
-          add_response Date.today << 3 # Date of decision letter, 3 months ago
+          add_response 3.months.ago # Date of decision letter, 3 months ago
           add_response :written_explanation
         end
         
@@ -173,7 +172,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
         
         context "the statement was requested more than a month ago" do
           setup do
-            add_response (Date.today << 1) - 21 # Statement requested a month and 21 days ago
+            add_response 21.days.ago(1.month.ago) # Statement requested a month and 21 days ago
           end
           
           # Q6
@@ -183,7 +182,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
           
           context "the statement was received after one month and 14 days have since passed" do
             setup do
-              add_response Date.today - 15 # Statement received 15 days ago
+              add_response 15.days.ago # Statement received 15 days ago
             end
             
             # Q7
@@ -200,7 +199,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
       #      
       context "answer 'written statement' to 'had written explanation?'" do
         setup do
-          add_response Date.today << 3 # Date of decision letter, 3 months ago
+          add_response 3.months.ago # Date of decision letter, 3 months ago
           add_response :written_explanation
         end
         
@@ -211,7 +210,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
         
         context "the statement was requested more than a month ago" do
           setup do
-            add_response (Date.today << 1) - 21 # Statement requested a month and 21 days ago
+            add_response 21.days.ago(1.month.ago) # Statement requested a month and 21 days ago
           end
           
           # Q6
@@ -221,7 +220,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
           
           context "the statement was received after one month and 14 days have noy yet passed" do
             setup do
-              add_response Date.today - 7 # Statement received 7 days ago
+              add_response 7.days.ago # Statement received 7 days ago
             end
             
             # Q7
@@ -238,7 +237,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
       #       
       context "answer 'written statement' to 'had written explanation?'" do
         setup do
-          add_response Date.today << 2 # Date of decision letter, 2 months ago
+          add_response 2.months.ago # Date of decision letter, 2 months ago
           add_response :written_explanation
         end
         
@@ -249,7 +248,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
         
         context "the statement was requested more than a month ago" do
           setup do
-            add_response (Date.today << 1) - 21 # Statement requested one month and 21 days ago
+            add_response 21.days.ago(1.month.ago) # Statement requested one month and 21 days ago
           end
           
           # Q6
@@ -259,7 +258,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
           
           context "the statement was received within one month and the decision letter was received more than one month and 14 days ago" do
             setup do
-              add_response (Date.today << 1) - 15 # Statement received one month and 15 days ago (received within a month)
+              add_response 15.days.ago(1.month.ago) # Statement received one month and 15 days ago (received within a month)
             end
             
             # Q7
@@ -341,6 +340,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
                     add_response :other_credit_or_benefit
                     assert_current_node :appeal_to_social_security
                   end
+        
                 end
                 
               end
@@ -350,6 +350,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
           end
           
         end
+        
       end
       
     end

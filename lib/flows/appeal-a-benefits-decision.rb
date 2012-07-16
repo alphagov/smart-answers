@@ -2,6 +2,8 @@ satisfies_need "9999"
 status :draft
 section_slug "money-and-tax"
 
+decision_appeal_limit_in_months = 13
+
 
 # TODO: Sanitize date picker values.
 
@@ -20,10 +22,13 @@ end
 
 # Q3
 date_question :date_of_decision_letter? do
+  to { Date.parse('1 Jan 1896') }
+  from { Date.today }
   save_input_as :decision_letter_date
   next_node do |response|
+    
     decision_date = Date.parse(response)
-    appeal_expiry_date = decision_date >> 13
+    appeal_expiry_date = decision_appeal_limit_in_months.months.since(decision_date)
     
     if Date.today < appeal_expiry_date
       :had_written_explanation?
@@ -42,7 +47,7 @@ multiple_choice :had_written_explanation? do
     if response == 'written_explanation'
       :when_did_you_ask_for_it? 
     else
-      a_month_has_passed = (Date.parse(decision_letter_date) < Date.today << 1)
+      a_month_has_passed = (Date.parse(decision_letter_date) < 1.month.ago.to_date)
       if a_month_has_passed
         :special_circumstances?
       else
@@ -67,9 +72,10 @@ date_question :when_did_you_get_it? do
   next_node do |response|
     
     received_date = Date.parse(response)
-    received_within_a_month = received_date > Date.parse(written_explanation_request_date) >> 1
-    a_fortnight_has_passed = Date.today > received_date + 14
-    a_month_and_a_fortnight_since_decision = Date.today > (Date.parse(decision_letter_date) >> 1) + 14
+    received_within_a_month = 1.month.since(received_date) > Date.parse(written_explanation_request_date)
+    a_fortnight_has_passed = Date.today > 1.fortnight.since(received_date)
+    decision_date = Date.parse(decision_letter_date)
+    a_month_and_a_fortnight_since_decision = Date.today > 1.fortnight.since(1.month.since(decision_date))
     
     if (received_within_a_month and a_fortnight_has_passed) or
       (!received_within_a_month and a_month_and_a_fortnight_since_decision)
