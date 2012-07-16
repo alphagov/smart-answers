@@ -50,13 +50,13 @@ class RecogniseATradeUnion < ActiveSupport::TestCase
         end
 
         should "not require any action" do
-          add_response :yes
+          add_response :no
           assert_current_node :no_action_required
         end
 
-        context "application not submitted" do
+        context "application submitted" do
           setup do
-            add_response :no
+            add_response :yes
           end
 
           should "ask if CAC have accepted the application" do
