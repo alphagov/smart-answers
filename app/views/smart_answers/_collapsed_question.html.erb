@@ -1,10 +1,19 @@
 <li class="done">
   <h3 class="question">
-    <span class="question-number"><%= question_counter + 1 %></span>
-    <%= question.title %>
+    <span class="question-number"><%= question_counter + 1 %></span><%= question.title %>
   </h3>
 
-  <p class="answer"><%= question.response_label(@presenter.accepted_responses[question_counter]) %></p>
+  <%- if question.multiple_responses? -%>
+    <div class="answer multiple">
+      <ul>
+        <%- question.response_labels(@presenter.accepted_responses[question_counter]).each do |label| -%>
+          <li><%= label %></li>
+        <%- end -%>
+      </ul>
+    </div>
+  <%- else -%>
+    <div class="answer"><%= question.response_label(@presenter.accepted_responses[question_counter]) %></div>
+  <%- end -%>
   <p class="undo">
     <%= link_to "Change this answer", @presenter.change_collapsed_question_link(question_counter + 1) %>
   </p>

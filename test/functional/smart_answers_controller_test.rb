@@ -188,7 +188,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       should "display collapsed question, and format number" do
         get :show, id: 'sample', started: 'y', responses: ["2011-01-01"]
-        assert_select ".done", /1\s+When\?\s+1 January 2011/
+        assert_select ".done", /1\s*When\?\s+1 January 2011/
       end
     end
 
@@ -218,7 +218,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       should "display collapsed question, and format number" do
         get :show, id: 'sample', started: 'y', responses: ["12345"]
-        assert_select ".done", /1\s+How many green bottles\?\s+12,345/
+        assert_select ".done", /1\s*How many green bottles\?\s+12,345/
       end
     end
 
@@ -301,7 +301,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
         setup { get :show, id: 'sample', started: 'y', responses: ["1.0-month"] }
 
         should "show response summary" do
-          assert_select ".done", /1\s+How much\?\s+£1 per month/
+          assert_select ".done", /1\s*How much\?\s+£1 per month/
         end
       end
     end
@@ -338,7 +338,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
       setup { get :show, id: 'sample', started: 'y', responses: ["no"] }
 
       should "show response summary" do
-        assert_select ".done", /1\s+Do you like chocolate\?\s+no/
+        assert_select ".done", /1\s*Do you like chocolate\?\s+no/
       end
 
       should "show the next question" do
