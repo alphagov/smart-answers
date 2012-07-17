@@ -50,13 +50,13 @@ class RecogniseATradeUnion < ActiveSupport::TestCase
         end
 
         should "not require any action" do
-          add_response :yes
+          add_response :no
           assert_current_node :no_action_required
         end
 
-        context "application not submitted" do
+        context "application submitted" do
           setup do
-            add_response :no
+            add_response :yes
           end
 
           should "ask if CAC have accepted the application" do
@@ -73,33 +73,76 @@ class RecogniseATradeUnion < ActiveSupport::TestCase
               add_response :accepted
             end
 
-            should "ask if CAC have ordered a ballot" do
-              assert_current_node :has_the_cac_ordered_a_ballot?
+            should "ask if agreed on the bargaining unit" do
+              assert_current_node :agreed_on_bargaining_unit?
             end
 
-            should "recognise the union if CAC have declared recognition" do
-              add_response :declared_recognition
-              assert_current_node :you_agree_to_recognise_the_union
-            end
-
-            context "ballot ordered" do
-              setup do
-                add_response :ordered_ballot
-              end
-
-              should "ask if the majority support the union" do
-                assert_current_node :did_the_majority_support_the_union_in_the_ballot?
-              end
-
-              should "recognise the union" do
+            context "agreed on the bargaining unit" do
+              should "ask if CAC have ordered a ballot" do
                 add_response :yes
+                assert_current_node :has_the_cac_ordered_a_ballot?
+              end
+            end
+
+            context "not agreed on the bargaining unit" do
+              setup do
+                add_response :no
+              end
+
+              should "ask if CAC have ordered a ballot" do
+                assert_current_node :has_the_cac_ordered_a_ballot?
+              end
+
+              should "recognise the union if CAC have declared recognition" do
+                add_response :declared_recognition
                 assert_current_node :you_agree_to_recognise_the_union
               end
 
-              should "not recognise the union and they cannot reapply within 3 years" do
-                add_response :no
-                assert_current_node :you_do_not_have_to_recognise_the_union_cannot_reapply
+              context "ballot ordered" do
+                setup do
+                  add_response :ordered_ballot
+                end
+
+                should "ask if the majority support the union" do
+                  assert_current_node :did_the_majority_support_the_union_in_the_ballot?
+                end
+
+                should "recognise the union" do
+                  add_response :yes
+                  assert_current_node :you_agree_to_recognise_the_union
+                end
+
+                should "not recognise the union and they cannot reapply within 3 years" do
+                  add_response :no
+                  assert_current_node :you_do_not_have_to_recognise_the_union_cannot_reapply
+                end
               end
+
+              should "recognise the union if CAC have declared recognition" do
+                add_response :declared_recognition
+                assert_current_node :you_must_recognise_the_union
+              end
+
+              context "ballot ordered" do
+                setup do
+                  add_response :ordered_ballot
+                end
+
+                should "ask if the majority support the union" do
+                  assert_current_node :did_the_majority_support_the_union_in_the_ballot?
+                end
+
+                should "recognise the union" do
+                  add_response :yes
+                  assert_current_node :you_must_recognise_the_union
+                end
+
+                should "not recognise the union and they cannot reapply within 3 years" do
+                  add_response :no
+                  assert_current_node :you_do_not_have_to_recognise_the_union_cannot_reapply
+                end
+              end
+
             end
           end
         end
@@ -135,46 +178,63 @@ class RecogniseATradeUnion < ActiveSupport::TestCase
           add_response :lack_of_support_for_bargaining
         end
 
-        should "ask if the union agrees" do
-          assert_current_node :does_the_union_agree_with_derecognition_lack_of_bargaining_support?
+        should "ask if you have written to the union" do
+          assert_current_node :written_to_union?
         end
 
-        should "derecognise the union" do
-          add_response :agree
-          assert_current_node :the_union_is_derecognised_and_bargaining_ends
+        context "has not written to the union" do
+          should "be told to write to the union" do
+            add_response :no
+            assert_current_node :write_to_union2
+          end
         end
 
-        context "union does not agree" do
+        context "has written to the union" do
           setup do
-            add_response :does_not_agree
+            add_response :yes
           end
 
-          should "ask if CAC will hold a ballot" do
-            assert_current_node :will_the_cac_hold_a_ballot_lack_of_bargaining_support?
+          should "ask if the union agrees" do
+            assert_current_node :does_the_union_agree_with_derecognition_lack_of_bargaining_support?
           end
 
-          should "continue with the existing arrangements" do
-            add_response :do_not_hold_a_ballot
-            assert_current_node :you_must_continue_with_the_existing_bargaining_arrangements
+          should "derecognise the union" do
+            add_response :yes
+            assert_current_node :the_union_is_derecognised_and_bargaining_ends
           end
 
-          context "hold a ballot" do
+          context "union does not agree" do
             setup do
-              add_response :hold_a_ballot
+              add_response :no
             end
 
-            should "ask what the CAS's decision on the ballot is" do
-              assert_current_node :what_is_the_cacs_decision_on_the_ballot?
+            should "ask if CAC will hold a ballot" do
+              assert_current_node :will_the_cac_hold_a_ballot_lack_of_bargaining_support?
             end
 
-            should "derecognise union" do
-              add_response :end_collective_bargaining
-              assert_current_node :the_union_is_derecognised_and_bargaining_ends
-            end
-
-            should "continue with existing bargaining arrangements" do
-              add_response :continue_collective_bargaining
+            should "continue with the existing arrangements" do
+              add_response :no
               assert_current_node :you_must_continue_with_the_existing_bargaining_arrangements
+            end
+
+            context "hold a ballot" do
+              setup do
+                add_response :yes
+              end
+
+              should "ask what the CAS's decision on the ballot is" do
+                assert_current_node :what_is_the_cacs_decision_on_the_ballot?
+              end
+
+              should "derecognise union" do
+                add_response :yes
+                assert_current_node :majority_vote_to_end_collective_bargaining?
+              end
+
+              should "continue with existing bargaining arrangements" do
+                add_response :no
+                assert_current_node :you_must_continue_with_the_existing_bargaining_arrangements
+              end
             end
           end
         end
@@ -185,48 +245,18 @@ class RecogniseATradeUnion < ActiveSupport::TestCase
           add_response :falling_union_membership
         end
 
-        should "ask if the union agrees" do
-          assert_current_node :does_the_union_agree_with_derecognition_falling_union_membership?
+        should "ask if you have writen to the union" do
+          assert_current_node :written_to_union2?
         end
 
-        should "derecognise the union" do
-          add_response :agree
-          assert_current_node :the_union_is_derecognised_and_bargaining_ends
+        should "tell you to write to the union if no" do
+          add_response :no
+          assert_current_node :write_to_union2
         end
 
-        context "union does not agree" do
-          setup do
-            add_response :does_not_agree
-          end
-
-          should "ask if CAC will hold a ballot" do
-            assert_current_node :will_the_cac_hold_a_ballot_falling_union_membership?
-          end
-
-          should "continue with existing arrangements" do
-            add_response :do_not_hold_a_ballot
-            assert_current_node :you_must_continue_with_the_existing_bargaining_arrangements
-          end
-
-          context "hold a ballot" do
-            setup do
-              add_response :hold_a_ballot
-            end
-
-            should "ask what the CAS's decision on the ballot is" do
-              assert_current_node :what_is_the_cacs_decision_on_the_ballot?
-            end
-
-            should "derecognise union" do
-              add_response :end_collective_bargaining
-              assert_current_node :the_union_is_derecognised_and_bargaining_ends
-            end
-
-            should "continue with existing bargaining arrangements" do
-              add_response :continue_collective_bargaining
-              assert_current_node :you_must_continue_with_the_existing_bargaining_arrangements
-            end
-          end
+        should "ask if union agrees if yes" do
+          add_response :yes
+          assert_current_node :does_the_union_agree_with_derecognition_lack_of_bargaining_support?
         end
       end
 
@@ -235,18 +265,35 @@ class RecogniseATradeUnion < ActiveSupport::TestCase
           add_response :reduced_workforce
         end
 
-        should "ask if CAS has decided your notice is valid" do
-          assert_current_node :is_your_derecognition_valid?
+        should "ask if you have sent notice" do
+          assert_current_node :have_you_sent_notice?
         end
 
-        should "not be able to seek derecognition" do
-          add_response :not_valid
-          assert_current_node :you_cannot_seek_derecognition
+        context "has not sent notice" do
+          should "write to union" do
+            add_response :no
+            assert_current_node :write_to_union
+          end
         end
 
-        should "be derecognised" do
-          add_response :valid
-          assert_current_node :the_union_is_derecognised_and_bargaining_will_end
+        context "has sent notice" do
+          setup do
+            add_response :yes
+          end
+
+          should "ask if CAS has decided your notice is valid" do
+            assert_current_node :is_your_derecognition_valid?
+          end
+
+          should "not be able to seek derecognition" do
+            add_response :not_valid
+            assert_current_node :you_cannot_seek_derecognition
+          end
+
+          should "be derecognised" do
+            add_response :valid
+            assert_current_node :the_union_is_derecognised_and_bargaining_will_end
+          end
         end
       end
     end
