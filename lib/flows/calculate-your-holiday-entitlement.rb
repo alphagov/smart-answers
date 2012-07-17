@@ -22,22 +22,20 @@ date_question :what_is_your_starting_date? do
   from { Date.civil(Date.today.year, 1, 1) }
   to { Date.civil(Date.today.year, 12, 31) }
   save_input_as :start_date
-  next_node do |response|
-    case employment_status
-    when 'full-time'
-      :full_time_how_many_days_per_week?
-    when 'part-time'
-      :part_time_how_many_days_per_week?
-    when 'shift-worker'
-      :shift_worker_hours_per_shift?
-    end
-  end
+  next_node :when_does_your_leave_year_start?
 end
 
 date_question :what_is_your_leaving_date? do
   from { Date.civil(Date.today.year, 1, 1) }
   to { Date.civil(Date.today.year, 12, 31) }
   save_input_as :leaving_date
+  next_node :when_does_your_leave_year_start?
+end
+
+date_question :when_does_your_leave_year_start? do
+  from { Date.civil(Date.today.year, 1, 1) }
+  to { Date.civil(Date.today.year, 12, 31) }
+  save_input_as :leave_year_start_date
   next_node do |response|
     case employment_status
     when 'full-time'
@@ -62,7 +60,8 @@ multiple_choice :full_time_how_many_days_per_week? do
     Calculators::HolidayEntitlement.new(
       :days_per_week => days_per_week,
       :start_date => start_date,
-      :leaving_date => leaving_date
+      :leaving_date => leaving_date,
+      :leave_year_start_date => leave_year_start_date
     )
   end
   calculate :holiday_entitlement_days do
@@ -104,7 +103,8 @@ value_question :part_time_how_many_days_per_week? do
     Calculators::HolidayEntitlement.new(
       :days_per_week => days_per_week,
       :start_date => start_date,
-      :leaving_date => leaving_date
+      :leaving_date => leaving_date,
+      :leave_year_start_date => leave_year_start_date
     )
   end
   calculate :holiday_entitlement_days do
@@ -241,6 +241,7 @@ value_question :shift_worker_days_per_shift_pattern? do
     Calculators::HolidayEntitlement.new(
       :start_date => start_date,
       :leaving_date => leaving_date,
+      :leave_year_start_date => leave_year_start_date,
       :hours_per_shift => hours_per_shift,
       :shifts_per_shift_pattern => shifts_per_shift_pattern,
       :days_per_shift_pattern => days_per_shift_pattern
