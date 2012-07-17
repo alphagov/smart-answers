@@ -128,16 +128,15 @@ en-GB:
         body: |
           You must continue your existing bargaining arrangements in the meantime.
       you_must_continue_with_the_existing_bargaining_arrangements:
+        title: You must continue with the existing bargaining arrangements.
         body: |
-          You must continue with the existing bargaining arrangements.
-
           You cannot re-apply to derecognise the union for 3 years, unless the bargaining unit changes significantly.
-      :majority_vote_to_end_collective_bargaining?:
+      majority_vote_to_end_collective_bargaining?:
         title: Did a majority vote in the ballot to end collective bargaining?
       what_is_the_cacs_decision_on_the_ballot?:
         title: Has the CAC agreed to hold a ballot on ending collective bargaining? 
         body: | 
-          You must follow the [BIS 'Access and unfair practices during recognition and derecognition ballots' code of practice](http://www.bis.gov.uk/files/file14418.pdf “BIS ‘Access and unfair practices during recognition and derecognition ballots’ code of practice”).
+          You must follow the [BIS 'Access and unfair practices during recognition and derecognition ballots' code of practice](http://www.bis.gov.uk/files/file14418.pdf "BIS ‘Access and unfair practices during recognition and derecognition ballots’ code of practice"){:rel="external"}.
 
           *[CAC]:Central Arbitration Committee
       the_union_is_derecognised_and_bargaining_will_end:
@@ -171,6 +170,7 @@ en-GB:
         title: Have you written to the union to ask for derecognition? 
         body: |
           You should:
+
           - identify the bargaining arrangements
           - reference Schedule A1 of the Trade Union and Labour Relations (Consolidation) Act 1992
           - state that fewer than 50% of workers in the bargaining unit are union members
