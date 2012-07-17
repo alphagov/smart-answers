@@ -64,13 +64,13 @@ multiple_choice :have_you_sent_notice? do
 end
 
 multiple_choice :does_the_union_agree_with_derecognition_lack_of_bargaining_support? do
-  option :agree => :the_union_is_derecognised_and_bargaining_ends
-  option :does_not_agree => :will_the_cac_hold_a_ballot_lack_of_bargaining_support?
+  option :yes => :the_union_is_derecognised_and_bargaining_ends
+  option :no => :will_the_cac_hold_a_ballot_lack_of_bargaining_support?
 end
 
 multiple_choice :will_the_cac_hold_a_ballot_lack_of_bargaining_support? do
-  option :hold_a_ballot => :what_is_the_cacs_decision_on_the_ballot?
-  option :do_not_hold_a_ballot => :you_must_continue_with_the_existing_bargaining_arrangements
+  option :yes => :what_is_the_cacs_decision_on_the_ballot?
+  option :no => :you_must_continue_with_the_existing_bargaining_arrangements
 end
 
 multiple_choice :does_the_union_agree_with_derecognition_falling_union_membership? do
@@ -84,8 +84,8 @@ multiple_choice :will_the_cac_hold_a_ballot_falling_union_membership? do
 end
 
 multiple_choice :what_is_the_cacs_decision_on_the_ballot? do
-  option :end_collective_bargaining => :the_union_is_derecognised_and_bargaining_ends
-  option :continue_collective_bargaining => :you_must_continue_with_the_existing_bargaining_arrangements
+  option :yes => :the_union_is_derecognised_and_bargaining_ends
+  option :no => :you_must_continue_with_the_existing_bargaining_arrangements
 end
 
 multiple_choice :is_your_derecognition_valid? do

@@ -199,13 +199,13 @@ class RecogniseATradeUnion < ActiveSupport::TestCase
           end
 
           should "derecognise the union" do
-            add_response :agree
+            add_response :yes
             assert_current_node :the_union_is_derecognised_and_bargaining_ends
           end
 
           context "union does not agree" do
             setup do
-              add_response :does_not_agree
+              add_response :no
             end
 
             should "ask if CAC will hold a ballot" do
@@ -213,13 +213,13 @@ class RecogniseATradeUnion < ActiveSupport::TestCase
             end
 
             should "continue with the existing arrangements" do
-              add_response :do_not_hold_a_ballot
+              add_response :no
               assert_current_node :you_must_continue_with_the_existing_bargaining_arrangements
             end
 
             context "hold a ballot" do
               setup do
-                add_response :hold_a_ballot
+                add_response :yes
               end
 
               should "ask what the CAS's decision on the ballot is" do
@@ -227,12 +227,12 @@ class RecogniseATradeUnion < ActiveSupport::TestCase
               end
 
               should "derecognise union" do
-                add_response :end_collective_bargaining
+                add_response :yes
                 assert_current_node :the_union_is_derecognised_and_bargaining_ends
               end
 
               should "continue with existing bargaining arrangements" do
-                add_response :continue_collective_bargaining
+                add_response :no
                 assert_current_node :you_must_continue_with_the_existing_bargaining_arrangements
               end
             end
@@ -278,12 +278,12 @@ class RecogniseATradeUnion < ActiveSupport::TestCase
             end
 
             should "derecognise union" do
-              add_response :end_collective_bargaining
+              add_response :yes
               assert_current_node :the_union_is_derecognised_and_bargaining_ends
             end
 
             should "continue with existing bargaining arrangements" do
-              add_response :continue_collective_bargaining
+              add_response :no
               assert_current_node :you_must_continue_with_the_existing_bargaining_arrangements
             end
           end

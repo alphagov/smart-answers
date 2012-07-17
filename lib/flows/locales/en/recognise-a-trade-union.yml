@@ -127,7 +127,17 @@ en-GB:
         title: You can write to the union to request derecognition on these grounds.
         body: |
           You must continue your existing bargaining arrangements in the meantime.
+      you_must_continue_with_the_existing_bargaining_arrangements:
+        body: |
+          You must continue with the existing bargaining arrangements.
 
+          You cannot re-apply to derecognise the union for 3 years, unless the bargaining unit changes significantly.
+      what_is_the_cacs_decision_on_the_ballot?:
+        title: Has the CAC agreed to hold a ballot on ending collective bargaining? 
+        body: | 
+          You must follow the [BIS 'Access and unfair practices during recognition and derecognition ballots' code of practice](http://www.bis.gov.uk/files/file14418.pdf “BIS ‘Access and unfair practices during recognition and derecognition ballots’ code of practice”).
+
+          *[CAC]:Central Arbitration Committee
       the_union_is_derecognised_and_bargaining_will_end:
         title: The union is derecognised.
         body: |
@@ -137,6 +147,14 @@ en-GB:
           - the day after the CAC's 10-day decision period
 
           *[CAC]:Central Arbitration Committee
+      will_the_cac_hold_a_ballot_lack_of_bargaining_support?:
+        title: Have you written to the CAC (copying in the union) to ask them to hold a ballot on ending collective bargaining?
+        body: |
+          You can only do this if:
+
+          - you have negotiated properly with the union
+          - a majority of workers are likely to favour derecognition
+          - your original derecognition request to the union was valid
       written_to_union?:
         title: Have you written to the union requesting derecognition?
         body: |
