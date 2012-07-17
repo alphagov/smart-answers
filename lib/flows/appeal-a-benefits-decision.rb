@@ -19,8 +19,8 @@ end
 
 # Q3
 date_question :date_of_decision_letter? do
-  to { Date.parse('1 Jan 1896') }
-  from { Date.today }
+  from { 5.years.ago }
+  to { Date.today }
   save_input_as :decision_letter_date
   next_node do |response|
     
@@ -60,12 +60,16 @@ end
 
 # Q5
 date_question :when_did_you_ask_for_it? do
+  from { 5.years.ago }
+  to { Date.today }
   save_input_as :written_explanation_request_date
   next_node :when_did_you_get_it?
 end
 
 # Q6
 date_question :when_did_you_get_it? do
+  from { 5.years.ago }
+  to { Date.today }
   next_node do |response|
     
     received_date = Date.parse(response)
