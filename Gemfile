@@ -16,7 +16,6 @@ end
 gem 'rails', '3.1.3'
 gem 'rails-i18n'
 gem 'json'
-gem 'jquery-rails'
 gem 'plek', '~> 0.1'
 gem 'rummageable'
 gem 'aws-ses', :require => 'aws/ses'
@@ -53,13 +52,6 @@ end
 
 group :webkit do
   gem 'capybara-webkit', "~> 0.12.1"
-end
-
-group :assets do
-  gem 'sass-rails', "  ~> 3.1.0"
-  gem 'coffee-rails', "~> 3.1.0"
-  gem "therubyracer", "~> 0.9.4"
-  gem 'uglifier'
 end
 
 if ENV['RUBY_DEBUG']
