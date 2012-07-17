@@ -228,7 +228,7 @@ class RecogniseATradeUnion < ActiveSupport::TestCase
 
               should "derecognise union" do
                 add_response :yes
-                assert_current_node :the_union_is_derecognised_and_bargaining_ends
+                assert_current_node :majority_vote_to_end_collective_bargaining?
               end
 
               should "continue with existing bargaining arrangements" do
@@ -277,14 +277,29 @@ class RecogniseATradeUnion < ActiveSupport::TestCase
               assert_current_node :what_is_the_cacs_decision_on_the_ballot?
             end
 
-            should "derecognise union" do
-              add_response :yes
-              assert_current_node :the_union_is_derecognised_and_bargaining_ends
-            end
-
             should "continue with existing bargaining arrangements" do
               add_response :no
               assert_current_node :you_must_continue_with_the_existing_bargaining_arrangements
+            end
+
+            context "decrecognise union" do
+              setup do
+                add_response :yes
+              end
+  
+              should "derecognise union" do
+                assert_current_node :majority_vote_to_end_collective_bargaining?
+              end
+
+              should "say the union is derecognised if yes" do
+                add_response :yes
+                assert_current_node :the_union_is_derecognised_and_bargaining_ends
+              end
+
+              should "continue with bargaining if no" do
+                add_response :no
+                assert_current_node :you_must_continue_with_the_existing_bargaining_arrangements
+              end
             end
           end
         end

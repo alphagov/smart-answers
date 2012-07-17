@@ -132,6 +132,8 @@ en-GB:
           You must continue with the existing bargaining arrangements.
 
           You cannot re-apply to derecognise the union for 3 years, unless the bargaining unit changes significantly.
+      :majority_vote_to_end_collective_bargaining?:
+        title: Did a majority vote in the ballot to end collective bargaining?
       what_is_the_cacs_decision_on_the_ballot?:
         title: Has the CAC agreed to hold a ballot on ending collective bargaining? 
         body: | 

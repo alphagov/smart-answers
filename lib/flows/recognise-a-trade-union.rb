@@ -84,13 +84,18 @@ multiple_choice :will_the_cac_hold_a_ballot_falling_union_membership? do
 end
 
 multiple_choice :what_is_the_cacs_decision_on_the_ballot? do
-  option :yes => :the_union_is_derecognised_and_bargaining_ends
+  option :yes => :majority_vote_to_end_collective_bargaining?
   option :no => :you_must_continue_with_the_existing_bargaining_arrangements
 end
 
 multiple_choice :is_your_derecognition_valid? do
   option :valid => :the_union_is_derecognised_and_bargaining_will_end
   option :not_valid => :you_cannot_seek_derecognition
+end
+
+multiple_choice :majority_vote_to_end_collective_bargaining? do
+  option :yes => :the_union_is_derecognised_and_bargaining_ends
+  option :no => :you_must_continue_with_the_existing_bargaining_arrangements
 end
 
 outcome :you_agree_to_recognise_the_union
