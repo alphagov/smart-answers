@@ -41,7 +41,7 @@ else
 end
 
 group :test do
-  gem 'capybara', '~> 1.1.0'
+  gem 'capybara', '~> 1.1.2'
   gem 'ci_reporter'
   gem 'factory_girl_rails'
   gem 'mocha', :require => false
@@ -52,7 +52,7 @@ group :test do
 end
 
 group :webkit do
-  gem 'capybara-webkit'
+  gem 'capybara-webkit', "~> 0.12.1"
 end
 
 group :assets do
