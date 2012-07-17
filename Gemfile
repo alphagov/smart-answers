@@ -18,7 +18,6 @@ gem 'rails-i18n'
 gem 'json'
 gem 'plek', '~> 0.1'
 gem 'rummageable'
-gem 'aws-ses', :require => 'aws/ses'
 gem 'exception_notification'
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
@@ -42,15 +41,10 @@ end
 group :test do
   gem 'capybara', '~> 1.1.2'
   gem 'ci_reporter'
-  gem 'factory_girl_rails'
   gem 'mocha', :require => false
-  gem 'selenium-webdriver'
   gem "shoulda", "~> 2.11.3"
   gem 'webmock', :require => false
   gem "simplecov", "0.4.2"
-end
-
-group :webkit do
   gem 'capybara-webkit', "~> 0.12.1"
 end
 
