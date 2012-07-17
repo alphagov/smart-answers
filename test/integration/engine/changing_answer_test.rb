@@ -14,7 +14,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       select "1975", :from => "Year"
       click_on "Next step"
 
-      within ('ol li.done:nth-child(1)') { click_on "Change this answer" }
+      within('ol li.done:nth-child(1)') { click_on "Change this answer" }
 
       within('.current-question .question-body') { assert page.has_select? "response", :selected => "Belarus" }
 
@@ -28,7 +28,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       select "1985", :from => "Year"
       click_on "Next step"
 
-      within ('ol li.done:nth-child(2)') { click_on "Change this answer" }
+      within('ol li.done:nth-child(2)') { click_on "Change this answer" }
 
       within '.current-question .question-body' do
         assert page.has_select? "Day", :selected => "10"
@@ -54,7 +54,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       fill_in "£", :with => "1000000"
       click_on "Next step"
 
-      within ('ol li.done:nth-child(1)') { click_on "Change this answer" }
+      within('ol li.done:nth-child(1)') { click_on "Change this answer" }
 
       within '.current-question .question-body' do
         assert page.has_field? "£", :with => "5000.0"
@@ -70,9 +70,9 @@ class ChangingAnswerTest < EngineIntegrationTest
       fill_in "£", :with => "2000000"
       click_on "Next step"
 
-      within ('ol li.done:nth-child(2)') { click_on "Change this answer" }
+      within('ol li.done:nth-child(2)') { click_on "Change this answer" }
 
-      within ('.current-question .question-body') { assert page.has_field? "£", :with => "2000000.0" }
+      within('.current-question .question-body') { assert page.has_field? "£", :with => "2000000.0" }
 
       fill_in "£", :with => "3000000"
       click_on "Next step"
@@ -92,9 +92,9 @@ class ChangingAnswerTest < EngineIntegrationTest
       choose "Blue"
       click_on "Next step"
 
-      within ('ol li.done:nth-child(1)') { click_on "Change this answer" }
+      within('ol li.done:nth-child(1)') { click_on "Change this answer" }
 
-      within ('.current-question .question-body') { assert page.has_field? "Name:", :with => "Lancelot" }
+      within('.current-question .question-body') { assert page.has_field? "Name:", :with => "Lancelot" }
 
       fill_in "Name:", :with => "Bors"
       click_on "Next step"
@@ -107,7 +107,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       choose "Blue"
       click_on "Next step"
 
-      within ('ol li.done:nth-child(2)') { click_on "Change this answer" }
+      within('ol li.done:nth-child(2)') { click_on "Change this answer" }
 
       within '.current-question .question-body' do
          assert page.has_checked_field? "To seek the Holy Grail"
@@ -123,7 +123,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       choose "Blue"
       click_on "Next step"
 
-      within ('ol li.done:nth-child(3)') { click_on "Change this answer" }
+      within('ol li.done:nth-child(3)') { click_on "Change this answer" }
 
       within '.current-question .question-body' do
         assert page.has_checked_field? "Blue"
@@ -146,7 +146,7 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       assert_current_url "/checkbox-sample/y/pepperoni,peppers"
 
-      within ('ol li.done:nth-child(1)') { click_on "Change this answer" }
+      within('ol li.done:nth-child(1)') { click_on "Change this answer" }
 
       within '.current-question .question-body' do
         assert page.has_unchecked_field?("Ham")
