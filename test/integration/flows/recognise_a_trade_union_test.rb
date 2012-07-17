@@ -245,63 +245,18 @@ class RecogniseATradeUnion < ActiveSupport::TestCase
           add_response :falling_union_membership
         end
 
-        should "ask if the union agrees" do
-          assert_current_node :does_the_union_agree_with_derecognition_falling_union_membership?
+        should "ask if you have writen to the union" do
+          assert_current_node :written_to_union2?
         end
 
-        should "derecognise the union" do
-          add_response :agree
-          assert_current_node :the_union_is_derecognised_and_bargaining_ends
+        should "tell you to write to the union if no" do
+          add_response :no
+          assert_current_node :write_to_union2
         end
 
-        context "union does not agree" do
-          setup do
-            add_response :does_not_agree
-          end
-
-          should "ask if CAC will hold a ballot" do
-            assert_current_node :will_the_cac_hold_a_ballot_falling_union_membership?
-          end
-
-          should "continue with existing arrangements" do
-            add_response :do_not_hold_a_ballot
-            assert_current_node :you_must_continue_with_the_existing_bargaining_arrangements
-          end
-
-          context "hold a ballot" do
-            setup do
-              add_response :hold_a_ballot
-            end
-
-            should "ask what the CAS's decision on the ballot is" do
-              assert_current_node :what_is_the_cacs_decision_on_the_ballot?
-            end
-
-            should "continue with existing bargaining arrangements" do
-              add_response :no
-              assert_current_node :you_must_continue_with_the_existing_bargaining_arrangements
-            end
-
-            context "decrecognise union" do
-              setup do
-                add_response :yes
-              end
-  
-              should "derecognise union" do
-                assert_current_node :majority_vote_to_end_collective_bargaining?
-              end
-
-              should "say the union is derecognised if yes" do
-                add_response :yes
-                assert_current_node :the_union_is_derecognised_and_bargaining_ends
-              end
-
-              should "continue with bargaining if no" do
-                add_response :no
-                assert_current_node :you_must_continue_with_the_existing_bargaining_arrangements
-              end
-            end
-          end
+        should "ask if union agrees if yes" do
+          add_response :yes
+          assert_current_node :does_the_union_agree_with_derecognition_lack_of_bargaining_support?
         end
       end
 

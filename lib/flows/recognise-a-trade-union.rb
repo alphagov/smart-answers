@@ -50,10 +50,15 @@ end
 multiple_choice :on_what_grounds_are_you_seeking_derecognition? do
   option :reduced_workforce => :have_you_sent_notice?
   option :lack_of_support_for_bargaining => :written_to_union?
-  option :falling_union_membership => :does_the_union_agree_with_derecognition_falling_union_membership?
+  option :falling_union_membership => :written_to_union2?
 end
 
 multiple_choice :written_to_union? do
+  option :yes => :does_the_union_agree_with_derecognition_lack_of_bargaining_support?
+  option :no => :write_to_union2
+end
+
+multiple_choice :written_to_union2? do
   option :yes => :does_the_union_agree_with_derecognition_lack_of_bargaining_support?
   option :no => :write_to_union2
 end
@@ -71,11 +76,6 @@ end
 multiple_choice :will_the_cac_hold_a_ballot_lack_of_bargaining_support? do
   option :yes => :what_is_the_cacs_decision_on_the_ballot?
   option :no => :you_must_continue_with_the_existing_bargaining_arrangements
-end
-
-multiple_choice :does_the_union_agree_with_derecognition_falling_union_membership? do
-  option :agree => :the_union_is_derecognised_and_bargaining_ends
-  option :does_not_agree => :will_the_cac_hold_a_ballot_falling_union_membership?
 end
 
 multiple_choice :will_the_cac_hold_a_ballot_falling_union_membership? do

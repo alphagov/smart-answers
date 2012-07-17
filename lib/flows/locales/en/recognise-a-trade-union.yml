@@ -167,6 +167,16 @@ en-GB:
 
           Both parties can ask [Acas](http://www.acas.org.uk/ "Acas"){:rel="external"} to help you negotiate.
 
+      written_to_union2?:
+        title: Have you written to the union to ask for derecognition? 
+        body: |
+          You should:
+          - identify the bargaining arrangements
+          - reference Schedule A1 of the Trade Union and Labour Relations (Consolidation) Act 1992
+          - state that fewer than 50% of workers in the bargaining unit are union members
+
+          Both parties can ask [Acas](http://www.acas.org.uk/ "Acas"){:rel="external"} to help you negotiate.
+
       does_the_union_agree_with_derecognition_lack_of_bargaining_support?:
         title: Does the union agree to your written request for derecognition?
 
