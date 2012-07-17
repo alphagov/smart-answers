@@ -120,7 +120,7 @@ class RecogniseATradeUnion < ActiveSupport::TestCase
 
               should "recognise the union if CAC have declared recognition" do
                 add_response :declared_recognition
-                assert_current_node :you_agree_to_recognise_the_union
+                assert_current_node :you_must_recognise_the_union
               end
 
               context "ballot ordered" do
@@ -134,7 +134,7 @@ class RecogniseATradeUnion < ActiveSupport::TestCase
 
                 should "recognise the union" do
                   add_response :yes
-                  assert_current_node :you_agree_to_recognise_the_union
+                  assert_current_node :you_must_recognise_the_union
                 end
 
                 should "not recognise the union and they cannot reapply within 3 years" do

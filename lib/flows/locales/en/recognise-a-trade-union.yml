@@ -9,22 +9,29 @@ en-GB:
         "yes": "Yes"
         "no": "No"
 
+      # Q1
       what_do_you_need_to_do?:
         title: "Do you need to:"
         options:
           recognise_a_trade_union: recognise a trade union
           derecoognise_a_trade_union: derecognise a trade union
+
+      # Q2
       do_you_want_to_recognise_the_union_voluntarily?:
         title: "Do you want to recognise the union voluntarily?"
 
+      # Q3
       how_many_employees_do_you_have?:
         title: How many employees do you have?
         options:
           21_or_more: 21 or more
           fewer_than_21: fewer than 21
+
+      # Q4
       have_they_submitted_an_application?:
         title: Has the union applied to the Central Arbitration Committee (CAC) for recognition?
 
+      # Q5
       have_cac_accepted_the_application?:
         title: "Has the CAC:"
         options:
@@ -37,6 +44,7 @@ en-GB:
 
           *[CAC]:Central Arbitration Committee
 
+      # Q6
       agreed_on_bargaining_unit?:
         title: Have you agreed on the bargaining unit with the union?
         body: |
@@ -50,17 +58,22 @@ en-GB:
 
           *[CAC]:Central Arbitration Committee
 
-
+      # Q7
       has_the_cac_ordered_a_ballot?:
         title: "Has the CAC:"
         options:
           declared_recognition: declared union recognition
           ordered_ballot: ordered a ballot
+
+      # Q8
       did_the_majority_support_the_union_in_the_ballot?:
         title: Did a majority support the union in the ballot?
 
+      # Q9
       has_it_been_3_years_since_gaining_recognition?:
         title: Has it been 3 years or more since the union gained statutory recognition?
+
+      # Q10
       on_what_grounds_are_you_seeking_derecognition?:
         title: Why are you seeking statutory derecognition of the union?
         options:
@@ -69,6 +82,8 @@ en-GB:
           falling_union_membership: union membership in the bargaining unit is lower than 50%
         body: |
           [More information about the statutory derecognition procedure](http://www.cac.gov.uk/index.aspx?articleid=2334 "More information about the statutory derecognition procedure"){:rel="external"}
+
+      # Q11
       have_you_sent_notice?:
         title: Have you sent a notice to the union and the CAC requesting derecognition?
         body: |
@@ -84,78 +99,15 @@ en-GB:
           - you employed 21 or more workers during that time
 
           *[CAC]:Central Arbitration Committee
+
+      # Q12
       is_your_derecognition_valid?:
         title: "Has the CAC decided that your notice is:"
         options:
           valid: valid
           not_valid: not valid
 
-
-      you_agree_to_recognise_the_union:
-        title: You agree to recognise the union
-        body: |
-          Both parties should draw up an agreement setting out:
-
-          - the bargaining unit (the group of workers the union will act for)
-          - how collective bargaining will take place
-
-          Both parties can ask [Acas](http://www.acas.org.uk/ "Acas"){:rel="external"} to help negotiate.
-
-      the_union_cannot_apply_for_statutory_recognition:
-        title: You don’t have to recognise the union.
-        body: |
-          The union can't apply for statutory recognition at this point because there aren’t enough employees.  
-      no_action_required:
-        title: No action required - but the union may apply to the CAC at a later date.
-      you_do_not_have_to_recognise_the_union_can_reapply:
-        title: You don't have to recognise the union - but the union can re-apply to the CAC at any time.
-      you_do_not_have_to_recognise_the_union_cannot_reapply:
-        title: You do not have to recognise the union.
-        body: |
-          It can’t make a new application for recognition for 3 years (assuming the bargaining unit remains the same).
-      you_cannot_seek_derecognition:
-        title: You can't seek derecognition.
-        body: |
-          You must continue with the existing bargaining arrangements.
-      write_to_union:
-        title: You can write to the union and the CAC requesting derecognition on these grounds.
-        body: |
-          Both parties must consider your notice.
-
-          Both parties can ask [Acas](http://www.acas.org.uk/ "Acas"){:rel="external"} to help negotiate at this stage of the process.
-      write_to_union2:
-        title: You can write to the union to request derecognition on these grounds.
-        body: |
-          You must continue your existing bargaining arrangements in the meantime.
-      you_must_continue_with_the_existing_bargaining_arrangements:
-        title: You must continue with the existing bargaining arrangements.
-        body: |
-          You cannot re-apply to derecognise the union for 3 years, unless the bargaining unit changes significantly.
-      majority_vote_to_end_collective_bargaining?:
-        title: Did a majority vote in the ballot to end collective bargaining?
-      what_is_the_cacs_decision_on_the_ballot?:
-        title: Has the CAC agreed to hold a ballot on ending collective bargaining? 
-        body: | 
-          You must follow the [BIS 'Access and unfair practices during recognition and derecognition ballots' code of practice](http://www.bis.gov.uk/files/file14418.pdf "BIS ‘Access and unfair practices during recognition and derecognition ballots’ code of practice"){:rel="external"}.
-
-          *[CAC]:Central Arbitration Committee
-      the_union_is_derecognised_and_bargaining_will_end:
-        title: The union is derecognised.
-        body: |
-          Your bargaining arrangements will end on whichever date is later: 
-
-          - the day you specified in your notice
-          - the day after the CAC's 10-day decision period
-
-          *[CAC]:Central Arbitration Committee
-      will_the_cac_hold_a_ballot_lack_of_bargaining_support?:
-        title: Have you written to the CAC (copying in the union) to ask them to hold a ballot on ending collective bargaining?
-        body: |
-          You can only do this if:
-
-          - you have negotiated properly with the union
-          - a majority of workers are likely to favour derecognition
-          - your original derecognition request to the union was valid
+      # Q13
       written_to_union?:
         title: Have you written to the union requesting derecognition?
         body: |
@@ -166,6 +118,11 @@ en-GB:
 
           Both parties can ask [Acas](http://www.acas.org.uk/ "Acas"){:rel="external"} to help you negotiate.
 
+      # Q14
+      does_the_union_agree_with_derecognition_lack_of_bargaining_support?:
+        title: Does the union agree to your written request for derecognition?
+
+      # Q15
       written_to_union2?:
         title: Have you written to the union to ask for derecognition? 
         body: |
@@ -177,10 +134,111 @@ en-GB:
 
           Both parties can ask [Acas](http://www.acas.org.uk/ "Acas"){:rel="external"} to help you negotiate.
 
-      does_the_union_agree_with_derecognition_lack_of_bargaining_support?:
-        title: Does the union agree to your written request for derecognition?
+      # Q16
+      will_the_cac_hold_a_ballot_lack_of_bargaining_support?:
+        title: Have you written to the CAC (copying in the union) to ask them to hold a ballot on ending collective bargaining?
+        body: |
+          You can only do this if:
 
+          - you have negotiated properly with the union
+          - a majority of workers are likely to favour derecognition
+          - your original derecognition request to the union was valid
+
+      # Q17
+      what_is_the_cacs_decision_on_the_ballot?:
+        title: Has the CAC agreed to hold a ballot on ending collective bargaining?
+        body: |
+          You must follow the [BIS 'Access and unfair practices during recognition and derecognition ballots' code of practice](http://www.bis.gov.uk/files/file14418.pdf "BIS ‘Access and unfair practices during recognition and derecognition ballots’ code of practice"){:rel="external"}.
+
+          *[CAC]:Central Arbitration Committee
+
+      # Q18
+      majority_vote_to_end_collective_bargaining?:
+        title: Did a majority vote in the ballot to end collective bargaining?
+
+
+      # A1
+      you_agree_to_recognise_the_union:
+        title: You agree to recognise the union
+        body: |
+          Both parties should draw up an agreement setting out:
+
+          - the bargaining unit (the group of workers the union will act for)
+          - how collective bargaining will take place
+
+          Both parties can ask [Acas](http://www.acas.org.uk/ "Acas"){:rel="external"} to help negotiate.
+
+      # A2
+      the_union_cannot_apply_for_statutory_recognition:
+        title: You don’t have to recognise the union.
+        body: |
+          The union can't apply for statutory recognition at this point because there aren’t enough employees.  
+
+      # A3
+      no_action_required:
+        title: No action required - but the union may apply to the CAC at a later date.
+
+      # A4
+      you_do_not_have_to_recognise_the_union_can_reapply:
+        title: You don't have to recognise the union - but the union can re-apply to the CAC at any time.
+
+      # A5
+      you_must_recognise_the_union:
+        title: You must recognize the union.
+        body: |
+          Both parties should draw up an agreement setting out:
+
+          - the bargaining unit
+          - how collective bargaining will take place
+
+          Both parties can ask [Acas](http://www.acas.org.uk/ "Acas"){:rel="external"} to help negotiate the agreement.
+
+      # A6
+      you_do_not_have_to_recognise_the_union_cannot_reapply:
+        title: You do not have to recognise the union.
+        body: |
+          It can’t make a new application for recognition for 3 years (assuming the bargaining unit remains the same).
+
+
+      # A7
+      you_cannot_seek_derecognition:
+        title: You can't seek derecognition.
+        body: |
+          You must continue with the existing bargaining arrangements.
+
+      # A8
+      write_to_union:
+        title: You can write to the union and the CAC requesting derecognition on these grounds.
+        body: |
+          Both parties must consider your notice.
+
+          Both parties can ask [Acas](http://www.acas.org.uk/ "Acas"){:rel="external"} to help negotiate at this stage of the process.
+
+      # A9
+      the_union_is_derecognised_and_bargaining_will_end:
+        title: The union is derecognised.
+        body: |
+          Your bargaining arrangements will end on whichever date is later: 
+
+          - the day you specified in your notice
+          - the day after the CAC's 10-day decision period
+
+          *[CAC]:Central Arbitration Committee
+
+      # A10
+      write_to_union2:
+        title: You can write to the union to request derecognition on these grounds.
+        body: |
+          You must continue your existing bargaining arrangements in the meantime.
+
+      # A11
       the_union_is_derecognised_and_bargaining_ends:
         title: The union is derecognised and all bargaining arrangements end.
         body: |
           The union can’t apply for statutory recognition for 3 years.
+
+      # A12
+      you_must_continue_with_the_existing_bargaining_arrangements:
+        title: You must continue with the existing bargaining arrangements.
+        body: |
+          You cannot re-apply to derecognise the union for 3 years, unless the bargaining unit changes significantly.
