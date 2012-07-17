@@ -71,6 +71,10 @@ module SmartAnswer
       add_node Question::Salary.new(name, &block)
     end
 
+    def checkbox_question(name, &block)
+      add_node Question::Checkbox.new(name, &block)
+    end
+
     def outcome(name, options = {}, &block)
       add_node Outcome.new(name, options, &block)
     end
