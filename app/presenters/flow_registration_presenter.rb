@@ -40,7 +40,12 @@ class FlowRegistrationPresenter
       text = @flow.nodes.inject([lookup_translation("body")]) { |acc, node|
         pres = NodePresenter.new(@i18n_prefix, node)
         acc.concat(NODE_PRESENTER_METHODS.map { |method|
-          pres.send(method)
+          begin
+            pres.send(method)
+          rescue I18n::MissingInterpolationArgument
+            # We can't do much about this, so we ignore these text nodes
+            nil
+          end
         })
       }.compact.join(" ").gsub(/(?:<[^>]+>|\s)+/, " ")
     )

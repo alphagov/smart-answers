@@ -71,23 +71,22 @@ class FlowRegistraionPresenterTest < ActiveSupport::TestCase
   end
 
   context "indexable_content" do
-    setup do
-      @content = @presenter.indexable_content
-    end
-
     should "include all node titles" do
+      @content = @presenter.indexable_content
       assert_match %r{NODE_1_TITLE}, @content
       assert_match %r{NODE_2_TITLE}, @content
       assert_match %r{NODE_3_TITLE}, @content
     end
 
     should "include all node subtitles" do
+      @content = @presenter.indexable_content
       assert_match %r{NODE_1_SUBTITLE}, @content
       assert_match %r{NODE_2_SUBTITLE}, @content
       assert_match %r{NODE_3_SUBTITLE}, @content
     end
 
     should "include the flow body and all node bodies" do
+      @content = @presenter.indexable_content
       assert_match %r{FLOW_BODY}, @content
       assert_match %r{NODE_1_BODY}, @content
       assert_match %r{NODE_2_BODY}, @content
@@ -95,19 +94,34 @@ class FlowRegistraionPresenterTest < ActiveSupport::TestCase
     end
 
     should "include all node hints" do
+      @content = @presenter.indexable_content
       assert_match %r{NODE_1_HINT}, @content
       assert_match %r{NODE_2_HINT}, @content
       assert_match %r{NODE_3_HINT}, @content
     end
 
     should "omit HTML" do
+      @content = @presenter.indexable_content
       assert_no_match %r{<}, @content
       assert_match %r{LINK TEXT}, @content
     end
 
     should "decode HTML entities" do
+      @content = @presenter.indexable_content
       assert_no_match %r{&rarr;}, @content
       assert_match %r{→}, @content
+    end
+
+    should "ignore any interpolation errors" do
+      interpolation_example_translation_file =
+        File.expand_path('../../fixtures/flow_registraion_presenter_sample/flow_sample_interpolation.yml', __FILE__)
+      I18n.config.load_path = @old_load_path.dup
+      I18n.config.load_path.unshift interpolation_example_translation_file
+      I18n.reload!
+      @content = @presenter.indexable_content
+      assert_match %r{FLOW_BODY}, @content
+      assert_match %r{NODE_1_BODY}, @content
+      assert_match %r{NODE_3_BODY}, @content
     end
   end
 
