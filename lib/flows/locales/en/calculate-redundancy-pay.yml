@@ -16,7 +16,7 @@ en-GB:
             years_employed?:
                 title: How many years have you worked for your employer?
                 hint: |
-                    Only full years of service count - up to a maximum of 20 years. 
+                    Only full years of service count - up to a maximum of 20 years. For example, 3 years and 9 months count as 3 years.
                 label: Full years worked
                 error_message: Please enter a number
 
@@ -57,7 +57,7 @@ en-GB:
             years_employed?:
                 title: Number of years they’ve worked for you
                 hint: |
-                    Only full years of service count - up to a maximum of 20 years. 
+                    Only full years of service count - up to a maximum of 20 years. For example, 3 years and 9 months count as 3 years.
                 label: Full years worked
                 error_message: Please enter a number
 
@@ -71,6 +71,10 @@ en-GB:
                 title: Your employee is not entitled to statutory redundancy pay.
                 body: |
                     A minimum of 2 years’ continuous service is needed before an employee can get statutory redundancy pay.
+                next_steps: |
+                    [Read the guide to Making staff redundant](https://www.gov.uk/making-staff-redundant)
 
             done:
                 title: Based on the figures you’ve given, your employee could get £%{statutory_redundancy_pay} statutory redundancy pay.
+                next_steps: |
+                    [Read the guide to Making staff redundant](https://www.gov.uk/making-staff-redundant)
