@@ -37,6 +37,8 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
 
         should "tell you to fill out the LS01 form" do
           assert_current_node :complete_LS01_form
+          assert_phrase_list :child_advice, []
+          assert_state_variable :lost_or_stolen, 'lost'
         end
       end
 
@@ -56,6 +58,8 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
 
           should "tell you to report it to the embassy" do
             assert_current_node :contact_the_embassy
+            assert_phrase_list :child_advice, []
+            assert_state_variable :lost_or_stolen, 'lost'
           end
         end
       end
@@ -77,6 +81,8 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
 
         should "tell you to fill out the LS01 form" do
           assert_current_node :complete_LS01_form
+          assert_phrase_list :child_advice, [:child_forms]
+          assert_state_variable :lost_or_stolen, 'lost'
         end
       end
 
@@ -96,6 +102,8 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
 
           should "tell you to report it to the embassy" do
             assert_current_node :contact_the_embassy
+            assert_phrase_list :child_advice, [:child_forms]
+            assert_state_variable :lost_or_stolen, 'lost'
           end
         end
       end
@@ -127,6 +135,8 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
 
         should "tell you to report it to the police" do
           assert_current_node :contact_the_police
+          assert_phrase_list :child_advice, []
+          assert_state_variable :lost_or_stolen, 'stolen'
         end
       end
 
@@ -146,6 +156,8 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
 
           should "tell you to report it to the embassy" do
             assert_current_node :contact_the_embassy
+            assert_phrase_list :child_advice, []
+            assert_state_variable :lost_or_stolen, 'stolen'
           end
         end
       end
@@ -167,6 +179,8 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
 
         should "tell you to report it to the police" do
           assert_current_node :contact_the_police
+          assert_phrase_list :child_advice, [:child_forms]
+            assert_state_variable :lost_or_stolen, 'stolen'
         end
       end
 
@@ -186,6 +200,8 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
 
           should "tell you to report it to the embassy" do
             assert_current_node :contact_the_embassy
+            assert_phrase_list :child_advice, [:child_forms]
+            assert_state_variable :lost_or_stolen, 'stolen'
           end
         end
       end
