@@ -1,6 +1,6 @@
 en-GB:
   flow:
-    flow_sample:
+    flow-sample:
       meta:
         description: FLOW_DESCRIPTION
       title:
@@ -17,7 +17,7 @@ en-GB:
       hot:
         title: NODE_2_TITLE
         subtitle: NODE_2_SUBTITLE
-        body: NODE_2_BODY
+        body: NODE_2_BODY %{i_dont_exist}
         hint: NODE_2_HINT
       cold:
         title: NODE_3_TITLE

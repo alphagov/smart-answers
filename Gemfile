@@ -9,10 +9,6 @@ group :passenger_compatibility do
   gem 'rake', '0.9.2'
 end
 
-group :router do
-  gem 'router-client', '2.0.3', :require => 'router/client'
-end
-
 gem 'rails', '3.1.3'
 gem 'rails-i18n'
 gem 'json'
@@ -23,14 +19,14 @@ gem 'exception_notification'
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
 else
-  gem 'gds-api-adapters', '~> 0.0.51'
+  gem 'gds-api-adapters', '0.2.0'
 end
 gem 'htmlentities', '~> 4'
 
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
 else
-  gem 'slimmer', '~> 1.1.39'
+  gem 'slimmer', '1.1.45'
 end
 
 if ENV['GOVSPEAK_DEV']
