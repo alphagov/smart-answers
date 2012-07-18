@@ -1,12 +1,14 @@
 en-GB:
   flow:
     report-a-lost-or-stolen-passport:
+      meta:
+        description: Find out what you need to do if your passport has been lost or stolen.
       title: Report a lost or stolen passport
       body: |
         Find out what you need to do if your passport has been lost or stolen.
       phrases:
         child_forms: |
-          ^Your signature will be compared to the signature on the original passport application form. If the original application was made by someone else, then checks will be carried out to make sure you can take the child out of the country.^
+          ^Your signature will be compared to the signature on the original passport application form. If the original application was made by someone else, you’ll also need to send a signed letter from that person confirming that the passport has been lost or stolen. This is to help prevent child abduction.^
       options:
         lost: Lost
         stolen: Stolen
@@ -22,7 +24,7 @@ en-GB:
         title: You must contact your nearest police station and report your passport as stolen.
         body: | 
 
-          Complete a lost or stolen (LS01) notification form online. The form will be sent to you to sign, date and return to the Identity and Passport Service (IPS).
+          Complete a Lost or Stolen (LS01) notification form online. The form will be sent to you to sign, date and return to the Identity and Passport Service (IPS).
 
           %{child_advice}
         next_steps: |

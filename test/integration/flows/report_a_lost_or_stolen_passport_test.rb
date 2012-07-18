@@ -27,7 +27,7 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
       end
 
       should "ask where your passport was lost" do
-        assert_current_node :where_was_your_passport_lost?
+        assert_current_node :where_was_the_passport_lost?
       end
 
       context "in the UK" do
@@ -67,7 +67,7 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
       end
 
       should "ask where your passport was lost" do
-        assert_current_node :where_was_your_passport_lost?
+        assert_current_node :where_was_the_passport_lost?
       end
 
       context "in UK" do
@@ -117,7 +117,7 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
       end
 
       should "ask where your passport was stolen" do
-        assert_current_node :where_was_your_passport_stolen?
+        assert_current_node :where_was_the_passport_stolen?
       end
 
       context "in the UK" do
@@ -157,7 +157,7 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
       end
 
       should "ask where your passport was stolen" do
-        assert_current_node :where_was_your_passport_stolen?
+        assert_current_node :where_was_the_passport_stolen?
       end
 
       context "in the UK" do
