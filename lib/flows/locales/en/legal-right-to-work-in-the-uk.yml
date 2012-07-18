@@ -68,7 +68,7 @@ en-GB:
           "The worker should have both of these documents to work in the UK:
           
           
-          - an official document from a UK government agency (eg HM Revenue & Customs, Department for Work and Pensions) showing their National Insurance number
+          - an official document from a UK government agency (eg HM Revenue & Customs, Department for Work and Pensions, or the Social Security Agency in Northern Ireland) showing their National Insurance number
           
           - either an 'immigration status document' or a letter from the Home Office saying that they have a right to permanent residence"
         
@@ -93,7 +93,7 @@ en-GB:
         body: |
           They need to show **both**:
 
-          - an official letter or document from a government agency (eg HM Revenue & Customs, Department for Work and Pensions) showing their National Insurance number
+          - an official letter or document from a government agency (eg HM Revenue & Customs, Department for Work and Pensions, or the Social Security Agency in Northern Ireland) showing their National Insurance number
           - full birth, adoption certificate or naturalisation certificate
 
           Employers should [take a copy](/check-an-employees-right-to-work-documents "Check an employee's right to work documents") of the relevant documents.
