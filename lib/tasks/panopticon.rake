@@ -8,12 +8,10 @@ namespace :panopticon do
     logger.info "Registering with panopticon..."
     flow_registry = SmartAnswer::FlowRegistry.new(FLOW_REGISTRY_OPTIONS)
 
-    registerer = GdsApi::Panopticon::Registerer.new(owning_app: "smart-answers")
+    registerer = GdsApi::Panopticon::Registerer.new(owning_app: "smart-answers", kind: "smart-answer")
     flow_registry.flows.each do |flow|
-      presenter = SmartAnswerPresenter.new(OpenStruct.new(params: {}), flow)
-      record = OpenStruct.new(slug: flow.name, title: presenter.title, need_id: flow.need_id, section: presenter.section_name)
-      registerer.register(record)
+      registerable = FlowRegistrationPresenter.new(flow)
+      registerer.register(registerable)
     end
-
   end
 end
