@@ -18,6 +18,7 @@ gem 'rails-i18n'
 gem 'json'
 gem 'plek', '~> 0.1'
 gem 'rummageable'
+gem 'aws-ses', :require => 'aws/ses' # Needed by exception_notification
 gem 'exception_notification'
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
