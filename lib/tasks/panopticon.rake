@@ -10,7 +10,7 @@ namespace :panopticon do
 
     registerer = GdsApi::Panopticon::Registerer.new(owning_app: "smart-answers", kind: "smart-answer")
     flow_registry.flows.each do |flow|
-      registerable = RegisterableFlow.new(flow)
+      registerable = FlowRegistrationPresenter.new(flow)
       registerer.register(registerable)
     end
   end

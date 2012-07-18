@@ -1,6 +1,6 @@
 en-GB:
   flow:
-    flow_sample:
+    flow-sample:
       meta:
         description: FLOW_DESCRIPTION
       title:
