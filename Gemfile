@@ -48,6 +48,11 @@ group :test do
   gem 'capybara-webkit', "~> 0.12.1"
 end
 
+group :assets do
+  gem "therubyracer", "~> 0.9.4"
+  gem 'uglifier'
+end
+
 if ENV['RUBY_DEBUG']
   gem 'ruby-debug19'
 end
