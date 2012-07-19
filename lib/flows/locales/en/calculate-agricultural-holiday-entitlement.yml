@@ -1,9 +1,11 @@
 en-GB:
     flow:
         calculate-agricultural-holiday-entitlement:
+            meta:
+                description: Calculate your agricultural worker holiday entitlement
             title: Calculate your agricultural worker holiday entitlement
             body: |
-                Use this calculator to work out how much statutory holiday leave you're entitled to as an agricultural worker.
+                Use this calculator to work out how much [statutory holiday leave](/agricultural-workers-rights/holiday-leave-and-pay "Holiday leave and pay") you're entitled to as an agricultural worker.
             work_the_same_number_of_days_each_week?:
                 title: Do you work the same number of days each week?
                 options:
@@ -11,7 +13,12 @@ en-GB:
                     "different-number-of-days": "No"
 
             how_many_days_per_week?:
-                title: How many days per week do you attend work?
+                title: How many days do you work per week?
+                body: |
+                    Include guaranteed overtime hours if:
+                    
+                    - you have to work them as part of your contract
+                    - you're paid for the time even if there’s no work for you to do
                 options:
                     "7-days": 7 days per week
                     "6-days": 6 days per week
@@ -31,13 +38,13 @@ en-GB:
                     "multiple-employers": "No"
 
             how_many_weeks_at_current_employer?:
-                title: How many weeks have you been at your current employer?
+                title: How many weeks have you worked for your current employer?
                 label: Weeks worked at current employer
 
             how_many_total_days?:
                 title: How many days have you worked for your current employer since October 1?
                 hint: |
-                    You should include days at work as well as days of annual leave, statutory ordinary adoption leave, statutory ordinary maternity leave, statutory ordinary paternity leave, and sick leave (paid or unpaid).
+                    The leave year starts on October 1.
                 label: Total days worked
 
             done:

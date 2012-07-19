@@ -60,7 +60,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
 
     context "between 22 and 41" do
       setup do
-        add_response "22-41"
+        add_response "22-40"
       end
 
       should "ask how long the employee has been employed" do
@@ -222,7 +222,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
 
     context "between 22 and 41" do
       setup do
-        add_response "22-41"
+        add_response "22-40"
       end
 
       should "ask how long the employee has been employed" do

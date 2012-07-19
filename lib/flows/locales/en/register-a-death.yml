@@ -1,32 +1,34 @@
 en-GB:
   flow:
     register-a-death:
+      meta:
+        description: "Use this tool to find out how to register the death of someone who lived in England or Wales."
       title: "Register a death"
       options:
         "no": "No"
         "yes": "Yes"
 
       body: |
-        You can use this tool to find out how to register the death of someone who normally lived in England or Wales.
+        Use this tool to find out how to register the death of someone who lived in England or Wales.
 
         You need to read different information if:
 
-        - [the person was a resident of Scotland](http://www.gro-scotland.gov.uk/regscot/registering-a-death.html "registering a death - resident of Scotland"){:rel="external"}
-        - [the person was a resident of Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/death-and-bereavement/death-and-bereavement-what-to-do-when-someone-dies/registering-a-death.htm "registering a death - resident of Northern Ireland"){:rel="external"}
+        - [the person lived in Scotland](http://www.gro-scotland.gov.uk/regscot/registering-a-death.html "registering a death - resident of Scotland"){:rel="external"}
+        - [the person lived in Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/death-and-bereavement/death-and-bereavement-what-to-do-when-someone-dies/registering-a-death.htm "registering a death - resident of Northern Ireland"){:rel="external"}
 
       phrases:
         intro_ew: |
-          $!You’ll need to register the death within 5 days. You can go to any [registry office](/register-offices "registry office") but it’s best to use the one in the area where the person died - otherwise the process can take longer.$!
+          $!You must register the death within 5 days. You can go to any [registry office](/register-offices "registry office") but it’s best to use the one in the area where the person died - otherwise the process can take longer.$!
 
-          ^Registering the death will take about half an hour - you might need to make an appointment.^
+          ^Registering the death will take about 30 minutes - you might need to make an appointment.^
 
         intro_other: |
           $!If the death happened outside England and Wales, including on a foreign ship or aircraft, you need to register the death according to the regulations of that country. The local [British embassy or consulate](http://www.fco.gov.uk/en/travel-and-living-abroad/find-an-embassy/ "find a British embassy or consulate"){:rel="external"} can help you with this.$!
 
           If the person died in Scotland or Northern Ireland, read about:
 
-          - [How to register a death in Scotland](http://www.gro-scotland.gov.uk/regscot/registering-a-death.html "how to register a death in Scotland"){:rel="external"}
-          - [How to register a death in Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/death-and-bereavement/death-and-bereavement-what-to-do-when-someone-dies/registering-a-death.htm "how to register a death in Northern Ireland"){:rel="external"}
+          - [how to register a death in Scotland](http://www.gro-scotland.gov.uk/regscot/registering-a-death.html "how to register a death in Scotland"){:rel="external"}
+          - [how to register a death in Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/death-and-bereavement/death-and-bereavement-what-to-do-when-someone-dies/registering-a-death.htm "how to register a death in Northern Ireland"){:rel="external"}
 
         intro_other_unexpected: |
           If the body is being brought back to England or Wales, the death must be reported to the coroner.
@@ -57,7 +59,7 @@ en-GB:
           Take the medical certificate showing the cause of death (signed by a doctor) with you. If available, also take the person’s:
 
           - birth certificate
-          - marriage/civil partnership certificate
+          - marriage or civil partnership certificate
           - NHS medical card
 
         what_you_need_to_do_unexpected: |
@@ -72,13 +74,13 @@ en-GB:
 
           Cause of death | Documents issued by coroner
           - | -
-          Natural causes | Pink Form B - form 100 so the death can be registered - usually sent direct to the registrar, but sometimes given to you
-          Unnatural causes/not enough evidence of natural causes | Order for Burial (form 101) or Certificate for Cremation (form E) so the funeral can take place - given to you; Certificate After Inquest (form 99 (rev)) - states the cause of death and is sent to the registrar
+          Natural causes | Pink Form B - form 100 so the death can be registered - this is sent direct to the registrar, but sometimes given to you
+          Unnatural causes/not enough evidence of natural causes | Order for Burial (form 101) or Certificate for Cremation (form E) so the funeral can take place - given to you; Certificate After Inquest (form 99 (rev)) - this states the cause of death and is sent to the registrar
 
           If available, also take the person’s:
 
           - birth certificate
-          - marriage/civil partnership certificate
+          - marriage or civil partnership certificate
           - NHS medical card
 
         need_to_tell_registrar: |
@@ -189,7 +191,7 @@ en-GB:
       did_the_person_die_at_home_hospital?:
         title: Did the person die at home, in hospital or elsewhere?
         options:
-          at_home_hospital: At home / in hospital
+          at_home_hospital: At home or in hospital
           elsewhere: Elsewhere
 
       was_death_expected?:
