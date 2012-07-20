@@ -98,18 +98,18 @@ class CalculateNightWorkHoursTest < ActiveSupport::TestCase
               end
             end
 
-            context "10 weeks" do
+            context "2 weeks" do
               setup do
-                add_response "10"
+                add_response "2"
               end
 
               should "ask for weeks of leave" do
                 assert_current_node :weeks_of_leave?
               end
 
-              context "2 weeks taken off" do
+              context "1 weeks taken off" do
                 setup do
-                  add_response "2"
+                  add_response "1"
                 end
 
                 should "ask for work cycle" do
@@ -125,9 +125,9 @@ class CalculateNightWorkHoursTest < ActiveSupport::TestCase
                     assert_current_node :nights_per_cycle?
                   end
 
-                  context "4 nights per cycle" do
+                  context "2 nights per cycle" do
                     setup do
-                      add_response "4"
+                      add_response "2"
                     end
 
                     should "ask for hours per night" do
@@ -166,7 +166,7 @@ class CalculateNightWorkHoursTest < ActiveSupport::TestCase
 
                       context "calculation result is 9 hours" do
                         should "show illegal result" do
-                          add_response "2"
+                          add_response "10"
                           assert_current_node :outside_legal_limit
                         end
                       end
