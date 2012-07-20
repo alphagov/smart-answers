@@ -1,5 +1,8 @@
 module SmartAnswer::Calculators
   class MinimumWageCalculator
+  
+    ACCOMMODATION_CHARGE_THRESHOLD = 4.73
+    
     def per_hour_minimum_wage(age)
       case age
         when "21_or_over"
@@ -25,6 +28,31 @@ module SmartAnswer::Calculators
 
     def is_below_minimum_wage?(age, pay_per_piece, pieces_per_week, hours_per_week)
       per_piece_hourly_wage(pay_per_piece, pieces_per_week, hours_per_week).to_f < per_hour_minimum_wage(age)
+    end
+    
+    def accommodation_adjustment(charge, number_of_nights)
+      charge = charge.to_f
+      number_of_nights = number_of_nights.to_i
+      
+      if charge > 0
+        charged_accomodation_adjustment(charge, number_of_nights) 
+      else
+        free_accommodation_adjustment(number_of_nights)
+      end
+    end
+    
+    protected
+    
+    def free_accommodation_adjustment(number_of_nights)
+      (ACCOMMODATION_CHARGE_THRESHOLD * number_of_nights).round(2)
+    end
+    
+    def charged_accomodation_adjustment(charge, number_of_nights)
+      if charge < ACCOMMODATION_CHARGE_THRESHOLD
+        0
+      else
+        free_accommodation_adjustment(number_of_nights) - (charge * number_of_nights).round(2)
+      end
     end
   end
 end

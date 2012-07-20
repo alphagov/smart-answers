@@ -64,5 +64,25 @@ module SmartAnswer::Calculators
         refute @calculator.is_below_minimum_wage?("19_or_over", "5", "25", "20")
       end
     end
+    
+    context "accommodation adjustment" do
+      setup do
+        @th = SmartAnswer::Calculators::MinimumWageCalculator::ACCOMMODATION_CHARGE_THRESHOLD
+      end
+      should "return 0 for accommodation charged under the threshold" do
+        assert_equal 0, @calculator.accommodation_adjustment("3.50", 5)
+      end
+      should "return the number of nights times the threshold if the accommodation is free" do
+        assert_equal (@th * 4), @calculator.accommodation_adjustment("0", 4)
+      end
+      should "subtract the charged fee from the free fee where the accommodation costs more than the threshold" do
+        charge = 10.12
+        number_of_nights = 5
+        free_adjustment = (@th * number_of_nights).round(2) 
+        charged_adjustment = @calculator.accommodation_adjustment(charge, number_of_nights)
+        assert_equal free_adjustment - (charge * number_of_nights).round(2), charged_adjustment
+        assert 0 > charged_adjustment # this should always be less than zero
+      end
+    end
   end
 end
