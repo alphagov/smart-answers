@@ -23,3 +23,20 @@ en-GB:
           caring_for_child: Caring for child
           caring_for_adult: Caring for adult
           neither: Neither
+      relationship_with_child?:
+        title: "I (or my spouse or partner) am one of these:"
+        options:
+          relationship: |
+            I (or my spouse or partner) am one of these:
+
+            Parent
+            Adopter
+            Foster parent
+            Private foster carer
+            Guardian
+            Special guardian
+            Been granted a [residence order](http://www.cafcass.gov.uk/the_law_about_children/contact_and_residence.aspx "Contact and residence"){:rel="external"} for the child
+          responsible_for_upbringing: I will be responsible for the child's upbringing
+      right_to_apply:
+        body: |
+          You have the statutory right to [make a request for flexible working](/flexible-working/making-an-application "Making an application").

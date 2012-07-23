@@ -36,6 +36,20 @@ class RequestForFlexibleWorkingTest < ActiveSupport::TestCase
       should "ask what the relationship is" do
         assert_current_node :relationship_with_child?
       end
+
+      context "parent and responsible for child" do
+        should "be allowed to apply" do
+          add_response "relationship,responsible_for_upbringing"
+          assert_current_node :right_to_apply
+        end
+      end
+
+      context "relationship but not responsible for child" do
+        should "not be allowd to apply" do
+          add_response "relationship"
+          assert_current_node :no_right_to_apply
+        end
+      end
     end
 
     context "caring for adult" do

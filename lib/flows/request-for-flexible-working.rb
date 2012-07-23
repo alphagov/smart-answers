@@ -24,10 +24,22 @@ multiple_choice :caring_for_child? do
   option :neither => :no_right_to_apply
 end
 
-multiple_choice :relationship_with_child? do
+checkbox_question :relationship_with_child? do
+  option :relationship
+  option :responsible_for_upbringing
+
+  next_node do |response|
+    options = response.split(',')
+    if options.sort == %w(relationship responsible_for_upbringing)
+      :right_to_apply
+    else
+      :no_right_to_apply
+    end
+  end
 end
 
 multiple_choice :relationship_with_adult? do
 end
 
 outcome :no_right_to_apply
+outcome :right_to_apply
