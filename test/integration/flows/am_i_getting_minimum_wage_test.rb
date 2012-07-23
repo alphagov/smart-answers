@@ -153,6 +153,26 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                   assert_current_node :accommodation_charge?
                 end
                 
+                context "answer 4.72 to 'how much do you pay for accommodation?'" do
+                  setup do
+                    add_response 4.72
+                  end
+                  
+                  should "ask 'how often do you use the accommodation?'" do
+                    assert_current_node :accommodation_usage?
+                  end
+                  
+                  context "answer 4 to 'how often do you use the accommodation?'" do
+                    setup do
+                      add_response 4
+                    end
+                    
+                    should "make no adjustment for charged accommodation" do
+                      assert_state_variable("total_basic_pay", @initial_total_basic_pay.to_s)
+                    end
+                  end
+                end
+                
                 context "answer 7.35 to 'how much do you pay for accommodation?'" do
                   setup do
                     add_response 7.35
