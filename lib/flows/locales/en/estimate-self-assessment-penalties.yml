@@ -14,7 +14,9 @@ en-GB:
         result_part1_no_penalty: |
           You sent your tax return on or before the deadline, so you don’t have to pay a penalty.
         result_part1_penalty: |
-          Your penalty for sending the return late is %{late_filing_penalty}
+          Your penalty for sending the return late is:
+
+          %{late_filing_penalty}
         result_part2_no_penalty: |
           The amount of tax you owe, based on the estimate you gave:
 
@@ -54,7 +56,11 @@ en-GB:
       when_paid?:
         title: When did you pay (or do you expect to pay) the bill?
       how_much_tax?:
-        title: How much is your tax bill?
+        title: Please enter how much your tax bill is (or an estimate if you don’t know)
+        body: |
+          Giving the amount of the bill will help us give you an estimate of how much you’ll need to pay, including interest.
+
+          Using this calculator is anonymous. None of your details will be passed to HM Revenue & Customs.
       filed_and_paid_on_time:
         title: You filed and paid your tax on time
         body: |
