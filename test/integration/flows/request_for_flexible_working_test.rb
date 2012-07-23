@@ -20,6 +20,33 @@ class RequestForFlexibleWorkingTest < ActiveSupport::TestCase
     should "ask about child care" do
       assert_current_node :caring_for_child?
     end
+
+    context "not caring" do
+      should "not be allowed to apply" do
+        add_response :neither
+        assert_current_node :no_right_to_apply
+      end
+    end
+
+    context "caring for child" do
+      setup do
+        add_response :caring_for_child
+      end
+      
+      should "ask what the relationship is" do
+        assert_current_node :relationship_with_child?
+      end
+    end
+
+    context "caring for adult" do
+      setup do
+        add_response :caring_for_adult
+      end
+
+      should "ask what the relationship is" do
+        assert_current_node :relationship_with_adult?
+      end
+    end
   end
 
   context "in armed forces" do

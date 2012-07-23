@@ -19,3 +19,7 @@ en-GB:
           You can still ask your employer if you can work flexibly but it's optional.
       caring_for_child?:
         title: Will you or your spouse/partner be caring for a child or adult?
+        options:
+          caring_for_child: Caring for child
+          caring_for_adult: Caring for adult
+          neither: Neither

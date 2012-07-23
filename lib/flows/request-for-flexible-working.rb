@@ -19,6 +19,15 @@ checkbox_question :tick_boxes_that_apply? do
 end
 
 multiple_choice :caring_for_child? do
+  option :caring_for_child => :relationship_with_child?
+  option :caring_for_adult => :relationship_with_adult?
+  option :neither => :no_right_to_apply
+end
+
+multiple_choice :relationship_with_child? do
+end
+
+multiple_choice :relationship_with_adult? do
 end
 
 outcome :no_right_to_apply
