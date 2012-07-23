@@ -8,6 +8,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
     setup_for_testing_flow "am-i-getting-minimum-wage"
   end
   
+  # Q1
   should "ask 'what would you like to check?'" do
     assert_current_node :what_would_you_like_to_check?
   end
@@ -17,11 +18,13 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       add_response :current_payment
     end
     
+    # Q2
     should "ask 'are you an apprentice?'" do
       assert_current_node :are_you_an_apprentice?
     end
     
     context "answered 'no' to 'are you an apprentice?'" do
+      # Q3
       should "ask 'how old are you?'" do
         add_response :no
         assert_current_node :how_old_are_you?
@@ -29,19 +32,131 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
     end
     
     context "answered 'apprentice under 19' to 'are you an apprentice?'" do
+      # Q4
       should "ask 'how often do you get paid?'" do
         add_response :apprentice_under_19
-        assert_current_node :how_often_do_you_get_paid?
+        assert_current_node :pay_frequency?
       end
     end
     
     context "answered 'apprentice over 19' to 'are you an apprentice?'" do
-      should "ask 'how often do you get paid?'" do
+      setup do
         add_response :apprentice_over_19
-        assert_current_node :how_often_do_you_get_paid?
       end
-    end
     
+      # Q4
+      should "ask 'how often do you get paid?'" do
+        assert_current_node :pay_frequency?
+      end
+      
+      context "answered 'how often do you get paid?'" do
+        setup do
+          add_response "7"
+        end
+        
+        # Q5
+        should "ask 'how many hours do you work?'" do
+          assert_current_node :hours_worked_during_the_pay_period?
+        end
+        
+        context "answered 'how many hours do you work?'" do
+          setup do
+            add_response "42"
+          end
+          
+          # Q6
+          should "ask 'how much do you get paid?'" do
+            assert_current_node :quantity_paid_during_pay_period?
+          end
+          
+          context "answered 'how much do you get paid?'" do
+            setup do
+              add_response 150
+            end
+
+            should "calculate basic pay hourly rate" do
+              assert_state_variable("basic_hourly_rate", 3.57)
+            end
+            
+            # Q7
+            should "ask 'how many hours overtime?'" do
+              assert_current_node :hours_overtime_during_pay_period?
+            end
+            
+            context "answer '8 hours' to 'how many hours overtime?'" do
+              setup do
+                add_response 8
+              end
+              
+              # Q8
+              should "ask 'what rate of overtime per hour?'" do
+                assert_current_node :overtime_pay_per_hour?
+              end
+              
+              context "answer 4.59 to what rate of overtime per hour?'" do
+                setup do
+                  add_response "4.59"
+                end
+                
+                should "calculate the total overtime pay" do
+                  assert_state_variable("total_overtime_pay", 36.72)
+                end
+                
+                should "add the total overtime pay to the total basic pay" do
+                  assert_state_variable("total_basic_pay", 186.72)
+                end
+              end
+              
+            end
+            
+            context "answer 'no overtime' to 'how many hours overtime?'" do
+              setup do
+                add_response 0
+              end
+              
+              # Q9
+              should "ask 'are you provided with accommodation?'" do
+                assert_current_node :provided_with_accommodation?
+              end
+            
+              context "answer 'no' to 'are you provided with accommodation?'" do
+                setup do
+                  add_response :no
+                end
+                
+                should "show the results" do
+                  assert_current_node :results
+                end
+              end
+              
+              context "answer 'yes charged accommodation' to 'are you provided with accommodation?'" do
+                setup do
+                  add_response :yes_charged
+                end
+                
+                # Q10
+                should "ask 'how much do you pay for the accommodation?'" do
+                  assert_current_node :accommodation_charge?
+                end
+              end
+
+
+              context "answer 'yes free accommodation' to 'are you provided with accommodation?'" do
+                setup do
+                  add_response :yes_free
+                end
+                
+                # Q11
+                should "ask 'how often do you stay in the accommodation?'" do
+                  assert_current_node :accommodation_usage?
+                end
+              end
+              
+            end
+          end
+        end
+      end
+    end 
   end
 
 #  context "paid per hour" do
