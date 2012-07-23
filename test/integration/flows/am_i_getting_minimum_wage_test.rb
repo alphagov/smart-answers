@@ -49,7 +49,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         assert_current_node :pay_frequency?
       end
       
-      context "answered 'how often do you get paid?'" do
+      context "answered weekly to 'how often do you get paid?'" do
         setup do
           add_response "7"
         end
@@ -69,13 +69,14 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
             assert_current_node :quantity_paid_during_pay_period?
           end
           
-          context "answered 'how much do you get paid?'" do
+          context "answered 158.39 to 'how much do you get paid?'" do
             setup do
-              add_response 150
+              @initial_total_basic_pay = 158.39
+              add_response @initial_total_basic_pay
             end
 
             should "calculate basic pay hourly rate" do
-              assert_state_variable("basic_hourly_rate", 3.57)
+              assert_state_variable("basic_hourly_rate", 3.77)
             end
             
             # Q7
@@ -93,9 +94,9 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                 assert_current_node :overtime_pay_per_hour?
               end
               
-              context "answer 4.59 to what rate of overtime per hour?'" do
+              context "answer 4.59 to 'overtime per hour?'" do
                 setup do
-                  add_response "4.59"
+                  add_response 4.59
                 end
                 
                 should "calculate the total overtime pay" do
@@ -103,7 +104,16 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                 end
                 
                 should "add the total overtime pay to the total basic pay" do
-                  assert_state_variable("total_basic_pay", 186.72)
+                  assert_state_variable("total_basic_pay", 195.11)
+                end
+              end
+              
+              context "answer 3.71 to 'overtime per hour?'" do
+                setup do
+                  add_response 3.71
+                end
+                should "calculate the overtime pay using the lesser value from basic and overtime rates." do
+                  assert_state_variable("total_overtime_pay", 30.16)
                 end
               end
               
@@ -124,6 +134,10 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                   add_response :no
                 end
                 
+                should "make no adjustment for accommodation" do
+                  assert_state_variable("total_basic_pay", @initial_total_basic_pay.to_s)
+                end
+                
                 should "show the results" do
                   assert_current_node :results
                 end
@@ -138,8 +152,30 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                 should "ask 'how much do you pay for the accommodation?'" do
                   assert_current_node :accommodation_charge?
                 end
+                
+                context "answer 7.35 to 'how much do you pay for accommodation?'" do
+                  setup do
+                    add_response 7.35
+                  end
+                  
+                  should "ask 'how often do you use the accommodation?'" do
+                    assert_current_node :accommodation_usage?
+                  end
+                  
+                  context "answer 4 to 'how often do you use the accommodation?'" do
+                    setup do
+                      add_response 4
+                    end
+                    
+                    should "make the adjustment for charged accommodation" do
+                      free_accommodation_adjustment = (4.73 * 4).round(2)
+                      charged_accommodation_adjustment = (7.35 * 4).round(2)
+                      total_basic_pay = @initial_total_basic_pay + (free_accommodation_adjustment - charged_accommodation_adjustment)
+                      assert_state_variable("total_basic_pay", total_basic_pay)
+                    end
+                  end
+                end
               end
-
 
               context "answer 'yes free accommodation' to 'are you provided with accommodation?'" do
                 setup do
@@ -149,6 +185,17 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                 # Q11
                 should "ask 'how often do you stay in the accommodation?'" do
                   assert_current_node :accommodation_usage?
+                end
+                
+                context "answer 3 to 'how often do you use the accommodation?'" do
+                  setup do
+                    add_response 3
+                  end
+                  should "make the adjustment for free accommodation" do
+                    free_accommodation_adjustment = (4.73 * 3).round(2)
+                    total_basic_pay = @initial_total_basic_pay + free_accommodation_adjustment
+                    assert_state_variable("total_basic_pay", total_basic_pay)
+                  end
                 end
               end
               

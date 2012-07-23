@@ -80,7 +80,7 @@ value_question :overtime_pay_per_hour? do
   end
   
   calculate :total_basic_pay do
-    total_overtime_pay + total_basic_pay.to_f
+    (total_overtime_pay + total_basic_pay.to_f).round(2)
   end
   
   next_node :provided_with_accommodation?
@@ -102,15 +102,11 @@ end
 # Q11
 value_question :accommodation_usage? do
   
-  calculate :calculator do
-    SmartAnswer::Calculators::MinimumWageCalculator.new
-  end
-  
-  charge = accommodation_charge.to_f
-  usage = responses.last.to_i # TODO: Check this input is full days only?
-  
   calculate :total_basic_pay do
-    total_basic_pay + calculator.accommodation_adjustment(charge, usage)  
+    calculator = SmartAnswer::Calculators::MinimumWageCalculator.new
+    usage = responses.last.to_i # TODO: Check this input is full days only?
+    accommodation_adjustment = calculator.accommodation_adjustment(accommodation_charge.to_f, usage)
+    total_basic_pay.to_f + accommodation_adjustment  
   end
   
   next_node :results

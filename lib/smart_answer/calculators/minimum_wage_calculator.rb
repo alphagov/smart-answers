@@ -51,7 +51,7 @@ module SmartAnswer::Calculators
       if charge < ACCOMMODATION_CHARGE_THRESHOLD
         0
       else
-        free_accommodation_adjustment(number_of_nights) - (charge * number_of_nights).round(2)
+        (free_accommodation_adjustment(number_of_nights) - (charge * number_of_nights)).round(2)
       end
     end
   end
