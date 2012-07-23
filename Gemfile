@@ -53,3 +53,7 @@ end
 if ENV['RUBY_DEBUG']
   gem 'ruby-debug19'
 end
+
+group :analytics do
+  gem "google-api-client", :require => 'google/api_client'
+end
