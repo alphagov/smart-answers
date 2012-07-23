@@ -101,7 +101,18 @@ end
 
 # Q11
 value_question :accommodation_usage? do
-  save_input_as :accommodation_usage
+  
+  calculate :calculator do
+    SmartAnswer::Calculators::MinimumWageCalculator.new
+  end
+  
+  charge = accommodation_charge.to_f
+  usage = responses.last.to_i # TODO: Check this input is full days only?
+  
+  calculate :total_basic_pay do
+    total_basic_pay + calculator.accommodation_adjustment(charge, usage)  
+  end
+  
   next_node :results
 end
 
