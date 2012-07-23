@@ -1,0 +1,21 @@
+en-GB:
+  flow:
+    request-for-flexible-working:
+      title: "Can I make a statutory request for flexible working?"
+      body: "Find out if you have the statutory right to apply for flexible working."
+
+      tick_boxes_that_apply?:
+        title: "Tick the boxes that apply to you:"
+        options:
+          employee: I am an employee
+          continuous_employment: I have been with my current employer for 26 continuous weeks
+          not_applied_for_flexible_working: I have NOT made a statutory application for flexible working with my current employer in the last 12 months
+          agency_worker: I am an agency worker
+          armed_forces: I am a member of the armed forces
+      no_right_to_apply:
+        body: |
+          You don't have the statutory right to [apply for flexible working](/flexible-working/making-an-application "Making an application").
+
+          You can still ask your employer if you can work flexibly but it's optional.
+      caring_for_child?:
+        title: Will you or your spouse/partner be caring for a child or adult?
