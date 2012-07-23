@@ -23,6 +23,41 @@ en-GB:
           caring_for_child: Caring for child
           caring_for_adult: Caring for adult
           neither: Neither
+      relationship_with_adult?:
+        title: Are you one of these?
+        body: |
+          **Family (including step-family, adoptive family, half-relatives and in-law relatives)**
+
+          Mother,
+          Father,
+          Son,
+          Daughter,
+          Brother,
+          Sister,
+          Uncle,
+          Aunt,
+          Grandmother,
+          Grandfather
+
+          **Partner**
+
+          Husband,
+          Wife,
+          Civil partner,
+          Partner,
+
+          **Guardian or carer**
+
+          Adopter,
+          Guardian,
+          Special guardian,
+
+          **Other**
+
+          Someone else living at the same address as the person who needs caring for
+        options:
+          one_of_these: "Yes, I'm one of these"
+          not_one_of_these: "No, I'm not one of these"
       relationship_with_child?:
         title: "I (or my spouse or partner) am one of these:"
         options:

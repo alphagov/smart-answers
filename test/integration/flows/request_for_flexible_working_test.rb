@@ -60,6 +60,20 @@ class RequestForFlexibleWorkingTest < ActiveSupport::TestCase
       should "ask what the relationship is" do
         assert_current_node :relationship_with_adult?
       end
+
+      context "not one of these" do
+        should "not be allowed to apply" do
+          add_response :not_one_of_these
+          assert_current_node :no_right_to_apply
+        end
+      end
+
+      context "one of these" do
+        should "allowed to apply" do
+          add_response :one_of_these
+          assert_current_node :right_to_apply
+        end
+      end
     end
   end
 

@@ -39,6 +39,8 @@ checkbox_question :relationship_with_child? do
 end
 
 multiple_choice :relationship_with_adult? do
+  option :one_of_these => :right_to_apply
+  option :not_one_of_these => :no_right_to_apply
 end
 
 outcome :no_right_to_apply
