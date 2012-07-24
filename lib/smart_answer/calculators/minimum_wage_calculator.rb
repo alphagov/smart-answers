@@ -17,12 +17,12 @@ module SmartAnswer::Calculators
     def per_hour_minimum_wage(age, year = Date.today.year)
       wages = HISTORICAL_MINIMUM_WAGES[year.to_s]
       if age < 18
-        wages[0]
+        wages.first
       # Before 2010 the mid-age range was 18 to 21, after 2010 it was 18 to 20
       elsif age >= 18 and ((year < 2010 and age < 22) or (age < 21))
-        wages[1]
+        wages.second
       else
-        wages[2]
+        wages.third
       end
     end
     

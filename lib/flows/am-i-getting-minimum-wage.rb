@@ -4,32 +4,46 @@ subsection_slug "tax"
 satisfies_need "2013"
 
 maximum_number_of_days_in_month = 31
-
 calculator = Calculators::MinimumWageCalculator.new
 
 # Q1
 multiple_choice :what_would_you_like_to_check? do
-  option "current_payment"
-  option "past_payment"
+  option "current_payment" => :are_you_an_apprentice?
+  option "past_payment" => :past_payment_year?
   save_input_as :current_or_past_payments
+end
+
+# Q1A
+value_question :past_payment_year? do
+  save_input_as :payment_year
   next_node :are_you_an_apprentice?
 end
 
 # Q2
 multiple_choice :are_you_an_apprentice? do
+  save_input_as :is_apprentice
   option "no" => :how_old_are_you?
   option "apprentice_under_19" => :pay_frequency?
   option "apprentice_over_19" => :pay_frequency?
 end
 
 # Q3
-value_question :how_old_are_you? do
+value_question :how_old_are_you? do  
   save_input_as :age
   next_node :pay_frequency?
 end
 
 # Q4
-value_question :pay_frequency? do
+value_question :pay_frequency? do 
+  calculate :per_hour_minimum_wage do
+    payment_year ||= Date.today.year
+    if is_apprentice == 'no'
+      calculator.per_hour_minimum_wage(age.to_i, payment_year)
+    else
+      calculator.apprentice_rate
+    end
+  end
+
   calculate :pay_frequency do
     if responses.last.to_i > maximum_number_of_days_in_month
       raise SmartAnswer::InvalidResponse, "Please enter a number from 1 to 31"
@@ -59,6 +73,11 @@ end
 # Q7
 value_question :hours_overtime_during_pay_period? do
   save_input_as :overtime_hours
+  
+  calculate :total_hours do
+    (basic_hours.to_f + responses.last.to_f).round(2)  
+  end
+  
   next_node do |response|
     if response.to_i == 0
       :provided_with_accommodation?
@@ -83,6 +102,10 @@ value_question :overtime_pay_per_hour? do
     (total_overtime_pay + total_basic_pay.to_f).round(2)
   end
   
+  calculate :total_hourly_rate do
+    (total_basic_pay / total_hours).round(2)
+  end
+  
   next_node :provided_with_accommodation?
 end
 
@@ -103,10 +126,13 @@ end
 value_question :accommodation_usage? do
   
   calculate :total_basic_pay do
-    calculator = SmartAnswer::Calculators::MinimumWageCalculator.new
     usage = responses.last.to_i # TODO: Check this input is full days only?
     accommodation_adjustment = calculator.accommodation_adjustment(accommodation_charge.to_f, usage)
     total_basic_pay.to_f + accommodation_adjustment  
+  end
+  
+  calculate :total_hourly_rate do
+    (total_basic_pay / total_hours).round(2)
   end
   
   next_node :results
