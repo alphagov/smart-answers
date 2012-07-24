@@ -1,0 +1,76 @@
+en-GB:
+  flow:
+    request-for-flexible-working:
+      title: "Can I make a statutory request for flexible working?"
+      body: "Find out if you have the statutory right to apply for flexible working."
+
+      tick_boxes_that_apply?:
+        title: "Tick the boxes that apply to you:"
+        options:
+          employee: I am an employee
+          continuous_employment: I have been with my current employer for 26 continuous weeks
+          not_applied_for_flexible_working: I have NOT made a statutory application for flexible working with my current employer in the last 12 months
+          agency_worker: I am an agency worker
+          armed_forces: I am a member of the armed forces
+      no_right_to_apply:
+        body: |
+          You don't have the statutory right to [apply for flexible working](/flexible-working/making-an-application "Making an application").
+
+          You can still ask your employer if you can work flexibly but it's optional.
+      caring_for_child?:
+        title: Will you or your spouse/partner be caring for a child or adult?
+        options:
+          caring_for_child: Caring for child
+          caring_for_adult: Caring for adult
+          neither: Neither
+      relationship_with_adult?:
+        title: Are you one of these?
+        body: |
+          **Family (including step-family, adoptive family, half-relatives and in-law relatives)**
+
+          Mother,
+          Father,
+          Son,
+          Daughter,
+          Brother,
+          Sister,
+          Uncle,
+          Aunt,
+          Grandmother,
+          Grandfather
+
+          **Partner**
+
+          Husband,
+          Wife,
+          Civil partner,
+          Partner,
+
+          **Guardian or carer**
+
+          Adopter,
+          Guardian,
+          Special guardian,
+
+          **Other**
+
+          Someone else living at the same address as the person who needs caring for
+        options:
+          one_of_these: "Yes, I'm one of these"
+          not_one_of_these: "No, I'm not one of these"
+      relationship_with_child?:
+        title: "I (or my spouse or partner) am one of these:"
+        options:
+          relationship: |
+            I (or my spouse or partner) am one of these:
+            Parent,
+            Adopter,
+            Foster parent,
+            Private foster carer,
+            Guardian,
+            Special guardian,
+            Been granted a residence order for the child
+          responsible_for_upbringing: I will be responsible for the child's upbringing
+      right_to_apply:
+        body: |
+          You have the statutory right to [make a request for flexible working](/flexible-working/making-an-application "Making an application").
