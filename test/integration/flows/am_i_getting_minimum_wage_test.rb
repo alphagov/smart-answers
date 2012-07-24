@@ -28,7 +28,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         add_response :apprentice_over_19
       end
       should "ask 'how often do you get paid?'" do
-        assert_current_node :pay_frequency?
+        assert_current_node :how_often_do_you_get_paid?
       end
     end
     
@@ -37,7 +37,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         add_response :apprentice_over_19
       end
       should "ask 'how often do you get paid?'" do
-        assert_current_node :pay_frequency?
+        assert_current_node :how_often_do_you_get_paid?
       end
       
     end
@@ -60,7 +60,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       
         # Q4
         should "ask 'how often do you get paid?'" do
-          assert_current_node :pay_frequency?
+          assert_current_node :how_often_do_you_get_paid?
         end
         
         context "answered weekly to 'how often do you get paid?'" do
@@ -70,7 +70,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           
           # Q5
           should "ask 'how many hours do you work?'" do
-            assert_current_node :hours_worked_during_the_pay_period?
+            assert_current_node :how_many_hours_do_you_work?
           end
           
           context "answered 'how many hours do you work?'" do
@@ -81,7 +81,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
             
             # Q6
             should "ask 'how much do you get paid?'" do
-              assert_current_node :quantity_paid_during_pay_period?
+              assert_current_node :how_much_are_you_paid_during_pay_period?
             end
             
             context "answered 158.39 to 'how much do you get paid?'" do
@@ -96,7 +96,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
               
               # Q7
               should "ask 'how many hours overtime?'" do
-                assert_current_node :hours_overtime_during_pay_period?
+                assert_current_node :how_many_hours_overtime_do_you_work?
               end
               
               context "answer '8 hours' to 'how many hours overtime?'" do
@@ -112,7 +112,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                 
                 # Q8
                 should "ask 'what rate of overtime per hour?'" do
-                  assert_current_node :overtime_pay_per_hour?
+                  assert_current_node :what_is_overtime_pay_per_hour?
                 end
                 
                 context "answer 4.59 to 'overtime per hour?'" do
@@ -143,10 +143,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                   
                   should "calculate the total hourly rate" do
                     assert_state_variable("total_hourly_rate", (188.55 / @total_hours).round(2))
-                  end
-                  
-                  should "calculate the historical entitlement" do
-                    assert_state_variable("historical_entitlement", (@total_hours * 4.98).round(2))
                   end
                   
                   # Quick calculation check(s) to ascertain basic + overtime + accommodation adjustments.
@@ -188,7 +184,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                 
                 # Q9
                 should "ask 'are you provided with accommodation?'" do
-                  assert_current_node :provided_with_accommodation?
+                  assert_current_node :is_provided_with_accommodation?
                 end
               
                 context "answer 'no' to 'are you provided with accommodation?'" do
@@ -201,7 +197,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                   end
                   
                   should "show the results" do
-                    assert_current_node :results
+                    assert_current_node :current_payment
                   end
                 end
                 
@@ -215,7 +211,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                   
                   # Q10
                   should "ask 'how much do you pay for the accommodation?'" do
-                    assert_current_node :accommodation_charge?
+                    assert_current_node :current_accommodation_charge?
                   end
                   
                   context "answer 4.72 to 'how much do you pay for accommodation?'" do
@@ -224,7 +220,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                     end
                     
                     should "ask 'how often do you use the accommodation?'" do
-                      assert_current_node :accommodation_usage?
+                      assert_current_node :current_accommodation_usage?
                     end
                     
                     context "answer 4 to 'how often do you use the accommodation?'" do
@@ -247,7 +243,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                     end
                     
                     should "ask 'how often do you use the accommodation?'" do
-                      assert_current_node :accommodation_usage?
+                      assert_current_node :current_accommodation_usage?
                     end
                     
                     context "answer 4 to 'how often do you use the accommodation?'" do
@@ -280,7 +276,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                   
                   # Q11
                   should "ask 'how often do you stay in the accommodation?'" do
-                    assert_current_node :accommodation_usage?
+                    assert_current_node :current_accommodation_usage?
                   end
                   
                   context "answer 3 to 'how often do you use the accommodation?'" do
@@ -338,6 +334,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       end
       
       should "calculate the historical total pay" do
+        assert_current_node :what_was_overtime_pay_per_hour?
         assert_state_variable("historical_entitlement", 0)
       end
     end

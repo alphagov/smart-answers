@@ -14,8 +14,32 @@ module SmartAnswer::Calculators
       "2005" => [3.00, 4.25, 5.05]
     }
     
+    def adjusted_total_underpayment(underpayment, historical_adjustment)
+      (underpayment + historical_adjustment).round(2)
+    end
+    
+    def underpayment(total_pay, historical_entitlement)
+      (total_pay - historical_entitlement).round(2)
+    end
+    
+    def historical_entitlement(historical_rate, total_hours)
+      (historical_rate * total_hours).round(2)
+    end
+    
+    def historical_adjustment(underpayment, historical_rate, current_rate)
+      (underpayment / historical_rate * current_rate).round(2)
+    end
+    
+    def minimum_hourly_rate(age, is_apprentice, year = Date.today.year)
+      if is_apprentice
+        apprentice_rate(year)
+      else
+        per_hour_minimum_wage(age, year)
+      end
+    end
+    
     def per_hour_minimum_wage(age, year = Date.today.year)
-      year = Date.today.year if year.nil?
+      # year = Date.today.year if year.nil?
       wages = HISTORICAL_MINIMUM_WAGES[year.to_s]
       if age < 18
         wages.first
