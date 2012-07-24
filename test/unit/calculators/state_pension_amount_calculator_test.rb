@@ -7,12 +7,26 @@ module SmartAnswer::Calculators
         @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "male", dob: "1945-04-05", qualifying_years: "45")
       end
 
-      should "be 109.89 for what_you_get" do
+      should "be 107.45 for what_you_get" do
         assert_equal 107.45, @calculator.what_you_get
       end
 
-      should "be 90.39 for you_get_future" do
-        assert_equal 90.39, @calculator.you_get_future
+      should "be 102.27 for you_get_future" do
+        assert_equal 102.27, @calculator.you_get_future
+      end
+    end
+
+    context "female, born 7th April 1951, 39 qualifying years" do
+      setup do
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: "1951-04-07", qualifying_years: "45")
+      end
+
+      should "be 107.45 for what_you_get" do
+        assert_equal 107.45, @calculator.what_you_get
+      end
+
+      should "be 107.45 for you_get_future" do
+        assert_equal 107.45, @calculator.you_get_future
       end
     end
   end
