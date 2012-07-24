@@ -35,15 +35,6 @@ end
 
 # Q4
 value_question :pay_frequency? do 
-  calculate :per_hour_minimum_wage do
-    payment_year ||= Date.today.year
-    if is_apprentice == 'no'
-      calculator.per_hour_minimum_wage(age.to_i, payment_year)
-    else
-      calculator.apprentice_rate
-    end
-  end
-
   calculate :pay_frequency do
     if responses.last.to_i > maximum_number_of_days_in_month
       raise SmartAnswer::InvalidResponse, "Please enter a number from 1 to 31"
@@ -76,6 +67,15 @@ value_question :hours_overtime_during_pay_period? do
   
   calculate :total_hours do
     (basic_hours.to_f + responses.last.to_f).round(2)  
+  end
+  
+  calculate :historical_entitlement do
+    if is_apprentice == 'no'
+      rate = calculator.per_hour_minimum_wage(age.to_i, payment_year)
+    else
+      rate = calculator.apprentice_rate(payment_year)
+    end
+    (rate * total_hours).round(2)
   end
   
   next_node do |response|

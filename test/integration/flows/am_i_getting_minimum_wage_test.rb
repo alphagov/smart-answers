@@ -39,10 +39,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       should "ask 'how often do you get paid?'" do
         assert_current_node :pay_frequency?
       end
-      should "calculate the per hour minimum wage" do
-        add_response 7
-        assert_state_variable("per_hour_minimum_wage", 2.6)
-      end
       
     end
     
@@ -70,10 +66,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         context "answered weekly to 'how often do you get paid?'" do
           setup do
             add_response "7"
-          end
-          
-          should "calculate the per hour minimum wage" do
-            assert_state_variable("per_hour_minimum_wage", 4.98)
           end
           
           # Q5
@@ -151,6 +143,10 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                   
                   should "calculate the total hourly rate" do
                     assert_state_variable("total_hourly_rate", (188.55 / @total_hours).round(2))
+                  end
+                  
+                  should "calculate the historical entitlement" do
+                    assert_state_variable("historical_entitlement", (@total_hours * 4.98).round(2))
                   end
                   
                   # Quick calculation check(s) to ascertain basic + overtime + accommodation adjustments.
@@ -315,14 +311,34 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       assert_current_node :past_payment_year?
     end
     
-    context "answer 2009 and age 19" do
+    context "answer check payments for '2009', not an apprentice, aged '19'" do
       setup do
         add_response 2009
+        add_response :no
         add_response 19
+        add_response 7
+        add_response 38
+        add_response 157.65
+        add_response 9
       end
       
-      should "calculate the historical minimum wage per hour" do
-        # TODO: ...
+      should "calculate the historical total pay" do
+        assert_state_variable("historical_entitlement", 227.01)
+      end
+    end
+    
+    context "answer check payments for '2009', apprentice" do
+      setup do
+        add_response 2009
+        add_response :apprentice_over_19
+        add_response 7
+        add_response 40
+        add_response 80.98
+        add_response 7
+      end
+      
+      should "calculate the historical total pay" do
+        assert_state_variable("historical_entitlement", 0)
       end
     end
     

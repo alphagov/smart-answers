@@ -23,6 +23,21 @@ module SmartAnswer::Calculators
       end
     end
     
+    context "apprentice rate" do
+      should "currently be 2.6" do
+        assert_equal 2.6, @calculator.apprentice_rate
+      end
+      should "also accept a date" do
+        assert_equal 2.6, @calculator.apprentice_rate(Date.today.year)
+      end
+      should "be 0 before 2010" do
+        assert_equal 0, @calculator.apprentice_rate("2009")
+      end
+      should "be 2.5 for 2010" do
+        assert_equal 2.5, @calculator.apprentice_rate("2010")
+      end
+    end
+    
     context "accommodation adjustment" do
       setup do
         @th = SmartAnswer::Calculators::MinimumWageCalculator::ACCOMMODATION_CHARGE_THRESHOLD

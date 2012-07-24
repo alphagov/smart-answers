@@ -15,19 +15,27 @@ module SmartAnswer::Calculators
     }
     
     def per_hour_minimum_wage(age, year = Date.today.year)
+      year = Date.today.year if year.nil?
       wages = HISTORICAL_MINIMUM_WAGES[year.to_s]
       if age < 18
         wages.first
       # Before 2010 the mid-age range was 18 to 21, after 2010 it was 18 to 20
-      elsif age >= 18 and ((year < 2010 and age < 22) or (age < 21))
+      elsif age >= 18 and ((year.to_i < 2010 and age < 22) or (age < 21))
         wages.second
       else
         wages.third
       end
     end
     
-    def apprentice_rate
-      2.6
+    def apprentice_rate(year = Date.today.year)
+      year = Date.today.year if year.nil?
+      if year.to_i < 2010
+        0
+      elsif year.to_i < 2011
+        2.5
+      else
+        2.6
+      end
     end
 
     def per_week_minimum_wage(age, hours_per_week)
