@@ -63,14 +63,13 @@ en-GB:
         options:
           relationship: |
             I (or my spouse or partner) am one of these:
-
-            Parent
-            Adopter
-            Foster parent
-            Private foster carer
-            Guardian
-            Special guardian
-            Been granted a [residence order](http://www.cafcass.gov.uk/the_law_about_children/contact_and_residence.aspx "Contact and residence"){:rel="external"} for the child
+            Parent,
+            Adopter,
+            Foster parent,
+            Private foster carer,
+            Guardian,
+            Special guardian,
+            Been granted a residence order for the child
           responsible_for_upbringing: I will be responsible for the child's upbringing
       right_to_apply:
         body: |
