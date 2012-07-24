@@ -5,7 +5,7 @@ en-GB:
       body: |
         If you think a decision about your benefits is wrong, you can ask for an explanation, challenge the decision or appeal against it.
       meta:
-        description: ""
+        description: "If you think a decision about your benefits is wrong, you can ask for an explanation, challenge the decision or appeal against it."
       options:
         "yes": "Yes"
         "no": "No"
@@ -37,15 +37,15 @@ en-GB:
         body: |
           Whether or not you can appeal depends on how long ago you got the letter with the decision.
 
-          You normally have 1 month after you got the decision to start an appeal.
+          You normally have 1 month after you got the decision to start an appeal. You can never appeal if more than 13 months have passed.
       # Q4
       had_written_explanation?:
-        title: "Have you had any other information explaining the decision since you got the decision letter?"
+        title: "Have you had any other information explaining the decision?"
         body: |
           This includes:
 
           * talking to someone at the benefits office who explained the decision, either on the phone or face to face
-          * a written ‘statement of reasons' explaining the decision_date
+          * a written ‘statement of reasons' explaining the decision
         options:
           "spoken_explanation": "Yes, talked to someone"
           "written_explanation": "Yes, had a written statement"
@@ -93,22 +93,26 @@ en-GB:
       # Q9
       kind_of_benefit_or_credit?:
         title: "What kind of benefit or credit was the decision about?"
+#        body: |
+#          Social fund benefits are:
+#
+#          * budgeting loans
+#          * community care grants, 
+#          * crisis loans
+#          * social fund overpayments
+#
+#          Other benefits and credits include ‘social security' benefits, like:
+#
+#          * Income Support
+#          * Jobseeker's Allowance
+#          * Incapacity Benefit
+#          * Employment Support Allowance
+#          * Disability Living Allowance
+#          * Attendance Allowance
         body: |
-          Social fund benefits are:
+          Social fund benefits are: budgeting loans, community care grants, crisis loans or social fund overpayments. 
 
-          * budgeting loans
-          * community care grants, 
-          * crisis loans
-          * social fund overpayments
-
-          Other benefits and credits include ‘social security' benefits, like:
-
-          * Income Support
-          * Jobseeker's Allowance
-          * Incapacity Benefit
-          * Employment Support Allowance
-          * Disability Living Allowance
-          * Attendance Allowance
+          Other benefits and credits include 'social security' benefits like Income Support, Jobseeker's Allowance, Incapacity Benefit, Employment Support Allowance, Disability Living Allowance or Attendance Allowance.
         options:
           "budgeting_loan": "Social fund benefit"
           "child_maintenance": "Child maintenance"
@@ -172,7 +176,7 @@ en-GB:
           Once you’ve had an explanation, if still not happy with the decision you may be able to:
 
           * ask the benefits office to look at it again (reconsider)
-          * appeal against the decision_date
+          * appeal against the decision
       # A5
       cant_appeal:
         title: |
@@ -220,13 +224,17 @@ en-GB:
 
           You don't need a stamp.
 
+          ##What happens next
+
           A review isn’t the same as a tribunal, and there won’t be a hearing. Your Jobcentre Plus office will send the papers about your benefit to an inspector as soon as your form arrives.
 
           They might contact you to ask for more information.
 
           If they agree that your Jobcentre Plus office has made a mistake, they will change the decision.
 
-          If you need any help with things like filling in forms, or what to do if the inspector asks you for more information, you can contact the [Citizens Advice Bureau](http://www.citizensadvice.org.uk/index/getadvice.htm "Citizens Advice Bureau"){:rel="external"}
+          ##Help with your review
+
+          If you need any help with things like filling in forms, or what to do if the inspector asks you for more information, you can contact the [Citizens Advice Bureau](http://www.citizensadvice.org.uk/index/getadvice.htm "Citizens Advice Bureau"){:rel="external"}.
       # A8
       appeal_to_the_child_support_agency:
         title: |
@@ -267,12 +275,16 @@ en-GB:
 
           Either parent can make an appeal. However, if you’re not the parent with day-to-day care of the child, you must keep paying the amount of child maintenance you’ve been told to pay until your appeal is decided.
 
+          ##What happens next
+
           Your appeal will be looked at by the [Social Security and Child Support Tribunal](http://www.justice.gov.uk/tribunals/sscs/appeals "Social Security and Child Support Tribunal"){:rel="external"}. They will:
 
           * explain how the appeal process works
           * let you know what you need to do before, during and after the hearing
 
-          If you need any help with your appeal like filling in forms, or advice on what to do at the hearing, you can contact the [Citizens Advice Bureau](http://www.citizensadvice.org.uk/index/getadvice.htm "Citizens Advice Bureau"){:rel="external"}
+          ##Help with your appeal
+
+          If you need any help with your appeal like filling in forms, or advice on what to do at the hearing, you can contact the [Citizens Advice Bureau](http://www.citizensadvice.org.uk/index/getadvice.htm "Citizens Advice Bureau"){:rel="external"}.
 
           Someone from the Citizens Advice Bureau may be able to go to the hearing with you. You can also ask an adviser, friend or family member to appeal on your behalf.
 
@@ -286,12 +298,16 @@ en-GB:
 
           * [Appeal against a Housing Benefit decision](http://local.direct.gov.uk/LDGRedirect/index.jsp?LGSL=72&LGIL=0&ServiceName=Appeal%20against%20a%20housing%20benefit%20decision "Appeal against a Housing Benefit decision"){:rel="external"}
 
+          ##What happens next
+
           Your appeal will be looked at by the [Social Security and Child Support Tribunal](http://www.justice.gov.uk/tribunals/sscs/appeals "Social Security and Child Support Tribunal"){:rel="external"}. They will:
 
           * explain how the appeal process works
           * let you know what you need to do before, during and after the hearing
 
-          If you need any help with your appeal like filling in forms, or advice on what to do at the hearing, you can contact the [Citizens Advice Bureau](http://www.citizensadvice.org.uk/index/getadvice.htm "Citizens Advice Bureau"){:rel="external"}
+          ##Help with your appeal
+
+          If you need any help with your appeal like filling in forms, or advice on what to do at the hearing, you can contact the [Citizens Advice Bureau](http://www.citizensadvice.org.uk/index/getadvice.htm "Citizens Advice Bureau"){:rel="external"}.
 
           Someone from the Citizens Advice Bureau may be able to go to the hearing with you. You can also ask an adviser, friend or family member to appeal on your behalf.
       # A10
@@ -299,7 +315,7 @@ en-GB:
         title: |
           You can appeal to HM Revenue & Customs (HMRC) if you think they’ve made the wrong decision about your Working Tax Credits or Child Tax Credits.
         body: |
-          You can do this by downloading and filling in the form at the end of the leaflet, ‘What to do if you think your Child Tax Credit / Working Tax Credit is wrong’
+          You can do this by downloading and filling in the form at the end of the leaflet, ‘What to do if you think your Child Tax Credit / Working Tax Credit is wrong’.
 
 
           $D
@@ -318,12 +334,16 @@ en-GB:
 
           Sign the appeal form or letter, and send it to the address at the top of your decision letter.
 
+          ##What happens next
+
           Your appeal will be looked at by the [Social Security and Child Support Tribunal](http://www.justice.gov.uk/tribunals/sscs/appeals "Social Security and Child Support Tribunal"){:rel="external"}. They will:
 
           * explain how the appeal process works
           * let you know what you need to do before, during and after the hearing
 
-          If you need any help with your appeal like filling in forms, or advice on what to do at the hearing, you can contact the [Citizens Advice Bureau](http://www.citizensadvice.org.uk/index/getadvice.htm "Citizens Advice Bureau"){:rel="external"}
+          ##Help with your appeal
+
+          If you need any help with your appeal like filling in forms, or advice on what to do at the hearing, you can contact the [Citizens Advice Bureau](http://www.citizensadvice.org.uk/index/getadvice.htm "Citizens Advice Bureau"){:rel="external"}.
 
           Someone from the Citizens Advice Bureau may be able to go to the hearing with you. You can also ask an adviser, friend or family member to appeal on your behalf.
 
@@ -352,12 +372,16 @@ en-GB:
 
           Sign the appeal form or letter, and send it to the address at the top of your decision letter.
 
+          ##What happens next
+
           Your appeal will be looked at by the [Social Security and Child Support Tribunal](http://www.justice.gov.uk/tribunals/sscs/appeals "Social Security and Child Support Tribunal"){:rel="external"}. They will:
 
           * explain how the appeal process works
           * let you know what you need to do before, during and after the hearing
 
-          If you need any help with your appeal like filling in forms, or advice on what to do at the hearing, you can contact the [Citizens Advice Bureau](http://www.citizensadvice.org.uk/index/getadvice.htm "Citizens Advice Bureau"){:rel="external"}
+          ##Help with your appeal
+
+          If you need any help with your appeal like filling in forms, or advice on what to do at the hearing, you can contact the [Citizens Advice Bureau](http://www.citizensadvice.org.uk/index/getadvice.htm "Citizens Advice Bureau"){:rel="external"}.
 
           Someone from the Citizens Advice Bureau may be able to go to the hearing with you. You can also ask an adviser, friend or family member to appeal on your behalf.
 
@@ -383,11 +407,15 @@ en-GB:
           Textphone: 0845 604 0210
           $C
 
+          ##What happens next
+
           Your appeal will be looked at by the [Social Security and Child Support Tribunal](http://www.justice.gov.uk/tribunals/sscs/appeals "Social Security and Child Support Tribunal"){:rel="external"}. They will:
 
           * explain how the appeal process works
           * let you know what you need to do before, during and after the hearing
 
-          If you need any help with your appeal like filling in forms, or advice on what to do at the hearing, you can contact the [Citizens Advice Bureau](http://www.citizensadvice.org.uk/index/getadvice.htm "Citizens Advice Bureau"){:rel="external"}
+          ##Help with your appeal
+
+          If you need any help with your appeal like filling in forms, or advice on what to do at the hearing, you can contact the [Citizens Advice Bureau](http://www.citizensadvice.org.uk/index/getadvice.htm "Citizens Advice Bureau"){:rel="external"}.
 
           Someone from the Citizens Advice Bureau may be able to go to the hearing with you. You can also ask an adviser, friend or family member to appeal on your behalf.
