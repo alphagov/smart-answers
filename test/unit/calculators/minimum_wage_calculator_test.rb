@@ -47,6 +47,21 @@ module SmartAnswer::Calculators
         end
       end
       
+      context "total hourly rate" do
+        should "calculate the total pay divided by total hours" do
+          assert_equal 4.81, @calculator.total_hourly_rate
+        end
+        should "calculate the total pay divided by total hours including overtime" do
+          @calculator.overtime_hours = 11
+          @calculator.overtime_hourly_rate = 4.95
+          assert_equal 4.81, @calculator.total_hourly_rate
+        end
+        should "be zero if 0 or less hours are entered" do
+          @calculator = MinimumWageCalculator.new age: @age, year: 2010, basic_pay: @basic_pay, basic_hours: 0
+          assert_equal 0, @calculator.total_hourly_rate
+        end
+      end
+      
       context "total pay" do
         should "calculate the basic pay plus the overtime pay" do
           @calculator.overtime_hours = 11
@@ -65,7 +80,7 @@ module SmartAnswer::Calculators
         
         context "underpayment" do  
           setup do
-            @underpayment = (@basic_pay - 191.88).round(2)
+            @underpayment = (191.88 - @basic_pay).round(2)
           end    
           should "be the total pay minus the historical entitlement" do
             assert_equal @underpayment, @calculator.underpayment
@@ -73,6 +88,7 @@ module SmartAnswer::Calculators
           
           context "historical_adjustment" do
             setup do
+              @underpayment = (@underpayment * -1) if @underpayment < 0
               @historical_adjustment = ((@underpayment / 4.92) * @calculator.per_hour_minimum_wage(@age)).round(2)
             end
           
@@ -87,6 +103,24 @@ module SmartAnswer::Calculators
             end
           end
         end  
+      end
+      
+      context "minimum wage calculator for a 25 yr old in 2008" do
+        setup do
+          @calculator = MinimumWageCalculator.new age: 25, year: 2008, basic_pay: 168, basic_hours: 40
+          @calculator.overtime_hours = 7
+          @calculator.overtime_hourly_rate = 9
+        end
+        
+        should "" do
+          assert_equal 5.73, @calculator.minimum_hourly_rate
+          assert_equal 4.2, @calculator.basic_hourly_rate
+          assert_equal 197.40, @calculator.total_pay
+          assert_equal 269.31, @calculator.historical_entitlement
+          assert_equal 71.91, @calculator.underpayment # wrong...?
+          assert_equal 76.30, @calculator.historical_adjustment
+          assert_equal 148.21, @calculator.adjusted_total_underpayment
+        end
       end
       
       context "above minimum wage?" do

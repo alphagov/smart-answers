@@ -240,7 +240,7 @@ multiple_choice :was_provided_with_accommodation? do
         :past_accommodation_charge?
       else
         
-        if calculator.above_minimum_wage?
+        if calculator.adjusted_total_underpayment >= 0
           :past_payment_above
         else
           :past_payment_below
@@ -313,8 +313,8 @@ value_question :past_accommodation_usage? do
     calculator.minimum_hourly_rate
   end
   
-  calculate :total_hourly_rate do
-    calculator.total_hourly_rate
+  calculate :total_historical_hourly_rate do
+    calculator.total_historical_hourly_rate
   end
   
   calculate :above_minimum_wage do

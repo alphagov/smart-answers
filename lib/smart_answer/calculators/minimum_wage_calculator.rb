@@ -19,10 +19,9 @@ module SmartAnswer::Calculators
     def initialize(params={})
       @age = params[:age]
       @year = (params[:year].nil? ? Date.today.year : params[:year].to_i) 
-      @basic_hours = params[:basic_hours]
-      @basic_pay = params[:basic_pay]
+      @basic_hours = params[:basic_hours].to_f
+      @basic_pay = params[:basic_pay].to_f
       @is_apprentice = params[:is_apprentice]
-      @total_hours = @basic_hours
       @overtime_hours = 0
       @overtime_hourly_rate = 0
       @accommodation_cost = 0
@@ -54,7 +53,11 @@ module SmartAnswer::Calculators
     end
     
     def total_hourly_rate
-      (total_pay / total_hours).round(2)
+      if total_hours < 1
+        0
+      else 
+        (total_pay / total_hours).round(2)
+      end
     end
     
     def historical_entitlement
@@ -62,11 +65,15 @@ module SmartAnswer::Calculators
     end
     
     def underpayment
-      (total_pay - historical_entitlement).round(2)
+      if total_pay > historical_entitlement
+        (total_pay - historical_entitlement).round(2)
+      else
+        (historical_entitlement - total_pay).round(2)
+      end
     end
     
     def historical_adjustment
-      ((underpayment / minimum_hourly_rate) * per_hour_minimum_wage(@age)).round(2)
+      (underpayment / minimum_hourly_rate * per_hour_minimum_wage(@age)).round(2)
     end
     
     def adjusted_total_underpayment
@@ -88,6 +95,9 @@ module SmartAnswer::Calculators
       end
     end
     
+    # TODO: The date range logic will change here as month specific thresholds
+    # will be introduced. This needs refactoring when that is agreed.
+    #
     def per_hour_minimum_wage(age, year = Date.today.year)
       wages = HISTORICAL_MINIMUM_WAGES[year.to_s]
       if age < 18
@@ -100,6 +110,8 @@ module SmartAnswer::Calculators
       end
     end
     
+    # TODO: See comment above about month conditions.
+    #
     def apprentice_rate(year = Date.today.year)
       if year.to_i < 2010
         0
@@ -108,14 +120,6 @@ module SmartAnswer::Calculators
       else
         2.6
       end
-    end
-
-    def per_week_minimum_wage(age, hours_per_week)
-      (hours_per_week.to_f * per_hour_minimum_wage(age)).round(2)
-    end
-
-    def is_below_minimum_wage?(age, total_hourly_rate)
-      total_hourly_rate.to_f < per_hour_minimum_wage(age)
     end
     
     protected
