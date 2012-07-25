@@ -70,6 +70,26 @@ module SmartAnswer::Calculators
         end
       end
       
+      context "above minimum wage?" do
+        should "indicate if the minimum hourly rate is less than the total hourly rate" do
+          assert !@calculator.above_minimum_wage?
+        end
+      end
+      
+      context "adjust for accommodation" do
+        setup do
+          @calculator.accommodation_adjustment(7.99, 4)
+        end
+        
+        should "calculate the accommodation cost" do
+          assert_equal -13.04, @calculator.accommodation_cost 
+        end
+        
+        should "be included the total pay calculation" do
+          assert_equal 174.42, @calculator.total_pay
+        end 
+      end
+      
       context "historical entitlement" do
         setup do
           @historical_entitlement = 191.88 
@@ -137,24 +157,50 @@ module SmartAnswer::Calculators
         end
       end
       
-      context "above minimum wage?" do
-        should "indicate if the minimum hourly rate is less than the total hourly rate" do
-          assert !@calculator.above_minimum_wage?
-        end
-      end
-      
-      context "adjust for accommodation" do
+      context "minimum wage calculator for a 25 yr old low hourly rate" do
         setup do
-          @calculator.accommodation_adjustment(7.99, 4)
+          @calculator = MinimumWageCalculator.new age: 25, basic_pay: 100, basic_hours: 40
         end
         
-        should "calculate the accommodation cost" do
-          assert_equal -13.04, @calculator.accommodation_cost 
+        should "have a total hourly rate of 2.50" do
+          assert_equal 6.08, @calculator.minimum_hourly_rate
+          assert_equal 2.5, @calculator.basic_hourly_rate
+          assert_equal 2.5, @calculator.total_hourly_rate
         end
         
-        should "be included the total pay calculation" do
-          assert_equal 174.42, @calculator.total_pay
-        end 
+        should "adjust for free accommodation" do
+          @calculator.accommodation_adjustment(0, 5)
+          assert_equal 23.65, @calculator.accommodation_cost
+          assert_equal 3.09, @calculator.total_hourly_rate
+        end
+        
+        should "adjust for charged accommodation above threshold" do
+          @calculator.accommodation_adjustment(6, 5)
+          assert_equal -6.35, @calculator.accommodation_cost
+          assert_equal 2.34, @calculator.total_hourly_rate
+        end
+        
+        should "not adjust for charged accommodation below threshold" do
+          @calculator.accommodation_adjustment(4, 5)
+          assert_equal 0, @calculator.accommodation_cost
+          assert_equal 2.5, @calculator.total_hourly_rate
+        end
+        
+        context "with overtime" do
+          setup do
+            @calculator.overtime_hours = 10
+          end
+          
+          should "use the overtime rate for total hourly rate calculations if O/T rate is lower than basic rate" do
+            @calculator.overtime_hourly_rate = 2
+            assert_equal 2.4, @calculator.total_hourly_rate
+          end
+          should "use the basic rate for total hourly rate calculations if O/T rate is higher than basic rate" do
+            @calculator.overtime_hourly_rate = 6
+            assert_equal 2.5, @calculator.total_hourly_rate
+          end
+        end
+        
       end
       
     end
