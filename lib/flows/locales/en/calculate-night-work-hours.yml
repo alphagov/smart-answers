@@ -3,52 +3,133 @@ en-GB:
     calculate-night-work-hours:
       title: Calculate average night working time/night working hours
       body: |
-        Calculate the average time worked during the night to check whether the working limits have been reached.
+        Night workers are entitled to refuse to work if they're asked to work more than 8 hours in each 24-hour period, averaged over the 'reference period'. Work out the average time worked to see if the worker has reached the legal limit on night working hours.
       options:
         "yes": "Yes"
         "no": "No"
 
       how_old?:
-        title: "Are you/your employee:"
+        title: "Is the worker:"
         options:
-          "18-or-over": "18 or over"
+          "18-or-over": "18 and over"
           "under-18": "Under 18"
 
-      have_you_worked_more_than_13_hours_in_a_night?:
-        title: "Have you/your employee worked for more than 13 hours on any night?"
+      exception_to_limits?:
+        title: |
+          Does the worker work in a job where there are exceptions or different rules for night work?
+        body: |
+          Hint: There are many jobs with different rules - [check the list](/your-rights-when-working-at-night/exceptions-to-night-work-hour-limits "Exceptions to night work hour limits"). Examples include people working in transport, the emergency services and jobs with peak demand times.
 
-      have_you_worked_more_than_6_nights_in_a_row?:
-        title: "Have you/your employee worked more than 6 nights in a row?"
+      how_many_night_hours_worked?:
+        title: How many 'night hours' does the worker work?
+        body: |
+          Hint: Night hours are 11pm to 6am unless both the employer and employee agree otherwise. 
 
-      how_many_weeks_have_you_worked_nights?:
-        title: "How many weeks have you/your employee worked as a nightworker (the reference period)?"
-        hint: "If you have worked almost a full week round up."
+          If the work involves special hazards or heavy physical or mental strain, the worker must never work more than 8 hours in any 24-hour period, including daytime overtime.
 
-      how_many_weeks_leave_have_you_taken?:
-        title: "If you have taken leave, how many weeks have you taken off?"
+      taken_rest_period?:
+        title: Has the worker had their weekly rest period?
+
+        body: |
+          Hint: Workers can choose between at least one break of at least 24 hours in every 7-day period or at least 48 hours in every 14-day period.
+
+      break_between_shifts?:
+        title: Has the worker had at least 11 hours break between every shift?
+
+      reference_period?:
+        title: What is the 'reference period'?
+        body: |
+          This is the number of weeks the worker has been a nightworker.
+
+          Enter 17 unless the reference period is different in your workplace. If the person has been a nightworker for less than 17 weeks, enter the number of weeks they've been a nightworker.
+
+          Get help with calculating the [reference period](/limits-on-night-work-hours "Limits on night work hours").
 
       what_is_your_work_cycle?:
-        title: "What is your work cycle?"
-        hint: "eg if you work 5 nights and have three nights off, you have an 8-night work cycle?"
+        title: What is the 'work cycle'?
+        body: |
+          **Example:** 
+          If you work 4 days on and 3 days off, you have a 7-day work cycle.  
+          This is sometimes called a 'shift pattern'.
+
+      nights_per_cycle?:
+        title: How many nights does the worker work in their cycle?
+
+        body: |
+          Hint: Only count work periods where the worker works at least 3 'night hours' (usually 11pm to 5am).
+
+      weeks_of_leave?:
+        title: How many weeks has the worker taken off as leave during the reference period?
 
       how_many_nights_do_you_work_in_your_cycle?:
-        title: "How many nights do you work in your cycle?"
+        title: How many nights does the worker work in their cycle?
+
+        body: |
+          Hint: Only count work periods where the worker works at least 3 'night hours' (usually 11pm to 5am).
 
       how_many_hours_do_you_work_per_shift?:
-        title: "How many hours do you work per night shift?"
+        title: How many hours does the person work per night?
+
+        body: |
+          [Work out what hours count as night work](/your-rights-when-working-at-night/what-counts-as-night-work "What counts as night work").
 
       how_many_overtime_hours_have_you_worked?:
-        title: "How many overtime hours have you worked during this reference period?"
+        title: How many overtime hours has the worker worked during the reference period?
 
-      done:
-        title: "You/your employee worked %{total_hours} total hours."
+      hours_per_night?:
+        title: How many hours does the person work per night?
+
         body: |
-          On average, you/your employee worked %{average_hours} hours.
+          [Work out what hours count as night work](/your-rights-when-working-at-night/what-counts-as-night-work "What counts as night work").
 
-          %{potential_days} are the days you/your employee can be asked to work.
+      overtime_hours?:
+        title: How many overtime hours has the worker worked during the reference period?
 
       not_old_enough:
-        title: "Employees under the age of 18 must not work at night."
+        body: People below [school leaving age](/know-when-you-can-leave-school "Know when you can leave school") generally can’t work between 10pm and 6am (or 11pm and 7am if the contract requires them to work after 10pm).
 
-      exceeded_working_time_limit:
-        title: "You/your employee have exceeded your working time limit."
+      investigate_specific_rules:
+        body: |
+          You will need to find out what the specific rules for the job are. The worker will probably be entitled to 'compensatory rest'.
+
+          Contact the free and confidential Pay and Works Rights Helpline for advice.
+
+
+          $C
+
+          **Pay and Works Rights Helpline**
+
+          **Telephone:** 0800 917 2368  
+          **Textphone:** 0800 121 4042
+
+          $C
+
+      not_a_night_worker:
+        title: The hours worked mean the worker is not classified as a night worker.
+
+      limit_exceeded:
+        body: |
+          The worker has exceeded the working time limit. 
+
+          The worker may be able to raise a [grievance](/solve-workplace-dispute "Solve a workplace dispute").
+
+      within_legal_limit:
+        title: On average over the reference period, the worker worked %{average_hours} hours. This is under the legal limit.
+
+        body: |
+          The employee can be asked to work %{potential_days} days during the reference period without breaking the working time regulations.
+
+      outside_legal_limit:
+        title: On average over the reference period, the worker worked %{average_hours} hours. This is over the legal limit.
+
+        body: | 
+          If the worker is being asked to break working time regulations, they can [raise a grievance](/solve-workplace-dispute "Solve a workplace dispute") or contact the free and confidential Pay and Works Rights Helpline for advice.
+
+
+          $C
+
+          **Pay and Works Rights Helpline**
+
+          **Telephone:** 0800 917 2368  
+          **Textphone:** 0800 121 4042
+          $C
