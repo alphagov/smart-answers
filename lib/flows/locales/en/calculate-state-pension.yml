@@ -1,0 +1,38 @@
+en-GB:
+  flow:
+    calculate-state-pension:
+      title: Work out how much basic State Pension you'll get
+      body: |
+        Use this tool to work out how much much basic State Pension you'll get when you reach State Pension age.
+      gender?:
+        title: What is your gender?
+        options:
+          male: Male
+          female: Female
+      dob?:
+        title: Date of birth?
+      qualifying_years?:
+        title: How many qualifying years do you have?
+        body: |
+          'Qualifying years' means years you've made National Insurance contributions or years you could get credit for.
+
+          You usually get qualifying years if you're:
+
+          - in paid full-time or part-time work
+          - self-employed
+          - caring for someone for over 20 hours a week
+          - getting Child Benefit
+          - receiving certain benefits 
+          - in full-time training
+      answer:
+        title: You'll get £%{what_you_get} a week of basic State Pension.
+        body: |
+          The basic State Pension goes up each year by whichever is the **highest**:
+
+          - the average percentage growth in wages in Great Britain
+          - average price increases (the 'Consumer Price Index', or CPI)
+          - 2.5%
+
+          Based on the current law, this means the basic State Pension in March of %{state_pension_year} (the year you reach State Pension age) will be a **minimum** of £%{you_get_future} a week (it's increased each April). If average wages or prices increase by more than 2.5%, you'll get more.
+
+          You may also get [additional State Pension](/additional-state-pension "Additional State Pension")
