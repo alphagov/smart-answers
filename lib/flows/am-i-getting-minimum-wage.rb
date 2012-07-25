@@ -4,7 +4,6 @@ subsection_slug "tax"
 satisfies_need "2013"
 
 maximum_number_of_days_in_month = 31
-calculator = Calculators::MinimumWageCalculator.new
 
 # Q1
 multiple_choice :what_would_you_like_to_check? do
@@ -84,10 +83,14 @@ end
 
 # Q6
 value_question :how_much_are_you_paid_during_pay_period? do
-  save_input_as :total_basic_pay
   
-  calculate :basic_hourly_rate do
-    (responses.last.to_f / basic_hours.to_f).round(2)  
+  calculate :calculator do
+    Calculators::MinimumWageCalculator.new({
+      age: age.to_i, 
+      basic_hours: basic_hours.to_f,
+      basic_pay: responses.last.to_f,
+      is_apprentice: (is_apprentice != 'no')
+    }) 
   end
   
   next_node :how_many_hours_overtime_do_you_work?
@@ -95,10 +98,15 @@ end
 
 # Q6 Past
 value_question :how_much_were_you_paid_during_pay_period? do
-  save_input_as :total_basic_pay
   
-  calculate :basic_hourly_rate do
-    (responses.last.to_f / basic_hours.to_f).round(2)  
+  calculate :calculator do
+    Calculators::MinimumWageCalculator.new({
+      age: age.to_i,
+      year: payment_year, 
+      basic_hours: basic_hours.to_f,
+      basic_pay: responses.last.to_f,
+      is_apprentice: (is_apprentice != 'no')
+    }) 
   end
   
   next_node :how_many_hours_overtime_did_you_work?
@@ -106,10 +114,9 @@ end
 
 # Q7
 value_question :how_many_hours_overtime_do_you_work? do
-  save_input_as :overtime_hours
   
-  calculate :total_hours do
-    (basic_hours.to_f + responses.last.to_f).round(2)  
+  calculate :overtime_hours do
+    calculator.overtime_hours = responses.last.to_f
   end
   
   next_node do |response|
@@ -125,13 +132,8 @@ end
 value_question :how_many_hours_overtime_did_you_work? do
   save_input_as :overtime_hours
   
-  calculate :total_hours do
-    (basic_hours.to_f + responses.last.to_f).round(2)  
-  end
-  
-  calculate :historical_entitlement do
-    historical_rate = calculator.minimum_hourly_rate(age.to_i, (was_apprentice != 'no'), payment_year)
-    (historical_rate * total_hours).round(2)
+  calculate :overtime_hours do
+    calculator.overtime_hours = responses.last.to_f
   end
   
   next_node do |response|
@@ -147,27 +149,8 @@ end
 value_question :what_is_overtime_pay_per_hour? do
   save_input_as :overtime_rate
   
-  calculate :total_overtime_pay do
-    overtime_hourly_rate = responses.last.to_f
-    # Calculate overtime rate as the lower of the two basic/overtime rates.
-    overtime_hourly_rate = basic_hourly_rate if (overtime_hourly_rate < basic_hourly_rate)
-    (overtime_hourly_rate * overtime_hours.to_f).round(2)
-  end
-  
-  calculate :total_basic_pay do
-    (total_overtime_pay + total_basic_pay.to_f).round(2)
-  end
-  
-  calculate :total_hourly_rate do
-    (total_basic_pay / total_hours).round(2)
-  end
-  
-  calculate :minimum_hourly_rate do
-    calculator.minimum_hourly_rate(age.to_i, (is_apprentice != 'no'))
-  end
-  
-  calculate :getting_minimum_wage do
-    (total_hourly_rate > minimum_hourly_rate ? "are" : "aren't")
+  calculate :overtime_rate do
+    calculator.overtime_hourly_rate = responses.last.to_f
   end
   
   next_node :is_provided_with_accommodation?
@@ -177,19 +160,8 @@ end
 value_question :what_was_overtime_pay_per_hour? do
   save_input_as :overtime_rate
   
-  calculate :total_overtime_pay do
-    overtime_hourly_rate = responses.last.to_f
-    # Calculate overtime rate as the lower of the two basic/overtime rates.
-    overtime_hourly_rate = basic_hourly_rate if (overtime_hourly_rate < basic_hourly_rate)
-    (overtime_hourly_rate * overtime_hours.to_f).round(2)
-  end
-  
-  calculate :total_basic_pay do
-    (total_overtime_pay + total_basic_pay.to_f).round(2)
-  end
-  
-  calculate :total_hourly_rate do
-    (total_basic_pay / total_hours).round(2)
+  calculate :overtime_rate do
+    calculator.overtime_hourly_rate = responses.last.to_f
   end
   
   next_node :was_provided_with_accommodation?
@@ -204,7 +176,7 @@ end
 
 # Q9 Past
 multiple_choice :was_provided_with_accommodation? do
-  option "no" => :past_payment_results
+  option "no" => :past_payment
   option "yes_free" => :past_accommodation_usage?
   option "yes_charged" => :past_accommodation_charge?
 end
@@ -224,33 +196,21 @@ end
 # Q11
 value_question :current_accommodation_usage? do
   
-  calculate :total_basic_pay do
-    usage = responses.last.to_i # TODO: Check this input is full days only?
-    accommodation_adjustment = calculator.accommodation_adjustment(accommodation_charge.to_f, usage)
-    total_basic_pay.to_f + accommodation_adjustment  
+  calculate :accommodation_adjustment do
+    calculator.accommodation_adjustment(accommodation_charge.to_f, responses.last.to_i)
   end
   
-  calculate :total_hourly_rate do
-    (total_basic_pay / total_hours).round(2)
-  end
-  
-  next_node :current_payment_over
+  next_node :current_payment
 end
 
 # Q11 Past
 value_question :past_accommodation_usage? do
   
-  calculate :total_basic_pay do
-    usage = responses.last.to_i # TODO: Check this input is full days only?
-    accommodation_adjustment = calculator.accommodation_adjustment(accommodation_charge.to_f, usage)
-    total_basic_pay.to_f + accommodation_adjustment  
+  calculate :accommodation_adjustment do
+    calculator.accommodation_adjustment(accommodation_charge.to_f, responses.last.to_i)
   end
   
-  calculate :total_hourly_rate do
-    (total_basic_pay / total_hours).round(2)
-  end
-  
-  next_node :past_payment_over
+  next_node :past_payment
 end
 
 outcome :current_payment

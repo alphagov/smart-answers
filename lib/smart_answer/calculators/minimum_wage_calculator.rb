@@ -14,32 +14,69 @@ module SmartAnswer::Calculators
       "2005" => [3.00, 4.25, 5.05]
     }
     
-    def adjusted_total_underpayment(underpayment, historical_adjustment)
-      (underpayment + historical_adjustment).round(2)
+    attr_accessor :overtime_hours, :overtime_hourly_rate, :accommodation_cost
+    
+    def initialize(params={})
+      @age = params[:age]
+      @year = (params[:year].nil? ? Date.today.year : params[:year].to_i) 
+      @basic_hours = params[:basic_hours]
+      @basic_pay = params[:basic_pay]
+      @is_apprentice = params[:is_apprentice]
+      @total_hours = @basic_hours
+      @overtime_hours = 0
+      @overtime_hourly_rate = 0
+      @accommodation_cost = 0
     end
     
-    def underpayment(total_pay, historical_entitlement)
-      (total_pay - historical_entitlement).round(2)
+    def basic_hourly_rate
+      (@basic_pay / @basic_hours).round(2)
     end
     
-    def historical_entitlement(historical_rate, total_hours)
-      (historical_rate * total_hours).round(2)
-    end
-    
-    def historical_adjustment(underpayment, historical_rate, current_rate)
-      (underpayment / historical_rate * current_rate).round(2)
-    end
-    
-    def minimum_hourly_rate(age, is_apprentice, year = Date.today.year)
-      if is_apprentice
-        apprentice_rate(year)
+    def minimum_hourly_rate
+      if @is_apprentice
+        apprentice_rate(@year)
       else
-        per_hour_minimum_wage(age, year)
+        per_hour_minimum_wage(@age, @year)
+      end
+    end
+    
+    def total_hours
+      (@basic_hours + @overtime_hours).round(2)
+    end
+    
+    def total_overtime_pay
+      @overtime_hourly_rate = basic_hourly_rate if @overtime_hourly_rate > basic_hourly_rate
+      (@overtime_hours * @overtime_hourly_rate).round(2)
+    end
+    
+    def total_pay
+      (@basic_pay + total_overtime_pay + @accommodation_cost).round(2)
+    end
+    
+    def total_hourly_rate
+      (total_pay / total_hours).round(2)
+    end
+    
+    def historical_entitlement
+      (minimum_hourly_rate * total_hours).round(2)
+    end
+    
+    def above_minimum_wage?
+      minimum_hourly_rate < total_hourly_rate
+    end
+    
+    def accommodation_adjustment(charge, number_of_nights)
+      charge = charge.to_f
+      number_of_nights = number_of_nights.to_i
+      
+      if charge > 0
+        @accommodation_cost = charged_accomodation_adjustment(charge, number_of_nights) 
+      else
+        @accommodation_cost = free_accommodation_adjustment(number_of_nights)
       end
     end
     
     def per_hour_minimum_wage(age, year = Date.today.year)
-      # year = Date.today.year if year.nil?
       wages = HISTORICAL_MINIMUM_WAGES[year.to_s]
       if age < 18
         wages.first
@@ -52,7 +89,6 @@ module SmartAnswer::Calculators
     end
     
     def apprentice_rate(year = Date.today.year)
-      year = Date.today.year if year.nil?
       if year.to_i < 2010
         0
       elsif year.to_i < 2011
@@ -66,27 +102,8 @@ module SmartAnswer::Calculators
       (hours_per_week.to_f * per_hour_minimum_wage(age)).round(2)
     end
 
-#    def per_piece_hourly_wage(pay_per_piece, pieces_per_week, hours_per_week)
-#      (pay_per_piece.to_f * pieces_per_week.to_f / hours_per_week.to_f).round(2)
-#    end
-
     def is_below_minimum_wage?(age, total_hourly_rate)
       total_hourly_rate.to_f < per_hour_minimum_wage(age)
-    end
-
-#    def is_below_minimum_wage?(age, pay_per_piece, pieces_per_week, hours_per_week)
-#      per_piece_hourly_wage(pay_per_piece, pieces_per_week, hours_per_week).to_f < per_hour_minimum_wage(age)
-#    end
-    
-    def accommodation_adjustment(charge, number_of_nights)
-      charge = charge.to_f
-      number_of_nights = number_of_nights.to_i
-      
-      if charge > 0
-        charged_accomodation_adjustment(charge, number_of_nights) 
-      else
-        free_accommodation_adjustment(number_of_nights)
-      end
     end
     
     protected

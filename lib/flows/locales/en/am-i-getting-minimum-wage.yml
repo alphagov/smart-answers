@@ -120,4 +120,23 @@ en-GB:
           Telephone: 0800 917 2368
           [end of call out]
 
-          Detailed guidance on how to [link] calculate           
+          Detailed guidance on how to [link] calculate
+      past_payment:
+        body: |
+          You worked %{total_hours} hours during the pay period.
+
+          The National Minimum Wage for these hours was: £%{minimum_hourly_rate}
+
+          Your actual pay was: £%{total_hourly_rate} 
+
+          
+          This calculation includes an additional amount you're entitled to by law for past payments. If you worked overtime or your employer provided you with accommodation, this has been added to the calculation.
+
+          This result is an estimate. If you have a question  about your or would like a more detailed breakdown, call the confidential helpline:
+
+          [call out box]
+          Pay and Work Rights Helpline
+          Telephone: 0800 917 2368
+          [end of call out]
+
+          Detailed guidance on how to [link] calculate National Minimum wage.          
