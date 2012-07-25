@@ -1,0 +1,19 @@
+en-GB:
+  flow:
+    state-pension-age:
+      title: Work out your State Pension age
+      body: |
+        Use this calculator to work out when you'll be able to claim your State Pension.
+      gender?:
+        title: What is your gender?
+        options:
+          male: Male
+          female: Female
+      dob?:
+        title: Date of birth?
+      answer:
+        title: You can get your State Pension at %{state_pension_age}.
+        body: |
+          ^The State Pension age may change. You'll be contacted if your State Pension age is going to change.^
+
+          You can also work out [how much basic State Pension you're going to get](/calculate-state-pension).
