@@ -18,6 +18,14 @@ date_question :dob? do
 
   save_input_as :dob
 
+  calculate :calculator do
+    Calculators::StatePensionAmountCalculator.new(gender: gender, dob: dob, qualifying_years: nil)
+  end
+
+  calculate :state_pension_year do
+    calculator.state_pension_year
+  end
+
   next_node :answer
 end
 
