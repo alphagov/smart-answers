@@ -266,7 +266,7 @@ end
 value_question :current_accommodation_usage? do
   
   calculate :calculator do
-    calculator.accommodation_adjustment(accommodation_charge.to_f, response.to_i)
+    calculator.accommodation_adjustment(accommodation_charge.to_f, responses.last.to_i)
     calculator
   end
     
@@ -301,7 +301,7 @@ end
 value_question :past_accommodation_usage? do
   
   calculate :calculator do
-    calculator.accommodation_adjustment(accommodation_charge.to_f, response.to_i)
+    calculator.accommodation_adjustment(accommodation_charge.to_f, responses.last.to_i)
     calculator
   end
     

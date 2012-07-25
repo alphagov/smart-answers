@@ -54,7 +54,7 @@ module SmartAnswer::Calculators
     
     def total_hourly_rate
       if total_hours < 1
-        0
+        0.00
       else 
         (total_pay / total_hours).round(2)
       end
@@ -135,5 +135,6 @@ module SmartAnswer::Calculators
         (free_accommodation_adjustment(number_of_nights) - (charge * number_of_nights)).round(2)
       end
     end
+    
   end
 end

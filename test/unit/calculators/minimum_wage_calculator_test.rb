@@ -105,20 +105,34 @@ module SmartAnswer::Calculators
         end  
       end
       
-      context "minimum wage calculator for a 25 yr old in 2008" do
+      # Test case from the Minimum National Wage docs.
+      #
+      context "minimum wage calculator for a 25 yr old in 2008 who earned 168 over 40 hrs with 7 hrs overtime" do
         setup do
           @calculator = MinimumWageCalculator.new age: 25, year: 2008, basic_pay: 168, basic_hours: 40
           @calculator.overtime_hours = 7
           @calculator.overtime_hourly_rate = 9
         end
         
-        should "" do
+        should "have a minimum hourly rate of 5.73" do
           assert_equal 5.73, @calculator.minimum_hourly_rate
+        end
+        should "have a basic hourly rate of 4.20" do
           assert_equal 4.2, @calculator.basic_hourly_rate
+        end
+        should "have a total pay of 197.40" do
           assert_equal 197.40, @calculator.total_pay
+        end
+        should "have historical entitlement of 269.31" do
           assert_equal 269.31, @calculator.historical_entitlement
-          assert_equal 71.91, @calculator.underpayment # wrong...?
+        end
+        should "have an underpayment of 71.91" do
+          assert_equal 71.91, @calculator.underpayment
+        end
+        should "have a historical adjustment of 76.30" do
           assert_equal 76.30, @calculator.historical_adjustment
+        end
+        should "have an adjusted total underpayment of 148.21" do
           assert_equal 148.21, @calculator.adjusted_total_underpayment
         end
       end
