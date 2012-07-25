@@ -122,6 +122,11 @@ module SmartAnswer::Calculators
       end
     end
     
+    def format_money(value)
+      # regex strips zeros
+      str = sprintf("%.#{2}f", value).to_s.sub(/\.0+$/, '')
+    end
+    
     protected
     
     def free_accommodation_adjustment(number_of_nights)

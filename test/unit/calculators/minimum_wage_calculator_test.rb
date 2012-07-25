@@ -221,5 +221,11 @@ module SmartAnswer::Calculators
         assert 0 > charged_adjustment # this should always be less than zero
       end
     end
+    
+    context "format_money" do
+      should "format values to 2 decimal places with zero padding" do
+        assert_equal "4.40", @calculator.format_money(4.4)
+      end
+    end
   end
 end
