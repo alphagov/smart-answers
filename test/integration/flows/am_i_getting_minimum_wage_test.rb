@@ -13,6 +13,8 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
     assert_current_node :what_would_you_like_to_check?
   end
   
+  # Current payments
+  #
   context "when checking current pay" do
     setup do
       add_response :current_payment
@@ -39,7 +41,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       should "ask 'how often do you get paid?'" do
         assert_current_node :how_often_do_you_get_paid?
       end
-      
     end
     
     context "answered 'no' to 'are you an apprentice?'" do
@@ -75,8 +76,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           
           context "answered 'how many hours do you work?'" do
             setup do
-              @basic_hours = 42
-              add_response @basic_hours
+              add_response 42
             end
             
             # Q6
@@ -86,8 +86,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
             
             context "answered 158.39 to 'how much do you get paid?'" do
               setup do
-                @initial_total_basic_pay = 158.39
-                add_response @initial_total_basic_pay
+                add_response 158.39
               end
               
               # Q7
@@ -97,9 +96,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
               
               context "answer '8 hours' to 'how many hours overtime?'" do
                 setup do
-                  @overtime_hours = 8
-                  @total_hours = (@basic_hours + @overtime_hours).round(2)
-                  add_response @overtime_hours
+                  add_response 8
                 end
                 
                 # Q8
@@ -108,10 +105,22 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                 end
                 
                 context "answer 3.71 to 'overtime per hour?'" do
+                  setup do
+                    add_response 3.71
+                  end
                   # Q9
                   should "ask 'are you provided with accommodation?'" do
-                    add_response 3.71
                     assert_current_node :is_provided_with_accommodation?
+                  end
+                  
+                  context "answer 'no'" do
+                    setup do
+                      add_response :no
+                    end
+                    
+                    should "show the results" do
+                      assert_current_node :current_payment_below
+                    end
                   end
                 end              
               end
@@ -163,20 +172,35 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                         add_response 4
                       end
                       
-                      should "show results" do
+                      should "show below min. wage results" do
                         assert_current_node :current_payment_below
                       end
                     end
-                  end
-                end
+                  end # Accommodation
+                end # Overtime rate 
+              end # Overtime hours 
+            end # Basic pay
+            
+            # Again with a better basic pay to achieve > min. wage.
+            #
+            context "answer '300' to 'how much do you get paid?'" do
+              setup do
+                add_response 300
+                add_response 0 # overtime hours
+                add_response :no # no accommodation
               end
-            end
-          end
-        end
-      end
-    end 
-  end
-  
+              should "show above min. wage results" do
+                assert_current_node :current_payment_above
+              end
+            end # Basic pay          
+          end # Basic hours
+        end # Pay frequency
+      end # Age
+    end # Apprentice
+  end # Current pay
+
+  # Past payments
+  #
   context "when checking past pay" do
     setup do
       add_response :past_payment
@@ -190,7 +214,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       setup do
         add_response 2009
       end
-      
     
       # Q2
       should "ask 'were you an apprentice?'" do
@@ -249,8 +272,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
             
             context "answered 'how many hours did you work?'" do
               setup do
-                @basic_hours = 42
-                add_response @basic_hours
+                add_response 42
               end
             
               # Q6
@@ -260,8 +282,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
             
               context "answered 158.39 to 'how much did you get paid?'" do
                 setup do
-                  @initial_total_basic_pay = 158.39
-                  add_response @initial_total_basic_pay
+                  add_response 158.39
                 end
               
                 # Q7
@@ -271,9 +292,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
               
                 context "answer '8 hours' to 'how many hours overtime?'" do
                   setup do
-                    @overtime_hours = 8
-                    @total_hours = (@basic_hours + @overtime_hours).round(2)
-                    add_response @overtime_hours
+                    add_response 8
                   end
                   
                   # Q8
@@ -344,41 +363,24 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                     end
                   end
                 end
-              end
-            end
-          end
-        end
-      end
-    end
-    
-    context "answer check payments for '2009', not an apprentice, aged '19'" do
-      setup do
-        add_response 2009 # Past payment year
-        add_response :no # not an apprentice
-        add_response 19 # aged 19
-        add_response 7 # paid weekly
-        add_response 38 # 38 hours per week
-        add_response 157.65 # basic pay
-        add_response 0 # overtime hours
-        add_response :no # no accommodation
-      end
-      
-    end
-    
-    context "answer check payments for '2009', apprentice" do
-      setup do
-        add_response 2009 # Past payment year
-        add_response :apprentice_over_19 # apprentice
-        add_response 7 # paid weekly
-        add_response 40 # 40 hours per week
-        add_response 80.98 # basic pay
-        add_response 7 # overtime hours
-      end
-      
-      should "calculate the historical total pay" do
-        assert_current_node :what_was_overtime_pay_per_hour?
-      end
-    end
-    
-  end
+              end  
+             
+              # Again with a better basic pay to achieve < min. wage.
+              #
+              context "answer '200' to 'how much do you get paid?'" do
+                setup do
+                  add_response 200
+                  add_response 0 # overtime hours
+                  add_response :no # no accommodation
+                end
+                should "show above min. wage results" do
+                  assert_current_node :past_payment_below
+                end
+              end # Basic pay        
+            end # Basic hours
+          end # Pay frequency
+        end # Age
+      end # Apprentice
+    end # Year in question
+  end # Past pay
 end

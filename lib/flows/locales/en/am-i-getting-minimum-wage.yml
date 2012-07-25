@@ -37,39 +37,39 @@ en-GB:
       # Q4  
       how_often_do_you_get_paid?:
         title: "How often do you get paid?"
-        body: |
+        hint: |
           For weekly payments enter 7 days, for monthly payments 31 days, or enter another number, depending on how often you get paid.
       # Q4 Past
       how_often_did_you_get_paid?:
         title: "How often did you get paid?"
-        body: |
+        hint: |
           For weekly payments enter 7 days, for monthly payments 31 days, or enter another number, depending on how often you got paid.
       # Q5
       how_many_hours_do_you_work?:
         title: "How many hours do you work during the pay period?"
-        body: |
+        hint: |
           Don’t include any overtime or other extra hours you might work.  
       # Q5 Past
       how_many_hours_did_you_work?:
         title: "How many hours did you work during the pay period?"
-        body: |
+        hint: |
           Don’t include any overtime or other extra hours you worked. 
       # Q6
       how_much_are_you_paid_during_pay_period?:
         title: "How much do you get paid in the pay period?"
-        body: "Don’t include payments for overtime."
+        hint: "Don’t include payments for overtime."
       # Q6 Past
       how_much_were_you_paid_during_pay_period?:
         title: "How much were you paid during the pay period?"
-        body: "Don’t include payments for overtime."
+        hint: "Don’t include payments for overtime."
       # Q7
       how_many_hours_overtime_do_you_work?:
         title: "How many hours of overtime do you work during the pay period?"
-        body: "If you don’t work overtime enter 0"
+        hint: "If you don’t work overtime enter 0"
       # Q7 Past
       how_many_hours_overtime_did_you_work?:
         title: "How many hours of overtime did you work during the pay period?"
-        body: "If you didn’t work overtime enter 0"
+        hint: "If you didn’t work overtime enter 0"
       # Q8
       what_is_overtime_pay_per_hour?:
         title: "How much do you get paid for overtime?"
@@ -122,7 +122,7 @@ en-GB:
           $C
 
 
-          Detailed guidance on how to [link] calculate
+          Detailed guidance on [how to calculate National Minimum wage](http://www.businesslink.gov.uk/bdotg/action/layer?r.i=1096694605&r.l1=1073858787&r.l2=1081657912&r.l3=1096686340&r.s=m&r.t=RESOURCES&topicId=1081657912, "how to calculate national minimum wage")
       current_payment_below:
         body: |
           The National Minimum Wage per hour for your age is: £%{minimum_hourly_rate}
@@ -142,7 +142,7 @@ en-GB:
           $C
 
 
-          Detailed guidance on how to [link] calculate
+          Detailed guidance on [how to calculate National Minimum wage](http://www.businesslink.gov.uk/bdotg/action/layer?r.i=1096694605&r.l1=1073858787&r.l2=1081657912&r.l3=1096686340&r.s=m&r.t=RESOURCES&topicId=1081657912, "how to calculate national minimum wage")
       past_payment_above:
         body: |
           You worked %{total_hours} hours during the pay period.
@@ -167,7 +167,7 @@ en-GB:
           $C
           
 
-          Detailed guidance on how to [link] calculate National Minimum wage.     
+          Detailed guidance on how to [how to calculate National Minimum wage](http://www.businesslink.gov.uk/bdotg/action/layer?r.i=1096694605&r.l1=1073858787&r.l2=1081657912&r.l3=1096686340&r.s=m&r.t=RESOURCES&topicId=1081657912, "how to calculate national minimum wage").     
       past_payment_below:
         body: |
           You worked %{total_hours} hours during the pay period.
@@ -192,4 +192,4 @@ en-GB:
           $C
           
 
-          Detailed guidance on how to [link] calculate National Minimum wage.     
+          Detailed guidance on [how to calculate National Minimum wage](http://www.businesslink.gov.uk/bdotg/action/layer?r.i=1096694605&r.l1=1073858787&r.l2=1081657912&r.l3=1096686340&r.s=m&r.t=RESOURCES&topicId=1081657912, "how to calculate national minimum wage").     

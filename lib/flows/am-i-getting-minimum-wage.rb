@@ -183,7 +183,7 @@ multiple_choice :is_provided_with_accommodation? do
   end
   
   calculate :total_hourly_rate do
-    calculator.total_hourly_rate
+    calculator.format_money calculator.total_hourly_rate
   end
   
   calculate :above_minimum_wage do
@@ -224,7 +224,7 @@ multiple_choice :was_provided_with_accommodation? do
   end
   
   calculate :total_hourly_rate do
-    calculator.total_hourly_rate
+    calculator.format_money calculator.total_hourly_rate
   end
   
   calculate :above_minimum_wage do
@@ -240,7 +240,7 @@ multiple_choice :was_provided_with_accommodation? do
         :past_accommodation_charge?
       else
         
-        if calculator.above_minimum_wage?
+        if calculator.adjusted_total_underpayment >= 0
           :past_payment_above
         else
           :past_payment_below
@@ -266,7 +266,7 @@ end
 value_question :current_accommodation_usage? do
   
   calculate :calculator do
-    calculator.accommodation_adjustment(accommodation_charge.to_f, response.to_i)
+    calculator.accommodation_adjustment(accommodation_charge.to_f, responses.last.to_i)
     calculator
   end
     
@@ -279,7 +279,7 @@ value_question :current_accommodation_usage? do
   end
   
   calculate :total_hourly_rate do
-    calculator.total_hourly_rate
+    calculator.format_money calculator.total_hourly_rate
   end
   
   calculate :above_minimum_wage do
@@ -301,7 +301,7 @@ end
 value_question :past_accommodation_usage? do
   
   calculate :calculator do
-    calculator.accommodation_adjustment(accommodation_charge.to_f, response.to_i)
+    calculator.accommodation_adjustment(accommodation_charge.to_f, responses.last.to_i)
     calculator
   end
     
@@ -313,8 +313,8 @@ value_question :past_accommodation_usage? do
     calculator.minimum_hourly_rate
   end
   
-  calculate :total_hourly_rate do
-    calculator.total_hourly_rate
+  calculate :total_historical_hourly_rate do
+    calculator.format_money calculator.total_historical_hourly_rate
   end
   
   calculate :above_minimum_wage do
