@@ -169,16 +169,85 @@ end
 
 # Q9
 multiple_choice :is_provided_with_accommodation? do
-  option "no" => :current_payment
-  option "yes_free" => :current_accommodation_usage?
-  option "yes_charged" => :current_accommodation_charge?
+
+  option "no"
+  option "yes_free"
+  option "yes_charged"
+        
+  calculate :total_hours do
+    calculator.total_hours
+  end
+  
+  calculate :minimum_hourly_rate do
+    calculator.minimum_hourly_rate
+  end
+  
+  calculate :total_hourly_rate do
+    calculator.total_hourly_rate
+  end
+  
+  calculate :above_minimum_wage do
+    calculator.above_minimum_wage?
+  end
+  
+  next_node do |response|
+    
+    case response
+      when "yes_free"
+        :current_accommodation_usage?
+      when "yes_charged"
+        :current_accommodation_charge?
+      else
+        
+        if calculator.above_minimum_wage?
+          :current_payment_above
+        else
+          :current_payment_below
+        end
+        
+    end
+  end  
 end
 
 # Q9 Past
 multiple_choice :was_provided_with_accommodation? do
-  option "no" => :past_payment
-  option "yes_free" => :past_accommodation_usage?
-  option "yes_charged" => :past_accommodation_charge?
+  option "no"
+  option "yes_free"
+  option "yes_charged"
+        
+  calculate :total_hours do
+    calculator.total_hours
+  end
+  
+  calculate :minimum_hourly_rate do
+    calculator.minimum_hourly_rate
+  end
+  
+  calculate :total_hourly_rate do
+    calculator.total_hourly_rate
+  end
+  
+  calculate :above_minimum_wage do
+    calculator.above_minimum_wage?
+  end
+  
+  next_node do |response|
+    
+    case response
+      when "yes_free"
+        :past_accommodation_usage?
+      when "yes_charged"
+        :past_accommodation_charge?
+      else
+        
+        if calculator.above_minimum_wage?
+          :past_payment_above
+        else
+          :past_payment_below
+        end
+        
+    end
+  end
 end
 
 # Q10
@@ -196,22 +265,76 @@ end
 # Q11
 value_question :current_accommodation_usage? do
   
-  calculate :accommodation_adjustment do
-    calculator.accommodation_adjustment(accommodation_charge.to_f, responses.last.to_i)
+  calculate :calculator do
+    calculator.accommodation_adjustment(accommodation_charge.to_f, response.to_i)
+    calculator
+  end
+    
+  calculate :total_hours do
+    calculator.total_hours
   end
   
-  next_node :current_payment
+  calculate :minimum_hourly_rate do
+    calculator.minimum_hourly_rate
+  end
+  
+  calculate :total_hourly_rate do
+    calculator.total_hourly_rate
+  end
+  
+  calculate :above_minimum_wage do
+    calculator.above_minimum_wage?
+  end
+  
+  
+  next_node do |response|
+    
+    if calculator.above_minimum_wage?
+      :current_payment_above
+    else
+      :current_payment_below
+    end
+    
+  end
 end
 
 # Q11 Past
 value_question :past_accommodation_usage? do
   
-  calculate :accommodation_adjustment do
-    calculator.accommodation_adjustment(accommodation_charge.to_f, responses.last.to_i)
+  calculate :calculator do
+    calculator.accommodation_adjustment(accommodation_charge.to_f, response.to_i)
+    calculator
+  end
+    
+  calculate :total_hours do
+    calculator.total_hours
   end
   
-  next_node :past_payment
+  calculate :minimum_hourly_rate do
+    calculator.minimum_hourly_rate
+  end
+  
+  calculate :total_hourly_rate do
+    calculator.total_hourly_rate
+  end
+  
+  calculate :above_minimum_wage do
+    calculator.above_minimum_wage?
+  end
+  
+  
+  next_node do |response|
+    
+    if calculator.above_minimum_wage?
+      :past_payment_above
+    else
+      :past_payment_below
+    end
+    
+  end
 end
 
-outcome :current_payment
-outcome :past_payment
+outcome :current_payment_above
+outcome :current_payment_below
+outcome :past_payment_above
+outcome :past_payment_below

@@ -132,7 +132,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                   end
                   
                   should "show the results" do
-                    assert_current_node :current_payment
+                    assert_current_node :current_payment_below
                   end
                 end
                 
@@ -164,7 +164,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                       end
                       
                       should "show results" do
-                        assert_current_node :current_payment
+                        assert_current_node :current_payment_below
                       end
                     end
                   end
@@ -306,7 +306,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                     end
                     
                     should "show the results" do
-                      assert_current_node :past_payment
+                      assert_current_node :past_payment_above
                     end
                   end
                 
@@ -338,7 +338,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                         end
                         
                         should "show results" do
-                          assert_current_node :past_payment
+                          assert_current_node :past_payment_above
                         end
                       end
                     end
