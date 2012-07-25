@@ -59,15 +59,21 @@ module SmartAnswer::Calculators
     end
 
     def state_pension_dates
-      pension_dates_special = [
+      pension_dates_static + pension_dates_dynamic
+    end
+
+    def pension_dates_dynamic
+      [
         {gender: :female, start_date: Date.new(1890,01,01), end_date: Date.new(1950, 04, 05), pension_date: 60.years.since(dob)},
         {gender: :male,   start_date: Date.new(1890,01,01), end_date: Date.new(1953, 10, 05), pension_date: 65.years.since(dob)},
         {gender: :both,   start_date: Date.new(1954,10,06), end_date: Date.new(1968, 04, 05), pension_date: 66.years.since(dob)},
         {gender: :both,   start_date: Date.new(1969,04,06), end_date: Date.new(1977, 04, 05), pension_date: 67.years.since(dob)},
         {gender: :both,   start_date: Date.new(1978,04,06), end_date: Date.today,             pension_date: 68.years.since(dob)}
       ]
-      pension_dates = YAML.load(File.open("lib/data/state_pension_dates.yml").read)[:pension_dates]
-      pension_dates + pension_dates_special
     end
-  end  
+
+    def pension_dates_static
+      YAML.load(File.open("lib/data/state_pension_dates.yml").read)[:pension_dates]
+    end
+  end
 end
