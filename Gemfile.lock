@@ -99,6 +99,9 @@ GEM
     libv8 (3.3.10.4)
     libwebsocket (0.1.3)
       addressable
+    lograge (0.0.6)
+      actionpack
+      activesupport
     lrucache (0.1.3)
       PriorityQueue (~> 0.1.2)
     mail (2.3.0)
@@ -211,6 +214,7 @@ DEPENDENCIES
   govspeak (~> 0.8.15)
   htmlentities (~> 4)
   json
+  lograge
   mocha
   plek (~> 0.1)
   rack (= 1.3.5)
