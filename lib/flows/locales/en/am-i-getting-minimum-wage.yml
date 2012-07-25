@@ -6,42 +6,190 @@ en-GB:
         Calculate the National Minimum Wage you’re entitled to per week.
       meta:
         description: "Calculate the National Minimum Wage you’re entitled to per week."
-      how_do_you_get_paid?:
-        title: How do you get paid?
+      # Q1
+      what_would_you_like_to_check?:
+        title: "What would you like to check?"
         options:
-          per_hour: "Per hour"
-          per_piece: "Per piece you produce"
+          current_payment: "If you’re getting the National Minimum Wage"
+          past_payment: "If an employer owes you past payments"
+      # Q1A
+      past_payment_year?:
+      # Q2
+      are_you_an_apprentice?:
+        title: "Are you an apprentice?"
+        options:
+          no: "No"
+          apprentice_under_19: "Apprentice 19 years or under"
+          apprentice_over_19: "Apprentice over 19 and in your first year" 
+      # Q2 Past
+      were_you_an_apprentice?:
+        title: "Were you an apprentice at the time?"
+        options:
+          no: "No"
+          apprentice_under_19: "Apprentice 19 years or under"
+          apprentice_over_19: "Apprentice over 19 and in your first year"
+      # Q3
       how_old_are_you?:
         title: How old are you?
+      # Q3 Past
+      how_old_were_you?:
+        title: How old were you at the time?
+      # Q4  
+      how_often_do_you_get_paid?:
+        title: "How often do you get paid?"
+        hint: |
+          For weekly payments enter 7 days, for monthly payments 31 days, or enter another number, depending on how often you get paid.
+      # Q4 Past
+      how_often_did_you_get_paid?:
+        title: "How often did you get paid?"
+        hint: |
+          For weekly payments enter 7 days, for monthly payments 31 days, or enter another number, depending on how often you got paid.
+      # Q5
+      how_many_hours_do_you_work?:
+        title: "How many hours do you work during the pay period?"
+        hint: |
+          Don’t include any overtime or other extra hours you might work.  
+      # Q5 Past
+      how_many_hours_did_you_work?:
+        title: "How many hours did you work during the pay period?"
+        hint: |
+          Don’t include any overtime or other extra hours you worked. 
+      # Q6
+      how_much_are_you_paid_during_pay_period?:
+        title: "How much do you get paid in the pay period?"
+        hint: "Don’t include payments for overtime."
+      # Q6 Past
+      how_much_were_you_paid_during_pay_period?:
+        title: "How much were you paid during the pay period?"
+        hint: "Don’t include payments for overtime."
+      # Q7
+      how_many_hours_overtime_do_you_work?:
+        title: "How many hours of overtime do you work during the pay period?"
+        hint: "If you don’t work overtime enter 0"
+      # Q7 Past
+      how_many_hours_overtime_did_you_work?:
+        title: "How many hours of overtime did you work during the pay period?"
+        hint: "If you didn’t work overtime enter 0"
+      # Q8
+      what_is_overtime_pay_per_hour?:
+        title: "How much do you get paid for overtime?"
+      # Q8 Past
+      what_was_overtime_pay_per_hour?:
+        title: "How much did you get paid for overtime?"
+      # Q9
+      is_provided_with_accommodation?:
+        title: "Does your employer provide you with accommodation?"
         options:
-          18_to_20: 18 to 20
-          21_or_over: 21 or over
-          under_18: Under 18
-          under_19: Under 19 (first year apprentice only)
-          19_or_over: 19 or over and in first year of apprentice
-      how_many_hours_per_week_worked_per_hour?:
-        title: How many hours per week do you work?
+          no: "No"
+          yes_free: "Yes, the accommodation is free"
+          yes_charged: "Yes, the accommodation is charged for"
+      # Q9 Past
+      was_provided_with_accommodation?:
+        title: "Did your employer provide you with accommodation?"   
+        options:
+          no: "No"
+          yes_free: "Yes, the accommodation was free"
+          yes_charged: "Yes, the accommodation was charged for"   
+      # Q10
+      current_accommodation_charge?:
+        title: "How much does your employer charge for accommodation per day?"
+      # Q10 Past
+      past_accommodation_charge?:
+        title: "How much did your employer charge for accommodation per day?"
+      # Q11
+      current_accommodation_usage?:
+        title: "How many days per week do you live in the accommodation?"  
+      # Q11 Past
+      past_accommodation_usage?:
+        title: "How many days per week did you live in the accommodation?" 
+      # Current result over minimum wage
+      current_payment_above:
         body: |
-          Include any extra hours you work, eg overtime, weekends.
-      how_many_hours_per_week_worked_per_peice?:
-        title: How many hours per week do you work?
-        body: |
-          If you work at home, include time taking piece to your employer.
-      how_many_pieces_do_you_produce_per_week?:
-        title: How many pieces do you produce per week?
-      how_much_do_you_get_paid_per_piece?:
-        title: How much do you get paid per piece?
-      how_many_hours_do_you_work_per_week?:
-        title: How many hours do you work per week?
+          The National Minimum Wage per hour for your age is: £%{minimum_hourly_rate}
 
-      per_hour_minimum_wage:
-        title: The National Minimum Wage per week you're entitled to is £%{per_week_minimum_wage}
-        body: |
-          This is the basic pay you should get without any extra payments, eg for overtime or weekend work.
+          Your actual pay is: £%{total_hourly_rate}
 
-          If you get less than this, check with your employer. There might be some benefits they pay that
-          count towards your National Minimum Wage.
-      per_piece_minimum_wage:
+          You are getting the National Minimum Wage. 
+
+          If you work overtime or your employer provides you with accommodation, this has been added to the calculation.
+
+          This result is an estimate. If you have a question  about your or would like a more detailed breakdown, call the confidential helpline:
+
+
+          $C
+          Pay and Work Rights Helpline
+          Telephone: 0800 917 2368
+          $C
+
+
+          Detailed guidance on [how to calculate National Minimum wage](http://www.businesslink.gov.uk/bdotg/action/layer?r.i=1096694605&r.l1=1073858787&r.l2=1081657912&r.l3=1096686340&r.s=m&r.t=RESOURCES&topicId=1081657912, "how to calculate national minimum wage")
+      current_payment_below:
         body: |
-          $!Your current pay per hour is £%{hourly_wage}.
-          This is **%{above_below}** the National Minimum Wage of £%{per_hour_minimum_wage}.$!
+          The National Minimum Wage per hour for your age is: £%{minimum_hourly_rate}
+
+          Your actual pay is: £%{total_hourly_rate}
+
+          You aren't getting the National Minimum Wage. 
+
+          If you work overtime or your employer provides you with accommodation, this has been added to the calculation.
+
+          This result is an estimate. If you have a question  about your or would like a more detailed breakdown, call the confidential helpline:
+
+
+          $C
+          Pay and Work Rights Helpline
+          Telephone: 0800 917 2368
+          $C
+
+
+          Detailed guidance on [how to calculate National Minimum wage](http://www.businesslink.gov.uk/bdotg/action/layer?r.i=1096694605&r.l1=1073858787&r.l2=1081657912&r.l3=1096686340&r.s=m&r.t=RESOURCES&topicId=1081657912, "how to calculate national minimum wage")
+      past_payment_above:
+        body: |
+          You worked %{total_hours} hours during the pay period.
+
+          The National Minimum Wage for these hours was: £%{minimum_hourly_rate}
+
+          Your actual pay was: £%{total_hourly_rate}
+
+
+          You were getting the National Minimum Wage. 
+
+          Your employer doesn’t owe you any past payments.
+
+          This calculation includes an additional amount you’re entitled to by law for past payments. If you worked overtime or your employer provided you with accommodation, this has been added to the calculation.
+
+          This result is an estimate. If you have a question  about your or would like a more detailed breakdown, call the confidential helpline:
+
+
+          $C
+          Pay and Work Rights Helpline
+          Telephone: 0800 917 2368
+          $C
+          
+
+          Detailed guidance on how to [how to calculate National Minimum wage](http://www.businesslink.gov.uk/bdotg/action/layer?r.i=1096694605&r.l1=1073858787&r.l2=1081657912&r.l3=1096686340&r.s=m&r.t=RESOURCES&topicId=1081657912, "how to calculate national minimum wage").     
+      past_payment_below:
+        body: |
+          You worked %{total_hours} hours during the pay period.
+
+          The National Minimum Wage for these hours was: £%{minimum_hourly_rate}
+
+          Your actual pay was: £%{total_hourly_rate}
+
+
+          You weren't getting the National Minimum Wage. 
+
+          Your employer owes you: £%{adjusted_entitlement}
+
+          This calculation includes an additional amount you’re entitled to by law for past payments. If you worked overtime or your employer provided you with accommodation, this has been added to the calculation.
+
+          This result is an estimate. If you have a question  about your or would like a more detailed breakdown, call the confidential helpline:
+
+          
+          $C
+          Pay and Work Rights Helpline
+          Telephone: 0800 917 2368
+          $C
+          
+
+          Detailed guidance on [how to calculate National Minimum wage](http://www.businesslink.gov.uk/bdotg/action/layer?r.i=1096694605&r.l1=1073858787&r.l2=1081657912&r.l3=1096686340&r.s=m&r.t=RESOURCES&topicId=1081657912, "how to calculate national minimum wage").     
