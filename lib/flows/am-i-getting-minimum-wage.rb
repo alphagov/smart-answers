@@ -286,7 +286,6 @@ value_question :current_accommodation_usage? do
     calculator.above_minimum_wage?
   end
   
-  
   next_node do |response|
     
     if calculator.above_minimum_wage?

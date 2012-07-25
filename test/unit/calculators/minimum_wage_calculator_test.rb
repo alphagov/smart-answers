@@ -6,9 +6,10 @@ module SmartAnswer::Calculators
     
     context "instance" do
       setup do
+        @age = 19
         @basic_pay = 187.46
         @basic_hours = 39
-        @calculator = MinimumWageCalculator.new age: 19, year: 2010, basic_pay: @basic_pay, basic_hours: @basic_hours
+        @calculator = MinimumWageCalculator.new age: @age, year: 2010, basic_pay: @basic_pay, basic_hours: @basic_hours
       end
       
       context "basic hourly rate" do
@@ -55,9 +56,37 @@ module SmartAnswer::Calculators
       end
       
       context "historical entitlement" do
-        should "be minimum wage multiplied by total hours" do
-          assert_equal 191.88, @calculator.historical_entitlement
+        setup do
+          @historical_entitlement = 191.88 
         end
+        should "be minimum wage for the year multiplied by total hours" do
+          assert_equal @historical_entitlement, @calculator.historical_entitlement
+        end
+        
+        context "underpayment" do  
+          setup do
+            @underpayment = (@basic_pay - 191.88).round(2)
+          end    
+          should "be the total pay minus the historical entitlement" do
+            assert_equal @underpayment, @calculator.underpayment
+          end
+          
+          context "historical_adjustment" do
+            setup do
+              @historical_adjustment = ((@underpayment / 4.92) * @calculator.per_hour_minimum_wage(@age)).round(2)
+            end
+          
+            should "be underpayment divided by the historical minimum hourly rate times the current minimum hourly rate" do
+              assert_equal @historical_adjustment, @calculator.historical_adjustment
+            end
+            
+            context "adjusted total underpayment" do
+              should "be underpayment plus historical adjustment" do
+                assert_equal (@underpayment + @historical_adjustment).round(2), @calculator.adjusted_total_underpayment 
+              end
+            end
+          end
+        end  
       end
       
       context "above minimum wage?" do
