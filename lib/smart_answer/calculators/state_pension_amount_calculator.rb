@@ -54,7 +54,7 @@ module SmartAnswer::Calculators
 
     def state_pension_year
       state_pension_dates.find do |p|
-        dob >= p[:start_date] and dob <= p[:end_date] and (p[:gender] == gender or :both == gender)
+        dob >= p[:start_date] and dob <= p[:end_date] and (p[:gender] == gender or :both == p[:gender])
       end[:pension_date].year
     end
 
