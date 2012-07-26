@@ -12,7 +12,7 @@ en-GB:
       dob?:
         title: Date of birth?
       answer:
-        title: You can get your State Pension at %{state_pension_age}.
+        title: You can get your State Pension on %{state_pension_date}.
         body: |
           ^The State Pension age may change. You'll be contacted if your State Pension age is going to change.^
 

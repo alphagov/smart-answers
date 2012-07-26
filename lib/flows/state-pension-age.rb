@@ -22,8 +22,8 @@ date_question :dob? do
     Calculators::StatePensionAmountCalculator.new(gender: gender, dob: dob, qualifying_years: nil)
   end
 
-  calculate :state_pension_age do
-    calculator.state_pension_age
+  calculate :state_pension_date do
+    calculator.state_pension_date
   end
 
   next_node :answer
