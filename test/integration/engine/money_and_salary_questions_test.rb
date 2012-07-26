@@ -33,7 +33,7 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
           end
           within('.answer') { assert_page_has_content "£5,000 per month" }
           # TODO: Fix wierd ?& in link...
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/money-and-salary-sample/y?&previous_response=5000.0-month") }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/money-and-salary-sample/y/?previous_response=5000.0-month") }
         end
       end
 
@@ -61,7 +61,7 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
           end
           within('.answer') { assert_page_has_content "£5,000 per month" }
           # TODO: Fix wierd ?& in link...
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/money-and-salary-sample/y?&previous_response=5000.0-month") }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/money-and-salary-sample/y/?previous_response=5000.0-month") }
         end
         within 'ol li.done:nth-child(2)' do
           within 'h3' do

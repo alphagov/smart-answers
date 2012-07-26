@@ -32,7 +32,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
           end
           within('.answer') { assert_page_has_content "Belarus" }
           # TODO: Fix weird ?& in link
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/country-and-date-sample/y?&previous_response=belarus") }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/country-and-date-sample/y/?previous_response=belarus") }
         end
       end
 
@@ -66,7 +66,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
           end
           within('.answer') { assert_page_has_content "Belarus" }
           # TODO: Fix wierd ?& in link...
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/country-and-date-sample/y?&previous_response=belarus") }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/country-and-date-sample/y/?previous_response=belarus") }
         end
         within 'ol li.done:nth-child(2)' do
           within 'h3' do

@@ -58,7 +58,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
           end
           within('.answer') { assert_page_has_content "Lancelot" }
           # TODO: Fix wierd ?& in link...
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y?&previous_response=Lancelot") }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y/?previous_response=Lancelot") }
         end
       end
 
@@ -91,7 +91,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
           end
           within('.answer') { assert_page_has_content "Lancelot" }
           # TODO: Fix wierd ?& in link...
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y?&previous_response=Lancelot") }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y/?previous_response=Lancelot") }
         end
         within 'ol li.done:nth-child(2)' do
           within 'h3' do
@@ -132,7 +132,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
           end
           within('.answer') { assert_page_has_content "Lancelot" }
           # TODO: Fix wierd ?& in link...
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y?&previous_response=Lancelot") }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y/?previous_response=Lancelot") }
         end
         within 'ol li.done:nth-child(2)' do
           within 'h3' do
@@ -181,7 +181,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
         end
         within('.answer') { assert_page_has_content "Robin" }
         # TODO: Fix wierd ?& in link...
-        within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y?&previous_response=Robin") }
+        within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y/?previous_response=Robin") }
       end
       within 'ol li.done:nth-child(2)' do
         within 'h3' do
