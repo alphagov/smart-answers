@@ -3,13 +3,7 @@ source 'https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/'
 
 gem 'gds-warmup-controller'
 
-# passenger compatability
-group :passenger_compatibility do
-  gem 'rack', '1.3.5'
-  gem 'rake', '0.9.2'
-end
-
-gem 'rails', '3.1.3'
+gem 'rails', '~> 3.2.6'
 gem 'rails-i18n'
 gem 'json'
 gem 'plek', '~> 0.1'
