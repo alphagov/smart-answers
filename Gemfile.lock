@@ -164,9 +164,10 @@ GEM
       faraday (~> 0.7.0)
       jwt (>= 0.1.4)
       multi_json (>= 1.0.0)
-    simplecov (0.4.2)
-      simplecov-html (~> 0.4.4)
-    simplecov-html (0.4.5)
+    simplecov (0.6.4)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.5.3)
+    simplecov-html (0.5.3)
     slimmer (1.1.45)
       gds-api-adapters (>= 0.0.33, < 0.3.0)
       json
@@ -219,7 +220,7 @@ DEPENDENCIES
   rails-i18n
   rummageable
   shoulda (~> 2.11.3)
-  simplecov (= 0.4.2)
+  simplecov (~> 0.6.4)
   slimmer (= 1.1.45)
   therubyracer (~> 0.9.4)
   uglifier

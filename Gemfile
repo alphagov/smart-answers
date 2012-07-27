@@ -36,7 +36,7 @@ group :test do
   gem 'mocha', :require => false
   gem "shoulda", "~> 2.11.3"
   gem 'webmock', :require => false
-  gem "simplecov", "0.4.2"
+  gem "simplecov", "~> 0.6.4"
   gem 'capybara-webkit', "~> 0.12.1"
 end
 
