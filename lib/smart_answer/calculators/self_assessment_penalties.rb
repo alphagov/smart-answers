@@ -76,7 +76,7 @@ module SmartAnswer::Calculators
     end
 
     def filing_deadline
-      submission_method == "online" ? dates[:online_filing_deadline] : dates[:offline_filing_deadline]
+      submission_method == "online" ? dates[:online_filing_deadline][tax_year.to_sym] : dates[:offline_filing_deadline][tax_year.to_sym]
     end
 
     def payment_deadline
