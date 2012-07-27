@@ -29,7 +29,7 @@ value_question :qualifying_years? do
   end
 
   calculate :what_you_get do
-    calculator.what_you_get
+    sprintf("%.2f", calculator.what_you_get)
   end
 
   calculate :state_pension_year do
@@ -37,7 +37,7 @@ value_question :qualifying_years? do
   end
 
   calculate :you_get_future do
-    calculator.you_get_future
+    sprintf("%.2f", calculator.you_get_future)
   end
 
   next_node :answer
