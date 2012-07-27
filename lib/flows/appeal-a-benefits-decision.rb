@@ -87,8 +87,7 @@ date_question :when_did_you_get_it? do
   from { 5.years.ago }
   to { Date.today }
   
-  calculate :appeal_expiry_date do
-  
+  calculate :appeal_expiry_date do  
     decision_date = Date.parse(decision_letter_date)
     received_date = Date.parse(responses.last)
     received_within_a_month = received_date < 1.month.since(Date.parse(written_explanation_request_date))
@@ -100,8 +99,7 @@ date_question :when_did_you_get_it? do
     end
     if Date.today < expiry_date
       expiry_date
-    end  
-      
+    end      
   end
   
   calculate :appeal_expiry_text do
@@ -112,8 +110,7 @@ date_question :when_did_you_get_it? do
     end
   end
   
-  next_node do |response|
-    
+  next_node do |response|    
     received_date = Date.parse(response)
     received_within_a_month = received_date < 1.month.since(Date.parse(written_explanation_request_date))
     a_fortnight_has_passed = Date.today > 1.fortnight.since(received_date)
