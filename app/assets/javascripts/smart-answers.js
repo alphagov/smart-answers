@@ -40,7 +40,7 @@ $(document).ready(function() {
   // helper functions
   function toJsonUrl(url) {
     var parts = url.split('?');
-    var json_url = parts[0] + ".json";
+    var json_url = parts[0].replace(/\/$/, "") + ".json";
     if (parts[1]) {
       json_url += "?";
       json_url += parts[1];
