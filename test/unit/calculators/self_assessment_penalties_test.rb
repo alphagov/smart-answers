@@ -1,8 +1,12 @@
 require_relative "../../test_helper"
 
 TEST_CALCULATOR_DATES = {
-  :online_filing_deadline => Date.new(2012, 1, 31),
-  :offline_filing_deadline => Date.new(2011, 10, 31),
+  :online_filing_deadline => {
+    :"2011-12" => Date.new(2012, 1, 31)
+  },
+  :offline_filing_deadline => {
+    :"2011-12" => Date.new(2011, 10, 31)
+  },
   :payment_deadline => Date.new(2012, 1, 31),
   :penalty1date => Date.new(2012, 3, 2),
   :penalty2date => Date.new(2012, 8, 2),
@@ -15,7 +19,8 @@ module SmartAnswer::Calculators
       @calculator = SelfAssessmentPenalties.new(
         submission_method: "online", filing_date: "2012-01-10",
         payment_date: "2012-03-10", estimated_bill: SmartAnswer::Money.new(1200.5),
-        dates: TEST_CALCULATOR_DATES
+        dates: TEST_CALCULATOR_DATES,
+        tax_year: :"2011-12"
       )
     end
 

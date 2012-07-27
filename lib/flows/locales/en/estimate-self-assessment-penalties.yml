@@ -2,20 +2,21 @@ en-GB:
   flow:
     estimate-self-assessment-penalties:
       title: 
-        Estimate self assessment penalties
+        Estimate your penalties for late Self Assessment tax returns and payments
       body: |
         Get an estimate of how much you’ll need to pay in penalties and interest if you’ve missed the deadline for:
-
 
         - sending your Self Assessment tax return
         - paying your Self Assessment tax bill 
 
-        ^ This calculator works for late returns or payments for the 2010-11 tax year. ^
+        This calculator will not apply to situations where you make partial payments. This calculator doesn’t take account of any partial payments you’ve made towards your tax bill.
       phrases:
         result_part1_no_penalty: |
           You sent your tax return on or before the deadline, so you don’t have to pay a penalty.
         result_part1_penalty: |
-          Your penalty for sending the return late is %{late_filing_penalty}
+          Your penalty for sending the return late is:
+
+          %{late_filing_penalty}
         result_part2_no_penalty: |
           The amount of tax you owe, based on the estimate you gave:
 
@@ -40,16 +41,26 @@ en-GB:
           - %{late_payment_penalty} - this is the penalty for paying your bill late
 
       how_submitted?:
-        title: Did you send your self assessment tax return online or on paper?
+        title: Did you (or do you expect to) send your Self Assessment tax return online or on paper?
         options:
           online: Online
           paper: Paper
       when_submitted?:
-        title: When did you send your self assessment tax return?
+        title: When did you (or expect to) send your Self Assessment tax return?
+        body: |
+          Enter the date you expect HM Revenue & Customs to get your return. 
+
+          If you’re sending it online, enter the date you finished it or expect to finish it.
+
+          If you’re sending it on paper, add 2 days to the day you posted (or expect to post) it.
       when_paid?:
-        title: When did you pay the bill?
+        title: When did you pay (or do you expect to pay) the bill?
       how_much_tax?:
-        title: How much is your tax bill?
+        title: Please enter how much your tax bill is (or an estimate if you don’t know)
+        body: |
+          Giving the amount of the bill will help us give you an estimate of how much you’ll need to pay, including interest.
+
+          Using this calculator is anonymous. None of your details will be passed to HM Revenue & Customs.
       filed_and_paid_on_time:
         title: You filed and paid your tax on time
         body: |
