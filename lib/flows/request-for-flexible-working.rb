@@ -1,5 +1,5 @@
 status :draft
-section "work"
+section_slug "work"
 satisfies_need "9999"
 
 checkbox_question :tick_boxes_that_apply? do
