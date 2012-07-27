@@ -18,7 +18,7 @@ class FlowRegistrationPresenter
   end
 
   def section
-    lookup_translation("section") || @flow.section_slug.humanize
+    lookup_translation("section") || @flow.section_slug.try(:humanize)
   end
 
   def paths

@@ -3,7 +3,7 @@ source 'https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/'
 
 gem 'gds-warmup-controller'
 
-gem 'rails', '~> 3.2.6'
+gem 'rails', '~> 3.2.7'
 gem 'rails-i18n'
 gem 'json'
 gem 'plek', '~> 0.1'
@@ -36,7 +36,7 @@ group :test do
   gem 'mocha', :require => false
   gem "shoulda", "~> 2.11.3"
   gem 'webmock', :require => false
-  gem "simplecov", "0.4.2"
+  gem "simplecov", "~> 0.6.4"
   gem 'capybara-webkit', "~> 0.12.1"
 end
 
