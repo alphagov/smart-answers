@@ -9,8 +9,8 @@ class FlowRegistraionPresenterTest < ActiveSupport::TestCase
     I18n.config.load_path.unshift example_translation_file
     I18n.reload!
     registry = SmartAnswer::FlowRegistry.new(load_path: File.expand_path('../../fixtures/flow_registraion_presenter_sample', __FILE__))
-    flow = registry.flows.first
-    @presenter = FlowRegistrationPresenter.new(flow)
+    @flow = registry.flows.first
+    @presenter = FlowRegistrationPresenter.new(@flow)
   end
 
   def teardown
@@ -49,6 +49,12 @@ class FlowRegistraionPresenterTest < ActiveSupport::TestCase
     should "use the humanized section_slug if no translation is available" do
       I18n.stubs(:translate!).raises(I18n::MissingTranslationData.new(:en, "anything", {}))
       assert_equal "Sample", @presenter.section
+    end
+
+    should "return nil if there is no translation, and no section_slug defined" do
+      I18n.stubs(:translate!).raises(I18n::MissingTranslationData.new(:en, "anything", {}))
+      @flow.stubs(:section_slug).returns(nil)
+      assert_equal nil, @presenter.section
     end
   end
 
