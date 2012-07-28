@@ -45,7 +45,15 @@ module SmartAnswer::Calculators
     end
 
     def what_you_get
-      qualifying_years / years_needed * current_weekly_rate
+      what_you_get_raw.round(2)
+    end
+
+    def what_you_get_raw
+      if qualifying_years < years_needed
+        qualifying_years.to_f / years_needed.to_f * current_weekly_rate
+      else
+        current_weekly_rate
+      end
     end
 
     def you_get_future
