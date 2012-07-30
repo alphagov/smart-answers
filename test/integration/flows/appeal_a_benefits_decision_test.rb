@@ -60,6 +60,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
       should "say 'cant challenge or appeal'" do
         add_response 13.months.ago.to_date
         assert_current_node :cant_challenge_or_appeal
+        assert_state_variable("appeal_expiry_date", nil)
       end
     end
     
@@ -80,6 +81,11 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
         should "ask 'have you been asked to reconsider?'" do
           assert_current_node :asked_to_reconsider?
         end
+        
+        should "calculate the appeal expiry date" do
+          assert_state_variable("appeal_expiry_date", 1.month.since(7.days.ago.to_date))
+        end
+        
       end
       
       context "answer 'spoken explanation' to 'had written explanation?' when letter date was more than a month ago" do
@@ -91,6 +97,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
         should "ask 'special circumstances?'" do
           assert_current_node :special_circumstances?
         end
+        
       end
       
       context "answer 'no' to 'had written explanation?' when letter date was less than a month ago" do
@@ -151,6 +158,10 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
             should "ask 'asked to reconsider?'" do
               assert_current_node :asked_to_reconsider?
             end
+            
+            should "calculate the appeal expiry date" do
+              assert_state_variable("appeal_expiry_date", 1.fortnight.since(1.month.since(1.month.ago.to_date)))
+            end
           end
           
         end
@@ -183,6 +194,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
           context "the statement was received after one month and 14 days have since passed" do
             setup do
               add_response 15.days.ago # Statement received 15 days ago
+              assert_state_variable("appeal_expiry_date", nil)
             end
             
             # Q7
@@ -227,6 +239,11 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
             should "ask 'asked to reconsider?'" do
               assert_current_node :asked_to_reconsider?
             end
+            
+            should "calculate the appeal expiry date" do
+              assert_state_variable("appeal_expiry_date", 1.fortnight.since(7.days.ago).to_date)
+            end
+            
           end
           
         end
