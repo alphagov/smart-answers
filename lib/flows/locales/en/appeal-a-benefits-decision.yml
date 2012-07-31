@@ -87,6 +87,8 @@ en-GB:
           Sometimes, the benefits office will change a decision about your benefits if you ask them to look at it again (reconsider).
 
           You don't have to ask them to reconsider before you appeal. If you don't think you'll have enough time before the deadline, you might want to skip this stage and start an appeal straight away.
+          
+          %{appeal_expiry_text}
         options:
           "yes": "Yes, or want to skip this stage"
           "no": "No"
