@@ -4,12 +4,25 @@ module SmartAnswer::Calculators
   class MinimumWageCalculatorTest < ActiveSupport::TestCase
     
     
-    context "instance" do
+    context "MinimumWageCalculator" do
       setup do
         @age = 19
         @basic_pay = 187.46
         @basic_hours = 39
-        @calculator = MinimumWageCalculator.new age: @age, year: 2010, basic_pay: @basic_pay, basic_hours: @basic_hours
+        @calculator = MinimumWageCalculator.new age: @age, date: Date.parse('2010-10-01'), basic_pay: @basic_pay, basic_hours: @basic_hours
+      end
+      
+      context "format_money" do
+        should "format values to 2 decimal places with zero padding" do
+          assert_equal "4.40", @calculator.format_money(4.4)
+        end
+      end
+      
+      context "minimum_wage_data_for_date" do
+        should "retrieve a map of historical minimum wage data" do
+          assert_equal 4.73, @calculator.minimum_wage_data_for_date[:accommodation_rate]
+          assert_equal 4.51, @calculator.minimum_wage_data_for_date(Date.parse("2010-08-21"))[:accommodation_rate]
+        end
       end
       
       context "basic hourly rate" do
@@ -57,7 +70,7 @@ module SmartAnswer::Calculators
           assert_equal 4.81, @calculator.total_hourly_rate
         end
         should "be zero if 0 or less hours are entered" do
-          @calculator = MinimumWageCalculator.new age: @age, year: 2010, basic_pay: @basic_pay, basic_hours: 0
+          @calculator = MinimumWageCalculator.new age: @age, date: Date.parse('2010-10-01'), basic_pay: @basic_pay, basic_hours: 0
           assert_equal 0, @calculator.total_hourly_rate
         end
       end
@@ -82,11 +95,11 @@ module SmartAnswer::Calculators
         end
         
         should "calculate the accommodation cost" do
-          assert_equal -13.04, @calculator.accommodation_cost 
+          assert_equal -13.52, @calculator.accommodation_cost 
         end
         
         should "be included the total pay calculation" do
-          assert_equal 174.42, @calculator.total_pay
+          assert_equal 173.94, @calculator.total_pay
         end 
       end
       
@@ -109,7 +122,7 @@ module SmartAnswer::Calculators
           context "historical_adjustment" do
             setup do
               @underpayment = (@underpayment * -1) if @underpayment < 0
-              @historical_adjustment = ((@underpayment / 4.92) * @calculator.per_hour_minimum_wage(@age)).round(2)
+              @historical_adjustment = ((@underpayment / 4.92) * @calculator.per_hour_minimum_wage(Date.today)).round(2)
             end
           
             should "be underpayment divided by the historical minimum hourly rate times the current minimum hourly rate" do
@@ -125,11 +138,13 @@ module SmartAnswer::Calculators
         end  
       end
       
-      # Test case from the Minimum National Wage docs.
+      # Test cases from the Minimum National Wage docs.
+      # see https://docs.google.com/a/digital.cabinet-office.gov.uk/spreadsheet/ccc?key=0An9oCYIY2AELdHVsckdKM0VWc2NFZ0J6MXFtdEY3MVE#gid=0
+      # for various scenarios.
       #
       context "minimum wage calculator for a 25 yr old in 2008 who earned 168 over 40 hrs with 7 hrs overtime" do
         setup do
-          @calculator = MinimumWageCalculator.new age: 25, year: 2008, basic_pay: 168, basic_hours: 40
+          @calculator = MinimumWageCalculator.new age: 25, date: Date.parse('2008-10-01'), basic_pay: 168, basic_hours: 40
           @calculator.overtime_hours = 7
           @calculator.overtime_hourly_rate = 9
         end
@@ -203,74 +218,72 @@ module SmartAnswer::Calculators
         
       end
       
+      context "21 y/o with a medium hourly rate" do
+        setup do
+          @calculator = MinimumWageCalculator.new age: 21, date: Date.parse('2009-10-01'), basic_pay: 290, basic_hours: 60
+        end
+        
+        should "have a total hourly rate of 4.83" do
+          assert_equal 4.83, @calculator.basic_hourly_rate
+          assert_equal 4.83, @calculator.total_hourly_rate
+        end
+        
+        context "who lives in free accommodation for 10 nights" do
+          setup do
+            @calculator.accommodation_adjustment(0, 10)
+          end
+          
+          should "make the accommodation cost 45.10" do
+            assert_equal 45.10, @calculator.accommodation_cost
+          end
+          
+          should "make the total hourly rate 5.59" do
+            assert_equal 5.59, @calculator.total_hourly_rate
+          end
+        end
+      end
+      
     end
     
     context "per hour minimum wage" do
     
-      def setup
-        @calculator = MinimumWageCalculator.new
-      end
-      
       should "give the minimum wage for this year for a given age" do
-        assert_equal 3.68, @calculator.per_hour_minimum_wage(17)
-        assert_equal 4.98, @calculator.per_hour_minimum_wage(18)
-        assert_equal 6.08, @calculator.per_hour_minimum_wage(21)
+        @calculator = MinimumWageCalculator.new age: 17, date: Date.today
+        assert_equal 3.68, @calculator.per_hour_minimum_wage
+        @calculator = MinimumWageCalculator.new age: 21, date: Date.today
+        assert_equal 6.08, @calculator.per_hour_minimum_wage
       end
-      should "give the historical minimum wage for a given age and year" do
-        assert_equal 3.64, @calculator.per_hour_minimum_wage(17, 2010)
-        assert_equal 4.92, @calculator.per_hour_minimum_wage(18, 2010)
-        assert_equal 5.93, @calculator.per_hour_minimum_wage(21, 2010)
+      should "give the historical minimum wage" do
+        @calculator = MinimumWageCalculator.new age: 17, date: Date.parse('2010-10-01')
+        assert_equal 3.64, @calculator.per_hour_minimum_wage
+        @calculator = MinimumWageCalculator.new age: 18, date: Date.parse('2010-10-01')
+        assert_equal 4.92, @calculator.per_hour_minimum_wage
       end
       should "account for the 18-22 age range before 2010" do
-        assert_equal 4.83, @calculator.per_hour_minimum_wage(21, 2009)
-        assert_equal 5.8, @calculator.per_hour_minimum_wage(22, 2009)
-      end
-    end
-    
-    context "apprentice rate" do
-    
-      def setup
-        @calculator = MinimumWageCalculator.new
-      end
-
-      should "currently be 2.6" do
-        assert_equal 2.6, @calculator.apprentice_rate
-      end
-      should "also accept a date" do
-        assert_equal 2.6, @calculator.apprentice_rate(Date.today.year)
-      end
-      should "be 0 before 2010" do
-        assert_equal 0, @calculator.apprentice_rate("2009")
-      end
-      should "be 2.5 for 2010" do
-        assert_equal 2.5, @calculator.apprentice_rate("2010")
+        @calculator = MinimumWageCalculator.new age: 21, date: Date.parse('2009-10-01')
+        assert_equal 4.83, @calculator.per_hour_minimum_wage
+        @calculator = MinimumWageCalculator.new age: 22, date: Date.parse('2009-10-01')
+        assert_equal 5.8, @calculator.per_hour_minimum_wage
       end
     end
     
     context "accommodation adjustment" do
       setup do
-        @calculator = MinimumWageCalculator.new
-        @th = SmartAnswer::Calculators::MinimumWageCalculator::ACCOMMODATION_CHARGE_THRESHOLD
+        @calculator = MinimumWageCalculator.new age: 22
       end
       should "return 0 for accommodation charged under the threshold" do
         assert_equal 0, @calculator.accommodation_adjustment("3.50", 5)
       end
       should "return the number of nights times the threshold if the accommodation is free" do
-        assert_equal (@th * 4), @calculator.accommodation_adjustment("0", 4)
+        assert_equal (4.73 * 4), @calculator.accommodation_adjustment("0", 4)
       end
       should "subtract the charged fee from the free fee where the accommodation costs more than the threshold" do
         charge = 10.12
         number_of_nights = 5
-        free_adjustment = (@th * number_of_nights).round(2) 
+        free_adjustment = (4.73 * number_of_nights).round(2) 
         charged_adjustment = @calculator.accommodation_adjustment(charge, number_of_nights)
         assert_equal (free_adjustment - (charge * number_of_nights)).round(2), charged_adjustment
         assert 0 > charged_adjustment # this should always be less than zero
-      end
-    end
-    
-    context "format_money" do
-      should "format values to 2 decimal places with zero padding" do
-        assert_equal "4.40", @calculator.format_money(4.4)
       end
     end
   end
