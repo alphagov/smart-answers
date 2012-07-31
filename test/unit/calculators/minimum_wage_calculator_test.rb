@@ -128,12 +128,6 @@ module SmartAnswer::Calculators
             should "be underpayment divided by the historical minimum hourly rate times the current minimum hourly rate" do
               assert_equal @historical_adjustment, @calculator.historical_adjustment
             end
-            
-            context "adjusted total underpayment" do
-              should "be underpayment plus historical adjustment" do
-                assert_equal (@underpayment + @historical_adjustment).round(2), @calculator.adjusted_total_underpayment 
-              end
-            end
           end
         end  
       end
@@ -166,9 +160,6 @@ module SmartAnswer::Calculators
         end
         should "have a historical adjustment of 76.30" do
           assert_equal 76.30, @calculator.historical_adjustment
-        end
-        should "have an adjusted total underpayment of 148.21" do
-          assert_equal 148.21, @calculator.adjusted_total_underpayment
         end
       end
       

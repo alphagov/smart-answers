@@ -206,13 +206,13 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       add_response :past_payment
     end
     
-    should "ask 'which year do you want to check?'" do
-      assert_current_node :past_payment_year?
+    should "ask 'which date do you want to check?'" do
+      assert_current_node :past_payment_date?
     end
     
-    context "answer 2009" do
+    context "answer 2009-10-01" do
       setup do
-        add_response 2009
+        add_response "2009-10-01"
       end
     
       # Q2
@@ -225,7 +225,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           add_response :apprentice_over_19
         end
         should "ask 'how often did you get paid?'" do
-          assert_current_node :how_often_did_you_get_paid?
+          assert_current_node :does_not_apply_to_historical_apprentices
         end
       end
     
@@ -234,7 +234,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           add_response :apprentice_over_19
         end
         should "ask 'how often did you get paid?'" do
-          assert_current_node :how_often_did_you_get_paid?
+          assert_current_node :does_not_apply_to_historical_apprentices
         end
         
       end
@@ -381,6 +381,19 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           end # Pay frequency
         end # Age
       end # Apprentice
-    end # Year in question
+    end # Date in question
+    
+    # Test for alternative historical apprentice outcome
+    #
+    context "answer 2010-10-01" do
+      setup do
+        add_response '2010-10-01'
+        add_response :apprentice_over_19
+      end
+      
+      should "ask 'how often did you get paid?'" do
+        assert_current_node :how_often_did_you_get_paid?
+      end
+    end
   end # Past pay
 end

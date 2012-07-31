@@ -64,10 +64,6 @@ module SmartAnswer::Calculators
       (underpayment / minimum_hourly_rate * per_hour_minimum_wage(Date.today)).round(2)
     end
     
-    def adjusted_total_underpayment
-      (underpayment + historical_adjustment).round(2)
-    end
-    
     def above_minimum_wage?
       minimum_hourly_rate < total_hourly_rate
     end
