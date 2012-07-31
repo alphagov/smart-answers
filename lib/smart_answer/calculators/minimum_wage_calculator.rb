@@ -21,7 +21,7 @@ module SmartAnswer::Calculators
     
     def minimum_hourly_rate
       if @is_apprentice
-        minimum_wage_data[:apprentice_rate]
+        @minimum_wage_data[:apprentice_rate]
       else
         per_hour_minimum_wage
       end
@@ -83,9 +83,6 @@ module SmartAnswer::Calculators
       end
     end
     
-    # TODO: The date range logic will change here as month specific thresholds
-    # will be introduced. This needs refactoring when that is agreed.
-    #
     def per_hour_minimum_wage(date = @date)
       rates = minimum_wage_data_for_date(date)[:minimum_rates]
       rates.find do |r|
