@@ -64,8 +64,8 @@ module SmartAnswer::Calculators
       (underpayment / minimum_hourly_rate * per_hour_minimum_wage(Date.today)).round(2)
     end
     
-    def above_minimum_wage?
-      minimum_hourly_rate < total_hourly_rate
+    def minimum_wage_or_above?
+      minimum_hourly_rate <= total_hourly_rate
     end
     
     def accommodation_adjustment(charge, number_of_nights)

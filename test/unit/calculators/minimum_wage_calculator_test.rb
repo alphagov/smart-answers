@@ -85,7 +85,7 @@ module SmartAnswer::Calculators
       
       context "above minimum wage?" do
         should "indicate if the minimum hourly rate is less than the total hourly rate" do
-          assert !@calculator.above_minimum_wage?
+          assert !@calculator.minimum_wage_or_above?
         end
       end
       
@@ -136,6 +136,7 @@ module SmartAnswer::Calculators
       # see https://docs.google.com/a/digital.cabinet-office.gov.uk/spreadsheet/ccc?key=0An9oCYIY2AELdHVsckdKM0VWc2NFZ0J6MXFtdEY3MVE#gid=0
       # for various scenarios.
       #
+      # Scenario 4
       context "minimum wage calculator for a 25 yr old in 2008 who earned 168 over 40 hrs with 7 hrs overtime" do
         setup do
           @calculator = MinimumWageCalculator.new age: 25, date: Date.parse('2008-10-01'), basic_pay: 168, basic_hours: 40
@@ -152,6 +153,14 @@ module SmartAnswer::Calculators
         should "have a total pay of 197.40" do
           assert_equal 197.40, @calculator.total_pay
         end
+        should "adjust for free accommodation" do
+          @calculator.accommodation_adjustment(0,7)
+          assert_equal 228.62, @calculator.total_pay
+        end
+        should "adjust for charged accommodation" do
+          @calculator.accommodation_adjustment(7.5,7)
+          assert_equal 176.12, @calculator.total_pay
+        end
         should "have historical entitlement of 269.31" do
           assert_equal 269.31, @calculator.historical_entitlement
         end
@@ -163,6 +172,7 @@ module SmartAnswer::Calculators
         end
       end
       
+      # Scenarios 1 & 2
       context "minimum wage calculator for a 25 yr old low hourly rate" do
         setup do
           @calculator = MinimumWageCalculator.new age: 25, basic_pay: 100, basic_hours: 40
@@ -209,6 +219,7 @@ module SmartAnswer::Calculators
         
       end
       
+      # scenario 3
       context "21 y/o with a medium hourly rate" do
         setup do
           @calculator = MinimumWageCalculator.new age: 21, date: Date.parse('2009-10-01'), basic_pay: 290, basic_hours: 60
@@ -231,6 +242,122 @@ module SmartAnswer::Calculators
           should "make the total hourly rate 5.59" do
             assert_equal 5.59, @calculator.total_hourly_rate
           end
+          
+          should "be above the minimum wage" do
+            assert @calculator.minimum_wage_or_above?
+          end
+        end
+        
+        context "who lives in charged accommodation above the threshold for 10 nights" do
+          setup do
+            @calculator.accommodation_adjustment(4.6, 10)
+          end
+          
+          should "make the accommodation cost -0.90" do
+            assert_equal -0.90, @calculator.accommodation_cost
+          end
+          
+          should "make the total hourly rate 5.59" do
+            assert_equal 4.82, @calculator.total_hourly_rate
+          end
+          
+          should "be below the minimum wage" do
+            assert !@calculator.minimum_wage_or_above?
+          end
+        end
+        
+        context "who lives in charged accommodation below the threshold for 10 nights" do
+          setup do
+            @calculator.accommodation_adjustment(4, 10)
+          end
+          
+          should "make the accommodation cost 0" do
+            assert_equal 0, @calculator.accommodation_cost
+          end
+          
+          should "make the total hourly rate 4.83" do
+            assert_equal 4.83, @calculator.total_hourly_rate
+          end
+          
+          should "be above the minimum wage" do
+            assert @calculator.minimum_wage_or_above?
+          end
+        end
+        
+        context "who works 5 hours overtime at 6/h" do
+          setup do
+            @calculator.overtime_hours = 5
+            @calculator.overtime_hourly_rate = 6
+          end
+          
+          should "make the accommodation cost 0" do
+            assert_equal 0, @calculator.accommodation_cost
+          end
+          
+          should "make the total hourly rate 4.83" do
+            assert_equal 4.83, @calculator.total_hourly_rate
+          end
+          
+          should "make total_overtime_pay 24.15" do
+            assert_equal 24.15, @calculator.total_overtime_pay
+          end
+          
+          should "make the total pay 314.15 and the historical entitlement 313.95" do
+            assert_equal 314.15, @calculator.total_pay
+            assert_equal 313.95, @calculator.historical_entitlement
+          end
+          
+          should "be above the minimum wage" do
+            assert @calculator.minimum_wage_or_above?
+          end
+          
+          context "and lives in free accommodation for 10 days" do
+            setup do
+              @calculator.accommodation_adjustment(0,10)
+            end
+            
+            should "make the total pay 359.25" do
+              assert_equal 359.25, @calculator.total_pay
+            end
+          end
+          
+          context "and lives in accommodation charged over the threshold for 10 days" do
+            setup do
+              @calculator.accommodation_adjustment(4.6,10)
+            end
+            
+            should "make the accommodation cost -0.90" do
+              assert_equal -0.90, @calculator.accommodation_cost
+            end
+            
+            should "make the historical entitlement above the total pay and therefore below the historical minimum wage" do
+              assert_equal 313.95, @calculator.historical_entitlement
+              assert_equal 313.25, @calculator.total_pay
+              assert !@calculator.minimum_wage_or_above?
+            end
+            
+            should "make the total_hourly_rate 4.82" do
+              assert_equal 4.82, @calculator.total_hourly_rate
+            end
+            
+            should "make the underpayment 0.70 and therefore below the minimum wage" do
+              assert_equal 0.70, @calculator.underpayment
+              assert !@calculator.minimum_wage_or_above?
+            end
+          end
+          
+          context "and lives in accommodation charged below the threshold for 10 days" do
+            setup do
+              @calculator.accommodation_adjustment(4,10)
+            end
+            
+            should "make the total pay above the historical entitlement and above the historical minimum wage" do
+              assert_equal 314.15, @calculator.total_pay
+              assert_equal 313.95, @calculator.historical_entitlement
+              assert @calculator.minimum_wage_or_above?
+            end
+          end
+          
         end
       end
       

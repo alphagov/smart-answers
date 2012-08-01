@@ -200,7 +200,7 @@ multiple_choice :is_provided_with_accommodation? do
   end
   
   calculate :above_minimum_wage do
-    calculator.above_minimum_wage?
+    calculator.minimum_wage_or_above?
   end
   
   next_node do |response|
@@ -212,7 +212,7 @@ multiple_choice :is_provided_with_accommodation? do
         :current_accommodation_charge?
       else
         
-        if calculator.above_minimum_wage?
+        if calculator.minimum_wage_or_above?
           :current_payment_above
         else
           :current_payment_below
@@ -241,7 +241,7 @@ multiple_choice :was_provided_with_accommodation? do
   end
   
   calculate :above_minimum_wage do
-    calculator.above_minimum_wage?
+    calculator.minimum_wage_or_above?
   end
   
   next_node do |response|
@@ -296,12 +296,12 @@ value_question :current_accommodation_usage? do
   end
   
   calculate :above_minimum_wage do
-    calculator.above_minimum_wage?
+    calculator.minimum_wage_or_above?
   end
   
   next_node do |response|
     
-    if calculator.above_minimum_wage?
+    if calculator.minimum_wage_or_above?
       :current_payment_above
     else
       :current_payment_below
@@ -327,7 +327,7 @@ value_question :past_accommodation_usage? do
   end
   
   calculate :above_minimum_wage do
-    calculator.above_minimum_wage?
+    calculator.minimum_wage_or_above?
   end
   
   next_node do |response|
