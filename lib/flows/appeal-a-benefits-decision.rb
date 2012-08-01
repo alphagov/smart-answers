@@ -22,11 +22,10 @@ date_question :date_of_decision_letter? do
   from { 5.years.ago }
   to { Date.today }
   save_input_as :decision_letter_date
+  
   next_node do |response|
-    
     decision_date = Date.parse(response)
     appeal_expiry_date = decision_appeal_limit_in_months.months.since(decision_date)
-    
     if Date.today < appeal_expiry_date
       :had_written_explanation?
     else
@@ -40,6 +39,22 @@ multiple_choice :had_written_explanation? do
   option :spoken_explanation
   option :written_explanation
   option :no
+  
+  calculate :appeal_expiry_date do
+    decision_date = Date.parse(decision_letter_date)
+    if (decision_date > 1.month.ago.to_date)
+      1.month.since(decision_date)
+    end
+  end
+  
+  calculate :appeal_expiry_text do
+    if appeal_expiry_date
+      "You have until #{appeal_expiry_date.to_s(:long)} to start an appeal"
+    else
+      ""
+    end
+  end
+  
   next_node do |response|
     if response == 'written_explanation'
       :when_did_you_ask_for_it? 
@@ -68,18 +83,42 @@ end
 
 # Q6
 date_question :when_did_you_get_it? do
+  save_input_as :written_explanation_received_date
   from { 5.years.ago }
   to { Date.today }
-  next_node do |response|
+  
+  calculate :appeal_expiry_date do  
+    decision_date = Date.parse(decision_letter_date)
+    received_date = Date.parse(responses.last)
+    received_within_a_month = received_date < 1.month.since(Date.parse(written_explanation_request_date))
     
+    if received_within_a_month 
+      expiry_date = 1.fortnight.since(1.month.since(decision_date))
+    else
+      expiry_date = 1.fortnight.since(received_date)
+    end
+    if Date.today < expiry_date
+      expiry_date
+    end      
+  end
+  
+  calculate :appeal_expiry_text do
+    if appeal_expiry_date
+      "You have until #{appeal_expiry_date.to_s(:long)} to start an appeal"
+    else
+      ""
+    end
+  end
+  
+  next_node do |response|    
     received_date = Date.parse(response)
-    received_within_a_month = 1.month.since(received_date) > Date.parse(written_explanation_request_date)
+    received_within_a_month = received_date < 1.month.since(Date.parse(written_explanation_request_date))
     a_fortnight_has_passed = Date.today > 1.fortnight.since(received_date)
     decision_date = Date.parse(decision_letter_date)
     a_month_and_a_fortnight_since_decision = Date.today > 1.fortnight.since(1.month.since(decision_date))
     
-    if (received_within_a_month and a_fortnight_has_passed) or
-      (!received_within_a_month and a_month_and_a_fortnight_since_decision)
+    if (!received_within_a_month and a_fortnight_has_passed) or
+      (received_within_a_month and a_month_and_a_fortnight_since_decision)
       :special_circumstances?
     else
       :asked_to_reconsider?
