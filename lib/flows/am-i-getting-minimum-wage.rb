@@ -3,27 +3,25 @@ section_slug "money-and-tax"
 subsection_slug "tax"
 satisfies_need "2013"
 
-maximum_number_of_days_in_month = 31
-
 # Q1
 multiple_choice :what_would_you_like_to_check? do
   option "current_payment" => :are_you_an_apprentice?
-  option "past_payment" => :past_payment_year?
+  option "past_payment" => :past_payment_date?
   save_input_as :current_or_past_payments
 end
 
 # Q1A
-multiple_choice :past_payment_year? do
+multiple_choice :past_payment_date? do
 
-  option "2011"
-  option "2010"
-  option "2009"
-  option "2008"
-  option "2007"
-  option "2006"
-  option "2005" 
+  option "2011-10-01"
+  option "2010-10-01"
+  option "2009-10-01"
+  option "2008-10-01"
+  option "2007-10-01"
+  option "2006-10-01"
+  option "2005-10-01" 
   
-  save_input_as :payment_year
+  save_input_as :payment_date
   
   next_node :were_you_an_apprentice?
   
@@ -43,6 +41,19 @@ multiple_choice :were_you_an_apprentice? do
   option "no" => :how_old_were_you?
   option "apprentice_under_19" => :how_often_did_you_get_paid?
   option "apprentice_over_19" => :how_often_did_you_get_paid?
+  
+  next_node do |response|
+    case response
+      when "no"
+        :how_old_were_you?
+      else
+        if Date.parse(payment_date) < Date.parse('2010-10-01')
+          :does_not_apply_to_historical_apprentices
+        else
+          :how_often_did_you_get_paid?
+        end
+    end
+  end
 end
 
 # Q3
@@ -99,13 +110,13 @@ end
 # Q6 Past
 value_question :how_much_were_you_paid_during_pay_period? do
   
-  calculate :calculator do
+  calculate :calculator do   
     Calculators::MinimumWageCalculator.new({
       age: age.to_i,
-      year: payment_year, 
+      date: Date.parse(payment_date), 
       basic_hours: basic_hours.to_f,
       basic_pay: responses.last.to_f,
-      is_apprentice: (is_apprentice != 'no')
+      is_apprentice: (was_apprentice != 'no')
     }) 
   end
   
@@ -187,7 +198,7 @@ multiple_choice :is_provided_with_accommodation? do
   end
   
   calculate :above_minimum_wage do
-    calculator.above_minimum_wage?
+    calculator.minimum_wage_or_above?
   end
   
   next_node do |response|
@@ -199,7 +210,7 @@ multiple_choice :is_provided_with_accommodation? do
         :current_accommodation_charge?
       else
         
-        if calculator.above_minimum_wage?
+        if calculator.minimum_wage_or_above?
           :current_payment_above
         else
           :current_payment_below
@@ -228,7 +239,7 @@ multiple_choice :was_provided_with_accommodation? do
   end
   
   calculate :above_minimum_wage do
-    calculator.above_minimum_wage?
+    calculator.minimum_wage_or_above?
   end
   
   next_node do |response|
@@ -240,7 +251,7 @@ multiple_choice :was_provided_with_accommodation? do
         :past_accommodation_charge?
       else
         
-        if calculator.adjusted_total_underpayment >= 0
+        if calculator.historical_adjustment >= 0
           :past_payment_above
         else
           :past_payment_below
@@ -283,12 +294,12 @@ value_question :current_accommodation_usage? do
   end
   
   calculate :above_minimum_wage do
-    calculator.above_minimum_wage?
+    calculator.minimum_wage_or_above?
   end
   
   next_node do |response|
     
-    if calculator.above_minimum_wage?
+    if calculator.minimum_wage_or_above?
       :current_payment_above
     else
       :current_payment_below
@@ -314,12 +325,12 @@ value_question :past_accommodation_usage? do
   end
   
   calculate :above_minimum_wage do
-    calculator.above_minimum_wage?
+    calculator.minimum_wage_or_above?
   end
   
   next_node do |response|
     
-    if calculator.adjusted_total_underpayment >= 0
+    if calculator.historical_adjustment >= 0
       :past_payment_above
     else
       :past_payment_below
@@ -332,3 +343,4 @@ outcome :current_payment_above
 outcome :current_payment_below
 outcome :past_payment_above
 outcome :past_payment_below
+outcome :does_not_apply_to_historical_apprentices
