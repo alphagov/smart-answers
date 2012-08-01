@@ -1,7 +1,7 @@
 module SmartAnswer::Calculators
   class MinimumWageCalculator
     
-    attr_accessor :overtime_hours, :overtime_hourly_rate, :accommodation_cost
+    attr_accessor :overtime_hours, :overtime_hourly_rate, :accommodation_cost, :is_apprentice
     
     def initialize(params={})
       @age = params[:age]

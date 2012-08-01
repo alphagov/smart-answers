@@ -3,8 +3,6 @@ section_slug "money-and-tax"
 subsection_slug "tax"
 satisfies_need "2013"
 
-maximum_number_of_days_in_month = 31
-
 # Q1
 multiple_choice :what_would_you_like_to_check? do
   option "current_payment" => :are_you_an_apprentice?
@@ -112,13 +110,13 @@ end
 # Q6 Past
 value_question :how_much_were_you_paid_during_pay_period? do
   
-  calculate :calculator do
+  calculate :calculator do   
     Calculators::MinimumWageCalculator.new({
       age: age.to_i,
       date: Date.parse(payment_date), 
       basic_hours: basic_hours.to_f,
       basic_pay: responses.last.to_f,
-      is_apprentice: (is_apprentice != 'no')
+      is_apprentice: (was_apprentice != 'no')
     }) 
   end
   
