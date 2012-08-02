@@ -53,11 +53,11 @@ end
 
 # Q7
 multiple_choice :how_often_and_what_do_you_pay_your_providers? do
-#  option :same_amount_weekly => # C10
-#  option :varying_amount_weekly => # C11
-#  option :same_monthly => # C13
-#  option :varying_amount_monthly => # C14
-#  option :other => # C12
+  option :same_amount_weekly => :old_weekly_costs? # C10
+  option :varying_amount_weekly => :old_annual_costs? # C11
+  option :same_monthly => :old_average_weekly_costs? # C13
+  option :varying_amount_monthly => :old_annual_costs? # C14
+  option :other => :old_annual_costs? # C12
 end
 
 # Calculation Questions
@@ -108,12 +108,12 @@ value_question :new_weekly_costs? do
   
 end
 
-# C11A, C12A
+# C11A, C12A, C14A
 value_question :old_annual_costs? do
   
 end
 
-# C11B, C12B
+# C11B, C12B, C14B
 value_question :new_annual_costs? do
   
 end

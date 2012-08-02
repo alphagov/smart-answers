@@ -89,13 +89,68 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
           setup do
             add_response :yes
           end
-          
+          # Q6
           should "ask 'how often do you pay your providers?'" do
             assert_current_node :how_often_do_you_pay_your_providers?
           end
+          context "answer 'weekly'" do
+            should "say 'round up the total cost'" do
+              add_response :weekly
+              assert_current_node :round_up_total
+            end
+          end
+          context "answer 'fortnightly'" do
+            setup do
+              add_response :fornightly
+            end
+            # C5
+            should "ask 'how much do you pay each fortnight?'" do
+              assert_current_node :how_much_do_you_pay_each_fortnight?
+            end
+          end
+          context "answer 'every 4 weeks'" do
+            setup do
+              add_response :every_four_weeks
+            end
+            # C6
+            should "ask 'how much do you pay every 4 weeks?'" do
+              assert_current_node :how_much_do_you_pay_every_four_weeks?
+            end
+          end
+          context "answer 'monthly'" do
+            setup do
+              add_response :monthly
+            end
+            # C7
+            should "ask 'how much do you pay each month?'" do
+              assert_current_node :how_much_do_you_pay_each_month?
+            end
+          end
+          context "answer 'termly'" do
+            # A10
+            should "say 'contact the tax credit office'" do
+              add_response :termly
+              assert_current_node :contact_the_tax_credit_office
+            end
+          end
+          context "answer 'yearly'" do
+            setup do
+              add_response :yearly
+            end
+            # C8
+            should "ask 'how much do you pay annually?'" do
+              assert_current_node :how_much_do_you_pay_anually?
+            end
+          end
+          context "answer 'other'" do
+            # A12
+            should "say 'contact the tax credit office'" do
+              add_response :other
+              assert_current_node :contact_the_tax_credit_office
+            end
+          end
         end
       end
-      
       context "answer 'intermittently'" do
         # A19
         should "say 'call the helpline'" do
@@ -122,6 +177,51 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
         should "ask 'how often and what do you pay providers?'" do
           assert_current_node :how_often_and_what_do_you_pay_your_providers?
         end
+        context "answer 'same amount weekly'" do
+          setup do
+            add_response :same_amount_weekly # => :old_weekly_costs? # C10
+          end
+          # C10
+          should "ask 'what was your previous weekly costs?'" do
+            assert_current_node :old_weekly_costs?
+          end
+        end
+        context "answer 'varying amount weekly'" do
+          setup do
+            add_response :varying_amount_weekly # => :old_annual_costs? # C11
+          end
+          # C11
+          should "ask 'what were your previous annual costs?'" do
+            assert_current_node :old_annual_costs?
+          end
+        end
+        context "answer 'same amount monthly'" do
+          setup do
+            add_response :same_monthly # => :old_average_weekly_costs? # C13
+          end
+          # C13
+          should "ask 'what were your previous average weekly costs?'" do
+            assert_current_node :old_average_weekly_costs?
+          end
+        end
+        context "answer 'varying amount monthly'" do
+          setup do
+            add_response :varying_amount_monthly # => :old_annual_costs? # C14
+          end
+          # C14
+          should "ask 'what were your previous annual costs?'" do
+            assert_current_node :old_annual_costs? # C12
+          end
+        end
+        context "answer 'other'" do
+          setup do
+            add_response :other # => :old_annual_costs? # C12
+          end
+          # C12
+          should "ask 'what were your previous annual costs?'" do
+            assert_current_node :old_annual_costs?
+          end
+        end
       end
       context "answer 'no'" do
         # A20
@@ -132,24 +232,4 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
       end
     end
   end
-  
-  #        context "answer 'fortnightly'" do
-#          setup do
-#            add_response :fornightly
-#          end
-#          # C5
-#          should "ask 'how much do you pay each fortnight?'" do
-#            assert_current_node :how_much_do_you_pay_each_fortnight?
-#          end
-#        end
-#        context "answer 'every 4 weeks'" do
-#          setup do
-#            add_response :every_four_weeks
-#          end
-#          # C6
-#          should "ask 'how much do you pay every 4 weeks?'" do
-#            assert_current_node :how_much_do_you_pay_every_four_weeks?
-#          end
-#        ends
-  
 end
