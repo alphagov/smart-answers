@@ -47,6 +47,16 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
           should "ask 'what is the total for 52 weeks?'" do
             assert_current_node :costs_for_year_in_weeks?
           end
+          context "answer '4000'" do
+            setup do
+              add_response 4000
+            end
+            # A2
+            should "say 'Your weekly childcare costs are 77'" do
+              assert_current_node :weekly_costs
+              assert_state_variable "cost", 77
+            end
+          end
         end
         context "answer 'same amount monthly" do
           setup do
@@ -55,6 +65,16 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
           # C3
           should "ask 'how much do you pay each month?'" do
             assert_current_node :how_much_do_you_pay_each_month?
+          end
+          context "answer 350" do
+            setup do
+              add_response 350
+            end
+            # A4
+            should "say 'Your  weekly childcare costs are 81'" do
+              assert_current_node :weekly_costs
+              assert_state_variable "cost", 81
+            end
           end
         end
         context "answer 'varying amount monthly'" do
@@ -65,6 +85,16 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
           should "ask 'what is the total cost over 12 months?'" do
             assert_current_node :costs_for_year_in_months?
           end
+          context "answer '4200'" do
+            setup do
+              add_response 4200
+            end
+            # A3
+            should "say 'Your weekly childcare costs are 81'" do
+              assert_current_node :weekly_costs
+              assert_state_variable "cost", 81
+            end
+          end
         end
         context "answer 'other'" do
           setup do
@@ -73,6 +103,16 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
           # C4
           should "ask 'what is the total cost for 12 months?'" do
             assert_current_node :costs_for_year_in_months?
+          end
+          context "answer 3800" do
+            setup do
+              add_response 3800
+            end
+            # A5
+            should "say 'Your weekly childcare cost is 73'" do
+              assert_current_node :weekly_costs
+              assert_state_variable "cost", 73
+            end
           end
         end
       end
@@ -107,6 +147,16 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
             should "ask 'how much do you pay each fortnight?'" do
               assert_current_node :how_much_do_you_pay_each_fortnight?
             end
+            context "answer 90" do
+              setup do
+                add_response 90
+              end
+              # A7
+              should "say 'Your weekly costs are 45 use this amount on your claim form'" do
+                assert_current_node :weekly_costs_for_claim_form
+                assert_state_variable "cost", 45
+              end
+            end
           end
           context "answer 'every 4 weeks'" do
             setup do
@@ -115,6 +165,16 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
             # C6
             should "ask 'how much do you pay every 4 weeks?'" do
               assert_current_node :how_much_do_you_pay_every_four_weeks?
+            end
+            context "answer 128" do
+              setup do
+                add_response 128
+              end
+              # A8
+              should "say 'Your weekly costs are 32 use this amount on your claim form'" do
+                assert_current_node :weekly_costs_for_claim_form
+                assert_state_variable "cost", 32
+              end
             end
           end
           context "answer 'monthly'" do
