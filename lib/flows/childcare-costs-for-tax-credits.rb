@@ -120,13 +120,21 @@ value_question :varying_annual_cost? do
 end
 
 # C10A
-value_question :old_weekly_costs? do
-  
+value_question :new_weekly_costs? do
+  save_input_as :new_weekly_cost
+  next_node :new_weekly_costs?
 end
 
 # C10B
-value_question :new_weekly_costs? do
-  
+value_question :old_weekly_costs? do
+  next_node do |response|
+    diff = Calculators::ChildcareCostCalculator.cost_change(new_weekly_cost.to_i, response.to_i)
+    if diff > 10
+      :costs_have_increased
+    else
+      :costs_have_not_increased
+    end
+  end
 end
 
 # C11A, C12A, C14A
@@ -154,5 +162,6 @@ outcome :weekly_costs # A2, A3, A4, A5
 outcome :weekly_costs_for_claim_form # A7, A8, A9, A11, A13
 outcome :contact_the_tax_credit_office # A10, A12
 outcome :costs_have_increased # A14, A15, A16, A17, A18
+outcome :costs_have_not_increased # A14, A15, A16, A17, A18
 outcome :call_the_helpline # A19
 outcome :no_change_to_credits # A20
