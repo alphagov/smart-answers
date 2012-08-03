@@ -131,7 +131,7 @@ value_question :old_weekly_costs? do
     Calculators::ChildcareCostCalculator.cost_change(new_weekly_cost.to_i, responses.last.to_i).abs
   end
   next_node do |response|
-    diff = Calculators::ChildcareCostCalculator.cost_change(new_weekly_cost.to_i, response.to_i)
+    diff = Calculators::ChildcareCostCalculator.cost_change(new_weekly_cost.to_i, response.to_i).abs
     if diff > 10
       :costs_have_increased
     else
@@ -152,7 +152,7 @@ value_question :old_annual_costs? do
     Calculators::ChildcareCostCalculator.cost_change_annual(new_annual_cost.to_i, responses.last.to_i).abs
   end
   next_node do |response|
-    diff = Calculators::ChildcareCostCalculator.cost_change_annual(new_annual_cost.to_i, response.to_i)
+    diff = Calculators::ChildcareCostCalculator.cost_change_annual(new_annual_cost.to_i, response.to_i).abs
     if diff > 10
       :costs_have_increased
     else
@@ -173,7 +173,7 @@ value_question :old_average_weekly_costs? do
     Calculators::ChildcareCostCalculator.cost_change_month(new_average_weekly_cost.to_i, responses.last.to_i).abs
   end
   next_node do |response|
-    diff = Calculators::ChildcareCostCalculator.cost_change_month(new_average_weekly_cost.to_i, response.to_i)
+    diff = Calculators::ChildcareCostCalculator.cost_change_month(new_average_weekly_cost.to_i, response.to_i).abs
     if diff > 10
       :costs_have_increased
     else
