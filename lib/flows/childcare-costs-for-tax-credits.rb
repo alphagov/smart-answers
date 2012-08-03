@@ -66,7 +66,7 @@ end
 # C1
 value_question :costs_for_year_in_weeks? do
   calculate :cost do
-    Calculators::ChildcareCostCalculator.weekly_cost(responses.last.to_i)
+    Calculators::ChildcareCostCalculator.weekly_cost(responses.last.to_i).abs
   end
   next_node :weekly_costs # A2
 end
@@ -74,7 +74,7 @@ end
 # C2, C4
 value_question :costs_for_year_in_months? do
   calculate :cost do
-    Calculators::ChildcareCostCalculator.weekly_cost(responses.last.to_i)
+    Calculators::ChildcareCostCalculator.weekly_cost(responses.last.to_i).abs
   end
   next_node :weekly_costs # A3, A5  
 end
@@ -82,7 +82,7 @@ end
 # C3, C7
 value_question :how_much_do_you_pay_each_month? do
   calculate :cost do
-    Calculators::ChildcareCostCalculator.weekly_cost_from_monthly(responses.last.to_i)
+    Calculators::ChildcareCostCalculator.weekly_cost_from_monthly(responses.last.to_i).abs
   end
   next_node :weekly_costs # A4
 end
@@ -90,7 +90,7 @@ end
 # C5
 value_question :how_much_do_you_pay_each_fortnight? do
   calculate :cost do
-    Calculators::ChildcareCostCalculator.weekly_cost_from_fortnightly(responses.last.to_i)
+    Calculators::ChildcareCostCalculator.weekly_cost_from_fortnightly(responses.last.to_i).abs
   end
   next_node :weekly_costs_for_claim_form # A7
 end
@@ -98,7 +98,7 @@ end
 # C6
 value_question :how_much_do_you_pay_every_four_weeks? do
   calculate :cost do
-    Calculators::ChildcareCostCalculator.weekly_cost_from_four_weekly(responses.last.to_i)
+    Calculators::ChildcareCostCalculator.weekly_cost_from_four_weekly(responses.last.to_i).abs
   end
   next_node :weekly_costs_for_claim_form # A8
 end
@@ -106,7 +106,7 @@ end
 # C8
 value_question :how_much_do_you_pay_anually? do
   calculate :cost do
-    Calculators::ChildcareCostCalculator.weekly_cost(responses.last.to_i)
+    Calculators::ChildcareCostCalculator.weekly_cost(responses.last.to_i).abs
   end
   next_node :weekly_costs_for_claim_form # A11  
 end
@@ -114,7 +114,7 @@ end
 # C9
 value_question :varying_annual_cost? do
   calculate :cost do
-    Calculators::ChildcareCostCalculator.weekly_cost(responses.last.to_i)
+    Calculators::ChildcareCostCalculator.weekly_cost(responses.last.to_i).abs
   end
   next_node :weekly_costs_for_claim_form # A13   
 end
@@ -128,7 +128,7 @@ end
 # C10B
 value_question :old_weekly_costs? do
   calculate :cost do
-    Calculators::ChildcareCostCalculator.cost_change(new_weekly_cost.to_i, responses.last.to_i)
+    Calculators::ChildcareCostCalculator.cost_change(new_weekly_cost.to_i, responses.last.to_i).abs
   end
   next_node do |response|
     diff = Calculators::ChildcareCostCalculator.cost_change(new_weekly_cost.to_i, response.to_i)
@@ -149,7 +149,7 @@ end
 # C11B, C12B, C14B
 value_question :old_annual_costs? do
   calculate :cost do
-    Calculators::ChildcareCostCalculator.cost_change_annual(new_annual_cost.to_i, responses.last.to_i)
+    Calculators::ChildcareCostCalculator.cost_change_annual(new_annual_cost.to_i, responses.last.to_i).abs
   end
   next_node do |response|
     diff = Calculators::ChildcareCostCalculator.cost_change_annual(new_annual_cost.to_i, response.to_i)
@@ -170,7 +170,7 @@ end
 # C13B
 value_question :old_average_weekly_costs? do
   calculate :cost do
-    Calculators::ChildcareCostCalculator.cost_change_month(new_average_weekly_cost.to_i, responses.last.to_i)
+    Calculators::ChildcareCostCalculator.cost_change_month(new_average_weekly_cost.to_i, responses.last.to_i).abs
   end
   next_node do |response|
     diff = Calculators::ChildcareCostCalculator.cost_change_month(new_average_weekly_cost.to_i, response.to_i)
