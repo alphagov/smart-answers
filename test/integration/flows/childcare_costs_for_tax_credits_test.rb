@@ -201,12 +201,41 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
             should "ask 'how much do you pay annually?'" do
               assert_current_node :how_much_do_you_pay_anually?
             end
+            context "answer '4200'" do
+              setup do
+                add_response 4200
+              end
+              
+              should "say 'Your weeks costs are 81'" do
+                assert_current_node :weekly_costs_for_claim_form
+                assert_state_variable "cost", 81
+              end
+            end
           end
           context "answer 'other'" do
             # A12
             should "say 'contact the tax credit office'" do
               add_response :other
               assert_current_node :contact_the_tax_credit_office
+            end
+          end
+        end
+        context "answer 'no'" do
+          setup do
+            add_response :no
+          end
+          # C9
+          should "ask 'what is your annual cost?'" do
+            assert_current_node :varying_annual_cost?
+          end
+          context "answer '3950'" do
+            setup do
+              add_response 3950
+            end
+            
+            should "say 'Your weeks costs are 76'" do
+              assert_current_node :weekly_costs_for_claim_form
+              assert_state_variable "cost", 76
             end
           end
         end
