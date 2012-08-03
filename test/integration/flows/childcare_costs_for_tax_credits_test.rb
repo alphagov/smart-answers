@@ -270,18 +270,72 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
           setup do
             add_response :same_amount_weekly # => :old_weekly_costs? # C10
           end
-          # C10
-          should "ask 'what was your previous weekly costs?'" do
-            assert_current_node :old_weekly_costs?
+          # C10A
+          should "ask 'what do you expect your new weekly costs to be?'" do
+            assert_current_node :new_weekly_costs?
+          end
+          context "answer '60'" do
+            setup do
+              add_response 60
+            end
+            # C10B
+            should "ask 'what were your previous costs?'" do
+              assert_current_node :old_weekly_costs?
+            end
+            # A14 where diff is > 10
+            context "answer 45" do
+              setup do
+                add_response 45
+              end              
+              should "say 'costs have increased'" do
+                assert_current_node :costs_have_increased
+              end
+            end
+            # A14 where diff < 10
+            context "answer 55" do
+              setup do
+                add_response 55
+              end              
+              should "say 'costs have not increased'" do
+                assert_current_node :costs_have_not_increased
+              end
+            end
           end
         end
         context "answer 'varying amount weekly'" do
           setup do
             add_response :varying_amount_weekly # => :old_annual_costs? # C11
           end
-          # C11
-          should "ask 'what were your previous annual costs?'" do
-            assert_current_node :old_annual_costs?
+          # C11A
+          should "ask 'what is your expected annual cost?'" do
+            assert_current_node :new_annual_costs?
+          end
+          context "answer 3500" do
+            setup do
+              add_response 3500
+            end
+            # C11B
+            should "ask 'what were your previous weekly costs?'" do
+              assert_current_node :old_annual_costs?
+            end
+            context "answer '47'" do
+              setup do
+                add_response 47
+              end
+              # A15
+              should "say 'your costs have increased'" do
+                assert_current_node :costs_have_increased
+              end
+            end
+            context "answer '58'" do
+              setup do
+                add_response 58
+              end
+              # A15
+              should "say 'your costs have not increased'" do
+                assert_current_node :costs_have_not_increased
+              end
+            end
           end
         end
         context "answer 'same amount monthly'" do
@@ -290,7 +344,7 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
           end
           # C13
           should "ask 'what were your previous average weekly costs?'" do
-            assert_current_node :old_average_weekly_costs?
+            assert_current_node :new_average_weekly_costs?
           end
         end
         context "answer 'varying amount monthly'" do
@@ -299,7 +353,7 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
           end
           # C14
           should "ask 'what were your previous annual costs?'" do
-            assert_current_node :old_annual_costs? # C12
+            assert_current_node :new_annual_costs? # C12
           end
         end
         context "answer 'other'" do
@@ -308,7 +362,7 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
           end
           # C12
           should "ask 'what were your previous annual costs?'" do
-            assert_current_node :old_annual_costs?
+            assert_current_node :new_annual_costs?
           end
         end
       end

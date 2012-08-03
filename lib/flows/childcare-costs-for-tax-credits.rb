@@ -53,11 +53,11 @@ end
 
 # Q7
 multiple_choice :how_often_and_what_do_you_pay_your_providers? do
-  option :same_amount_weekly => :old_weekly_costs? # C10
-  option :varying_amount_weekly => :old_annual_costs? # C11
-  option :same_monthly => :old_average_weekly_costs? # C13
-  option :varying_amount_monthly => :old_annual_costs? # C14
-  option :other => :old_annual_costs? # C12
+  option :same_amount_weekly => :new_weekly_costs? # C10
+  option :varying_amount_weekly => :new_annual_costs? # C11
+  option :same_monthly => :new_average_weekly_costs? # C13
+  option :varying_amount_monthly => :new_annual_costs? # C14
+  option :other => :new_annual_costs? # C12
 end
 
 # Calculation Questions
@@ -122,7 +122,7 @@ end
 # C10A
 value_question :new_weekly_costs? do
   save_input_as :new_weekly_cost
-  next_node :new_weekly_costs?
+  next_node :old_weekly_costs?
 end
 
 # C10B
@@ -138,23 +138,38 @@ value_question :old_weekly_costs? do
 end
 
 # C11A, C12A, C14A
-value_question :old_annual_costs? do
-  
+value_question :new_annual_costs? do
+  save_input_as :new_annual_cost
+  next_node :old_annual_costs?
 end
 
 # C11B, C12B, C14B
-value_question :new_annual_costs? do
-  
+value_question :old_annual_costs? do
+  next_node do |response|
+    diff = Calculators::ChildcareCostCalculator.cost_change_annual(new_annual_cost.to_i, response.to_i)
+    if diff > 10
+      :costs_have_increased
+    else
+      :costs_have_not_increased
+    end
+  end
 end
 
 # C13A
-value_question :old_average_weekly_costs? do
-  
+value_question :new_average_weekly_costs? do
+  save_input_as :new_average_weekly_cost
 end
 
 # C13B
-value_question :new_average_weekly_costs? do
-  
+value_question :old_average_weekly_costs? do
+  next_node do |response|
+    diff = Calculators::ChildcareCostCalculator.cost_change_month(new_average_weekly_cost.to_i, response.to_i)
+    if diff > 10
+      :costs_have_increased
+    else
+      :costs_have_not_increased
+    end
+  end  
 end
 
 outcome :round_up_total # A1, A6
