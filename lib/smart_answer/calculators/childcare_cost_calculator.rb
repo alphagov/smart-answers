@@ -22,7 +22,7 @@ module SmartAnswer::Calculators
 
     # C10
     def self.cost_change(new_weekly_cost, old_weekly_tax)
-      new_weekly_cost - old_weekly_tax
+      (new_weekly_cost - old_weekly_tax).abs
     end
 
     # C11, C12, C14
