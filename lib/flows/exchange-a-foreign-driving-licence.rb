@@ -42,13 +42,12 @@ multiple_choice :which_country_issued_bus_licence? do
   option :eea_ec
   option :ni
   option :jg
-  option :gib
   option :other
 
   next_node do |response|
     if vehicle_licence == 'lorry_bus_minibus'
       if response == 'eea_ec'
-        :a2
+        :q6
       elsif response == 'ni'
         :a3
       elsif response == 'jg'
@@ -81,7 +80,7 @@ multiple_choice :which_designated_country_are_you_from? do
   option :zim => :a10
 end
 
-multiple_choice :a2 do
+multiple_choice :q6 do
   option :under_45 => :a2a
   option :between_45_and_65 => :a2b
   option :older_than_66 => :a2c
