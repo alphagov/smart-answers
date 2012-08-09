@@ -21,22 +21,84 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
       assert_current_node :dob?
     end
 
-    context "born on 6th April 1945" do
+    context "under 20 years old" do
+      should "say not enough qualifying years" do
+        add_response 5.years.ago
+        assert_current_node :too_young
+      end
+    end
+
+    context "90 years old" do
+      should "say already reached state pension age" do
+        add_response 90.years.ago
+        assert_current_node :reached_state_pension_age
+      end
+    end
+
+    context "40 years old" do
       setup do
-        add_response Date.parse("6th April 1945")
+        add_response 40.years.ago
       end
 
-      should "ask for qualifying years" do
-        assert_current_node :qualifying_years?
+      should "ask for number of years paid NI" do
+        assert_current_node :years_paid_ni?
       end
 
-      context "44 qualifying years" do
+      context "30 years" do
+        should "show the result" do
+          add_response 30
+          assert_current_node :result
+        end
+      end
+
+      context "28 years" do
         setup do
-          add_response "44"
+          add_response 28
         end
 
-        should "give the answer" do
-          assert_current_node :answer
+        should "ask for number of years claimed JSA" do
+          assert_current_node :years_of_jsa?
+        end
+
+        context "10 years" do
+          should "show the result" do
+            add_response 10
+            assert_current_node :result
+          end
+        end
+
+        context "1 year" do
+          setup do
+            add_response 1
+          end
+
+          should "ask for years of benifit" do
+            assert_current_node :years_of_benifit?
+          end
+
+          context "10 years" do
+            should "show the result" do
+              add_response 10
+              assert_current_node :result
+            end
+          end
+
+          context "1 year" do
+            setup do
+              add_response 1
+            end
+
+            should "ask for years working" do
+              assert_current_node :years_of_work?
+            end
+
+            context "1 year" do
+              should "show the result" do
+                add_response 1
+                assert_current_node :result
+              end
+            end
+          end
         end
       end
     end

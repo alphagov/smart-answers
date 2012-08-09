@@ -6,7 +6,7 @@ module SmartAnswer::Calculators
 
     def initialize(answers)
       @gender = answers[:gender].to_sym
-      @dob = Date.parse(answers[:dob])
+      @dob = DateTime.parse(answers[:dob])
       @qualifying_years = answers[:qualifying_years].to_i
     end
 
@@ -46,6 +46,10 @@ module SmartAnswer::Calculators
       state_pension_year - current_year
     end
 
+    def pension_loss
+      current_weekly_rate - what_you_get
+    end
+
     def what_you_get
       what_you_get_raw.round(2)
     end
@@ -68,6 +72,18 @@ module SmartAnswer::Calculators
 
     def state_pension_date
       StatePensionQuery.find(dob, gender)
+    end
+
+    def state_pension_age
+      state_pension_date.year - dob.year
+    end
+
+    def before_state_pension_date?
+      Date.today < state_pension_date
+    end
+
+    def under_20_years_old?
+      dob > 20.years.ago
     end
   end
 end
