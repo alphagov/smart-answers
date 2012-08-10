@@ -26,6 +26,32 @@ en-GB:
           Find out when you'll reach [State Pension](http://pensions-service.
             direct.gov.uk/en/state-pension-age-calculator/home.asp "State
             Pension age calculator"){:rel="external"} age.
+        options:
+          between_16_21: 16 to 21
+          between_22_sp: 22 to State Pension age
+          state_pension_age: State Pension age to 74
+      annual_earnings?:
+        title: How much do you earn a year?
+        options:
+          up_to_5k: Up to £5,564
+          more_than_5k: More than £5,564
+      annual_earnings2?:
+        title: How much do you earn a year?
+        options:
+          up_to_5k: Up to £5,564
+          between_5k_8k: Between £5,564 - £8,105
+          more_than_8k: More than £8,105
+          varies: Hard to say - my income varies
+      one_of_the_following?:
+        title: Are you one of the following?
+        options:
+          armed_forces: a serving member of the armed forces
+          agency: working for an agency
+          several_employers: working for several different employers or agencies
+          overseas_company: working in the UK for an overseas-based company
+          contract: a short-term contract worker
+          office_holder: an office holder
+          none: None of the above
       not_enrolled:
         title: You won’t be enrolled in a workplace pension.
         body: |
@@ -40,3 +66,75 @@ en-GB:
           Your employer or agency may need to make changes to the scheme in
           line with new laws around workplace pensions. They’ll let you know if
           this happens.
+      not_enrolled_with_options:
+        title: |
+          You won't be automatically enrolled into your employer’s workplace
+          pension.
+        body: |
+          However, you have the right to join a pension scheme and your
+          employer must provide one for you if you ask.
+      not_enrolled_opt_in:
+        title: |
+          You won't be automatically enrolled into your employer’s workplace
+          pension.
+        body: |
+          However, you have the right to opt in to the workplace pension scheme
+          and your employer must let you join if you ask to.
+      not_enrolled_income_varies:
+        title: |
+          If you normally earn less than £8,105 a year (£156 a week or £676 a
+            month), you won’t be enrolled into a workplace pension.
+        body: |
+          However, if you earn more than this in a single pay packet (eg
+          because of paid overtime), your employer will automatically enrol
+          you.
+      not_enrolled_mod:
+        title: You won’t be automatically enrolled into a workplace pension.
+        body: |
+          The Ministry of Defence will continue to make pension arrangements
+          for you.
+      enrolled_agency:
+        title: |
+          Your agency will enrol you into a workplace pension. They can choose
+          to delay your enrolment for up to three months but must let you know
+          in writing.
+        body: |
+          If you ask to join the workplace pension in the meantime, they must
+          let you join.
+      enrolled_several:
+        title: |
+          You’ll be automatically enrolled into a workplace pension for each
+          employer or agency that pays you £8,105 a year or more.
+        body: |
+          This means you may end up with several different workplace pensions.
+      enrolled_overseas:
+        title: |
+          Your employer must automatically enrol you into a workplace pension.
+        body: |
+          The pension must meet the UK government’s standards within the
+          European Economic Area or Switzerland.  It will be regulated in the
+          UK.
+      enrolled_contract:
+        title: |
+          You’ll be automatically enrolled into a workplace pension, but your
+          employer can choose to delay your enrolment date.
+        body: |
+          This means your contract may end before you are enrolled. If you
+          want to join while you are employed there, write to your employer -
+          they must let you join.
+      not_enrolled_office:
+        title: |
+          Office holders won’t be enrolled into workplace pensions, unless
+          they have a contract of employment (eg if working as a prison
+          chaplain).
+      enrolled:
+        title: |
+          You'll be automatically enrolled into a workplace pension. You’ll
+          need to opt out before the deadline given to get any payments
+          refunded.
+        body: |
+          You and your employer will both pay into your pension pot, and the
+          government also contributes through tax relief.
+
+          Your employer will give you more information about the scheme they'
+          ve chosen.

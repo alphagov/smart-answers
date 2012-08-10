@@ -19,7 +19,42 @@ multiple_choice :workplace_pension? do
 end
 
 multiple_choice :how_old? do
+  option :between_16_21 => :annual_earnings?
+  option :between_22_sp => :annual_earnings2?
+  option :state_pension_age => :annual_earnings?
+end
+
+multiple_choice :annual_earnings? do
+  option :up_to_5k => :not_enrolled_with_options
+  option :more_than_5k => :not_enrolled_opt_in
+end
+
+multiple_choice :annual_earnings2? do
+  option :up_to_5k => :not_enrolled_with_options
+  option :between_5k_8k => :not_enrolled_opt_in
+  option :more_than_8k => :one_of_the_following?
+  option :varies => :not_enrolled_income_varies
+end
+
+multiple_choice :one_of_the_following? do
+  option :armed_forces => :not_enrolled_mod
+  option :agency => :enrolled_agency
+  option :several_employers => :enrolled_several
+  option :overseas_company => :enrolled_overseas
+  option :contract => :enrolled_contract
+  option :office_holder => :not_enrolled_office
+  option :none => :enrolled
 end
 
 outcome :not_enrolled
 outcome :continue_to_pay
+outcome :not_enrolled_with_options
+outcome :not_enrolled_opt_in
+outcome :not_enrolled_income_varies
+outcome :not_enrolled_mod
+outcome :enrolled_agency
+outcome :enrolled_several
+outcome :enrolled_overseas
+outcome :enrolled_contract
+outcome :not_enrolled_office
+outcome :enrolled
