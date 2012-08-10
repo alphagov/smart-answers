@@ -13,9 +13,30 @@ en-GB:
             seas). Ask your employer if you’re not sure.
       self_employed?:
         title: Are you self-employed or the sole director of your own company?
+      workplace_pension?:
+        title: Are you already in a workplace pension?
+      how_old?:
+        title: |
+          How old are you likely to be when your employer enrols workers into a
+          pension?
+        body: |
+          Employers will start enrolling their workers in October 2012. The
+          latest you’ll be enrolled is 2018.
+
+          Find out when you'll reach [State Pension](http://pensions-service.
+            direct.gov.uk/en/state-pension-age-calculator/home.asp "State
+            Pension age calculator"){:rel="external"} age.
       not_enrolled:
         title: You won’t be enrolled in a workplace pension.
         body: |
           You can get free, impartial advice on pensions from [The Pensions
            Advisory Service](http://www.pensionsadvisoryservice.org.uk/ "The
             Pensions Advisory Service"){:rel="external"}
+      continue_to_pay:
+        title: |
+          You won’t be automatically enrolled - you’ll continue to pay into
+          your workplace pension.
+        body: |
+          Your employer or agency may need to make changes to the scheme in
+          line with new laws around workplace pensions. They’ll let you know if
+          this happens.

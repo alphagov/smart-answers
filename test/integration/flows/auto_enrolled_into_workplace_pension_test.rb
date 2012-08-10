@@ -28,5 +28,39 @@ class AutoEnrolledIntoWorkplacePensionTest < ActiveSupport::TestCase
     should "ask if self employed" do
       assert_current_node :self_employed?
     end
+
+    context "self employed" do
+      should "not be enrolled in pension" do
+        add_response :yes
+        assert_current_node :not_enrolled
+      end
+    end
+
+    context "not self employed" do
+      setup do
+        add_response :no
+      end
+
+      should "ask if you are already in workplace pension" do
+        assert_current_node :workplace_pension?
+      end
+
+      context "already in workplace pension" do
+        should "say you will continue to pay" do
+          add_response :yes
+          assert_current_node :continue_to_pay
+        end
+      end
+
+      context "not already in workplace pension" do
+        setup do
+          add_response :no
+        end
+
+        should "ask how old you will be" do
+          assert_current_node :how_old?
+        end
+      end
+    end
   end
 end
