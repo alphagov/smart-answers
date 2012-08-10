@@ -1,0 +1,21 @@
+en-GB:
+  flow:
+    auto-enrolled-into-workplace-pension:
+      title: Will I be automatically enrolled into a workplace pension?
+      options:
+        "yes": "Yes"
+        "no": "No"
+      work_in_uk?:
+        title: Do you work in the UK?
+        body: |
+          You may count as working in the UK if you work on a boat or as an
+           offshore worker (eg if you work on an oil platform in UK territorial
+            seas). Ask your employer if you’re not sure.
+      self_employed?:
+        title: Are you self-employed or the sole director of your own company?
+      not_enrolled:
+        title: You won’t be enrolled in a workplace pension.
+        body: |
+          You can get free, impartial advice on pensions from [The Pensions
+           Advisory Service](http://www.pensionsadvisoryservice.org.uk/ "The
+            Pensions Advisory Service"){:rel="external"}
