@@ -38,14 +38,16 @@ en-GB:
                     "multiple-employers": "No"
 
             how_many_weeks_at_current_employer?:
-                title: How many weeks have you worked for your current employer?
+                title: How many weeks have you worked continuously for your current employer?
                 label: Weeks worked at current employer
+                error_message: Please enter a number greater than zero
 
             how_many_total_days?:
-                title: How many days have you worked for your current employer since October 1?
+                title: How many days will you have worked between October 1 (the start of the leave year) and the start of your holiday?
                 hint: |
-                    The leave year starts on October 1.
-                label: Total days worked
+                    This includes any days that you worked basic hours, took annual leave or were off sick (whether paid or not).
+                label: Total days worked for current employer
+                error_message: Please enter a valid number
 
             done:
                 title: Your statutory holiday entitlement is %{holiday_entitlement_days} days.
