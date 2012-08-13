@@ -11,4 +11,35 @@ class BecomeAMotorcycleInstructorTest < ActiveSupport::TestCase
   should "ask if you are already qualified" do
     assert_current_node :qualified_motorcycle_instructor?
   end
+
+  context "is a down-trained CBT instructor" do
+    should "show application options" do
+      add_response :down_trained_cbt_instructor
+      assert_current_node :down_trained_cbt_instructor_response
+    end
+  end
+
+  context "is a cardington-assessed CBT instructor" do
+    should "show application options" do
+      add_response :cardington_cbt_instructor
+      assert_current_node :cardington_cbt_instructor_response
+    end
+  end
+
+  context "direct access scheme instructor" do
+    should "show application options" do
+      add_response :direct_access_instructor
+      assert_current_node :direct_access_instructor_response
+    end
+  end
+
+  context "no qualifications" do
+    setup do
+      add_response :no
+    end
+
+    should "ask if over 21" do
+      assert_current_node :over_21?
+    end
+  end
 end

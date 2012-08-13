@@ -14,3 +14,84 @@ en-GB:
         "yes": "Yes"
       qualified_motorcycle_instructor?:
         title: Are you already qualified as any type of motorcycle instructor?
+        options:
+          down_trained_cbt_instructor: Down-trained CBT instructor
+          cardington_cbt_instructor: Cardington-assessed CBT instructor
+          direct_access_instructor: Direct access scheme instructor
+      down_trained_cbt_instructor_response:
+        title: |
+          You can start applying to become 2 other types of motorcycle
+          instructor
+        body: |
+          **Driving Standards Agency (DSA) assessed instructor**
+
+          You can apply to the DSA to [become a DSA assessed
+          instructor](/become-dsa-assessed-cbt-motorcycle-instructor "Become a
+          DSA assessed CBT motorcycle instructor"). You’ll have to:
+
+          1. Apply to take the CBT instructor assessment
+          2. Update your registration with the DSA
+
+          You can then work for a motorcycle approved training body (ATB) and:
+
+          - deliver the compulsory basic training (CBT) course to learner riders
+          - down-train up to 10 instructors at the ATB to also deliver CBT
+            courses
+          - apply to become a direct access scheme instructor
+
+          **Register of post-test motorcycle trainers (RPMT)**
+
+          You can apply to the DSA to join the RPMT. You’ll have to:
+
+          1. Qualify by taking either 3 tests or taking 1 test and training
+          2. Register with the DSA
+
+          You can then deliver training to fully qualified motorcyclists,
+          including the [enhanced rider scheme](/enhanced-rider-scheme "Enhanced
+          rider scheme").
+      cardington_cbt_instructor_response:
+        title: |
+          You can start applying to become 2 other types of motorcycle
+          instructor.
+        body: |
+          **Direct access scheme (DAS) instructor**
+
+          You can apply to the Driving Standards Agency (DSA) to become a DAS
+          instructor instructor. You’ll have to:
+
+          1. Apply to take the DAS instructor assessment
+          2. Update your registration with the DSA
+
+          You can then work for a motorcycle approved training body (ATB) and:
+
+          - train learner riders over the age of 21 to ride on a larger
+            motorcycle
+          - deliver the CBT training course
+          - down-train up to 10 instructors at the ATB to also deliver CBT
+            courses
+
+          **Register of post-test motorcycle trainers (RPMT)**
+
+          You can apply to the DSA to join the RPMT. You’ll have to:
+
+          1. Qualify by either passing 3 tests or passing 1 test and taking
+             training
+          2. Register with the DSA
+
+          You can then deliver training to fully qualified motorcyclists,
+          including the [enhanced rider scheme](/enhanced-rider-scheme "Enhanced
+          rider scheme").
+      direct_access_instructor_response:
+        title: |
+          You can start applying to join the register of post-test motorcycle
+          trainers (RPMT).
+        body: |
+          To join the RPMT you’ll have to:
+
+          1. Qualify by either passing 3 tests or passing 1 test and taking
+             training
+          2. Register with the Driving Standards Agency
+
+          You can then deliver training to fully qualified motorcyclists,
+          including the [enhanced rider scheme](/enhanced-rider-scheme "Enhanced
+          rider scheme").
