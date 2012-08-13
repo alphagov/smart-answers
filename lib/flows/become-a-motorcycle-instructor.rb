@@ -10,8 +10,14 @@ multiple_choice :qualified_motorcycle_instructor? do
 end
 
 multiple_choice :over_21? do
+  option :yes => :driving_licence?
+  option :no => :too_young
+end
+
+multiple_choice :driving_licence? do
 end
 
 outcome :down_trained_cbt_instructor_response
 outcome :cardington_cbt_instructor_response
 outcome :direct_access_instructor_response
+outcome :too_young

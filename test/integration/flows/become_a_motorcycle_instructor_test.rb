@@ -41,5 +41,22 @@ class BecomeAMotorcycleInstructorTest < ActiveSupport::TestCase
     should "ask if over 21" do
       assert_current_node :over_21?
     end
+
+    context "under 21" do
+      should "say you are under age" do
+        add_response :no
+        assert_current_node :too_young
+      end
+    end
+
+    context "over 21" do
+      setup do
+        add_response :yes
+      end
+
+      should "ask if you have a driving licence" do
+        assert_current_node :driving_licence?
+      end
+    end
   end
 end

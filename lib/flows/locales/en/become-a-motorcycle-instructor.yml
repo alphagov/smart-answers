@@ -18,6 +18,8 @@ en-GB:
           down_trained_cbt_instructor: Down-trained CBT instructor
           cardington_cbt_instructor: Cardington-assessed CBT instructor
           direct_access_instructor: Direct access scheme instructor
+      over_21?:
+        title: Are you 21 or over?
       down_trained_cbt_instructor_response:
         title: |
           You can start applying to become 2 other types of motorcycle
@@ -95,3 +97,10 @@ en-GB:
           You can then deliver training to fully qualified motorcyclists,
           including the [enhanced rider scheme](/enhanced-rider-scheme "Enhanced
           rider scheme").
+      too_young:
+        title: |
+          You can’t become a motorcycle instructor because you aren’t old
+          enough yet.
+        body: |
+          You have to be 21 or older to supervise a learner rider.
+          % It’s against the law for you to teach someone how to ride. %
