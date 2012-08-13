@@ -1,0 +1,16 @@
+en-GB:
+  flow:
+    become-a-motorcycle-instructor:
+      meta:
+        description: |
+          Find out if you can become a motorcycle instructor and what you need
+          to do to qualify
+      title: Become a motorcycle instructor
+      body: |
+        Find out if you can become a motorcycle instructor and what you need to
+        do to qualify
+      options:
+        "no": "No"
+        "yes": "Yes"
+      qualified_motorcycle_instructor?:
+        title: Are you already qualified as any type of motorcycle instructor?
