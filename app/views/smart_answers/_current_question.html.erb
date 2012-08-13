@@ -1,5 +1,5 @@
 <div class="step current" data-step="employment-status">
-  <%= form_tag smart_answer_path(params.slice(:id, :started).merge(responses: @presenter.accepted_responses)), :authenticity_token => false %>
+  <%= form_tag calculate_current_question_path(@presenter), :authenticity_token => false %>
     <div class="current-question" id="current-question">
       <h2>
         <span class="question-number"><%= @presenter.current_question_number %> </span><%= question.title %>

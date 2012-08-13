@@ -1,4 +1,10 @@
 module CurrentQuestionHelper
+  def calculate_current_question_path(presenter)
+    attrs = params.slice(:id, :started)
+    attrs[:responses] = presenter.accepted_responses if presenter.accepted_responses.any?
+    smart_answer_path(attrs)
+  end
+
   def prefill_value_for_date(field_name)
     if params[:previous_response]
       Date.parse(params[:previous_response])
