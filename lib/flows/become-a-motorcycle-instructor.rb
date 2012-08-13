@@ -20,6 +20,8 @@ multiple_choice :driving_licence? do
 end
 
 multiple_choice :motorcycle_licence? do
+  option :yes => :application_instructions
+  option :no => :need_longer_licence
 end
 
 outcome :down_trained_cbt_instructor_response
@@ -27,3 +29,5 @@ outcome :cardington_cbt_instructor_response
 outcome :direct_access_instructor_response
 outcome :too_young
 outcome :need_licence
+outcome :application_instructions
+outcome :need_longer_licence

@@ -73,6 +73,20 @@ class BecomeAMotorcycleInstructorTest < ActiveSupport::TestCase
         should "ask if you have a motorcycle licence" do
           assert_current_node :motorcycle_licence?
         end
+
+        context "have a motorcycle licence" do
+          should "show application instructions" do
+            add_response :yes
+            assert_current_node :application_instructions
+          end
+        end
+
+        context "had licence for less than 3 years" do
+          should "say you need to be licenced for longer" do
+            add_response :no
+            assert_current_node :need_longer_licence
+          end
+        end
       end
     end
   end
