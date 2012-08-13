@@ -57,6 +57,23 @@ class BecomeAMotorcycleInstructorTest < ActiveSupport::TestCase
       should "ask if you have a driving licence" do
         assert_current_node :driving_licence?
       end
+
+      context "no driving licence" do
+        should "say you need a licence" do
+          add_response :no
+          assert_current_node :need_licence
+        end
+      end
+
+      context "has a driving licence" do
+        setup do
+          add_response :yes
+        end
+
+        should "ask if you have a motorcycle licence" do
+          assert_current_node :motorcycle_licence?
+        end
+      end
     end
   end
 end

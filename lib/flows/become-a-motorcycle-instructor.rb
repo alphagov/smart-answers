@@ -15,9 +15,15 @@ multiple_choice :over_21? do
 end
 
 multiple_choice :driving_licence? do
+  option :yes => :motorcycle_licence?
+  option :no => :need_licence
+end
+
+multiple_choice :motorcycle_licence? do
 end
 
 outcome :down_trained_cbt_instructor_response
 outcome :cardington_cbt_instructor_response
 outcome :direct_access_instructor_response
 outcome :too_young
+outcome :need_licence

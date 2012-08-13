@@ -20,6 +20,9 @@ en-GB:
           direct_access_instructor: Direct access scheme instructor
       over_21?:
         title: Are you 21 or over?
+      driving_licence?:
+        title: |
+          Do you have a full Great Britain or Northern Ireland driving licence?
       down_trained_cbt_instructor_response:
         title: |
           You can start applying to become 2 other types of motorcycle
@@ -104,3 +107,8 @@ en-GB:
         body: |
           You have to be 21 or older to supervise a learner rider.
           % It’s against the law for you to teach someone how to ride. %
+      need_licence:
+        title: |
+          You can’t become a motorcycle instructor because you don’t have a
+          Great Britain or Northern Ireland driving licence.
+
