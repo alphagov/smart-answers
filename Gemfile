@@ -3,7 +3,7 @@ source 'https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/'
 
 gem 'gds-warmup-controller'
 
-gem 'rails', '~> 3.2.7'
+gem 'rails', '~> 3.2.8'
 gem 'rails-i18n'
 gem 'json'
 gem 'plek', '~> 0.1'
