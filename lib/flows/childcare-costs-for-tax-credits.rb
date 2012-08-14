@@ -31,7 +31,7 @@ multiple_choice :how_often_do_you_pay? do
   option :varying_amount_weekly => :costs_for_year_in_weeks? # C1
   option :same_monthly => :how_much_do_you_pay_each_month? # C3
   option :varying_amount_monthly => :costs_for_year_in_months? # C4
-  option :other => :costs_for_year_in_months? # C2 
+  option :other => :costs_for_year_in_months? # C2
 end
 
 # Q5
@@ -76,7 +76,7 @@ value_question :costs_for_year_in_months? do
   calculate :cost do
     Calculators::ChildcareCostCalculator.weekly_cost(responses.last.to_i)
   end
-  next_node :weekly_costs # A3, A5  
+  next_node :weekly_costs # A3, A5
 end
 
 # C3, C7
@@ -108,7 +108,7 @@ value_question :how_much_do_you_pay_anually? do
   calculate :cost do
     Calculators::ChildcareCostCalculator.weekly_cost(responses.last.to_i)
   end
-  next_node :weekly_costs_for_claim_form # A11  
+  next_node :weekly_costs_for_claim_form # A11
 end
 
 # C9
@@ -116,7 +116,7 @@ value_question :varying_annual_cost? do
   calculate :cost do
     Calculators::ChildcareCostCalculator.weekly_cost(responses.last.to_i)
   end
-  next_node :weekly_costs_for_claim_form # A13   
+  next_node :weekly_costs_for_claim_form # A13
 end
 
 # C10A
@@ -179,7 +179,7 @@ value_question :old_average_weekly_costs? do
     else
       :costs_have_not_increased
     end
-  end  
+  end
 end
 
 outcome :round_up_total # A1, A6

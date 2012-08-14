@@ -221,7 +221,7 @@ multiple_choice :getting_ssp_iib_esa_or_bereavment do
   option :yes => :answer_35b
   option :no => :answer_34
 end
- 
+
 # Q35
 multiple_choice :eligible_for_the_following do
   option :yes => :are_you_moving_to_q36

@@ -18,7 +18,7 @@ date_question :whats_the_husbands_date_of_birth? do
   to { Date.parse('1 Jan 1896') }
   from { Date.today }
 
-  save_input_as :birth_date 
+  save_input_as :birth_date
   next_node :whats_the_husbands_income?
 end
 
@@ -29,7 +29,7 @@ date_question :whats_the_highest_earners_date_of_birth? do
   save_input_as :birth_date
   next_node :whats_the_highest_earners_income?
 end
-  
+
 personal_allowance = 8105
 over_65_allowance = 10500
 over_75_allowance = 10660
@@ -40,9 +40,9 @@ age_related_allowance_chooser = AgeRelatedAllowanceChooser.new(
   over_75_allowance: over_75_allowance)
 
 calculator = MarriedCouplesAllowanceCalculator.new(
-  maximum_mca: 7705, 
-  minimum_mca: 2960, 
-  income_limit: 25400, 
+  maximum_mca: 7705,
+  minimum_mca: 2960,
+  income_limit: 25400,
   personal_allowance: personal_allowance)
 
 money_question :whats_the_husbands_income? do

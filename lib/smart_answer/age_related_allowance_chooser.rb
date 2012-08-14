@@ -6,8 +6,8 @@ module SmartAnswer
     # and/or GOV.UK
 
     # if you earn over the income limit for age-related allowance
-    # then your age-related allowance is reduced by £1 for every £2 
-    # you earn over the limit until the personal allowance is reached, 
+    # then your age-related allowance is reduced by £1 for every £2
+    # you earn over the limit until the personal allowance is reached,
     # at which point reduction stops (the basic personal allowance is not
     # reduced)
 
@@ -19,7 +19,7 @@ module SmartAnswer
     # so this class could be extended so that it returns the personal allowance
     # you are entitled to based on your age and income.
 
-    def initialize(date_and_figures = {}) 
+    def initialize(date_and_figures = {})
       @personal_allowance = date_and_figures[:personal_allowance]
       @over_65_allowance = date_and_figures[:over_65_allowance]
       @over_75_allowance = date_and_figures[:over_75_allowance]

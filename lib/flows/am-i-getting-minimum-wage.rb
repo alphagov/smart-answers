@@ -19,12 +19,12 @@ multiple_choice :past_payment_date? do
   option "2008-10-01"
   option "2007-10-01"
   option "2006-10-01"
-  option "2005-10-01" 
-  
+  option "2005-10-01"
+
   save_input_as :payment_date
-  
+
   next_node :were_you_an_apprentice?
-  
+
 end
 
 # Q2
@@ -41,7 +41,7 @@ multiple_choice :were_you_an_apprentice? do
   option "no" => :how_old_were_you?
   option "apprentice_under_19" => :how_often_did_you_get_paid?
   option "apprentice_over_19" => :how_often_did_you_get_paid?
-  
+
   next_node do |response|
     case response
       when "no"
@@ -57,25 +57,25 @@ multiple_choice :were_you_an_apprentice? do
 end
 
 # Q3
-value_question :how_old_are_you? do  
+value_question :how_old_are_you? do
   save_input_as :age
   next_node :how_often_do_you_get_paid?
 end
 
 # Q3 Past
-value_question :how_old_were_you? do  
+value_question :how_old_were_you? do
   save_input_as :age
   next_node :how_often_did_you_get_paid?
 end
 
 # Q4
-value_question :how_often_do_you_get_paid? do 
+value_question :how_often_do_you_get_paid? do
   save_input_as :pay_frequency
   next_node :how_many_hours_do_you_work?
 end
 
 # Q4 Past
-value_question :how_often_did_you_get_paid? do 
+value_question :how_often_did_you_get_paid? do
   save_input_as :pay_frequency
   next_node :how_many_hours_did_you_work?
 end
@@ -94,42 +94,42 @@ end
 
 # Q6
 value_question :how_much_are_you_paid_during_pay_period? do
-  
+
   calculate :calculator do
     Calculators::MinimumWageCalculator.new({
-      age: age.to_i, 
+      age: age.to_i,
       basic_hours: basic_hours.to_f,
       basic_pay: responses.last.to_f,
       is_apprentice: (is_apprentice != 'no')
-    }) 
+    })
   end
-  
+
   next_node :how_many_hours_overtime_do_you_work?
 end
 
 # Q6 Past
 value_question :how_much_were_you_paid_during_pay_period? do
-  
-  calculate :calculator do   
+
+  calculate :calculator do
     Calculators::MinimumWageCalculator.new({
       age: age.to_i,
-      date: Date.parse(payment_date), 
+      date: Date.parse(payment_date),
       basic_hours: basic_hours.to_f,
       basic_pay: responses.last.to_f,
       is_apprentice: (was_apprentice != 'no')
-    }) 
+    })
   end
-  
+
   next_node :how_many_hours_overtime_did_you_work?
 end
 
 # Q7
 value_question :how_many_hours_overtime_do_you_work? do
-  
+
   calculate :overtime_hours do
     calculator.overtime_hours = responses.last.to_f
   end
-  
+
   next_node do |response|
     if response.to_i == 0
       :is_provided_with_accommodation?
@@ -142,11 +142,11 @@ end
 # Q7 Past
 value_question :how_many_hours_overtime_did_you_work? do
   save_input_as :overtime_hours
-  
+
   calculate :overtime_hours do
     calculator.overtime_hours = responses.last.to_f
   end
-  
+
   next_node do |response|
     if response.to_i == 0
       :was_provided_with_accommodation?
@@ -159,22 +159,22 @@ end
 # Q8
 value_question :what_is_overtime_pay_per_hour? do
   save_input_as :overtime_rate
-  
+
   calculate :overtime_rate do
     calculator.overtime_hourly_rate = responses.last.to_f
   end
-  
+
   next_node :is_provided_with_accommodation?
 end
 
 # Q8 Past
 value_question :what_was_overtime_pay_per_hour? do
   save_input_as :overtime_rate
-  
+
   calculate :overtime_rate do
     calculator.overtime_hourly_rate = responses.last.to_f
   end
-  
+
   next_node :was_provided_with_accommodation?
 end
 
@@ -184,40 +184,40 @@ multiple_choice :is_provided_with_accommodation? do
   option "no"
   option "yes_free"
   option "yes_charged"
-        
+
   calculate :total_hours do
     calculator.total_hours
   end
-  
+
   calculate :minimum_hourly_rate do
     calculator.minimum_hourly_rate
   end
-  
+
   calculate :total_hourly_rate do
     calculator.format_money calculator.total_hourly_rate
   end
-  
+
   calculate :above_minimum_wage do
     calculator.minimum_wage_or_above?
   end
-  
+
   next_node do |response|
-    
+
     case response
       when "yes_free"
         :current_accommodation_usage?
       when "yes_charged"
         :current_accommodation_charge?
       else
-        
+
         if calculator.minimum_wage_or_above?
           :current_payment_above
         else
           :current_payment_below
         end
-        
+
     end
-  end  
+  end
 end
 
 # Q9 Past
@@ -225,38 +225,38 @@ multiple_choice :was_provided_with_accommodation? do
   option "no"
   option "yes_free"
   option "yes_charged"
-        
+
   calculate :total_hours do
     calculator.total_hours
   end
-  
+
   calculate :minimum_hourly_rate do
     calculator.minimum_hourly_rate
   end
-  
+
   calculate :total_hourly_rate do
     calculator.format_money calculator.total_hourly_rate
   end
-  
+
   calculate :above_minimum_wage do
     calculator.minimum_wage_or_above?
   end
-  
+
   next_node do |response|
-    
+
     case response
       when "yes_free"
         :past_accommodation_usage?
       when "yes_charged"
         :past_accommodation_charge?
       else
-        
+
         if calculator.historical_adjustment >= 0
           :past_payment_above
         else
           :past_payment_below
         end
-        
+
     end
   end
 end
@@ -275,67 +275,67 @@ end
 
 # Q11
 value_question :current_accommodation_usage? do
-  
+
   calculate :calculator do
     calculator.accommodation_adjustment(accommodation_charge.to_f, responses.last.to_i)
     calculator
   end
-    
+
   calculate :total_hours do
     calculator.total_hours
   end
-  
+
   calculate :minimum_hourly_rate do
     calculator.minimum_hourly_rate
   end
-  
+
   calculate :total_hourly_rate do
     calculator.format_money calculator.total_hourly_rate
   end
-  
+
   calculate :above_minimum_wage do
     calculator.minimum_wage_or_above?
   end
-  
+
   next_node do |response|
-    
+
     if calculator.minimum_wage_or_above?
       :current_payment_above
     else
       :current_payment_below
     end
-    
+
   end
 end
 
 # Q11 Past
 value_question :past_accommodation_usage? do
-  
+
   calculate :calculator do
     calculator.accommodation_adjustment(accommodation_charge.to_f, responses.last.to_i)
     calculator
   end
-    
+
   calculate :total_hours do
     calculator.total_hours
   end
-  
+
   calculate :minimum_hourly_rate do
     calculator.minimum_hourly_rate
   end
-  
+
   calculate :above_minimum_wage do
     calculator.minimum_wage_or_above?
   end
-  
+
   next_node do |response|
-    
+
     if calculator.historical_adjustment >= 0
       :past_payment_above
     else
       :past_payment_below
     end
-    
+
   end
 end
 

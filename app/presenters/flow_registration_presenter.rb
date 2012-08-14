@@ -24,7 +24,7 @@ class FlowRegistrationPresenter
   def paths
     [@flow.name, "#{@flow.name}.json"]
   end
-  
+
   def prefixes
     [@flow.name]
   end

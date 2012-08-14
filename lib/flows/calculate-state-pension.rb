@@ -85,7 +85,7 @@ value_question :years_of_benifit? do
 
   calculate :calculator do
     Calculators::StatePensionAmountCalculator.new(
-      gender: gender, dob: dob, 
+      gender: gender, dob: dob,
       qualifying_years: ni_years.to_i + jsa_years.to_i + benifit_years.to_i)
   end
 

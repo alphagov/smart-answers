@@ -67,7 +67,7 @@ multiple_choice :do_you_expect_to_stop_claiming_by_5_april_2013? do
       nil
     end
   end
-  
+
   calculate :calculator do
     Calculators::ChildBenefitTaxCalculator.new(
       :child_benefit_start_date => child_benefit_start_date,
@@ -84,7 +84,7 @@ multiple_choice :do_you_expect_to_stop_claiming_by_5_april_2013? do
   calculate :formatted_benefit_taxable_amount do
     calculator.formatted_benefit_taxable_amount if calculator
   end
-  
+
   calculate :benefit_taxable_weeks do
     calculator.benefit_taxable_weeks if calculator
   end
@@ -132,7 +132,7 @@ date_question :when_do_you_expect_to_stop_claiming? do
   calculate :formatted_benefit_taxable_amount do
     calculator.formatted_benefit_taxable_amount
   end
-  
+
   calculate :benefit_taxable_weeks do
     calculator.benefit_taxable_weeks
   end
