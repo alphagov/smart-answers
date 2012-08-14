@@ -93,7 +93,7 @@ value_question :how_many_hours_did_you_work? do
 end
 
 # Q6
-value_question :how_much_are_you_paid_during_pay_period? do
+money_question :how_much_are_you_paid_during_pay_period? do
 
   calculate :calculator do
     Calculators::MinimumWageCalculator.new({
@@ -108,7 +108,7 @@ value_question :how_much_are_you_paid_during_pay_period? do
 end
 
 # Q6 Past
-value_question :how_much_were_you_paid_during_pay_period? do
+money_question :how_much_were_you_paid_during_pay_period? do
 
   calculate :calculator do
     Calculators::MinimumWageCalculator.new({
@@ -157,7 +157,7 @@ value_question :how_many_hours_overtime_did_you_work? do
 end
 
 # Q8
-value_question :what_is_overtime_pay_per_hour? do
+money_question :what_is_overtime_pay_per_hour? do
   save_input_as :overtime_rate
 
   calculate :overtime_rate do
@@ -168,7 +168,7 @@ value_question :what_is_overtime_pay_per_hour? do
 end
 
 # Q8 Past
-value_question :what_was_overtime_pay_per_hour? do
+money_question :what_was_overtime_pay_per_hour? do
   save_input_as :overtime_rate
 
   calculate :overtime_rate do
@@ -262,13 +262,13 @@ multiple_choice :was_provided_with_accommodation? do
 end
 
 # Q10
-value_question :current_accommodation_charge? do
+money_question :current_accommodation_charge? do
   save_input_as :accommodation_charge
   next_node :current_accommodation_usage?
 end
 
 # Q10 Past
-value_question :past_accommodation_charge? do
+money_question :past_accommodation_charge? do
   save_input_as :accommodation_charge
   next_node :past_accommodation_usage?
 end
