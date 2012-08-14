@@ -2,6 +2,8 @@ en-GB:
     flow:
         calculate-your-redundancy-pay:
             title: Calculate your statutory redundancy pay
+            meta:
+                description: Use this calculator to work out how much statutory redundancy you can get.
             body: |
                 Calculate how much statutory redundancy you can get. It’s based on age, weekly pay and number of years in the job.
 
@@ -43,6 +45,8 @@ en-GB:
 
         calculate-employee-redundancy-pay:
             title: Calculate statutory employee redundancy pay
+            meta:
+                description: Use this calculator to work out how much statutory redundancy an employee can get.
             body: |
                 Calculate how much statutory redundancy an employee can get. It’s based on age, weekly pay and number of years in the job.
 
