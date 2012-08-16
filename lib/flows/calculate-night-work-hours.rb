@@ -36,8 +36,8 @@ end
 
 value_question :reference_period? do
   calculate :weeks_worked do
-    weeks = responses.last.to_i
-    if weeks < 1 or weeks > 52
+    weeks = Integer(responses.last)
+    if weeks < 1 or weeks > 53
       raise SmartAnswer::InvalidResponse, "Please enter a number between 0 and 53"
     end
     weeks
@@ -50,7 +50,7 @@ end
 
 value_question :weeks_of_leave? do
   calculate :weeks_leave do
-    if responses.last.to_i >= weeks_worked
+    if Integer(responses.last) >= weeks_worked
       raise SmartAnswer::InvalidResponse
     end
     responses.last.to_i
@@ -63,7 +63,7 @@ end
 
 value_question :what_is_your_work_cycle? do
   calculate :work_cycle do
-    responses.last.to_i
+    Integer(responses.last)
   end
 
   save_input_as :work_cycle
@@ -73,6 +73,9 @@ end
 
 value_question :nights_per_cycle? do
   calculate :nights_in_cycle do
+    if Integer(responses.last) > work_cycle
+      raise SmartAnswer::InvalidResponse
+    end
     responses.last.to_i
   end
 
@@ -83,13 +86,13 @@ end
 
 value_question :hours_per_night? do
   calculate :hours_per_shift do
-    responses.last.to_i
+    Integer(responses.last)
   end
 
   save_input_as :hours_per_shift
 
   next_node do |response|
-    hours = response.to_i
+    hours = Integer(response)
     if hours < 4
       :not_a_night_worker
     elsif hours >= 4 and hours <= 13
@@ -102,7 +105,7 @@ end
 
 value_question :overtime_hours? do
   calculate :overtime_hours do
-    responses.last.to_i
+    Integer(responses.last)
   end
 
   calculate :calculator do

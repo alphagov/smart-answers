@@ -3,7 +3,7 @@ en-GB:
     calculate-night-work-hours:
       title: Calculate average night working time/night working hours
       body: |
-        Night workers are entitled to refuse to work if they're asked to work more than 8 hours in each 24-hour period, averaged over the 'reference period'. Work out the average time worked to see if the worker has reached the legal limit on night working hours.
+        Night workers can refuse to work more than 8 hours in each 24-hour period, averaged over a 'reference period' (usually 17 weeks). Work out the average time worked to see if the worker has reached the legal limit on night working hours.
       options:
         "yes": "Yes"
         "no": "No"
@@ -26,6 +26,7 @@ en-GB:
           Hint: Night hours are 11pm to 6am unless both the employer and employee agree otherwise. 
 
           If the work involves special hazards or heavy physical or mental strain, the worker must never work more than 8 hours in any 24-hour period, including daytime overtime.
+        error_message: Please enter a number
 
       taken_rest_period?:
         title: Has the worker had their weekly rest period?
@@ -44,46 +45,42 @@ en-GB:
           Enter 17 unless the reference period is different in your workplace. If the person has been a nightworker for less than 17 weeks, enter the number of weeks they've been a nightworker.
 
           Get help with calculating the [reference period](/limits-on-night-work-hours "Limits on night work hours").
+        error_message: Please enter a number between 1 and 53
 
       what_is_your_work_cycle?:
         title: What is the 'work cycle'?
         body: |
           **Example:** 
-          If you work 4 days on and 3 days off, you have a 7-day work cycle.  
+          If they work 4 days on and 3 days off, they have a 7-day work cycle.  
           This is sometimes called a 'shift pattern'.
+        error_message: Please enter a number greater than 0
 
       nights_per_cycle?:
         title: How many nights does the worker work in their cycle?
-
-        body: |
-          Hint: Only count work periods where the worker works at least 3 'night hours' (usually 11pm to 5am).
+        hint: Only count work periods where the worker works at least 3 'night hours' (usually 11pm to 5am).
+        error_message: Please enter a number
 
       weeks_of_leave?:
         title: How many weeks has the worker taken off as leave during the reference period?
+        error_message: Please enter a number greater than 0 but less than the number of weeks in the reference period
 
       how_many_nights_do_you_work_in_your_cycle?:
         title: How many nights does the worker work in their cycle?
 
         body: |
           Hint: Only count work periods where the worker works at least 3 'night hours' (usually 11pm to 5am).
-
-      how_many_hours_do_you_work_per_shift?:
-        title: How many hours does the person work per night?
-
-        body: |
-          [Work out what hours count as night work](/your-rights-when-working-at-night/what-counts-as-night-work "What counts as night work").
-
-      how_many_overtime_hours_have_you_worked?:
-        title: How many overtime hours has the worker worked during the reference period?
+          error_message: Enter a number greater than 0 but less than the number of days in your work cycle.
 
       hours_per_night?:
-        title: How many hours does the person work per night?
+        title: How many hours does the person work on their night shift?
 
         body: |
           [Work out what hours count as night work](/your-rights-when-working-at-night/what-counts-as-night-work "What counts as night work").
+        error_message: Please enter a number
 
       overtime_hours?:
         title: How many overtime hours has the worker worked during the reference period?
+        error_message: Please enter a number
 
       not_old_enough:
         body: People below [school leaving age](/know-when-you-can-leave-school "Know when you can leave school") generally can’t work between 10pm and 6am (or 11pm and 7am if the contract requires them to work after 10pm).
