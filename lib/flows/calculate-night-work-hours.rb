@@ -37,7 +37,7 @@ end
 value_question :reference_period? do
   calculate :weeks_worked do
     weeks = Integer(responses.last)
-    if weeks < 1 or weeks > 53
+    if weeks < 1 or weeks > 52
       raise SmartAnswer::InvalidResponse, "Please enter a number between 0 and 53"
     end
     weeks
