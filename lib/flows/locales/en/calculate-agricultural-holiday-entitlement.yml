@@ -41,7 +41,7 @@ en-GB:
             how_many_weeks_at_current_employer?:
                 title: How many weeks have you worked continuously for your current employer?
                 label: Weeks worked at current employer
-                error_message: Please enter a number greater than zero
+                error_message: Please enter a number greater than 0 and less than 52
 
             how_many_total_days?:
                 title: How many days will you have worked between October 1 (the start of the leave year) and the start of your holiday?
