@@ -5,7 +5,7 @@ en-GB:
                 description: Calculate your agricultural worker holiday entitlement
             title: Calculate your agricultural worker holiday entitlement
             body: |
-                Use this calculator to work out how much [statutory holiday leave](/agricultural-workers-rights/holiday-leave-and-pay "Holiday leave and pay") you're entitled to as an agricultural worker.
+                Work out how much statutory holiday leave you're entitled to as an agricultural worker.
             work_the_same_number_of_days_each_week?:
                 title: Do you work the same number of days each week?
                 options:
@@ -29,7 +29,8 @@ en-GB:
                     "1-day": 1 day per week
 
             what_date_does_holiday_start?:
-                title: What date does your holiday start?
+                title: What date will your holiday start?
+                hint: This is the first day that you will take off work as leave
 
             worked_for_same_employer?:
                 title: Have you worked for the same employer for a full year?
@@ -47,7 +48,7 @@ en-GB:
                 hint: |
                     This includes any days that you worked basic hours, took annual leave or were off sick (whether paid or not).
                 label: Total days worked for current employer
-                error_message: Please enter a valid number
+                error_message: Please enter a valid number of days
 
             done:
                 title: Your statutory holiday entitlement is %{holiday_entitlement_days} days.
