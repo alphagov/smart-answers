@@ -1,7 +1,7 @@
 status :draft
 section_slug "money-and-tax"
 subsection_slug "pension"
-satisfies_need "99999"
+satisfies_need "564"
 
 multiple_choice :gender? do
   save_input_as :gender
@@ -71,26 +71,27 @@ value_question :years_of_jsa? do
 
   calculate :calculator do
     Calculators::StatePensionAmountCalculator.new(
-      gender: gender, dob: dob, qualifying_years: ni_years.to_i + jsa_years.to_i
+      gender: gender, dob: dob, qualifying_years: (ni_years.to_i + jsa_years.to_i)
     )
   end
 
   next_node do |response|
-    ni_years.to_i + response.to_i > 29 ? :result : :years_of_benifit?
+    (ni_years.to_i + response.to_i) > 29 ? :result : :years_of_benefit?
   end
 end
 
-value_question :years_of_benifit? do
-  save_input_as :benifit_years
+value_question :years_of_benefit? do
+  save_input_as :benefit_years
 
   calculate :calculator do
     Calculators::StatePensionAmountCalculator.new(
       gender: gender, dob: dob,
-      qualifying_years: ni_years.to_i + jsa_years.to_i + benifit_years.to_i)
+      qualifying_years: (ni_years.to_i + jsa_years.to_i + benefit_years.to_i)
+      )
   end
 
   next_node do |response|
-    if ni_years.to_i + response.to_i + benifit_years.to_i > 29
+    if (ni_years.to_i + jsa_years.to_i + response.to_i) > 29
       :result
     else
       :years_of_work?
@@ -102,7 +103,7 @@ value_question :years_of_work? do
   save_input_as :work_years
 
   calculate :calculator do
-    y = ni_years.to_i + jsa_years.to_i + benifit_years.to_i + work_years.to_i
+    y = ni_years.to_i + jsa_years.to_i + benefit_years.to_i + work_years.to_i
     Calculators::StatePensionAmountCalculator.new(
       gender: gender, dob: dob, qualifying_years: y)
   end

@@ -51,9 +51,9 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         end
       end
 
-      context "28 years" do
+      context "27 years" do
         setup do
-          add_response 28
+          add_response 27
         end
 
         should "ask for number of years claimed JSA" do
@@ -72,8 +72,8 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
             add_response 1
           end
 
-          should "ask for years of benifit" do
-            assert_current_node :years_of_benifit?
+          should "ask for years of benefit" do
+            assert_current_node :years_of_benefit?
           end
 
           context "10 years" do
