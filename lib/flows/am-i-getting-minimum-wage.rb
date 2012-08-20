@@ -99,6 +99,7 @@ money_question :how_much_are_you_paid_during_pay_period? do
   calculate :calculator do
     Calculators::MinimumWageCalculator.new({
       age: age.to_i,
+      pay_frequency: pay_frequency.to_i,
       basic_hours: basic_hours.to_f,
       basic_pay: responses.last.to_f,
       is_apprentice: (is_apprentice != 'no')
@@ -115,6 +116,7 @@ money_question :how_much_were_you_paid_during_pay_period? do
     Calculators::MinimumWageCalculator.new({
       age: age.to_i,
       date: Date.parse(payment_date),
+      pay_frequency: pay_frequency.to_i,
       basic_hours: basic_hours.to_f,
       basic_pay: responses.last.to_f,
       is_apprentice: (was_apprentice != 'no')

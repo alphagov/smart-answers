@@ -24,6 +24,12 @@ module SmartAnswer::Calculators
           assert_equal 4.51, @calculator.minimum_wage_data_for_date(Date.parse("2010-08-21"))[:accommodation_rate]
         end
       end
+
+      context "minimum_wage_data_for_date on Sept 30th" do
+        should "retrieve a map of historical minimum wage data" do
+          assert_equal 4.73, @calculator.minimum_wage_data_for_date(Date.parse("2012-09-30"))[:accommodation_rate]
+        end
+      end
       
       context "minimum_wage_data_for_date on October 1st" do
         should "retrieve a map of historical minimum wage data" do
@@ -145,7 +151,7 @@ module SmartAnswer::Calculators
       # Scenario 4
       context "minimum wage calculator for a 25 yr old in 2008 who earned 168 over 40 hrs with 7 hrs overtime" do
         setup do
-          @calculator = MinimumWageCalculator.new age: 25, date: Date.parse('2008-10-01'), basic_pay: 168, basic_hours: 40
+          @calculator = MinimumWageCalculator.new age: 25, date: Date.parse('2008-10-01'), pay_frequency: 7, basic_pay: 168, basic_hours: 40
           @calculator.overtime_hours = 7
           @calculator.overtime_hourly_rate = 9
         end
@@ -181,7 +187,7 @@ module SmartAnswer::Calculators
       # Scenarios 1 & 2
       context "minimum wage calculator for a 25 yr old low hourly rate" do
         setup do
-          @calculator = MinimumWageCalculator.new age: 25, basic_pay: 100, basic_hours: 40
+          @calculator = MinimumWageCalculator.new age: 25, pay_frequency: 7, basic_pay: 100, basic_hours: 40
         end
         
         should "have a total hourly rate of 2.50" do
