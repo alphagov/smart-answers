@@ -25,6 +25,12 @@ module SmartAnswer::Calculators
         end
       end
       
+      context "minimum_wage_data_for_date on October 1st" do
+        should "retrieve a map of historical minimum wage data" do
+          assert_equal 4.82, @calculator.minimum_wage_data_for_date(Date.parse("2012-10-01"))[:accommodation_rate]
+        end
+      end
+      
       context "basic hourly rate" do
         should "be basic pay divided by basic hours" do
           assert_equal 4.81, @calculator.basic_hourly_rate

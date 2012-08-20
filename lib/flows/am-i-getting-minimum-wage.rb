@@ -13,13 +13,14 @@ end
 # Q1A
 multiple_choice :past_payment_date? do
 
-  option "2011-10-01"
-  option "2010-10-01"
-  option "2009-10-01"
-  option "2008-10-01"
-  option "2007-10-01"
-  option "2006-10-01"
-  option "2005-10-01"
+  year = 1.year.ago.year
+  # Rate changes take place on 1st Oct.
+  year -= 1 if Date.today.month < 10
+
+  6.times do |i|   
+    option "#{year}-10-01"
+    year -= 1
+  end
 
   save_input_as :payment_date
 
