@@ -1,27 +1,39 @@
 en-GB:
   flow:
     calculate-state-pension:
-      title: Get a State Pension estimate
+      title: State Pension calculator
+      meta:
+        description: Use this tool to estimate how much basic State Pension you may get when you reach State Pension age.
       body: |
-        Use this tool to estimate how much basic State Pension you may get when you reach State Pension age.
+        Calculate when you’ll reach State Pension age and how much you would get in today’s money.
+      devolved_body: |
+        What you need to know:
+
+        For a State Pension estimate you need to know the number of years you paid National Insurance or got certain benefits.
+
       gender?:
-        title: Enter your gender.
+        title: What is your gender?
         options:
           male: Male
           female: Female
       dob?:
-        title: Enter your date of birth.
+        title: What is your date of birth?
       years_paid_ni?:
-        title: Enter the number of years you’ve paid National Insurance.
+        title: What is the number of years you’ve paid National Insurance?
         hint: |
-          National Insurance is taken out of your wages with other tax. If you’re not sure how many years you’ve paid, check your P60 end of year tax slips.
-
-          Self employed people pay National Insurance as part of their Self Assessment return.
+          National Insurance is deducted from your wages. Check your P60 end of year pay slips if unsure. Self-employed people pay it with other tax.
+        error_message: Your answer has to match the number of years you actually worked and paid National Insurance
       years_of_jsa?:
-        title: Enter the number of years you’ve claimed Jobseekers Allowance, Incapacity Benefit, Employment and Support Allowance, Unemployment Supplement or Allowance.
+        title: "What is the number of years you claimed any of the following:"
+        body: |
+          - Jobseekers Allowance
+          - Incapacity Benefit
+          - Employment and Support Allowance
+          - Unemployment Supplement or Allowance
         hint: Enter 0 if you’ve never claimed any of these.
-      years_of_benifit?:
-        title: "Enter the number of years any of the following applied:"
+        error_message: Please enter a number
+      years_of_benefit?:
+        title: "What is the number of years any of the following applied:"
         body: |
           - you claimed Child Benefit for a child under 12
           - you claimed Carer’s Allowance or Income Support
@@ -32,24 +44,25 @@ en-GB:
           Enter 0 if none of these apply.
           
           If you are a married woman paying reduced National Insurance, don’t count any years before 2010.
+        error_message: Please enter a number
       years_of_work?:
-        title: Enter the number of years between 16 and 19 when you were in full-time education or working
+        title: What is the number of years between age 16 and 19 when you were in full-time education or working?
         hint: |
           Include the years you were claiming benefits because of unemployment, illness or disability.
+        error_message: The maximum number of years you can enter is 3
       reached_state_pension_age:
         title: You’ve reached State Pension age.
         body: |
           Your State Pension age was %{state_pension_age}. 
 
-          You must [claim your State Pension]() if you haven’t done so already.
+          You must [claim your State Pension]() if you haven’t done so already. You need a Government Gateway account to claim.
 
-          If you want to keep working you can [delay your State Pension]().
+          If you want to keep working you can [defer your State Pension](/deferring-state-pension/what-you-may-get). 
 
-          If you don’t get the full State Pension you might still be able to [pay voluntary National Insurance contributions]().
+          If you don’t get the full State Pension you might still be able to [pay voluntary National Insurance contributions](/voluntary-national-insurance-contributions).
 
-          [State Pension if you live abroad]()
+          More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
 
-          [National Insurance]()
       too_young:
         title: You’re too young for a State Pension estimate. 
         body: |
@@ -57,25 +70,23 @@ en-GB:
 
           You’re at the beginning of your working life and still need to make National Insurance contributions over the coming years. You’ll need 30 years to get a full State Pension. 
 
-          [Plan your income for retirement]()
+          [Basic State Pension](/state-pension)
 
-          [Basic State Pension]()
-
-          [National Insurance]()
+          [National Insurance](/national-insurance/overview)
       result:
         body: |
           Your State Pension age is %{state_pension_age}.
 
           You’ll reach State Pension age on %{state_pension_date}.
 
-          Your State Pension now would be £%{pension_amount}.
+          Your State Pension now would be £%{pension_amount} per week.
 
-          This is £%{pension_loss} below the full State Pension.
+          This is £%{pension_loss} per week below the full State Pension.
 
-          ^This is an estimate. For a more accurate breakdown [apply for a State Pension forecast]().^
+          ^This is an estimate. For a more accurate breakdown [apply for a State Pension statement](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@over50/documents/digitalasset/dg_200096.pdf).^
 
           How much State Pension you get depends on how many years of National Insurance contributions you have.
 
-          You can pay [voluntary contributions]() to get the full State Pension. 
+          You can pay [voluntary contributions](/voluntary-national-insurance-contributions/why-pay-voluntary-contributions) to get the full State Pension. 
 
-          [Plan your income for retirement]()
+          More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
