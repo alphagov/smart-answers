@@ -17,7 +17,7 @@ multiple_choice :past_payment_date? do
   # Rate changes take place on 1st Oct.
   year -= 1 if Date.today.month < 10
 
-  6.times do |i|   
+  6.times do  
     option "#{year}-10-01"
     year -= 1
   end
