@@ -9,6 +9,7 @@ module SmartAnswer::Calculators
       @basic_hours = params[:basic_hours].to_f
       @basic_pay = params[:basic_pay].to_f
       @is_apprentice = params[:is_apprentice]
+      @pay_frequency = params[:pay_frequency] || 7
       @overtime_hours = 0
       @overtime_hourly_rate = 0
       @accommodation_cost = 0
@@ -73,10 +74,11 @@ module SmartAnswer::Calculators
       number_of_nights = number_of_nights.to_i
 
       if charge > 0
-        @accommodation_cost = charged_accomodation_adjustment(charge, number_of_nights)
+        accommodation_cost = charged_accomodation_adjustment(charge, number_of_nights)
       else
-        @accommodation_cost = free_accommodation_adjustment(number_of_nights)
+        accommodation_cost = free_accommodation_adjustment(number_of_nights)
       end
+      @accommodation_cost = (accommodation_cost * weekly_multiplier).round(2)
     end
 
     def per_hour_minimum_wage(date = @date)
@@ -98,6 +100,10 @@ module SmartAnswer::Calculators
     end
 
     protected
+    
+    def weekly_multiplier
+      (@pay_frequency.to_f / 7).round(3)
+    end
 
     def free_accommodation_adjustment(number_of_nights)
       accommodation_rate = @minimum_wage_data[:accommodation_rate]

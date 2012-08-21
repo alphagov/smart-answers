@@ -13,13 +13,14 @@ end
 # Q1A
 multiple_choice :past_payment_date? do
 
-  option "2011-10-01"
-  option "2010-10-01"
-  option "2009-10-01"
-  option "2008-10-01"
-  option "2007-10-01"
-  option "2006-10-01"
-  option "2005-10-01"
+  year = 1.year.ago.year
+  # Rate changes take place on 1st Oct.
+  year -= 1 if Date.today.month < 10
+
+  6.times do  
+    option "#{year}-10-01"
+    year -= 1
+  end
 
   save_input_as :payment_date
 
@@ -58,37 +59,57 @@ end
 
 # Q3
 value_question :how_old_are_you? do
-  save_input_as :age
+  calculate :age do 
+    Integer(responses.last)
+  end
   next_node :how_often_do_you_get_paid?
 end
 
 # Q3 Past
 value_question :how_old_were_you? do
-  save_input_as :age
+  calculate :age do 
+    Integer(responses.last)
+  end
   next_node :how_often_did_you_get_paid?
 end
 
 # Q4
 value_question :how_often_do_you_get_paid? do
-  save_input_as :pay_frequency
+  calculate :pay_frequency do
+    pay_frequency = responses.last.to_i
+    if pay_frequency < 1 or pay_frequency > 31
+      raise SmartAnswer::InvalidResponse, "Please enter a valid number of days."
+    end
+    pay_frequency
+  end
   next_node :how_many_hours_do_you_work?
 end
 
 # Q4 Past
 value_question :how_often_did_you_get_paid? do
-  save_input_as :pay_frequency
+  calculate :pay_frequency do
+    pay_frequency = responses.last.to_i
+    if pay_frequency < 1 or pay_frequency > 31
+      raise SmartAnswer::InvalidResponse, "Please enter a valid number of days."
+    end
+    pay_frequency
+  end
   next_node :how_many_hours_did_you_work?
 end
 
 # Q5
 value_question :how_many_hours_do_you_work? do
-  save_input_as :basic_hours
+  calculate :basic_hours do 
+    Integer(responses.last)
+  end
   next_node :how_much_are_you_paid_during_pay_period?
 end
 
 # Q5 Past
 value_question :how_many_hours_did_you_work? do
-  save_input_as :basic_hours
+  calculate :basic_hours do 
+    Integer(responses.last)
+  end
   next_node :how_much_were_you_paid_during_pay_period?
 end
 
@@ -98,8 +119,9 @@ money_question :how_much_are_you_paid_during_pay_period? do
   calculate :calculator do
     Calculators::MinimumWageCalculator.new({
       age: age.to_i,
-      basic_hours: basic_hours.to_f,
-      basic_pay: responses.last.to_f,
+      pay_frequency: pay_frequency,
+      basic_hours: basic_hours,
+      basic_pay: Float(responses.last),
       is_apprentice: (is_apprentice != 'no')
     })
   end
@@ -114,8 +136,9 @@ money_question :how_much_were_you_paid_during_pay_period? do
     Calculators::MinimumWageCalculator.new({
       age: age.to_i,
       date: Date.parse(payment_date),
-      basic_hours: basic_hours.to_f,
-      basic_pay: responses.last.to_f,
+      pay_frequency: pay_frequency,
+      basic_hours: basic_hours,
+      basic_pay: Float(responses.last),
       is_apprentice: (was_apprentice != 'no')
     })
   end
@@ -127,7 +150,7 @@ end
 value_question :how_many_hours_overtime_do_you_work? do
 
   calculate :overtime_hours do
-    calculator.overtime_hours = responses.last.to_f
+    calculator.overtime_hours = Float(responses.last)
   end
 
   next_node do |response|
@@ -144,7 +167,7 @@ value_question :how_many_hours_overtime_did_you_work? do
   save_input_as :overtime_hours
 
   calculate :overtime_hours do
-    calculator.overtime_hours = responses.last.to_f
+    calculator.overtime_hours = Float(responses.last)
   end
 
   next_node do |response|
@@ -161,7 +184,7 @@ money_question :what_is_overtime_pay_per_hour? do
   save_input_as :overtime_rate
 
   calculate :overtime_rate do
-    calculator.overtime_hourly_rate = responses.last.to_f
+    calculator.overtime_hourly_rate = Float(responses.last)
   end
 
   next_node :is_provided_with_accommodation?
@@ -172,7 +195,7 @@ money_question :what_was_overtime_pay_per_hour? do
   save_input_as :overtime_rate
 
   calculate :overtime_rate do
-    calculator.overtime_hourly_rate = responses.last.to_f
+    calculator.overtime_hourly_rate = Float(responses.last)
   end
 
   next_node :was_provided_with_accommodation?
@@ -277,7 +300,7 @@ end
 value_question :current_accommodation_usage? do
 
   calculate :calculator do
-    calculator.accommodation_adjustment(accommodation_charge.to_f, responses.last.to_i)
+    calculator.accommodation_adjustment(Float(accommodation_charge), Integer(responses.last))
     calculator
   end
 
@@ -312,7 +335,7 @@ end
 value_question :past_accommodation_usage? do
 
   calculate :calculator do
-    calculator.accommodation_adjustment(accommodation_charge.to_f, responses.last.to_i)
+    calculator.accommodation_adjustment(Float(accommodation_charge), Integer(responses.last))
     calculator
   end
 
