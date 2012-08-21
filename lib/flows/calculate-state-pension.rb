@@ -29,7 +29,8 @@ date_question :dob_age? do
 
   calculate :state_pension_date do
     Calculators::StatePensionAmountCalculator.new(
-      gender: gender, dob: responses.last, qualifying_years: nil).state_pension_date
+      gender: gender, dob: responses.last, qualifying_years: nil
+    ).state_pension_date.to_date.to_formatted_s(:long)
   end
   
   next_node :age_result
@@ -68,6 +69,8 @@ value_question :years_paid_ni? do
   save_input_as :ni_years
 
   calculate :calculator do
+    ni_years = Integer(responses.last)
+    raise InvalidResponse if ni_years < 0 or ni_years > 70 
     Calculators::StatePensionAmountCalculator.new(
       gender: gender, dob: dob, qualifying_years: ni_years)
   end
@@ -93,8 +96,10 @@ value_question :years_of_jsa? do
   save_input_as :jsa_years
 
   calculate :calculator do
+    jsa_years = Integer(responses.last)
+    raise InvalidResponse if jsa_years < 0 or jsa_years > 70
     Calculators::StatePensionAmountCalculator.new(
-      gender: gender, dob: dob, qualifying_years: (ni_years.to_i + jsa_years.to_i)
+      gender: gender, dob: dob, qualifying_years: (ni_years.to_i + jsa_years)
     )
   end
   
@@ -117,12 +122,14 @@ end
 
 value_question :years_of_benefit? do
   save_input_as :benefit_years
-
+  
   calculate :calculator do
+    benefit_years = Integer(responses.last)
+    raise InvalidResponse if benefit_years < 0 or benefit_years > 70
     Calculators::StatePensionAmountCalculator.new(
       gender: gender, dob: dob,
-      qualifying_years: (ni_years.to_i + jsa_years.to_i + benefit_years.to_i)
-      )
+      qualifying_years: (ni_years.to_i + jsa_years.to_i + benefit_years)
+    )
   end
   
   calculate :state_pension_date do
@@ -150,7 +157,9 @@ value_question :years_of_work? do
   save_input_as :work_years
 
   calculate :calculator do
-    y = ni_years.to_i + jsa_years.to_i + benefit_years.to_i + Integer(work_years)
+    work_years = Integer(responses.last)
+    raise InvalidResponse if work_years < 0 or work_years > 70
+    y = ni_years.to_i + jsa_years.to_i + benefit_years.to_i + work_years
     Calculators::StatePensionAmountCalculator.new(
       gender: gender, dob: dob, qualifying_years: y)
   end
