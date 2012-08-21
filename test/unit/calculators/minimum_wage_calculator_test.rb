@@ -193,6 +193,7 @@ module SmartAnswer::Calculators
         
       end
       
+      # Scenario 2
       context "minimum wage calculator for a 23 yr old working 70 hours over a fortnight after 01/10/2012" do
         setup do
           @calculator = MinimumWageCalculator.new(
@@ -241,7 +242,7 @@ module SmartAnswer::Calculators
         
       end
       
-      # scenario 3
+      # Scenario 3
       context "25 y/o with a low hourly rate" do
         setup do
           @calculator = MinimumWageCalculator.new(
