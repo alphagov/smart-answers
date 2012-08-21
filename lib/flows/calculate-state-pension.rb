@@ -9,10 +9,33 @@ multiple_choice :gender? do
   option :male
   option :female
 
-  next_node :dob?
+  next_node :which_calculation?
 end
 
-date_question :dob? do
+multiple_choice :which_calculation? do
+  save_input_as :calculate_age_or_amount
+  
+  option :age
+  option :amount
+  
+  next_node do |response|
+    response == "age" ? :dob_age? : :dob_amount?
+  end
+end
+
+date_question :dob_age? do
+  from { 100.years.ago }
+  to { Date.today }
+
+  calculate :state_pension_date do
+    Calculators::StatePensionAmountCalculator.new(
+      gender: gender, dob: responses.last, qualifying_years: nil).state_pension_date
+  end
+  
+  next_node :age_result
+end
+
+date_question :dob_amount? do
   from { 100.years.ago }
   to { Date.today }
 
@@ -62,7 +85,7 @@ value_question :years_paid_ni? do
   end
 
   next_node do |response|
-    response.to_i > 29 ? :result : :years_of_jsa?
+    response.to_i > 29 ? :amount_result : :years_of_jsa?
   end
 end
 
@@ -74,9 +97,21 @@ value_question :years_of_jsa? do
       gender: gender, dob: dob, qualifying_years: (ni_years.to_i + jsa_years.to_i)
     )
   end
+  
+  calculate :state_pension_date do
+    calculator.state_pension_date.to_date.to_formatted_s(:long)
+  end
+
+  calculate :pension_amount do
+    sprintf("%.2f", calculator.what_you_get)
+  end
+
+  calculate :pension_loss do
+    sprintf("%.2f", calculator.pension_loss)
+  end
 
   next_node do |response|
-    (ni_years.to_i + response.to_i) > 29 ? :result : :years_of_benefit?
+    (ni_years.to_i + response.to_i) > 29 ? :amount_result : :years_of_benefit?
   end
 end
 
@@ -89,10 +124,22 @@ value_question :years_of_benefit? do
       qualifying_years: (ni_years.to_i + jsa_years.to_i + benefit_years.to_i)
       )
   end
+  
+  calculate :state_pension_date do
+    calculator.state_pension_date.to_date.to_formatted_s(:long)
+  end
+
+  calculate :pension_amount do
+    sprintf("%.2f", calculator.what_you_get)
+  end
+
+  calculate :pension_loss do
+    sprintf("%.2f", calculator.pension_loss)
+  end
 
   next_node do |response|
     if (ni_years.to_i + jsa_years.to_i + response.to_i) > 29
-      :result
+      :amount_result
     else
       :years_of_work?
     end
@@ -107,10 +154,23 @@ value_question :years_of_work? do
     Calculators::StatePensionAmountCalculator.new(
       gender: gender, dob: dob, qualifying_years: y)
   end
+  
+  calculate :state_pension_date do
+    calculator.state_pension_date.to_date.to_formatted_s(:long)
+  end
 
-  next_node :result
+  calculate :pension_amount do
+    sprintf("%.2f", calculator.what_you_get)
+  end
+
+  calculate :pension_loss do
+    sprintf("%.2f", calculator.pension_loss)
+  end
+
+  next_node :amount_result
 end
 
 outcome :reached_state_pension_age
 outcome :too_young
-outcome :result
+outcome :amount_result
+outcome :age_result

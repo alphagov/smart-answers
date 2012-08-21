@@ -73,7 +73,7 @@ en-GB:
           [Basic State Pension](/state-pension)
 
           [National Insurance](/national-insurance/overview)
-      result:
+      amount_result:
         body: |
           Your State Pension age is %{state_pension_age}.
 
@@ -90,3 +90,9 @@ en-GB:
           You can pay [voluntary contributions](/voluntary-national-insurance-contributions/why-pay-voluntary-contributions) to get the full State Pension. 
 
           More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
+      age_result:
+        title: You can get your State Pension on %{state_pension_date}.
+        body: |
+          ^The State Pension age may change. You'll be contacted if your State Pension age is going to change.^
+
+          You can also work out [how much basic State Pension you're going to get](/calculate-state-pension).
