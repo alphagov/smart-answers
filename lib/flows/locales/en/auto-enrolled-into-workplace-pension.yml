@@ -2,6 +2,10 @@ en-GB:
   flow:
     auto-enrolled-into-workplace-pension:
       title: Will I be automatically enrolled into a workplace pension?
+      body: |
+        Employers will gradually enrol all eligible workers into workplace pensions between 2012 and 2018. Find out if you’re likely to be affected. 
+      meta:
+        description: Find out if you will be automatically enrolled into a workplace pension
       options:
         "yes": "Yes"
         "no": "No"
