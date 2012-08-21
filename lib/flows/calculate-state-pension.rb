@@ -85,7 +85,7 @@ value_question :years_paid_ni? do
   end
 
   next_node do |response|
-    response.to_i > 29 ? :amount_result : :years_of_jsa?
+    Integer(response) > 29 ? :amount_result : :years_of_jsa?
   end
 end
 
@@ -111,7 +111,7 @@ value_question :years_of_jsa? do
   end
 
   next_node do |response|
-    (ni_years.to_i + response.to_i) > 29 ? :amount_result : :years_of_benefit?
+    (ni_years.to_i + Integer(response)) > 29 ? :amount_result : :years_of_benefit?
   end
 end
 
@@ -138,7 +138,7 @@ value_question :years_of_benefit? do
   end
 
   next_node do |response|
-    if (ni_years.to_i + jsa_years.to_i + response.to_i) > 29
+    if (ni_years.to_i + jsa_years.to_i + Integer(response)) > 29
       :amount_result
     else
       :years_of_work?
@@ -150,7 +150,7 @@ value_question :years_of_work? do
   save_input_as :work_years
 
   calculate :calculator do
-    y = ni_years.to_i + jsa_years.to_i + benefit_years.to_i + work_years.to_i
+    y = ni_years.to_i + jsa_years.to_i + benefit_years.to_i + Integer(work_years)
     Calculators::StatePensionAmountCalculator.new(
       gender: gender, dob: dob, qualifying_years: y)
   end
