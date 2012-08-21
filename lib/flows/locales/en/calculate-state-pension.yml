@@ -23,8 +23,10 @@ en-GB:
           amount: get a State Pension estimate and calculate your State Pension age
       dob_age?:
         title: What is your date of birth?
+        error_message: Enter your date of birth
       dob_amount?:
         title: What is your date of birth?
+        error_message: Enter your date of birth
       years_paid_ni?:
         title: What is the number of years you’ve paid National Insurance?
         hint: |
