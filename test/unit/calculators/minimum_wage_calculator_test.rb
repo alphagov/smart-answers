@@ -440,6 +440,38 @@ module SmartAnswer::Calculators
         end
 
       end
+
+      # Scenario 8
+      context "25 y/o 2011-12 with high accommodation charge variations." do
+        setup do
+          @calculator = MinimumWageCalculator.new(
+            age: 25, date: Date.parse('2012-08-21'), pay_frequency: 7, basic_pay: 350, basic_hours: 35)
+          @calculator.overtime_hours = 10
+          @calculator.overtime_hourly_rate = 12
+        end
+        
+        should "calculate total hourly rate accounting for overtime" do
+          assert_equal 6.08, @calculator.minimum_hourly_rate
+          assert_equal 100, @calculator.total_overtime_pay
+          assert_equal 10.00, @calculator.total_hourly_rate
+          assert @calculator.minimum_wage_or_above?, "should be above the minimum wage" 
+        end
+        
+        should "account for free accommodation" do
+          @calculator.accommodation_adjustment 0, 7
+          assert_equal 33.11, @calculator.accommodation_cost
+          assert_equal 10.74, @calculator.total_hourly_rate
+          assert @calculator.minimum_wage_or_above?, "should be above the minimum wage" 
+        end
+        
+        should "account for charged accommodation" do
+          @calculator.accommodation_adjustment 30, 7
+          assert_equal -176.89, @calculator.accommodation_cost
+          assert_equal 6.07, @calculator.total_hourly_rate
+          assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage" 
+        end
+
+      end
       
     end
     

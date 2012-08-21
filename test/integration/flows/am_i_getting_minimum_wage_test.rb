@@ -66,7 +66,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         
         context "answered weekly to 'how often do you get paid?'" do
           setup do
-            add_response "7"
+            add_response 7
           end
           
           # Q5
@@ -214,13 +214,27 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           assert_current_node :current_payment_below
         end
       end
+
+      # Scenario 8 - part 2 - living in free accommodation instead of charged
+      context "25 year old" do
+        setup do
+          add_response 25
+          add_response 7
+          add_response 35
+          add_response 350
+          add_response 10
+          add_response 12
+          add_response :yes_free
+          add_response 7
+        end
+        should "be above the minimum wage" do
+          assert_current_node :current_payment_above
+        end
+      end
       
     end # Apprentice
   end # Current pay
 
-
-  # Current rate check - scenario 8 flow
-  
 
 
   # Past payments
