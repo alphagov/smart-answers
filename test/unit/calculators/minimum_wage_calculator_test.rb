@@ -375,6 +375,71 @@ module SmartAnswer::Calculators
 
       end
       
+      # Scenario 6
+      context "25 y/o 2008-2009 with accommodation and overtime variations." do
+        setup do
+          @calculator = MinimumWageCalculator.new(
+            age: 25, date: Date.parse('2008-10-01'), pay_frequency: 7, basic_pay: 168, basic_hours: 40)
+          @calculator.overtime_hours = 7
+          @calculator.overtime_hourly_rate = 5.7
+        end
+        
+        should "calculate total hourly rate accounting for overtime" do
+          assert_equal 5.73, @calculator.minimum_hourly_rate
+          assert_equal 29.4, @calculator.total_overtime_pay
+          assert_equal 4.2, @calculator.total_hourly_rate
+          assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage" 
+        end
+        
+        should "account for free accommodation" do
+          @calculator.accommodation_adjustment 0, 7
+          assert_equal 31.22, @calculator.accommodation_cost
+          assert_equal 4.86, @calculator.total_hourly_rate
+          assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage" 
+        end
+        
+        should "account for charged accommodation" do
+          @calculator.accommodation_adjustment 7.5, 7
+          assert_equal -21.28, @calculator.accommodation_cost
+          assert_equal 3.75, @calculator.total_hourly_rate
+          assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage" 
+        end
+
+      end
+      
+      # Scenario 7
+      context "18 y/o 2007-2008 with accommodation and overtime variations." do
+        setup do
+          @calculator = MinimumWageCalculator.new(
+            age: 17, date: Date.parse('2007-10-01'), pay_frequency: 30, basic_pay: 450, basic_hours: 150)
+          @calculator.overtime_hours = 8
+          @calculator.overtime_hourly_rate = 4
+        end
+        
+        should "calculate total hourly rate accounting for overtime" do
+          assert_equal 3.4, @calculator.minimum_hourly_rate
+          assert_equal 24, @calculator.total_overtime_pay
+          assert_equal 3, @calculator.total_hourly_rate
+          assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage" 
+        end
+        
+        should "account for free accommodation" do
+          @calculator.accommodation_adjustment 0, 7
+          assert_equal 129.01, @calculator.accommodation_cost
+          assert_equal 3.82, @calculator.total_hourly_rate
+          assert @calculator.minimum_wage_or_above?, "should be above the minimum wage" 
+        end
+        
+        should "account for charged accommodation" do
+          @calculator.accommodation_adjustment 5, 7
+          assert_equal -21, @calculator.accommodation_cost
+          assert_equal 2.87, @calculator.total_hourly_rate
+          assert_equal 537.20, @calculator.historical_entitlement
+          assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage" 
+        end
+
+      end
+      
     end
     
     context "per hour minimum wage" do
