@@ -381,7 +381,8 @@ value_question :current_accommodation_usage? do
   end
 
   next_node do |response|
-
+    calculator.accommodation_adjustment(Float(accommodation_charge), Integer(response))
+  
     if calculator.minimum_wage_or_above?
       :current_payment_above
     else
@@ -416,7 +417,8 @@ value_question :past_accommodation_usage? do
   end
 
   next_node do |response|
-
+    calculator.accommodation_adjustment(Float(accommodation_charge), Integer(response))
+    
     if calculator.historical_adjustment >= 0
       :past_payment_above
     else
