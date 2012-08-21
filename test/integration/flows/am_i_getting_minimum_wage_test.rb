@@ -196,6 +196,25 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           end # Basic hours
         end # Pay frequency
       end # Age
+      
+      # Scenario 8 from https://docs.google.com/a/digital.cabinet-office.gov.uk/spreadsheet/ccc?key=0An9oCYIY2AELdHVsckdKM0VWc2NFZ0J6MXFtdEY3MVE#gid=0
+      context "25 year old" do
+        setup do
+          add_response 25
+          add_response 7
+          add_response 35
+          add_response 350
+          add_response 10
+          add_response 12
+          add_response :yes_charged
+          add_response 30
+          add_response 7
+        end
+        should "be below the minimum wage" do
+          assert_current_node :current_payment_below
+        end
+      end
+      
     end # Apprentice
   end # Current pay
 
