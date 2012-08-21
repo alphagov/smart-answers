@@ -10,13 +10,20 @@ en-GB:
         What you need to know:
 
         For a State Pension estimate you need to know the number of years you paid National Insurance or got certain benefits.
-
+        
       gender?:
         title: What is your gender?
         options:
           male: Male
           female: Female
-      dob?:
+      which_calculation?:
+        title: What would you like to do?
+        options:
+          age: calculate your State Pension age
+          amount: get a State Pension estimate and calculate your State Pension age
+      dob_age?:
+        title: What is your date of birth?
+      dob_amount?:
         title: What is your date of birth?
       years_paid_ni?:
         title: What is the number of years you’ve paid National Insurance?
