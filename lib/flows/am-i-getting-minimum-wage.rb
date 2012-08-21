@@ -60,7 +60,11 @@ end
 # Q3
 value_question :how_old_are_you? do
   calculate :age do 
-    Integer(responses.last)
+    age = Integer(responses.last)
+    if age <= 0
+      raise SmartAnswer::InvalidResponse
+    end
+    age
   end
   next_node :how_often_do_you_get_paid?
 end
@@ -68,7 +72,11 @@ end
 # Q3 Past
 value_question :how_old_were_you? do
   calculate :age do 
-    Integer(responses.last)
+    age = Integer(responses.last)
+    if age <= 0
+      raise SmartAnswer::InvalidResponse
+    end
+    age  
   end
   next_node :how_often_did_you_get_paid?
 end
@@ -100,7 +108,11 @@ end
 # Q5
 value_question :how_many_hours_do_you_work? do
   calculate :basic_hours do 
-    Integer(responses.last)
+    basic_hours = Integer(responses.last)
+    if basic_hours < 0 or basic_hours > (pay_frequency * 16)
+      raise SmartAnswer::InvalidResponse
+    end
+    basic_hours
   end
   next_node :how_much_are_you_paid_during_pay_period?
 end
@@ -108,7 +120,11 @@ end
 # Q5 Past
 value_question :how_many_hours_did_you_work? do
   calculate :basic_hours do 
-    Integer(responses.last)
+    basic_hours = Integer(responses.last)
+    if basic_hours < 0 or basic_hours > (pay_frequency * 16)
+      raise SmartAnswer::InvalidResponse
+    end
+    basic_hours
   end
   next_node :how_much_were_you_paid_during_pay_period?
 end
@@ -117,11 +133,15 @@ end
 money_question :how_much_are_you_paid_during_pay_period? do
 
   calculate :calculator do
+    amount_paid = Float(responses.last)
+    if amount_paid <= 0
+      raise SmartAnswer::InvalidResponse
+    end
     Calculators::MinimumWageCalculator.new({
       age: age.to_i,
       pay_frequency: pay_frequency,
       basic_hours: basic_hours,
-      basic_pay: Float(responses.last),
+      basic_pay: amount_paid,
       is_apprentice: (is_apprentice != 'no')
     })
   end
@@ -133,12 +153,16 @@ end
 money_question :how_much_were_you_paid_during_pay_period? do
 
   calculate :calculator do
+    amount_paid = Float(responses.last)
+    if amount_paid <= 0
+      raise SmartAnswer::InvalidResponse
+    end
     Calculators::MinimumWageCalculator.new({
       age: age.to_i,
       date: Date.parse(payment_date),
       pay_frequency: pay_frequency,
       basic_hours: basic_hours,
-      basic_pay: Float(responses.last),
+      basic_pay: amount_paid,
       is_apprentice: (was_apprentice != 'no')
     })
   end
@@ -150,7 +174,11 @@ end
 value_question :how_many_hours_overtime_do_you_work? do
 
   calculate :overtime_hours do
-    calculator.overtime_hours = Float(responses.last)
+    overtime_hours = Float(responses.last)
+    if overtime_hours < 0
+      raise SmartAnswer::InvalidResponse
+    end
+    calculator.overtime_hours = overtime_hours
   end
 
   next_node do |response|
@@ -167,7 +195,11 @@ value_question :how_many_hours_overtime_did_you_work? do
   save_input_as :overtime_hours
 
   calculate :overtime_hours do
-    calculator.overtime_hours = Float(responses.last)
+    overtime_hours = Float(responses.last)
+    if overtime_hours < 0
+      raise SmartAnswer::InvalidResponse
+    end
+    calculator.overtime_hours = overtime_hours
   end
 
   next_node do |response|
@@ -184,7 +216,11 @@ money_question :what_is_overtime_pay_per_hour? do
   save_input_as :overtime_rate
 
   calculate :overtime_rate do
-    calculator.overtime_hourly_rate = Float(responses.last)
+    overtime_hourly_rate = Float(responses.last)
+    if overtime_hourly_rate < 0
+      raise SmartAnswer::InvalidResponse
+    end
+    calculator.overtime_hourly_rate = overtime_hourly_rate
   end
 
   next_node :is_provided_with_accommodation?
@@ -195,7 +231,11 @@ money_question :what_was_overtime_pay_per_hour? do
   save_input_as :overtime_rate
 
   calculate :overtime_rate do
-    calculator.overtime_hourly_rate = Float(responses.last)
+    overtime_hourly_rate = Float(responses.last)
+    if overtime_hourly_rate < 0
+      raise SmartAnswer::InvalidResponse
+    end
+    calculator.overtime_hourly_rate = overtime_hourly_rate
   end
 
   next_node :was_provided_with_accommodation?
@@ -287,12 +327,28 @@ end
 # Q10
 money_question :current_accommodation_charge? do
   save_input_as :accommodation_charge
+
+  calculate :accommodation_charge do
+    accommodation_charge = Float(responses.last)
+    if accommodation_charge <= 0
+      raise SmartAnswer::InvalidResponse
+    end
+    accommodation_charge
+  end
   next_node :current_accommodation_usage?
 end
 
 # Q10 Past
 money_question :past_accommodation_charge? do
   save_input_as :accommodation_charge
+
+  calculate :accommodation_charge do
+    accommodation_charge = Float(responses.last)
+    if accommodation_charge <= 0
+      raise SmartAnswer::InvalidResponse
+    end
+    accommodation_charge
+  end
   next_node :past_accommodation_usage?
 end
 
@@ -300,7 +356,11 @@ end
 value_question :current_accommodation_usage? do
 
   calculate :calculator do
-    calculator.accommodation_adjustment(Float(accommodation_charge), Integer(responses.last))
+    days_per_week = Integer(responses.last)
+    if days_per_week < 0 or days_per_week > 7
+      raise SmartAnswer::InvalidResponse
+    end
+    calculator.accommodation_adjustment(Float(accommodation_charge), days_per_week)
     calculator
   end
 
@@ -335,7 +395,11 @@ end
 value_question :past_accommodation_usage? do
 
   calculate :calculator do
-    calculator.accommodation_adjustment(Float(accommodation_charge), Integer(responses.last))
+    days_per_week = Integer(responses.last)
+    if days_per_week < 0 or days_per_week > 7
+      raise SmartAnswer::InvalidResponse
+    end
+    calculator.accommodation_adjustment(Float(accommodation_charge), days_per_week)
     calculator
   end
 

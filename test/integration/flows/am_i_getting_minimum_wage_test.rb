@@ -27,7 +27,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
     
     context "answered 'apprentice under 19' to 'are you an apprentice?'" do
       setup do
-        add_response :apprentice_over_19
+        add_response :apprentice_under_19
       end
       should "ask 'how often do you get paid?'" do
         assert_current_node :how_often_do_you_get_paid?
@@ -198,6 +198,11 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       end # Age
     end # Apprentice
   end # Current pay
+
+
+  # Current rate check - scenario 8 flow
+  
+
 
   # Past payments
   #
