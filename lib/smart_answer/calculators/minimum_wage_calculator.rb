@@ -102,7 +102,7 @@ module SmartAnswer::Calculators
     protected
     
     def weekly_multiplier
-      (@pay_frequency / 7)
+      (@pay_frequency.to_f / 7).round(3)
     end
 
     def free_accommodation_adjustment(number_of_nights)
