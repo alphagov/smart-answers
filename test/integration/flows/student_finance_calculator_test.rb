@@ -259,6 +259,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
           assert_phrase_list :eligible_finance, [:tuition_fee_loan]
           assert_state_variable :tuition_fee_amount, 6549
           assert_phrase_list :additional_benefits, []
+          assert_phrase_list :extra_grants, [:additional_grants_and_allowances]
         end
 
         context "checking for additional grants" do
@@ -268,6 +269,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
 
           should "ask if you have a disability" do
             assert_current_node :do_you_have_a_disability_or_health_condition?
+            assert_phrase_list :extra_grants, []
           end
 
           should "ask if you are in financial hardship" do

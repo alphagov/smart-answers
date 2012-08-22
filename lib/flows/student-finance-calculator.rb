@@ -120,6 +120,14 @@ multiple_choice :full_time_do_you_want_to_check_for_additional_grants_and_allowa
       PhraseList.new
     end
   end
+
+  calculate :extra_grants do
+    if responses.last == "no"
+      PhraseList.new(:additional_grants_and_allowances)
+    else
+      PhraseList.new
+    end
+  end
 end
 
 multiple_choice :part_time_do_you_want_to_check_for_additional_grants_and_allowances? do
@@ -129,6 +137,14 @@ multiple_choice :part_time_do_you_want_to_check_for_additional_grants_and_allowa
   calculate :additional_benefits do
     if responses.last == "yes"
       PhraseList.new(:body)
+    else
+      PhraseList.new
+    end
+  end
+
+  calculate :extra_grants do
+    if responses.last == "no"
+      PhraseList.new(:additional_grants_and_allowances)
     else
       PhraseList.new
     end

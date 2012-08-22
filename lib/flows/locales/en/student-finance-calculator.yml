@@ -15,7 +15,7 @@ en-GB:
         disability: |
           - [Disabled Students' Allowance](/disabled-students-allowances-dsas "Disabled Students' Allowance")
         financial_hardship: |
-          - [Access to Learning Fund](/access-to-learning-fund "Access to Learning Fund") (extra help with course costs)
+          - [Access to Learning Fund](/access-to-learning-fund "Access to Learning Fund") (extra help with costs while studying)
         teacher_training: |
           - [Funding for teacher training](/teacher-training-funding "Funding for teacher training")
         medical: |
@@ -28,6 +28,7 @@ en-GB:
           - up to %{maintenance_loan_amount} Maintenance Loan (for living costs)
         maintenance_grant: |
           - up to %{maintenance_grant_amount} Maintenance Grant (for living costs)
+        additional_grants_and_allowances: You don't qualify for extra grants and allowances.
       title:
         Student finance calculator
       description: Estimate what loans and grants you could get and check additional grants and allowances for higher education.
@@ -81,15 +82,18 @@ en-GB:
           Choose 'yes' if any of the following are true:
 
           - you're doing a teacher training, medical or social work course
+          - you have children or an adult who depends on you financially
           - you have a disability, learning difficulty or health condition
+          - you're on a low income
       full_time_do_you_want_to_check_for_additional_grants_and_allowances?:
         title: Do you want to check for additional grants and allowances?
         body: |
           Choose 'yes' if any of the following are true:
 
           - you're doing a teacher training, medical or social work course
-          - you have children or dependent adults
+          - you have children or an adult who depends on you financially
           - you have a disability, learning difficulty or health condition
+          - you're on a low income
       do_you_have_a_disability_or_health_condition?:
         hint: This includes a mental health condition or learning difficulty eg dyslexia.
       are_you_in_financial_hardship?:
@@ -101,13 +105,14 @@ en-GB:
           social-work: Social work
           none: None of these
       done:
-        title: You may qualify for student finance towards your tuition fees and your living costs.
         body: |
           You could get:
 
           %{eligible_finance}
 
           %{additional_benefits}
+
+          %{extra_grants}
 
           You could also get extra [bursaries or scholarships](/extra-money-pay-university "Help from your university or college") from your university or college.
 
