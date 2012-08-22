@@ -86,6 +86,14 @@ value_question :years_paid_ni? do
   calculate :pension_loss do
     sprintf("%.2f", calculator.pension_loss)
   end
+  
+  calculate :pension_summary do
+    if calculator.pension_loss > 0
+      PhraseList.new(:this_is_n_below_the_full_state_pension)
+    else
+      PhraseList.new(:this_is_the_full_state_pension)
+    end
+  end
 
   next_node do |response|
     Integer(response) > 29 ? :amount_result : :years_of_jsa?
@@ -113,6 +121,14 @@ value_question :years_of_jsa? do
 
   calculate :pension_loss do
     sprintf("%.2f", calculator.pension_loss)
+  end
+  
+  calculate :pension_summary do
+    if calculator.pension_loss > 0
+      PhraseList.new(:this_is_n_below_the_full_state_pension)
+    else
+      PhraseList.new(:this_is_the_full_state_pension)
+    end
   end
 
   next_node do |response|
@@ -142,6 +158,14 @@ value_question :years_of_benefit? do
 
   calculate :pension_loss do
     sprintf("%.2f", calculator.pension_loss)
+  end
+  
+  calculate :pension_summary do
+    if calculator.pension_loss > 0
+      PhraseList.new(:this_is_n_below_the_full_state_pension)
+    else
+      PhraseList.new(:this_is_the_full_state_pension)
+    end
   end
 
   next_node do |response|
@@ -174,6 +198,14 @@ value_question :years_of_work? do
 
   calculate :pension_loss do
     sprintf("%.2f", calculator.pension_loss)
+  end
+  
+  calculate :pension_summary do
+    if calculator.pension_loss > 0
+      PhraseList.new(:this_is_n_below_the_full_state_pension)
+    else
+      PhraseList.new(:this_is_the_full_state_pension)
+    end
   end
 
   next_node :amount_result

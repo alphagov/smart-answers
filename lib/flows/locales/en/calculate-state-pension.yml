@@ -10,7 +10,9 @@ en-GB:
         What you need to know:
 
         For a State Pension estimate you need to know the number of years you paid National Insurance or got certain benefits.
-        
+      phrases:
+        this_is_the_full_state_pension: This is the full State Pension.
+        this_is_n_below_the_full_state_pension: This is £%{pension_loss} per week below the full State Pension.  
       gender?:
         title: What is your gender?
         options:
@@ -90,7 +92,7 @@ en-GB:
 
           Your State Pension now would be £%{pension_amount} per week.
 
-          This is £%{pension_loss} per week below the full State Pension.
+          %{pension_summary}
 
           ^This is an estimate. For a more accurate breakdown [apply for a State Pension statement](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@over50/documents/digitalasset/dg_200096.pdf).^
 
