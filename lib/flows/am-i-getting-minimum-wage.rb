@@ -59,7 +59,9 @@ end
 
 # Q3
 value_question :how_old_are_you? do
-  calculate :age do 
+  calculate :age do
+    # Fail-hard cast to Integer here will raise
+    # an exception and show the appropriate error.
     age = Integer(responses.last)
     if age <= 0
       raise SmartAnswer::InvalidResponse
@@ -72,6 +74,8 @@ end
 # Q3 Past
 value_question :how_old_were_you? do
   calculate :age do 
+    # Fail-hard cast to Integer here will raise
+    # an exception and show the appropriate error.
     age = Integer(responses.last)
     if age <= 0
       raise SmartAnswer::InvalidResponse
@@ -415,11 +419,15 @@ value_question :past_accommodation_usage? do
   calculate :above_minimum_wage do
     calculator.minimum_wage_or_above?
   end
+  
+  calculate :historical_adjustment do
+    calculator.historical_adjustment
+  end
 
   next_node do |response|
     calculator.accommodation_adjustment(accommodation_charge, Integer(response))
     
-    if calculator.historical_adjustment >= 0
+    if calculator.historical_adjustment <= 0
       :past_payment_above
     else
       :past_payment_below

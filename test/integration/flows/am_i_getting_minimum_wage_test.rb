@@ -395,7 +395,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                         end
                         
                         should "show results" do
-                          assert_current_node :past_payment_above
+                          assert_current_node :past_payment_below
                         end
                       end
                     end
