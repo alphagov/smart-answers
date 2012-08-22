@@ -53,7 +53,7 @@ en-GB:
         options:
           full-time: Full-time
           part-time: Part-time
-      how_much_is_your_tuition_fee_per_year?:
+      how_much_are_your_tuition_fees_per_year?:
         hint: The maximum is £9,000 for full-time students and £6,750 for part-time students.
         error_message: You can't enter more than the maximum amount
       where_will_you_live_while_studying?:
