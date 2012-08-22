@@ -1,6 +1,13 @@
 satisfies_need 2175
 status :published
 
+multiple_choice :when_does_your_course_start? do
+  option :'Between September 2012 and August 2013'
+  option :'Between September 2013 and August 2014'
+  save_input_as :start_date
+  next_node :are_you_a_full_time_or_part_time_student?
+end
+
 multiple_choice :are_you_a_full_time_or_part_time_student? do
   option :'full-time'
   option :'part-time'
