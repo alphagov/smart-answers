@@ -2,8 +2,8 @@ satisfies_need 2175
 status :published
 
 multiple_choice :when_does_your_course_start? do
-  option :'Between September 2012 and August 2013'
-  option :'Between September 2013 and August 2014'
+  option :'2012-2013'
+  option :'2013-2014'
   save_input_as :start_date
   next_node :are_you_a_full_time_or_part_time_student?
 end
@@ -69,13 +69,24 @@ multiple_choice :whats_your_household_income? do
   option :'more-than-42600'
 
   calculate :maintenance_grant_amount do
-    case responses.last
-    when "up-to-25000" then Money.new('3250')
-    when "25001-30000" then Money.new('2341')
-    when "30001-35000" then Money.new('1432')
-    when "35001-40000" then Money.new('523')
-    when "40001-42600" then Money.new('50')
-    when "more-than-42600" then Money.new('0')
+    if start_date == "2013-2014"
+      case responses.last
+      when "up-to-25000" then Money.new('3354')
+      when "25001-30000" then Money.new('2416')
+      when "30001-35000" then Money.new('1478')
+      when "35001-40000" then Money.new('540')
+      when "40001-42600" then Money.new('50')
+      when "more-than-42600" then Money.new('0')
+      end
+    else
+      case responses.last
+      when "up-to-25000" then Money.new('3250')
+      when "25001-30000" then Money.new('2341')
+      when "30001-35000" then Money.new('1432')
+      when "35001-40000" then Money.new('523')
+      when "40001-42600" then Money.new('50')
+      when "more-than-42600" then Money.new('0')
+      end
     end
   end
 
