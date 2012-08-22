@@ -48,6 +48,10 @@ en-GB:
         * [Student Awards Agency for Scotland](http://www.saas.gov.uk/ "Student Awards Agency for Scotland")
         * [Student Finance Wales](http://www.studentfinancewales.co.uk "Student Finance Wales")
         * [Student Finance Northern Ireland](http://www.studentfinanceni.co.uk "Student Finance Northern Ireland")
+      when_does_your_course_start?:
+        options:
+          2012-2013: Between September 2012 and August 2013
+          2013-2014: Between September 2013 and August 2014
       are_you_a_full_time_or_part_time_student?:
         title: Are you a full-time or part-time student?
         options:
@@ -63,7 +67,7 @@ en-GB:
           away-in-london: Away from home, in London
       whats_your_household_income?:
         title: What's your household income?
-        hint: This is your parents’ or partner’s income plus your own. It affects how much Maintenance Grant you get.
+        hint: This is your parents' or partner's income plus your own. It affects how much Maintenance Grant for help with living costs you get.
         options:
           up-to-25000: Up to £25,000
           25001-30000: £25,001 - £30,000

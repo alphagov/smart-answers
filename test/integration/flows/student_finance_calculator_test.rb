@@ -15,7 +15,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
 
   context "course starting between 2012 and 2013" do
     setup do
-      add_response 'Between September 2012 and August 2013'
+      add_response '2012-2013'
     end
 
     should "ask if you are full-time or part-time student" do
