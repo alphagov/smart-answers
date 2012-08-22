@@ -5,10 +5,10 @@ multiple_choice :are_you_a_full_time_or_part_time_student? do
   option :'full-time'
   option :'part-time'
   save_input_as :course_type
-  next_node :how_much_is_your_tuition_fee_per_year?
+  next_node :how_much_are_your_tuition_fees_per_year?
 end
 
-money_question :how_much_is_your_tuition_fee_per_year? do
+money_question :how_much_are_your_tuition_fees_per_year? do
   calculate :tuition_fee_amount do
     if course_type == "full-time"
       raise SmartAnswer::InvalidResponse if responses.last > 9000
