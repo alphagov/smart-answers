@@ -405,7 +405,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
              
               # Again with a better basic pay to achieve < min. wage.
               #
-              context "answer '200' to 'how much do you get paid?'" do
+              context "answer '200' to 'how much did you get paid?'" do
                 setup do
                   add_response 200
                   add_response 0 # overtime hours
@@ -418,6 +418,26 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
             end # Basic hours
           end # Pay frequency
         end # Age
+
+        # Scenario 12 from spreadsheet
+        context "17 year old in 2008-09" do
+        setup do
+          add_response 17 # age at the time
+          add_response 30 # pay frequency
+          add_response 210 # basic hours
+          add_response 840  # basic pay
+          add_response 0   # overtime hours
+          add_response :yes_charged
+          add_response 10  # accommodation cost
+          add_response 7   # days per week in accommodation
+        end
+        should "be below the minimum wage" do
+          assert_current_node :past_payment_below
+        end
+      end
+
+
+
       end # Apprentice
     end # Date in question
     

@@ -419,6 +419,10 @@ value_question :past_accommodation_usage? do
   calculate :above_minimum_wage do
     calculator.minimum_wage_or_above?
   end
+
+  calculate :total_hourly_rate do
+    calculator.format_money calculator.total_hourly_rate
+  end
   
   calculate :historical_adjustment do
     calculator.historical_adjustment
