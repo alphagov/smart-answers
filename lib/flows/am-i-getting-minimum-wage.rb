@@ -360,7 +360,7 @@ value_question :current_accommodation_usage? do
     if days_per_week < 0 or days_per_week > 7
       raise SmartAnswer::InvalidResponse
     end
-    calculator.accommodation_adjustment(Float(accommodation_charge), days_per_week)
+    calculator.accommodation_adjustment(accommodation_charge, days_per_week)
     calculator
   end
 
@@ -381,7 +381,7 @@ value_question :current_accommodation_usage? do
   end
 
   next_node do |response|
-    calculator.accommodation_adjustment(Float(accommodation_charge), Integer(response))
+    calculator.accommodation_adjustment(accommodation_charge, Integer(response))
   
     if calculator.minimum_wage_or_above?
       :current_payment_above
@@ -400,7 +400,7 @@ value_question :past_accommodation_usage? do
     if days_per_week < 0 or days_per_week > 7
       raise SmartAnswer::InvalidResponse
     end
-    calculator.accommodation_adjustment(Float(accommodation_charge), days_per_week)
+    calculator.accommodation_adjustment(accommodation_charge, days_per_week)
     calculator
   end
 
@@ -417,7 +417,7 @@ value_question :past_accommodation_usage? do
   end
 
   next_node do |response|
-    calculator.accommodation_adjustment(Float(accommodation_charge), Integer(response))
+    calculator.accommodation_adjustment(accommodation_charge, Integer(response))
     
     if calculator.historical_adjustment >= 0
       :past_payment_above
