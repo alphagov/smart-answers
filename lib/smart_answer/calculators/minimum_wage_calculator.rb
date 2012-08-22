@@ -55,7 +55,7 @@ module SmartAnswer::Calculators
 
     def underpayment
       if total_pay > historical_entitlement
-        (total_pay - historical_entitlement).round(2)
+        0
       else
         (historical_entitlement - total_pay).round(2)
       end
