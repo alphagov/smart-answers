@@ -72,7 +72,7 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
     should "ask if you have a full motorcycle licence" do
       assert_current_node :do_you_have_a_full_motorcycle_licence?
     end
-    
+    ## full motorcycle licence?
     context "answer yes" do
       setup do
         add_response :yes
@@ -129,7 +129,7 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
         end
       end
     end
-    
+    ## full motorcycle licence?
     context "answer no" do
       setup do
         add_response :no
@@ -137,6 +137,27 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
       ## Q8
       should "ask how old you are" do
         assert_current_node :how_old_are_you_mb_no_licence?
+      end
+      context "answer under 17" do
+        ## A10
+        should "state elligibility" do
+          add_response "under_17"
+          assert_current_node :motorcycle_elligibility_no_licence_under_17 # A10
+        end
+      end
+      context "answer 17-20" do
+        ## A11
+        should "state elligibility" do
+          add_response "17-20"
+          assert_current_node :motorcycle_elligibility_no_licence_17_20 # A11
+        end
+      end
+      context "answer 21 or over" do
+        ## A12
+        should "state elligibility" do
+          add_response "21_or_over"
+          assert_current_node :motorcycle_elligibility_no_licence_21_and_over # A12
+        end
       end
     end
   end ## Motorcycle specs
