@@ -3,6 +3,15 @@ section_slug "money-and-tax"
 subsection_slug "pension"
 satisfies_need "564"
 
+multiple_choice :which_calculation? do
+  save_input_as :calculate_age_or_amount
+  
+  option :age
+  option :amount
+
+  next_node :gender?
+end
+
 multiple_choice :gender? do
   save_input_as :gender
 
@@ -18,19 +27,12 @@ multiple_choice :gender? do
     end
   end
 
-  next_node :which_calculation?
-end
-
-multiple_choice :which_calculation? do
-  save_input_as :calculate_age_or_amount
-  
-  option :age
-  option :amount
-  
-  next_node do |response|
-    response == "age" ? :dob_age? : :dob_amount?
+  next_node do
+    calculate_age_or_amount == "age" ? :dob_age? : :dob_amount?
   end
 end
+
+
 
 date_question :dob_age? do
   from { 100.years.ago }

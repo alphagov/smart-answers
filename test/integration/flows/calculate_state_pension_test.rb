@@ -8,25 +8,27 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
     setup_for_testing_flow 'calculate-state-pension'
   end
 
-  should "ask your gender" do
-    assert_current_node :gender?
+  #Q0
+  should "ask which calculation to perform" do
+      assert_current_node :which_calculation?
   end
 
-  context "male" do
+  #Age
+  #
+  context "age calculation" do
     setup do
-      add_response :male
+      add_response :age
     end
     
-    should "ask which calculation to perform" do
-      assert_current_node :which_calculation?
+    should "ask your gender" do
+      assert_current_node :gender?
     end
-    
-    context "age calculation" do
-      
+
+    context "male" do
       setup do
-        add_response :age
+        add_response :male
       end
-      
+    
       should "ask for date of birth" do
         assert_current_node :dob_age?
       end
@@ -39,13 +41,24 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         should "give an answer" do
           assert_current_node :age_result
         end
-      end
+      end # born on 6th of April
+    end # male
+  end # age calculation
+  
+  #Amount
+  #  
+  context "amount calculation" do
+    setup do
+      add_response :amount
     end
-    
-    context "amount calculation" do
-    
+
+    should "ask your gender" do
+      assert_current_node :gender?
+    end
+
+    context "female" do
       setup do
-        add_response :amount
+        add_response :female
       end
     
       should "ask for date of birth" do
@@ -75,14 +88,14 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
           assert_current_node :years_paid_ni?
         end
 
-        context "30 years" do
+        context "30 years of NI" do
           should "show the result" do
             add_response 30
             assert_current_node :amount_result
           end
         end
 
-        context "27 years" do
+        context "27 years of NI" do
           setup do
             add_response 27
           end
@@ -91,14 +104,14 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
             assert_current_node :years_of_jsa?
           end
 
-          context "10 years" do
+          context "10 years of jsa" do
             should "show the result" do
               add_response 10
               assert_current_node :amount_result
             end
           end
 
-          context "1 year" do
+          context "1 year of jsa" do
             setup do
               add_response 1
             end
@@ -107,32 +120,32 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
               assert_current_node :years_of_benefit?
             end
 
-            context "10 years" do
+            context "10 years of benefit" do
               should "show the result" do
                 add_response 10
                 assert_current_node :amount_result
               end
             end
 
-            context "1 year" do
+            context "1 year of benefit" do
               setup do
                 add_response 1
               end
 
-              should "ask for years working" do
+              should "ask for years working or education" do
                 assert_current_node :years_of_work?
               end
 
-              context "1 year" do
+              context "1 year working or education" do
                 should "show the result" do
                   add_response 1
                   assert_current_node :amount_result
-                end
-              end
-            end
-          end
-        end
-      end
-    end
-  end
-end
+                end #show result
+              end #years working or education
+            end #years of benefit
+          end #years of jsa
+        end #years of NI
+      end # years old
+    end # gender
+  end #amount calculation
+end #ask which calculation
