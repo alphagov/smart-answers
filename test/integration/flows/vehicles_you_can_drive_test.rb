@@ -16,7 +16,7 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
   ## Car and light vehicle specs
   context "answer car or light vehicle" do
     setup do
-      add_response :car_or_light_vehicle
+      add_response "car-or-light-vehicle"
     end
     ## Q2
     should "ask if you have a licence" do
@@ -41,7 +41,7 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
       ## A2
       context "answer under 16" do
         should "state you are not old enough" do
-          add_response :under_16
+          add_response "under-16"
           assert_current_node :not_old_enough
         end
       end
@@ -55,7 +55,7 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
       ## A4
       context "answer 17 or over" do
         should "state you may have mobility rate elligibility" do
-          add_response "17_or_over"
+          add_response "17-or-over"
           assert_current_node :elligible_for_provisional_licence
         end
       end
@@ -141,7 +141,7 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
       context "answer under 17" do
         ## A10
         should "state elligibility" do
-          add_response "under_17"
+          add_response "under-17"
           assert_current_node :motorcycle_elligibility_no_licence_under_17 # A10
         end
       end
@@ -155,10 +155,111 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
       context "answer 21 or over" do
         ## A12
         should "state elligibility" do
-          add_response "21_or_over"
+          add_response "21-or-over"
           assert_current_node :motorcycle_elligibility_no_licence_21_and_over # A12
         end
       end
     end
   end ## Motorcycle specs
+  
+  ## Moped specs
+  context "answer moped" do
+    setup do
+      add_response :moped
+    end
+    ## Q9
+    should "ask do you have a full driving licence?" do
+      assert_current_node :do_you_have_a_full_driving_licence?
+    end
+    context "answer yes" do
+      setup do
+        add_response :yes
+      end
+      ## Q10
+      should "ask if the licence was issued before feb 2001" do
+        assert_current_node :licence_issued_before_2001?
+      end
+    end
+    context "answer no" do
+      setup do
+        add_response :no
+      end
+      ## Q11
+      should "ask how old you are" do
+        assert_current_node :how_old_are_you_mpd?
+      end
+      context "answer under 16" do
+        ## A15
+        should "state you cannot ride a moped" do
+          add_response "under-16"
+          assert_current_node :moped_not_old_enough # A15
+        end
+      end
+      context "answer 16 or over" do
+        ## A16
+        should "state provisional licence elligibility" do
+          add_response "16-or-over"
+          assert_current_node :moped_apply_for_provisional # A16
+        end
+      end
+    end
+  end ## Moped specs
+  
+  ## Medium sized vehicles
+  context "answer medium sized vehicle" do
+    setup do
+      add_response "medium-sized-vehicle"
+    end
+    ## Q12
+    should "ask if you have a full cat B licence" do
+      assert_current_node :do_you_have_a_full_cat_b_driving_licence?
+    end
+    context "answer yes" do
+      setup do
+        add_response :yes
+      end
+      ## Q13
+      should "ask when the licence was issued" do
+        assert_current_node :when_was_licence_issued?
+      end
+      context "answer before jan 1997" do
+        ## A17
+        should "state that you are elligible" do
+          add_response "before-jan-1997"
+          assert_current_node :elligible_for_msv # A17
+        end
+      end
+      context "answer from jan 1997" do
+        setup do
+          add_response "from-jan-1997"
+        end
+        ## Q14
+        should "ask how old you are" do
+          assert_current_node :how_old_are_you_msv?
+        end
+        context "answer under 18" do
+          ## A18
+          should "state you are not allowed to drive medium sized vehicles" do
+            add_response "under-18"
+            assert_current_node :not_elligible_for_msv_until_18 # A18
+          end
+        end
+        context "answer 18 or over" do
+          ## A19
+          should "tell you to apply for provisional entitlement" do
+            add_response "18-or-over"
+            assert_current_node :apply_for_provisional_msv_entitlement #A19
+          end
+        end
+      end
+    end
+    ## Full cat B licence?
+    context "answer no" do
+      ## A20
+      should "state you need a full cat B licence" do
+        add_response :no
+        assert_current_node :cat_b_licence_required #A20
+      end
+    end
+  end ## Medium sized vehicles
 end
