@@ -50,8 +50,8 @@ end
 
 ## Q7
 multiple_choice :had_mb_licence_for_more_2_years_21? do
-  option :yes => :motorcycle_elligibility_17_20 # A6
-  option :no => :motorcycle_elligibility_21 # A7
+  option :yes => :elligible_for_any_motorcycle_21 # A6
+  option :no => :elligible_for_same_motorcycle_21 # A7
 end
 
 ## Q8
@@ -67,8 +67,8 @@ outcome :not_old_enough # A2
 outcome :mobility_rate_clause # A3
 outcome :elligible_for_provisional_licence # A4
 outcome :elligible_for_same_motorcycle # A5
-outcome :motorcycle_elligibility_17_20 # A6
-outcome :motorcycle_elligibility_21 # A7
+outcome :elligible_for_any_motorcycle_21 # A6
+outcome :elligible_for_same_motorcycle_21 # A7
 outcome :motorcycle_elligibility_over_22 # A8
 outcome :motorcycle_elligibility_no_licence_under_17 # A9
 outcome :motorcycle_elligibility_no_licence_17_20 # A10

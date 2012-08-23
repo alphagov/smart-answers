@@ -86,8 +86,46 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
         setup do
           add_response "17-20"
         end
+        ## Q6
         should "ask if you've had the licence for more than 2 years" do
-          assert_current_node 
+          assert_current_node :had_mb_licence_for_more_than_2_years_17_20?
+        end
+        context "answer yes" do
+          ## A6
+          should "state elligility" do
+            add_response :yes
+            assert_current_node :elligible_for_provisional_licence #A4
+          end
+        end
+        context "answer no" do
+          ## A7
+          should "state elligibility" do
+            add_response :no
+            assert_current_node :elligible_for_same_motorcycle # A5
+          end
+        end
+      end
+      context "answer 21" do
+        setup do
+          add_response "21"
+        end
+        ## Q6
+        should "ask if you've had the licence for more than 2 years" do
+          assert_current_node :had_mb_licence_for_more_2_years_21?
+        end
+        context "answer yes" do
+          ## A6
+          should "state elligility" do
+            add_response :yes
+            assert_current_node :elligible_for_any_motorcycle_21 #A6
+          end
+        end
+        context "answer no" do
+          ## A7
+          should "state elligibility" do
+            add_response :no
+            assert_current_node :elligible_for_same_motorcycle_21 # A7
+          end
         end
       end
     end
