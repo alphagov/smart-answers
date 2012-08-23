@@ -16,14 +16,20 @@ class StatePensionQuery < Struct.new(:dob, :gender)
   def self.find(dob, gender)
     state_pension_query = new(dob, gender)
     result = state_pension_query.run
-    state_pension_query.sanitize_date(result.pension_date)
+    state_pension_query.account_for_leap_year(result.pension_date)
   end
 
   def run
     state_pension_dates.find{|p| p.match?(dob, gender)}
   end
 
-  def sanitize_date(date)
+  # Handle the case where the person's d.o.b. is 29th Feb
+  # on a leap year and that the pension elligibility date falls
+  # on a non-leap year. ActiveSupport will helpfully adjust the 
+  # date back to 28th Feb, but the calculation should forward to
+  # the 1st March according to DWP rules.
+  #
+  def account_for_leap_year(date)
     if leap_year_date?(dob) and !leap_year_date?(date) 
       date += 1
     end
