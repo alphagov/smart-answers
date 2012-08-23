@@ -182,7 +182,7 @@ value_question :years_of_work? do
 
   calculate :calculator do
     work_years = Integer(responses.last)
-    raise InvalidResponse if work_years < 0 or work_years > 70
+    raise InvalidResponse if work_years < 0 or work_years > 3
     y = ni_years.to_i + jsa_years.to_i + benefit_years.to_i + work_years
     Calculators::StatePensionAmountCalculator.new(
       gender: gender, dob: dob, qualifying_years: y)
