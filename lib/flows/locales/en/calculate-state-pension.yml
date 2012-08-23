@@ -13,6 +13,7 @@ en-GB:
       phrases:
         this_is_the_full_state_pension: This is the full State Pension.
         this_is_n_below_the_full_state_pension: This is £%{pension_loss} per week below the full State Pension.  
+        married_woman_text: If you are a married woman paying reduced National Insurance, don’t count any years before 2010.
       gender?:
         title: What is your gender?
         options:
@@ -30,12 +31,12 @@ en-GB:
         title: What is your date of birth?
         error_message: Enter your date of birth
       years_paid_ni?:
-        title: What is the number of years you’ve paid National Insurance?
+        title: How many years of National Insurance have you paid?
         hint: |
-          National Insurance is deducted from your wages. Check your P60 end of year pay slips if unsure. Self-employed people pay it with other tax.
+          National Insurance is deducted from your wages. Self-employed people pay it with other tax.
         error_message: Your answer has to match the number of years you actually worked and paid National Insurance
       years_of_jsa?:
-        title: "What is the number of years you claimed any of the following:"
+        title: "How many years have you claimed any of the following:"
         body: |
           - Jobseekers Allowance
           - Incapacity Benefit
@@ -44,7 +45,7 @@ en-GB:
         hint: Enter 0 if you’ve never claimed any of these.
         error_message: Please enter a number
       years_of_benefit?:
-        title: "What is the number of years any of the following applied:"
+        title: "How many years did any of the following apply:"
         body: |
           - you claimed Child Benefit for a child under 12
           - you claimed Carer’s Allowance or Income Support
@@ -53,11 +54,10 @@ en-GB:
           - you cared for someone sick or disabled for at least 20 hours a week
         hint: |
           Enter 0 if none of these apply.
-          
-          If you are a married woman paying reduced National Insurance, don’t count any years before 2010.
+          %{if_married_woman}
         error_message: Please enter a number
       years_of_work?:
-        title: What is the number of years between age 16 and 19 when you were in full-time education or working?
+        title: How many years between age 16 and 19 were you in full-time education or working?
         hint: |
           Include the years you were claiming benefits because of unemployment, illness or disability.
         error_message: The maximum number of years you can enter is 3
@@ -68,10 +68,11 @@ en-GB:
 
           You must [claim your State Pension](https://authenticate.gateway.gov.uk/sidp/SignIn.ashx?gwv=1.0&gwrealm=urn%3alogin.dwpe-services.direct.gov.uk&gwdal=1.00&gwmal=1.00 "Claim your state pension") if you haven’t done so already. You need a Government Gateway account to claim.
 
+
           $C
           *Pension Service claim line:* 0800 731 7898  
           $C
-          
+
           If you want to keep working you can [defer your State Pension](/deferring-state-pension/what-you-may-get). 
 
           If you don’t get the full State Pension you might still be able to [pay voluntary National Insurance contributions](/voluntary-national-insurance-contributions).
@@ -90,6 +91,10 @@ en-GB:
           [National Insurance](/national-insurance/overview)
       amount_result:
         body: |
+          $C
+          Callout
+          $C
+
           Your State Pension age is %{state_pension_age}.
 
           You’ll reach State Pension age on %{state_pension_date}.
@@ -106,8 +111,12 @@ en-GB:
 
           More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
       age_result:
-        title: You can get your State Pension on %{state_pension_date}.
+        title: You['ll] reach[ed] State Pension age on %{state_pension_date}.
         body: |
-          ^The State Pension age may change. You'll be contacted if your State Pension age is going to change.^
+          You should get your pension claim pack in [Month yyyy]. Contact the Pension Service if you haven't received it.
 
-          You can also work out [how much basic State Pension you're going to get](/calculate-state-pension).
+          [text to display if already reached state pension age - You have already reached State Pension age. You can [claim your State Pension](/state-pension#how-to-claim "How to claim") if you haven't already or [defer claiming it](/how-to-defer-your-state-pension "How to defer your State Pension").^]
+
+          If you're on a low income, you might be eligible to claim [Pension Credit](/pension-credit “Pension Credit”).
+
+          This calculation is according to the current law. The State Pension age may change in the future. 

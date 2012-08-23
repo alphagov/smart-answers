@@ -9,6 +9,15 @@ multiple_choice :gender? do
   option :male
   option :female
 
+  # optional text to include in a hint for a later question
+  calculate :if_married_woman do
+    if responses.last.eql? 'female'
+      PhraseList.new(:married_woman_text)
+    else
+      ''
+    end
+  end
+
   next_node :which_calculation?
 end
 
@@ -138,7 +147,7 @@ end
 
 value_question :years_of_benefit? do
   save_input_as :benefit_years
-  
+
   calculate :calculator do
     benefit_years = Integer(responses.last)
     raise InvalidResponse if benefit_years < 0 or benefit_years > 70
