@@ -262,4 +262,168 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
       end
     end
   end ## Medium sized vehicles
+  
+  ## Lorries and large vehicles
+  context "answer large vehicle or lorry" do
+    setup do
+      add_response "large-vehicle-or-lorry"
+    end
+    ## Q15
+    should "ask how old you are" do
+      assert_current_node :how_old_are_you_lorry?
+    end
+    context "answer under 18" do
+      ## A21
+      should "state you are not elligible until 18" do
+        add_response "under-18"
+        assert_current_node :not_elligible_for_lorry_until_18 # A21
+      end
+    end
+    context "answer 18-20" do
+      ## A22
+      should "state the limited elligibility for 18-20 age group" do
+        add_response "18-20"
+        assert_current_node :limited_elligibility_lorry # A22
+      end
+    end
+    context "answer 21 or over" do
+      setup do
+        add_response "21-or-over"
+      end
+      ## Q16
+      should "ask if you have a full cat B licence" do
+        assert_current_node :do_you_have_a_full_cat_b_car_licence? # Q16
+      end
+      context "answer yes" do
+        setup do
+          add_response :yes
+        end
+        ## Q17
+        should "ask when the licence was issued" do
+          assert_current_node :when_was_cat_b_licence_issued?
+        end
+        context "answer before jan 1997" do
+          ## A23
+          should "say apply for provisional cat C entitlement" do
+            add_response "before-jan-1997"
+            assert_current_node :apply_for_provisional_cat_c_entitlement #A23
+          end
+        end
+        context "answer from jan 1997" do
+          ## A24
+          should "state conditional provisional cat C entitlement" do
+            add_response "from-jan-1997"
+            assert_current_node :apply_for_conditional_provisional_cat_c_entitlement #A24
+          end
+        end        
+      end
+      ## Full cat B licence?
+      context "answer no" do
+        ## A25
+        should "state a cat B driving licence is required" do
+          add_response :no
+          assert_current_node :cat_b_driving_licence_required #A25
+        end
+      end
+    end
+  end ## Lorries and large vehicles
+  
+  ## Minibus / PSV
+  context "answer minibus" do
+    setup do
+      add_response :minibus
+    end
+    ## Q18
+    should "ask if you have a cat B licence" do
+      assert_current_node :full_cat_b_car_licence_psv?
+    end
+    context "answer yes" do
+      setup do
+        add_response :yes
+      end
+      ## Q19
+      should "ask when the licence was issued" do
+        assert_current_node :when_was_licence_issued_psv?
+      end
+      context "answer before-jan-1997" do
+        ## A26
+        should "state that you are elligible" do
+          add_response "before-jan-1997"
+          assert_current_node :psv_elligible # A26
+        end
+      end
+      context "answer from-jan-1997" do
+        setup do
+          add_response "from-jan-1997"
+        end
+        ## Q20
+        should "ask how old you are" do
+          assert_current_node :how_old_are_you_psv?
+        end
+        context "answer under 21" do
+          ## A27
+          should "state conditional elligibility" do
+            add_response "under-21"
+            assert_current_node :psv_conditional_elligibility # A27
+          end
+        end
+        context "answer 21 or over" do
+          ## A28
+          should "state limited elligibility" do
+            add_response "21-or-over"
+            assert_current_node :psv_limited_elligibility # A28
+          end
+        end
+      end
+    end
+    context "answer no" do
+      ## A27
+      should "tell you about conditional elligibility" do
+        add_response :no
+        assert_current_node :psv_conditional_elligibility #A 27
+      end
+    end
+  end ## Minibus / PSV
+  
+  ## Bus / Cat D
+  context "answer bus" do
+    setup do
+      add_response :bus
+    end
+    ## Q21
+    should "ask if you have a full cat B driving licence" do
+      assert_current_node :full_cat_b_licence_bus?
+    end
+    context "answer yes" do
+      setup do
+        add_response :yes
+      end
+      ## Q22
+      should "ask how old you are" do
+        assert_current_node :how_old_are_you_bus?
+      end
+      should "state exceptions for under 18s" do
+        add_response "under-18"
+        assert_current_node :bus_exceptions_under_18 # A29
+      end
+      should "state exceptions for 18-19 year olds" do
+        add_response "18-19"
+        assert_current_node :bus_exceptions_18_19 # A30
+      end
+      should "state exceptions for 20 year olds" do
+        add_response "20"
+        assert_current_node :bus_exceptions_20 # A31
+      end
+      should "advise you to apply for a cat D licence" do
+        add_response "21-or-above"
+        assert_current_node :bus_apply_for_cat_d # A32
+      end
+    end
+    context "answer no" do
+      should "say apply for a cat B licence" do
+        add_response :no
+        assert_current_node :bus_apply_for_cat_b # A33
+      end
+    end
+  end
 end

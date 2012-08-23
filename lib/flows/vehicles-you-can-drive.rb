@@ -8,9 +8,9 @@ multiple_choice :what_type_of_vehicle? do
   option :motorcycle => :do_you_have_a_full_motorcycle_licence? #Q4
   option :moped => :do_you_have_a_full_driving_licence? #Q9
   option "medium-sized-vehicle" => :do_you_have_a_full_cat_b_driving_licence? #Q12
-#  option "large-vehicle-or-lorry" => #Q15
-#  option :minibus => #Q18
-#  option :bus => #Q21
+  option "large-vehicle-or-lorry" => :how_old_are_you_lorry? #Q15
+  option :minibus => :full_cat_b_car_licence_psv? #Q18
+  option :bus => :full_cat_b_licence_bus? #Q21
 #  option :agricultural_tractor => #Q23
 #  option :other_specialist_vehicle => #Q25
 #  option :quad_bike_or_trike => #Q28
@@ -105,10 +105,62 @@ multiple_choice :how_old_are_you_msv? do
   option "18-or-over" => :apply_for_provisional_msv_entitlement # A19
 end
 
-## 
+## Lorries and large vehicles
 ##
-##
+## Q15
+multiple_choice :how_old_are_you_lorry? do
+  option "under-18" => :not_elligible_for_lorry_until_18 # A21
+  option "18-20" => :limited_elligibility_lorry # A22
+  option "21-or-over" => :do_you_have_a_full_cat_b_car_licence? # Q16
+end
 
+## Q16
+multiple_choice :do_you_have_a_full_cat_b_car_licence? do
+  option :yes => :when_was_cat_b_licence_issued? # Q17
+  option :no => :cat_b_driving_licence_required # A25
+end
+
+## Q17
+multiple_choice :when_was_cat_b_licence_issued? do
+  option "before-jan-1997" => :apply_for_provisional_cat_c_entitlement # A23
+  option "from-jan-1997" => :apply_for_conditional_provisional_cat_c_entitlement # A24
+end
+
+## Minibus PSV
+##
+## Q18
+multiple_choice :full_cat_b_car_licence_psv? do
+  option :yes => :when_was_licence_issued_psv? # Q19
+  option :no => :psv_conditional_elligibility # A27
+end
+
+## Q19
+multiple_choice :when_was_licence_issued_psv? do
+  option "before-jan-1997" => :psv_elligible # A26
+  option "from-jan-1997" => :how_old_are_you_psv? # Q20
+end
+
+## Q20
+multiple_choice :how_old_are_you_psv? do
+  option "under-21" => :psv_conditional_elligibility # A27
+  option "21-or-over" => :psv_limited_elligibility # A28
+end
+
+# Bus
+#
+# Q21
+multiple_choice :full_cat_b_licence_bus? do
+  option :yes => :how_old_are_you_bus? # Q22
+  option :no => :bus_apply_for_cat_b # A33
+end
+
+## Q22
+multiple_choice :how_old_are_you_bus? do
+  option "under-18" => :bus_exceptions_under_18 # A29
+  option "18-19" => :bus_exceptions_18_19 # A30
+  option "20" => :bus_exceptions_20# A31
+  option "21-or-above" => :bus_apply_for_cat_d # A32 
+end
 
 outcome :you_may_already_be_elligible # A1
 outcome :not_old_enough # A2
@@ -130,3 +182,16 @@ outcome :elligible_for_msv # A17
 outcome :not_elligible_for_msv_until_18 # A18
 outcome :apply_for_provisional_msv_entitlement # A19
 outcome :cat_b_licence_required # A20
+outcome :not_elligible_for_lorry_until_18 # A21
+outcome :limited_elligibility_lorry # A22
+outcome :apply_for_provisional_cat_c_entitlement # A23
+outcome :apply_for_conditional_provisional_cat_c_entitlement # A24
+outcome :cat_b_driving_licence_required # A25
+outcome :psv_elligible # A26
+outcome :psv_conditional_elligibility # A27
+outcome :psv_limited_elligibility # A28
+outcome :bus_exceptions_under_18 # A29
+outcome :bus_exceptions_18_19 # A30
+outcome :bus_exceptions_20 # A31
+outcome :bus_apply_for_cat_d # A32
+outcome :bus_apply_for_cat_b # A33
