@@ -222,21 +222,27 @@ end
 
 value_question :shift_worker_hours_per_shift? do
   calculate :hours_per_shift do
-    responses.last.to_f
+    hours_per_shift = responses.last.to_f
+    raise InvalidResponse if hours_per_shift <= 0
+    hours_per_shift
   end
   next_node :shift_worker_shifts_per_shift_pattern?
 end
 
 value_question :shift_worker_shifts_per_shift_pattern? do
   calculate :shifts_per_shift_pattern do
-    responses.last.to_i
+    shifts = responses.last.to_i
+    raise InvalidResponse if shifts <=0
+    shifts
   end
   next_node :shift_worker_days_per_shift_pattern?
 end
 
 value_question :shift_worker_days_per_shift_pattern? do
   calculate :days_per_shift_pattern do
-    responses.last.to_i
+    days = responses.last.to_i
+    raise InvalidResponse if days < shifts_per_shift_pattern
+    days
   end
   calculate :calculator do
     Calculators::HolidayEntitlement.new(

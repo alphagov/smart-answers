@@ -21,7 +21,7 @@ en-GB:
           $!Your statutory holiday entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes for the time you have worked.$!
 
         answer_compressed_hours: |
-          $!Your statutory holiday entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes. You should take %{hours_daily} hours and %{minutes_daily} minutes for each day of holiday.$!
+          $!Your statutory holiday entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes. Each day's leave is %{hours_daily} hours and %{minutes_daily} minutes long ie the same number of hours as your normal working day.$!
 
         answer_shift_worker: |
           $!Your statutory holiday entitlement is %{holiday_entitlement_shifts} %{hours_per_shift} hour shifts during this leave year.$!
@@ -119,6 +119,7 @@ en-GB:
         title: How many hours have you worked?
         hint: Your holiday entitlement may be calculated as your leave builds up ('accrues') for each hour you work.
         label: Hours worked
+        error_message: You need to enter a number greater than 0
 
       annualised_hours?:
         title: How many hours do you work a year?
@@ -133,14 +134,17 @@ en-GB:
       shift_worker_hours_per_shift?:
         title: How many hours in each shift?
         label: Hours per shift
+        error_message: You need to enter a number greater than 0
 
       shift_worker_shifts_per_shift_pattern?:
         title: How many shifts do you work per shift pattern?
         label: Shifts per pattern
+        error_message: You need to enter a number greater than 0
 
       shift_worker_days_per_shift_pattern?:
         title: How many days per shift pattern?
         label: Days per pattern
+        error_message: You need to enter a number greater than or equal to the number of shifts you work
 
       when_does_your_leave_year_start?:
         hint: This is usually in your employment contract. If it isn’t and you started your job after 1 October 1998, your leave year will start on the 1st day of your job. If you started work on or before 1 October 1998, your leave year will start on 1 October.
