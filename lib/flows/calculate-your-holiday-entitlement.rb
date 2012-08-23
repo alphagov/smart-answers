@@ -50,15 +50,17 @@ end
 
 multiple_choice :full_time_how_many_days_per_week? do
   option "5-days"
-  option "6-days"
-  option "7-days"
+  option "6-or-7-days"
 
   calculate :days_per_week do
     responses.last.to_i
   end
+  calculate :days_per_week_calculated do
+    (days_per_week < 5 ? days_per_week : 5)
+  end
   calculate :calculator do
     Calculators::HolidayEntitlement.new(
-      :days_per_week => days_per_week,
+      :days_per_week => (leave_year_start_date.nil? ? days_per_week : days_per_week_calculated),
       :start_date => start_date,
       :leaving_date => leaving_date,
       :leave_year_start_date => leave_year_start_date
@@ -72,10 +74,9 @@ multiple_choice :full_time_how_many_days_per_week? do
   end
   calculate :content_sections do
     full_year = start_date.nil? && leaving_date.nil?
-    capped = days_per_week != 5 && full_year
-
+    capped = days_per_week != 5
     sections = PhraseList.new
-    sections << (capped ? :answer_ft_pt_capped : :answer_ft_pt)
+    sections << (capped ? (full_year ? :answer_fy_capped : :answer_py_capped) : :answer_ft_pt)
     sections << (full_year ? :your_employer : :your_employer_with_rounding)
     if full_year
       sections << (capped ? :calculation_ft_capped : :calculation_ft)
