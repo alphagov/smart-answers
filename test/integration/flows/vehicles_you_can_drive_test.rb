@@ -94,14 +94,14 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
           ## A6
           should "state elligility" do
             add_response :yes
-            assert_current_node :elligible_for_provisional_licence #A4
+            assert_current_node :ellibile_for_any_motorcycle #A5
           end
         end
         context "answer no" do
           ## A7
           should "state elligibility" do
             add_response :no
-            assert_current_node :elligible_for_same_motorcycle # A5
+            assert_current_node :elligible_for_same_motorcycle # A6
           end
         end
       end
@@ -114,17 +114,17 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
           assert_current_node :had_mb_licence_for_more_2_years_21?
         end
         context "answer yes" do
-          ## A6
+          ## A7
           should "state elligility" do
             add_response :yes
-            assert_current_node :elligible_for_any_motorcycle_21 #A6
+            assert_current_node :elligible_for_any_motorcycle_21 #A7
           end
         end
         context "answer no" do
-          ## A7
+          ## A8
           should "state elligibility" do
             add_response :no
-            assert_current_node :elligible_for_same_motorcycle_21 # A7
+            assert_current_node :elligible_for_same_motorcycle_21 # A8
           end
         end
       end
