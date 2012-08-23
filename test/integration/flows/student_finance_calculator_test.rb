@@ -312,4 +312,71 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       end # valid fees
     end # part-time student
   end # when course starts
+
+  context "course starting between 2013 and 2014" do
+    setup do
+      add_response '2013-2014'
+    end
+
+    should "ask if you are full-time or part-time student" do
+      assert_current_node :are_you_a_full_time_or_part_time_student?
+    end
+
+    context "full-time student between 2013 and 2014" do
+      setup do
+        add_response 'full-time'
+      end
+
+      should "ask how much your tuition fees are per year" do
+        assert_current_node :how_much_are_your_tuition_fees_per_year?
+      end
+
+      should "be invalid if a fee over 9000 is entered" do
+        add_response '9001'
+        assert_current_node_is_error
+        assert_current_node :how_much_are_your_tuition_fees_per_year?
+      end
+
+      context "with valid fees entered" do
+        setup do
+          add_response '8490'
+        end
+
+        should "ask where you will live while studying" do
+          assert_current_node :where_will_you_live_while_studying?
+        end
+
+        context "living at home" do
+          setup do
+            add_response 'at-home'
+          end
+
+          should "ask whats your household income" do
+            assert_current_node :whats_your_household_income?
+          end
+
+          context "household income up to 25k" do
+            setup do
+              add_response 'up-to-25000'
+            end
+
+            should "ask if you want to check for additional grants etc" do
+              assert_current_node :full_time_do_you_want_to_check_for_additional_grants_and_allowances?
+            end
+
+            should "be done if not checking for additional grants etc. and grant amounts should be for 2013-2014 period" do
+              add_response 'no'
+
+              assert_current_node :done
+              assert_phrase_list :eligible_finance, [:tuition_fee_loan, :maintenance_loan, :maintenance_grant]
+              assert_state_variable :tuition_fee_amount, 8490
+              assert_state_variable :maintenance_loan_amount, 4375
+              assert_state_variable :maintenance_grant_amount, 3250
+              assert_phrase_list :additional_benefits, []
+            end
+          end
+        end # checking for grants etc.
+      end # valid fees
+    end # part-time student
+  end # when course starts
 end
