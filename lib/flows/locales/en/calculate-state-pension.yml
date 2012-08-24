@@ -14,6 +14,13 @@ en-GB:
         this_is_the_full_state_pension: This is the full State Pension.
         this_is_n_below_the_full_state_pension: This is £%{pension_loss} per week below the full State Pension.  
         married_woman_text: If you are a married woman paying reduced National Insurance, don’t count any years before 2010.
+        will_reach_pension_age: You'll reach State Pension age on %{formatted_state_pension_date}.
+        have_reached_pension_age: You reached State Pension age on %{formatted_state_pension_date}.
+        claim_pension_now_text: |
+          You have already reached State Pension age. You can [claim your State Pension](/state-pension#how-to-claim "How to claim") if you haven't already or [defer claiming it](/how-to-defer-your-state-pension "How to defer your State Pension")^.
+        remaining_contributions_years_callout: |
+          You still need to pay National Insurance contributions for %{remaining_contribution_years} to get the full State Pension.
+        full_contribution_years_callout: You get the full State Pension.
       gender?:
         title: What is your gender?
         options:
@@ -92,18 +99,18 @@ en-GB:
       amount_result:
         body: |
           $C
-          Callout
+          %{contribution_callout_text}
           $C
 
           Your State Pension age is %{state_pension_age}.
 
-          You’ll reach State Pension age on %{state_pension_date}.
+          You’ll reach State Pension age on %{formatted_state_pension_date}.
 
           Your State Pension now would be £%{pension_amount} per week.
 
           %{pension_summary}
 
-          ^This is an estimate. For a more accurate breakdown [apply for a State Pension statement](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@over50/documents/digitalasset/dg_200096.pdf).^
+          ^This is an estimate. For a more accurate breakdown [apply for a State Pension statement](/forecast-your-state-pension).^
 
           How much State Pension you get depends on how many years of National Insurance contributions you have.
 
@@ -111,11 +118,13 @@ en-GB:
 
           More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
       age_result:
-        title: You['ll] reach[ed] State Pension age on %{state_pension_date}.
+        title: |
+          %{tense_specific_title}
+          
         body: |
-          You should get your pension claim pack in [Month yyyy]. Contact the Pension Service if you haven't received it.
+          You should get your pension claim pack in %{formatted_pension_pack_date}. Contact the Pension Service if you haven't received it.
 
-          [text to display if already reached state pension age - You have already reached State Pension age. You can [claim your State Pension](/state-pension#how-to-claim "How to claim") if you haven't already or [defer claiming it](/how-to-defer-your-state-pension "How to defer your State Pension").^]
+          %{already_elligible_text}
 
           If you're on a low income, you might be eligible to claim [Pension Credit](/pension-credit “Pension Credit”).
 

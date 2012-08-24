@@ -41,7 +41,27 @@ date_question :dob_age? do
   calculate :state_pension_date do
     Calculators::StatePensionAmountCalculator.new(
       gender: gender, dob: responses.last, qualifying_years: nil
-    ).state_pension_date.to_date.to_formatted_s(:long)
+    ).state_pension_date
+  end
+  
+  calculate :formatted_state_pension_date do
+    state_pension_date.to_date.to_formatted_s(:long)
+  end
+  
+  calculate :tense_specific_title do
+    if state_pension_date > Date.today
+      PhraseList.new(:will_reach_pension_age) 
+    else
+      PhraseList.new(:have_reached_pension_age)
+    end
+  end
+  
+  calculate :already_elligible_text do
+    state_pension_date <= Date.today ? PhraseList.new(:claim_pension_now_text) : ''
+  end
+  
+  calculate :formatted_pension_pack_date do
+    4.months.ago(state_pension_date).strftime("%B %Y")
   end
   
   next_node :age_result
@@ -86,7 +106,7 @@ value_question :years_paid_ni? do
       gender: gender, dob: dob, qualifying_years: ni_years)
   end
 
-  calculate :state_pension_date do
+  calculate :formatted_state_pension_date do
     calculator.state_pension_date.to_date.to_formatted_s(:long)
   end
 
@@ -105,6 +125,10 @@ value_question :years_paid_ni? do
       PhraseList.new(:this_is_the_full_state_pension)
     end
   end
+  
+  calculate :contribution_callout_text do
+    PhraseList.new :full_contribution_years_callout
+  end
 
   next_node do |response|
     Integer(response) > 29 ? :amount_result : :years_of_jsa?
@@ -122,7 +146,7 @@ value_question :years_of_jsa? do
     )
   end
   
-  calculate :state_pension_date do
+  calculate :formatted_state_pension_date do
     calculator.state_pension_date.to_date.to_formatted_s(:long)
   end
 
@@ -132,6 +156,10 @@ value_question :years_of_jsa? do
 
   calculate :pension_loss do
     sprintf("%.2f", calculator.pension_loss)
+  end
+  
+  calculate :contribution_callout_text do
+    PhraseList.new :full_contribution_years_callout
   end
   
   calculate :pension_summary do
@@ -169,6 +197,10 @@ value_question :years_of_benefit? do
 
   calculate :pension_loss do
     sprintf("%.2f", calculator.pension_loss)
+  end
+  
+  calculate :contribution_callout_text do
+    PhraseList.new :full_contribution_years_callout
   end
   
   calculate :pension_summary do
@@ -209,6 +241,19 @@ value_question :years_of_work? do
 
   calculate :pension_loss do
     sprintf("%.2f", calculator.pension_loss)
+  end
+  
+  calculate :remaining_contribution_years do
+    remaining = (30 - calculator.qualifying_years)
+    (remaining == 1 ? "#{remaining} year" : "#{remaining} years")   
+  end
+  
+  calculate :contribution_callout_text do
+    if (30 - calculator.qualifying_years) <= 0
+      PhraseList.new :full_contribution_years_callout
+    else
+      PhraseList.new :remaining_contributions_years_callout
+    end
   end
   
   calculate :pension_summary do
