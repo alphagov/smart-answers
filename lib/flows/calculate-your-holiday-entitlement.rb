@@ -76,11 +76,13 @@ multiple_choice :full_time_how_many_days_per_week? do
     full_year = start_date.nil? && leaving_date.nil?
     capped = days_per_week != 5
     sections = PhraseList.new
-    sections << (capped ? (full_year ? :answer_fy_capped : :answer_py_capped) : :answer_ft_pt)
-    sections << (full_year ? :your_employer : :your_employer_with_rounding)
     if full_year
+      sections << (capped ? :answer_fy_capped : :answer_ft_pt)
+      sections << :your_employer
       sections << (capped ? :calculation_ft_capped : :calculation_ft)
     else
+      sections << (capped ? :answer_py_capped : :answer_ft_py)
+      sections << :your_employer_with_rounding
       sections << :calculation_ft_partial_year
     end
     sections

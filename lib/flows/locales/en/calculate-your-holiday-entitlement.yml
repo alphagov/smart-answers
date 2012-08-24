@@ -9,6 +9,9 @@ en-GB:
 
       phrases:
         answer_ft_pt: |
+          $!Your statutory holiday entitlement is %{holiday_entitlement_days} days.$!
+          
+        answer_ft_py: |
           $!Your statutory holiday entitlement is %{holiday_entitlement_days} days during this leave year.$!
 
         answer_fy_capped: |

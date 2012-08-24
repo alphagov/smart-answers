@@ -114,7 +114,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             assert_state_variable :holiday_entitlement_days, 'formatted days'
             assert_state_variable :fraction_of_year, 'fraction of year'
             assert_state_variable :days_per_week, 5
-            assert_phrase_list :content_sections, [:answer_ft_pt, :your_employer_with_rounding, :calculation_ft_partial_year]
+            assert_phrase_list :content_sections, [:answer_ft_py, :your_employer_with_rounding, :calculation_ft_partial_year]
           end
 
           should "calculate and be done part year when 6 or 7 days" do
@@ -187,7 +187,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             assert_state_variable :holiday_entitlement_days, 'formatted days'
             assert_state_variable :fraction_of_year, 'fraction of year'
             assert_state_variable :days_per_week, 5
-            assert_phrase_list :content_sections, [:answer_ft_pt, :your_employer_with_rounding, :calculation_ft_partial_year]
+            assert_phrase_list :content_sections, [:answer_ft_py, :your_employer_with_rounding, :calculation_ft_partial_year]
           end
 
           should "calculate and be done part year when 6 days" do
