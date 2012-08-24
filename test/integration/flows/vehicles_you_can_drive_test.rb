@@ -24,9 +24,9 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
     end
     ## A1
     context "answer yes" do
-      should "give the outcome that you may already be elligible" do
+      should "give the outcome that you may already be entitled" do
         add_response :yes
-        assert_current_node :you_may_already_be_elligible
+        assert_current_node :you_may_already_be_entitled
       end
     end
     
@@ -47,16 +47,16 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
       end
       ## A3
       context "answer 16" do
-        should "state you may have mobility rate elligibility" do
+        should "state you may have mobility rate entitlement" do
           add_response "16"
           assert_current_node :mobility_rate_clause
         end
       end
       ## A4
       context "answer 17 or over" do
-        should "state you may have mobility rate elligibility" do
+        should "state you may have mobility rate entitlement" do
           add_response "17-or-over"
-          assert_current_node :elligible_for_provisional_licence
+          assert_current_node :entitled_for_provisional_licence
         end
       end
     end
@@ -94,14 +94,14 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
           ## A6
           should "state elligility" do
             add_response :yes
-            assert_current_node :ellibile_for_any_motorcycle #A5
+            assert_current_node :entitled_for_any_motorcycle #A5
           end
         end
         context "answer no" do
           ## A7
-          should "state elligibility" do
+          should "state entitlement" do
             add_response :no
-            assert_current_node :elligible_for_same_motorcycle # A6
+            assert_current_node :entitled_for_same_motorcycle # A6
           end
         end
       end
@@ -117,14 +117,14 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
           ## A7
           should "state elligility" do
             add_response :yes
-            assert_current_node :elligible_for_any_motorcycle_21 #A7
+            assert_current_node :entitled_for_any_motorcycle_21 #A7
           end
         end
         context "answer no" do
           ## A8
-          should "state elligibility" do
+          should "state entitlement" do
             add_response :no
-            assert_current_node :elligible_for_same_motorcycle_21 # A8
+            assert_current_node :entitled_for_same_motorcycle_21 # A8
           end
         end
       end
@@ -140,23 +140,23 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
       end
       context "answer under 17" do
         ## A10
-        should "state elligibility" do
+        should "state entitlement" do
           add_response "under-17"
-          assert_current_node :motorcycle_elligibility_no_licence_under_17 # A10
+          assert_current_node :motorcycle_entitlement_no_licence_under_17 # A10
         end
       end
       context "answer 17-20" do
         ## A11
-        should "state elligibility" do
+        should "state entitlement" do
           add_response "17-20"
-          assert_current_node :motorcycle_elligibility_no_licence_17_20 # A11
+          assert_current_node :motorcycle_entitlement_no_licence_17_20 # A11
         end
       end
       context "answer 21 or over" do
         ## A12
-        should "state elligibility" do
+        should "state entitlement" do
           add_response "21-or-over"
-          assert_current_node :motorcycle_elligibility_no_licence_21_and_over # A12
+          assert_current_node :motorcycle_entitlement_no_licence_21_and_over # A12
         end
       end
     end
@@ -197,7 +197,7 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
       end
       context "answer 16 or over" do
         ## A16
-        should "state provisional licence elligibility" do
+        should "state provisional licence entitlement" do
           add_response "16-or-over"
           assert_current_node :moped_apply_for_provisional # A16
         end
@@ -224,9 +224,9 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
       end
       context "answer before jan 1997" do
         ## A17
-        should "state that you are elligible" do
+        should "state that you are entitled" do
           add_response "before-jan-1997"
-          assert_current_node :elligible_for_msv # A17
+          assert_current_node :entitled_for_msv # A17
         end
       end
       context "answer from jan 1997" do
@@ -241,7 +241,7 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
           ## A18
           should "state you are not allowed to drive medium sized vehicles" do
             add_response "under-18"
-            assert_current_node :not_elligible_for_msv_until_18 # A18
+            assert_current_node :not_entitled_for_msv_until_18 # A18
           end
         end
         context "answer 18 or over" do
@@ -274,16 +274,16 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
     end
     context "answer under 18" do
       ## A21
-      should "state you are not elligible until 18" do
+      should "state you are not entitled until 18" do
         add_response "under-18"
-        assert_current_node :not_elligible_for_lorry_until_18 # A21
+        assert_current_node :not_entitled_for_lorry_until_18 # A21
       end
     end
     context "answer 18-20" do
       ## A22
-      should "state the limited elligibility for 18-20 age group" do
+      should "state the limited entitlement for 18-20 age group" do
         add_response "18-20"
-        assert_current_node :limited_elligibility_lorry # A22
+        assert_current_node :limited_entitlement_lorry # A22
       end
     end
     context "answer 21 or over" do
@@ -347,9 +347,9 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
       end
       context "answer before-jan-1997" do
         ## A26
-        should "state that you are elligible" do
+        should "state that you are entitled" do
           add_response "before-jan-1997"
-          assert_current_node :psv_elligible # A26
+          assert_current_node :psv_entitled # A26
         end
       end
       context "answer from-jan-1997" do
@@ -362,25 +362,25 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
         end
         context "answer under 21" do
           ## A27
-          should "state conditional elligibility" do
+          should "state conditional entitlement" do
             add_response "under-21"
-            assert_current_node :psv_conditional_elligibility # A27
+            assert_current_node :psv_conditional_entitlement # A27
           end
         end
         context "answer 21 or over" do
           ## A28
-          should "state limited elligibility" do
+          should "state limited entitlement" do
             add_response "21-or-over"
-            assert_current_node :psv_limited_elligibility # A28
+            assert_current_node :psv_limited_entitlement # A28
           end
         end
       end
     end
     context "answer no" do
       ## A27
-      should "tell you about conditional elligibility" do
+      should "tell you about conditional entitlement" do
         add_response :no
-        assert_current_node :psv_conditional_elligibility #A 27
+        assert_current_node :psv_conditional_entitlement #A 27
       end
     end
   end ## Minibus / PSV
@@ -423,6 +423,173 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
       should "say apply for a cat B licence" do
         add_response :no
         assert_current_node :bus_apply_for_cat_b # A33
+      end
+    end
+  end ## Bus / Cat D
+  
+  ## Tractors
+  context "answer tractor" do
+    setup do
+      add_response :tractor
+    end
+    ## Q23
+    should "ask if you have a full cat B licence" do
+      assert_current_node :full_cat_b_licence_tractor?
+    end
+    context "answer yes" do
+      ## A34
+      should "say you are entitled" do
+        add_response :yes
+        assert_current_node :tractor_entitled #A34
+      end
+    end
+    context "answer no" do
+      setup do
+        add_response :no
+      end
+      ## Q24
+      should "ask how old you are" do
+        assert_current_node :how_old_are_you_tractor?
+      end
+      context "answer under 16" do
+        ## A35
+        should "state you cannot drive a tractor under 16" do
+          add_response "under-16"
+          assert_current_node :tractor_not_old_enough # A35
+        end
+      end
+      context "answer 16" do
+        ## A36
+        should "state you can apply for a provisional cat F licence" do
+          add_response "16"
+          assert_current_node :tractor_apply_for_provisional_conditional_licence # A36
+        end
+      end
+      context "answer 17 or over" do
+        ## A37
+        should "state you can apply for provisional entitlement" do
+          add_response "17-or-over"
+          assert_current_node :tractor_apply_for_provisional_entitlement # A37
+        end
+      end
+    end
+  end ## Tractors
+  
+  ## Specialist vehicles
+  context "answer specialist vehicle" do
+    setup do
+      add_response "specialist-vehicle"
+    end
+    ## Q25
+    should "ask if you have a full cat B licence" do
+      assert_current_node :full_cat_b_licence_sv?
+    end
+    context "answer yes" do
+      setup do
+        add_response :yes
+      end
+      ## Q26
+      should "ask how old you are" do
+        assert_current_node :how_old_are_you_licence_sv?
+      end
+      context "answer 17-20" do
+        ## A38
+        should "state ellibility" do
+          add_response "17-20"
+          assert_current_node :sv_entitled_cat_k # A38
+        end
+      end
+      context "answer 21-or-over" do
+        ## A39
+        should "state ellibility" do
+          add_response "21-or-over"
+          assert_current_node :sv_entitled_cat_k_provisional_g_h # A39
+        end
+      end
+    end
+    context "answer no" do
+      setup do
+        add_response :no
+      end
+      ## Q27
+      should "ask how old you are" do
+        assert_current_node :how_old_are_you_no_licence_sv?
+      end
+      context "answer under 16" do
+        ## A40
+        should "state you are not entitled" do
+          add_response "under-16"
+          assert_current_node :sv_not_old_enough # A40
+        end
+      end
+      context "answer 16" do
+        ## A41
+        should "state entitlement" do
+          add_response "16"
+          assert_current_node :sv_entitled_cat_k_mower # A41
+        end
+      end
+      context "answer 17-20" do
+        ## A42
+        should "state entitlement" do
+          add_response "17-20"
+          assert_current_node :sv_entitled_cat_k_conditional_g_h # A42
+        end
+      end
+      context "answer 21-or-over" do
+        ## A43
+        should "state entitlement" do
+          add_response "21-or-over"
+          assert_current_node :sv_entitled_no_licence # A43
+        end
+      end
+    end
+  end ## Specialist vehicles
+  
+  ## Quad bikes
+  context "answer quad bike" do
+    setup do
+      add_response "quad-bike"
+    end
+    ## Q28
+    should "ask if you have a full cat b licence" do
+      assert_current_node :full_cat_b_licence_quad?
+    end
+    context "answer yes" do
+      ## A44
+      should "state entitlement" do
+        add_response :yes
+        assert_current_node :quad_entitled # A44
+      end
+    end
+    context "answer no" do
+      setup do
+        add_response :no
+      end
+      ## Q29
+      should "ask how old you are" do
+        assert_current_node :how_old_are_you_quad?
+      end
+      context "answer under 16" do
+        ## A45
+        should "state you are not old enough" do
+          add_response "under-16"
+          assert_current_node :quad_not_old_enough # A45
+        end
+      end
+      context "answer 16" do
+        ## A46
+        should "state disability conditional entitlement" do
+          add_response "16"
+          assert_current_node :quad_disability_conditional_entitlement # A46
+        end
+      end
+      context "answer 17 or over" do
+        ## A47
+        should "state provisional entitlement" do
+          add_response "17-or-over"
+          assert_current_node :quad_apply_for_provisional_entitlement # A47
+        end
       end
     end
   end
