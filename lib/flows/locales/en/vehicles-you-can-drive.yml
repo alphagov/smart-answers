@@ -1,0 +1,209 @@
+en-GB:
+  flow:
+    vehicles-you-can-drive:
+      meta:
+        description: "Find out if you’re old enough to or have the right kind of driving licence to drive different kinds of vehicle."
+      title: |
+        Vehicles you can drive
+      options: 
+        "yes": "Yes"
+        "no": "No"
+      body: |
+        This tool tells you if you’re old enough to or have the right kind of driving licence to drive different kinds of vehicle.
+        Some of the rules are changing from 19 May 2013 [link to info about these rules] - if you take a driving test or get a replacement licence from that date on you’ll need to follow the new rules.
+      ## Q1
+      what_type_of_vehicle?:
+        title: What kind of vehicle do you want to drive?
+        hint: |
+          Choose the kind of vehicle you want to drive from the list. If you know the vehicle category these are also shown.
+        options:
+          car-or-light-vehicle: "Car or light vehicle (category B)"
+          motorcycle: "Motorbike (category A)"
+          moped: "Moped (category P)"
+          medium-sized-vehicle: "Medium-sized vehicles (category C1)"
+          large-vehicle-or-lorry: "Large vehicles and lorries (category C)"
+          minibus: "Minibus (category D1)"
+          bus: "Bus (category D)"
+          tractor: "Agricultural tractor (category F)"
+          specialist-vehicle: "Other specialist vehicles (categories G, H and K)"
+          quad-bike: "Quad bike or trike (category B1)"
+      ## Q2
+      do_you_have_a_driving_licence?:
+        title: Do you have a driving licence?
+        hint: Choose yes if you already have a provisional or full driving licence for any kind of vehicle.
+      ## Q3
+      how_old_are_you?:
+        title: How old are you?
+        options:
+          under-16: "Under 16"
+          16: "16"
+          17-or-over: "17 and over"
+      ## Q4
+      do_you_have_a_full_motorcycle_licence?:
+        title: Do you already have a full motorcycle licence?
+        hint: Answer no if you only have a category P moped licence.
+      ## Q5
+      how_old_are_you_mb?:
+        title: How old are you?
+        options:
+          17-20: "17-20"
+          21: "21"
+          22-or-over: "22 and over"
+      ## Q6
+      had_mb_licence_for_more_than_2_years_17_20?:
+        title: Have you had your motorcycle licence for more than 2 years?
+      ## Q7
+      had_mb_licence_for_more_2_years_21?:
+        title: Have you had your licence for more than 2 years?
+      ## Q8
+      how_old_are_you_mb_no_licence?:
+        title: How old are you?
+      ## Q9
+      do_you_have_a_full_driving_licence?:
+        title: Do you have already have a full category B car driving licence?
+      ## Q10
+      licence_issued_before_2001?:
+        title: Was your licence issued before 1 February 2001?
+      ## Q11
+      how_old_are_you_mpd?:
+        title: How old are you?
+        options:
+          under-16: "Under 16"
+          16-or-over: "16 and over"
+      ## Q12
+      do_you_have_a_full_cat_b_driving_licence?:
+        title: Do you have a full category B car driving licence?
+        hint: Choose no if you only have a provisional car licence.
+      ## Q13
+      when_was_licence_issued?:
+        title: When was your licence issued?
+        options:
+          before-jan-1997: "Before 1 January 1997"
+          from-jan-1997: "From 1 January 1997"
+      ## Q14
+      how_old_are_you_msv?:
+        title: How old are you?
+        options:
+          under-18: "Under 18"
+          18-or-over: "18 or over"
+      ## Q15
+      how_old_are_you_lorry?:
+        title: How old are you?
+        options:
+          under-18: "Under 18"
+          18-20: "18-20"
+          21-and-over: "21 and over"
+      ## Q16
+      do_you_have_a_full_cat_b_car_licence?:
+        title: Do you have a full category B car driving licence?
+      ## Q17
+      when_was_cat_b_licence_issued?:
+        title: When was your licence issued?
+        options:
+          before-jan-1997: "Before 1 January 1997"
+          from-jan-1997: "From 1 January 1997"
+      ## Q18
+      full_cat_b_car_licence_psv?:
+        title: Do you have a full category B car driving licence?
+      ## Q19
+      when_was_licence_issued_psv?:
+        title: When was your licence issued?
+        options:
+          before-jan-1997: "Before 1 January 1997"
+          from-jan-1997: "From 1 January 1997"
+      ## Q20
+      how_old_are_you_psv?:
+        title: How old are you?
+        options:
+          under-21: "Under 21"
+          21-or-over: "21 and over"
+      ## Q21
+      full_cat_b_licence_bus?:
+        title: Do you have a full category B car driving licence?
+      ## Q22
+      how_old_are_you_bus?:
+        title: How old are you?
+        options:
+          under-18: "Under 18"
+          18-19: "18-19"
+          20: "20"
+          21-or-above: "21 and above"
+      ## Q23
+      full_cat_b_licence_tractor?:
+        title: Do you have a full category B car driving licence?
+      ## Q24
+      how_old_are_you_tractor?:
+        title: How old are you?
+        options:
+          under-16: "Under 16"
+          16: "16"
+          17-or-over: "17 and over"
+      ## Q25
+      full_cat_b_licence_sv?:
+        title: Do you have a full category B car driving licence?
+      ## Q26
+      how_old_are_you_licence_sv?
+        title: How old are you?
+        options:
+          17-20: "17-20"
+          21-or-over: "21 and over"
+      ## Q27
+      how_old_are_you_no_licence_sv?:
+        title: How old are you?
+        options:
+          under-16: "Under 16"
+          16: "16"
+          17-20: "17-20"
+          21-or-over: "21 and over"
+      ## Q28
+      full_cat_b_licence_quad?:
+        title: Do you have a full category B car driving licence?
+      ## Q29
+      how_old_are_you_quad?
+        title: How old are you?
+        options:
+          under-16: "Under 16"
+          16: "16"
+          17-or-over: "17 and over"
+      ## A1
+      you_may_already_be_entitled:
+        title: You may already be able to drive a car.
+        body: |
+          If you’ve already passed a car driving test then your driving licence should show category B on it. This means you can drive cars and light vehicles with:
+
+        - a 'maximum authorised mass' (MAM) of up to 3,500kg
+        - no more than 8 passenger seats
+
+        MAM is the total weight of the vehicle plus the maximum load it can carry safely.
+
+        ^If you took your driving test in an automatic car you can only drive automatic cars and light vehicles. This will show on your licence as 'B auto'.^
+
+        *[MAM]: Maximum Authorised Mass
+
+        Next steps:
+        Adding higher categories to your driving licence_issued_before_2001
+      ## A2
+      not_old_enough:
+        title: You’re not old enough to drive a car or light vehicle yet.
+        body: |
+          You need to be 17 before you can get a provisional licence and start learning to drive a car.
+
+          If you’re getting the higher rate mobility component of Disability Living Allowance (DLA) you can get your provisional licence and take your test when you’re 16.
+
+          *[DLA]: Disability Living Allowance
+      ## A3
+      mobility_rate_clause:
+        body: |
+          If you’re getting the higher rate mobility component of Disability Living Allowance (DLA) you can apply for a provisional licence and take your test when you’re 16.
+
+          Otherwise you’ll have to wait until you’re 17.
+
+          *[DLA]: Disability Living Allowance
+
+          Next steps:
+
+          Apply for your first provisional driving licence
+          https://www.gov.uk/apply-first-provisional-driving-licence 
+
+          Disability Living Allowance (DLA)
+          https://www.gov.uk/dla-disability-living-allowance-benefit
