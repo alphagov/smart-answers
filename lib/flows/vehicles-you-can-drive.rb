@@ -76,7 +76,7 @@ end
 ## Q10
 multiple_choice :licence_issued_before_2001? do
   option :yes => :moped_entitlement_licence_pre_2001 # A13
-  option :no => :moped_entitlement_full_licence_post_2001 # A14
+  option :no => :moped_entitlement_licence_post_2001 # A14
 end
 
 ## Q11
