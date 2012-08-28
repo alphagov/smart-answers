@@ -9,9 +9,9 @@ status :draft
 multiple_choice :towing_vehicle_type? do
   option "car-or-light-vehicle" => :existing_towing_entitlements? #Q2
   option "medium-sized-vehicle" => :medium_sized_vehicle_licenceholder? #Q8
-#  option "large-vehicle" => #Q20
-#  option "minibus" => #Q25
-#  option "bus" => #Q36
+  option "large-vehicle" => :existing_large_vehicle_licence? #Q20
+  option "minibus" => :car_licence_before_jan_1997? #Q25
+  option "bus" => :bus_licenceholder? #Q36
 end
 
 ## Q2
@@ -55,13 +55,70 @@ end
 ## Q16
 multiple_choice :how_old_are_you_msv_2? do
   option "under-18" => :too_young_msv #A17
-  option "21" => :apply_for_provisional_with_exceptions_msv #A18
+  option "under-21" => :apply_for_provisional_with_exceptions_msv #A18
   option "21-or-over" => :apply_for_provisional_msv #19
 end
 
 ## Large vehicles
 ##
 ## Q20
+multiple_choice :existing_large_vehicle_licence? do
+  option :yes => :full_cat_c_entitlement #A21
+  option :no => :how_old_are_you_lv? #Q22
+end
+
+## Q22
+multiple_choice :how_old_are_you_lv? do
+  option "under-21" => :not_old_enough_lv #A23
+  option "21-or-over" => :apply_for_provisional_lv #A24
+end
+
+## Minibuses
+##
+## Q25
+multiple_choice :car_licence_before_jan_1997? do
+  option :yes => :full_entitlement_minibus #A26
+  option :no => :do_you_have_lv_or_bus_towing_entitlement? #Q27
+end
+
+## Q27
+multiple_choice :do_you_have_lv_or_bus_towing_entitlement? do
+  option :yes => :included_entitlement_minibus #A28
+  option :no => :full_minibus_licence? #Q29
+end
+
+## Q29
+multiple_choice :full_minibus_licence? do
+  option :yes => :limited_towing_entitlement_minibus #A30
+  option :no => :how_old_are_you_minibus? #Q31
+end
+
+## Q31
+multiple_choice :how_old_are_you_minibus? do
+  option "under-21" => :not_old_enough_minibus #A32
+  option "21-or-older" => :licenceholder_for_2_years? #Q33
+end
+
+## Q33
+multiple_choice :licenceholder_for_2_years? do
+  option :yes => :limited_overall_entitlement_minibus #A34
+  option :no => :not_held_licence_long_enough_minibus #A35
+end
+
+## Buses
+##
+## Q36
+multiple_choice :bus_licenceholder? do
+  option :yes => :full_entitlement_bus #A37
+  option :no => :how_old_are_you_bus? #Q38
+end
+
+## Q38
+multiple_choice :how_old_are_you_bus? do
+  option "under-21" => :not_old_enough_bus #A39
+  option "21-or-over" => :apply_for_provisional_bus #A40 
+end
+
 
 
 outcome :full_entitlement # A3
@@ -74,4 +131,15 @@ outcome :full_entitlement_msv #A15
 outcome :too_young_msv #A17
 outcome :apply_for_provisional_with_exceptions_msv #A18
 outcome :apply_for_provisional_msv #A19
-
+outcome :full_cat_c_entitlement # A21
+outcome :not_old_enough_lv #A23
+outcome :apply_for_provisional_lv #A24
+outcome :full_entitlement_minibus #A26
+outcome :included_entitlement_minibus #A28
+outcome :limited_towing_entitlement_minibus #A30
+outcome :not_old_enough_minibus #A32
+outcome :limited_overall_entitlement_minibus #A34
+outcome :not_held_licence_long_enough_minibus #A35
+outcome :full_entitlement_bus #A37
+outcome :not_old_enough_bus # A39
+outcome :apply_for_provisional_bus #A40
