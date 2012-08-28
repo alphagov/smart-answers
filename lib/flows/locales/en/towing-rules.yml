@@ -1,0 +1,284 @@
+en-GB:
+  flow:
+    towing-rules:
+      meta:
+        description: "Use this tool to find out if you’re old enough or have the right kind of licence to tow a trailer from different kinds of vehicle."
+      title: |
+        Towing Rules
+      body: |
+        Use this tool to find out if you’re old enough or have the right kind of licence to tow a trailer from different kinds of vehicle.
+
+        This tool assumes that you already have the minimum of a full category B car driving licence. You need a full car licence before being able to tow with any larger vehicle.
+
+
+      options:
+        "no": "No"
+        "yes": "Yes"
+      ## Q1
+      towing_vehicle_type?:
+        title: "What kind of vehicle do you want to tow with?"
+        options:
+          car-or-light-vehicle: "Car or light vehicle (category B)"
+          medium-sized-vehicle: "Medium-sized vehicle (category C1)"
+          large-vehicle: "Large vehicle (category C)"
+          minibus: "Minibus (category D1)"
+          bus: "Bus (category D)"
+      ## Q2
+      existing_towing_entitlements?:
+        title: "Do you already have a driving licence with any of the following entitlements on it:"
+        body: |
+          - C1+E (towing with a medium sized vehicle)
+          - C+E (towing with a large vehicle)
+          - D1+E (towing with a minibus)
+          - D+E (towing with a bus)
+      ## Q4
+      date_licence_was_issued?:
+        title: When was your licence issued?
+        options:
+          before-jan-1997: "Before 1 January 1997"
+          from-jan-1997: "From 1 January 1997"
+      ## Q8
+      medium_sized_vehicle_licenceholder?:
+        title: Do you already have a C1 medium-sized vehicle licence?
+      ## Q9
+      how_old_are_you_msv?:
+        title: How old are you?
+        options:
+          under-21: "Under 21"
+          21-or-over: "21 or over"
+      ## Q12
+      existing_large_vehicle_towing_entitlements?:
+        title: Do you already have a driving licence with the C+E towing with a large vehicle entitlement on it?
+      ## Q14
+      date_licence_was_issued_msv?:
+        title: When was your driving licence issued?
+        options:
+          before-jan-1997: "Before 1 January 1997"
+          from-jan-1997: "From 1 January 1997"
+      ## Q16
+      how_old_are_you_msv_2?:
+        title: How old are you?
+        options:
+          under-18: "Under 18"
+          under-21: "Under 21"
+          21-or-over: "21 or over"
+      ## Q20
+      existing_large_vehicle_licence?:
+        title: Do you already have a category C large vehicle licence?
+      ## Q22
+      how_old_are_you_lv?:
+        title: How old are you?
+        options:
+          under-21: "Under 21"
+          21-or-over: "21 or over"
+      ## Q25
+      car_licence_before_jan_1997?:
+        title: Was your car driving licence issued before 1 January 1997?
+      ## Q27
+      do_you_have_lv_or_bus_towing_entitlement?:
+        title: Do you have a full category D+E towing with a bus or C+E towing with a large vehicle licence?
+      ## Q29
+      full_minibus_licence?:
+        title: Do you have a full category D1 minibus licence?
+      ## Q31
+      how_old_are_you_minibus?:
+        title: How old are you?
+        options:
+          under-21: "Under 21"
+          21-or-over: "21 or over"
+      ## Q33
+      licenceholder_for_2_years?:
+        title: Have you had your full driving licence for at least 2 years?
+      ## Q36
+      bus_licenceholder?:
+        title: Do you already have a full category D bus licence?
+      ## Q38
+      how_old_are_you_bus?:
+        title: How old are you?
+        options:
+          under-21: "Under 21"
+          21-or-over: "21 or over"
+      ## A3
+      full_entitlement:
+        body: |
+          Because you already have a towing licence for a larger type of vehicle you automatically have the B+E towing entitlement. That means you can tow trailers of any weight with a car or light vehicle.
+      ## A5
+      car_light_vehicle_entitlement:
+        body: |
+          You already have the B+E towing entitlement on your licence. This means you can tow trailers of any weight with a car or light vehicle.
+      ## A6
+      limited_trailer_entitlement:
+        body: |
+          You can already tow trailers up to 750kg with a standard category B car licence. If you want to tow heavier trailers you will need to apply for provisional B+E entitlement then take a B+E test.
+
+          [NOTE TO SME: How do you apply for B+E provisional?]
+      ## A10
+      limited_conditional_trailer_entitlement_msv:
+        body: |
+          You can tow trailers up to 750kg with a standard C1 medium-sized vehicle licence.
+
+          If you want to tow heavier trailers you’ll need a C1+E towing entitlement. You’ll normally have to wait until you’re 21 before you can get provisional C1+E entitlement then take the C1+E test.
+
+          ##Exceptions
+
+          If you’ve got a C1 licence you can apply for the C1+E entitlement and take the C1+E test when you’re 18 in these cases:
+          - you’ve passed your driving test and Driver Certificate of Professional Competence (Driver CPC) initial qualification
+          - you’re learning to drive or taking a driving test for this category or Driver CPC initial qualification
+          - you’re taking a national vocational training course to get a Driver CPC initial qualification
+          - you had your driving licence before 10 September 2009 - you must take the CPC periodic training within 5 years of this date_licence_was_issued_msv
+      ## A11
+      limited_trailer_entitlement_msv:
+        body: |
+          You can tow trailers up to 750kg with a standard C1 medium-sized vehicle licence.
+
+          If you want to tow heavier trailers you’ll need to apply for provisional C1+E towing with a medium-sized vehicle licence then take a C1+E test.
+      ## A13
+      included_entitlement_msv:
+        body: |
+          Because you already have a towing licence for a larger type of vehicle you automatically have the C1+E towing with a medium sized vehicle entitlement.
+
+          This means you can tow trailers weighing more than 750kg. The total weight of the vehicle and trailer can’t be more than 12,000kg and the fully-loaded trailer can’t weigh more than the unladen vehicle weight.
+      ## A15
+      full_entitlement_msv:
+        body: |
+          You already have the C1+E towing with a medium-sized vehicle entitlement on your licence. 
+
+          This means you can tow trailers weighing more than 750kg. The total weight of the vehicle and trailer can’t be more than 12,000kg and the fully-loaded trailer can’t weigh more than the unladen vehicle weight.
+      ## A17
+      too_young_msv:
+        body: |
+          You’re too young to tow with a category C1 medium-sized vehicle. You’ll have to wait until you’re 18 to get a C1 licence, then get a C1+E licence - you’ll normally have to wait until you’re 21 to do this.
+
+          ##Exceptions
+
+          If you’ve got a C1 licence you can apply for the C1+E entitlement and take the C1+E test when you’re 18 in these cases:
+          - you’ve passed your driving test and Driver Certificate of Professional Competence (Driver CPC) initial qualification
+          - you’re learning to drive or taking a driving test for this category or Driver CPC initial qualification
+          - you’re taking a national vocational training course to get a Driver CPC initial qualification
+          - you had your driving licence before 10 September 2009 - you must take the CPC periodic training within 5 years of this date
+
+          *[Driver CPC]: Driver Certificate of Professional Competence
+      ## A18
+      apply_for_provisional_with_exceptions_msv:
+        body: |
+          If you apply for a provisional C1 medium-sized vehicle licence then pass the C1 test then you can tow trailers up to 750kg.
+
+          If you want to tow heavier trailers you’ll need the C1+E entitlement. You’ll normally have to wait until you’re 21 to get this.
+
+          ##Exceptions
+
+          If you’ve got a C1 licence you can apply for the C1+E entitlement and take the C1+E test when you’re 18 in these cases:
+          - you’ve passed your driving test and Driver Certificate of Professional Competence (Driver CPC) initial qualification
+          - you’re learning to drive or taking a driving test for this category or Driver CPC initial qualification
+          - you’re taking a national vocational training course to get a Driver CPC initial qualification
+          - you had your driving licence before 10 September 2009 - you must take the CPC periodic training within 5 years of this date
+
+          *[Driver CPC]: Driver Certificate of Professional Competence
+      ## A19
+      apply_for_provisional_msv:
+        body: |
+          If you apply for a provisional C1 medium-sized vehicle licence then pass the C1 test then you can tow trailers up to 750kg.
+
+          If you want to tow heavier trailers you’ll need to apply for provisional C1+E medium-sized vehicle entitlement then pass the C1+E test.
+      ## A21
+      full_cat_c_entitlement:
+        body: |
+          You can tow trailers up to 750kg with a standard category C large vehicle licence.
+
+          If you want to tow heavier trailers you’ll need to apply for a provisional C+E towing entitlement then take a C+E test.
+      ## A23
+      not_old_enough_lv:
+        body: |
+          In most cases you’ll have to wait until you’re 21, then apply for provisional category C large vehicle licence then take the category C test.
+
+          When you’ve got a full category C licence you can tow trailers up to 750kg. If you want to tow heavier trailers you can apply for provisional C+E towing entitlement and take the C+E test.
+
+          ##Exceptions
+
+          You can drive a category C large vehicle and then get the C+E entitlement when you’re 18 in these cases:
+          - you’ve passed your driving test and Driver CPC initial qualification
+          - you’re learning to drive or taking a driving test for this category or Driver CPC initial qualification
+          - you’re taking a national vocational training course to get a Driver CPC initial qualification
+          - you had your driving licence before 10 September 2009 - you must take the Driver CPC periodic training within 5 years of this date
+      ## A24
+      apply_for_provisional_lv:
+        body: |
+          You’ll need to first get provisional category C large vehicle entitlement then pass a category C test.
+
+          When you’ve got a full category C licence you can tow trailers up to 750kg. If you want to tow heavier trailers you can apply for provisional C+E towing entitlement and take the C+E test.
+      ## A26
+      full_entitlement_minibus:
+        body: |
+          If you got your car driving licence before 1 January 1997 you’ll already be able to tow with minibuses, but only ‘not for hire or reward’, which means you can’t drive them for work.
+
+          You’ll have a D1+E towing entitlement, which means you can drive minibuses with trailers over 750kg. The total weight of the vehicle and trailer can’t be more than 12,000kg and the fully loaded trailer can’t weigh more than the unladen weight of the vehicle.
+      ## A28
+      included_entitlement_minibus:
+        body: |
+          Because you already have a towing licence for a larger vehicle you automatically have the D1+E towing with a minibus entitlement.
+
+          This means you can drive minibuses with trailers over 750kg. The total weight of the vehicle and trailer can’t be more than 12,000kg and the fully loaded trailer can’t weigh more than the unladen weight of the vehicle.
+      ## A30
+      limited_towing_entitlement_minibus:
+        body: |
+          You can already tow trailers up to 750kg with your D1 minibus licence.
+
+          To tow heavier trailers you’ll need to apply for the provisional D1+E towing with a minibus entitlement and then take a D1+E test.
+      ## A32
+      not_old_enough_minibus:
+        body: |
+          You can’t normally drive a minibus until you’re 21. You’ll also need to have had a full category B car driving licence for at least 2 years.
+
+          You’ll then be able to drive a minibus carrying up to 16 passengers as long as you’re not driving the minibus for ‘hire or reward’. You’ll be able to tow trailers up to 750kg.
+
+          The minibus must not be larger than 3.5 tonnes or 4.25 tonnes including any specialist equipment for transporting disabled passengers. 
+
+          If you want to tow heavier trailers you’ll need to apply for a provisional category D1 minibus licence then take a D1 minibus test. Once you have your D1 licence you can apply for provisional D1+E towing with a minibus entitlement then take a D1+E test.
+
+          ##Exceptions
+
+          You can take the D1 minibus then the D1+E towing with a minibus test when you’re 18 in the following cases:
+
+          [leave blank - wording needs to be confirmed with DSA]
+      ## A34
+      limited_overall_entitlement_minibus:
+        body: |
+          You can drive a minibus carrying up to 16 passengers as long as you’re not driving the minibus for ‘hire or reward’. You’ll be able to tow trailers up to 750kg.
+
+          The minibus must not be larger than 3.5 tonnes or 4.25 tonnes including any specialist equipment for transporting disabled passengers.
+
+          If you want to tow heavier trailers you’ll need to apply for a provisional category D1 minibus licence then take a D1 minibus test. Once you have your D1 licence you can apply for provisional D1+E towing with a minibus entitlement then take a D1+E test.
+      ## A35
+      not_held_licence_long_enough_minibus:
+        body: |
+          [Can you take the D1 test at 21 if you haven’t had your car licence for 2 years?]s
+
+          You need to have had a full category B car licence for 2 years before you can drive a minibus.
+
+          You can then drive a minibus carrying up to 16 passengers as long as you’re not driving the minibus for ‘hire or reward’. You’ll be able to tow trailers up to 750kg.
+
+          The minibus must not be larger than 3.5 tonnes or 4.25 tonnes including any specialist equipment for transporting disabled passengers.
+
+          If you want to tow heavier trailers you’ll need to apply for a provisional category D1 minibus licence then take a D1 minibus test. Once you have your D1 licence you can apply for provisional D1+E towing with a minibus entitlement then take a D1+E test.
+      ## A37
+      full_entitlement_bus:
+        body: |
+          You’ll already be able to tow trailers up to 750kg. To tow heavier trailers you’ll need to apply for provisional D+E towing with a bus entitlement then take a D+E test.
+      ## A39
+      not_old_enough_bus:
+        body: |
+          You’ll normally need to be at least 21 and then pass a category D bus test. You’ll be able to tow trailers up to 750kg with this licence. If you want to tow heavier trailers you’ll need to apply for provisional D+E towing with a bus entitlement then take a D+E test.
+
+          ##Exceptions
+
+          You can take the category D bus test then the D+E towing with a bus test when you’re 20 if you’ve passed a passenger carrying vehicle (PCV) test and the Driver CPC initial qualification.
+
+          You can take the category D bus test then the D+E towing with a bus test when you’re 18 in the following cases:
+
+          [leave blank - wording needs to be confirmed with DSA]
+      ## A40
+      apply_for_provisional_bus:
+        body: |
+          You’ll need to apply for provisional category D bus entitlement then pass a category D test. You’ll be able to tow trailers up to 750kg with this licence.
+
+          If you want to tow heavier trailers you’ll need to apply for provisional D+E towing with a bus entitlement then take a D+E test.

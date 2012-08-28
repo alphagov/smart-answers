@@ -253,7 +253,7 @@ class TowingRulesTest < ActiveSupport::TestCase
           end
           context "answer 21 or above" do
             setup do
-              add_response "21-or-older"
+              add_response "21-or-over"
             end
             ## Q33
             should "ask if you have held a car licence for over 2 years" do
