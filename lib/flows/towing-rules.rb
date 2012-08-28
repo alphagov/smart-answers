@@ -96,7 +96,7 @@ end
 ## Q31
 multiple_choice :how_old_are_you_minibus? do
   option "under-21" => :not_old_enough_minibus #A32
-  option "21-or-older" => :licenceholder_for_2_years? #Q33
+  option "21-or-over" => :licenceholder_for_2_years? #Q33
 end
 
 ## Q33
