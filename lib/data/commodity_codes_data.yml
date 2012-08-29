@@ -1,0 +1,28 @@
+---
+:starch_glucose_ranges:
+- :min: 0
+  :max: 5
+  :max_sucrose: 70
+- :min: 5
+  :max: 25
+  :max_sucrose: 70
+- :min: 25
+  :max: 50
+  :max_sucrose: 50
+- :min: 50
+  :max: 75
+  :max_sucrose: 30
+- :min: 75
+  :max: nil
+  :max_sucrose: 5
+:sucrose_ranges:
+- :min: 0
+  :max: 5
+- :min: 5
+  :max: 30
+- :min: 30
+  :max: 50
+- :min: 50
+  :max: 70
+- :min: 70
+  :max: nil
