@@ -1,0 +1,611 @@
+en-GB:
+  flow:
+    vehicles-you-can-drive:
+      meta:
+        description: "Find out if you’re old enough to or have the right kind of driving licence to drive different kinds of vehicle."
+      title: |
+        Vehicles you can drive
+      options: 
+        "yes": "Yes"
+        "no": "No"
+      body: |
+        This tool tells you if you’re old enough to or have the right kind of driving licence to drive different kinds of vehicle.
+        Some of the rules are changing from 19 May 2013 [link to info about these rules] - if you take a driving test or get a replacement licence from that date on you’ll need to follow the new rules.
+      ## Q1
+      what_type_of_vehicle?:
+        title: What kind of vehicle do you want to drive?
+        hint: |
+          Choose the kind of vehicle you want to drive from the list. If you know the vehicle category these are also shown.
+        options:
+          car-or-light-vehicle: "Car or light vehicle (category B)"
+          motorcycle: "Motorbike (category A)"
+          moped: "Moped (category P)"
+          medium-sized-vehicle: "Medium-sized vehicles (category C1)"
+          large-vehicle-or-lorry: "Large vehicles and lorries (category C)"
+          minibus: "Minibus (category D1)"
+          bus: "Bus (category D)"
+          tractor: "Agricultural tractor (category F)"
+          specialist-vehicle: "Other specialist vehicles (categories G, H and K)"
+          quad-bike: "Quad bike or trike (category B1)"
+      ## Q2
+      do_you_have_a_driving_licence?:
+        title: Do you have a driving licence?
+        hint: Choose yes if you already have a provisional or full driving licence for any kind of vehicle.
+      ## Q3
+      how_old_are_you?:
+        title: How old are you?
+        options:
+          under-16: "Under 16"
+          16: "16"
+          17-or-over: "17 and over"
+      ## Q4
+      do_you_have_a_full_motorcycle_licence?:
+        title: Do you already have a full motorcycle licence?
+        hint: Answer no if you only have a category P moped licence.
+      ## Q5
+      how_old_are_you_mb?:
+        title: How old are you?
+        options:
+          17-20: "17-20"
+          21: "21"
+          22-or-over: "22 and over"
+      ## Q6
+      had_mb_licence_for_more_than_2_years_17_20?:
+        title: Have you had your motorcycle licence for more than 2 years?
+      ## Q7
+      had_mb_licence_for_more_2_years_21?:
+        title: Have you had your licence for more than 2 years?
+      ## Q8
+      how_old_are_you_mb_no_licence?:
+        title: How old are you?
+      ## Q9
+      do_you_have_a_full_driving_licence?:
+        title: Do you have already have a full category B car driving licence?
+      ## Q10
+      licence_issued_before_2001?:
+        title: Was your licence issued before 1 February 2001?
+      ## Q11
+      how_old_are_you_mpd?:
+        title: How old are you?
+        options:
+          under-16: "Under 16"
+          16-or-over: "16 and over"
+      ## Q12
+      do_you_have_a_full_cat_b_driving_licence?:
+        title: Do you have a full category B car driving licence?
+        hint: Choose no if you only have a provisional car licence.
+      ## Q13
+      when_was_licence_issued?:
+        title: When was your licence issued?
+        options:
+          before-jan-1997: "Before 1 January 1997"
+          from-jan-1997: "From 1 January 1997"
+      ## Q14
+      how_old_are_you_msv?:
+        title: How old are you?
+        options:
+          under-18: "Under 18"
+          18-or-over: "18 or over"
+      ## Q15
+      how_old_are_you_lorry?:
+        title: How old are you?
+        options:
+          under-18: "Under 18"
+          18-20: "18-20"
+          21-and-over: "21 and over"
+      ## Q16
+      do_you_have_a_full_cat_b_car_licence?:
+        title: Do you have a full category B car driving licence?
+      ## Q17
+      when_was_cat_b_licence_issued?:
+        title: When was your licence issued?
+        options:
+          before-jan-1997: "Before 1 January 1997"
+          from-jan-1997: "From 1 January 1997"
+      ## Q18
+      full_cat_b_car_licence_psv?:
+        title: Do you have a full category B car driving licence?
+      ## Q19
+      when_was_licence_issued_psv?:
+        title: When was your licence issued?
+        options:
+          before-jan-1997: "Before 1 January 1997"
+          from-jan-1997: "From 1 January 1997"
+      ## Q20
+      how_old_are_you_psv?:
+        title: How old are you?
+        options:
+          under-21: "Under 21"
+          21-or-over: "21 and over"
+      ## Q21
+      full_cat_b_licence_bus?:
+        title: Do you have a full category B car driving licence?
+      ## Q22
+      how_old_are_you_bus?:
+        title: How old are you?
+        options:
+          under-18: "Under 18"
+          18-19: "18-19"
+          20: "20"
+          21-or-above: "21 and above"
+      ## Q23
+      full_cat_b_licence_tractor?:
+        title: Do you have a full category B car driving licence?
+      ## Q24
+      how_old_are_you_tractor?:
+        title: How old are you?
+        options:
+          under-16: "Under 16"
+          16: "16"
+          17-or-over: "17 and over"
+      ## Q25
+      full_cat_b_licence_sv?:
+        title: Do you have a full category B car driving licence?
+      ## Q26
+      how_old_are_you_licence_sv?:
+        title: How old are you?
+        options:
+          17-20: "17-20"
+          21-or-over: "21 and over"
+      ## Q27
+      how_old_are_you_no_licence_sv?:
+        title: How old are you?
+        options:
+          under-16: "Under 16"
+          16: "16"
+          17-20: "17-20"
+          21-or-over: "21 and over"
+      ## Q28
+      full_cat_b_licence_quad?:
+        title: Do you have a full category B car driving licence?
+      ## Q29
+      how_old_are_you_quad?:
+        title: How old are you?
+        options:
+          under-16: "Under 16"
+          16: "16"
+          17-or-over: "17 and over"
+      ## A1
+      you_may_already_be_entitled:
+        title: You may already be able to drive a car.
+        body: |
+          If you’ve already passed a car driving test then your driving licence should show category B on it. This means you can drive cars and light vehicles with:
+
+          - a 'maximum authorised mass' (MAM) of up to 3,500kg
+          - no more than 8 passenger seats
+
+          MAM is the total weight of the vehicle plus the maximum load it can carry safely.
+
+          ^If you took your driving test in an automatic car you can only drive automatic cars and light vehicles. This will show on your licence as 'B auto'.^
+
+          *[MAM]: Maximum Authorised Mass
+
+        next_steps: |
+                    [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
+          
+      ## A2
+      not_old_enough:
+        title: You’re not old enough to drive a car or light vehicle yet.
+        body: |
+          You need to be 17 before you can get a provisional licence and start learning to drive a car.
+
+          If you’re getting the higher rate mobility component of Disability Living Allowance (DLA) you can get your provisional licence and take your test when you’re 16.
+
+          *[DLA]: Disability Living Allowance
+      ## A3
+      mobility_rate_clause:
+        body: |
+          If you’re getting the higher rate mobility component of Disability Living Allowance (DLA) you can apply for a provisional licence and take your test when you’re 16.
+
+          Otherwise you’ll have to wait until you’re 17.
+
+          *[DLA]: Disability Living Allowance
+
+        next_steps: |
+
+          [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence "Apply for your first provisional driving licence") 
+
+            [Disability Living Allowance (DLA)](/dla-disability-living-allowance-benefit, "Disability Living Allowance (DLA)")
+      ## A4
+      entitled_for_provisional_licence:
+        body: |
+          You can apply for a provisional licence to start learning to drive a car or light vehicle.
+        next_steps: |
+            [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence "Apply for your first provisional driving licence") 
+      ## A5
+      entitled_for_any_motorcycle:
+        body: |
+          You can ride any size of motorcycle.
+
+          Even if you passed your test on a light or medium-sized motorcycle (category A1 or restricted category A), you can now ride any larger bikes as you’ve had your licence for more than 2 years.
+
+          %The rules are changing from 19 May 2013 [link]. If you take your test after this date the new rules will apply to you.%
+      ## A6
+      entitled_for_same_motorcycle:
+        body: |
+          You can ride the type of motorcycle you passed your test on.
+
+          The size of motorcycle you can ride will be shown on your licence.
+
+          ^If you took the test on a medium-sized category A motorcycle, you’ll be able to ride any size of bike once you’ve had your full licence for 2 years.^
+
+          %The rules are changing from 19 May 2013 [link]. If you take your test after this date the new rules will apply to you.%
+        next_steps: |
+          [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
+      ## A7
+      entitled_for_any_motorcycle_21:
+        body: |
+          If you passed your motorcycle test on a medium-sized category A motorcycle you can ride any size of motorcycle as you’ve had your full licence for more than 2 years.
+
+          ^If you passed your test on a category A1 light motorcycle you can only ride that type of bike. You’ll need to take a new test if you want to ride larger bikes.^
+        next_steps: |
+          [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
+          
+          [Book a practical driving test](/book-practical-driving-test "Book a practical driving test")
+      ## A8
+      entitled_for_same_motorcycle_21:
+        body: |
+          You can ride the category of motorcycle you took your test on. If you took your test on a category A medium-sized motorcycle you can also now take a practical test on a bike of at least 35kW to ride any size of motorcycle. This is called **accelerated access**.
+
+          ^If you took your test on a category A1 light motorcycle (engine size up to 125cc and power output up to 11kW) then you can still only drive this kind of bike.^
+        next_steps: |
+          [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
+          
+          [Book a practical driving test](/book-practical-driving-test "Book a practical driving test")
+      ## A9
+      motorcycle_entitlement_over_22:
+        body: |
+          If you passed your motorcycle test on a medium-sized category A motorcycle you can now ride any size of motorcycle.
+
+          ^If you passed your test on a category A1 light motorcycle you can only ride that type of bike. You’ll need to take a new test if you want to ride larger bikes.^
+        next_steps: |
+          [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
+          
+          [Book a practical driving test](/book-practical-driving-test "Book a practical driving test")
+      ## A10
+      motorcycle_entitlement_no_licence_under_17:
+        body: |
+          You can’t start to learn to ride a motorbike until you’re 17.
+
+          You can apply for a provisional licence to ride a **moped** when you’re 16. You’ll then need to complete compulsory basic training (CBT).
+
+          ^Mopeds have a maximum speed of 31mph and an engine size of up to 50cc.^
+
+          *[CBT]: Compulsory basic training
+        next_steps: |
+          [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
+      ## A11
+      motorcycle_entitlement_no_licence_17_20:
+        body: |
+          You can apply for a provisional licence for a light (category A1) or medium-sized (category A) motorcycle. If you already have a category B car licence you’ll have these entitlements on your licence already.
+          
+          You’ll then need to complete compulsory basic training (CBT) and take a full motorcycle test within 2 years.
+
+          ^If you take your test on a medium-sized category A motorcycle, you’ll be able to ride any size of bike once you’ve had your full licence for 2 years.^
+
+          %The rules are changing from 19 May 2013 [link]. If you take your test after this date the new rules will apply to you.%
+
+          ##Motorcycle categories
+
+          Light motorcycles (category A1) have an engine size up to 125cc and a power output up to 11kW.
+
+          Medium-sized motorcycles (category A) have a power output up to 25kW and a power to weight ratio of up to 0.16kW/kg.
+      ## A12
+      motorcycle_entitlement_no_licence_21_and_over:
+        body: |
+          You can apply for a provisional licence then learn to ride any size of motorcycle. If you already have a category B car licence you’ll have provisional motorcycle entitlement on your licence.
+          
+          ^You’ll need to pass the practical test on a bike with a power output of at least 35kW to ride any size of bike, however.^
+        next_steps: |
+          [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
+          
+          [Book a practical driving test](/book-practical-driving-test "Book a practical driving test")
+      ## A13
+      moped_entitlement_licence_pre_2001:
+        body: |
+          If you passed a car driving test before 1 February 2001 you can ride a moped without taking compulsory basic training (CBT) or a full practical motorcycle test.
+
+          A moped has a maximum speed of 31mph and engine size of 50cc.
+
+          ^If you want to ride larger motorcycles you’ll have to get a provisional motorcycle entitlement (category A) then take CBT and a motorcycle test.^
+
+          *[CBT]: Compulsory basic training
+        next_steps: |
+          [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
+      ## A14
+      moped_entitlement_licence_post_2001:
+        body: |
+          You don’t need to get any new provisional entitlements on your driving licence. However you still need to take compulsory basic training (CBT) and then take a moped test within 2 years of CBT.
+
+          *[CBT]: Compulsory basic training
+        next_steps: |
+          [Compulsory basic training (CBT)](/cbt-compulsory-basic-training/overview "Compulsory basic training (CBT)")
+          
+          [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
+      ## A15       
+      moped_not_old_enough:
+        body: |
+          You can’t start riding a moped until you’re 16.
+
+          When you’re 16 you can apply for a provisional moped licence. You’ll then have to take compulsory basic training (CBT) and take a moped test within 2 years of CBT.
+        next_steps: |
+          [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
+      ## A16
+      moped_apply_for_provisional:
+        body: |
+          You can apply for a provisional moped licence and then take compulsory basic training (CBT) to start riding a moped. You’ll then have to take a moped test within 2 years.
+        next_steps: |
+          [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence, "Apply for your first provisional driving licence")
+          
+          [Compulsory basic training (CBT)](/cbt-compulsory-basic-training/overview "Compulsory basic training (CBT)")
+          
+          [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
+      ## A17
+      entitled_for_msv:
+        body: |
+          If you got your car driving licence before 1 January 1997 you’ll already be able to drive category C1 medium-sized vehicles.
+
+          You’ll also have the C1+E entitlement, which means you can drive C1 vehicles with larger trailers.
+
+          C1 vehicles are vehicles weighing between 3,500 and 7,500kg.
+
+          The C1+E towing entitlement means you can tow trailers taking the total weight of vehicle and trailer up to 12,000kg. However, the fully loaded trailer can’t weigh more than the unladen weight of the actual vehicle.
+      ## A18
+      not_entitled_for_msv_until_18:
+        body: |
+          You can’t drive a category C1 medium-sized vehicle until you’re 18.
+
+          Once you’re 18 you can apply for for a provisional category C1 licence and take the C1 test.
+      ## A19
+      apply_for_provisional_msv_entitlement:
+        body: |
+          You can apply for a provisional C1 entitlement then take a C1 test.
+
+          If you’re 21 or over and have your C1 entitlement you can then apply for a C1+E towing provisional entitlement then take the C1+E test.
+        next_steps: |
+          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
+      ## A20
+      cat_b_licence_required:
+        body: |
+          You need to be have a full category B car licence and be at least 18 before applying for a provisional entitlement to drive C1 medium-sized vehicles. You’ll then have to pass the C1 test.
+        next_steps: |
+          [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence "Apply for your first provisional driving licence")
+      ## A21
+      not_entitled_for_lorry_until_18:
+        body: |
+          You can’t drive category C large vehicles and lorries if you’re under 18.
+      ## A22
+      limited_entitlement_lorry:
+        body: |
+          You can’t normally drive a category C vehicle until you’re 21.
+
+          However, there are some cases when you can apply for provisional category C entitlement then take the C test once you’re 18.
+
+          These are if:
+
+          - you’ve already got your full category C1 medium-sized vehicle entitlement 
+          - you’ve passed your Driver CPC initial qualification
+          - you’re learning to drive or taking a driving test for this category or Driver CPC initial qualification
+          - you’re taking a national vocational training course to get your Driver CPC initial qualification
+          - you got your driving licence before 10 September 2009 - in this case you need to take the Driver CPC periodic training within 5 years of this date  
+
+          ^If these apply and you’ve already got your full category C entitlement you can then apply for provisional C+E towing entitlement.^
+        next_steps: |
+          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
+      ## A23
+      apply_for_provisional_cat_c_entitlement:
+        body: |
+          You can apply for provisional category C entitlement then take a category C test.
+
+          Once you’ve passed your category C test you can then apply for a provisional C1+E towing entitlement.
+        next_steps: |
+          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
+      ## A24
+      apply_for_conditional_provisional_cat_c_entitlement:
+        body: |
+          You can apply for provisional category C entitlement then take a category C test, but only if you’ve already got a full category C1 medium-sized vehicle licence.
+
+          Once you’ve passed your category C test you can then apply for a provisional C1+E towing entitlement.
+        next_steps: |
+          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
+      ## A25
+      cat_b_driving_licence_required:
+        body: |
+          You’ll need to first get your full category B car driving licence then pass the C1 test before applying for category C entitlement.
+
+          Once you’ve passed your category C test you can then apply for a provisional C1+E towing entitlement.
+        next_steps: |
+          [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence "Apply for your first provisional driving licence")
+          
+          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
+      ## A26
+      psv_entitled:
+        body: |
+          If you got your car driving licence before 1 January 1997 you’ll already be able to drive category D1 minibuses, but only ‘not for hire or reward’.
+
+          You’ll also have the D1+E towing entitlement, which means you can drive D1 minibuses with trailers over 750kg. The total weight of the vehicle and trailer can’t be more than 12,000kg and the fully loaded trailer can’t weigh more than the unladen weight of the vehicle.
+      ## A27
+      psv_conditional_entitlement:
+        body: |
+          In most cases, you need to be 21 to drive a minibus and have held a full category B car licence for at least 2 years.
+
+          ##Driving a minibus at 18
+
+          You can drive a minibus at 18 if you’re learning to drive or taking a Passenger Carrying Vehicle (PCV) test or Driver CPC initial qualification or have already passed these qualifications.
+
+          You can also drive D1 vehicles at 18 if you passed a PCV test before 10 September 2008 and are driving under a bus operator’s licence, minibus permit or community bus permit. One of the following must also apply:
+
+          - you are driving on a regular service where the route isn’t more than 50km
+          - you’re not carrying passengers
+        next_steps: |
+          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
+          
+          [Driver Certificate of Professional Competence (Driver CPC)](/driver-certificate-of-professional-competence-driver-cpc/overview "Driver Certificate of Professional Competence (Driver CPC)")   
+      ## A28
+      psv_limited_entitlement:
+        body: |
+          If you’ve held your category B car licence for at least 2 years you can drive minibuses carrying up to 16 passengers as long as you’re not driving the minibus for ‘hire or reward’.
+
+          The minibus must not be larger than 3.5 tonnes or 4.25 tonnes including any specialist equipment for transporting disabled passengers.
+
+          %Some minibus rental companies insist that you have the full D1 minibus entitlement on your licence - check with the company to find out their rules.%
+        next_steps: |
+          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
+      ## A29
+      bus_exceptions_under_18:
+        body: |
+          You’ll normally have to wait until you’re 21 to drive a bus, although there are some exceptions.
+
+          ##Exceptions
+          You can apply for a provisional category D bus entitlement then take a category D test when you’re 18 in these cases:
+
+          [Get clarification on these rules from DSA]
+      ## A30
+      bus_exceptions_18_19:
+        body: |
+          You’ll normally have to wait until you’re 21 to drive a bus, although there are some exceptions.
+
+          ##Exceptions
+          You can apply for a provisional category D bus entitlement then take a test in this kind of vehicle when you’re 18 in these cases:
+
+          [Get clarification on these rules from DSA]
+      ## A31
+      bus_exceptions_20:
+        body: |
+          You’ll normally have to wait until you’re 21 to drive a bus, although there are some exceptions.
+
+          ##Exceptions
+
+          [Get clarification on these rules including rules at age 18 and 20 from DSA.]
+      ## A32
+      bus_apply_for_cat_d:
+        body: |
+          You can apply for provisional category D bus entitlement then take a test in this kind of vehicle.
+      ## A33
+      bus_apply_for_cat_b:
+        body: |
+          You’ll need a full category B car driving licence before applying for provisional category D bus entitlement on your licence then taking a bus driving test.
+
+          You must also normally be 21 or over.
+
+          ##Exceptions
+          If you have a full category B car driving licence you can drive a bus from 18 in these cases:
+
+          [Get clarification on these rules from DSA.]
+      ## A34
+      tractor_entitled:
+        body: |
+          You have automatic entitlement to drive a category F agricultural tractor and don’t need to take any further test.
+      ## A35
+      tractor_not_old_enough:
+        body: |
+          You can’t drive a tractor until you’re 16.
+
+          Once you’re 16 you can apply for provisional category F entitlement then take a category F tractor test. You’ll then only be able to drive smaller tractors (less than 2.45m wide and towing trailers less than 2.45m wide with 2 wheels, or 4 close-coupled wheels).
+
+          Alternatively you can wait until you’re 17 then take a tractor test to drive any size of tractor, or take a category B car driving test, then you’ll get your full tractor entitlement automatically.
+        next_steps: |
+          [Learning to drive a tractor or specialist vehicle](/learning-to-drive-a-tractor-or-specialist-vehicle/age-limits "Learning to drive a tractor or specialist vehicle")
+      ## A36
+      tractor_apply_for_provisional_conditional_licence:
+        body: |
+          You can apply for a provisional category F tractor licence then take a category F test. You’ll then be able to drive smaller tractors (less than 2.45m wide and towing trailers less than 2.45m wide with 2 wheels, or 4 close-coupled wheels). You can then drive any size of tractor when you’re 17.
+
+          Alternatively you can wait until you’re 17 then take a tractor test to drive any size of tractor, or take a category B car driving test, then you’ll get your full tractor entitlement automatically.
+        next_steps: |
+          [Learning to drive a tractor or specialist vehicle](/learning-to-drive-a-tractor-or-specialist-vehicle/age-limits "Learning to drive a tractor or specialist vehicle")
+      ## A37
+      tractor_apply_for_provisional_entitlement:
+        body: |
+          You can apply for a provisional category F entitlement then take a category F test to drive any type of tractor.
+
+          If you have a full category B car licence you’ll get category F entitlement automatically.
+        next_steps: |
+          [Learning to drive a tractor or specialist vehicle](/learning-to-drive-a-tractor-or-specialist-vehicle/age-limits "Learning to drive a tractor or specialist vehicle")
+      ## A38
+      sv_entitled_cat_k:
+        body: |
+          Your driving licence already lets you drive category K mowing machines or pedestrian-controlled vehicles without a further test. You’ll also have provisional entitlement to drive some kinds of category G and H vehicles.
+
+          ##Category G road rollers
+          You can drive non-steam road rollers up to 11,690kg that aren’t made for carrying loads. You’ll have to take a category G test to get full entitlement to drive these vehicles.
+
+          ##Category H tracked vehicles 
+          You can drive tracked vehicles up to 3,500kg. You’ll have to take a category H test to get full entitlement to drive these vehicles.
+      ## A39
+      sv_entitled_cat_k_provisional_g_h:
+        body: |
+          Your driving licence already lets you drive category K mowing machines or pedestrian-controlled vehicles without a further test. You’ll also have provisional entitlement to drive all kinds of road rollers and tracked vehicles. You’ll need to take tests in these vehicles to get full entitlement to drive them.
+      ## A40
+      sv_not_old_enough:
+        body: |
+          You can’t drive category G, H or K vehicles.
+
+          You can drive category K mowing machines or pedestrian-controlled vehicles once you’re 16. 
+          [What do you need to do to do this? ie Do you need a provisional/full licence in this category?]
+      ## A41
+      sv_entitled_cat_k_mower:
+        body: |
+          You can drive category K mowing machines or pedestrian-controlled vehicles.     
+          [What do you need to do to do this? ie Do you need a provisional/full licence in this category?]
+      ## A42
+      sv_entitled_cat_k_conditional_g_h:
+        body: |
+          You can drive category K mowing machines or pedestrian-controlled vehicles and some category G road rollers and category H tracked vehicles.
+
+          ##Category G road rollers
+
+          You can drive small non-steam powered road rollers that don’t weigh more than 11,690kg. They must have metal or hard rollers and not be made for carrying loads.
+
+          ^If you already have a full category B car licence you already have provisional entitlement to drive these kinds of road rollers.^
+
+          ##Category H tracked vehicles
+
+          You can drive tracked vehicles with a maximum authorised mass (MAM) not exceeding 3,500kg.
+
+          MAM is the total weight of the vehicle plus the maximum load it can carry safely.
+
+          ^If you already have a full category B car licence you already have provisional entitlement to drive these kinds of tracked vehicles.^
+
+          *[MAM]: Maximum Authorised Mass
+        next_steps: |
+          [Learning to drive a tractor or specialist vehicle](/learning-to-drive-a-tractor-or-specialist-vehicle/age-limits "Learning to drive a tractor or specialist vehicle")
+      ## A43
+      sv_entitled_no_licence:
+        body: |
+          You can drive category K mowing machines or pedestrian-controlled vehicles and all types of category G road rollers and category H tracked vehicles.
+          [What do you need to do to do this? ie Do you need a provisional/full licence in this category and then a test in this category?]
+
+          ^If you already have a full category B car licence you already have provisional entitlement to drive all kinds of road rollers and tracked vehicles.^
+        next_steps: |
+          [Learning to drive a tractor or specialist vehicle](/learning-to-drive-a-tractor-or-specialist-vehicle/age-limits "Learning to drive a tractor or specialist vehicle")
+      ## A44
+      quad_entitled:
+        body: |
+          If you have a full category B car licence you can automatically drive category B1 quad bikes and  trikes and won’t need to take a further test.
+      ## A45
+      quad_not_old_enough:
+        body: |
+          You’re too young to ride a quad bike or trike on the road.
+
+          You can apply for B1 quad bike provisional entitlement and take a B1 test once you’re 17, or 16 if you’re getting Disability Living Allowance mobility component at the higher rate.
+
+          Alternatively, if you get a full category B car licence you’ll automatically be allowed to ride category B1 quad bikes and trikes.
+        next_steps: |
+          [Quad bikes - the rules](/quad-bikes-the-rules "Quad bikes - the rules")
+      ## A46
+      quad_disability_conditional_entitlement:
+        body: |
+          You can’t ride a quad bike or trike on the road unless you’re getting Disability Living Allowance mobility component at the higher rate. If you are getting this you can apply for B1 quad bike provisional entitlement and take a B1 test once you’re 16.
+
+          Otherwise, you can apply for B1 provisional entitlement then take a B1 test once you’re 17.
+
+          Alternatively, if you get a full category B car licence you’ll automatically be allowed to ride category B1 quad bikes and trikes. 
+      ## A47
+      quad_apply_for_provisional_entitlement:
+        body: |
+          You can ride quad bikes or trikes on the road. You’ll need to apply for a B1 provisional entitlement then take a B1 test, or if you get a full category B car licence you’ll automatically be allowed to ride quad bikes and trikes.
+        next_steps: |
+          [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence "Apply for your first provisional driving licence")
+          
+          [Quad bikes - the rules](/quad-bikes-the-rules "Quad bikes - the rules")
