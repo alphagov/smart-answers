@@ -45,9 +45,28 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
       setup do
         add_response 101
       end
-      
+      ## Q3
       should "ask how many children there are in the payees household" do
         assert_current_node :how_many_children_in_payees_household?
+      end
+      
+      context "answer 3" do
+        setup do
+          add_response 3
+        end
+        ## Q4
+        should "ask how many nights a week the children stay with the payee" do
+          assert_current_node :how_many_nights_children_stay_with_payee?
+        end
+        context "answer more than 3 nights a week" do
+          setup do
+            add_response "more-than-3-nights-a-week"
+          end
+          
+          should "give the reduced and basic rates result" do
+            assert_current_node :reduced_and_basic_rates_result
+          end
+        end
       end
     end
   end
