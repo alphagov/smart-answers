@@ -14,16 +14,16 @@ module SmartAnswer::Calculators
       @milk_protein_weight = weights[:milk_protein_weight].to_i
     end
     
-    def commodity_code
-      
+#    def commodity_code
+#      
+#    end
+    
+    def starch_glucose_to_sucrose
+      @matrix_data[:starch_glucose_to_sucrose]
     end
     
-    def starch_glucose_ranges
-      @matrix_data[:starch_glucose_ranges]
-    end
-    
-    def sucrose_ranges
-      @matrix_data[:sucrose_ranges]
+    def milk_fat_to_milk_protein
+      @matrix_data[:milk_fat_to_milk_protein]
     end
     
     def load_maxtrix_data

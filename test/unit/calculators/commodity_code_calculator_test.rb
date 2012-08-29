@@ -8,19 +8,8 @@ module SmartAnswer::Calculators
       end
       
       should "load matrix data from file" do
-        assert_equal Array, @calculator.matrix_data[:starch_glucose_ranges].class
-        assert_equal 0, @calculator.matrix_data[:starch_glucose_ranges].first[:min]
-      end
-      
-      context "starch_glucose_ranges method" do
-        should "provide an array of hashes containing minimum and maximum values" do
-          assert_equal 75, @calculator.starch_glucose_ranges.last[:min]
-        end
-      end
-      context "sucrose_ranges method" do
-        should "provide an array of hashes containing minimum and maximum values" do
-          assert_equal 70, @calculator.sucrose_ranges.last[:min]
-        end
+        assert_equal Hash, @calculator.matrix_data[:starch_glucose_to_sucrose].class
+        assert_equal 2, @calculator.matrix_data[:starch_glucose_to_sucrose][0][30]
       end
     end
   end
