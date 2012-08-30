@@ -8,6 +8,7 @@ for d in images javascripts templates stylesheets; do
 done
 
 export DISPLAY=:99
+bundle exec rake stats
 RAILS_ENV=test bundle exec rake test
 RESULT=$?
 exit $RESULT
