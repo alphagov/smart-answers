@@ -3,6 +3,7 @@ source 'https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/'
 
 gem 'gds-warmup-controller'
 
+gem 'unicorn', '4.3.1'
 gem 'rails', '~> 3.2.8'
 gem 'rails-i18n'
 gem 'json'
