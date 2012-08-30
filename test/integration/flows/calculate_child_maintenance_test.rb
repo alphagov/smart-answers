@@ -21,7 +21,7 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
     end
   end
   
-  context "answer less than 4" do
+  context "answer less than 4 (this will use the old calculation scheme)" do
     setup do
       add_response 3
     end
@@ -29,14 +29,14 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
     should "ask what the weekly income of the payee" do
       assert_current_node :net_income_of_payee?
     end
-    context "answer 7" do
+    context "answer 5" do
       should "give nil rate result" do
-        add_response 7
+        add_response 5
         assert_current_node :nil_rate_result
       end
     end
     context "answer 100" do
-      should "give nil rate result" do
+      should "give flat rate result" do
         add_response 100
         assert_current_node :flat_rate_result
       end
@@ -46,8 +46,8 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
         add_response 101
       end
       ## Q3
-      should "ask how many children there are in the payees household" do
-        assert_current_node :how_many_children_in_payees_household?
+      should "ask how many other children there are in the payees household" do
+        assert_current_node :how_many_other_children_in_payees_household?
       end
       
       context "answer 3" do
@@ -60,7 +60,7 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
         end
         context "answer more than 3 nights a week" do
           setup do
-            add_response "more-than-3-nights-a-week"
+            add_response "4"
           end
           
           should "give the reduced and basic rates result" do
@@ -70,5 +70,4 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
       end
     end
   end
-
 end
