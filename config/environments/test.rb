@@ -46,6 +46,4 @@ SmartAnswers::Application.configure do
     end
     config.logger = Logger.new(nil)
   end
-
-  config.middleware.use Slimmer::App, :asset_host => "http://static.preview.alphagov.co.uk"
 end
