@@ -3,6 +3,7 @@ source 'https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/'
 
 gem 'gds-warmup-controller'
 
+gem 'unicorn', '4.3.1'
 gem 'rails', '~> 3.2.8'
 gem 'rails-i18n'
 gem 'json'
@@ -21,7 +22,7 @@ gem 'htmlentities', '~> 4'
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
 else
-  gem 'slimmer', '1.2.4'
+  gem 'slimmer', '2.0.0'
 end
 
 if ENV['GOVSPEAK_DEV']
