@@ -16,6 +16,9 @@ end
 
 ## Q2
 money_question :net_income_of_payee? do
+  calculate :flat_rate_amount do
+    calculator.base_amount
+  end
   next_node do |response|
     calculator.net_income = response
     rate_type = calculator.rate_type
@@ -43,8 +46,11 @@ multiple_choice :how_many_nights_children_stay_with_payee? do
   option 2
   option 3
   option 4
-  next_node do |response|
+  calculate :child_maintenance_payment do
     calculator.number_of_shared_care_nights = response.to_i
+    calculator.calculate_maintenance_payment
+  end
+  next_node do |response|
     :reduced_and_basic_rates_result
   end
 end
