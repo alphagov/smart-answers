@@ -6,7 +6,7 @@ module SmartAnswer::Calculators
     
     OLD_SCHEME_BASE_AMOUNT = 5
     NEW_SCHEME_BASE_AMOUNT = 7
-    BASIC_RATE_THRESHOLD = 100
+    REDUCED_RATE_THRESHOLD = 100
     BASIC_PLUS_RATE_THRESHOLD = 800
     
     def initialize(number_of_children)
@@ -25,7 +25,7 @@ module SmartAnswer::Calculators
     end
     
     def calculate_reduced_rate_payment
-      reduced_rate = ((@net_income - BASIC_RATE_THRESHOLD) * reduced_rate_mulitplier) + base_amount
+      reduced_rate = ((@net_income - REDUCED_RATE_THRESHOLD) * reduced_rate_mulitplier) + base_amount
       (reduced_rate - (reduced_rate * shared_care_multiplier)).round(2)
     end
     

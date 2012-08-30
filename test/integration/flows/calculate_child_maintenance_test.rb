@@ -21,7 +21,8 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
     end
   end
   
-  context "answer less than 4 (this will use the old calculation scheme)" do
+  ## Old scheme
+  context "answer less than 4" do
     setup do
       add_response 3
     end
@@ -65,9 +66,35 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
           end
           
           should "give the reduced and basic rates result" do
+            assert_state_variable "child_maintenance_payment", 2.66
             assert_current_node :reduced_and_basic_rates_result
           end
         end
+      end
+    end
+  end # Old scheme
+  
+  ## New scheme
+  context "answer 4" do
+    setup do
+      add_response 4
+    end
+    ## Q2
+    should "ask what the weekly income of the payee" do
+      assert_current_node :net_income_of_payee?
+    end
+    context "answer 100" do
+      should "give flat rate result" do
+        add_response 100
+        assert_state_variable "flat_rate_amount", 7
+        assert_current_node :flat_rate_result
+      end
+      should "flow through to calculation result" do
+        add_response 173.00
+        add_response 1
+        add_response 1
+        assert_state_variable "child_maintenance_payment", 29.25
+        assert_current_node :reduced_and_basic_rates_result
       end
     end
   end
