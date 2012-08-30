@@ -48,7 +48,7 @@ multiple_choice :how_many_nights_children_stay_with_payee? do
   option 4
   calculate :child_maintenance_payment do
     calculator.number_of_shared_care_nights = responses.last.to_i
-    calculator.calculate_maintenance_payment
+    sprintf("%.2f", calculator.calculate_maintenance_payment)
   end
   next_node do |response|
     :reduced_and_basic_rates_result
