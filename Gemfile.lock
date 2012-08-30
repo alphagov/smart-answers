@@ -172,8 +172,7 @@ GEM
     simplecov-html (0.5.3)
     simplecov-rcov (0.2.3)
       simplecov (>= 0.4.1)
-    slimmer (1.2.4)
-      gds-api-adapters (>= 0.0.33, < 0.3.0)
+    slimmer (2.0.0)
       json
       nokogiri (~> 1.5.0)
       null_logger
@@ -230,7 +229,7 @@ DEPENDENCIES
   shoulda (~> 2.11.3)
   simplecov (~> 0.6.4)
   simplecov-rcov (~> 0.2.3)
-  slimmer (= 1.2.4)
+  slimmer (= 2.0.0)
   therubyracer (~> 0.9.4)
   uglifier
   unicorn (= 4.3.1)
