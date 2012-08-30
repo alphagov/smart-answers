@@ -12,3 +12,5 @@ require 'rails/test_help'
 
 require 'minitest/unit'
 require 'minitest/autorun'
+
+require 'webmock/minitest'
