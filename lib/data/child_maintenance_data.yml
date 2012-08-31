@@ -1,11 +1,11 @@
 ---
 :rates:
   :new:
-    - :max: 7
+    - :max: 4.99
       :rate: :nil
     - :max: 100
       :rate: :flat
-    - :max: 200
+    - :max: 199.99
       :rate: :reduced
     - :max: 800
       :rate: :basic
