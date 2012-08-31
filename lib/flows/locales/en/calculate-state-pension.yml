@@ -3,11 +3,13 @@ en-GB:
     calculate-state-pension:
       title: State Pension calculator
       meta:
-        description: Use this tool to work out your State Pension age or estimate how much basic State Pension you may get when you reach State Pension age.
+        description: "Use this tool to work out your State Pension age or estimate how much basic State Pension you may get when you reach State Pension age."
       body: |
-        Calculate when you’ll reach State Pension age and how much you would get in today’s money.
+        Calculate when you'll reach State Pension age and how much you may get in today's money for your basic State Pension.
       devolved_body: |
         What you need to know:
+        
+        This calculator is for your basic State Pension. You may also be able to get the [Additional State Pension.](/additional-state-pension "additional State Pension")
 
         For a State Pension estimate you need to know the number of years you paid National Insurance or got certain benefits.
       phrases:
@@ -38,18 +40,13 @@ en-GB:
         title: What is your date of birth?
         error_message: Enter your date of birth
       years_paid_ni?:
-        title: How many years of National Insurance have you paid?
+        title: How many years of National Insurance have you paid from the age of 19?
         hint: |
           National Insurance is deducted from your wages. Self-employed people pay it with other tax.
         error_message: Your answer has to match the number of years you actually worked and paid National Insurance
       years_of_jsa?:
-        title: "How many years have you claimed any of the following:"
-        body: |
-          - Jobseekers Allowance
-          - Incapacity Benefit
-          - Employment and Support Allowance
-          - Unemployment Supplement or Allowance
-        hint: Enter 0 if you’ve never claimed any of these.
+        title: "How many years were you unemployed and 'signing on' or claiming benefits because of sickness or disability?"
+        hint: Don't count years you counted in question 3. Enter 0 if you’ve never claimed any of these.
         error_message: Please enter a number
       years_of_benefit?:
         title: "How many years did any of the following apply:"
@@ -87,8 +84,10 @@ en-GB:
           More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
 
       too_young:
-        title: You’re too young for a State Pension estimate. 
+        title: You must be at least 20 years old for the calculator to work out how much State Pension you'll get. 
         body: |
+          Your State Pension age is %{state_pension_age}.
+        
           How much State Pension you get depends on how many years of National Insurance contributions you have.
 
           You’re at the beginning of your working life and still need to make National Insurance contributions over the coming years. You’ll need 30 years to get a full State Pension. 
