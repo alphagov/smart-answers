@@ -4,6 +4,9 @@ en-GB:
       title: Look up additional commodity codes for certain goods covered by Regulation (EEC) No. 3448/93
       meta:
         description: Look up additional commodity code if you’re importing or exporting products containing... [TBC]
+      phrases:
+        result_with_commodity_code: The additional commodity code is %{commodity_code}.
+        result_with_no_commodity_code: No commodity code exists for this combination of percentage weights. [Copy TBC]
       how_much_starch_glucose?:
         title: How much starch glucose does the product contain?
         hint: the values represent % by weight
@@ -97,4 +100,5 @@ en-GB:
           "0": "0-5.99"
           "6": "6 or more"
       commodity_code_result:
-        title: The additional commodity code is %{commodity_code}
+        title: |
+          %{conditional_result}

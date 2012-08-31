@@ -94,6 +94,13 @@ multiple_choice :how_much_milk_fat? do
   calculate :commodity_code do
     calculator.commodity_code
   end
+  calculate :conditional_result do
+    if commodity_code == 'X'
+      PhraseList.new(:result_with_no_commodity_code)
+    else
+      PhraseList.new(:result_with_commodity_code)
+    end
+  end
   
   save_input_as :milk_fat_weight
   
@@ -131,7 +138,13 @@ multiple_choice :how_much_milk_protein_ab? do
     calculator.milk_protein_weight = responses.last.to_i
     calculator.commodity_code
   end
-  
+  calculate :conditional_result do
+    if commodity_code == 'X'
+      PhraseList.new(:result_with_no_commodity_code)
+    else
+      PhraseList.new(:result_with_commodity_code)
+    end
+  end  
   next_node :commodity_code_result
 end
 
@@ -145,7 +158,13 @@ multiple_choice :how_much_milk_protein_c? do
     calculator.milk_protein_weight = responses.last.to_i
     calculator.commodity_code
   end
-
+  calculate :conditional_result do
+    if commodity_code == 'X'
+      PhraseList.new(:result_with_no_commodity_code)
+    else
+      PhraseList.new(:result_with_commodity_code)
+    end
+  end
   next_node :commodity_code_result
 end
 
@@ -158,6 +177,13 @@ multiple_choice :how_much_milk_protein_d? do
   calculate :commodity_code do
     calculator.milk_protein_weight = responses.last.to_i
     calculator.commodity_code
+  end
+  calculate :conditional_result do
+    if commodity_code == 'X'
+      PhraseList.new(:result_with_no_commodity_code)
+    else
+      PhraseList.new(:result_with_commodity_code)
+    end
   end
   next_node :commodity_code_result
 end
@@ -172,6 +198,13 @@ multiple_choice :how_much_milk_protein_ef? do
     calculator.milk_protein_weight = responses.last.to_i
     calculator.commodity_code
   end
+  calculate :conditional_result do
+    if commodity_code == 'X'
+      PhraseList.new(:result_with_no_commodity_code)
+    else
+      PhraseList.new(:result_with_commodity_code)
+    end
+  end
   next_node :commodity_code_result
 end
 
@@ -183,6 +216,13 @@ multiple_choice :how_much_milk_protein_gh? do
   calculate :commodity_code do
     calculator.milk_protein_weight = responses.last.to_i
     calculator.commodity_code
+  end
+  calculate :conditional_result do
+    if commodity_code == 'X'
+      PhraseList.new(:result_with_no_commodity_code)
+    else
+      PhraseList.new(:result_with_commodity_code)
+    end
   end
   next_node :commodity_code_result
 end
