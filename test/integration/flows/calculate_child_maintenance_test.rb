@@ -81,7 +81,7 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
     end
     ## Q2
     should "ask what the weekly income of the payee" do
-      assert_current_node :net_income_of_payee?
+      assert_current_node :gross_income_of_payee?
     end
     context "answer 100" do
       should "give flat rate result" do

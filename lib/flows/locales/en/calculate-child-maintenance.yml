@@ -18,6 +18,10 @@ en-GB:
       net_income_of_payee?:
         title: What is the weekly net income of the parent paying child maintenance?
         hint: This is income after tax, National Insurance and pension contributions.
+      ## Q2a
+      gross_income_of_payee?:
+        title: What is the weekly gross income of the parent paying child maintenance?
+        hint: This is income before tax, National Insurance and pension contributions.
       ## Q3
       how_many_other_children_in_payees_household?:
         title: How many children live in the household of the parent paying child maintenance?

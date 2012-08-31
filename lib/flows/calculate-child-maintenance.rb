@@ -7,15 +7,35 @@ value_question :how_many_children_paid_for? do
     Calculators::ChildMaintenanceCalculator.new(responses.last)
   end
   next_node do |response|
-    if response.to_i == 0
+    number_of_children = response.to_i
+    if number_of_children == 0
       raise SmartAnswer::InvalidResponse
+    elsif number_of_children > 3
+      :gross_income_of_payee?
+    else 
+      :net_income_of_payee?
     end
-    :net_income_of_payee?
   end
 end
 
 ## Q2
 money_question :net_income_of_payee? do
+  calculate :flat_rate_amount do
+    calculator.base_amount
+  end
+  next_node do |response|
+    calculator.net_income = response
+    rate_type = calculator.rate_type
+    if [:nil, :flat].include?(rate_type)
+      "#{rate_type.to_s}_rate_result".to_sym
+    else
+      :how_many_other_children_in_payees_household?
+    end
+  end
+end
+
+## Q2a
+money_question :gross_income_of_payee? do
   calculate :flat_rate_amount do
     calculator.base_amount
   end
