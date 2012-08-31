@@ -46,7 +46,7 @@ en-GB:
         error_message: Your answer has to match the number of years you actually worked and paid National Insurance
       years_of_jsa?:
         title: "How many years were you unemployed and 'signing on' or claiming benefits because of sickness or disability?"
-        hint: Don't count years you counted in question 3. Enter 0 if you’ve never claimed any of these.
+        hint: Don't count years you counted in question 4. Enter 0 if you’ve never claimed any of these.
         error_message: Please enter a number
       years_of_benefit?:
         title: "How many years did any of the following apply:"
