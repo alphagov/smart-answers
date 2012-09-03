@@ -17,7 +17,7 @@ end
 ## QM2
 multiple_choice :employment_contract? do
   option :yes => :date_leave_starts?
-  # option :no => # result 3M
+  option :no => :not_entitled_to_statutory_maternity_leave # R3M
 end
 
 ## QM3
@@ -28,7 +28,7 @@ end
 ## QM4
 multiple_choice :did_the_employee_work_for_you? do
   option :yes => :is_the_employee_on_your_payroll? 
-#  option :no => 
+  option :no => :not_entitled_to_statutory_maternity_pay ## R4M
 end
 
 ## QM5
@@ -39,6 +39,11 @@ end
 ## QM6
 money_question :employees_average_weekly_earnings? do
 end
+
+## Maternity outcomes
+outcome :not_entitled_to_statutory_maternity_leave ## R3M
+outcome :not_entitled_to_statutory_maternity_pay ## R4M
+
 
 ## QP0
 multiple_choice :leave_or_pay_for_adoption? do

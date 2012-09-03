@@ -64,6 +64,19 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
               end
             end
           end
+          context "answer no" do
+            should "" do
+              add_response :no
+              assert_current_node :not_entitled_to_statutory_maternity_pay
+            end
+          end
+        end
+      end # Yes to employee has contract?
+      ## Employee has contract?
+      context "answer no" do
+        should "state that the employee is not entitled to maternity leave or pay" do
+          add_response :no
+          assert_current_node :not_entitled_to_statutory_maternity_leave
         end
       end
     end
@@ -95,6 +108,15 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
       should "ask for the child was matched with employee" do
         assert_current_node :employee_date_matched_paternity_adoption?
       end
+    end
+  end
+  
+  context "answer adoption" do
+    setup do
+      add_response :adoption
+    end
+    
+    should "" do
     end
   end
 end
