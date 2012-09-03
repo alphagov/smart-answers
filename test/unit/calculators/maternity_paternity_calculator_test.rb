@@ -53,6 +53,29 @@ module SmartAnswer::Calculators
         end
       end
       
+      context "with a weekly income of 193.00" do
+        setup do
+          @calculator.average_weekly_earnings = 193.00
+        end
+        
+        should "calculate the statutory maternity rate" do
+          assert_equal (193.00 * 0.9).round(2), @calculator.statutory_maternity_rate
+        end
+        
+        should "calculate the maternity pay at rate A" do
+          assert_equal ((193.00 * 0.9).round(2) * 6).round(2), @calculator.statutory_maternity_pay_a
+        end
+        
+        should "calculate the maternity pay at rate B using the base rate" do
+          assert_equal (135.45 * 33).round(2), @calculator.statutory_maternity_pay_b
+        end
+        
+        should "calculate the maternity pay at rate B using the percentage of weekly income" do
+          @calculator.average_weekly_earnings = 135.40
+          assert_equal ((135.40 * 0.9).round(2) * 33).round(2), @calculator.statutory_maternity_pay_b
+        end
+      end
+      
     end
     
   end
