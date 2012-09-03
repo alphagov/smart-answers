@@ -71,7 +71,7 @@ end
 # Q3
 multiple_choice :how_much_milk_fat? do
   option 0
-  option 1.5
+  option 1
   option 3
   option 6
   option 9
@@ -106,18 +106,15 @@ multiple_choice :how_much_milk_fat? do
   
   next_node do |response|
     case response.to_i
-      when 0
-      when 1.5
+      when 0, 1
         :how_much_milk_protein_ab?
       when 3
         :how_much_milk_protein_c?
       when 6
         :how_much_milk_protein_d?
-      when 9
-      when 12
+      when 9, 12
         :how_much_milk_protein_ef?
-      when 18
-      when 26
+      when 18, 26
         :how_much_milk_protein_gh?
       else
         :commodity_code_result
@@ -128,7 +125,7 @@ end
 # Q3ab
 multiple_choice :how_much_milk_protein_ab? do
   option 0
-  option 2.5
+  option 2
   option 6
   option 18
   option 30
@@ -151,7 +148,7 @@ end
 # Q3c
 multiple_choice :how_much_milk_protein_c? do
   option 0
-  option 2.5
+  option 2
   option 12
 
   calculate :commodity_code do
