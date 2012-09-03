@@ -42,4 +42,19 @@ end
 
 ## QP0
 multiple_choice :leave_or_pay_for_adoption? do
+	option :yes => :baby_due_date_paternity?
+	option :no => :employee_date_matched_paternity_adoption?
+end
+
+## QP1
+date_question :baby_due_date_paternity? do
+  
+end
+
+
+
+
+## QPA1
+date_question :employee_date_matched_paternity_adoption? do
+
 end
