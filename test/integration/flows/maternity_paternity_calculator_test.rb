@@ -56,5 +56,24 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
     should "ask whether to check for leave or pay for adoption" do
       assert_current_node :leave_or_pay_for_adoption?
     end
+
+    context "answer yes" do
+      setup do
+        add_response :yes
+      end
+      ## QP1
+      should "ask for the due date" do
+        assert_current_node :baby_due_date_paternity?
+      end
+    end
+    context "answer no" do
+      setup do
+        add_response :no
+      end
+      ## QP1
+      should "ask for the child was matched with employee" do
+        assert_current_node :employee_date_matched_paternity_adoption?
+      end
+    end
   end
 end
