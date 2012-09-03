@@ -7,6 +7,7 @@ satisfies_need "2013"
 multiple_choice :what_type_of_leave? do
   option :maternity => :baby_due_date_maternity?
   option :paternity => :leave_or_pay_for_adoption?
+  option :adoption => :maternity_or_paternity_leave_for_adoption?
 end
 
 ## QM1
@@ -63,3 +64,50 @@ end
 date_question :employee_date_matched_paternity_adoption? do
 
 end
+
+## QA0
+multiple_choice :maternity_or_paternity_leave_for_adoption? do
+  option :maternity => :date_of_adoption_match? # QA1
+#  option :paternity =>
+end
+
+## QA1
+date_question :date_of_adoption_match? do
+  next_node :date_of_adoption_placement?
+end
+
+## QA2
+date_question :date_of_adoption_placement? do
+  next_node :adoption_employment_contract?
+end
+
+## QA3
+multiple_choice :adoption_employment_contract? do
+  option :yes => :adoption_date_leave_starts?
+  option :no => :adoption_not_entitled_to_leave
+end
+
+## QA4
+date_question :adoption_date_leave_starts? do
+  next_node :adoption_did_the_employee_work_for_you?
+end
+
+## QA5
+multiple_choice :adoption_did_the_employee_work_for_you? do
+  option :yes => :adoption_is_the_employee_on_your_payroll?
+  option :no => :adoption_not_entitled_to_leave_or_pay
+end
+
+## QA7
+multiple_choice :adoption_is_the_employee_on_your_payroll? do
+  option :yes => :adoption_employees_average_weekly_earnings?
+  option :no => :adoption_not_entitled_to_pay
+end
+
+## QA8
+money_question :adoption_employees_average_weekly_earnings? do
+end
+
+outcome :adoption_not_entitled_to_leave
+outcome :adoption_not_entitled_to_pay
+outcome :adoption_not_entitled_to_leave_or_pay
