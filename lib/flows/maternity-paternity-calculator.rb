@@ -11,7 +11,24 @@ end
 
 ## QM1
 date_question :baby_due_date_maternity? do
-  
+  next_node :employment_contract?
+end
+
+## QM2
+multiple_choice :employment_contract? do
+  option :yes => :date_leave_starts?
+  # option :no => # result 3M
+end
+
+## QM3
+date_question :date_leave_starts? do
+  next_node :did_the_employee_work_for_you?
+end
+
+## QM4
+multiple_choice :did_the_employee_work_for_you? do
+#  option :yes => 
+#  option :no => 
 end
 
 ## QP0

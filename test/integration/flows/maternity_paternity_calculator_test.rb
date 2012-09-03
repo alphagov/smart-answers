@@ -21,6 +21,31 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
     should "ask when the baby due date is" do
       assert_current_node :baby_due_date_maternity?
     end
+    context "answer 2 months from now" do
+      setup do
+        add_response 2.months.since(Date.today).strftime("%Y-%m-%d")
+      end
+      ## QM2
+      should "ask if the employee has a contract with you" do
+        assert_current_node :employment_contract?
+      end
+      context "answer yes" do
+        setup do
+          add_response :yes
+        end
+        ## QM3
+        should "ask when the employee wants to start their leave" do
+          assert_current_node :date_leave_starts?
+        end
+#        context "answer 2 months from now" do
+#          setup do
+#          end
+#          
+#          should "" do
+#          end
+#        end
+      end
+    end
   end
   
   context "answer paternity" do
