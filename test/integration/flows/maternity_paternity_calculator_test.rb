@@ -23,7 +23,8 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
     end
     context "answer 2 months from now" do
       setup do
-        add_response 2.months.since(Date.today).strftime("%Y-%m-%d")
+        @two_months_from_now = 2.months.since(Date.today).strftime("%Y-%m-%d")
+        add_response @two_months_from_now
       end
       ## QM2
       should "ask if the employee has a contract with you" do
@@ -37,13 +38,33 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         should "ask when the employee wants to start their leave" do
           assert_current_node :date_leave_starts?
         end
-#        context "answer 2 months from now" do
-#          setup do
-#          end
-#          
-#          should "" do
-#          end
-#        end
+        context "answer 2 months from now" do
+          setup do
+            add_response @two_months_from_now
+          end
+          ## QM4
+          should "ask if the employee worked for you before or on this date" do
+            assert_current_node :did_the_employee_work_for_you?
+          end
+          context "answer yes" do
+            setup do
+              add_response :yes
+            end
+            ## QM5
+            should "ask if the employee is on your payroll" do
+              assert_current_node :is_the_employee_on_your_payroll?
+            end
+            context "answer yes" do
+              setup do
+                add_response :yes
+              end
+              ## QM6
+              should "ask what the employees average weekly earnings are" do
+                assert_current_node :employees_average_weekly_earnings?
+              end
+            end
+          end
+        end
       end
     end
   end

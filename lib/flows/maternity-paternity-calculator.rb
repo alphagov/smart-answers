@@ -27,8 +27,17 @@ end
 
 ## QM4
 multiple_choice :did_the_employee_work_for_you? do
-#  option :yes => 
+  option :yes => :is_the_employee_on_your_payroll? 
 #  option :no => 
+end
+
+## QM5
+multiple_choice :is_the_employee_on_your_payroll? do
+  option :yes => :employees_average_weekly_earnings?
+end
+
+## QM6
+money_question :employees_average_weekly_earnings? do
 end
 
 ## QP0
