@@ -61,37 +61,50 @@ end
 multiple_choice :employee_responsible_for_upbringing? do
 	option :biological_father? => :employee_work_before_employment_start?
 	option :mothers_husband_or_partner? => :employee_work_before_employment_start?
-	# option :neither => # result 5P DP
+	option :neither => :paternity_not_entitled_to_leave_or_pay # result 5P DP
 end
 
 ## QP3
 multiple_choice :employee_work_before_employment_start? do
 	option :yes => :employee_has_contract_paternity?
-	# option :no => # result 5P EP
+	option :no => :paternity_not_entitled_to_leave_or_pay # result 5P EP
 end
 
 ## QP4
 multiple_choice :employee_has_contract_paternity? do
-	# FIXME: Question result says go QP5, but doc does not have QP5
-	# assuming numbering error or removed question and proceeeding to 
-	# to QP6
 	option :yes => :employee_employed_at_employment_end_paternity?
-	# option :no => # result 3P
+	option :no => :paternity_not_entitled_to_leave # result 3P
 end
 
 ## QP6
 multiple_choice :employee_employed_at_employment_end_paternity? do
-
+	option :yes => :employee_on_payroll_paternity?
+	option :no => :paternity_not_entitled_to_pay # 4P AP
 end
 
+
+## QP7
 multiple_choice :employee_on_payroll_paternity? do
+	option :yes => :employee_average_weekly_earnings_paternity?
+	option :no => :paternity_not_entitled_to_pay # 4P AP
 end
 
-multiple_choice :employee_average_weekly_earnings_paternity? do
+## QP8
+money_question :employee_average_weekly_earnings_paternity? do
+
 end
 
-# multiple_choice :employee_on_payroll_paternity do
-# end
+# Maternity outcomes
+# result_1P - entitled to leave
+outcome :paternity_entitled_to_leave
+# result_2P - entitled to pay
+outcome :paternity_entitled_to_pay
+# result_3P - not entitled to leave
+outcome :paternity_not_entitled_to_leave
+# result_4P - not entitled to pay
+outcome :paternity_not_entitled_to_pay
+# result_5P – not entitled to leave or pay
+outcome :paternity_not_entitled_to_leave_or_pay
 
 
 

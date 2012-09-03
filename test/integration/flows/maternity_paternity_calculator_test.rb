@@ -126,6 +126,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
           context "answer yes" do
             setup { add_response :yes }
 
+            # QP4
             should "ask if employee has an employee contract" do
               assert_current_node :employee_has_contract_paternity?
             end
@@ -133,14 +134,61 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
             context "answer yes" do
               setup { add_response :yes }
 
+              # QP6
               should "ask if employee will be employed at employment_end" do
                 assert_current_node :employee_employed_at_employment_end_paternity?
+              end
+
+              context "answer yes" do
+                setup { add_response :yes }
+
+                # QP7
+                should "ask if employee is on payroll" do
+                  assert_current_node :employee_on_payroll_paternity?
+                end
+
+                context "answer yes" do
+                  setup { add_response :yes }
+
+                  # QP8
+                  should "ask if employee is on payroll" do
+                    assert_current_node :employee_average_weekly_earnings_paternity?
+                  end
+                end                
+                
+                context "answer no" do
+                  # 4P
+                  should "state that they are not entitled to leave or pay" do
+                    add_response :no
+                    assert_current_node :paternity_not_entitled_to_pay
+                  end
+                end
+              end
+
+              context "answer no" do
+                # 4P
+                should "state that they are not entitled to leave or pay" do
+                  add_response :no
+                  assert_current_node :paternity_not_entitled_to_pay
+                end
+              end
+            end
+
+            context "answer no" do
+              # 3P
+              should "state that they are not entitled to leave or pay" do
+                add_response :no
+                assert_current_node :paternity_not_entitled_to_leave
               end
             end
           end
 
           context "answer no" do
-            # TODO: write test
+            # 5P
+            should "state that they are not entitled to leave or pay" do
+              add_response :no
+              assert_current_node :paternity_not_entitled_to_leave_or_pay
+            end
           end
         end
         context "is mother's husband or partner" do
@@ -150,6 +198,13 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
             assert_current_node :employee_work_before_employment_start? 
           end
         end
+        context "answer neither" do
+            # 5P
+            should "state that they are not entitled to leave or pay" do
+              add_response :neither
+              assert_current_node :paternity_not_entitled_to_leave_or_pay
+            end
+          end
       end
 
      end
