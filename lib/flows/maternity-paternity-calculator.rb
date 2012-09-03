@@ -12,17 +12,33 @@ end
 
 ## QM1
 date_question :baby_due_date_maternity? do
-  next_node :employment_contract?
+  calculate :calculator do
+    Calculators::MaternityPaternityCalculator.new(Date.parse(responses.last))
+  end
+  next_node :employment_contract? 
 end
 
 ## QM2
 multiple_choice :employment_contract? do
-  option :yes => :date_leave_starts?
-  option :no => :did_the_employee_work_for_you? # Q4M
+  option :yes
+  option :no
+  calculate :has_employment_contract do
+    calculator.employment_contract = (responses.last == 'yes')
+  end
+  next_node do |response|
+    if response == 'yes'
+      :date_leave_starts?
+    else
+      :did_the_employee_work_for_you?
+    end
+  end
 end
 
 ## QM3
 date_question :date_leave_starts? do
+  calculate :leave_start_date do
+    calculator.leave_start_date = Date.parse(responses.last)
+  end
   next_node :did_the_employee_work_for_you?
 end
 
