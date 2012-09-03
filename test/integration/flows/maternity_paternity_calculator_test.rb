@@ -210,15 +210,131 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
      end
 
 
+    ##
+    ## Paternity Adoption
+    ##
     context "answer yes" do
       setup { add_response :yes }
-      ## QP1
-      should "ask for the child was matched with employee" do
+      ## QAP1
+      should "ask for date the child was matched with employee" do
         assert_current_node :employee_date_matched_paternity_adoption?
       end
+
+      context "date matched date given as 3 months ago" do
+        setup { add_response 3.months.ago(Date.today).strftime("%Y-%m-%d") }
+
+        # QAP1.2
+        should "ask for the date the adoption placement will start" do
+          assert_current_node :padoption_date_of_adoption_placement?
+
+        end
+
+        context "placement date given as 2 months ahead" do
+          setup { add_response 2.months.since(Date.today).strftime("%Y-%m-%d") }
+
+          # QAP2
+          should "ask if employee is responsible for upbringing" do
+            assert_current_node :padoption_employee_responsible_for_upbringing?
+          end
+
+          context "answer yes" do
+            setup { add_response :yes }
+
+            # QAP3 
+            should "ask if employee started on or before employment_start" do
+              assert_current_node :padoption_employee_start_on_or_before_employment_start?
+            end
+
+            context "answer yes" do
+              setup { add_response :yes }
+              
+              # QAP4
+              should "ask if employee has an employment contract" do
+                 assert_current_node :padoption_have_employee_contract?
+              end
+
+              context "answer yes" do
+                setup { add_response :yes }
+                
+                # QAP6
+                should "ask if employee will be employed at employment_end" do
+                   assert_current_node :padoption_employed_at_employment_end?
+                end
+
+
+                context "answer yes" do
+                  setup { add_response :yes }
+                  
+                  # QAP7
+                  should "ask if employee is on payroll" do
+                     assert_current_node :padoption_employee_on_payroll?
+                  end
+
+                  context "answer yes" do
+                    setup { add_response :yes }
+                    
+                    # QAP8
+                    should "ask for employee avg weekly earnings" do
+                       assert_current_node :padoption_employee_avg_weekly_earnings?
+                    end
+                  end
+
+                  context "answer no" do
+                    # outcome 4AP
+                    should "not entitled to pay" do
+                      add_response :no  
+                      assert_current_node :padoption_not_entitled_to_pay
+                    end
+                  end
+
+                end
+
+                context "answer no" do
+                  # outcome 4AP
+                  should "not entitled to pay" do
+                    add_response :no  
+                    assert_current_node :padoption_not_entitled_to_pay
+                  end
+                end
+
+
+              end
+
+              context "answer no" do
+                # outcome 3AP
+                should "not entitled to leave" do
+                  add_response :no
+                  assert_current_node :padoption_not_entitled_to_leave
+                end
+              end
+
+
+            end
+
+            context "answer no" do
+              # outcome 5AP
+              should "not entitled to leave or pay" do
+                add_response :no
+                assert_current_node :padoption_not_entitled_to_leave_or_pay
+              end
+            end
+          end
+
+          context "answer no" do
+            # outcome 5AP
+            should "not entitled to leave or pay" do
+              add_response :no
+              assert_current_node :padoption_not_entitled_to_leave_or_pay
+            end
+          end
+        end
+      end # Paternity Adoption flow
+
     end
   end # Paternity flow
   
+  
+
   ##
   ## Adoption flow
   ##

@@ -88,6 +88,7 @@ end
 
 ## QP4
 multiple_choice :employee_has_contract_paternity? do
+	# NOTE: QP5 is skipped - go straight to QP6 
 	option :yes => :employee_employed_at_employment_end_paternity?
 	option :no => :paternity_not_entitled_to_leave # result 3P
 end
@@ -126,13 +127,68 @@ outcome :paternity_not_entitled_to_leave_or_pay
 
 
 
+## Paternity 
 
-
-## QPA1
+## QAP1
 date_question :employee_date_matched_paternity_adoption? do
+	next_node :padoption_date_of_adoption_placement?
+end
+
+## QAP1.2
+date_question :padoption_date_of_adoption_placement? do
+  next_node :padoption_employee_responsible_for_upbringing?
+end
+
+## QAP2
+multiple_choice :padoption_employee_responsible_for_upbringing? do
+	option :yes => :padoption_employee_start_on_or_before_employment_start?
+	option :no => :padoption_not_entitled_to_leave_or_pay #5AP
+end
+
+## QAP3
+multiple_choice :padoption_employee_start_on_or_before_employment_start? do
+	option :yes => :padoption_have_employee_contract?
+	option :no => :padoption_not_entitled_to_leave_or_pay #5AP
+end
+
+## QAP4
+multiple_choice :padoption_have_employee_contract? do
+	# NOTE: goes straight to QAP6 
+	option :yes => :padoption_employed_at_employment_end?
+	option :no => :padoption_not_entitled_to_leave # 3AP
+end
+
+## QAP6
+multiple_choice :padoption_employed_at_employment_end? do
+	option :yes => :padoption_employee_on_payroll?
+	option :no => :padoption_not_entitled_to_pay # 4AP
+end
+
+## QAP7
+multiple_choice :padoption_employee_on_payroll? do
+	option :yes => :padoption_employee_avg_weekly_earnings?
+	option :no => :padoption_not_entitled_to_pay # 4AP
+end
+
+money_question :padoption_employee_avg_weekly_earnings? do
 
 end
 
+## Paternity Adoption Results
+# result_1AP - entitled to leave
+outcome :padoption_entitled_to_leave
+# result_2AP - entitled to pay
+outcome :padoption_entitled_to_pay
+# result_3AP - not entitled to leave
+outcome :padoption_not_entitled_to_leave
+# result_4AP - not entitled to pay
+outcome :padoption_not_entitled_to_pay
+# result_5AP – not entitled to leave or pay
+outcome :padoption_not_entitled_to_leave_or_pay
+
+
+
+## Adoption
 ## QA0
 multiple_choice :maternity_or_paternity_leave_for_adoption? do
   option :maternity => :date_of_adoption_match? # QA1
