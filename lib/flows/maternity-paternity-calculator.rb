@@ -18,7 +18,7 @@ end
 ## QM2
 multiple_choice :employment_contract? do
   option :yes => :date_leave_starts?
-  option :no => :not_entitled_to_statutory_maternity_leave # R3M
+  option :no => :did_the_employee_work_for_you? # Q4M
 end
 
 ## QM3

@@ -77,9 +77,9 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
       end # Yes to employee has contract?
       ## Employee has contract?
       context "answer no" do
-        should "state that the employee is not entitled to maternity leave or pay" do
+        should "ask if the employee worked for you at the elligility date" do
           add_response :no
-          assert_current_node :not_entitled_to_statutory_maternity_leave
+          assert_current_node :did_the_employee_work_for_you?
         end
       end
     end
