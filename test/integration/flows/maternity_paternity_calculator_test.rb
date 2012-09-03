@@ -98,19 +98,65 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
       assert_current_node :leave_or_pay_for_adoption?
     end
 
-    context "answer yes" do
+    context "answer no" do
       setup do
-        add_response :yes
+        add_response :no
       end
       ## QP1
       should "ask for the due date" do
         assert_current_node :baby_due_date_paternity?
       end
-    end
-    context "answer no" do
-      setup do
-        add_response :no
+
+      context "due date given as 3 months from now" do
+        setup { add_response 3.months.since(Date.today).strftime("%Y-%m-%d") }
+        
+        ## QP2 
+        should "ask if and what context the employee is responsible for the childs upbringing" do
+          assert_current_node :employee_responsible_for_upbringing?
+        end
+
+        context "is biological father" do
+          setup { add_response :biological_father? }
+          
+          ## QP3
+          should "ask if employee worked for you before employment_start" do
+            assert_current_node :employee_work_before_employment_start? 
+          end
+
+          context "answer yes" do
+            setup { add_response :yes }
+
+            should "ask if employee has an employee contract" do
+              assert_current_node :employee_has_contract_paternity?
+            end
+
+            context "answer yes" do
+              setup { add_response :yes }
+
+              should "ask if employee will be employed at employment_end" do
+                assert_current_node :employee_employed_at_employment_end_paternity?
+              end
+            end
+          end
+
+          context "answer no" do
+            # TODO: write test
+          end
+        end
+        context "is mother's husband or partner" do
+          setup { add_response :mothers_husband_or_partner? }
+          ## QP3
+          should "ask if employee worked for you before employment_start" do
+            assert_current_node :employee_work_before_employment_start? 
+          end
+        end
       end
+
+     end
+
+
+    context "answer yes" do
+      setup { add_response :yes }
       ## QP1
       should "ask for the child was matched with employee" do
         assert_current_node :employee_date_matched_paternity_adoption?
