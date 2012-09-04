@@ -23,8 +23,25 @@ en-GB:
         
       phrases:
         expected_week_phrase: %{calculator.expected_week}
-          
       
+      ## QM1    
+      baby_due_date_maternity?:
+        title: What is the baby’s due date?
+      ## QM2
+      employment_contract?:
+        title: Does the employee have an employment contract with you?
+      ## QM3
+      date_leave_starts?:
+        title: When does the employee want to start their leave?
+      ## QM4
+      did_the_employee_work_for_you?:
+        title: Did the employee work for you on or before employment_start?
+      ## QM5
+      is_the_employee_on_your_payroll?:
+        title: Is the employee on your payroll?
+      ## QM6
+      employees_average_weekly_earnings?:
+        title: What were the employee’s average weekly earnings between relevant_period?
       maternity_leave_and_pay_result:
         body: |
           %{result}
