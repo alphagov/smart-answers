@@ -59,9 +59,6 @@ module SmartAnswer::Calculators
       (PATERNITY_RATE < awe ? PATERNITY_RATE : awe)
     end
 
-    def p_notice_leave
-      @notice_of_leave_deadline
-    end
 
   end
 end

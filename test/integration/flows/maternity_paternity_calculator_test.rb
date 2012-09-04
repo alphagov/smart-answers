@@ -184,8 +184,8 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                     setup { add_response 500.55 }
 
                     should "have p_notice_leave qualify" do
-                      @three_months_time = 3.months.since(Date.today) 
-                      leave_notice = @three_months_time - @three_months_time.wday 
+                      @three_months_time = 3.months.since(Date.today)
+                      leave_notice = @three_months_time - @three_months_time.wday
                       assert_state_variable "p_notice_leave", 15.weeks.ago(leave_notice)
                     end
                   end
