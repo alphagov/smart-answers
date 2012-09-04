@@ -126,8 +126,12 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
       end
 
       context "due date given as 3 months from now" do
-        setup { add_response 3.months.since(Date.today).strftime("%Y-%m-%d") }
-        
+        # setup { add_response 3.months.since(Date.today).strftime("%Y-%m-%d") }
+        setup do
+          @three_months_from_now = 3.months.since(Date.today).strftime("%Y-%m-%d")
+          add_response @three_months_from_now #3.months.since(Date.today).strftime("%Y-%m-%d")
+        end
+
         ## QP2 
         should "ask if and what context the employee is responsible for the childs upbringing" do
           assert_current_node :employee_responsible_for_upbringing?
@@ -171,7 +175,22 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                   # QP8
                   should "ask if employee is on payroll" do
                     assert_current_node :employee_average_weekly_earnings_paternity?
+                    # assert_state_variable "p_notice_leave", 15.weeks.ago(@three_months_from_now)
+
+
                   end
+
+                  context "answer 500.55" do
+                    setup { add_response 500.55 }
+
+                    should "have p_notice_leave qualify" do
+                      @three_months_time = 3.months.since(Date.today) 
+                      leave_notice = @three_months_time - @three_months_time.wday 
+                      assert_state_variable "p_notice_leave", 15.weeks.ago(leave_notice)
+                    end
+                  end
+
+
                 end                
                 
                 context "answer no" do
@@ -293,8 +312,10 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                     
                     # QAP8
                     should "ask for employee avg weekly earnings" do
-                       assert_current_node :padoption_employee_avg_weekly_earnings?
+                      assert_current_node :padoption_employee_avg_weekly_earnings?
                     end
+
+
                   end
 
                   context "answer no" do

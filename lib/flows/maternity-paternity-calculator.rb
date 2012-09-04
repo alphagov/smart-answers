@@ -113,6 +113,8 @@ outcome :not_entitled_to_statutory_maternity_leave ## R3M
 outcome :not_entitled_to_statutory_maternity_pay ## R4M
 
 
+## Paternity 
+
 ## QP0
 multiple_choice :leave_or_pay_for_adoption? do
 	option :yes => :employee_date_matched_paternity_adoption?
@@ -121,6 +123,9 @@ end
 
 ## QP1
 date_question :baby_due_date_paternity? do
+  calculate :calculator do
+    Calculators::MaternityPaternityCalculator.new(Date.parse(responses.last))
+  end
 	next_node :employee_responsible_for_upbringing?  
 end
 
@@ -140,8 +145,15 @@ end
 ## QP4
 multiple_choice :employee_has_contract_paternity? do
 	# NOTE: QP5 is skipped - go straight to QP6 
-	option :yes => :employee_employed_at_employment_end_paternity?
-	option :no => :paternity_not_entitled_to_leave # result 3P
+	option :yes #=> :employee_employed_at_employment_end_paternity?
+	option :no #=> :paternity_not_entitled_to_leave # result 3P
+	next_node do |response|
+    if response == 'yes'
+      :employee_employed_at_employment_end_paternity?
+    else
+      :paternity_not_entitled_to_leave
+    end
+  end
 end
 
 ## QP6
@@ -159,10 +171,21 @@ end
 
 ## QP8
 money_question :employee_average_weekly_earnings_paternity? do
-
+	calculate :p_notice_leave do
+    calculator.notice_of_leave_deadline
+  end
+	next_node do |response|
+		if response > calculator.lower_earning_limit
+			# 2P
+			:paternity_entitled_to_pay
+		else
+			# 4P
+			:paternity_not_entitled_to_pay
+		end
+	end
 end
 
-# Maternity outcomes
+# Paternity outcomes
 # result_1P - entitled to leave
 outcome :paternity_entitled_to_leave
 # result_2P - entitled to pay
@@ -178,7 +201,7 @@ outcome :paternity_not_entitled_to_leave_or_pay
 
 
 
-## Paternity 
+## Paternity Adoption
 
 ## QAP1
 date_question :employee_date_matched_paternity_adoption? do

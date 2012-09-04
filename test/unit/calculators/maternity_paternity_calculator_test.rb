@@ -78,6 +78,17 @@ module SmartAnswer::Calculators
           @calculator.average_weekly_earnings = 135.40
           assert_equal ((135.40 * 0.9).round(2) * 33).round(2), @calculator.statutory_maternity_pay_b
         end
+
+      end
+
+      should "calculate the paternity rate as the standard rate" do
+        @calculator.average_weekly_earnings = 500.55
+        assert_equal 135.45, @calculator.statutory_paternity_rate 
+      end
+
+      should "calculate the paternity rate as 90 percent of weekly earnings" do
+        @calculator.average_weekly_earnings = 120.55
+        assert_equal (120.55 * 0.9).to_f, @calculator.statutory_paternity_rate 
       end
       
     end

@@ -7,6 +7,7 @@ module SmartAnswer::Calculators
     
     LOWER_EARNING_LIMITS = { 2011 => 102, 2012 => 107 }
     MATERNITY_RATE_B = PATERNITY_RATE_B = 135.45
+    MATERNITY_RATE_B = 135.45
     
     def initialize(due_date)
       @due_date = due_date
@@ -48,5 +49,19 @@ module SmartAnswer::Calculators
     def lower_earning_limit(year=Date.today.year)
       LOWER_EARNING_LIMITS[year]
     end
+    
+
+    ## Paternity
+    ##
+    ## Statutory paternity rate
+    def statutory_paternity_rate
+      awe = (@average_weekly_earnings.to_f * 0.9).round(2)
+      (PATERNITY_RATE < awe ? PATERNITY_RATE : awe)
+    end
+
+    def p_notice_leave
+      @notice_of_leave_deadline
+    end
+
   end
 end
