@@ -123,16 +123,22 @@ end
 
 ## QP1
 date_question :baby_due_date_paternity? do
+  calculate :due_date do
+    Date.parse(responses.last)
+  end
   calculate :calculator do
-    Calculators::MaternityPaternityCalculator.new(Date.parse(responses.last))
+    Calculators::MaternityPaternityCalculator.new(due_date)
   end
 	next_node :employee_responsible_for_upbringing?  
 end
 
 ## QP2
 multiple_choice :employee_responsible_for_upbringing? do
-	option :biological_father? => :employee_work_before_employment_start?
-	option :mothers_husband_or_partner? => :employee_work_before_employment_start?
+  calculate :relevant_period do
+    calculator.relevant_period
+  end
+	option :biological_father => :employee_work_before_employment_start?
+	option :mothers_husband_or_partner => :employee_work_before_employment_start?
 	option :neither => :paternity_not_entitled_to_leave_or_pay # result 5P DP
 end
 
@@ -174,8 +180,16 @@ money_question :employee_average_weekly_earnings_paternity? do
 	calculate :p_notice_leave do
     calculator.notice_of_leave_deadline
   end
-	next_node do |response|
-		if response > calculator.lower_earning_limit
+  calculate :spp_rate do
+    calculator.average_weekly_earnings = responses.last
+    calculator.statutory_paternity_rate
+  end
+  calculate :lower_earning_limit do
+    calculator.lower_earning_limit
+  end
+  next_node do |response|
+    
+    if response > calculator.lower_earning_limit
 			# 2P
 			:paternity_entitled_to_pay
 		else
@@ -189,7 +203,7 @@ end
 # result_1P - entitled to leave
 outcome :paternity_entitled_to_leave
 # result_2P - entitled to pay
-outcome :paternity_entitled_to_pay
+outcome :paternity_entitled_to_pay 
 # result_3P - not entitled to leave
 outcome :paternity_not_entitled_to_leave
 # result_4P - not entitled to pay

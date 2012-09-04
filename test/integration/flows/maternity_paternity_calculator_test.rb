@@ -138,7 +138,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         end
 
         context "is biological father" do
-          setup { add_response :biological_father? }
+          setup { add_response :biological_father }
           
           ## QP3
           should "ask if employee worked for you before employment_start" do
@@ -229,7 +229,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
           end
         end
         context "is mother's husband or partner" do
-          setup { add_response :mothers_husband_or_partner? }
+          setup { add_response :mothers_husband_or_partner }
           ## QP3
           should "ask if employee worked for you before employment_start" do
             assert_current_node :employee_work_before_employment_start? 

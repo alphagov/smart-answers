@@ -88,7 +88,7 @@ module SmartAnswer::Calculators
 
       should "calculate the paternity rate as 90 percent of weekly earnings" do
         @calculator.average_weekly_earnings = 120.55
-        assert_equal (120.55 * 0.9).to_f, @calculator.statutory_paternity_rate 
+        assert_equal ((120.55 * 0.9).to_f).round(2), @calculator.statutory_paternity_rate 
       end
       
     end
