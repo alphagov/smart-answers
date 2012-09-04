@@ -22,8 +22,12 @@ end
 multiple_choice :employment_contract? do
   option :yes
   option :no
-  calculate :has_employment_contract do
-    calculator.employment_contract = (responses.last == 'yes')
+  calculate :maternity_leave_result do
+    if responses.last == 'yes'
+      PhraseList.new(:maternity_leave_table)
+    else
+      ''
+    end
   end
   next_node do |response|
     if response == 'yes'

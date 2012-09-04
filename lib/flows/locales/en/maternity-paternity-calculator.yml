@@ -20,10 +20,19 @@ en-GB:
         + baby’s due date 
         + dates for the child’s adoption 
         + salary details - eg weekly rates of pay
-        
       phrases:
-        expected_week_phrase: %{calculator.expected_week}
-      
+        maternity_leave_table: |
+          ##Statutory maternity leave 
+
+          The employee is entitled to up to 52 weeks statutory maternity leave. 
+          
+          |Leave                | Key dates                   |
+          |---------------------|-----------------------------|
+          |Start                | %{leave_start_date}         |
+          |End                  | %{leave_end_date}           |
+          |Earliest start date  | %{leave_earliest_start_date}|
+          |Notice period        | %{notice_of_leave_deadline} |
+          
       ## QM1    
       baby_due_date_maternity?:
         title: What is the baby’s due date?
@@ -42,6 +51,20 @@ en-GB:
       ## QM6
       employees_average_weekly_earnings?:
         title: What were the employee’s average weekly earnings between relevant_period?
+      ##
       maternity_leave_and_pay_result:
         body: |
-          %{result}
+        
+          %{maternity_leave_result}
+          
+          ##Statutory maternity pay
+
+          The employee is entitled to up to 39 weeks statutory maternity pay.
+          
+          |Pay                            | Key facts                 |
+          |-------------------------------|---------------------------|
+          |Start date                     | %{pay_start_date}         |
+          |End date                       | %{pay_end_date}           |
+          |Rate for first 6 weeks         | £%{smp_a}                 |
+          |Rate for remaining 33 weeks    | £%{smp_b}                 |
+          |Notice period                  | %{notice_of_leave_deadline}|      
