@@ -27,7 +27,7 @@ module SmartAnswer::Calculators
       end
       
       should "calculate the earliest leave start date" do
-        assert_equal 11.weeks.ago(@due_date), @calculator.max_leave_start_date
+        assert_equal 11.weeks.ago(@due_date), @calculator.leave_earliest_start_date
       end
       
       should "calculate the proof of pregnancy deadline" do

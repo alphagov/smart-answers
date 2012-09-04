@@ -38,6 +38,22 @@ end
 date_question :date_leave_starts? do
   calculate :leave_start_date do
     calculator.leave_start_date = Date.parse(responses.last)
+    calculator.leave_start_date
+  end
+  calculate :leave_end_date do
+    calculator.leave_end_date
+  end
+  calculate :leave_earliest_start_date do
+    calculator.leave_earliest_start_date
+  end
+  calculate :notice_of_leave_deadline do
+    calculator.notice_of_leave_deadline
+  end
+  calculate :pay_start_date do
+    calculator.pay_start_date
+  end
+  calculate :pay_end_date do
+    calculator.pay_end_date
   end
   next_node :did_the_employee_work_for_you?
 end
@@ -51,13 +67,32 @@ end
 ## QM5
 multiple_choice :is_the_employee_on_your_payroll? do
   option :yes => :employees_average_weekly_earnings?
+  option :no => :not_entitled_to_statutory_maternity_pay
 end
 
 ## QM6
 money_question :employees_average_weekly_earnings? do
+  calculate :calculator do
+    calculator.average_weekly_earnings = responses.last
+    calculator
+  end
+  calculate :smp_a do
+    calculator.statutory_maternity_pay_a
+  end
+  calculate :smp_b do
+    calculator.statutory_maternity_pay_b
+  end
+  next_node do |response|
+    if response > calculator.lower_earning_limit
+      :maternity_leave_and_pay_result
+    else
+      :not_entitled_to_statutory_maternity_pay
+    end
+  end
 end
 
 ## Maternity outcomes
+outcome :maternity_leave_and_pay_result
 outcome :not_entitled_to_statutory_maternity_leave ## R3M
 outcome :not_entitled_to_statutory_maternity_pay ## R4M
 

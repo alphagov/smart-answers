@@ -65,10 +65,35 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
               should "ask what the employees average weekly earnings are" do
                 assert_current_node :employees_average_weekly_earnings?
               end
+              context "answer 135.40" do
+                setup do
+                  add_response 135.40
+                end
+                should "calculate dates and pay amounts" do
+                  two_months_time = 2.months.since(Date.today)
+                  start_of_week = two_months_time - two_months_time.wday
+                  assert_state_variable "leave_start_date", two_months_time
+                  assert_state_variable "leave_end_date", 52.weeks.since(two_months_time)
+                  assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week)
+                  assert_state_variable "pay_start_date", two_months_time
+                  assert_state_variable "pay_end_date", 39.weeks.since(two_months_time)
+                  assert_state_variable "smp_a", 731.16
+                  assert_state_variable "smp_b", 4021.38
+                end
+                should "calculate and present the result" do
+                  assert_current_node :maternity_leave_and_pay_result
+                end
+              end
+            end
+            context "answer no" do
+              should "state that you they are not entitled to pay" do
+                add_response :no
+                assert_current_node :not_entitled_to_statutory_maternity_pay
+              end
             end
           end
           context "answer no" do
-            should "" do
+            should "state that you they are not entitled to pay" do
               add_response :no
               assert_current_node :not_entitled_to_statutory_maternity_pay
             end

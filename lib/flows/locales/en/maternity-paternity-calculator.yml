@@ -1,0 +1,30 @@
+en-GB:
+  flow:
+    maternity-paternity-calculator:
+      meta:
+        description: "Maternity, paternity and adoption - check employee eligibility for leave and pay and get a calendar of dates to work out qualifying weeks."
+      title:
+        Maternity and paternity calculator for employers
+      options:
+        "no": "No"
+        "yes": "Yes"
+      body: |
+
+        Work out the eligibility and qualifying weeks for employees requesting maternity, paternity and adoption leave or pay.
+        
+        
+        ##What you need
+
+        You’ll need
+
+        + baby’s due date 
+        + dates for the child’s adoption 
+        + salary details - eg weekly rates of pay
+        
+      phrases:
+        expected_week_phrase: %{calculator.expected_week}
+          
+      
+      maternity_leave_and_pay_result:
+        body: |
+          %{result}
