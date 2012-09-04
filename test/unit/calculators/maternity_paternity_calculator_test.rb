@@ -44,6 +44,10 @@ module SmartAnswer::Calculators
           assert_equal 52.weeks.since(@leave_start_date), @calculator.leave_end_date
         end
         
+        should "make the leave end date after the leave start date" do
+          assert @calculator.leave_end_date > @calculator.leave_start_date, "Leave end date should come after leave start date"
+        end
+        
         should "make the pay start date the same date" do
           assert_equal @leave_start_date, @calculator.pay_start_date
         end

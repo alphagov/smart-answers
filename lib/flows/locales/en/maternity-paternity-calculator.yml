@@ -21,6 +21,9 @@ en-GB:
         + dates for the child’s adoption 
         + salary details - eg weekly rates of pay
       phrases:
+        not_worked_long_enough: they must have started working for you on %{employment_start}
+        must_be_on_payroll: you must be liable for their National Insurance Contributions - ie you will be if they’re on your payroll
+        must_earn_over_threshold: their average weekly earnings between %{relevant_period} must be at least £%{lower_earning_limit}
         maternity_leave_table: |
           ##Statutory maternity leave 
 
@@ -32,6 +35,13 @@ en-GB:
           |End                  | %{leave_end_date}           |
           |Earliest start date  | %{leave_earliest_start_date}|
           |Notice period        | %{notice_of_leave_deadline} |
+      ## Q1
+      what_type_of_leave?:
+        title: What leave or pay do you want to check?
+        options:
+          "maternity": "Maternity"
+          "paternity": "Paternity"
+          "adoption": "Adoption"
           
       ## QM1    
       baby_due_date_maternity?:
@@ -44,14 +54,15 @@ en-GB:
         title: When does the employee want to start their leave?
       ## QM4
       did_the_employee_work_for_you?:
-        title: Did the employee work for you on or before employment_start?
+        title: Did the employee work for you on or before %{employment_start}?
       ## QM5
       is_the_employee_on_your_payroll?:
         title: Is the employee on your payroll?
       ## QM6
       employees_average_weekly_earnings?:
-        title: What were the employee’s average weekly earnings between relevant_period?
-      ##
+        title: What were the employee’s average weekly earnings between %{relevant_period}?
+        error_message: Please enter a number greater than 0
+      ## Combined result for maternity leave and pay.
       maternity_leave_and_pay_result:
         body: |
         
@@ -67,4 +78,23 @@ en-GB:
           |End date                       | %{pay_end_date}           |
           |Rate for first 6 weeks         | £%{smp_a}                 |
           |Rate for remaining 33 weeks    | £%{smp_b}                 |
-          |Notice period                  | %{notice_of_leave_deadline}|      
+          |Notice period                  | %{notice_of_leave_deadline}|
+          
+      ## Not entitled to maternity leave
+      not_entitled_to_statutory_maternity_leave:
+        body: |
+          ##Statutory maternity leave
+
+          The employee is not entitled to statutory maternity leave because they don’t have an employment contract with you.
+
+          You must write confirming this within 28 days of their maternity leave request.
+      ## Not entitled to maternity pay
+      not_entitled_to_statutory_maternity_pay:
+        body: |
+          ##Statutory maternity pay
+      
+          The employee is not entitled to statutory maternity pay. To qualify:
+
+          %{not_entitled_to_pay_reason}
+
+          You must write confirming this within 28 days of their maternity pay request.

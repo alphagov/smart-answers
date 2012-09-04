@@ -15,7 +15,7 @@ date_question :baby_due_date_maternity? do
   calculate :calculator do
     Calculators::MaternityPaternityCalculator.new(Date.parse(responses.last))
   end
-  next_node :employment_contract? 
+  next_node :employment_contract?
 end
 
 ## QM2
@@ -29,13 +29,7 @@ multiple_choice :employment_contract? do
       ''
     end
   end
-  next_node do |response|
-    if response == 'yes'
-      :date_leave_starts?
-    else
-      :did_the_employee_work_for_you?
-    end
-  end
+  next_node :date_leave_starts?
 end
 
 ## QM3
@@ -59,19 +53,31 @@ date_question :date_leave_starts? do
   calculate :pay_end_date do
     calculator.pay_end_date
   end
+  calculate :employment_start do
+    calculator.employment_start
+  end
   next_node :did_the_employee_work_for_you?
 end
 
 ## QM4
 multiple_choice :did_the_employee_work_for_you? do
-  option :yes => :is_the_employee_on_your_payroll? 
-  option :no => :not_entitled_to_statutory_maternity_pay ## R4M
+  option :yes => :is_the_employee_on_your_payroll?
+  option :no => :not_entitled_to_statutory_maternity_pay
+  calculate :not_entitled_to_pay_reason do
+    PhraseList.new :not_worked_long_enough
+  end
 end
 
 ## QM5
 multiple_choice :is_the_employee_on_your_payroll? do
   option :yes => :employees_average_weekly_earnings?
   option :no => :not_entitled_to_statutory_maternity_pay
+  calculate :relevant_period do
+    calculator.relevant_period
+  end
+  calculate :not_entitled_to_pay_reason do
+    PhraseList.new :must_be_on_payroll
+  end
 end
 
 ## QM6
@@ -85,6 +91,12 @@ money_question :employees_average_weekly_earnings? do
   end
   calculate :smp_b do
     calculator.statutory_maternity_pay_b
+  end
+  calculate :lower_earning_limit do
+    calculator.lower_earning_limit
+  end
+  calculate :not_entitled_to_pay_reason do
+    PhraseList.new :must_earn_over_threshold
   end
   next_node do |response|
     if response > calculator.lower_earning_limit
