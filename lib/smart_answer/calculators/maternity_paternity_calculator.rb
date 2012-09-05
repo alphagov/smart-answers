@@ -7,7 +7,7 @@ module SmartAnswer::Calculators
     attr_accessor :employment_contract, :leave_start_date, :average_weekly_earnings
     
     LOWER_EARNING_LIMITS = { 2011 => 102, 2012 => 107 }
-    MATERNITY_RATE_B = PATERNITY_RATE = 135.45
+    MATERNITY_RATE = PATERNITY_RATE = 135.45
 
     def initialize(match_or_due_date)
       @due_date = match_or_due_date
@@ -37,13 +37,12 @@ module SmartAnswer::Calculators
       (@average_weekly_earnings.to_f * 0.9).round(2)
     end
     
-    def statutory_maternity_pay_a
-      (statutory_maternity_rate * 6).round(2)
+    def statutory_maternity_rate_a
+      statutory_maternity_rate
     end
     
-    def statutory_maternity_pay_b
-      weekly_pay = (MATERNITY_RATE_B < statutory_maternity_rate ? MATERNITY_RATE_B : statutory_maternity_rate)
-      (weekly_pay * 33).round(2)
+    def statutory_maternity_rate_b
+      (MATERNITY_RATE < statutory_maternity_rate ? MATERNITY_RATE : statutory_maternity_rate)
     end
     
     def lower_earning_limit(year=Date.today.year)
@@ -70,6 +69,13 @@ module SmartAnswer::Calculators
       awe = (@average_weekly_earnings.to_f * 0.9).round(2)
       (PATERNITY_RATE < awe ? PATERNITY_RATE : awe)
     end
-
+    
+    ## Adoption
+    ##
+    ## Statutory adoption rate
+    def statutory_adoption_rate
+      statutory_maternity_rate_b
+    end
+    
   end
 end

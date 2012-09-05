@@ -38,6 +38,17 @@ en-GB:
           |End                  | %{leave_end_date}           |
           |Earliest start date  | %{leave_earliest_start_date}|
           |Notice period        | %{notice_of_leave_deadline} |
+          
+        adoption_leave_table: |
+          ##Statutory adoption leave 
+
+          The employee is entitled to up to 52 weeks statutory adoption leave.
+          
+          |Leave                | Key dates                   |
+          |---------------------|-----------------------------|
+          |Start                | %{leave_start_date}         |
+          |End                  | %{leave_end_date}           |
+          |Earliest start date  | %{leave_earliest_start_date}|
       ## Q1
       what_type_of_leave?:
         title: What leave or pay do you want to check?          
@@ -319,4 +330,31 @@ en-GB:
       ## QA7
       adoption_employees_average_weekly_earnings?
          title: What were the employee’s average weekly earnings between %{relevant_period}?     
+      ## Adoption outcomes
+      adoption_leave_and_pay:
+        body: |
+        
+          %{adoption_leave_result}
+          
+          ##Statutory adoption pay
 
+          The employee is entitled to 39 weeks statutory adoption pay.
+          
+          |Pay                            | Key facts                 |
+          |-------------------------------|---------------------------|
+          |Start                          | %{pay_start_date}         |
+          |End                            | %{pay_end_date}           |
+          |Rate                           | £%{sap_rate}              |
+       
+      adoption_not_entitled_to_leave:
+        body: |
+          The employee is not entitled to statutory adoption leave because they don’t have an employment contract with you. 
+
+          You must write confirming within 28 days of their leave request.   
+      adoption_not_entitled_to_pay:
+        body: |
+          The employee is not entitled to statutory adoption pay because:
+          %{adoption_pay_inelligibility_reason}
+      adoption_not_entitled_to_leave_or_pay:
+        body: |
+          The employee is not entitled to statutory adoption leave or pay because they must have started working for you on %{employment_start}

@@ -87,10 +87,10 @@ money_question :employees_average_weekly_earnings? do
     calculator
   end
   calculate :smp_a do
-    calculator.statutory_maternity_pay_a
+    calculator.statutory_maternity_rate_a
   end
   calculate :smp_b do
-    calculator.statutory_maternity_pay_b
+    calculator.statutory_maternity_rate_b
   end
   calculate :lower_earning_limit do
     calculator.lower_earning_limit
@@ -352,6 +352,24 @@ date_question :adoption_date_leave_starts? do
   calculate :adoption_date_leave_starts do
     calculator.adoption_leave_start_date = Date.parse(responses.last)
   end
+  calculate :leave_start_date do
+    calculator.leave_start_date
+  end
+  calculate :leave_end_date do
+    calculator.leave_end_date
+  end
+  calculate :leave_earliest_start_date do
+    calculator.leave_earliest_start_date
+  end
+  calculate :pay_start_date do
+    calculator.pay_start_date
+  end
+  calculate :pay_end_date do
+    calculator.pay_end_date
+  end
+  calculate :employment_start do
+    calculator.employment_start
+  end
   next_node :adoption_did_the_employee_work_for_you?
 end
 
@@ -359,17 +377,36 @@ end
 multiple_choice :adoption_did_the_employee_work_for_you? do
   option :yes => :adoption_is_the_employee_on_your_payroll?
   option :no => :adoption_not_entitled_to_leave_or_pay
+  calculate :relevant_period do
+    calculator.relevant_period
+  end
+  calculate :adoption_pay_inelligibility_reason do
+    PhraseList.new :not_worked_long_enough
+  end
 end
 
 ## QA6
 multiple_choice :adoption_is_the_employee_on_your_payroll? do
+  calculate :adoption_pay_inelligibility_reason do
+    PhraseList.new :must_be_on_payroll
+  end
   option :yes => :adoption_employees_average_weekly_earnings?
   option :no => :adoption_not_entitled_to_pay
 end
 
 ## QA7
 money_question :adoption_employees_average_weekly_earnings? do
-  next_node do |response|
+ calculate :sap_rate do
+  calculator.average_weekly_earnings = responses.last
+  calculator.statutory_adoption_rate
+ end
+ calculate :lower_earning_limit do
+   calculator.lower_earning_limit
+ end
+ calculate :adoption_pay_inelligibility_reason do
+   PhraseList.new :must_earn_over_threshold
+ end
+ next_node do |response|
     if response > calculator.lower_earning_limit
       :adoption_leave_and_pay
     else
