@@ -181,15 +181,48 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                   end
 
                   context "answer 500.55" do
-                    setup { add_response 500.55 }
+                    setup do 
+                      add_response 500.55
+                      @three_months_time = 3.months.since(Date.today)
+                      @leave_notice = @three_months_time - @three_months_time.wday
+                    end
 
                     should "have p_notice_leave qualify" do
-                      @three_months_time = 3.months.since(Date.today)
-                      leave_notice = @three_months_time - @three_months_time.wday
-                      assert_state_variable "p_notice_leave", 15.weeks.ago(leave_notice)
+                      assert_state_variable "p_notice_leave", 15.weeks.ago(@leave_notice)
+                    end
+
+                    should "calculate dates and pay amounts" do
+                      expected_start = @leave_notice
+                      @expected_week = expected_start .. expected_start + 6.days
+                      @notice_of_leave_deadline = qualifying_start = 15.weeks.ago(expected_start)
+                      @qualifying_week = qualifying_start .. qualifying_start + 6.days
+                      @relevant_period = "#{8.weeks.ago(qualifying_start).to_s(:long)} and #{qualifying_start.to_s(:long)}"
+                      
+                      assert_state_variable "relevant_period", @relevant_period
+                      assert_state_variable "employment_start", 26.weeks.ago(expected_start)
+                      assert_state_variable "employment_end", @three_months_time 
+                      assert_state_variable "spp_rate", sprintf("%.2f",135.45) 
+                      assert_state_variable "lower_earning_limit", sprintf("%.2f",107) 
                     end
                   end
 
+                  context "answer 120.25" do
+                    setup { add_response 120.25 }
+
+                    should "calculate dates and pay amounts" do
+                      assert_state_variable "spp_rate", sprintf("%.2f",108.23) 
+
+                    end 
+                  end
+
+                  context "answer 102.25" do
+                    setup { add_response 102.25 }
+
+                    should "paternity not entitled to pay" do
+                      assert_current_node :paternity_not_entitled_to_pay
+
+                    end 
+                  end
 
                 end                
                 
@@ -315,7 +348,46 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       assert_current_node :padoption_employee_avg_weekly_earnings?
                     end
 
+                    context "answer 500.55" do
+                      setup do 
+                        add_response 500.55
+                        @three_months_time = 3.months.ago(Date.today)
+                        @leave_notice = @three_months_time - @three_months_time.wday
+                      end
 
+                      should "calculate dates and pay amounts" do
+                        expected_start = @leave_notice
+                        @expected_week = expected_start .. expected_start + 6.days
+                        @notice_of_leave_deadline = qualifying_start = 15.weeks.ago(expected_start)
+                        @qualifying_week = qualifying_start .. qualifying_start + 6.days
+                        @relevant_period = "#{8.weeks.ago(qualifying_start).to_s(:long)} and #{qualifying_start.to_s(:long)}"
+                        
+                        assert_state_variable "ap_qualifying_week", @qualifying_week
+                        assert_state_variable "relevant_period", @relevant_period
+                        assert_state_variable "employment_start", 26.weeks.ago(expected_start)
+                        assert_state_variable "employment_end", @three_months_time 
+                        assert_state_variable "sapp_rate", sprintf("%.2f",135.45) 
+                        assert_state_variable "lower_earning_limit", sprintf("%.2f",107)
+                      end
+                    end
+
+                    context "answer 120.25" do
+                      setup { add_response 120.25 }
+
+                      should "calculate dates and pay amounts" do
+                        assert_state_variable "sapp_rate", 108.23.to_s 
+
+                      end 
+                    end
+
+                    context "answer 102.25" do
+                      setup { add_response 102.25 }
+
+                      should "paternity adoption not entitled to pay" do
+                        assert_current_node :padoption_not_entitled_to_pay
+
+                      end 
+                    end
                   end
 
                   context "answer no" do

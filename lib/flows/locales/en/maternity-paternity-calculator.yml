@@ -27,6 +27,9 @@ en-GB:
         not_worked_long_enough: they must have started working for you on %{employment_start}
         must_be_on_payroll: you must be liable for their National Insurance Contributions - ie you will be if they’re on your payroll
         must_earn_over_threshold: their average weekly earnings between %{relevant_period} must be at least £%{lower_earning_limit}
+        pa_must_be_employed_by_you: they must still be employed by you up to %{matched_date}
+        must_be_employed_by_you: they must still be employed by you up to %{due_date}
+        not_responsible_for_upbringing: aren’t responsible for the child’s upbringing or the adopter’s partner
         maternity_leave_table: |
           ##Statutory maternity leave 
 
@@ -161,7 +164,7 @@ en-GB:
           $D
 
       ## 3P
-      paternity_entitled_to_leave:
+      paternity_not_entitled_to_leave:
         body: |
           ##Not entitled to paternity leave
 
@@ -176,9 +179,7 @@ en-GB:
 
           The employee is not entitled to paternity pay. To qualify:
 
-          * AP + they must still be employed by you up to %{due_date}
-          * BP + you must be liable for their NIC - you will be if they’re on your payroll
-          * CP + their average weekly earnings between %{relevant_period} must be at least £%{lower_earning_limit}
+          %{not_entitled_reason}
 
           Send them form OSPP1 confirming they’re not entitled to pay within 28 days of their request.
 
@@ -194,10 +195,8 @@ en-GB:
 
           The employee is not entitled to statutory paternity leave or pay because they: 
 
-          * DP + aren’t responsible for the child’s upbringing
-          * DP + aren’t the biological father or mother’s partner
-          * EP + must have started working for you on employment_start
-
+          %{not_entitled_reason}
+          
           You must write confirming this. You should also send them form OSP1 confirming they’re not entitled to pay within 28 days of their request. 
 
 
@@ -278,9 +277,7 @@ en-GB:
 
           The employee is not entitled to statutory paternity pay. To qualify:
 
-          * AAP + they must still be employed by you up to %{matched_date}
-          * BAP + you must be liable for their NIC - you will be if they’re on your payroll
-          * CAP + their average weekly earnings between %{relevant_period} must be at least £%{lower_earning_limit}
+          %{not_entitled_to_pay_reason}
 
           Send them form OSPP1 confirming they’re not entitled to pay within 28 days of their request. 
 
@@ -294,9 +291,8 @@ en-GB:
         body: |
           The employee is not entitled to statutory paternity leave or pay because they: 
 
-          * DAP + aren’t responsible for the child’s upbringing or the adopter’s partner
-          * EAP + must have started working for you on %{employment_start}
-
+          %{not_entitled_reason}
+          
           You must write confirming this. You should also send them form OSPP1 confirming they’re not entitled to pay within 28 days of their request. 
 
 
