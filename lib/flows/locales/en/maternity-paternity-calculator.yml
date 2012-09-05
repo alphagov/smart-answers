@@ -241,7 +241,7 @@ en-GB:
 
           Usually, paternity leave can’t start before date_placement and should be taken within 56 days of this date.
 
-          $D 
+          $D
           [Download Form SC4 - paternity pay and or leave request (UK adoption) (PDF, 50 KB)]( "Download Form SC4 - paternity pay and or leave request (UK adoption) (PDF, 50 KB)"){:rel="external"}
           [Download Form SC5 - paternity pay and or leave request (overseas adoptions) (PDF, 70KB)]( "Download Form SC5 - paternity pay and or leave request (overseas adoptions) (PDF, 70KB)"){:rel="external"}
           $D
@@ -251,12 +251,12 @@ en-GB:
         body: |
           ##Statutory paternity pay
 
-          The employee is entitled to paternity pay of £%{sapp_rate}. 
+          The employee is entitled to paternity pay of £%{sapp_rate}.
 
-          They should request paternity pay using form SC4 or SC5.   
+          They should request paternity pay using form SC4 or SC5.
 
 
-          $D 
+          $D
           [Download Form SC4 - paternity pay and or leave request (UK adoption) (PDF, 50 KB)]( "Download Form SC4 - paternity pay and or leave request (UK adoption) (PDF, 50 KB)"){:rel="external"}
           [Download Form SC5 - paternity pay and or leave request (overseas adoptions) (PDF, 70KB)]( "Download Form SC5 - paternity pay and or leave request (overseas adoptions) (PDF, 70KB)"){:rel="external"}
           $D
@@ -268,7 +268,7 @@ en-GB:
 
           The employee is not entitled to statutory paternity leave because they don’t have an employment contract with you.
 
-          You must write to them confirming this within 28 days of their request for paternity leave. 
+          You must write to them confirming this within 28 days of their request for paternity leave.
                
       # 4AP - not entitled to pay
       padoption_not_entitled_to_pay:
@@ -279,10 +279,10 @@ en-GB:
 
           %{not_entitled_to_pay_reason}
 
-          Send them form OSPP1 confirming they’re not entitled to pay within 28 days of their request. 
+          Send them form OSPP1 confirming they’re not entitled to pay within 28 days of their request.
 
 
-          $D 
+          $D
           [Download Form OSPP1, refusing statutory paternity pay (PDF, 54 KB)]( "Download Form OSPP1, refusing statutory paternity pay (PDF, 54 KB)"){:rel="external"} 
           $D
 
@@ -296,7 +296,7 @@ en-GB:
           You must write confirming this. You should also send them form OSPP1 confirming they’re not entitled to pay within 28 days of their request. 
 
 
-          $D 
+          $D
           [Download Form OSPP1, refusing statutory paternity pay (PDF, 54 KB)]( "Download Form OSPP1, refusing statutory paternity pay (PDF, 54 KB)"){:rel="external"} 
           $D
 
@@ -324,8 +324,8 @@ en-GB:
       adoption_is_the_employee_on_your_payroll?:
         title: Is the employee on your payroll?
       ## QA7
-      adoption_employees_average_weekly_earnings?
-         title: What were the employee’s average weekly earnings between %{relevant_period}?     
+      adoption_employees_average_weekly_earnings?:
+         title: What were the employee’s average weekly earnings between %{relevant_period}?
       ## Adoption outcomes
       adoption_leave_and_pay:
         body: |
@@ -346,7 +346,7 @@ en-GB:
         body: |
           The employee is not entitled to statutory adoption leave because they don’t have an employment contract with you. 
 
-          You must write confirming within 28 days of their leave request.   
+          You must write confirming within 28 days of their leave request.
       adoption_not_entitled_to_pay:
         body: |
           The employee is not entitled to statutory adoption pay because:
