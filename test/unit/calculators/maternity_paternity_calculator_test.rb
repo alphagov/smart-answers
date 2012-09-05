@@ -91,6 +91,17 @@ module SmartAnswer::Calculators
         assert_equal ((120.55 * 0.9).to_f).round(2), @calculator.statutory_paternity_rate 
       end
       
+      context "with an adoption placement date of a week ago" do
+        setup do
+          @one_week_ago = 1.week.ago(Date.today)
+          @calculator.adoption_placement_date = @one_week_ago
+        end
+        
+        should "make the earliest leave start date 14 days before the placement date" do
+          assert_equal 1.fortnight.ago(@one_week_ago), @calculator.leave_earliest_start_date
+        end
+      end
+      
     end
     
   end

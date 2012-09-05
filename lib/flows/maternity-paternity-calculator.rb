@@ -291,11 +291,19 @@ end
 
 ## QA1
 date_question :date_of_adoption_match? do
+  calculate :calculator do
+    Calculators::MaternityPaternityCalculator.new(Date.parse(responses.last))
+  end
   next_node :date_of_adoption_placement?
 end
 
 ## QA2
 date_question :date_of_adoption_placement? do
+  calculate :adoption_placement_date do
+    placement_date = Date.parse(responses.last)
+    calculator.adoption_placement_date = placement_date
+    placement_date
+  end
   next_node :adoption_employment_contract?
 end
 
@@ -307,6 +315,9 @@ end
 
 ## QA4
 date_question :adoption_date_leave_starts? do
+  calculate :adoption_date_leave_starts do
+    calculator.adoption_leave_start_date = Date.parse(responses.last)
+  end
   next_node :adoption_did_the_employee_work_for_you?
 end
 
@@ -324,8 +335,16 @@ end
 
 ## QA8
 money_question :adoption_employees_average_weekly_earnings? do
+  next_node do |response|
+    if response > calculator.lower_earning_limit
+      :adoption_leave_and_pay
+    else
+      :adoption_not_entitled_to_pay
+    end
+  end
 end
 
+outcome :adoption_leave_and_pay
 outcome :adoption_not_entitled_to_leave
 outcome :adoption_not_entitled_to_pay
 outcome :adoption_not_entitled_to_leave_or_pay

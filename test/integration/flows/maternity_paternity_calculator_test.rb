@@ -441,6 +441,18 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                   should "ask what the average weekly earnings of the employee" do
                     assert_current_node :adoption_employees_average_weekly_earnings?
                   end
+                  context "answer below the lower earning limit" do
+                    should "state they are not entitled to pay" do
+                      add_response 100
+                      assert_current_node :adoption_not_entitled_to_pay
+                    end
+                  end
+                  context "answer above the earning limit" do
+                    should "give adoption leave and pay details" do
+                      add_response 200
+                      assert_current_node :adoption_leave_and_pay
+                    end
+                  end
                 end
                 context "answer no" do
                   should " state they are not entitled to pay" do
