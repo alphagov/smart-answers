@@ -361,13 +361,13 @@ multiple_choice :adoption_did_the_employee_work_for_you? do
   option :no => :adoption_not_entitled_to_leave_or_pay
 end
 
-## QA7
+## QA6
 multiple_choice :adoption_is_the_employee_on_your_payroll? do
   option :yes => :adoption_employees_average_weekly_earnings?
   option :no => :adoption_not_entitled_to_pay
 end
 
-## QA8
+## QA7
 money_question :adoption_employees_average_weekly_earnings? do
   next_node do |response|
     if response > calculator.lower_earning_limit
