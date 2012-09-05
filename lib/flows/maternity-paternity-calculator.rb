@@ -87,13 +87,13 @@ money_question :employees_average_weekly_earnings? do
     calculator
   end
   calculate :smp_a do
-    calculator.statutory_maternity_rate_a
+    sprintf("%.2f", calculator.statutory_maternity_rate_a)
   end
   calculate :smp_b do
-    calculator.statutory_maternity_rate_b
+    sprintf("%.2f", calculator.statutory_maternity_rate_b)
   end
   calculate :lower_earning_limit do
-    calculator.lower_earning_limit
+    sprintf("%.2f", calculator.lower_earning_limit)
   end
   calculate :not_entitled_to_pay_reason do
     PhraseList.new :must_earn_over_threshold
@@ -398,10 +398,10 @@ end
 money_question :adoption_employees_average_weekly_earnings? do
  calculate :sap_rate do
   calculator.average_weekly_earnings = responses.last
-  calculator.statutory_adoption_rate
+  sprintf("%.2f", calculator.statutory_adoption_rate)
  end
  calculate :lower_earning_limit do
-   calculator.lower_earning_limit
+   sprintf("%.2f", calculator.lower_earning_limit)
  end
  calculate :adoption_pay_inelligibility_reason do
    PhraseList.new :must_earn_over_threshold

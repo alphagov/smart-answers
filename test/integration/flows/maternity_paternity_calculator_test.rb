@@ -77,8 +77,8 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                   assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week)
                   assert_state_variable "pay_start_date", two_months_time
                   assert_state_variable "pay_end_date", 39.weeks.since(two_months_time)
-                  assert_state_variable "smp_a", (135.40 * 0.9).round(2)
-                  assert_state_variable "smp_b", (135.40 * 0.9).round(2)
+                  assert_state_variable "smp_a", (135.40 * 0.9).round(2).to_s
+                  assert_state_variable "smp_b", (135.40 * 0.9).round(2).to_s
                 end
                 should "calculate and present the result" do
                   assert_current_node :maternity_leave_and_pay_result
