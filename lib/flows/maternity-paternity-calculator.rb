@@ -141,7 +141,7 @@ multiple_choice :employee_responsible_for_upbringing? do
     calculator.employment_start
   end
   calculate :employment_end do
-    calculator.employment_end
+    due_date
   end
   calculate :p_notice_leave do
     calculator.notice_of_leave_deadline
@@ -225,11 +225,29 @@ outcome :paternity_not_entitled_to_leave_or_pay
 
 ## QAP1
 date_question :employee_date_matched_paternity_adoption? do
-	next_node :padoption_date_of_adoption_placement?
+	calculate :matched_date do
+    Date.parse(responses.last)
+  end
+  calculate :calculator do
+    Calculators::MaternityPaternityCalculator.new(matched_date)
+  end
+  next_node :padoption_date_of_adoption_placement?
 end
 
 ## QAP1.2
 date_question :padoption_date_of_adoption_placement? do
+  calculate :ap_qualifying_week do 
+    calculator.qualifying_week
+  end
+  calculate :relevant_period do
+    calculator.relevant_period
+  end
+  calculate :employment_start do 
+    calculator.employment_start
+  end
+  calculate :employment_end do 
+    matched_date
+  end
   next_node :padoption_employee_responsible_for_upbringing?
 end
 
@@ -264,8 +282,24 @@ multiple_choice :padoption_employee_on_payroll? do
 	option :no => :padoption_not_entitled_to_pay # 4AP
 end
 
+## QAP8
 money_question :padoption_employee_avg_weekly_earnings? do
-
+  calculate :sapp_rate do
+    calculator.average_weekly_earnings = responses.last
+    calculator.statutory_paternity_rate
+  end
+  calculate :lower_earning_limit do
+    calculator.lower_earning_limit
+  end
+  next_node do |response|
+    if response > calculator.lower_earning_limit
+      # 2P
+      :padoption_entitled_to_pay
+    else
+      # 4P
+      :padoption_not_entitled_to_pay
+    end
+  end
 end
 
 ## Paternity Adoption Results

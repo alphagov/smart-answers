@@ -167,9 +167,9 @@ en-GB:
 
           The employee is not entitled to paternity pay. To qualify:
 
-          - AP + they must still be employed by you up to %{due_date}
-          - BP + you must be liable for their NIC - you will be if they’re on your payroll
-          - CP + their average weekly earnings between %{relevant_period} must be at least £%{lower_earning_limit}
+          * AP + they must still be employed by you up to %{due_date}
+          * BP + you must be liable for their NIC - you will be if they’re on your payroll
+          * CP + their average weekly earnings between %{relevant_period} must be at least £%{lower_earning_limit}
 
           Send them form OSPP1 confirming they’re not entitled to pay within 28 days of their request.
 
@@ -185,9 +185,9 @@ en-GB:
 
           The employee is not entitled to statutory paternity leave or pay because they: 
 
-          - DP + aren’t responsible for the child’s upbringing
-          - DP + aren’t the biological father or mother’s partner
-          - EP + must have started working for you on employment_start
+          * DP + aren’t responsible for the child’s upbringing
+          * DP + aren’t the biological father or mother’s partner
+          * EP + must have started working for you on employment_start
 
           You must write confirming this. You should also send them form OSP1 confirming they’re not entitled to pay within 28 days of their request. 
 
@@ -210,19 +210,19 @@ en-GB:
         title: Is the employee responsible for the child’s upbringing and the adopter’s husband or partner
       ## QAP3
       padoption_employee_start_on_or_before_employment_start?:
-        title: Did the employee work for you on or before employment_start?
+        title: Did the employee work for you on or before %{employment_start}?
       ## QAP4
       padoption_have_employee_contract?:
         title: Does the employee have an employment contract with you?
       ## QAP6
       padoption_employed_at_employment_end?:
-        title: Will the employee be employed by you on employment_end?
+        title: Will the employee be employed by you on %{employment_end}?
       ## QAP7
       padoption_employee_on_payroll?:
         title: Is the employee on your payroll?
       ## QAP8
       padoption_employee_avg_weekly_earnings?:
-        title: What were the employee’s average weekly earnings between relevant_period?
+        title: What were the employee’s average weekly earnings between %{relevant_period}?
       ## Paternity Adoption Results
       # 1AP - entitled to leave
       padoption_entitled_to_leave:
@@ -243,7 +243,7 @@ en-GB:
         body: |
           ##Statutory paternity pay
 
-          The employee is entitled to paternity pay of £_sapp_rate. 
+          The employee is entitled to paternity pay of £%{sapp_rate}. 
 
           They should request paternity pay using form SC4 or SC5.   
 
@@ -269,9 +269,9 @@ en-GB:
 
           The employee is not entitled to statutory paternity pay. To qualify:
 
-          AAP + they must still be employed by you up to ap_baby_due_date
-          BAP + you must be liable for their NIC - you will be if they’re on your payroll
-          CAP + their average weekly earnings between ap_relevant_period must be at least £_ap_lower_earning_limit
+          * AAP + they must still be employed by you up to %{matched_date}
+          * BAP + you must be liable for their NIC - you will be if they’re on your payroll
+          * CAP + their average weekly earnings between %{relevant_period} must be at least £%{lower_earning_limit}
 
           Send them form OSPP1 confirming they’re not entitled to pay within 28 days of their request. 
 
@@ -285,8 +285,8 @@ en-GB:
         body: |
           The employee is not entitled to statutory paternity leave or pay because they: 
 
-          DAP + aren’t responsible for the child’s upbringing or the adopter’s partner
-          EAP + must have started working for you on ap_employment_start
+          * DAP + aren’t responsible for the child’s upbringing or the adopter’s partner
+          * EAP + must have started working for you on %{employment_start}
 
           You must write confirming this. You should also send them form OSPP1 confirming they’re not entitled to pay within 28 days of their request. 
 

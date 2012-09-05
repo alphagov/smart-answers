@@ -1,15 +1,13 @@
 module SmartAnswer::Calculators
   class MaternityPaternityCalculator
   
-
     attr_reader :expected_week, :qualifying_week, :employment_start, :notice_of_leave_deadline, 
       :leave_earliest_start_date, :proof_of_pregnancy_date, :relevant_period, :adoption_placement_date
-      
+    
     attr_accessor :employment_contract, :leave_start_date, :average_weekly_earnings
     
     LOWER_EARNING_LIMITS = { 2011 => 102, 2012 => 107 }
     MATERNITY_RATE_B = PATERNITY_RATE = 135.45
-    
 
     def initialize(match_or_due_date)
       @due_date = match_or_due_date
@@ -56,14 +54,6 @@ module SmartAnswer::Calculators
       @due_date
     end
     
-    ## Paternity
-    ##
-    ## Statutory paternity rate
-    def statutory_paternity_rate
-      awe = (@average_weekly_earnings.to_f * 0.9).round(2)
-      (PATERNITY_RATE < awe ? PATERNITY_RATE : awe)
-    end
-
     def adoption_placement_date=(date)
       @adoption_placement_date = date
       @leave_earliest_start_date = 14.days.ago(date)
