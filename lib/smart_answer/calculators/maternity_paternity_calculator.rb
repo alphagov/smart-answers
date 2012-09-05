@@ -52,6 +52,10 @@ module SmartAnswer::Calculators
       LOWER_EARNING_LIMITS[year]
     end
     
+    def employment_end
+      @due_date
+    end
+    
     ## Paternity
     ##
     ## Statutory paternity rate
