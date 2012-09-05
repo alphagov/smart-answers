@@ -1,7 +1,7 @@
 module SmartAnswer::Calculators
   class MaternityPaternityCalculator
   
-    attr_reader :expected_week, :qualifying_week, :employment_start, :notice_of_leave_deadline, 
+    attr_reader :expected_week, :qualifying_week, :employment_start, :employment_end,  :notice_of_leave_deadline, 
       :leave_earliest_start_date, :proof_of_pregnancy_date, :relevant_period
     attr_accessor :employment_contract, :leave_start_date, :average_weekly_earnings
     
@@ -10,6 +10,7 @@ module SmartAnswer::Calculators
     
     def initialize(due_date)
       @due_date = due_date
+      @employment_end = due_date
       expected_start = due_date - due_date.wday
       @expected_week = expected_start .. expected_start + 6.days
       @notice_of_leave_deadline = qualifying_start = 15.weeks.ago(expected_start)

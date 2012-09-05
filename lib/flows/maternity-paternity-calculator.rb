@@ -137,6 +137,15 @@ multiple_choice :employee_responsible_for_upbringing? do
   calculate :relevant_period do
     calculator.relevant_period
   end
+  calculate :employment_start do
+    calculator.employment_start
+  end
+  calculate :employment_end do
+    calculator.employment_end
+  end
+  calculate :p_notice_leave do
+    calculator.notice_of_leave_deadline
+  end
 	option :biological_father => :employee_work_before_employment_start?
 	option :mothers_husband_or_partner => :employee_work_before_employment_start?
 	option :neither => :paternity_not_entitled_to_leave_or_pay # result 5P DP
@@ -177,10 +186,7 @@ end
 
 ## QP8
 money_question :employee_average_weekly_earnings_paternity? do
-	calculate :p_notice_leave do
-    calculator.notice_of_leave_deadline
-  end
-  calculate :spp_rate do
+	calculate :spp_rate do
     calculator.average_weekly_earnings = responses.last
     calculator.statutory_paternity_rate
   end
