@@ -64,13 +64,13 @@ class RecogniseATradeUnion < ActiveSupport::TestCase
           end
 
           should "not require you to recognise the union, although they can reapply" do
-            add_response :rejected
+            add_response :no
             assert_current_node :you_do_not_have_to_recognise_the_union_can_reapply
           end
 
           context "CAC have accepted the application" do
             setup do
-              add_response :accepted
+              add_response :yes
             end
 
             should "ask if agreed on the bargaining unit" do
@@ -286,12 +286,12 @@ class RecogniseATradeUnion < ActiveSupport::TestCase
           end
 
           should "not be able to seek derecognition" do
-            add_response :not_valid
+            add_response :no
             assert_current_node :you_cannot_seek_derecognition
           end
 
           should "be derecognised" do
-            add_response :valid
+            add_response :yes
             assert_current_node :the_union_is_derecognised_and_bargaining_will_end
           end
         end

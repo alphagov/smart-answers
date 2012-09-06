@@ -28,8 +28,8 @@ end
 
 # Q5
 multiple_choice :have_cac_accepted_the_application? do
-  option :accepted => :agreed_on_bargaining_unit?
-  option :rejected => :you_do_not_have_to_recognise_the_union_can_reapply
+  option :yes => :agreed_on_bargaining_unit?
+  option :no => :you_do_not_have_to_recognise_the_union_can_reapply
 end
 
 # Q6
@@ -71,8 +71,8 @@ end
 
 # Q12
 multiple_choice :is_your_derecognition_valid? do
-  option :valid => :the_union_is_derecognised_and_bargaining_will_end
-  option :not_valid => :you_cannot_seek_derecognition
+  option :yes => :the_union_is_derecognised_and_bargaining_will_end
+  option :no => :you_cannot_seek_derecognition
 end
 
 # Q13
