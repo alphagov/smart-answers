@@ -80,6 +80,10 @@ date_question :dob_amount? do
   calculate :state_pension_age do
     calculator.state_pension_age
   end
+  
+  calculate :state_pension_date do
+    calculator.state_pension_date.to_date
+  end
 
   next_node do |response|
     calc = Calculators::StatePensionAmountCalculator.new(
@@ -169,9 +173,17 @@ value_question :years_of_jsa? do
       PhraseList.new(:this_is_the_full_state_pension)
     end
   end
+  
+  calculate :credited_benefit_years do
+    (calculator.three_year_credit_age? ? 3 : 0)
+  end
 
   next_node do |response|
-    (ni_years.to_i + Integer(response)) > 29 ? :amount_result : :years_of_benefit?
+    if (ni_years.to_i + Integer(response)) > 29
+      :amount_result
+    else 
+      :years_of_benefit?
+    end
   end
 end
 
@@ -180,10 +192,12 @@ value_question :years_of_benefit? do
 
   calculate :calculator do
     benefit_years = Integer(responses.last)
+    credit_years = calculator.three_year_credit_age? ? 3 : 0
+    
     raise InvalidResponse if benefit_years < 0 or benefit_years > 70
     Calculators::StatePensionAmountCalculator.new(
       gender: gender, dob: dob,
-      qualifying_years: (ni_years.to_i + jsa_years.to_i + benefit_years)
+      qualifying_years: (ni_years.to_i + jsa_years.to_i + benefit_years + credit_years)
     )
   end
   
@@ -199,8 +213,17 @@ value_question :years_of_benefit? do
     sprintf("%.2f", calculator.pension_loss)
   end
   
+  calculate :remaining_contribution_years do
+    remaining = (30 - calculator.qualifying_years)
+    (remaining == 1 ? "#{remaining} year" : "#{remaining} years")   
+  end
+  
   calculate :contribution_callout_text do
-    PhraseList.new :full_contribution_years_callout
+    if calculator.qualifying_years > 29
+      PhraseList.new :full_contribution_years_callout
+    else
+      PhraseList.new :remaining_contributions_years_callout
+    end
   end
   
   calculate :pension_summary do
@@ -212,7 +235,10 @@ value_question :years_of_benefit? do
   end
 
   next_node do |response|
-    if (ni_years.to_i + jsa_years.to_i + Integer(response)) > 29
+    benefit_years = Integer(response)
+    benefit_years += 3 if calculator.three_year_credit_age?
+    if calculator.three_year_credit_age? or
+      (ni_years.to_i + jsa_years.to_i + benefit_years) > 29
       :amount_result
     else
       :years_of_work?
@@ -222,11 +248,21 @@ end
 
 value_question :years_of_work? do
   save_input_as :work_years
+  
+  calculate :credited_years do
+    years = Integer(responses.last)
+    credits = calculator.qualifying_years_credit
+    case credits
+      when 2 then years = credits unless years > 2
+      when 1 then years = credits unless years > 0
+    end
+    years
+  end
 
   calculate :calculator do
     work_years = Integer(responses.last)
     raise InvalidResponse if work_years < 0 or work_years > 3
-    y = ni_years.to_i + jsa_years.to_i + benefit_years.to_i + work_years
+    y = ni_years.to_i + jsa_years.to_i + benefit_years.to_i + credited_years
     Calculators::StatePensionAmountCalculator.new(
       gender: gender, dob: dob, qualifying_years: y)
   end
