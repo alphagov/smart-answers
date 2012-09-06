@@ -87,6 +87,8 @@ en-GB:
         title: You must be at least 20 years old for the calculator to work out how much State Pension you'll get. 
         body: |
           Your State Pension age is %{state_pension_age}.
+          
+          You’ll reach State Pension age on %{state_pension_date}
         
           How much State Pension you get depends on how many years of National Insurance contributions you have.
 
@@ -121,7 +123,7 @@ en-GB:
           %{tense_specific_title}
           
         body: |
-          You should get your pension claim pack in %{formatted_pension_pack_date}. Contact the Pension Service if you haven't received it.
+          You should be sent your pension claim pack in %{formatted_pension_pack_date}. Contact the Pension Service if you haven't received it.
 
           %{already_elligible_text}
 

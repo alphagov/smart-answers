@@ -116,10 +116,8 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
               add_response 1
             end
             
-            # The benefits question is skipped 
-            # because of automatic age related credits
             should "ask for years of benefit" do
-              assert_current_node :years_of_work?
+              assert_current_node :years_of_benefit?
             end
           end
         end
@@ -198,13 +196,13 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         setup do
           add_response Date.parse('1959-01-01')
           add_response 20
-          add_response 0
-          add_response 0
-          add_response 0
+          add_response 4
+          add_response 2
+          add_response 1
         end
         
         should "add 2 years credit for a person born between April 1958 and April 1959" do
-          assert_state_variable "remaining_contribution_years", "8 years"
+          assert_state_variable "remaining_contribution_years", "2 years"
         end
       end
       context "answer born December 1st 1957" do
