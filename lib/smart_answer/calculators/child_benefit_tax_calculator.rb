@@ -9,11 +9,10 @@ module SmartAnswer::Calculators
 
     def benefit_taxable_weeks
       return 0 if child_benefit_end_date.nil?
-      h_date = Date.new(2013, 1, 7)
-      if child_benefit_end_date < h_date
+      if child_benefit_end_date < end_of_tax_year
         0
       else
-        ((child_benefit_end_date - h_date)/7.0).round
+        ((child_benefit_end_date - end_of_tax_year)/7.0).round
       end
     end
 
