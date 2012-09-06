@@ -2,7 +2,8 @@ require "data/state_pension_query"
 
 module SmartAnswer::Calculators
   class StatePensionAmountCalculator
-    attr_reader :gender, :dob, :qualifying_years
+    attr_reader :gender, :dob
+    attr_accessor :qualifying_years
 
     def initialize(answers)
       @gender = answers[:gender].to_sym
@@ -85,5 +86,25 @@ module SmartAnswer::Calculators
     def under_20_years_old?
       dob > 20.years.ago
     end
+    
+    def three_year_credit_age?
+      three_year_band = credit_bands.last
+      dob > Date.parse('1959-04-06') and dob < Date.parse('1992-04-05')
+    end
+    
+    def credit_bands
+      [
+        { min: Date.parse('1957-04-06'), max: Date.parse('1958-04-05'), credit: 1 },
+        { min: Date.parse('1993-04-06'), max: Date.parse('1994-04-05'), credit: 1 },
+        { min: Date.parse('1958-04-06'), max: Date.parse('1959-04-05'), credit: 2 },
+        { min: Date.parse('1992-04-06'), max: Date.parse('1993-04-05'), credit: 2 }
+      ]
+    end
+    
+    def qualifying_years_credit
+      credit_band = credit_bands.find { |c| c[:min] < dob and c[:max] > dob }
+      (credit_band ? credit_band[:credit] : 0)
+    end
+    
   end
 end
