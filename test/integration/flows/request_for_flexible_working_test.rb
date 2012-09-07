@@ -94,6 +94,67 @@ class RequestForFlexibleWorkingTest < ActiveSupport::TestCase
             end
           end
         end
+
+        context "caring for adult" do
+          setup do
+            add_response :caring_for_adult
+          end
+
+          should "ask what the relationship is" do
+            assert_current_node :relationship_with_adult_group?
+          end
+
+          should "on 'none', not be allowed to apply" do
+            add_response :none
+            assert_current_node :no_right_to_apply
+          end
+          should "on 'partner', be allowed to apply" do
+            add_response :partner
+            assert_current_node :right_to_apply
+          end
+
+          should "on 'guardian', be allowed to apply" do
+            add_response :guardian
+            assert_current_node :right_to_apply
+          end
+
+          should "on 'other relationship', be allowed to apply" do
+            add_response :other_relationship
+            assert_current_node :right_to_apply
+          end
+
+          context "family member" do
+            setup {add_response :family_member}
+            should "specify family relationship" do
+              assert_current_node :relationship_with_adult_family?
+            end
+
+            should "on 'none', not be allowed to apply" do
+              add_response :none
+              assert_current_node :no_right_to_apply
+            end
+
+            should "on 'husband or wife', be allowed to apply" do
+              add_response :husband_wife
+              assert_current_node :right_to_apply
+            end
+            should "on 'mother father', be allowed to apply" do
+              add_response :mother_father
+              assert_current_node :right_to_apply
+            end
+            should "on 'uncle aunt', be allowed to apply" do
+              add_response :uncle_aunt
+              assert_current_node :right_to_apply
+            end
+            should "on 'grandparent', be allowed to apply" do
+              add_response :grandparent
+              assert_current_node :right_to_apply
+            end
+
+          end
+        end
+
+        
       end
     end
   end
@@ -108,30 +169,6 @@ class RequestForFlexibleWorkingTest < ActiveSupport::TestCase
   #     add_response "employee,continuous_employment,not_applied_for_flexible_working"
   #   end
 
-
-  #   # context "caring for adult" do
-  #   #   setup do
-  #   #     add_response :caring_for_adult
-  #   #   end
-
-  #   #   should "ask what the relationship is" do
-  #   #     assert_current_node :relationship_with_adult?
-  #   #   end
-
-  #   #   context "not one of these" do
-  #   #     should "not be allowed to apply" do
-  #   #       add_response :not_one_of_these
-  #   #       assert_current_node :no_right_to_apply
-  #   #     end
-  #   #   end
-
-  #   #   context "one of these" do
-  #   #     should "allowed to apply" do
-  #   #       add_response :one_of_these
-  #   #       assert_current_node :right_to_apply
-  #   #     end
-  #   #   end
-  #   # end
   # end
 
   # context "employee in armed forces" do

@@ -55,7 +55,8 @@ multiple_choice :caring_for_child? do
     PhraseList.new :child_care_reason
   end
   option :caring_for_child => :relationship_with_child?
-  option :caring_for_adult => :relationship_with_adult?
+  option :caring_for_adult => :relationship_with_adult_group?
+  # option :caring_for_adult => :relationship_with_adult?
   option :neither => :no_right_to_apply
 end
 
@@ -69,12 +70,36 @@ multiple_choice :relationship_with_child? do
 end
 
 ## Q4
-multiple_choice :relationship_with_adult? do
+# multiple_choice :relationship_with_adult? do
+#   calculate :no_right_to_apply_reason do
+#     PhraseList.new :wrong_relationship_reason
+#   end
+#   option :one_of_these => :right_to_apply
+#   option :not_one_of_these => :no_right_to_apply
+# end
+
+## Q4.1
+multiple_choice :relationship_with_adult_group? do
   calculate :no_right_to_apply_reason do
     PhraseList.new :wrong_relationship_reason
   end
-  option :one_of_these => :right_to_apply
-  option :not_one_of_these => :no_right_to_apply
+  option :family_member  => :relationship_with_adult_family?
+  option :partner => :right_to_apply
+  option :guardian => :right_to_apply
+  option :other_relationship => :right_to_apply
+  option :none => :no_right_to_apply
+end
+
+## Q4.2
+multiple_choice :relationship_with_adult_family? do
+  calculate :no_right_to_apply_reason do
+    PhraseList.new :wrong_relationship_reason
+  end
+  option :husband_wife  => :right_to_apply
+  option :mother_father => :right_to_apply
+  option :uncle_aunt => :right_to_apply
+  option :grandparent => :right_to_apply
+  option :none => :no_right_to_apply
 end
 
 ## Q5 
