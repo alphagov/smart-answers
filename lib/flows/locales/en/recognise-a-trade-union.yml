@@ -17,7 +17,7 @@ en-GB:
         title: "What do you want to do?"
         options:
           recognise_a_trade_union: Recognise a trade union
-          derecoognise_a_trade_union: Derecognise a trade union
+          derecognise_a_trade_union: Derecognise a trade union
 
       # Q2
       do_you_want_to_recognise_the_union_voluntarily?:
@@ -55,6 +55,14 @@ en-GB:
           You may have to supply information about your employees if asked.
 
           Both parties can ask [Acas](http://www.acas.org.uk/ "Acas"){:rel="external"} to help negotiate during this process.
+
+          *[CAC]:Central Arbitration Committee
+
+      # QX
+      cac_decided_bargaining_unit?:
+        title: Has the CAC decided the bargaining unit for you?
+        body: |
+          You may have to supply information about your employees if asked.
 
           *[CAC]:Central Arbitration Committee
 
@@ -194,6 +202,10 @@ en-GB:
         body: |
           It can’t make a new application for recognition for 3 years (assuming the bargaining unit remains the same).
 
+      ## AX
+      cac_will_decide_bargaining_unit:
+        title: The CAC will decide the bargaining unit for you. They’ll write to you and the union and continue with the recognition process.
+
 
       # A7
       you_cannot_seek_derecognition:
@@ -208,6 +220,10 @@ en-GB:
           Both parties must consider your notice.
 
           Both parties can ask [Acas](http://www.acas.org.uk/ "Acas"){:rel="external"} to help negotiate at this stage of the process.
+
+      ## AY
+      union_voluntarily_derecognised:
+        title: The union is voluntarily derecognised and you can end any bargaining arrangements.
 
       # A9
       the_union_is_derecognised_and_bargaining_will_end:
