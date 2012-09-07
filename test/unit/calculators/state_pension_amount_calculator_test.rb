@@ -52,6 +52,12 @@ module SmartAnswer::Calculators
       should "be elligible for state pension on 1 March 2034" do
         assert_equal Date.parse("2034-03-01"), @calculator.state_pension_date
       end
+      
+      should "be elligible for three years of credit regardless of benefits claimed" do
+        assert @calculator.three_year_credit_age?
+      end
+      
     end
+    
   end
 end
