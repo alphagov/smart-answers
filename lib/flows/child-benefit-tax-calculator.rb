@@ -112,48 +112,17 @@ end
 # Question 8
 multiple_choice :do_you_expect_to_start_or_stop_claiming? do
 
+  calculate :num_children_starting do
+    0
+  end
+
+  calculate :num_children_stopping do
+    0
+  end
+
   calculate :calculator do
     if number_of_children < 1 and responses.last == "no"
       raise SmartAnswer::InvalidResponse, "You cannot claim child benefit if you do not have a child and are not expecting to start claiming for one in this tax year."
-    end
-
-    calculator = Calculators::ChildBenefitTaxCalculator.new(
-      :child_benefit_start_date => start_of_tax_year,
-      :child_benefit_end_date => end_of_tax_year,
-      :children_claiming => number_of_children,
-      :income => adjusted_net_income
-    )
-  end
-
-  calculate :benefit_tax do
-    calculator.formatted_benefit_tax
-  end
-
-  calculate :benefit_claimed_weeks do
-    calculator.benefit_claimed_weeks
-  end
-
-  calculate :percentage_tax_charge do
-    calculator.percent_tax_charge
-  end
-
-  calculate :benefit_claimed_amount do
-    calculator.formatted_benefit_claimed_amount
-  end
-
-  calculate :benefit_taxable_weeks do
-    calculator.benefit_taxable_weeks
-  end
-
-  calculate :benefit_taxable_amount do
-    calculator.formatted_benefit_taxable_amount
-  end
-
-  calculate :result_for_tax_year do
-    if tax_year == "2012-13"
-      PhraseList.new("2012-13".to_sym)
-    else
-      PhraseList.new("2013-14".to_sym)
     end
   end
 
@@ -189,21 +158,13 @@ end
     from { Date.new(2012, 4, 6) }
     to { Date.new(2014, 4, 5) }
 
-    calculate "#{ordinal_string}_new_child_arrival_date".to_sym do
+    calculate "#{ordinal_string}_child_start_date".to_sym do
       start_date = Date.parse(responses.last)
       if !(start_of_tax_year..end_of_tax_year).include_with_range? start_date
         puts "Error - #{start_date} is not in range #{start_of_tax_year}..#{end_of_tax_year}"
         raise SmartAnswer::InvalidResponse, "Please enter a date within the selected tax year"
       end
       start_date
-    end
-
-    calculate "#{ordinal_string}_new_child_claim_period".to_sym do
-      calculator = Calculators::ChildBenefitTaxCalculator.new(
-        :child_benefit_start_date => self.call("#{ordinal_string}_new_child_arrival_date"),
-        :end_of_tax_year => end_of_tax_year
-      )
-      calculator.benefit_claimed_weeks
     end
 
     next_node do |response|
@@ -216,9 +177,6 @@ end
   end
 end
 
-# Question 9B
-
-# Question 9C
 
 # Question 10
 value_question :how_many_children_to_stop_claiming? do
@@ -249,16 +207,15 @@ end
     to { Date.new(2014, 4, 5) }
 
     calculate "#{ordinal_string}_child_stop_date".to_sym do
-      start_date = Date.parse(responses.last)
-      if !(start_of_tax_year..end_of_tax_year).include_with_range? start_date
-        puts "Error - #{start_date} is not in range #{start_of_tax_year}..#{end_of_tax_year}"
+      stop_date = Date.parse(responses.last)
+      if !(start_of_tax_year..end_of_tax_year).include_with_range? stop_date
         raise SmartAnswer::InvalidResponse, "Please enter a date within the selected tax year"
       end
-      start_date
+      stop_date
     end
 
     next_node do |response|
-      if num_children_starting > index+1
+      if num_children_stopping > index+1
         "when_do_you_expect_to_stop_claiming_for_the_#{(index+2).ordinalize}_child?".to_sym
       else
         :estimated_tax_charge
@@ -270,39 +227,72 @@ end
 
 
 
-  # calculate :calculator do
-  #   Calculators::ChildBenefitTaxCalculator.new(
-  #     :child_benefit_start_date => child_benefit_start_date,
-  #     :child_benefit_end_date => child_benefit_end_date,
-  #     :children_claiming => children_claiming,
-  #     :income => income
-  #   )
-  # end
+outcome :estimated_tax_charge do
+  calculate :claim_periods do
+    claim_periods = []
 
-  # calculate :formatted_benefit_tax do
-  #   calculator.formatted_benefit_tax
-  # end
+    # Children starting
+    (1..3).map(&:ordinalize).each do |method|
+      method = (method + "_child_start_date").to_sym
+      start_date = self.send(method)
+      claim_periods << (start_date..end_of_tax_year) unless start_date.nil?
+    end
 
-  # calculate :formatted_benefit_taxable_amount do
-  #   calculator.formatted_benefit_taxable_amount
-  # end
+    # Children stopping
+    (1..3).map(&:ordinalize).each do |method|
+      method = (method + "_child_stop_date").to_sym
+      stop_date = self.send(method)
+      claim_periods << (start_of_tax_year..stop_date) unless stop_date.nil?
+    end
 
-  # calculate :benefit_taxable_weeks do
-  #   calculator.benefit_taxable_weeks
-  # end
+    # Total children
+    (number_of_children - num_children_stopping).times do
+      claim_periods << (start_of_tax_year..end_of_tax_year)
+    end
 
-  # calculate :percent_tax_charge do
-  #   calculator.percent_tax_charge
-  # end
+    claim_periods
+  end
 
-  # calculate :formatted_benefit_claimed_amount do
-  #   calculator.formatted_benefit_claimed_amount
-  # end
+  calculate :calculator do
+    calculator = Calculators::ChildBenefitTaxCalculator.new(
+      :start_of_tax_year => start_of_tax_year,
+      :end_of_tax_year => end_of_tax_year,
+      :children_claiming => number_of_children,
+      :claim_periods => claim_periods,
+      :income => adjusted_net_income
+    )
+  end
 
-  # calculate :benefit_claimed_weeks do
-  #   calculator.benefit_claimed_weeks
-  # end
+  calculate :benefit_tax do
+    calculator.formatted_benefit_tax
+  end
 
+  calculate :benefit_claimed_weeks do
+    calculator.benefit_claimed_weeks
+  end
 
-outcome :estimated_tax_charge
+  calculate :percentage_tax_charge do
+    calculator.percent_tax_charge
+  end
+
+  calculate :benefit_claimed_amount do
+    calculator.formatted_benefit_claimed_amount
+  end
+
+  calculate :benefit_taxable_weeks do
+    calculator.benefit_taxable_weeks
+  end
+
+  calculate :benefit_taxable_amount do
+    calculator.formatted_benefit_taxable_amount
+  end
+
+  calculate :result_for_tax_year do
+    if tax_year == "2012-13"
+      PhraseList.new("2012-13".to_sym)
+    else
+      PhraseList.new("2013-14".to_sym)
+    end
+  end
+end
 outcome :dont_need_to_pay
