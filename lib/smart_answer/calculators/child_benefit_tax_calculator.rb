@@ -9,14 +9,16 @@ module SmartAnswer::Calculators
 
     def benefit_taxable_weeks
       return 0 if child_benefit_end_date.nil?
-      if child_benefit_end_date < end_of_tax_year
-        0
+      if child_benefit_end_date <= Date.new(2013, 4, 6)
+        ((child_benefit_end_date - Date.new(2013, 1, 7))/7.0).round
       else
-        ((child_benefit_end_date - end_of_tax_year)/7.0).round
+        52
       end
     end
 
     def weekly_amount
+      return 0 if children_claiming < 1
+
       first_child = SmartAnswer::Money.new 20.30
       additional_child = SmartAnswer::Money.new 13.40
 
