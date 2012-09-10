@@ -1,0 +1,62 @@
+en-GB:
+  flow:
+    calculate-statutory-sick-pay:
+      meta:
+        description: Statutory Sick Pay (SSP) calculator - Check if an employee qualifies for statutory sick pay and how much to pay them
+      title: Calculate your employee's statutory sick pay
+      body: |
+        Check if an employee qualifies for statutory sick pay (SSP) and how much to pay them.
+
+        ## What you’ll need to know
+
+        You’re only responsible for paying SSP if:
+
+        - you pay Class 1 National Insurance contributions for them
+        - you don’t provide your own occupational sick pay scheme
+        - your employee has told you they’re sick within 7 days of first missing work
+
+        You’ll also need this figure if you want to [recover the SSP](http://www.hmrc.gov.uk/paye/employees/statutory-pay/ssp-calc.htm#5 “Calculating SSP recovery manually”){:rel=”external”} you pay from HM Revenue & Customs.
+
+
+        **Related Items**
+        
+        - Sick pay for your employees 
+
+        *[SSP]: Statutory Sick Pay
+
+      options:
+        "yes": "Yes"
+        "no": "No"
+        none: "none of the above"
+      phrases:
+        already_receiving_benefit: Your employee isn’t entitled to statutory sick pay because they’re already receiving benefit for their time off work.
+        earnings_too_low: Your employee isn’t entitled to statutory sick pay because they haven’t earned enough to qualify.
+
+      ## Outcomes
+      ## A2, A3, A5
+      not_entitled: 
+        body: |
+
+        %{ not_entitled_reason }
+
+        You must send them form SSP1 no more than 7 days after they’ve told you they’re sick. They may be able to get [Employment Support Allowance (ESA).](https://www.gov.uk/employment-support-allowance “Benefits & credits: employment support allowance (ESA)”)
+
+        $D [Download ‘Form SSP1, employee not entitled to SSP’ (PDF, 130KB)](http://www.dwp.gov.uk/advisers/claimforms/ssp1.pdf “Download ‘Statutory Sick Pay and an employee’s claim for benefit’ form”){:rel=”external”} $D
+
+      ## A6 
+      entitled:
+        Your employee is entitled to sick pay:
+
+        + %{ssp_payment}
+        + %{normal_workdays_out} taken off sick
+
+        This is based on a weekly rate of £85.85.
+
+        Employees can get SSP for up to 28 weeks. After that you must give them form SSP1 within 7 days of SSP ending. They may be able to get [Employment Support Allowance (ESA).](https://www.gov.uk/employment-support-allowance “Benefits & credits: employment support allowance (ESA)”)
+
+        $D 
+        [Download ‘Statutory Sick Pay and an
+        employee’s claim for benefit’ form (PDF, 130KB)](http://www.dwp.gov.uk/advisers/claimforms/ssp1.pdf “Download ‘Statutory Sick Pay and an employee’s claim for benefit’ form”){:rel=”external”} 
+        $D
+
+        There are also [records you must keep](https://www.gov.uk/sick-leave-pay-employees/entitlement “Sick pay for your employees: Entitlement”) and rules on [proof of illness](https://www.gov.uk/sick-leave-pay-employees/notice-and-fit-notes “Sick pay for your employee’s: notice and fit notes”) you can ask for.
