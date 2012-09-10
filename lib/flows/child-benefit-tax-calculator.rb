@@ -32,11 +32,11 @@ end
 # Question 2
 money_question :what_is_your_estimated_income_for_the_year_before_tax? do
   calculate :total_income do
-    responses.last.to_f.round
+    responses.last.to_f.round(-2)
   end
 
   next_node do |response|
-    if response.to_f <= 50000
+    if response.to_f.round(-2) <= 50000
       :dont_need_to_pay
     else
       :do_you_expect_to_pay_into_a_pension_this_year?
@@ -103,7 +103,11 @@ end
 # Question 7
 value_question :how_many_children_claiming_for? do
   calculate :number_of_children do
-    responses.last.to_i
+    if ! (responses.last.to_s =~ /\A\d+\z/)
+      raise SmartAnswer::InvalidResponse
+    else
+      responses.last.to_i
+    end
   end
 
   next_node :do_you_expect_to_start_or_stop_claiming?
@@ -136,7 +140,7 @@ end
 value_question :how_many_children_to_start_claiming? do
   calculate :num_children_starting do
     num_children = responses.last.to_i
-    if num_children < 0 or num_children > 3 or (num_children + number_of_children) < 1
+    if ! (responses.last.to_s =~ /\A\d+\z/) or num_children < 0 or num_children > 3 or (num_children + number_of_children) < 1
       raise SmartAnswer::InvalidResponse, "This calculator can only deal with up to 3 new children."
     end
     num_children
