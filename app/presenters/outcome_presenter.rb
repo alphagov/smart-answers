@@ -3,14 +3,6 @@ require 'erubis'
 class OutcomePresenter < NodePresenter
   include OutcomeHelper
 
-  def initialize(i18n_prefix, node, state = nil)
-    super(i18n_prefix, node, state)
-
-    @node.calculations.each do |calculation|
-      @state = calculation.evaluate(@state)
-    end
-  end
-
   def title
     translate!('title')
   end

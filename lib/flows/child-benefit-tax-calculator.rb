@@ -228,7 +228,7 @@ end
 
 
 outcome :estimated_tax_charge do
-  calculate :claim_periods do
+  precalculate :claim_periods do
     claim_periods = []
 
     # Children starting
@@ -253,7 +253,7 @@ outcome :estimated_tax_charge do
     claim_periods
   end
 
-  calculate :calculator do
+  precalculate :calculator do
     calculator = Calculators::ChildBenefitTaxCalculator.new(
       :start_of_tax_year => start_of_tax_year,
       :end_of_tax_year => end_of_tax_year,
@@ -263,31 +263,27 @@ outcome :estimated_tax_charge do
     )
   end
 
-  calculate :benefit_tax do
+  precalculate :benefit_tax do
     calculator.formatted_benefit_tax
   end
 
-  calculate :benefit_claimed_weeks do
-    calculator.benefit_claimed_weeks
-  end
-
-  calculate :percentage_tax_charge do
+  precalculate :percentage_tax_charge do
     calculator.percent_tax_charge
   end
 
-  calculate :benefit_claimed_amount do
+  precalculate :benefit_claimed_amount do
     calculator.formatted_benefit_claimed_amount
   end
 
-  calculate :benefit_taxable_weeks do
+  precalculate :benefit_taxable_weeks do
     calculator.benefit_taxable_weeks
   end
 
-  calculate :benefit_taxable_amount do
+  precalculate :benefit_taxable_amount do
     calculator.formatted_benefit_taxable_amount
   end
 
-  calculate :result_for_tax_year do
+  precalculate :result_for_tax_year do
     if tax_year == "2012-13"
       PhraseList.new("2012-13".to_sym)
     else
