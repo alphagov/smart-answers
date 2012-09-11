@@ -1,76 +1,122 @@
 en-GB:
   flow:
     request-for-flexible-working:
+      meta:
+        description: Making a statutory request for flexible working
       title: "Can I make a statutory request for flexible working?"
-      body: "Find out if you have the statutory right to apply for flexible working."
-
-      tick_boxes_that_apply?:
-        title: "Tick the boxes that apply to you:"
-        options:
-          employee: I am an employee
-          continuous_employment: I have been with my current employer for 26 continuous weeks
-          not_applied_for_flexible_working: I have NOT made a statutory application for flexible working with my current employer in the last 12 months
-          agency_worker: I am an agency worker
-          armed_forces: I am a member of the armed forces
-      no_right_to_apply:
+      body: |
+        Find out if you have the statutory right to [apply for flexible working](/flexible-working "Flexible working").
+      options:
+        "yes": "Yes"
+        "no": "No"
+        none: "None of the above"
+      phrases:
+        armed_services_reason: you're a member of the armed services or an agency worker
+        employee_reason: you're not an employee or you've not been with your current employer for 26 continuous weeks
+        statutory_request_reason: you've made a statutory request in the last 12 months
+        child_care_reason: you're not caring for a child or adult
+        wrong_relationship_reason: your relationship to the person you care for doesn't make you eligible
+        upbringing_reason: you're not responsible for the child's upbringing
+      ## Questions:
+      ## Q0
+      member_of_armed_services?:
+        title: Are you a member of the armed services or an agency worker?
+      are_you_employee?:
+        title: Are you an employee with 26 weeks continuous employment?
         body: |
-          You don't have the statutory right to [apply for flexible working](/flexible-working/making-an-application "Making an application").
+          Find out your [employment status](/employment-status/overview "Employment Status") if you're not sure. 
 
-          You can still ask your employer if you can work flexibly but it's optional.
+          Find out more about [continuous employment](/continuous-employment-what-it-is "Continuous Employment").
+      applied_for_flexible_working?:
+        title: Have you made a statutory application for flexible working with your current employer in the last 12 months?
+        body: |
+          Find out more about [statutory applications](/flexible-working "Flexible working").  
+
+      ## Q1
+      # employment_status?:
+      #   title: "What's your employment status?"
+      #   body: |
+      #     Find out your [employment status](/employment-status/overview "Employment Status") if you're not sure.
+      #   options:
+      #     employee: I am an employee
+      #     continuous_employment: I have been with my current employer for 26 continuous weeks
+      #     not_applied_for_flexible_working: I have NOT made a statutory application for flexible working with my current employer in the last 12 months
+      #     agency_worker: I am an agency worker
+      #     armed_forces: I am a member of the armed forces
+      ## Q2
       caring_for_child?:
         title: Will you or your spouse/partner be caring for a child or adult?
         options:
           caring_for_child: Caring for child
           caring_for_adult: Caring for adult
           neither: Neither
-      relationship_with_adult?:
-        title: Are you one of these?
-        body: |
-          **Family (including step-family, adoptive family, half-relatives and in-law relatives)**
-
-          Mother,
-          Father,
-          Son,
-          Daughter,
-          Brother,
-          Sister,
-          Uncle,
-          Aunt,
-          Grandmother,
-          Grandfather
-
-          **Partner**
-
-          Husband,
-          Wife,
-          Civil partner,
-          Partner,
-
-          **Guardian or carer**
-
-          Adopter,
-          Guardian,
-          Special guardian,
-
-          **Other**
-
-          Someone else living at the same address as the person who needs caring for
-        options:
-          one_of_these: "Yes, I'm one of these"
-          not_one_of_these: "No, I'm not one of these"
+      ## Q3
       relationship_with_child?:
-        title: "I (or my spouse or partner) am one of these:"
+        title: "Are you (or your spouse or partner) one of the following:"
+        body: |
+          - parent (biological)
+          - parent (adoptive) 
+          - foster carer
+          - guardian
+          - special guardian
+          - been granted a [residence order](http://www.cafcass.gov.uk/the_law_about_children/contact_and_residence.aspx "Contact and residence"){:rel="external"} for the child
+      ## Q5
+      responsible_for_upbringing?:
+        title: Will you be responsible for the child's upbringing?
+      ## Q4
+      # relationship_with_adult?:
+      #   title: Are you one of these?
+      #   body: |
+
+      #     **Family (including step-family, adoptive family, half-blood-relatives and in-law relatives)**
+
+      #     - mother, father, son, daughter
+      #     - brother, sister
+      #     - uncle, aunt 
+      #     - grandmother, grandfather
+
+      #     **Partner**
+
+      #     - husband, wife
+      #     - civil partner, partner
+
+      #     **Guardian or carer**
+
+      #     - adoptive parent, guardian, special guardian
+
+      #     **Other**
+
+      #     - someone else living at the same address as the person who needs caring for
+      #   options:
+      #     one_of_these: "Yes, I'm one of these"
+      #     not_one_of_these: "No, I'm not one of these"
+      ## Q4.1
+      relationship_with_adult_group?:
+        title: "Is your relationship with the adult you are caring for one of the following:"
         options:
-          relationship: |
-            I (or my spouse or partner) am one of these:
-            Parent,
-            Adopter,
-            Foster parent,
-            Private foster carer,
-            Guardian,
-            Special guardian,
-            Been granted a residence order for the child
-          responsible_for_upbringing: I will be responsible for the child's upbringing
+          family_member: Family (including step-family, adoptive family, half-blood-relatives and in-laws)
+          partner: Partner (civil partner, partner)
+          guardian: Guardian or carer (adoptive parent, guardian, special guardian)
+          other_relationship: Other (living at the same address as the person who needs caring for) 
+      ## Q4.2
+      relationship_with_adult_family?:
+        title: "Are you one of the following:"
+        options:
+          husband_wife: Husband or wife
+          mother_father: Brother or sister
+          uncle_aunt: Uncle or aunt 
+          grandparent: Grandmother or grandfather
+      ## Answers: 
+      ## A1
       right_to_apply:
         body: |
           You have the statutory right to [make a request for flexible working](/flexible-working/making-an-application "Making an application").
+
+      ## A2
+      no_right_to_apply:
+        body: |
+          You're not entitled to make a [statutory request](/flexible-working "Flexible working") for 
+          flexible working because %{no_right_to_apply_reason}.
+
+          You can still ask your employer if you can work flexibly, but it's optional.
+      
