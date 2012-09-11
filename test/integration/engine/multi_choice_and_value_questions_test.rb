@@ -28,6 +28,8 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
         assert page.has_link?("Get started", :href => "/bridge-of-death/y")
       end
 
+      assert page.has_selector?("#content .article-container #test-report_a_problem")
+
       click_on "Get started"
 
       assert_current_url "/bridge-of-death/y"
@@ -160,6 +162,8 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
           assert_page_has_content "Oh! Well, thank you. Thank you very much."
         end
       end
+
+      assert page.has_selector?("#content .article-container #test-report_a_problem")
     end
   end # with_and_without_javascript
 
