@@ -1,8 +1,6 @@
 source 'http://rubygems.org'
 source 'https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/'
 
-gem 'gds-warmup-controller'
-
 gem 'unicorn', '4.3.1'
 gem 'rails', '~> 3.2.8'
 gem 'rails-i18n'
@@ -15,7 +13,7 @@ gem 'lograge'
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
 else
-  gem 'gds-api-adapters', '0.2.0'
+  gem 'gds-api-adapters', '1.8.0'
 end
 gem 'htmlentities', '~> 4'
 
