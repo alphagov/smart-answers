@@ -444,20 +444,20 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
                   end
 
                   # Q21
-                  should "ask 'moving_to_eea'" do
+                  should "ask 'Where are you and your child living in or moving to?'" do
                     assert_current_node :moving_to_eea
                   end
 
-                  context "no to 'moving to eea'" do
+                  context "none to 'Where are you and your child living in or moving to?'" do
                     should "get answer 21" do
-                      add_response :no
+                      add_response :none
                       assert_current_node :answer_21
                     end
                   end
 
-                  context "yes to 'moving to eea'" do
+                  context "'An EEA country or Switzerland' to 'Where are you and your child living in or moving to?'" do
                     setup do
-                      add_response :yes
+                      add_response :eea_or_switzerland
                     end
 
                     # Q22
@@ -551,16 +551,16 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
               assert_current_node :are_you_moving_to_q26
             end
             
-            context "EEC, Switzerland, Gibraltar to 'Are you moving to:'" do
+            context "EEA, Switzerland, Gibraltar to 'Are you moving to:'" do
               should "be answer 29" do
-                add_response :eec_switzerland_gibraltar
+                add_response :eea_switzerland_gibraltar
                 assert_current_node :answer_29
               end
             end
 
-            context "Other to 'Are you moving to:'" do
+            context "None of the above 'Are you moving to:'" do
               should "be answer 30" do
-                add_response :other
+                add_response :none
                 assert_current_node :answer_30
               end
             end
@@ -591,20 +591,20 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
             end
             
             # Q28
-            should "ask 'Moving to EEA?'" do
+            should "ask 'Which country are you living in or moving to?'" do
               assert_current_node :moving_to_eea2
             end
             
-            context "yes to 'Moving to EEA?'" do
+            context "'in_eea' to 'Which country are you living in or moving to?'" do
               should "be answer 32" do
-                add_response :yes
+                add_response :in_eea
                 assert_current_node :answer_32
               end
             end
             
-            context "no to 'Moving to EEA?'" do
+            context "'outside_eea' to 'Which country are you living in or moving to?'" do
               should "be answer 33" do
-                add_response :no
+                add_response :outside_eea
                 assert_current_node :answer_33
               end
             end
@@ -654,16 +654,16 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
                 assert_current_node :moving_to_q31
               end
               
-              context "other to 'Moving to:'" do
+              context "none to 'Moving to:'" do
                 should "be answer 34" do
-                  add_response :other
+                  add_response :none
                   assert_current_node :answer_34
                 end
               end
               
-              context "EEC, Switzerland, Gibraltar to 'Moving to:'" do
+              context "EEA, Switzerland, Gibraltar to 'Moving to:'" do
                 setup do
-                  add_response :eec_switzerland_gibraltar
+                  add_response :eea_switzerland_gibraltar
                 end
                 
                 # Q32

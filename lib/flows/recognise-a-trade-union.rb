@@ -5,7 +5,8 @@ status :draft
 # Q1
 multiple_choice :what_do_you_need_to_do? do
   option :recognise_a_trade_union => :do_you_want_to_recognise_the_union_voluntarily?
-  option :derecoognise_a_trade_union => :has_it_been_3_years_since_gaining_recognition?
+  option :derecognise_a_trade_union => :does_the_union_agree_with_derecognition_voluntarily?
+  # option :derecognise_a_trade_union => :has_it_been_3_years_since_gaining_recognition?
 end
 
 # Q2
@@ -28,14 +29,20 @@ end
 
 # Q5
 multiple_choice :have_cac_accepted_the_application? do
-  option :accepted => :agreed_on_bargaining_unit?
-  option :rejected => :you_do_not_have_to_recognise_the_union_can_reapply
+  option :yes => :agreed_on_bargaining_unit?
+  option :no => :you_do_not_have_to_recognise_the_union_can_reapply
 end
 
 # Q6
 multiple_choice :agreed_on_bargaining_unit? do
   option :yes => :has_the_cac_ordered_a_ballot?
-  option :no => :has_the_cac_ordered_a_ballot?
+  option :no => :cac_decided_bargaining_unit?
+end
+
+## QX
+multiple_choice :cac_decided_bargaining_unit? do
+  option :yes => :has_the_cac_ordered_a_ballot?
+  option :no => :cac_will_decide_bargaining_unit
 end
 
 # Q7
@@ -49,6 +56,13 @@ multiple_choice :did_the_majority_support_the_union_in_the_ballot? do
   option :yes => :you_must_recognise_the_union
   option :no => :you_do_not_have_to_recognise_the_union_cannot_reapply
 end
+
+## QY
+multiple_choice :does_the_union_agree_with_derecognition_voluntarily? do
+  option :yes => :union_voluntarily_derecognised
+  option :no => :has_it_been_3_years_since_gaining_recognition?
+end
+
 
 # Q9
 multiple_choice :has_it_been_3_years_since_gaining_recognition? do
@@ -71,8 +85,8 @@ end
 
 # Q12
 multiple_choice :is_your_derecognition_valid? do
-  option :valid => :the_union_is_derecognised_and_bargaining_will_end
-  option :not_valid => :you_cannot_seek_derecognition
+  option :yes => :the_union_is_derecognised_and_bargaining_will_end
+  option :no => :you_cannot_seek_derecognition
 end
 
 # Q13
@@ -124,11 +138,18 @@ outcome :you_do_not_have_to_recognise_the_union_can_reapply
 outcome :you_must_recognise_the_union
 #A6
 outcome :you_do_not_have_to_recognise_the_union_cannot_reapply
+#AX
+outcome :cac_will_decide_bargaining_unit
+
 
 #A7
 outcome :you_cannot_seek_derecognition
 #A8
 outcome :write_to_union
+
+#AY 
+outcome :union_voluntarily_derecognised
+
 #A9
 outcome :the_union_is_derecognised_and_bargaining_will_end
 #A10
