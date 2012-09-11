@@ -63,6 +63,7 @@ en-GB:
         error_message: Please enter a number
       how_many_children_claiming_for?:
         title: How many children are you claiming Child Benefit for?
+        error_message: Please enter a number
       do_you_expect_to_start_or_stop_claiming?:
         title: Do you expect to start or stop claiming Child Benefit during this tax year?
         body: For example, if you're expecting a child or a child will reach 16 or leave full-time education.
@@ -71,6 +72,23 @@ en-GB:
       how_many_children_to_start_claiming?:
         title: Enter the number of children you expect to start claiming Child Benefit for in this tax year.
         error_message: This calculator can only deal with up to 3 new children.
+      when_will_the_1st_child_enter_the_household?:
+        hint: eg the expected date of birth or adoption
+        error_message: Please enter a date within the tax year.
+      when_will_the_2nd_child_enter_the_household?:
+        hint: eg the expected date of birth or adoption
+        error_message: Please enter a date within the tax year.
+      when_will_the_3rd_child_enter_the_household?:
+        hint: eg the expected date of birth or adoption
+        error_message: Please enter a date within the tax year.
+      how_many_children_to_stop_claiming?:
+        error_message: You cannot stop claiming benefit for more children than you're currently claiming for
+      when_do_you_expect_to_stop_claiming_for_the_1st_child?:
+        error_message: Please enter a date within the tax year.
+      when_do_you_expect_to_stop_claiming_for_the_2nd_child?:
+        error_message: Please enter a date within the tax year.
+      when_do_you_expect_to_stop_claiming_for_the_3rd_child?:
+        error_message: Please enter a date within the tax year.
       dont_need_to_pay:
         title: You don't need to pay back the Child Benefit you're claiming.
         body: This is an estimate based on the income figures you provided.
