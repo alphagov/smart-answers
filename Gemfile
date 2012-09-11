@@ -22,7 +22,7 @@ gem 'htmlentities', '~> 4'
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
 else
-  gem 'slimmer', '2.0.0'
+  gem 'slimmer', '2.1.0'
 end
 
 if ENV['GOVSPEAK_DEV']
