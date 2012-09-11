@@ -51,8 +51,8 @@ class FlowRegistrationPresenter
     )
   end
 
-  def live
-    true
+  def state
+    'live'
   end
 
 private

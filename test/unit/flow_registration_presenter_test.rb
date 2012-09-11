@@ -131,9 +131,9 @@ class FlowRegistraionPresenterTest < ActiveSupport::TestCase
     end
   end
 
-  context "live" do
-    should "always return true, because the FlowRegistry decides what to register" do
-      assert_equal true, @presenter.live
+  context "state" do
+    should "always return live, because the FlowRegistry decides what to register" do
+      assert_equal 'live', @presenter.state
     end
   end
 end
