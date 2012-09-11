@@ -6,38 +6,31 @@ module SmartAnswer::Calculators
   class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
 
     setup do
-      @calc = ChildBenefitTaxCalculator.new :child_benefit_start_date => Date.new(2012, 4, 6)
+      @calc = ChildBenefitTaxCalculator.new
     end
 
-    context "end date = 20/3/2013" do
+    context "tax year 2012-13" do
       setup do
-        @calc.child_benefit_end_date = Date.new(2013, 3, 20)
+        @calc.start_of_tax_year = Date.new(2012, 4, 6)
+        @calc.end_of_tax_year = Date.new(2013, 4, 5)
       end
 
-      context "only child" do
+      context "only child for full year" do
         setup do
-          @calc.children_claiming = 1
-        end
-
-        should "calculate the number of weeks for which benefit was claimed" do
-          assert_equal 50, @calc.benefit_claimed_weeks
-        end
-
-        should "calculate the number of taxable weeks" do
-          assert_equal 10, @calc.benefit_taxable_weeks
+          @calc.claim_periods = [Date.new(2012, 4, 6)..Date.new(2013, 4, 5)]
         end
 
         should "calculate the total amount of benefit claimed" do
-          assert_equal SmartAnswer::Money.new(1015), @calc.benefit_claimed_amount
+          assert_equal SmartAnswer::Money.new(1055.6), @calc.benefit_claimed_amount
         end
 
         should "calculate the total amount of benefit claimed in taxable weeks" do
-          assert_equal SmartAnswer::Money.new(203), @calc.benefit_taxable_amount
+          assert_equal SmartAnswer::Money.new(263.90), @calc.benefit_taxable_amount
         end
 
-        context "income = 65,000" do
+        context "income >= 60000" do
           setup do
-            @calc.income = SmartAnswer::Money.new 65000
+            @calc.income = 60000
           end
 
           should "calculate the % tax charge" do
@@ -45,180 +38,190 @@ module SmartAnswer::Calculators
           end
 
           should "calculate the benefit tax" do
-            assert_equal SmartAnswer::Money.new(203), @calc.benefit_tax
+            assert_equal SmartAnswer::Money.new(263.90), @calc.benefit_tax
           end
-        end # context - income = 65,000
+        end # context - income >= 60000
 
-        context "income = 54,000" do
+        context "income == 55000" do
           setup do
-            @calc.income = SmartAnswer::Money.new 54000
+            @calc.income = 55000
           end
 
           should "calculate the % tax charge" do
-            assert_equal 40, @calc.percent_tax_charge
+            assert_equal 50, @calc.percent_tax_charge
           end
 
           should "calculate the benefit tax" do
-            assert_equal SmartAnswer::Money.new(81.20), @calc.benefit_tax
+            assert_equal SmartAnswer::Money.new(131.95), @calc.benefit_tax
           end
-        end # context - income = 54,000
+        end # context - income >= 50000
+
+        context "income == 50000" do
+          setup do
+            @calc.income = 50000
+          end
+
+          should "calculate the % tax charge" do
+            assert_equal 0, @calc.percent_tax_charge
+          end
+
+          should "calculate the benefit tax" do
+            assert_equal SmartAnswer::Money.new(0), @calc.benefit_tax
+          end
+        end # context - income >= 50000
+
       end # context - only child
-      
-      context "4 children" do
+
+      context "one child for full year, one child starting partial year" do
         setup do
-          @calc.children_claiming = 4
-        end
-
-        should "calculate the number of weeks for which benefit was claimed" do
-          assert_equal 50, @calc.benefit_claimed_weeks
-        end
-
-        should "calculate the number of taxable weeks" do
-          assert_equal 10, @calc.benefit_taxable_weeks
+          @calc.claim_periods = [Date.new(2012, 4, 6)..Date.new(2013, 4, 5), Date.new(2012, 9, 1)..Date.new(2013, 4, 5)]
         end
 
         should "calculate the total amount of benefit claimed" do
-          assert_equal SmartAnswer::Money.new(3025), @calc.benefit_claimed_amount
+          assert_equal SmartAnswer::Money.new(1471), @calc.benefit_claimed_amount
         end
 
         should "calculate the total amount of benefit claimed in taxable weeks" do
-          assert_equal SmartAnswer::Money.new(605), @calc.benefit_taxable_amount
+          assert_equal SmartAnswer::Money.new(438.10), @calc.benefit_taxable_amount
         end
 
-        context "income = 65,000" do
+        context "income >= 60000" do
           setup do
-            @calc.income = SmartAnswer::Money.new 65000
-          end
-
-          should "calculate the % tax charge" do
-            assert_equal 100, @calc.percent_tax_charge
+            @calc.income = 60000
           end
 
           should "calculate the benefit tax" do
-            assert_equal SmartAnswer::Money.new(605), @calc.benefit_tax
+            assert_equal SmartAnswer::Money.new(438.10), @calc.benefit_tax
           end
-        end # context - income = 65,000
+        end # context - income >= 60000
+      end # context - one child for full year, one child starting partial year
 
-        context "income = 54,000" do
+      context "one child for full year, one child ending partial year" do
+        setup do
+          @calc.claim_periods = [Date.new(2012, 4, 6)..Date.new(2013, 4, 5), Date.new(2012, 4, 6)..Date.new(2013, 2, 14)]
+        end
+
+        should "calculate the total amount of benefit claimed" do
+          assert_equal SmartAnswer::Money.new(1658.60), @calc.benefit_claimed_amount
+        end
+
+        should "calculate the total amount of benefit claimed in taxable weeks" do
+          assert_equal SmartAnswer::Money.new(344.30), @calc.benefit_taxable_amount
+        end
+
+        context "income == 55000" do
           setup do
-            @calc.income = SmartAnswer::Money.new 54000
-          end
-
-          should "calculate the % tax charge" do
-            assert_equal 40, @calc.percent_tax_charge
+            @calc.income = 55000
           end
 
           should "calculate the benefit tax" do
-            assert_equal SmartAnswer::Money.new(242), @calc.benefit_tax
+            assert_equal SmartAnswer::Money.new(172.15), @calc.benefit_tax
           end
-        end # context - income = 54,000
-      end # context - 4 children
-    end # context - end date = 20/3/2013
+        end # context - income >= 60000
+      end # context - one child for full year, one child ending partial year
 
-    context "end date = 8/8/2012" do
+      context "two children for full year, one child starting partial year, one child ending partial year" do
+        setup do
+          @calc.claim_periods = [Date.new(2012, 4, 6)..Date.new(2013, 4, 5), Date.new(2012, 4, 6)..Date.new(2013, 4, 5), Date.new(2012, 9, 1)..Date.new(2013, 4, 5), Date.new(2012, 4, 6)..Date.new(2013, 2, 14)]
+        end
+
+        should "calculate the total amount of benefit claimed" do
+          assert_equal SmartAnswer::Money.new(2770.80), @calc.benefit_claimed_amount
+        end
+
+        should "calculate the total amount of benefit claimed in taxable weeks" do
+          assert_equal SmartAnswer::Money.new(692.70), @calc.benefit_taxable_amount
+        end
+
+        context "income == 55000" do
+          setup do
+            @calc.income = 55000
+          end
+
+          should "calculate the benefit tax" do
+            assert_equal SmartAnswer::Money.new(346.35), @calc.benefit_tax
+          end
+        end # context - income >= 60000
+      end # context - one child for full year, one child starting partial year, one child ending partial year
+    end # context - tax year 2012-13
+
+    context "tax year 2013-14" do
       setup do
-        @calc.child_benefit_end_date = Date.new(2012, 8, 8)
+        @calc.start_of_tax_year = Date.new(2013, 4, 6)
+        @calc.end_of_tax_year = Date.new(2014, 4, 5)
       end
 
-      context "only child" do
+      context "one child for full year" do
         setup do
-          @calc.children_claiming = 1
-        end
-
-        should "calculate the number of weeks for which benefit was claimed" do
-          assert_equal 18, @calc.benefit_claimed_weeks
-        end
-
-        should "calculate the number of taxable weeks" do
-          assert_equal 0, @calc.benefit_taxable_weeks
+          @calc.claim_periods = [Date.new(2013, 4, 6)..Date.new(2014, 4, 5)]
         end
 
         should "calculate the total amount of benefit claimed" do
-          assert_equal SmartAnswer::Money.new(365.4), @calc.benefit_claimed_amount
+          assert_equal SmartAnswer::Money.new(1055.60), @calc.benefit_claimed_amount
         end
 
         should "calculate the total amount of benefit claimed in taxable weeks" do
-          assert_equal SmartAnswer::Money.new(0), @calc.benefit_taxable_amount
+          assert_equal SmartAnswer::Money.new(1055.60), @calc.benefit_taxable_amount
         end
 
-        context "income = 65,000" do
+        context "income >= 60000" do
           setup do
-            @calc.income = SmartAnswer::Money.new 65000
-          end
-
-          should "calculate the % tax charge" do
-            assert_equal 100, @calc.percent_tax_charge
+            @calc.income = 60000
           end
 
           should "calculate the benefit tax" do
-            assert_equal SmartAnswer::Money.new(0), @calc.benefit_tax
+            assert_equal SmartAnswer::Money.new(1055.60), @calc.benefit_tax
           end
-        end # context - income = 65,000
+        end # context - income >= 60000
+      end # context - one child for full year
 
-        context "income = 54,000" do
-          setup do
-            @calc.income = SmartAnswer::Money.new 54000
-          end
-
-          should "calculate the % tax charge" do
-            assert_equal 40, @calc.percent_tax_charge
-          end
-
-          should "calculate the benefit tax" do
-            assert_equal SmartAnswer::Money.new(0), @calc.benefit_tax
-          end
-        end # context - income = 54,000
-      end # context - only child
-      
-      context "4 children" do
+      context "one child for full year, one child starting partial year" do
         setup do
-          @calc.children_claiming = 4
-        end
-
-        should "calculate the number of weeks for which benefit was claimed" do
-          assert_equal 18, @calc.benefit_claimed_weeks
-        end
-
-        should "calculate the number of taxable weeks" do
-          assert_equal 0, @calc.benefit_taxable_weeks
+          @calc.claim_periods = [Date.new(2013, 4, 6)..Date.new(2014, 4, 5), Date.new(2013, 9, 1)..Date.new(2014, 4, 5)]
         end
 
         should "calculate the total amount of benefit claimed" do
-          assert_equal SmartAnswer::Money.new(1089), @calc.benefit_claimed_amount
+          assert_equal SmartAnswer::Money.new(1471), @calc.benefit_claimed_amount
         end
 
         should "calculate the total amount of benefit claimed in taxable weeks" do
-          assert_equal SmartAnswer::Money.new(0), @calc.benefit_taxable_amount
+          assert_equal SmartAnswer::Money.new(1471), @calc.benefit_taxable_amount
         end
 
-        context "income = 65,000" do
+        context "income >= 60000" do
           setup do
-            @calc.income = SmartAnswer::Money.new 65000
-          end
-
-          should "calculate the % tax charge" do
-            assert_equal 100, @calc.percent_tax_charge
+            @calc.income = 60000
           end
 
           should "calculate the benefit tax" do
-            assert_equal SmartAnswer::Money.new(0), @calc.benefit_tax
+            assert_equal SmartAnswer::Money.new(1471), @calc.benefit_tax
           end
-        end # context - income = 65,000
+        end # context - income >= 60000
+      end # context - one child for full year, one child starting partial year
 
-        context "income = 54,000" do
+      context "two children for full year, one child starting partial year, one child ending partial year" do
+        setup do
+          @calc.claim_periods = [Date.new(2013, 4, 6)..Date.new(2014, 4, 5), Date.new(2013, 4, 6)..Date.new(2014, 4, 5), Date.new(2013, 9, 1)..Date.new(2014, 4, 5), Date.new(2013, 4, 6)..Date.new(2014, 2, 14)]
+        end
+
+        should "calculate the total amount of benefit claimed" do
+          assert_equal SmartAnswer::Money.new(2770.80), @calc.benefit_claimed_amount
+        end
+
+        should "calculate the total amount of benefit claimed in taxable weeks" do
+          assert_equal SmartAnswer::Money.new(2770.80), @calc.benefit_taxable_amount
+        end
+
+        context "income == 55000" do
           setup do
-            @calc.income = SmartAnswer::Money.new 54000
-          end
-
-          should "calculate the % tax charge" do
-            assert_equal 40, @calc.percent_tax_charge
+            @calc.income = 55000
           end
 
           should "calculate the benefit tax" do
-            assert_equal SmartAnswer::Money.new(0), @calc.benefit_tax
+            assert_equal SmartAnswer::Money.new(1385.40), @calc.benefit_tax
           end
-        end # context - income = 54,000
-      end # context - 4 children
-    end # context - end date = 8/8/2012
+        end # context - income >= 60000
+      end # context - one child for full year, one child starting partial year, one child ending partial year
+    end
   end
 end
