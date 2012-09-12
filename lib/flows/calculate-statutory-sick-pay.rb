@@ -27,18 +27,27 @@ end
 ## Q4
 value_question :how_many_days_missed? do
 	calculate :prev_sick_days do
-		responses.last.to_i
+		if ! (responses.last.to_s =~ /\A\d+\z/)
+      raise SmartAnswer::InvalidResponse
+    else
+      if responses.last.to_i < 1
+      	raise SmartAnswer::InvalidResponse
+      else
+      	responses.last.to_i
+      end
+    end
 	end
-	# calculate :calculator do
-	# 	Calculators::CalculateStatutorySickPay.new(prev_sick_days)
-	# end
 	next_node :how_many_days_worked? 								## Q7
 end
 
 ## Q5 
 money_question :what_was_average_weekly_pay? do
 	calculate :under_eight_awe do
-		responses.last 
+		if responses.last < 1
+			raise SmartAnswer::InvalidResponse
+		else
+			responses.last
+		end
 	end
 	next_node do |response|
 		if response.to_f < 107.00
@@ -52,7 +61,11 @@ end
 ## Q6
 money_question :what_was_average_weekly_earnings? do
 	calculate :over_eight_awe do
-		responses.last
+		if responses.last < 1
+			raise SmartAnswer::InvalidResponse
+		else
+			responses.last
+		end
 	end
 	next_node do |response|
 		if response.to_f < 107.00
@@ -66,7 +79,17 @@ end
 ## Q7
 value_question :how_many_days_worked? do
 	calculate :pattern_days do
-		responses.last.to_i
+		# ensure we get an integer
+		if ! (responses.last.to_s =~ /\A\d+\z/)
+      raise SmartAnswer::InvalidResponse
+    else
+    	# and one between 1..7
+      if (1..7).include?(responses.last.to_i)
+      	responses.last.to_i
+      else
+      	raise SmartAnswer::InvalidResponse
+      end
+    end
 	end
 	calculate :calculator do
 		if prev_sick_days
@@ -85,11 +108,23 @@ end
 ## Q8
 value_question :normal_workdays_taken_as_sick? do
 	calculate :normal_workdays_out do
-		calculator.set_normal_work_days(responses.last.to_i)
-		calculator.normal_work_days
+		if ! (responses.last.to_s =~ /\A\d+\z/)
+      raise SmartAnswer::InvalidResponse
+    else
+			if responses.last.to_i < 1
+      	raise SmartAnswer::InvalidResponse
+      else
+				calculator.set_normal_work_days(responses.last.to_i)
+				calculator.normal_work_days
+      end
+		end
 	end
 	calculate :ssp_payment do
-		calculator.ssp_payment
+		if calculator.ssp_payment < 1
+			0.0
+		else
+			calculator.ssp_payment
+		end
 	end
 	next_node :entitled													## A6
 end

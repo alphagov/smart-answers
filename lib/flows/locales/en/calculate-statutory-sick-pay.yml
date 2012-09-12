@@ -52,20 +52,25 @@ en-GB:
       how_many_days_missed?:
         title: During the previous illness, how many days did your employee miss from work?
         hint: Only count days that your employee was scheduled to work.
+        error_message: Please enter a number greater than 0
       ## Q5
       what_was_average_weekly_pay?:
         title: What was their average weekly pay, before deductions, before they became sick? 
+        error_message: Please enter a number greater than 0
 
       ## Q6
       what_was_average_weekly_earnings?:
         title: What were their average weekly earnings over the 8 week period before they became sick?
+        error_message: Please enter a number greater than 0
       ## Q7
       how_many_days_worked?:
         title: How many days per week do they work?
+        error_message: Please enter a number between 1 and 7
       ## Q8
       normal_workdays_taken_as_sick?:
         title: How many of their normal workdays did your employee take off sick in the most recent period of illness?
         hint: ‘Normal workdays’ are the days of the week your employee works on a regular basis
+        error_message: Please enter a number greater than 0
 
       ## Outcomes
       ## A2, A3, A5
@@ -83,7 +88,7 @@ en-GB:
           You must send them form SSP1 no more than 7 days after they’ve told you they’re sick. They may be able to get [Employment Support Allowance (ESA).](https://www.gov.uk/employment-support-allowance “Benefits & credits: employment support allowance (ESA)”)
 
 
-          $D 
+          $D
           [Download ‘Form SSP1, employee not entitled to SSP’ (PDF, 130KB)](http://www.dwp.gov.uk/advisers/claimforms/ssp1.pdf “Download ‘Statutory Sick Pay and an employee’s claim for benefit’ form”){:rel=”external”} 
           $D
 
@@ -127,7 +132,7 @@ en-GB:
         body: |
           ##Your employee is entitled to sick pay:
 
-          + %{ssp_payment}
+          + £%{ssp_payment}
           + %{normal_workdays_out} days taken off sick
 
           This is based on a weekly rate of £85.85.
@@ -135,7 +140,7 @@ en-GB:
           Employees can get SSP for up to 28 weeks. After that you must give them form SSP1 within 7 days of SSP ending. They may be able to get [Employment Support Allowance (ESA).](https://www.gov.uk/employment-support-allowance “Benefits & credits: employment support allowance (ESA)”)
 
 
-          $D 
+          $D
           [Download ‘Statutory Sick Pay and an
           employee’s claim for benefit’ form (PDF, 130KB)](http://www.dwp.gov.uk/advisers/claimforms/ssp1.pdf “Download ‘Statutory Sick Pay and an employee’s claim for benefit’ form”){:rel=”external”} 
           $D
@@ -149,6 +154,6 @@ en-GB:
 
           You must send them form SSP1 no more than 7 days after they’ve told you they’re sick. They may be able to get [Employment Support Allowance (ESA).](https://www.gov.uk/employment-support-allowance “Benefits & credits: employment support allowance (ESA)”)
 
-          $D 
+          $D
           [Download ‘Form SSP1, employee not entitled to SSP’ (PDF, 130KB)](http://www.dwp.gov.uk/advisers/claimforms/ssp1.pdf “Download ‘Statutory Sick Pay and an employee’s claim for benefit’ form”){:rel=”external”} 
           $D

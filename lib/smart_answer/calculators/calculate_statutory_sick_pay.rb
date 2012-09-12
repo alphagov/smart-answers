@@ -10,14 +10,14 @@ module SmartAnswer::Calculators
     end
 
     def set_daily_rate(pattern_days)
-    	@daily_rate = (85.85 / pattern_days.to_f).round(2) 
+    	@daily_rate = pattern_days > 0 ? (85.85 / pattern_days.to_f).round(2) : 0.00 
     end
     def set_normal_work_days(normal_work_days)
       @normal_work_days = normal_work_days
     end
 
     def ssp_payment
-    	((@normal_work_days - @waiting_days) * @daily_rate).to_f.round(2)
+    	(@normal_work_days - @waiting_days) * @daily_rate
     end
 
 

@@ -37,8 +37,20 @@ class CalculateStatutorySickPay < ActiveSupport::TestCase
 	  			assert_current_node :how_many_days_missed?
 	  		end
 
+	  		should "return an error if 0" do
+	  			add_response '0'
+	  			assert_current_node_is_error
+	  			assert_current_node :how_many_days_missed?
+	  		end
+	  		should "return an error if text" do
+	  			add_response 'sometext'
+	  			assert_current_node_is_error
+	  			assert_current_node :how_many_days_missed?
+
+	  		end
+
 	  		context "answered 3 sick days" do
-		  		setup {add_response 3}
+		  		setup {add_response '3'}
 		  		
 		  		## Q7 
 		  		should "ask how many days they work" do
@@ -46,8 +58,47 @@ class CalculateStatutorySickPay < ActiveSupport::TestCase
 		  			assert_current_node :how_many_days_worked?
 		  		end
 
+		  		context "enter text" do
+			  		setup {add_response 'sometext'}
+			  		should "return an error if text" do
+			  			assert_current_node_is_error
+			  			assert_current_node :how_many_days_worked?
+			  		end
+			  	end
+
+			  	should "return an error if 0" do
+		  			add_response '0'
+		  			assert_current_node_is_error
+		  			assert_current_node :how_many_days_worked?
+		  		end
+	  	
+	  			should "return an error if 1" do
+		  			add_response '1'
+		  			assert_current_node :normal_workdays_taken_as_sick?
+		  		end
+	  			should "return an error if 2" do
+		  			add_response '2'
+		  			assert_current_node :normal_workdays_taken_as_sick?
+		  		end
+	  			should "return an error if 3" do
+		  			add_response '3'
+		  			assert_current_node :normal_workdays_taken_as_sick?
+		  		end
+	  			should "return an error if 4" do
+		  			add_response '4'
+		  			assert_current_node :normal_workdays_taken_as_sick?
+		  		end
+	  			should "return an error if 6" do
+		  			add_response '6'
+		  			assert_current_node :normal_workdays_taken_as_sick?
+		  		end
+	  			should "return an error if 7" do
+		  			add_response '7'
+		  			assert_current_node :normal_workdays_taken_as_sick?
+		  		end
+
 		  		context "5 days worked" do
-			  		setup {add_response 5}
+			  		setup {add_response '5'}
 
 			  		## Q8 
 			  		should "ask how may sick days they had" do
@@ -59,12 +110,35 @@ class CalculateStatutorySickPay < ActiveSupport::TestCase
 			  		context "4 work days out" do
 			  			setup {add_response 4}
 
+			  			## A6
 			  			should "give entitled outcome" do
 				  			assert_state_variable "normal_workdays_out", 4
 				  			assert_current_node :entitled
 			  			end
 			  		end
 		  		end
+
+		  		context "0 days worked" do
+			  		setup {add_response 0}
+
+			  		## Q8 
+			  		should "ask how may sick days they had" do
+			  			assert_current_node_is_error
+			  			assert_current_node :how_many_days_worked?
+			  		end
+					end
+
+		  		should "error if supplied a word" do
+		  			add_response 'sometext'
+		  			assert_current_node_is_error
+						assert_current_node :how_many_days_worked?
+		  		end 
+	  		end
+
+	  		should "error if supplied a word" do
+	  			add_response 'sometext'
+	  			assert_current_node_is_error
+					assert_current_node :how_many_days_missed?
 	  		end
 
 	  	end
@@ -74,6 +148,12 @@ class CalculateStatutorySickPay < ActiveSupport::TestCase
 
 		  	## Q6 
 		  	should "ask what the employee's average weekly earnings were" do
+		  		assert_current_node :what_was_average_weekly_earnings?
+		  	end
+
+		  	should "return error on 0" do
+		  		add_response 0
+		  		assert_current_node_is_error
 		  		assert_current_node :what_was_average_weekly_earnings?
 		  	end
 
@@ -105,6 +185,7 @@ class CalculateStatutorySickPay < ActiveSupport::TestCase
 	  	should "ask what the workers average weekly was when they got sick" do
 	  		assert_current_node :what_was_average_weekly_pay?
 	  	end
+
 	  	context "avg weekly earnings £250.25" do
 	  		setup {add_response 250.25}
 
@@ -133,9 +214,35 @@ class CalculateStatutorySickPay < ActiveSupport::TestCase
 	  		end
 	  	end
 
+	  	## A5
 	  	should "return earnings too low outcome on 90.25" do
 	  		add_response 90.25
 	  		assert_current_node :not_earned_enough
+	  	end
+
+	  	context "avg weekly earnings £400.00" do
+	  		setup {add_response '400'}
+
+	  		## Q7
+	  		should "ask how many days they work" do
+	  			assert_current_node :how_many_days_worked?
+	  		end
+
+	  		context "4 days worked" do
+	  			setup {add_response '4'}
+	  			
+	  			## Q8
+	  			should "ask normal_workdays_taken_as_sick" do
+	  				assert_current_node :normal_workdays_taken_as_sick?
+	  			end
+
+	  			## A6
+	  			should "NOT give ssp_payment -21.46 answer when provide 2 days" do
+	  				add_response '2'
+	  				assert_state_variable "ssp_payment", 0.0
+	  				assert_current_node :entitled
+	  			end
+	  		end
 	  	end
 	  end
 	end

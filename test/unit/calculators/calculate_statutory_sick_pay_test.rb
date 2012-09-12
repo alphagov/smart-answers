@@ -51,16 +51,27 @@ module SmartAnswer::Calculators
 	  	context "prev_sick_days is 0" do
 	  		setup do 
 	  			@calculator = CalculateStatutorySickPay.new(0)
-	  			@calculator.set_normal_work_days(3)
-	  			@calculator.set_daily_rate(3)
 	  		end
 
 	  		should "return waiting_days of 3, ssp_payment of 0" do
+	  			@calculator.set_normal_work_days(3)
+	  			@calculator.set_daily_rate(3)
 	  			assert_equal @calculator.waiting_days, 3
 	  			assert_equal @calculator.normal_work_days, 3
   				assert_equal @calculator.daily_rate, 28.62
 	  			assert_equal @calculator.ssp_payment, 0.00
 	  		end
+
+	  		should "if normal_work_days and daily_rate set to 0" do
+					@calculator.set_normal_work_days(0)
+	  			@calculator.set_daily_rate(0)
+					assert_equal @calculator.waiting_days, 3
+	  			assert_equal @calculator.normal_work_days, 0
+  				assert_equal @calculator.daily_rate, 0 #28.62
+	  			assert_equal @calculator.ssp_payment, 0.00
+	  		end	  			
+	  		
+
 	  	end
 	  end
 
