@@ -3,7 +3,6 @@ module SmartAnswer
     class Base < Node
 
       def initialize(name, options = {}, &block)
-        @calculations = []
         @save_input_as = nil
         @next_node_function ||= lambda {|_|}
         super
@@ -26,10 +25,6 @@ module SmartAnswer
 
       def save_input_as(variable_name)
         @save_input_as = variable_name
-      end
-
-      def calculate(variable_name, &block)
-        @calculations << Calculation.new(variable_name, &block)
       end
 
       def transition(current_state, raw_input)

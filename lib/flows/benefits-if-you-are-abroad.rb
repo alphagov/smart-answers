@@ -35,12 +35,12 @@ multiple_choice :which_benefit_would_you_like_to_claim do
   option :wfp => :are_you_moving_to_q7
   option :maternity => :are_you_moving_to_a_country_q9
   option :child_benefits => :moving_to
-  option :ssp => :are_you_moving_to_a_country_q15
-  option :tax_credits => :claiming_tax_credits_or_eligible
-  option :esa => :claiming_esa_abroad_for
   option :industrial_injuries => :claiming_iidb
+  option :ssp => :are_you_moving_to_a_country_q15
+  option :esa => :claiming_esa_abroad_for
   option :disability => :getting_any_allowances
   option :bereavement => :eligible_for_the_following
+  option :tax_credits => :claiming_tax_credits_or_eligible
 end
 
 # Q6
@@ -138,8 +138,10 @@ end
 
 # Q21
 multiple_choice :moving_to_eea do
-  option :yes => :claiming_benefit_or_pension
-  option :no => :answer_21
+  option :eea_or_switzerland => :claiming_benefit_or_pension
+  option :none => :answer_21
+  # option :yes => :claiming_benefit_or_pension
+  # option :no => :answer_21
 end
 
 # Q22
@@ -170,8 +172,8 @@ end
 
 # Q26
 multiple_choice :are_you_moving_to_q26 do
-  option :eec_switzerland_gibraltar => :answer_29
-  option :other => :answer_30
+  option :eea_switzerland_gibraltar => :answer_29
+  option :none => :answer_30
 end
 
 # Q27
@@ -182,8 +184,8 @@ end
 
 # Q28
 multiple_choice :moving_to_eea2 do
-  option :yes => :answer_32
-  option :no => :answer_33
+  option :in_eea => :answer_32
+  option :outside_eea => :answer_33
 end
 
 # Q29
@@ -200,8 +202,8 @@ end
 
 # Q31
 multiple_choice :moving_to_q31 do
-  option :eec_switzerland_gibraltar => :do_you_or_family_pay_uk_nic
-  option :other => :answer_34
+  option :eea_switzerland_gibraltar => :do_you_or_family_pay_uk_nic
+  option :none => :answer_34
 end
 
 # Q32
