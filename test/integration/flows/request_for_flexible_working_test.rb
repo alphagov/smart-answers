@@ -123,35 +123,41 @@ class RequestForFlexibleWorkingTest < ActiveSupport::TestCase
             assert_current_node :right_to_apply
           end
 
-          context "family member" do
-            setup {add_response :family_member}
-            should "specify family relationship" do
-              assert_current_node :relationship_with_adult_family?
-            end
-
-            should "on 'none', not be allowed to apply" do
-              add_response :none
-              assert_current_node :no_right_to_apply
-            end
-
-            should "on 'husband or wife', be allowed to apply" do
-              add_response :husband_wife
-              assert_current_node :right_to_apply
-            end
-            should "on 'mother father', be allowed to apply" do
-              add_response :mother_father
-              assert_current_node :right_to_apply
-            end
-            should "on 'uncle aunt', be allowed to apply" do
-              add_response :uncle_aunt
-              assert_current_node :right_to_apply
-            end
-            should "on 'grandparent', be allowed to apply" do
-              add_response :grandparent
-              assert_current_node :right_to_apply
-            end
-
+          should "specify family relationship" do
+            add_response :family_member
+            assert_current_node :right_to_apply
           end
+
+          # context "family member" do
+          #   setup {add_response :family_member}
+          #   should "specify family relationship" do
+          #     assert_current_node :relationship_with_adult_family?
+          #     # assert_current_node :relationship_with_adult_family?
+          #   end
+
+          #   should "on 'none', not be allowed to apply" do
+          #     add_response :none
+          #     assert_current_node :no_right_to_apply
+          #   end
+
+          #   should "on 'husband or wife', be allowed to apply" do
+          #     add_response :husband_wife
+          #     assert_current_node :right_to_apply
+          #   end
+          #   should "on 'mother father', be allowed to apply" do
+          #     add_response :mother_father
+          #     assert_current_node :right_to_apply
+          #   end
+          #   should "on 'uncle aunt', be allowed to apply" do
+          #     add_response :uncle_aunt
+          #     assert_current_node :right_to_apply
+          #   end
+          #   should "on 'grandparent', be allowed to apply" do
+          #     add_response :grandparent
+          #     assert_current_node :right_to_apply
+          #   end
+
+          # end
         end
 
         

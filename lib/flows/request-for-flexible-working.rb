@@ -83,7 +83,7 @@ multiple_choice :relationship_with_adult_group? do
   calculate :no_right_to_apply_reason do
     PhraseList.new :wrong_relationship_reason
   end
-  option :family_member  => :relationship_with_adult_family?
+  option :family_member  => :right_to_apply #:relationship_with_adult_family?
   option :partner => :right_to_apply
   option :guardian => :right_to_apply
   option :other_relationship => :right_to_apply

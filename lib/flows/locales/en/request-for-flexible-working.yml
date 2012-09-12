@@ -94,10 +94,13 @@ en-GB:
       relationship_with_adult_group?:
         title: "Is your relationship with the adult you are caring for one of the following:"
         options:
-          family_member: Family (including step-family, adoptive family, half-blood-relatives and in-laws)
-          partner: Partner (civil partner, partner)
+          family_member: Parent, child, sibling, uncle, aunt, grandparent (including step-family, adoptive family, half-blood-relatives and in-laws)
+          # family_member: Family (including step-family, adoptive family, half-blood-relatives and in-laws)
+          partner: Partner (civil partner, unmarried partner)
+          # partner: Partner (civil partner, partner)
           guardian: Guardian or carer (adoptive parent, guardian, special guardian)
-          other_relationship: Other (living at the same address as the person who needs caring for) 
+          other_relationship: Someone living at the same address as the person who needs caring for
+          # other_relationship: Other (living at the same address as the person who needs caring for) 
       ## Q4.2
       relationship_with_adult_family?:
         title: "Are you one of the following:"
