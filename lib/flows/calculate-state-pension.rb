@@ -38,10 +38,16 @@ date_question :dob_age? do
   from { 100.years.ago }
   to { Date.today }
 
-  calculate :state_pension_date do
+  save_input_as :dob
+
+  calculate :calculator do
     Calculators::StatePensionAmountCalculator.new(
-      gender: gender, dob: responses.last, qualifying_years: nil
-    ).state_pension_date
+      gender: gender, dob: dob, qualifying_years: nil
+    )
+  end
+
+  calculate :state_pension_date do
+    calculator.state_pension_date
   end
   
   calculate :formatted_state_pension_date do
@@ -56,6 +62,7 @@ date_question :dob_age? do
     end
   end
   
+  ## REDUNDANT?
   calculate :already_elligible_text do
     state_pension_date <= Date.today ? PhraseList.new(:claim_pension_now_text) : ''
   end
@@ -63,8 +70,23 @@ date_question :dob_age? do
   calculate :formatted_pension_pack_date do
     4.months.ago(state_pension_date).strftime("%B %Y")
   end
+
+  ## TEST: 1
+  calculate :state_pension_age do
+    calculator.state_pension_age
+  end
+
+  
+  calculate :state_pension_age_statement do
+    if state_pension_date > Date.today
+      PhraseList.new(:state_pension_age_is)
+    else
+      PhraseList.new(:state_pension_age_was)
+    end
+  end
   
   next_node :age_result
+
 end
 
 date_question :dob_amount? do

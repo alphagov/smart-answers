@@ -9,9 +9,13 @@ en-GB:
       devolved_body: |
         What you need to know:
         
-        This calculator is for your basic State Pension. You may also be able to get the [Additional State Pension.](/additional-state-pension "additional State Pension")
+        This calculator is for your basic State Pension. 
 
-        For a State Pension estimate you need to know the number of years you paid National Insurance or got certain benefits.
+        It doesn’t work out your [Additional State Pension.](/additional-state-pension “additional State Pension”)
+
+        You’ll be asked for the number of years you worked and paid tax or got certain benefits. These are the years of your National Insurance contributions that count towards your State Pension.
+        
+        This calculator only gives an estimate and can’t take every circumstance into account.  
       phrases:
         this_is_the_full_state_pension: This is the full State Pension.
         this_is_n_below_the_full_state_pension: This is £%{pension_loss} per week below the full State Pension.  
@@ -23,16 +27,40 @@ en-GB:
         remaining_contributions_years_callout: |
           You still need to pay National Insurance contributions for %{remaining_contribution_years} to get the full State Pension.
         full_contribution_years_callout: You get the full State Pension.
+        state_pension_age_is: |
+          Your State Pension age is %{state_pension_age}.
+
+          You should get your pension claim pack in %{formatted_pension_pack_date}. Contact the Pension Service on 0800 731 7898 if you haven’t received it.
+
+          If you're on a low income, you might be eligible to claim [Pension Credit](/pension-credit “Pension Credit”).
+
+          This calculation is according to the current law. The State Pension age may change in the future. 
+        state_pension_age_was: |
+          Your State Pension age was %{state_pension_age}.
+
+          You should have got your pension claim pack in %{formatted_pension_pack_date}.
+
+          Contact the Pension Service if you haven't received it.
+
+          ^You have already reached State Pension age. You can [claim your State Pension](/state-pension#how-to-claim "How to claim") if you haven't already or [defer claiming it](/how-to-defer-your-state-pension "How to defer your State Pension").^
+
+          If you're on a low income, you might be eligible to claim [Pension Credit](/pension-credit “Pension Credit”).
+
+
+          This calculation is according to the current law. The State Pension age may change in the future. 
+
+      ## Q1
+      which_calculation?:
+        title: What would you like to do?
+        options:
+          age: calculate your State Pension age
+          amount: get a basic State Pension estimate and calculate your State Pension age
+      ## Q2
       gender?:
         title: What is your gender?
         options:
           male: Male
           female: Female
-      which_calculation?:
-        title: What would you like to do?
-        options:
-          age: calculate your State Pension age
-          amount: get a State Pension estimate and calculate your State Pension age
       dob_age?:
         title: What is your date of birth?
         error_message: Enter your date of birth
@@ -40,13 +68,13 @@ en-GB:
         title: What is your date of birth?
         error_message: Enter your date of birth
       years_paid_ni?:
-        title: How many years of National Insurance have you paid from the age of 19?
+        title: How many years have you worked and paid tax from the age of 19?
         hint: |
-          National Insurance is deducted from your wages. Self-employed people pay it with other tax.
+          These are the years you paid National Insurance towards you State Pension. Enter 0 if you haven’t worked.
         error_message: Your answer has to match the number of years you actually worked and paid National Insurance
       years_of_jsa?:
-        title: "How many years were you unemployed and 'signing on' or claiming benefits because of sickness or disability?"
-        hint: Don't count years you counted in question 4. Enter 0 if you’ve never claimed any of these.
+        title: "How many years from the age of 19 have you claimed unemployment, sickness or disability benefits?"
+        hint: Don’t count years when you were working. Enter 0 if you’ve never claimed benefits.
         error_message: Please enter a number
       years_of_benefit?:
         title: "How many years did any of the following apply:"
@@ -123,10 +151,6 @@ en-GB:
           %{tense_specific_title}
           
         body: |
-          You should be sent your pension claim pack in %{formatted_pension_pack_date}. Contact the Pension Service if you haven't received it.
+          %{state_pension_age_statement}
 
-          %{already_elligible_text}
-
-          If you're on a low income, you might be eligible to claim [Pension Credit](/pension-credit “Pension Credit”).
-
-          This calculation is according to the current law. The State Pension age may change in the future. 
+      
