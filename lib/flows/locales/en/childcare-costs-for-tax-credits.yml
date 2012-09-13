@@ -2,7 +2,8 @@ en-GB:
   flow:
     childcare-costs-for-tax-credits:
       title: "Tax credits: working out your childcare costs"
-      meta: "Work out how much your childcare costs so you can claim extra tax credits"
+      meta: 
+        description: "Work out how much your childcare costs so you can claim extra tax credits"
       body: |
         You can claim extra tax credits to [help with your childcare costs](/childcare-tax-credits “Childcare and tax credits”) if you’re eligible. Use this tool to work out what childcare costs you should claim. 
 
@@ -58,37 +59,37 @@ en-GB:
           "other": "Other"
       # C1
       costs_for_year_in_weeks?:
-        title: "Your childcare costs"   
+        title: "Your current childcare costs"   
         body: |
           Add up the amounts you expect to pay in total for the next 52 weeks - start from the day you're doing the calculation - and enter it here:
       # C2, C4
       costs_for_year_in_months?:
-        title: "Your childcare costs"
+        title: "Your current childcare costs"
         body: |
           Add up the amounts you expect to pay for the next 12 months - start from the day you're doing the calculation - and enter it here:
       # C3, C7
       how_much_do_you_pay_each_month?:
-        title: "Your childcare costs"
+        title: "Your current childcare costs"
         body: |
           How much do you pay each month:
       # C5
       how_much_do_you_pay_each_fortnight?:
-        title: "Your childcare costs"
+        title: "Your current childcare costs"
         body: |
           How much do you pay each fortnight?
       # C6
       how_much_do_you_pay_every_four_weeks?:
-        title: "Your childcare costs"
+        title: "Your current childcare costs"
         body: |
           How much do you pay every 4 weeks?
       # C8
       how_much_do_you_pay_anually?:
-        title: "Your childcare costs"
+        title: "Your current childcare costs"
         body: |
           How much do you pay every year?
       # C9
       varying_annual_cost?:
-        title: "Your childcare costs"
+        title: "Your childcare costs vary"
         body: |
           Sometimes you may pay - or expect to pay - different amounts for childcare (known as ‘variable costs’), for example:
 
@@ -102,37 +103,37 @@ en-GB:
           Enter the number here:
       # C10A
       new_weekly_costs?:
-        title: "Your childcare costs"
+        title: "Your current childcare costs"
         body: |
-          What are your new weekly costs (rounded up to the nearest pound)?
+          What are your new **weekly** costs (rounded up to the nearest pound)?
       # C10B
       old_weekly_costs?:
-        title: "Your childcare costs"
+        title: "Your reported childcare costs"
         body: |
-          What was the old average weekly amount you gave the Tax Credit Office?
-          If you don't know what your previous childcare costs were, check your award or renewal notice, or contact the Tax Credit Helpline.
+          What was the old average **weekly** amount you gave the Tax Credit Office?
+          If you don't know what your previous childcare costs were, check your award or renewal notice, or contact the [Tax Credit Helpline](/contact-the-tax-credit-office "Contact the Tax Credit Office").
       # C11A, C12A, C14A
       new_annual_costs?:
-        title: "Your childcare costs"
+        title: "Your current childcare costs"
         body: |
           Add up the amounts you expect to pay in total for the next 52 weeks and enter it here:
       # C11B, C12B, C14B
       old_annual_costs?:
-        title: "Your childcare costs"
+        title: "Your reported childcare costs"
         body: |
-          What was the old average weekly amount you gave the Tax Credit Office?
+          What was the old average **weekly** amount you gave the Tax Credit Office?
 
           If you don't know what your previous childcare costs were, check your award or renewal notice, or contact the [Tax Credit Helpline](/contact-the-tax-credit-office "Contact the Tax Credit Office").
       # C13A
       new_average_weekly_costs?:
-        title: "Your childcare costs"
+        title: "Your current childcare costs"
         body: |
           What's the new monthly cost of your childcare?
       # C13B
       old_average_weekly_costs?:
-        title: "Your childcare costs"
+        title: "Your reported childcare costs"
         body: |
-          What was the old average weekly amount you gave the Tax Credit Office?
+          What was the old average **weekly** amount you gave the Tax Credit Office?
 
           If you don't know what your previous childcare costs were, check your award or renewal notice, or contact the [Tax Credit Helpline](/contact-the-tax-credit-office "Contact the Tax Credit Office").
       # A1, A6
@@ -144,7 +145,7 @@ en-GB:
       weekly_costs:
         title: "Your childcare costs"
         body: |
-          $!Your weekly childcare costs are £%{cost}$!
+          $!Your weekly childcare costs are £%{cost}. Use this figure on your claim form.$!
       # A7, A8, A9, A11, A13
       weekly_costs_for_claim_form:
         title: "Your childcare costs"
@@ -171,7 +172,7 @@ en-GB:
       # A19
       call_the_helpline:
         body: |
-          Call the Tax Credit Helpline -- they'll work out your average weekly childcare costs for you.
+          Call the [Tax Credit Helpline](/contact-the-tax-credit-office “Contact the Tax Credit Office”) -- they'll work out your average weekly childcare costs for you.
 
           You'll need to tell them:
 
