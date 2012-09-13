@@ -17,40 +17,31 @@ en-GB:
         child_care_reason: you're not caring for a child or adult
         wrong_relationship_reason: your relationship to the person you care for doesn't make you eligible
         upbringing_reason: you're not responsible for the child's upbringing
+      
       ## Questions:
-      ## Q0
+      ## Q1
       member_of_armed_services?:
         title: Are you a member of the armed services or an agency worker?
+      ## Q2
       are_you_employee?:
         title: Are you an employee with 26 weeks continuous employment?
         body: |
           Find out your [employment status](/employment-status/overview "Employment Status") if you're not sure. 
 
           Find out more about [continuous employment](/continuous-employment-what-it-is "Continuous Employment").
+      ## Q3
       applied_for_flexible_working?:
         title: Have you made a statutory application for flexible working with your current employer in the last 12 months?
         body: |
           Find out more about [statutory applications](/flexible-working "Flexible working").  
-
-      ## Q1
-      # employment_status?:
-      #   title: "What's your employment status?"
-      #   body: |
-      #     Find out your [employment status](/employment-status/overview "Employment Status") if you're not sure.
-      #   options:
-      #     employee: I am an employee
-      #     continuous_employment: I have been with my current employer for 26 continuous weeks
-      #     not_applied_for_flexible_working: I have NOT made a statutory application for flexible working with my current employer in the last 12 months
-      #     agency_worker: I am an agency worker
-      #     armed_forces: I am a member of the armed forces
-      ## Q2
+      ## Q4
       caring_for_child?:
         title: Will you or your spouse/partner be caring for a child or adult?
         options:
           caring_for_child: Caring for child
           caring_for_adult: Caring for adult
           neither: Neither
-      ## Q3
+      ## Q5
       relationship_with_child?:
         title: "Are you (or your spouse or partner) one of the following:"
         body: |
@@ -60,52 +51,21 @@ en-GB:
           - guardian
           - special guardian
           - been granted a [residence order](http://www.cafcass.gov.uk/the_law_about_children/contact_and_residence.aspx "Contact and residence"){:rel="external"} for the child
-      ## Q5
+      ## Q6
       responsible_for_upbringing?:
         title: Will you be responsible for the child's upbringing?
-      ## Q4
-      # relationship_with_adult?:
-      #   title: Are you one of these?
-      #   body: |
-
-      #     **Family (including step-family, adoptive family, half-blood-relatives and in-law relatives)**
-
-      #     - mother, father, son, daughter
-      #     - brother, sister
-      #     - uncle, aunt 
-      #     - grandmother, grandfather
-
-      #     **Partner**
-
-      #     - husband, wife
-      #     - civil partner, partner
-
-      #     **Guardian or carer**
-
-      #     - adoptive parent, guardian, special guardian
-
-      #     **Other**
-
-      #     - someone else living at the same address as the person who needs caring for
-      #   options:
-      #     one_of_these: "Yes, I'm one of these"
-      #     not_one_of_these: "No, I'm not one of these"
-      ## Q4.1
+      ## Q7
       relationship_with_adult_group?:
         title: "Is your relationship with the adult you are caring for one of the following:"
         options:
-          family_member: Family (including step-family, adoptive family, half-blood-relatives and in-laws)
-          partner: Partner (civil partner, partner)
+          family_member: Parent, child, sibling, uncle, aunt, grandparent (including step-family, adoptive family, half-blood-relatives and in-laws)
+          # family_member: Family (including step-family, adoptive family, half-blood-relatives and in-laws)
+          partner: Partner (civil partner, unmarried partner)
+          # partner: Partner (civil partner, partner)
           guardian: Guardian or carer (adoptive parent, guardian, special guardian)
-          other_relationship: Other (living at the same address as the person who needs caring for) 
-      ## Q4.2
-      relationship_with_adult_family?:
-        title: "Are you one of the following:"
-        options:
-          husband_wife: Husband or wife
-          mother_father: Brother or sister
-          uncle_aunt: Uncle or aunt 
-          grandparent: Grandmother or grandfather
+          other_relationship: Someone living at the same address as the person who needs caring for
+          # other_relationship: Other (living at the same address as the person who needs caring for) 
+      
       ## Answers: 
       ## A1
       right_to_apply:
