@@ -1,4 +1,4 @@
-satisfies_need "9999"
+satisfies_need "845"
 status :draft
 section_slug "money-and-tax"
 
@@ -49,7 +49,7 @@ multiple_choice :had_written_explanation? do
 
   calculate :appeal_expiry_text do
     if appeal_expiry_date
-      "You have until #{appeal_expiry_date.to_s(:long)} to start an appeal"
+      "You have until #{appeal_expiry_date.to_s(:long)} to start an appeal."
     else
       ""
     end
