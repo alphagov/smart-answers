@@ -32,7 +32,7 @@ class AutoEnrolledIntoWorkplacePensionTest < ActiveSupport::TestCase
     context "self employed" do
       should "not be enrolled in pension" do
         add_response :yes
-        assert_current_node :not_enrolled
+        assert_current_node :not_enrolled_self_employed
       end
     end
 

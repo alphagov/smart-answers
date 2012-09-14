@@ -43,5 +43,21 @@ module SmartAnswer::Calculators
         assert_equal 107.45, @calculator.you_get_future
       end
     end
+    
+    context "female, born 29th Feb 1968" do
+      setup do
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: "1968-02-29", qualifying_years: nil)
+      end
+
+      should "be elligible for state pension on 1 March 2034" do
+        assert_equal Date.parse("2034-03-01"), @calculator.state_pension_date
+      end
+      
+      should "be elligible for three years of credit regardless of benefits claimed" do
+        assert @calculator.three_year_credit_age?
+      end
+      
+    end
+    
   end
 end

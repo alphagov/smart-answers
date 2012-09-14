@@ -1,7 +1,7 @@
 status :draft
 section_slug "money-and-tax"
 subsection_slug "pension"
-satisfies_need "99999"
+satisfies_need "2483"
 
 multiple_choice :work_in_uk? do
   option :yes => :self_employed?
@@ -9,7 +9,7 @@ multiple_choice :work_in_uk? do
 end
 
 multiple_choice :self_employed? do
-  option :yes => :not_enrolled
+  option :yes => :not_enrolled_self_employed
   option :no => :workplace_pension?
 end
 
@@ -47,6 +47,7 @@ multiple_choice :one_of_the_following? do
 end
 
 outcome :not_enrolled
+outcome :not_enrolled_self_employed
 outcome :continue_to_pay
 outcome :not_enrolled_with_options
 outcome :not_enrolled_opt_in

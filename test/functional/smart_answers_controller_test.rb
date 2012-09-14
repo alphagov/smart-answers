@@ -1,11 +1,15 @@
 # encoding: UTF-8
 require_relative '../test_helper'
 require_relative '../helpers/i18n_test_helper'
+require 'gds_api/test_helpers/panopticon'
 
 class SmartAnswersControllerTest < ActionController::TestCase
   include I18nTestHelper
+  include GdsApi::TestHelpers::Panopticon
 
   def setup
+    stub_panopticon_default_artefact
+
     @flow = SmartAnswer::Flow.new do
       name :sample
 
@@ -96,6 +100,13 @@ class SmartAnswersControllerTest < ActionController::TestCase
       get :show, id: 'sample'
       assert_select "head meta[name=x-section-name][content=Family]"
       assert_select "head meta[name=x-section-link][content=/browse/family]"
+    end
+
+    should "send the artefact to slimmer" do
+      SmartAnswerPresenter.any_instance.stubs(:artefact).returns({"slug" => "an-artefact"})
+      @controller.expects(:set_slimmer_artefact).with({"slug" => "an-artefact"})
+
+      get :show, id: 'sample'
     end
 
     should "look up section name in translation file" do

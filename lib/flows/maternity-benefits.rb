@@ -62,12 +62,14 @@ end
 
 # Note this is only reached for 'employed' people who
 # have worked 26 weeks for the same employer
+# 135.45 is standard weekly rate. This may change
+# 107 is the lower earnings limit. This may change
 salary_question :how_much_are_you_paid? do
   weekly_salary_90 = nil
   next_node do |salary|
     weekly_salary_90 = Money.new(salary.per_week * 0.9)
     if salary.per_week >= 107
-      if weekly_salary_90 < 135.35
+      if weekly_salary_90 < 135.45
         :you_qualify_for_statutory_maternity_pay_below_threshold
       else
         :you_qualify_for_statutory_maternity_pay_above_threshold
@@ -95,12 +97,13 @@ multiple_choice :will_you_work_at_least_26_weeks_during_test_period? do
   end
 end
 
+# 135.45 is standard weekly rate. This may change
 salary_question :how_much_do_you_earn? do
   weekly_salary_90 = nil
   next_node do |earnings|
     if earnings.per_week >= 30
       weekly_salary_90 = Money.new(earnings.per_week * 0.9)
-      if weekly_salary_90 < 135.35
+      if weekly_salary_90 < 135.45
         :you_qualify_for_maternity_allowance_below_threshold
       else
         :you_qualify_for_maternity_allowance_above_threshold

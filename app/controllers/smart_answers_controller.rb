@@ -26,6 +26,7 @@ class SmartAnswersController < ApplicationController
       need_id: @presenter.need_id,
       proposition: @presenter.proposition
     )
+    set_slimmer_artefact(@presenter.artefact)
   end
 
 private
