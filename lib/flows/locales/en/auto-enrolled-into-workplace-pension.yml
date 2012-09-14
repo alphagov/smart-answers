@@ -41,7 +41,7 @@ en-GB:
         title: How much do you earn a year?
         options:
           up_to_5k: Up to £5,564
-          between_5k_8k: Between £5,564 - £8,105
+          between_5k_8k: Between £5,564 and £8,105
           more_than_8k: More than £8,105
           varies: Hard to say - my income varies
       one_of_the_following?:
@@ -63,8 +63,7 @@ en-GB:
           You may want to talk to an independent financial adviser. 
 
           You can get free, impartial advice on UK pensions from [The Pensions
-           Advisory Service](http://www.pensionsadvisoryservice.org.uk/ "The
-            Pensions Advisory Service"){:rel="external"}
+           Advisory Service](http://www.pensionsadvisoryservice.org.uk/ "The Pensions Advisory Service"){:rel="external"}
       continue_to_pay:
         body: |
           $C
@@ -90,8 +89,8 @@ en-GB:
           You won't be automatically enrolled into your employer’s [workplace pension](/workplace-pensions "Workplace pensions").
           $C
 
-          However, you have the right to opt in to the workplace pension scheme
-          and your employer must let you join if you ask to and pay regular contributions.
+          However, you have the right to opt in to the workplace pension scheme.
+          Your employer must let you join if you ask to and pay regular contributions.
       not_enrolled_income_varies:
         body: |
           $C

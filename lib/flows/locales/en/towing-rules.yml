@@ -3,8 +3,7 @@ en-GB:
     towing-rules:
       meta:
         description: "Use this tool to find out if you’re old enough or have the right kind of licence to tow a trailer from different kinds of vehicle."
-      title: |
-        Towing Rules
+      title: "Towing: licence and age requirements"
       body: |
         Use this tool to find out if you’re old enough or have the right kind of licence to tow a trailer from different kinds of vehicle.
 
@@ -111,7 +110,6 @@ en-GB:
         body: |
           You can already tow trailers up to 750kg with a standard category B car licence. If you want to tow heavier trailers you will need to apply for provisional B+E entitlement then take a B+E test.
 
-          [NOTE TO SME: How do you apply for B+E provisional?]
       ## A10
       limited_conditional_trailer_entitlement_msv:
         body: |
