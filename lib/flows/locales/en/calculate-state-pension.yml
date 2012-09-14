@@ -28,14 +28,16 @@ en-GB:
           You still need to pay National Insurance contributions for %{remaining_contribution_years} to get the full State Pension.
         full_contribution_years_callout: You get the full State Pension.
         state_pension_age_is: |
+
           Your State Pension age is %{state_pension_age}.
 
           You should get your pension claim pack in %{formatted_pension_pack_date}. Contact the Pension Service on 0800 731 7898 if you haven’t received it.
 
           If you're on a low income, you might be eligible to claim [Pension Credit](/pension-credit “Pension Credit”).
 
-          This calculation is according to the current law. The State Pension age may change in the future. 
+          This calculation is according to the current law. The State Pension age may change in the future.
         state_pension_age_was: |
+
           Your State Pension age was %{state_pension_age}.
 
           You should have got your pension claim pack in %{formatted_pension_pack_date}.
@@ -45,7 +47,6 @@ en-GB:
           ^You have already reached State Pension age. You can [claim your State Pension](/state-pension#how-to-claim "How to claim") if you haven't already or [defer claiming it](/how-to-defer-your-state-pension "How to defer your State Pension").^
 
           If you're on a low income, you might be eligible to claim [Pension Credit](/pension-credit “Pension Credit”).
-
 
           This calculation is according to the current law. The State Pension age may change in the future. 
 
@@ -61,17 +62,21 @@ en-GB:
         options:
           male: Male
           female: Female
+      ## Q3:Age
       dob_age?:
         title: What is your date of birth?
         error_message: Enter your date of birth
+      ## Q3:Amount
       dob_amount?:
         title: What is your date of birth?
         error_message: Enter your date of birth
+      ## Q4
       years_paid_ni?:
         title: How many years have you worked and paid tax from the age of 19?
         hint: |
           These are the years you paid National Insurance towards you State Pension. Enter 0 if you haven’t worked.
         error_message: Your answer has to match the number of years you actually worked and paid National Insurance
+      ## Q5
       years_of_jsa?:
         title: "How many years from the age of 19 have you claimed unemployment, sickness or disability benefits?"
         hint: Don’t count years when you were working. Enter 0 if you’ve never claimed benefits.

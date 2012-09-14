@@ -3,15 +3,17 @@ section_slug "money-and-tax"
 subsection_slug "pension"
 satisfies_need "564"
 
+# Q1
 multiple_choice :which_calculation? do
   save_input_as :calculate_age_or_amount
   
-  option :age
+  option :age     
   option :amount
 
   next_node :gender?
 end
 
+# Q2
 multiple_choice :gender? do
   save_input_as :gender
 
@@ -33,7 +35,7 @@ multiple_choice :gender? do
 end
 
 
-
+# Q3:Age
 date_question :dob_age? do
   from { 100.years.ago }
   to { Date.today }
@@ -89,6 +91,7 @@ date_question :dob_age? do
 
 end
 
+# Q3:Amount
 date_question :dob_amount? do
   from { 100.years.ago }
   to { Date.today }
@@ -107,6 +110,11 @@ date_question :dob_amount? do
     calculator.state_pension_date.to_date
   end
 
+  calculate :remaining_years do
+    calculator.years_to_pension
+  end
+
+
   next_node do |response|
     calc = Calculators::StatePensionAmountCalculator.new(
       gender: gender, dob: response)
@@ -122,6 +130,7 @@ date_question :dob_amount? do
   end
 end
 
+# Q4
 value_question :years_paid_ni? do
   save_input_as :ni_years
 
@@ -161,6 +170,7 @@ value_question :years_paid_ni? do
   end
 end
 
+# Q5
 value_question :years_of_jsa? do
   save_input_as :jsa_years
 
@@ -209,6 +219,7 @@ value_question :years_of_jsa? do
   end
 end
 
+# Q?? 
 value_question :years_of_benefit? do
   save_input_as :benefit_years
 
@@ -268,6 +279,7 @@ value_question :years_of_benefit? do
   end
 end
 
+# Q10
 value_question :years_of_work? do
   save_input_as :work_years
   
