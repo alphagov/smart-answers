@@ -96,7 +96,9 @@ date_question :dob_amount? do
   from { 100.years.ago }
   to { Date.today }
 
-  save_input_as :dob
+  calculate :dob do
+    responses.last
+  end
 
   calculate :calculator do
     Calculators::StatePensionAmountCalculator.new(gender: gender, dob: dob)
@@ -114,7 +116,6 @@ date_question :dob_amount? do
     calculator.years_to_pension
   end
 
-
   next_node do |response|
     calc = Calculators::StatePensionAmountCalculator.new(
       gender: gender, dob: response)
@@ -122,7 +123,7 @@ date_question :dob_amount? do
       if calc.under_20_years_old?
         :too_young
       else
-        :years_paid_ni?
+        :years_paid_ni? # Q4
       end
     else
       :reached_state_pension_age
@@ -132,38 +133,39 @@ end
 
 # Q4
 value_question :years_paid_ni? do
-  save_input_as :ni_years
+  # save_input_as :ni_years
 
-  calculate :calculator do
+  calculate :ni_years do
     ni_years = Integer(responses.last)
     raise InvalidResponse if ni_years < 0 or ni_years > 70 
-    Calculators::StatePensionAmountCalculator.new(
-      gender: gender, dob: dob, qualifying_years: ni_years)
+    ni_years
+    # Calculators::StatePensionAmountCalculator.new(
+    #   gender: gender, dob: dob, qualifying_years: ni_years)
   end
 
-  calculate :formatted_state_pension_date do
-    calculator.state_pension_date.to_date.to_formatted_s(:long)
-  end
+  # calculate :formatted_state_pension_date do
+  #   calculator.state_pension_date.to_date.to_formatted_s(:long)
+  # end
 
-  calculate :pension_amount do
-    sprintf("%.2f", calculator.what_you_get)
-  end
+  # calculate :pension_amount do
+  #   sprintf("%.2f", calculator.what_you_get)
+  # end
 
-  calculate :pension_loss do
-    sprintf("%.2f", calculator.pension_loss)
-  end
+  # calculate :pension_loss do
+  #   sprintf("%.2f", calculator.pension_loss)
+  # end
   
-  calculate :pension_summary do
-    if calculator.pension_loss > 0
-      PhraseList.new(:this_is_n_below_the_full_state_pension)
-    else
-      PhraseList.new(:this_is_the_full_state_pension)
-    end
-  end
+  # calculate :pension_summary do
+  #   if calculator.pension_loss > 0
+  #     PhraseList.new(:this_is_n_below_the_full_state_pension)
+  #   else
+  #     PhraseList.new(:this_is_the_full_state_pension)
+  #   end
+  # end
   
-  calculate :contribution_callout_text do
-    PhraseList.new :full_contribution_years_callout
-  end
+  # calculate :contribution_callout_text do
+  #   PhraseList.new :full_contribution_years_callout
+  # end
 
   next_node do |response|
     Integer(response) > 29 ? :amount_result : :years_of_jsa?
@@ -172,52 +174,58 @@ end
 
 # Q5
 value_question :years_of_jsa? do
-  save_input_as :jsa_years
+  # save_input_as :jsa_years
 
-  calculate :calculator do
+  calculate :jsa_years do
     jsa_years = Integer(responses.last)
     raise InvalidResponse if jsa_years < 0 or jsa_years > 70
-    Calculators::StatePensionAmountCalculator.new(
-      gender: gender, dob: dob, qualifying_years: (ni_years.to_i + jsa_years)
-    )
+    jsa_years
+    # Calculators::StatePensionAmountCalculator.new(
+    #   gender: gender, dob: dob, qualifying_years: (ni_years.to_i + jsa_years)
+    # )
   end
   
-  calculate :formatted_state_pension_date do
-    calculator.state_pension_date.to_date.to_formatted_s(:long)
-  end
+  # calculate :formatted_state_pension_date do
+  #   calculator.state_pension_date.to_date.to_formatted_s(:long)
+  # end
 
-  calculate :pension_amount do
-    sprintf("%.2f", calculator.what_you_get)
-  end
+  # calculate :pension_amount do
+  #   sprintf("%.2f", calculator.what_you_get)
+  # end
 
-  calculate :pension_loss do
-    sprintf("%.2f", calculator.pension_loss)
-  end
+  # calculate :pension_loss do
+  #   sprintf("%.2f", calculator.pension_loss)
+  # end
   
-  calculate :contribution_callout_text do
-    PhraseList.new :full_contribution_years_callout
-  end
+  # calculate :contribution_callout_text do
+  #   PhraseList.new :full_contribution_years_callout
+  # end
   
-  calculate :pension_summary do
-    if calculator.pension_loss > 0
-      PhraseList.new(:this_is_n_below_the_full_state_pension)
-    else
-      PhraseList.new(:this_is_the_full_state_pension)
-    end
-  end
+  # calculate :pension_summary do
+  #   if calculator.pension_loss > 0
+  #     PhraseList.new(:this_is_n_below_the_full_state_pension)
+  #   else
+  #     PhraseList.new(:this_is_the_full_state_pension)
+  #   end
+  # end
   
-  calculate :credited_benefit_years do
-    (calculator.three_year_credit_age? ? 3 : 0)
-  end
+  # calculate :credited_benefit_years do
+  #   (calculator.three_year_credit_age? ? 3 : 0)
+  # end
 
   next_node do |response|
+    calc = Calculators::StatePensionAmountCalculator.new(
+      gender: gender, dob: response, qualifying_years: (ni_years + jsa_years))
     if (ni_years.to_i + Integer(response)) > 29
       :amount_result
     else 
+      # (calc.born_before_1953? ? amount_result  ) 
       :years_of_benefit?
     end
   end
 end
+
+
 
 # Q?? 
 value_question :years_of_benefit? do
@@ -338,6 +346,44 @@ value_question :years_of_work? do
 end
 
 outcome :reached_state_pension_age
-outcome :too_young
-outcome :amount_result
+outcome :too_young 
+outcome :amount_result do
+  precalculate :qualifying_years_total do
+    (defined?(jsa_years) ? ni_years + jsa_years : ni_years)
+  end
+
+  precalculate :calculator do
+    Calculators::StatePensionAmountCalculator.new(
+      gender: gender, dob: dob, qualifying_years: (qualifying_years_total)
+    )
+  end
+
+  precalculate :formatted_state_pension_date do
+    calculator.state_pension_date.to_date.to_formatted_s(:long)
+  end
+
+  precalculate :pension_amount do
+    sprintf("%.2f", calculator.what_you_get)
+  end
+
+  precalculate :pension_loss do
+    sprintf("%.2f", calculator.pension_loss)
+  end
+  
+  precalculate :pension_summary do
+    if calculator.pension_loss > 0
+      PhraseList.new(:this_is_n_below_the_full_state_pension)
+    else
+      PhraseList.new(:this_is_the_full_state_pension)
+    end
+  end
+  
+  precalculate :contribution_callout_text do
+    PhraseList.new :full_contribution_years_callout
+  end
+
+  precalculate :credited_benefit_years do
+    (calculator.three_year_credit_age? ? 3 : 0)
+  end
+end
 outcome :age_result

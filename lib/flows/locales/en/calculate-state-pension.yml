@@ -33,7 +33,7 @@ en-GB:
 
           You should get your pension claim pack in %{formatted_pension_pack_date}. Contact the Pension Service on 0800 731 7898 if you haven’t received it.
 
-          If you're on a low income, you might be eligible to claim [Pension Credit](/pension-credit “Pension Credit”).
+          If you&rsquo;re on a low income, you might be eligible to claim [Pension Credit](/pension-credit “Pension Credit”).
 
           This calculation is according to the current law. The State Pension age may change in the future.
         state_pension_age_was: |
@@ -46,7 +46,7 @@ en-GB:
 
           ^You have already reached State Pension age. You can [claim your State Pension](/state-pension#how-to-claim "How to claim") if you haven't already or [defer claiming it](/how-to-defer-your-state-pension "How to defer your State Pension").^
 
-          If you're on a low income, you might be eligible to claim [Pension Credit](/pension-credit “Pension Credit”).
+          If you&rsquo;re on a low income, you might be eligible to claim [Pension Credit](/pension-credit “Pension Credit”).
 
           This calculation is according to the current law. The State Pension age may change in the future. 
 
@@ -81,6 +81,8 @@ en-GB:
         title: "How many years from the age of 19 have you claimed unemployment, sickness or disability benefits?"
         hint: Don’t count years when you were working. Enter 0 if you’ve never claimed benefits.
         error_message: Please enter a number
+      
+      ## Q???
       years_of_benefit?:
         title: "How many years did any of the following apply:"
         body: |
@@ -93,11 +95,17 @@ en-GB:
           Enter 0 if none of these apply.
           %{if_married_woman}
         error_message: Please enter a number
+      
+      ## Q10
       years_of_work?:
         title: How many years between age 16 and 19 were you in full-time education or working?
         hint: |
           Include the years you were claiming benefits because of unemployment, illness or disability.
         error_message: The maximum number of years you can enter is 3
+      
+
+      ## Outcomes:
+      ## RESULT 5
       reached_state_pension_age:
         title: You’ve reached State Pension age.
         body: |
@@ -115,7 +123,7 @@ en-GB:
           If you don’t get the full State Pension you might still be able to [pay voluntary National Insurance contributions](/voluntary-national-insurance-contributions).
 
           More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
-
+      ## RESULT 4    
       too_young:
         title: You must be at least 20 years old for the calculator to work out how much State Pension you'll get. 
         body: |
@@ -130,6 +138,8 @@ en-GB:
           [Basic State Pension](/state-pension)
 
           [National Insurance](/national-insurance/overview)
+      
+      ## RESULT ??    
       amount_result:
         body: |
           $C
@@ -151,6 +161,8 @@ en-GB:
           You can pay [voluntary contributions](/voluntary-national-insurance-contributions/why-pay-voluntary-contributions) to get the full State Pension. 
 
           More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
+      
+      ## AGE RESULT
       age_result:
         title: |
           %{tense_specific_title}
