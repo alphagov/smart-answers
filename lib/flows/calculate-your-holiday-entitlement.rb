@@ -50,15 +50,17 @@ end
 
 multiple_choice :full_time_how_many_days_per_week? do
   option "5-days"
-  option "6-days"
-  option "7-days"
+  option "6-or-7-days"
 
   calculate :days_per_week do
     responses.last.to_i
   end
+  calculate :days_per_week_calculated do
+    (days_per_week < 5 ? days_per_week : 5)
+  end
   calculate :calculator do
     Calculators::HolidayEntitlement.new(
-      :days_per_week => days_per_week,
+      :days_per_week => (leave_year_start_date.nil? ? days_per_week : days_per_week_calculated),
       :start_date => start_date,
       :leaving_date => leaving_date,
       :leave_year_start_date => leave_year_start_date
@@ -72,14 +74,15 @@ multiple_choice :full_time_how_many_days_per_week? do
   end
   calculate :content_sections do
     full_year = start_date.nil? && leaving_date.nil?
-    capped = days_per_week != 5 && full_year
-
+    capped = days_per_week != 5
     sections = PhraseList.new
-    sections << (capped ? :answer_ft_pt_capped : :answer_ft_pt)
-    sections << (full_year ? :your_employer : :your_employer_with_rounding)
     if full_year
+      sections << (capped ? :answer_fy_capped : :answer_ft_pt)
+      sections << :your_employer
       sections << (capped ? :calculation_ft_capped : :calculation_ft)
     else
+      sections << (capped ? :answer_py_capped : :answer_ft_py)
+      sections << :your_employer_with_rounding
       sections << :calculation_ft_partial_year
     end
     sections
@@ -221,21 +224,27 @@ end
 
 value_question :shift_worker_hours_per_shift? do
   calculate :hours_per_shift do
-    responses.last.to_f
+    hours_per_shift = responses.last.to_f
+    raise InvalidResponse if hours_per_shift <= 0
+    hours_per_shift
   end
   next_node :shift_worker_shifts_per_shift_pattern?
 end
 
 value_question :shift_worker_shifts_per_shift_pattern? do
   calculate :shifts_per_shift_pattern do
-    responses.last.to_i
+    shifts = responses.last.to_i
+    raise InvalidResponse if shifts <=0
+    shifts
   end
   next_node :shift_worker_days_per_shift_pattern?
 end
 
 value_question :shift_worker_days_per_shift_pattern? do
   calculate :days_per_shift_pattern do
-    responses.last.to_i
+    days = responses.last.to_i
+    raise InvalidResponse if days < shifts_per_shift_pattern
+    days
   end
   calculate :calculator do
     Calculators::HolidayEntitlement.new(
