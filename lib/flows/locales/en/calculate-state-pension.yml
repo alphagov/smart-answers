@@ -16,6 +16,10 @@ en-GB:
         You’ll be asked for the number of years you worked and paid tax or got certain benefits. These are the years of your National Insurance contributions that count towards your State Pension.
         
         This calculator only gives an estimate and can’t take every circumstance into account.  
+      options:
+        "yes": "Yes"
+        "no": "No"
+        none: "None of the above"
       phrases:
         this_is_the_full_state_pension: This is the full State Pension.
         this_is_n_below_the_full_state_pension: This is £%{pension_loss} per week below the full State Pension.  

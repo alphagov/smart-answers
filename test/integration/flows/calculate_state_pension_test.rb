@@ -118,12 +118,51 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
             end
             
             should "ask for years of benefit" do
-              assert_current_node :years_of_benefit?
+              assert_current_node :received_child_benefit?
             end
           end
         end
       end
       
+      context "born after 6/10/1953" do
+        should "get to received_child_benefit?" do
+          add_response Date.parse("8th October 1953")
+          add_response 25
+          add_response 1
+          assert_current_node :received_child_benefit?
+        end
+      end
+
+      context "born before 6/10/1953" do
+        setup do 
+          add_response Date.parse("4th October 1953")
+        end
+
+        should "ask for number of years paid NI" do
+          assert_current_node :years_paid_ni?
+        end
+
+        context "25 years of NI" do
+          setup do
+            add_response 25
+          end
+
+          should "ask for JSA years" do
+            assert_current_node :years_of_jsa?
+          end
+
+          context "1 year of JSA" do
+            setup do
+              add_response 1
+            end
+
+            should "ask if you were employed between 60 and 64" do
+              assert_current_node :employed_between_60_and_64?
+            end
+          end
+        end
+      end
+
       ## Too old for automatic age related credits.
       context "58 years old" do
         setup do
@@ -167,14 +206,15 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
                 add_response 1
               end
 
-              should "ask for years working or education" do
-                assert_current_node :years_of_work?
+              # should "ask for years working or education" do
+              should "ask id received child benefit" do
+                assert_current_node :received_child_benefit?
               end
 
               context "1 year working or education" do
                 should "show the result" do
                   add_response 1
-                  assert_current_node :amount_result
+                  assert_current_node :received_child_benefit?
                 end #show result
               end #years working or education
             end #years of benefit
