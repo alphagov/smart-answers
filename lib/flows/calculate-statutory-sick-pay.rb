@@ -120,11 +120,7 @@ value_question :normal_workdays_taken_as_sick? do
 		end
 	end
 	calculate :ssp_payment do
-		if calculator.ssp_payment < 1
-			0.0
-		else
-			calculator.ssp_payment
-		end
+		sprintf("%.2f", (calculator.ssp_payment < 1 ? 0.0 : calculator.ssp_payment))
 	end
 	next_node :entitled													## A6
 end

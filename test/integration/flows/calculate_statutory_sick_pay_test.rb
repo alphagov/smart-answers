@@ -113,6 +113,7 @@ class CalculateStatutorySickPay < ActiveSupport::TestCase
 			  			## A6
 			  			should "give entitled outcome" do
 				  			assert_state_variable "normal_workdays_out", 4
+				  			assert_state_variable "ssp_payment", "17.17"
 				  			assert_current_node :entitled
 			  			end
 			  		end
@@ -121,7 +122,7 @@ class CalculateStatutorySickPay < ActiveSupport::TestCase
 		  		context "0 days worked" do
 			  		setup {add_response 0}
 
-			  		## Q8 
+			  		## Q7 
 			  		should "ask how may sick days they had" do
 			  			assert_current_node_is_error
 			  			assert_current_node :how_many_days_worked?
@@ -207,7 +208,7 @@ class CalculateStatutorySickPay < ActiveSupport::TestCase
 					## A6
 					should "pass to entitled outcome" do
 	  				add_response 3
-	  				assert_state_variable "ssp_payment", 0.00
+	  				assert_state_variable "ssp_payment", "0.00"
 	  				assert_state_variable "normal_workdays_out", 3
 	  				assert_current_node :entitled
 	  			end
@@ -239,7 +240,7 @@ class CalculateStatutorySickPay < ActiveSupport::TestCase
 	  			## A6
 	  			should "NOT give ssp_payment -21.46 answer when provide 2 days" do
 	  				add_response '2'
-	  				assert_state_variable "ssp_payment", 0.0
+	  				assert_state_variable "ssp_payment", "0.00"
 	  				assert_current_node :entitled
 	  			end
 	  		end

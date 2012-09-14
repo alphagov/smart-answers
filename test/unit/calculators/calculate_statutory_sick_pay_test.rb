@@ -24,6 +24,7 @@ module SmartAnswer::Calculators
 	  			should "return 28.62" do
 	  				@calculator.set_daily_rate(3)
 	  				assert_equal @calculator.daily_rate, 28.62
+	  				assert_equal @calculator.ssp_payment, 85.86
 	  			end
 	  		end
 
