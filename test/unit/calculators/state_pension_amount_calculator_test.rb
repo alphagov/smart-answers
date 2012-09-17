@@ -14,6 +14,11 @@ module SmartAnswer::Calculators
       should "be 102.27 for you_get_future" do
         assert_equal 102.27, @calculator.you_get_future
       end
+
+      should "be 5 automatic years" do
+        @calculator.allocate_automatic_years
+        assert_equal 5, @calculator.automatic_years
+      end
     end
 
     context "female, born 7th April 1951, 39 qualifying years" do
@@ -27,6 +32,10 @@ module SmartAnswer::Calculators
 
       should "be 107.45 for you_get_future" do
         assert_equal 107.45, @calculator.you_get_future
+      end
+
+      should "be 4 automatic years" do
+        assert_equal 4, @calculator.allocate_automatic_years
       end
     end
 
@@ -57,6 +66,9 @@ module SmartAnswer::Calculators
         assert @calculator.three_year_credit_age?
       end
       
+      should "be 0 automatic years" do
+        assert_equal 0, @calculator.allocate_automatic_years
+      end
     end
     
   end

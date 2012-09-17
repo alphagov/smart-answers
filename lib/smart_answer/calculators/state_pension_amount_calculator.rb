@@ -2,7 +2,7 @@ require "data/state_pension_query"
 
 module SmartAnswer::Calculators
   class StatePensionAmountCalculator
-    attr_reader :gender, :dob
+    attr_reader :gender, :dob, :automatic_years, :qualifying_years
     attr_accessor :qualifying_years
 
     def initialize(answers)
@@ -105,6 +105,23 @@ module SmartAnswer::Calculators
       credit_band = credit_bands.find { |c| c[:min] < dob and c[:max] > dob }
       (credit_band ? credit_band[:credit] : 0)
     end
+
+    def allocate_automatic_years
+      auto_years = [
+        { before: Date.parse("1950-10-06"), credit: 5 },
+        { before: Date.parse("1951-10-06"), credit: 4 },
+        { before: Date.parse("1952-10-06"), credit: 3 },
+        { before: Date.parse("1953-07-06"), credit: 2 },
+        { before: Date.parse("1953-10-06"), credit: 1 }
+      ]
+      auto_year = auto_years.find { |c| c[:before] > dob }
+      @automatic_years = (auto_year ? auto_year[:credit] : 0 )   
+    end
+
+    def automatic_years
+      @automatic_years
+    end
     
+
   end
 end

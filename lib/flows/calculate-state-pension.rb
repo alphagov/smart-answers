@@ -133,7 +133,7 @@ end
 
 # Q4
 value_question :years_paid_ni? do
-  calculate :ni_years do
+  calculate :qualifying_years do
     ni_years = Integer(responses.last)
     raise InvalidResponse if ni_years < 0 or ni_years > 70 
     ni_years
@@ -152,11 +152,18 @@ value_question :years_of_jsa? do
     jsa_years
   end
 
+  calculate :qualifying_years do
+    (qualifying_years + jsa_years)
+  end
+
+  calculate :calc do 
+    calc = Calculators::StatePensionAmountCalculator.new(
+    gender: gender, dob: dob, qualifying_years: qualifying_years )
+  end
+
   next_node do |response|
     
-    calc = Calculators::StatePensionAmountCalculator.new(
-      gender: gender, dob: dob, qualifying_years: (ni_years + Integer(response)))
-    if (ni_years.to_i + Integer(response)) > 29
+    if (qualifying_years.to_i + Integer(response)) > 29
       :amount_result
     else 
       (Date.parse(dob) < Date.parse("6th October 1953") ? :employed_between_60_and_64? : :received_child_benefit?  ) 
@@ -166,30 +173,119 @@ end
 
 ## Q5a
 multiple_choice :employed_between_60_and_64? do
+  save_input_as :employed_between_60_and_64_yes_no
+
   option :yes 
   option :no 
-  # next_node do |response|
 
-  # end
+  calculate :automatic_years do
+    employed_between_60_and_64_yes_no == "no" ? calc.allocate_automatic_years : 0
+  end
+
+  # update qualifying years
+  calculate :qualifying_years do
+    (qualifying_years + automatic_years)
+  end
+
+  next_node do |response|
+    if response == "yes"
+      :received_child_benefit?
+    else
+      (((calc.allocate_automatic_years + calc.qualifying_years) >= 30) ? :amount_result : :received_child_benefit?)
+    end
+  end
 end
 
 ## Q6
 multiple_choice :received_child_benefit? do
+  
   option :yes 
   option :no 
-  # next_node do |response|
-    
-  # end
+
+  next_node do |response|
+    if response == "yes"
+      :years_of_benefit?
+    else 
+      ((Date.parse(dob) > Date.parse("1959-04-06") and Date.parse(dob) < Date.parse("1992-04-05")) ? :amount_result : :years_of_work?) 
+    end
+  end
 end
 
 ## Q7
-## Q7
-## Q8
-## Q9
-
-
-# Q?? -REDUNDANT?
 value_question :years_of_benefit? do
+  calculate :qualifying_years do
+    benefit_years = Integer(responses.last)
+    raise InvalidResponse if benefit_years < 0 or benefit_years > 22
+    (benefit_years + qualifying_years)
+  end
+
+  next_node do |response|
+    benefit_years = Integer(response)
+    if (qualifying_years + benefit_years) > 29
+      :amount_result    
+    else
+      :years_of_caring? # Q8
+    end
+  end
+end
+
+## Q8
+value_question :years_of_caring? do
+  calculate :qualifying_years do
+    caring_years = Integer(responses.last)
+    today = Date.today
+    raise InvalidResponse if caring_years < 0 or caring_years > ((today.month > 4 ? today.year : today.year - 1) - 2010)
+    (caring_years + qualifying_years)
+  end
+
+  next_node do |response|
+    caring_years = Integer(response)
+    if (qualifying_years + caring_years) > 29
+      :amount_result    
+    else
+      :years_of_carers_allowance? # Q9
+    end
+  end
+end
+
+## Q9
+value_question :years_of_carers_allowance? do
+  calculate :qualifying_years do
+    caring_years = Integer(responses.last)
+    raise InvalidResponse if caring_years < 0 or caring_years > 70
+    (caring_years + qualifying_years)
+  end
+
+  next_node do |response|
+    caring_years = Integer(response)
+    if (qualifying_years + caring_years) > 29
+      :amount_result    
+    else
+      ((Date.parse(dob) > Date.parse("1959-04-06") and Date.parse(dob) < Date.parse("1992-04-05")) ? :amount_result : :years_of_work?) 
+    end
+  end
+end
+
+## Q10
+value_question :years_of_work? do
+  calculate :qualifying_years do
+    work_years = Integer(responses.last)
+    raise InvalidResponse if work_years < 0 or work_years > 3
+    (work_years + qualifying_years)
+  end
+
+  # next_node do |response|
+  #   work_years = Integer(response)
+  #   if (qualifying_years + work_years) > 29
+  #     :amount_result    
+  #   else
+  #     :years_of_work? # Q10
+  #   end
+  # end
+end
+
+## Q (used to be Q6??)
+value_question :years_of_benefit_old? do
   save_input_as :benefit_years
 
   calculate :calculator do
@@ -248,8 +344,9 @@ value_question :years_of_benefit? do
   end
 end
 
-# Q10
-value_question :years_of_work? do
+
+# Q10-old
+value_question :years_of_work_old? do
   save_input_as :work_years
   
   calculate :credited_years do
@@ -308,11 +405,28 @@ end
 
 outcome :reached_state_pension_age
 outcome :too_young 
+
+# outcome :catchall_results
+
 outcome :amount_result do
-  precalculate :qualifying_years_total do
-    (defined?(jsa_years) ? ni_years + jsa_years : ni_years)
+  precalculate :calc do
+    Calculators::StatePensionAmountCalculator.new(
+      gender: gender, dob: dob, qualifying_years: (qualifying_years)
+    )
   end
 
+  precalculate :qualifying_years_total do
+    if calc.three_year_credit_age? 
+      qualifying_years + 3
+    else 
+      qualifying_years + calc.qualifying_years_credit
+    end
+  end
+
+  precalculate :missing_years do
+    (qualifying_years_total < 30 ? (30 - qualifying_years_total) : 0)
+  end
+  
   precalculate :calculator do
     Calculators::StatePensionAmountCalculator.new(
       gender: gender, dob: dob, qualifying_years: (qualifying_years_total)

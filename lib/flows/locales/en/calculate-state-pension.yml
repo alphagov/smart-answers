@@ -105,7 +105,7 @@ en-GB:
         title: How many years between age 16 and 19 were you in full-time education or working?
         hint: |
           Include the years you were claiming benefits because of unemployment, illness or disability.
-        error_message: The maximum number of years you can enter is 3
+        error_message: Enter a number up to 22. This is the maximum number of years counting towards the State Pension. 
       
 
       ## Outcomes:
