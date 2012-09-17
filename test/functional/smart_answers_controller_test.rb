@@ -119,7 +119,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     should "send slimmer analytics headers" do
       get :show, id: 'sample'
-      assert_equal "smart_answers", @response.headers["X-Slimmer-Format"]
+      assert_equal "smart_answer", @response.headers["X-Slimmer-Format"]
     end
 
     should "cope with no artefact found" do
