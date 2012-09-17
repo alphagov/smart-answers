@@ -95,26 +95,12 @@ class SmartAnswersControllerTest < ActionController::TestCase
       assert_select "head meta[name=robots][content=noindex]"
     end
 
-    should "send slimmer section meta tags" do
-      get :show, id: 'sample'
-      assert_select "head meta[name=x-section-name][content=Family]"
-      assert_select "head meta[name=x-section-link][content=/browse/family]"
-    end
-
     should "send the artefact to slimmer" do
       artefact = artefact_for_slug('sample')
       SmartAnswerPresenter.any_instance.stubs(:artefact).returns(artefact)
       @controller.expects(:set_slimmer_artefact).with(artefact)
 
       get :show, id: 'sample'
-    end
-
-    should "look up section name in translation file" do
-      using_translation_file(fixture_file('smart_answers_controller_test/section_name.yml')) do
-        get :show, id: 'sample'
-      end
-      assert_select 'head meta[name=x-section-name][content="Section Name From Translation File"]'
-      assert_select "head meta[name=x-section-link][content=/browse/family]"
     end
 
     should "send slimmer analytics headers" do

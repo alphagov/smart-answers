@@ -8,7 +8,7 @@ class SmartAnswerPresenter
 
   attr_reader :request, :params, :flow
 
-  def_delegators :@flow, :section_slug, :subsection_slug, :need_id
+  def_delegators :@flow, :need_id
 
   def initialize(request, flow)
     @request = request
@@ -37,10 +37,6 @@ class SmartAnswerPresenter
 
   def title
     lookup_translation(:title) || @flow.name.to_s.humanize
-  end
-
-  def section_name
-    lookup_translation(:section_name) || @flow.section_slug.to_s.humanize
   end
 
   def subtitle
