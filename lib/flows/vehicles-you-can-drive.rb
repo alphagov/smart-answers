@@ -1,5 +1,4 @@
 satisfies_need 1625
-section_slug ""
 status :draft
 
 ## Q1

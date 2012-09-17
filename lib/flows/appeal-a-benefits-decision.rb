@@ -1,6 +1,5 @@
 satisfies_need "845"
 status :draft
-section_slug "money-and-tax"
 
 decision_appeal_limit_in_months = 13
 

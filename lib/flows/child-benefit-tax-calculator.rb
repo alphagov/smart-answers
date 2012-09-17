@@ -1,5 +1,4 @@
 status :draft
-section_slug "money-and-tax"
 
 # Question 1
 multiple_choice :which_tax_year? do

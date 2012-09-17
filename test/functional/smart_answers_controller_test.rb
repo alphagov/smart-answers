@@ -14,7 +14,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
       name :sample
 
       satisfies_need 1337
-      section_slug "family"
 
       multiple_choice :do_you_like_chocolate? do
         option :yes => :you_have_a_sweet_tooth
