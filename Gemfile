@@ -13,7 +13,7 @@ gem 'lograge'
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
 else
-  gem 'gds-api-adapters', '1.8.0'
+  gem 'gds-api-adapters', '2.1.0'
 end
 gem 'htmlentities', '~> 4'
 
