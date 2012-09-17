@@ -21,11 +21,6 @@ class SmartAnswersController < ApplicationController
       }
     end
 
-    set_slimmer_headers(
-      section: @presenter.section_slug,
-      need_id: @presenter.need_id,
-      proposition: @presenter.proposition
-    )
     set_slimmer_artefact(@presenter.artefact)
   end
 

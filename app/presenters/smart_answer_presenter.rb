@@ -20,10 +20,6 @@ class SmartAnswerPresenter
     @artefact ||= fetch_artefact(slug: @flow.name)
   end
 
-  def proposition
-    artefact.business_proposition ? "business" : "citizen"
-  end
-
   def i18n_prefix
     "flow.#{@flow.name}"
   end

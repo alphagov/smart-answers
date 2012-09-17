@@ -30,7 +30,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
       outcome :you_have_a_sweet_tooth
     end
     @controller.stubs(:flow_registry).returns(stub("Flow registry", find: @flow))
-    SmartAnswerPresenter.any_instance.stubs(:proposition).returns("citizen")
   end
 
   def submit_response(response = nil, other_params = {})
@@ -119,20 +118,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     should "send slimmer analytics headers" do
       get :show, id: 'sample'
-      assert_equal "family",        @response.headers["X-Slimmer-Section"]
-      assert_equal "1337",          @response.headers["X-Slimmer-Need-ID"].to_s
       assert_equal "smart_answers", @response.headers["X-Slimmer-Format"]
-    end
-
-    should "send slimmer analytics headers, with citizen proposition set for citizen answers" do
-      get :show, id: 'sample'
-      assert_equal "citizen",       @response.headers["X-Slimmer-Proposition"]
-    end
-
-    should "send slimmer analytics headers, with business proposition set for business answers " do
-      SmartAnswerPresenter.any_instance.stubs(:proposition).returns("business")
-      get :show, id: 'sample'
-      assert_equal "business", @response.headers["X-Slimmer-Proposition"]
     end
 
     context "date question" do
