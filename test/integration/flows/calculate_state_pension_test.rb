@@ -171,8 +171,9 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         end
 
         context "enough qualifying years" do
-          should "get to received_child_benefit?" do
+          should "get to amount benefit" do
             add_response 5
+
             assert_current_node :amount_result
           end
         end
@@ -223,9 +224,15 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
               context "yes received child benefit" do
                 setup {add_response :yes}
 
-                should "go to result 4 years" do
-                  add_response 4
-                  assert_current_node :amount_result
+                context "4 years" do
+                  setup do
+                    add_response 4
+                  end
+
+                  should "go to amount_result" do
+                    assert_state_variable "qualifying_years_total", 31
+                    assert_current_node :amount_result
+                  end
                 end
 
                 should "error on text entry" do
@@ -249,9 +256,37 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
                   end
                 end
 
-                should "go to result on 4 years" do
-                  add_response 4
-                  assert_current_node :amount_result
+                context "0 years" do
+                  setup {add_response 0}
+
+                  should "go to result" do
+                    assert_state_variable "qualifying_years", 27
+                    assert_current_node :years_of_caring?
+                  end
+                  context "0 years_of_caring" do
+                    setup {add_response 0}
+
+                    should "go to years_of_carers_allowance" do
+                      assert_current_node :years_of_carers_allowance?
+                    end
+
+                    context "0 years_of_carers_allowance" do
+                      setup {add_response 0}
+
+                      should "go years_of_work" do
+                        assert_current_node :years_of_work?
+                      end
+
+                      context "0 years_of_work" do
+                        setup {add_response 0}
+
+                        should "go to amount_result" do
+                          assert_state_variable "qualifying_years", 27
+                          assert_current_node :amount_result
+                        end
+                      end                      
+                    end
+                  end
                 end
               end
             end

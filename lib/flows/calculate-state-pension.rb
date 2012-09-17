@@ -274,6 +274,8 @@ value_question :years_of_work? do
     (work_years + qualifying_years)
   end
 
+  next_node :amount_result
+
   # next_node do |response|
   #   work_years = Integer(response)
   #   if (qualifying_years + work_years) > 29
@@ -453,12 +455,25 @@ outcome :amount_result do
     end
   end
   
-  precalculate :contribution_callout_text do
-    PhraseList.new :full_contribution_years_callout
-  end
+  # precalculate :contribution_callout_text do
+  #   PhraseList.new :full_contribution_years_callout
+  # end
 
   precalculate :credited_benefit_years do
     (calculator.three_year_credit_age? ? 3 : 0)
   end
+
+  precalculate :result_text do
+    if qualifying_years_total < 30
+      if remaining_years >= missing_years
+        PhraseList.new :too_few_qy_enough_remaining_years
+      else
+        PhraseList.new :too_few_qy_not_enough_remaining_years
+      end
+    else
+      PhraseList.new :you_get_full_state_pension
+    end
+  end
+
 end
 outcome :age_result

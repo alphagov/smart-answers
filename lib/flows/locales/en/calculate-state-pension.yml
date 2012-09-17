@@ -52,7 +52,81 @@ en-GB:
 
           If you&rsquo;re on a low income, you might be eligible to claim [Pension Credit](/pension-credit “Pension Credit”).
 
-          This calculation is according to the current law. The State Pension age may change in the future. 
+          This calculation is according to the current law. The State Pension age may change in the future.
+        too_few_qy_enough_remaining_years: |
+          $C
+          You’re not getting the full State Pension yet but you have enough years to make National Insurance contributions towards it.
+          $C
+
+          State Pension | Your results
+          - | - 
+          Your State Pension age | [statepensionage]
+          When you’ll reach State Pension age | [date of birth + result from Q1&2
+          How much per week you would get now | £[statepension]
+          Difference to the full State Pension of £107.45 | £[differencetofullpension]
+
+          [call out] This is an estimate. For a more accurate breakdown [apply for a State Pension statement](/forecast-your-state-pension).
+
+          How much State Pension you get depends on how many years of National Insurance contributions you have. 
+
+          National Insurance | Your contributions 
+          - | - 
+          Years of contributions you already have | [result Q4 to Q9]
+          Years of contributions you still need for a full State Pension | 30 - [result Q4 to Q9] 
+          Years you still have to make these contributions | [remaining years]
+
+          You still have enough years to make contributions towards a full State Pension.
+
+          More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
+
+          This estimate includes any years you may get automatically between the ages of 16 and 19. If you got your National Insurance number after 2010 you don’t get these years.
+        too_few_qy_not_enough_remaining_years: |
+          $C
+          You’re not getting the full State Pension yet.  You can pay voluntary National Insurance contributions to make sure you’ll get it when you reach State Pension age.
+          $C
+
+          State Pension | Your results
+          - | - 
+          Your State Pension age | [statepensionage]
+          When you’ll reach State Pension age | [date of birth + result from Q1&2
+          How much per week you would get now | £[statepension]
+          Difference to the full State Pension of £107.45 | £[differencetofullpension]
+
+          [call out] This is an estimate. For a more accurate breakdown [apply for a State Pension statement](/forecast-your-state-pension).
+
+          How much State Pension you get depends on how many years of National Insurance contributions you have. 
+
+          National Insurance | Your contributions 
+          - | - 
+          Years of contributions you already have | [result Q4 to Q9]
+          Years of contributions you still need for a full State Pension | 30 - [result Q4 to Q9] 
+          Years you still have to make these contributions | [remaining years]
+
+          You can pay [voluntary contributions](/voluntary-national-insurance-contributions/why-pay-voluntary-contributions) to get the full State Pension.
+
+          You might be able to get [National Insurance credits from your partner.]XXXXXX
+
+          More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
+
+          This estimate includes any years you may get automatically between the ages of 16 and 19. If you got your National Insurance number after 2010 you don’t get these years.
+        you_get_full_state_pension: |
+          $C
+          You get the full State Pension.
+          $C
+
+          Your State Pension age is [result from 1 and 2]
+
+          You’ll reach State Pension age on [date of birth plus result from 1 and 2]
+
+          Your State Pension now would be [XX]
+
+          This is the full State Pension.
+
+          [call out] This is an estimate. For a more accurate accurate breakdown [apply for a State Pension forecast.]
+
+          How much State Pension you get depends on how many years of National Insurance contributions you have.
+
+          More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
 
       ## Q1
       which_calculation?:
@@ -146,25 +220,26 @@ en-GB:
       ## RESULT ??    
       amount_result:
         body: |
-          $C
-          %{contribution_callout_text}
-          $C
+          %{result_text}
+      # old_text: |
+          # $C
+          # %{contribution_callout_text}
+          # $C
+      #     Your State Pension age is %{state_pension_age}.
 
-          Your State Pension age is %{state_pension_age}.
+      #     You’ll reach State Pension age on %{formatted_state_pension_date}.
 
-          You’ll reach State Pension age on %{formatted_state_pension_date}.
+      #     Your State Pension now would be £%{pension_amount} per week.
 
-          Your State Pension now would be £%{pension_amount} per week.
+      #     %{pension_summary}
 
-          %{pension_summary}
+      #     ^This is an estimate. For a more accurate breakdown [apply for a State Pension statement](/forecast-your-state-pension).^
 
-          ^This is an estimate. For a more accurate breakdown [apply for a State Pension statement](/forecast-your-state-pension).^
+      #     How much State Pension you get depends on how many years of National Insurance contributions you have. This estimate includes any years you may get automatically between the ages of 16 and 19.
 
-          How much State Pension you get depends on how many years of National Insurance contributions you have. This estimate includes any years you may get automatically between the ages of 16 and 19.
+      #     You can pay [voluntary contributions](/voluntary-national-insurance-contributions/why-pay-voluntary-contributions) to get the full State Pension. 
 
-          You can pay [voluntary contributions](/voluntary-national-insurance-contributions/why-pay-voluntary-contributions) to get the full State Pension. 
-
-          More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
+      #     More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
       
       ## AGE RESULT
       age_result:
