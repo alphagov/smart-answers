@@ -1,5 +1,4 @@
 status :draft
-section_slug "money-and-tax"
 
 ## Q1
 value_question :how_many_children_paid_for? do

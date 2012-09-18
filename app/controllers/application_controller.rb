@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 protected
   def set_analytics_headers
     set_slimmer_headers(
-      format:      "smart_answers"
+      format:      "smart_answer"
     )
   end
 end
