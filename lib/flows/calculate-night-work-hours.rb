@@ -1,5 +1,4 @@
 status :draft
-section_slug "work"
 
 multiple_choice :how_old? do
   option '18-or-over' => :exception_to_limits?

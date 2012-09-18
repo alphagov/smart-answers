@@ -125,14 +125,6 @@ class FlowTest < ActiveSupport::TestCase
     assert s.draft?
   end
 
-  test "should have a section slug" do
-    s = SmartAnswer::Flow.new do
-      section_slug "family"
-    end
-
-    assert_equal "family", s.section_slug
-  end
-
   test "should have a status" do
     s = SmartAnswer::Flow.new do
       status :published

@@ -1,7 +1,5 @@
 satisfies_need "9999"
 status :draft
-section_slug "money-and-tax"
-subsection_slug "tax"
 
 # Questions
 #

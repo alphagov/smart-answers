@@ -8,7 +8,7 @@ class SmartAnswerPresenter
 
   attr_reader :request, :params, :flow
 
-  def_delegators :@flow, :section_slug, :subsection_slug, :need_id
+  def_delegators :@flow, :need_id
 
   def initialize(request, flow)
     @request = request
@@ -17,11 +17,7 @@ class SmartAnswerPresenter
   end
 
   def artefact
-    @artefact ||= fetch_artefact(slug: @flow.name)
-  end
-
-  def proposition
-    artefact.business_proposition ? "business" : "citizen"
+    @artefact ||= content_api.artefact(@flow.name)
   end
 
   def i18n_prefix
@@ -41,10 +37,6 @@ class SmartAnswerPresenter
 
   def title
     lookup_translation(:title) || @flow.name.to_s.humanize
-  end
-
-  def section_name
-    lookup_translation(:section_name) || @flow.section_slug.to_s.humanize
   end
 
   def subtitle

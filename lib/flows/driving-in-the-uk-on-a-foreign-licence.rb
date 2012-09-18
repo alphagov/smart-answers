@@ -1,5 +1,4 @@
 satisfies_need 9999
-section_slug "driving"
 status :draft
 
 multiple_choice :are_you? do

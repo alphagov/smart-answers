@@ -1,6 +1,5 @@
 status :draft
 satisfies_need "B692"
-section_slug "money-and-tax"
 
 calculator_dates = {
   :online_filing_deadline => {

@@ -38,13 +38,13 @@ module SmartAnswer
     end
 
     def section_slug(s=nil)
-      @section_slug = s if s
-      @section_slug
+      ActiveSupport::Deprecation.warn("Sections are no longer handled within smartanswers.", caller(1))
+      nil
     end
 
     def subsection_slug(s=nil)
-      @subsection_slug = s if s
-      @subsection_slug
+      ActiveSupport::Deprecation.warn("Sections are no longer handled within smartanswers.", caller(1))
+      nil
     end
 
     def multiple_choice(name, options = {}, &block)
