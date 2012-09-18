@@ -1,5 +1,4 @@
 satisfies_need "B193"
-section_slug "work"
 status :draft
 
 # Q1

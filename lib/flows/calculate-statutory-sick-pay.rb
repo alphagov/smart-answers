@@ -1,5 +1,4 @@
 status :draft
-section_slug "money-and-tax"
 satisfies_need "2013"
 
 ## Q1

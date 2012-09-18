@@ -1,6 +1,8 @@
 status :draft
+<<<<<<< HEAD
 section_slug "international-trade"
 satisfies_need "B659"
+>>>>>>> 05674f9f0d3e659e5ca5773133a31693d24f1477
 
 # Q1
 multiple_choice :how_much_starch_glucose? do

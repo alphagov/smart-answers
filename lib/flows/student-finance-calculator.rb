@@ -1,6 +1,4 @@
 satisfies_need 2175
-section_slug "education"
-subsection_slug "student-money"
 status :published
 
 multiple_choice :are_you_a_full_time_or_part_time_student? do

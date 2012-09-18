@@ -1,6 +1,4 @@
 satisfies_need 2006
-section_slug "family"
-subsection_slug "death-and-bereavement"
 status :published
 
 

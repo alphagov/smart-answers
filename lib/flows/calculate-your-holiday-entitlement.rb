@@ -1,6 +1,5 @@
 status :published
 satisfies_need 355
-section_slug "work"
 
 multiple_choice :what_is_your_employment_status? do
   option "full-time" => :full_time_how_long_employed?
