@@ -1,5 +1,4 @@
 status :draft
-section_slug "international-trade"
 satisfies_need "B659"
 
 # Q1
