@@ -1,6 +1,6 @@
 status :draft
-section_slug "money-and-tax"
-satisfies_need "2013"
+section_slug "international-trade"
+satisfies_need "B659"
 
 # Q1
 multiple_choice :how_much_starch_glucose? do
