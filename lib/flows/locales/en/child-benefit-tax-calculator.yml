@@ -1,11 +1,15 @@
 en-GB:
   flow:
     child-benefit-tax-calculator:
-      title: Child benefit tax calculator
+      title: Estimate how much tax you must pay on Child Benefit
+      meta:
+        description: Get an estimate of how much tax you may need to pay on Child Benefit you or your partner claim if your income is more than £50,000 a year
       body: |
-        Estimate how much tax you may need to pay on Child Benefit you or your partner claim for 2012-13 financial year.
+        Get an estimate of how much Child Benefit the highest earner in your household may have to pay as Income Tax. 
 
-        This tax applies only to Child Benefit you receive from 7 Jan 2013 onwards.
+        If you need to pay tax on Child Benefit, you only need to pay it on Child Benefit you get after 7 January 2013.
+
+        If your or your partner’s individual annual income is less than £50,000, you won’t have to pay tax on Child Benefit. 
       options:
         "yes": "Yes"
         "no": "No"
@@ -22,87 +26,103 @@ en-GB:
         title: Enter your total annual income before tax is taken off.
         error_message: Please enter a valid amount
         body: |
-          If there is more than one adult in your household, enter the income of the highest earner.
+
+          % Only enter the income for the highest earner if you’re looking after children with a partner. %
 
           Include:
 
-          - salary before tax (but don’t include the value of any salary sacrifice you’ve arranged with your employer for things like childcare vouchers)
-          - profit if you’re self-employed (but take away any losses you’re claiming for previous tax years)
-          - State pension payments
-          - personal pension payments you get (before tax)
-          - dividends you get from companies (before tax)
-          - income you get from a trust
-          - tax-free interest from savings and investments (eg from an Individual Savings Account (ISA))
+          - salary 
+          - profits if you’re self-employed
+          - State Pension payments
+          - payments from personal and occupational pensions or annuities
+          - income from Individual Savings Accounts (ISAs) or pensioner bonds
+          - income from dividends or trusts
 
           Don’t include:
 
           - interest you get from savings and investments that’s already been taxed
       do_you_expect_to_pay_into_a_pension_this_year?:
-        title: Do you expect to pay into a workplace or personal pension this tax year?
+        title: Are you paying into a workplace or personal pension?
       how_much_pension_contributions_before_tax?:
-        title: Enter the amount of your pension contributions taken by your employer before tax and National Insurance is taken from your wages.
+        title: Enter the amount you expect your employer to take from your wages as pension contributions for the whole tax year.
         hint: If none, please enter 0.
         error_message: Please enter a number
       how_much_pension_contributions_claimed_back_by_provider?:
-        title: Enter the amount of pension contributions you make that your pension provider claims back tax for.
+        title: Enter the amount you expect to pay into a personal pension for the whole tax year.
         hint: If none, please enter 0.
         error_message: Please enter a number
       how_much_interest_from_savings_and_investments?:
-        title: Enter the amount of interest you expect to get from savings and investments during the tax year.
+        title: Enter the amount of interest you expect to get from savings during the tax year. 
         body: |
-          Enter what you expect to get paid, not including tax which will have been automatically taken.
-
-          Don't include:
-
-          - any interest you get tax-free, like interest from an Individual Savings Account (ISA)
+          Don't include any interest you get tax-free, like interest from an Individual Savings Account (ISA)
         hint: If none, please enter 0.
         error_message: Please enter a number
       how_much_do_you_expect_to_give_to_charity_this_year?:
-        title: Enter the amount you expect to give to charity this year and have signed up for Gift Aid (so the charity gets tax back on your donation).
+        title: Enter the amount you expect to give through Gift Aid during the tax year.
         hint: If none, please enter 0.
         error_message: Please enter a number
       how_many_children_claiming_for?:
-        title: How many children are you claiming Child Benefit for?
+        title: How many children are you getting Child Benefit for?
         error_message: Please enter a number
       do_you_expect_to_start_or_stop_claiming?:
-        title: Do you expect to start or stop claiming Child Benefit during this tax year?
-        body: For example, if you're expecting a child or a child will reach 16 or leave full-time education.
-        hint: This calculator can only deal with starting or stopping claims for three children.
+        title: Do you expect to start claiming for a new child or stop claiming for an existing child during the tax year? 
+        hint: Eg you're expecting a baby or a child will reach 16 or leave full-time education.
         error_message: You must have at least 1 child to claim Child Benefit.
       how_many_children_to_start_claiming?:
-        title: Enter the number of children you expect to start claiming Child Benefit for in this tax year.
+        title: How many children do you expect to start claiming Child Benefit for?
+        Hint: The calculator can only deal with starting or stopping claims for up to 3 children.
         error_message: This calculator can only deal with up to 3 new children.
       when_will_the_1st_child_enter_the_household?:
-        hint: eg the expected date of birth or adoption
+        title: When do you expect to become responsible for the first child?
+        hint: Eg the expected date of birth or adoption
         error_message: Please enter a date within the tax year.
       when_will_the_2nd_child_enter_the_household?:
-        hint: eg the expected date of birth or adoption
+        title: When do you expect to become responsible for the second child?
+        hint: Eg the expected date of birth or adoption
         error_message: Please enter a date within the tax year.
       when_will_the_3rd_child_enter_the_household?:
-        hint: eg the expected date of birth or adoption
+        title: When do you expect to become responsible for the third child?
+        hint: Eg the expected date of birth or adoption
         error_message: Please enter a date within the tax year.
       how_many_children_to_stop_claiming?:
+        title: How many children do you expect to stop getting Child Benefit for?
+        hint: Eg they reach 16 or are over 16 and leave education
         error_message: You cannot stop claiming benefit for more children than you're currently claiming for
       when_do_you_expect_to_stop_claiming_for_the_1st_child?:
+        title: What date do you expect to stop getting Child Benefit for the first child?
+        hint: The calculator will give you an estimate from this date. The actual date you stop getting Child Benefit may be different, depending on your circumstances.
         error_message: Please enter a date within the tax year.
       when_do_you_expect_to_stop_claiming_for_the_2nd_child?:
+        title: What date do you expect to stop getting Child Benefit for the second child?
+        hint: The calculator will give you an estimate from this date. The actual date you stop getting Child Benefit may be different, depending on your circumstances.
         error_message: Please enter a date within the tax year.
       when_do_you_expect_to_stop_claiming_for_the_3rd_child?:
+        title: What date do you expect to stop getting Child Benefit for the third child?
+        hint: The calculator will give you an estimate from this date. The actual date you stop getting Child Benefit may be different, depending on your circumstances.
         error_message: Please enter a date within the tax year.
       dont_need_to_pay:
-        title: You don't need to pay back the Child Benefit you're claiming.
-        body: This is an estimate based on the income figures you provided.
+        title: You don’t need to pay Income Tax on the Child Benefit you or your partner are claiming. 
+        body: |
+          This is an estimate based on the income figures you provided. 
+
+          The result may be different if your income changes during the tax year.
 
       estimated_tax_charge:
-        title: The highest earner in your household will have to pay £%{benefit_tax} as Income Tax because they're above the income limit for Child Benefit.
+        title: The highest earner will have to pay £%{benefit_tax} as Income Tax.
         body: |
-          %{result_for_tax_year}
+          Child Benefit | Your results
+          -|- 
+          Child Benefit you get for the tax year | £%{benefit_claimed_amount}
+          Child Benefit that's taxed | £%{benefit_taxable_amount}
+          Percentage of Child Benefit you must pay as Income Tax | %{percentage_tax_charge}%
 
           You can either:
 
-          - carry on getting Child Benefit and whoever earns the most in your household pays £%{benefit_tax}
-          - stop claiming Child Benefit
+          - carry on getting Child Benefit and whoever earns the most in your household pays £%{benefit_tax} through the [Self Assessment system](/self-assessment-tax-returns "Self Assessment tax returns")
+          - tell the [Child Benefit office](/child-benefit-office “Child Benefit Office”) that you want to stop claiming Child Benefit
 
-          ^ If you stop claiming Child Benefit and one partner doesn't work because they look after the child you're claiming for, they won't get [National Insuarance credits](/boost-state-pension/overview "National Insurance credits") towards their State Pension.^
+          ^ If someone stops claiming Child Benefit and they’re not working, they won’t automatically get [National Insurance credits](boost-state-pension “Boost your State pension”) towards their State pension. ^
 
-          This is an estimate based on the income figures you provided. If your income changes during a tax year, these estimates may change.
+          This is an estimate based on the income figures you provided.
+
+          The result may be different if your income changes during a tax year.
