@@ -15,7 +15,7 @@ en-GB:
         disability: |
           - [Disabled Students' Allowance](/disabled-students-allowances-dsas "Disabled Students' Allowance")
         financial_hardship: |
-          - [Access to Learning Fund](/access-to-learning-fund "Access to Learning Fund") (extra help with course costs)
+          - [Access to Learning Fund](/access-to-learning-fund "Access to Learning Fund") (extra help with costs while studying)
         teacher_training: |
           - [Funding for teacher training](/teacher-training-funding "Funding for teacher training")
         medical: |
@@ -28,8 +28,9 @@ en-GB:
           - up to %{maintenance_loan_amount} Maintenance Loan (for living costs)
         maintenance_grant: |
           - up to %{maintenance_grant_amount} Maintenance Grant (for living costs)
+        additional_grants_and_allowances: You don't qualify for extra grants and allowances.
       title:
-        Student finance calculator 2012-13
+        Student finance calculator
       description: Estimate what loans and grants you could get and check additional grants and allowances for higher education.
       options:
         "no": "No"
@@ -37,7 +38,10 @@ en-GB:
       body: |
         This tool is for students from England starting their course on or after **1 September 2012**.
 
-        It estimates what loans and grants you can get. You can also check additional grants and allowances.
+        It estimates what loans, grants and extra help you can get - eg if you're disabled or have children.
+
+        ##What you need to know
+        Your result will be more accurate if you know your household income (your parents' or partner's income plus your own).
 
       devolved_body: |
         If you're not from England, go to:
@@ -45,12 +49,16 @@ en-GB:
         * [Student Awards Agency for Scotland](http://www.saas.gov.uk/ "Student Awards Agency for Scotland")
         * [Student Finance Wales](http://www.studentfinancewales.co.uk "Student Finance Wales")
         * [Student Finance Northern Ireland](http://www.studentfinanceni.co.uk "Student Finance Northern Ireland")
+      when_does_your_course_start?:
+        options:
+          2012-2013: Between September 2012 and August 2013
+          2013-2014: Between September 2013 and August 2014
       are_you_a_full_time_or_part_time_student?:
         title: Are you a full-time or part-time student?
         options:
           full-time: Full-time
           part-time: Part-time
-      how_much_is_your_tuition_fee_per_year?:
+      how_much_are_your_tuition_fees_per_year?:
         hint: The maximum is £9,000 for full-time students and £6,750 for part-time students.
         error_message: You can't enter more than the maximum amount
       where_will_you_live_while_studying?:
@@ -60,7 +68,7 @@ en-GB:
           away-in-london: Away from home, in London
       whats_your_household_income?:
         title: What's your household income?
-        hint: This is your parents’ or partner’s income plus your own. It affects how much Maintenance Grant you get.
+        hint: This is your parents' or partner's income plus your own. It affects how much Maintenance Grant for help with living costs you get.
         options:
           up-to-25000: Up to £25,000
           25001-30000: £25,001 - £30,000
@@ -74,15 +82,18 @@ en-GB:
           Choose 'yes' if any of the following are true:
 
           - you're doing a teacher training, medical or social work course
+          - you have children or an adult who depends on you financially
           - you have a disability, learning difficulty or health condition
+          - you're on a low income
       full_time_do_you_want_to_check_for_additional_grants_and_allowances?:
         title: Do you want to check for additional grants and allowances?
         body: |
           Choose 'yes' if any of the following are true:
 
           - you're doing a teacher training, medical or social work course
-          - you have children or dependent adults
+          - you have children or an adult who depends on you financially
           - you have a disability, learning difficulty or health condition
+          - you're on a low income
       do_you_have_a_disability_or_health_condition?:
         hint: This includes a mental health condition or learning difficulty eg dyslexia.
       are_you_in_financial_hardship?:
@@ -94,13 +105,14 @@ en-GB:
           social-work: Social work
           none: None of these
       done:
-        title: You may qualify for student finance towards your tuition fees and your living costs.
         body: |
           You could get:
 
           %{eligible_finance}
 
           %{additional_benefits}
+
+          %{extra_grants}
 
           You could also get extra [bursaries or scholarships](/extra-money-pay-university "Help from your university or college") from your university or college.
 
