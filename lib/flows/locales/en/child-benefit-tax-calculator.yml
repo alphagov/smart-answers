@@ -13,13 +13,6 @@ en-GB:
       options:
         "yes": "Yes"
         "no": "No"
-      phrases:
-        2012-13: |
-          This is %{percentage_tax_charge}% of £%{benefit_taxable_amount} taxable Child Benefit you will get from 7 January 2013.
-
-          For all of 2012-13 tax year you will get £%{benefit_claimed_amount}.
-        2013-14: |
-          This is %{percentage_tax_charge}% of £%{benefit_taxable_amount} Child Benefit you will get.
       which_tax_year?:
         title: Choose the tax year you want an estimate for.
       what_is_your_estimated_income_for_the_year_before_tax?:
