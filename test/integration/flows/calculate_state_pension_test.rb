@@ -282,6 +282,13 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
                         should "go to amount_result" do
                           assert_state_variable "qualifying_years", 27
+                          assert_state_variable "qualifying_years_total", 27
+                          assert_state_variable "missing_years", 3
+                          assert_state_variable "pension_amount", "65.94"
+                          assert_state_variable "state_pension_age", 65
+                          assert_state_variable "remaining_years", 6
+                          assert_state_variable "pension_loss", "41.51"
+                          assert_state_variable "state_pension_date", Date.parse("2018 March 6th")
                           assert_current_node :amount_result
                         end
                       end                      

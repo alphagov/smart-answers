@@ -71,5 +71,42 @@ module SmartAnswer::Calculators
       end
     end
     
+    context "female born 6 Oct 1953 " do
+      setup do
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: "1953-10-06", qualifying_years: nil)
+      end
+      
+      should "qualifying_years_credit = 0" do
+        assert_equal 0, @calculator.qualifying_years_credit
+      end
+    end 
+
+    context "female born 6 Oct 1992 " do
+      setup do
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: "1992-10-06", qualifying_years: nil)
+      end
+      
+      should "qualifying_years_credit = 2" do
+        assert_equal 2, @calculator.qualifying_years_credit
+      end
+    end 
+    context "female born 6 Oct 1949 " do
+      setup do
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: "1949-10-06", qualifying_years: nil)
+      end
+      
+      should "allocate_automatic_years = 5" do
+        assert_equal 5, @calculator.allocate_automatic_years
+      end
+    end 
+    context "female born 6 Aug 1953 " do
+      setup do
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: "1953-08-06", qualifying_years: nil)
+      end
+      
+      should "allocate_automatic_years = 1" do
+        assert_equal 1, @calculator.allocate_automatic_years
+      end
+    end 
   end
 end

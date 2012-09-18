@@ -54,26 +54,32 @@ en-GB:
 
           This calculation is according to the current law. The State Pension age may change in the future.
         too_few_qy_enough_remaining_years: |
+          
+
           $C
           You’re not getting the full State Pension yet but you have enough years to make National Insurance contributions towards it.
           $C
 
           State Pension | Your results
           - | - 
-          Your State Pension age | [statepensionage]
-          When you’ll reach State Pension age | [date of birth + result from Q1&2
-          How much per week you would get now | £[statepension]
-          Difference to the full State Pension of £107.45 | £[differencetofullpension]
+          Your State Pension age | %{state_pension_age}
+          When you’ll reach State Pension age | %{formatted_state_pension_date}
+          How much per week you would get now | £%{pension_amount}
+          Difference to the full State Pension of £107.45 | £%{pension_loss}
 
-          [call out] This is an estimate. For a more accurate breakdown [apply for a State Pension statement](/forecast-your-state-pension).
+
+          $C
+          This is an estimate. For a more accurate breakdown [apply for a State Pension statement](/forecast-your-state-pension).
+          $C
+
 
           How much State Pension you get depends on how many years of National Insurance contributions you have. 
 
           National Insurance | Your contributions 
           - | - 
-          Years of contributions you already have | [result Q4 to Q9]
-          Years of contributions you still need for a full State Pension | 30 - [result Q4 to Q9] 
-          Years you still have to make these contributions | [remaining years]
+          Years of contributions you already have | %{qualifying_years_total}
+          Years of contributions you still need for a full State Pension | %{missing_years} 
+          Years you still have to make these contributions | %{remaining_years}
 
           You still have enough years to make contributions towards a full State Pension.
 
@@ -81,26 +87,31 @@ en-GB:
 
           This estimate includes any years you may get automatically between the ages of 16 and 19. If you got your National Insurance number after 2010 you don’t get these years.
         too_few_qy_not_enough_remaining_years: |
+          
+
           $C
           You’re not getting the full State Pension yet.  You can pay voluntary National Insurance contributions to make sure you’ll get it when you reach State Pension age.
           $C
 
           State Pension | Your results
           - | - 
-          Your State Pension age | [statepensionage]
-          When you’ll reach State Pension age | [date of birth + result from Q1&2
-          How much per week you would get now | £[statepension]
-          Difference to the full State Pension of £107.45 | £[differencetofullpension]
+          Your State Pension age | %{state_pension_age}
+          When you’ll reach State Pension age | %{formatted_state_pension_date}
+          How much per week you would get now | £%{pension_amount}
+          Difference to the full State Pension of £107.45 | £%{pension_loss}
 
-          [call out] This is an estimate. For a more accurate breakdown [apply for a State Pension statement](/forecast-your-state-pension).
+
+          $C
+          This is an estimate. For a more accurate breakdown [apply for a State Pension statement](/forecast-your-state-pension).
+          $C
 
           How much State Pension you get depends on how many years of National Insurance contributions you have. 
 
           National Insurance | Your contributions 
           - | - 
-          Years of contributions you already have | [result Q4 to Q9]
-          Years of contributions you still need for a full State Pension | 30 - [result Q4 to Q9] 
-          Years you still have to make these contributions | [remaining years]
+          Years of contributions you already have | %{qualifying_years_total}
+          Years of contributions you still need for a full State Pension | %{missing_years} 
+          Years you still have to make these contributions | %{remaining_years}
 
           You can pay [voluntary contributions](/voluntary-national-insurance-contributions/why-pay-voluntary-contributions) to get the full State Pension.
 
@@ -110,19 +121,24 @@ en-GB:
 
           This estimate includes any years you may get automatically between the ages of 16 and 19. If you got your National Insurance number after 2010 you don’t get these years.
         you_get_full_state_pension: |
+          
+
           $C
           You get the full State Pension.
           $C
 
-          Your State Pension age is [result from 1 and 2]
+          Your State Pension age is %{state_pension_age}
 
-          You’ll reach State Pension age on [date of birth plus result from 1 and 2]
+          You’ll reach State Pension age on %{formatted_state_pension_date}
 
-          Your State Pension now would be [XX]
+          Your State Pension now would be £%{pension_amount}
 
           This is the full State Pension.
 
-          [call out] This is an estimate. For a more accurate accurate breakdown [apply for a State Pension forecast.]
+
+          $C
+          This is an estimate. For a more accurate accurate breakdown [apply for a State Pension forecast.]
+          $C
 
           How much State Pension you get depends on how many years of National Insurance contributions you have.
 
@@ -159,28 +175,38 @@ en-GB:
         title: "How many years from the age of 19 have you claimed unemployment, sickness or disability benefits?"
         hint: Don’t count years when you were working. Enter 0 if you’ve never claimed benefits.
         error_message: Please enter a number
-      
-      ## Q???
+        error_message: Please enter a number.
+      ## Q6
+      employed_between_60_and_64?:
+        title: Have you ever been a parent or carer or did you ever get Child Benefit?
+      ## Q7
       years_of_benefit?:
-        title: "How many years did any of the following apply:"
+        title: "Before April 2010 how many years did any of the following apply:"
         body: |
-          - you claimed Child Benefit for a child under 12
-          - you claimed Carer’s Allowance or Income Support
-          - you claimed Home Responsibility Protection
+          - you claimed Child Benefit for a child under 16 
+          - you cared for someone sick or disabled 
           - you worked as a registered carer
-          - you cared for someone sick or disabled for at least 20 hours a week
-        hint: |
-          Enter 0 if none of these apply.
-          %{if_married_woman}
-        error_message: Please enter a number
-      
+        hint: These are years when you were getting Home Responsibility Protection. Enter 0 if none of these apply or if you were paying reduced National Insurance for women.
+        error_message: Enter a number up to 22. This is the maximum number of years counting towards the State Pension. 
+      ## Q8 
+      years_of_caring?:
+        title: "After April 2010 how many years did any of the following apply:"
+        body: |
+          - you cared for a child under 12
+          - you cared for someone sick or disabled
+          - you were a registered foster carer
+        error_message: Please enter a number.
+      ## Q9
+      years_of_carers_allowance?:
+        title: How many years of Carer’s Allowance did you get?
+        hint: Enter 0 if you didn’t get any.
+        error_message: Please enter a number.
       ## Q10
       years_of_work?:
         title: How many years between age 16 and 19 were you in full-time education or working?
-        hint: |
-          Include the years you were claiming benefits because of unemployment, illness or disability.
-        error_message: Enter a number up to 22. This is the maximum number of years counting towards the State Pension. 
-      
+        hint: Include the years you were claiming benefits because of unemployment, illness or disability.
+        error_message: The maximum number of years you can enter is 3.
+
 
       ## Outcomes:
       ## RESULT 5
@@ -217,30 +243,11 @@ en-GB:
 
           [National Insurance](/national-insurance/overview)
       
-      ## RESULT ??    
+      ## AMOUNT RESULT
       amount_result:
         body: |
           %{result_text}
-      # old_text: |
-          # $C
-          # %{contribution_callout_text}
-          # $C
-      #     Your State Pension age is %{state_pension_age}.
 
-      #     You’ll reach State Pension age on %{formatted_state_pension_date}.
-
-      #     Your State Pension now would be £%{pension_amount} per week.
-
-      #     %{pension_summary}
-
-      #     ^This is an estimate. For a more accurate breakdown [apply for a State Pension statement](/forecast-your-state-pension).^
-
-      #     How much State Pension you get depends on how many years of National Insurance contributions you have. This estimate includes any years you may get automatically between the ages of 16 and 19.
-
-      #     You can pay [voluntary contributions](/voluntary-national-insurance-contributions/why-pay-voluntary-contributions) to get the full State Pension. 
-
-      #     More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
-      
       ## AGE RESULT
       age_result:
         title: |

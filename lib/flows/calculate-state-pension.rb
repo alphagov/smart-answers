@@ -276,139 +276,11 @@ value_question :years_of_work? do
 
   next_node :amount_result
 
-  # next_node do |response|
-  #   work_years = Integer(response)
-  #   if (qualifying_years + work_years) > 29
-  #     :amount_result    
-  #   else
-  #     :years_of_work? # Q10
-  #   end
-  # end
-end
-
-## Q (used to be Q6??)
-value_question :years_of_benefit_old? do
-  save_input_as :benefit_years
-
-  calculate :calculator do
-    benefit_years = Integer(responses.last)
-    credit_years = calculator.three_year_credit_age? ? 3 : 0
-    
-    raise InvalidResponse if benefit_years < 0 or benefit_years > 70
-    Calculators::StatePensionAmountCalculator.new(
-      gender: gender, dob: dob,
-      qualifying_years: (ni_years.to_i + jsa_years.to_i + benefit_years + credit_years)
-    )
-  end
-  
-  calculate :state_pension_date do
-    calculator.state_pension_date.to_date.to_formatted_s(:long)
-  end
-
-  calculate :pension_amount do
-    sprintf("%.2f", calculator.what_you_get)
-  end
-
-  calculate :pension_loss do
-    sprintf("%.2f", calculator.pension_loss)
-  end
-  
-  calculate :remaining_contribution_years do
-    remaining = (30 - calculator.qualifying_years)
-    (remaining == 1 ? "#{remaining} year" : "#{remaining} years")   
-  end
-  
-  calculate :contribution_callout_text do
-    if calculator.qualifying_years > 29
-      PhraseList.new :full_contribution_years_callout
-    else
-      PhraseList.new :remaining_contributions_years_callout
-    end
-  end
-  
-  calculate :pension_summary do
-    if calculator.pension_loss > 0
-      PhraseList.new(:this_is_n_below_the_full_state_pension)
-    else
-      PhraseList.new(:this_is_the_full_state_pension)
-    end
-  end
-
-  next_node do |response|
-    benefit_years = Integer(response)
-    benefit_years += 3 if calculator.three_year_credit_age?
-    if calculator.three_year_credit_age? or
-      (ni_years.to_i + jsa_years.to_i + benefit_years) > 29
-      :amount_result
-    else
-      :years_of_work?
-    end
-  end
-end
-
-
-# Q10-old
-value_question :years_of_work_old? do
-  save_input_as :work_years
-  
-  calculate :credited_years do
-    years = Integer(responses.last)
-    credits = calculator.qualifying_years_credit
-    case credits
-      when 2 then years = credits unless years > 2
-      when 1 then years = credits unless years > 0
-    end
-    years
-  end
-
-  calculate :calculator do
-    work_years = Integer(responses.last)
-    raise InvalidResponse if work_years < 0 or work_years > 3
-    y = ni_years.to_i + jsa_years.to_i + benefit_years.to_i + credited_years
-    Calculators::StatePensionAmountCalculator.new(
-      gender: gender, dob: dob, qualifying_years: y)
-  end
-  
-  calculate :state_pension_date do
-    calculator.state_pension_date.to_date.to_formatted_s(:long)
-  end
-
-  calculate :pension_amount do
-    sprintf("%.2f", calculator.what_you_get)
-  end
-
-  calculate :pension_loss do
-    sprintf("%.2f", calculator.pension_loss)
-  end
-  
-  calculate :remaining_contribution_years do
-    remaining = (30 - calculator.qualifying_years)
-    (remaining == 1 ? "#{remaining} year" : "#{remaining} years")   
-  end
-  
-  calculate :contribution_callout_text do
-    if (30 - calculator.qualifying_years) <= 0
-      PhraseList.new :full_contribution_years_callout
-    else
-      PhraseList.new :remaining_contributions_years_callout
-    end
-  end
-  
-  calculate :pension_summary do
-    if calculator.pension_loss > 0
-      PhraseList.new(:this_is_n_below_the_full_state_pension)
-    else
-      PhraseList.new(:this_is_the_full_state_pension)
-    end
-  end
-
-  next_node :amount_result
 end
 
 outcome :reached_state_pension_age
 outcome :too_young 
-
-# outcome :catchall_results
+outcome :age_result
 
 outcome :amount_result do
   precalculate :calc do
@@ -437,6 +309,11 @@ outcome :amount_result do
 
   precalculate :formatted_state_pension_date do
     calculator.state_pension_date.to_date.to_formatted_s(:long)
+  end
+
+
+  calculate :state_pension_date do
+    calculator.state_pension_date
   end
 
   precalculate :pension_amount do
@@ -476,4 +353,3 @@ outcome :amount_result do
   end
 
 end
-outcome :age_result
