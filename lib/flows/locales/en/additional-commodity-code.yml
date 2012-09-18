@@ -26,7 +26,7 @@ en-GB:
           "5": "5 - 29.99"
           "30": "30 - 49.99"
           "50": "50 - 74.99"
-          "75": "75 or more"
+          "70": "70 or more"
       how_much_sucrose_2?:
         title: How much sucrose, invert sugar or isoglucose does the product contain?
         hint: the values represent % by weight

@@ -31,7 +31,7 @@ multiple_choice :how_much_sucrose_1? do
   option 5
   option 30
   option 50
-  option 75
+  option 70
 
   save_input_as :sucrose_weight  
   next_node :how_much_milk_fat?
