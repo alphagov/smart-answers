@@ -2,13 +2,14 @@ require "data/state_pension_query"
 
 module SmartAnswer::Calculators
   class StatePensionAmountCalculator
-    attr_reader :gender, :dob, :automatic_years, :qualifying_years
+    attr_reader :gender, :dob, :automatic_years, :qualifying_years, :available_years
     attr_accessor :qualifying_years
 
     def initialize(answers)
       @gender = answers[:gender].to_sym
       @dob = DateTime.parse(answers[:dob])
       @qualifying_years = answers[:qualifying_years].to_i
+      @available_years = ni_years_to_date
     end
 
     def current_weekly_rate
@@ -122,6 +123,31 @@ module SmartAnswer::Calculators
       @automatic_years
     end
     
+    def ni_start_date
+      (dob + 19.years)
+    end
+
+    def ni_years_to_date
+      today = Date.today
+      years = today.year - ni_start_date.year
+      years = years - 1 if (
+         today.month >  ni_start_date.month or 
+        (today.month >= ni_start_date.month and today.day > ni_start_date.day)
+      )
+      years
+    end
+
+    def available_years_sum(qual_years = @qualifying_years)
+      (@available_years - qual_years)
+    end
+
+    def has_available_years?(qual_years = @qualifying_years)
+      ! (available_years_sum(qual_years) < 0)
+    end
+
+    def not_qualifying_or_available_test?(qual_years = @qualifying_years)
+      (qual_years > 29) or (available_years_sum(qual_years) < 1)
+    end
 
   end
 end

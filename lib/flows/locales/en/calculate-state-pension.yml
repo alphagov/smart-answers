@@ -21,6 +21,7 @@ en-GB:
         "no": "No"
         none: "None of the above"
       phrases:
+        only_enter_years_from_nineteen: You can only enter years from 19.
         this_is_the_full_state_pension: This is the full State Pension.
         this_is_n_below_the_full_state_pension: This is £%{pension_loss} per week below the full State Pension.  
         married_woman_text: If you are a married woman paying reduced National Insurance, don’t count any years before 2010.
@@ -169,15 +170,21 @@ en-GB:
         title: How many years have you worked and paid tax from the age of 19?
         hint: |
           These are the years you paid National Insurance towards you State Pension. Enter 0 if you haven’t worked.
-        error_message: Your answer has to match the number of years you actually worked and paid National Insurance
+        error_message: |
+          Your answer has to match the number of years you actually worked and paid National Insurance. 
+          Based on your date of birth you can enter up to %{available_ni_years} years.
       ## Q5
       years_of_jsa?:
         title: "How many years from the age of 19 have you claimed unemployment, sickness or disability benefits?"
         hint: Don’t count years when you were working. Enter 0 if you’ve never claimed benefits.
-        error_message: Please enter a number
-        error_message: Please enter a number.
-      ## Q6
+        error_message: |
+          Please enter a number. Based on your date of birth you can enter up to %{available_ni_years} years.
+      ## Q5a
       employed_between_60_and_64?:
+        title: Were you employed between the age of 60 and 64?
+        hint: Don't count time when you were self-employed or abroad for more than 6 months.
+      ## Q6
+      received_child_benefit?:
         title: Have you ever been a parent or carer or did you ever get Child Benefit?
       ## Q7
       years_of_benefit?:
@@ -187,7 +194,9 @@ en-GB:
           - you cared for someone sick or disabled 
           - you worked as a registered carer
         hint: These are years when you were getting Home Responsibility Protection. Enter 0 if none of these apply or if you were paying reduced National Insurance for women.
-        error_message: Enter a number up to 22. This is the maximum number of years counting towards the State Pension. 
+        error_message: |
+          Enter a number up to 22. This is the maximum number of years counting towards the State Pension. 
+          Based on your date of birth you can enter up to %{available_ni_years} years.
       ## Q8 
       years_of_caring?:
         title: "After April 2010 how many years did any of the following apply:"
@@ -195,12 +204,12 @@ en-GB:
           - you cared for a child under 12
           - you cared for someone sick or disabled
           - you were a registered foster carer
-        error_message: Please enter a number.
+        error_message: Please enter a number. You can only enter up to %{allowed_caring_years}.
       ## Q9
       years_of_carers_allowance?:
         title: How many years of Carer’s Allowance did you get?
         hint: Enter 0 if you didn’t get any.
-        error_message: Please enter a number.
+        error_message: Please enter a number. Based on your date of birth you can enter up to %{available_ni_years} years.
       ## Q10
       years_of_work?:
         title: How many years between age 16 and 19 were you in full-time education or working?

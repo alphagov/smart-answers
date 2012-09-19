@@ -89,7 +89,12 @@ module SmartAnswer::Calculators
       should "qualifying_years_credit = 2" do
         assert_equal 2, @calculator.qualifying_years_credit
       end
+
+      should "ni_years_to_date = 1" do
+        assert_equal 1, @calculator.ni_years_to_date
+      end
     end 
+
     context "female born 6 Oct 1949 " do
       setup do
         @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: "1949-10-06", qualifying_years: nil)
@@ -99,6 +104,7 @@ module SmartAnswer::Calculators
         assert_equal 5, @calculator.allocate_automatic_years
       end
     end 
+    
     context "female born 6 Aug 1953 " do
       setup do
         @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: "1953-08-06", qualifying_years: nil)
@@ -108,5 +114,51 @@ module SmartAnswer::Calculators
         assert_equal 1, @calculator.allocate_automatic_years
       end
     end 
+
+    context "female born 22 years ago" do
+      should "return ni_years_to_date = 3" do
+        dob = 22.years.ago.to_s
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: dob, qualifying_years: nil)
+        assert_equal 3, @calculator.available_years
+      end
+      should "return ni_years_to_date = 3" do
+        dob = (22.years.ago + 3.months).to_s
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: dob, qualifying_years: nil)
+        assert_equal 3, @calculator.available_years
+      end
+      should "return ni_years_to_date = 2" do
+        dob = (22.years.ago - 3.months).to_s
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: dob, qualifying_years: nil)
+        assert_equal 2, @calculator.available_years
+      end
+    end
+    
+    context "test available years functions" do
+      setup do
+        dob = 32.years.ago.to_s
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: dob, qualifying_years: 10)
+      end
+
+      should "available years sum return 3" do
+        assert_equal 13, @calculator.available_years
+        assert_equal 3, @calculator.available_years_sum
+      end
+
+      should "has_available_years? return true" do
+        assert @calculator.has_available_years?
+      end
+
+      should "has_available_years?(13) return false" do
+        assert ! @calculator.has_available_years?(14)
+      end
+
+      should "not_qualifying_or_available_test?(13) return true" do
+        assert @calculator.not_qualifying_or_available_test?(13)
+      end
+
+      should "not_qualifying_or_available_test? return true" do
+        assert ! @calculator.not_qualifying_or_available_test?
+      end
+    end
   end
 end
