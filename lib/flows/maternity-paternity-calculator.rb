@@ -18,8 +18,11 @@ end
 
 ## QM2
 multiple_choice :employment_contract? do
-  option :yes
-  option :no
+  option :yes => :date_leave_starts?
+  option :no => :did_the_employee_work_for_you?
+  calculate :employment_start do
+    calculator.employment_start
+  end
   calculate :maternity_leave_info do
     if responses.last == 'yes'
       PhraseList.new(:maternity_leave_table)
@@ -27,7 +30,6 @@ multiple_choice :employment_contract? do
       PhraseList.new(:not_entitled_to_statutory_maternity_leave)
     end
   end
-  next_node :date_leave_starts?
 end
 
 ## QM3
@@ -50,9 +52,6 @@ date_question :date_leave_starts? do
   end
   calculate :pay_end_date do
     calculator.pay_end_date
-  end
-  calculate :employment_start do
-    calculator.employment_start
   end
   next_node :did_the_employee_work_for_you?
 end
@@ -103,7 +102,7 @@ money_question :employees_average_weekly_earnings? do
     :must_earn_over_threshold
   end
   calculate :eligible_for_maternity_pay do
-    if responses.last > calculator.lower_earning_limit
+    if responses.last >= calculator.lower_earning_limit
       true
     else
       false

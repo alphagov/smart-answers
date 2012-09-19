@@ -26,7 +26,7 @@ en-GB:
 
         % The calculator can’t be used to work out eligibility for [Additional Paternity Leave or Pay](/additional-paternity-leave-pay-employees “Additional paternity leave or pay”). %
       phrases:
-        not_worked_long_enough: + they must have started working for you on %{employment_start}
+        not_worked_long_enough: + they must have started working for you on or before %{employment_start}
         must_be_on_payroll: + you must be liable for their National Insurance Contributions - ie you will be if they’re on your payroll
         must_earn_over_threshold: + their average weekly earnings between %{relevant_period} must be at least £%{lower_earning_limit}
         pa_must_be_employed_by_you: they must still be employed by you up to %{matched_date}
