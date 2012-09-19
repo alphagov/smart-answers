@@ -88,14 +88,16 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
             context "answer no" do
               should "state that you they are not entitled to pay" do
                 add_response :no
-                assert_current_node :not_entitled_to_statutory_maternity_pay
+                assert_state_variable "not_entitled_to_pay_reason", :must_be_on_payroll
+                assert_current_node :maternity_leave_and_pay_result
               end
             end
           end
           context "answer no" do
             should "state that you they are not entitled to pay" do
               add_response :no
-              assert_current_node :not_entitled_to_statutory_maternity_pay
+              assert_state_variable "not_entitled_to_pay_reason", :not_worked_long_enough
+              assert_current_node :maternity_leave_and_pay_result
             end
           end
         end

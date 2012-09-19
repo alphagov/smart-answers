@@ -1,7 +1,5 @@
 status :draft
-section_slug "money-and-tax"
-subsection_slug "tax"
-satisfies_need "2013"
+satisfies_need "B1012"
 
 ## Q1
 multiple_choice :what_type_of_leave? do
@@ -22,11 +20,11 @@ end
 multiple_choice :employment_contract? do
   option :yes
   option :no
-  calculate :maternity_leave_result do
+  calculate :maternity_leave_info do
     if responses.last == 'yes'
       PhraseList.new(:maternity_leave_table)
     else
-      ''
+      PhraseList.new(:not_entitled_to_statutory_maternity_leave)
     end
   end
   next_node :date_leave_starts?
@@ -62,21 +60,27 @@ end
 ## QM4
 multiple_choice :did_the_employee_work_for_you? do
   option :yes => :is_the_employee_on_your_payroll?
-  option :no => :not_entitled_to_statutory_maternity_pay
+  option :no => :maternity_leave_and_pay_result
   calculate :not_entitled_to_pay_reason do
-    PhraseList.new :not_worked_long_enough
+    :not_worked_long_enough
+  end
+  calculate :eligible_for_maternity_pay do
+    false
   end
 end
 
 ## QM5
 multiple_choice :is_the_employee_on_your_payroll? do
   option :yes => :employees_average_weekly_earnings?
-  option :no => :not_entitled_to_statutory_maternity_pay
+  option :no => :maternity_leave_and_pay_result
   calculate :relevant_period do
     calculator.relevant_period
   end
   calculate :not_entitled_to_pay_reason do
-    PhraseList.new :must_be_on_payroll
+    :must_be_on_payroll
+  end
+  calculate :eligible_for_maternity_pay do
+    false
   end
 end
 
@@ -96,21 +100,31 @@ money_question :employees_average_weekly_earnings? do
     sprintf("%.2f", calculator.lower_earning_limit)
   end
   calculate :not_entitled_to_pay_reason do
-    PhraseList.new :must_earn_over_threshold
+    :must_earn_over_threshold
   end
-  next_node do |response|
-    if response > calculator.lower_earning_limit
-      :maternity_leave_and_pay_result
+  calculate :eligible_for_maternity_pay do
+    if responses.last > calculator.lower_earning_limit
+      true
     else
-      :not_entitled_to_statutory_maternity_pay
+      false
     end
   end
+  next_node :maternity_leave_and_pay_result
 end
 
 ## Maternity outcomes
-outcome :maternity_leave_and_pay_result
-outcome :not_entitled_to_statutory_maternity_leave ## R3M
-outcome :not_entitled_to_statutory_maternity_pay ## R4M
+outcome :maternity_leave_and_pay_result do
+  precalculate :maternity_pay_info do
+    if eligible_for_maternity_pay
+      pay_info = PhraseList.new(:maternity_pay_table)
+    else
+      pay_info = PhraseList.new(:not_entitled_to_smp_intro)
+      pay_info << not_entitled_to_pay_reason
+      pay_info << :not_entitled_to_smp_outro
+    end
+    pay_info
+  end
+end
 
 
 ## Paternity 

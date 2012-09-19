@@ -33,6 +33,13 @@ class BecomeAMotorcycleInstructorTest < ActiveSupport::TestCase
     end
   end
 
+  context "rpmt instructor" do
+    should "show application options" do
+      add_response :rpmt_instructor
+      assert_current_node :rpmt_instructor_response
+    end
+  end
+
   context "no qualifications" do
     setup do
       add_response :no

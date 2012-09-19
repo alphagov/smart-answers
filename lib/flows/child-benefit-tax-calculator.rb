@@ -1,5 +1,5 @@
 status :draft
-section_slug "money-and-tax"
+satisfies_need "2482"
 
 # Question 1
 multiple_choice :which_tax_year? do
@@ -287,12 +287,5 @@ outcome :estimated_tax_charge do
     calculator.formatted_benefit_taxable_amount
   end
 
-  precalculate :result_for_tax_year do
-    if tax_year == "2012-13"
-      PhraseList.new("2012-13".to_sym)
-    else
-      PhraseList.new("2013-14".to_sym)
-    end
-  end
 end
 outcome :dont_need_to_pay

@@ -1,12 +1,10 @@
 satisfies_need "B193"
-section_slug "work"
 status :draft
 
 # Q1
 multiple_choice :what_do_you_need_to_do? do
   option :recognise_a_trade_union => :do_you_want_to_recognise_the_union_voluntarily?
   option :derecognise_a_trade_union => :does_the_union_agree_with_derecognition_voluntarily?
-  # option :derecognise_a_trade_union => :has_it_been_3_years_since_gaining_recognition?
 end
 
 # Q2

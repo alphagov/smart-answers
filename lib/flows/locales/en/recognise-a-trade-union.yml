@@ -7,7 +7,8 @@ en-GB:
         this means that you recognise this union. You can also derecognise a union. 
         These processes can be either voluntary, or statutory through the Central Arbitration Committee (CAC). 
         Find out how each process works.
-
+      meta:
+        description: Find out about processes for recognising or derecognising a trade union.
       options:
         "yes": "Yes"
         "no": "No"
@@ -48,17 +49,13 @@ en-GB:
       agreed_on_bargaining_unit?:
         title: Have you agreed on the bargaining unit with the union?
         body: |
-          The bargaining unit is the group of workers that the union will act for.   
-
-          You have 20 working days to agree on this, otherwise the CAC will make a decision for you. 
-
-          You may have to supply information about your employees if asked.
+          The bargaining unit is the group of workers that the union will act for.
 
           Both parties can ask [Acas](http://www.acas.org.uk/ "Acas"){:rel="external"} to help negotiate during this process.
 
           *[CAC]:Central Arbitration Committee
 
-      # QX
+      # Q6a
       cac_decided_bargaining_unit?:
         title: Has the CAC decided the bargaining unit for you?
         body: |
@@ -76,6 +73,11 @@ en-GB:
       # Q8
       did_the_majority_support_the_union_in_the_ballot?:
         title: Did a majority support the union in the ballot?
+
+      # QY
+      does_the_union_agree_with_derecognition_voluntarily?:
+        title: Have you and the union agreed that the union can be derecognised voluntarily?
+        hint: If you're not able to agree this voluntarily, you can follow the statutory derecognition process.  
 
       # Q9
       has_it_been_3_years_since_gaining_recognition?:
@@ -187,7 +189,7 @@ en-GB:
 
       # A5
       you_must_recognise_the_union:
-        title: You must recognize the union.
+        title: You must recognise the union.
         body: |
           Both parties should draw up an agreement setting out:
 
@@ -204,7 +206,9 @@ en-GB:
 
       ## AX
       cac_will_decide_bargaining_unit:
-        title: The CAC will decide the bargaining unit for you. They’ll write to you and the union and continue with the recognition process.
+        title: If you can't agree within 20 working days, the CAC will decide the bargaining unit for you. 
+        body: |
+          They’ll write to you and the union and continue with the recognition process.
 
 
       # A7

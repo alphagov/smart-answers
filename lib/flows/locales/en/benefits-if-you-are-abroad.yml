@@ -28,7 +28,7 @@ en-GB:
         body: |
           If you’re moving to a country that’s in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} or has a benefits agreement with the UK, and you want to claim benefits there, you may need to have a record of how much National Insurance you’ve paid in the UK. 
 
-          [Check your National Insurance record.](/national-insurance/check-your-contributions-record "check your contributions record")
+          [Check your National Insurance record.](/national-insurance/record-check-and-change-of-circumstance “Check your contributions record”)
           
           *[EEA]:European Economic Area
       # Q3
@@ -100,8 +100,8 @@ en-GB:
 
           [EEA]: European Economic Area
         options:
-          "eea": "in the EEA"
-          "not_eea": "outside the EEA"
+          "eea": "A country in the EEA"
+          "not_eea": "A country outside the EEA"
       # Q10
       uk_employer:
         title: "Are you working for a UK employer?"
@@ -127,12 +127,11 @@ en-GB:
           "other": "None of the above"
       # Q14
       paying_nics_and_receiving_uk_benefits:
-        title: "Does one of the following apply to you?"
+        title: "Do either of the following apply to you?"
         body: |
           * you’re employed or self-employed and paying National Insurance contributions in the UK
           * you’re currently receiving at least one of the following UK benefits (Jobseeker's Allowance, Incapacity Benefit, Employment and Support Allowance, State Pension, Widows/Bereavement Benefit or Industrial Injuries Disablement Benefit)
 
-          Benefits that count include: Jobseeker's Allowance, Incapacity Benefit, Employment and Support Allowance, State Pension, Widows/Bereavement Benefit or Industrial Injuries Disablement Benefit
       # Q15
       are_you_moving_to_a_country_q15:
         title: "Which country are you living in or moving to?"
@@ -244,11 +243,11 @@ en-GB:
       going_abroad_q30:
         title: "How long are you living or going abroad for?"
         options:
-          "temporarily": "Temporarily, (e.g. for a holiday)"
+          "temporarily": "Temporarily, eg for a holiday"
           "permanently": "Permanently"
       # Q31
       moving_to_q31:
-        title: "Which country are you living or moving to?"
+        title: "Which country are you living in or moving to?"
         body: |
           Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
 
@@ -432,7 +431,7 @@ en-GB:
         body: |
           $!You should be able to get Child Benefit for a child or children living with you.$!
 
-          If you’re looking after a child whose parents have died, and are getting Child Benefit for them, you may also be able to claim [Guardian’s Allowance](/guardians-allowance "Guardian's Allowance").
+          If you’re looking after a child whose parents have died, and are getting [Child Benefit](/child-benefit#how-to-claim "How to claim Child Benefit") for them, you may also be able to claim [Guardian’s Allowance](/guardians-allowance "Guardian's Allowance").
       answer_18:
         body: |
           $!You can’t get Child Benefit unless your circumstances change.$!
@@ -572,7 +571,7 @@ en-GB:
           [Email the International Pension Centre](https://www2.dwp.gov.uk/tps-directgov/en/contact-tps/ipc.asp "Email the International Pension Centre")  
           Phone number  : +44 191 218 7777  
           Textphone:  +44 191 218 7280  
-          Monday to Friday 8.00am to 8.00am
+          Monday to Friday, 8am to 8pm
           $C
       answer_32:
         body: |
@@ -588,7 +587,7 @@ en-GB:
           [Email the International Pension Centre](https://www2.dwp.gov.uk/tps-directgov/en/contact-tps/ipc.asp "Email the International Pension Centre"){:rel="external"}  
           Phone number  : +44 191 218 7777  
           Textphone:  +44 191 218 7280  
-          Monday to Friday 8.00am to 8.00pm
+          Monday to Friday, 8am to 8pm
           $C
       answer_33:
         body: |
@@ -604,7 +603,7 @@ en-GB:
           [Email the International Pension Centre](https://www2.dwp.gov.uk/tps-directgov/en/contact-tps/ipc.asp "Email the International Pension Centre"){:rel="external"}  
           Phone number  : +44 191 218 7777  
           Textphone:  +44 191 218 7280  
-          Monday to Friday 8.00am to 8.00pm
+          Monday to Friday, 8am to 8pm
           $C
       answer_34:
         body: |
