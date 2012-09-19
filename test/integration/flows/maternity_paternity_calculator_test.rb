@@ -107,33 +107,41 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         setup do
           add_response :no
         end
-        ## QM4
-        should "ask if the employee worked for you before or on this date" do
-          assert_current_node :did_the_employee_work_for_you?
+        should "ask when the employee wants to start their leave" do
+          assert_current_node :date_leave_starts?
         end
-        context "answer yes" do
+        context "answer 2 months from now" do
           setup do
-            add_response :yes
+            add_response @two_months_from_now
           end
-          ## QM5
-          should "ask if the employee is on your payroll" do
-            assert_current_node :is_the_employee_on_your_payroll?
+          ## QM4
+          should "ask if the employee worked for you before or on this date" do
+            assert_current_node :did_the_employee_work_for_you?
           end
           context "answer yes" do
             setup do
               add_response :yes
             end
-            ## QM6
-            should "ask what the employees average weekly earnings are" do
-              assert_current_node :employees_average_weekly_earnings?
+            ## QM5
+            should "ask if the employee is on your payroll" do
+              assert_current_node :is_the_employee_on_your_payroll?
             end
-            context "answer 101.00" do
+            context "answer yes" do
               setup do
-                add_response 101.00
+                add_response :yes
               end
-              should "display not eligible for leave nor pay" do
-                assert_phrase_list :maternity_leave_info, [:not_entitled_to_statutory_maternity_leave]
-                assert_state_variable "not_entitled_to_pay_reason", :must_earn_over_threshold
+              ## QM6
+              should "ask what the employees average weekly earnings are" do
+                assert_current_node :employees_average_weekly_earnings?
+              end
+              context "answer 101.00" do
+                setup do
+                  add_response 101.00
+                end
+                should "display not eligible for leave nor pay" do
+                  assert_phrase_list :maternity_leave_info, [:not_entitled_to_statutory_maternity_leave]
+                  assert_state_variable "not_entitled_to_pay_reason", :must_earn_over_threshold
+                end
               end
             end
           end
