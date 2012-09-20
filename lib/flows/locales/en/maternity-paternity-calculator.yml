@@ -29,9 +29,9 @@ en-GB:
         not_worked_long_enough: + they must have started working for you on or before %{employment_start}
         must_be_on_payroll: + you must be liable for their National Insurance Contributions - ie you will be if they’re on your payroll
         must_earn_over_threshold: + their average weekly earnings between %{relevant_period} must be at least £%{lower_earning_limit}
-        pa_must_be_employed_by_you: they must still be employed by you up to %{matched_date}
-        must_be_employed_by_you: they must still be employed by you up to %{due_date}
-        not_responsible_for_upbringing: aren’t responsible for the child’s upbringing or the adopter’s partner
+        pa_must_be_employed_by_you: + they must still be employed by you up to %{matched_date}
+        must_be_employed_by_you: + they must still be employed by you up to %{due_date}
+        not_responsible_for_upbringing: + aren’t responsible for the child’s upbringing or the adopter’s partner
         maternity_leave_table: |
           ##Statutory maternity leave 
 
@@ -78,6 +78,44 @@ en-GB:
           $D
             [Download Form SMP1, Non-payment of Statutory Maternity Pay (PDF, 59KB)](http://www.dwp.gov.uk/advisers/claimforms/smp1_print.pdf "Download Form SMP1, Non-payment of Statutory Maternity Pay (PDF, 59KB)"){:rel="external"}
           $D
+
+        paternity_entitled_to_leave: |
+          ##Statutory Paternity Leave
+
+          The employee is entitled to either 1 or 2 weeks Statutory Paternity leave. Notice should be given by %{p_notice_leave}. 
+
+          Paternity leave can’t start before the birth and should be taken within 56 days of the birth (or the due date if the baby is born early). 
+
+        paternity_not_entitled_to_leave: |
+          ##Statutory Paternity Leave
+
+          The employee is not entitled to Statutory Paternity Leave because they don’t have an employment contract with you.
+
+          Write to them within 28 days of their leave request confirming this.  
+
+        paternity_entitled_to_pay: |
+          ##Statutory Paternity Pay
+
+          The employee is entitled to Statutory Paternity Pay - £%{spp_rate} a week.
+
+          They should request this using form SC3 (or your own version).
+
+
+          $D
+            [Download Form SC3, notice for Ordinary Statutory Paternity Pay (PDF, 100KB)](http://www.hmrc.gov.uk/forms/sc3.pdf "Download Form SC3, notice for Ordinary Statutory Paternity Pay (PDF, 100KB)")
+          $D
+
+        paternity_not_entitled_to_pay_intro: |
+          ##Statutory Paternity Pay
+
+          The employee is not entitled to Statutory Paternity Pay. To qualify:
+
+        paternity_not_entitled_to_pay_outro: |
+
+          Send them form OSPP1 confirming this within 28 days of their pay request. 
+
+
+          $D [Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)](http://www.hmrc.gov.uk/forms/spp1.pdf "Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)") $D 
 
         adoption_leave_table: |
           ##Statutory Adoption Leave 
@@ -156,11 +194,7 @@ en-GB:
         title: What is the baby’s due date?
       ## QP2
       employee_responsible_for_upbringing?:
-        title: "Is the employee responsible for the child’s upbringing and one of the following:"
-        options:
-          biological_father: "the biological father"
-          mothers_husband_or_partner: "the mother’s husband or partner"
-          neither: "neither"
+        title: Is the employee responsible for the child’s upbringing and either the biological father or the mother’s husband or partner?
       ## QP3
       employee_work_before_employment_start?:
         title: Did the employee work for you on or before %{employment_start}?
@@ -177,54 +211,12 @@ en-GB:
       employee_average_weekly_earnings_paternity?:
         title: What were the employee’s average weekly earnings between %{relevant_period}?
       ## Paternity Results:
-      ## 1P 
-      paternity_entitled_to_leave:
+      paternity_leave_and_pay:
         body: |
-          ##Statutory paternity leave
+          %{paternity_leave_info}
 
-          The employee is entitled to either 1 or 2 weeks paternity leave. They should have requested leave by %{p_notice_leave}. 
+          %{paternity_pay_info}
 
-          Paternity leave can’t start before the birth and should be taken within 56 days of the birth (or the due date if the baby is born early). 
-      ## 2P 
-      paternity_entitled_to_pay:
-        body: |
-          ##Statutory paternity pay
-
-          The employee is entitled to paternity pay of £%{spp_rate}.
-
-          They should request paternity pay using form SC3 (or your own version)
-
-
-          $D
-            [Download Form SC3 - requesting statutory paternity pay (PDF, 45KB)](  "Download Form SC3 - requesting statutory paternity pay (PDF, 45KB)"){:rel="external"}
-          $D
-
-      ## 3P
-      paternity_not_entitled_to_leave:
-        body: |
-          ##Not entitled to paternity leave
-
-          The employee is not entitled to paternity leave because they don’t have an employment contract with you.
-
-          You must write confirming this within 28 days of their request for paternity leave.
-
-      ## 4P
-      paternity_not_entitled_to_pay:
-        body: |
-          ##Not entitled to paternity pay
-
-          The employee is not entitled to paternity pay. To qualify:
-
-          %{not_entitled_reason}
-
-          Send them form OSPP1 confirming they’re not entitled to pay within 28 days of their request.
-
-
-          $D
-          [Download Form OSPP1, refusing statutory paternity pay (PDF, 54 KB)]( "Download Form OSPP1, refusing statutory paternity pay (PDF, 54 KB)"){:rel="external"} 
-          $D
-
-      ## 5P
       paternity_not_entitled_to_leave_or_pay:
         body: |
           ##Not entitled to paternity leave or pay
@@ -233,12 +225,10 @@ en-GB:
 
           %{not_entitled_reason}
           
-          You must write confirming this. You should also send them form OSP1 confirming they’re not entitled to pay within 28 days of their request. 
+          You must write confirming this. Also, send them form OSP1 confirming they’re not entitled to pay within 28 days of their pay request.
 
 
-          $D
-          [Download Form OSP1, refusing statutory paternity pay (PDF, 54 KB)]( Download Form OSP1, refusing statutory paternity pay (PDF, 54 KB)){:rel="external"} 
-          $D
+          $D [Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)](http://www.hmrc.gov.uk/forms/spp1.pdf "Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)") $D 
 
       ## Paternity Adoption
       ## QAP1

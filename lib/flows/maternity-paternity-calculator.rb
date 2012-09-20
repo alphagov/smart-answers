@@ -64,6 +64,7 @@ multiple_choice :did_the_employee_work_for_you? do
   calculate :not_entitled_to_pay_reason do
     :not_worked_long_enough
   end
+  #not yet eligible for pay, keep asking questions
   calculate :eligible_for_maternity_pay do
     false
   end
@@ -79,6 +80,7 @@ multiple_choice :is_the_employee_on_your_payroll? do
   calculate :not_entitled_to_pay_reason do
     :must_be_on_payroll
   end
+  #not yet eligible for pay, keep asking questions
   calculate :eligible_for_maternity_pay do
     false
   end
@@ -163,9 +165,8 @@ multiple_choice :employee_responsible_for_upbringing? do
   calculate :not_entitled_reason do
     PhraseList.new :not_responsible_for_upbringing
   end
-	option :biological_father => :employee_work_before_employment_start?
-	option :mothers_husband_or_partner => :employee_work_before_employment_start?
-	option :neither => :paternity_not_entitled_to_leave_or_pay # result 5P DP
+	option :yes => :employee_work_before_employment_start?
+	option :no => :paternity_not_entitled_to_leave_or_pay # result 5P DP
 end
 
 ## QP3
@@ -179,32 +180,48 @@ end
 
 ## QP4
 multiple_choice :employee_has_contract_paternity? do
-	# NOTE: QP5 is skipped - go straight to QP6 
-	option :yes => :employee_employed_at_employment_end_paternity?
-	option :no => :paternity_not_entitled_to_leave # result 3P
-	
+	option :yes 
+	option :no 
+	calculate :paternity_leave_info do
+    if responses.last == 'yes'
+      PhraseList.new(:paternity_entitled_to_leave)
+    else
+      PhraseList.new(:paternity_not_entitled_to_leave)
+    end
+  end
+  next_node :employee_employed_at_employment_end_paternity?
 end
+
+## QP5
+multiple_choice :employee_employed_at_employment_end_paternity? do
+	option :yes => :employee_on_payroll_paternity?
+  option :no => :paternity_leave_and_pay #4P_AP
+  calculate :paternity_pay_info do
+    if responses.last == 'no'
+      pay_info = PhraseList.new (:paternity_not_entitled_to_pay_intro)
+      pay_info << :must_be_employed_by_you
+      pay_info << :paternity_not_entitled_to_pay_outro
+    end
+    pay_info
+  end 
+end
+
 
 ## QP6
-multiple_choice :employee_employed_at_employment_end_paternity? do
-	calculate :not_entitled_reason do
-    PhraseList.new :must_be_employed_by_you
+multiple_choice :employee_on_payroll_paternity? do
+	option :yes => :employee_average_weekly_earnings_paternity?
+  option :no => :paternity_leave_and_pay # 4P BP
+  calculate :paternity_pay_info do
+    if responses.last == 'no'
+      pay_info = PhraseList.new (:paternity_not_entitled_to_pay_intro)
+      pay_info << :must_be_on_payroll
+      pay_info << :paternity_not_entitled_to_pay_outro
+    end
+    pay_info 
   end
-  option :yes => :employee_on_payroll_paternity?
-	option :no => :paternity_not_entitled_to_pay # 4P AP
 end
-
 
 ## QP7
-multiple_choice :employee_on_payroll_paternity? do
-	calculate :not_entitled_reason do
-    PhraseList.new :must_be_on_payroll
-  end
-  option :yes => :employee_average_weekly_earnings_paternity?
-	option :no => :paternity_not_entitled_to_pay # 4P BP
-end
-
-## QP8
 money_question :employee_average_weekly_earnings_paternity? do
 	calculate :spp_rate do
     calculator.average_weekly_earnings = responses.last
@@ -213,34 +230,22 @@ money_question :employee_average_weekly_earnings_paternity? do
   calculate :lower_earning_limit do
     sprintf("%.2f",calculator.lower_earning_limit)
   end
-  calculate :not_entitled_reason do
-    PhraseList.new :must_earn_over_threshold
-  end
-  next_node do |response|
-    
-    if response > calculator.lower_earning_limit
-			# 2P
-			:paternity_entitled_to_pay
+  calculate :paternity_pay_info do
+    if responses.last >= calculator.lower_earning_limit
+			pay_info = PhraseList.new(:paternity_entitled_to_pay)
 		else
-			# 4P
-			:paternity_not_entitled_to_pay
-		end
+			pay_info = PhraseList.new(:paternity_not_entitled_to_pay_intro)
+			pay_info << :must_earn_over_threshold
+      pay_info << :paternity_not_entitled_to_pay_outro
+    end
+    pay_info 
 	end
+  next_node :paternity_leave_and_pay
 end
 
 # Paternity outcomes
-# result_1P - entitled to leave
-outcome :paternity_entitled_to_leave
-# result_2P - entitled to pay
-outcome :paternity_entitled_to_pay 
-# result_3P - not entitled to leave
-outcome :paternity_not_entitled_to_leave
-# result_4P - not entitled to pay
-outcome :paternity_not_entitled_to_pay
-# result_5P – not entitled to leave or pay
+outcome :paternity_leave_and_pay
 outcome :paternity_not_entitled_to_leave_or_pay
-
-
 
 
 
