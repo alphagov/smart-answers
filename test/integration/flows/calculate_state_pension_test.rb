@@ -75,7 +75,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
           should "return auto years 3" do
             add_response :no
             assert_state_variable "automatic_years", 3
-                # assert_state_variable "qualifying_years", 
             assert_current_node :received_child_benefit?
           end
 

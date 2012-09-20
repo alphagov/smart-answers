@@ -36,9 +36,7 @@ en-GB:
 
           Your State Pension age is %{state_pension_age}.
 
-          You should get your pension claim pack in %{formatted_pension_pack_date}. Contact the Pension Service on 0800 731 7898 if you haven’t received it.
-
-          If you&rsquo;re on a low income, you might be eligible to claim [Pension Credit](/pension-credit “Pension Credit”).
+          You should get your pension claim pack in %{formatted_pension_pack_date}. 
 
           This calculation is according to the current law. The State Pension age may change in the future.
         state_pension_age_was: |
@@ -47,7 +45,7 @@ en-GB:
 
           You should have got your pension claim pack in %{formatted_pension_pack_date}.
 
-          Contact the Pension Service if you haven't received it.
+          Contact the Pension Service if you haven't receive it.
 
           ^You have already reached State Pension age. You can [claim your State Pension](/state-pension#how-to-claim "How to claim") if you haven't already or [defer claiming it](/how-to-defer-your-state-pension "How to defer your State Pension").^
 
@@ -116,7 +114,7 @@ en-GB:
 
           You can pay [voluntary contributions](/voluntary-national-insurance-contributions/why-pay-voluntary-contributions) to get the full State Pension.
 
-          You might be able to get [National Insurance credits from your partner.]XXXXXX
+          You might be able to get [National Insurance credits from your partner.](/state-pension)
 
           More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
 
@@ -138,7 +136,7 @@ en-GB:
 
 
           $C
-          This is an estimate. For a more accurate accurate breakdown [apply for a State Pension forecast.]
+          This is an estimate. For a more accurate accurate breakdown [apply for a State Pension statement](/forecast-your-state-pension).
           $C
 
           How much State Pension you get depends on how many years of National Insurance contributions you have.
@@ -149,8 +147,8 @@ en-GB:
       which_calculation?:
         title: What would you like to do?
         options:
-          age: calculate your State Pension age
-          amount: get a basic State Pension estimate and calculate your State Pension age
+          age: Calculate your State Pension age
+          amount: Get a basic State Pension estimate and calculate your State Pension age
       ## Q2
       gender?:
         title: What is your gender?
@@ -178,7 +176,7 @@ en-GB:
         title: "How many years from the age of 19 have you claimed unemployment, sickness or disability benefits?"
         hint: Don’t count years when you were working. Enter 0 if you’ve never claimed benefits.
         error_message: |
-          Please enter a number. Based on your date of birth you can enter up to %{available_ni_years} years.
+          Please enter a number. Based on your previous answers you can enter up to %{available_ni_years} years.
       ## Q5a
       employed_between_60_and_64?:
         title: Were you employed between the age of 60 and 64?
@@ -195,8 +193,7 @@ en-GB:
           - you worked as a registered carer
         hint: These are years when you were getting Home Responsibility Protection. Enter 0 if none of these apply or if you were paying reduced National Insurance for women.
         error_message: |
-          Enter a number up to 22. This is the maximum number of years counting towards the State Pension. 
-          Based on your date of birth you can enter up to %{available_ni_years} years.
+          Based on your previous answers you can enter up to %{available_ni_years} or 22, whichever is smaller.
       ## Q8 
       years_of_caring?:
         title: "After April 2010 how many years did any of the following apply:"
@@ -209,7 +206,7 @@ en-GB:
       years_of_carers_allowance?:
         title: How many years of Carer’s Allowance did you get?
         hint: Enter 0 if you didn’t get any.
-        error_message: Please enter a number. Based on your date of birth you can enter up to %{available_ni_years} years.
+        error_message: Please enter a number. Based on your previous answers you can enter up to %{available_ni_years} years.
       ## Q10
       years_of_work?:
         title: How many years between age 16 and 19 were you in full-time education or working?
