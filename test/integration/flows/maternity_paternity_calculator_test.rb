@@ -503,7 +503,6 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
 
                       should "calculate dates and pay amounts" do
                         assert_state_variable "sapp_rate", 108.23.to_s 
-
                       end 
                     end
 
