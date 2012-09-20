@@ -156,6 +156,39 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
 
       end # with fees
 
+
+      context "testing for :done outcome phrase_list alterations" do
+        setup do
+          add_response '8490'
+          add_response 'away-outside-london'
+          add_response 'up-to-25000'
+          add_response 'yes'
+        end
+
+        should "include benefits " do
+          add_response 'no'
+          add_response 'no'
+          add_response 'yes'
+          add_response 'yes'
+          add_response 'teacher-training'
+          assert_phrase_list :additional_benefits, [:body, :disability, :financial_hardship, :teacher_training]
+          assert_phrase_list :extra_grants, []
+          assert_current_node :done
+        end
+
+        should "include no benefits " do
+          add_response 'no'
+          add_response 'no'
+          add_response 'no'
+          add_response 'no'
+          add_response 'none'
+          assert_phrase_list :additional_benefits, []
+          assert_phrase_list :extra_grants, [:additional_grants_and_allowances]
+          assert_current_node :done
+        end
+
+      end
+
       context "checking for additional grants" do
         setup do
           add_response '8490'
@@ -226,6 +259,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
           end
         end
       end # checking for grants etc.
+
+
     end # full-time student
 
     context "part-time student" do
