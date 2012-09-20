@@ -1,6 +1,4 @@
 satisfies_need 2175
-section_slug "education"
-subsection_slug "student-money"
 status :published
 
 multiple_choice :when_does_your_course_start? do

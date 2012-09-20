@@ -1,5 +1,4 @@
 status :draft
-section_slug "work"
 
 calculator = AgriculturalHolidayEntitlementCalculator.new()
 

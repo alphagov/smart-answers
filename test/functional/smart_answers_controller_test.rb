@@ -1,20 +1,19 @@
 # encoding: UTF-8
 require_relative '../test_helper'
 require_relative '../helpers/i18n_test_helper'
-require 'gds_api/test_helpers/panopticon'
+require 'gds_api/test_helpers/content_api'
 
 class SmartAnswersControllerTest < ActionController::TestCase
   include I18nTestHelper
-  include GdsApi::TestHelpers::Panopticon
+  include GdsApi::TestHelpers::ContentApi
 
   def setup
-    stub_panopticon_default_artefact
+    stub_content_api_default_artefact
 
     @flow = SmartAnswer::Flow.new do
       name :sample
 
       satisfies_need 1337
-      section_slug "family"
 
       multiple_choice :do_you_like_chocolate? do
         option :yes => :you_have_a_sweet_tooth
@@ -30,7 +29,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
       outcome :you_have_a_sweet_tooth
     end
     @controller.stubs(:flow_registry).returns(stub("Flow registry", find: @flow))
-    SmartAnswerPresenter.any_instance.stubs(:proposition).returns("citizen")
   end
 
   def submit_response(response = nil, other_params = {})
@@ -96,48 +94,29 @@ class SmartAnswersControllerTest < ActionController::TestCase
       assert_select "head meta[name=robots][content=noindex]"
     end
 
-    should "send slimmer section meta tags" do
-      get :show, id: 'sample'
-      assert_select "head meta[name=x-section-name][content=Family]"
-      assert_select "head meta[name=x-section-link][content=/browse/family]"
-    end
-
     should "send the artefact to slimmer" do
-      SmartAnswerPresenter.any_instance.stubs(:artefact).returns({"slug" => "an-artefact"})
-      @controller.expects(:set_slimmer_artefact).with({"slug" => "an-artefact"})
+      artefact = artefact_for_slug('sample')
+      SmartAnswerPresenter.any_instance.stubs(:artefact).returns(artefact)
+      @controller.expects(:set_slimmer_artefact).with(artefact)
 
       get :show, id: 'sample'
-    end
-
-    should "look up section name in translation file" do
-      using_translation_file(fixture_file('smart_answers_controller_test/section_name.yml')) do
-        get :show, id: 'sample'
-      end
-      assert_select 'head meta[name=x-section-name][content="Section Name From Translation File"]'
-      assert_select "head meta[name=x-section-link][content=/browse/family]"
     end
 
     should "send slimmer analytics headers" do
       get :show, id: 'sample'
-      assert_equal "family",        @response.headers["X-Slimmer-Section"]
-      assert_equal "1337",          @response.headers["X-Slimmer-Need-ID"].to_s
-      assert_equal "smart_answers", @response.headers["X-Slimmer-Format"]
+      assert_equal "smart_answer", @response.headers["X-Slimmer-Format"]
     end
 
-    should "send slimmer analytics headers, with citizen proposition set for citizen answers" do
+    should "cope with no artefact found" do
+      content_api_does_not_have_an_artefact 'sample'
       get :show, id: 'sample'
-      assert_equal "citizen",       @response.headers["X-Slimmer-Proposition"]
-    end
-
-    should "send slimmer analytics headers, with business proposition set for business answers " do
-      SmartAnswerPresenter.any_instance.stubs(:proposition).returns("business")
-      get :show, id: 'sample'
-      assert_equal "business", @response.headers["X-Slimmer-Proposition"]
+      assert @response.success?
     end
 
     context "date question" do
       setup do
         @flow = SmartAnswer::Flow.new do
+          name :sample
           date_question :when? do
             next_node :done
           end
@@ -236,6 +215,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
     context "money question" do
       setup do
         @flow = SmartAnswer::Flow.new do
+          name :sample
           money_question :how_much? do
             next_node :done
           end
@@ -320,6 +300,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
     context "multiple choice question" do
       setup do
         @flow = SmartAnswer::Flow.new do
+          name :sample
           multiple_choice :what? do
             option :cheese => :done
           end

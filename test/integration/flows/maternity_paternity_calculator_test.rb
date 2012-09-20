@@ -81,25 +81,72 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                   assert_state_variable "smp_b", (135.40 * 0.9).round(2).to_s
                 end
                 should "calculate and present the result" do
+                  assert_phrase_list :maternity_leave_info, [:maternity_leave_table]
                   assert_current_node :maternity_leave_and_pay_result
                 end
-              end
-            end
+              end #answer 135.40
+            end #answer yes to QM5 on payroll
             context "answer no" do
               should "state that you they are not entitled to pay" do
                 add_response :no
-                assert_current_node :not_entitled_to_statutory_maternity_pay
+                assert_state_variable "not_entitled_to_pay_reason", :must_be_on_payroll
+                assert_current_node :maternity_leave_and_pay_result
               end
             end
-          end
+          end #answer yes to QM4
           context "answer no" do
             should "state that you they are not entitled to pay" do
               add_response :no
-              assert_current_node :not_entitled_to_statutory_maternity_pay
+              assert_state_variable "not_entitled_to_pay_reason", :not_worked_long_enough
+              assert_current_node :maternity_leave_and_pay_result
             end
           end
         end
-      end # Yes to employee has contract?
+      end # answer Yes to QM2 employee has contract?
+      context "no contract" do
+        setup do
+          add_response :no
+        end
+        should "ask when the employee wants to start their leave" do
+          assert_current_node :date_leave_starts?
+        end
+        context "answer 2 months from now" do
+          setup do
+            add_response @two_months_from_now
+          end
+          ## QM4
+          should "ask if the employee worked for you before or on this date" do
+            assert_current_node :did_the_employee_work_for_you?
+          end
+          context "answer yes" do
+            setup do
+              add_response :yes
+            end
+            ## QM5
+            should "ask if the employee is on your payroll" do
+              assert_current_node :is_the_employee_on_your_payroll?
+            end
+            context "answer yes" do
+              setup do
+                add_response :yes
+              end
+              ## QM6
+              should "ask what the employees average weekly earnings are" do
+                assert_current_node :employees_average_weekly_earnings?
+              end
+              context "answer 101.00" do
+                setup do
+                  add_response 101.00
+                end
+                should "display not eligible for leave nor pay" do
+                  assert_phrase_list :maternity_leave_info, [:not_entitled_to_statutory_maternity_leave]
+                  assert_state_variable "not_entitled_to_pay_reason", :must_earn_over_threshold
+                end
+              end
+            end
+          end
+        end 
+      end # no to QM2 employee has contract?
     end
   end # Maternity flow
   
@@ -108,28 +155,24 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
   ## Paternity flow
   ##
   context "answer paternity" do
-    setup do
-      add_response :paternity
-    end
+    setup { add_response :paternity }
+
     ## QP0
     should "ask whether to check for leave or pay for adoption" do
       assert_current_node :leave_or_pay_for_adoption?
     end
 
     context "answer no" do
-      setup do
-        add_response :no
-      end
+      setup { add_response :no }
       ## QP1
       should "ask for the due date" do
         assert_current_node :baby_due_date_paternity?
       end
 
       context "due date given as 3 months from now" do
-        # setup { add_response 3.months.since(Date.today).strftime("%Y-%m-%d") }
         setup do
           @three_months_from_now = 3.months.since(Date.today).strftime("%Y-%m-%d")
-          add_response @three_months_from_now #3.months.since(Date.today).strftime("%Y-%m-%d")
+          add_response @three_months_from_now
         end
 
         ## QP2 
@@ -137,8 +180,8 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
           assert_current_node :employee_responsible_for_upbringing?
         end
 
-        context "is biological father" do
-          setup { add_response :biological_father }
+        context "is biological father or partner and responsible for upbringing" do
+          setup { add_response :yes }
           
           ## QP3
           should "ask if employee worked for you before employment_start" do
@@ -156,7 +199,11 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
             context "answer yes" do
               setup { add_response :yes }
 
-              # QP6
+              # QP5
+              should "be entitled to leave" do
+                assert_phrase_list :paternity_leave_info, [:paternity_entitled_to_leave]
+              end
+
               should "ask if employee will be employed at employment_end" do
                 assert_current_node :employee_employed_at_employment_end_paternity?
               end
@@ -164,7 +211,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
               context "answer yes" do
                 setup { add_response :yes }
 
-                # QP7
+                # QP6
                 should "ask if employee is on payroll" do
                   assert_current_node :employee_on_payroll_paternity?
                 end
@@ -172,12 +219,9 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                 context "answer yes" do
                   setup { add_response :yes }
 
-                  # QP8
-                  should "ask if employee is on payroll" do
+                  # QP7
+                  should "ask for average weekly earnings" do
                     assert_current_node :employee_average_weekly_earnings_paternity?
-                    # assert_state_variable "p_notice_leave", 15.weeks.ago(@three_months_from_now)
-
-
                   end
 
                   context "answer 500.55" do
@@ -204,81 +248,114 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       assert_state_variable "spp_rate", sprintf("%.2f",135.45) 
                       assert_state_variable "lower_earning_limit", sprintf("%.2f",107) 
                     end
-                  end
+
+                    should "display employee is entitled to pay" do
+                      assert_phrase_list :paternity_pay_info, [:paternity_entitled_to_pay]
+                      assert_current_node :paternity_leave_and_pay
+                    end
+                  end #answer 500.55
 
                   context "answer 120.25" do
                     setup { add_response 120.25 }
 
                     should "calculate dates and pay amounts" do
                       assert_state_variable "spp_rate", sprintf("%.2f",108.23) 
-
+                      assert_current_node :paternity_leave_and_pay
                     end 
                   end
 
                   context "answer 102.25" do
                     setup { add_response 102.25 }
 
-                    should "paternity not entitled to pay" do
-                      assert_current_node :paternity_not_entitled_to_pay
-
+                    should "paternity not entitled to pay because earnings too low" do
+                      assert_phrase_list :paternity_pay_info, [:paternity_not_entitled_to_pay_intro, :must_earn_over_threshold, :paternity_not_entitled_to_pay_outro]
+                      assert_current_node :paternity_leave_and_pay
                     end 
                   end
+                end  # yes - QP6 on payroll  
 
-                end                
-                
+                #QP6 - not on payroll:
                 context "answer no" do
-                  # 4P
-                  should "state that they are not entitled to leave or pay" do
-                    add_response :no
-                    assert_current_node :paternity_not_entitled_to_pay
+                  setup { add_response :no }
+
+                  should "state that they are not entitled for pay because not on payroll" do
+                    assert_phrase_list :paternity_pay_info, [:paternity_not_entitled_to_pay_intro, :must_be_on_payroll, :paternity_not_entitled_to_pay_outro]
+                    assert_current_node :paternity_leave_and_pay
                   end
                 end
               end
-
+              #QP5 - not employed at end of relevant period
               context "answer no" do
-                # 4P
-                should "state that they are not entitled to leave or pay" do
-                  add_response :no
-                  assert_current_node :paternity_not_entitled_to_pay
+                setup { add_response :no }
+                
+                should "state that they are not entitled to pay because not employed at end date" do  
+                  assert_phrase_list :paternity_pay_info, [:paternity_not_entitled_to_pay_intro, :must_be_employed_by_you, :paternity_not_entitled_to_pay_outro]
+                  assert_current_node :paternity_leave_and_pay
                 end
               end
             end
-
+            #QP4 - no employment contract
             context "answer no" do
-              # 3P
-              should "state that they are not entitled to leave or pay" do
-                add_response :no
-                assert_current_node :paternity_not_entitled_to_leave
+              setup { add_response :no }
+
+              should "not be entitled to leave" do
+                assert_phrase_list :paternity_leave_info, [:paternity_not_entitled_to_leave]
               end
-            end
-          end
+              #QP5
+              should "ask if employee will be employed at employment_end" do
+                assert_current_node :employee_employed_at_employment_end_paternity?
+              end
 
+              context "answer yes" do
+                setup { add_response :yes }
+
+                # QP6
+                should "ask if employee is on payroll" do
+                  assert_current_node :employee_on_payroll_paternity?
+                end
+
+                context "answer yes" do
+                  setup { add_response :yes }
+
+                  # QP7
+                  should "ask for average weekly earnings" do
+                    assert_current_node :employee_average_weekly_earnings_paternity?
+                  end
+
+                  context "answer 107.00" do
+                    setup { add_response 107.00 }
+
+                    should "display employee is entitled to pay" do
+                      assert_phrase_list :paternity_pay_info, [:paternity_entitled_to_pay]
+                      assert_current_node :paternity_leave_and_pay
+                    end 
+                  end #answer 107
+                end
+              end
+            end # no employment contract
+          end # worked for you before employment start
+          # Q3 - did not work for you
           context "answer no" do
-            # 5P
-            should "state that they are not entitled to leave or pay" do
-              add_response :no
+            setup { add_response :no }
+
+            should "state that they are not entitled to leave or pay because not worked long enough" do  
+              assert_phrase_list :not_entitled_reason, [:not_worked_long_enough]
               assert_current_node :paternity_not_entitled_to_leave_or_pay
             end
           end
-        end
-        context "is mother's husband or partner" do
-          setup { add_response :mothers_husband_or_partner }
-          ## QP3
-          should "ask if employee worked for you before employment_start" do
-            assert_current_node :employee_work_before_employment_start? 
+        end 
+        #Q2 - not a father, partner nor husband
+        context "answer no" do
+          setup { add_response :no }
+
+          should "state that they are not entitled to leave or pay because they're not responsible for upbringing" do
+            assert_phrase_list :not_entitled_reason, [:not_responsible_for_upbringing]
+            assert_current_node :paternity_not_entitled_to_leave_or_pay
           end
         end
-        context "answer neither" do
-            # 5P
-            should "state that they are not entitled to leave or pay" do
-              add_response :neither
-              assert_current_node :paternity_not_entitled_to_leave_or_pay
-            end
-          end
-      end
-
-     end
-
+      end #due date 3 months from now
+    end #QP0 - no
+  
 
     ##
     ## Paternity Adoption
@@ -441,7 +518,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         end
       end # Paternity Adoption flow
 
-    end
+    end #QP0 - yes
   end # Paternity flow
   
   
@@ -481,15 +558,16 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
           should "ask if the employee has a contract" do
             assert_current_node :adoption_employment_contract?
           end
-          context "answer yes" do
+          context "answer yes to contract" do
             setup do
               add_response :yes
             end
             ## QA4
             should "ask when the employee wants to start their leave" do
+              assert_state_variable "employee_has_contract_adoption", 'yes'
               assert_current_node :adoption_date_leave_starts?
             end
-            context "answer 1 month form now" do
+            context "answer 1 month from now" do
               setup do
                 add_response 1.month.since(Date.today).strftime("%Y-%m-%d")
               end
@@ -514,41 +592,108 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                     assert_current_node :adoption_employees_average_weekly_earnings?
                   end
                   context "answer below the lower earning limit" do
-                    should "state they are not entitled to pay" do
+                    should "state they are entitled to leave but not entitled to pay" do
                       add_response 100
-                      assert_current_node :adoption_not_entitled_to_pay
+                      assert_phrase_list :adoption_leave_info, [:adoption_leave_table]
+                      assert_phrase_list :adoption_pay_info, [:adoption_not_entitled_to_pay_intro, :must_earn_over_threshold, :adoption_not_entitled_to_pay_outro]
+                      assert_current_node :adoption_leave_and_pay
                     end
                   end
                   context "answer above the earning limit" do
                     should "give adoption leave and pay details" do
                       add_response 200
+                      assert_phrase_list :adoption_leave_info, [:adoption_leave_table]
+                      assert_phrase_list :adoption_pay_info, [:adoption_pay_table]
                       assert_current_node :adoption_leave_and_pay
                     end
                   end
-                end
+                end # yes to QA6 - on payroll
                 context "answer no" do
-                  should " state they are not entitled to pay" do
+                  should " state they are entitled to leave but not entitled to pay" do
                     add_response :no
-                    assert_current_node :adoption_not_entitled_to_pay
+                    assert_phrase_list :adoption_leave_info, [:adoption_leave_table]
+                    assert_phrase_list :adoption_pay_info, [:adoption_not_entitled_to_pay_intro, :must_be_on_payroll, :adoption_not_entitled_to_pay_outro]
+                    assert_current_node :adoption_leave_and_pay
                   end
                 end
-              end
+              end # yes to QA5 - worked for you before
               context "answer no" do
-                should "state they are not entitled to leave" do
+                should "state they are not entitled to leave or pay" do
                   add_response :no
                   assert_current_node :adoption_not_entitled_to_leave_or_pay
                 end
               end
             end
-          end
-          context "answer no" do
-            should "state that they are not entitled to leave or pay" do
+          end # yes to QA3 - has a contract
+          # now run through the branch where there is no contract as that means not entitled to leave
+          context "answer no to contract" do
+            setup do
               add_response :no
-              assert_current_node :adoption_not_entitled_to_leave
             end
-          end
+            should "ask when the employee wants to start their leave" do
+              assert_state_variable "employee_has_contract_adoption", 'no'
+              assert_current_node :adoption_date_leave_starts?
+            end
+            context "answer 1 month from now" do
+              setup do
+                add_response 1.month.since(Date.today).strftime("%Y-%m-%d")
+              end
+              ## QA5
+              should "ask if the employee worked for you before ..." do
+                assert_current_node :adoption_did_the_employee_work_for_you?
+              end
+              context "answer yes" do
+                setup do
+                  add_response :yes
+                end
+                ## QA6
+                should "ask if the employee is on your payroll" do
+                  assert_current_node :adoption_is_the_employee_on_your_payroll?
+                end
+                context "answer yes" do
+                  setup do
+                    add_response :yes
+                  end
+                  ## QA7
+                  should "ask what the average weekly earnings of the employee" do
+                    assert_current_node :adoption_employees_average_weekly_earnings?
+                  end
+                  context "answer below the lower earning limit" do
+                    should "state they are not entitled to leave and not entitled to pay" do
+                      add_response 100
+                      assert_phrase_list :adoption_leave_info, [:adoption_not_entitled_to_leave]
+                      assert_phrase_list :adoption_pay_info, [:adoption_not_entitled_to_pay_intro, :must_earn_over_threshold, :adoption_not_entitled_to_pay_outro]
+                      assert_current_node :adoption_leave_and_pay
+                    end
+                  end
+                  context "answer above the earning limit" do
+                    should "not entitled to leave but entitled to pay" do
+                      add_response 200
+                      assert_phrase_list :adoption_leave_info, [:adoption_not_entitled_to_leave]
+                      assert_phrase_list :adoption_pay_info, [:adoption_pay_table]
+                      assert_current_node :adoption_leave_and_pay
+                    end
+                  end
+                end # yes to QA6 - on payroll
+                context "answer no" do
+                  should " state they are not entitled to leave nor pay" do
+                    add_response :no
+                    assert_phrase_list :adoption_leave_info, [:adoption_not_entitled_to_leave]
+                    assert_phrase_list :adoption_pay_info, [:adoption_not_entitled_to_pay_intro, :must_be_on_payroll, :adoption_not_entitled_to_pay_outro]
+                    assert_current_node :adoption_leave_and_pay
+                  end
+                end
+              end # yes to QA5 - worked for you before
+              context "answer no" do
+                should "state they are not entitled to leave or pay" do
+                  add_response :no
+                  assert_current_node :adoption_not_entitled_to_leave_or_pay
+                end
+              end
+            end
+          end # no to contract (QA3)
         end
       end
     end
-  end
+  end # adoption
 end

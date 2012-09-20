@@ -1,6 +1,4 @@
 status :draft
-section_slug "money-and-tax"
-subsection_slug "pension"
 satisfies_need "564"
 
 multiple_choice :which_calculation? do
