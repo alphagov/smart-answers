@@ -262,7 +262,7 @@ date_question :employee_date_matched_paternity_adoption? do
   next_node :padoption_date_of_adoption_placement?
 end
 
-## QAP1.2
+## QAP2
 date_question :padoption_date_of_adoption_placement? do
   calculate :ap_adoption_date do
     Date.parse(responses.last)
@@ -282,7 +282,7 @@ date_question :padoption_date_of_adoption_placement? do
   next_node :padoption_employee_responsible_for_upbringing?
 end
 
-## QAP2
+## QAP3
 multiple_choice :padoption_employee_responsible_for_upbringing? do
 	calculate :not_entitled_reason do
     PhraseList.new :not_responsible_for_upbringing
@@ -291,7 +291,7 @@ multiple_choice :padoption_employee_responsible_for_upbringing? do
 	option :no => :padoption_not_entitled_to_leave_or_pay #5AP DP
 end
 
-## QAP3
+## QAP4
 multiple_choice :padoption_employee_start_on_or_before_employment_start? do
 	calculate :not_entitled_reason do
     PhraseList.new :not_worked_long_enough
@@ -300,29 +300,48 @@ multiple_choice :padoption_employee_start_on_or_before_employment_start? do
 	option :no => :padoption_not_entitled_to_leave_or_pay #5AP EP
 end
 
-## QAP4
+## QAP5
 multiple_choice :padoption_have_employee_contract? do
-	# NOTE: goes straight to QAP6 
-	option :yes => :padoption_employed_at_employment_end?
-	option :no => :padoption_not_entitled_to_leave # 3AP
+	option :yes 
+	option :no
+
+  calculate :padoption_leave_info do
+    if responses.last == 'yes'
+      PhraseList.new(:padoption_entitled_to_leave)
+    else
+      PhraseList.new(:padoption_not_entitled_to_leave)
+    end
+  end
+
+  next_node :padoption_employed_at_employment_end?
 end
 
 ## QAP6
 multiple_choice :padoption_employed_at_employment_end? do
-	calculate :not_entitled_to_pay_reason do
-    PhraseList.new :pa_must_be_employed_by_you
-  end
   option :yes => :padoption_employee_on_payroll?
-	option :no => :padoption_not_entitled_to_pay # 4AP AP
+  option :no => :padoption_leave_and_pay # 4AP AP
+	calculate :padoption_pay_info do
+    if responses.last == 'no'
+      pay_info = PhraseList.new (:padoption_not_entitled_to_pay_intro)
+      pay_info << :pa_must_be_employed_by_you
+      pay_info << :padoption_not_entitled_to_pay_outro
+    end
+    pay_info
+  end
 end
 
 ## QAP7
 multiple_choice :padoption_employee_on_payroll? do
-	calculate :not_entitled_to_pay_reason do
-    PhraseList.new :must_be_on_payroll
-  end
   option :yes => :padoption_employee_avg_weekly_earnings?
-	option :no => :padoption_not_entitled_to_pay # 4AP BP
+  option :no => :padoption_leave_and_pay # 4AP BP
+	calculate :padoption_pay_info do
+    if responses.last == 'no'
+      pay_info = PhraseList.new(:padoption_not_entitled_to_pay_intro)
+      pay_info << :must_be_on_payroll
+      pay_info << :padoption_not_entitled_to_pay_outro
+    end
+    pay_info
+  end
 end
 
 ## QAP8
@@ -334,30 +353,22 @@ money_question :padoption_employee_avg_weekly_earnings? do
   calculate :lower_earning_limit do
     sprintf("%.2f", calculator.lower_earning_limit)
   end
-  calculate :not_entitled_to_pay_reason do
-    PhraseList.new :must_earn_over_threshold
-  end
-  next_node do |response|
-    if response > calculator.lower_earning_limit
-      # 2AP
-      :padoption_entitled_to_pay
+  calculate :padoption_pay_info do
+    if responses.last >= calculator.lower_earning_limit
+      pay_info = PhraseList.new(:padoption_entitled_to_pay)
     else
-      # 4AP CAP
-      :padoption_not_entitled_to_pay
+      pay_info = PhraseList.new(:padoption_not_entitled_to_pay_intro)
+      pay_info << :must_earn_over_threshold
+      pay_info << :padoption_not_entitled_to_pay_outro
     end
+    pay_info
   end
+
+  next_node :padoption_leave_and_pay
 end
 
 ## Paternity Adoption Results
-# result_1AP - entitled to leave
-outcome :padoption_entitled_to_leave
-# result_2AP - entitled to pay
-outcome :padoption_entitled_to_pay
-# result_3AP - not entitled to leave
-outcome :padoption_not_entitled_to_leave
-# result_4AP - not entitled to pay
-outcome :padoption_not_entitled_to_pay
-# result_5AP – not entitled to leave or pay
+outcome :padoption_leave_and_pay
 outcome :padoption_not_entitled_to_leave_or_pay
 
 

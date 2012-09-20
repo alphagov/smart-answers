@@ -373,7 +373,6 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         # QAP1.2
         should "ask for the date the adoption placement will start" do
           assert_current_node :padoption_date_of_adoption_placement?
-
         end
 
         context "placement date given as 2 months ahead" do
@@ -402,12 +401,15 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
 
               context "answer yes" do
                 setup { add_response :yes }
+
+                should "be entitled to leave" do
+                  assert_phrase_list :padoption_leave_info, [:padoption_entitled_to_leave]
+                end
                 
                 # QAP6
                 should "ask if employee will be employed at employment_end" do
                    assert_current_node :padoption_employed_at_employment_end?
                 end
-
 
                 context "answer yes" do
                   setup { add_response :yes }
@@ -446,6 +448,11 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         assert_state_variable "sapp_rate", sprintf("%.2f",135.45) 
                         assert_state_variable "lower_earning_limit", sprintf("%.2f",107)
                       end
+
+                      should "display pay info" do
+                        assert_phrase_list :padoption_pay_info, [:padoption_entitled_to_pay]
+                        assert_current_node :padoption_leave_and_pay
+                      end
                     end
 
                     context "answer 120.25" do
@@ -460,18 +467,20 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                     context "answer 102.25" do
                       setup { add_response 102.25 }
 
-                      should "paternity adoption not entitled to pay" do
-                        assert_current_node :padoption_not_entitled_to_pay
-
+                      should "paternity adoption not entitled to pay because earn too little" do
+                        assert_phrase_list :padoption_pay_info, [:padoption_not_entitled_to_pay_intro, :must_earn_over_threshold, :padoption_not_entitled_to_pay_outro]
+                        assert_current_node :padoption_leave_and_pay
                       end 
                     end
-                  end
+                  end # is on payroll
 
                   context "answer no" do
                     # outcome 4AP
-                    should "not entitled to pay" do
-                      add_response :no  
-                      assert_current_node :padoption_not_entitled_to_pay
+                    setup { add_response :no }
+                    
+                    should "paternity adoption not entitled to pay because not on payroll" do
+                      assert_phrase_list :padoption_pay_info, [:padoption_not_entitled_to_pay_intro, :must_be_on_payroll, :padoption_not_entitled_to_pay_outro]
+                      assert_current_node :padoption_leave_and_pay
                     end
                   end
 
@@ -479,21 +488,24 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
 
                 context "answer no" do
                   # outcome 4AP
-                  should "not entitled to pay" do
-                    add_response :no  
-                    assert_current_node :padoption_not_entitled_to_pay
+                  setup { add_response :no }
+
+                  should "paternity adoption not entitled to pay because not employed at end" do
+                    assert_phrase_list :padoption_pay_info, [:padoption_not_entitled_to_pay_intro, :pa_must_be_employed_by_you, :padoption_not_entitled_to_pay_outro]
+                    assert_current_node :padoption_leave_and_pay
                   end
                 end
-
 
               end
 
               context "answer no" do
                 # outcome 3AP
-                should "not entitled to leave" do
-                  add_response :no
-                  assert_current_node :padoption_not_entitled_to_leave
+                setup { add_response :no }
+
+                should "paternity adoption not entitled to leave because no contract" do
+                  assert_phrase_list :padoption_leave_info, [:padoption_not_entitled_to_leave] 
                 end
+                #TODO: complete this flow with different pay scenarios
               end
 
 
@@ -501,8 +513,10 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
 
             context "answer no" do
               # outcome 5AP
-              should "not entitled to leave or pay" do
-                add_response :no
+              setup { add_response :no } 
+
+              should "not entitled to paternity adoption leave nor pay because not employed long enough" do
+                assert_phrase_list :not_entitled_reason, [:not_worked_long_enough]
                 assert_current_node :padoption_not_entitled_to_leave_or_pay
               end
             end
@@ -510,8 +524,9 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
 
           context "answer no" do
             # outcome 5AP
-            should "not entitled to leave or pay" do
-              add_response :no
+            setup { add_response :no }
+            should "not entitled to leave or pay because not responsible for upbringing" do
+              assert_phrase_list :not_entitled_reason, [:not_responsible_for_upbringing]
               assert_current_node :padoption_not_entitled_to_leave_or_pay
             end
           end
