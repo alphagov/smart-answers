@@ -24,6 +24,50 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
     should "ask when the baby due date is" do
       assert_current_node :baby_due_date_maternity?
     end
+
+    context "test lower earning limits returned" do
+      should "return lower_earning_limit of £107" do
+        dd =Date.parse("1 January 2013")
+        add_response dd
+        add_response :yes
+        add_response 1.month.ago(dd)
+        add_response :yes
+        add_response :yes
+        add_response "200"
+        assert_state_variable "lower_earning_limit", sprintf("%.2f",107) 
+      end
+      should "return lower_earning_limit of £102" do
+        dd =Date.parse("1 January 2012")
+        add_response dd
+        add_response :yes
+        add_response 1.month.ago(dd)
+        add_response :yes
+        add_response :yes
+        add_response "200"
+        assert_state_variable "lower_earning_limit", sprintf("%.2f",102) 
+      end
+      should "return lower_earning_limit of £97" do
+        dd =Date.parse("1 January 2011")
+        add_response dd
+        add_response :yes
+        add_response 1.month.ago(dd)
+        add_response :yes
+        add_response :yes
+        add_response "200"
+        assert_state_variable "lower_earning_limit", sprintf("%.2f",97) 
+      end
+      should "return lower_earning_limit of £95" do
+        dd =Date.parse("1 January 2010")
+        add_response dd
+        add_response :yes
+        add_response 1.month.ago(dd)
+        add_response :yes
+        add_response :yes
+        add_response "200"
+        assert_state_variable "lower_earning_limit", sprintf("%.2f",95) 
+      end
+    end
+
     context "answer 2 months from now" do
       setup do
         @two_months_from_now = 2.months.since(Date.today).strftime("%Y-%m-%d")
@@ -246,7 +290,6 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       assert_state_variable "employment_start", 26.weeks.ago(expected_start)
                       assert_state_variable "employment_end", @three_months_time 
                       assert_state_variable "spp_rate", sprintf("%.2f",135.45) 
-                      assert_state_variable "lower_earning_limit", sprintf("%.2f",107) 
                     end
 
                     should "display employee is entitled to pay" do
@@ -444,7 +487,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         assert_state_variable "employment_start", 26.weeks.ago(expected_start)
                         assert_state_variable "employment_end", @three_months_time 
                         assert_state_variable "sapp_rate", sprintf("%.2f",135.45) 
-                        assert_state_variable "lower_earning_limit", sprintf("%.2f",107)
+                        # assert_state_variable "lower_earning_limit", sprintf("%.2f",107)
                       end
                     end
 
@@ -457,8 +500,8 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       end 
                     end
 
-                    context "answer 102.25" do
-                      setup { add_response 102.25 }
+                    context "answer 90" do
+                      setup { add_response 90.25 }
 
                       should "paternity adoption not entitled to pay" do
                         assert_current_node :padoption_not_entitled_to_pay
