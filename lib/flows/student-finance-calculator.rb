@@ -1,14 +1,21 @@
 satisfies_need 2175
 status :published
 
+multiple_choice :when_does_your_course_start? do
+  option :'2012-2013'
+  option :'2013-2014'
+  save_input_as :start_date
+  next_node :are_you_a_full_time_or_part_time_student?
+end
+
 multiple_choice :are_you_a_full_time_or_part_time_student? do
   option :'full-time'
   option :'part-time'
   save_input_as :course_type
-  next_node :how_much_is_your_tuition_fee_per_year?
+  next_node :how_much_are_your_tuition_fees_per_year?
 end
 
-money_question :how_much_is_your_tuition_fee_per_year? do
+money_question :how_much_are_your_tuition_fees_per_year? do
   calculate :tuition_fee_amount do
     if course_type == "full-time"
       raise SmartAnswer::InvalidResponse if responses.last > 9000
@@ -62,13 +69,24 @@ multiple_choice :whats_your_household_income? do
   option :'more-than-42600'
 
   calculate :maintenance_grant_amount do
-    case responses.last
-    when "up-to-25000" then Money.new('3250')
-    when "25001-30000" then Money.new('2341')
-    when "30001-35000" then Money.new('1432')
-    when "35001-40000" then Money.new('523')
-    when "40001-42600" then Money.new('50')
-    when "more-than-42600" then Money.new('0')
+    if start_date == "2013-2014"
+      case responses.last
+      when "up-to-25000" then Money.new('3354')
+      when "25001-30000" then Money.new('2416')
+      when "30001-35000" then Money.new('1478')
+      when "35001-40000" then Money.new('540')
+      when "40001-42600" then Money.new('50')
+      when "more-than-42600" then Money.new('0')
+      end
+    else
+      case responses.last
+      when "up-to-25000" then Money.new('3250')
+      when "25001-30000" then Money.new('2341')
+      when "30001-35000" then Money.new('1432')
+      when "35001-40000" then Money.new('523')
+      when "40001-42600" then Money.new('50')
+      when "more-than-42600" then Money.new('0')
+      end
     end
   end
 
@@ -87,6 +105,7 @@ multiple_choice :whats_your_household_income? do
       :part_time_do_you_want_to_check_for_additional_grants_and_allowances?
     end
   end
+
 end
 
 multiple_choice :full_time_do_you_want_to_check_for_additional_grants_and_allowances? do
@@ -100,15 +119,32 @@ multiple_choice :full_time_do_you_want_to_check_for_additional_grants_and_allowa
       PhraseList.new
     end
   end
+
+  calculate :extra_grants do
+    if responses.last == "no"
+      PhraseList.new(:additional_grants_and_allowances)
+    else
+      PhraseList.new
+    end
+  end
+
 end
 
 multiple_choice :part_time_do_you_want_to_check_for_additional_grants_and_allowances? do
   option :yes => :do_you_have_a_disability_or_health_condition?
   option :no => :done
-
+  
   calculate :additional_benefits do
     if responses.last == "yes"
       PhraseList.new(:body)
+    else
+      PhraseList.new
+    end
+  end
+
+  calculate :extra_grants do
+    if responses.last == "no"
+      PhraseList.new(:additional_grants_and_allowances)
     else
       PhraseList.new
     end
@@ -152,7 +188,7 @@ end
 multiple_choice :are_you_in_financial_hardship? do
   option :yes
   option :no
-
+  
   calculate :additional_benefits do
     responses.last == "yes" ? additional_benefits + :financial_hardship : additional_benefits
   end
@@ -182,4 +218,24 @@ multiple_choice :are_you_studying_one_of_these_courses? do
   next_node :done
 end
 
-outcome :done
+outcome :done do
+
+  precalculate :additional_benefits do
+    a = [:dependent_children, :dependent_adult, :disability, :financial_hardship, :teacher_training, :medical, :social_work]
+    if (additional_benefits.phrase_keys & a).empty?
+      PhraseList.new
+    else
+      additional_benefits
+    end
+  end
+
+  precalculate :extra_grants do
+    a = [:dependent_children, :dependent_adult, :disability, :financial_hardship, :teacher_training, :medical, :social_work]
+    if (additional_benefits.phrase_keys & a).empty?
+      PhraseList.new(:additional_grants_and_allowances)
+    else
+      extra_grants
+    end
+  end
+
+end
