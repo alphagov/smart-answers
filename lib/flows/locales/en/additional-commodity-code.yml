@@ -102,4 +102,5 @@ en-GB:
           "0": "0-5.99"
           "6": "6 or more"
       commodity_code_result:
-        title: %{conditional_result}
+        title: "%{conditional_result}"
+

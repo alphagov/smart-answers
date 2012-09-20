@@ -81,10 +81,11 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                   assert_state_variable "smp_b", (135.40 * 0.9).round(2).to_s
                 end
                 should "calculate and present the result" do
+                  assert_phrase_list :maternity_leave_info, [:maternity_leave_table]
                   assert_current_node :maternity_leave_and_pay_result
                 end
-              end
-            end
+              end #answer 135.40
+            end #answer yes to QM5 on payroll
             context "answer no" do
               should "state that you they are not entitled to pay" do
                 add_response :no
@@ -92,7 +93,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                 assert_current_node :maternity_leave_and_pay_result
               end
             end
-          end
+          end #answer yes to QM4
           context "answer no" do
             should "state that you they are not entitled to pay" do
               add_response :no
@@ -101,7 +102,51 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
             end
           end
         end
-      end # Yes to employee has contract?
+      end # answer Yes to QM2 employee has contract?
+      context "no contract" do
+        setup do
+          add_response :no
+        end
+        should "ask when the employee wants to start their leave" do
+          assert_current_node :date_leave_starts?
+        end
+        context "answer 2 months from now" do
+          setup do
+            add_response @two_months_from_now
+          end
+          ## QM4
+          should "ask if the employee worked for you before or on this date" do
+            assert_current_node :did_the_employee_work_for_you?
+          end
+          context "answer yes" do
+            setup do
+              add_response :yes
+            end
+            ## QM5
+            should "ask if the employee is on your payroll" do
+              assert_current_node :is_the_employee_on_your_payroll?
+            end
+            context "answer yes" do
+              setup do
+                add_response :yes
+              end
+              ## QM6
+              should "ask what the employees average weekly earnings are" do
+                assert_current_node :employees_average_weekly_earnings?
+              end
+              context "answer 101.00" do
+                setup do
+                  add_response 101.00
+                end
+                should "display not eligible for leave nor pay" do
+                  assert_phrase_list :maternity_leave_info, [:not_entitled_to_statutory_maternity_leave]
+                  assert_state_variable "not_entitled_to_pay_reason", :must_earn_over_threshold
+                end
+              end
+            end
+          end
+        end 
+      end # no to QM2 employee has contract?
     end
   end # Maternity flow
   

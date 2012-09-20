@@ -18,7 +18,7 @@ end
 
 ## QM2
 multiple_choice :employment_contract? do
-  option :yes
+  option :yes 
   option :no
   calculate :maternity_leave_info do
     if responses.last == 'yes'
@@ -103,7 +103,7 @@ money_question :employees_average_weekly_earnings? do
     :must_earn_over_threshold
   end
   calculate :eligible_for_maternity_pay do
-    if responses.last > calculator.lower_earning_limit
+    if responses.last >= calculator.lower_earning_limit
       true
     else
       false
