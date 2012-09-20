@@ -260,7 +260,7 @@ date_question :employee_date_matched_paternity_adoption? do
     Date.parse(responses.last)
   end
   calculate :calculator do
-    Calculators::MaternityPaternityCalculator.new(matched_date, "adoption")
+    Calculators::MaternityPaternityCalculator.new(matched_date, Calculators::MaternityPaternityCalculator::LEAVE_TYPE_ADOPTION)
   end
   next_node :padoption_date_of_adoption_placement?
 end
@@ -386,7 +386,7 @@ end
 ## QA1
 date_question :date_of_adoption_match? do
   calculate :calculator do
-    Calculators::MaternityPaternityCalculator.new(Date.parse(responses.last), "adoption")
+    Calculators::MaternityPaternityCalculator.new(Date.parse(responses.last), Calculators::MaternityPaternityCalculator::LEAVE_TYPE_ADOPTION)
   end
   next_node :date_of_adoption_placement?
 end

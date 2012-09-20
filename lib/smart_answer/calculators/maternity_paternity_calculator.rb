@@ -7,8 +7,10 @@ module SmartAnswer::Calculators
     attr_accessor :employment_contract, :leave_start_date, :average_weekly_earnings
     
     MATERNITY_RATE = PATERNITY_RATE = 135.45
+    LEAVE_TYPE_BIRTH = "birth"
+    LEAVE_TYPE_ADOPTION = "adoption"
 
-    def initialize(match_or_due_date, birth_or_adoption = "birth")
+    def initialize(match_or_due_date, birth_or_adoption = LEAVE_TYPE_BIRTH)
       @due_date = match_or_due_date
       @leave_type = birth_or_adoption
       expected_start = match_or_due_date - match_or_due_date.wday
@@ -73,7 +75,7 @@ module SmartAnswer::Calculators
     end
 
     def lower_earning_limit
-      if @leave_type == "birth"
+      if @leave_type == LEAVE_TYPE_BIRTH
         lower_earning_limit_birth
       else
         lower_earning_limit_adoption

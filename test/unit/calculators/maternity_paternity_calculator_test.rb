@@ -140,17 +140,17 @@ module SmartAnswer::Calculators
       context "specific date tests (for lower_earning_limits) for adoption" do
         should "return lower_earning_limit 107" do
           @match_date = Date.parse("1 April 2012")
-          @calculator = MaternityPaternityCalculator.new(@match_date, "adoption")
+          @calculator = MaternityPaternityCalculator.new(@match_date, MaternityPaternityCalculator::LEAVE_TYPE_ADOPTION)
           assert_equal @calculator.lower_earning_limit, 107
         end
         should "return lower_earning_limit 102" do
           @match_date = Date.parse("31 March 2012")
-          @calculator = MaternityPaternityCalculator.new(@match_date, "adoption")
+          @calculator = MaternityPaternityCalculator.new(@match_date, MaternityPaternityCalculator::LEAVE_TYPE_ADOPTION)
           assert_equal @calculator.lower_earning_limit, 102
         end
         should "return lower_earning_limit 97" do
           @match_date = Date.parse("2 April 2011")
-          @calculator = MaternityPaternityCalculator.new(@match_date, "adoption")
+          @calculator = MaternityPaternityCalculator.new(@match_date, MaternityPaternityCalculator::LEAVE_TYPE_ADOPTION)
           assert_equal @calculator.lower_earning_limit, 97
         end
       end
