@@ -62,7 +62,7 @@ en-GB:
           |End date                             | %{pay_end_date}            |
           |Weekly rate - first 6 weeks          | £%{smp_a}                  |
           |Weekly rate - for remaining 33 weeks | £%{smp_b}                  |
-          |Latest date to give notice           | %{notice_of_leave_deadline}|
+          |Latest date to give notice           | %{notice_of_leave_deadline} (and provide proof they're pregnant by %{proof_of_pregnancy_date})|
 
         not_entitled_to_smp_intro: |
           ##Statutory maternity pay
@@ -170,7 +170,9 @@ en-GB:
           |------------------------------|-----------------------------|
           |Start                         | %{leave_start_date}         |
           |End                           | %{leave_end_date}           |
-          |Earliest date leave can start | %{leave_earliest_start_date}|
+          |Earliest date leave can start | For UK adoptions- %{leave_earliest_start_date}|
+          | | For overseas adoptions - %{adoption_placement_date} or within 28 days from this date|
+          | | For foster parents - %{adoption_placement_date}|
 
         adoption_not_entitled_to_leave: |
           ##Statutory Adoption Leave 

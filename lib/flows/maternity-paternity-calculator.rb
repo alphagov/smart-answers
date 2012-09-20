@@ -54,6 +54,9 @@ date_question :date_leave_starts? do
   calculate :employment_start do
     calculator.employment_start
   end
+  calculate :proof_of_pregnancy_date do
+    calculator.proof_of_pregnancy_date
+  end
   next_node :did_the_employee_work_for_you?
 end
 
@@ -257,7 +260,7 @@ date_question :employee_date_matched_paternity_adoption? do
     Date.parse(responses.last)
   end
   calculate :calculator do
-    Calculators::MaternityPaternityCalculator.new(matched_date)
+    Calculators::MaternityPaternityCalculator.new(matched_date, "adoption")
   end
   next_node :padoption_date_of_adoption_placement?
 end
@@ -383,7 +386,7 @@ end
 ## QA1
 date_question :date_of_adoption_match? do
   calculate :calculator do
-    Calculators::MaternityPaternityCalculator.new(Date.parse(responses.last))
+    Calculators::MaternityPaternityCalculator.new(Date.parse(responses.last), "adoption")
   end
   next_node :date_of_adoption_placement?
 end

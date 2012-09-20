@@ -46,26 +46,6 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         add_response "200"
         assert_state_variable "lower_earning_limit", sprintf("%.2f",102) 
       end
-      should "return lower_earning_limit of £97" do
-        dd =Date.parse("1 January 2011")
-        add_response dd
-        add_response :yes
-        add_response 1.month.ago(dd)
-        add_response :yes
-        add_response :yes
-        add_response "200"
-        assert_state_variable "lower_earning_limit", sprintf("%.2f",97) 
-      end
-      should "return lower_earning_limit of £95" do
-        dd =Date.parse("1 January 2010")
-        add_response dd
-        add_response :yes
-        add_response 1.month.ago(dd)
-        add_response :yes
-        add_response :yes
-        add_response "200"
-        assert_state_variable "lower_earning_limit", sprintf("%.2f",95) 
-      end
     end
 
     context "answer 2 months from now" do
@@ -413,7 +393,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
       context "date matched date given as 3 months ago" do
         setup { add_response 3.months.ago(Date.today).strftime("%Y-%m-%d") }
 
-        # QAP1.2
+        # QAP2
         should "ask for the date the adoption placement will start" do
           assert_current_node :padoption_date_of_adoption_placement?
         end
@@ -421,7 +401,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         context "placement date given as 2 months ahead" do
           setup { add_response 2.months.since(Date.today).strftime("%Y-%m-%d") }
 
-          # QAP2
+          # QAP3
           should "ask if employee is responsible for upbringing" do
             assert_current_node :padoption_employee_responsible_for_upbringing?
           end
@@ -429,7 +409,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
           context "answer yes" do
             setup { add_response :yes }
 
-            # QAP3 
+            # QAP4
             should "ask if employee started on or before employment_start" do
               assert_current_node :padoption_employee_start_on_or_before_employment_start?
             end
@@ -437,7 +417,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
             context "answer yes" do
               setup { add_response :yes }
               
-              # QAP4
+              # QAP5
               should "ask if employee has an employment contract" do
                  assert_current_node :padoption_have_employee_contract?
               end
@@ -489,7 +469,6 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         assert_state_variable "employment_start", 26.weeks.ago(expected_start)
                         assert_state_variable "employment_end", @three_months_time 
                         assert_state_variable "sapp_rate", sprintf("%.2f",135.45) 
-                        # assert_state_variable "lower_earning_limit", sprintf("%.2f",107)
                       end
 
                       should "display pay info" do
