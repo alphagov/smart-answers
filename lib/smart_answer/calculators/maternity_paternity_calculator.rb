@@ -6,7 +6,7 @@ module SmartAnswer::Calculators
     
     attr_accessor :employment_contract, :leave_start_date, :average_weekly_earnings
     
-    LOWER_EARNING_LIMITS = { 2011 => 102, 2012 => 107 }
+    LOWER_EARNING_LIMITS = { 2010 => 97, 2011 => 102, 2012 => 107 }
     MATERNITY_RATE = PATERNITY_RATE = 135.45
 
     def initialize(match_or_due_date)
@@ -45,8 +45,18 @@ module SmartAnswer::Calculators
       (MATERNITY_RATE < statutory_maternity_rate ? MATERNITY_RATE : statutory_maternity_rate)
     end
     
-    def lower_earning_limit(year=Date.today.year)
-      LOWER_EARNING_LIMITS[year]
+    def earning_limit_rates
+      [
+        {min: Date.parse("17 July 2009"), max: Date.parse("16 July 2010"), lower_earning_limit_rate: 95},
+        {min: Date.parse("17 July 2010"), max: Date.parse("16 July 2011"), lower_earning_limit_rate: 97},
+        {min: Date.parse("17 July 2011"), max: Date.parse("14 July 2012"), lower_earning_limit_rate: 102},
+        {min: Date.parse("15 July 2012"), max: Date.parse("13 July 2013"), lower_earning_limit_rate: 107}
+      ]
+    end
+
+    def lower_earning_limit
+      earning_limit_rate = earning_limit_rates.find { |c| c[:min] < @due_date and c[:max] > @due_date }
+      (earning_limit_rate ? earning_limit_rate[:lower_earning_limit_rate] : 107)
     end
     
     def employment_end
@@ -77,5 +87,6 @@ module SmartAnswer::Calculators
       statutory_maternity_rate_b
     end
     
+
   end
 end
