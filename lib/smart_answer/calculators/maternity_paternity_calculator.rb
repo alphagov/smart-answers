@@ -6,11 +6,11 @@ module SmartAnswer::Calculators
     
     attr_accessor :employment_contract, :leave_start_date, :average_weekly_earnings
     
-    LOWER_EARNING_LIMITS = { 2010 => 97, 2011 => 102, 2012 => 107 }
     MATERNITY_RATE = PATERNITY_RATE = 135.45
 
-    def initialize(match_or_due_date)
+    def initialize(match_or_due_date, birth_or_adoption = "birth")
       @due_date = match_or_due_date
+      @leave_type = birth_or_adoption
       expected_start = match_or_due_date - match_or_due_date.wday
       @expected_week = expected_start .. expected_start + 6.days
       @notice_of_leave_deadline = qualifying_start = 15.weeks.ago(expected_start)
@@ -45,7 +45,7 @@ module SmartAnswer::Calculators
       (MATERNITY_RATE < statutory_maternity_rate ? MATERNITY_RATE : statutory_maternity_rate)
     end
     
-    def earning_limit_rates
+    def earning_limit_rates_birth
       [
         {min: Date.parse("17 July 2009"), max: Date.parse("16 July 2010"), lower_earning_limit_rate: 95},
         {min: Date.parse("17 July 2010"), max: Date.parse("16 July 2011"), lower_earning_limit_rate: 97},
@@ -54,9 +54,30 @@ module SmartAnswer::Calculators
       ]
     end
 
-    def lower_earning_limit
-      earning_limit_rate = earning_limit_rates.find { |c| c[:min] < @due_date and c[:max] > @due_date }
+    def lower_earning_limit_birth
+      earning_limit_rate = earning_limit_rates_birth.find { |c| c[:min] <= @due_date and c[:max] >= @due_date }
       (earning_limit_rate ? earning_limit_rate[:lower_earning_limit_rate] : 107)
+    end
+
+    def earning_limit_rates_adoption
+      [
+        {min: Date.parse("3 April 2010"), max: Date.parse("2 April 2011"), lower_earning_limit_rate: 97},
+        {min: Date.parse("3 April 2011"), max: Date.parse("31 March 2012"), lower_earning_limit_rate: 102},
+        {min: Date.parse("1 April 2012"), max: Date.parse("30 March 2013"), lower_earning_limit_rate: 107} 
+      ]
+    end
+
+    def lower_earning_limit_adoption
+      earning_limit_rate = earning_limit_rates_adoption.find { |c| c[:min] <= @due_date and c[:max] >= @due_date }
+      (earning_limit_rate ? earning_limit_rate[:lower_earning_limit_rate] : 107)
+    end
+
+    def lower_earning_limit
+      if @leave_type == "birth"
+        lower_earning_limit_birth
+      else
+        lower_earning_limit_adoption
+      end
     end
     
     def employment_end
