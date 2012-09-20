@@ -97,13 +97,31 @@ en-GB:
       do_you_have_a_disability_or_health_condition?:
         hint: This includes a mental health condition or learning difficulty eg dyslexia.
       are_you_in_financial_hardship?:
-        body: For example, if you're from a low-income family or you find it hard to pay for basics like food and accommodation.
+        body: "For example, if you're from a low-income family or you find it hard to pay for basics like food and accommodation."
       are_you_studying_one_of_these_courses?:
         options:
           teacher-training: Teacher training
           dental-medical-or-healthcare: Dental, medical, or healthcare
           social-work: Social work
           none: None of these
+      done_dont_qualify:
+        body: |
+          
+          You could get:
+
+          %{eligible_finance}
+
+          %{additional_benefits}
+
+          You don’t qualify for extra grants and allowances.
+
+          You could also get extra [bursaries or scholarships](/extra-money-pay-university "Help from your university or college") from your university or college.
+
+          ^Student loans have to be paid back - grants do not.
+        next_steps: |
+
+          - [apply for student finance](http://www.studentfinance.direct.gov.uk/ "Apply for student finance")
+          - [read the guide to student finance](/apply-for-student-finance-2012-13 "Guide to student finance")
       done:
         body: |
           You could get:

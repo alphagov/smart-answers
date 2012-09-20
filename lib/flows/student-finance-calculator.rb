@@ -105,6 +105,7 @@ multiple_choice :whats_your_household_income? do
       :part_time_do_you_want_to_check_for_additional_grants_and_allowances?
     end
   end
+
 end
 
 multiple_choice :full_time_do_you_want_to_check_for_additional_grants_and_allowances? do
@@ -126,12 +127,13 @@ multiple_choice :full_time_do_you_want_to_check_for_additional_grants_and_allowa
       PhraseList.new
     end
   end
+
 end
 
 multiple_choice :part_time_do_you_want_to_check_for_additional_grants_and_allowances? do
   option :yes => :do_you_have_a_disability_or_health_condition?
   option :no => :done
-
+  
   calculate :additional_benefits do
     if responses.last == "yes"
       PhraseList.new(:body)
@@ -186,7 +188,7 @@ end
 multiple_choice :are_you_in_financial_hardship? do
   option :yes
   option :no
-
+  
   calculate :additional_benefits do
     responses.last == "yes" ? additional_benefits + :financial_hardship : additional_benefits
   end
@@ -216,4 +218,24 @@ multiple_choice :are_you_studying_one_of_these_courses? do
   next_node :done
 end
 
-outcome :done
+outcome :done do
+
+  precalculate :additional_benefits do
+    a = [:dependent_children, :dependent_adult, :disability, :financial_hardship, :teacher_training, :medical, :social_work]
+    if (additional_benefits.phrase_keys & a).empty?
+      PhraseList.new
+    else
+      additional_benefits
+    end
+  end
+
+  precalculate :extra_grants do
+    a = [:dependent_children, :dependent_adult, :disability, :financial_hardship, :teacher_training, :medical, :social_work]
+    if (additional_benefits.phrase_keys & a).empty?
+      PhraseList.new(:additional_grants_and_allowances)
+    else
+      extra_grants
+    end
+  end
+
+end
