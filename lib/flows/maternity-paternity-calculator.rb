@@ -361,7 +361,7 @@ outcome :padoption_not_entitled_to_leave_or_pay
 ## QA0
 multiple_choice :maternity_or_paternity_leave_for_adoption? do
   option :maternity => :date_of_adoption_match? # QA1
-#  option :paternity =>
+  option :paternity => :employee_date_matched_paternity_adoption? #QAP1
 end
 
 ## QA1
@@ -384,8 +384,18 @@ end
 
 ## QA3
 multiple_choice :adoption_employment_contract? do
-  option :yes => :adoption_date_leave_starts?
-  option :no => :adoption_not_entitled_to_leave
+  option :yes
+  option :no
+
+  save_input_as :employee_has_contract_adoption
+
+  #not entitled to leave if no contract; keep asking questions to check eligibility
+  calculate :adoption_leave_info do
+    if responses.last == 'no'
+      PhraseList.new(:adoption_not_entitled_to_leave)
+    end
+  end
+  next_node :adoption_date_leave_starts?
 end
 
 ## QA4
@@ -418,21 +428,31 @@ end
 multiple_choice :adoption_did_the_employee_work_for_you? do
   option :yes => :adoption_is_the_employee_on_your_payroll?
   option :no => :adoption_not_entitled_to_leave_or_pay
+  #at this point we know for sure if employee is entitled to leave
+  calculate :adoption_leave_info do
+    if (responses.last == 'yes') and (employee_has_contract_adoption == 'yes')
+      PhraseList.new(:adoption_leave_table)
+    else
+      PhraseList.new(:adoption_not_entitled_to_leave)
+    end
+  end
   calculate :relevant_period do
     calculator.relevant_period
-  end
-  calculate :adoption_pay_inelligibility_reason do
-    PhraseList.new :not_worked_long_enough
   end
 end
 
 ## QA6
 multiple_choice :adoption_is_the_employee_on_your_payroll? do
-  calculate :adoption_pay_inelligibility_reason do
-    PhraseList.new :must_be_on_payroll
-  end
   option :yes => :adoption_employees_average_weekly_earnings?
-  option :no => :adoption_not_entitled_to_pay
+  option :no => :adoption_leave_and_pay
+  calculate :adoption_pay_info do
+    if responses.last == 'no'
+      pay_info = PhraseList.new(:adoption_not_entitled_to_pay_intro)
+      pay_info << :must_be_on_payroll
+      pay_info << :adoption_not_entitled_to_pay_outro
+    end
+    pay_info
+  end
 end
 
 ## QA7
@@ -444,19 +464,18 @@ money_question :adoption_employees_average_weekly_earnings? do
  calculate :lower_earning_limit do
    sprintf("%.2f", calculator.lower_earning_limit)
  end
- calculate :adoption_pay_inelligibility_reason do
-   PhraseList.new :must_earn_over_threshold
- end
- next_node do |response|
-    if response > calculator.lower_earning_limit
-      :adoption_leave_and_pay
+ calculate :adoption_pay_info do
+    if responses.last >= calculator.lower_earning_limit
+      PhraseList.new(:adoption_pay_table)
     else
-      :adoption_not_entitled_to_pay
+      pay_info = PhraseList.new(:adoption_not_entitled_to_pay_intro)
+      pay_info << :must_earn_over_threshold
+      pay_info << :adoption_not_entitled_to_pay_outro
+      pay_info
     end
   end
+  next_node :adoption_leave_and_pay
 end
 
 outcome :adoption_leave_and_pay
-outcome :adoption_not_entitled_to_leave
-outcome :adoption_not_entitled_to_pay
 outcome :adoption_not_entitled_to_leave_or_pay
