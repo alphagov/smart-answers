@@ -528,15 +528,16 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
           should "ask if the employee has a contract" do
             assert_current_node :adoption_employment_contract?
           end
-          context "answer yes" do
+          context "answer yes to contract" do
             setup do
               add_response :yes
             end
             ## QA4
             should "ask when the employee wants to start their leave" do
+              assert_state_variable "employee_has_contract_adoption", 'yes'
               assert_current_node :adoption_date_leave_starts?
             end
-            context "answer 1 month form now" do
+            context "answer 1 month from now" do
               setup do
                 add_response 1.month.since(Date.today).strftime("%Y-%m-%d")
               end
@@ -561,41 +562,108 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                     assert_current_node :adoption_employees_average_weekly_earnings?
                   end
                   context "answer below the lower earning limit" do
-                    should "state they are not entitled to pay" do
+                    should "state they are entitled to leave but not entitled to pay" do
                       add_response 100
-                      assert_current_node :adoption_not_entitled_to_pay
+                      assert_phrase_list :adoption_leave_info, [:adoption_leave_table]
+                      assert_phrase_list :adoption_pay_info, [:adoption_not_entitled_to_pay_intro, :must_earn_over_threshold, :adoption_not_entitled_to_pay_outro]
+                      assert_current_node :adoption_leave_and_pay
                     end
                   end
                   context "answer above the earning limit" do
                     should "give adoption leave and pay details" do
                       add_response 200
+                      assert_phrase_list :adoption_leave_info, [:adoption_leave_table]
+                      assert_phrase_list :adoption_pay_info, [:adoption_pay_table]
                       assert_current_node :adoption_leave_and_pay
                     end
                   end
-                end
+                end # yes to QA6 - on payroll
                 context "answer no" do
-                  should " state they are not entitled to pay" do
+                  should " state they are entitled to leave but not entitled to pay" do
                     add_response :no
-                    assert_current_node :adoption_not_entitled_to_pay
+                    assert_phrase_list :adoption_leave_info, [:adoption_leave_table]
+                    assert_phrase_list :adoption_pay_info, [:adoption_not_entitled_to_pay_intro, :must_be_on_payroll, :adoption_not_entitled_to_pay_outro]
+                    assert_current_node :adoption_leave_and_pay
                   end
                 end
-              end
+              end # yes to QA5 - worked for you before
               context "answer no" do
-                should "state they are not entitled to leave" do
+                should "state they are not entitled to leave or pay" do
                   add_response :no
                   assert_current_node :adoption_not_entitled_to_leave_or_pay
                 end
               end
             end
-          end
-          context "answer no" do
-            should "state that they are not entitled to leave or pay" do
+          end # yes to QA3 - has a contract
+          # now run through the branch where there is no contract as that means not entitled to leave
+          context "answer no to contract" do
+            setup do
               add_response :no
-              assert_current_node :adoption_not_entitled_to_leave
             end
-          end
+            should "ask when the employee wants to start their leave" do
+              assert_state_variable "employee_has_contract_adoption", 'no'
+              assert_current_node :adoption_date_leave_starts?
+            end
+            context "answer 1 month from now" do
+              setup do
+                add_response 1.month.since(Date.today).strftime("%Y-%m-%d")
+              end
+              ## QA5
+              should "ask if the employee worked for you before ..." do
+                assert_current_node :adoption_did_the_employee_work_for_you?
+              end
+              context "answer yes" do
+                setup do
+                  add_response :yes
+                end
+                ## QA6
+                should "ask if the employee is on your payroll" do
+                  assert_current_node :adoption_is_the_employee_on_your_payroll?
+                end
+                context "answer yes" do
+                  setup do
+                    add_response :yes
+                  end
+                  ## QA7
+                  should "ask what the average weekly earnings of the employee" do
+                    assert_current_node :adoption_employees_average_weekly_earnings?
+                  end
+                  context "answer below the lower earning limit" do
+                    should "state they are not entitled to leave and not entitled to pay" do
+                      add_response 100
+                      assert_phrase_list :adoption_leave_info, [:adoption_not_entitled_to_leave]
+                      assert_phrase_list :adoption_pay_info, [:adoption_not_entitled_to_pay_intro, :must_earn_over_threshold, :adoption_not_entitled_to_pay_outro]
+                      assert_current_node :adoption_leave_and_pay
+                    end
+                  end
+                  context "answer above the earning limit" do
+                    should "not entitled to leave but entitled to pay" do
+                      add_response 200
+                      assert_phrase_list :adoption_leave_info, [:adoption_not_entitled_to_leave]
+                      assert_phrase_list :adoption_pay_info, [:adoption_pay_table]
+                      assert_current_node :adoption_leave_and_pay
+                    end
+                  end
+                end # yes to QA6 - on payroll
+                context "answer no" do
+                  should " state they are not entitled to leave nor pay" do
+                    add_response :no
+                    assert_phrase_list :adoption_leave_info, [:adoption_not_entitled_to_leave]
+                    assert_phrase_list :adoption_pay_info, [:adoption_not_entitled_to_pay_intro, :must_be_on_payroll, :adoption_not_entitled_to_pay_outro]
+                    assert_current_node :adoption_leave_and_pay
+                  end
+                end
+              end # yes to QA5 - worked for you before
+              context "answer no" do
+                should "state they are not entitled to leave or pay" do
+                  add_response :no
+                  assert_current_node :adoption_not_entitled_to_leave_or_pay
+                end
+              end
+            end
+          end # no to contract (QA3)
         end
       end
     end
-  end
+  end # adoption
 end
