@@ -328,6 +328,10 @@ multiple_choice :padoption_employed_at_employment_end? do
       pay_info = PhraseList.new (:padoption_not_entitled_to_pay_intro)
       pay_info << :pa_must_be_employed_by_you
       pay_info << :padoption_not_entitled_to_pay_outro
+      #not entitled to pay so add form download links to end of leave info if they were entitled to leave
+      if padoption_leave_info.phrase_keys.include?(:padoption_entitled_to_leave)
+        padoption_leave_info << :padoption_leave_and_pay_forms
+      end
     end
     pay_info
   end
@@ -342,6 +346,10 @@ multiple_choice :padoption_employee_on_payroll? do
       pay_info = PhraseList.new(:padoption_not_entitled_to_pay_intro)
       pay_info << :must_be_on_payroll
       pay_info << :padoption_not_entitled_to_pay_outro
+      #not entitled to pay so add form download links to end of leave info if they were entitled to leave
+      if padoption_leave_info.phrase_keys.include?(:padoption_entitled_to_leave)
+        padoption_leave_info << :padoption_leave_and_pay_forms
+      end
     end
     pay_info
   end
@@ -359,10 +367,15 @@ money_question :padoption_employee_avg_weekly_earnings? do
   calculate :padoption_pay_info do
     if responses.last >= calculator.lower_earning_limit
       pay_info = PhraseList.new(:padoption_entitled_to_pay)
+      pay_info << :padoption_leave_and_pay_forms
     else
       pay_info = PhraseList.new(:padoption_not_entitled_to_pay_intro)
       pay_info << :must_earn_over_threshold
       pay_info << :padoption_not_entitled_to_pay_outro
+      #not entitled to pay so add form download links to end of leave info if they were entitled to leave
+      if padoption_leave_info.phrase_keys.include?(:padoption_entitled_to_leave)
+        padoption_leave_info << :padoption_leave_and_pay_forms
+      end
     end
     pay_info
   end

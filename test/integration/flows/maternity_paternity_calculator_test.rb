@@ -475,7 +475,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       end
 
                       should "display pay info" do
-                        assert_phrase_list :padoption_pay_info, [:padoption_entitled_to_pay]
+                        assert_phrase_list :padoption_pay_info, [:padoption_entitled_to_pay, :padoption_leave_and_pay_forms]
                         assert_current_node :padoption_leave_and_pay
                       end
                     end

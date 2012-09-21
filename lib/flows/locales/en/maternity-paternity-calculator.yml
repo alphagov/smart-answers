@@ -124,12 +124,6 @@ en-GB:
 
           Usually, paternity leave can’t start before placement date and should be taken within 56 days of this date.
 
-
-          $D
-          [Download Form SC4 - paternity pay and or leave request (UK adoption) (PDF, 50 KB)](http://www.hmrc.gov.uk/forms/sc4.pdf "Download Form SC4 - paternity pay and or leave request (UK adoption) (PDF, 50 KB)"){:rel="external"}
-          [Download Form SC5 - paternity pay and or leave request (overseas adoptions) (PDF, 70KB)](http://www.hmrc.gov.uk/forms/sc5.pdf "Download Form SC5 - paternity pay and or leave request (overseas adoptions) (PDF, 70KB)"){:rel="external"}
-          $D
-
         padoption_entitled_to_pay: |
           ##Statutory Paternity Pay
 
@@ -137,6 +131,8 @@ en-GB:
 
           They should request this using form SC4 or SC5.
 
+        padoption_leave_and_pay_forms: |
+        
 
           $D
           [Download Form SC4 - paternity pay and or leave request (UK adoption) (PDF, 50 KB)](http://www.hmrc.gov.uk/forms/sc4.pdf "Download Form SC4 - paternity pay and or leave request (UK adoption) (PDF, 50 KB)"){:rel="external"}
