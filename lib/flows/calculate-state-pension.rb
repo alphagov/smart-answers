@@ -237,7 +237,6 @@ value_question :years_of_benefit? do
     benefit_years = Integer(response)
     ni = (qualifying_years + benefit_years)
     if calculator.not_qualifying_or_available_test?(ni)
-    # if (qualifying_years + benefit_years) > 29
       :amount_result    
     else
       :years_of_caring? # Q8

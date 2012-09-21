@@ -89,10 +89,6 @@ module SmartAnswer::Calculators
       should "qualifying_years_credit = 2" do
         assert_equal 2, @calculator.qualifying_years_credit
       end
-
-      should "ni_years_to_date = 1" do
-        assert_equal 1, @calculator.ni_years_to_date
-      end
     end 
 
     context "female born 6 Oct 1949 " do
@@ -124,41 +120,126 @@ module SmartAnswer::Calculators
       should "return ni_years_to_date = 3" do
         dob = (22.years.ago + 3.months).to_s
         @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: dob, qualifying_years: nil)
-        assert_equal 3, @calculator.available_years
+        assert_equal 2, @calculator.available_years
       end
       should "return ni_years_to_date = 2" do
         dob = (22.years.ago - 3.months).to_s
         @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: dob, qualifying_years: nil)
-        assert_equal 2, @calculator.available_years
+        assert_equal 3, @calculator.available_years
       end
     end
     
+
     context "test available years functions" do
-      setup do
-        dob = 32.years.ago.to_s
-        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: dob, qualifying_years: 10)
+      context "male born 26 years and one month plus, no qualifying_years" do
+        setup do
+          dob = 1.month.since(26.years.ago).to_s
+          @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "male", dob: dob, qualifying_years: nil)
+        end
+
+        should "avialable_years = 6" do
+          assert_equal 6, @calculator.available_years
+        end
+      end
+      context "male born 26 years and one month ago, no qualifying_years" do
+        setup do
+          dob = 1.month.ago(26.years.ago).to_s
+          @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "male", dob: dob, qualifying_years: nil)
+        end
+
+        should "avialable_years = 7" do
+          assert_equal 7, @calculator.available_years
+        end
+      end
+      # NOTE: leave this test in case we need to turn on the day calculation
+      # context "male born 26 years and one day in future, no qualifying_years" do
+      #   setup do
+      #     dob = 1.day.since(26.years.ago).to_s
+      #     @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "male", dob: dob, qualifying_years: nil)
+      #   end
+
+      #   should "avialable_years = 6" do
+      #     assert_equal 6, @calculator.available_years
+      #   end
+      # end
+      context "male born 26 years and one day ago, no qualifying_years" do
+        setup do
+          dob = 1.day.ago(26.years.ago).to_s
+          @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "male", dob: dob, qualifying_years: nil)
+        end
+
+        should "avialable_years = 7" do
+          assert_equal 7, @calculator.available_years
+        end
+      end
+      context "male born 26 years, no qualifying_years" do
+        setup do
+          dob = 26.years.ago.to_s
+          @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "male", dob: dob, qualifying_years: nil)
+        end
+
+        should "avialable_years = 7" do
+          assert_equal 7, @calculator.available_years
+        end
       end
 
-      should "available years sum return 3" do
-        assert_equal 13, @calculator.available_years
-        assert_equal 3, @calculator.available_years_sum
+      context "32 years old with 10 qualifying_years" do
+        setup do
+          dob = 32.years.ago.to_s
+          @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+            gender: "female", dob: dob, qualifying_years: 10)
+        end
+
+        should "available years sum return 3" do
+          assert_equal 13, @calculator.available_years
+          assert_equal 3, @calculator.available_years_sum
+        end
+
+        should "has_available_years? return true" do
+          assert @calculator.has_available_years?
+        end
+
+        should "has_available_years?(13) return false" do
+          assert ! @calculator.has_available_years?(14)
+        end
+
+        should "not_qualifying_or_available_test?(13) return true" do
+          assert @calculator.not_qualifying_or_available_test?(13)
+        end
+
+        should "not_qualifying_or_available_test? return true" do
+          assert ! @calculator.not_qualifying_or_available_test?
+        end
       end
 
-      should "has_available_years? return true" do
-        assert @calculator.has_available_years?
+      context "(testing qualifying_years from years_of_work) born 5th May 1958" do
+        setup do
+          dob = "5th May 1958"
+          years = 29
+          @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+            gender: "male", dob: dob, qualifying_years: years)
+        end
+
+        should "three_year_credit_age = false" do
+          assert ! @calculator.three_year_credit_age?
+        end
+        should "qualifying_years: 27 and qualifying_years_credit: 2" do
+          qy = @calculator.qualifying_years
+          qyc = @calculator.qualifying_years_credit
+          assert_equal 29, qy
+          assert_equal 2, qyc
+        end
+        context "add 3 to simulate a legitmate entry in years_of_work question" do
+          should "qualifying_years_total: 34" do
+            qy = @calculator.qualifying_years
+            qyc = @calculator.qualifying_years_credit
+            qy = qy + 3
+            qualifying_years_total = qy + qyc
+            assert_equal 34, qualifying_years_total
+          end
+        end
       end
 
-      should "has_available_years?(13) return false" do
-        assert ! @calculator.has_available_years?(14)
-      end
-
-      should "not_qualifying_or_available_test?(13) return true" do
-        assert @calculator.not_qualifying_or_available_test?(13)
-      end
-
-      should "not_qualifying_or_available_test? return true" do
-        assert ! @calculator.not_qualifying_or_available_test?
-      end
     end
   end
 end

@@ -130,10 +130,9 @@ module SmartAnswer::Calculators
     def ni_years_to_date
       today = Date.today
       years = today.year - ni_start_date.year
-      years = years - 1 if (
-         today.month >  ni_start_date.month or 
-        (today.month >= ni_start_date.month and today.day > ni_start_date.day)
-      )
+      years = ((ni_start_date.month > today.month) ? years - 1 : years)
+      # NOTE: leave this code in case we need to work out by day
+      # years = ((ni_start_date.month == today.month and ni_start_date.day > today.day) ? years - 1 : years)
       years
     end
 

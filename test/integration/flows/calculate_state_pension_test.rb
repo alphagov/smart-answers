@@ -62,6 +62,17 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_current_node :dob_amount?
       end
 
+      ## Dai's test
+      context "born 31 Aug 1986" do
+        setup do
+          add_response Date.parse("31 Aug 1986")
+        end
+
+        should "be available_ni_years 7" do
+          assert_state_variable "available_ni_years", 7
+        end
+      end
+
       context "born 5 Apr 1952 - automatic_years test" do
         setup do
           add_response Date.parse("5th April 1952")
@@ -541,7 +552,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         end
       end
 
-      context "(testing from years_of_work) born in '55, NI = 10, JSA = 5, cb = no " do
+      context "(testing from years_of_work) born in '58, NI = 10, JSA = 5, cb = no " do
         setup do
           add_response Date.parse("5th May 1958")
           add_response 22
@@ -550,7 +561,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         end
 
         should "be at years_of_work" do
-          assert_state_variable "available_ni_years", 5
           assert_current_node :years_of_work?
         end 
 
@@ -561,15 +571,10 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
         should "return amount_result on entering 3" do
           add_response 3
-          assert_state_variable "qualifying_years", 32
-          assert_state_variable "qualifying_years_total", 34
           assert_current_node :amount_result
         end
       end
 
-
-
-      
       ## Too old for automatic age related credits.
       context "58 years old" do
         setup do
