@@ -62,17 +62,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_current_node :dob_amount?
       end
 
-      ## Dai's test
-      context "born 31 Aug 1986" do
-        setup do
-          add_response Date.parse("31 Aug 1986")
-        end
-
-        should "be available_ni_years 7" do
-          assert_state_variable "available_ni_years", 7
-        end
-      end
-
       context "born 5 Apr 1952 - automatic_years test" do
         setup do
           add_response Date.parse("5th April 1952")
@@ -108,7 +97,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
           end
         end
       end
-
 
       context "born before 6/10/1953" do
         setup do 
@@ -345,7 +333,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
           end
         end
       end
-
     end
 
     context "female" do
@@ -484,7 +471,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
           end
         end
       end
-
 
       context "(testing from years_of_benefit) age 40, NI = 5, JSA = 5, cb = yes " do
         setup do
@@ -639,7 +625,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
           add_response 20
           add_response 0
           add_response :no
-          # add_response 0
         end
         
         should "add 3 years credit for a person born between 1959 and 1992" do
@@ -672,7 +657,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
           add_response 0
           add_response :no
           add_response 0
-          # add_response 0
         end
         
         should "add 1 year credit for a person born between April 1957 and April 1958" do
