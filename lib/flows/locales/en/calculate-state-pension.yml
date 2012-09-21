@@ -192,8 +192,7 @@ en-GB:
           - you cared for someone sick or disabled 
           - you worked as a registered carer
         hint: These are years when you were getting Home Responsibility Protection. Enter 0 if none of these apply or if you were paying reduced National Insurance for women.
-        error_message: |
-          Based on your previous answers you can enter up to %{available_ni_years} or 22, whichever is smaller.
+        error_message: "Please enter a number. You can enter between 0 and %{years_you_can_enter}."
       ## Q8 
       years_of_caring?:
         title: "After April 2010 how many years did any of the following apply:"
@@ -201,7 +200,7 @@ en-GB:
           - you cared for a child under 12
           - you cared for someone sick or disabled
           - you were a registered foster carer
-        error_message: Please enter a number. You can only enter up to %{available_ni_years} or %{allowed_caring_years}, whichever is smaller.
+        error_message: Please enter a number. You can enter between 0 and %{years_you_can_enter}.
       ## Q9
       years_of_carers_allowance?:
         title: How many years of Carer’s Allowance did you get?
@@ -211,7 +210,7 @@ en-GB:
       years_of_work?:
         title: How many years between age 16 and 19 were you in full-time education or working?
         hint: Include the years you were claiming benefits because of unemployment, illness or disability.
-        error_message: The maximum number of years you can enter is %{available_ni_years} or 3, whichever is smaller.
+        error_message: Please enter a number. You can enter between 0 and %{years_you_can_enter}.
 
 
       ## Outcomes:

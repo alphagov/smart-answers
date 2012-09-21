@@ -663,6 +663,21 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
           assert_state_variable "missing_years", 9
         end
       end
+      context "years_you_can_enter test" do
+        setup do
+          add_response 49.years.ago.to_s
+          add_response 20
+          add_response 5
+          add_response :yes
+        end
+        
+        should "return 5" do
+          # add_response 0
+          assert_state_variable "available_ni_years", 5
+          assert_state_variable "years_you_can_enter", 5
+          assert_current_node :years_of_benefit?
+        end
+      end
     end # gender
   end #amount calculation
 end #ask which calculation

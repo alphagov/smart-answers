@@ -190,7 +190,7 @@ module SmartAnswer::Calculators
             gender: "female", dob: dob, qualifying_years: 10)
         end
 
-        should "available years sum return 3" do
+        should "available_years = 13; available_years_sum = 3" do
           assert_equal 13, @calculator.available_years
           assert_equal 3, @calculator.available_years_sum
         end
@@ -240,6 +240,20 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "years_can_be_entered test" do
+        should "should return 5" do
+          @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+            gender: "male", dob: 49.years.ago.to_s, qualifying_years: 25)
+          assert_equal 5, @calculator.available_years_sum
+          assert_equal 5, @calculator.years_can_be_entered(@calculator.available_years_sum,22)
+        end
+        should "should return 22" do
+          @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+            gender: "male", dob: 49.years.ago.to_s, qualifying_years: 5)
+          assert_equal 25, @calculator.available_years_sum
+          assert_equal 22, @calculator.years_can_be_entered(@calculator.available_years_sum,22)
+        end
+      end
     end
   end
 end

@@ -148,5 +148,9 @@ module SmartAnswer::Calculators
       (qual_years > 29) or (available_years_sum(qual_years) < 1)
     end
 
+    def years_can_be_entered(ay,max_num)
+      (ay > max_num ? max_num : ay)
+    end
+
   end
 end
