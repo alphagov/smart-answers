@@ -49,6 +49,16 @@ module SmartAnswer::Calculators
       end
     end
 
+    def determine_lower_rate
+      lower_rate = (@overtime_hourly_rate >= basic_hourly_rate ? basic_hourly_rate : @overtime_hourly_rate)
+      lower_rate
+    end
+
+    def lower_rate_total
+      lower_rate = determine_lower_rate
+      ((lower_rate * basic_hours) + (determine_lower_rate * @overtime_hours) + @accommodation_cost).round(2)
+    end
+
     def historical_entitlement
       (minimum_hourly_rate * total_hours).round(2)
     end
