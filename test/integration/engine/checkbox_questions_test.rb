@@ -39,8 +39,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
           within '.answer' do
             assert_equal ['Ham', 'Pepperoni'], page.all("li").map(&:text)
           end
-          # TODO: Fix wierd ?& in link...
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/checkbox-sample/y?&previous_response=ham%2Cpepperoni") }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/checkbox-sample/y/?previous_response=ham%2Cpepperoni") }
         end
       end
 
@@ -65,8 +64,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
             assert_page_has_content "What do you want on your pizza?"
           end
           within('.answer') { assert_page_has_content "none" }
-          # TODO: Fix wierd ?& in link...
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/checkbox-sample/y?&previous_response=none") }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/checkbox-sample/y/?previous_response=none") }
         end
       end
 

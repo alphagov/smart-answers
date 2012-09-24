@@ -21,11 +21,7 @@ class SmartAnswersController < ApplicationController
       }
     end
 
-    set_slimmer_headers(
-      section: @presenter.section_slug,
-      need_id: @presenter.need_id,
-      proposition: @presenter.proposition
-    )
+    set_slimmer_artefact(@presenter.artefact)
   end
 
 private
@@ -62,6 +58,6 @@ private
   end
 
   def render_404
-    render file: 'public/404.html', status: 404
+    render file: 'public/404', formats: [:html], status: 404
   end
 end

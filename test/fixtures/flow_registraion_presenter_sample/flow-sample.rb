@@ -1,4 +1,3 @@
-section_slug "sample"
 satisfies_need 4242
 
 multiple_choice :hotter_or_colder? do

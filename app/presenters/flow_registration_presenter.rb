@@ -17,14 +17,10 @@ class FlowRegistrationPresenter
     lookup_translation("title") || @flow.name.to_s.humanize
   end
 
-  def section
-    lookup_translation("section") || @flow.section_slug.humanize
-  end
-
   def paths
     [@flow.name, "#{@flow.name}.json"]
   end
-  
+
   def prefixes
     [@flow.name]
   end
@@ -51,8 +47,8 @@ class FlowRegistrationPresenter
     )
   end
 
-  def live
-    true
+  def state
+    'live'
   end
 
 private

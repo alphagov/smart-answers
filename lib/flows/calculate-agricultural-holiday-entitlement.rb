@@ -1,5 +1,4 @@
 status :draft
-section_slug "work"
 
 calculator = AgriculturalHolidayEntitlementCalculator.new()
 
@@ -61,7 +60,8 @@ end
 
 value_question :how_many_total_days? do
   calculate :total_days_worked do
-    if responses.last.to_i > calculator.available_days
+
+    if Integer(responses.last) > calculator.available_days
       raise SmartAnswer::InvalidResponse, "Please enter a valid number of days (max: #{calculator.available_days})"
     end
     responses.last
@@ -74,12 +74,16 @@ value_question :how_many_weeks_at_current_employer? do
   next_node :done
 
   calculate :holiday_entitlement_days do
+    #Has to be less than a full year
+    if (Integer(responses.last) > 51)
+      raise SmartAnswer::InvalidResponse
+    end
     if !days_worked_per_week.nil?
       days = calculator.holiday_days(days_worked_per_week)
     elsif !weeks_from_october_1.nil?
       days = calculator.holiday_days total_days_worked.to_f / weeks_from_october_1.to_f
     end
-    sprintf("%.1f", days * (responses.last.to_i / 52.0))
+    sprintf("%.1f", days * (Integer(responses.last) / 52.0))
   end
 end
 

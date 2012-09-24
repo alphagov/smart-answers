@@ -1,6 +1,6 @@
 function browserSupportsHtml5HistoryApi() {
   return !! (history && history.replaceState && history.pushState);
-};
+}
 
 $(document).ready(function() {
   //_gaq.push(['_trackEvent', 'Citizen-Format-Smartanswer', 'Load']);
@@ -27,12 +27,12 @@ $(document).ready(function() {
 
     // manage next/back by tracking popstate event
     window.onpopstate = function (event) {
-      if(event.state != null) {
+      if(event.state !== null) {
         updateContent(event.state['html_fragment']);
       } else {
         return false;
       }
-    }
+    };
   }
 
   $('#current-error').focus();
@@ -40,7 +40,7 @@ $(document).ready(function() {
   // helper functions
   function toJsonUrl(url) {
     var parts = url.split('?');
-    var json_url = parts[0] + ".json";
+    var json_url = parts[0].replace(/\/$/, "") + ".json";
     if (parts[1]) {
       json_url += "?";
       json_url += parts[1];
@@ -58,20 +58,20 @@ $(document).ready(function() {
       addToHistory(data);
       updateContent(data['html_fragment']);
     });
-  };
+  }
 
   // manage the URL
   function addToHistory(data) {
     history.pushState(data, data['title'], data['url']);
-  };
+  }
 
   // update the content (i.e. plonk in the html fragment)
   function updateContent(fragment){
     $('.smart_answer section').html(fragment);
-    if($(".results").length != 0){
+    if($(".results").length !== 0){
       //_gaq.push(['_trackEvent', 'Citizen-Format-Smartanswer', 'Success-results']);
     }
-  };
+  }
 
   function initializeHistory(data) {
     if (! browserSupportsHtml5HistoryApi() && window.location.pathname.match(/\/.*\//) ) {
@@ -84,6 +84,6 @@ $(document).ready(function() {
       url: window.location.toString()
     };
     history.replaceState(data, data['title'], data['url']);
-  };
+  }
 
 });

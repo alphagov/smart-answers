@@ -9,7 +9,7 @@ multiple_choice :age_of_employee? do
   next_node :years_employed?
 end
 
-# This needs validation - any string not representing a numeric value will be converted to 0.0 e.g. 'whatever'.to_f => 0.0 
+# This needs validation - any string not representing a numeric value will be converted to 0.0 e.g. 'whatever'.to_f => 0.0
 # Using Float(response) instead will fail with an ArgumentError that will be handled by the flow controller
 value_question :years_employed? do
   save_input_as :years_employed

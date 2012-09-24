@@ -28,9 +28,16 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
         assert page.has_link?("Get started", :href => "/bridge-of-death/y")
       end
 
+      assert page.has_selector?("#content .article-container #test-report_a_problem")
+
       click_on "Get started"
 
       assert_current_url "/bridge-of-death/y"
+
+      # This is asserting that the form URL doesn't get created with a trailing /
+      # If this happens, the cache servers strip off the / and redirect.  This breaks things.
+      form = page.find(:xpath, "id('content')//form")
+      assert_equal "/bridge-of-death/y", form[:action]
 
       assert page.has_xpath?("//meta[@name = 'robots'][@content = 'noindex']")
 
@@ -57,8 +64,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
             assert_page_has_content "What...is your name?"
           end
           within('.answer') { assert_page_has_content "Lancelot" }
-          # TODO: Fix wierd ?& in link...
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y?&previous_response=Lancelot") }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y/?previous_response=Lancelot") }
         end
       end
 
@@ -90,8 +96,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
             assert_page_has_content "What...is your name?"
           end
           within('.answer') { assert_page_has_content "Lancelot" }
-          # TODO: Fix wierd ?& in link...
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y?&previous_response=Lancelot") }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y/?previous_response=Lancelot") }
         end
         within 'ol li.done:nth-child(2)' do
           within 'h3' do
@@ -131,8 +136,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
             assert_page_has_content "What...is your name?"
           end
           within('.answer') { assert_page_has_content "Lancelot" }
-          # TODO: Fix wierd ?& in link...
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y?&previous_response=Lancelot") }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y/?previous_response=Lancelot") }
         end
         within 'ol li.done:nth-child(2)' do
           within 'h3' do
@@ -158,6 +162,8 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
           assert_page_has_content "Oh! Well, thank you. Thank you very much."
         end
       end
+
+      assert page.has_selector?("#content .article-container #test-report_a_problem")
     end
   end # with_and_without_javascript
 
@@ -180,8 +186,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
           assert_page_has_content "What...is your name?"
         end
         within('.answer') { assert_page_has_content "Robin" }
-        # TODO: Fix wierd ?& in link...
-        within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y?&previous_response=Robin") }
+        within('.undo') { assert page.has_link?("Change this answer", :href => "/bridge-of-death/y/?previous_response=Robin") }
       end
       within 'ol li.done:nth-child(2)' do
         within 'h3' do

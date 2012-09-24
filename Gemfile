@@ -1,32 +1,26 @@
 source 'http://rubygems.org'
 source 'https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/'
 
-gem 'gds-warmup-controller'
-
-# passenger compatability
-group :passenger_compatibility do
-  gem 'rack', '1.3.5'
-  gem 'rake', '0.9.2'
-end
-
-gem 'rails', '3.1.3'
+gem 'unicorn', '4.3.1'
+gem 'rails', '~> 3.2.8'
 gem 'rails-i18n'
 gem 'json'
 gem 'plek', '~> 0.1'
 gem 'rummageable'
 gem 'aws-ses', :require => 'aws/ses' # Needed by exception_notification
 gem 'exception_notification'
+gem 'lograge'
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
 else
-  gem 'gds-api-adapters', '0.2.0'
+  gem 'gds-api-adapters', '2.1.0'
 end
 gem 'htmlentities', '~> 4'
 
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
 else
-  gem 'slimmer', '1.1.45'
+  gem 'slimmer', '3.3.2'
 end
 
 if ENV['GOVSPEAK_DEV']
@@ -41,7 +35,8 @@ group :test do
   gem 'mocha', :require => false
   gem "shoulda", "~> 2.11.3"
   gem 'webmock', :require => false
-  gem "simplecov", "0.4.2"
+  gem "simplecov", "~> 0.6.4", :require => false
+  gem "simplecov-rcov", "~> 0.2.3", :require => false
   gem 'capybara-webkit', "~> 0.12.1"
 end
 
@@ -52,4 +47,8 @@ end
 
 if ENV['RUBY_DEBUG']
   gem 'ruby-debug19'
+end
+
+group :analytics do
+  gem "google-api-client", :require => 'google/api_client'
 end

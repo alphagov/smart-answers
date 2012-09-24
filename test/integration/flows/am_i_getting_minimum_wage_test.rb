@@ -27,7 +27,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
     
     context "answered 'apprentice under 19' to 'are you an apprentice?'" do
       setup do
-        add_response :apprentice_over_19
+        add_response :apprentice_under_19
       end
       should "ask 'how often do you get paid?'" do
         assert_current_node :how_often_do_you_get_paid?
@@ -66,7 +66,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         
         context "answered weekly to 'how often do you get paid?'" do
           setup do
-            add_response "7"
+            add_response 7
           end
           
           # Q5
@@ -196,8 +196,58 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           end # Basic hours
         end # Pay frequency
       end # Age
+      
+      # Scenario 8 from https://docs.google.com/a/digital.cabinet-office.gov.uk/spreadsheet/ccc?key=0An9oCYIY2AELdHVsckdKM0VWc2NFZ0J6MXFtdEY3MVE#gid=0
+      context "25 year old" do
+        setup do
+          add_response 25
+          add_response 7
+          add_response 35
+          add_response 350
+          add_response 10
+          add_response 12
+          add_response :yes_charged
+          add_response 30
+          add_response 7
+        end
+        should "be below the minimum wage" do
+          assert_current_node :current_payment_below
+        end
+        should "make outcome calculations" do
+          assert_state_variable "total_hours", 45
+          assert_state_variable "minimum_hourly_rate", 6.08
+          assert_state_variable "total_hourly_rate", 6.07
+          assert_state_variable "above_minimum_wage", false
+        end
+      end
+
+      # Scenario 8 - part 2 - living in free accommodation instead of charged
+      context "25 year old" do
+        setup do
+          add_response 25
+          add_response 7
+          add_response 35
+          add_response 350
+          add_response 10
+          add_response 12
+          add_response :yes_free
+          add_response 7
+        end
+        should "be above the minimum wage" do
+          assert_current_node :current_payment_above
+        end
+        should "make outcome calculations" do
+          assert_state_variable "total_hours", 45
+          assert_state_variable "minimum_hourly_rate", 6.08
+          assert_state_variable "total_hourly_rate", "10.74"
+          assert_state_variable "above_minimum_wage", true
+        end
+      end
+      
     end # Apprentice
   end # Current pay
+
+
 
   # Past payments
   #
@@ -206,13 +256,13 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       add_response :past_payment
     end
     
-    should "ask 'which year do you want to check?'" do
-      assert_current_node :past_payment_year?
+    should "ask 'which date do you want to check?'" do
+      assert_current_node :past_payment_date?
     end
     
-    context "answer 2009" do
+    context "answer 2009-10-01" do
       setup do
-        add_response 2009
+        add_response "2009-10-01"
       end
     
       # Q2
@@ -225,7 +275,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           add_response :apprentice_over_19
         end
         should "ask 'how often did you get paid?'" do
-          assert_current_node :how_often_did_you_get_paid?
+          assert_current_node :does_not_apply_to_historical_apprentices
         end
       end
     
@@ -234,7 +284,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           add_response :apprentice_over_19
         end
         should "ask 'how often did you get paid?'" do
-          assert_current_node :how_often_did_you_get_paid?
+          assert_current_node :does_not_apply_to_historical_apprentices
         end
         
       end
@@ -327,6 +377,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                     should "show the results" do
                       assert_current_node :past_payment_above
                     end
+
                   end
                 
                   # Where accommodation is charged under the £4.73 threshold.
@@ -357,7 +408,14 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                         end
                         
                         should "show results" do
-                          assert_current_node :past_payment_above
+                          assert_current_node :past_payment_below
+                        end
+                        
+                        should "make outcome calculations" do
+                          assert_state_variable "total_hours", 42
+                          assert_state_variable "minimum_hourly_rate", 4.83
+                          assert_state_variable "total_hourly_rate", "3.75"
+                          assert_state_variable "above_minimum_wage", false
                         end
                       end
                     end
@@ -367,7 +425,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
              
               # Again with a better basic pay to achieve < min. wage.
               #
-              context "answer '200' to 'how much do you get paid?'" do
+              context "answer '200' to 'how much did you get paid?'" do
                 setup do
                   add_response 200
                   add_response 0 # overtime hours
@@ -381,6 +439,68 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           end # Pay frequency
         end # Age
       end # Apprentice
-    end # Year in question
+    end # Date in question
+    
+    # Test for alternative historical apprentice outcome
+    #
+    context "answer 2010-10-01" do
+      setup do
+        add_response '2010-10-01'
+        add_response :apprentice_over_19
+      end
+      
+      should "ask 'how often did you get paid?'" do
+        assert_current_node :how_often_did_you_get_paid?
+      end
+    end
+    
+    # Scenario 12 from spreadsheet
+    context "17 year old in 2008-09" do
+      setup do
+        add_response Date.parse("2008-10-01")
+        add_response :no
+        add_response 17 # age at the time
+        add_response 30 # pay frequency
+        add_response 210 # basic hours
+        add_response 840  # basic pay
+        add_response 0   # overtime hours
+      end
+      # Scenario 12 in free accommodation
+      context "living in free accommodation" do
+        setup do
+          add_response :yes_free # accommodation type
+          add_response 5   # days per week in accommodation
+        end
+        should "be above the minimum wage" do
+          assert_current_node :past_payment_above
+        end
+        should "make outcome calculations" do
+          assert_state_variable "total_hours", 210
+          assert_state_variable "minimum_hourly_rate", 3.53
+          assert_state_variable "total_hourly_rate", "4.46"
+          assert_state_variable "above_minimum_wage", true
+          assert_state_variable "historical_adjustment", 0
+        end
+      end
+      # Scenario 12 in accommodation charged above the threshold
+      context "living in charged accommodation" do
+        setup do
+          add_response :yes_charged
+          add_response 10  # accommodation cost
+          add_response 7   # days per week in accommodation
+        end
+        should "be below the minimum wage" do
+          assert_current_node :past_payment_below
+        end
+        should "make outcome calculations" do
+          assert_state_variable "total_hours", 210
+          assert_state_variable "minimum_hourly_rate", 3.53
+          assert_state_variable "total_hourly_rate", "3.21"
+          assert_state_variable "above_minimum_wage", false
+          assert_state_variable "historical_adjustment", 70.38
+        end
+      end
+      
+    end
   end # Past pay
 end

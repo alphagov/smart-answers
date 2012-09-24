@@ -125,14 +125,6 @@ class FlowTest < ActiveSupport::TestCase
     assert s.draft?
   end
 
-  test "should have a section slug" do
-    s = SmartAnswer::Flow.new do
-      section_slug "family"
-    end
-
-    assert_equal "family", s.section_slug
-  end
-
   test "should have a status" do
     s = SmartAnswer::Flow.new do
       status :published
@@ -243,6 +235,24 @@ class FlowTest < ActiveSupport::TestCase
         end
       end
       outcome :done
+    end
+
+    state = flow.process(["1"])
+    assert_equal SmartAnswer::Money.new('1'), state.price
+    assert_equal 2.0, state.double
+  end
+
+  should "perform precalculations on saved inputs" do
+    flow = SmartAnswer::Flow.new do
+      money_question :how_much? do
+        next_node :done
+        save_input_as :price
+      end
+      outcome :done do
+        precalculate :double do
+          price.value * 2
+        end
+      end
     end
 
     state = flow.process(["1"])

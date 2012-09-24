@@ -9,8 +9,8 @@ class FlowRegistraionPresenterTest < ActiveSupport::TestCase
     I18n.config.load_path.unshift example_translation_file
     I18n.reload!
     registry = SmartAnswer::FlowRegistry.new(load_path: File.expand_path('../../fixtures/flow_registraion_presenter_sample', __FILE__))
-    flow = registry.flows.first
-    @presenter = FlowRegistrationPresenter.new(flow)
+    @flow = registry.flows.first
+    @presenter = FlowRegistrationPresenter.new(@flow)
   end
 
   def teardown
@@ -38,17 +38,6 @@ class FlowRegistraionPresenterTest < ActiveSupport::TestCase
   context "need_id" do
     should "use the flow's need_id" do
       assert_equal 4242, @presenter.need_id
-    end
-  end
-
-  context "section" do
-    should "use the translated section_name" do
-      assert_equal "SECTION", @presenter.section
-    end
-
-    should "use the humanized section_slug if no translation is available" do
-      I18n.stubs(:translate!).raises(I18n::MissingTranslationData.new(:en, "anything", {}))
-      assert_equal "Sample", @presenter.section
     end
   end
 
@@ -125,9 +114,9 @@ class FlowRegistraionPresenterTest < ActiveSupport::TestCase
     end
   end
 
-  context "live" do
-    should "always return true, because the FlowRegistry decides what to register" do
-      assert_equal true, @presenter.live
+  context "state" do
+    should "always return live, because the FlowRegistry decides what to register" do
+      assert_equal 'live', @presenter.state
     end
   end
 end

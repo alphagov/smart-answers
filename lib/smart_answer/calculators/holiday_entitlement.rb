@@ -130,7 +130,7 @@ module SmartAnswer::Calculators
     def strip_zeros(number)
       number.to_s.sub(/\.0+$/, '')
     end
-    
+
     def method_missing(*args)
       # formatted_foo calls format_number on foo
       if args.first.to_s =~ /\Aformatted_(.*)\z/

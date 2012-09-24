@@ -1,5 +1,4 @@
-status :draft
-section_slug "work"
-satisfies_need "9999"
+status :published
+satisfies_need "1761"
 
 use_shared_logic "redundancy_pay"

@@ -24,12 +24,13 @@
           <%= @presenter.body %>
         <% end %>
         <p class="get-started">
-          <a href="<%= smart_answer_path(@smart_answer_name, started: 'y') %>" class="big button">Get started <span class="indicator"></span></a>
+          <a href="<%= smart_answer_path(@name, started: 'y') %>" class="big button">Get started <span class="indicator"></span></a>
         </p>
       </div>
       <%= @presenter.devolved_body if @presenter.has_devolved_body? %>
     </div>
   </article>
+  <%= render :partial => 'smartanswer_metadata' %>
 </div>
 
 <div id="related-items"></div>

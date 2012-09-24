@@ -1,5 +1,4 @@
 status :draft
-section_slug "travel"
 
 multiple_choice :has_your_passport_been_lost_or_stolen? do
   option :lost
@@ -16,11 +15,11 @@ multiple_choice :adult_or_child_passport? do
 
   save_input_as :age
 
-  calculate :child_advice do 
+  calculate :child_advice do
     age == 'child' ? PhraseList.new(:child_forms) : PhraseList.new
   end
 
-  next_node do 
+  next_node do
     case lost_or_stolen
       when 'lost' then :where_was_the_passport_lost?
       when 'stolen' then :where_was_the_passport_stolen?

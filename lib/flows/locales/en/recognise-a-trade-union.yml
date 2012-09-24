@@ -3,18 +3,22 @@ en-GB:
     recognise-a-trade-union:
       title: Recognise or derecognise a trade union
       body: |
-        If you are an employer who agrees to negotiate or work with a trade union, this means that you recognise this union. You can also derecognise a union. These processes can be either voluntary, or statutory (involving the Central Arbitration Committee (CAC)). Find out how each process works.
-
+        If you are an employer who agrees to negotiate or work with a trade union, 
+        this means that you recognise this union. You can also derecognise a union. 
+        These processes can be either voluntary, or statutory through the Central Arbitration Committee (CAC). 
+        Find out how each process works.
+      meta:
+        description: Find out about processes for recognising or derecognising a trade union.
       options:
         "yes": "Yes"
         "no": "No"
 
       # Q1
       what_do_you_need_to_do?:
-        title: "Do you need to:"
+        title: "What do you want to do?"
         options:
-          recognise_a_trade_union: recognise a trade union
-          derecoognise_a_trade_union: derecognise a trade union
+          recognise_a_trade_union: Recognise a trade union
+          derecognise_a_trade_union: Derecognise a trade union
 
       # Q2
       do_you_want_to_recognise_the_union_voluntarily?:
@@ -30,13 +34,10 @@ en-GB:
       # Q4
       have_they_submitted_an_application?:
         title: Has the union applied to the Central Arbitration Committee (CAC) for recognition?
-
+        hint: The union must let you know if they apply to the CAC.
       # Q5
       have_cac_accepted_the_application?:
-        title: "Has the CAC:"
-        options:
-          accepted: accepted the union's application
-          rejected: rejected the union's application
+        title: "Has the CAC accepted the union’s application?"
         body: |
           You may need to provide the CAC with information about your business and employees. 
 
@@ -48,26 +49,35 @@ en-GB:
       agreed_on_bargaining_unit?:
         title: Have you agreed on the bargaining unit with the union?
         body: |
-          The bargaining unit is the group of workers that the union will act for.   
-
-          You have 20 working days to agree on this, otherwise the CAC will make a decision for you. 
-
-          You may have to supply information about your employees if asked.
+          The bargaining unit is the group of workers that the union will act for.
 
           Both parties can ask [Acas](http://www.acas.org.uk/ "Acas"){:rel="external"} to help negotiate during this process.
 
           *[CAC]:Central Arbitration Committee
 
+      # Q6a
+      cac_decided_bargaining_unit?:
+        title: Has the CAC decided the bargaining unit for you?
+        body: |
+          You may have to supply information about your employees if asked.
+
+          *[CAC]:Central Arbitration Committee
+
       # Q7
       has_the_cac_ordered_a_ballot?:
-        title: "Has the CAC:"
+        title: "Has the CAC done either of the following?"
         options:
-          declared_recognition: declared union recognition
-          ordered_ballot: ordered a ballot
+          declared_recognition: Declared union recognition
+          ordered_ballot: Ordered a ballot
 
       # Q8
       did_the_majority_support_the_union_in_the_ballot?:
         title: Did a majority support the union in the ballot?
+
+      # QY
+      does_the_union_agree_with_derecognition_voluntarily?:
+        title: Have you and the union agreed that the union can be derecognised voluntarily?
+        hint: If you're not able to agree this voluntarily, you can follow the statutory derecognition process.  
 
       # Q9
       has_it_been_3_years_since_gaining_recognition?:
@@ -77,9 +87,9 @@ en-GB:
       on_what_grounds_are_you_seeking_derecognition?:
         title: Why are you seeking statutory derecognition of the union?
         options:
-          reduced_workforce: reduced workforce (you have fewer than 21 employees on average over a 13-week period)
-          lack_of_support_for_bargaining: the bargaining unit doesn’t support the union
-          falling_union_membership: union membership in the bargaining unit is lower than 50%
+          reduced_workforce: Reduced workforce (you have fewer than 21 employees on average over a 13-week period)
+          lack_of_support_for_bargaining: The bargaining unit doesn’t support the union
+          falling_union_membership: Union membership in the bargaining unit is lower than 50%
         body: |
           [More information about the statutory derecognition procedure](http://www.cac.gov.uk/index.aspx?articleid=2334 "More information about the statutory derecognition procedure"){:rel="external"}
 
@@ -102,10 +112,7 @@ en-GB:
 
       # Q12
       is_your_derecognition_valid?:
-        title: "Has the CAC decided that your notice is:"
-        options:
-          valid: valid
-          not_valid: not valid
+        title: "Has the CAC decided that your notice is valid?"
 
       # Q13
       written_to_union?:
@@ -172,19 +179,17 @@ en-GB:
       the_union_cannot_apply_for_statutory_recognition:
         title: You don’t have to recognise the union.
         body: |
-          The union can't apply for statutory recognition at this point because there aren’t enough employees.  
-
+          The union can’t apply for statutory recognition if you have fewer than 21 employees.
       # A3
       no_action_required:
-        title: No action required - but the union may apply to the CAC at a later date.
-
+        title: The union remains unrecognised and you don’t have to do anything - but the union may apply to the CAC at a later date.
       # A4
       you_do_not_have_to_recognise_the_union_can_reapply:
         title: You don't have to recognise the union - but the union can re-apply to the CAC at any time.
 
       # A5
       you_must_recognise_the_union:
-        title: You must recognize the union.
+        title: You must recognise the union.
         body: |
           Both parties should draw up an agreement setting out:
 
@@ -199,12 +204,18 @@ en-GB:
         body: |
           It can’t make a new application for recognition for 3 years (assuming the bargaining unit remains the same).
 
+      ## AX
+      cac_will_decide_bargaining_unit:
+        title: If you can't agree within 20 working days, the CAC will decide the bargaining unit for you. 
+        body: |
+          They’ll write to you and the union and continue with the recognition process.
+
 
       # A7
       you_cannot_seek_derecognition:
         title: You can't seek derecognition.
         body: |
-          You must continue with the existing bargaining arrangements.
+          You must continue with the existing bargaining arrangements - you can seek derecognition 3 years after the union was recognised if you still want to.
 
       # A8
       write_to_union:
@@ -213,6 +224,10 @@ en-GB:
           Both parties must consider your notice.
 
           Both parties can ask [Acas](http://www.acas.org.uk/ "Acas"){:rel="external"} to help negotiate at this stage of the process.
+
+      ## AY
+      union_voluntarily_derecognised:
+        title: The union is voluntarily derecognised and you can end any bargaining arrangements.
 
       # A9
       the_union_is_derecognised_and_bargaining_will_end:

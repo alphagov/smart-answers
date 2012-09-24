@@ -65,5 +65,4 @@ Capybara.javascript_driver = :webkit
 
 I18n.load_path += Dir[Rails.root.join(*%w{test fixtures flows locales * *.{rb,yml}})]
 
-require 'webmock/test_unit'
 WebMock.disable_net_connect!(:allow_localhost => true)
