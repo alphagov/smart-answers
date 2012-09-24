@@ -1,4 +1,4 @@
-status :draft
+status :published
 satisfies_need "B659"
 
 # Q1
@@ -223,4 +223,12 @@ multiple_choice :how_much_milk_protein_gh? do
   next_node :commodity_code_result
 end
 
-outcome :commodity_code_result
+outcome :commodity_code_result do
+  precalculate :additional_info do
+    if commodity_code != 'X'
+      PhraseList.new(:result_explanation_code)
+    else
+      ''
+    end
+  end
+end
