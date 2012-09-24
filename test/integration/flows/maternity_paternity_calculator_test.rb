@@ -50,8 +50,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
 
     context "answer 21 November 2012" do
       setup do
-        dd = Date.parse("21 November 2012")
-        add_response dd
+        add_response Date.parse("21 November 2012")
       end
       ## QM2
       should "ask if the employee has a contract with you" do
@@ -67,8 +66,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         end
         context "answer 21 November 2012" do
           setup do
-            ld = Date.parse("21 November 2012")
-            add_response ld
+            add_response Date.parse("21 November 2012")
           end
           ## QM4
           should "ask if the employee worked for you before or on this date" do
@@ -95,13 +93,13 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                   add_response 135.40
                 end
                 should "calculate dates and pay amounts" do
-                  two_months_time = 2.months.since(Date.today)
-                  start_of_week = two_months_time - two_months_time.wday
-                  assert_state_variable "leave_start_date", two_months_time
-                  assert_state_variable "leave_end_date", 52.weeks.since(two_months_time)
+                  leave_start = Date.parse("21 November 2012")
+                  start_of_week = leave_start - leave_start.wday
+                  assert_state_variable "leave_start_date", leave_start
+                  assert_state_variable "leave_end_date", 52.weeks.since(leave_start)
                   assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week)
-                  assert_state_variable "pay_start_date", two_months_time
-                  assert_state_variable "pay_end_date", 39.weeks.since(two_months_time)
+                  assert_state_variable "pay_start_date", leave_start
+                  assert_state_variable "pay_end_date", 39.weeks.since(leave_start)
                   assert_state_variable "smp_a", (135.40 * 0.9).round(2).to_s
                   assert_state_variable "smp_b", (135.40 * 0.9).round(2).to_s
                 end
