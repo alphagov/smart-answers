@@ -167,7 +167,7 @@ en-GB:
       years_paid_ni?:
         title: How many years have you worked and paid tax from the age of 19?
         hint: |
-          These are the years you paid National Insurance towards you State Pension. Enter 0 if you haven’t worked.
+          These are the years you paid National Insurance towards your State Pension. Enter 0 if you haven’t worked.
         error_message: |
           Your answer has to match the number of years you actually worked and paid National Insurance. 
           Based on your date of birth you can enter up to %{available_ni_years} years.
