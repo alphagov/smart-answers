@@ -130,10 +130,9 @@ module SmartAnswer::Calculators
     def ni_years_to_date
       today = Date.today
       years = today.year - ni_start_date.year
-      years = years - 1 if (
-         today.month >  ni_start_date.month or 
-        (today.month >= ni_start_date.month and today.day > ni_start_date.day)
-      )
+      years = ((ni_start_date.month > today.month) ? years - 1 : years)
+      # NOTE: leave this code in case we need to work out by day
+      # years = ((ni_start_date.month == today.month and ni_start_date.day > today.day) ? years - 1 : years)
       years
     end
 
@@ -147,6 +146,10 @@ module SmartAnswer::Calculators
 
     def not_qualifying_or_available_test?(qual_years = @qualifying_years)
       (qual_years > 29) or (available_years_sum(qual_years) < 1)
+    end
+
+    def years_can_be_entered(ay,max_num)
+      (ay > max_num ? max_num : ay)
     end
 
   end
