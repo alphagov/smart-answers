@@ -62,7 +62,7 @@ en-GB:
           |End date                             | %{pay_end_date}            |
           |Weekly rate - first 6 weeks          | £%{smp_a}                  |
           |Weekly rate - for remaining 33 weeks | £%{smp_b}                  |
-          |Latest date to give notice           | %{notice_of_leave_deadline}|
+          |Latest date to give notice           | %{notice_of_leave_deadline} (and provide proof they're pregnant by %{proof_of_pregnancy_date})|
 
         not_entitled_to_smp_intro: |
           ##Statutory maternity pay
@@ -124,12 +124,6 @@ en-GB:
 
           Usually, paternity leave can’t start before placement date and should be taken within 56 days of this date.
 
-
-          $D
-          [Download Form SC4 - paternity pay and or leave request (UK adoption) (PDF, 50 KB)](http://www.hmrc.gov.uk/forms/sc4.pdf "Download Form SC4 - paternity pay and or leave request (UK adoption) (PDF, 50 KB)"){:rel="external"}
-          [Download Form SC5 - paternity pay and or leave request (overseas adoptions) (PDF, 70KB)](http://www.hmrc.gov.uk/forms/sc5.pdf "Download Form SC5 - paternity pay and or leave request (overseas adoptions) (PDF, 70KB)"){:rel="external"}
-          $D
-
         padoption_entitled_to_pay: |
           ##Statutory Paternity Pay
 
@@ -137,6 +131,8 @@ en-GB:
 
           They should request this using form SC4 or SC5.
 
+        padoption_leave_and_pay_forms: |
+        
 
           $D
           [Download Form SC4 - paternity pay and or leave request (UK adoption) (PDF, 50 KB)](http://www.hmrc.gov.uk/forms/sc4.pdf "Download Form SC4 - paternity pay and or leave request (UK adoption) (PDF, 50 KB)"){:rel="external"}
@@ -170,7 +166,9 @@ en-GB:
           |------------------------------|-----------------------------|
           |Start                         | %{leave_start_date}         |
           |End                           | %{leave_end_date}           |
-          |Earliest date leave can start | %{leave_earliest_start_date}|
+          |Earliest date leave can start | For UK adoptions- %{leave_earliest_start_date}|
+          | | For overseas adoptions - %{adoption_placement_date} or within 28 days from this date|
+          | | For foster parents - %{adoption_placement_date}|
 
         adoption_not_entitled_to_leave: |
           ##Statutory Adoption Leave 
