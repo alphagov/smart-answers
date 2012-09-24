@@ -222,6 +222,11 @@ end
 
 ## Q7
 value_question :years_of_benefit? do
+
+  precalculate :years_you_can_enter do
+    calculator.years_can_be_entered(available_ni_years,22)
+  end
+
   calculate :qualifying_years do
     benefit_years = Integer(responses.last)
     qy = (benefit_years + qualifying_years)
@@ -237,7 +242,6 @@ value_question :years_of_benefit? do
     benefit_years = Integer(response)
     ni = (qualifying_years + benefit_years)
     if calculator.not_qualifying_or_available_test?(ni)
-    # if (qualifying_years + benefit_years) > 29
       :amount_result    
     else
       :years_of_caring? # Q8
@@ -252,6 +256,10 @@ value_question :years_of_caring? do
   precalculate :allowed_caring_years do
     today = Date.today
     ((today.month > 4 ? today.year : today.year - 1) - 2010)
+  end
+
+  precalculate :years_you_can_enter do
+    calculator.years_can_be_entered(available_ni_years,allowed_caring_years)
   end
 
   calculate :qualifying_years do
@@ -297,8 +305,14 @@ value_question :years_of_carers_allowance? do
   end
 end
 
+
 ## Q10
 value_question :years_of_work? do
+  
+  precalculate :years_you_can_enter do
+    calculator.years_can_be_entered(available_ni_years,3)
+  end
+
   calculate :qualifying_years do
     work_years = Integer(responses.last)
     qy = (work_years + qualifying_years)

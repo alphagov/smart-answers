@@ -98,7 +98,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         end
       end
 
-
       context "born before 6/10/1953" do
         setup do 
           add_response Date.parse("4th October 1953")
@@ -334,7 +333,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
           end
         end
       end
-
     end
 
     context "female" do
@@ -474,7 +472,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         end
       end
 
-
       context "(testing from years_of_benefit) age 40, NI = 5, JSA = 5, cb = yes " do
         setup do
           add_response 40.years.ago
@@ -541,7 +538,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         end
       end
 
-      context "(testing from years_of_work) born in '55, NI = 10, JSA = 5, cb = no " do
+      context "(testing from years_of_work) born in '58, NI = 10, JSA = 5, cb = no " do
         setup do
           add_response Date.parse("5th May 1958")
           add_response 22
@@ -550,7 +547,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         end
 
         should "be at years_of_work" do
-          assert_state_variable "available_ni_years", 5
           assert_current_node :years_of_work?
         end 
 
@@ -561,15 +557,10 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
         should "return amount_result on entering 3" do
           add_response 3
-          assert_state_variable "qualifying_years", 32
-          assert_state_variable "qualifying_years_total", 34
           assert_current_node :amount_result
         end
       end
 
-
-
-      
       ## Too old for automatic age related credits.
       context "58 years old" do
         setup do
@@ -634,7 +625,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
           add_response 20
           add_response 0
           add_response :no
-          # add_response 0
         end
         
         should "add 3 years credit for a person born between 1959 and 1992" do
@@ -667,11 +657,25 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
           add_response 0
           add_response :no
           add_response 0
-          # add_response 0
         end
         
         should "add 1 year credit for a person born between April 1957 and April 1958" do
           assert_state_variable "missing_years", 9
+        end
+      end
+      context "years_you_can_enter test" do
+        setup do
+          add_response 49.years.ago.to_s
+          add_response 20
+          add_response 5
+          add_response :yes
+        end
+        
+        should "return 5" do
+          # add_response 0
+          assert_state_variable "available_ni_years", 5
+          assert_state_variable "years_you_can_enter", 5
+          assert_current_node :years_of_benefit?
         end
       end
     end # gender
