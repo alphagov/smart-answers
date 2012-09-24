@@ -54,6 +54,9 @@ date_question :date_leave_starts? do
   calculate :employment_start do
     calculator.employment_start
   end
+  calculate :proof_of_pregnancy_date do
+    calculator.proof_of_pregnancy_date
+  end
   next_node :did_the_employee_work_for_you?
 end
 
@@ -257,7 +260,7 @@ date_question :employee_date_matched_paternity_adoption? do
     Date.parse(responses.last)
   end
   calculate :calculator do
-    Calculators::MaternityPaternityCalculator.new(matched_date)
+    Calculators::MaternityPaternityCalculator.new(matched_date, Calculators::MaternityPaternityCalculator::LEAVE_TYPE_ADOPTION)
   end
   next_node :padoption_date_of_adoption_placement?
 end
@@ -325,6 +328,10 @@ multiple_choice :padoption_employed_at_employment_end? do
       pay_info = PhraseList.new (:padoption_not_entitled_to_pay_intro)
       pay_info << :pa_must_be_employed_by_you
       pay_info << :padoption_not_entitled_to_pay_outro
+      #not entitled to pay so add form download links to end of leave info if they were entitled to leave
+      if padoption_leave_info.phrase_keys.include?(:padoption_entitled_to_leave)
+        padoption_leave_info << :padoption_leave_and_pay_forms
+      end
     end
     pay_info
   end
@@ -339,6 +346,10 @@ multiple_choice :padoption_employee_on_payroll? do
       pay_info = PhraseList.new(:padoption_not_entitled_to_pay_intro)
       pay_info << :must_be_on_payroll
       pay_info << :padoption_not_entitled_to_pay_outro
+      #not entitled to pay so add form download links to end of leave info if they were entitled to leave
+      if padoption_leave_info.phrase_keys.include?(:padoption_entitled_to_leave)
+        padoption_leave_info << :padoption_leave_and_pay_forms
+      end
     end
     pay_info
   end
@@ -356,10 +367,15 @@ money_question :padoption_employee_avg_weekly_earnings? do
   calculate :padoption_pay_info do
     if responses.last >= calculator.lower_earning_limit
       pay_info = PhraseList.new(:padoption_entitled_to_pay)
+      pay_info << :padoption_leave_and_pay_forms
     else
       pay_info = PhraseList.new(:padoption_not_entitled_to_pay_intro)
       pay_info << :must_earn_over_threshold
       pay_info << :padoption_not_entitled_to_pay_outro
+      #not entitled to pay so add form download links to end of leave info if they were entitled to leave
+      if padoption_leave_info.phrase_keys.include?(:padoption_entitled_to_leave)
+        padoption_leave_info << :padoption_leave_and_pay_forms
+      end
     end
     pay_info
   end
@@ -383,7 +399,7 @@ end
 ## QA1
 date_question :date_of_adoption_match? do
   calculate :calculator do
-    Calculators::MaternityPaternityCalculator.new(Date.parse(responses.last))
+    Calculators::MaternityPaternityCalculator.new(Date.parse(responses.last), Calculators::MaternityPaternityCalculator::LEAVE_TYPE_ADOPTION)
   end
   next_node :date_of_adoption_placement?
 end

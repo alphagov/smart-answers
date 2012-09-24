@@ -24,10 +24,33 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
     should "ask when the baby due date is" do
       assert_current_node :baby_due_date_maternity?
     end
-    context "answer 2 months from now" do
+
+    context "test lower earning limits returned" do
+      should "return lower_earning_limit of £107" do
+        dd =Date.parse("1 January 2013")
+        add_response dd
+        add_response :yes
+        add_response 1.month.ago(dd)
+        add_response :yes
+        add_response :yes
+        add_response "200"
+        assert_state_variable "lower_earning_limit", sprintf("%.2f",107) 
+      end
+      should "return lower_earning_limit of £102" do
+        dd =Date.parse("1 January 2012")
+        add_response dd
+        add_response :yes
+        add_response 1.month.ago(dd)
+        add_response :yes
+        add_response :yes
+        add_response "200"
+        assert_state_variable "lower_earning_limit", sprintf("%.2f",102) 
+      end
+    end
+
+    context "answer 21 November 2012" do
       setup do
-        @two_months_from_now = 2.months.since(Date.today).strftime("%Y-%m-%d")
-        add_response @two_months_from_now
+        add_response Date.parse("21 November 2012")
       end
       ## QM2
       should "ask if the employee has a contract with you" do
@@ -41,9 +64,9 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         should "ask when the employee wants to start their leave" do
           assert_current_node :date_leave_starts?
         end
-        context "answer 2 months from now" do
+        context "answer 21 November 2012" do
           setup do
-            add_response @two_months_from_now
+            add_response Date.parse("21 November 2012")
           end
           ## QM4
           should "ask if the employee worked for you before or on this date" do
@@ -70,13 +93,13 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                   add_response 135.40
                 end
                 should "calculate dates and pay amounts" do
-                  two_months_time = 2.months.since(Date.today)
-                  start_of_week = two_months_time - two_months_time.wday
-                  assert_state_variable "leave_start_date", two_months_time
-                  assert_state_variable "leave_end_date", 52.weeks.since(two_months_time)
+                  leave_start = Date.parse("21 November 2012")
+                  start_of_week = leave_start - leave_start.wday
+                  assert_state_variable "leave_start_date", leave_start
+                  assert_state_variable "leave_end_date", 52.weeks.since(leave_start)
                   assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week)
-                  assert_state_variable "pay_start_date", two_months_time
-                  assert_state_variable "pay_end_date", 39.weeks.since(two_months_time)
+                  assert_state_variable "pay_start_date", leave_start
+                  assert_state_variable "pay_end_date", 39.weeks.since(leave_start)
                   assert_state_variable "smp_a", (135.40 * 0.9).round(2).to_s
                   assert_state_variable "smp_b", (135.40 * 0.9).round(2).to_s
                 end
@@ -110,9 +133,10 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         should "ask when the employee wants to start their leave" do
           assert_current_node :date_leave_starts?
         end
-        context "answer 2 months from now" do
+        context "answer 21 November 2012" do
           setup do
-            add_response @two_months_from_now
+            ld = Date.parse("21 November 2012")
+            add_response ld
           end
           ## QM4
           should "ask if the employee worked for you before or on this date" do
@@ -169,10 +193,10 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         assert_current_node :baby_due_date_paternity?
       end
 
-      context "due date given as 3 months from now" do
+      context "due date given as 12 June 2013" do
         setup do
-          @three_months_from_now = 3.months.since(Date.today).strftime("%Y-%m-%d")
-          add_response @three_months_from_now
+          @pat_due_date = Date.parse ("12 June 2013")
+          add_response @pat_due_date
         end
 
         ## QP2 
@@ -227,8 +251,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                   context "answer 500.55" do
                     setup do 
                       add_response 500.55
-                      @three_months_time = 3.months.since(Date.today)
-                      @leave_notice = @three_months_time - @three_months_time.wday
+                      @leave_notice = @pat_due_date - @pat_due_date.wday
                     end
 
                     should "have p_notice_leave qualify" do
@@ -244,9 +267,8 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       
                       assert_state_variable "relevant_period", @relevant_period
                       assert_state_variable "employment_start", 26.weeks.ago(expected_start)
-                      assert_state_variable "employment_end", @three_months_time 
+                      assert_state_variable "employment_end", @pat_due_date 
                       assert_state_variable "spp_rate", sprintf("%.2f",135.45) 
-                      assert_state_variable "lower_earning_limit", sprintf("%.2f",107) 
                     end
 
                     should "display employee is entitled to pay" do
@@ -367,18 +389,21 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         assert_current_node :employee_date_matched_paternity_adoption?
       end
 
-      context "date matched date given as 3 months ago" do
-        setup { add_response 3.months.ago(Date.today).strftime("%Y-%m-%d") }
+      context "date matched date given as 21 June 2012" do
+        setup do 
+          @pat_adoption_match = Date.parse("21 June 2012")
+          add_response @pat_adoption_match
+        end
 
-        # QAP1.2
+        # QAP2
         should "ask for the date the adoption placement will start" do
           assert_current_node :padoption_date_of_adoption_placement?
         end
 
-        context "placement date given as 2 months ahead" do
-          setup { add_response 2.months.since(Date.today).strftime("%Y-%m-%d") }
+        context "placement date given as 21 November 2012" do
+          setup { add_response Date.parse("21 November 2012") }
 
-          # QAP2
+          # QAP3
           should "ask if employee is responsible for upbringing" do
             assert_current_node :padoption_employee_responsible_for_upbringing?
           end
@@ -386,7 +411,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
           context "answer yes" do
             setup { add_response :yes }
 
-            # QAP3 
+            # QAP4
             should "ask if employee started on or before employment_start" do
               assert_current_node :padoption_employee_start_on_or_before_employment_start?
             end
@@ -394,7 +419,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
             context "answer yes" do
               setup { add_response :yes }
               
-              # QAP4
+              # QAP5
               should "ask if employee has an employment contract" do
                  assert_current_node :padoption_have_employee_contract?
               end
@@ -430,8 +455,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                     context "answer 500.55" do
                       setup do 
                         add_response 500.55
-                        @three_months_time = 3.months.ago(Date.today)
-                        @leave_notice = @three_months_time - @three_months_time.wday
+                        @leave_notice = @pat_adoption_match - @pat_adoption_match.wday
                       end
 
                       should "calculate dates and pay amounts" do
@@ -444,13 +468,12 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         assert_state_variable "ap_qualifying_week", @qualifying_week
                         assert_state_variable "relevant_period", @relevant_period
                         assert_state_variable "employment_start", 26.weeks.ago(expected_start)
-                        assert_state_variable "employment_end", @three_months_time 
+                        assert_state_variable "employment_end", @pat_adoption_match 
                         assert_state_variable "sapp_rate", sprintf("%.2f",135.45) 
-                        assert_state_variable "lower_earning_limit", sprintf("%.2f",107)
                       end
 
                       should "display pay info" do
-                        assert_phrase_list :padoption_pay_info, [:padoption_entitled_to_pay]
+                        assert_phrase_list :padoption_pay_info, [:padoption_entitled_to_pay, :padoption_leave_and_pay_forms]
                         assert_current_node :padoption_leave_and_pay
                       end
                     end
@@ -460,12 +483,11 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
 
                       should "calculate dates and pay amounts" do
                         assert_state_variable "sapp_rate", 108.23.to_s 
-
                       end 
                     end
 
-                    context "answer 102.25" do
-                      setup { add_response 102.25 }
+                    context "answer 90" do
+                      setup { add_response 90.25 }
 
                       should "paternity adoption not entitled to pay because earn too little" do
                         assert_phrase_list :padoption_pay_info, [:padoption_not_entitled_to_pay_intro, :must_earn_over_threshold, :padoption_not_entitled_to_pay_outro]
@@ -557,17 +579,17 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
       should "ask the date of the adoption match" do
         assert_current_node :date_of_adoption_match?
       end
-      context "answer 1 month ago" do
+      context "answer 15 July 2012" do
         setup do
-          add_response 1.month.ago.strftime("%Y-%m-%d")
+          add_response Date.parse("15 July 2012")
         end
         ## QA2
         should "ask the date of the adoption placement" do
           assert_current_node :date_of_adoption_placement?
         end
-        context "answer 1 month from now" do
+        context "answer 17 October 2012" do
           setup do
-            add_response 1.month.since(Date.today).strftime("%Y-%m-%d")
+            add_response Date.parse("17 October 2012")
           end
           ## QA3
           should "ask if the employee has a contract" do
@@ -582,9 +604,9 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
               assert_state_variable "employee_has_contract_adoption", 'yes'
               assert_current_node :adoption_date_leave_starts?
             end
-            context "answer 1 month from now" do
+            context "answer 17 October 2012" do
               setup do
-                add_response 1.month.since(Date.today).strftime("%Y-%m-%d")
+                add_response Date.parse("17 October 2012")
               end
               ## QA5
               should "ask if the employee worked for you before ..." do
@@ -649,9 +671,9 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
               assert_state_variable "employee_has_contract_adoption", 'no'
               assert_current_node :adoption_date_leave_starts?
             end
-            context "answer 1 month from now" do
+            context "answer 17 October 2012" do
               setup do
-                add_response 1.month.since(Date.today).strftime("%Y-%m-%d")
+                add_response Date.parse("17 October 2012")
               end
               ## QA5
               should "ask if the employee worked for you before ..." do
