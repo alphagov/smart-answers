@@ -562,7 +562,8 @@ module SmartAnswer::Calculators
 
     context "total_pay and basic_rate_check calculations" do
       setup do
-        @calculator = MinimumWageCalculator.new age: 25, pay_frequency: 5, basic_pay: 260, basic_hours: 40
+        @calculator = MinimumWageCalculator.new(
+          age: 25, pay_frequency: 5, basic_pay: 260, basic_hours: 40)
       end
 
       should "return overtime (5) as the lower rate" do
@@ -630,6 +631,58 @@ module SmartAnswer::Calculators
         @calculator.overtime_hours = 10
         @calculator.overtime_hourly_rate = 7
         assert_equal 343, @calculator.total_pay
+      end
+    end
+
+    context "non-historical minimum wage" do
+      should "return today's minimum wage rate" do
+        @calculator = MinimumWageCalculator.new(
+          age: 25, pay_frequency: 7, basic_pay: 312, basic_hours: 39)
+        assert_equal 6.08, @calculator.minimum_hourly_rate
+      end 
+      should "return today's minimum wage rate" do
+        @calculator = MinimumWageCalculator.new(
+          age: 19, pay_frequency: 7, basic_pay: 312, basic_hours: 39)
+        assert_equal 4.98, @calculator.minimum_hourly_rate
+      end 
+      should "return today's minimum wage rate" do
+        @calculator = MinimumWageCalculator.new(
+          age: 17, pay_frequency: 7, basic_pay: 312, basic_hours: 39)
+        assert_equal 3.68, @calculator.minimum_hourly_rate
+      end 
+    end
+
+    context "non-historical total entitlement and underpayment test" do
+      setup do
+        @calculator = MinimumWageCalculator.new(
+          age: 25, pay_frequency: 7, basic_pay: 100, basic_hours: 39, date: Date.parse("5 Aug 2012")
+          )
+      end
+      should "return total_entitlement" do
+        assert_equal 237.12, @calculator.total_entitlement
+      end
+      should "return total_entitlement with overtime hours" do
+        @calculator.overtime_hours = 10
+        assert_equal 297.92, @calculator.total_entitlement
+      end
+      should "return total_underpayment" do
+        assert_equal 100.0, @calculator.total_pay
+        assert_equal 137.12, @calculator.total_underpayment
+      end
+      should "return total_underpayment with overtime_hours" do
+        @calculator.overtime_hours = 20
+        @calculator.overtime_hourly_rate = 10
+        assert_equal 151.2, @calculator.total_pay
+        assert_equal 207.68, @calculator.total_underpayment
+      end
+      should "return total_underpayment as 0.0" do
+        @calculator = MinimumWageCalculator.new(
+          age: 25, pay_frequency: 7, basic_pay: 300, basic_hours: 39, date: Date.parse("5 Aug 2012")
+          )
+        @calculator.overtime_hours = 20
+        @calculator.overtime_hourly_rate = 10
+        assert_equal 453.8, @calculator.total_pay
+        assert_equal 0.0, @calculator.total_underpayment
       end
     end
   end

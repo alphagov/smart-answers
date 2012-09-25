@@ -59,6 +59,18 @@ module SmartAnswer::Calculators
       end
     end
 
+    def total_entitlement 
+      minimum_hourly_rate * total_hours
+    end
+
+    def total_underpayment
+      tu = total_entitlement - total_pay
+      (tu < 1 ? 0.0 : tu).round(2)
+      # tu
+    end
+
+    # historical functions
+
     def historical_entitlement
       (minimum_hourly_rate * total_hours).round(2)
     end

@@ -382,6 +382,7 @@ value_question :current_accommodation_usage? do
     calculator.minimum_wage_or_above?
   end
 
+
   next_node do |response|
     calculator.accommodation_adjustment(accommodation_charge, Integer(response))
   
@@ -426,6 +427,7 @@ value_question :past_accommodation_usage? do
     calculator.historical_adjustment
   end
 
+
   next_node do |response|
     calculator.accommodation_adjustment(accommodation_charge, Integer(response))
     
@@ -439,7 +441,11 @@ value_question :past_accommodation_usage? do
 end
 
 outcome :current_payment_above
-outcome :current_payment_below
+outcome :current_payment_below do
+  precalculate :total_underpayment do
+    calculator.total_underpayment
+  end
+end
 outcome :past_payment_above
 outcome :past_payment_below
 outcome :does_not_apply_to_historical_apprentices

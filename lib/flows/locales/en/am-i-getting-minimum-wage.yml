@@ -160,9 +160,9 @@ en-GB:
           You aren't getting the National Minimum Wage.
           $C
 
-          The National Minimum Wage per hour for your age | Your actual pay
-          - | -
-          £%{minimum_hourly_rate} | £%{total_hourly_rate}
+          The National Minimum Wage per hour for your age | Your actual pay | For each pay period your employer owes you
+          - | - | -
+          £%{minimum_hourly_rate} | £%{total_hourly_rate} | £%{total_underpayment}
 
           If you work overtime or your employer provides you with accommodation, this has been added to the calculation.
 
