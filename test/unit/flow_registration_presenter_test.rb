@@ -41,23 +41,6 @@ class FlowRegistraionPresenterTest < ActiveSupport::TestCase
     end
   end
 
-  context "section" do
-    should "use the translated section_name" do
-      assert_equal "SECTION", @presenter.section
-    end
-
-    should "use the humanized section_slug if no translation is available" do
-      I18n.stubs(:translate!).raises(I18n::MissingTranslationData.new(:en, "anything", {}))
-      assert_equal "Sample", @presenter.section
-    end
-
-    should "return nil if there is no translation, and no section_slug defined" do
-      I18n.stubs(:translate!).raises(I18n::MissingTranslationData.new(:en, "anything", {}))
-      @flow.stubs(:section_slug).returns(nil)
-      assert_equal nil, @presenter.section
-    end
-  end
-
   context "paths" do
     should "generate flow.name and flow.name.json" do
       assert_equal ["flow-sample", "flow-sample.json"], @presenter.paths
@@ -131,9 +114,9 @@ class FlowRegistraionPresenterTest < ActiveSupport::TestCase
     end
   end
 
-  context "live" do
-    should "always return true, because the FlowRegistry decides what to register" do
-      assert_equal true, @presenter.live
+  context "state" do
+    should "always return live, because the FlowRegistry decides what to register" do
+      assert_equal 'live', @presenter.state
     end
   end
 end

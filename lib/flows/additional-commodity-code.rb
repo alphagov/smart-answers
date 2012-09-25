@@ -1,6 +1,5 @@
-status :draft
-section_slug "money-and-tax"
-satisfies_need "2013"
+status :published
+satisfies_need "B659"
 
 # Q1
 multiple_choice :how_much_starch_glucose? do
@@ -32,7 +31,7 @@ multiple_choice :how_much_sucrose_1? do
   option 5
   option 30
   option 50
-  option 75
+  option 70
 
   save_input_as :sucrose_weight  
   next_node :how_much_milk_fat?
@@ -224,4 +223,12 @@ multiple_choice :how_much_milk_protein_gh? do
   next_node :commodity_code_result
 end
 
-outcome :commodity_code_result
+outcome :commodity_code_result do
+  precalculate :additional_info do
+    if commodity_code != 'X'
+      PhraseList.new(:result_explanation_code)
+    else
+      ''
+    end
+  end
+end

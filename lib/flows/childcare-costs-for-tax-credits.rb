@@ -1,7 +1,5 @@
 satisfies_need "9999"
 status :draft
-section_slug "money-and-tax"
-subsection_slug "tax"
 
 # Questions
 #
@@ -104,7 +102,7 @@ value_question :how_much_do_you_pay_every_four_weeks? do
 end
 
 # C8
-value_question :how_much_do_you_pay_anually? do
+ value_question :how_much_do_you_pay_anually? do
   calculate :cost do
     Calculators::ChildcareCostCalculator.weekly_cost(responses.last.to_i)
   end

@@ -1,5 +1,4 @@
 status :draft
-section_slug "travel"
 
 multiple_choice :has_your_passport_been_lost_or_stolen? do
   option :lost

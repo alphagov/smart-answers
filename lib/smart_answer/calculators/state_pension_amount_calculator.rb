@@ -2,13 +2,14 @@ require "data/state_pension_query"
 
 module SmartAnswer::Calculators
   class StatePensionAmountCalculator
-    attr_reader :gender, :dob
+    attr_reader :gender, :dob, :automatic_years, :qualifying_years, :available_years
     attr_accessor :qualifying_years
 
     def initialize(answers)
       @gender = answers[:gender].to_sym
       @dob = DateTime.parse(answers[:dob])
       @qualifying_years = answers[:qualifying_years].to_i
+      @available_years = ni_years_to_date
     end
 
     def current_weekly_rate
@@ -105,6 +106,51 @@ module SmartAnswer::Calculators
       credit_band = credit_bands.find { |c| c[:min] < dob and c[:max] > dob }
       (credit_band ? credit_band[:credit] : 0)
     end
+
+    def allocate_automatic_years
+      auto_years = [
+        { before: Date.parse("1950-10-06"), credit: 5 },
+        { before: Date.parse("1951-10-06"), credit: 4 },
+        { before: Date.parse("1952-10-06"), credit: 3 },
+        { before: Date.parse("1953-07-06"), credit: 2 },
+        { before: Date.parse("1953-10-06"), credit: 1 }
+      ]
+      auto_year = auto_years.find { |c| c[:before] > dob }
+      @automatic_years = (auto_year ? auto_year[:credit] : 0 )   
+    end
+
+    def automatic_years
+      @automatic_years
+    end
     
+    def ni_start_date
+      (dob + 19.years)
+    end
+
+    def ni_years_to_date
+      today = Date.today
+      years = today.year - ni_start_date.year
+      years = ((ni_start_date.month > today.month) ? years - 1 : years)
+      # NOTE: leave this code in case we need to work out by day
+      # years = ((ni_start_date.month == today.month and ni_start_date.day > today.day) ? years - 1 : years)
+      years
+    end
+
+    def available_years_sum(qual_years = @qualifying_years)
+      (@available_years - qual_years)
+    end
+
+    def has_available_years?(qual_years = @qualifying_years)
+      ! (available_years_sum(qual_years) < 0)
+    end
+
+    def not_qualifying_or_available_test?(qual_years = @qualifying_years)
+      (qual_years > 29) or (available_years_sum(qual_years) < 1)
+    end
+
+    def years_can_be_entered(ay,max_num)
+      (ay > max_num ? max_num : ay)
+    end
+
   end
 end

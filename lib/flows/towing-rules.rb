@@ -1,6 +1,4 @@
 satisfies_need 9999
-section_slug "family"
-subsection_slug "driving"
 status :draft
 
 ## Cars and light vehicles
