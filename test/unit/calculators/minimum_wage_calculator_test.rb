@@ -9,7 +9,14 @@ module SmartAnswer::Calculators
         @age = 19
         @basic_pay = 187.46
         @basic_hours = 39
-        @calculator = MinimumWageCalculator.new age: @age, date: Date.parse('2010-10-01'), basic_pay: @basic_pay, basic_hours: @basic_hours
+        @calculator = MinimumWageCalculator.new(
+          age: @age, date: Date.parse('2010-10-01'), basic_pay: @basic_pay, basic_hours: @basic_hours)
+      end
+
+      context "compare basic_pay_check and @basic_pay" do
+        should "be the same " do
+          assert_equal @basic_pay, @calculator.basic_pay_check
+        end
       end
       
       context "format_money" do
@@ -42,7 +49,7 @@ module SmartAnswer::Calculators
           assert_equal 4.81, @calculator.basic_hourly_rate
         end
       end 
-      
+
       context "minimum hourly rate" do
         should "be the minimum wage per hour for the age and year" do
           assert_equal 4.92, @calculator.minimum_hourly_rate
@@ -125,7 +132,8 @@ module SmartAnswer::Calculators
         
         context "underpayment" do  
           setup do
-            @underpayment = (191.88 - @basic_pay).round(2)
+            @underpayment = (191.88 - @calculator.basic_pay_check).round(2)
+            # @underpayment = (191.88 - @basic_pay).round(2)
           end    
           should "be the total pay minus the historical entitlement" do
             assert_equal @underpayment, @calculator.underpayment
@@ -355,7 +363,8 @@ module SmartAnswer::Calculators
             @calculator.accommodation_adjustment(0, 5)
             assert_equal 313.95, @calculator.historical_entitlement
             assert_equal 352.80, @calculator.total_pay
-            assert_equal 5.43, @calculator.total_hourly_rate
+            assert_equal 5.42, @calculator.total_hourly_rate
+            # assert_equal 5.43, @calculator.total_hourly_rate
           end
           
           should "adjust for charged accommodation above the threshold" do
@@ -548,6 +557,79 @@ module SmartAnswer::Calculators
         charged_adjustment = @calculator.accommodation_adjustment(charge, number_of_nights)
         assert_equal (free_adjustment - (charge * number_of_nights)).round(2), charged_adjustment
         assert 0 > charged_adjustment # this should always be less than zero
+      end
+    end
+
+    context "total_pay and basic_rate_check calculations" do
+      setup do
+        @calculator = MinimumWageCalculator.new age: 25, pay_frequency: 5, basic_pay: 260, basic_hours: 40
+      end
+
+      should "return overtime (5) as the lower rate" do
+        @calculator.overtime_hours = 10
+        @calculator.overtime_hourly_rate = 5
+        assert_equal 5, @calculator.basic_rate_check
+      end
+
+      should "return basic (6.5) as the lower rate" do
+        @calculator.overtime_hours = 10
+        @calculator.overtime_hourly_rate = 25
+        assert_equal 6.5, @calculator.basic_rate_check
+      end
+
+      should "return lower rate total (250.0) based on overtime_hourly_rate" do
+        @calculator.overtime_hours = 10
+        @calculator.overtime_hourly_rate = 5
+        assert_equal 250.0, @calculator.total_pay
+      end
+
+      should "return lower rate total (325.0) based on basic_rate" do
+        @calculator.overtime_hours = 10
+        @calculator.overtime_hourly_rate = 25
+        assert_equal 325.0, @calculator.total_pay
+      end
+
+      should "[with accommodation_adjustment] return lower rate total (206.39) based on overtime_hourly_rate" do
+        @calculator.overtime_hours = 10
+        @calculator.overtime_hourly_rate = 5
+        @calculator.accommodation_adjustment(20, 4)
+        assert_equal 206.39, @calculator.total_pay
+      end
+
+      should "return lower rate total (281.39) based on basic_rate" do
+        @calculator.overtime_hours = 10
+        @calculator.overtime_hourly_rate = 25
+        @calculator.accommodation_adjustment(20, 4)
+        assert_equal 281.39, @calculator.total_pay
+      end
+    end
+
+    context "basic_rate tests" do
+      setup do
+        @calculator = MinimumWageCalculator.new(
+          age: 25, pay_frequency: 5, basic_pay: 312, basic_hours: 39)
+      end
+      should "basic_rate = 8" do
+        assert_equal 8, @calculator.basic_hourly_rate
+      end
+      should "basic_rate = 7 with overtime_hourly_rate set to 7" do
+        @calculator.overtime_hours = 10
+        @calculator.overtime_hourly_rate = 7
+        assert_equal 7, @calculator.basic_hourly_rate
+        assert_equal 343, @calculator.total_pay
+      end
+      should "basic_rate = 0 with overtime_hourly_rate set to 7" do
+        @calculator = MinimumWageCalculator.new(
+          age: 25, pay_frequency: 5, basic_pay: 0, basic_hours: 39)
+        @calculator.overtime_hours = 10
+        @calculator.overtime_hourly_rate = 7
+        assert_equal 0, @calculator.basic_hourly_rate
+      end
+
+      should "total_pay = 343" do
+        @calculator.overtime_hours = 10
+        @calculator.overtime_hourly_rate = 7
+        assert_equal 343, @calculator.total_pay
       end
     end
   end
