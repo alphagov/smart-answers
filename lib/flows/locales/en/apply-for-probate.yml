@@ -3,7 +3,7 @@ en-GB:
     apply-for-probate:
       meta:
         description: Find out how to apply for probate, depending on your circumstances
-      title: Find the right probate and Inheritance Tax form
+      title: Find the right probate and Inheritance Tax forms
       body: |
         Probate is the legal right to deal with someone’s affairs - property, savings etc - after they die.
 
@@ -48,8 +48,11 @@ en-GB:
 
           [Inheritance Tax form IHT205](http://search2.hmrc.gov.uk/kbroker/hmrc/forms/viewform.jsp?formId=3307)
 
-          Send the forms to your local probate registry office http://hmctscourtfinder.direct.gov.uk/HMCTS/GetLeaflet.do?court_leaflets_id=744  , along with:
+          Send the forms to your [local probate registry office](http://hmctscourtfinder.direct.gov.uk/HMCTS/GetLeaflet.do?court_leaflets_id=744), along with:
 
+
+          - an official copy of the death certificate
+          - the original will, and 2 copies
         eng_wales_no_inheritance_tax_next_steps: |
           Next steps:
 
@@ -60,10 +63,6 @@ en-GB:
           You should get the grant through the post within 10 days of this appointment.
 
           If a grant can’t be given to you, the probate office will explain why.
-
-
-          - an official copy of the death certificate
-          - the original will, and 2 copies
 
         eng_wales_inheritance_tax: |
           You must fill in:
@@ -149,6 +148,9 @@ en-GB:
       use_a_solicitor?:
         title: Do you want to use a solicitor to help you or do you want to do it yourself?
         hint: You can apply for probate yourself, or you can use a solicitor.
+        options:
+          solicitor: Use a solicitor
+          myself: Apply myself
       ## Q5
       where_did_deceased_live?:
         title: Where did the deceased live?
@@ -207,7 +209,7 @@ en-GB:
           Search for a solicitor specialising in probate on [The Law Society website](http://www.lawsociety.org.uk/choosingandusing/findasolicitor.law).
 
       ## A5 and A6
-      done_eng_or_wales:
+      done_eng_wales:
         body: |
           %{application_info}
 
