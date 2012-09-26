@@ -212,7 +212,7 @@ en-GB:
 
           The National Minimum Wage per hour at the time | Your actual pay | Your employer owes you
           - | -
-          £%{minimum_hourly_rate} | £%{total_hourly_rate} | £%{historical_adjustment}
+          £%{minimum_hourly_rate} | £%{total_hourly_rate} | £%{total_underpayment}
 
 
           This calculation includes an additional amount you’re entitled to by law for past payments. If you worked overtime or your employer provided you with accommodation, this has been added to the calculation.

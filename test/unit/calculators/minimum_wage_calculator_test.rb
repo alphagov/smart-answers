@@ -635,19 +635,19 @@ module SmartAnswer::Calculators
     end
 
     context "non-historical minimum wage" do
-      should "return today's minimum wage rate" do
+      should "return today's minimum wage rate for 25 year old" do
         @calculator = MinimumWageCalculator.new(
-          age: 25, pay_frequency: 7, basic_pay: 312, basic_hours: 39)
+          age: 25, pay_frequency: 7, basic_pay: 312, basic_hours: 39, date: Date.parse("5 Aug 2012"))
         assert_equal 6.08, @calculator.minimum_hourly_rate
       end 
-      should "return today's minimum wage rate" do
+      should "return today's minimum wage rate for 19 year old" do
         @calculator = MinimumWageCalculator.new(
-          age: 19, pay_frequency: 7, basic_pay: 312, basic_hours: 39)
+          age: 19, pay_frequency: 7, basic_pay: 312, basic_hours: 39, date: Date.parse("5 Aug 2012"))
         assert_equal 4.98, @calculator.minimum_hourly_rate
       end 
-      should "return today's minimum wage rate" do
+      should "return today's minimum wage rate for 17 year old" do
         @calculator = MinimumWageCalculator.new(
-          age: 17, pay_frequency: 7, basic_pay: 312, basic_hours: 39)
+          age: 17, pay_frequency: 7, basic_pay: 312, basic_hours: 39, date: Date.parse("5 Aug 2012"))
         assert_equal 3.68, @calculator.minimum_hourly_rate
       end 
     end
@@ -684,6 +684,32 @@ module SmartAnswer::Calculators
         assert_equal 453.8, @calculator.total_pay
         assert_equal 0.0, @calculator.total_underpayment
       end
+    end
+
+    context "historical below minimum wage" do
+      setup do
+        @calculator = MinimumWageCalculator.new(
+          age: 25, 
+          pay_frequency: 7, 
+          basic_pay: 100, 
+          basic_hours: 39, 
+          date: Date.parse("5 Aug 2012"))
+      end
+      should "return false to minimum_wage_or_above?" do
+        assert !@calculator.minimum_wage_or_above?
+      end
+      should "below minimum_wage_or_above (200)" do
+        @calculator = MinimumWageCalculator.new(
+          age: 25, 
+          pay_frequency: 7, 
+          basic_pay: 200, 
+          basic_hours: 40, 
+          date: Date.parse("5 Aug 2012"))
+        assert !@calculator.minimum_wage_or_above?
+        assert_equal 43.20, @calculator.historical_adjustment
+        assert_equal 43.20, @calculator.total_underpayment
+      end
+
     end
   end
 end

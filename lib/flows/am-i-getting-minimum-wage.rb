@@ -23,7 +23,6 @@ multiple_choice :past_payment_date? do
   save_input_as :payment_date
 
   next_node :were_you_an_apprentice?
-
 end
 
 # Q2
@@ -316,7 +315,9 @@ multiple_choice :was_provided_with_accommodation? do
         :past_accommodation_charge?
       else
 
-        if calculator.historical_adjustment >= 0
+        # NOTE: what is this trying to check for?
+        # if calculator.historical_adjustment >= 0
+        if calculator.minimum_wage_or_above?
           :past_payment_above
         else
           :past_payment_below
@@ -427,7 +428,6 @@ value_question :past_accommodation_usage? do
     calculator.historical_adjustment
   end
 
-
   next_node do |response|
     calculator.accommodation_adjustment(accommodation_charge, Integer(response))
     
@@ -443,9 +443,13 @@ end
 outcome :current_payment_above
 outcome :current_payment_below do
   precalculate :total_underpayment do
-    calculator.total_underpayment
+    calculator.format_money calculator.total_underpayment
   end
 end
 outcome :past_payment_above
-outcome :past_payment_below
+outcome :past_payment_below do
+  precalculate :total_underpayment do
+    calculator.format_money calculator.total_underpayment
+  end
+end
 outcome :does_not_apply_to_historical_apprentices
