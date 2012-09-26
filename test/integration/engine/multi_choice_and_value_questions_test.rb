@@ -25,12 +25,12 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
 
         assert page.has_no_content?("-----") # markdown should be rendered, not output
 
-        assert page.has_link?("Get started", :href => "/bridge-of-death/y")
+        assert page.has_link?("Start now", :href => "/bridge-of-death/y")
       end
 
       assert page.has_selector?("#content .article-container #test-report_a_problem")
 
-      click_on "Get started"
+      click_on "Start now"
 
       assert_current_url "/bridge-of-death/y"
 

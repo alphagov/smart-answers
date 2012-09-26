@@ -10,10 +10,10 @@ class PrecalculationsTest < EngineIntegrationTest
       assert_current_url "/precalculation-sample"
 
       within '.intro' do
-        assert page.has_link?("Get started", :href => "/precalculation-sample/y")
+        assert page.has_link?("Start now", :href => "/precalculation-sample/y")
       end
 
-      click_on "Get started"
+      click_on "Start now"
 
       assert_current_url "/precalculation-sample/y"
 
