@@ -315,8 +315,6 @@ multiple_choice :was_provided_with_accommodation? do
         :past_accommodation_charge?
       else
 
-        # NOTE: what is this trying to check for?
-        # if calculator.historical_adjustment >= 0
         if calculator.minimum_wage_or_above?
           :past_payment_above
         else
@@ -431,7 +429,8 @@ value_question :past_accommodation_usage? do
   next_node do |response|
     calculator.accommodation_adjustment(accommodation_charge, Integer(response))
     
-    if calculator.historical_adjustment <= 0
+    # if calculator.historical_adjustment <= 0
+    if calculator.minimum_wage_or_above?
       :past_payment_above
     else
       :past_payment_below
