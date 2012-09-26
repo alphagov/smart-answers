@@ -375,7 +375,8 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                     end
                     
                     should "show the results" do
-                      assert_current_node :past_payment_above
+                      assert_current_node :past_payment_below
+                      # assert_current_node :past_payment_above
                     end
 
                   end
@@ -432,7 +433,8 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                   add_response :no # no accommodation
                 end
                 should "show above min. wage results" do
-                  assert_current_node :past_payment_above
+                  # assert_current_node :past_payment_above
+                  assert_current_node :past_payment_below
                 end
               end # Basic pay        
             end # Basic hours
