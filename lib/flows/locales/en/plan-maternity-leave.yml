@@ -1,0 +1,46 @@
+en-GB:
+  flow:
+    plan-maternity-leave:
+      meta:
+        description: Plan your maternity leave
+      title:
+        Plan your maternity leave
+      options:
+        "no": "No"
+        "yes": "Yes"
+        none: "None of the above"
+      body: |
+        Maternity Leave is time off work to look after your new baby. Enter your details below to see when you can take it.
+      baby_due_date?:
+        title: What is the baby's due date?
+      leave_start?:
+        title: When would like to start your Maternity Leave?
+        options:
+          days_0: "0 days"
+          days_1: 1 day
+          days_2: 2 days
+          days_3: 3 days
+          days_4: 4 days
+          days_5: 5 days
+          days_6: 6 days
+          weeks_1: 1 week
+          weeks_2: 2 weeks
+          weeks_3: 3 weeks
+          weeks_4: 4 weeks
+          weeks_5: 5 weeks
+          weeks_6: 6 weeks
+          weeks_7: 7 weeks
+      maternity_leave_details:
+        title: Your Maternity Leave dates
+        body: |
+            Below is a calendar and list of key dates that explain when you can take your Maternity Leave. 
+            
+            These dates are for your baby's due date of %{due_date_formatted} and a start date of %{start_date_formatted} before due date.
+
+            Baby due date | %{due_date_formatted}
+            Maternity leave start date (%{distance_start}) | %{start_date_formatted}
+            You must tell your employer by: | %{qualifying_week}
+            The earliest you can start your Maternity Leave is: | %{earliest_start}
+            Ordinary Maternity Leave (first 26 weeks): | %{period_of_ordinary_leave}
+            Additional Maternity Leave (up to 26 weeks more): | %{period_of_additional_leave}
+            Your baby is due on: | %{due_date_formatted}
