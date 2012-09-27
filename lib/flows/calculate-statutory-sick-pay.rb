@@ -2,44 +2,66 @@ status :draft
 satisfies_need "2013"
 
 ## Q1
-multiple_choice :select_employee_criteria? do
-	option :maternity_paternity => :already_receiving_benefit								## A2
-	option :sick_less_than_four_days => :must_be_sick_for_at_least_4_days 	## A1
-	option :chronic_illness => :has_chronic_illness													## A3
-	option :havent_told_you_they_were_sick =>	:not_informed_soon_enough			## A7
-	option :different_days => :irregular_work_schedule											## A4
-	option :none => :employee_paid_for_last_8_weeks? 												## Q2
+multiple_choice :getting_maternity_pay? do
+	option :yes => :already_receiving_benefit
+	option :no => :getting_paternity_or_adoption_pay?
 end
 
 ## Q2
-multiple_choice :employee_paid_for_last_8_weeks? do
-	option :yes => :related_illness? 											## Q3
-	option :no => :what_was_average_weekly_pay? 					## Q5
+multiple_choice :getting_paternity_or_adoption_pay? do
+	option :yes
+	option :no
+
+	calculate :warning_message do
+		if responses.last == "yes"
+			PhraseList.new(:paternity_adoption_warning)
+		else
+			''
+		end
+	end
+
+	next_node :sick_less_than_four_days?
 end
 
-## Q3 
-multiple_choice :related_illness? do
-	option :yes => :how_many_days_missed? 						## Q4
-	option :no => :what_was_average_weekly_earnings? 	## Q6
+## Q3
+multiple_choice :sick_less_than_four_days? do
+	option :yes => :must_be_sick_for_at_least_4_days
+	option :no => :have_told_you_they_were_sick?
 end
 
 ## Q4
-value_question :how_many_days_missed? do
-	calculate :prev_sick_days do
-		if ! (responses.last.to_s =~ /\A\d+\z/)
-      raise SmartAnswer::InvalidResponse
-    else
-      if responses.last.to_i < 1
-      	raise SmartAnswer::InvalidResponse
-      else
-      	responses.last.to_i
-      end
-    end
-	end
-	next_node :how_many_days_worked? 								## Q7
+multiple_choice :have_told_you_they_were_sick? do
+	option :yes => :different_days?
+	option :no => :not_informed_soon_enough
 end
 
-## Q5 
+## Q5
+multiple_choice :different_days? do
+	option :yes => :irregular_work_schedule
+	option :no => :sickness_start_date?
+end
+	
+
+## Q6
+date_question :sickness_start_date? do
+	save_input_as :sick_start_date
+	next_node :sickness_end_date?
+end
+
+## Q7
+date_question :sickness_end_date? do
+	save_input_as :sick_end_date
+	#raise SmartAnswer::InvalidResponse if responses.last.before?sick_start_date
+	next_node :employee_paid_for_last_8_weeks?
+end
+
+## Q8
+multiple_choice :employee_paid_for_last_8_weeks? do
+	option :yes => :what_was_average_weekly_earnings? ## Q10
+	option :no => :what_was_average_weekly_pay?		  ## Q9
+end
+
+## Q9 
 money_question :what_was_average_weekly_pay? do
 	calculate :under_eight_awe do
 		if responses.last < 1
@@ -52,12 +74,13 @@ money_question :what_was_average_weekly_pay? do
 		if response.to_f < 107.00
 			:not_earned_enough												## A5
 		else
-			:how_many_days_worked?										## Q7
+			:related_illness?										## Q11
 		end
 	end
 end
 
-## Q6
+
+## Q10
 money_question :what_was_average_weekly_earnings? do
 	calculate :over_eight_awe do
 		if responses.last < 1
@@ -70,12 +93,35 @@ money_question :what_was_average_weekly_earnings? do
 		if response.to_f < 107.00
 			:not_earned_enough											## A5
 		else
-			:how_many_days_worked?									## Q7
+			:related_illness?									## Q11
 		end
 	end
 end
 
-## Q7
+## Q11 
+multiple_choice :related_illness? do
+	option :yes => :how_many_days_missed? 						## Q4
+	option :no => :how_many_days_worked? 						## Q13
+end
+
+## Q12
+value_question :how_many_days_missed? do
+	calculate :prev_sick_days do
+		if ! (responses.last.to_s =~ /\A\d+\z/)
+      raise SmartAnswer::InvalidResponse
+    else
+      if responses.last.to_i < 1
+      	raise SmartAnswer::InvalidResponse
+      else
+      	responses.last.to_i
+      end
+    end
+	end
+	next_node :how_many_days_worked? 								## Q13
+end
+
+
+## Q13
 value_question :how_many_days_worked? do
 	calculate :pattern_days do
 		# ensure we get an integer
@@ -104,7 +150,7 @@ value_question :how_many_days_worked? do
 	next_node :normal_workdays_taken_as_sick?		## Q8
 end
 
-## Q8
+## Q14
 value_question :normal_workdays_taken_as_sick? do
 	calculate :normal_workdays_out do
 		if ! (responses.last.to_s =~ /\A\d+\z/)
@@ -127,17 +173,15 @@ end
 ## Outcomes
 
 ## A1
-outcome :must_be_sick_for_at_least_4_days
-## A2
 outcome :already_receiving_benefit
+## A2
+outcome :must_be_sick_for_at_least_4_days
 ## A3
-outcome :has_chronic_illness
+outcome :not_informed_soon_enough
 ## A4
 outcome :irregular_work_schedule
 ## A5
 outcome :not_earned_enough
 ## A6
 outcome :entitled
-## A7
-outcome :not_informed_soon_enough
 
