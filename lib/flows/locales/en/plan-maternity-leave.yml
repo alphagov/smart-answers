@@ -9,10 +9,11 @@ en-GB:
         "no": "No"
         "yes": "Yes"
         none: "None of the above"
-      body: |
-        Maternity Leave is time off work to look after your new baby. Enter your details below to see when you can take it.
+      body: Maternity Leave is time off work to look after your new baby. Enter your details below to see when you can take it.
+      # Questions
       baby_due_date?:
         title: What is the baby's due date?
+        error_message: Please enter a date up to nine months in the future.
       leave_start?:
         title: When would like to start your Maternity Leave?
         options:
@@ -30,6 +31,7 @@ en-GB:
           weeks_5: 5 weeks
           weeks_6: 6 weeks
           weeks_7: 7 weeks
+      # Outcomes
       maternity_leave_details:
         title: Your Maternity Leave dates
         body: |
