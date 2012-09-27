@@ -15,6 +15,7 @@ en-GB:
       ## Q1
       how_many_children_paid_for?:
         title: How many children does child maintenance have to be paid for?
+        error_message: Please enter a number
       ## Q2
       net_income_of_payee?:
         title: What is the weekly net income of the parent paying child maintenance?
