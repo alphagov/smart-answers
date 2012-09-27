@@ -6,7 +6,7 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'calculate-child-maintenance-draft'
+    setup_for_testing_flow 'calculate-child-maintenance'
   end
   
   ## Q1
@@ -74,28 +74,28 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
     end
   end # Old scheme
   
-  ## New scheme
-  context "answer 4" do
-    setup do
-      add_response 4
-    end
-    ## Q2
-    should "ask what the weekly income of the payee" do
-      assert_current_node :gross_income_of_payee?
-    end
-    context "answer 100" do
-      should "give flat rate result" do
-        add_response 100
-        assert_state_variable "flat_rate_amount", 7
-        assert_current_node :flat_rate_result
-      end
-      should "flow through to calculation result" do
-        add_response 173.00
-        add_response 1
-        add_response 1
-        assert_state_variable "child_maintenance_payment", "29.25"
-        assert_current_node :reduced_and_basic_rates_result
-      end
-    end
-  end
+  ## New scheme - not used in first release
+  # context "answer 4" do
+  #   setup do
+  #     add_response 4
+  #   end
+  #   ## Q2
+  #   should "ask what the weekly income of the payee" do
+  #     assert_current_node :gross_income_of_payee?
+  #   end
+  #   context "answer 100" do
+  #     should "give flat rate result" do
+  #       add_response 100
+  #       assert_state_variable "flat_rate_amount", 7
+  #       assert_current_node :flat_rate_result
+  #     end
+  #     should "flow through to calculation result" do
+  #       add_response 173.00
+  #       add_response 1
+  #       add_response 1
+  #       assert_state_variable "child_maintenance_payment", "29.25"
+  #       assert_current_node :reduced_and_basic_rates_result
+  #     end
+  #   end
+  # end
 end
