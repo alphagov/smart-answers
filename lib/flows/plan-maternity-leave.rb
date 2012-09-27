@@ -4,6 +4,12 @@ satisfies_need "855"
 date_question :baby_due_date? do 
 	save_input_as :due_date
 
+  calculate :due_date do
+    dt = Date.parse(responses.last)
+    raise InvalidResponse if dt < Date.today or dt > 9.months.since(Date.today)
+    responses.last
+  end
+
 	next_node :leave_start?
 end
 
@@ -24,7 +30,6 @@ multiple_choice :leave_start? do
   option :weeks_5
   option :weeks_6
   option :weeks_7
-
 
   calculate :calculator do
     Calculators::PlanMaternityLeave.new(due_date: due_date, start_date: start_date)

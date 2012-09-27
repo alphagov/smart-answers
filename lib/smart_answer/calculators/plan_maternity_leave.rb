@@ -2,7 +2,6 @@ module SmartAnswer::Calculators
 	class PlanMaternityLeave
 
 		attr_reader :formatted_due_date, :formatted_start_date
-		# attr_accessor :due_date
 
 		def initialize(options = {})
 			@due_date = Date.parse(options[:due_date])
@@ -29,11 +28,9 @@ module SmartAnswer::Calculators
 		## borrowed methods
 
 		def expected_week_of_childbirth
-	    # if !due_date.nil?
-	      sunday = @due_date - @due_date.wday
-	      saturday = sunday + 6
-	      sunday..saturday
-	    # end
+      sunday = @due_date - @due_date.wday
+      saturday = sunday + 6
+      sunday..saturday
 	  end
 
 	  def qualifying_week
@@ -45,9 +42,7 @@ module SmartAnswer::Calculators
 	  end
 
 		def period_of_ordinary_leave
-	    # if ! start.nil?
-	      @start_date .. @start_date + 26 * 7 - 1
-	    # end
+      @start_date .. @start_date + 26 * 7 - 1
 	  end
 
 	  def period_of_additional_leave

@@ -14,10 +14,21 @@ class PlanMaternityLeaveTest < ActiveSupport::TestCase
   		assert_current_node :baby_due_date?
   	end
 
+  	should "error on over 9 months" do
+  		add_response 1.years.since
+  		assert_current_node_is_error
+  	end
+
+  	should "error on due_date before today" do
+  		add_response 3.months.ago
+  		assert_current_node_is_error
+  	end
+
   	context "set 3 months to baby_due_date" do
   		setup do
 		  	add_response 3.months.since
 		  end
+  		
   		should "be on leave_start?" do
 	  		assert_current_node :leave_start?
 	  	end
