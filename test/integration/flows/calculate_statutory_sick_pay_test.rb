@@ -2,7 +2,7 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
-class CalculateStatutorySickPay < ActiveSupport::TestCase
+class CalculateStatutorySickPayTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
@@ -160,12 +160,12 @@ class CalculateStatutorySickPay < ActiveSupport::TestCase
 			  								end
 			  							end # no to related illness
 
-			  							context "yes to related illness" do
-			  								setup {add_response :yes}
+			  							# context "yes to related illness" do
+			  							# 	setup {add_response :yes}
 
-			  								should "ask how many days missed" do
-			  									assert_current_node :how_many_days_missed?
-			  								end
+			  							# 	should "ask how many days missed" do
+			  							# 		assert_current_node :how_many_days_missed?
+			  							# 	end
 
 			  						# 		context "days missed" do
 			  						# 			should "return an error if 0" do
@@ -180,7 +180,7 @@ class CalculateStatutorySickPay < ActiveSupport::TestCase
 	  								# 				assert_current_node :how_many_days_missed?
 											# 	end
 											# end
-										end
+										# end
 
 										 #  		context "answered 3 sick days during related illness" do
 											#   		setup {add_response '3'}
