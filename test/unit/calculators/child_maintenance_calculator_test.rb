@@ -152,6 +152,40 @@ module SmartAnswer::Calculators
         assert_equal 400, @calculator.calculate_maintenance_payment
       end
 
+      #test scenario 17 - reduced rate
+      should "calculate the child maintenance payment using the correct scheme and rate - reduced rate" do
+        @calculator = ChildMaintenanceCalculator.new(2)
+        @calculator.net_income = 180.0
+        @calculator.number_of_other_children = 1
+        @calculator.number_of_shared_care_nights = 0
+        assert_equal 28, @calculator.calculate_maintenance_payment
+      end
+
+      # test scenario 18
+      should "calculate the child maintenance payment using the correct scheme and rate - reduced rate" do
+        @calculator = ChildMaintenanceCalculator.new(2)
+        @calculator.net_income = 180.0
+        @calculator.number_of_other_children = 1
+        @calculator.number_of_shared_care_nights = 1
+        assert_equal 24, @calculator.calculate_maintenance_payment
+      end
+
+      should "calculate the child maintenance payment using the correct scheme and rate - reduced rate" do
+        @calculator = ChildMaintenanceCalculator.new(2)
+        @calculator.net_income = 180.0
+        @calculator.number_of_other_children = 1
+        @calculator.number_of_shared_care_nights = 2
+        assert_equal 20, @calculator.calculate_maintenance_payment
+      end
+
+      should "calculate the child maintenance payment using the correct scheme and rate - reduced rate minimum of 5 pounds" do
+        @calculator = ChildMaintenanceCalculator.new(2)
+        @calculator.net_income = 180.0
+        @calculator.number_of_other_children = 1
+        @calculator.number_of_shared_care_nights = 4
+        assert_equal 5, @calculator.calculate_maintenance_payment
+      end
+
     end
   end
 end

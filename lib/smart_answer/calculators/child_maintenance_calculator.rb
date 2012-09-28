@@ -6,6 +6,7 @@ module SmartAnswer::Calculators
     
     OLD_SCHEME_BASE_AMOUNT = 5
     NEW_SCHEME_BASE_AMOUNT = 7
+    OLD_SCHEME_MINIMUM_REDUCED_BASIC = 5
     REDUCED_RATE_THRESHOLD = 100
     BASIC_PLUS_RATE_THRESHOLD = 800
     SHARED_CARE_MAX_RELIEF_EXTRA_AMOUNT = 7
@@ -31,19 +32,24 @@ module SmartAnswer::Calculators
     
     def calculate_reduced_rate_payment
       reduced_rate = ((@net_income - REDUCED_RATE_THRESHOLD) * reduced_rate_multiplier) + base_amount
-      (reduced_rate - (reduced_rate * shared_care_multiplier)).round(0)
+      reduced_rate_decreased = (reduced_rate - (reduced_rate * shared_care_multiplier)).round(0)
+      if shared_care_multiplier == 0.5
+        reduced_rate_decreased = reduced_rate_decreased - (@number_of_children * SHARED_CARE_MAX_RELIEF_EXTRA_AMOUNT)
+      end
+      #reduced rate can never be less than 5 pounds
+      reduced_rate_decreased > OLD_SCHEME_MINIMUM_REDUCED_BASIC ? reduced_rate_decreased : OLD_SCHEME_MINIMUM_REDUCED_BASIC
     end
     
     def calculate_basic_rate_payment
       basic_rate = capped_income - (capped_income * relevant_other_child_multiplier)
       basic_rate = (basic_rate * basic_rate_multiplier)
-      reduced_rate = (basic_rate - (basic_rate * shared_care_multiplier)).round(0)
+      basic_rate_decreased = (basic_rate - (basic_rate * shared_care_multiplier)).round(0)
       # for maximum shared care relief, subtract additional £7 per child
       if shared_care_multiplier == 0.5
-        reduced_rate - (@number_of_children * SHARED_CARE_MAX_RELIEF_EXTRA_AMOUNT)
-      else
-        reduced_rate
+        basic_rate_decreased = basic_rate_decreased - (@number_of_children * SHARED_CARE_MAX_RELIEF_EXTRA_AMOUNT)
       end
+      #basic rate can never be less than 5 pounds
+      basic_rate_decreased > OLD_SCHEME_MINIMUM_REDUCED_BASIC ? basic_rate_decreased : OLD_SCHEME_MINIMUM_REDUCED_BASIC
     end
     
     #only used in the 2012 scheme
