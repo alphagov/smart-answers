@@ -2,9 +2,9 @@ en-GB:
   flow:
     plan-maternity-leave:
       meta:
-        description: Plan your maternity leave
+        description: Planning your Maternity Leave
       title:
-        Plan your maternity leave
+        Planning your Maternity Leave
       options:
         "no": "No"
         "yes": "Yes"
@@ -37,7 +37,7 @@ en-GB:
         body: |
             Below is a calendar and list of key dates that explain when you can take your Maternity Leave. 
             
-            These dates are for your baby's due date of %{due_date_formatted} and a start date of %{start_date_formatted} before due date.
+            These dates are for your baby's due date of %{due_date_formatted} and a start date of %{distance_start} before due date.
 
             Baby due date | %{due_date_formatted}
             Maternity leave start date (%{distance_start}) | %{start_date_formatted}
