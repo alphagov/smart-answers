@@ -1,0 +1,60 @@
+require_relative "../../test_helper"
+
+module SmartAnswer::Calculators
+  class PlanAdoptionLeaveTest < ActiveSupport::TestCase
+
+    context PlanAdoptionLeave do
+	    context "formatted dates (start date 5 days)" do
+	    	setup do
+		      @calculator = PlanAdoptionLeave.new(
+		      	match_date: "2012-06-25", arrival_date: "2012-12-25", start_date: 'days_05')
+		    end
+		    
+		    should "show formatted due date" do
+		    	assert_equal "25 June 2012", @calculator.formatted_match_date
+		    	assert_equal "25 December 2012", @calculator.formatted_arrival_date
+		    end
+		    
+		    should "format start date " do
+					assert_equal "20 June 2012", @calculator.formatted_start_date
+		    end
+				
+				should "distance from start (days 05)" do
+					assert_equal "5 days", @calculator.distance_start('days_5')
+		    end
+		    
+		  end
+	    context "formatted dates (start_date 2 weeks)" do
+	    	setup do
+					@calculator = PlanAdoptionLeave.new(
+		      	match_date: "2012-06-25", arrival_date: "2012-12-25", start_date: 'weeks_2')
+	    	end
+		    should "format start date" do
+		    	assert_equal "11 June 2012", @calculator.formatted_start_date
+		    end
+		    should "distance from start " do
+					assert_equal "2 weeks", @calculator.distance_start('weeks_2')
+		    end
+
+		    context "test date range methods" do
+		   		# /plan-adoption-leave/y/2012-06-25/2012-12-25/weeks_2
+		    	should "qualifying_week give last date of 23 June 2012" do
+			      assert_equal Date.parse("23 June 2012"), @calculator.qualifying_week.last
+			    end
+
+		    	should "earliest_start give last date of 11 December 2012" do
+			      assert_equal Date.parse("11 December 2012"), @calculator.earliest_start
+			    end
+
+		    	should "period_of_ordinary_leave give range of 11 June 2012 - 10 December 2012" do
+			      assert_equal "11 June 2012 - 10 December 2012", @calculator.format_date_range(@calculator.period_of_ordinary_leave)
+			    end
+
+		    	should "period_of_additional_leave give range of 10 December 2012 - 10 June 2013" do
+			    	assert_equal "10 December 2012 - 10 June 2013", @calculator.format_date_range(@calculator.period_of_additional_leave)
+			    end
+			  end
+	  	end
+	  end
+  end
+end
