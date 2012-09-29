@@ -112,7 +112,7 @@ end
 
 ## Q11 
 multiple_choice :related_illness? do
-	option :yes => :how_many_days_missed? 						#
+	option :yes => :how_many_days_missed? 						## Q12
 	option :no => :how_many_days_worked? 						## Q13
 end
 
@@ -138,15 +138,15 @@ value_question :how_many_days_worked? do
 	calculate :pattern_days do
 		# ensure we get an integer
 		if ! (responses.last.to_s =~ /\A\d+\z/)
-      raise SmartAnswer::InvalidResponse
-    else
+      		raise SmartAnswer::InvalidResponse
+    	else
     	# and one between 1..7
-      if (1..7).include?(responses.last.to_i)
-      	responses.last.to_i
-      else
-      	raise SmartAnswer::InvalidResponse
-      end
-    end
+      		if (1..7).include?(responses.last.to_i)
+      			responses.last.to_i
+      		else
+      			raise SmartAnswer::InvalidResponse
+      		end
+    	end
 	end
 	calculate :calculator do
 		if prev_sick_days
@@ -164,11 +164,15 @@ end
 
 ## Q14
 value_question :normal_workdays_taken_as_sick? do
+	precalculate :total_days_sick do
+		Date.parse(sick_end_date) - Date.parse(sick_start_date)
+	end
+
 	calculate :normal_workdays_out do
 		if ! (responses.last.to_s =~ /\A\d+\z/)
       		raise SmartAnswer::InvalidResponse
     	else
-			if responses.last.to_i < 1
+			if (responses.last.to_i < 1) or (responses.last.to_i > total_days_sick)
       			raise SmartAnswer::InvalidResponse
       		else
 				calculator.set_normal_work_days(responses.last.to_i)
@@ -180,7 +184,7 @@ value_question :normal_workdays_taken_as_sick? do
 		sprintf("%.2f", (calculator.ssp_payment < 1 ? 0.0 : calculator.ssp_payment))
 	end
 
-	next_node :entitled
+	next_node :entitled_or_not_enough_days
 end
 
 ## Outcomes
@@ -196,7 +200,7 @@ outcome :irregular_work_schedule
 ## A5
 outcome :not_earned_enough
 ## A6
-outcome :entitled do
+outcome :entitled_or_not_enough_days do
 	precalculate :outcome_text do
 		if calculator.ssp_payment >= 1 
 			PhraseList.new(:entitled_info)

@@ -114,7 +114,59 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 		  									assert_current_node :related_illness?
 		  								end
 
-		  								## TODO: continue flow
+		  								context "no related illness" do
+		  									setup {add_response :no}
+
+		  									should "ask how many days they work" do
+		  										assert_current_node :how_many_days_worked?
+		  									end
+
+		  									context "answer 0 to days worked" do
+		  										setup {add_response '0'}
+
+		  										should "return error if 0" do
+		  											assert_current_node_is_error
+		  											assert_current_node :how_many_days_worked?
+		  										end
+		  									end
+
+		  									context "answer 5 to days worked" do
+		  										setup {add_response '5'}
+
+		  										should "ask for days taken as sick" do
+		  											assert_state_variable "total_days_sick", 10
+		  											assert_current_node :normal_workdays_taken_as_sick?
+		  										end
+		  										
+		  										context "answer more sick days than in the period" do
+		  											setup {add_response '13'}
+
+		  											should "return an error for 13 days" do
+			  											assert_current_node_is_error
+			  											assert_current_node :normal_workdays_taken_as_sick?
+			  										end
+			  									end
+
+			  									context "less than 4 days taken off - no pay" do
+			  										setup {add_response '3'}
+
+			  										should "display no pay because not enough days" do
+			  											assert_phrase_list :outcome_text, [:first_three_days_not_paid]
+			  											assert_current_node :entitled_or_not_enough_days
+			  										end
+			  									end
+
+			  									context "entitled to pay" do
+			  										setup {add_response '8'}
+
+			  										should "display pay info" do
+			  											assert_phrase_list :outcome_text, [:entitled_info]
+			  											assert_current_node :entitled_or_not_enough_days
+			  										end
+			  									end
+
+		  									end
+		  								end # no related illness	
 		  							end
 		  						end # yes to 8 weeks
 
@@ -155,7 +207,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 			  										should "give entitled outcome" do
 				  									assert_state_variable "normal_workdays_out", 4
 				  									assert_state_variable "ssp_payment", "17.17"
-				  									assert_current_node :entitled
+				  									assert_current_node :entitled_or_not_enough_days
 			  									end
 			  								end
 			  							end # no to related illness

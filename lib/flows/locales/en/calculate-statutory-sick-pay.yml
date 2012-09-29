@@ -117,7 +117,7 @@ en-GB:
       normal_workdays_taken_as_sick?:
         title: How many of their normal workdays did your employee take off sick between %{sick_start_date} and %{sick_end_date}?
         hint: ‘Normal workdays’ are the days of the week your employee works on a regular basis
-        error_message: Please enter a number greater than 0
+        error_message: Please enter a number up to %{total_days_sick}
 
 
       ## Outcomes
@@ -164,7 +164,7 @@ en-GB:
           $D [Download ‘Form SSP1, employee not entitled to SSP’ (PDF, 130KB)](http://www.dwp.gov.uk/advisers/claimforms/ssp1.pdf “Download ‘Statutory Sick Pay and an employee’s claim for benefit’ form”){:rel=”external"} $D
 
       ## A6 
-      entitled:
+      entitled_or_not_enough_days:
         body: |
           %{warning_message}
 
