@@ -197,7 +197,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         end # Pay frequency
       end # Age
       
-      # Scenario 8 from https://docs.google.com/a/digital.cabinet-office.gov.uk/spreadsheet/ccc?key=0An9oCYIY2AELdHVsckdKM0VWc2NFZ0J6MXFtdEY3MVE#gid=0
+      # Scenario 8 
       context "25 year old" do
         setup do
           add_response 25
@@ -224,28 +224,29 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       # Scenario 8 - part 2 - living in free accommodation instead of charged
       context "25 year old" do
         setup do
-          add_response 25
-          add_response 7
-          add_response 35
-          add_response 350
-          add_response 10
-          add_response 12
-          add_response :yes_free
-          add_response 7
+          add_response 25         # age 
+          add_response 7          # pay_frequency
+          add_response 35         # basic_hours
+          add_response 350        # amount_paid
+          add_response 10         # hours of overtime
+          add_response 12         # overtime pay per hour
+          add_response :yes_free  # provided accomodation
+          add_response 7          # accom usage
         end
         should "be above the minimum wage" do
           assert_current_node :current_payment_above
         end
         should "make outcome calculations" do
           assert_state_variable "total_hours", 45
-          assert_state_variable "minimum_hourly_rate", 6.08
-          assert_state_variable "total_hourly_rate", "10.74"
+          # NOTE: these are date sensitive vars - will be tested in the calculator tests
+          # assert_state_variable "minimum_hourly_rate", 6.08 # 
+          # assert_state_variable "total_hourly_rate", "10.74" # time sensitive
           assert_state_variable "above_minimum_wage", true
         end
       end
-      
     end # Apprentice
   end # Current pay
+
 
 
 
