@@ -68,8 +68,8 @@ $(document).ready(function() {
   // update the content (i.e. plonk in the html fragment)
   function updateContent(fragment){
     $('.smart_answer section').html(fragment);
-    if($(".results").length !== 0){
-      //_gaq.push(['_trackEvent', 'Citizen-Format-Smartanswer', 'Success-results']);
+    if ($(".outcome").length !== 0) {
+      $.event.trigger('smartanswerOutcome');
     }
   }
 
