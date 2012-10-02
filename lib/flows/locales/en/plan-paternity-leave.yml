@@ -8,24 +8,16 @@ en-GB:
       # Questions
       baby_due_date?:
         title: What is the baby's due date?
-        error_message: Please enter a date up to nine months in the future.
-      leave_start?:
-        title: How long after the due date would you like to start your Paternity Leave?
+      leave_duration?:
+        title: How much leave do you want to take?
+        hint: Paternity leave is either 1 or 2 weeks.
         options:
-          days_0: 0 days
-          days_1: 1 day
-          days_2: 2 days
-          days_3: 3 days
-          days_4: 4 days
-          days_5: 5 days
-          days_6: 6 days
-          weeks_1: 1 week
-          weeks_2: 2 weeks
-          weeks_3: 3 weeks
-          weeks_4: 4 weeks
-          weeks_5: 5 weeks
-          weeks_6: 6 weeks
-          weeks_7: 7 weeks
+          one_week: 1 week
+          two_weeks: 2 weeks
+      leave_start?:
+        title: When do you want to start your Paternity Leave?
+        hint: You must take your Paternity Leave within the 56 days following the date the baby is due.
+        error_message: You can only take your Paternity Leave within the 56 days following the date the baby is due.
       # Outcomes
       paternity_leave_details:
         title: Your Paternity Leave dates

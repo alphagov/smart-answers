@@ -1,12 +1,13 @@
 module SmartAnswer::Calculators
 	class PlanPaternityLeave
+		include ActionView::Helpers::DateHelper
 
 		attr_reader :formatted_due_date, :formatted_start_date
 
 		def initialize(options = {})
 			@due_date = due_date = Date.parse(options[:due_date])
-			@formatted_due_date = formatted_date(@due_date) 
-			@start_date = start = get_start_date(options[:start_date])
+			@formatted_due_date = @due_date.strftime("%A, %d %B %Y")
+			@start_date = start = Date.parse(options[:start_date])
 			@formatted_start_date = formatted_date(@start_date)
 		end
 
@@ -14,15 +15,8 @@ module SmartAnswer::Calculators
 			dt.strftime("%d %B %Y")
 		end
 
-		def get_start_date(dtstr)
-			num = dtstr.split('_')[1].to_i
-			dayweek = dtstr.split('_')[0]
-			num = (dayweek == 'weeks' ? num * 7 : num)
-			days_ago = num.days.ago(@due_date)
-		end
-
-		def distance_start(dtstr)
-			dtstr.split('_')[1].to_i.to_s + " " + dtstr.split('_')[0]
+		def distance_start
+			distance_of_time_in_words(@due_date, @start_date)
 		end
 
 	  def format_date_range(range)
@@ -61,7 +55,7 @@ module SmartAnswer::Calculators
 	  end
 
 	  def period_of_ordinary_leave
-	      @start_date .. ordinary_leave_ends
+	    @start_date .. ordinary_leave_ends
 	  end
 
 	  def period_of_additional_leave

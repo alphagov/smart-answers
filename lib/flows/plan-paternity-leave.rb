@@ -4,32 +4,26 @@ satisfies_need "1947"
 date_question :baby_due_date? do 
 	save_input_as :due_date
 
-  calculate :due_date do
-    dt = Date.parse(responses.last)
-    raise InvalidResponse if dt < Date.today or dt > 9.months.since(Date.today)
-    responses.last
-  end
-
-	next_node :leave_start?
+	next_node :leave_duration?
 end
 
-multiple_choice :leave_start? do
-	save_input_as :start_date
+multiple_choice :leave_duration? do
+  save_input_as :leave_duration
 
-	option :days_0
-  option :days_1
-  option :days_2
-  option :days_3
-  option :days_4
-  option :days_5
-  option :days_6
-  option :weeks_1
-  option :weeks_2
-  option :weeks_3
-  option :weeks_4
-  option :weeks_5
-  option :weeks_6
-  option :weeks_7
+  option :one_week
+  option :two_weeks
+
+  next_node :leave_start?
+end
+
+date_question :leave_start? do
+	calculate :start_date do
+    start_date = Date.parse(responses.last)
+    due_date_p = Date.parse(due_date)
+    week_num = (leave_duration == 'two_weeks' ? 6 : 7)
+    raise SmartAnswer::InvalidResponse if start_date > week_num.weeks.since(due_date_p) or start_date < due_date_p 
+    responses.last
+  end
 
   calculate :calculator do
     Calculators::PlanPaternityLeave.new(due_date: due_date, start_date: start_date)
@@ -46,7 +40,7 @@ outcome :paternity_leave_details do
   	calculator.formatted_start_date
   end
   precalculate :distance_start do
-    calculator.distance_start(start_date)
+    calculator.distance_start
   end
   precalculate :qualifying_week do
     calculator.qualifying_week.last
