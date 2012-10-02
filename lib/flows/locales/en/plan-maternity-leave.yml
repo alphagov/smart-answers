@@ -13,27 +13,11 @@ en-GB:
       # Questions
       baby_due_date?:
         title: What is the baby's due date?
-        error_message: Please enter a date up to nine months in the future.
+        # error_message: Please enter a date up to nine months in the future.
       leave_start?:
-        title: How far in advance would you like to start your Maternity Leave?
-        options:
-          days_1: 1 day
-          days_2: 2 days
-          days_3: 3 days
-          days_4: 4 days
-          days_5: 5 days
-          days_6: 6 days
-          weeks_1: 1 week
-          weeks_2: 2 weeks
-          weeks_3: 3 weeks
-          weeks_4: 4 weeks
-          weeks_5: 5 weeks
-          weeks_6: 6 weeks
-          weeks_7: 7 weeks
-          weeks_8: 8 weeks
-          weeks_9: 9 weeks
-          weeks_10: 10 weeks
-          weeks_11: 11 weeks
+        title: When would you like to start your Maternity Leave?
+        hint: The earliest date your maternity leave can start is 11 weeks before your baby's due date. 
+        error_message: You can only start your leave from 1 day up to 11 weeks before the baby is due
 
       # Outcomes
       maternity_leave_details:
@@ -48,4 +32,3 @@ en-GB:
             The earliest you can start your Maternity Leave is: | %{earliest_start}
             Ordinary Maternity Leave (first 26 weeks): | %{period_of_ordinary_leave}
             Additional Maternity Leave (up to 26 weeks more): | %{period_of_additional_leave}
-            
