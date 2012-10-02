@@ -4,15 +4,15 @@ en-GB:
       meta:
         description: Planning your Paternity Leave
       title: Planning your Paternity Leave
-      body: Paternity Leave is time off work to look after your new baby. Enter your details below to see when you can take it.
+      body: Paternity Leave is time off work to look after your new baby. Enter your details to see when you can take it.
       # Questions
       baby_due_date?:
         title: What is the baby's due date?
         error_message: Please enter a date up to nine months in the future.
       leave_start?:
-        title: When would like to start your Paternity Leave?
+        title: How long after the due date would you like to start your Paternity Leave?
         options:
-          days_0: "0 days"
+          days_0: 0 days
           days_1: 1 day
           days_2: 2 days
           days_3: 3 days
@@ -30,13 +30,13 @@ en-GB:
       paternity_leave_details:
         title: Your Paternity Leave dates
         body: |
-            Below is a calendar and list of key dates that explain when you can take your Paternity Leave. 
+            Below is a list of key dates that explain when you can take your Paternity Leave. 
             
-            These dates are for your baby's due date of %{due_date_formatted} and a start date of %{distance_start} before due date.
+            These dates are for your baby's due date of %{due_date_formatted} and a start date of %{distance_start} after due date.
 
-            Baby due date | %{due_date_formatted}
-            Paternity leave start date (%{distance_start}) | %{start_date_formatted}
+
             You must tell your employer by: | %{qualifying_week}
             Your chosen Ordinary Paternity Leave dates: | %{period_of_ordinary_leave}
             You could take Ordinary Paternity Leave during this period: | %{period_of_potential_ordinary_leave}
             You could take Additional Paternity Leave during this period: | %{period_of_additional_leave}
+            Your baby is due on: | %{due_date_formatted}

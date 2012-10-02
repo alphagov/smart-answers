@@ -4,18 +4,17 @@ en-GB:
       meta:
         description: Planning your Adoption Leave
       title: Planning your Adoption Leave
-      body: Adoption Leave is time off work to look after your adopted child. Enter your details below to see when you can take it. This tool is for UK adoptions only.
+      body: Adoption Leave is time off work to look after your adopted child. Enter your details to see when you can take it. This tool is for UK adoptions only.
       # Questions
       child_match_date?:
         title: What date were you matched with your child?
-        # error_message: Please enter a date up to nine months in the future.
       child_arrival_date?:
-        title: Child's expected arrival date?
+        title: What is the child's expected arrival date?
         error_message: Please enter a date after the match date.
       leave_start?:
-        title: When would like to start your Adoption Leave?
+        title: How far in advance would like to start your Adoption Leave?
         options:
-          days_0: "0 days"
+          days_0: 0 days
           days_1: 1 day
           days_2: 2 days
           days_3: 3 days
@@ -24,25 +23,19 @@ en-GB:
           days_6: 6 days
           weeks_1: 1 week
           weeks_2: 2 weeks
-          weeks_3: 3 weeks
-          weeks_4: 4 weeks
-          weeks_5: 5 weeks
-          weeks_6: 6 weeks
-          weeks_7: 7 weeks
       # Outcomes
       adoption_leave_details:
         title: Your Adoption Leave dates
         body: |
-            Below is a calendar and list of key dates that explain when you can take your Adoption Leave. 
+            Below is a list of key dates that explain when you can take your Adoption Leave. 
 
             These dates are for matching date of %{match_date_formatted} 
             and your child&rsquo;s arrival date of %{arrival_date_formatted}
             and a start date of %{distance_start} before due date.
 
-            Match date | %{match_date_formatted}
-            Child&rsquo;s Arrival date | %{arrival_date_formatted}
-            Adoption leave start date (%{distance_start}) | %{start_date_formatted}
+
             You must tell your employer by: | %{qualifying_week}
-            The earliest you can start your Maternity Leave is: | %{earliest_start}
-            Ordinary Maternity Leave (first 26 weeks): | %{period_of_ordinary_leave}
-            Additional Maternity Leave (up to 26 weeks more): | %{period_of_additional_leave}
+            Child&rsquo;s Arrival date | %{arrival_date_formatted}
+            The earliest you can start your Adoption Leave is: | %{earliest_start}
+            Ordinary Adoption Leave (first 26 weeks): | %{period_of_ordinary_leave}
+            Additional Adoption Leave (up to 26 weeks more): | %{period_of_additional_leave}

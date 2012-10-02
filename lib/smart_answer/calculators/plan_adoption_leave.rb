@@ -49,9 +49,6 @@ module SmartAnswer::Calculators
 	    expected_week && weeks_later(expected_week, -1)
 	  end
 
-	  # def earliest_start
-	  #   expected_week && expected_week_of_childbirth.first - 11 * 7
-	  # end
 
 		def period_of_ordinary_leave
       @start_date .. @start_date + 26 * 7

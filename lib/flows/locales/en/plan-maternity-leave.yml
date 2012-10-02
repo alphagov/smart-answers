@@ -9,15 +9,14 @@ en-GB:
         "no": "No"
         "yes": "Yes"
         none: "None of the above"
-      body: Maternity Leave is time off work to look after your new baby. Enter your details below to see when you can take it.
+      body: Maternity Leave is time off work to look after your new baby. Enter your details to see when you can take it.
       # Questions
       baby_due_date?:
         title: What is the baby's due date?
         error_message: Please enter a date up to nine months in the future.
       leave_start?:
-        title: When would like to start your Maternity Leave?
+        title: How far in advance would you like to start your Maternity Leave?
         options:
-          days_0: "0 days"
           days_1: 1 day
           days_2: 2 days
           days_3: 3 days
@@ -31,18 +30,22 @@ en-GB:
           weeks_5: 5 weeks
           weeks_6: 6 weeks
           weeks_7: 7 weeks
+          weeks_8: 8 weeks
+          weeks_9: 9 weeks
+          weeks_10: 10 weeks
+          weeks_11: 11 weeks
+
       # Outcomes
       maternity_leave_details:
-        title: Your Maternity Leave dates
+        title: Your Statutory Maternity Leave
         body: |
-            Below is a calendar and list of key dates that explain when you can take your Maternity Leave. 
+            Below is a list of key dates that explain when you can take Statutory Maternity Leave. 
             
             These dates are for your baby's due date of %{due_date_formatted} and a start date of %{distance_start} before due date.
 
-            Baby due date | %{due_date_formatted}
-            Maternity leave start date (%{distance_start}) | %{start_date_formatted}
+            Your baby is due on: | %{due_date_formatted}
             You must tell your employer by: | %{qualifying_week}
             The earliest you can start your Maternity Leave is: | %{earliest_start}
             Ordinary Maternity Leave (first 26 weeks): | %{period_of_ordinary_leave}
             Additional Maternity Leave (up to 26 weeks more): | %{period_of_additional_leave}
-            Your baby is due on: | %{due_date_formatted}
+            
