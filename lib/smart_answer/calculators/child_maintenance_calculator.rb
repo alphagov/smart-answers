@@ -6,18 +6,24 @@ module SmartAnswer::Calculators
     
     OLD_SCHEME_BASE_AMOUNT = 5
     NEW_SCHEME_BASE_AMOUNT = 7
+    OLD_SCHEME_MINIMUM_REDUCED_BASIC = 5
     REDUCED_RATE_THRESHOLD = 100
     BASIC_PLUS_RATE_THRESHOLD = 800
+    SHARED_CARE_MAX_RELIEF_EXTRA_AMOUNT = 7
+    OLD_SCHEME_MAX_INCOME = 2000
+    NEW_SCHEME_MAX_INCOME = 3000
     
     def initialize(number_of_children)
       @number_of_children = number_of_children.to_i
-      # Arbitrary scheme threshold determined by number of children
-      @calculation_scheme = @number_of_children > 3 ? :new : :old
+      # Scheme threshold will be determined by number of children in a later iteration
+      # @calculation_scheme = @number_of_children > 3 ? :new : :old
+      # Use current scheme in all cases for now
+      @calculation_scheme = :old
       load_calculator_data
     end
     
     def rate_type
-      @calculator_data[:rates][@calculation_scheme].find { |r| @net_income <= r[:max] }[:rate]
+      @calculator_data[:rates][@calculation_scheme].find { |r| capped_income <= r[:max] }[:rate]
     end
     
     def calculate_maintenance_payment
@@ -25,16 +31,28 @@ module SmartAnswer::Calculators
     end
     
     def calculate_reduced_rate_payment
-      reduced_rate = ((@net_income - REDUCED_RATE_THRESHOLD) * reduced_rate_mulitplier) + base_amount
-      (reduced_rate - (reduced_rate * shared_care_multiplier)).round(2)
+      reduced_rate = ((@net_income - REDUCED_RATE_THRESHOLD) * reduced_rate_multiplier) + base_amount
+      reduced_rate_decreased = (reduced_rate - (reduced_rate * shared_care_multiplier)).round(0)
+      if shared_care_multiplier == 0.5
+        reduced_rate_decreased = reduced_rate_decreased - (@number_of_children * SHARED_CARE_MAX_RELIEF_EXTRA_AMOUNT)
+      end
+      #reduced rate can never be less than 5 pounds
+      reduced_rate_decreased > OLD_SCHEME_MINIMUM_REDUCED_BASIC ? reduced_rate_decreased : OLD_SCHEME_MINIMUM_REDUCED_BASIC
     end
     
     def calculate_basic_rate_payment
-      basic_rate = @net_income - (@net_income * relevant_other_child_multiplier)
+      basic_rate = capped_income - (capped_income * relevant_other_child_multiplier)
       basic_rate = (basic_rate * basic_rate_multiplier)
-      (basic_rate - (basic_rate * shared_care_multiplier)).round(2)
+      basic_rate_decreased = (basic_rate - (basic_rate * shared_care_multiplier)).round(0)
+      # for maximum shared care relief, subtract additional £7 per child
+      if shared_care_multiplier == 0.5
+        basic_rate_decreased = basic_rate_decreased - (@number_of_children * SHARED_CARE_MAX_RELIEF_EXTRA_AMOUNT)
+      end
+      #basic rate can never be less than 5 pounds
+      basic_rate_decreased > OLD_SCHEME_MINIMUM_REDUCED_BASIC ? basic_rate_decreased : OLD_SCHEME_MINIMUM_REDUCED_BASIC
     end
     
+    #only used in the 2012 scheme
     def calculate_basic_plus_rate_payment
       basic_plus_rate = @net_income - (@net_income * relevant_other_child_multiplier)
       basic_qualifying_child_amount = (BASIC_PLUS_RATE_THRESHOLD * basic_rate_multiplier)
@@ -43,14 +61,15 @@ module SmartAnswer::Calculators
       (child_amounts_total - (child_amounts_total * shared_care_multiplier)).round(2)
     end
     
-    def reduced_rate_mulitplier
-      matrix = @calculator_data[scheme_sym(:reduced_rate_mulitpliers)]
+    def reduced_rate_multiplier
+      matrix = @calculator_data[scheme_sym(:reduced_rate_multipliers)]
       matrix[number_of_other_children_index][number_of_qualifying_children_index]
     end
     
     def basic_rate_multiplier
-      matrix = @calculator_data[scheme_sym(:basic_rate_multipliers)]
-      matrix[number_of_other_children_index][number_of_qualifying_children_index]
+      #matrix = @calculator_data[scheme_sym(:basic_rate_multipliers)]
+      matrix = @calculator_data[:old_basic_rate_multipliers]
+      matrix[number_of_qualifying_children_index]
     end
     
     def shared_care_multiplier
@@ -63,6 +82,12 @@ module SmartAnswer::Calculators
     
     def basic_plus_rate_multiplier
       @calculator_data[:basic_plus_rate_multipliers][number_of_qualifying_children]
+    end
+
+    # never use more than the net (or gross) income maximum in calculations
+    def capped_income
+      max_income = ( @calculation_scheme == :old ? OLD_SCHEME_MAX_INCOME : NEW_SCHEME_MAX_INCOME )
+      @net_income > max_income ? max_income : @net_income
     end
 
     def number_of_other_children_index

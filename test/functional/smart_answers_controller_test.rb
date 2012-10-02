@@ -89,6 +89,11 @@ class SmartAnswersControllerTest < ActionController::TestCase
       assert_select "input[name=response][value=no]"
     end
 
+    should "show outcome when smart answer is complete so that 'smartanswerOutcome' JS event is fired" do
+      get :show, id: 'sample', started: 'y', responses: ['yes']
+      assert_select ".outcome"
+    end
+
     should "have meta robots noindex on question pages" do
       get :show, id: 'sample', started: 'y'
       assert_select "head meta[name=robots][content=noindex]"
