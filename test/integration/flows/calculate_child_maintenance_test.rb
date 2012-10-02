@@ -6,7 +6,7 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'calculate-child-maintenance'
+    setup_for_testing_flow 'calculate-your-child-maintenance'
   end
   
   ## Q1

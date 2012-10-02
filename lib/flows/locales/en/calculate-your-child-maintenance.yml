@@ -1,6 +1,6 @@
 en-GB:
   flow:
-    calculate-child-maintenance:
+    calculate-your-child-maintenance:
       meta:
         description: Work out the amount of child maintenance you might have to pay according to the Child Support Agency
       title: Child maintenance calculator
