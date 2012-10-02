@@ -1,12 +1,13 @@
+
 require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
-  class CalculateStatutorySickPayTest < ActiveSupport::TestCase
+  class StatutorySickPayCalculatorTest < ActiveSupport::TestCase
 
-  	context CalculateStatutorySickPay do
+  	context StatutorySickPayCalculator do
   		context "prev_sick_days is 5" do
 	  		setup do
-	  			@calculator = CalculateStatutorySickPay.new(5)
+	  			@calculator = StatutorySickPayCalculator.new(5)
 	  			@calculator.set_normal_work_days(3)
 	  			@calculator.set_daily_rate(4)	
 	  		end
@@ -37,7 +38,7 @@ module SmartAnswer::Calculators
 	  	end
 
 	  	context "prev_sick_days is 3" do
-	  		setup {@calculator = CalculateStatutorySickPay.new(3)}
+	  		setup {@calculator = StatutorySickPayCalculator.new(3)}
 
 	  		should "return waiting_days of 3" do
 	  			assert_equal @calculator.waiting_days, 3
@@ -46,7 +47,7 @@ module SmartAnswer::Calculators
 
 	  	context "prev_sick_days is 0" do
 	  		setup do 
-	  			@calculator = CalculateStatutorySickPay.new(0)
+	  			@calculator = StatutorySickPayCalculator.new(0)
 	  		end
 
 	  		should "return waiting_days of 3, ssp_payment of 0" do

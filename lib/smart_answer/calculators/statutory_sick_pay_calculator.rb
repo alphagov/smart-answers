@@ -1,8 +1,11 @@
 module SmartAnswer::Calculators
-  class CalculateStatutorySickPay
+  class StatutorySickPayCalculator
   
     attr_reader :daily_rate, :waiting_days, :normal_work_days
     attr_accessor :pattern_days, :normal_work_days
+
+    # LEL will need updating for April 2013 if it changes
+    LOWER_EARNING_LIMIT = 107.00
     
     def initialize(prev_sick_days)
     	@prev_sick_days = prev_sick_days
