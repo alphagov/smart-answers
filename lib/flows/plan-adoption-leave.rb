@@ -31,11 +31,7 @@ multiple_choice :leave_start? do
   option :days_6
   option :weeks_1
   option :weeks_2
-  option :weeks_3
-  option :weeks_4
-  option :weeks_5
-  option :weeks_6
-  option :weeks_7
+
 
   calculate :calculator do
     Calculators::PlanAdoptionLeave.new(

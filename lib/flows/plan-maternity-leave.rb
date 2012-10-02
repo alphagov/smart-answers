@@ -16,7 +16,6 @@ end
 multiple_choice :leave_start? do
 	save_input_as :start_date
 
-	option :days_0
   option :days_1
   option :days_2
   option :days_3
@@ -30,6 +29,10 @@ multiple_choice :leave_start? do
   option :weeks_5
   option :weeks_6
   option :weeks_7
+  option :weeks_8
+  option :weeks_9
+  option :weeks_10
+  option :weeks_11
 
   calculate :calculator do
     Calculators::PlanMaternityLeave.new(due_date: due_date, start_date: start_date)
