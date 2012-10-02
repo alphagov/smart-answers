@@ -9,9 +9,9 @@ class CalculateStatutorySickPay < ActiveSupport::TestCase
     setup_for_testing_flow 'calculate-statutory-sick-pay'
   end
 
-  	should "ask if employee is getting maternity pay" do
-  		assert_current_node :getting_maternity_pay?
-  	end
+  should "ask if employee is getting maternity pay" do
+  	assert_current_node :getting_maternity_pay?
+  end
 
   	context "answered yes to maternity" do
   		should "return already_receiving_benefit on maternity answer" do
@@ -78,14 +78,14 @@ class CalculateStatutorySickPay < ActiveSupport::TestCase
 	  					end
 
 	  					context "answer 10 September 2012" do
-	  						setup {add_response Date.parse('10 September 2012')}
+	  						setup {add_response Date.parse("10 September 2012")}
 	  				
 	  						should "ask for sickness end date" do
 	  							assert_current_node :sickness_end_date?
 	  						end
 
 	  						context "answer 20 September 2012" do
-	  							setup {add_response Date.parse('20 September 2012')}
+	  							setup {add_response Date.parse("20 September 2012")}
 
 	  							should "ask if employee was paid for at least eight weeks" do
 		  							assert_current_node :employee_paid_for_last_8_weeks?
@@ -164,99 +164,94 @@ class CalculateStatutorySickPay < ActiveSupport::TestCase
 			  								setup {add_response :yes}
 
 			  								should "ask how many days missed" do
-			  									assert_current_node :how_many_days_missed?
-			  								end
+			  									
+			  									should "return an error if 0" do
+	  												add_response '0'
+	  												assert_current_node_is_error
+	  												assert_current_node :how_many_days_missed?
+	  											end
 
-			  						# 		context "days missed" do
-			  						# 			should "return an error if 0" do
-	  								# 				add_response '0'
-	  								# 				assert_current_node_is_error
-	  								# 				assert_current_node :how_many_days_missed?
-	  								# 			end
+	  											should "return an error if text" do
+	  												add_response 'sometext'
+	  												assert_current_node_is_error
+	  												assert_current_node :how_many_days_missed?
+												end
 
-	  								# 			should "return an error if text" do
-	  								# 				add_response 'sometext'
-	  								# 				assert_current_node_is_error
-	  								# 				assert_current_node :how_many_days_missed?
-											# 	end
-											# end
-										end
-
-										 #  		context "answered 3 sick days during related illness" do
-											#   		setup {add_response '3'}
+										  		context "answered 3 sick days during related illness" do
+											  		setup {add_response '3'}
 											  		
-											#   		should "ask how many days they work" do
-											#   			assert_state_variable "prev_sick_days", 3
-											#   			assert_current_node :how_many_days_worked?
-											#   		end
+											  		should "ask how many days they work" do
+											  			assert_state_variable "prev_sick_days", 3
+											  			assert_current_node :how_many_days_worked?
+											  		end
 
-											#   		context "enter text" do
-											# 	  		setup {add_response 'sometext'}
+											  		context "enter text" do
+												  		setup {add_response 'sometext'}
 												  		
-											# 	  		should "return an error if text" do
-											# 	  			assert_current_node_is_error
-											# 	  			assert_current_node :how_many_days_worked?
-											# 	  		end
-											# 	  	end
+												  		should "return an error if text" do
+												  			assert_current_node_is_error
+												  			assert_current_node :how_many_days_worked?
+												  		end
+												  	end
 
-											# 	  	should "return an error if 0" do
-											#   			add_response '0'
-											#   			assert_current_node_is_error
-											#   			assert_current_node :how_many_days_worked?
-											#   		end
+												  	should "return an error if 0" do
+											  			add_response '0'
+											  			assert_current_node_is_error
+											  			assert_current_node :how_many_days_worked?
+											  		end
 										  	
-										 #  			should "ask for days taken as sick if 1" do
-											#   			add_response '1'
-											#   			assert_current_node :normal_workdays_taken_as_sick?
-											#   		end
+										  			should "ask for days taken as sick if 1" do
+											  			add_response '1'
+											  			assert_current_node :normal_workdays_taken_as_sick?
+											  		end
 										  			
-										 #  			should "ask for days taken as sick if 2" do
-											#   			add_response '2'
-											#   			assert_current_node :normal_workdays_taken_as_sick?
-											#   		end
+										  			should "ask for days taken as sick if 2" do
+											  			add_response '2'
+											  			assert_current_node :normal_workdays_taken_as_sick?
+											  		end
 										  			
-										 #  			should "ask for days taken as sick if 3" do
-											#   			add_response '3'
-											#   			assert_current_node :normal_workdays_taken_as_sick?
-											#   		end
+										  			should "ask for days taken as sick if 3" do
+											  			add_response '3'
+											  			assert_current_node :normal_workdays_taken_as_sick?
+											  		end
 										  			
-										 #  			should "ask for days taken as sick if 4" do
-											#   			add_response '4'
-											#   			assert_current_node :normal_workdays_taken_as_sick?
-											#   		end
+										  			should "ask for days taken as sick if 4" do
+											  			add_response '4'
+											  			assert_current_node :normal_workdays_taken_as_sick?
+											  		end
 										  			
-										 #  			should "ask for days taken as sick if 6" do
-											#   			add_response '6'
-											#   			assert_current_node :normal_workdays_taken_as_sick?
-											#   		end
+										  			should "ask for days taken as sick if 6" do
+											  			add_response '6'
+											  			assert_current_node :normal_workdays_taken_as_sick?
+											  		end
 										  			
-										 #  			should "ask for days taken as sick if 7" do
-											#   			add_response '7'
-											#   			assert_current_node :normal_workdays_taken_as_sick?
-											#   		end
+										  			should "ask for days taken as sick if 7" do
+											  			add_response '7'
+											  			assert_current_node :normal_workdays_taken_as_sick?
+											  		end
 
-											#   		context "5 days worked" do
-											# 	  		setup {add_response '5'}
+											  		context "5 days worked" do
+												  		setup {add_response '5'}
 
-											# 	  		should "ask how may sick days they had" do
-											# 	  			assert_state_variable "pattern_days", 5
-											# 	  			assert_state_variable "daily_rate", 17.17
-											# 	  			assert_current_node :normal_workdays_taken_as_sick?
-											# 	  		end
+												  		should "ask how may sick days they had" do
+												  			assert_state_variable "pattern_days", 5
+												  			assert_state_variable "daily_rate", 17.17
+												  			assert_current_node :normal_workdays_taken_as_sick?
+												  		end
 
-											# 	  		context "4 work days out" do
-											# 	  			setup {add_response 4}
+												  		context "4 work days out" do
+												  			setup {add_response 4}
 
-											# 	  			should "give entitled outcome" do
-											# 		  			assert_state_variable "normal_workdays_out", 4
-											# 		  			assert_state_variable "ssp_payment", "17.17"
-											# 		  			assert_current_node :entitled
-											# 	  			end
-											# 	  		end
-											#   		end
-											#   	end # 3 sick days		
-											# end # how mant days missed
-			  						# 	end # yes to related illness
+												  			should "give entitled outcome" do
+													  			assert_state_variable "normal_workdays_out", 4
+													  			assert_state_variable "ssp_payment", "17.17"
+													  			assert_current_node :entitled
+												  			end
+												  		end
+											  		end
+											  	end # 3 sick days		
+											end
+			  							end # yes to related illness
 			  						end # avg weekly pay
 			  					end # no to 8 weeks
 			  				end #end date
@@ -268,7 +263,9 @@ class CalculateStatutorySickPay < ActiveSupport::TestCase
 	end
 end
 
-end
+
+
+
 	 
 
 # 	  context "answer no" do

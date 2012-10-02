@@ -146,6 +146,7 @@ en-GB:
           + £%{ssp_payment} in total
           + for %{normal_workdays_out} days taken off sick between %{sick_start_date} and %{sick_end_date}
 
+          This is based on a weekly rate of £85.85.
 
           Employees can get SSP for up to 28 weeks. After that you must give them form SSP1 within 7 days of SSP ending. They may be able to get [Employment Support Allowance (ESA).](https://www.gov.uk/employment-support-allowance "Benefits & credits: employment support allowance (ESA)")
 
