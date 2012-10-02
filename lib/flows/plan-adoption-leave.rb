@@ -2,36 +2,26 @@ status :draft
 satisfies_need "1948"
 
 date_question :child_match_date? do 
-  calculate :match_date do
-    responses.last
-  end
+  save_input_as :match_date
 
   next_node :child_arrival_date?
 end
 
 date_question :child_arrival_date? do 
 	calculate :arrival_date do
-    dt = Date.parse(responses.last)
-    raise InvalidResponse if dt < Date.parse(match_date)
+    raise InvalidResponse if Date.parse(responses.last) <= Date.parse(match_date)
     responses.last
   end
 
 	next_node :leave_start?
 end
 
-multiple_choice :leave_start? do
-	save_input_as :start_date
-
-	option :days_0
-  option :days_1
-  option :days_2
-  option :days_3
-  option :days_4
-  option :days_5
-  option :days_6
-  option :weeks_1
-  option :weeks_2
-
+date_question :leave_start? do
+	calculate :start_date do
+    dist = (Date.parse(arrival_date) - Date.parse(responses.last)).to_i 
+    raise InvalidResponse unless (1..14).include? dist
+    responses.last
+  end
 
   calculate :calculator do
     Calculators::PlanAdoptionLeave.new(
@@ -54,7 +44,7 @@ outcome :adoption_leave_details do
   	calculator.formatted_start_date
   end
   precalculate :distance_start do
-    calculator.distance_start(start_date)
+    calculator.distance_start
   end
   precalculate :qualifying_week do
     calculator.qualifying_week.last

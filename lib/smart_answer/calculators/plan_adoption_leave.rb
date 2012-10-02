@@ -1,14 +1,15 @@
 module SmartAnswer::Calculators
 	class PlanAdoptionLeave
+		include ActionView::Helpers::DateHelper
 
 		attr_reader :formatted_match_date, :formatted_arrival_date, :formatted_start_date
 
 		def initialize(options = {})
 			@match_date = Date.parse(options[:match_date])
-			@formatted_match_date = formatted_date(@match_date) 
+			@formatted_match_date = formatted_date(@match_date)
 			@arrival_date = Date.parse(options[:arrival_date])
 			@formatted_arrival_date = formatted_date(@arrival_date) 
-			@start_date = get_start_date(options[:start_date])
+			@start_date = Date.parse(options[:start_date])
 			@formatted_start_date = formatted_date(@start_date)
 		end
 
@@ -22,15 +23,8 @@ module SmartAnswer::Calculators
 	  	(first + " - " + last)
 	  end 
 
-		def get_start_date(dtstr)
-			num = dtstr.split('_')[1].to_i
-			dayweek = dtstr.split('_')[0]
-			num = (dayweek == 'weeks' ? num * 7 : num)
-			days_ago = num.days.ago(@match_date)
-		end
-
-		def distance_start(dtstr)
-			dtstr.split('_')[1].to_i.to_s + " " + dtstr.split('_')[0]
+		def distance_start
+			distance_of_time_in_words(@arrival_date, @start_date)
 		end
 
 		## borrowed methods
