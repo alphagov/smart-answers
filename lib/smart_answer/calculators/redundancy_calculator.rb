@@ -9,7 +9,7 @@ module SmartAnswer::Calculators
         "22-40" => 1.0,
         "under-22" => 0.5
       }
-      [430.00, weekly_pay.to_f].min * (years.to_f.floor * ratio_lookup[age])
+      [430.00, weekly_pay.to_f].min * ([20.0, years.to_f.floor].min * ratio_lookup[age])
     end
 
     def format_money(amount)

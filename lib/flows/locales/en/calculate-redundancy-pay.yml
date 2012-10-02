@@ -9,7 +9,8 @@ en-GB:
 
                 You only qualify if you’ve worked for at least 2 full years for your employer.
             age_of_employee?:
-                title: What was your age when you were made redundant?
+                title: How old were you on the date you were made redundant?
+                hint: Use the original redundancy date even if your notice is brought forward, you’re paid in lieu of notice or made redundant after trialing a new job.
                 options:
                     "over-41": "41 and over"
                     "22-40": "22-40"
@@ -38,6 +39,8 @@ en-GB:
             done:
                 title: Based on the figures you've given, you could get £%{statutory_redundancy_pay} statutory redundancy pay.
                 body: |
+                    You can’t get less than the statutory amount but you may get more if you have a company redundancy scheme.
+                    
                     [Find out more about redundancy pay](https://www.gov.uk/redundant-your-rights/statutory-redundancy-pay-)
                 next_steps: |
                     [Read the guide to Redundancy: your rights](https://www.gov.uk/redundant-your-rights)
@@ -53,6 +56,7 @@ en-GB:
                 They only qualify if they’ve worked for at least 2 full years for you.
             age_of_employee?:
                 title: What was your employee’s age when they were made redundant?
+                hint: Use the original redundancy date even if their notice is brought forward, they’re  paid in lieu of notice or made redundant after trialing a new job.
                 options:
                     "over-41": "41 and over"
                     "22-40": "22-40"
