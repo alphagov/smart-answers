@@ -83,7 +83,16 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
             should "ask 'how much do you get paid?'" do
               assert_current_node :how_much_are_you_paid_during_pay_period?
             end
-            
+
+            context "answer '0' to 'how much do you get paid?'" do
+              setup do
+                add_response 0
+              end
+              should "go to overtime questions" do
+                assert_current_node :how_many_hours_overtime_do_you_work?
+              end
+            end
+
             context "answered 158.39 to 'how much do you get paid?'" do
               setup do
                 add_response 158.39
@@ -415,7 +424,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                         
                         should "make outcome calculations" do
                           assert_state_variable "total_hours", 42
-                          assert_state_variable "minimum_hourly_rate", 4.83
+                          assert_state_variable "minimum_hourly_rate", "4.83"
                           assert_state_variable "total_hourly_rate", "3.75"
                           assert_state_variable "above_minimum_wage", false
                         end
@@ -479,7 +488,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         end
         should "make outcome calculations" do
           assert_state_variable "total_hours", 210
-          assert_state_variable "minimum_hourly_rate", 3.53
+          assert_state_variable "minimum_hourly_rate", "3.53"
           assert_state_variable "total_hourly_rate", "4.46"
           assert_state_variable "above_minimum_wage", true
           assert_state_variable "historical_adjustment", 0
@@ -497,7 +506,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         end
         should "make outcome calculations" do
           assert_state_variable "total_hours", 210
-          assert_state_variable "minimum_hourly_rate", 3.53
+          assert_state_variable "minimum_hourly_rate", "3.53"
           assert_state_variable "total_hourly_rate", "3.21"
           assert_state_variable "above_minimum_wage", false
           assert_state_variable "historical_adjustment", 70.38
