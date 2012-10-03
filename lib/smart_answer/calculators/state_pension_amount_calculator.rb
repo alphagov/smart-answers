@@ -58,7 +58,7 @@ module SmartAnswer::Calculators
 
     def what_you_get_raw
       if qualifying_years < years_needed
-        qualifying_years.to_f / years_needed.to_f * current_weekly_rate
+        (qualifying_years.to_f / years_needed.to_f) * current_weekly_rate
       else
         current_weekly_rate
       end
@@ -103,7 +103,7 @@ module SmartAnswer::Calculators
     end
     
     def qualifying_years_credit
-      credit_band = credit_bands.find { |c| c[:min] < dob and c[:max] > dob }
+      credit_band = credit_bands.find { |c| c[:min] <= dob and c[:max] >= dob }
       (credit_band ? credit_band[:credit] : 0)
     end
 
