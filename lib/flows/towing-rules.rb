@@ -1,4 +1,4 @@
-satisfies_need 9999
+satisfies_need 2547
 status :draft
 
 ## Cars and light vehicles
