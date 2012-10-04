@@ -1,3 +1,4 @@
+satisfies_need "2546"
 status :draft
 
 calculator = AgriculturalHolidayEntitlementCalculator.new()
