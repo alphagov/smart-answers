@@ -700,15 +700,15 @@ module SmartAnswer::Calculators
     end
 
     context "historical below minimum wage" do
-      setup do
+      # setup do
+      # end
+      should "return false to minimum_wage_or_above?" do
         @calculator = MinimumWageCalculator.new(
           age: 25, 
           pay_frequency: 7, 
           basic_pay: 100, 
           basic_hours: 39, 
-          date: Date.parse("5 Aug 2012"))
-      end
-      should "return false to minimum_wage_or_above?" do
+          date: Date.parse("5 Aug 2010"))
         assert !@calculator.minimum_wage_or_above?
       end
       should "below minimum_wage_or_above (200)" do
@@ -717,10 +717,105 @@ module SmartAnswer::Calculators
           pay_frequency: 7, 
           basic_pay: 200, 
           basic_hours: 40, 
-          date: Date.parse("5 Aug 2012"))
+          date: Date.parse("5 Aug 2010"))
+        # underpayment
         assert !@calculator.minimum_wage_or_above?
-        assert_equal 43.98, @calculator.historical_adjustment
-        assert_equal 43.20, @calculator.total_underpayment
+        assert_equal 32, @calculator.underpayment
+        assert_equal 5.52, (@calculator.underpayment / @calculator.per_hour_minimum_wage).round(2)
+        # FIXME: time sensitive; use TimeCop
+        assert_equal 6.19, @calculator.per_hour_minimum_wage(Date.today)
+        assert_equal 34.15, @calculator.historical_adjustment
+        # assert_equal 43.20, @calculator.total_underpayment
+      end
+
+      # Test URL: /am-i-getting-minimum-wage/y/past_payment/2007-10-01/no/25/7/40/100.0/0/no
+      should "historical_adjustment test: hours: 40; pay: 100" do
+        @calculator = MinimumWageCalculator.new(
+          age: 25, 
+          pay_frequency: 7, 
+          basic_pay: 100, 
+          basic_hours: 40, 
+          date: Date.parse("5 Aug 2008"))
+        # underpayment
+        assert_equal 5.52, @calculator.minimum_hourly_rate
+        assert_equal 2.5, @calculator.total_hourly_rate
+        # FIXME: time sensitive; use TimeCop
+        assert_equal 135.46, @calculator.historical_adjustment
+      end
+
+      # Test URL: /am-i-getting-minimum-wage/y/past_payment/2008-10-01/no/25/7/40/100.0/0/no
+      should "historical_adjustment test: hours: 40; pay: 100" do
+        @calculator = MinimumWageCalculator.new(
+          age: 25, 
+          pay_frequency: 7, 
+          basic_pay: 100, 
+          basic_hours: 40, 
+          date: Date.parse("5 Aug 2009"))
+        # underpayment
+        assert_equal 5.73, @calculator.minimum_hourly_rate
+        assert_equal 2.5, @calculator.total_hourly_rate
+        # FIXME: time sensitive; use TimeCop
+        assert_equal 139.57, @calculator.historical_adjustment
+      end
+
+      # Test URL: /am-i-getting-minimum-wage/y/past_payment/2008-10-01/no/25/7/40/40.0/0/no
+      should "historical_adjustment test: hours: 40; pay: 40" do
+        @calculator = MinimumWageCalculator.new(
+          age: 25, 
+          pay_frequency: 7, 
+          basic_pay: 40, 
+          basic_hours: 40, 
+          date: Date.parse("5 Aug 2009"))
+        # underpayment
+        assert_equal 5.73, @calculator.minimum_hourly_rate
+        assert_equal 1, @calculator.total_hourly_rate
+        # FIXME: time sensitive; use TimeCop
+        assert_equal 204.39, @calculator.historical_adjustment
+      end
+
+      # Test URL: /am-i-getting-minimum-wage/y/past_payment/2007-10-01/no/25/28/147/741.0/0/no
+      should "historical_adjustment test: hours: 147; pay: 741" do
+        @calculator = MinimumWageCalculator.new(
+          age: 25, 
+          pay_frequency: 28, 
+          basic_pay: 741, 
+          basic_hours: 147, 
+          date: Date.parse("5 Aug 2007"))
+        # underpayment
+        assert_equal 5.35, @calculator.minimum_hourly_rate
+        assert_equal 5.04, @calculator.total_hourly_rate
+        # FIXME: time sensitive; use TimeCop
+        assert_equal 52.59, @calculator.historical_adjustment
+      end
+
+      # Test URL: /am-i-getting-minimum-wage/y/past_payment/2007-10-01/no/25/28/147/696.0/0/no
+      should "historical_adjustment test: hours: 147; pay: 696" do
+        @calculator = MinimumWageCalculator.new(
+          age: 25, 
+          pay_frequency: 28, 
+          basic_pay: 696, 
+          basic_hours: 147, 
+          date: Date.parse("5 Aug 2007"))
+        # underpayment
+        assert_equal 5.35, @calculator.minimum_hourly_rate
+        assert_equal 4.73, @calculator.total_hourly_rate
+        # FIXME: time sensitive; use TimeCop
+        assert_equal 104.65, @calculator.historical_adjustment
+      end
+
+      # Test URL: /am-i-getting-minimum-wage/y/past_payment/2007-10-01/no/25/28/147/661.0/0/no
+      should "historical_adjustment test: hours: 147; pay: 661" do
+        @calculator = MinimumWageCalculator.new(
+          age: 25, 
+          pay_frequency: 28, 
+          basic_pay: 661, 
+          basic_hours: 147, 
+          date: Date.parse("5 Aug 2007"))
+        # underpayment
+        assert_equal 5.35, @calculator.minimum_hourly_rate
+        assert_equal 4.5, @calculator.total_hourly_rate
+        # FIXME: time sensitive; use TimeCop
+        assert_equal 145.15, @calculator.historical_adjustment
       end
 
     end
