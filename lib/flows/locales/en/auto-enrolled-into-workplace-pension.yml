@@ -43,7 +43,7 @@ en-GB:
           up_to_5k: Up to £107 per week (£464 per month)
           more_than_5k: £107 per week (£464 per month) or more
       annual_earnings2?:
-        title: How much do you earn a year?
+        title: How much do you earn?
         options:
           up_to_5k: Up to £107 per week (£464 per month)
           between_5k_8k: Between £107 per week(£464 per month) and £156 per week (£676 per month)
@@ -129,7 +129,7 @@ en-GB:
         body: |
           $C
           You’ll be automatically enrolled into a [workplace pension](/workplace-pensions "Workplace pensions") for each
-          employer or agency that pays you £8,105 a year or more.
+          employer that pays you £8,105 a year or more.
           $C
 
           This means you may end up with several different workplace pensions. You may be able to combine these - talk to your scheme provider.
@@ -181,7 +181,7 @@ en-GB:
       enrolled:
         body: |
           $C
-          You'll be automatically enrolled into your employer’s  [workplace pension](/workplace-pensions "Workplace pensions") scheme. 
+          You'll be automatically enrolled into your employer’s [workplace pension](/workplace-pensions "Workplace pensions") scheme. 
           $C
 
           If you stay in the scheme, you and your employer will both pay into your pension pot, and the government will also contribute through tax relief.
