@@ -41,7 +41,7 @@ en-GB:
 
           You should get your pension claim pack in %{formatted_pension_pack_date}. 
 
-          You can also apply for an [elderly person’s bus pass.](/apply-for-elderly-person-bus-pass “Elderly person’s bus pass”)
+          You can also apply for an [elderly person’s bus pass.](/apply-for-elderly-person-bus-pass "Elderly person’s bus pass")
 
           This calculation is according to the current law. The State Pension age may change in the future.
         state_pension_age_was: |
@@ -54,9 +54,9 @@ en-GB:
 
           ^You have already reached State Pension age. You can [claim your State Pension](/state-pension#how-to-claim "How to claim") if you haven't already or [defer claiming it](/how-to-defer-your-state-pension "How to defer your State Pension").^
 
-          If you&rsquo;re on a low income, you might be eligible to claim [Pension Credit](/pension-credit “Pension Credit”).
+          If you&rsquo;re on a low income, you might be eligible to claim [Pension Credit](/pension-credit "Pension Credit").
 
-          You can also apply for an [elderly person’s bus pass.](/apply-for-elderly-person-bus-pass “Elderly person’s bus pass”)
+          You can also apply for an [elderly person’s bus pass.](/apply-for-elderly-person-bus-pass "Elderly person’s bus pass")
 
           This calculation is according to the current law. The State Pension age may change in the future.
         too_few_qy_enough_remaining_years: |
