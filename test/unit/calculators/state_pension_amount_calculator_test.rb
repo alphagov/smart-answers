@@ -96,6 +96,16 @@ module SmartAnswer::Calculators
       end
     end 
 
+    context "male born 6 April 1957 " do
+      setup do
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: "1957-04-06", qualifying_years: nil)
+      end
+      
+      should "qualifying_years_credit = 1" do
+        assert_equal 1, @calculator.qualifying_years_credit
+      end
+    end
+
 
     context "female born 6 Oct 1949 " do
       setup do
