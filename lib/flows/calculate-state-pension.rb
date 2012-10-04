@@ -27,6 +27,14 @@ multiple_choice :gender? do
     end
   end
 
+  calculate :carer_hint_for_women do
+    if responses.last.eql? 'female'
+      PhraseList.new(:carers_allowance_women_hint)
+    else
+      ''
+    end
+  end
+  
   next_node do
     calculate_age_or_amount == "age" ? :dob_age? : :dob_amount?
   end
@@ -215,7 +223,7 @@ multiple_choice :received_child_benefit? do
     if response == "yes"
       :years_of_benefit?
     else 
-      ((Date.parse(dob) > Date.parse("1959-04-06") and Date.parse(dob) < Date.parse("1992-04-05")) ? :amount_result : :years_of_work?) 
+      ((Date.parse(dob) >= Date.parse("1959-04-06") and Date.parse(dob) <= Date.parse("1992-04-05")) ? :amount_result : :years_of_work?) 
     end
   end
 end
@@ -300,7 +308,7 @@ value_question :years_of_carers_allowance? do
     if calculator.not_qualifying_or_available_test?(ni)
       :amount_result    
     else
-      ((Date.parse(dob) > Date.parse("1959-04-06") and Date.parse(dob) < Date.parse("1992-04-05")) ? :amount_result : :years_of_work?) 
+      ((Date.parse(dob) >= Date.parse("1959-04-06") and Date.parse(dob) <= Date.parse("1992-04-05")) ? :amount_result : :years_of_work?) 
     end
   end
 end

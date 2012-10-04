@@ -11,9 +11,11 @@ en-GB:
         
         This calculator is for your basic State Pension. 
 
-        It doesn’t work out your [Additional State Pension.](/additional-state-pension “additional State Pension”)
+        It doesn’t work out your [Additional State Pension.](/additional-state-pension "Additional State Pension")
 
-        You’ll be asked for the number of years you worked and paid tax or got certain benefits. These are the years of your National Insurance contributions that count towards your State Pension.
+        You’ll be asked for the number of years you worked and paid tax or got certain benefits. These are the years of your [National Insurance contributions](/national-insurance "National Insurance") that count towards your State Pension.
+
+        Don't count years twice.
         
         Your circumstances might be different from what’s covered in this calculator.
       options:
@@ -25,6 +27,7 @@ en-GB:
         this_is_the_full_state_pension: This is the full State Pension.
         this_is_n_below_the_full_state_pension: This is £%{pension_loss} per week below the full State Pension.  
         married_woman_text: If you are a married woman paying reduced National Insurance, don’t count any years before 2010.
+        carers_allowance_women_hint: Don’t count any years before 2010 when you were paying the reduced National Insurance rate for women.
         will_reach_pension_age: You'll reach State Pension age on %{formatted_state_pension_date}.
         have_reached_pension_age: You reached State Pension age on %{formatted_state_pension_date}.
         claim_pension_now_text: |
@@ -38,6 +41,8 @@ en-GB:
 
           You should get your pension claim pack in %{formatted_pension_pack_date}. 
 
+          You can also apply for an [elderly person’s bus pass.](/apply-for-elderly-person-bus-pass "Elderly person’s bus pass")
+
           This calculation is according to the current law. The State Pension age may change in the future.
         state_pension_age_was: |
 
@@ -49,7 +54,9 @@ en-GB:
 
           ^You have already reached State Pension age. You can [claim your State Pension](/state-pension#how-to-claim "How to claim") if you haven't already or [defer claiming it](/how-to-defer-your-state-pension "How to defer your State Pension").^
 
-          If you&rsquo;re on a low income, you might be eligible to claim [Pension Credit](/pension-credit “Pension Credit”).
+          If you&rsquo;re on a low income, you might be eligible to claim [Pension Credit](/pension-credit "Pension Credit").
+
+          You can also apply for an [elderly person’s bus pass.](/apply-for-elderly-person-bus-pass "Elderly person’s bus pass")
 
           This calculation is according to the current law. The State Pension age may change in the future.
         too_few_qy_enough_remaining_years: |
@@ -174,16 +181,17 @@ en-GB:
       ## Q5
       years_of_jsa?:
         title: "How many years from the age of 19 have you claimed unemployment, sickness or disability benefits?"
-        hint: Don’t count years when you were working. Enter 0 if you’ve never claimed benefits.
+        hint: Don’t count years when you were working from question 4. Enter 0 if you’ve never claimed benefits.
         error_message: |
           Please enter a number. Based on your previous answers you can enter up to %{available_ni_years} years.
       ## Q5a
       employed_between_60_and_64?:
-        title: Were you employed between the age of 60 and 64?
+        title: Were you or are you expecting to be employed between the age of 60 and 64?
         hint: Don't count time when you were self-employed or abroad for more than 6 months.
       ## Q6
       received_child_benefit?:
         title: Have you ever been a parent or carer or did you ever get Child Benefit?
+        hint: Carer includes registered carers and caring for a sick or disabled person. 
       ## Q7
       years_of_benefit?:
         title: "Before April 2010 how many years did any of the following apply:"
@@ -191,25 +199,26 @@ en-GB:
           - you claimed Child Benefit for a child under 16 (don't count years when you were working)
           - you cared for someone sick or disabled 
           - you worked as a registered carer
-        hint: These are years when you were getting Home Responsibility Protection. Enter 0 if none of these apply or if you were paying reduced National Insurance for women.
+        hint: These are years when you were getting Home Responsibility Protection. Enter 0 if none of these apply or if you were paying the reduced National Insurance rate for women. Don't count any years you've entered in the previous questions.
         error_message: "Please enter a number. You can enter between 0 and %{years_you_can_enter}."
       ## Q8 
       years_of_caring?:
-        title: "After April 2010 how many years did any of the following apply:"
+        title: "From April 2010 how many years did any of the following apply:"
         body: |
           - you cared for a child under 12
-          - you cared for someone sick or disabled
+          - you cared for someone sick or disabled for at least 20 hours a week
           - you were a registered foster carer
+        hint: Enter 0 if none of these apply or if you were paying the reduced National Insurance rate for women. Don’t count any years you’ve entered in the previous questions.
         error_message: Please enter a number. You can enter between 0 and %{years_you_can_enter}.
       ## Q9
       years_of_carers_allowance?:
         title: How many years of Carer’s Allowance did you get?
-        hint: Enter 0 if you didn’t get any.
+        hint: Enter 0 if you didn’t get any. %{carer_hint_for_women}
         error_message: Please enter a number. Based on your previous answers you can enter up to %{available_ni_years} years.
       ## Q10
       years_of_work?:
         title: How many years between age 16 and 19 were you in full-time education or working?
-        hint: Include the years you were claiming benefits because of unemployment, illness or disability.
+        hint: Include the years you were not working but claiming benefits because of unemployment, illness or disability.
         error_message: Please enter a number. You can enter between 0 and %{years_you_can_enter}.
 
 

@@ -16,28 +16,9 @@ module SmartAnswer::Calculators
       107.45
     end
 
-    def years_needed_limit
-      {
-        male:   Date.parse("6th April 1945"),
-        female: Date.parse("6th April 1950")
-      }[gender]
-    end
-
-    def years_needed_age
-      dob < years_needed_limit ? :old : :new
-    end
-
+    # Everyone needs 30 qualifying years in all cases - no need to worry about old rules
     def years_needed
-      {
-        male: {
-          old: 44,
-          new: 30
-        },
-        female: {
-          old: 39,
-          new: 44
-        }
-      }[gender][years_needed_age]
+      30
     end
 
     def current_year
@@ -58,14 +39,10 @@ module SmartAnswer::Calculators
 
     def what_you_get_raw
       if qualifying_years < years_needed
-        qualifying_years.to_f / years_needed.to_f * current_weekly_rate
+        (qualifying_years.to_f / years_needed.to_f) * current_weekly_rate
       else
         current_weekly_rate
       end
-    end
-
-    def you_get_future
-      (current_weekly_rate * (1.025**years_to_pension)).round(2)
     end
 
     def state_pension_year
@@ -90,7 +67,7 @@ module SmartAnswer::Calculators
     
     def three_year_credit_age?
       three_year_band = credit_bands.last
-      dob > Date.parse('1959-04-06') and dob < Date.parse('1992-04-05')
+      dob >= Date.parse('1959-04-06') and dob <= Date.parse('1992-04-05')
     end
     
     def credit_bands
@@ -103,7 +80,7 @@ module SmartAnswer::Calculators
     end
     
     def qualifying_years_credit
-      credit_band = credit_bands.find { |c| c[:min] < dob and c[:max] > dob }
+      credit_band = credit_bands.find { |c| c[:min] <= dob and c[:max] >= dob }
       (credit_band ? credit_band[:credit] : 0)
     end
 
