@@ -27,6 +27,14 @@ multiple_choice :gender? do
     end
   end
 
+  calculate :carer_hint_for_women do
+    if responses.last.eql? 'female'
+      PhraseList.new(:carers_allowance_women_hint)
+    else
+      ''
+    end
+  end
+  
   next_node do
     calculate_age_or_amount == "age" ? :dob_age? : :dob_amount?
   end
