@@ -1,0 +1,42 @@
+en-GB:
+  flow:
+    plan-adoption-leave:
+      meta:
+        description: Planning your Adoption Leave
+      title: Planning your Adoption Leave
+      body: |
+        Adoption Leave is time off work to look after your adopted child. 
+        Enter your details to see when you can take it. This tool is for UK adoptions only.
+
+        What you need to know 
+
+        You can’t use this tool if you’re [adopting from abroad]( /adoption-leave-pay-employees) or 
+        [planning paternity leave for an adoption]( /paternity-leave-pay-employees). 
+      
+      # Questions
+      child_match_date?:
+        title: When were you matched with the child?
+      child_arrival_date?:
+        title: When will the child come and live with you?
+        hint: This is sometimes known as the 'date of placement'. 
+        error_message: Please enter a date after the match date.
+      leave_start?:
+        title: When do you want to start your adoption leave?
+        hint: The earliest your leave can start is earliest_start. 
+        error_message: You can only start adoption leave between 1 and 14 days before the baby is placed with you
+      # Outcomes
+      adoption_leave_details:
+        title: Your Adoption Leave dates
+        body: |
+            Below is a list of key dates that explain when you can take your Adoption Leave. 
+
+            These dates are for matching date of %{match_date_formatted} 
+            and your child&rsquo;s arrival date of %{arrival_date_formatted}
+            and a start date of %{distance_start} before due date.
+
+
+            You must tell your employer by: | %{qualifying_week}
+            Child&rsquo;s Arrival date | %{arrival_date_formatted}
+            The earliest you can start your Adoption Leave is: | %{earliest_start}
+            Ordinary Adoption Leave (first 26 weeks): | %{period_of_ordinary_leave}
+            Additional Adoption Leave (up to 26 weeks more): | %{period_of_additional_leave}

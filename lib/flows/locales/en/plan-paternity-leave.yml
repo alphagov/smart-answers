@@ -1,0 +1,34 @@
+en-GB:
+  flow:
+    plan-paternity-leave:
+      meta:
+        description: Planning your Paternity Leave
+      title: Planning your Paternity Leave
+      body: Paternity Leave is time off work to look after your new baby. Enter your details to see when you can take it.
+      # Questions
+      baby_due_date?:
+        title: What is the baby's due date?
+      leave_duration?:
+        title: How much leave do you want to take?
+        hint: Paternity leave is either 1 or 2 weeks.
+        options:
+          one_week: 1 week
+          two_weeks: 2 weeks
+      leave_start?:
+        title: When do you want to start your Paternity Leave?
+        hint: You must take your Paternity Leave within the 56 days following the date the baby is due.
+        error_message: You can only take your Paternity Leave within the 56 days following the date the baby is due.
+      # Outcomes
+      paternity_leave_details:
+        title: Your Paternity Leave dates
+        body: |
+            Below is a list of key dates that explain when you can take your Paternity Leave. 
+            
+            These dates are for your baby's due date of %{due_date_formatted} and a start date of %{distance_start} after due date.
+
+
+            You must tell your employer by: | %{qualifying_week}
+            Your chosen Ordinary Paternity Leave dates: | %{period_of_ordinary_leave}
+            You could take Ordinary Paternity Leave during this period: | %{period_of_potential_ordinary_leave}
+            You could take Additional Paternity Leave during this period: | %{period_of_additional_leave}
+            Your baby is due on: | %{due_date_formatted}
