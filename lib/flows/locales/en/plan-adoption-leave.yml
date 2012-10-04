@@ -10,8 +10,8 @@ en-GB:
 
         What you need to know 
 
-        You can’t use this tool if you’re [adopting from abroad]( /adoption-leave-pay-employees) or 
-        [planning paternity leave for an adoption]( /paternity-leave-pay-employees). 
+        You can’t use this tool if you’re [adopting from abroad](/adoption-leave-pay-employees "Adopting leave") or 
+        planning [paternity leave for an adoption](/paternity-leave-pay-employees "Paternity leave"). 
       
       # Questions
       child_match_date?:
@@ -22,7 +22,7 @@ en-GB:
         error_message: Please enter a date after the match date.
       leave_start?:
         title: When do you want to start your adoption leave?
-        hint: The earliest your leave can start is earliest_start. 
+        hint: The earliest your leave can start is 14 days before the child starts living with you. 
         error_message: You can only start adoption leave between 1 and 14 days before the baby is placed with you
       # Outcomes
       adoption_leave_details:
