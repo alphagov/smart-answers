@@ -24,7 +24,7 @@ en-GB:
         + the dates for the child’s adoption
         + your employee's salary details - eg weekly rates of pay
 
-        % The calculator can’t be used to work out eligibility for [Additional Paternity Leave or Pay](/additional-paternity-leave-pay-employees “Additional paternity leave or pay”). %
+        % The calculator can’t be used to work out eligibility for [Additional Paternity Leave or Pay](/additional-paternity-leave-pay-employees "Additional paternity leave or pay"). %
       phrases:
         not_worked_long_enough: + they must have started working for you on or before %{employment_start}
         must_be_on_payroll: + you must be liable for their National Insurance Contributions - ie you will be if they’re on your payroll
