@@ -77,12 +77,12 @@ en-GB:
       how_much_are_you_paid_during_pay_period?:
         title: "How much do you get paid in the pay period?"
         hint: "Don’t include payments for overtime or anything extra to your pay, eg sales commission, money for clothes or goods."
-        error_message: Please enter a number greater than 0
+        error_message: Please enter a number
       # Q6 Past
       how_much_were_you_paid_during_pay_period?:
         title: "How much were you paid in the pay period?"
         hint: "Don’t include payments for overtime or anything extra to your pay, eg sales commission, money for clothes or goods."
-        error_message: Please enter a number greater than 0
+        error_message: Please enter a number
       # Q7
       how_many_hours_overtime_do_you_work?:
         title: "How many hours of overtime do you work during the pay period?"
