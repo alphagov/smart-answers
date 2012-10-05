@@ -33,14 +33,14 @@ en-GB:
       are_you_an_apprentice?:
         title: "Are you an apprentice?"
         options:
-          apprentice_under_19: "Apprentice 19 years or under"
-          apprentice_over_19: "Apprentice over 19 and in your first year" 
+          apprentice_under_19: "Yes and apprentice 19 years or under"
+          apprentice_over_19: "Yes and apprentice over 19 and in your first year" 
       # Q2 Past
       were_you_an_apprentice?:
         title: "Were you an apprentice at the time?"
         options:
-          apprentice_under_19: "Apprentice 19 years or under"
-          apprentice_over_19: "Apprentice over 19 and in your first year"
+          apprentice_under_19: "Yes and apprentice 19 years or under"
+          apprentice_over_19: "Yes and apprentice over 19 and in your first year"
       # Q3
       how_old_are_you?:
         title: How old are you?
@@ -53,13 +53,13 @@ en-GB:
       how_often_do_you_get_paid?:
         title: "How often do you get paid?"
         hint: |
-          For weekly payments enter 7 days, for monthly payments 31 days, or enter another number, depending on how often you get paid. This is your pay period.  
+          For weekly payments enter 7 days, for monthly payments enter 31 days, or another number, depending on how often you get paid. This is your pay period.  
         error_message: The highest number you can enter to check minimum wage is 31 days.  
       # Q4 Past
       how_often_did_you_get_paid?:
         title: "How often did you get paid?"
         hint: |
-          For weekly payments enter 7 days, for monthly payments 31 days, or enter another number, depending on how often you got paid. This is your pay period.
+          For weekly payments enter 7 days, for monthly payments enter 31 days, or another number, depending on how often you got paid. This is your pay period.
         error_message: The highest number you can enter to check minimum wage is 31 days.
       # Q5
       how_many_hours_do_you_work?:
@@ -153,7 +153,7 @@ en-GB:
           $C
 
 
-          Detailed guidance on [how to calculate the National Minimum Wage](/minimum-wage-for-different-types-of-employment/overview "How to calculate the National Minimum Wage").
+          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-for-different-types-of-employment/overview "How to calculate the National Minimum Wage").
       current_payment_below:
         body: |
           $C
@@ -174,7 +174,7 @@ en-GB:
           Telephone: 0800 917 2368
           $C
 
-          Detailed guidance on [how to calculate the National Minimum Wage](/minimum-wage-for-different-types-of-employment/overview "How to calculate the National Minimum Wage").
+          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-for-different-types-of-employment/overview "How to calculate the National Minimum Wage").
       past_payment_above:
         body: |
           $C
@@ -200,7 +200,7 @@ en-GB:
           $C
           
 
-          Detailed guidance on [how to calculate the National Minimum Wage](/minimum-wage-for-different-types-of-employment/overview "How to calculate the National Minimum Wage").
+          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-for-different-types-of-employment/overview "How to calculate the National Minimum Wage").
      
       past_payment_below:
         body: |
@@ -225,6 +225,6 @@ en-GB:
           $C
           
 
-          Detailed guidance on [how to calculate the National Minimum Wage](/minimum-wage-for-different-types-of-employment/overview "How to calculate the National Minimum Wage").
+          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-for-different-types-of-employment/overview "How to calculate the National Minimum Wage").
       does_not_apply_to_historical_apprentices:
         body: "There was no National Minimum Wage rate for apprentices before 1 October 2010. Your employer doesn't owe you any past payments."
