@@ -66,16 +66,16 @@ module SmartAnswer::Calculators
     end
     
     def three_year_credit_age?
-      three_year_band = credit_bands.last
+      # three_year_band = credit_bands.last # FIXME: why is line this here?
       dob >= Date.parse('1959-04-06') and dob <= Date.parse('1992-04-05')
     end
     
     def credit_bands
       [
-        { min: Date.parse('1957-04-06'), max: Date.parse('1958-04-05'), credit: 1 },
-        { min: Date.parse('1993-04-06'), max: Date.parse('1994-04-05'), credit: 1 },
-        { min: Date.parse('1958-04-06'), max: Date.parse('1959-04-05'), credit: 2 },
-        { min: Date.parse('1992-04-06'), max: Date.parse('1993-04-05'), credit: 2 }
+        { min: Date.parse('1957-04-06'), max: Date.parse('1958-04-05'), credit: 1, validate: 0 },
+        { min: Date.parse('1993-04-06'), max: Date.parse('1994-04-05'), credit: 1, validate: 0 },
+        { min: Date.parse('1958-04-06'), max: Date.parse('1959-04-05'), credit: 2, validate: 1 },
+        { min: Date.parse('1992-04-06'), max: Date.parse('1993-04-05'), credit: 2, validate: 2 }
       ]
     end
     
@@ -84,14 +84,30 @@ module SmartAnswer::Calculators
       (credit_band ? credit_band[:credit] : 0)
     end
 
-    def allocate_automatic_years
-      auto_years = [
+    def calc_qualifying_years_credit(entered_num=0)
+      credit_band = credit_bands.find { |c| c[:min] <= dob and c[:max] >= dob }
+      case credit_band[:validate]
+      when 0
+        entered_num > 0 ? 0 : 1
+      when 1
+        rval = (1..2).find{ |c| c + entered_num == 2 } 
+        entered_num < 2 ? rval : 0
+      else
+        0
+      end  
+    end
+
+    def auto_years
+      [
         { before: Date.parse("1950-10-06"), credit: 5 },
         { before: Date.parse("1951-10-06"), credit: 4 },
         { before: Date.parse("1952-10-06"), credit: 3 },
         { before: Date.parse("1953-07-06"), credit: 2 },
         { before: Date.parse("1953-10-06"), credit: 1 }
       ]
+    end
+
+    def allocate_automatic_years
       auto_year = auto_years.find { |c| c[:before] > dob }
       @automatic_years = (auto_year ? auto_year[:credit] : 0 )   
     end

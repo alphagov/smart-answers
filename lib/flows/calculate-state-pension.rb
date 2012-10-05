@@ -348,6 +348,7 @@ outcome :amount_result do
       qualifying_years + 3
     else 
       qualifying_years + calc.qualifying_years_credit
+      # qualifying_years + calc.calc_qualifying_years_credit
     end
   end
 

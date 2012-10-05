@@ -228,6 +228,38 @@ module SmartAnswer::Calculators
         end
       end
 
+      
+      context "(testing qualifying_years from years_of_work) born 5th May 1958" do
+        setup do
+          dob = "5th May 1957"
+          years = 29
+          @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+            gender: "male", dob: dob, qualifying_years: years)
+        end
+
+        should "three_year_credit_age = false" do
+          assert ! @calculator.three_year_credit_age?
+        end
+        context "simulate a entries in years_of_work question" do
+          should "upon 3 calc_qualifying_years_credit: 0" do
+            entered_num = 3
+            assert_equal 0, @calculator.calc_qualifying_years_credit(entered_num)
+          end
+          should "upon 2 calc_qualifying_years_credit: 0" do
+            entered_num = 2
+            assert_equal 0, @calculator.calc_qualifying_years_credit(entered_num)
+          end
+          should "upon 1 calc_qualifying_years_credit: 0" do
+            entered_num = 1
+            assert_equal 0, @calculator.calc_qualifying_years_credit(entered_num)
+          end
+          should "upon 0 calc_qualifying_years_credit: 0" do
+            entered_num = 0
+            assert_equal 1, @calculator.calc_qualifying_years_credit(entered_num)
+          end
+        end
+      end
+
       context "(testing qualifying_years from years_of_work) born 5th May 1958" do
         setup do
           dob = "5th May 1958"
@@ -239,19 +271,22 @@ module SmartAnswer::Calculators
         should "three_year_credit_age = false" do
           assert ! @calculator.three_year_credit_age?
         end
-        should "qualifying_years: 27 and qualifying_years_credit: 2" do
-          qy = @calculator.qualifying_years
-          qyc = @calculator.qualifying_years_credit
-          assert_equal 29, qy
-          assert_equal 2, qyc
-        end
-        context "add 3 to simulate a legitmate entry in years_of_work question" do
-          should "qualifying_years_total: 34" do
-            qy = @calculator.qualifying_years
-            qyc = @calculator.qualifying_years_credit
-            qy = qy + 3
-            qualifying_years_total = qy + qyc
-            assert_equal 34, qualifying_years_total
+        context "simulate a entries in years_of_work question" do
+          should "upon 3 calc_qualifying_years_credit: 0" do
+            entered_num = 3
+            assert_equal 0, @calculator.calc_qualifying_years_credit(entered_num)
+          end
+          should "upon 2 calc_qualifying_years_credit: 0" do
+            entered_num = 2
+            assert_equal 0, @calculator.calc_qualifying_years_credit(entered_num)
+          end
+          should "upon 1 calc_qualifying_years_credit: 0" do
+            entered_num = 1
+            assert_equal 1, @calculator.calc_qualifying_years_credit(entered_num)
+          end
+          should "upon 0 calc_qualifying_years_credit: 0" do
+            entered_num = 0
+            assert_equal 2, @calculator.calc_qualifying_years_credit(entered_num)
           end
         end
       end
