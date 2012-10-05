@@ -79,7 +79,6 @@ date_question :dob_age? do
     4.months.ago(state_pension_date).strftime("%B %Y")
   end
 
-  ## TEST: 1
   calculate :state_pension_age do
     calculator.state_pension_age
   end

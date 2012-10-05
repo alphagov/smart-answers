@@ -2,6 +2,8 @@ require "data/state_pension_query"
 
 module SmartAnswer::Calculators
   class StatePensionAmountCalculator
+    include ActionView::Helpers::TextHelper
+
     attr_reader :gender, :dob, :automatic_years, :qualifying_years, :available_years
     attr_accessor :qualifying_years
 
@@ -26,7 +28,10 @@ module SmartAnswer::Calculators
     end
 
     def years_to_pension
-      state_pension_year - current_year
+      # state_pension_year - current_year
+      t = Date.today
+      y = t.month > 4 ? t.year : t.year - 1
+      state_pension_year - y
     end
 
     def pension_loss
@@ -54,8 +59,21 @@ module SmartAnswer::Calculators
     end
 
     def state_pension_age
-      state_pension_date.year - dob.year
+      # state_pension_date.year - dob.year
+      spd = state_pension_date
+      year = spd.year - dob.year
+      puts "[#{dob.month}, #{spd.month}][#{dob}, #{spd}]"
+      if (dob.month == spd.month) and (dob.day == spd.day)
+        "#{pluralize(year, 'year')}"
+      else
+        year = (dob.month > 4 ? year : year-1 )
+        month = ( dob.month > 4 ? dob.month-4 : 12+(dob.month-4) )
+        day = ( dob.day >= 6 ? dob.day-6 : 30+(dob.day-6) )
+        "#{pluralize(year, 'year')}, #{pluralize(month, 'month')} and #{pluralize(day, 'day')}"
+      end
     end
+
+    # def
 
     def before_state_pension_date?
       Date.today < state_pension_date
@@ -79,6 +97,7 @@ module SmartAnswer::Calculators
       ]
     end
     
+    # FIXME: is this still needed?
     def qualifying_years_credit
       credit_band = credit_bands.find { |c| c[:min] <= dob and c[:max] >= dob }
       (credit_band ? credit_band[:credit] : 0)
