@@ -9,15 +9,15 @@ en-GB:
       devolved_body: |
         What you need to know:
         
-        This calculator is for your basic State Pension. 
+        This calculator gives an estimate for your basic State Pension. 
 
-        It doesn’t work out your [Additional State Pension.](/additional-state-pension "Additional State Pension")
+        It doesn’t estimate any [Additional State Pension.](/additional-state-pension "Additional State Pension")
 
         You’ll be asked for the number of years you worked and paid tax or got certain benefits. These are the years of your [National Insurance contributions](/national-insurance "National Insurance") that count towards your State Pension.
 
-        Don't count years twice.
+        Only count tax years from 6 April to 5 April and don’t count any years twice (eg when you were working and getting benefits). Don’t count the current tax year.
         
-        Your circumstances might be different from what’s covered in this calculator.
+        Your circumstances might be different from what’s covered in this calculator. Don’t make future financial decisions based on its results.
       options:
         "yes": "Yes"
         "no": "No"
@@ -27,7 +27,7 @@ en-GB:
         this_is_the_full_state_pension: This is the full State Pension.
         this_is_n_below_the_full_state_pension: This is £%{pension_loss} per week below the full State Pension.  
         married_woman_text: If you are a married woman paying reduced National Insurance, don’t count any years before 2010.
-        carers_allowance_women_hint: Don’t count any years before 2010 when you were paying the reduced National Insurance rate for women.
+        carers_allowance_women_hint: Don’t count years when you opted for the reduced National Insurance rate for married women and widows.
         will_reach_pension_age: You'll reach State Pension age on %{formatted_state_pension_date}.
         have_reached_pension_age: You reached State Pension age on %{formatted_state_pension_date}.
         claim_pension_now_text: |
@@ -174,14 +174,14 @@ en-GB:
       years_paid_ni?:
         title: How many years have you worked and paid tax from the age of 19?
         hint: |
-          These are the years you paid National Insurance towards your State Pension. Enter 0 if you haven’t worked.
+          These are the years you paid National Insurance towards your State Pension. They can be years when you paid Class 1 National Insurance with your wages, Class 2 if you were self employed or Class 3 if you paid voluntary contributions. Enter 0 if you haven’t worked and paid voluntary contributions.
         error_message: |
           Your answer has to match the number of years you actually worked and paid National Insurance. 
           Based on your date of birth you can enter up to %{available_ni_years} years.
       ## Q5
       years_of_jsa?:
         title: "How many years from the age of 19 have you claimed unemployment, sickness or disability benefits?"
-        hint: Don’t count years when you were working from question 4. Enter 0 if you’ve never claimed benefits.
+        hint: Don’t count years you entered in question 4. Enter 0 if you’ve never claimed benefits.
         error_message: |
           Please enter a number. Based on your previous answers you can enter up to %{available_ni_years} years.
       ## Q5a
@@ -190,30 +190,33 @@ en-GB:
         hint: Don't count time when you were self-employed or abroad for more than 6 months.
       ## Q6
       received_child_benefit?:
-        title: Have you ever been a parent or carer or did you ever get Child Benefit?
-        hint: Carer includes registered carers and caring for a sick or disabled person. 
+        title: "Have you ever:"
+        body: |
+        - claimed Child Benefit for a child under 16
+        - cared for someone sick or disabled
+        - worked as a registered carer (since 2003)
       ## Q7
       years_of_benefit?:
-        title: "Before April 2010 how many years did any of the following apply:"
+        title: "Before 6 April 2010 how many years did any of the following apply:"
         body: |
           - you claimed Child Benefit for a child under 16 (don't count years when you were working)
           - you cared for someone sick or disabled 
           - you worked as a registered carer
-        hint: These are years when you were getting Home Responsibility Protection. Enter 0 if none of these apply or if you were paying the reduced National Insurance rate for women. Don't count any years you've entered in the previous questions.
-        error_message: "Please enter a number. You can enter between 0 and %{years_you_can_enter}."
+        hint: These are years when you were getting Home Responsibility Protection. Enter 0 if none of these apply. Don’t count any years you’ve entered in the previous questions. %{carer_hint_for_women}
+        error_message: "Enter a number between 0 and %{years_you_can_enter}. The maximum number of years that count towards State Pension is 22."
       ## Q8 
       years_of_caring?:
-        title: "From April 2010 how many years did any of the following apply:"
+        title: "From 6 April 2010 how many years did any of the following apply:"
         body: |
           - you cared for a child under 12
           - you cared for someone sick or disabled for at least 20 hours a week
           - you were a registered foster carer
-        hint: Enter 0 if none of these apply or if you were paying the reduced National Insurance rate for women. Don’t count any years you’ve entered in the previous questions.
-        error_message: Please enter a number. You can enter between 0 and %{years_you_can_enter}.
+        hint: Enter 0 if none of these apply. Don’t count any years you’ve entered in the previous questions. %{carer_hint_for_women}
+        error_message: Please enter a number between 0 and %{years_you_can_enter}.
       ## Q9
       years_of_carers_allowance?:
         title: How many years of Carer’s Allowance did you get?
-        hint: Enter 0 if you didn’t get any. %{carer_hint_for_women}
+        hint: Enter 0 if you didn’t get any. Don’t count any years you’ve entered in the previous questions. %{carer_hint_for_women}
         error_message: Please enter a number. Based on your previous answers you can enter up to %{available_ni_years} years.
       ## Q10
       years_of_work?:
