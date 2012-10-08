@@ -59,21 +59,38 @@ module SmartAnswer::Calculators
     end
 
     def state_pension_age
-      # state_pension_date.year - dob.year
       spd = state_pension_date
-      year = spd.year - dob.year
-      puts "[#{dob.month}, #{spd.month}][#{dob}, #{spd}]"
-      if (dob.month == spd.month) and (dob.day == spd.day)
-        "#{pluralize(year, 'year')}"
-      else
-        year = (dob.month > 4 ? year : year-1 )
-        month = ( dob.month > 4 ? dob.month-4 : 12+(dob.month-4) )
-        day = ( dob.day >= 6 ? dob.day-6 : 30+(dob.day-6) )
-        "#{pluralize(year, 'year')}, #{pluralize(month, 'month')} and #{pluralize(day, 'day')}"
+      syear = state_pension_date.year - dob.year
+
+      pension_age = syear.years.since(dob)
+      years = syear
+      
+      if pension_age > state_pension_date 
+        pension_age = 1.year.ago(pension_age) 
+        years -= 1
       end
+      
+      month_and_day = friendly_time_diff(pension_age, state_pension_date)
+      month_and_day = month_and_day.empty? ? month_and_day : ", " + month_and_day
+      "#{pluralize(years, 'year')}#{month_and_day}"
     end
 
-    # def
+    def friendly_time_diff(from_time, to_time)
+      from_time = from_time.to_time if from_time.respond_to?(:to_time)
+      to_time = to_time.to_time if to_time.respond_to?(:to_time)
+      distance_in_seconds = ((to_time - from_time).abs).round
+      components = []
+
+      %w(year month week day).each do |interval|
+        if distance_in_seconds >= 1.send(interval)
+          delta = (distance_in_seconds / 1.send(interval)).floor
+          distance_in_seconds -= delta.send(interval)
+          components << pluralize(delta, interval)
+        end
+      end
+
+      components.join(", ")
+    end
 
     def before_state_pension_date?
       Date.today < state_pension_date
