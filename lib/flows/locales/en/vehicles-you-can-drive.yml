@@ -482,7 +482,7 @@ en-GB:
         body: |
           You can drive a bus. You’ll need to apply for provisional bus entitlement (category D) then take a category D test.
 
-        next_steps:
+        next_steps: |
           [Become a lorry or bus driver](/become-lorry-bus-driver/overview "Become a lorry or bus driver")
       ## A33
       bus_apply_for_cat_b:
@@ -491,7 +491,7 @@ en-GB:
 
           You must also normally be 21 or over.
 
-        next_steps:
+        next_steps: |
           [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence "Apply for your first provisional driving licence")
 
           [Become a lorry or bus driver](/become-lorry-bus-driver/overview "Become a lorry or bus driver") 
@@ -543,7 +543,7 @@ en-GB:
 
           ##Tracked vehicles (category H) 
           You already have provisional entitlement to drive tracked vehicles up to 3,500kg. You’ll have to take a category H test to get full entitlement for these vehicles.
-        next_steps:
+        next_steps: |
           [Learning to drive a tractor or specialist vehicle](/learning-to-drive-a-tractor-or-specialist-vehicle/age-limits "Learning to drive a tractor or specialist vehicle")
       ## A39
       sv_entitled_cat_k_provisional_g_h:
