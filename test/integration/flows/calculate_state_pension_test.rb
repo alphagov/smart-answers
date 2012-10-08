@@ -104,7 +104,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         end
 
         should "ask for number of years paid NI" do
-          assert_state_variable "state_pension_age", 65
+          assert_state_variable "state_pension_age", "65 years"
           assert_current_node :years_paid_ni?
         end
 
@@ -205,7 +205,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
                           assert_state_variable "qualifying_years_total", 27
                           assert_state_variable "missing_years", 3
                           assert_state_variable "pension_amount", "96.71"
-                          assert_state_variable "state_pension_age", 65
+                          assert_state_variable "state_pension_age", "65 years"
                           assert_state_variable "remaining_years", 6
                           assert_state_variable "pension_loss", "10.74"
                           assert_state_variable "state_pension_date", Date.parse("2018 Oct 4th")
@@ -277,9 +277,11 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
       context "age = 61, NI = 20, JSA = 1" do
         setup do
-          add_response 61.years.ago
-          add_response 20
-          add_response 1
+          Timecop.freeze("2012-08-08") do
+            add_response 61.years.ago
+            add_response 20
+            add_response 1
+          end
         end
 
         should "be at 60_and_64" do
