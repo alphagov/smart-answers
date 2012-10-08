@@ -3,7 +3,11 @@ en-GB:
     auto-enrolled-into-workplace-pension:
       title: Will I be automatically enrolled into a workplace pension?
       body: |
-        Employers will gradually enrol all eligible workers into workplace pensions between 2012 and 2018. Find out if you’re likely to be affected. 
+        Employers will gradually enrol all eligible workers into workplace pensions 
+        between 2012 and 2018. Find out if you’re likely to be affected. 
+
+        If you are self employed or the sole director of your own company,
+        you won’t be automatically enrolled into a workplace pension.
       meta:
         description: Find out if you will be automatically enrolled into a workplace pension
       options:
@@ -12,17 +16,18 @@ en-GB:
       work_in_uk?:
         title: Do you work in the UK?
         body: |
-          You may count as working in the UK if you work on a boat or as an
-           offshore worker (eg if you work on an oil platform in UK territorial
-            seas). Ask your employer if you’re not sure.
-      self_employed?:
-        title: Are you self-employed or the sole director of your own company?
+          You may count as working in the UK if you work on a ship or as an
+          offshore worker (eg if you work on an oil platform in UK waters). 
+
+          Ask your employer if you’re not sure.
       workplace_pension?:
         title: Are you already in a workplace pension?
+      how_many_people?:
+        title: How many people work for your employer?
+        error_message: Please enter a number.
       how_old?:
         title: |
-          How old are you likely to be when your employer enrols workers into a
-          pension?
+          How old are you going to be on %{enrollment_date}?
         body: |
           Employers will start enrolling their workers in October 2012. The
           latest you’ll be enrolled is 2018.
@@ -33,26 +38,27 @@ en-GB:
           between_22_sp: 22 to State Pension age
           state_pension_age: State Pension age to 74
       annual_earnings?:
-        title: How much do you earn a year?
+        title: How much do you earn?
         options:
-          up_to_5k: Up to £5,564
-          more_than_5k: More than £5,564
+          up_to_5k: Up to £107 per week (£464 per month)
+          more_than_5k: £107 per week (£464 per month) or more
       annual_earnings2?:
-        title: How much do you earn a year?
+        title: How much do you earn?
         options:
-          up_to_5k: Up to £5,564
-          between_5k_8k: Between £5,564 and £8,105
-          more_than_8k: More than £8,105
+          up_to_5k: Up to £107 per week (£464 per month)
+          between_5k_8k: Between £107 per week(£464 per month) and £156 per week (£676 per month)
+          more_than_8k: More than £156 per week (£676 per month)
           varies: Hard to say - my income varies
       one_of_the_following?:
         title: Are you one of the following?
         options:
           armed_forces: A serving member of the armed forces
           agency: Working for an agency
-          several_employers: Working for several different employers or agencies
+          several_employers: Working for more than one employer
           overseas_company: Working in the UK for an overseas-based company
           contract: A short-term contract worker
           office_holder: An office holder
+          carer: A carer
           none: None of the above
       not_enrolled:
         body: |
@@ -71,7 +77,7 @@ en-GB:
           your workplace pension.
           $C
 
-          Your employer or agency may need to make changes to your pension scheme in
+          Your employer may need to make changes to your pension scheme in
           line with new laws around workplace pensions. They’ll let you know if
           this happens.
       not_enrolled_with_options:
@@ -86,7 +92,8 @@ en-GB:
       not_enrolled_opt_in:
         body: |
           $C
-          You won't be automatically enrolled into your employer’s [workplace pension](/workplace-pensions "Workplace pensions").
+          You won't be automatically enrolled into your employer’s 
+          [workplace pension](/workplace-pensions "Workplace pensions").
           $C
 
           However, you have the right to opt in to the workplace pension scheme.
@@ -108,13 +115,6 @@ en-GB:
         
           The Ministry of Defence will continue to make pension arrangements
           for you.
-      not_enrolled_self_employed:
-        body: |
-          $C
-          You won’t be automatically enrolled into a workplace pension.
-          $C
-
-          Find out [more about pensions](/workplace-pensions/changing-your-job-or-employment-status “Changing your job or employment status”) if you’re self-employed or a sole director.
       enrolled_agency:
         body: |
           $C
@@ -129,10 +129,14 @@ en-GB:
         body: |
           $C
           You’ll be automatically enrolled into a [workplace pension](/workplace-pensions "Workplace pensions") for each
-          employer or agency that pays you £8,105 a year or more.
+          employer that pays you £8,105 a year or more.
           $C
 
-          This means you may end up with several different workplace pensions.
+          This means you may end up with several different workplace pensions. You may be able to combine these - talk to your scheme provider.
+
+          Each employer can choose to delay your enrolment for up to three months but must let you know in writing. 
+
+          If you ask to join the pension scheme in the meantime, they must let you join.
       enrolled_overseas:
         body: |
           $C
@@ -142,6 +146,10 @@ en-GB:
           The pension must meet the UK government’s standards within the
           European Economic Area or Switzerland.  It will be regulated in the
           UK.
+
+          Your employer can choose to delay your enrolment for up to three months but must let you know in writing. 
+
+          If you ask to join the pension scheme in the meantime, they must let you join.
       enrolled_contract:
         body: |
           $C
@@ -158,14 +166,30 @@ en-GB:
           You won't be automatically enrolled into a workplace pension, unless you have a contract of employment (eg if working as a prison
           chaplain).
           $C
+      not_enrolled_automatically:
+        body: |
+          Your employer doesn’t have to automatically enroll you until sometime between 1 November 2015 and 1 February 2018.
+
+          They will write to you if they choose to do it earlier.
+      not_enrolled_carer:
+        body: |
+          You may be automatically enrolled into a [workplace pension](/workplace-pensions "Workplace pensions") if the local authority gives your employer money towards their caring costs, and your employer uses this to pay you.
+
+          You won’t be enrolled until 2015 at the earliest. Your employer can choose to delay your enrolment for up to three months but must let you know in writing. 
+
+          If you ask to join the pension scheme in the meantime, they must let you join.
       enrolled:
         body: |
           $C
-          You'll be automatically enrolled into your employer’s  [workplace pension](/workplace-pensions "Workplace pensions") scheme. 
+          You'll be automatically enrolled into your employer’s [workplace pension](/workplace-pensions "Workplace pensions") scheme. 
           $C
-
-          If you want to opt out, you should do this before the deadline to get any payments refunded. 
 
           If you stay in the scheme, you and your employer will both pay into your pension pot, and the government will also contribute through tax relief.
 
+          If you want to opt out, you should do this before the deadline to get any payments refunded.
+
           Your employer will give you more information about the scheme they've chosen.
+
+          Your employer can choose to delay your enrolment for up to three months but must let you know in writing. 
+
+          If you ask to join the pension scheme in the meantime, they must let you join.

@@ -428,7 +428,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       assert_state_variable :holiday_entitlement_hours, 'formatted hours'
       assert_state_variable :holiday_entitlement_minutes, 'formatted minutes'
       assert_state_variable :average_hours_per_week, 'average hours per week'
-      assert_phrase_list :content_sections, [:answer_hours_minutes, :your_employer, :calculation_annualised]
+      assert_phrase_list :content_sections, [:answer_hours_minutes_annualised, :your_employer, :calculation_annualised]
     end
   end # annualised hours
 
