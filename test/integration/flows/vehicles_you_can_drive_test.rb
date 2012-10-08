@@ -18,46 +18,29 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
     setup do
       add_response "car-or-light-vehicle"
     end
-    ## Q2
-    should "ask if you have a licence" do
-      assert_current_node :do_you_have_a_driving_licence?
+    ## Q3
+    should "ask how old are you?" do
+      assert_current_node :how_old_are_you?
     end
-    ## A1
-    context "answer yes" do
-      should "give the outcome that you may already be entitled" do
-        add_response :yes
-        assert_current_node :you_may_already_be_entitled
-      end
-    end
-    
-    context "answer no" do
-      setup do
-        add_response :no
-      end
-      ## Q3
-      should "ask how old are you?" do
-        assert_current_node :how_old_are_you?
-      end
-      ## A2
-      context "answer under 16" do
-        should "state you are not old enough" do
-          add_response "under-16"
+    ## A2
+    context "answer under 16" do
+      should "state you are not old enough" do
+        add_response "under-16"
           assert_current_node :not_old_enough
-        end
       end
-      ## A3
-      context "answer 16" do
-        should "state you may have mobility rate entitlement" do
-          add_response "16"
-          assert_current_node :mobility_rate_clause
-        end
+    end
+    ## A3
+    context "answer 16" do
+      should "state you may have mobility rate entitlement" do
+        add_response "16"
+        assert_current_node :mobility_rate_clause
       end
-      ## A4
-      context "answer 17 or over" do
-        should "state you may have mobility rate entitlement" do
-          add_response "17-or-over"
-          assert_current_node :entitled_for_provisional_licence
-        end
+    end
+    ## A4
+    context "answer 17 or over" do
+      should "state you may have mobility rate entitlement" do
+        add_response "17-or-over"
+        assert_current_node :entitled_for_provisional_licence
       end
     end
   end ## Car and light vehicle specs
@@ -402,17 +385,9 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
       should "ask how old you are" do
         assert_current_node :how_old_are_you_bus?
       end
-      should "state exceptions for under 18s" do
-        add_response "under-18"
-        assert_current_node :bus_exceptions_under_18 # A29
-      end
-      should "state exceptions for 18-19 year olds" do
-        add_response "18-19"
-        assert_current_node :bus_exceptions_18_19 # A30
-      end
-      should "state exceptions for 20 year olds" do
-        add_response "20"
-        assert_current_node :bus_exceptions_20 # A31
+      should "state exceptions for under 21s" do
+        add_response "under-21"
+        assert_current_node :bus_exceptions_under_21 # A29
       end
       should "advise you to apply for a cat D licence" do
         add_response "21-or-above"
