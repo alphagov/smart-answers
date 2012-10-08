@@ -38,6 +38,7 @@ group :test do
   gem "simplecov", "~> 0.6.4", :require => false
   gem "simplecov-rcov", "~> 0.2.3", :require => false
   gem 'capybara-webkit', "~> 0.12.1"
+  gem 'timecop'
 end
 
 group :assets do
