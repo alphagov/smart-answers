@@ -25,46 +25,87 @@ class AutoEnrolledIntoWorkplacePensionTest < ActiveSupport::TestCase
       add_response :yes
     end
 
-    should "ask if self employed" do
-      assert_current_node :self_employed?
+    should "ask if you are already in workplace pension" do
+      assert_current_node :workplace_pension?
     end
 
-    context "self employed" do
-      should "not be enrolled in pension" do
+    context "already in workplace pension" do
+      should "say you will continue to pay" do
         add_response :yes
-        assert_current_node :not_enrolled_self_employed
+        assert_current_node :continue_to_pay
       end
     end
 
-    context "not self employed" do
+    context "not already in workplace pension" do
       setup do
         add_response :no
       end
 
-      should "ask if you are already in workplace pension" do
-        assert_current_node :workplace_pension?
+      should "ask how old you will be" do
+        assert_current_node :how_many_people?
       end
 
-      context "already in workplace pension" do
-        should "say you will continue to pay" do
-          add_response :yes
-          assert_current_node :continue_to_pay
+      context "less than 30 people" do
+        should "go to not enrolled automatically" do
+          add_response 12 
+          assert_current_node :not_enrolled_automatically
         end
       end
 
-      context "not already in workplace pension" do
+      context "biggest and smallest" do
+        should "go to how_old on 30" do
+          add_response 30 
+          assert_current_node :how_old?
+        end
+        should "go to how_old on 9999999" do
+          add_response 9999999
+          assert_current_node :how_old?
+        end
+      end
+
+      context "too small or too large" do
+        should "break if 0" do
+          add_response 0
+          assert_current_node_is_error
+        end
+        should "break if 10m" do
+          add_response 10000000
+          assert_current_node_is_error
+        end
+        should "break if -100" do
+          add_response -100
+          assert_current_node_is_error
+        end
+        should "break if text" do
+          add_response 'some text'
+          assert_current_node_is_error
+        end
+      end
+
+      
+      context "go 100 employees" do
         setup do
-          add_response :no
+          add_response 100
         end
 
-        should "ask how old you will be" do
+        should "go to how_old?" do
           assert_current_node :how_old?
         end
 
         context "between 16 and 21" do
-          should "ask for earnings" do
+          setup do
             add_response :between_16_21
+          end            
+          should "ask for earnings" do
             assert_current_node :annual_earnings?
+          end
+          should "go to outcome not_enrolled_with_options on up_to_5k" do
+            add_response :up_to_5k
+            assert_current_node :not_enrolled_with_options
+          end
+          should "go to outcome not_enrolled_with_options on more_than_5k" do
+            add_response :more_than_5k
+            assert_current_node :not_enrolled_opt_in
           end
         end
 
@@ -173,6 +214,13 @@ class AutoEnrolledIntoWorkplacePensionTest < ActiveSupport::TestCase
               end
             end
 
+            context "office holder" do
+              should "not be enrolled" do
+                add_response :carer
+                assert_current_node :not_enrolled_carer
+              end
+            end
+
             context "none of the above" do
               should "be enrolled" do
                 add_response :none
@@ -181,7 +229,9 @@ class AutoEnrolledIntoWorkplacePensionTest < ActiveSupport::TestCase
             end
           end
         end
+
       end
+
     end
   end
 end
