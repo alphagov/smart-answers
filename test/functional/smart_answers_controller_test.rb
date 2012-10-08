@@ -71,6 +71,11 @@ class SmartAnswersControllerTest < ActionController::TestCase
       assert_select "meta[name=robots][content=noindex]", count: 0
     end
 
+    should "have cache headers set to 30 mins" do
+      get :show, id: "sample"
+      assert_equal "max-age=1800, public", @response.header["Cache-Control"]
+    end
+
     context "meta description in translation file" do
       should "be shown" do
         using_translation_file(fixture_file('smart_answers_controller_test/meta_description.yml')) do
@@ -298,6 +303,10 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
         should "show response summary" do
           assert_select ".done", /1\s*How much\?\s+£1 per month/
+        end
+
+        should "have cache headers set to 30 mins for inner pages" do
+          assert_equal "max-age=1800, public", @response.header["Cache-Control"]
         end
       end
     end
