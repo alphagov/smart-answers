@@ -62,6 +62,30 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_current_node :dob_amount?
       end
 
+      context "within four months and four days of state pension age test" do
+        setup do
+          Timecop.freeze('2012-10-08') do
+            add_response Date.parse('1948-02-12')
+          end
+        end
+
+        should "display near state pension age response" do
+          assert_current_node :near_state_pension_age
+        end
+      end
+
+      context "four months and five days from state pension age test" do
+        setup do 
+          Timecop.freeze('2012-10-08') do
+            add_response Date.parse('1948-02-13')
+          end
+          
+          should "ask for years paid ni" do
+            assert_current_node :years_paid_ni
+          end
+        end
+      end
+
       context "born 5 Apr 1952 - automatic_years test" do
         setup do
           add_response Date.parse("5th April 1952")
@@ -208,6 +232,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
                           assert_state_variable "state_pension_age", "65 years"
                           assert_state_variable "remaining_years", 6
                           assert_state_variable "pension_loss", "10.74"
+                          assert_phrase_list :automatic_years_were_added, [:automatic_years_added_callout]
                           assert_state_variable "state_pension_date", Date.parse("2018 Oct 4th")
                           assert_current_node :amount_result
                         end

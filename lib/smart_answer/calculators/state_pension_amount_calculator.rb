@@ -95,6 +95,11 @@ module SmartAnswer::Calculators
       Date.today < state_pension_date
     end
 
+    ## return true if today is within four months and four days from state pension date
+    def within_four_months_four_days_from_state_pension?
+      Date.today.advance(:months => 4, :days => 4) >= state_pension_date
+    end
+
     def under_20_years_old?
       dob > 20.years.ago
     end

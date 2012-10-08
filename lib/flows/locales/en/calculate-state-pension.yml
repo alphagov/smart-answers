@@ -34,6 +34,8 @@ en-GB:
           You have already reached State Pension age. You can [claim your State Pension](/state-pension#how-to-claim "How to claim") if you haven't already or [defer claiming it](/how-to-defer-your-state-pension "How to defer your State Pension")^.
         remaining_contributions_years_callout: |
           You still need to pay National Insurance contributions for %{remaining_contribution_years} to get the full State Pension.
+        automatic_years_added_callout: |
+          The calculator added %{automatic_years} years to your result for the time between 60 and 64 when you didn’t work or aren’t expecting to be working.
         full_contribution_years_callout: You get the full State Pension.
         state_pension_age_is: |
 
@@ -41,7 +43,7 @@ en-GB:
 
           You should get your pension claim pack in %{formatted_pension_pack_date}. 
 
-          You can also apply for an [elderly person’s bus pass.](/apply-for-elderly-person-bus-pass "Elderly person’s bus pass")
+          You may also apply for an [elderly person’s bus pass.](/apply-for-elderly-person-bus-pass "Elderly person’s bus pass")
 
           This calculation is according to the current law. The State Pension age may change in the future.
         state_pension_age_was: |
@@ -56,9 +58,10 @@ en-GB:
 
           If you&rsquo;re on a low income, you might be eligible to claim [Pension Credit](/pension-credit "Pension Credit").
 
-          You can also apply for an [elderly person’s bus pass.](/apply-for-elderly-person-bus-pass "Elderly person’s bus pass")
+          You may also apply for an [elderly person’s bus pass.](/apply-for-elderly-person-bus-pass "Elderly person’s bus pass")
 
           This calculation is according to the current law. The State Pension age may change in the future.
+        ##Result 1
         too_few_qy_enough_remaining_years: |
           
 
@@ -79,7 +82,7 @@ en-GB:
           $C
 
 
-          How much State Pension you get depends on how many years of National Insurance contributions you have. 
+          How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance “National Insurance”) you have. 
 
           National Insurance | Your contributions 
           - | - 
@@ -89,9 +92,12 @@ en-GB:
 
           You still have enough years to make contributions towards a full State Pension.
 
-          More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
+          More information on the [basic State Pension or how to top it up](/state-pension) and the [additional State Pension](/additional-state-pension)
+
+          You can also read about [voluntary contributions.](/voluntary-national-insurance-contributions "voluntary National Insurance contributions")
 
           This estimate includes any years you may get automatically between the ages of 16 and 19. If you got your National Insurance number after 2010 you don’t get these years.
+        ## Result 2
         too_few_qy_not_enough_remaining_years: |
           
 
@@ -111,7 +117,7 @@ en-GB:
           This is an estimate. For a more accurate breakdown [apply for a State Pension forecast](/forecast-your-state-pension).
           $C
 
-          How much State Pension you get depends on how many years of National Insurance contributions you have. 
+          How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance “National Insurance”) you have. 
 
           National Insurance | Your contributions 
           - | - 
@@ -123,9 +129,10 @@ en-GB:
 
           You might be able to get [National Insurance credits from your partner.](/state-pension)
 
-          More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
+          More information on the [basic State Pension or how to top it up](/state-pension) and the [additional State Pension](/additional-state-pension)
 
           This estimate includes any years you may get automatically between the ages of 16 and 19. If you got your National Insurance number after 2010 you don’t get these years.
+        ## Result 3
         you_get_full_state_pension: |
           
 
@@ -146,7 +153,7 @@ en-GB:
           This is an estimate. For a more accurate accurate breakdown [apply for a State Pension forecast](/forecast-your-state-pension).
           $C
 
-          How much State Pension you get depends on how many years of National Insurance contributions you have.
+          How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance “National Insurance”) you have.
 
           More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
 
@@ -192,9 +199,9 @@ en-GB:
       received_child_benefit?:
         title: "Have you ever:"
         body: |
-        - claimed Child Benefit for a child under 16
-        - cared for someone sick or disabled
-        - worked as a registered carer (since 2003)
+          - claimed Child Benefit for a child under 16
+          - cared for someone sick or disabled
+          - worked as a registered carer (since 2003)
       ## Q7
       years_of_benefit?:
         title: "Before 6 April 2010 how many years did any of the following apply:"
@@ -260,11 +267,27 @@ en-GB:
           If you don’t get the full State Pension you might still be able to [pay voluntary National Insurance contributions](/voluntary-national-insurance-contributions).
 
           More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
-      
-      ## AMOUNT RESULT
+
+      ## RESULT 6
+      near_state_pension_age:
+        title: You’re close to State Pension age. 
+        body: |
+          Your State Pension age is %{state_pension_age}. 
+
+          You must [claim your State Pension](/state-pension#how-to-claim "Claim your state pension"). You need a Government Gateway account to claim.
+
+          If you want to keep working you can [defer your State Pension](/deferring-state-pension/what-you-may-get). 
+
+          If you don’t get the full State Pension you might still be able to [pay voluntary National Insurance contributions](/voluntary-national-insurance-contributions).
+
+          More information on the [basic State Pension and how to increase it](/state-pension) and the [additional State Pension](/additional-state-pension)
+
+      ## AMOUNT RESULT (results 1, 2 and 3)
       amount_result:
         body: |
           %{result_text}
+
+          %{automatic_years_were_added}
 
       ## AGE RESULT
       age_result:

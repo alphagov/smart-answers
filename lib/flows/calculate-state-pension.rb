@@ -70,11 +70,6 @@ date_question :dob_age? do
     end
   end
   
-  ## REDUNDANT?
-  calculate :already_elligible_text do
-    state_pension_date <= Date.today ? PhraseList.new(:claim_pension_now_text) : ''
-  end
-  
   calculate :formatted_pension_pack_date do
     4.months.ago(state_pension_date).strftime("%B %Y")
   end
@@ -131,7 +126,7 @@ date_question :dob_amount? do
     calc = Calculators::StatePensionAmountCalculator.new(
       gender: gender, dob: response)
     if calc.before_state_pension_date?
-      (calc.under_20_years_old? ? :too_young : :years_paid_ni?)
+      (calc.under_20_years_old? ? :too_young : (calc.within_four_months_four_days_from_state_pension? ? :near_state_pension_age : :years_paid_ni?) )
     else
       :reached_state_pension_age
     end
@@ -331,6 +326,7 @@ value_question :years_of_work? do
 
 end
 
+outcome :near_state_pension_age
 outcome :reached_state_pension_age
 outcome :too_young 
 outcome :age_result
@@ -387,6 +383,18 @@ outcome :amount_result do
   
   precalculate :credited_benefit_years do
     (calculator.three_year_credit_age? ? 3 : 0)
+  end
+
+  precalculate :automatic_years_were_added do
+    if ( Date.parse(dob) < Date.parse("6th October 1953") and (gender == "male") )
+      if automatic_years > 0
+        PhraseList.new(:automatic_years_added_callout)
+      else
+        ''
+      end
+    else
+      ''
+    end
   end
 
   precalculate :result_text do
