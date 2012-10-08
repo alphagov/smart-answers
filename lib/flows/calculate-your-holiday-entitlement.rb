@@ -171,7 +171,7 @@ value_question :annualised_hours? do
     calculator.annualised_entitlement.last
   end
   calculate :content_sections do
-    PhraseList.new :answer_hours_minutes, :your_employer, :calculation_annualised
+    PhraseList.new :answer_hours_minutes_annualised, :your_employer, :calculation_annualised
   end
   next_node :done
 end
