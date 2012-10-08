@@ -2,6 +2,8 @@ require "data/state_pension_query"
 
 module SmartAnswer::Calculators
   class StatePensionAmountCalculator
+    include ActionView::Helpers::TextHelper
+
     attr_reader :gender, :dob, :automatic_years, :qualifying_years, :available_years
     attr_accessor :qualifying_years
 
@@ -26,7 +28,10 @@ module SmartAnswer::Calculators
     end
 
     def years_to_pension
-      state_pension_year - current_year
+      # state_pension_year - current_year
+      t = Date.today
+      y = t.month > 4 ? t.year : t.year - 1
+      state_pension_year - y
     end
 
     def pension_loss
@@ -54,7 +59,36 @@ module SmartAnswer::Calculators
     end
 
     def state_pension_age
-      state_pension_date.year - dob.year
+      spd = state_pension_date
+      syear = state_pension_date.year - dob.year
+
+      pension_age = syear.years.since(dob)
+      years = syear
+      
+      if pension_age > state_pension_date 
+        pension_age = 1.year.ago(pension_age) 
+        years -= 1
+      end
+      
+      month_and_day = friendly_time_diff(pension_age, state_pension_date)
+      month_and_day = month_and_day.empty? ? month_and_day : ", " + month_and_day
+      "#{pluralize(years, 'year')}#{month_and_day}"
+    end
+
+    def friendly_time_diff(from_time, to_time)
+      from_time = from_time.to_time if from_time.respond_to?(:to_time)
+      to_time = to_time.to_time if to_time.respond_to?(:to_time)
+      components = []
+
+      %w(year month day).map do |interval|
+        distance_in_seconds = (to_time.to_i - from_time.to_i).round(1)
+        delta = (distance_in_seconds / 1.send(interval)).floor
+        delta -= 1 if from_time + delta.send(interval) > to_time
+        from_time += delta.send(interval)
+        components << pluralize(delta, interval) if distance_in_seconds >= 1.send(interval)
+      end
+
+      components.join(", ")
     end
 
     def before_state_pension_date?
@@ -66,32 +100,49 @@ module SmartAnswer::Calculators
     end
     
     def three_year_credit_age?
-      three_year_band = credit_bands.last
+      # three_year_band = credit_bands.last # FIXME: why is line this here?
       dob >= Date.parse('1959-04-06') and dob <= Date.parse('1992-04-05')
     end
     
     def credit_bands
       [
-        { min: Date.parse('1957-04-06'), max: Date.parse('1958-04-05'), credit: 1 },
-        { min: Date.parse('1993-04-06'), max: Date.parse('1994-04-05'), credit: 1 },
-        { min: Date.parse('1958-04-06'), max: Date.parse('1959-04-05'), credit: 2 },
-        { min: Date.parse('1992-04-06'), max: Date.parse('1993-04-05'), credit: 2 }
+        { min: Date.parse('1957-04-06'), max: Date.parse('1958-04-05'), credit: 1, validate: 0 },
+        { min: Date.parse('1993-04-06'), max: Date.parse('1994-04-05'), credit: 1, validate: 0 },
+        { min: Date.parse('1958-04-06'), max: Date.parse('1959-04-05'), credit: 2, validate: 1 },
+        { min: Date.parse('1992-04-06'), max: Date.parse('1993-04-05'), credit: 2, validate: 2 }
       ]
     end
     
+    # FIXME: is this still needed?
     def qualifying_years_credit
       credit_band = credit_bands.find { |c| c[:min] <= dob and c[:max] >= dob }
       (credit_band ? credit_band[:credit] : 0)
     end
 
-    def allocate_automatic_years
-      auto_years = [
+    def calc_qualifying_years_credit(entered_num=0)
+      credit_band = credit_bands.find { |c| c[:min] <= dob and c[:max] >= dob }
+      case credit_band[:validate]
+      when 0
+        entered_num > 0 ? 0 : 1
+      when 1
+        rval = (1..2).find{ |c| c + entered_num == 2 } 
+        entered_num < 2 ? rval : 0
+      else
+        0
+      end  
+    end
+
+    def auto_years
+      [
         { before: Date.parse("1950-10-06"), credit: 5 },
         { before: Date.parse("1951-10-06"), credit: 4 },
         { before: Date.parse("1952-10-06"), credit: 3 },
         { before: Date.parse("1953-07-06"), credit: 2 },
         { before: Date.parse("1953-10-06"), credit: 1 }
       ]
+    end
+
+    def allocate_automatic_years
       auto_year = auto_years.find { |c| c[:before] > dob }
       @automatic_years = (auto_year ? auto_year[:credit] : 0 )   
     end
