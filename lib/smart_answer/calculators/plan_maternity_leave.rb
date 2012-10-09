@@ -7,7 +7,10 @@ module SmartAnswer::Calculators
 		def initialize(options = {})
 			@due_date = Date.parse(options[:due_date])
 			@formatted_due_date = @due_date.strftime("%A, %d %B %Y")
-			@start_date = Date.parse(options[:start_date])
+		end
+
+		def enter_start_date(entered_start_date)
+			@start_date = Date.parse(entered_start_date)
 			@formatted_start_date = formatted_date(@start_date)
 		end
 
@@ -18,7 +21,7 @@ module SmartAnswer::Calculators
 		def format_date_range(range)
 	  	first = formatted_date(range.first)
 	  	last = formatted_date(range.last)
-	  	(first + " - " + last)
+	  	(first + " to " + last)
 	  end 
 
 		def distance_start	

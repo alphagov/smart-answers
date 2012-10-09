@@ -2,8 +2,9 @@ en-GB:
   flow:
     plan-paternity-leave:
       meta:
+        title: Plan your Paternity Leave
         description: Planning your Paternity Leave
-      title: Planning your Paternity Leave
+      title: Plan your Paternity Leave
       body: Paternity Leave is time off work to look after your new baby. Enter your details to see when you can take it.
       # Questions
       baby_due_date?:
