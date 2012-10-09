@@ -384,29 +384,6 @@ module SmartAnswer::Calculators
 
       context "(testing years_to_pension)" do
         
-        # should "years_to_pension : 32 on dob: 1977-04-12" do
-        #   Timecop.freeze(Date.parse("2012-08-01")) do
-        #     @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
-        #       gender: "male", dob: "1977-04-12", qualifying_years: nil)
-        #     assert_equal 32, @calculator.years_to_pension
-        #   end
-        # end
-        # should "years_to_pension : 33 on dob: 1977-11-12" do
-        #   Timecop.freeze(Date.parse("2012-08-01")) do
-        #     @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
-        #       gender: "male", dob: "1977-11-12", qualifying_years: nil)
-        #     assert_equal 33, @calculator.years_to_pension
-        #   end
-        # end
-
-        # should "years_to_pension : 34 on dob: 1977-11-12" do
-        #   Timecop.freeze(Date.parse("2012-01-01")) do
-        #     @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
-        #       gender: "male", dob: "1977-11-12", qualifying_years: nil)
-        #     assert_equal 33, @calculator.years_to_pension
-        #   end
-        # end
-
         context "born 1988 before and after 6th April" do
           Timecop.freeze(Date.parse("2012-10-09")) do
             should "return 43 on 4th April " do
@@ -443,6 +420,26 @@ module SmartAnswer::Calculators
               @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
                 gender: "male", dob: "1977-04-06", qualifying_years: nil)
               assert_equal 32, @calculator.years_to_pension
+            end
+          end
+        end
+
+        context "Aleks' tests" do
+          Timecop.freeze(Date.parse("2012-10-09")) do
+            should "state that user has 13 remaining_years" do
+              @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+                  gender: "male", dob: "1960-04-04", qualifying_years: 21)
+              assert_equal 13, @calculator.years_to_pension
+            end
+            should "state that user has 26 remaining_years" do
+              @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+                  gender: "male", dob: "1972-02-04", qualifying_years: 13)
+              assert_equal 26, @calculator.years_to_pension
+            end
+            should "state that user has 34 remaining_years" do
+              @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+                  gender: "male", dob: "1978-11-03", qualifying_years: 13)
+              assert_equal 34, @calculator.years_to_pension
             end
           end
         end
