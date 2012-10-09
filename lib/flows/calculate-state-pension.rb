@@ -324,6 +324,8 @@ value_question :years_of_work? do
     calculator.years_can_be_entered(available_ni_years,3)
   end
 
+  save_input_as :years_of_work_entered
+
   calculate :qualifying_years do
     work_years = Integer(responses.last)
     qy = (work_years + qualifying_years)
@@ -351,8 +353,7 @@ outcome :amount_result do
     if calc.three_year_credit_age? 
       qualifying_years + 3
     else 
-      qualifying_years + calc.qualifying_years_credit
-      # qualifying_years + calc.calc_qualifying_years_credit
+      qualifying_years + calc.calc_qualifying_years_credit(years_of_work_entered.to_i)
     end
   end
 
