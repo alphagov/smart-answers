@@ -114,7 +114,7 @@ module SmartAnswer::Calculators
         { min: Date.parse('1957-04-06'), max: Date.parse('1958-04-05'), credit: 1, validate: 0 },
         { min: Date.parse('1993-04-06'), max: Date.parse('1994-04-05'), credit: 1, validate: 0 },
         { min: Date.parse('1958-04-06'), max: Date.parse('1959-04-05'), credit: 2, validate: 1 },
-        { min: Date.parse('1992-04-06'), max: Date.parse('1993-04-05'), credit: 2, validate: 2 }
+        { min: Date.parse('1992-04-06'), max: Date.parse('1993-04-05'), credit: 2, validate: 1 }
       ]
     end
     
