@@ -20,7 +20,7 @@ en-GB:
         title: What is the baby's due date?
       leave_start?:
         title: When do you want your leave to start?
-        hint: Your maternity can't start before %{earliest_start}
+        hint: Your maternity leave can't start before %{earliest_start}
         # hint: Leave must start on or 11 weeks before the due date. 
         error_message: Enter a date on or at least 11 weeks before the due date
 
