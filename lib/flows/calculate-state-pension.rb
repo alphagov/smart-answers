@@ -87,8 +87,15 @@ date_question :dob_age? do
     end
   end
   
-  next_node :age_result
-
+  next_node do |response|
+    calc = Calculators::StatePensionAmountCalculator.new(
+      gender: gender, dob: response)
+    if (calc.before_state_pension_date? and calc.within_four_months_four_days_from_state_pension?)
+      :near_state_pension_age
+    else
+      :age_result
+    end
+  end
 end
 
 # Q3:Amount

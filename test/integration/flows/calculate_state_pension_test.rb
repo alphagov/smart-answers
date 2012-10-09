@@ -42,6 +42,19 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         end
       end # born on 6th of April
     end # male
+
+    context "female, born on 4 August 1951" do 
+      setup do
+        Timecop.freeze('2012-10-08') do
+          add_response :female
+          add_response Date.parse("4th August 1951")
+        end
+      
+        should "tell them they are within four months and four days of state pension age" do
+          assert_current_node :near_state_pension_age
+        end 
+      end
+    end
   end # age calculation
   
   #Amount
