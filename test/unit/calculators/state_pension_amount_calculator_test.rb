@@ -384,26 +384,66 @@ module SmartAnswer::Calculators
 
       context "(testing years_to_pension)" do
         
-        should "years_to_pension : 32 on dob: 1977-04-12" do
-          Timecop.travel(Date.parse("2012-08-01")) do
-            @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
-              gender: "male", dob: "1977-04-12", qualifying_years: nil)
-            assert_equal 32, @calculator.years_to_pension
-          end
-        end
-        should "years_to_pension : 33 on dob: 1977-11-12" do
-          Timecop.travel(Date.parse("2012-08-01")) do
-            @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
-              gender: "male", dob: "1977-11-12", qualifying_years: nil)
-            assert_equal 33, @calculator.years_to_pension
+        # should "years_to_pension : 32 on dob: 1977-04-12" do
+        #   Timecop.freeze(Date.parse("2012-08-01")) do
+        #     @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+        #       gender: "male", dob: "1977-04-12", qualifying_years: nil)
+        #     assert_equal 32, @calculator.years_to_pension
+        #   end
+        # end
+        # should "years_to_pension : 33 on dob: 1977-11-12" do
+        #   Timecop.freeze(Date.parse("2012-08-01")) do
+        #     @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+        #       gender: "male", dob: "1977-11-12", qualifying_years: nil)
+        #     assert_equal 33, @calculator.years_to_pension
+        #   end
+        # end
+
+        # should "years_to_pension : 34 on dob: 1977-11-12" do
+        #   Timecop.freeze(Date.parse("2012-01-01")) do
+        #     @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+        #       gender: "male", dob: "1977-11-12", qualifying_years: nil)
+        #     assert_equal 33, @calculator.years_to_pension
+        #   end
+        # end
+
+        context "born 1988 before and after 6th April" do
+          Timecop.freeze(Date.parse("2012-10-09")) do
+            should "return 43 on 4th April " do
+              @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+                gender: "male", dob: "1988-04-04", qualifying_years: nil)
+              assert_equal 43, @calculator.years_to_pension
+            end
+            should "return 44 on 8th April " do
+              @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+                gender: "male", dob: "1988-04-08", qualifying_years: nil)
+              assert_equal 44, @calculator.years_to_pension
+            end
+            should "return 44 on 6th April " do
+              @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+                gender: "male", dob: "1988-04-06", qualifying_years: nil)
+              assert_equal 44, @calculator.years_to_pension
+            end
           end
         end
 
-        should "years_to_pension : 34 on dob: 1977-11-12" do
-          Timecop.freeze(Date.parse("2012-01-01")) do
-            @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
-              gender: "male", dob: "1977-11-12", qualifying_years: nil)
-            assert_equal 34, @calculator.years_to_pension
+        context "born 1977 before and after 6th April" do
+          Timecop.freeze(Date.parse("2012-10-09")) do
+            should "return 32 on 12th April " do
+              @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+                gender: "male", dob: "1977-04-12", qualifying_years: nil)
+              assert_equal 32, @calculator.years_to_pension
+            end
+            should "return 31 on 4th April " do
+              @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+                gender: "male", dob: "1977-04-04", qualifying_years: nil)
+              assert_equal 31, @calculator.years_to_pension
+            end
+            should "return 32 on 6th April " do
+              @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+                gender: "male", dob: "1977-04-06", qualifying_years: nil)
+              assert_equal 32, @calculator.years_to_pension
+            end
           end
         end
       end

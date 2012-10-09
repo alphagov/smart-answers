@@ -84,7 +84,7 @@ en-GB:
 
           How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance “National Insurance”) you have. 
 
-          National Insurance | Your contributions 
+          National Insurance | Your contributions
           - | - 
           Years of contributions you already have | %{qualifying_years_total}
           Years of contributions you still need for a full State Pension | %{missing_years} 
