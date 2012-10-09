@@ -245,7 +245,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
                           assert_state_variable "state_pension_age", "65 years"
                           assert_state_variable "remaining_years", 6
                           assert_state_variable "pension_loss", "10.74"
-                          assert_phrase_list :automatic_years_were_added, [:automatic_years_added_callout]
+                          assert_phrase_list :automatic_years_were_added, [:automatic_years_added_callout_singular]
                           assert_state_variable "state_pension_date", Date.parse("2018 Oct 4th")
                           assert_current_node :amount_result
                         end

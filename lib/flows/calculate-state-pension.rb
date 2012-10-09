@@ -398,7 +398,7 @@ outcome :amount_result do
   precalculate :automatic_years_were_added do
     if ( Date.parse(dob) < Date.parse("6th October 1953") and (gender == "male") )
       if automatic_years > 0
-        PhraseList.new(:automatic_years_added_callout)
+        PhraseList.new( (automatic_years > 1) ? :automatic_years_added_callout_plural : :automatic_years_added_callout_singular)
       else
         ''
       end

@@ -34,7 +34,9 @@ en-GB:
           You have already reached State Pension age. You can [claim your State Pension](/state-pension#how-to-claim "How to claim") if you haven't already or [defer claiming it](/how-to-defer-your-state-pension "How to defer your State Pension")^.
         remaining_contributions_years_callout: |
           You still need to pay National Insurance contributions for %{remaining_contribution_years} to get the full State Pension.
-        automatic_years_added_callout: |
+        automatic_years_added_callout_singular: |
+          The calculator added %{automatic_years} year to your result for the time between 60 and 64 when you didn’t work or aren’t expecting to be working.
+        automatic_years_added_callout_plural: |
           The calculator added %{automatic_years} years to your result for the time between 60 and 64 when you didn’t work or aren’t expecting to be working.
         full_contribution_years_callout: You get the full State Pension.
         state_pension_age_is: |
@@ -127,7 +129,7 @@ en-GB:
 
           You can pay [voluntary contributions](/voluntary-national-insurance-contributions/why-pay-voluntary-contributions) to get the full State Pension.
 
-          You might be able to get [National Insurance credits from your partner.](/state-pension)
+          You might be able to get [National Insurance credits from your partner.](/boost-state-pension)
 
           More information on the [basic State Pension or how to top it up](/state-pension) and the [additional State Pension](/additional-state-pension)
 
