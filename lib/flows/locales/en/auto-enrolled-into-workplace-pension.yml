@@ -1,7 +1,7 @@
 en-GB:
   flow:
     auto-enrolled-into-workplace-pension:
-      title: Will I be automatically enrolled into a workplace pension?
+      title: Will you be automatically enrolled into a workplace pension?
       body: |
         Employers will gradually enrol all eligible workers into workplace pensions 
         between 2012 and 2018. Find out if you’re likely to be affected. 
@@ -46,7 +46,7 @@ en-GB:
         title: How much do you earn?
         options:
           up_to_5k: Up to £107 per week (£464 per month)
-          between_5k_8k: Between £107 per week(£464 per month) and £156 per week (£676 per month)
+          between_5k_8k: Between £107 per week (£464 per month) and £156 per week (£676 per month)
           more_than_8k: More than £156 per week (£676 per month)
           varies: Hard to say - my income varies
       one_of_the_following?:
@@ -60,6 +60,7 @@ en-GB:
           office_holder: An office holder
           carer: A carer
           none: None of the above
+      ## A1
       not_enrolled:
         body: |
           $C
@@ -70,6 +71,7 @@ en-GB:
 
           You can get free, impartial advice on UK pensions from [The Pensions
            Advisory Service](http://www.pensionsadvisoryservice.org.uk/ "The Pensions Advisory Service"){:rel="external"}
+      ## A2
       continue_to_pay:
         body: |
           $C
@@ -80,6 +82,15 @@ en-GB:
           Your employer may need to make changes to your pension scheme in
           line with new laws around workplace pensions. They’ll let you know if
           this happens.
+      ## A3
+      not_enrolled_automatically:
+        body: |
+          $C
+          Your employer doesn’t have to automatically enroll you until sometime between 1 November 2015 and 1 February 2018.
+          $C
+
+          They will write to you if they choose to do it earlier.
+      ## A4
       not_enrolled_with_options:
         body: |
           $C
@@ -89,6 +100,7 @@ en-GB:
 
           However, you have the right to join a pension scheme and your
           employer must provide one for you if you ask.
+      ## A5
       not_enrolled_opt_in:
         body: |
           $C
@@ -98,6 +110,7 @@ en-GB:
 
           However, you have the right to opt in to the workplace pension scheme.
           Your employer must let you join if you ask to and pay regular contributions.
+      ## A6
       not_enrolled_income_varies:
         body: |
           $C
@@ -107,89 +120,89 @@ en-GB:
 
           However, if you earn more than this in a single pay packet (eg
           because of paid overtime), your employer will enrol you into their scheme automatically.
+      ## A7
       not_enrolled_mod:
         body: |
           $C
           You won’t be automatically enrolled into a workplace pension.
           $C
         
-          The Ministry of Defence will continue to make pension arrangements
-          for you.
+          The Ministry of Defence will continue to make pension arrangements for you.
+      ## A8
       enrolled_agency:
         body: |
           $C
-          Your agency will enrol you into a [workplace pension](/workplace-pensions "Workplace pensions"). They can choose
-          to delay your enrolment for up to three months but must let you know
-          in writing.
+          Your agency will enrol you into a [workplace pension](/workplace-pensions "Workplace pensions").
           $C
 
-          If you ask to join the pension scheme in the meantime, they must
-          let you join.
+          The earliest they must do this is %{enrollment_date}. But they can choose to do it earlier.
+
+          If you ask to join the pension scheme in the meantime, they must let you join.
+      ## A9
       enrolled_several:
         body: |
           $C
           You’ll be automatically enrolled into a [workplace pension](/workplace-pensions "Workplace pensions") for each
-          employer that pays you £8,105 a year or more.
+          employer that pays you £8,105 a year or more, which is the same as:
+
+
+          - £624 4-weekly
+          - £676 per month
+          - £156 per week
           $C
 
-          This means you may end up with several different workplace pensions. You may be able to combine these - talk to your scheme provider.
-
-          Each employer can choose to delay your enrolment for up to three months but must let you know in writing. 
+          The earliest they must do this is %{enrollment_date}. But they can choose to do it earlier.
 
           If you ask to join the pension scheme in the meantime, they must let you join.
+
+          If you have more than 1 workplace pension scheme, you may be able to combine them - talk to your scheme provider.
+      ## A10
       enrolled_overseas:
         body: |
           $C
           Your employer must automatically enrol you into a [workplace pension](/workplace-pensions "Workplace pensions").
           $C
 
-          The pension must meet the UK government’s standards within the
-          European Economic Area or Switzerland.  It will be regulated in the
-          UK.
+          The pension must meet the UK government’s standards within the European Economic Area. It will be regulated in the UK.
 
-          Your employer can choose to delay your enrolment for up to three months but must let you know in writing. 
+          The earliest they must do this is %{enrollment_date}. But they can choose to do it earlier.
 
           If you ask to join the pension scheme in the meantime, they must let you join.
+      ## A11
       enrolled_contract:
         body: |
           $C
-          You’ll be automatically enrolled into a [workplace pension](/workplace-pensions "Workplace pensions") by your employer. However, your
-          employer can choose to delay your enrolment date.
+          You’ll be automatically enrolled into a [workplace pension](/workplace-pensions "Workplace pensions") by your employer.
           $C
+
+          The earliest they must do this is %{enrollment_date}. But they can choose to do it earlier.
 
           This means your contract may end before you are enrolled. If you
           want to join while you are employed there, write to your employer -
           they must let you join.
+      ## A12
       not_enrolled_office:
         body: |
           $C
-          You won't be automatically enrolled into a workplace pension, unless you have a contract of employment (eg if working as a prison
-          chaplain).
+          You won't be automatically enrolled into a workplace pension, unless you have a contract of employment (eg if working as a prison chaplain).
           $C
-      not_enrolled_automatically:
-        body: |
-          Your employer doesn’t have to automatically enroll you until sometime between 1 November 2015 and 1 February 2018.
-
-          They will write to you if they choose to do it earlier.
-      not_enrolled_carer:
-        body: |
-          You may be automatically enrolled into a [workplace pension](/workplace-pensions "Workplace pensions") if the local authority gives your employer money towards their caring costs, and your employer uses this to pay you.
-
-          You won’t be enrolled until 2015 at the earliest. Your employer can choose to delay your enrolment for up to three months but must let you know in writing. 
-
-          If you ask to join the pension scheme in the meantime, they must let you join.
+      ## A13
       enrolled:
         body: |
           $C
           You'll be automatically enrolled into your employer’s [workplace pension](/workplace-pensions "Workplace pensions") scheme. 
           $C
 
-          If you stay in the scheme, you and your employer will both pay into your pension pot, and the government will also contribute through tax relief.
+          The earliest they must do this is %{enrollment_date}. But they can choose to do it earlier.
 
-          If you want to opt out, you should do this before the deadline to get any payments refunded.
+          Your employer will write to you explaining the scheme and how it works.
+      ## A14
+      not_enrolled_carer:
+        body: |
+          $C
+          You may be automatically enrolled into a [workplace pension](/workplace-pensions "Workplace pensions") if the local authority gives your employer money towards their caring costs, and your employer uses this to pay you.
+          $C
 
-          Your employer will give you more information about the scheme they've chosen.
-
-          Your employer can choose to delay your enrolment for up to three months but must let you know in writing. 
+          You won’t be enrolled until 2015 at the earliest. Your employer can choose to delay your enrolment for up to three months but must let you know in writing. 
 
           If you ask to join the pension scheme in the meantime, they must let you join.
