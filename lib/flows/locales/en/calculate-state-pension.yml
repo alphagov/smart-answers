@@ -206,9 +206,9 @@ en-GB:
       years_of_benefit?:
         title: "Before 6 April 2010 how many years did any of the following apply:"
         body: |
-          - you claimed Child Benefit for a child under 16 (don't count years when you were working)
+          - you claimed Child Benefit for a child under 16
           - you cared for someone sick or disabled 
-          - you worked as a registered carer
+          - you worked as a registered carer (only count years from 2003 to 2010)
         hint: These are years when you were getting Home Responsibility Protection. Enter 0 if none of these apply. Don’t count any years you’ve entered in the previous questions. %{carer_hint_for_women}
         error_message: "Enter a number between 0 and %{years_you_can_enter}. The maximum number of years that count towards State Pension is 22."
       ## Q8 
@@ -228,7 +228,7 @@ en-GB:
       ## Q10
       years_of_work?:
         title: How many years between age 16 and 19 were you in full-time education or working?
-        hint: Include the years you were not working but claiming benefits because of unemployment, illness or disability.
+        hint: Include the years you were not working but claiming benefits because of unemployment, illness, disability or time spent in apprenticeships. Include time on a training course only if you were born before 6 April 1959.
         error_message: Please enter a number. You can enter between 0 and %{years_you_can_enter}.
 
 

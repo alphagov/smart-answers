@@ -27,13 +27,6 @@ multiple_choice :gender? do
     end
   end
 
-  calculate :carer_hint_for_women do
-    if responses.last.eql? 'female'
-      PhraseList.new(:carers_allowance_women_hint)
-    else
-      ''
-    end
-  end
   
   next_node do
     calculate_age_or_amount == "age" ? :dob_age? : :dob_amount?
@@ -142,6 +135,15 @@ end
 
 # Q4
 value_question :years_paid_ni? do
+  # part of a hint for questions 7,8 and 9 that should only be displayed for women born before 1960
+  calculate :carer_hint_for_women do
+    if gender == 'female' and (Date.parse(dob) < Date.parse('1960-01-01'))
+      PhraseList.new(:carers_allowance_women_hint)
+    else
+      ''
+    end
+  end
+
   calculate :qualifying_years do
     ni_years = Integer(responses.last)
     raise InvalidResponse if ni_years < 0 or ni_years > available_ni_years 
