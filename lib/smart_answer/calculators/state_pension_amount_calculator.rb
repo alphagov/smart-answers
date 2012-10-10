@@ -28,10 +28,10 @@ module SmartAnswer::Calculators
     end
 
     def years_to_pension
-      # state_pension_year - current_year
       t = Date.today
-      y = t.month > 4 ? t.year : t.year - 1
-      state_pension_year - y
+      speny = state_pension_date.month >= 4 ? state_pension_year : state_pension_year-1
+      speny = state_pension_date.day < 6 && state_pension_date.month == 4 ? speny-1 : speny
+      speny - t.year
     end
 
     def pension_loss
@@ -105,7 +105,6 @@ module SmartAnswer::Calculators
     end
     
     def three_year_credit_age?
-      # three_year_band = credit_bands.last # FIXME: why is line this here?
       dob >= Date.parse('1959-04-06') and dob <= Date.parse('1992-04-05')
     end
     
@@ -114,24 +113,23 @@ module SmartAnswer::Calculators
         { min: Date.parse('1957-04-06'), max: Date.parse('1958-04-05'), credit: 1, validate: 0 },
         { min: Date.parse('1993-04-06'), max: Date.parse('1994-04-05'), credit: 1, validate: 0 },
         { min: Date.parse('1958-04-06'), max: Date.parse('1959-04-05'), credit: 2, validate: 1 },
-        { min: Date.parse('1992-04-06'), max: Date.parse('1993-04-05'), credit: 2, validate: 2 }
+        { min: Date.parse('1992-04-06'), max: Date.parse('1993-04-05'), credit: 2, validate: 1 }
       ]
     end
-    
-    # FIXME: is this still needed?
-    def qualifying_years_credit
-      credit_band = credit_bands.find { |c| c[:min] <= dob and c[:max] >= dob }
-      (credit_band ? credit_band[:credit] : 0)
-    end
+
 
     def calc_qualifying_years_credit(entered_num=0)
       credit_band = credit_bands.find { |c| c[:min] <= dob and c[:max] >= dob }
-      case credit_band[:validate]
-      when 0
-        entered_num > 0 ? 0 : 1
-      when 1
-        rval = (1..2).find{ |c| c + entered_num == 2 } 
-        entered_num < 2 ? rval : 0
+      if credit_band
+        case credit_band[:validate]
+        when 0
+          entered_num > 0 ? 0 : 1
+        when 1
+          rval = (1..2).find{ |c| c + entered_num == 2 } 
+          entered_num < 2 ? rval : 0
+        else
+          0
+        end
       else
         0
       end  

@@ -60,25 +60,7 @@ module SmartAnswer::Calculators
       end
     end
     
-    context "female born 6 Oct 1953 " do
-      setup do
-        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: "1953-10-06", qualifying_years: nil)
-      end
-      
-      should "qualifying_years_credit = 0" do
-        assert_equal 0, @calculator.qualifying_years_credit
-      end
-    end 
 
-    context "female born 6 Oct 1992 " do
-      setup do
-        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: "1992-10-06", qualifying_years: nil)
-      end
-      
-      should "qualifying_years_credit = 2" do
-        assert_equal 2, @calculator.qualifying_years_credit
-      end
-    end 
 
     # one of HMRC test cases
     context "female born 6 April 1992 " do
@@ -86,8 +68,8 @@ module SmartAnswer::Calculators
         @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: "1992-04-06", qualifying_years: nil)
       end
       
-      should "qualifying_years_credit = 2" do
-        assert_equal 2, @calculator.qualifying_years_credit
+      should "qualifying_years_credit = 2 if nothing entered" do
+        assert_equal 2, @calculator.calc_qualifying_years_credit
       end
 
       should "get 2/30 of 107.45 for what_you_get" do
@@ -101,8 +83,8 @@ module SmartAnswer::Calculators
         @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: "1957-04-06", qualifying_years: nil)
       end
       
-      should "qualifying_years_credit = 1" do
-        assert_equal 1, @calculator.qualifying_years_credit
+      should "qualifying_years_credit = 1 if nothing entered" do
+        assert_equal 1, @calculator.calc_qualifying_years_credit
       end
     end
 
@@ -228,67 +210,151 @@ module SmartAnswer::Calculators
         end
       end
 
+
+      context "automatic_years tests" do
       
-      context "(testing qualifying_years from years_of_work) born 5th May 1957" do
-        setup do
-          dob = "5th May 1957"
-          years = 29
-          @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
-            gender: "male", dob: dob, qualifying_years: years)
+        context "born between 06/04/1957 to 05/04/1958 " do
+          context "(testing qualifying_years from years_of_work) born 5th May 1957" do
+            setup do
+              dob = "5th May 1957"
+              years = 29
+              @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+                gender: "male", dob: dob, qualifying_years: years)
+            end
+
+            should "three_year_credit_age = false" do
+              assert ! @calculator.three_year_credit_age?
+            end
+            context "simulate a entries in years_of_work question" do
+              should "upon 3 calc_qualifying_years_credit: 0" do
+                entered_num = 3
+                assert_equal 0, @calculator.calc_qualifying_years_credit(entered_num)
+              end
+              should "upon 2 calc_qualifying_years_credit: 0" do
+                entered_num = 2
+                assert_equal 0, @calculator.calc_qualifying_years_credit(entered_num)
+              end
+              should "upon 1 calc_qualifying_years_credit: 0" do
+                entered_num = 1
+                assert_equal 0, @calculator.calc_qualifying_years_credit(entered_num)
+              end
+              should "upon 0 calc_qualifying_years_credit: 0" do
+                entered_num = 0
+                assert_equal 1, @calculator.calc_qualifying_years_credit(entered_num)
+              end
+            end
+          end
+
+          context "(testing qualifying_years from years_of_work) born 5th May 1958" do
+            setup do
+              dob = "5th May 1958"
+              years = 29
+              @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+                gender: "male", dob: dob, qualifying_years: years)
+            end
+
+            should "three_year_credit_age = false" do
+              assert ! @calculator.three_year_credit_age?
+            end
+            context "simulate a entries in years_of_work question" do
+              should "upon 3 calc_qualifying_years_credit: 0" do
+                entered_num = 3
+                assert_equal 0, @calculator.calc_qualifying_years_credit(entered_num)
+              end
+              should "upon 2 calc_qualifying_years_credit: 0" do
+                entered_num = 2
+                assert_equal 0, @calculator.calc_qualifying_years_credit(entered_num)
+              end
+              should "upon 1 calc_qualifying_years_credit: 0" do
+                entered_num = 1
+                assert_equal 1, @calculator.calc_qualifying_years_credit(entered_num)
+              end
+              should "upon 0 calc_qualifying_years_credit: 0" do
+                entered_num = 0
+                assert_equal 2, @calculator.calc_qualifying_years_credit(entered_num)
+              end
+            end
+          end
         end
 
-        should "three_year_credit_age = false" do
-          assert ! @calculator.three_year_credit_age?
+        context "born between [06/04/1992 to 05/04/1993] and [06/04/1958 to 05/04/1959]" do
+          should "born 06/04/1992" do
+            @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+              gender: "male", dob: "06 April 1992", qualifying_years: nil)
+            assert_equal 2, @calculator.calc_qualifying_years_credit(0)
+            assert_equal 1, @calculator.calc_qualifying_years_credit(1)
+            assert_equal 0, @calculator.calc_qualifying_years_credit(2)
+            assert_equal 0, @calculator.calc_qualifying_years_credit(3)
+          end
+          should "born 05/04/1993" do
+            @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+              gender: "male", dob: "05 April 1993", qualifying_years: nil)
+            assert_equal 2, @calculator.calc_qualifying_years_credit(0)
+            assert_equal 1, @calculator.calc_qualifying_years_credit(1)
+            assert_equal 0, @calculator.calc_qualifying_years_credit(2)
+            assert_equal 0, @calculator.calc_qualifying_years_credit(3)
+          end
+          should "born 06/04/1958" do
+            @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+              gender: "male", dob: "06 April 1958", qualifying_years: nil)
+            assert_equal 2, @calculator.calc_qualifying_years_credit(0)
+            assert_equal 1, @calculator.calc_qualifying_years_credit(1)
+            assert_equal 0, @calculator.calc_qualifying_years_credit(2)
+            assert_equal 0, @calculator.calc_qualifying_years_credit(3)
+          end
+          should "born 05/04/1959" do
+            @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+              gender: "male", dob: "05 April 1959", qualifying_years: nil)
+            assert_equal 2, @calculator.calc_qualifying_years_credit(0)
+            assert_equal 1, @calculator.calc_qualifying_years_credit(1)
+            assert_equal 0, @calculator.calc_qualifying_years_credit(2)
+            assert_equal 0, @calculator.calc_qualifying_years_credit(3)
+          end
+          should "born 09/09/1958" do
+            @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+              gender: "female", dob: "09 Septemner 1958", qualifying_years: nil)
+            assert_equal 2, @calculator.calc_qualifying_years_credit(0)
+            assert_equal 1, @calculator.calc_qualifying_years_credit(1)
+            assert_equal 0, @calculator.calc_qualifying_years_credit(2)
+            assert_equal 0, @calculator.calc_qualifying_years_credit(3)
+          end
         end
-        context "simulate a entries in years_of_work question" do
-          should "upon 3 calc_qualifying_years_credit: 0" do
-            entered_num = 3
-            assert_equal 0, @calculator.calc_qualifying_years_credit(entered_num)
-          end
-          should "upon 2 calc_qualifying_years_credit: 0" do
-            entered_num = 2
-            assert_equal 0, @calculator.calc_qualifying_years_credit(entered_num)
-          end
-          should "upon 1 calc_qualifying_years_credit: 0" do
-            entered_num = 1
-            assert_equal 0, @calculator.calc_qualifying_years_credit(entered_num)
-          end
-          should "upon 0 calc_qualifying_years_credit: 0" do
-            entered_num = 0
-            assert_equal 1, @calculator.calc_qualifying_years_credit(entered_num)
-          end
-        end
-      end
 
-      context "(testing qualifying_years from years_of_work) born 5th May 1958" do
-        setup do
-          dob = "5th May 1958"
-          years = 29
-          @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
-            gender: "male", dob: dob, qualifying_years: years)
+        context "born between [06/04/1993 to 05/04/1994] and [06/04/1957 to 05/04/1958]" do
+          should "born 06/04/1993" do
+            @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+              gender: "male", dob: "06 April 1993", qualifying_years: nil)
+            assert_equal 1, @calculator.calc_qualifying_years_credit(0)
+            assert_equal 0, @calculator.calc_qualifying_years_credit(1)
+            assert_equal 0, @calculator.calc_qualifying_years_credit(2)
+            assert_equal 0, @calculator.calc_qualifying_years_credit(3)
+          end
+          should "born 05/04/1994" do
+            @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+              gender: "male", dob: "05 April 1994", qualifying_years: nil)
+            assert_equal 1, @calculator.calc_qualifying_years_credit(0)
+            assert_equal 0, @calculator.calc_qualifying_years_credit(1)
+            assert_equal 0, @calculator.calc_qualifying_years_credit(2)
+            assert_equal 0, @calculator.calc_qualifying_years_credit(3)
+          end
+          should "born 06/04/1957" do
+            @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+              gender: "male", dob: "06 April 1957", qualifying_years: nil)
+            assert_equal 1, @calculator.calc_qualifying_years_credit(0)
+            assert_equal 0, @calculator.calc_qualifying_years_credit(1)
+            assert_equal 0, @calculator.calc_qualifying_years_credit(2)
+            assert_equal 0, @calculator.calc_qualifying_years_credit(3)
+          end
+          should "born 05/04/1958" do
+            @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+              gender: "male", dob: "05 April 1958", qualifying_years: nil)
+            assert_equal 1, @calculator.calc_qualifying_years_credit(0)
+            assert_equal 0, @calculator.calc_qualifying_years_credit(1)
+            assert_equal 0, @calculator.calc_qualifying_years_credit(2)
+            assert_equal 0, @calculator.calc_qualifying_years_credit(3)
+          end
         end
 
-        should "three_year_credit_age = false" do
-          assert ! @calculator.three_year_credit_age?
-        end
-        context "simulate a entries in years_of_work question" do
-          should "upon 3 calc_qualifying_years_credit: 0" do
-            entered_num = 3
-            assert_equal 0, @calculator.calc_qualifying_years_credit(entered_num)
-          end
-          should "upon 2 calc_qualifying_years_credit: 0" do
-            entered_num = 2
-            assert_equal 0, @calculator.calc_qualifying_years_credit(entered_num)
-          end
-          should "upon 1 calc_qualifying_years_credit: 0" do
-            entered_num = 1
-            assert_equal 1, @calculator.calc_qualifying_years_credit(entered_num)
-          end
-          should "upon 0 calc_qualifying_years_credit: 0" do
-            entered_num = 0
-            assert_equal 2, @calculator.calc_qualifying_years_credit(entered_num)
-          end
-        end
       end
 
       context "years_can_be_entered test" do
@@ -308,26 +374,63 @@ module SmartAnswer::Calculators
 
       context "(testing years_to_pension)" do
         
-        should "years_to_pension : 32 on dob: 1977-04-12" do
-          Timecop.travel(Date.parse("2012-08-01")) do
-            @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
-              gender: "male", dob: "1977-04-12", qualifying_years: nil)
-            assert_equal 32, @calculator.years_to_pension
-          end
-        end
-        should "years_to_pension : 33 on dob: 1977-11-12" do
-          Timecop.travel(Date.parse("2012-08-01")) do
-            @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
-              gender: "male", dob: "1977-11-12", qualifying_years: nil)
-            assert_equal 33, @calculator.years_to_pension
+        context "born 1988 before and after 6th April" do
+          Timecop.freeze(Date.parse("2012-10-09")) do
+            should "return 43 on 4th April " do
+              @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+                gender: "male", dob: "1988-04-04", qualifying_years: nil)
+              assert_equal 43, @calculator.years_to_pension
+            end
+            should "return 44 on 8th April " do
+              @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+                gender: "male", dob: "1988-04-08", qualifying_years: nil)
+              assert_equal 44, @calculator.years_to_pension
+            end
+            should "return 44 on 6th April " do
+              @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+                gender: "male", dob: "1988-04-06", qualifying_years: nil)
+              assert_equal 44, @calculator.years_to_pension
+            end
           end
         end
 
-        should "years_to_pension : 34 on dob: 1977-11-12" do
-          Timecop.freeze(Date.parse("2012-01-01")) do
-            @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
-              gender: "male", dob: "1977-11-12", qualifying_years: nil)
-            assert_equal 34, @calculator.years_to_pension
+        context "born 1977 before and after 6th April" do
+          Timecop.freeze(Date.parse("2012-10-09")) do
+            should "return 32 on 12th April " do
+              @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+                gender: "male", dob: "1977-04-12", qualifying_years: nil)
+              assert_equal 32, @calculator.years_to_pension
+            end
+            should "return 31 on 4th April " do
+              @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+                gender: "male", dob: "1977-04-04", qualifying_years: nil)
+              assert_equal 31, @calculator.years_to_pension
+            end
+            should "return 32 on 6th April " do
+              @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+                gender: "male", dob: "1977-04-06", qualifying_years: nil)
+              assert_equal 32, @calculator.years_to_pension
+            end
+          end
+        end
+
+        context "Aleks' tests" do
+          Timecop.freeze(Date.parse("2012-10-09")) do
+            should "state that user has 13 remaining_years" do
+              @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+                  gender: "male", dob: "1960-04-04", qualifying_years: 21)
+              assert_equal 13, @calculator.years_to_pension
+            end
+            should "state that user has 26 remaining_years" do
+              @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+                  gender: "male", dob: "1972-02-04", qualifying_years: 13)
+              assert_equal 26, @calculator.years_to_pension
+            end
+            should "state that user has 34 remaining_years" do
+              @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+                  gender: "male", dob: "1978-11-03", qualifying_years: 13)
+              assert_equal 34, @calculator.years_to_pension
+            end
           end
         end
       end

@@ -27,13 +27,6 @@ multiple_choice :gender? do
     end
   end
 
-  calculate :carer_hint_for_women do
-    if responses.last.eql? 'female'
-      PhraseList.new(:carers_allowance_women_hint)
-    else
-      ''
-    end
-  end
   
   next_node do
     calculate_age_or_amount == "age" ? :dob_age? : :dob_amount?
@@ -87,8 +80,15 @@ date_question :dob_age? do
     end
   end
   
-  next_node :age_result
-
+  next_node do |response|
+    calc = Calculators::StatePensionAmountCalculator.new(
+      gender: gender, dob: response)
+    if (calc.before_state_pension_date? and calc.within_four_months_four_days_from_state_pension?)
+      :near_state_pension_age
+    else
+      :age_result
+    end
+  end
 end
 
 # Q3:Amount
@@ -135,6 +135,15 @@ end
 
 # Q4
 value_question :years_paid_ni? do
+  # part of a hint for questions 7,8 and 9 that should only be displayed for women born before 1960
+  calculate :carer_hint_for_women do
+    if gender == 'female' and (Date.parse(dob) < Date.parse('1960-01-01'))
+      PhraseList.new(:carers_allowance_women_hint)
+    else
+      ''
+    end
+  end
+
   calculate :qualifying_years do
     ni_years = Integer(responses.last)
     raise InvalidResponse if ni_years < 0 or ni_years > available_ni_years 
@@ -315,6 +324,8 @@ value_question :years_of_work? do
     calculator.years_can_be_entered(available_ni_years,3)
   end
 
+  save_input_as :years_of_work_entered
+
   calculate :qualifying_years do
     work_years = Integer(responses.last)
     qy = (work_years + qualifying_years)
@@ -342,8 +353,7 @@ outcome :amount_result do
     if calc.three_year_credit_age? 
       qualifying_years + 3
     else 
-      qualifying_years + calc.qualifying_years_credit
-      # qualifying_years + calc.calc_qualifying_years_credit
+      qualifying_years + calc.calc_qualifying_years_credit(years_of_work_entered.to_i)
     end
   end
 
@@ -388,7 +398,7 @@ outcome :amount_result do
   precalculate :automatic_years_were_added do
     if ( Date.parse(dob) < Date.parse("6th October 1953") and (gender == "male") )
       if automatic_years > 0
-        PhraseList.new(:automatic_years_added_callout)
+        PhraseList.new( (automatic_years > 1) ? :automatic_years_added_callout_plural : :automatic_years_added_callout_singular)
       else
         ''
       end
