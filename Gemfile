@@ -42,6 +42,7 @@ group :test do
 end
 
 group :assets do
+  gem 'govuk_frontend_toolkit', '0.3.3'
   gem 'therubyracer', '~> 0.9.4'
   gem 'uglifier'
 end
