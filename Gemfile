@@ -6,6 +6,7 @@ gem 'rails', '~> 3.2.8'
 gem 'rails-i18n'
 gem 'json'
 gem 'plek', '~> 0.1'
+gem 'govuk_frontend_toolkit', '0.3.3'
 gem 'rummageable'
 gem 'aws-ses', :require => 'aws/ses' # Needed by exception_notification
 gem 'exception_notification'
@@ -42,7 +43,7 @@ group :test do
 end
 
 group :assets do
-  gem 'govuk_frontend_toolkit', '0.3.3'
+  gem 'sass-rails', '3.2.3'
   gem 'therubyracer', '~> 0.9.4'
   gem 'uglifier'
 end
