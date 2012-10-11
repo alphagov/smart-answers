@@ -519,6 +519,21 @@ module SmartAnswer::Calculators
       end
       
     end
+    # Test URL: /am-i-getting-minimum-wage/y/past_payment/2010-10-01/apprentice_under_19/7/35/78.0/0/no
+    context "Historical adjustment for apprentices (hours:35, pay:78)" do
+      should "equal 10.07 historical adjustment" do
+        @calculator = MinimumWageCalculator.new(
+          age: 0,
+          date: Date.parse("1 November 2010"),
+          pay_frequency: 7,
+          basic_hours: 35,
+          basic_pay: 78,
+          is_apprentice: true)
+        assert_equal 2.50, @calculator.minimum_hourly_rate
+        assert_equal 2.23, @calculator.total_hourly_rate
+        assert_equal 10.07, @calculator.historical_adjustment
+      end
+    end
     
     context "per hour minimum wage" do
     

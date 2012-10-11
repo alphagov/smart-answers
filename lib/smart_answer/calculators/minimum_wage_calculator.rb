@@ -104,10 +104,15 @@ module SmartAnswer::Calculators
     end
 
     def per_hour_minimum_wage(date = @date)
-      rates = minimum_wage_data_for_date(date)[:minimum_rates]
-      rates.find do |r|
-        @age >= r[:min_age] and @age < r[:max_age]
-      end[:rate]
+      data = minimum_wage_data_for_date(date)
+      if @is_apprentice
+        data[:apprentice_rate]
+      else
+        rates = data[:minimum_rates]
+        rates.find do |r|
+          @age >= r[:min_age] and @age < r[:max_age]
+        end[:rate]
+      end
     end
 
     def minimum_wage_data_for_date(date = Date.today)
