@@ -1,4 +1,4 @@
-status :draft
+status :published
 satisfies_need 388
 
 multiple_choice :has_your_passport_been_lost_or_stolen? do
