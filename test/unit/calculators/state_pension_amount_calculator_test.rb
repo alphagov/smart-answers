@@ -11,10 +11,11 @@ module SmartAnswer::Calculators
         assert_equal 107.45, @calculator.what_you_get
       end
 
-      should "be 5 automatic years" do
-        @calculator.allocate_automatic_years
-        assert_equal 5, @calculator.automatic_years
-      end
+      # automatic years allocation for men born before 6 Oct 1953 removed for initial release
+      # should "be 5 automatic years" do
+      #   @calculator.allocate_automatic_years
+      #   assert_equal 5, @calculator.automatic_years
+      # end
     end
 
     context "female, born 7th April 1951, 39 qualifying years" do
@@ -26,9 +27,6 @@ module SmartAnswer::Calculators
         assert_equal 107.45, @calculator.what_you_get
       end
 
-      should "be 4 automatic years" do
-        assert_equal 4, @calculator.allocate_automatic_years
-      end
     end
 
     context "female, born 7th April 1951, 20 qualifying years" do
@@ -55,9 +53,6 @@ module SmartAnswer::Calculators
         assert @calculator.three_year_credit_age?
       end
       
-      should "be 0 automatic years" do
-        assert_equal 0, @calculator.allocate_automatic_years
-      end
     end
     
 
@@ -88,26 +83,7 @@ module SmartAnswer::Calculators
       end
     end
 
-
-    context "female born 6 Oct 1949 " do
-      setup do
-        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: "1949-10-06", qualifying_years: nil)
-      end
-      
-      should "allocate_automatic_years = 5" do
-        assert_equal 5, @calculator.allocate_automatic_years
-      end
-    end 
     
-    context "female born 6 Aug 1953 " do
-      setup do
-        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: "1953-08-06", qualifying_years: nil)
-      end
-      
-      should "allocate_automatic_years = 1" do
-        assert_equal 1, @calculator.allocate_automatic_years
-      end
-    end 
 
     context "female born 22 years ago" do
       should "return ni_years_to_date = 3" do
@@ -211,7 +187,7 @@ module SmartAnswer::Calculators
       end
 
 
-      context "automatic_years tests" do
+      context "qualifying years credit tests" do
       
         context "born between 06/04/1957 to 05/04/1958 " do
           context "(testing qualifying_years from years_of_work) born 5th May 1957" do

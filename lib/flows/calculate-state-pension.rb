@@ -52,7 +52,7 @@ date_question :dob_age? do
   end
   
   calculate :formatted_state_pension_date do
-    state_pension_date.to_date.to_formatted_s(:long)
+    state_pension_date.strftime("%e %B %Y")
   end
   
   calculate :tense_specific_title do
@@ -135,14 +135,23 @@ end
 
 # Q4
 value_question :years_paid_ni? do
-  # part of a hint for questions 7,8 and 9 that should only be displayed for women born before 1960
+  # part of a hint for questions 7 and 9 that should only be displayed for women born before 1962
   calculate :carer_hint_for_women do
-    if gender == 'female' and (Date.parse(dob) < Date.parse('1960-01-01'))
+    if gender == 'female' and (Date.parse(dob) < Date.parse('1962-01-01'))
       PhraseList.new(:carers_allowance_women_hint)
     else
       ''
     end
   end
+
+  calculate :carer_hint_for_women_q9 do
+    if gender == 'female' and (Date.parse(dob) < Date.parse('1962-01-01'))
+      PhraseList.new(:carers_allowance_women_hint_q9)
+    else
+      ''
+    end
+  end
+
 
   calculate :qualifying_years do
     ni_years = Integer(responses.last)
@@ -183,38 +192,40 @@ value_question :years_of_jsa? do
     if calculator.not_qualifying_or_available_test?(ni)
       :amount_result
     else 
-      ((Date.parse(dob) < Date.parse("6th October 1953") and (gender == "male")) ? :employed_between_60_and_64? : :received_child_benefit?  ) 
-    end
-  end
-end
-
-## Q5a
-multiple_choice :employed_between_60_and_64? do
-  save_input_as :employed_between_60_and_64_yes_no
-
-  option :yes 
-  option :no 
-
-  calculate :automatic_years do
-    employed_between_60_and_64_yes_no == "no" ? calc.allocate_automatic_years : 0
-  end
-
-  calculate :qualifying_years do
-    (qualifying_years + calc.allocate_automatic_years)
-  end
-
-  calculate :available_ni_years do
-    calculator.available_years_sum(qualifying_years) 
-  end
-
-  next_node do |response|
-    if response == "yes"
+      # question 5a for men born before 6 Oct 1953 removed from initial release
+      #((Date.parse(dob) < Date.parse("6th October 1953") and (gender == "male")) ? :employed_between_60_and_64? : :received_child_benefit?  ) 
       :received_child_benefit?
-    else
-      (((calc.allocate_automatic_years + calc.qualifying_years) >= 30) ? :amount_result : :received_child_benefit?)
     end
   end
 end
+
+## Q5a - removed for initial release
+# multiple_choice :employed_between_60_and_64? do
+#   save_input_as :employed_between_60_and_64_yes_no
+
+#   option :yes 
+#   option :no 
+
+#   calculate :automatic_years do
+#     employed_between_60_and_64_yes_no == "no" ? calc.allocate_automatic_years : 0
+#   end
+
+#   calculate :qualifying_years do
+#     (qualifying_years + calc.allocate_automatic_years)
+#   end
+
+#   calculate :available_ni_years do
+#     calculator.available_years_sum(qualifying_years) 
+#   end
+
+#   next_node do |response|
+#     if response == "yes"
+#       :received_child_benefit?
+#     else
+#       (((calc.allocate_automatic_years + calc.qualifying_years) >= 30) ? :amount_result : :received_child_benefit?)
+#     end
+#   end
+# end
 
 ## Q6
 multiple_choice :received_child_benefit? do
@@ -368,7 +379,7 @@ outcome :amount_result do
   end
 
   precalculate :formatted_state_pension_date do
-    calculator.state_pension_date.to_date.to_formatted_s(:long)
+    calculator.state_pension_date.strftime("%e %B %Y")
   end
 
   calculate :state_pension_date do
@@ -395,13 +406,9 @@ outcome :amount_result do
     (calculator.three_year_credit_age? ? 3 : 0)
   end
 
-  precalculate :automatic_years_were_added do
+  precalculate :automatic_years_text do
     if ( Date.parse(dob) < Date.parse("6th October 1953") and (gender == "male") )
-      if automatic_years > 0
-        PhraseList.new( (automatic_years > 1) ? :automatic_years_added_callout_plural : :automatic_years_added_callout_singular)
-      else
-        ''
-      end
+        PhraseList.new(:automatic_years_phrase)
     else
       ''
     end

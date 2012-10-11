@@ -4,7 +4,7 @@ module SmartAnswer::Calculators
   class StatePensionAmountCalculator
     include ActionView::Helpers::TextHelper
 
-    attr_reader :gender, :dob, :automatic_years, :qualifying_years, :available_years
+    attr_reader :gender, :dob, :qualifying_years, :available_years #,:automatic_years
     attr_accessor :qualifying_years
 
     def initialize(answers)
@@ -135,24 +135,26 @@ module SmartAnswer::Calculators
       end  
     end
 
-    def auto_years
-      [
-        { before: Date.parse("1950-10-06"), credit: 5 },
-        { before: Date.parse("1951-10-06"), credit: 4 },
-        { before: Date.parse("1952-10-06"), credit: 3 },
-        { before: Date.parse("1953-07-06"), credit: 2 },
-        { before: Date.parse("1953-10-06"), credit: 1 }
-      ]
-    end
+    # Automatic years calculation removed for initial release
+    # applies to men born before 6 Oct 1953
+    # def auto_years
+    #   [
+    #     { before: Date.parse("1950-10-06"), credit: 5 },
+    #     { before: Date.parse("1951-10-06"), credit: 4 },
+    #     { before: Date.parse("1952-10-06"), credit: 3 },
+    #     { before: Date.parse("1953-07-06"), credit: 2 },
+    #     { before: Date.parse("1953-10-06"), credit: 1 }
+    #   ]
+    # end
 
-    def allocate_automatic_years
-      auto_year = auto_years.find { |c| c[:before] > dob }
-      @automatic_years = (auto_year ? auto_year[:credit] : 0 )   
-    end
+    # def allocate_automatic_years
+    #   auto_year = auto_years.find { |c| c[:before] > dob }
+    #   @automatic_years = (auto_year ? auto_year[:credit] : 0 )   
+    # end
 
-    def automatic_years
-      @automatic_years
-    end
+    # def automatic_years
+    #   @automatic_years
+    # end
     
     def ni_start_date
       (dob + 19.years)
