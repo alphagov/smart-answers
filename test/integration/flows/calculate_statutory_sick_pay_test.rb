@@ -30,8 +30,8 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 	  	context "answer yes to paternity" do
 	  		setup {add_response :yes}
 
-	  		should "have set warning message and ask if employee was sick less then four days" do
-	  			assert_phrase_list :warning_message, [:paternity_adoption_warning]
+	  		should "have set warning message flag and ask if employee was sick less then four days" do
+	  			assert_state_variable "getting_paternity_or_adoption_pay", "yes"
 	  			assert_current_node :sick_less_than_four_days?
 	  		end
 

@@ -1,4 +1,4 @@
-status :draft
+status :published
 satisfies_need "2013"
 
 ## Q1
@@ -12,13 +12,7 @@ multiple_choice :getting_paternity_or_adoption_pay? do
 	option :yes
 	option :no
 
-	calculate :warning_message do
-		if responses.last == "yes"
-			PhraseList.new(:paternity_adoption_warning)
-		else
-			''
-		end
-	end
+	save_input_as :getting_paternity_or_adoption_pay
 
 	next_node :sick_less_than_four_days?
 end
@@ -46,7 +40,7 @@ end
 date_question :sickness_start_date? do
 	# should really add options to date_question to specify formatting
 	calculate :sick_start_date do
-		Date.parse(responses.last).strftime("%d %B %Y")
+		Date.parse(responses.last).strftime("%e %B %Y")
 	end
 	next_node :sickness_end_date?
 end
@@ -55,7 +49,7 @@ end
 date_question :sickness_end_date? do
 
 	calculate :sick_end_date do
-		Date.parse(responses.last).strftime("%d %B %Y")
+		Date.parse(responses.last).strftime("%e %B %Y")
 	end
 	
 	next_node do |response|
@@ -201,6 +195,15 @@ outcome :irregular_work_schedule
 outcome :not_earned_enough
 ## A6
 outcome :entitled_or_not_enough_days do
+
+	precalculate :warning_message do
+		if getting_paternity_or_adoption_pay == "yes" and calculator.ssp_payment >= 1
+			PhraseList.new(:paternity_adoption_warning)
+		else
+			''
+		end
+	end
+
 	precalculate :outcome_text do
 		if calculator.ssp_payment >= 1 
 			PhraseList.new(:entitled_info)

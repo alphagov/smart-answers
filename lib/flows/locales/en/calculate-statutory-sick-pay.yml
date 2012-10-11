@@ -15,7 +15,7 @@ en-GB:
         - you pay Class 1 National Insurance contributions for them
         - you don’t provide your own occupational sick pay scheme
         - your employee was sick for at least 4 days in a row during their last period of illness (this includes bank holidays, weekends and non-working days)
-        - your employee has told you they’re sick within 7 days of first missing work
+        - your employee has told you they’re sick within 7 days of first missing work or within the time limits of your own rules
 
         *[SSP]: Statutory Sick Pay
 
@@ -47,12 +47,7 @@ en-GB:
           Your payroll software or [HMRC&apos;s basic PAYE tools](http://www.hmrc.gov.uk/paye/tools/basic-paye-tools.htm "Using HMRC's Basic PAYE Tools") can tell you how much you’ll get back.
 
         first_three_days_not_paid: |
-          ##Your employee isn’t entitled to Statutory Sick Pay because the first 3 days of illness aren’t paid. 
-
-          They may be able to get [Employment Support Allowance (ESA).](https://www.gov.uk/employment-support-allowance "Benefits &amp; credits: employment support allowance (ESA)"). Give them form SSP1 within 7 days of them telling you they’re sick.
-
-
-          $D [Download ‘Statutory Sick Pay and an employee’s claim for benefit’ form (PDF, 130KB)](http://www.dwp.gov.uk/advisers/claimforms/ssp1.pdf "Download ‘Statutory Sick Pay and an employee’s claim for benefit’ form"){:rel="external"} $D
+          ##Your employee isn’t entitled to Statutory Sick Pay because the first 3 days of illness aren’t paid.
 
       ## Q1
       getting_maternity_pay?:
@@ -69,7 +64,7 @@ en-GB:
 
       ## Q4
       have_told_you_they_were_sick?:
-        title: Did your employee tell you they were sick and unable to come into work within 7 days of their first day of absence?
+        title: Did your employee tell you they were sick and unable to come into work within 7 days of their first day of absence (or within the time limit of your own rules)?
 
       ## Q5
       different_days?:
@@ -78,7 +73,10 @@ en-GB:
       ## Q6
       sickness_start_date?:
         title: On what date did your employee first become sick during the most recent period of illness (including weekends, bank holidays and non-working days)?
+        body: |
+          Note: This is the first day of their ‘Period of Incapacity for Work (PIW)’
 
+          *[PIW]: Period of Incapacity for Work
       ## Q7
       sickness_end_date?:
         title: On what date did your employee's most recent period of illness end (including weekends, bank holidays and non-working days)?
@@ -97,12 +95,16 @@ en-GB:
       what_was_average_weekly_earnings?:
         title: What were their average weekly earnings over the 8 week period before %{sick_start_date}?
         body: |
-          If they were the director of a company incorporated before 1 October 2009 the rules can be complex - see page 28 of the [Employee Handbook for Statutory Sick Pay](http://www.hmrc.gov.uk/helpsheets/e14.pdf "Employee Handbook for Statutory Sick Pay"){:rel="external"}
+          If they were the director of a company incorporated before 1 October 2009 the rules can be complex - see page 28 of the [Employee Helpbook for Statutory Sick Pay](http://www.hmrc.gov.uk/helpsheets/e14.pdf "Employee Helpbook for Statutory Sick Pay"){:rel="external"}
         error_message: Please enter a number greater than 0
 
       ## Q11
       related_illness?:
         title: Is your employee’s current (or most recent) illness related to another illness within the past 8 weeks that lasted 4 or more days (including non-working days, weekends and holidays)?
+        body: |
+          These are called ‘linked Periods of Incapacity for Work (PIW)’. To check if an employee’s PIW links to a previous one, see pages 35 to 38 of the [Employer Helpbook for Statutory Sick Pay](http://www.hmrc.gov.uk/helpsheets/e14.pdf "Employer Helpbook for Statutory Sick Pay"){:rel="external"}
+
+          *[PIW]: Period of Incapacity for Work
       ## Q12
       how_many_days_missed?:
         title: During the previous illness, how many days was your employee away sick from work?
@@ -146,10 +148,10 @@ en-GB:
       ## A4  
       irregular_work_schedule:
         body: |
-          ##If your employee has an irregular work schedule, you’ll need to work out Statutory Sick Pay manually. See pages 1 to 6 in HMRC’s ‘Employer Handbook for Statutory Sick Pay.’
+          ##If your employee has an irregular work schedule, you’ll need to work out Statutory Sick Pay manually. See pages 1 to 6 in HMRC’s ‘Employer Helpbook for Statutory Sick Pay.’
 
 
-          $D [Download 'Employer Handbook for Statutory Sick Pay’ (PDF, 1.3MB)](http://www.hmrc.gov.uk/helpsheets/e14.pdf){:rel="external"} $D
+          $D [Download 'Employer Helpbook for Statutory Sick Pay’ (PDF, 1.3MB)](http://www.hmrc.gov.uk/helpsheets/e14.pdf "Employer Helpbook for Statutory Sick Pay"){:rel="external"} $D
 
           *[HMRC]: HM Revenue and Customs
       
@@ -169,4 +171,4 @@ en-GB:
           %{warning_message}
 
           %{outcome_text}
-
+ 
