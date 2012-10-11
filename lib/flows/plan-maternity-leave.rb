@@ -25,10 +25,6 @@ date_question :leave_start? do
     start_date
   end
 
-  # calculate :calculator do
-  #   Calculators::PlanMaternityLeave.new(due_date: due_date, start_date: start_date)
-  # end
-
 	next_node :maternity_leave_details
 end
 

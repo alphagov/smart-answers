@@ -26,19 +26,35 @@ en-GB:
       leave_start?:
         title: When do you want your leave to start?
         # hint: Your maternity leave can't start before %{earliest_start}
-        hint: Hint: You must start and finish your chosen amount of leave within 56 days of the due date (or date of placement).
-        error_message: Enter a date that allows you to start and finish your chosen amount of leave within 56 days of the due date (or date of placement).
+        hint: |
+          You must start and finish your 
+          chosen amount of leave within following dates:
+          %{potential_leave}
+        error_message: |
+          Enter a date that allows you to start and finish your chosen amount of leave 
+          within 56 days of the due date (or date of placement).
       # Outcomes
       paternity_leave_details:
         title: Your Statutory Paternity Leave
         body: |
             Below is a list of key dates that explain when you can take your Paternity Leave. 
             
-            These dates are for your baby's due date of %{due_date_formatted} and a start date of %{distance_start} after due date.
+            These dates are for your baby's due date of %{due_date_formatted}.
 
+            Leave | Key dates
+            - | - 
+            Paternity leave: | %{period_of_ordinary_leave}
+            Latest date to give notice: | %{qualifying_week}
+            Paternity leave must be used during this period | %{period_of_potential_ordinary_leave}
 
-            You must tell your employer by: | %{qualifying_week}
-            Your chosen Ordinary Paternity Leave dates: | %{period_of_ordinary_leave}
-            You could take Ordinary Paternity Leave during this period: | %{period_of_potential_ordinary_leave}
-            You could take Additional Paternity Leave during this period: | %{period_of_additional_leave}
-            Your baby is due on: | %{due_date_formatted}
+            ##Extra leave
+            You could get more time off if your employer has a company paternity scheme.
+
+            If your partner returns to work, you may be able to take 
+            [Additional Paternity Leave](/paternityleave “Additional Paternity Leave”) 
+            during this period:  %{period_of_additional_leave}.
+
+            ##Paternity pay 
+            While on leave, you might qualify for 
+            [Statutory Paternity Pay](/ordinary-statutory-paternity-pay “Statutory Paternity Pay”) 
+            - up to £135.45 a week (before tax).
