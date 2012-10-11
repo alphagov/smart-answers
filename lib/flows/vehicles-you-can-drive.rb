@@ -1,5 +1,5 @@
 satisfies_need 1625
-status :draft
+status :published
 
 ## Q1
 multiple_choice :what_type_of_vehicle? do
