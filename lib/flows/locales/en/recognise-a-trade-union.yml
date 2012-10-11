@@ -29,7 +29,7 @@ en-GB:
         title: How many employees do you have?
         options:
           21_or_more: 21 or more
-          fewer_than_21: fewer than 21
+          fewer_than_21: Fewer than 21
 
       # Q4
       have_they_submitted_an_application?:
