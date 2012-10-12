@@ -15,25 +15,58 @@ module SmartAnswer::Calculators
         @calc.end_of_tax_year = Date.new(2013, 4, 5)
       end
 
+
       context "percent tax charge test 1" do
+        setup do
+          @calc.income = 50099
+        end
+
+        should "return 0% percent tax charge for 50099" do
+          assert_equal 0.0, @calc.percent_tax_charge
+        end
+      end
+      
+      context "percent tax charge test 2" do
         setup do
           @calc.income = 50199
         end
 
         should "return 1% percent tax charge for 50199" do
-          assert_equal 1, @calc.percent_tax_charge
+          assert_equal 1.0, @calc.percent_tax_charge
         end
       end
 
-      context "percent tax charge test 2" do
+      context "percent tax charge test 3" do
+        setup do
+          @calc.income = 50200
+        end
+
+        should "return 2% percent tax charge for 50200" do
+          assert_equal 2.0, @calc.percent_tax_charge
+        end
+      end
+
+      context "percent tax charge test 4" do
         setup do
           @calc.income = 60000
         end
 
-        should "return 99% percent tax charge for 50199" do
-          assert_equal 99, @calc.percent_tax_charge
+        should "return 99% percent tax charge for 60000" do
+          assert_equal 99.0, @calc.percent_tax_charge
         end
       end
+
+
+      context "percent tax charge test 5" do
+        setup do
+          @calc.income = 60001
+        end
+
+        should "return 100% percent tax charge for 60001" do
+          assert_equal 100.0, @calc.percent_tax_charge
+        end
+      end
+
 
 
       context "only child for full year" do
@@ -59,7 +92,7 @@ module SmartAnswer::Calculators
           end
 
           should "calculate the benefit tax" do
-            assert_equal SmartAnswer::Money.new(263.90), @calc.benefit_tax
+            assert_equal SmartAnswer::Money.new(263), @calc.benefit_tax
           end
         end # context - income >= 60001
 
@@ -73,7 +106,7 @@ module SmartAnswer::Calculators
           end
 
           should "calculate the benefit tax" do
-            assert_equal SmartAnswer::Money.new(131.95), @calc.benefit_tax
+            assert_equal SmartAnswer::Money.new(131), @calc.benefit_tax
           end
         end # context - income >= 50000
 
@@ -112,7 +145,7 @@ module SmartAnswer::Calculators
           end
 
           should "calculate the benefit tax" do
-            assert_equal SmartAnswer::Money.new(438.10), @calc.benefit_tax
+            assert_equal SmartAnswer::Money.new(438), @calc.benefit_tax
           end
         end # context - income >= 60001
       end # context - one child for full year, one child starting partial year
@@ -136,7 +169,7 @@ module SmartAnswer::Calculators
           end
 
           should "calculate the benefit tax" do
-            assert_equal SmartAnswer::Money.new(172.15), @calc.benefit_tax
+            assert_equal SmartAnswer::Money.new(172), @calc.benefit_tax
           end
         end # context - income >= 60000
       end # context - one child for full year, one child ending partial year
@@ -160,9 +193,9 @@ module SmartAnswer::Calculators
           end
 
           should "calculate the benefit tax" do
-            assert_equal SmartAnswer::Money.new(346.35), @calc.benefit_tax
+            assert_equal SmartAnswer::Money.new(346), @calc.benefit_tax
           end
-        end # context - income >= 60000
+        end # context - income >= 60001
       end # context - one child for full year, one child starting partial year, one child ending partial year
     end # context - tax year 2012-13
 
@@ -191,7 +224,7 @@ module SmartAnswer::Calculators
           end
 
           should "calculate the benefit tax" do
-            assert_equal SmartAnswer::Money.new(1055.60), @calc.benefit_tax
+            assert_equal SmartAnswer::Money.new(1055), @calc.benefit_tax
           end
         end # context - income >= 60000
       end # context - one child for full year
@@ -239,7 +272,7 @@ module SmartAnswer::Calculators
           end
 
           should "calculate the benefit tax" do
-            assert_equal SmartAnswer::Money.new(1385.40), @calc.benefit_tax
+            assert_equal SmartAnswer::Money.new(1385), @calc.benefit_tax
           end
         end # context - income >= 60001
       end # context - one child for full year, one child starting partial year, one child ending partial year
