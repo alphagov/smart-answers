@@ -50,6 +50,15 @@ module SmartAnswer::Calculators
       end
     end
 
+    # what would you get if all remaining years to pension were qualifying years
+    def what_you_would_get_if_not_full
+      if (qualifying_years + years_to_pension) < years_needed
+        (qualifying_years + years_to_pension) / years_needed * current_weekly_rate
+      else
+        current_weekly_rate
+      end
+    end
+
     def state_pension_year
       state_pension_date.year
     end
