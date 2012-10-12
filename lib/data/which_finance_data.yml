@@ -1,0 +1,38 @@
+---
+- !ruby/struct:FinanceWeighting
+  finance_type: :shares
+  shares:
+    !ruby/struct:BooleanWeightingScore
+      min: 0
+      max: 100
+      weight: 0.5
+  funding_min:
+    !ruby/struct:ThresholdWeightingScore
+      min: 0
+      max: 100
+      threshold: 1000
+      weight: 0.25
+  funding_max:
+    !ruby/struct:ThresholdWeightingScore
+      min: 0
+      max: 100
+      threshold: 1000
+      weight: 0.25
+- !ruby/struct:FinanceWeighting
+  finance_type: :loans
+  assets:
+    !ruby/struct:BooleanWeightingScore
+      min: 0
+      max: 100
+      weight: 0.4
+  property:
+    !ruby/struct:BooleanWeightingScore
+      min: 0
+      max: 100
+      weight: 0.4
+  revenue:
+    !ruby/struct:ThresholdWeightingScore
+      min: 55
+      max: 100
+      threshold: 10000 
+      weight: 0.2
