@@ -37,6 +37,14 @@ module SmartAnswer::Calculators
           assert_equal 80, @calculator.calculate_weighted_scores(assets: true, property: true, shares: false,
                                                 revenue: 10000, funding_min: 100, funding_max: 1000,
                                                 employees: 10)[:loans]
+
+          assert_equal 40, @calculator.calculate_weighted_scores(assets: false, property: true, shares: false,
+                                                revenue: 10000, funding_min: 100, funding_max: 1000,
+                                                employees: 10)[:loans]
+          
+          assert_equal 100, @calculator.calculate_weighted_scores(assets: true, property: true, shares: false,
+                                                revenue: 10000, funding_min: 100, funding_max: 1000,
+                                                employees: 10)[:loans]
         end
       end
     end
