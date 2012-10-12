@@ -24,10 +24,10 @@ en-GB:
         + the dates for the child’s adoption
         + your employee's salary details - eg weekly rates of pay
 
-        % The calculator can’t be used to work out eligibility for [Additional Paternity Leave or Pay](/additional-paternity-leave-pay-employees "Additional paternity leave or pay"). %
+        % The calculator can't be used to work out eligibility for [Additional Paternity Leave or Pay](/additional-paternity-leave-pay-employees "Additional paternity leave or pay"). %
       phrases:
         not_worked_long_enough: + they must have started working for you on or before %{employment_start}
-        must_be_on_payroll: + you must be liable for their National Insurance Contributions - ie you will be if they’re on your payroll
+        must_be_on_payroll: + you must be liable for their secondary Class 1 National Insurance contributions - ie you will be if they’re on your payroll
         must_earn_over_threshold: + their average weekly earnings between %{relevant_period} must be at least £%{lower_earning_limit}
         pa_must_be_employed_by_you: + they must still be employed by you up to %{matched_date}
         must_be_employed_by_you: + they must still be employed by you up to %{due_date}
@@ -62,7 +62,10 @@ en-GB:
           |End date                             | %{pay_end_date}            |
           |Weekly rate - first 6 weeks          | £%{smp_a}                  |
           |Weekly rate - for remaining 33 weeks | £%{smp_b}                  |
-          |Latest date to give notice           | %{notice_of_leave_deadline} (and provide proof they're pregnant by %{proof_of_pregnancy_date})|
+          |Latest date to give notice           | %{notice_request_pay}      |
+          |Proof of pregnancy                   | Usually 21 days before SMP starts  |
+          |Start date due to pregnancy related illness| %{ssp_stop}          |
+          # %{notice_of_leave_deadline} (and provide proof theyre pregnant by %{proof_of_pregnancy_date})|
 
         not_entitled_to_smp_intro: |
           ##Statutory maternity pay
@@ -211,12 +214,21 @@ en-GB:
       ## QM3
       date_leave_starts?:
         title: When does the employee want to start their leave?
+        hint: Leave can't start before %{leave_earliest_start_date}
       ## QM4
       did_the_employee_work_for_you?:
         title: Did the employee work for you on or before %{employment_start}?
       ## QM5
       is_the_employee_on_your_payroll?:
         title: Is the employee on your payroll?
+      ## QM5.2
+      last_normal_payday?:
+        title: What was the last normal payday on or before %{saturday_qualifying_week}?
+        error_message: You must enter a date on or before %{saturday_qualifying_week}
+      ## QM5.3
+      payday_eight_weeks?:
+        title: What was the last normal payday on or before %{payday_offset}?
+        error_message: You must enter a date on or before %{payday_offset}
       ## QM6
       employees_average_weekly_earnings?:
         title: What were the employee’s average weekly earnings between %{relevant_period}?

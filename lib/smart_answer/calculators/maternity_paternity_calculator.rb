@@ -1,8 +1,9 @@
 module SmartAnswer::Calculators
   class MaternityPaternityCalculator
   
-    attr_reader :expected_week, :qualifying_week, :employment_start, :notice_of_leave_deadline, 
-      :leave_earliest_start_date, :proof_of_pregnancy_date, :relevant_period, :adoption_placement_date
+    attr_reader :due_date, :expected_week, :qualifying_week, :employment_start, :notice_of_leave_deadline, 
+      :leave_earliest_start_date, :proof_of_pregnancy_date, :adoption_placement_date, :ssp_stop, :notice_request_pay
+    # :relevant_period, 
     
     attr_accessor :employment_contract, :leave_start_date, :average_weekly_earnings
     
@@ -10,6 +11,7 @@ module SmartAnswer::Calculators
     LEAVE_TYPE_BIRTH = "birth"
     LEAVE_TYPE_ADOPTION = "adoption"
 
+    # def initialize(match_or_due_date)
     def initialize(match_or_due_date, birth_or_adoption = LEAVE_TYPE_BIRTH)
       @due_date = match_or_due_date
       @leave_type = birth_or_adoption
@@ -17,12 +19,28 @@ module SmartAnswer::Calculators
       @expected_week = expected_start .. expected_start + 6.days
       @notice_of_leave_deadline = qualifying_start = 15.weeks.ago(expected_start)
       @qualifying_week = qualifying_start .. qualifying_start + 6.days
-      @relevant_period = "#{8.weeks.ago(qualifying_start).to_s(:long)} and #{qualifying_start.to_s(:long)}"
-      @employment_start = 26.weeks.ago(expected_start)
-      @leave_earliest_start_date = 11.weeks.ago(match_or_due_date)
-      @proof_of_pregnancy_date = 13.weeks.ago(match_or_due_date)
+      # @relevant_period = "#{8.weeks.ago(qualifying_start).to_s(:long)} and #{qualifying_start.to_s(:long)}"
+      @employment_start = 25.weeks.ago(@qualifying_week.last)
+      @leave_earliest_start_date = 11.weeks.ago(@expected_week.first)
+      @proof_of_pregnancy_date = 13.weeks.ago(expected_start)
+      @ssp_stop = 4.weeks.ago(@expected_week.first)
+      @notice_request_pay = 28.days.ago(expected_start)
     end
     
+    def format_date_day(date)
+      date.strftime("%A, %d %B %Y")
+    end
+
+    def payday_offset(lastpayday)
+      8.weeks.ago(lastpayday)
+    end
+
+    def relevant_period(lastpayday, payday2)
+      relevant_period_to = lastpayday
+      relevant_period_from = payday2 + 1
+      "#{format_date_day(relevant_period_from)} and #{format_date_day(relevant_period_to)}"
+    end
+
     def leave_end_date
       52.weeks.since(@leave_start_date)
     end

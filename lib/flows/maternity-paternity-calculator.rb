@@ -32,6 +32,9 @@ end
 
 ## QM3
 date_question :date_leave_starts? do
+  precalculate :leave_earliest_start_date do
+    calculator.leave_earliest_start_date
+  end
   calculate :leave_start_date do
     calculator.leave_start_date = Date.parse(responses.last)
     calculator.leave_start_date
@@ -57,6 +60,9 @@ date_question :date_leave_starts? do
   calculate :proof_of_pregnancy_date do
     calculator.proof_of_pregnancy_date
   end
+  calculate :ssp_stop
+    calculator.ssp_stop
+  end
   next_node :did_the_employee_work_for_you?
 end
 
@@ -75,11 +81,10 @@ end
 
 ## QM5
 multiple_choice :is_the_employee_on_your_payroll? do
-  option :yes => :employees_average_weekly_earnings?
+  # option :yes => :employees_average_weekly_earnings?
+  option :yes => :last_normal_payday?
   option :no => :maternity_leave_and_pay_result
-  calculate :relevant_period do
-    calculator.relevant_period
-  end
+  
   calculate :not_entitled_to_pay_reason do
     :must_be_on_payroll
   end
@@ -88,6 +93,40 @@ multiple_choice :is_the_employee_on_your_payroll? do
     false
   end
 end
+
+# ## QM5.2
+# date_question :last_normal_payday? do
+#   precalculate :saturday_qualifying_week do
+#     calculator.format_date_day calculator.qualifying_week.last
+#   end
+
+#   calculate :last_payday do
+#     last_payday = Date.parse(responses.last)
+#     raise SmartAnswer::InvalidResponse if last_payday > saturday_qualifying_week
+#     last_payday
+#   end
+
+#   next_node :payday_eight_weeks?
+# end
+
+# ## QM5.3
+# date_question :payday_eight_weeks? do
+#   precalculate :payday_offset do
+#     calculator.format_date_day calculator.payday_offset
+#   end
+
+#   calculate :last_payday_eight_weeks do
+#     payday2 = Date.responses(responses.last)
+#     raise SmartAnswer::InvalidResponse if payday2 > calculator.payday_offset
+#     payday2
+#   end
+
+#   calculate :relevant_period do
+#     calculator.relevant_period(last_payday, last_payday_eight_weeks)    
+#   end
+
+#   next_node :employee_average_weekly_earnings?
+# end
 
 ## QM6
 money_question :employees_average_weekly_earnings? do
@@ -107,6 +146,10 @@ money_question :employees_average_weekly_earnings? do
   calculate :not_entitled_to_pay_reason do
     :must_earn_over_threshold
   end
+  calculate :notice_of_request_pay do
+    calculator.notice_of_request_pay
+  end
+
   calculate :eligible_for_maternity_pay do
     if responses.last >= calculator.lower_earning_limit
       true
