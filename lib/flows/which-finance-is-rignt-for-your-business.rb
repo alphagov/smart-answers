@@ -63,13 +63,8 @@ end
 #Q6 - revenue bands should be winder in subsequent versions, thic matches BL tool
 money_question :last_year_revenue? do
   
-  calculate :revenue_band do
-    revenue = Money.new(responses.last)
-    if revenue.value < 10000
-      1
-    else
-      2
-    end
+  calculate :revenue do
+    Money.new(responses.last)
   end
     
   next_node :how_many_people_are_in_your_business?
@@ -81,11 +76,11 @@ multiple_choice :how_many_people_are_in_your_business? do
   option :two_hundred_fifty_or_over
   
   
-  calculate :people_band do
+  calculate :people do
     if responses.last == 'under_two_hundred_fifty'
-      1
+      1 
     else
-      2
+      250
     end
   end
 
@@ -98,19 +93,33 @@ outcome :done do
     ''  
   end
 
+  precalculate :inclusions do
+    Calculators::WhichFinanceCalculator.new.calculate_inclusions(
+      assets: personal_assets, property: business_property, shares: shares,
+      funding_min: min_funding.to_f, funding_max: max_funding.to_f, revenue: revenue.to_f, 
+      employees: people
+    )
+  end
+
   precalculate :should_consider_types do
     result = PhraseList.new(:heading_should)
-    result << :info_shares
-    result << :info_loans
-    result << :info_grants
-    result << :info_leasing
+    result << :info_shares      if inclusions[:shares] == :yes
+    result << :info_loans       if inclusions[:loans] == :yes
+    result << :info_grants      if inclusions[:grants] == :yes
+    result << :info_overdrafts  if inclusions[:overdrafts] == :yes
+    result << :info_invoice_financing if inclusions[:invoices] == :yes
+    result << :info_leasing     if inclusions[:leasing] == :yes
     result
   end
 
   precalculate :could_consider_types do
     result = PhraseList.new (:heading_maybe)
-    result << :info_overdrafts
-    result << :info_invoice_financing
+    result << :info_shares      if inclusions[:shares] == :maybe
+    result << :info_loans       if inclusions[:loans] == :maybe
+    result << :info_grants      if inclusions[:grants] == :maybe
+    result << :info_overdrafts  if inclusions[:overdrafts] == :maybe
+    result << :info_invoice_financing if inclusions[:invoices] == :maybe
+    result << :info_leasing     if inclusions[:leasing] == :maybe
     result
   end
 end

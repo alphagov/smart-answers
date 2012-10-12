@@ -85,7 +85,7 @@ en-GB:
 
 
       done:
-        title: %{response_title}
+        title: "%{response_title}"
         body: |
           %{should_consider_types}
           %{could_consider_types}

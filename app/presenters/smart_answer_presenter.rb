@@ -17,6 +17,7 @@ class SmartAnswerPresenter
   end
 
   def artefact
+    content_api.options[:timeout] = 51
     @artefact ||= content_api.artefact(@flow.name)
   end
 
