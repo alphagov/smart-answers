@@ -50,7 +50,9 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
 
     context "answer 21 November 2012" do
       setup do
-        add_response Date.parse("21 November 2012")
+        @dd = Date.parse("21 November 2012")
+        @qw = (@dd - @dd.wday)..((@dd-@dd.wday)+6)
+        add_response @dd
       end
       ## QM2
       should "ask if the employee has a contract with you" do
@@ -84,30 +86,53 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
               setup do
                 add_response :yes
               end
-              ## QM6
-              should "ask what the employees average weekly earnings are" do
-                assert_current_node :employees_average_weekly_earnings?
+              
+              ## QM5.2
+              should "ask when the last normal payday" do
+                assert_current_node :last_normal_payday?
               end
-              context "answer 135.40" do
+              should "be wrong as lastpayday is after" do
+                add_response @qw.last+2
+                assert_current_node_is_error
+              end
+              context "answer 2 days before Saturday of qualifying week" do
                 setup do
-                  add_response 135.40
+                  puts "### " + @qw.last.to_s
+                  add_response @qw.last-2
                 end
-                should "calculate dates and pay amounts" do
-                  leave_start = Date.parse("21 November 2012")
-                  start_of_week = leave_start - leave_start.wday
-                  assert_state_variable "leave_start_date", leave_start
-                  assert_state_variable "leave_end_date", 52.weeks.since(leave_start)
-                  assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week)
-                  assert_state_variable "pay_start_date", leave_start
-                  assert_state_variable "pay_end_date", 39.weeks.since(leave_start)
-                  assert_state_variable "smp_a", (135.40 * 0.9).round(2).to_s
-                  assert_state_variable "smp_b", (135.40 * 0.9).round(2).to_s
+                ## QM5.3
+                should "ask when before lastpayday I was paid" do
+                  assert_current_node :payday_eight_weeks?
                 end
-                should "calculate and present the result" do
-                  assert_phrase_list :maternity_leave_info, [:maternity_leave_table]
-                  assert_current_node :maternity_leave_and_pay_result
-                end
-              end #answer 135.40
+
+                # ## QM6
+                # should "ask what the employees average weekly earnings are" do
+                #   assert_current_node :employees_average_weekly_earnings?
+                # end
+                # context "answer 135.40" do
+                #   setup do
+                #     add_response 135.40
+                #   end
+                #   should "calculate dates and pay amounts" do
+                #     leave_start = Date.parse("21 November 2012")
+                #     start_of_week = leave_start - leave_start.wday
+                #     assert_state_variable "leave_start_date", leave_start
+                #     assert_state_variable "leave_end_date", 52.weeks.since(leave_start)
+                #     assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week)
+                #     assert_state_variable "pay_start_date", leave_start
+                #     assert_state_variable "pay_end_date", 39.weeks.since(leave_start)
+                #     assert_state_variable "smp_a", (135.40 * 0.9).round(2).to_s
+                #     assert_state_variable "smp_b", (135.40 * 0.9).round(2).to_s
+                #   end
+                #   should "calculate and present the result" do
+                #     assert_phrase_list :maternity_leave_info, [:maternity_leave_table]
+                #     assert_current_node :maternity_leave_and_pay_result
+                #   end
+                # end #answer 135.40
+
+              end
+
+
             end #answer yes to QM5 on payroll
             context "answer no" do
               should "state that you they are not entitled to pay" do

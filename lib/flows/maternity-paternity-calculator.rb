@@ -3,6 +3,7 @@ satisfies_need "B1012"
 
 ## Q1
 multiple_choice :what_type_of_leave? do
+  save_input_as :leave_type
   option :maternity => :baby_due_date_maternity?
   option :paternity => :leave_or_pay_for_adoption?
   option :adoption => :maternity_or_paternity_leave_for_adoption?
@@ -39,6 +40,7 @@ date_question :date_leave_starts? do
     calculator.leave_start_date = Date.parse(responses.last)
     calculator.leave_start_date
   end
+  # FIXME: check which of these is still needed
   calculate :leave_end_date do
     calculator.leave_end_date
   end
@@ -48,6 +50,7 @@ date_question :date_leave_starts? do
   calculate :notice_of_leave_deadline do
     calculator.notice_of_leave_deadline
   end
+
   calculate :pay_start_date do
     calculator.pay_start_date
   end
@@ -60,7 +63,7 @@ date_question :date_leave_starts? do
   calculate :proof_of_pregnancy_date do
     calculator.proof_of_pregnancy_date
   end
-  calculate :ssp_stop
+  calculate :ssp_stop do
     calculator.ssp_stop
   end
   next_node :did_the_employee_work_for_you?
@@ -81,8 +84,7 @@ end
 
 ## QM5
 multiple_choice :is_the_employee_on_your_payroll? do
-  # option :yes => :employees_average_weekly_earnings?
-  option :yes => :last_normal_payday?
+  option :yes => :last_normal_payday? # NOTE: goes to shared questions 
   option :no => :maternity_leave_and_pay_result
   
   calculate :not_entitled_to_pay_reason do
@@ -92,41 +94,55 @@ multiple_choice :is_the_employee_on_your_payroll? do
   calculate :eligible_for_maternity_pay do
     false
   end
+
+  calculate :payday_exit do
+    'maternity'
+  end
+  calculate :to_saturday do
+    calculator.format_date_day calculator.qualifying_week.last
+  end
 end
 
-# ## QM5.2
-# date_question :last_normal_payday? do
-#   precalculate :saturday_qualifying_week do
-#     calculator.format_date_day calculator.qualifying_week.last
-#   end
+## QM5.2 && P6.2
+date_question :last_normal_payday? do
+  calculate :last_payday do
+    last_payday = Date.parse(responses.last)
+    raise SmartAnswer::InvalidResponse if last_payday > to_saturday
+    last_payday
+  end
 
-#   calculate :last_payday do
-#     last_payday = Date.parse(responses.last)
-#     raise SmartAnswer::InvalidResponse if last_payday > saturday_qualifying_week
-#     last_payday
-#   end
+  next_node :payday_eight_weeks?
+end
 
-#   next_node :payday_eight_weeks?
-# end
+## QM5.3 && P6.3
+date_question :payday_eight_weeks? do
+  precalculate :payday_offset do
+    calculator.format_date_day calculator.payday_offset
+  end
 
-# ## QM5.3
-# date_question :payday_eight_weeks? do
-#   precalculate :payday_offset do
-#     calculator.format_date_day calculator.payday_offset
-#   end
+  calculate :last_payday_eight_weeks do
+    payday2 = Date.responses(responses.last)
+    raise SmartAnswer::InvalidResponse if payday2 > calculator.payday_offset
+    payday2
+  end
 
-#   calculate :last_payday_eight_weeks do
-#     payday2 = Date.responses(responses.last)
-#     raise SmartAnswer::InvalidResponse if payday2 > calculator.payday_offset
-#     payday2
-#   end
+  calculate :relevant_period do
+    calculator.relevant_period(last_payday, last_payday_eight_weeks)    
+  end
 
-#   calculate :relevant_period do
-#     calculator.relevant_period(last_payday, last_payday_eight_weeks)    
-#   end
-
-#   next_node :employee_average_weekly_earnings?
-# end
+  next_node do |response|
+    case payday_exit
+    when 'maternity'
+      :employee_average_weekly_earnings?
+    when 'paternity'
+      :employee_average_weekly_earnings_paternity?
+    when 'paternity_adoption'
+      :padoption_employee_avg_weekly_earnings?
+    when 'adoption'
+      :adoption_employees_average_weekly_earnings?
+    end
+  end
+end
 
 ## QM6
 money_question :employees_average_weekly_earnings? do
@@ -196,9 +212,9 @@ end
 
 ## QP2
 multiple_choice :employee_responsible_for_upbringing? do
-  calculate :relevant_period do
-    calculator.relevant_period
-  end
+  # calculate :relevant_period do
+  #   calculator.relevant_period
+  # end
   calculate :employment_start do
     calculator.employment_start
   end
@@ -255,7 +271,7 @@ end
 
 ## QP6
 multiple_choice :employee_on_payroll_paternity? do
-	option :yes => :employee_average_weekly_earnings_paternity?
+	option :yes => :last_normal_payday? # NOTE: this goes to a shared question => QM5.2
   option :no => :paternity_leave_and_pay # 4P BP
   calculate :paternity_pay_info do
     if responses.last == 'no'
@@ -264,6 +280,13 @@ multiple_choice :employee_on_payroll_paternity? do
       pay_info << :paternity_not_entitled_to_pay_outro
     end
     pay_info 
+  end
+
+  calculate :payday_exit do
+    'paternity'
+  end
+  calculate :to_saturday do
+    calculator.format_date_day calculator.qualifying_week.last
   end
 end
 
@@ -313,14 +336,20 @@ date_question :padoption_date_of_adoption_placement? do
   calculate :ap_adoption_date do
     Date.parse(responses.last)
   end
-  calculate :ap_qualifying_week do 
-    calculator.qualifying_week
+  calculate :ap_adoption_date_formatted do
+    calculator.format_date_day ap_adoption_date
   end
-  calculate :relevant_period do
-    calculator.relevant_period
-  end
+  # calculate :ap_qualifying_week do 
+  #   calculator.qualifying_week
+  # end
+  # calculate :relevant_period do
+  #   calculator.relevant_period
+  # end
   calculate :employment_start do 
     calculator.employment_start
+  end
+  calculate :matched_date_formatted do
+    calculator.format_date_day matched_date
   end
   calculate :employment_end do 
     matched_date
@@ -382,7 +411,7 @@ end
 
 ## QAP7
 multiple_choice :padoption_employee_on_payroll? do
-  option :yes => :padoption_employee_avg_weekly_earnings?
+  option :yes => :last_normal_payday? # NOTE: goes to shared questions 
   option :no => :padoption_leave_and_pay # 4AP BP
 	calculate :padoption_pay_info do
     if responses.last == 'no'
@@ -396,7 +425,15 @@ multiple_choice :padoption_employee_on_payroll? do
     end
     pay_info
   end
+
+  calculate :payday_exit do
+    'paternity_adoption'
+  end
+  calculate :to_saturday do
+    calculator.format_date_day calculator.matched_week.last
+  end
 end
+
 
 ## QAP8
 money_question :padoption_employee_avg_weekly_earnings? do
@@ -435,8 +472,8 @@ outcome :padoption_not_entitled_to_leave_or_pay
 ## Adoption
 ## QA0
 multiple_choice :maternity_or_paternity_leave_for_adoption? do
-  option :maternity => :date_of_adoption_match? # QA1
-  option :paternity => :employee_date_matched_paternity_adoption? #QAP1
+  option :yes => :employee_date_matched_paternity_adoption? #QAP1
+  option :no => :date_of_adoption_match? # QA1
 end
 
 ## QA1
@@ -453,6 +490,9 @@ date_question :date_of_adoption_placement? do
     placement_date = Date.parse(responses.last)
     calculator.adoption_placement_date = placement_date
     placement_date
+  end
+  calculate :a_leave_earliest_start do
+    calculator.format_date_day (placement_date + 14)
   end
   next_node :adoption_employment_contract?
 end
@@ -496,6 +536,10 @@ date_question :adoption_date_leave_starts? do
   calculate :employment_start do
     calculator.employment_start
   end
+  
+  calculate :a_notice_leave do
+    calculator.format_date_day calculator.a_notice_leave
+  end
   next_node :adoption_did_the_employee_work_for_you?
 end
 
@@ -518,7 +562,7 @@ end
 
 ## QA6
 multiple_choice :adoption_is_the_employee_on_your_payroll? do
-  option :yes => :adoption_employees_average_weekly_earnings?
+  option :yes => :last_normal_payday? # NOTE: this goes to a shared question => QM5.2
   option :no => :adoption_leave_and_pay
   calculate :adoption_pay_info do
     if responses.last == 'no'
@@ -527,6 +571,14 @@ multiple_choice :adoption_is_the_employee_on_your_payroll? do
       pay_info << :adoption_not_entitled_to_pay_outro
     end
     pay_info
+  end
+
+
+  calculate :payday_exit do
+    'adoption'
+  end
+  calculate :to_saturday do
+    calculator.format_date_day calculator.matched_week.last
   end
 end
 

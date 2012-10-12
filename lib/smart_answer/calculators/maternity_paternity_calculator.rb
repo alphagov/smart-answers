@@ -2,7 +2,8 @@ module SmartAnswer::Calculators
   class MaternityPaternityCalculator
   
     attr_reader :due_date, :expected_week, :qualifying_week, :employment_start, :notice_of_leave_deadline, 
-      :leave_earliest_start_date, :proof_of_pregnancy_date, :adoption_placement_date, :ssp_stop, :notice_request_pay
+      :leave_earliest_start_date, :proof_of_pregnancy_date, :adoption_placement_date, :ssp_stop, 
+      :notice_request_pay, :matched_week
     # :relevant_period, 
     
     attr_accessor :employment_contract, :leave_start_date, :average_weekly_earnings
@@ -13,18 +14,21 @@ module SmartAnswer::Calculators
 
     # def initialize(match_or_due_date)
     def initialize(match_or_due_date, birth_or_adoption = LEAVE_TYPE_BIRTH)
-      @due_date = match_or_due_date
+      @due_date = @match_date = match_or_due_date
       @leave_type = birth_or_adoption
       expected_start = match_or_due_date - match_or_due_date.wday
-      @expected_week = expected_start .. expected_start + 6.days
+      @expected_week = @matched_week = expected_start .. expected_start + 6.days
       @notice_of_leave_deadline = qualifying_start = 15.weeks.ago(expected_start)
       @qualifying_week = qualifying_start .. qualifying_start + 6.days
       # @relevant_period = "#{8.weeks.ago(qualifying_start).to_s(:long)} and #{qualifying_start.to_s(:long)}"
-      @employment_start = 25.weeks.ago(@qualifying_week.last)
+      @employment_start = @a_employment_start = 25.weeks.ago(@qualifying_week.last)
       @leave_earliest_start_date = 11.weeks.ago(@expected_week.first)
       @proof_of_pregnancy_date = 13.weeks.ago(expected_start)
       @ssp_stop = 4.weeks.ago(@expected_week.first)
       @notice_request_pay = 28.days.ago(expected_start)
+
+      # Adoption instance vars
+      @a_notice_leave = @match_date + 7
     end
     
     def format_date_day(date)
