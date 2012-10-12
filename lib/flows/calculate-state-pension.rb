@@ -112,6 +112,10 @@ date_question :dob_amount? do
     calculator.state_pension_date.to_date
   end
 
+  calculate :formatted_state_pension_date do
+    state_pension_date.strftime("%e %B %Y")
+  end
+
   calculate :remaining_years do
     calculator.years_to_pension
   end
