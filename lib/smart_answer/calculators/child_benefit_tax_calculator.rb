@@ -10,8 +10,9 @@ module SmartAnswer::Calculators
       @calculation ||= calculate_taxable_amounts
     end
 
+    #rule: whatever is owed to HMRC is rounded down to nearest whole pound
     def benefit_tax
-      percent_tax_charge * benefit_taxable_amount / 100.0
+      (percent_tax_charge * benefit_taxable_amount / 100.0).floor
     end
 
     def calculate_taxable_amounts
@@ -54,10 +55,16 @@ module SmartAnswer::Calculators
     def percent_tax_charge
       raise "Income must be provided" if income.nil?
 
-      if income >= 60000
+      if income >= 60001
         100.0
       else
-        (income - 50000)/100.0
+        ## this is calculated in bands - last band is a bit larger: 59900 to 60000 (inclusive) = 99%
+        if income >= 59900 and income <= 60000
+          99.0
+        else
+          ## 50100 to 50199 = 1% .. 59800 to 59899 = 98%
+          ((income - 50000)/100.0).floor
+        end
       end
     end
 
