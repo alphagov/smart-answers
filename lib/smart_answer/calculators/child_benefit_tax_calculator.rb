@@ -54,10 +54,16 @@ module SmartAnswer::Calculators
     def percent_tax_charge
       raise "Income must be provided" if income.nil?
 
-      if income >= 60000
+      if income >= 60001
         100.0
       else
-        (income - 50000)/100.0
+        ## this is calculated in bands - last band is a bit larger: 59900 to 60000 (inclusive) = 99%
+        if income >= 59900
+          99
+        else
+          ## 50100 to 50199 = 1% .. 59800 to 59899 = 98%
+          ((income - 50000)/100.0).floor
+        end
       end
     end
 
