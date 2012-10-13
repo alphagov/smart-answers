@@ -8,7 +8,7 @@ en-GB:
           "You also qualify for extra grants and allowances:"
         dependent_children: |
           - up to £148/week (1 child) or up to £255/week (2 or more children) of [Childcare Grant](/childcare-grant "Childcare Grant")
-          - £50 to £1,508 of [Parents Learning Allowance](/parents-learning-allowance "Parents Learning Allowance")
+          - up to £1,508 of [Parents Learning Allowance](/parents-learning-allowance "Parents Learning Allowance")
           - [Child Tax Credit](/child-tax-credit "Child Tax Credit")
         dependent_adult: |
           - up to £2,642 of [Adult Dependant's Grant](/adult-dependants-grant "Adult Dedependants Grant")
@@ -60,7 +60,7 @@ en-GB:
           part-time: Part-time
       how_much_are_your_tuition_fees_per_year?:
         hint: The maximum is £9,000 for full-time students and £6,750 for part-time students.
-        error_message: You can't enter more than the maximum amount
+        error_message: Please enter a number up to the maximum amount
       where_will_you_live_while_studying?:
         options:
           at-home: At home with my parents
