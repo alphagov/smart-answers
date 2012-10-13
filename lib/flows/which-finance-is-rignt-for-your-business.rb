@@ -89,9 +89,6 @@ end
 
 
 outcome :done do
-  precalculate :response_title do
-    ''  
-  end
 
   precalculate :inclusions do
     Calculators::WhichFinanceCalculator.new.calculate_inclusions(
@@ -102,24 +99,40 @@ outcome :done do
   end
 
   precalculate :should_consider_types do
-    result = PhraseList.new(:heading_should)
-    result << :info_shares      if inclusions[:shares] == :yes
-    result << :info_loans       if inclusions[:loans] == :yes
-    result << :info_grants      if inclusions[:grants] == :yes
-    result << :info_overdrafts  if inclusions[:overdrafts] == :yes
-    result << :info_invoice_financing if inclusions[:invoices] == :yes
-    result << :info_leasing     if inclusions[:leasing] == :yes
+    if inclusions.has_value?(:yes)
+      result = PhraseList.new(:heading_should)
+      result << :info_shares      if inclusions[:shares] == :yes
+      result << :info_loans       if inclusions[:loans] == :yes
+      result << :info_grants      if inclusions[:grants] == :yes
+      result << :info_overdrafts  if inclusions[:overdrafts] == :yes
+      result << :info_invoice_financing if inclusions[:invoices] == :yes
+      result << :info_leasing     if inclusions[:leasing] == :yes
+    else 
+      ''
+    end
     result
   end
 
   precalculate :could_consider_types do
-    result = PhraseList.new (:heading_maybe)
-    result << :info_shares      if inclusions[:shares] == :maybe
-    result << :info_loans       if inclusions[:loans] == :maybe
-    result << :info_grants      if inclusions[:grants] == :maybe
-    result << :info_overdrafts  if inclusions[:overdrafts] == :maybe
-    result << :info_invoice_financing if inclusions[:invoices] == :maybe
-    result << :info_leasing     if inclusions[:leasing] == :maybe
+    if inclusions.has_value?(:maybe)
+      result = PhraseList.new (:heading_maybe)
+      result << :info_shares      if inclusions[:shares] == :maybe
+      result << :info_loans       if inclusions[:loans] == :maybe
+      result << :info_grants      if inclusions[:grants] == :maybe
+      result << :info_overdrafts  if inclusions[:overdrafts] == :maybe
+      result << :info_invoice_financing if inclusions[:invoices] == :maybe
+      result << :info_leasing     if inclusions[:leasing] == :maybe
+    else
+      ''
+    end
     result
+  end
+
+  precalculate :response_title do
+    if !(inclusions.has_value?(:yes) or inclusions.has_value?(:maybe))
+      PhraseList.new(:title_none)
+    else
+      ''
+    end  
   end
 end

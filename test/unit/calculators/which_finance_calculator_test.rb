@@ -14,22 +14,26 @@ module SmartAnswer::Calculators
       end
       context "calculate_weighted_scores method" do
         should "work out the scores for the shares finance type" do
-          assert_equal 75, @calculator.calculate_weighted_scores(assets: true, property: true, shares: true,
+          assert_equal 50, @calculator.calculate_weighted_scores(assets: true, property: true, shares: true,
                                                 revenue: 10000, funding_min: 999, funding_max: 1000,
                                                 employees: 10)[:shares]
 
-          assert_equal 25, @calculator.calculate_weighted_scores(assets: false, property: true, shares: false,
+          assert_equal 0, @calculator.calculate_weighted_scores(assets: false, property: true, shares: false,
                                                 revenue: 10000, funding_min: 999, funding_max: 1000,
                                                 employees: 10)[:shares]
 
           
-          assert_equal 50, @calculator.calculate_weighted_scores(assets: false, property: false, shares: false,
+          assert_equal 25, @calculator.calculate_weighted_scores(assets: false, property: false, shares: false,
                                                 revenue: 10000, funding_min: 1000, funding_max: 1000,
                                                 employees: 10)[:shares]
 
           
+          assert_equal 75, @calculator.calculate_weighted_scores(assets: false, property: false, shares: true,
+                                                revenue: 10000, funding_min: 1000, funding_max: 1000,
+                                                employees: 10)[:shares]
+
           assert_equal 100, @calculator.calculate_weighted_scores(assets: false, property: false, shares: true,
-                                                revenue: 10000, funding_min: 1000, funding_max: 1000,
+                                                revenue: 10000, funding_min: 1000, funding_max: 10000,
                                                 employees: 10)[:shares]
         end
 
@@ -38,12 +42,16 @@ module SmartAnswer::Calculators
                                                 revenue: 999, funding_min: 999, funding_max: 1000,
                                                 employees: 10)[:loans]
 
-          assert_equal 60, @calculator.calculate_weighted_scores(assets: false, property: true, shares: false,
+          assert_equal 98, @calculator.calculate_weighted_scores(assets: false, property: true, shares: false,
                                                 revenue: 10000, funding_min: 999, funding_max: 1000,
                                                 employees: 10)[:loans]
           
           assert_equal 100, @calculator.calculate_weighted_scores(assets: true, property: true, shares: false,
                                                 revenue: 10001, funding_min: 999, funding_max: 1000,
+                                                employees: 10)[:loans]
+
+          assert_equal 87, @calculator.calculate_weighted_scores(assets: false, property: false, shares: false,
+                                                revenue: 0, funding_min: 999, funding_max: 1000,
                                                 employees: 10)[:loans]
         end
 
@@ -67,16 +75,16 @@ module SmartAnswer::Calculators
         end
 
         should "work out the scores for the overdrafts finance type" do
-          assert_equal 87, @calculator.calculate_weighted_scores(assets: true, property: true, shares: false,
-                                                revenue: 10001, funding_min: 1001, funding_max: 10001,
+          assert_equal 98, @calculator.calculate_weighted_scores(assets: false, property: true, shares: false,
+                                                revenue: 10000, funding_min: 1001, funding_max: 10001,
                                                 employees: 10)[:overdrafts]
 
-          assert_equal 85, @calculator.calculate_weighted_scores(assets: true, property: false, shares: false,
+          assert_equal 83, @calculator.calculate_weighted_scores(assets: false, property: false, shares: false,
                                                 revenue: 9999, funding_min: 1001, funding_max: 10001,
                                                 employees: 10)[:overdrafts]
 
           assert_equal 100, @calculator.calculate_weighted_scores(assets: true, property: true, shares: false,
-                                                revenue: 2000001, funding_min: 9999, funding_max: 100000,
+                                                revenue: 10001, funding_min: 9999, funding_max: 100000,
                                                 employees: 250)[:overdrafts]
         end
       end
