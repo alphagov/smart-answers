@@ -54,6 +54,10 @@ en-GB:
       ## Q8
       how_old_are_you_mb_no_licence?:
         title: How old are you?
+        options:
+          under-17: "Under 17"
+          17-20: "17 to 20"
+          21-or-over: "21 or over"
       ## Q9
       do_you_have_a_full_driving_licence?:
         title: Do you already have a full car driving licence?
