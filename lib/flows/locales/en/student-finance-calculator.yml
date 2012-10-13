@@ -7,7 +7,7 @@ en-GB:
         body:
           "You also qualify for extra grants and allowances:"
         dependent_children: |
-          - up to £148/week (1 child) or up to £255/week (2 or more children) of [Childcare Grant](/childcare-grant "Childcare Grant")
+          - up to £148.75/week (1 child) or up to £255/week (2 or more children) of [Childcare Grant](/childcare-grant "Childcare Grant")
           - up to £1,508 of [Parents Learning Allowance](/parents-learning-allowance "Parents Learning Allowance")
           - [Child Tax Credit](/child-tax-credit "Child Tax Credit")
         dependent_adult: |
@@ -27,7 +27,7 @@ en-GB:
         maintenance_loan: |
           - up to %{maintenance_loan_amount} Maintenance Loan (for living costs)
         maintenance_grant: |
-          - up to %{maintenance_grant_amount} Maintenance Grant (for living costs)
+          - %{maintenance_grant_amount} Maintenance Grant (for living costs)
         additional_grants_and_allowances: You don't qualify for extra grants and allowances.
       title:
         Student finance calculator
@@ -69,13 +69,7 @@ en-GB:
       whats_your_household_income?:
         title: What's your household income?
         hint: This is your parents' or partner's income plus your own. It affects how much Maintenance Grant for help with living costs you get.
-        options:
-          up-to-25000: Up to £25,000
-          25001-30000: £25,001 - £30,000
-          30001-35000: £30,001 - £35,000
-          35001-40000: £35,001 - £40,000
-          40001-42600: £40,001 - £42,600
-          more-than-42600: More than £42,600
+        error_message: Please enter a number
       part_time_do_you_want_to_check_for_additional_grants_and_allowances?:
         title: Do you want to check for additional grants and allowances?
         body: |
