@@ -1,5 +1,5 @@
 satisfies_need "B1024"
-status :draft
+status :published
 
 
 #Q1
