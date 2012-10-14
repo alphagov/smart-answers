@@ -2,9 +2,9 @@ en-GB:
   flow:
     maternity-paternity-calculator:
       meta:
-        description: Statutory maternity, paternity and adoption leave or pay - work out dates like the qualifying week or check an employee’s eligibility
+        description: Statutory maternity, paternity and adoption leave or pay - calculate the qualifying week, relevant period, pay rate, notice period and the start and end dates 
       title:
-        Maternity and paternity calculator for employers
+        Employers' maternity and paternity calculator
       options:
         "no": "No"
         "yes": "Yes"
@@ -13,7 +13,7 @@ en-GB:
         "adoption": "Adoption"
       body: |
 
-        Work out the qualifying week, leave end date and ‘relevant employment period’ to check an employee’s eligibility for statutory leave or pay when they have a baby or adopt a child.
+        Calculate the qualifying week, ‘relevant employment period,’ notice period and check an employee’s eligibility for statutory maternity, paternity and adoption leave or pay. 
         
         
         ##What you need
@@ -21,10 +21,11 @@ en-GB:
         You’ll need:
 
         + the baby’s due date
-        + the dates for the child’s adoption
+        + date of birth - for paternity
         + your employee's salary details - eg weekly rates of pay
+        + the dates for adoption - eg match date or date of placement 
 
-        % The calculator can't be used to work out eligibility for [Additional Paternity Leave or Pay](/additional-paternity-leave-pay-employees "Additional paternity leave or pay"). %
+        % You can’t use the calculator for [Additional Paternity Leave or Pay](/additional-paternity-leave-pay-employees "Additional paternity leave or pay") and paternity leave for [overseas adoptions](/paternity-leave-pay-employees "Paternity leave for adoptions"). %
       phrases:
         not_worked_long_enough: + they must have started working for you on or before %{employment_start}
         must_be_on_payroll: + you must be liable for their secondary Class 1 National Insurance contributions - you will be if they’re on your payroll
@@ -41,8 +42,8 @@ en-GB:
           |------------------------------|------------------------------|
           |Start                         | %{leave_start_date}          |
           |End                           | %{leave_end_date}            |
-          |Earliest date leave can start | for UK adoptions - %{leave_earliest_start_date} start; for overseas adoptions - %{adoption_placement_date} or within 28 days of this date|
-          |Last date to give notice      | %{a_notice_leave} (the rules are different for [overseas adoptions](/adoption-leave-pay-employees/notice-period “Notice for overseas adoptions”) |
+          |Latest date to give notice    | %{notice_of_leave_deadline}  |
+          |Earliest date leave can start | %{leave_earliest_start_date} |
         
         not_entitled_to_statutory_maternity_leave: |
           ##Statutory maternity leave
@@ -54,7 +55,7 @@ en-GB:
         maternity_pay_table: |
           ##Statutory maternity pay
 
-          The employee is entitled to up to 39 weeks statutory maternity pay.
+          The employee is entitled to up to 39 weeks statutory maternity pay (SMP).
           
           |Pay                                  | Key facts                  |
           |-------------------------------------|----------------------------|
@@ -65,7 +66,6 @@ en-GB:
           |Latest date to give notice           | %{notice_request_pay}      |
           |Proof of pregnancy                   | Usually 21 days before SMP starts  |
           |Start date due to pregnancy related illness| %{ssp_stop}          |
-          # %{notice_of_leave_deadline} (and provide proof theyre pregnant by %{proof_of_pregnancy_date})|
 
         not_entitled_to_smp_intro: |
           ##Statutory maternity pay
@@ -265,7 +265,7 @@ en-GB:
       employee_on_payroll_paternity?:
         title: Is the employee on your payroll?
       ## QP7
-      employee_average_weekly_earnings_paternity?:
+      employees_average_weekly_earnings_paternity?:
         title: What were the employee’s average weekly earnings between %{relevant_period}?
       ## Paternity Results:
       paternity_leave_and_pay:

@@ -36,8 +36,11 @@ date_question :date_leave_starts? do
   precalculate :leave_earliest_start_date do
     calculator.leave_earliest_start_date
   end
+
   calculate :leave_start_date do
-    calculator.leave_start_date = Date.parse(responses.last)
+    ls_date = Date.parse(responses.last)
+    raise SmartAnswer::InvalidResponse if ls_date < leave_earliest_start_date
+    calculator.leave_start_date = ls_date
     calculator.leave_start_date
   end
   # FIXME: check which of these is still needed
@@ -107,7 +110,7 @@ end
 date_question :last_normal_payday? do
   calculate :last_payday do
     last_payday = Date.parse(responses.last)
-    raise SmartAnswer::InvalidResponse if last_payday > to_saturday
+    raise SmartAnswer::InvalidResponse if last_payday > Date.parse(to_saturday)
     last_payday
   end
 
@@ -117,12 +120,12 @@ end
 ## QM5.3 && P6.3
 date_question :payday_eight_weeks? do
   precalculate :payday_offset do
-    calculator.format_date_day calculator.payday_offset
+    calculator.format_date_day calculator.payday_offset(last_payday)
   end
 
   calculate :last_payday_eight_weeks do
-    payday2 = Date.responses(responses.last)
-    raise SmartAnswer::InvalidResponse if payday2 > calculator.payday_offset
+    payday2 = Date.parse(responses.last)
+    raise SmartAnswer::InvalidResponse if payday2 > Date.parse(payday_offset)
     payday2
   end
 
@@ -133,9 +136,9 @@ date_question :payday_eight_weeks? do
   next_node do |response|
     case payday_exit
     when 'maternity'
-      :employee_average_weekly_earnings?
+      :employees_average_weekly_earnings?
     when 'paternity'
-      :employee_average_weekly_earnings_paternity?
+      :employees_average_weekly_earnings_paternity?
     when 'paternity_adoption'
       :padoption_employee_avg_weekly_earnings?
     when 'adoption'
@@ -162,8 +165,8 @@ money_question :employees_average_weekly_earnings? do
   calculate :not_entitled_to_pay_reason do
     :must_earn_over_threshold
   end
-  calculate :notice_of_request_pay do
-    calculator.notice_of_request_pay
+  calculate :notice_request_pay do
+    calculator.notice_request_pay
   end
 
   calculate :eligible_for_maternity_pay do
@@ -291,7 +294,7 @@ multiple_choice :employee_on_payroll_paternity? do
 end
 
 ## QP7
-money_question :employee_average_weekly_earnings_paternity? do
+money_question :employees_average_weekly_earnings_paternity? do
 	calculate :spp_rate do
     calculator.average_weekly_earnings = responses.last
     sprintf("%.2f",calculator.statutory_paternity_rate)
