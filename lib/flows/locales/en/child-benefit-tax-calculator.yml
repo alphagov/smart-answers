@@ -5,11 +5,11 @@ en-GB:
       meta:
         description: Get an estimate of how much tax you may need to pay if your income is more than £50,000 a year and you or your partner get Child Benefit.
       body: |
-        Get an estimate of how much tax the highest earner may have to pay. 
-
-        If you need to pay tax, you only need to pay it on Child Benefit that’s for weeks after 7 January 2013.
+        Get an estimate of how much tax the person with the highest income may have to pay. 
 
         If your or your partner’s individual annual income is £50,000 or less, you won’t have to pay tax because you get Child Benefit. 
+
+        If you need to pay tax, you only pay it on Child Benefit that’s for weeks after 7 January 2013.
       options:
         "yes": "Yes"
         "no": "No"
@@ -30,7 +30,6 @@ en-GB:
           - interest you get from savings
           - State Pension payments and other State benefits that are taxed
           - payments from personal and occupational pensions or annuities
-          - income from Individual Savings Accounts (ISAs) or pensioner bonds
           - income from dividends (including the dividend tax credit) or trusts
 
           Don’t include:
@@ -38,12 +37,14 @@ en-GB:
           - interest you get from tax-free savings, like interest from an Individual Savings Account (ISA)
       do_you_expect_to_pay_into_a_pension_this_year?:
         title: Are you paying into a workplace or personal pension?
+      ## Q3a
       how_much_pension_contributions_before_tax?:
-        title: Enter the total amount you contribute into a pension at work where you're taxed after the contribution has been taken ('gross contributions')
+        title: Enter the total amount you expect to pay for the whole tax year into a pension at work where you're taxed after the contribution has been taken ('net pay arrangements').
         hint: If none, please enter 0.
         error_message: Please enter a number
+      ## Q4
       how_much_pension_contributions_claimed_back_by_provider?:
-        title: Enter the amount you expect to pay into a pension for the whole tax year where your pension provider claims tax relief for you ('net pay arrangements' or personal or stakeholder pensions)
+        title: Enter the amount you expect to pay into a pension for the whole tax year where your pension provider claims tax relief for you (personal or stakeholder pensions or ‘relief at source’ arrangements).
         hint: If none, please enter 0.
         error_message: Please enter a number
       how_much_interest_from_savings_and_investments?:
