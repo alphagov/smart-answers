@@ -20,7 +20,7 @@ module SmartAnswer::Calculators
 		def format_date_range(range)
 	  	first = formatted_date(range.first)
 	  	last = formatted_date(range.last)
-	  	(first + " - " + last)
+	  	(first + " to " + last)
 	  end 
 
 		def distance_start
@@ -43,6 +43,7 @@ module SmartAnswer::Calculators
 	    expected_week && weeks_later(expected_week, -1)
 	  end
 
+	  
 
 		def period_of_ordinary_leave
       @start_date .. @start_date + 26 * 7

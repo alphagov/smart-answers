@@ -2,12 +2,21 @@ en-GB:
   flow:
     plan-paternity-leave:
       meta:
-        description: Planning your Paternity Leave
-      title: Planning your Paternity Leave
-      body: Paternity Leave is time off work to look after your new baby. Enter your details to see when you can take it.
+        title: Plan your paternity leave
+        description: |
+          Work out your Statutory Paternity Leave dates - 
+          Ordinary and Additional Paternity Leave period, 
+          notice period and earliest start date
+      title: Plan your paternity leave
+      body: |
+        Work out the dates for your Statutory Paternity Leave (births and adoptions) 
+        including notice period, earliest start date and when you can take Additional Paternity Leave.
+
+        You’ll need the baby’s due date (or date of placement for an adoption).
       # Questions
       baby_due_date?:
         title: What is the baby's due date?
+        hint: For adoption, enter the date the child will come and live with you (the 'date of placement').
       leave_duration?:
         title: How much leave do you want to take?
         hint: Paternity leave is either 1 or 2 weeks.
@@ -15,20 +24,39 @@ en-GB:
           one_week: 1 week
           two_weeks: 2 weeks
       leave_start?:
-        title: When do you want to start your Paternity Leave?
-        hint: You must take your Paternity Leave within the 56 days following the date the baby is due.
-        error_message: You can only take your Paternity Leave within the 56 days following the date the baby is due.
+        title: When do you want your leave to start?
+        # hint: Your maternity leave can't start before %{earliest_start}
+        hint: |
+          You must start and finish your 
+          chosen amount of leave within following dates:
+          %{potential_leave}
+        error_message: |
+          Enter a date that allows you to start and finish your chosen amount of leave 
+          within 56 days of the due date (or date of placement).
       # Outcomes
       paternity_leave_details:
-        title: Your Paternity Leave dates
+        title: Your Statutory Paternity Leave
+        next_steps: |
+          Read our guides to paternity [leave](/paternity-leave) or [pay](/paternity-pay)
         body: |
             Below is a list of key dates that explain when you can take your Paternity Leave. 
             
-            These dates are for your baby's due date of %{due_date_formatted} and a start date of %{distance_start} after due date.
+            These dates are for your baby's due date of %{due_date_formatted}.
 
+            Leave | Key dates
+            - | - 
+            Paternity leave: | %{period_of_ordinary_leave}
+            Latest date to give notice: | %{qualifying_week}
+            Paternity leave must be used during this period | %{period_of_potential_ordinary_leave}
 
-            You must tell your employer by: | %{qualifying_week}
-            Your chosen Ordinary Paternity Leave dates: | %{period_of_ordinary_leave}
-            You could take Ordinary Paternity Leave during this period: | %{period_of_potential_ordinary_leave}
-            You could take Additional Paternity Leave during this period: | %{period_of_additional_leave}
-            Your baby is due on: | %{due_date_formatted}
+            ##Extra leave
+            You could get more time off if your employer has a company paternity scheme.
+
+            If your partner returns to work, you may be able to take 
+            [Additional Paternity Leave](/paternityleave “Additional Paternity Leave”) 
+            during this period:  %{period_of_additional_leave}.
+
+            ##Paternity pay 
+            While on leave, you might qualify for 
+            [Statutory Paternity Pay](/ordinary-statutory-paternity-pay “Statutory Paternity Pay”) 
+            - up to £135.45 a week (before tax).

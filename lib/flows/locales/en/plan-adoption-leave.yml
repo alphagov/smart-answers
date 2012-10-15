@@ -2,41 +2,53 @@ en-GB:
   flow:
     plan-adoption-leave:
       meta:
-        description: Planning your Adoption Leave
-      title: Planning your Adoption Leave
+        title: Plan your adoption leave
+        description: |
+          Work out your Statutory Adoption Leave dates - 
+          Ordinary and Additional Adoption Leave period, 
+          notice period and earliest start date
+      title: Plan your adoption leave
       body: |
-        Adoption Leave is time off work to look after your adopted child. 
-        Enter your details to see when you can take it. This tool is for UK adoptions only.
+        Work out your Statutory Adoption Leave notice period, 
+        earliest start date and Ordinary and Additional Adoption Leave 
+        periods based on the match and placement dates for the child. 
 
-        What you need to know 
+        ##What you need to know 
 
-        You can’t use this tool if you’re [adopting from abroad](/adoption-leave-pay-employees "Adopting leave") or 
-        planning [paternity leave for an adoption](/paternity-leave-pay-employees "Paternity leave"). 
-      
+        You can’t use this tool if you’re 
+        [adopting from abroad](/adoption-leave “Adopting leave”) or taking 
+        [paternity leave for an adoption](/paternityleave “Paternity leave”).       
       # Questions
       child_match_date?:
         title: When were you matched with the child?
       child_arrival_date?:
-        title: When will the child come and live with you?
+        title: When will the child start to live with you? 
         hint: This is sometimes known as the 'date of placement'. 
         error_message: Please enter a date after the match date.
       leave_start?:
         title: When do you want to start your adoption leave?
-        hint: The earliest your leave can start is 14 days before the child starts living with you. 
-        error_message: You can only start adoption leave between 1 and 14 days before the baby is placed with you
+        hint: Leave can start up to 14 days before the child comes to live with you.
+        error_message: Enter a date up to 14 days before the child comes to live with you.
       # Outcomes
       adoption_leave_details:
         title: Your Adoption Leave dates
+        next_steps: |
+          Read our guides to adoption [leave](/adoption-leave) or [pay](/statutory-adoption-pay “Statutory Adoption Pay”) 
         body: |
-            Below is a list of key dates that explain when you can take your Adoption Leave. 
+          You can take up to 52 weeks Statutory Adoption Leave. 
+          The dates below are based on this and the date the child starts to 
+          live with you: %{arrival_date_formatted}.
 
-            These dates are for matching date of %{match_date_formatted} 
-            and your child&rsquo;s arrival date of %{arrival_date_formatted}
-            and a start date of %{distance_start} before due date.
+          Leave | Key dates
+          - | -
+          Ordinary Adoption Leave (first 26 weeks): | %{period_of_ordinary_leave}
+          Additional Adoption Leave (last 26 weeks): | %{period_of_additional_leave}
+          Earliest leave can start: | %{earliest_start}
+          Latest date to give notice: | %{qualifying_week}
 
+          You could get more time off if your employer has a company adoption leave scheme. 
 
-            You must tell your employer by: | %{qualifying_week}
-            Child&rsquo;s Arrival date | %{arrival_date_formatted}
-            The earliest you can start your Adoption Leave is: | %{earliest_start}
-            Ordinary Adoption Leave (first 26 weeks): | %{period_of_ordinary_leave}
-            Additional Adoption Leave (up to 26 weeks more): | %{period_of_additional_leave}
+          ##Statutory Adoption Pay 
+          While on leave, you might qualify for 
+          [Statutory Adoption Pay](/statutory-adoption-pay “Statutory Adoption Pay”) 
+          - up to £135.45 a week (before tax).

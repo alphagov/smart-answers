@@ -2,33 +2,45 @@ en-GB:
   flow:
     plan-maternity-leave:
       meta:
-        description: Planning your Maternity Leave
-      title:
-        Planning your Maternity Leave
+        title: Plan your maternity leave
+        description: |
+          Work out your Statutory Maternity Leave dates - 
+          Ordinary and Additional Maternity Leave period, 
+          notice period and earliest start date
+      title: Plan your maternity leave
+      body: |
+        Use your baby’s due date to work out your Statutory Maternity Leave notice period, 
+        earliest start date and Ordinary and Additional Maternity Leave periods.
       options:
         "no": "No"
         "yes": "Yes"
         none: "None of the above"
-      body: Maternity Leave is time off work to look after your new baby. Enter your details to see when you can take it.
       # Questions
       baby_due_date?:
         title: What is the baby's due date?
-        # error_message: Please enter a date up to nine months in the future.
       leave_start?:
-        title: When would you like to start your Maternity Leave?
-        hint: The earliest date your maternity leave can start is 11 weeks before your baby's due date. 
-        error_message: You can only start your leave from 1 day up to 11 weeks before the baby is due
-
+        title: When do you want your leave to start?
+        error_message: Enter a date on or at least 11 weeks before the due date
       # Outcomes
       maternity_leave_details:
         title: Your Statutory Maternity Leave
+        next_steps: |
+          Read our guides to [maternity leave](/maternity-leave) or [pay](/statutory-maternity-pay)
         body: |
-            Below is a list of key dates that explain when you can take Statutory Maternity Leave. 
-            
-            These dates are for your baby's due date of %{due_date_formatted} and a start date of %{distance_start} before due date.
+            You can take up to 52 weeks Statutory Maternity Leave. 
+            The dates below are based on this and your baby's due date: %{due_date_formatted}. 
 
-            Your baby is due on: | %{due_date_formatted}
-            You must tell your employer by: | %{qualifying_week}
-            The earliest you can start your Maternity Leave is: | %{earliest_start}
+            Leave | Key dates
+             - | - 
             Ordinary Maternity Leave (first 26 weeks): | %{period_of_ordinary_leave}
             Additional Maternity Leave (up to 26 weeks more): | %{period_of_additional_leave}
+            The earliest you can start your Maternity Leave is: | %{earliest_start}
+            You must tell your employer by: | %{qualifying_week}
+
+            You could get more time off if your employer has a company maternity scheme.
+
+            ##Maternity pay 
+
+            While on leave, you might qualify for Statutory Maternity Pay - 
+            use the [maternity pay calculator](/maternity-benefits "Maternity pay calculator")
+            to work out how much you could get. 

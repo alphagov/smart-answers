@@ -39,6 +39,13 @@ class PlanPaternityLeaveTest < ActiveSupport::TestCase
         setup do
           add_response :one_week
         end
+        
+        should "be on leave_start?" do
+          assert_current_node :leave_start?
+          assert_state_variable "leave_duration", 1
+          # FIXME:
+	  #assert_state_variable "potential_leave", "11 January 2013 to 01 March 2013"
+        end
         should "succeed on 7 weeks" do
           add_response 7.weeks.since(@due_date)
           assert_current_node :paternity_leave_details 
