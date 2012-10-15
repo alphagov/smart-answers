@@ -15,24 +15,34 @@ module SmartAnswer::Calculators
           assert_equal @start_of_week_in_four_months, @calculator.expected_week.first
         end
         
+
         should "calculate qualifying week" do
           assert_equal 15.weeks.ago(@start_of_week_in_four_months), @calculator.qualifying_week.first
         end
-        
-        should "calculate start date of employment for elligibility" do
-          assert_equal 26.weeks.ago(@start_of_week_in_four_months), @calculator.employment_start
-        end 
         
         should "calculate notice of leave deadline" do
           assert_equal 15.weeks.ago(@start_of_week_in_four_months), @calculator.notice_of_leave_deadline
         end
         
         should "calculate the earliest leave start date" do
-          assert_equal 11.weeks.ago(@due_date), @calculator.leave_earliest_start_date
+          assert_equal 11.weeks.ago(@start_of_week_in_four_months), @calculator.leave_earliest_start_date
         end
-        
-        should "calculate the proof of pregnancy deadline" do
-          assert_equal 13.weeks.ago(@due_date), @calculator.proof_of_pregnancy_date
+
+        should "calculate the relevant period" do
+          @calculator = MaternityPaternityCalculator.new(Date.parse("2012-10-12"))
+          last_pay_day = @calculator.qualifying_week.last
+          payday2 = last_pay_day.julian - (7 * 9)
+          assert_equal "Sunday, 16 April 2012 and Saturday, 30 June 2012", @calculator.relevant_period(last_pay_day, payday2)
+        end
+
+        should "calculate payday offset" do
+          assert_equal Date.parse("2012-02-01"), @calculator.payday_offset(Date.parse("2012-03-28"))
+        end
+
+        should "calculate the ssp_stop date anda the notice request date" do
+          expected_week = @calculator.expected_week.first
+          assert_equal expected_week.julian - (7 * 4), @calculator.ssp_stop
+          assert_equal expected_week.julian - 28, @calculator.notice_request_pay
         end
         
         context "with a requested leave date in one month's time" do
@@ -154,6 +164,55 @@ module SmartAnswer::Calculators
           assert_equal @calculator.lower_earning_limit, 97
         end
       end
+
+      context "qualifying_week tests" do
+        # due, qualifying_week, latest employment start, start of 11th week before due, start of 4th week
+        # 08/04/12 to 14/04/12 25/12/11 to 31/12/11 09/07/2011 22/01/2012 11/03/2012
+        should "due Monday 9th April 2012" do
+          @due_date = Date.parse("2012 Apr 09")
+          @calculator = MaternityPaternityCalculator.new(@due_date)
+          assert_equal Date.parse("09 Apr 2012"), @calculator.employment_end 
+          assert_equal Date.parse("08 Apr 2012")..Date.parse("14 Apr 2012"), @calculator.expected_week 
+          assert_equal Date.parse("25 Dec 2011"), 15.weeks.ago(@calculator.expected_week.first)
+          assert_equal Date.parse("31 Dec 2011"), 15.weeks.ago(@calculator.expected_week.first) + 6
+          assert_equal Date.parse("25 Dec 2011")..Date.parse("31 Dec 2011"), @calculator.qualifying_week
+          # assert_equal 26, (Date.parse(" Dec 2011").julian - Date.parse("09 Jul 2011").julian).to_i / 7
+          # assert_equal 26, (Date.parse("14 Apr 2012").julian - Date.parse("15 Oct 2011").julian).to_i / 7
+          # FIXME: this should work but 25 weeks rather than 26
+          assert_equal Date.parse("09 Jul 2011"), @calculator.employment_start
+          assert_equal Date.parse("22 Jan 2012"), @calculator.leave_earliest_start_date
+          assert_equal Date.parse("11 Mar 2012"), @calculator.ssp_stop
+        end
+        # 15/07/12 to 21/07/12 01/04/12 to 07/04/12 15/10/2011 29/04/2012 17/06/2012
+        should "due Wednesday 18 July 2012" do
+          @due_date = Date.parse("2012 Jul 18")
+          @calculator = MaternityPaternityCalculator.new(@due_date)
+          assert_equal Date.parse("18 Jul 2012"), @calculator.employment_end 
+          assert_equal Date.parse("15 Jul 2012")..Date.parse("21 Jul 2012"), @calculator.expected_week
+          assert_equal Date.parse("01 Apr 2012")..Date.parse("07 Apr 2012"), @calculator.qualifying_week
+          # DEBUG test
+          # assert_equal 26, (Date.parse("21 Jul 2012").julian - Date.parse("15 Oct 2011").julian).to_i / 7
+          # FIXME: ...
+          assert_equal Date.parse("15 Oct 2011"), @calculator.employment_start
+          assert_equal Date.parse("29 Apr 2012"), @calculator.leave_earliest_start_date
+          assert_equal Date.parse("17 Jun 2012"), @calculator.ssp_stop
+        end
+        # 09/09/12 to 15/09/12 27/05/12 to 02/06/12 10/12/2011 24/06/2012 12/08/2012
+        should "due Wednesday 14 Sep 2012" do
+          @due_date = Date.parse("2012 Sep 14")
+          @calculator = MaternityPaternityCalculator.new(@due_date)
+          assert_equal Date.parse("14 Sep 2012"), @calculator.employment_end 
+          assert_equal Date.parse("09 Sep 2012")..Date.parse("15 Sep 2012"), @calculator.expected_week
+          assert_equal Date.parse("27 May 2012")..Date.parse("02 Jun 2012"), @calculator.qualifying_week
+          assert_equal Date.parse("10 Dec 2011"), @calculator.employment_start
+          assert_equal Date.parse("24 Jun 2012"), @calculator.leave_earliest_start_date
+          assert_equal Date.parse("12 Aug 2012"), @calculator.ssp_stop
+        end
+        # 07/04/13 to 13/04/13 23/12/12 to 29/12/12 07/07/2012 20/01/2013 10/03/2013
+        # 27/01/13 to 02/02/13 14/10/12 to 20/10/12 28/04/2012 11/11/2012 30/12/2012
+        # 03/02/13 to 09/02/13 21/10/12 to 27/10/12 05/05/2012 18/11/2012 06/01/2013
+      end
+
     end    
   end
 end
