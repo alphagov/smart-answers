@@ -186,9 +186,14 @@ module SmartAnswer::Calculators
       ! (available_years_sum(qual_years) < 0)
     end
 
-    def not_qualifying_or_available_test?(qual_years = @qualifying_years)
-      (qual_years > 29) or (available_years_sum(qual_years) < 1)
+    def enough_qualifying_years?(qual_years = @qualifying_years)
+      qual_years > 29
     end
+
+    def no_more_available_years?(qual_years = @qualifying_years)
+      available_years_sum(qual_years) < 1
+    end
+
 
     def years_can_be_entered(ay,max_num)
       (ay > max_num ? max_num : ay)
