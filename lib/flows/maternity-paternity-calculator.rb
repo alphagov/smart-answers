@@ -1,4 +1,4 @@
-status :draft
+status :published
 satisfies_need "B1012"
 
 ## Q1
@@ -331,9 +331,11 @@ end
 
 ## QAP2
 date_question :padoption_date_of_adoption_placement? do
+
   calculate :ap_adoption_date do
     placement_date = Date.parse(responses.last)
     raise SmartAnswer::InvalidResponse if placement_date < matched_date
+    calculator.adoption_placement_date = placement_date
     placement_date
   end
   calculate :ap_adoption_date_formatted do
@@ -341,7 +343,7 @@ date_question :padoption_date_of_adoption_placement? do
   end
 
   calculate :employment_start do 
-    calculator.employment_start
+    calculator.a_employment_start
   end
   calculate :matched_date_formatted do
     calculator.format_date_day matched_date
@@ -534,7 +536,7 @@ date_question :adoption_date_leave_starts? do
     calculator.pay_end_date
   end
   calculate :employment_start do
-    calculator.employment_start
+    calculator.a_employment_start
   end
   
   calculate :a_notice_leave do
