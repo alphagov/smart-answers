@@ -29,7 +29,8 @@ module SmartAnswer::Calculators
         end
 
         should "calculate the relevant period" do
-          @calculator = MaternityPaternityCalculator.new(Date.parse("2012-10-12"))
+          @dd = Date.parse("2012-10-12")
+          @calculator = MaternityPaternityCalculator.new(@dd)
           last_pay_day = @calculator.qualifying_week.last
           payday2 = last_pay_day.julian - (7 * 9)
           assert_equal "Sunday, 16 April 2012 and Saturday, 30 June 2012", @calculator.relevant_period(last_pay_day, payday2)
@@ -40,9 +41,10 @@ module SmartAnswer::Calculators
         end
 
         should "calculate the ssp_stop date anda the notice request date" do
+          @calculator = MaternityPaternityCalculator.new(Date.parse("2012 Oct 12"))
           expected_week = @calculator.expected_week.first
           assert_equal expected_week.julian - (7 * 4), @calculator.ssp_stop
-          assert_equal expected_week.julian - 28, @calculator.notice_request_pay
+          assert_equal Date.parse("2012 Oct 12") - 27, @calculator.notice_request_pay
         end
         
         context "with a requested leave date in one month's time" do
@@ -211,6 +213,27 @@ module SmartAnswer::Calculators
         # 07/04/13 to 13/04/13 23/12/12 to 29/12/12 07/07/2012 20/01/2013 10/03/2013
         # 27/01/13 to 02/02/13 14/10/12 to 20/10/12 28/04/2012 11/11/2012 30/12/2012
         # 03/02/13 to 09/02/13 21/10/12 to 27/10/12 05/05/2012 18/11/2012 06/01/2013
+      end
+
+      context "adoption employment start tests" do
+        # 27/05/12 to 02/06/12 10/12/11
+        should "matched_date Monday 28th May 2012" do
+          @matched_date = Date.parse("2012 May 28")
+          @calculator = MaternityPaternityCalculator.new(@matched_date, MaternityPaternityCalculator::LEAVE_TYPE_ADOPTION)
+          assert_equal Date.parse("2012 May 27")..Date.parse("2012 Jun 02"), @calculator.matched_week
+          assert_equal Date.parse("2011 Dec 10"), @calculator.a_employment_start
+        end
+        # 15/07/12 to 21/07/12 28/01/12
+        should "matched_date Wednesday 18th July 2012" do
+          @matched_date = Date.parse("2012 Jul 18")
+          @calculator = MaternityPaternityCalculator.new(@matched_date, MaternityPaternityCalculator::LEAVE_TYPE_ADOPTION)
+          assert_equal Date.parse("2012 Jul 15")..Date.parse("2012 Jul 21"), @calculator.matched_week
+          assert_equal Date.parse("2012 Jan 28"), @calculator.a_employment_start
+          assert_equal 25, (Date.parse("2012 Jul 21").julian - Date.parse("2012 Jan 28").julian).to_i / 7 
+        end
+        # 16/09/12 to 22/09/12 31/03/12
+        # 09/12/12 to 15/12/12 23/06/12
+        # 10/03/13 to 16/03/13 22/09/12
       end
 
     end    

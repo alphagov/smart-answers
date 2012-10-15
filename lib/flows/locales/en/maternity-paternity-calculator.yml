@@ -25,12 +25,12 @@ en-GB:
         + your employee's salary details - eg weekly rates of pay
         + the dates for adoption - eg match date or date of placement 
 
-        % You can’t use the calculator for [Additional Paternity Leave or Pay](/additional-paternity-leave-pay-employees "Additional paternity leave or pay") and paternity leave for [overseas adoptions](/paternity-leave-pay-employees "Paternity leave for adoptions"). %
+        % You can’t use the calculator for [Additional Paternity Leave or Pay](/additional-paternity-leave-pay-employees "Additional paternity leave or pay") and paternity leave for [overseas adoptions](/paternity-leave-pay-employees "Paternity leave for adoptions") or births 15 weeks before the due date. %
       phrases:
         not_worked_long_enough: + they must have started working for you on or before %{employment_start}
         must_be_on_payroll: + you must be liable for their secondary Class 1 National Insurance contributions - ie you will be if they’re on your payroll
         must_earn_over_threshold: + their average weekly earnings between %{relevant_period} must be at least £%{lower_earning_limit}
-        pa_must_be_employed_by_you: + they must still be employed by you on %{matched_date_formatted}
+        pa_must_be_employed_by_you: + they must still be employed by you on %{ap_adoption_date_formatted}
         must_be_employed_by_you: + they must still be employed by you up to %{due_date}
         not_responsible_for_upbringing: + aren’t responsible for the child’s upbringing or the adopter’s partner
         maternity_leave_table: |
@@ -64,7 +64,7 @@ en-GB:
           |Weekly rate - first 6 weeks          | £%{smp_a}                  |
           |Weekly rate - for remaining 33 weeks | £%{smp_b}                  |
           |Latest date to give notice           | %{notice_request_pay}      |
-          |Proof of pregnancy                   | Usually 21 days before SMP starts  |
+          |Proof of pregnancy                   | Usually 28 days before SMP starts (or as soon as possible if baby born early)  |
           |Start date due to pregnancy related illness| %{ssp_stop}          |
 
 
@@ -126,7 +126,7 @@ en-GB:
 
           The employee is entitled to either 1 or 2 weeks Statutory Paternity Leave.
 
-          They should request this using form SC4 or SC5, the deadlines for this are explained on the forms.
+          They should request this using form SC4, the deadlines for this are explained on the forms.
 
           Usually, paternity leave can’t start before %{ap_adoption_date_formatted} and should be taken within 56 days of this date.
 
@@ -135,14 +135,13 @@ en-GB:
 
           The employee is entitled to Statutory Paternity Pay - £%{sapp_rate} a week.
 
-          They should request this using form SC4 or SC5 usually 28 days before it is due to start.
+          They should request this using form SC4 usually 28 days before it is due to start.
 
         padoption_leave_and_pay_forms: |
         
 
           $D
           [Download Form SC4 - paternity pay and or leave request (UK adoption) (PDF, 50 KB)](http://www.hmrc.gov.uk/forms/sc4.pdf "Download Form SC4 - paternity pay and or leave request (UK adoption) (PDF, 50 KB)"){:rel="external"}
-          [Download Form SC5 - paternity pay and or leave request (overseas adoptions) (PDF, 70KB)](http://www.hmrc.gov.uk/forms/sc5.pdf "Download Form SC5 - paternity pay and or leave request (overseas adoptions) (PDF, 70KB)"){:rel="external"}
           $D
 
         padoption_not_entitled_to_leave: |
@@ -220,7 +219,7 @@ en-GB:
       ## QM3
       date_leave_starts?:
         title: When does the employee want to start their leave?
-        hint: Leave can't start before %{leave_earliest_start_date}
+        hint: Usually, leave can&apos;t start before %{leave_earliest_start_date}
       ## QM4
       did_the_employee_work_for_you?:
         title: Did the employee work for you on or before %{employment_start}?
@@ -238,9 +237,12 @@ en-GB:
       ## QM6
       employees_average_weekly_earnings?:
         title: What were the employee’s average weekly earnings between %{relevant_period}?
+        hint: This is the relevant period.
         error_message: Please enter a number greater than 0
       ## Combined result for maternity leave and pay.
       maternity_leave_and_pay_result:
+        next_steps: |
+          Read the [guide to Statutory Maternity Pay and Leave](/maternity-leave-pay-employees "Maternity leave and pay")
         body: |   
           %{maternity_leave_info}
 
@@ -272,14 +274,19 @@ en-GB:
       ## QP7
       employees_average_weekly_earnings_paternity?:
         title: What were the employee’s average weekly earnings between %{relevant_period}?
+        hint: This is the relevant period. 
       ## Paternity Results:
       paternity_leave_and_pay:
+        next_steps: |
+          Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees "Paternity leave and pay")
         body: |
           %{paternity_leave_info}
 
           %{paternity_pay_info}
 
       paternity_not_entitled_to_leave_or_pay:
+        next_steps: |
+          Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees "Paternity leave and pay")
         body: |
           ##Not entitled to paternity leave or pay
 
@@ -296,11 +303,9 @@ en-GB:
       ## QAP1
       employee_date_matched_paternity_adoption?:
         title: When was the child matched with the employee?
-        hint: For overseas adoptions, enter the date the employee got permission to adopt from abroad.
       ## QAP2
       padoption_date_of_adoption_placement?:
         title: When will the child be placed with the employee?
-        hint: For overseas adoptions enter the date of arrival in the UK.
         error_message: Placement date can't be before matching date
       ## QAP3
       padoption_employee_responsible_for_upbringing?:
@@ -313,22 +318,27 @@ en-GB:
         title: Does the employee have an employment contract with you?
       ## QAP6
       padoption_employed_at_employment_end?:
-        title: Will the employee be employed by you on %{employment_end}?
+        title: Will the employee be employed by you on %{ap_adoption_date_formatted}?
       ## QAP7
       padoption_employee_on_payroll?:
         title: Is the employee on your payroll?
       ## QAP8
       padoption_employee_avg_weekly_earnings?:
         title: What were the employee’s average weekly earnings between %{relevant_period}?
+        hint: This is the relevant period.
         
       ## Paternity Adoption Results
       padoption_leave_and_pay:
+        next_steps: |
+          Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees "Paternity leave and pay")
         body: |
           %{padoption_leave_info}
 
           %{padoption_pay_info}
       
       padoption_not_entitled_to_leave_or_pay:
+        next_steps: |
+          Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees "Paternity leave and pay")
         body: |
           ##Not entitled to Statutory Paternity Leave and Pay
           
@@ -359,7 +369,6 @@ en-GB:
       ## QA4
       adoption_date_leave_starts?:
         title: When does the employee want to start their leave?
-        hint: Leave can’t start before %{a_leave_earliest_start}
         error_message: Please enter a valid date
       ## QA5
       adoption_did_the_employee_work_for_you?:
@@ -370,14 +379,19 @@ en-GB:
       ## QA7
       adoption_employees_average_weekly_earnings?:
          title: What were the employee’s average weekly earnings between %{relevant_period}?
+         hint: This is the relevant period.
       ## Adoption outcomes
       adoption_leave_and_pay:
+        next_steps: |
+          Read the [guide to Statutory Adoption Pay and Leave](/adoption-leave-pay-employees "Adoption leave and pay")
         body: |
           %{adoption_leave_info}
 
           %{adoption_pay_info}
 
       adoption_not_entitled_to_leave_or_pay:
+        next_steps: |
+          Read the [guide to Statutory Adoption Pay and Leave](/adoption-leave-pay-employees “Adoption leave and pay”)
         body: |
           ##Not entitled to Statutory Adoption Leave and Pay
           

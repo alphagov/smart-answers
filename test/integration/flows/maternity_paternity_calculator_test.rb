@@ -723,6 +723,9 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
               should "ask if the employee worked for you before ..." do
                 assert_current_node :adoption_did_the_employee_work_for_you?
               end
+              should "return employment_start" do
+                assert_state_variable "employment_start", Date.parse("2012 Jan 28")
+              end
               context "answer yes" do
                 setup do
                   add_response :yes
