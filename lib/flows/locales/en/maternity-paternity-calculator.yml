@@ -30,7 +30,7 @@ en-GB:
         not_worked_long_enough: + they must have started working for you on or before %{employment_start}
         must_be_on_payroll: + you must be liable for their secondary Class 1 National Insurance contributions - ie you will be if they’re on your payroll
         must_earn_over_threshold: + their average weekly earnings between %{relevant_period} must be at least £%{lower_earning_limit}
-        pa_must_be_employed_by_you: + they must still be employed by you on %{matched_date_formatted}
+        pa_must_be_employed_by_you: + they must still be employed by you on %{ap_adoption_date_formatted}
         must_be_employed_by_you: + they must still be employed by you up to %{due_date}
         not_responsible_for_upbringing: + aren’t responsible for the child’s upbringing or the adopter’s partner
         maternity_leave_table: |
@@ -313,7 +313,7 @@ en-GB:
         title: Does the employee have an employment contract with you?
       ## QAP6
       padoption_employed_at_employment_end?:
-        title: Will the employee be employed by you on %{employment_end}?
+        title: Will the employee be employed by you on %{ap_adoption_date_formatted}?
       ## QAP7
       padoption_employee_on_payroll?:
         title: Is the employee on your payroll?
