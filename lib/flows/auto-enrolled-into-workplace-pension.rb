@@ -1,4 +1,4 @@
-status :draft
+status :published
 satisfies_need "2483"
 
 multiple_choice :work_in_uk? do
@@ -13,13 +13,14 @@ end
 
 value_question :how_many_people? do
   calculate :num_employees do
-    num = responses.last.to_i
+    num = Integer(responses.last)
     raise SmartAnswer::InvalidResponse if num < 1 or num > 9999999
     num
   end
 
   next_node do |response| 
-    if response.to_i < 30
+    # response.to_i returns 2 if user enters 2,500, so prevent them from entering numbers with a comma
+    if Integer(response) < 30
       :not_enrolled_automatically
     else 
       :how_old?
