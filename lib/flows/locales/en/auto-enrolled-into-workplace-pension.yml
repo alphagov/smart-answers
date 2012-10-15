@@ -24,15 +24,13 @@ en-GB:
         title: Are you already in a workplace pension?
       how_many_people?:
         title: How many people work for your employer?
+        hint: The date your employer must automatically enrol you into a pension scheme depends on how many workers they have. If you’re not sure, you can ask your employer.
         error_message: Please enter a number.
       how_old?:
         title: |
           How old are you going to be on %{enrollment_date}?
         body: |
-          Employers will start enrolling their workers in October 2012. The
-          latest you’ll be enrolled is 2018.
-
-          Find out when you'll reach [State Pension](http://pensions-service.direct.gov.uk/en/state-pension-age-calculator/home.asp "State Pension age calculator"){:rel="external"} age.
+          Find out when you'll reach [State Pension](/state-pension-calculator "State Pension calculator") age.
         options:
           between_16_21: 16 to 21
           between_22_sp: 22 to State Pension age
@@ -57,7 +55,7 @@ en-GB:
           several_employers: Working for more than one employer
           overseas_company: Working in the UK for an overseas-based company
           contract: A short-term contract worker
-          office_holder: An office holder
+          office_holder: An office holder (eg executive director of a company, member of the clergy)
           carer: A carer
           none: None of the above
       ## A1
