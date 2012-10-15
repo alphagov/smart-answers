@@ -23,7 +23,7 @@ module SmartAnswer::Calculators
       @a_employment_start = 25.weeks.ago(@matched_week.last)
       @leave_earliest_start_date = 11.weeks.ago(@expected_week.first)
       @ssp_stop = 4.weeks.ago(@expected_week.first)
-      @notice_request_pay = 28.days.ago(@due_date)
+      @notice_request_pay = 27.days.ago(@due_date)
 
       # Adoption instance vars
       @a_notice_leave = @match_date + 7

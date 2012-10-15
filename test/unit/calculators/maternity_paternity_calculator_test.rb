@@ -41,9 +41,10 @@ module SmartAnswer::Calculators
         end
 
         should "calculate the ssp_stop date anda the notice request date" do
+          @calculator = MaternityPaternityCalculator.new(Date.parse("2012 Oct 12"))
           expected_week = @calculator.expected_week.first
           assert_equal expected_week.julian - (7 * 4), @calculator.ssp_stop
-          assert_equal @dd.julian - 28, @calculator.notice_request_pay
+          assert_equal Date.parse("2012 Oct 12") - 27, @calculator.notice_request_pay
         end
         
         context "with a requested leave date in one month's time" do
