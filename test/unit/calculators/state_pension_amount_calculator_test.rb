@@ -11,11 +11,6 @@ module SmartAnswer::Calculators
         assert_equal 107.45, @calculator.what_you_get
       end
 
-      # automatic years allocation for men born before 6 Oct 1953 removed for initial release
-      # should "be 5 automatic years" do
-      #   @calculator.allocate_automatic_years
-      #   assert_equal 5, @calculator.automatic_years
-      # end
     end
 
     context "female, born 7th April 1951, 39 qualifying years" do
@@ -177,13 +172,6 @@ module SmartAnswer::Calculators
           assert ! @calculator.has_available_years?(14)
         end
 
-        should "not_qualifying_or_available_test?(13) return true" do
-          assert @calculator.not_qualifying_or_available_test?(13)
-        end
-
-        should "not_qualifying_or_available_test? return true" do
-          assert ! @calculator.not_qualifying_or_available_test?
-        end
       end
 
 

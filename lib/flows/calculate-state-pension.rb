@@ -139,7 +139,7 @@ end
 
 # Q4
 value_question :years_paid_ni? do
-  # part of a hint for questions 7 and 9 that should only be displayed for women born before 1962
+  # part of a hint for questions 4, 7 and 9 that should only be displayed for women born before 1962
   precalculate :carer_hint_for_women do
     if gender == 'female' and (Date.parse(dob) < Date.parse('1962-01-01'))
       PhraseList.new(:carers_allowance_women_hint)
@@ -169,7 +169,19 @@ value_question :years_paid_ni? do
 
   next_node do |response|
     ni = Integer(response)
-    (calculator.not_qualifying_or_available_test?(ni)  ? :amount_result : :years_of_jsa?)
+    if calculator.enough_qualifying_years?(ni)
+      :amount_result
+    else
+      if calculator.no_more_available_years?(ni)
+        if calculator.three_year_credit_age?
+          :amount_result
+        else
+          :years_of_work? # Q10
+        end
+      else
+        :years_of_jsa? # Q5
+      end
+    end
   end
 end
 
@@ -193,12 +205,18 @@ value_question :years_of_jsa? do
 
   next_node do |response|
     ni = Integer(response) + qualifying_years
-    if calculator.not_qualifying_or_available_test?(ni)
+    if calculator.enough_qualifying_years?(ni)
       :amount_result
     else 
-      # question 5a for men born before 6 Oct 1953 removed from initial release
-      #((Date.parse(dob) < Date.parse("6th October 1953") and (gender == "male")) ? :employed_between_60_and_64? : :received_child_benefit?  ) 
-      :received_child_benefit?
+      if calculator.no_more_available_years?(ni)
+        if calculator.three_year_credit_age?
+          :amount_result
+        else
+          :years_of_work? # Q10
+        end
+      else
+        :received_child_benefit? # Q6
+      end
     end
   end
 end
@@ -267,10 +285,18 @@ value_question :years_of_benefit? do
   next_node do |response|
     benefit_years = Integer(response)
     ni = (qualifying_years + benefit_years)
-    if calculator.not_qualifying_or_available_test?(ni)
+    if calculator.enough_qualifying_years?(ni)
       :amount_result    
     else
-      :years_of_caring? # Q8
+      if calculator.no_more_available_years?(ni)
+        if calculator.three_year_credit_age?
+          :amount_result
+        else
+          :years_of_work? # Q10
+        end
+      else
+        :years_of_caring? # Q8
+      end
     end
   end
 end
@@ -303,10 +329,18 @@ value_question :years_of_caring? do
   next_node do |response|
     caring_years = Integer(response)
     ni = (qualifying_years + caring_years)
-    if calculator.not_qualifying_or_available_test?(ni)
+    if calculator.enough_qualifying_years?(ni)
       :amount_result    
     else
-      :years_of_carers_allowance? # Q9
+      if calculator.no_more_available_years?(ni)
+        if calculator.three_year_credit_age?
+          :amount_result
+        else
+          :years_of_work? # Q10
+        end
+      else
+        :years_of_carers_allowance? # Q9
+      end
     end
   end
 end
@@ -323,10 +357,10 @@ value_question :years_of_carers_allowance? do
   next_node do |response|
     caring_years = Integer(response)
     ni = (qualifying_years + caring_years) 
-    if calculator.not_qualifying_or_available_test?(ni)
+    if calculator.enough_qualifying_years?(ni)
       :amount_result    
     else
-      ((Date.parse(dob) >= Date.parse("1959-04-06") and Date.parse(dob) <= Date.parse("1992-04-05")) ? :amount_result : :years_of_work?) 
+      calculator.three_year_credit_age? ? :amount_result : :years_of_work?
     end
   end
 end
