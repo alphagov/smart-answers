@@ -51,11 +51,11 @@ module SmartAnswer::Calculators
 			    end
 
 		    	should "period_of_ordinary_leave give range of 11 December 2012 - 11 June 2013" do
-			      assert_equal "11 December 2012 - 11 June 2013", @calculator.format_date_range(@calculator.period_of_ordinary_leave)
+			      assert_equal "11 December 2012 to 11 June 2013", @calculator.format_date_range(@calculator.period_of_ordinary_leave)
 			    end
 
 		    	should "period_of_additional_leave give range of 10 December 2012 - 10 June 2013" do
-			    	assert_equal "11 June 2013 - 10 December 2013", @calculator.format_date_range(@calculator.period_of_additional_leave)
+			    	assert_equal "11 June 2013 to 10 December 2013", @calculator.format_date_range(@calculator.period_of_additional_leave)
 			    end
 			  end
 	  	end

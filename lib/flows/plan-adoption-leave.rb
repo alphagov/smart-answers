@@ -1,4 +1,4 @@
-status :draft
+status :published
 satisfies_need "1948"
 
 date_question :child_match_date? do 
@@ -48,6 +48,7 @@ outcome :adoption_leave_details do
   end
   precalculate :qualifying_week do
     calculator.qualifying_week.last
+    # calculator.formatted_date (Date.parse(match_date) - 7)
   end
   precalculate :earliest_start do
     calculator.earliest_start
