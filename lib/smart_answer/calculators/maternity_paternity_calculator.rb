@@ -2,11 +2,10 @@ module SmartAnswer::Calculators
   class MaternityPaternityCalculator
   
     attr_reader :due_date, :expected_week, :qualifying_week, :employment_start, :notice_of_leave_deadline, 
-      :leave_earliest_start_date, :proof_of_pregnancy_date, :adoption_placement_date, :ssp_stop, 
+      :leave_earliest_start_date, :adoption_placement_date, :ssp_stop, 
       :notice_request_pay, :matched_week
-    # :relevant_period, 
     
-    attr_accessor :employment_contract, :leave_start_date, :average_weekly_earnings
+    attr_accessor :employment_contract, :leave_start_date, :average_weekly_earnings, :a_notice_leave
     
     MATERNITY_RATE = PATERNITY_RATE = 135.45
     LEAVE_TYPE_BIRTH = "birth"
@@ -20,10 +19,8 @@ module SmartAnswer::Calculators
       @expected_week = @matched_week = expected_start .. expected_start + 6.days
       @notice_of_leave_deadline = qualifying_start = 15.weeks.ago(expected_start)
       @qualifying_week = qualifying_start .. qualifying_start + 6.days
-      # @relevant_period = "#{8.weeks.ago(qualifying_start).to_s(:long)} and #{qualifying_start.to_s(:long)}"
       @employment_start = @a_employment_start = 25.weeks.ago(@qualifying_week.last)
       @leave_earliest_start_date = 11.weeks.ago(@expected_week.first)
-      @proof_of_pregnancy_date = 13.weeks.ago(expected_start)
       @ssp_stop = 4.weeks.ago(@expected_week.first)
       @notice_request_pay = 28.days.ago(expected_start)
 

@@ -6,7 +6,7 @@ multiple_choice :what_type_of_leave? do
   save_input_as :leave_type
   option :maternity => :baby_due_date_maternity?
   option :paternity => :leave_or_pay_for_adoption?
-  option :adoption => :maternity_or_paternity_leave_for_adoption?
+  option :adoption => :taking_paternity_leave_for_adoption?
 end
 
 ## QM1
@@ -43,7 +43,7 @@ date_question :date_leave_starts? do
     calculator.leave_start_date = ls_date
     calculator.leave_start_date
   end
-  # FIXME: check which of these is still needed
+  
   calculate :leave_end_date do
     calculator.leave_end_date
   end
@@ -62,9 +62,6 @@ date_question :date_leave_starts? do
   end
   calculate :employment_start do
     calculator.employment_start
-  end
-  calculate :proof_of_pregnancy_date do
-    calculator.proof_of_pregnancy_date
   end
   calculate :ssp_stop do
     calculator.ssp_stop
@@ -106,7 +103,7 @@ multiple_choice :is_the_employee_on_your_payroll? do
   end
 end
 
-## QM5.2 && P6.2
+## QM5.2 && QP6.2 && QA6.2 
 date_question :last_normal_payday? do
   calculate :last_payday do
     last_payday = Date.parse(responses.last)
@@ -117,7 +114,7 @@ date_question :last_normal_payday? do
   next_node :payday_eight_weeks?
 end
 
-## QM5.3 && P6.3
+## QM5.3 && P6.3 && A6.3
 date_question :payday_eight_weeks? do
   precalculate :payday_offset do
     calculator.format_date_day calculator.payday_offset(last_payday)
@@ -215,9 +212,7 @@ end
 
 ## QP2
 multiple_choice :employee_responsible_for_upbringing? do
-  # calculate :relevant_period do
-  #   calculator.relevant_period
-  # end
+
   calculate :employment_start do
     calculator.employment_start
   end
@@ -337,17 +332,14 @@ end
 ## QAP2
 date_question :padoption_date_of_adoption_placement? do
   calculate :ap_adoption_date do
-    Date.parse(responses.last)
+    placement_date = Date.parse(responses.last)
+    raise SmartAnswer::InvalidResponse if placement_date < matched_date
+    placement_date
   end
   calculate :ap_adoption_date_formatted do
     calculator.format_date_day ap_adoption_date
   end
-  # calculate :ap_qualifying_week do 
-  #   calculator.qualifying_week
-  # end
-  # calculate :relevant_period do
-  #   calculator.relevant_period
-  # end
+
   calculate :employment_start do 
     calculator.employment_start
   end
@@ -474,15 +466,18 @@ outcome :padoption_not_entitled_to_leave_or_pay
 
 ## Adoption
 ## QA0
-multiple_choice :maternity_or_paternity_leave_for_adoption? do
+multiple_choice :taking_paternity_leave_for_adoption? do
   option :yes => :employee_date_matched_paternity_adoption? #QAP1
   option :no => :date_of_adoption_match? # QA1
 end
 
 ## QA1
 date_question :date_of_adoption_match? do
+  calculate :match_date do
+    Date.parse(responses.last)
+  end
   calculate :calculator do
-    Calculators::MaternityPaternityCalculator.new(Date.parse(responses.last), Calculators::MaternityPaternityCalculator::LEAVE_TYPE_ADOPTION)
+    Calculators::MaternityPaternityCalculator.new(match_date, Calculators::MaternityPaternityCalculator::LEAVE_TYPE_ADOPTION)
   end
   next_node :date_of_adoption_placement?
 end
@@ -491,11 +486,12 @@ end
 date_question :date_of_adoption_placement? do
   calculate :adoption_placement_date do
     placement_date = Date.parse(responses.last)
+    raise SmartAnswer::InvalidResponse if placement_date < match_date
     calculator.adoption_placement_date = placement_date
     placement_date
   end
   calculate :a_leave_earliest_start do
-    calculator.format_date_day (placement_date + 14)
+    calculator.format_date_day (adoption_placement_date - 14)
   end
   next_node :adoption_employment_contract?
 end
@@ -519,17 +515,18 @@ end
 ## QA4
 date_question :adoption_date_leave_starts? do
   calculate :adoption_date_leave_starts do
-    calculator.adoption_leave_start_date = Date.parse(responses.last)
+    ald_start = Date.parse(responses.last)
+    raise SmartAnswer::InvalidResponse if ald_start < Date.parse(a_leave_earliest_start)
+    calculator.adoption_leave_start_date = ald_start 
   end
+
   calculate :leave_start_date do
     calculator.leave_start_date
   end
   calculate :leave_end_date do
     calculator.leave_end_date
   end
-  calculate :leave_earliest_start_date do
-    calculator.leave_earliest_start_date
-  end
+ 
   calculate :pay_start_date do
     calculator.pay_start_date
   end
@@ -543,6 +540,7 @@ date_question :adoption_date_leave_starts? do
   calculate :a_notice_leave do
     calculator.format_date_day calculator.a_notice_leave
   end
+
   next_node :adoption_did_the_employee_work_for_you?
 end
 
@@ -557,9 +555,6 @@ multiple_choice :adoption_did_the_employee_work_for_you? do
     else
       PhraseList.new(:adoption_not_entitled_to_leave)
     end
-  end
-  calculate :relevant_period do
-    calculator.relevant_period
   end
 end
 

@@ -20,20 +20,12 @@ module SmartAnswer::Calculators
           assert_equal 15.weeks.ago(@start_of_week_in_four_months), @calculator.qualifying_week.first
         end
         
-        # should "calculate start date of employment for elligibility" do
-        #   assert_equal 26.weeks.ago(@start_of_week_in_four_months), @calculator.employment_start
-        # end 
-        
         should "calculate notice of leave deadline" do
           assert_equal 15.weeks.ago(@start_of_week_in_four_months), @calculator.notice_of_leave_deadline
         end
         
         should "calculate the earliest leave start date" do
           assert_equal 11.weeks.ago(@start_of_week_in_four_months), @calculator.leave_earliest_start_date
-        end
-        
-        should "calculate the proof of pregnancy deadline" do
-          assert_equal 13.weeks.ago(@due_date - @due_date.wday), @calculator.proof_of_pregnancy_date
         end
 
         should "calculate the relevant period" do
