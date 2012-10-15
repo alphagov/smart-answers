@@ -3,7 +3,7 @@ en-GB:
     calculate-state-pension:
       title: State Pension calculator
       meta:
-        description: "Use this tool to work out your State Pension age or estimate how much basic State Pension you may get when you reach State Pension age."
+        description: "Use this tool to work out your State Pension age or estimate how much basic State Pension you may get."
       body: |
         Calculate when you'll reach State Pension age and how much you may get in today's money for your basic State Pension.
       devolved_body: |
@@ -184,9 +184,9 @@ en-GB:
         error_message: Enter your date of birth
       ## Q4
       years_paid_ni?:
-        title: How many years have you worked and paid tax from the age of 19?
+        title: How many years have you worked and paid National Insurance contributions from the age of 19?
         hint: |
-          These are the years you paid National Insurance towards your State Pension. They can be years when you paid Class 1 National Insurance with your wages, Class 2 if you were self employed or Class 3 if you paid voluntary contributions. Enter 0 if you haven’t worked and paid voluntary contributions.
+          These are the years when you paid Class 1 with your wages, Class 2 if you were self employed or Class 3 if you paid voluntary contributions. %{carer_hint_for_women} Enter 0 if you haven’t worked and paid voluntary contributions.
         error_message: |
           Your answer has to match the number of years you actually worked and paid National Insurance. 
           Based on your date of birth you can enter up to %{available_ni_years} years.
@@ -196,11 +196,7 @@ en-GB:
         hint: These are years you may have received credits towards your State Pension. Don’t count years you entered in question 4. Enter 0 if you’ve never claimed benefits.
         error_message: |
           Please enter a number. Based on your previous answers you can enter up to %{available_ni_years} years.
-      ## Q5a - removed from initial release
-      # employed_between_60_and_64?:
-      #   title: Were you or are you expecting to be employed between the age of 60 and 64?
-      #   hint: Don't count time when you were self-employed or abroad for more than 6 months.
-      # ## Q6
+      ## Q6
       received_child_benefit?:
         title: "Have you ever:"
         body: |
@@ -215,7 +211,7 @@ en-GB:
           - you cared for someone sick or disabled 
           - you worked as a registered carer (only count years from 2003 to 2010)
         hint: These are years when you were getting Home Responsibility Protection. Enter 0 if none of these apply. Don’t count any years you’ve entered in the previous questions. %{carer_hint_for_women}
-        error_message: Please enter a number between 0 and %{years_you_can_enter}.
+        error_message: Please enter a number between 0 and %{years_you_can_enter}. The maximum number of Home Responsibility Protection years possible is 22.
       ## Q8 
       years_of_caring?:
         title: "From 6 April 2010 how many years did any of the following apply:"

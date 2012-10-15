@@ -140,7 +140,7 @@ end
 # Q4
 value_question :years_paid_ni? do
   # part of a hint for questions 7 and 9 that should only be displayed for women born before 1962
-  calculate :carer_hint_for_women do
+  precalculate :carer_hint_for_women do
     if gender == 'female' and (Date.parse(dob) < Date.parse('1962-01-01'))
       PhraseList.new(:carers_allowance_women_hint)
     else
