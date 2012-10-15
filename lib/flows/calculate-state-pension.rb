@@ -444,20 +444,21 @@ outcome :amount_result do
     (calculator.three_year_credit_age? ? 3 : 0)
   end
 
-  precalculate :automatic_years_text do
-    if ( Date.parse(dob) < Date.parse("6th October 1953") and (gender == "male") )
-        PhraseList.new(:automatic_years_phrase)
-    else
-      ''
-    end
-  end
 
   precalculate :result_text do
     if qualifying_years_total < 30
       if remaining_years >= missing_years
-        PhraseList.new :too_few_qy_enough_remaining_years
+        text = PhraseList.new :too_few_qy_enough_remaining_years
+        if ( Date.parse(dob) < Date.parse("6th October 1953") and (gender == "male") )
+          text << :automatic_years_phrase
+        end
+        text
       else
-        PhraseList.new :too_few_qy_not_enough_remaining_years
+        text = PhraseList.new :too_few_qy_not_enough_remaining_years
+        if ( Date.parse(dob) < Date.parse("6th October 1953") and (gender == "male") )
+          text << :automatic_years_phrase
+        end
+        text
       end
     else
       PhraseList.new :you_get_full_state_pension

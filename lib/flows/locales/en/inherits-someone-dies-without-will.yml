@@ -4,6 +4,8 @@ en-GB:
       title:
         Who inherits if someone dies without a will?
       subtitle: Intestacy - how an estate is divided up if there is no will
+      meta:
+        description: Use this tool to find out who is entitled to a share of someone’s property, possessions and money if they die without making a will.
       options:
         "no": "No"
         "yes": "Yes"
@@ -170,3 +172,4 @@ en-GB:
           They may have to pay Inheritance Tax.
       everything_goes_to_crown:
         title: The whole estate goes to the Crown.
+        next_steps: Read what happens to [ownerless property](/unclaimed-estates-bona-vacantia "Ownerless property (bona vacantia)")
