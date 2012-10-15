@@ -1,4 +1,4 @@
-status :draft
+status :published
 satisfies_need "1948"
 
 date_question :child_match_date? do 
