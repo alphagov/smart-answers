@@ -102,7 +102,7 @@ en-GB:
           The result may be different if your income changes during the tax year.
 
       estimated_tax_charge:
-        title: The highest earner will have to pay £%{benefit_tax}.
+        title: The person with the highest income will have to pay £%{benefit_tax}.
         body: |
           Child Benefit | Your results
           -|- 
