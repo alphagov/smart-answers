@@ -61,7 +61,7 @@ en-GB:
           sw: "Switzerland"
           zim: "Zimbabwe"
 
-      q6:
+      how_old:
         title: "How old are you?"
         options:
           under_45: "Under 45"
