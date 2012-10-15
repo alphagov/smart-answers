@@ -17,7 +17,7 @@ en-GB:
 
         You can’t use this tool if you’re 
         [adopting from abroad](/adoption-leave “Adopting leave”) or taking 
-        [paternity leave for an adoption](/paternity-leave “Paternity leave”).       
+        [paternity leave for an adoption](/paternityleave “Paternity leave”).       
       # Questions
       child_match_date?:
         title: When were you matched with the child?
@@ -32,6 +32,8 @@ en-GB:
       # Outcomes
       adoption_leave_details:
         title: Your Adoption Leave dates
+        next_steps: |
+          Read our guides to adoption [leave](/adoption-leave) or [pay](/statutory-adoption-pay “Statutory Adoption Pay”) 
         body: |
           You can take up to 52 weeks Statutory Adoption Leave. 
           The dates below are based on this and the date the child starts to 

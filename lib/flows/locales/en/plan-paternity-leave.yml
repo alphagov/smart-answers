@@ -36,6 +36,8 @@ en-GB:
       # Outcomes
       paternity_leave_details:
         title: Your Statutory Paternity Leave
+        next_steps: |
+          Read our guides to paternity [leave](/paternity-leave) or [pay](/paternity-pay)
         body: |
             Below is a list of key dates that explain when you can take your Paternity Leave. 
             
