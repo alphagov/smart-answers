@@ -39,6 +39,11 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
         should "give an answer" do
           assert_current_node :age_result
+          assert_phrase_list :tense_specific_title, [:have_reached_pension_age]
+          assert_phrase_list :state_pension_age_statement, [:state_pension_age_was]
+          assert_state_variable "state_pension_age", "65 years"
+          assert_state_variable "formatted_state_pension_date", " 6 April 2010"
+          assert_state_variable "formatted_pension_pack_date", "December 2009"
         end
       end # born on 6th of April
     end # male
@@ -52,6 +57,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
       
         should "tell them they are within four months and four days of state pension age" do
           assert_current_node :near_state_pension_age
+          assert_state_variable "formatted_state_pension_date", " 6 November 2012"
         end 
       end
     end
@@ -203,7 +209,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
                         assert_state_variable "state_pension_age", "65 years"
                         assert_state_variable "remaining_years", 6
                         assert_state_variable "pension_loss", "14.33"
-                        assert_phrase_list :automatic_years_text, [:automatic_years_phrase]
+                        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years, :automatic_years_phrase]
                         assert_state_variable "state_pension_date", Date.parse("2018 Oct 4th")
                         assert_current_node :amount_result
                       end

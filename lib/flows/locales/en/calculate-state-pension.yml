@@ -17,7 +17,7 @@ en-GB:
 
         Count tax years from 6 April to 5 April and don’t count any years twice (eg when you were working and getting benefits). Don’t count the current tax year.
         
-        This calculator uses a simplified calculation, it can't take into account every circumstance that might affect you. Don’t make future financial decisions based on its results.
+        This calculator uses a simplified calculation based on the current law. It can't take into account every circumstance that might affect you. Don’t make future financial decisions based on its results.
       options:
         "yes": "Yes"
         "no": "No"
@@ -99,7 +99,7 @@ en-GB:
 
           You can also read about [voluntary contributions.](/voluntary-national-insurance-contributions "voluntary National Insurance contributions")
 
-          You might be able to use your partner's National Insurance to increase your [basic State Pension](/state-pension/eligibility "Increase your basic State Pension")
+          You might be able to use your partner's or late or former partner's National Insurance to increase your [basic State Pension](/state-pension/eligibility "Increase your basic State Pension")
 
           Your estimate may include up to 3 years of automatic credits for the years containing your 16th, 17th and 18th birthdays. If you got your National Insurance number after April 2010 you don’t get these automatic credits.
 
@@ -134,7 +134,7 @@ en-GB:
 
           You may be able to pay [voluntary contributions](/voluntary-national-insurance-contributions/why-pay-voluntary-contributions) to increase your basic State Pension.
 
-          You might be able to use your partner's National Insurance to increase your [basic State Pension](/state-pension/eligibility "Increase your basic State Pension")
+          You might be able to use your partner's or late or former partner's National Insurance to increase your [basic State Pension](/state-pension/eligibility "Increase your basic State Pension")
 
           More information on the [basic State Pension or how to top it up](/state-pension) and the [additional State Pension](/additional-state-pension)
 
@@ -281,6 +281,7 @@ en-GB:
 
           You can now [claim your State Pension](/state-pension#how-to-claim "Claim your state pension") if you haven't already done so. You need a Government Gateway account to claim online.
 
+
           You don’t have to stop working or claim your State Pension when you reach State Pension age. You can put off claiming your State Pension when you reach State Pension age. You can also choose to stop claiming it after having claimed it for a period. [Defer your State Pension](/deferring-state-pension/what-you-may-get). 
 
           If you don’t get the full basic State Pension you might still be able to [pay voluntary National Insurance contributions](/voluntary-national-insurance-contributions).
@@ -291,8 +292,6 @@ en-GB:
       amount_result:
         body: |
           %{result_text}
-
-          %{automatic_years_text}
 
       ## AGE RESULT
       age_result:
