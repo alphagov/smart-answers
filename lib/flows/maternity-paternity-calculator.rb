@@ -1,4 +1,4 @@
-status :draft
+status :published
 satisfies_need "B1012"
 
 ## Q1
