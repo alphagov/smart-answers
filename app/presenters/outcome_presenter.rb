@@ -19,4 +19,11 @@ class OutcomePresenter < NodePresenter
     Erubis::Eruby.new( File.read Rails.root.join('app','views','smart_answers','_contact_list.html.erb') ).result(binding)
   end
 
+  def has_calendar?
+    ! @node.calendar_object.nil?
+  end
+
+  def calendar
+    @node.calendar_object
+  end
 end
