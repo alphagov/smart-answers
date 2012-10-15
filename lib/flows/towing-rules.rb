@@ -1,5 +1,5 @@
 satisfies_need 2547
-status :draft
+status :published
 
 ## Cars and light vehicles
 ##
