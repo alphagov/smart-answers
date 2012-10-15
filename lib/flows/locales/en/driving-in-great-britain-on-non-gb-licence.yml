@@ -1,73 +1,73 @@
 en-GB:
   flow:
-    driving-in-the-uk-on-a-foreign-licence:
+    driving-in-great-britain-on-non-gb-licence:
       title:
-        "Driving in Great Britain on a foreign licence"
+        "Driving in Great Britain on a non-GB licence"
       meta:
-        description: Use this tool to see if you can drive in Great Britain (GB) with your foreign driving licence.
+        description: Use this tool to see if you can drive in Great Britain with your non-GB driving licence.
       options:
         "no": "No"
         "yes": "Yes"
 
       body: |
-        Use this tool to see if you can drive in Great Britain with your foreign driving licence.
+        Use this tool to see if you can drive in Great Britain with your non-GB driving licence.
 
         Great Britain is England, Wales and Scotland.
 
+        *[GB]: Great Britain
+      ## Q1
       are_you?:
         title: "Are you:"
         options:
           resident_of_gb: "a resident of Great Britain?"
           visitor_to_gb: "a visitor to Great Britain?"
           student_in_gb: "a foreign student studying in Great Britain?"
-
+      ## Q2
       what_vehicle_licence_do_you_have?:
         title: "What kind of driving licence do you have?"
         hint: "Your licence will say on it what type of vehicles you can drive"
         options:
-          car_motorcycle: "Car and/or motorcycle"
-          lorry_bus_minibus: "Lorry, minibus and/or bus"
-
+          car_motorcycle: "Full car and/or motorcycle"
+          lorry_bus_minibus: "Full lorry, minibus and/or bus"
+      ## Q3
       which_country_issued_car_licence?:
         title: "Where was your licence issued?"
         hint: "The 'designated countries' are:
           Australia, Barbados, British Virgin Islands, Canada, Falkland Islands, Faroe Islands, Hong Kong, Japan, Monaco, New Zealand, Republic of Korea, Singapore, South Africa, Switzerland, Zimbabwe."
         options:
           ni: "Northern Ireland"
-          eea_ec: "European Union"
+          eea_ec: "European Union or European Economic Area"
           gib_j_g_iom_desig: "Gibraltar, Jersey, Guernsey, Isle of Man or a 'designated country'"
           other: "Any other country"
-          
-          
+      ## Q4
       which_country_issued_bus_licence?:
         title: "Where was your licence issued?"
         hint: "The 'designated countries' are:
           Australia, Barbados, British Virgin Islands, Canada, Falkland Islands, Faroe Islands, Hong Kong, Japan, Monaco, New Zealand, Republic of Korea, Singapore, South Africa, Switzerland, Zimbabwe."
         options:
           ni: "Northern Ireland"
-          eea_ec: "European Union"
+          eea_ec: "European Union or European Economic Area"
           gib_j_g_iom: "Gibraltar, Jersey, Guernsey or the Isle of Man"
           designated: "A designated country"
           other: "Any other country"
-          
-
+      ## Q5
       where_was_licence_issued?:
         title: "Where was your licence issued?"
         options:
-          ni_eea_ec: "Northern Ireland or European Union"
+          ni_eea_ec: "Northern Ireland, European Union or European Economic Area"
           j_g_iom: "Jersey, Guernsey or the Isle of Man"
           other: "Any other country"
-          
+      ## Q6  
       where_are_you_from?:
         title: "Where are you from?"
         options:
-          eea_ec: "European Union"
+          eea_ec: "European Union or European Economic Area"
           non_eea_ec: "Non-European Union"
 
       a1:
         title: "You can drive in Great Britain on your full, valid driving licence until it expires."
         next_steps: |
-          [Exchange a foreign driving licence](/exchange-a-foreign-driving-licence "Exchange a foreign driving licence")
+          [Exchange a non-GB driving licence](/exchange-a-foreign-driving-licence "Exchange a non-GB driving licence")
 
       a2:
         title: "You can drive in Great Britain on your full, valid driving licence until you’re 70, or for 3 years after becoming resident in Great Britain, whichever is longer."
@@ -77,7 +77,7 @@ en-GB:
           *[EU]: European Union
 
         next_steps: |
-          [Exchange a foreign driving licence](/exchange-a-foreign-driving-licence "Exchange a foreign driving licence")
+          [Exchange a non-GB driving licence](/exchange-a-foreign-driving-licence "Exchange a non-GB driving licence")
 
       a3:
         title: "You can drive in Great Britain on your full, valid driving licence for 12 months from when you became resident."
@@ -85,7 +85,7 @@ en-GB:
           You need to exchange your licence after 12 months - you have 5 years since you became resident to do this.         
 
         next_steps: |
-          [Exchange a foreign driving licence](/exchange-a-foreign-driving-licence "Exchange a foreign driving licence")
+          [Exchange a non-GB driving licence](/exchange-a-foreign-driving-licence "Exchange a non-GB driving licence")
 
       a4:
         title: "You can drive in Great Britain on your full, valid driving licence for 12 months from when you became resident."
@@ -102,7 +102,7 @@ en-GB:
       a5:
         title: "You can drive in Great Britain on your full, valid driving licence until it expires, or you can exchange it for a full Great Britain licence."
         next_steps: |
-          [Exchange a foreign driving licence](/exchange-a-foreign-driving-licence "Exchange a foreign driving licence")
+          [Exchange a non-GB driving licence](/exchange-a-foreign-driving-licence "Exchange a non-GB driving licence")
 
       a6:
         title: "You can drive in Great Britain on your full, valid licence until you’re 45, or for 5 years after you become resident in Great Britain, whichever is longer."
@@ -114,8 +114,7 @@ en-GB:
           *[DVLA]: Driver and Vehicle Licensing Agency
           
         next_steps: |
-
-          - [Contact DVLA](/# "Contact DVLA")
+          - [Contact DVLA](http://www.dft.gov.uk/dvla/contactus.aspx "Contact DVLA"){rel:="external"}
           - [Exchange a foreign driving licence](/exchange-a-foreign-driving-licence "Exchange a foreign driving licence")
 
       a7:
@@ -125,7 +124,7 @@ en-GB:
 
           *[GB]: Great Britain
         next_steps: |
-          [Exchange a foreign driving licence](/exchange-a-foreign-driving-licence "Exchange a foreign driving licence") 
+          [Exchange a non-GB driving licence](/exchange-a-foreign-driving-licence "Exchange a non-GB driving licence")
 
       a8:
         title: "You can’t drive a lorry, minibus or bus in Great Britain (GB) on your driving licence."
@@ -137,7 +136,7 @@ en-GB:
           *[GB]: Great Britain
 
         next_steps: |
-          [Exchange a foreign driving licence](/exchange-a-foreign-driving-licence "Exchange a foreign driving licence")
+          [Exchange a non-GB driving licence](/exchange-a-foreign-driving-licence "Exchange a non-GB driving licence")
 
       a9:
         title: "You can’t drive a lorry, minibus or bus in Great Britain (GB) on your driving licence."
@@ -161,14 +160,14 @@ en-GB:
         title: "If your licence is full and valid you can drive any type of vehicle listed on your licence in Great Britain."
 
       a11:
-        title: "If you’ve got a full and valid licence you can drive any small vehicles listed on your licence for 12 months from when you last entered Great Britain (GB)."
+        title: "If you’ve got a full and valid licence you can drive any small vehicle (eg car or motorcycle) listed on your licence for 12 months from when you last entered Great Britain (GB)."
         body: |
           If you’ve got a bus or lorry licence you can only drive buses or lorries in GB if you’ve actually **driven the vehicle into GB yourself**. The rules are the same whether the vehicle was registered in GB or not.
 
           *[GB]: Great Britain
 
       a12:
-        title: "If you’ve got a full and valid licence you can drive any small vehicles listed on your licence for 12 months from when you last entered Great Britain (GB)."
+        title: "If you’ve got a full and valid licence you can drive any small vehicle (eg car or motorcycle) listed on your licence for 12 months from when you last entered Great Britain (GB)."
         body: |
           If you’ve got a bus or lorry licence you can only drive buses or lorries that are registered outside GB if you’ve actually **driven the vehicle into GB yourself**.
 
@@ -177,7 +176,7 @@ en-GB:
       a13:
         title: "If you've got a driving licence from a European Union (EU) country you can drive in Great Britain (GB) for as long as your licence is valid, or until you are 70."
         body: |
-          If you don't have a driving licence yet you can't take a driving test in GB until you've been studying in GB for at least 6 months.
+          If you don't have a driving licence yet you can't take a driving test in GB until you've been studying in GB for at least 185 days.
 
           *[GB]: Great Britain
         next_steps: |
@@ -200,7 +199,7 @@ en-GB:
           *[GB]: Great Britain
         next_steps: |
 
-          - [Exchange a foreign driving licence](/exchange-a-foreign-driving-licence "Exchange a foreign driving licence")
+          - [Exchange a non-GB driving licence](/exchange-a-foreign-driving-licence "Exchange a non-GB driving licence")
           - [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence "Apply for your first provisional driving licence")
           - [The driving theory test for cars and motorcycles](/driving-theory-test "The driving theory test for cars and motorcycles")
           - [The car practical driving test](/practical-driving-test-for-cars "The car practical driving test")
