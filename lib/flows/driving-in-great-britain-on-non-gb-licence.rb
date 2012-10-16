@@ -1,5 +1,5 @@
-satisfies_need 9999
-status :draft
+satisfies_need 9
+status :published
 
 multiple_choice :are_you? do
   option :resident_of_gb => :what_vehicle_licence_do_you_have?

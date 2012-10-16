@@ -12,7 +12,7 @@ en-GB:
 
       are_you_resident_in_gb?:
         title: Are you a resident of Great Britain?
-        hint: "You're normally a resident if you have a permanent address in Great Britain. Foreign students studying in Britain aren’t residents."
+        hint: "You're normally a resident if you have a permanent address in Great Britain."
 
       what_vehicle_licence_do_you_have?:
         title: What kind of licence do you have?
@@ -61,7 +61,7 @@ en-GB:
           sw: "Switzerland"
           zim: "Zimbabwe"
 
-      q6:
+      how_old:
         title: "How old are you?"
         options:
           under_45: "Under 45"
