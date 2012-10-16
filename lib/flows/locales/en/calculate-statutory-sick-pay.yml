@@ -2,7 +2,7 @@ en-GB:
   flow:
     calculate-statutory-sick-pay:
       meta:
-        description: Statutory Sick Pay (SSP) calculator - Check if an employee qualifies for statutory sick pay and how much to pay them
+        description: Statutory Sick Pay (SSP) calculator - check if an employee qualifies for statutory sick pay and how much to pay them
       title: Calculate your employee's Statutory Sick Pay
       body: |
         Check if an employee qualifies for Statutory Sick Pay (SSP) and how much to pay them.
@@ -48,6 +48,9 @@ en-GB:
 
         first_three_days_not_paid: |
           ##Your employee isn’t entitled to Statutory Sick Pay because the first 3 days of illness aren’t paid.
+
+        max_paid_during_previous_illness: |
+          ## Your employee isn’t entitled to Statutory Sick Pay because they’ve been paid the statutory maximum for the previous illness.
 
       ## Q1
       getting_maternity_pay?:
