@@ -10,6 +10,7 @@ module SmartAnswer::Calculators
 
     def earning_limit_rates
       [
+        {min: Date.parse("6 April 2010"), max: Date.parse("5 April 2011"), lower_earning_limit_rate: 97},
         {min: Date.parse("6 April 2011"), max: Date.parse("5 April 2012"), lower_earning_limit_rate: 102},
         {min: Date.parse("6 April 2012"), max: Date.parse("5 April 2013"), lower_earning_limit_rate: 107}
       ]
@@ -22,6 +23,7 @@ module SmartAnswer::Calculators
     end
 
     # ssp weekly rate will be updated in April 2013
+    # TODO: find out what the rate was for before 6 april 2011
     def ssp_rates
       [
         {min: Date.parse("6 April 2011"), max: Date.parse("5 April 2012"), ssp_weekly_rate: 81.60 },
