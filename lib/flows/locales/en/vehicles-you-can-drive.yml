@@ -2,7 +2,7 @@ en-GB:
   flow:
     vehicles-you-can-drive:
       meta:
-        description: "Find out if you’re old enough to or have the right kind of driving licence to drive different kinds of vehicle."
+        description: "Find out if you’re old enough to or have the right kind of driving licence to drive different kinds of vehicle"
       title: |
         Vehicles you can drive
       options: 

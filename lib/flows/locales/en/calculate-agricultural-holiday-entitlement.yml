@@ -2,7 +2,7 @@ en-GB:
     flow:
         calculate-agricultural-holiday-entitlement:
             meta:
-                description: Calculate your agricultural worker holiday entitlement
+                description: Work out how much statutory holiday leave you’re entitled to as an agricultural worker
             title: Calculate your agricultural worker holiday entitlement
             body: |
                 Work out how much statutory holiday leave you're entitled to as an agricultural worker.

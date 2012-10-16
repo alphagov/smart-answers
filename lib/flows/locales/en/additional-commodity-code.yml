@@ -5,7 +5,7 @@ en-GB:
       body: |
         Use this tool to look up the additional code (Meursing code) for import or export of goods containing certain types of milk and sugars covered Regulation (EC) No. 1216/09.
       meta:
-        description: Look up the additional code (Meursing code) required for import or export of goods containing certain types of milk and sugars.
+        description: Look up the additional code (Meursing code) required for import or export of goods containing certain types of milk and sugars
       phrases:
         result_with_commodity_code: The Meursing code for a product with this composition is 7%{commodity_code}.
         result_with_no_commodity_code: The product composition you indicated is not possible.
