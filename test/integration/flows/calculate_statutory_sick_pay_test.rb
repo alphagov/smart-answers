@@ -275,16 +275,16 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
 												  		should "ask how may sick days they had" do
 												  			assert_state_variable "pattern_days", 3
-												  			assert_state_variable "daily_rate", 28.62
+												  			assert_state_variable "daily_rate", 28.6167
 												  			assert_current_node :normal_workdays_taken_as_sick?
 												  		end
 
 												  		context "4 work days out" do
 												  			setup {add_response '4'}
 
-												  			should "give entitled outcome" do
+												  			should "give entitled outcome and 4 days pay" do
 													  			assert_state_variable "normal_workdays_out", 4
-													  			assert_state_variable "ssp_payment", "28.62"
+													  			assert_state_variable "ssp_payment", "114.47"
 													  			assert_current_node :entitled_or_not_enough_days
 												  			end
 												  		end
@@ -292,14 +292,41 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 												  		context "2 work days out" do
 												  			setup {add_response '2'}
 
-												  			should "give entitled outcome but no pay" do
+												  			should "give entitled outcome and 2 days' pay" do
 												  				assert_state_variable "normal_workdays_out", 2
-													  			assert_state_variable "ssp_payment", "0.00"
+													  			assert_state_variable "ssp_payment", "57.23"
 													  			assert_current_node :entitled_or_not_enough_days
 													  		end
 													  	end
 											  		end
 											  	end # 3 sick days	missed
+
+											  	context "answered 115 sick days during related illness" do
+											  		setup do 
+											  			add_response 115 # 28 * 4 + 3
+											  			add_response 4 # pattern days
+											  			add_response 6 # normal days
+											  		end
+
+											  		should "display not entitled because max paid previously for 4 pattern days" do
+											  			assert_current_node :entitled_or_not_enough_days
+											  			assert_phrase_list :outcome_text, [:max_paid_during_previous_illness]
+											  		end
+											  	end
+
+											  	context "answered 143 sick days during related illness" do
+											  		setup do 
+											  			add_response 143 # 28 * 5 + 3
+											  			add_response 5 # pattern days
+											  			add_response 8 # normal days
+											  		end
+
+											  		should "display not entitled because max paid previously for 5 pattern days" do
+											  			assert_current_node :entitled_or_not_enough_days
+											  			assert_phrase_list :outcome_text, [:max_paid_during_previous_illness]
+											  		end
+											  	end
+
 												end # how many days missed
 			  							end # yes to related illness
 			  						end # weekly pay
