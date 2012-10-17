@@ -2,7 +2,7 @@ en-GB:
   flow:
     which-finance-is-right-for-your-business:
       meta:
-        description: Work out what type of finance is best for your business
+        description: "Work out what type of finance is best for your business, taking into account your business' size, turnover, shares and the amount of funding you need"
       title: "Which finance is right for your business?"
       options:
         "no": "No"
