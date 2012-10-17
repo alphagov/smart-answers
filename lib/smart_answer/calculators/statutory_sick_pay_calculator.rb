@@ -70,14 +70,17 @@ module SmartAnswer::Calculators
       [max_days_that_can_be_paid - days_paid_in_linked_period, 0].max
     end
 
-    def ssp_payment
-      days_to_pay = @normal_work_days - @waiting_days
-
-      if days_to_pay < days_that_can_be_paid_for_this_period 
-        (days_to_pay * @daily_rate).round(2)
+    def days_to_pay
+      current_days_to_pay = @normal_work_days - @waiting_days
+      if current_days_to_pay < days_that_can_be_paid_for_this_period
+        current_days_to_pay
       else
-        (days_that_can_be_paid_for_this_period * @daily_rate).round(2)
+        days_that_can_be_paid_for_this_period
       end
+    end
+
+    def ssp_payment
+      (days_to_pay * @daily_rate).round(2)
     end
 
   end

@@ -1,4 +1,4 @@
-status :draft
+status :published
 satisfies_need "2013"
 
 ## Q1
@@ -40,6 +40,8 @@ end
 date_question :sickness_start_date? do
 	# should really add options to date_question to specify formatting
 	calculate :sick_start_date do
+		# currently no support for sickness periods that start before 6 April 2012
+		raise SmartAnswer::InvalidResponse if Date.parse(responses.last) < Date.parse("6 April 2012")
 		Date.parse(responses.last).strftime("%e %B %Y")
 	end
 	next_node :sickness_end_date?
@@ -204,6 +206,10 @@ outcome :entitled_or_not_enough_days do
 		else
 			''
 		end
+	end
+
+	precalculate :days_paid do
+		calculator.days_to_pay
 	end
 
 	precalculate :outcome_text do
