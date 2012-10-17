@@ -63,8 +63,8 @@ module SmartAnswer::Calculators
       state_pension_date.year
     end
 
-    def state_pension_date
-      StatePensionQuery.find(dob, gender)
+    def state_pension_date(sp_gender = gender)
+      StatePensionQuery.find(dob, sp_gender)
     end
 
     def state_pension_age

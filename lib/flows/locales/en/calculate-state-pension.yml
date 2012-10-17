@@ -17,7 +17,7 @@ en-GB:
 
         Count tax years from 6 April to 5 April and don’t count any years twice (eg when you were working and getting benefits). Don’t count the current tax year.
         
-        This calculator uses a simplified calculation based on the current law. It can't take into account every circumstance that might affect you. Don’t make future financial decisions based on its results.
+        This calculator uses a simplified calculation based on the current law. It can't take into account every circumstance that might affect you. Don't make future financial decisions based on its results.
       options:
         "yes": "Yes"
         "no": "No"
@@ -26,9 +26,9 @@ en-GB:
         only_enter_years_from_nineteen: You can only enter years from 19.
         this_is_the_full_state_pension: This is the full State Pension.
         this_is_n_below_the_full_state_pension: This is £%{pension_loss} per week below the full State Pension.  
-        married_woman_text: If you are a married woman paying reduced National Insurance, don’t count any years before 2010.
-        carers_allowance_women_hint: Don’t count years when you opted for the reduced National Insurance rate for married women and widows.
-        carers_allowance_women_hint_q9: Don’t count years before April 2010 when you opted for the reduced National Insurance rate for married women and widows.
+        married_woman_text: If you are a married woman paying reduced National Insurance, don't count any years before 2010.
+        carers_allowance_women_hint: Don't count years when you opted for the reduced National Insurance rate for married women and widows.
+        carers_allowance_women_hint_q9: Don't count years before April 2010 when you opted for the reduced National Insurance rate for married women and widows.
         will_reach_pension_age: You'll reach State Pension age on %{formatted_state_pension_date}.
         have_reached_pension_age: You reached State Pension age on %{formatted_state_pension_date}.
         claim_pension_now_text: |
@@ -46,6 +46,8 @@ en-GB:
 
           If you&rsquo;re on a low income, you might be eligible to claim [Pension Credit](/pension-credit "Pension Credit").
 
+          %{pension_credit_statement}
+
           You may also apply for an [elderly person’s bus pass.](/apply-for-elderly-person-bus-pass "Elderly person’s bus pass")
 
           This calculation is according to the current law. The State Pension age may change in the future.
@@ -60,6 +62,8 @@ en-GB:
           ^You have already reached State Pension age. You can [claim your State Pension](/state-pension#how-to-claim "How to claim") if you haven't already or [defer claiming it](/how-to-defer-your-state-pension "How to defer your State Pension").^
 
           If you&rsquo;re on a low income, you might be eligible to claim [Pension Credit](/pension-credit "Pension Credit").
+
+          You may have been entitled to receive Pension Credit from %{pension_credit_date}
 
           You may also apply for an [elderly person’s bus pass.](/apply-for-elderly-person-bus-pass "Elderly person’s bus pass")
 
