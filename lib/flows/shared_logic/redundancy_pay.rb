@@ -1,10 +1,6 @@
 calculator = Calculators::RedundancyCalculator.new
 
-multiple_choice :age_of_employee? do
-  option "over-41"
-  option "22-40"
-  option "under-22"
-
+value_question :age_of_employee? do
   save_input_as :employee_age
   next_node :years_employed?
 end

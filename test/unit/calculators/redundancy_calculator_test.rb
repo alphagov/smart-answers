@@ -22,16 +22,20 @@ module SmartAnswer::Calculators
       end
     end
 
-    # max of 20 years and 430 per week
     context "use correct weekly pay and number of years limits" do
-      should "use maximum of 20 years" do
-        # the result should be 20 * 200 * 1
-        assert_equal @calculator.pay("22-40", 22, 200), 4000
+      
+      # Aged 45, 12 years service, 350 per week
+      should "be 4900" do
+        assert_equal 4900, @calculator.pay("45", 12, 350) 
       end
 
-      should "use maximum of 430 per week" do
-        # the result should be 430 * 10 * 1
-        assert_equal @calculator.pay("22-40", 10, 500), 4300
+      # Aged 42, 22 years of service, 500 per week
+      should "use maximum of 20 years and maximum of 430 per week" do
+        assert_equal 8815, @calculator.pay("42", 22, 500)
+      end
+
+      should "" do
+        assert_equal 1935, @calculator.pay("42", 4, 1500)
       end
     end
   end
