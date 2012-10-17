@@ -147,9 +147,10 @@ module SmartAnswer::Calculators
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "male", dob: dob, qualifying_years: nil)
         end
 
-        should "avialable_years = 7" do
+        should "available_years = 7" do
           assert_equal 7, @calculator.available_years
         end
+
       end
 
       context "32 years old with 10 qualifying_years" do
@@ -468,6 +469,42 @@ module SmartAnswer::Calculators
               gender: "male", dob: "1968-11-06", qualifying_years: nil)
           assert_equal "66 years, 8 months", @calculator.state_pension_age
           assert_equal Date.parse("2035-07-06"), @calculator.state_pension_date
+        end
+      end
+      context "tests for state_pension_date dynamic dates" do
+        should "male/female born 1950 Apr 06" do
+          @calc_male = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+              gender: "male", dob: "1950 Apr 06", qualifying_years: nil)
+          @calc_female = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+              gender: "female", dob: "1950 Apr 06", qualifying_years: nil)
+          assert_equal Date.parse("06 Apr 2015"), @calc_male.state_pension_date #(:female)
+          assert_equal Date.parse("06 May 2010"), @calc_female.state_pension_date #(:female)
+        end
+        should "male/female born 1953 Dec 05" do
+          @calc_male = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+              gender: "male", dob: "1953 Dec 05", qualifying_years: nil)
+          @calc_female = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+              gender: "female", dob: "1953 Dec 05", qualifying_years: nil)
+          assert_equal Date.parse("05 Dec 2018"), @calc_male.state_pension_date #(:female)
+          assert_equal Date.parse("06 Nov 2018"), @calc_female.state_pension_date #(:female)
+        end
+        should "male/female born 1953 Dec 06" do
+          @calc_male = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+              gender: "male", dob: "1953 Dec 06", qualifying_years: nil)
+          @calc_female = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+              gender: "female", dob: "1953 Dec 06", qualifying_years: nil)
+          assert_equal Date.parse("06 Mar 2019"), @calc_male.state_pension_date #(:female)
+          assert_equal Date.parse("06 Mar 2019"), @calc_female.state_pension_date #(:female)
+        end
+      end
+      context "testing state_pension_date with female" do
+        should "male/female born 1953 Dec 05" do
+          @calc_male = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+              gender: "male", dob: "1953 Dec 05", qualifying_years: nil)
+          @calc_female = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+              gender: "female", dob: "1953 Dec 05", qualifying_years: nil)
+          assert_equal Date.parse("06 Nov 2018"), @calc_male.state_pension_date(:female)
+          assert_equal Date.parse("06 Nov 2018"), @calc_female.state_pension_date #(:female)
         end
       end
     end
