@@ -40,6 +40,8 @@ end
 date_question :sickness_start_date? do
 	# should really add options to date_question to specify formatting
 	calculate :sick_start_date do
+		# currently no support for sickness periods that start before 6 April 2012
+		raise SmartAnswer::InvalidResponse if Date.parse(responses.last) < Date.parse("6 April 2012")
 		Date.parse(responses.last).strftime("%e %B %Y")
 	end
 	next_node :sickness_end_date?
@@ -77,6 +79,7 @@ money_question :what_was_average_weekly_pay? do
 		end
 	end
 	next_node do |response|
+		## TODO: look up LEL at sickness start date for this test
 		if response.to_f < Calculators::StatutorySickPayCalculator::LOWER_EARNING_LIMIT
 			:not_earned_enough												## A5
 		else
@@ -96,6 +99,7 @@ money_question :what_was_average_weekly_earnings? do
 		end
 	end
 	next_node do |response|
+		## TODO: look up LEL at sickness start date for this test
 		if response.to_f < Calculators::StatutorySickPayCalculator::LOWER_EARNING_LIMIT
 			:not_earned_enough											## A5
 		else
@@ -144,9 +148,9 @@ value_question :how_many_days_worked? do
 	end
 	calculate :calculator do
 		if prev_sick_days
-			Calculators::StatutorySickPayCalculator.new(prev_sick_days)
+			Calculators::StatutorySickPayCalculator.new(prev_sick_days, Date.parse(sick_start_date))
 		else 
-			Calculators::StatutorySickPayCalculator.new(0)
+			Calculators::StatutorySickPayCalculator.new(0, Date.parse(sick_start_date))
 		end
 	end
 	calculate :daily_rate do
@@ -204,9 +208,15 @@ outcome :entitled_or_not_enough_days do
 		end
 	end
 
+	precalculate :days_paid do
+		calculator.days_to_pay
+	end
+
 	precalculate :outcome_text do
 		if calculator.ssp_payment >= 1 
 			PhraseList.new(:entitled_info)
+		elsif calculator.days_that_can_be_paid_for_this_period == 0
+			PhraseList.new(:max_paid_during_previous_illness)
 		else
 			PhraseList.new(:first_three_days_not_paid)
 		end
