@@ -50,7 +50,19 @@ date_question :dob_age? do
   calculate :state_pension_date do
     calculator.state_pension_date
   end
+
+  calculate :pension_credit_date do
+    calculator.state_pension_date(:female).strftime("%e %B %Y")
+  end
   
+  calculate :pension_credit_statement do
+    if calculator.state_pension_date(:female) > Date.today
+      "You may be entitled to receive Pension Credit from " + pension_credit_date
+    else
+      "You may have been entitled to receive Pension Credit from " + pension_credit_date
+    end
+  end
+
   calculate :formatted_state_pension_date do
     state_pension_date.strftime("%e %B %Y")
   end

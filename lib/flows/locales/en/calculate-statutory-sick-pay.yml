@@ -2,7 +2,7 @@ en-GB:
   flow:
     calculate-statutory-sick-pay:
       meta:
-        description: Statutory Sick Pay (SSP) calculator - Check if an employee qualifies for statutory sick pay and how much to pay them
+        description: Statutory Sick Pay (SSP) calculator - check if an employee qualifies for statutory sick pay and how much to pay them
       title: Calculate your employee's Statutory Sick Pay
       body: |
         Check if an employee qualifies for Statutory Sick Pay (SSP) and how much to pay them.
@@ -29,7 +29,7 @@ en-GB:
           ##Your employee is entitled to sick pay:
 
           + £%{ssp_payment} in total
-          + for %{normal_workdays_out} days taken off sick between %{sick_start_date} and %{sick_end_date}
+          + for %{days_paid} days taken off sick between %{sick_start_date} and %{sick_end_date}
 
           The first 3 days of any period of illness (or any linked periods of illness separated by less than 8 weeks) won’t be paid. The payment amount will reflect this.
 
@@ -48,6 +48,9 @@ en-GB:
 
         first_three_days_not_paid: |
           ##Your employee isn’t entitled to Statutory Sick Pay because the first 3 days of illness aren’t paid.
+
+        max_paid_during_previous_illness: |
+          ## Your employee isn’t entitled to Statutory Sick Pay because they’ve been paid the statutory maximum for the previous illness.
 
       ## Q1
       getting_maternity_pay?:
@@ -73,6 +76,7 @@ en-GB:
       ## Q6
       sickness_start_date?:
         title: On what date did your employee first become sick during the most recent period of illness (including weekends, bank holidays and non-working days)?
+        error_message: This calculator currently doesn't support periods of sickness that start before 6 April 2012
         body: |
           Note: This is the first day of their ‘Period of Incapacity for Work (PIW)’
 

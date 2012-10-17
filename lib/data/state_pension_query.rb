@@ -47,7 +47,7 @@ class StatePensionQuery < Struct.new(:dob, :gender)
   def pension_dates_dynamic
     [
       StatePensionDate.new(:female, Date.new(1890,01,01), Date.new(1950, 04, 05), 60.years.since(dob)),
-      StatePensionDate.new(:male, Date.new(1890,01,01), Date.new(1953, 10, 05), 65.years.since(dob)),
+      StatePensionDate.new(:male, Date.new(1890,01,01), Date.new(1953, 12, 05), 65.years.since(dob)),
       StatePensionDate.new(:both, Date.new(1954,10,06), Date.new(1968, 04, 05), 66.years.since(dob)),
       StatePensionDate.new(:both, Date.new(1969,04,06), Date.new(1977, 04, 05), 67.years.since(dob)),
       StatePensionDate.new(:both, Date.new(1978,04,06), Date.today, 68.years.since(dob))

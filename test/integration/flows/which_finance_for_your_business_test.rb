@@ -5,7 +5,7 @@ class WhichFinanceForYourBusinessTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow "which-finance-is-rignt-for-your-business"
+    setup_for_testing_flow "which-finance-is-right-for-your-business"
   end
 
   should "ask whether willing to offer personal assets" do
