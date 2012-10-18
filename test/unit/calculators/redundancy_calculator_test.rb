@@ -34,8 +34,32 @@ module SmartAnswer::Calculators
         assert_equal 8815, @calculator.pay("42", 22, 500)
       end
 
-      should "" do
-        assert_equal 1935, @calculator.pay("42", 4, 1500)
+      should "use the maximum rate of 430 per week" do
+        assert_equal 1720, @calculator.pay("41", 4, 1500)
+      end
+
+      should "be 1.5 times the weekly maximum for an 18 year old with 3 years service" do
+        assert_equal 645, @calculator.pay("18", 3, 500)
+      end
+
+      should "be 7.5 times the weekly pay for a 26 year old with 11 years service" do
+        assert_equal 1875, @calculator.pay("26", 11, 250)
+      end
+
+      should "be 10.5 times the weekly pay for a 32 year old with 11 years service" do
+        assert_equal 4410, @calculator.pay("32", 11, 420)
+      end
+
+      should "be 13.5 times the weekly pay for a 34 year old with 15 years of service" do
+        assert_equal 5211, @calculator.pay("34", 15, 386)
+      end
+
+      should "be 19 times the weekly pay for a 40 year old with 20 years of service" do
+        assert_equal 7619, @calculator.pay("40", 20, 401)
+      end
+
+      should "be 17.5 times the weekly pay for a 48 year old with 14 years of service" do
+        assert_equal 6667.5, @calculator.pay("48", 14, 381)
       end
     end
   end
