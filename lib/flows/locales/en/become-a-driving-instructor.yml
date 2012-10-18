@@ -2,7 +2,7 @@ en-GB:
   flow:
     become-a-driving-instructor:
       meta:
-        description: "Find out if you can become an approved driving instructor (ADI) and what you need to do to qualify."
+        description: "Find out if you can become an approved driving instructor (ADI) and what you need to do to qualify"
       title: "Become a driving instructor"
       options:
         "no": "No"

@@ -98,7 +98,7 @@ end
 value_question :part_time_how_many_days_per_week? do
   calculate :days_per_week do
     days = responses.last.to_i
-    raise InvalidResponse if days > 4 or days < 1
+    raise InvalidResponse if days > 7 or days < 1
     days
   end
   calculate :calculator do

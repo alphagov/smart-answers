@@ -2,7 +2,7 @@ en-GB:
   flow:
     register-a-death:
       meta:
-        description: "Use this tool to find out how to register the death of someone who lived in England or Wales."
+        description: "Find out how to register the death of someone who lived in England or Wales"
       title: "Register a death"
       options:
         "no": "No"

@@ -233,8 +233,8 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         assert_current_node :part_time_how_many_days_per_week?
       end
 
-      should "be invalid if more than 4 entered" do
-        add_response '5'
+      should "be invalid if more than 7 entered" do
+        add_response '8'
         assert_current_node_is_error
         assert_current_node :part_time_how_many_days_per_week?
       end

@@ -3,7 +3,7 @@ en-GB:
     calculate-your-holiday-entitlement:
       title: Calculate holiday entitlement
       meta:
-        description: Use this calculator to work out how much statutory holiday leave someone is entitled to.
+        description: Work out how much statutory holiday leave someone is entitled to
       body: |
         Use this calculator to work out how much statutory holiday leave someone is entitled to.
 
@@ -112,7 +112,7 @@ en-GB:
       part_time_how_many_days_per_week?:
         title: How many days per week will be worked?
         label: Days per week
-        error_message: Part-time work should be less than 5 days a week.
+        error_message: There are only 7 days in a week. Please check and enter a correct value.
 
       compressed_hours_how_many_hours_per_week?:
         title: How many hours per week will be worked?

@@ -5,7 +5,7 @@ en-GB:
       body: |
         If you think a decision about your benefits is wrong, you can ask for an explanation, challenge the decision or appeal against it.
       meta:
-        description: "If you think a decision about your benefits is wrong, you can ask for an explanation, challenge the decision or appeal against it."
+        description: "If you think a decision about your benefits is wrong, you can ask for an explanation, challenge the decision or appeal against it"
       options:
         "yes": "Yes"
         "no": "No"

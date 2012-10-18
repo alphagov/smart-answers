@@ -219,7 +219,7 @@ en-GB:
       ## QM3
       date_leave_starts?:
         title: When does the employee want to start their leave?
-        hint: Usually, leave can&apos;t start before %{leave_earliest_start_date}
+        hint: Usually, leave can't start before %{leave_earliest_start_date}
       ## QM4
       did_the_employee_work_for_you?:
         title: Did the employee work for you on or before %{employment_start}?
@@ -391,7 +391,7 @@ en-GB:
 
       adoption_not_entitled_to_leave_or_pay:
         next_steps: |
-          Read the [guide to Statutory Adoption Pay and Leave](/adoption-leave-pay-employees “Adoption leave and pay”)
+          Read the [guide to Statutory Adoption Pay and Leave](/adoption-leave-pay-employees "Adoption leave and pay")
         body: |
           ##Not entitled to Statutory Adoption Leave and Pay
           
