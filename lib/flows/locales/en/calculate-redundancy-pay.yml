@@ -11,6 +11,7 @@ en-GB:
             age_of_employee?:
                 title: How old were you on the date you were made redundant?
                 hint: Use the original redundancy date even if your notice is brought forward, you’re paid in lieu of notice or made redundant after trialing a new job.
+                error_message: Please enter a number between 16 and 100.
                 options:
                     "over-41": "41 and over"
                     "22-40": "22-40"
@@ -57,6 +58,7 @@ en-GB:
             age_of_employee?:
                 title: What was your employee’s age when they were made redundant?
                 hint: Use the original redundancy date even if their notice is brought forward, they’re  paid in lieu of notice or made redundant after trialing a new job.
+                error_message: Please enter a number between 16 and 100.
                 options:
                     "over-41": "41 and over"
                     "22-40": "22-40"
