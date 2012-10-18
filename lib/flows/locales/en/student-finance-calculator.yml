@@ -114,8 +114,9 @@ en-GB:
           ^Student loans have to be paid back - grants do not.
         next_steps: |
 
-          - [apply for student finance](http://www.studentfinance.direct.gov.uk/ "Apply for student finance")
-          - [read the guide to student finance](/apply-for-student-finance-2012-13 "Guide to student finance")
+          - Apply for [student finance](http://www.studentfinance.direct.gov.uk/ "Apply for student finance")
+
+          - Read the [guide to student finance](/apply-for-student-finance-2012-13 "Guide to student finance")
       done:
         body: |
           You could get:
@@ -131,5 +132,6 @@ en-GB:
           ^Student loans have to be paid back - grants do not.
         next_steps: |
 
-          - [apply for student finance](http://www.studentfinance.direct.gov.uk/ "Apply for student finance")
-          - [read the guide to student finance](/apply-for-student-finance-2012-13 "Guide to student finance")
+          - Apply for [student finance](http://www.studentfinance.direct.gov.uk/ "Apply for student finance")
+          
+          - Read the [guide to student finance](/apply-for-student-finance-2012-13 "Guide to student finance")
