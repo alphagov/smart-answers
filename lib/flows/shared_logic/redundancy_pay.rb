@@ -1,7 +1,11 @@
 calculator = Calculators::RedundancyCalculator.new
 
 value_question :age_of_employee? do
-  save_input_as :employee_age
+  calculate :employee_age do
+    age = responses.last.to_i
+    raise InvalidResponse if age <= 16 or age >= 100
+    age
+  end
   next_node :years_employed?
 end
 
