@@ -3,26 +3,27 @@ status :published
 
 date_question :when_is_your_baby_due? do
   save_input_as :due_date
+  calculate :calculator do
+    Calculators::MaternityBenefitsCalculator.new(Date.parse(responses.last))
+  end
+
   calculate :expected_week_of_childbirth do
-    due_on = Date.parse(due_date)
-    start = due_on - due_on.wday
-    start .. start + 6.days
+    calculator.expected_week
   end
   calculate :qualifying_week do
-    start = expected_week_of_childbirth.first - 15.weeks
-    start .. start + 6.days
+    calculator.qualifying_week
   end
   calculate :start_of_qualifying_week do
     qualifying_week.first
   end
   calculate :start_of_test_period do
-    qualifying_week.first - 51.weeks
+    calculator.test_period.first
   end
   calculate :end_of_test_period do
-    expected_week_of_childbirth.first - 1.day
+    calculator.test_period.last
   end
   calculate :twenty_six_weeks_before_qualifying_week do
-    qualifying_week.first - 26.weeks
+    calculator.employment_start
   end
   next_node :are_you_employed?
 end
