@@ -8,7 +8,7 @@ en-GB:
         These processes can be either voluntary, or statutory through the Central Arbitration Committee (CAC). 
         Find out how each process works.
       meta:
-        description: Find out about processes for recognising or derecognising a trade union.
+        description: Find out about processes for recognising or derecognising a trade union
       options:
         "yes": "Yes"
         "no": "No"

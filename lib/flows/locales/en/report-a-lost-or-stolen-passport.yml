@@ -2,7 +2,7 @@ en-GB:
   flow:
     report-a-lost-or-stolen-passport:
       meta:
-        description: Find out what you need to do if your passport has been lost or stolen and how to get a replacement.
+        description: Find out what you need to do if your passport has been lost or stolen and how to get a replacement
       title: Report a lost or stolen passport
       body: |
         You must tell the Identity and Passport Service (IPS) as soon as possible if your passport has been lost or stolen. 

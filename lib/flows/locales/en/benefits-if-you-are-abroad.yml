@@ -5,7 +5,7 @@ en-GB:
         description: "Find out what benefits you might be able to get while abroad and how to claim them."
       title: "Benefits if you’re abroad"
       body: 
-        "Find out what benefits you might be able to get while abroad and how to claim them."
+        "Find out what benefits you might be able to get while abroad and how to claim them"
       options:
         "yes": "Yes"
         "no": "No"
