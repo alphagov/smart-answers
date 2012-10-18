@@ -5,7 +5,7 @@ en-GB:
       meta: 
         description: "Work out how much your childcare costs so you can claim extra tax credits"
       body: |
-        You can claim extra tax credits to [help with your childcare costs](/childcare-tax-credits “Childcare and tax credits”) if you’re eligible. Use this tool to work out what childcare costs you should claim. 
+        You can claim extra tax credits to [help with your childcare costs](/childcare-tax-credits "Childcare and tax credits") if you’re eligible. Use this tool to work out what childcare costs you should claim. 
 
         If you already claim tax credits for childcare costs and your costs have changed, you can use this tool to work out if you need to report the change to the Tax Credit Office.
 
@@ -172,7 +172,7 @@ en-GB:
       # A19
       call_the_helpline:
         body: |
-          Call the [Tax Credit Helpline](/contact-the-tax-credit-office “Contact the Tax Credit Office”) -- they'll work out your average weekly childcare costs for you.
+          Call the [Tax Credit Helpline](/contact-the-tax-credit-office "Contact the Tax Credit Office") -- they'll work out your average weekly childcare costs for you.
 
           You'll need to tell them:
 

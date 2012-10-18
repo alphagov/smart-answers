@@ -30,7 +30,7 @@ en-GB:
         title: |
           How old are you going to be on %{enrollment_date}?
         body: |
-          Find out when you'll reach [State Pension](/state-pension-calculator "State Pension calculator") age.
+          Find out when you'll reach [State Pension](/calculate-state-pension "State Pension calculator") age.
         options:
           between_16_21: 16 to 21
           between_22_sp: 22 to State Pension age
