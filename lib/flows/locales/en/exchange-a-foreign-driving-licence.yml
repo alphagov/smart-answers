@@ -1,6 +1,8 @@
 en-GB:
   flow:
     exchange-a-foreign-driving-licence:
+      meta:
+        description: "Find out if you can exchange your foreign driving licence for a British licence"
       title:
         "Exchange a foreign driving licence"
       options:

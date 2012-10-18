@@ -2,7 +2,7 @@ en-GB:
   flow:
     towing-rules:
       meta:
-        description: "Use this tool to find out if you’re old enough or have the right kind of licence to tow a trailer from different kinds of vehicle."
+        description: "Work out if you’re old enough or have the right kind of licence to tow a trailer from different kinds of vehicle"
       title: "Towing: licence and age requirements"
       body: |
         Use this tool to find out if you’re old enough or have the right kind of licence to tow a trailer from different kinds of vehicle.
