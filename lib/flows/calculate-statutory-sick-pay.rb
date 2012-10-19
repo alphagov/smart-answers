@@ -212,6 +212,10 @@ outcome :entitled_or_not_enough_days do
 		calculator.days_to_pay
 	end
 
+	precalculate :max_days_payable do
+		calculator.max_days_that_can_be_paid
+	end
+
 	precalculate :outcome_text do
 		if calculator.ssp_payment >= 1 
 			PhraseList.new(:entitled_info)
