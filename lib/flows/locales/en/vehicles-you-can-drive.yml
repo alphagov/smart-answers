@@ -488,7 +488,7 @@ en-GB:
 
           [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
           
-          [Driver Certificate of Professional Competence (Driver CPC)](/driver-certificate-of-professional-competence-driver-cpc/overview "Driver Certificate of Professional Competence (Driver CPC)")   
+          [Driver Certificate of Professional Competence (Driver CPC)](/driver-certificate-of-professional-competence-cpc "Driver Certificate of Professional Competence (Driver CPC)")   
       ## A28
       psv_limited_entitlement:
         body: |
@@ -515,7 +515,7 @@ en-GB:
           *[Driver CPC]: Driver Certificate of Professional Competence
 
         next_steps: |
-          [Driver Certificate of Professional Competence (Driver CPC)](/driver-certificate-of-professional-competence-driver-cpc/overview "Driver Certificate of Professional Competence")
+          [Driver Certificate of Professional Competence (Driver CPC)](/driver-certificate-of-professional-competence-cpc "Driver Certificate of Professional Competence")
       ## A32
       bus_apply_for_cat_d:
         body: |
