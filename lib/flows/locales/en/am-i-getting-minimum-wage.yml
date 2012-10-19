@@ -154,7 +154,7 @@ en-GB:
           $C
 
 
-          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-for-different-types-of-employment/overview "How to calculate the National Minimum Wage").
+          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work "Minimum wage for different types of work").
       current_payment_below:
         body: |
           $C
@@ -175,7 +175,7 @@ en-GB:
           Telephone: 0800 917 2368
           $C
 
-          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-for-different-types-of-employment/overview "How to calculate the National Minimum Wage").
+          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work "Minimum wage for different types of work").
       past_payment_above:
         body: |
           $C
@@ -201,7 +201,7 @@ en-GB:
           $C
           
 
-          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-for-different-types-of-employment/overview "How to calculate the National Minimum Wage").
+          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work "Minimum wage for different types of work").
      
       past_payment_below:
         body: |
@@ -226,6 +226,6 @@ en-GB:
           $C
           
 
-          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-for-different-types-of-employment/overview "How to calculate the National Minimum Wage").
+          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work "Minimum wage for different types of work").
       does_not_apply_to_historical_apprentices:
         body: "There was no National Minimum Wage rate for apprentices before 1 October 2010. Your employer doesn't owe you any past payments."
