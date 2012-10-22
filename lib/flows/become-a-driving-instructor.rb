@@ -29,7 +29,7 @@ multiple_choice :are_you_driving_instructor_in_ec_country? do
 
   calculate :content_sections do
     if responses.last == 'yes'
-      PhraseList.new :acronym_definitions
+      PhraseList.new :DSA_guide_to_ADI_register, :acronym_definitions
     end
   end
 end
@@ -40,7 +40,7 @@ multiple_choice :have_you_been_disqualified_or_6_points? do
 
   calculate :content_sections do
     if responses.last == 'yes'
-      PhraseList.new :apply_to_dsa_with_endorsments, :apply_with_caveats_what_next, :acronym_definitions
+      PhraseList.new :apply_to_dsa_with_endorsments, :apply_with_caveats_what_next, :DSA_guide_to_ADI_register, :acronym_definitions
     end
   end
 end
@@ -83,6 +83,7 @@ multiple_choice :non_motoring_offences? do
       sections << :criminal_record_check
       sections << :apply_to_dsa
     end
+    sections << :DSA_guide_to_ADI_register
     sections << :acronym_definitions
   end
 
