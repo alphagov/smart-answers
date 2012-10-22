@@ -18,6 +18,13 @@ class SmartAnswersController < ApplicationController
           title: @presenter.current_node.title
         }
       }
+      format.ics {
+        if @presenter.current_node.respond_to?(:calendar) and @presenter.current_node.has_calendar?
+          render :text => @presenter.current_node.calendar.to_ics
+        else
+          render_404
+        end
+      }
     end
 
     set_expiry

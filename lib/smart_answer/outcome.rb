@@ -33,5 +33,13 @@ module SmartAnswer
     def contact_list_sym
       @contact_list
     end
+
+    def calendar(&block)
+      @calendar = Calendar.new(&block)
+    end
+
+    def calendar_object
+      @calendar
+    end
   end
 end
