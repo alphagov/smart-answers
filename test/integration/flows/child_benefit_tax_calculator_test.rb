@@ -79,30 +79,6 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
           assert_current_node :do_you_expect_to_pay_into_a_pension_this_year?
         end
 
-        context "adjusted_net_income tests" do
-          setup do
-            add_response :yes
-          end
-
-          should "test 01" do
-            # Q4 gross pension    5000
-            # Q5 RAR    1600
-            # Q6 losses   1000
-            # Q7 GA   800
-            add_response 5000    # Q3A Gross Pension
-            add_response 1600    # Q4 net pension 
-            add_response 1000    # Q5 trading losses 
-            assert_current_node :how_much_do_you_expect_to_give_to_charity_this_year?
-            # assert_state_variable :adjusted_net_income, 8000
-            assert_state_variable :total_income, 300
-            # add_response 1600 # Q5
-            # assert_current_node :how_much_do_you_expect_to_give_to_charity_this_year?
-          # setup do
-          #   add_response 1000 # Q6
-          #   add_response 800 # Q7
-            # assert_current_node :how_much_do_you_expect_to_give_to_charity_this_year?
-          end
-        end
 
         context "paying into a pension this year" do
           setup do
@@ -183,28 +159,28 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
               assert_current_node :how_much_do_you_expect_to_give_to_charity_this_year?
             end
 
-            # context "adjusted net income < 50000" do
-            #   setup do
-            #     add_response "25000"
-            #   end
+            context "adjusted net income < 50000" do
+              setup do
+                add_response "25000"
+              end
 
-            #   should "calculate adjusted net income" do
-            #     assert_state_variable :adjusted_net_income, 22260
-            #   end
+              should "calculate adjusted net income" do
+                assert_state_variable :adjusted_net_income, 22260
+              end
 
-            #   should "not require to pay tax when adjusted net income less than £50,000" do
-            #     assert_current_node :dont_need_to_pay
-            #   end
-            # end
+              should "not require to pay tax when adjusted net income less than £50,000" do
+                assert_current_node :dont_need_to_pay
+              end
+            end
 
             context "adjusted net income >= 50000" do
               setup do
                 add_response "50"
               end
 
-              # should "calculate adjusted net income" do
-              #   assert_state_variable :adjusted_net_income, 52200
-              # end
+              should "calculate adjusted net income" do
+                assert_state_variable :adjusted_net_income, 52200
+              end
 
               should "ask how many children you are getting child benefit for" do
                 assert_current_node :how_many_children_claiming_for?
@@ -265,28 +241,28 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
                     add_response :no
                   end
 
-                  # should "tell you your estimated tax charge" do
-                  #   SmartAnswer::Calculators::ChildBenefitTaxCalculator.
-                  #     expects(:new).with(
-                  #       :start_of_tax_year => Date.new(2012, 4, 6),
-                  #       :end_of_tax_year => Date.new(2013, 4, 5),
-                  #       :children_claiming => 1,
-                  #       :claim_periods => [Date.new(2012,4,6)..Date.new(2013,4,5)],
-                  #       :income => 52200.0
-                  #     ).returns(@stubbed_calculator)
-                  #   @stubbed_calculator.expects(:formatted_benefit_tax).returns("formatted benefit tax")
-                  #   @stubbed_calculator.expects(:formatted_benefit_taxable_amount).returns("formatted benefit taxable amount")
-                  #   @stubbed_calculator.expects(:formatted_benefit_claimed_amount).returns("formatted benefit claimed amount")
-                  #   @stubbed_calculator.expects(:benefit_taxable_weeks).returns("benefit taxable weeks")
-                  #   @stubbed_calculator.expects(:percent_tax_charge).returns("percent tax charge")
+                  should "tell you your estimated tax charge" do
+                    SmartAnswer::Calculators::ChildBenefitTaxCalculator.
+                      expects(:new).with(
+                        :start_of_tax_year => Date.new(2012, 4, 6),
+                        :end_of_tax_year => Date.new(2013, 4, 5),
+                        :children_claiming => 1,
+                        :claim_periods => [Date.new(2012,4,6)..Date.new(2013,4,5)],
+                        :income => 52200.0
+                      ).returns(@stubbed_calculator)
+                    @stubbed_calculator.expects(:formatted_benefit_tax).returns("formatted benefit tax")
+                    @stubbed_calculator.expects(:formatted_benefit_taxable_amount).returns("formatted benefit taxable amount")
+                    @stubbed_calculator.expects(:formatted_benefit_claimed_amount).returns("formatted benefit claimed amount")
+                    @stubbed_calculator.expects(:benefit_taxable_weeks).returns("benefit taxable weeks")
+                    @stubbed_calculator.expects(:percent_tax_charge).returns("percent tax charge")
 
-                  #   assert_current_node :estimated_tax_charge
-                  #   assert_state_variable :benefit_taxable_amount, "formatted benefit taxable amount"
-                  #   assert_state_variable :benefit_claimed_amount, "formatted benefit claimed amount"
-                  #   assert_state_variable :percentage_tax_charge, "percent tax charge"
-                  #   assert_state_variable :benefit_taxable_weeks, "benefit taxable weeks"
-                  #   assert_state_variable :benefit_tax, "formatted benefit tax"
-                  # end
+                    assert_current_node :estimated_tax_charge
+                    assert_state_variable :benefit_taxable_amount, "formatted benefit taxable amount"
+                    assert_state_variable :benefit_claimed_amount, "formatted benefit claimed amount"
+                    assert_state_variable :percentage_tax_charge, "percent tax charge"
+                    assert_state_variable :benefit_taxable_weeks, "benefit taxable weeks"
+                    assert_state_variable :benefit_tax, "formatted benefit tax"
+                  end
                 end # context - not starting or stopping this tax year
 
                 context "starting or stopping this tax year" do
@@ -361,28 +337,28 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
                             add_response "0"
                           end
 
-                          # should "tell you your estimated tax charge" do
-                          #   SmartAnswer::Calculators::ChildBenefitTaxCalculator.
-                          #     expects(:new).with(
-                          #       :start_of_tax_year => Date.new(2012, 4, 6),
-                          #       :end_of_tax_year => Date.new(2013, 4, 5),
-                          #       :children_claiming => 1,
-                          #       :claim_periods => [Date.new(2012,12,22)..Date.new(2013,4,5), Date.new(2013,2,14)..Date.new(2013,4,5), Date.new(2012,4,6)..Date.new(2013,4,5)],
-                          #       :income => 52200.0
-                          #     ).returns(@stubbed_calculator)
-                          #   @stubbed_calculator.expects(:formatted_benefit_tax).returns("formatted benefit tax")
-                          #   @stubbed_calculator.expects(:formatted_benefit_taxable_amount).returns("formatted benefit taxable amount")
-                          #   @stubbed_calculator.expects(:formatted_benefit_claimed_amount).returns("formatted benefit claimed amount")
-                          #   @stubbed_calculator.expects(:benefit_taxable_weeks).returns("benefit taxable weeks")
-                          #   @stubbed_calculator.expects(:percent_tax_charge).returns("percent tax charge")
+                          should "tell you your estimated tax charge" do
+                            SmartAnswer::Calculators::ChildBenefitTaxCalculator.
+                              expects(:new).with(
+                                :start_of_tax_year => Date.new(2012, 4, 6),
+                                :end_of_tax_year => Date.new(2013, 4, 5),
+                                :children_claiming => 1,
+                                :claim_periods => [Date.new(2012,12,22)..Date.new(2013,4,5), Date.new(2013,2,14)..Date.new(2013,4,5), Date.new(2012,4,6)..Date.new(2013,4,5)],
+                                :income => 52200.0
+                              ).returns(@stubbed_calculator)
+                            @stubbed_calculator.expects(:formatted_benefit_tax).returns("formatted benefit tax")
+                            @stubbed_calculator.expects(:formatted_benefit_taxable_amount).returns("formatted benefit taxable amount")
+                            @stubbed_calculator.expects(:formatted_benefit_claimed_amount).returns("formatted benefit claimed amount")
+                            @stubbed_calculator.expects(:benefit_taxable_weeks).returns("benefit taxable weeks")
+                            @stubbed_calculator.expects(:percent_tax_charge).returns("percent tax charge")
 
-                          #   assert_current_node :estimated_tax_charge
-                          #   assert_state_variable :benefit_taxable_amount, "formatted benefit taxable amount"
-                          #   assert_state_variable :benefit_claimed_amount, "formatted benefit claimed amount"
-                          #   assert_state_variable :percentage_tax_charge, "percent tax charge"
-                          #   assert_state_variable :benefit_taxable_weeks, "benefit taxable weeks"
-                          #   assert_state_variable :benefit_tax, "formatted benefit tax"
-                          # end
+                            assert_current_node :estimated_tax_charge
+                            assert_state_variable :benefit_taxable_amount, "formatted benefit taxable amount"
+                            assert_state_variable :benefit_claimed_amount, "formatted benefit claimed amount"
+                            assert_state_variable :percentage_tax_charge, "percent tax charge"
+                            assert_state_variable :benefit_taxable_weeks, "benefit taxable weeks"
+                            assert_state_variable :benefit_tax, "formatted benefit tax"
+                          end
                         end # context - no children stopping
 
                         context "1 child stopping" do
@@ -406,28 +382,28 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
                               add_response "2013-01-15"
                             end
 
-                            # should "tell you your estimated tax charge" do
-                            #   SmartAnswer::Calculators::ChildBenefitTaxCalculator.
-                            #     expects(:new).with(
-                            #       :start_of_tax_year => Date.new(2012, 4, 6),
-                            #       :end_of_tax_year => Date.new(2013, 4, 5),
-                            #       :children_claiming => 1,
-                            #       :claim_periods => [Date.new(2012,12,22)..Date.new(2013,4,5), Date.new(2013,2,14)..Date.new(2013,4,5), Date.new(2012,4,6)..Date.new(2013,1,15)],
-                            #       :income => 52200.0
-                            #     ).returns(@stubbed_calculator)
-                            #   @stubbed_calculator.expects(:formatted_benefit_tax).returns("formatted benefit tax")
-                            #   @stubbed_calculator.expects(:formatted_benefit_taxable_amount).returns("formatted benefit taxable amount")
-                            #   @stubbed_calculator.expects(:formatted_benefit_claimed_amount).returns("formatted benefit claimed amount")
-                            #   @stubbed_calculator.expects(:benefit_taxable_weeks).returns("benefit taxable weeks")
-                            #   @stubbed_calculator.expects(:percent_tax_charge).returns("percent tax charge")
+                            should "tell you your estimated tax charge" do
+                              SmartAnswer::Calculators::ChildBenefitTaxCalculator.
+                                expects(:new).with(
+                                  :start_of_tax_year => Date.new(2012, 4, 6),
+                                  :end_of_tax_year => Date.new(2013, 4, 5),
+                                  :children_claiming => 1,
+                                  :claim_periods => [Date.new(2012,12,22)..Date.new(2013,4,5), Date.new(2013,2,14)..Date.new(2013,4,5), Date.new(2012,4,6)..Date.new(2013,1,15)],
+                                  :income => 52200.0
+                                ).returns(@stubbed_calculator)
+                              @stubbed_calculator.expects(:formatted_benefit_tax).returns("formatted benefit tax")
+                              @stubbed_calculator.expects(:formatted_benefit_taxable_amount).returns("formatted benefit taxable amount")
+                              @stubbed_calculator.expects(:formatted_benefit_claimed_amount).returns("formatted benefit claimed amount")
+                              @stubbed_calculator.expects(:benefit_taxable_weeks).returns("benefit taxable weeks")
+                              @stubbed_calculator.expects(:percent_tax_charge).returns("percent tax charge")
 
-                            #   assert_current_node :estimated_tax_charge
-                            #   assert_state_variable :benefit_taxable_amount, "formatted benefit taxable amount"
-                            #   assert_state_variable :benefit_claimed_amount, "formatted benefit claimed amount"
-                            #   assert_state_variable :percentage_tax_charge, "percent tax charge"
-                            #   assert_state_variable :benefit_taxable_weeks, "benefit taxable weeks"
-                            #   assert_state_variable :benefit_tax, "formatted benefit tax"
-                            # end
+                              assert_current_node :estimated_tax_charge
+                              assert_state_variable :benefit_taxable_amount, "formatted benefit taxable amount"
+                              assert_state_variable :benefit_claimed_amount, "formatted benefit claimed amount"
+                              assert_state_variable :percentage_tax_charge, "percent tax charge"
+                              assert_state_variable :benefit_taxable_weeks, "benefit taxable weeks"
+                              assert_state_variable :benefit_tax, "formatted benefit tax"
+                            end
                           end # context - valid first child date
                         end # context - 1 child stopping
                       end # context - valid second child date

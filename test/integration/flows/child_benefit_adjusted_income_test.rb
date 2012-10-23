@@ -20,14 +20,14 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
 	  context "income at 60k" do
 	  	setup do
 	  		add_response "60000"
+    		add_response :yes    
 	  	end
 
 	  	should "ask about pension" do
-        assert_current_node :do_you_expect_to_pay_into_a_pension_this_year?
+        assert_current_node :how_much_pension_contributions_before_tax?
       end
       context "test 01" do
       	setup do
-      		add_response :yes    # Q3A Gross Pension
       		add_response "5000"    # Q3A Gross Pension
           add_response "1600"    # Q4 net pension 
           add_response "1000"    # Q5 trading losses 
@@ -40,14 +40,13 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
           assert_state_variable :net_pension_contributions, 1600
           assert_state_variable :trading_losses, 1000
           assert_state_variable :total_deductions, 8000
-          assert_state_variable :adjusted_net_income, (60000 - 8000)
+          assert_state_variable :adjusted_net_income, 52000 #(60000 - 8000)
         end
 
         should "ask about children claiming for" do 
-        	add_response "1000"
+        	add_response "800"
         	assert_current_node :how_many_children_claiming_for?
-        	# assert_state_variable :
-         #  assert_state_variable :adjusted_net_income, (60000 - 8000)
+          assert_state_variable :adjusted_net_income, 51000
         end
       end
 	  end

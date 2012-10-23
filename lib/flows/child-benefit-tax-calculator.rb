@@ -115,11 +115,11 @@ money_question :how_much_do_you_expect_to_give_to_charity_this_year? do
   save_input_as :gift_aided_donations
 
   calculate :adjusted_net_income do
-    adjusted_net_income - (gift_aided_donations * 1.2)
+    adjusted_net_income - (gift_aided_donations * 1.25)
   end
 
   next_node do |response|
-    if (adjusted_net_income - (response.to_f * 1.2)) < 50000
+    if (adjusted_net_income - (response.to_f * 1.25)) < 50000
       :dont_need_to_pay
     else
       :how_many_children_claiming_for?
