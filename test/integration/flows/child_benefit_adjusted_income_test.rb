@@ -42,6 +42,13 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
           assert_state_variable :total_deductions, 8000
           assert_state_variable :adjusted_net_income, (60000 - 8000)
         end
+
+        should "ask about children claiming for" do 
+        	add_response "1000"
+        	assert_current_node :how_many_children_claiming_for?
+        	# assert_state_variable :
+         #  assert_state_variable :adjusted_net_income, (60000 - 8000)
+        end
       end
 	  end
   end

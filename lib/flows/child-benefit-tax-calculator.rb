@@ -99,7 +99,7 @@ money_question :how_much_interest_from_savings_and_investments? do
     gross_pension_contributions + (net_pension_contributions.to_f * 1.25) + (trading_losses.to_f)
   end
 
-  calculate :adjusted_net_income don_contributions.to_f - (net_pension_contributions.to_f * 1.25) - trading_losses.to_f
+  calculate :adjusted_net_income do
     total_income - total_deductions
   end
 
