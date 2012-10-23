@@ -51,11 +51,11 @@ end
 # Question 2
 money_question :what_is_your_estimated_income_for_the_year_before_tax? do
   calculate :total_income do
-    responses.last.to_f.round(-2)
+    responses.last.to_f
   end
 
   next_node do |response|
-    if response.to_f.round(-2) <= 50000
+    if response.to_f <= 50099
       :dont_need_to_pay
     else
       :do_you_expect_to_pay_into_a_pension_this_year?
@@ -114,7 +114,7 @@ money_question :how_much_do_you_expect_to_give_to_charity_this_year? do
   end
 
   next_node do |response|
-    if (adjusted_net_income - (response.to_f * 1.25)) < 50000
+    if (adjusted_net_income - (response.to_f * 1.25)) <= 50099
       :dont_need_to_pay
     else
       :how_many_children_claiming_for?

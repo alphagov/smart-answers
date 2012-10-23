@@ -26,7 +26,7 @@ en-GB:
       ## Q2
       what_is_your_estimated_income_for_the_year_before_tax?:
         title: Enter your total annual income before tax is taken off.
-        error_message: Please enter a valid amount
+        error_message: Please enter a number
         body: |
 
           % Only enter the highest individual income if you’re looking after children with a partner. %
