@@ -1,6 +1,17 @@
 status :draft
 satisfies_need "2482"
 
+# Q0
+multiple_choice :work_out_income? do
+  option :income_work_out
+  option :just_how_much
+
+  save_input_as :work_out_income
+
+  next_node :which_tax_year?
+end
+    
+
 # Question 1
 multiple_choice :which_tax_year? do
   option "2012-13"
@@ -26,17 +37,25 @@ multiple_choice :which_tax_year? do
     end
   end
 
-  next_node :what_is_your_estimated_income_for_the_year_before_tax?
+  # next_node :what_is_your_estimated_income_for_the_year_before_tax?
+    
+  next_node do |response|
+    if work_out_income == "income_work_out" 
+      :what_is_your_estimated_income_for_the_year_before_tax?
+    else
+      :how_many_children_claiming_for?
+    end
+  end
 end
 
 # Question 2
 money_question :what_is_your_estimated_income_for_the_year_before_tax? do
   calculate :total_income do
-    responses.last.to_f.round(-2)
+    responses.last.to_f
   end
 
   next_node do |response|
-    if response.to_f.round(-2) <= 50000
+    if response.to_f <= 50099
       :dont_need_to_pay
     else
       :do_you_expect_to_pay_into_a_pension_this_year?
@@ -74,10 +93,13 @@ end
 
 # Question 5
 money_question :how_much_interest_from_savings_and_investments? do
-  save_input_as :net_savings_interest
+  save_input_as :trading_losses
+  calculate :total_deductions do
+    gross_pension_contributions + (net_pension_contributions.to_f * 1.25) + trading_losses.to_f
+  end
 
   calculate :adjusted_net_income do
-    total_income - gross_pension_contributions.to_f - (net_pension_contributions.to_f * 1.2) + (responses.last.to_f * 1.2)
+    total_income - total_deductions
   end
 
   next_node :how_much_do_you_expect_to_give_to_charity_this_year?
@@ -88,11 +110,11 @@ money_question :how_much_do_you_expect_to_give_to_charity_this_year? do
   save_input_as :gift_aided_donations
 
   calculate :adjusted_net_income do
-    adjusted_net_income - (gift_aided_donations * 1.2)
+    adjusted_net_income - (gift_aided_donations * 1.25)
   end
 
   next_node do |response|
-    if (adjusted_net_income - (response.to_f * 1.2)) < 50000
+    if (adjusted_net_income - (response.to_f * 1.25)) <= 50099
       :dont_need_to_pay
     else
       :how_many_children_claiming_for?
@@ -263,7 +285,7 @@ outcome :estimated_tax_charge do
       :end_of_tax_year => end_of_tax_year,
       :children_claiming => number_of_children,
       :claim_periods => claim_periods,
-      :income => adjusted_net_income
+      :income => ( work_out_income == "income_work_out" ? adjusted_net_income : 60001 )
     )
   end
 
