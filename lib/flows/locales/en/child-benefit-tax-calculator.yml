@@ -7,9 +7,10 @@ en-GB:
       body: |
         Get an estimate of how much tax the person with the highest income may have to pay. 
 
-        If your or your partner’s individual annual income is £50,000 or less, you won’t have to pay tax because you get Child Benefit. 
+        The person with the highest income has to pay the full amount of Child Benefit as a tax charge if their 
+          [adjusted net income](http://www.hmrc.gov.uk/adjustednetincome "Adjusted net income") is more than £60,000 a year.
 
-        If you need to pay tax, you only pay it on Child Benefit that’s for weeks after 7 January 2013.
+        If you need to pay the tax charge, you only pay it on Child Benefit that’s for weeks after 7 January 2013.
       options:
         "yes": "Yes"
         "no": "No"
@@ -19,9 +20,6 @@ en-GB:
         options:
           "income_work_out": "Work out if your income means you'll have to pay tax because you get Child Benefit (and how much you’ll have to pay)"
           "just_how_much": "Just work out how much you have to pay - you know your income means you'll pay the full amount"
-        body: |
-          The person with the highest income has to pay the full amount of Child Benefit as tax if their 
-          [adjusted net income](http://www.hmrc.gov.uk/adjustednetincome "Adjusted net income") is more than £60,000 a year.
       ## Q1
       which_tax_year?:
         title: Choose the tax year you want an estimate for.
@@ -41,7 +39,6 @@ en-GB:
           - interest you get from savings
           - State Pension payments and other State benefits that are taxed
           - payments from personal and occupational pensions or annuities
-          - income from Individual Savings Accounts (ISAs) or pensioner bonds
           - income from dividends (including the dividend tax credit) or trusts
           - rental income
 
@@ -61,7 +58,7 @@ en-GB:
       ## Q4
       how_much_pension_contributions_claimed_back_by_provider?:
         title: |
-          Enter the amount you expect to pay into a pension for the whole tax year where your pension 
+          Enter the total amount you expect to pay into a pension for the whole tax year where your pension 
           provider claims tax relief for you (called ‘relief at source’ arrangements).
         hint: If none, please enter 0.
         error_message: Please enter a number
@@ -106,7 +103,7 @@ en-GB:
       how_many_children_to_stop_claiming?:
         title: How many children do you or your partner expect to stop getting Child Benefit for?
         hint: Eg they reach 16 or are over 16 and leave education
-        error_message: This calculator can only deal with stopping claims for 3 new children in a year.
+        error_message: You can’t stop claiming for more children than you have or use this calculator if you expect Child Benefit to stop for more than 3 children in a tax year.
       ## 10a,b,c
       when_do_you_expect_to_stop_claiming_for_the_1st_child?:
         title: What date do you or your partner expect to stop claiming Child Benefit for the first child?
@@ -138,13 +135,11 @@ en-GB:
           Child Benefit that's counted when working out the tax to pay | £%{benefit_taxable_amount}
           Percentage of Child Benefit you must pay as tax | %{percentage_tax_charge}%
 
+          This is an estimate based on the income figures you provided. If your income changes during the tax year, use the calculator to get a new estimate.
+
           You can either:
 
-          - carry on getting Child Benefit and whoever has the highest income in your household pays £%{benefit_tax} through the [Self Assessment system](/self-assessment-tax-returns "Self Assessment tax returns")
-          - tell the [Child Benefit office](/child-benefit-office "Child Benefit Office") that you want to stop claiming Child Benefit
+          - carry on getting Child Benefit and whoever has the highest income pays £%{benefit_tax} through the [Self Assessment system](/self-assessment-tax-returns "Self Assessment tax returns") - they must [register for Self Assessment](/register-for-self-assessment "register for Self Assessment") if they haven’t already and [declare Child Benefit payments](www.hmrc.gov.uk/childbenefitcharge/declaringchildbenefit "Declaring Child Benefit payments"){:rel="external"} on their tax return
+          - ask for [Child Benefit payments to be stopped](http://www.hmrc.gov.uk/stopchbpayments "Stop Child Benefit payments"){:rel="external"} (only the person getting Child Benefit can do this) - the tax charge will be owed on any Child Benefit paid for weeks after 7 January 2013 
 
-          ^ If someone stops claiming Child Benefit and they’re not working, they won’t automatically get [National Insurance credits](boost-state-pension "Boost your State pension") towards their State pension. ^
-
-          This is an estimate based on the income figures you provided.
-
-          The result may be different if your income changes during a tax year.
+          ^ If you decide stop your Child Benefit payments, you will still get [National Insurance credits](boost-state-pension "Boost your State pension") for as long as you’re entitled to claim Child Benefit. You can also apply for Child Benefit but ask for it not to be paid to you. ^
