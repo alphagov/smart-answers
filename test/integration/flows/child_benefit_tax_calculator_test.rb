@@ -23,16 +23,54 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
       assert_current_node :which_tax_year?
     end
     
-    context "enter 2012-13" do
+    context "enter 2013-14" do
       setup do
-        add_response "2012-13"
+        add_response "2013-14"
       end
 
       should "ask how many children" do
         assert_current_node :how_many_children_claiming_for?
       end
 
-      # TODO: test the outcome for percent_tax_change
+      context "3 children" do
+        setup do
+          add_response "3"
+        end
+
+        should "ask how many children" do
+          assert_current_node :do_you_expect_to_start_or_stop_claiming?
+        end
+
+        context "no" do
+          setup do
+            add_response :no
+          end
+
+          should "give estimated_tax_charge" do
+            assert_current_node :estimated_tax_charge
+            assert_state_variable :benefit_taxable_amount, "2449.20"
+            assert_state_variable :benefit_claimed_amount, "2449.20"
+            assert_state_variable :percentage_tax_charge, 100.0
+            assert_state_variable :benefit_tax, "2449"
+          end
+        end
+      end
+    end
+
+    context "enter 2012-13" do
+      setup do
+        add_response "2012-13"
+        add_response "3"
+        add_response :no
+      end
+
+      should "give estimated_tax_charge" do
+        assert_current_node :estimated_tax_charge
+        assert_state_variable :benefit_taxable_amount, "612.30"
+        assert_state_variable :benefit_claimed_amount, "2449.20"
+        assert_state_variable :percentage_tax_charge, 100.0
+        assert_state_variable :benefit_tax, "612"
+      end
     end
   end # just_how_much
 

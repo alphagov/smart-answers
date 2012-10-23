@@ -93,7 +93,6 @@ end
 
 # Question 5
 money_question :how_much_interest_from_savings_and_investments? do
-  # save_input_as :net_savings_interest
   save_input_as :trading_losses
   calculate :total_deductions do
     gross_pension_contributions + (net_pension_contributions.to_f * 1.25) + trading_losses.to_f
@@ -102,10 +101,6 @@ money_question :how_much_interest_from_savings_and_investments? do
   calculate :adjusted_net_income do
     total_income - total_deductions
   end
-
-  # adjusted_net_income = total_income - gross_pension_contributions - 
-  # (net_pension_contributions x 1.25) - trading_losses 
-  # - (gift_aided_donations x 1.25)
 
   next_node :how_much_do_you_expect_to_give_to_charity_this_year?
 end
