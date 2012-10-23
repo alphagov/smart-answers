@@ -33,7 +33,7 @@ en-GB:
 
           The first 3 days of any period of illness (or any linked periods of illness separated by less than 8 weeks) won’t be paid. The payment amount will reflect this.
 
-          Employees can get SSP for up to 28 weeks. After that you must give them form SSP1 within 7 days of SSP ending. They may be able to get [Employment Support Allowance (ESA).](https://www.gov.uk/employment-support-allowance "Benefits & credits: employment support allowance (ESA)")
+          SSP can be paid for up to 28 weeks of an employee’s normal workdays. For this employee that equals a total of %{max_days_payable} days. After that you must give them form SSP1 within 7 days of SSP ending. They may be able to get [Employment Support Allowance (ESA).](https://www.gov.uk/employment-support-allowance "Benefits & credits: employment support allowance (ESA)")
 
 
           $D
@@ -46,6 +46,7 @@ en-GB:
           You may be able to [recover the statutory payments](http://www.hmrc.gov.uk/paye/employees/statutory-pay/ssp-calc.htm "How to calculate and recover Statutory Sick Pay") you’ve paid from HM Revenue & Customs (HMRC). 
           Your payroll software or [HMRC&apos;s basic PAYE tools](http://www.hmrc.gov.uk/paye/tools/basic-paye-tools.htm "Using HMRC's Basic PAYE Tools") can tell you how much you’ll get back.
 
+          *[SSP]: Statutory Sick Pay
         first_three_days_not_paid: |
           ##Your employee isn’t entitled to Statutory Sick Pay because the first 3 days of illness aren’t paid.
 
@@ -111,8 +112,8 @@ en-GB:
           *[PIW]: Period of Incapacity for Work
       ## Q12
       how_many_days_missed?:
-        title: During the previous illness, how many days was your employee away sick from work?
-        hint: Only count days that your employee was contracted to work for you.
+        title: During the previous illness, how many of their normal workdays did your employee take off sick?
+        hint: ‘Normal workdays’ are the days of the week your employee works on a regular basis.
         error_message: Please enter a number greater than 0
 
       ## Q13
