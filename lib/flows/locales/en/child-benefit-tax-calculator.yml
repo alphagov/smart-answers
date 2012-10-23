@@ -13,6 +13,7 @@ en-GB:
       options:
         "yes": "Yes"
         "no": "No"
+      ## Q0
       work_out_income?:
         title: "Do you want to:"
         options:
@@ -21,8 +22,10 @@ en-GB:
         body: |
           The person with the highest income has to pay the full amount of Child Benefit as tax if their 
           [adjusted net income](http://www.hmrc.gov.uk/adjustednetincome "Adjusted net income") is more than £60,000 a year.
+      ## Q1
       which_tax_year?:
         title: Choose the tax year you want an estimate for.
+      ## Q2
       what_is_your_estimated_income_for_the_year_before_tax?:
         title: Enter your total annual income before tax is taken off.
         error_message: Please enter a valid amount
@@ -32,48 +35,61 @@ en-GB:
 
           Include:
 
-          - salary 
+          - salary (before any pension contributions are taken away)
           - company benefits you get (eg car, fuel and medical benefits)
           - profits if you’re self-employed
           - interest you get from savings
           - State Pension payments and other State benefits that are taxed
           - payments from personal and occupational pensions or annuities
+          - income from Individual Savings Accounts (ISAs) or pensioner bonds
           - income from dividends (including the dividend tax credit) or trusts
+          - rental income
 
           Don’t include:
 
           - interest you get from tax-free savings, like interest from an Individual Savings Account (ISA)
+      ## Q3
       do_you_expect_to_pay_into_a_pension_this_year?:
-        title: Are you paying into a workplace or personal pension?
+        title: Are you paying into a pension?
       ## Q3a
       how_much_pension_contributions_before_tax?:
-        title: Enter the total amount you expect to pay for the whole tax year into a pension at work where you're taxed after the contribution has been taken ('net pay arrangements').
-        hint: If none, please enter 0.
+        title: |
+          Enter the total amount you expect to pay for the whole tax year into a pension scheme 
+          where your contributions are paid before your income is taxed.
+        hint: These are called ‘net pay’ or ‘gross contribution’ arrangements. If none, please enter 0.
         error_message: Please enter a number
       ## Q4
       how_much_pension_contributions_claimed_back_by_provider?:
-        title: Enter the amount you expect to pay into a pension for the whole tax year where your pension provider claims tax relief for you (personal or stakeholder pensions or ‘relief at source’ arrangements).
+        title: |
+          Enter the amount you expect to pay into a pension for the whole tax year where your pension 
+          provider claims tax relief for you (called ‘relief at source’ arrangements).
         hint: If none, please enter 0.
         error_message: Please enter a number
+      ## Q5
       how_much_interest_from_savings_and_investments?:
         title: If you're self employed, enter the amount of trading losses you expect to claim for this tax year.
         hint: If none, please enter 0.
         error_message: Please enter a number
+      ## Q6
       how_much_do_you_expect_to_give_to_charity_this_year?:
         title: Enter the amount you expect to give through Gift Aid during the tax year.
         hint: If none, please enter 0.
         error_message: Please enter a number
+      ## Q7
       how_many_children_claiming_for?:
         title: How many children are you or your partner getting Child Benefit for?
         error_message: Please enter a number
+      ## Q8
       do_you_expect_to_start_or_stop_claiming?:
         title: Do you or your partner expect to start claiming for a new child or stop claiming for an existing child during the tax year? 
         hint: Eg you're expecting a baby or a child will reach 16 or leave full-time education.
         error_message: You must have at least 1 child to claim Child Benefit.
+      ## Q9
       how_many_children_to_start_claiming?:
         title: How many children do you or your partner expect to start claiming Child Benefit for?
-        Hint: The calculator can only deal with starting or stopping claims for up to 3 children.
+        hint: The calculator can only deal with starting or stopping claims for up to 3 children.
         error_message: This calculator can only deal with up to 3 new children.
+      ## Q9a,b,c
       when_will_the_1st_child_enter_the_household?:
         title: When do you expect to become responsible and start claiming for the first child?
         hint: Eg the expected date of birth or adoption
@@ -86,10 +102,12 @@ en-GB:
         title: When do you expect to become responsible and start claiming for the third child?
         hint: Eg the expected date of birth or adoption
         error_message: Please enter a date within the tax year.
+      ## Q10
       how_many_children_to_stop_claiming?:
         title: How many children do you or your partner expect to stop getting Child Benefit for?
         hint: Eg they reach 16 or are over 16 and leave education
-        error_message: You cannot stop claiming benefit for more children than you're currently claiming for
+        error_message: This calculator can only deal with stopping claims for 3 new children in a year.
+      ## 10a,b,c
       when_do_you_expect_to_stop_claiming_for_the_1st_child?:
         title: What date do you or your partner expect to stop claiming Child Benefit for the first child?
         hint: The calculator will give you an estimate from this date. You may be paid Child Benefit later than this.
@@ -102,6 +120,8 @@ en-GB:
         title: What date do you or your partner expect to stop claiming Child Benefit for the third child?
         hint: The calculator will give you an estimate from this date. You may be paid Child Benefit later than this.
         error_message: Please enter a date within the tax year.
+      
+      ## Outcome
       dont_need_to_pay:
         title: You don’t need to pay tax because you or your partner are claiming Child Benefit.
         body: |
