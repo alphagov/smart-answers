@@ -85,17 +85,11 @@ class SmartAnswerPresenter
 
   def error
     if current_state.error.present?
-      puts current_state.error.inspect
-      if current_state.error.is_a?(Symbol)
-        puts "This is a symbol!"
-        e = current_node.translate!("errors.#{current_state.error.to_s}")
-      elsif !current_state.error.blank?
-        e = current_state.error.to_s
+      if current_state.error.include?("::")
+        current_node.error_message || I18n.translate('flow.defaults.error_message')
       else
-        e = current_node.error_message || I18n.translate('flow.defaults.error_message')
+        current_state.error
       end
-      puts e
-      return e
     end
   end
 
