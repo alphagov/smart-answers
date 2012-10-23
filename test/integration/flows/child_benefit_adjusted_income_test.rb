@@ -38,8 +38,9 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
           assert_state_variable :total_income, 60000
           assert_state_variable :gross_pension_contributions, 5000
           assert_state_variable :net_pension_contributions, 1600
+          assert_state_variable :trading_losses, 1000
           assert_state_variable :total_deductions, 8000
-          assert_state_variable :adjusted_net_income, 60000 - 8000
+          assert_state_variable :adjusted_net_income, (60000 - 8000)
         end
       end
 	  end
