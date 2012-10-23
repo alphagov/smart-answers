@@ -68,11 +68,11 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
 
       context "income rounded to £100 greater than £50,000" do
         setup do
-          add_response "50060"
+          add_response "52460"
         end
 
         should "store your income" do
-          assert_state_variable :total_income, 50100
+          assert_state_variable :total_income, 52500
         end
 
         should "ask if you expect to pay into a workplace or personal pension this tax year" do
@@ -152,7 +152,8 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
             end
 
             should "store your net savings interest" do
-              assert_state_variable :net_savings_interest, 1800
+              #assert_state_variable :net_savings_interest, 1800
+              assert_state_variable :trading_losses, 1800
             end
 
             should "ask how much you expect to give to charity this year" do
@@ -165,7 +166,7 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
               end
 
               should "calculate adjusted net income" do
-                assert_state_variable :adjusted_net_income, 22260
+                assert_state_variable :adjusted_net_income, 19450 
               end
 
               should "not require to pay tax when adjusted net income less than £50,000" do
@@ -175,11 +176,11 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
 
             context "adjusted net income >= 50000" do
               setup do
-                add_response "50"
+                add_response "40"
               end
 
               should "calculate adjusted net income" do
-                assert_state_variable :adjusted_net_income, 52200
+                assert_state_variable :adjusted_net_income, 50650
               end
 
               should "ask how many children you are getting child benefit for" do
@@ -248,7 +249,7 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
                         :end_of_tax_year => Date.new(2013, 4, 5),
                         :children_claiming => 1,
                         :claim_periods => [Date.new(2012,4,6)..Date.new(2013,4,5)],
-                        :income => 52200.0
+                        :income => 50650.0
                       ).returns(@stubbed_calculator)
                     @stubbed_calculator.expects(:formatted_benefit_tax).returns("formatted benefit tax")
                     @stubbed_calculator.expects(:formatted_benefit_taxable_amount).returns("formatted benefit taxable amount")
@@ -344,7 +345,7 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
                                 :end_of_tax_year => Date.new(2013, 4, 5),
                                 :children_claiming => 1,
                                 :claim_periods => [Date.new(2012,12,22)..Date.new(2013,4,5), Date.new(2013,2,14)..Date.new(2013,4,5), Date.new(2012,4,6)..Date.new(2013,4,5)],
-                                :income => 52200.0
+                                :income => 50650.0
                               ).returns(@stubbed_calculator)
                             @stubbed_calculator.expects(:formatted_benefit_tax).returns("formatted benefit tax")
                             @stubbed_calculator.expects(:formatted_benefit_taxable_amount).returns("formatted benefit taxable amount")
@@ -389,7 +390,7 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
                                   :end_of_tax_year => Date.new(2013, 4, 5),
                                   :children_claiming => 1,
                                   :claim_periods => [Date.new(2012,12,22)..Date.new(2013,4,5), Date.new(2013,2,14)..Date.new(2013,4,5), Date.new(2012,4,6)..Date.new(2013,1,15)],
-                                  :income => 52200.0
+                                  :income => 50650.0
                                 ).returns(@stubbed_calculator)
                               @stubbed_calculator.expects(:formatted_benefit_tax).returns("formatted benefit tax")
                               @stubbed_calculator.expects(:formatted_benefit_taxable_amount).returns("formatted benefit taxable amount")
