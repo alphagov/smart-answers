@@ -46,6 +46,26 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "percent tax charge rounding test 1" do
+        setup do
+          @calc.income = 54013
+        end
+
+        should "return 40% percent tax charge for 50200" do
+          assert_equal 40.0, @calc.percent_tax_charge
+        end
+      end
+      
+      context "percent tax charge rounding test 2" do
+        setup do
+          @calc.income = 54089
+        end
+
+        should "return 40% percent tax charge for 50200" do
+          assert_equal 40.0, @calc.percent_tax_charge
+        end
+      end
+
       context "percent tax charge test 4" do
         setup do
           @calc.income = 60000
