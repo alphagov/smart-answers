@@ -83,7 +83,16 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
             should "ask 'how much do you get paid?'" do
               assert_current_node :how_much_are_you_paid_during_pay_period?
             end
-            
+
+            context "answer '0' to 'how much do you get paid?'" do
+              setup do
+                add_response 0
+              end
+              should "go to overtime questions" do
+                assert_current_node :how_many_hours_overtime_do_you_work?
+              end
+            end
+
             context "answered 158.39 to 'how much do you get paid?'" do
               setup do
                 add_response 158.39
@@ -197,7 +206,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         end # Pay frequency
       end # Age
       
-      # Scenario 8 from https://docs.google.com/a/digital.cabinet-office.gov.uk/spreadsheet/ccc?key=0An9oCYIY2AELdHVsckdKM0VWc2NFZ0J6MXFtdEY3MVE#gid=0
+      # Scenario 8 
       context "25 year old" do
         setup do
           add_response 25
@@ -224,28 +233,29 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       # Scenario 8 - part 2 - living in free accommodation instead of charged
       context "25 year old" do
         setup do
-          add_response 25
-          add_response 7
-          add_response 35
-          add_response 350
-          add_response 10
-          add_response 12
-          add_response :yes_free
-          add_response 7
+          add_response 25         # age 
+          add_response 7          # pay_frequency
+          add_response 35         # basic_hours
+          add_response 350        # amount_paid
+          add_response 10         # hours of overtime
+          add_response 12         # overtime pay per hour
+          add_response :yes_free  # provided accomodation
+          add_response 7          # accom usage
         end
         should "be above the minimum wage" do
           assert_current_node :current_payment_above
         end
         should "make outcome calculations" do
           assert_state_variable "total_hours", 45
-          assert_state_variable "minimum_hourly_rate", 6.08
-          assert_state_variable "total_hourly_rate", "10.74"
+          # NOTE: these are date sensitive vars - will be tested in the calculator tests
+          # assert_state_variable "minimum_hourly_rate", 6.08 # 
+          # assert_state_variable "total_hourly_rate", "10.74" # time sensitive
           assert_state_variable "above_minimum_wage", true
         end
       end
-      
     end # Apprentice
   end # Current pay
+
 
 
 
@@ -414,7 +424,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                         
                         should "make outcome calculations" do
                           assert_state_variable "total_hours", 42
-                          assert_state_variable "minimum_hourly_rate", 4.83
+                          assert_state_variable "minimum_hourly_rate", "4.83"
                           assert_state_variable "total_hourly_rate", "3.75"
                           assert_state_variable "above_minimum_wage", false
                         end
@@ -478,7 +488,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         end
         should "make outcome calculations" do
           assert_state_variable "total_hours", 210
-          assert_state_variable "minimum_hourly_rate", 3.53
+          assert_state_variable "minimum_hourly_rate", "3.53"
           assert_state_variable "total_hourly_rate", "4.46"
           assert_state_variable "above_minimum_wage", true
           assert_state_variable "historical_adjustment", 0
@@ -496,7 +506,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         end
         should "make outcome calculations" do
           assert_state_variable "total_hours", 210
-          assert_state_variable "minimum_hourly_rate", 3.53
+          assert_state_variable "minimum_hourly_rate", "3.53"
           assert_state_variable "total_hourly_rate", "3.21"
           assert_state_variable "above_minimum_wage", false
           assert_state_variable "historical_adjustment", 70.38

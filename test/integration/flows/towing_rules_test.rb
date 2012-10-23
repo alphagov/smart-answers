@@ -255,23 +255,9 @@ class TowingRulesTest < ActiveSupport::TestCase
             setup do
               add_response "21-or-over"
             end
-            ## Q33
-            should "ask if you have held a car licence for over 2 years" do
-              assert_current_node :licenceholder_for_2_years?
-            end
-            context "answer yes" do
-              ## A34
-              should "specify entitlement" do
-                add_response :yes
-                assert_current_node :limited_overall_entitlement_minibus
-              end
-            end
-            context "answer no" do
-              ## A35
-              should "specify entitlement" do
-                add_response :no
-                assert_current_node :not_held_licence_long_enough_minibus
-              end
+            ## A34
+            should "specify entitlement" do
+              assert_current_node :limited_overall_entitlement_minibus
             end
           end
         end

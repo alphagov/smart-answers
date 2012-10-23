@@ -1,0 +1,80 @@
+---
+:enrollment_data:
+- :min_employees: 30
+  :max_employees: 39
+  :start_date: 1 October 2015
+- :min_employees: 40
+  :max_employees: 49
+  :start_date: 1 August 2015
+- :min_employees: 50
+  :max_employees: 53
+  :start_date: 1 April 2015
+- :min_employees: 54
+  :max_employees: 57
+  :start_date: 1 March 2015
+- :min_employees: 58
+  :max_employees: 58
+  :start_date: 1 January 2015
+- :min_employees: 59
+  :max_employees: 59
+  :start_date: 1 November 2014
+- :min_employees: 60
+  :max_employees: 60
+  :start_date: 1 October 2014
+- :min_employees: 61
+  :max_employees: 61
+  :start_date: 1 August 2014
+- :min_employees: 62
+  :max_employees: 89
+  :start_date: 1 July 2014
+- :min_employees: 90
+  :max_employees: 159
+  :start_date: 1 May 2014
+- :min_employees: 160
+  :max_employees: 249
+  :start_date: 1 April 2014
+- :min_employees: 250
+  :max_employees: 349
+  :start_date: 1 February 2014
+- :min_employees: 350
+  :max_employees: 499
+  :start_date: 1 January 2014
+- :min_employees: 500
+  :max_employees: 799
+  :start_date: 1 November 2013
+- :min_employees: 800
+  :max_employees: 1249
+  :start_date: 1 October 2013
+- :min_employees: 1250
+  :max_employees: 1999
+  :start_date: 1 September 2013
+- :min_employees: 2000
+  :max_employees: 2999
+  :start_date: 1 August 2013
+- :min_employees: 3000
+  :max_employees: 3999
+  :start_date: 1 July 2013
+- :min_employees: 4000
+  :max_employees: 4099
+  :start_date: 1 June 2013
+- :min_employees: 4100
+  :max_employees: 5999
+  :start_date: 1 May 2013
+- :min_employees: 6000
+  :max_employees: 9999
+  :start_date: 1 April 2013
+- :min_employees: 10000
+  :max_employees: 19999
+  :start_date: 1 March 2013
+- :min_employees: 20000
+  :max_employees: 29999
+  :start_date: 1 February 2013
+- :min_employees: 30000
+  :max_employees: 49999
+  :start_date: 1 January 2013
+- :min_employees: 50000
+  :max_employees: 119999
+  :start_date: 1 November 2012
+- :min_employees: 120000
+  :max_employees: 9999999
+  :start_date: 1 October 2012

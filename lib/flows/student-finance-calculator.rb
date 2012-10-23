@@ -60,32 +60,36 @@ multiple_choice :where_will_you_live_while_studying? do
   next_node :whats_your_household_income?
 end
 
-multiple_choice :whats_your_household_income? do
-  option :'up-to-25000'
-  option :'25001-30000'
-  option :'30001-35000'
-  option :'35001-40000'
-  option :'40001-42600'
-  option :'more-than-42600'
+money_question :whats_your_household_income? do
 
   calculate :maintenance_grant_amount do
     if start_date == "2013-2014"
-      case responses.last
-      when "up-to-25000" then Money.new('3354')
-      when "25001-30000" then Money.new('2416')
-      when "30001-35000" then Money.new('1478')
-      when "35001-40000" then Money.new('540')
-      when "40001-42600" then Money.new('50')
-      when "more-than-42600" then Money.new('0')
+      # decreases from max by £1 for each complete £5.33 of income above £25k up to £40k, then by £1 for each £5.30 up to £42600
+      # min of £50 at 42600
+      if responses.last <= 25000
+        Money.new('3354')
+      else
+        if responses.last > 42600
+          Money.new ('0')
+        else
+          if responses.last > 40000
+            Money.new ( 540 - ((responses.last - 40000)/5.30).floor )
+          else
+            Money.new( 3354 - ((responses.last - 25000)/5.33).floor )
+          end
+        end
       end
     else
-      case responses.last
-      when "up-to-25000" then Money.new('3250')
-      when "25001-30000" then Money.new('2341')
-      when "30001-35000" then Money.new('1432')
-      when "35001-40000" then Money.new('523')
-      when "40001-42600" then Money.new('50')
-      when "more-than-42600" then Money.new('0')
+      # 2012-13: decreases from max by £1 for each complete £5.50 of income above £25k
+      # min of £50 at 42600
+      if responses.last <= 25000
+        Money.new('3250')
+      else
+        if responses.last > 42600
+          Money.new('0')
+        else
+          Money.new( 3250 - ((responses.last - 25000)/5.5).floor )
+        end
       end
     end
   end

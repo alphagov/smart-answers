@@ -1,5 +1,5 @@
 satisfies_need "2189"
-status :draft
+status :published
 
 
 multiple_choice :where_did_the_death_happen? do
@@ -40,9 +40,7 @@ multiple_choice :was_death_expected? do
     else
       sections << :intro_other
       sections << :intro_other_unexpected unless death_expected
-      sections << :who_can_register
-      sections << :"who_can_register_#{died_at_home_hospital ? :home_hospital : :elsewhere}"
-      sections << :documents_youll_need
+      #who can register and documents you need sections are not needed for this type of outcome
       sections << :"documents_youll_get_other_#{death_expected ? :expected : :unexpected}"
     end
     sections

@@ -105,8 +105,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response :yes
         assert_current_node :done
         assert_phrase_list :content_sections, [:intro_other,
-          :who_can_register, :who_can_register_home_hospital,
-          :documents_youll_need,
           :documents_youll_get_other_expected
         ]
       end
@@ -115,8 +113,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response :no
         assert_current_node :done
         assert_phrase_list :content_sections, [:intro_other, :intro_other_unexpected,
-          :who_can_register, :who_can_register_home_hospital,
-          :documents_youll_need,
           :documents_youll_get_other_unexpected
         ]
       end
@@ -135,8 +131,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response :yes
         assert_current_node :done
         assert_phrase_list :content_sections, [:intro_other,
-          :who_can_register, :who_can_register_elsewhere,
-          :documents_youll_need,
           :documents_youll_get_other_expected
         ]
       end
@@ -145,8 +139,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response :no
         assert_current_node :done
         assert_phrase_list :content_sections, [:intro_other, :intro_other_unexpected,
-          :who_can_register, :who_can_register_elsewhere,
-          :documents_youll_need,
           :documents_youll_get_other_unexpected
         ]
       end

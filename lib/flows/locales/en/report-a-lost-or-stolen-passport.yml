@@ -2,10 +2,14 @@ en-GB:
   flow:
     report-a-lost-or-stolen-passport:
       meta:
-        description: Find out what you need to do if your passport has been lost or stolen.
+        description: Find out what you need to do if your passport has been lost or stolen and how to get a replacement
       title: Report a lost or stolen passport
       body: |
-        Find out what you need to do if your passport has been lost or stolen.
+        You must tell the Identity and Passport Service (IPS) as soon as possible if your passport has been lost or stolen. 
+
+        This will reduce the risk of anyone else using your passport or your identity.
+
+        Find out how to report a passport lost or stolen and what you need to do to get a replacement.
       phrases:
         child_forms: |
           ^Your signature will be compared to the signature on the original passport application form. If the original application was made by someone else, you’ll also need to send a signed letter from that person confirming that the passport has been %{lost_or_stolen}. This is to help prevent child abduction.^
@@ -23,17 +27,74 @@ en-GB:
       which_country?:
         title: In which country?
 
+      ## A1
+      complete_LS01_form:
+        body: |
+          You must report your lost passport to the Identity and Passport Service (IPS).
 
-      contact_the_police:
-        title: You must contact your nearest police station and report your passport as stolen.
-        body: | 
+          To report your lost passport you can do any of:
 
-          Complete a Lost or Stolen (LS01) notification form online. The form will be sent to you to sign, date and return to the Identity and Passport Service (IPS).
+
+          - [fill in from LS01 online](https://passports.ips.gov.uk/lsrr1a/index.aspx?c=1 "LS01 form") - the Identity and Passport Service will post you a completed form to sign and return
+          - [download a copy](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download LS01"){:rel="external"} of form LS01 and post the completed form to the IPS - the address is on the form
+          - [ask for a callback](https://contact.homeoffice.gov.uk/contact.php?survey=1&pager=4 "Ask for a callback"){:rel="external"} from the IPS 
 
           %{child_advice}
-        next_steps: |
-          * Fill out the [LS01 form online](https://passports.ips.gov.uk/lsrr1a/index.aspx?c=1 "LS01 form")
-          * Once you’ve sent your LSO1 form you can apply for a new passport.
+
+          ##Replacing your passport
+
+          You can apply for a replacement at the same time if you’re a British national and in the UK.
+
+          Follow the same process as [renewing a passport](/renew-adult-passport "Renew your adult passport"), but you:
+
+
+          - must send a completed form LS01 with your application (if you’ve haven’t already reported it as lost)
+          - must get your application countersigned
+          - may be interviewed by the IPS to prove your identity
+          - may be asked for original supporting documents (eg birth or marriage certificates) when the IPS gets your application
+
+          % You can’t use the [1-day Premium service](/get-a-passport-urgently "Get a passport urgently") if you’re replacing a lost passport. % 
+
+          ##If you find your passport
+
+          If you find your passport, don’t sign the form. Instead, return the form in the envelope provided with a signed note confirming that you have found your passport and don’t want to cancel it.
+
+      ## A2
+      contact_the_police:
+        body: | 
+
+          ##Report your stolen passport
+
+          You must report the theft to both:
+
+        
+          - your nearest police station
+          - the Identity and Passport Service (IPS)
+
+          To report to the IPS you can do any of:
+
+
+          - [fill in from LS01 online](https://passports.ips.gov.uk/lsrr1a/index.aspx?c=1 "LS01 form") - the Identity and Passport Service will post you a completed form to sign and return
+          - [download a copy](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download LS01"){:rel="external"} of form LS01 and post the completed form to the IPS - the address is on the form
+          - [ask for a callback](https://contact.homeoffice.gov.uk/contact.php?survey=1&pager=4 "Ask for a callback"){:rel="external"} from the IPS 
+
+          %{child_advice}
+
+
+          ##Replacing your passport
+
+          You can replace your passport if you’re a British national and in the UK.
+
+          Follow the same process as [renewing a passport](/renew-adult-passport "Renew your adult passport"), but you:
+
+
+          - must send a completed form LS01 with your application (if you’ve haven’t already reported it as stolen)
+          - must get your application countersigned
+          - may be interviewed by the IPS to prove your identity
+          - may be asked for original supporting documents (eg birth or marriage certificates) when the IPS gets your application
+
+          % You can’t use the [1-day Premium service](/get-a-passport-urgently "Get a passport urgently") if you’re replacing a stolen passport. %
+
       contact_the_embassy:
         title: Report the loss to the UK embassy, consulate or high commission of %{country_name}.
         body: |
@@ -44,14 +105,3 @@ en-GB:
           %{child_advice}
 
           The embassy will give you replacement travel documents so that you can travel back to the UK. You will be charged for replacement travel documents.
-      complete_LS01_form:
-        title: Complete a lost or stolen (LS01) notification form online.
-        body: |
-          The form will be sent to you to sign, date and return to the Identity and Passport Service (IPS).
-
-          %{child_advice}
-
-          If you find your passport you shouldn’t sign the form. Instead, return the form in the envelope provided with a signed note confirming that you have found your passport and don’t want to cancel it.
-        next_steps: |
-          * Fill out the [LS01 form online](https://passports.ips.gov.uk/lsrr1a/index.aspx?c=1 "LS01 form")
-          * Once you’ve sent your LSO1 form you can apply for a new passport. 

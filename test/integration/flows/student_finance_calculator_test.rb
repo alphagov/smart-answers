@@ -57,7 +57,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
 
           context "household income up to 25k" do
             setup do
-              add_response 'up-to-25000'
+              add_response '24500'
             end
 
             should "ask if you want to check for additional grants etc" do
@@ -78,8 +78,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
 
           end # up to 25k
 
-          should "be done if 25-30k and not checking additional grants" do
-            add_response '25001-30000'
+          should "be done if 30k and not checking additional grants" do
+            add_response '30000'
             add_response 'no'
 
             assert_current_node :done
@@ -87,8 +87,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
             assert_state_variable :maintenance_grant_amount, 2341
           end
 
-          should "be done if 30-35k and not checking additional grants" do
-            add_response '30001-35000'
+          should "be done if 35k and not checking additional grants" do
+            add_response '35000'
             add_response 'no'
 
             assert_current_node :done
@@ -96,8 +96,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
             assert_state_variable :maintenance_grant_amount, 1432
           end
 
-          should "be done if 35-40k and not checking additional grants" do
-            add_response '35001-40000'
+          should "be done if 40k and not checking additional grants" do
+            add_response '40000'
             add_response 'no'
 
             assert_current_node :done
@@ -105,8 +105,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
             assert_state_variable :maintenance_grant_amount, 523
           end
 
-          should "be done if 40-42.60k and not checking additional grants" do
-            add_response '40001-42600'
+          should "be done if 42.6k and not checking additional grants" do
+            add_response '42600'
             add_response 'no'
 
             assert_current_node :done
@@ -115,7 +115,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
           end
 
           should "be done if 42.60k+ and not checking additional grants" do
-            add_response 'more-than-42600'
+            add_response '50000'
             add_response 'no'
 
             assert_current_node :done
@@ -161,7 +161,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         setup do
           add_response '8490'
           add_response 'away-outside-london'
-          add_response 'up-to-25000'
+          add_response '24000'
           add_response 'yes'
         end
 
@@ -193,7 +193,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         setup do
           add_response '8490'
           add_response 'at-home'
-          add_response 'up-to-25000'
+          add_response '23000'
           add_response 'yes'
         end
 
@@ -392,7 +392,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
 
           context "household income up to 25k" do
             setup do
-              add_response 'up-to-25000'
+              add_response '23999'
             end
 
             should "ask if you want to check for additional grants etc" do
@@ -410,6 +410,43 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
               assert_phrase_list :additional_benefits, []
             end
           end
+
+          context "household income at 30k and not checking additional grants" do
+            setup do
+              add_response '30000'
+              add_response 'no'
+            end
+
+            should "be done and display correct maintenance grant amount" do
+              assert_current_node :done
+              assert_state_variable :maintenance_grant_amount, 2416
+            end
+          end
+
+          context "household income at 40k and not checking additional grants" do
+            setup do
+              add_response '40000'
+              add_response 'no'
+            end
+
+            should "be done and display correct maintenance grant amount" do
+              assert_current_node :done
+              assert_state_variable :maintenance_grant_amount, 540
+            end
+          end
+
+          context "household income at 42.6k and not checking additional grants" do
+            setup do
+              add_response '42600'
+              add_response 'no'
+            end
+
+            should "be done and display correct maintenance grant amount" do
+              assert_current_node :done
+              assert_state_variable :maintenance_grant_amount, 50
+            end
+          end
+
         end # checking for grants etc.
       end # valid fees
     end # part-time student

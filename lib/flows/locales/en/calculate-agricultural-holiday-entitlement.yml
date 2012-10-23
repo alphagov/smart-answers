@@ -2,7 +2,7 @@ en-GB:
     flow:
         calculate-agricultural-holiday-entitlement:
             meta:
-                description: Calculate your agricultural worker holiday entitlement
+                description: Work out how much statutory holiday leave you’re entitled to as an agricultural worker
             title: Calculate your agricultural worker holiday entitlement
             body: |
                 Work out how much statutory holiday leave you're entitled to as an agricultural worker.
@@ -44,7 +44,7 @@ en-GB:
                 error_message: Please enter a number greater than 0 and less than 52
 
             how_many_total_days?:
-                title: How many days will you have worked between October 1 (the start of the leave year) and the start of your holiday?
+                title: How many days will you have worked between 1 October (the start of the leave year) and the start of your holiday?
                 hint: |
                     This includes any days that you worked basic hours, took annual leave or were off sick (whether paid or not).
                 label: Total days worked for current employer

@@ -1,4 +1,4 @@
-status :draft
+status :published
 satisfies_need "2013"
 
 # Q1
@@ -135,7 +135,7 @@ money_question :how_much_are_you_paid_during_pay_period? do
 
   calculate :calculator do
     amount_paid = Float(responses.last)
-    if amount_paid <= 0
+    if amount_paid < 0
       raise SmartAnswer::InvalidResponse
     end
     Calculators::MinimumWageCalculator.new({
@@ -155,7 +155,7 @@ money_question :how_much_were_you_paid_during_pay_period? do
 
   calculate :calculator do
     amount_paid = Float(responses.last)
-    if amount_paid <= 0
+    if amount_paid < 0
       raise SmartAnswer::InvalidResponse
     end
     Calculators::MinimumWageCalculator.new({
@@ -411,7 +411,7 @@ value_question :past_accommodation_usage? do
   end
 
   calculate :minimum_hourly_rate do
-    calculator.minimum_hourly_rate
+    calculator.format_money calculator.minimum_hourly_rate
   end
   
   calculate :above_minimum_wage do
@@ -429,8 +429,7 @@ value_question :past_accommodation_usage? do
   next_node do |response|
     calculator.accommodation_adjustment(accommodation_charge, Integer(response))
     
-    # if calculator.historical_adjustment <= 0
-    if calculator.minimum_wage_or_above?
+    if calculator.historical_adjustment <= 0
       :past_payment_above
     else
       :past_payment_below
@@ -448,7 +447,7 @@ end
 outcome :past_payment_above
 outcome :past_payment_below do
   precalculate :total_underpayment do
-    calculator.format_money calculator.total_underpayment
+    calculator.format_money calculator.historical_adjustment
   end
 end
 outcome :does_not_apply_to_historical_apprentices

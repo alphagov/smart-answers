@@ -8,7 +8,7 @@ en-GB:
         These processes can be either voluntary, or statutory through the Central Arbitration Committee (CAC). 
         Find out how each process works.
       meta:
-        description: Find out about processes for recognising or derecognising a trade union.
+        description: Find out about processes for recognising or derecognising a trade union
       options:
         "yes": "Yes"
         "no": "No"
@@ -29,7 +29,7 @@ en-GB:
         title: How many employees do you have?
         options:
           21_or_more: 21 or more
-          fewer_than_21: fewer than 21
+          fewer_than_21: Fewer than 21
 
       # Q4
       have_they_submitted_an_application?:

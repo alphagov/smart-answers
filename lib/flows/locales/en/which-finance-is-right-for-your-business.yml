@@ -1,0 +1,95 @@
+en-GB:
+  flow:
+    which-finance-is-right-for-your-business:
+      meta:
+        description: "Work out what type of finance is best for your business, taking into account your business' size, turnover, shares and the amount of funding you need"
+      title: "Which finance is right for your business?"
+      options:
+        "no": "No"
+        "yes": "Yes"
+
+      body: |
+        Work out what type of finance is best for your business, taking into account your business' size, turnover, your willingness to offer shares and the amount of funding you need.
+
+      phrases:
+        title_none: None of the types of finance covered by this tool seem to be suitable for your circumstances.
+
+        heading_should: |
+          ##You should consider:
+          
+        heading_maybe: |
+          ##You may want to consider:
+
+        info_shares: |
+          **Shares**
+
+          Sell [shares](/business-finance-explained/shares "shares") in your business to investors to raise money.
+
+        info_loans: |
+          **Loans**
+
+          A [loan](/business-finance-explained/loans "loans") is an amount of money that you borrow and repay over an agreed length of time.
+
+        info_grants: |
+          **Grants**
+
+          A [grant](/business-finance-explained/grants "grants") is an amount of money given to an individual or business for a specific project or purpose.
+
+        info_overdrafts: |
+          **Overdrafts**
+
+          An [overdraft](/business-finance-explained/overdrafts "overdrafts") is a feature of a bank account that allows you to spend more money than you have in the account.
+          
+        info_invoice_financing: |
+          **Invoice financing**
+
+          [Invoice financing](/business-finance-explained/invoice-financing "invoice financing") is when you sell your unpaid invoices to a third party to raise money.
+          
+        info_leasing: |
+          **Leasing**
+
+          [Renting or leasing](/business-finance-explained/leasing-or-buying-in-instalments "leasing or buying in instalments") assets means you won’t have to buy them outright.
+
+      willing_to_offer_personal_assets?:
+        title: Are you willing to offer personal assets as security?
+        hint: Being prepared to use your personal assets as security could make it easier to secure funding - however it's vital you’re confident you’ll be able to maintain repayments, otherwise you might lose the asset.
+        
+      own_business_property?:
+        title: Do you own a business property?
+        hint: A fully-owned business premises can make securing funding easier.
+
+      give_up_shares?:
+        title: Would you give up shares?
+        hint: If you're willing to sell shares you may attract investors and/or partners. It's often worth considering the expertise and value an investor can add to your business.
+
+      min_amount_funding?:
+        title: What is the minimum amount of funding you need?
+        hint: It's important to consider this realistically - don't underestimate but make sure you can keep up repayments if necessary.
+        error_message: Please enter a number greater than 0
+
+      max_amount_funding?:
+        title: What is the maximum amount of funding you need?
+        hint: It's important to consider this realistically - don't underestimate but make sure you can keep up repayments if necessary.
+        error_message: Please enter a number greater than or equal to the minimum amount of funding you need
+
+      last_year_revenue?:
+        title: What was your business’ revenue over the last year?
+        hint: Enter 0 if you had no revenue or if your business is not yet trading
+        error_message: Please enter a number
+
+      how_many_people_are_in_your_business?:
+        title: How many people are in your business?
+        options:
+          under_two_hundred_fifty: "Under 250"
+          two_hundred_fifty_or_over: "250 or over"
+
+
+      done:
+        title: "%{response_title}"
+        body: |
+          %{should_consider_types}
+          %{could_consider_types}
+        next_steps: |
+          Find [finance or other forms of business support](/business-finance-support-finder "Business Finance and Support Finder")
+
+          Read more about [business finance](/business-finance-explained "Business Finance Explained")

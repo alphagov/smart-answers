@@ -6,7 +6,7 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'calculate-child-maintenance'
+    setup_for_testing_flow 'calculate-your-child-maintenance'
   end
   
   ## Q1
@@ -66,7 +66,7 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
           end
           
           should "give the reduced and basic rates result" do
-            assert_state_variable "child_maintenance_payment", "2.66"
+            #test just the flow here - calculation values should be in the unit tests
             assert_current_node :reduced_and_basic_rates_result
           end
         end

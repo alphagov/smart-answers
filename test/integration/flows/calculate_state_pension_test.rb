@@ -32,6 +32,15 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_current_node :dob_age?
       end
 
+      context "pension_credit_date check -- born 5th Dec 1953" do
+        setup{ add_response Date.parse("5th Dec 1953")}
+        should "go to age result" do
+          assert_current_node :age_result
+          assert_state_variable :state_pension_date, Date.parse("05 Dec 2018")
+          assert_state_variable :pension_credit_date, Date.parse("06 Nov 2018").strftime("%e %B %Y")
+        end
+      end
+
       context "born on 6th April 1945" do
         setup do
           add_response Date.parse("6th April 1945")
@@ -39,9 +48,28 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
         should "give an answer" do
           assert_current_node :age_result
+          assert_phrase_list :tense_specific_title, [:have_reached_pension_age]
+          assert_phrase_list :state_pension_age_statement, [:state_pension_age_was]
+          assert_state_variable "state_pension_age", "65 years"
+          assert_state_variable "formatted_state_pension_date", " 6 April 2010"
+          assert_state_variable "formatted_pension_pack_date", "December 2009"
         end
       end # born on 6th of April
     end # male
+
+    context "female, born on 4 August 1951" do 
+      setup do
+        Timecop.freeze('2012-10-08') do
+          add_response :female
+          add_response Date.parse("4th August 1951")
+        end
+      
+        should "tell them they are within four months and four days of state pension age" do
+          assert_current_node :near_state_pension_age
+          assert_state_variable "formatted_state_pension_date", " 6 November 2012"
+        end 
+      end
+    end
   end # age calculation
   
   #Amount
@@ -62,38 +90,26 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_current_node :dob_amount?
       end
 
-      context "born 5 Apr 1952 - automatic_years test" do
+      context "within four months and four days of state pension age test" do
         setup do
-          add_response Date.parse("5th April 1952")
-          add_response 25
-        end
-
-        context "not enough qualifying years" do
-          setup do
-            add_response 1
-          end
-          should "return auto years 3" do
-            add_response :no
-            assert_state_variable "automatic_years", 3
-            assert_current_node :received_child_benefit?
-          end
-
-          should "return auto years 0" do
-            add_response :yes
-            assert_state_variable "automatic_years", 0
-            assert_current_node :received_child_benefit?
+          Timecop.freeze('2012-10-08') do
+            add_response Date.parse('1948-02-12')
           end
         end
 
-        context "enough qualifying years with automatic_years" do
-          setup do
-            add_response 2
-            add_response :no
+        should "display near state pension age response" do
+          assert_current_node :near_state_pension_age
+        end
+      end
+
+      context "four months and five days from state pension age test" do
+        setup do 
+          Timecop.freeze('2012-10-08') do
+            add_response Date.parse('1948-02-13')
           end
-            
-          should "return amount_result and auto years 3" do
-            assert_current_node :amount_result
-            assert_state_variable :automatic_years, 3
+          
+          should "ask for years paid ni" do
+            assert_current_node :years_paid_ni
           end
         end
       end
@@ -104,7 +120,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         end
 
         should "ask for number of years paid NI" do
-          assert_state_variable "state_pension_age", 65
+          assert_state_variable "state_pension_age", "65 years"
           assert_current_node :years_paid_ni?
         end
 
@@ -122,115 +138,108 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
               add_response 1
             end
 
-            should "ask if you were employed between 60 and 64" do
+            should "ask about child benefit " do
               assert_state_variable "qualifying_years", 26
-              assert_current_node :employed_between_60_and_64?
-            end
-
-            should "ask about child benefit on 'yes'" do
-              add_response :yes
               assert_current_node :received_child_benefit?
             end
 
-            context "answer no" do
-              setup {add_response :no}
-
-              should "ask about child benefit" do
-                assert_state_variable "automatic_years", 1
-                assert_state_variable "qualifying_years", 27
-                assert_current_node :received_child_benefit?
+            context "yes to child benefit" do
+              setup do
+                add_response :yes
               end
 
-              context "yes received child benefit" do
-                setup {add_response :yes}
+              should "ask for years of child benefit" do 
+                assert_current_node :years_of_benefit?
+              end
 
-                context "4 years" do
-                  setup do
-                    add_response 4
-                  end
-
-                  should "go to amount_result" do
-                    assert_state_variable "qualifying_years_total", 31
-                    assert_current_node :amount_result
-                  end
+              context "4 years of child benefit" do
+                setup do
+                  add_response 4
                 end
 
-                should "error on text entry" do
-                  add_response 'four years'
-                  assert_current_node_is_error
+                should "go to amount_result" do
+                  assert_state_variable "qualifying_years_total", 30
+                  assert_current_node :amount_result
+                end
+              end # 4 years of child benefit
+
+              should "error on text entry" do
+                add_response 'four years'
+                assert_current_node_is_error
+              end
+
+              should "error on amount over 22" do
+                add_response 44
+                assert_current_node_is_error
+              end
+
+              context "add 2 years of child benefit" do
+                setup do
+                  add_response 2
                 end
 
-                should "error on amount over 22" do
-                  add_response 44
-                  assert_current_node_is_error
+                should "go to years of care" do
+                  assert_state_variable "qualifying_years", 28
+                  assert_current_node :years_of_caring?
+                end
+              end # 2 years if child benefit
+
+              context "0 years of child benefit" do
+                setup {add_response 0}
+
+                should "go to years of caring" do
+                  assert_state_variable "qualifying_years", 26
+                  assert_current_node :years_of_caring?
                 end
 
-                context "add 2 years" do
-                  setup do
-                    add_response 2
-                  end
-
-                  should "go to years of care" do
-                    assert_state_variable "qualifying_years", 29
-                    assert_current_node :years_of_caring?
-                  end
-                end
-
-                context "0 years" do
+                context "0 years_of_caring" do
                   setup {add_response 0}
 
-                  should "go to result" do
-                    assert_state_variable "qualifying_years", 27
-                    assert_current_node :years_of_caring?
+                  should "go to years_of_carers_allowance" do
+                    assert_current_node :years_of_carers_allowance?
                   end
-                  context "0 years_of_caring" do
+
+                  context "0 years_of_carers_allowance" do
                     setup {add_response 0}
 
-                    should "go to years_of_carers_allowance" do
-                      assert_current_node :years_of_carers_allowance?
+                    should "go years_of_work" do
+                      assert_current_node :years_of_work?
                     end
 
-                    context "0 years_of_carers_allowance" do
+                    context "0 years_of_work" do
                       setup {add_response 0}
 
-                      should "go years_of_work" do
-                        assert_current_node :years_of_work?
+                      should "go to amount_result" do
+                        assert_state_variable "qualifying_years", 26
+                        assert_state_variable "qualifying_years_total", 26
+                        assert_state_variable "missing_years", 4
+                        # 26/30 * 107.45
+                        assert_state_variable "pension_amount", "93.12"
+                        assert_state_variable "state_pension_age", "65 years"
+                        assert_state_variable "remaining_years", 6
+                        assert_state_variable "pension_loss", "14.33"
+                        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years, :automatic_years_phrase]
+                        assert_state_variable "state_pension_date", Date.parse("2018 Oct 4th")
+                        assert_current_node :amount_result
                       end
+                    end #work                     
+                  end #carers allowance
+                end # caring
+              end # 0 years of child benefit
+            end # yes to child benefit
+          end # 1 year of JSA
+        end # 25 years of NI
 
-                      context "0 years_of_work" do
-                        setup {add_response 0}
-
-                        should "go to amount_result" do
-                          assert_state_variable "qualifying_years", 27
-                          assert_state_variable "qualifying_years_total", 27
-                          assert_state_variable "missing_years", 3
-                          assert_state_variable "pension_amount", "96.71"
-                          assert_state_variable "state_pension_age", 65
-                          assert_state_variable "remaining_years", 6
-                          assert_state_variable "pension_loss", "10.74"
-                          assert_state_variable "state_pension_date", Date.parse("2018 Oct 4th")
-                          assert_current_node :amount_result
-                        end
-                      end                      
-                    end
-                  end
-                end
-              end
-            end
-          end
-        end
-
-        context "NI = 20, JSA = 1, employed_between_60_and_64 = no, received_child_benefit = yes, years_of_benefit = 1, years_of_caring = 1" do
+        context "NI = 20, JSA = 1 received_child_benefit = yes, years_of_benefit = 1, years_of_caring = 1" do
           setup do
             add_response 20
             add_response 1
-            add_response :no
             add_response :yes
             add_response 1
           end
 
           should "be on years_of_caring" do
-            assert_state_variable "qualifying_years", 23
+            assert_state_variable "qualifying_years", 22
             assert_current_node :years_of_caring?
           end
 
@@ -240,23 +249,24 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
             end
 
             should "be on years_of_carers_allowance" do
-              assert_state_variable "qualifying_years", 24
+              assert_state_variable "qualifying_years", 23
               assert_current_node :years_of_carers_allowance?
             end
 
             should "be on years_of_work" do
               add_response 1
-              assert_state_variable "qualifying_years", 25
+              assert_state_variable "qualifying_years", 24
               assert_current_node :years_of_work?
             end
           end 
 
+          # FIXME Time-sensitive - from April 2013 3 will be possible
           should "throw error on years_of_caring = 3" do
             add_response 3
             assert_current_node_is_error
           end
-        end
-      end
+        end # ni=20, jsa=1, etc...
+      end # born before 6/10/1953
 
       context "age 61, NI = 15 (testing years_of_jsa errors)" do
         setup do
@@ -271,69 +281,56 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
         should "pass when entering 7" do
           add_response 7
-          assert_current_node :employed_between_60_and_64?
+          assert_current_node :received_child_benefit?
         end
-      end
+      end # 61, ni=15, etc
 
       context "age = 61, NI = 20, JSA = 1" do
         setup do
-          add_response 61.years.ago
-          add_response 20
-          add_response 1
+          Timecop.freeze("2012-08-08") do
+            add_response 61.years.ago
+            add_response 20
+            add_response 1
+          end
         end
 
-        should "be at 60_and_64" do
-          assert_state_variable "qualifying_years", 21
+        should "go to received_child_benefit?" do
           assert_state_variable "available_ni_years", 21
-          assert_current_node :employed_between_60_and_64?
+          assert_state_variable "qualifying_years", 21
+          assert_current_node :received_child_benefit?
         end
 
-        context "answer yes" do
+        context "answer yes" do 
           setup {add_response :yes}
 
-          should "go to received_child_benefit?" do
-            assert_state_variable "available_ni_years", 17
-            assert_state_variable "qualifying_years", 25
-            assert_current_node :received_child_benefit?
+          should "be at years_of_benefit" do
+            assert_current_node :years_of_benefit?
           end
 
-          context "answer yes" do 
-            setup {add_response :yes}
+          should "error if 23 years entered" do
+            add_response 23
+            assert_current_node_is_error
+          end
 
-            should "be at years_of_benefit" do
-              assert_state_variable "available_ni_years", 17
-              assert_state_variable "qualifying_years", 25
-              assert_current_node :years_of_benefit?
-            end
+          should "show result if 17 years entered" do
+            add_response 17
+            assert_current_node :amount_result
+          end
 
-            should "error if 23 years entered" do
-              add_response 23
-              assert_current_node_is_error
-            end
+          context "2 years of benefit" do
+            setup {add_response 2}
 
-            should "error if 18 years entered" do
-              add_response 18
-              assert_current_node_is_error
-            end
-
-            should "years_of_caring if 17 years entered" do
-              add_response 17
-              assert_current_node :amount_result
-            end
-
-            context "2 years of benefit" do
-              setup {add_response 2}
-
-              should "available_ni_years = 17, qualifying_years = 25" do
-                assert_state_variable "available_ni_years", 15
-                assert_state_variable "qualifying_years", 27
-                assert_current_node :years_of_caring?
-              end
+            should "available_ni_years = 19, qualifying_years = 23" do
+              assert_state_variable "available_ni_years", 19
+              assert_state_variable "qualifying_years", 23
+              assert_current_node :years_of_caring?
             end
           end
         end
-      end
-    end
+      end # 61, ni=10, jsa=1, etc
+
+    end # male
+
 
     context "female" do
       setup do

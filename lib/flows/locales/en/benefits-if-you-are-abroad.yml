@@ -5,7 +5,7 @@ en-GB:
         description: "Find out what benefits you might be able to get while abroad and how to claim them."
       title: "Benefits if you’re abroad"
       body: 
-        "Find out what benefits you might be able to get while abroad and how to claim them."
+        "Find out what benefits you might be able to get while abroad and how to claim them"
       options:
         "yes": "Yes"
         "no": "No"
@@ -20,7 +20,7 @@ en-GB:
         body: |
           Find contact information for [your local Jobcentre Plus.](http://los.direct.gov.uk/default.aspx?type=2&lang=en "Jobcentre Plus"){:rel="external"}
           
-          You should also tell HMRC if you’re [moving or retiring abroad.](/moving-or-retiring-abroad “Moving or retiring abroad”)
+          You should also tell HMRC if you’re [moving or retiring abroad.](/moving-or-retiring-abroad "Moving or retiring abroad")
       # Q2
       have_you_paid_ni_in_the_uk:
         title: |
@@ -28,7 +28,7 @@ en-GB:
         body: |
           If you’re moving to a country that’s in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} or has a benefits agreement with the UK, and you want to claim benefits there, you may need to have a record of how much National Insurance you’ve paid in the UK. 
 
-          [Check your National Insurance record.](/national-insurance/record-check-and-change-of-circumstance “Check your contributions record”)
+          [Check your National Insurance record.](/national-insurance/record-check-and-change-of-circumstance "Check your contributions record")
           
           *[EEA]:European Economic Area
       # Q3
@@ -289,7 +289,7 @@ en-GB:
 
           Any benefits that you’re currently receiving may be affected.
 
-          You should also tell HMRC if you’re [moving or retiring abroad.](/moving-or-retiring-abroad “Moving or retiring abroad”)
+          You should also tell HMRC if you’re [moving or retiring abroad.](/moving-or-retiring-abroad "Moving or retiring abroad")
       answer_2:
         body: |
           $!If you haven’t paid National Insurance contributions in the UK you may not be able to claim UK-based benefits abroad.$!
@@ -343,7 +343,7 @@ en-GB:
         body: |
           $!You usually can’t claim UK-based benefits.$!
 
-          However, you may be able to get [tax credits if you’re a crown servant](/tax-credits-if-you-are-moving-country-or-travelling/you-live-outside-the-uk "Tax Credits if you live outside the UK") (you work for the UK government overseas).
+          However, you may be able to get [tax credits if you’re a crown servant](/tax-credits-if-moving-country-or-travelling/you-live-outside-the-uk "Tax Credits if you live outside the UK") (you work for the UK government overseas).
 
           [Contact the International Pension Centre](/state-pension-if-you-retire-abroad/how-to-claim "State Pension if you retire abroad") to find out about your State Pension.
 
@@ -440,7 +440,7 @@ en-GB:
           You can claim Statutory Sick Pay if you’re eligible for it.
         body: |
 
-          Find out if you’re [eligible](/statutory-sick-pay-ssp#eligibility “Eligibility for Statutory Sick Pay”) and [how to claim](/statutory-sick-pay-ssp#how-to-claim “How to claim Statutory Sick Pay”).
+          Find out if you’re [eligible](/statutory-sick-pay-ssp#eligibility "Eligibility for Statutory Sick Pay") and [how to claim](/statutory-sick-pay-ssp#how-to-claim "How to claim Statutory Sick Pay").
       answer_20:
         body: |
           $!You can’t claim Statutory Sick Pay.$!

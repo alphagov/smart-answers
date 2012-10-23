@@ -2,7 +2,7 @@ en-GB:
   flow:
     can-i-get-a-british-passport:
       meta:
-        description: "Check if you're eligible to apply for a British passport."
+        description: "Check if you're eligible to apply for a British passport"
       title: 
         Check British passport eligibility
       options:

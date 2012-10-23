@@ -2,7 +2,7 @@ en-GB:
   flow:
     become-a-driving-instructor:
       meta:
-        description: "Find out if you can become an approved driving instructor (ADI) and what you need to do to qualify."
+        description: "Find out if you can become an approved driving instructor (ADI) and what you need to do to qualify"
       title: "Become a driving instructor"
       options:
         "no": "No"
@@ -61,11 +61,19 @@ en-GB:
           s2. Take and pass the 3 ADI qualifying tests
           s3. Apply for your first ADI badge
 
+        DSA_guide_to_ADI_register: |
+          You can also read DSA’s guide to the ADI register.
+
+
+          $D
+          [Download ‘ADI14 - Your guide to the ADI register’ (PDF, 295KB)](http://assets.dft.gov.uk/dsa-bl/dsa_adi_14.pdf "Download ‘ADI14 - Your guide to the ADI register’ (PDF, 295KB)"){:rel="external"}
+          $D
+
         criminal_record_check: |
           Criminal record check
           --------
 
-          You need to [get a criminal record check](/criminal-record-check-to-become-a-driving-instructor "Criminal record check to become a driving instructor") from a company called TMG CRB - they provide criminal record check services for the DSA.
+          You need to [get a criminal record check](/criminal-record-check-become-driving-instructor "Criminal record check to become a driving instructor") from a company called TMG CRB - they provide criminal record check services for the DSA.
 
         emergency_control: |
           Emergency control assessment
@@ -145,7 +153,7 @@ en-GB:
 
 
           $D
-          [Download 'D9 - Application for a GB counterpart licence' form (PDF, 351KB)](http://www.direct.gov.uk/en/Diol1/DoItOnline/Doitonlinemotoring/DG_10031645?IdcService=GET_FILE&dID=87496&Rendition=Web  "Download ‘D9 - Application for a GB counterpart licence’ form (PDF, 351KB)"){:rel="external"}
+          [Download 'D9 - Application for a Great Britain counterpart licence' form (PDF, 351KB)](http://www.direct.gov.uk/en/Diol1/DoItOnline/Doitonlinemotoring/DG_10031645?IdcService=GET_FILE&dID=87496&Rendition=Web  "Download ‘D9 - Application for a Great Britain counterpart licence’ form (PDF, 351KB)"){:rel="external"}
           $D
 
 
@@ -158,7 +166,7 @@ en-GB:
           Transfer your registration
           --------
 
-          When you have a Great Britain counterpart licence you can [transfer your driving instructor registration to Great Britain](/transfer-your-driving-instructor-registration-to-great-britain "Transfer your driving instructor registration to Great Britain").
+          When you have a Great Britain counterpart licence you can [transfer your driving instructor registration to Great Britain](/transfer-driving-instructor-registration-gb "Transfer your driving instructor registration to Great Britain").
 
           %{content_sections}
 

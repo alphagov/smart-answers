@@ -1,48 +1,51 @@
 en-GB:
   flow:
     calculate-your-holiday-entitlement:
-      title: Calculate your holiday entitlement
+      title: Calculate holiday entitlement
       meta:
-        description: Use this calculator to work out how much statutory holiday leave you're entitled to.
+        description: Work out how much statutory holiday leave someone is entitled to
       body: |
-        Use this calculator to work out how much statutory holiday leave you're entitled to.
+        Use this calculator to work out how much statutory holiday leave someone is entitled to.
 
       phrases:
         answer_ft_pt: |
-          $!Your statutory holiday entitlement is %{holiday_entitlement_days} days.$!
+          $!The statutory holiday entitlement is %{holiday_entitlement_days} days.$!
           
         answer_ft_py: |
-          $!Your statutory holiday entitlement is %{holiday_entitlement_days} days during this leave year.$!
+          $!The statutory holiday entitlement is %{holiday_entitlement_days} days during this leave year.$!
 
         answer_fy_capped: |
-          $!Your statutory holiday entitlement is %{holiday_entitlement_days} days - you can't get more statutory leave than this even if you work over 5 days a week.$!
+          $!The statutory holiday entitlement is %{holiday_entitlement_days} days - there is no more statutory leave even if more than 5 days a week are worked.$!
           
         answer_py_capped: |
-          $!Your statutory holiday entitlement is %{holiday_entitlement_days} days during this leave year. You can't get more statutory leave than this even if you work over 5 days a week.$!
+          $!The statutory holiday entitlement is %{holiday_entitlement_days} days during this leave year. There is no more statutory leave even if more than 5 days a week are worked.$!
 
         answer_hours_minutes: |
-          $!Your statutory holiday entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes for the time you have worked.$!
+          $!The statutory holiday entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes for the time that's been worked.$!
+
+        answer_hours_minutes_annualised: |
+          $!The statutory holiday entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes.$!
 
         answer_compressed_hours: |
-          $!Your statutory holiday entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes. Each day's leave is %{hours_daily} hours and %{minutes_daily} minutes long ie the same number of hours as your normal working day.$!
+          $!The statutory holiday entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes. Each day's leave is %{hours_daily} hours and %{minutes_daily} minutes long ie the same number of hours as the normal working day.$!
 
         answer_shift_worker: |
-          $!Your statutory holiday entitlement is %{holiday_entitlement_shifts} %{hours_per_shift} hour shifts during this leave year.$!
+          $!The statutory holiday entitlement is %{holiday_entitlement_shifts} %{hours_per_shift} hour shifts during this leave year.$!
 
         your_employer: |
-          Your employer:
+          The employer:
 
-          * can include public and bank holidays as part of your statutory entitlement
-          * can give you more paid holiday - this will be in your employment contract and is called 'contractual leave entitlement'
-          * must [pay](/holiday-entitlement-your-rights/holiday-pay "Holiday pay") you during your statutory leave
+          * can include public and bank holidays as part of the statutory entitlement
+          * can give more paid holiday - this will be in the employment contract and is called 'contractual leave entitlement'
+          * must provide [holiday pay](/holiday-entitlement-rights/holiday-pay-the-basics "Holiday pay") during the statutory leave
 
         your_employer_with_rounding: |
-          Your employer:
+          The employer:
 
-          * can include bank and public holidays as part of your statutory entitlement
-          * must not round down your holiday entitlement, but may round it up
-          * must [pay](/holiday-entitlement-your-rights/holiday-pay "Holiday pay") you during your statutory leave
-          * can give you more paid holiday - this will be in your employment contract and is called 'contractual leave entitlement'
+          * can include bank and public holidays as part of the statutory entitlement
+          * must not round down the holiday entitlement, but may round it up
+          * must provide [holiday pay](/holiday-entitlement-rights/holiday-pay-the-basics "Holiday pay") during the statutory leave
+          * can provide more paid holiday - this will be in the employment contract and is called 'contractual leave entitlement'
 
 
         calculation_ft: |
@@ -53,10 +56,10 @@ en-GB:
           ^This is calculated as: 5.6 (statutory entitlement) x (fraction of year: %{fraction_of_year}) x %{days_per_week_calculated} (days per week) = **%{holiday_entitlement_days} days**
 
         calculation_pt: |
-          ^This is calculated as: 5.6 (statutory entitlement) x %{days_per_week} days per week = **%{holiday_entitlement_days}** of your working days
+          ^This is calculated as: 5.6 (statutory entitlement) x %{days_per_week} days per week = **%{holiday_entitlement_days}** of working days
 
         calculation_pt_partial_year: |
-          ^This is calculated as: 5.6 (statutory entitlement) x (fraction of year: %{fraction_of_year}) x %{days_per_week} days = **%{holiday_entitlement_days}** of your working days
+          ^This is calculated as: 5.6 (statutory entitlement) x (fraction of year: %{fraction_of_year}) x %{days_per_week} days = **%{holiday_entitlement_days}** of working days
 
         calculation_casual_irregular: |
           ^This is calculated as: 12.07% (statutory entitlement as a percentage) of %{total_hours} hours = **%{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes**
@@ -81,58 +84,61 @@ en-GB:
         "compressed-hours": "Compressed hours"
         "shift-worker": "Shift worker"
         "full-year": "A full year"
-        "starting": "Part of a year - I am starting this year"
-        "leaving": "Part of a year - I am leaving this year"
+        "starting": "Part of a year - starting this year"
+        "leaving": "Part of a year - leaving this year"
         "5-days": "5 days per week"
         "6-days": "6 days per week"
         "6-or-7-days": "6 or 7 days per week"
         "7-days": "7 days per week"
 
+      what_is_your_employment_status?:
+        title: What's the employment status?
+
       what_is_your_starting_date?:
-        title: When are you starting?
+        title: What is the start date?
 
       what_is_your_leaving_date?:
-        title: When are you leaving?
+        title: What is the finish date?
 
       full_time_how_long_employed?:
-        title: How long will you be employed full-time?
+        title: What's the length of full-time employment?
 
       full_time_how_many_days_per_week?:
-        title: How many days per week are you working?
+        title: How many days per week will be worked?
 
       part_time_how_long_employed?:
-        title: How long will you be employed part-time?
+        title: What's the length of part-time employment?
 
       part_time_how_many_days_per_week?:
-        title: How many days do you work per week?
+        title: How many days per week will be worked?
         label: Days per week
-        error_message: If you work part-time you should work less than 5 days a week.
+        error_message: There are only 7 days in a week. Please check and enter a correct value.
 
       compressed_hours_how_many_hours_per_week?:
-        title: How many hours per week do you work?
+        title: How many hours per week will be worked?
         label: Hours per week
         error_message: There are only 168 hours in a week. Please check and enter a correct value.
 
       compressed_hours_how_many_days_per_week?:
-        title: How many days per week do you work?
+        title: How many days per week will be worked?
         label: Days per week
         error_message: There are only 7 days in a week. Please check and enter a correct value.
 
       casual_or_irregular_hours?:
-        title: How many hours have you worked?
-        hint: Your holiday entitlement may be calculated as your leave builds up ('accrues') for each hour you work.
+        title: How many hours have been worked?
+        hint: The holiday entitlement may be calculated as the leave builds up ('accrues') for each hour worked.
         label: Hours worked
         error_message: You need to enter a number greater than 0
 
       annualised_hours?:
-        title: How many hours do you work a year?
+        title: How many hours will be worked a year?
         hint: This is calculated by excluding statutory entitlement. This calculation isn't suitable for term-time workers.
         label: Hours per year
         error_message: You need to enter a number greater than 0
 
       shift_worker_basis?:
-        title: How long are you working in shifts?
-        hint: Your holiday entitlement may be calculated in shifts
+        title: How long will be worked in shifts?
+        hint: The holiday entitlement may be calculated in shifts
 
       shift_worker_hours_per_shift?:
         title: How many hours in each shift?
@@ -140,7 +146,7 @@ en-GB:
         error_message: You need to enter a number greater than 0
 
       shift_worker_shifts_per_shift_pattern?:
-        title: How many shifts do you work per shift pattern?
+        title: How many shifts will be worked per shift pattern?
         label: Shifts per pattern
         error_message: You need to enter a number greater than 0
 
@@ -150,7 +156,8 @@ en-GB:
         error_message: You need to enter a number greater than or equal to the number of shifts you work
 
       when_does_your_leave_year_start?:
-        hint: This is usually in your employment contract. If it isn’t and you started your job after 1 October 1998, your leave year will start on the 1st day of your job. If you started work on or before 1 October 1998, your leave year will start on 1 October.
+        title: When does the leave year start?
+        hint: This is usually in the employment contract. If it isn’t and the job was started after 1 October 1998, the leave year will start on the 1st day of the job. If the job was started on or before 1 October 1998, the leave year will start on 1 October.
 
       done:
         body: |

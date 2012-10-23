@@ -1,9 +1,9 @@
 satisfies_need 1625
-status :draft
+status :published
 
 ## Q1
 multiple_choice :what_type_of_vehicle? do
-  option "car-or-light-vehicle" => :do_you_have_a_driving_licence? #Q2
+  option "car-or-light-vehicle" => :how_old_are_you? #Q3
   option :motorcycle => :do_you_have_a_full_motorcycle_licence? #Q4
   option :moped => :do_you_have_a_full_driving_licence? #Q9
   option "medium-sized-vehicle" => :do_you_have_a_full_cat_b_driving_licence? #Q12
@@ -17,11 +17,6 @@ end
 
 ## Cars, Light Vehicles
 ##
-## Q2
-multiple_choice :do_you_have_a_driving_licence? do
-  option :yes => :you_may_already_be_entitled #A1
-  option :no => :how_old_are_you? #Q3
-end
 
 ## Q3
 multiple_choice :how_old_are_you? do
@@ -155,9 +150,7 @@ end
 
 ## Q22
 multiple_choice :how_old_are_you_bus? do
-  option "under-18" => :bus_exceptions_under_18 # A29
-  option "18-19" => :bus_exceptions_18_19 # A30
-  option "20" => :bus_exceptions_20# A31
+  option "under-21" => :bus_exceptions_under_21 # A29
   option "21-or-above" => :bus_apply_for_cat_d # A32 
 end
 
@@ -211,7 +204,6 @@ multiple_choice :how_old_are_you_quad? do
   option "17-or-over" => :quad_apply_for_provisional_entitlement # A47
 end
 
-outcome :you_may_already_be_entitled # A1
 outcome :not_old_enough # A2
 outcome :mobility_rate_clause # A3
 outcome :entitled_for_provisional_licence # A4
@@ -239,9 +231,7 @@ outcome :cat_b_driving_licence_required # A25
 outcome :psv_entitled # A26
 outcome :psv_conditional_entitlement # A27
 outcome :psv_limited_entitlement # A28
-outcome :bus_exceptions_under_18 # A29
-outcome :bus_exceptions_18_19 # A30
-outcome :bus_exceptions_20 # A31
+outcome :bus_exceptions_under_21 # A29
 outcome :bus_apply_for_cat_d # A32
 outcome :bus_apply_for_cat_b # A33
 outcome :tractor_entitled # A34

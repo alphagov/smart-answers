@@ -1,8 +1,8 @@
-status :draft
+satisfies_need "2546"
+status :published
 
 calculator = AgriculturalHolidayEntitlementCalculator.new()
 
-# https://www.pivotaltracker.com/story/show/31084569
 
 multiple_choice :work_the_same_number_of_days_each_week? do
   option "same-number-of-days" => :how_many_days_per_week?

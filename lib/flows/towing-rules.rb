@@ -1,5 +1,5 @@
-satisfies_need 9999
-status :draft
+satisfies_need 2547
+status :published
 
 ## Cars and light vehicles
 ##
@@ -94,14 +94,9 @@ end
 ## Q31
 multiple_choice :how_old_are_you_minibus? do
   option "under-21" => :not_old_enough_minibus #A32
-  option "21-or-over" => :licenceholder_for_2_years? #Q33
+  option "21-or-over" => :limited_overall_entitlement_minibus #A34
 end
 
-## Q33
-multiple_choice :licenceholder_for_2_years? do
-  option :yes => :limited_overall_entitlement_minibus #A34
-  option :no => :not_held_licence_long_enough_minibus #A35
-end
 
 ## Buses
 ##
@@ -137,7 +132,6 @@ outcome :included_entitlement_minibus #A28
 outcome :limited_towing_entitlement_minibus #A30
 outcome :not_old_enough_minibus #A32
 outcome :limited_overall_entitlement_minibus #A34
-outcome :not_held_licence_long_enough_minibus #A35
 outcome :full_entitlement_bus #A37
 outcome :not_old_enough_bus # A39
 outcome :apply_for_provisional_bus #A40

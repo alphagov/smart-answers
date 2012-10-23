@@ -52,7 +52,7 @@ class MaternityBenefitsTest < ActiveSupport::TestCase
   
       should "ask if you started 26 weeks before qualifying week" do
         assert_current_node :did_you_start_26_weeks_before_qualifying_week?
-        assert_state_variable :twenty_six_weeks_before_qualifying_week, qualifying_week.first - 26.weeks
+        assert_state_variable :twenty_six_weeks_before_qualifying_week, qualifying_week.last - 25.weeks
       end
   
       context "started 26 weeks before qualifying week" do
@@ -330,7 +330,7 @@ class MaternityBenefitsTest < ActiveSupport::TestCase
   
       should "ask if you started 26 weeks before qualifying week" do
         assert_current_node :did_you_start_26_weeks_before_qualifying_week?
-        assert_state_variable :twenty_six_weeks_before_qualifying_week, qualifying_week.first - 26.weeks
+        assert_state_variable :twenty_six_weeks_before_qualifying_week, qualifying_week.last - 25.weeks
       end
   
       context "started 26 weeks before qualifying week" do

@@ -1,5 +1,5 @@
 satisfies_need "B193"
-status :draft
+status :published
 
 # Q1
 multiple_choice :what_do_you_need_to_do? do
