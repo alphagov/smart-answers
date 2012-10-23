@@ -13,6 +13,14 @@ en-GB:
       options:
         "yes": "Yes"
         "no": "No"
+      work_out_income?:
+        title: "Do you want to:"
+        options:
+          "income_work_out": "Work out if your income means you'll have to pay tax because you get Child Benefit (and how much you’ll have to pay)"
+          "just_how_much": "Just work out how much you have to pay - you know your income means you'll pay the full amount"
+        body: |
+          The person with the highest income has to pay the full amount of Child Benefit as tax if their 
+          [adjusted net income](http://www.hmrc.gov.uk/adjustednetincome "Adjusted net income") is more than £60,000 a year.
       which_tax_year?:
         title: Choose the tax year you want an estimate for.
       what_is_your_estimated_income_for_the_year_before_tax?:
