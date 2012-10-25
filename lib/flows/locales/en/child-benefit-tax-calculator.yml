@@ -11,6 +11,17 @@ en-GB:
           [adjusted net income](http://www.hmrc.gov.uk/adjustednetincome "Adjusted net income") is more than £60,000 a year.
 
         If you need to pay the tax charge, you only pay it on Child Benefit that’s for weeks after 7 January 2013.
+
+      devolved_body: |
+        What you need to know:
+
+        You can’t use this calculator if in 1 tax year you expect to:
+
+        - start claiming for more than 3 children 
+        - stop claiming for more than 3 children 
+        - start and stop claiming for the same child 
+
+        This calculator will be updated so it can be used by foster carers on November 6.
       options:
         "yes": "Yes"
         "no": "No"
@@ -18,11 +29,14 @@ en-GB:
       work_out_income?:
         title: "Do you want to:"
         options:
-          "income_work_out": "Work out if your income means you'll have to pay tax because you get Child Benefit (and how much you’ll have to pay)"
-          "just_how_much": "Just work out how much you have to pay - you know your income means you'll pay the full amount"
+          "income_work_out": "work out if your income means you'll have to pay tax because you get Child Benefit (and how much you’ll have to pay)"
+          "just_how_much": "just work out how much you have to pay - you already know that your income means you’ll have to pay the full amount"
       ## Q1
       which_tax_year?:
         title: Choose the tax year you want an estimate for.
+        options:
+          "2012-13": "2012 to 2013"
+          "2013-14": "2013 to 2014"
       ## Q2
       what_is_your_estimated_income_for_the_year_before_tax?:
         title: Enter your total annual income before tax is taken off.
@@ -51,9 +65,13 @@ en-GB:
       ## Q3a
       how_much_pension_contributions_before_tax?:
         title: |
-          Enter the total amount you expect to pay for the whole tax year into a pension scheme 
-          where your contributions are paid before your income is taxed.
-        hint: These are called ‘net pay’ or ‘gross contribution’ arrangements. If none, please enter 0.
+          Enter the total amount you expect to pay for the whole tax year into:
+        hint: If none, please enter 0.
+        body: |
+
+          - pension schemes where your contributions are paid before your income is taxed (called ‘net pay arrangements’)
+          - retirement annuity contracts (called ‘gross contributions’)
+
         error_message: Please enter a number
       ## Q4
       how_much_pension_contributions_claimed_back_by_provider?:
@@ -75,34 +93,35 @@ en-GB:
       ## Q7
       how_many_children_claiming_for?:
         title: How many children are you or your partner getting Child Benefit for?
+        Hint: If you’re expecting your first child enter 0.
         error_message: Please enter a number
       ## Q8
       do_you_expect_to_start_or_stop_claiming?:
         title: Do you or your partner expect to start claiming for a new child or stop claiming for an existing child during the tax year? 
-        hint: Eg you're expecting a baby or a child will reach 16 or leave full-time education.
+        hint: For example, you're expecting a baby or a child will reach 16 or leave full-time education.
         error_message: You must have at least 1 child to claim Child Benefit.
       ## Q9
       how_many_children_to_start_claiming?:
         title: How many children do you or your partner expect to start claiming Child Benefit for?
-        hint: The calculator can only deal with starting or stopping claims for up to 3 children.
+        hint: You can only use the calculator if you’ll be starting or stopping claims for up to 3 children.
         error_message: This calculator can only deal with up to 3 new children.
       ## Q9a,b,c
       when_will_the_1st_child_enter_the_household?:
         title: When do you expect to become responsible and start claiming for the first child?
-        hint: Eg the expected date of birth or adoption
+        hint: For example, the expected date of birth or adoption.
         error_message: Please enter a date within the tax year.
       when_will_the_2nd_child_enter_the_household?:
         title: When do you expect to become responsible and start claiming for the second child?
-        hint: Eg the expected date of birth or adoption
+        hint: For example, the expected date of birth or adoption.
         error_message: Please enter a date within the tax year.
       when_will_the_3rd_child_enter_the_household?:
         title: When do you expect to become responsible and start claiming for the third child?
-        hint: Eg the expected date of birth or adoption
+        hint: For example, the expected date of birth or adoption.
         error_message: Please enter a date within the tax year.
       ## Q10
       how_many_children_to_stop_claiming?:
         title: How many children do you or your partner expect to stop getting Child Benefit for?
-        hint: Eg they reach 16 or are over 16 and leave education
+        hint: For example, your child will reach 16 or they are over 16 and leave education.
         error_message: You can’t stop claiming for more children than you have or use this calculator if you expect Child Benefit to stop for more than 3 children in a tax year.
       ## 10a,b,c
       when_do_you_expect_to_stop_claiming_for_the_1st_child?:
@@ -120,7 +139,7 @@ en-GB:
       
       ## Outcome
       dont_need_to_pay:
-        title: You don’t need to pay tax because you or your partner are claiming Child Benefit.
+        title: You don’t need to pay the High Income Child Benefit Tax Charge because you or your partner are claiming Child Benefit.
         body: |
           This is an estimate based on the income figures you provided. 
 
