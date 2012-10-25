@@ -151,7 +151,6 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
 
           should "give me a figure no higher than 430 per week" do
             assert_state_variable :statutory_redundancy_pay, "860"
-            # assert_state_variable :statutory_redundancy_pay, "1,290"
           end
         end
 
@@ -162,7 +161,6 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
 
           should "give me a figure below 430" do
             assert_state_variable :statutory_redundancy_pay, "600"
-            # assert_state_variable :statutory_redundancy_pay, "900"
           end
         end
       end
