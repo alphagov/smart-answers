@@ -21,6 +21,17 @@ en-GB:
           Find contact information for [your local Jobcentre Plus.](http://los.direct.gov.uk/default.aspx?type=2&lang=en "Jobcentre Plus"){:rel="external"}
           
           You should also tell HMRC if you’re [moving or retiring abroad.](/moving-or-retiring-abroad "Moving or retiring abroad")
+
+          ^You should also contact the International Pension Centre about any change of bank account details.^
+
+
+          $C
+          **International Pension Centre**  
+          **Telephone:**: + 44 191 21 87777  
+          **Textphone:** + 44 191 21 87280  
+          <TVP-IPC-Customer-Care@thepensionservice.gsi.gov.uk>
+          Monday to Friday, 8am to 8pm
+          $C
       # Q2
       have_you_paid_ni_in_the_uk:
         title: |
@@ -122,8 +133,9 @@ en-GB:
           *[EEA]: European Economic Area
         options:   
           "eea_or_switzerland": "An EEA country or Switzerland"
-          "barbados_canada_israel": |
-            Barbados, Bosnia-Hercegovina, Canada, Croatia, Israel, Guernsey, Jersey, Kosovo, the former Yugoslav Republic of Macedonia, Mauritius, Montenegro, New Zealand or Serbia
+          "bosnia_croatia_kosova": "Bosnia-Hercegovina, Croatia, Kosovo, the former Yugoslav Republic"
+          "barbados_canada_israel": "Barbados, Canada, Israel, Guernsey, Jersey, Mauritius, New Zealand"
+          "jamaica_turkey_usa": "Jamaica, Turkey, USA"
           "other": "None of the above"
       # Q14
       paying_nics_and_receiving_uk_benefits:
@@ -157,11 +169,11 @@ en-GB:
       you_or_partner:
         title: "Are you or your partner one of the following?"    
         body: |
-          A crown servant is someone who works for the UK government overseas. 
+          A Crown servant is someone who works for the UK government. 
 
           A cross-border worker is someone who regularly travels to or from another country to work. 
         options:
-          "crown_servant": "A crown servant"
+          "crown_servant": "A Crown servant"
           "cross_border_worker": "A cross-border worker"  
           "neither": "None of the above"
       # Q20
@@ -202,7 +214,7 @@ en-GB:
         options:
           "holiday": "A holiday or business trip"
           "medical_treatment": "For medical treatment for yourself, your partner or your child"
-          "death" : "Because of the death of your partner or close family member"
+          "death" : "Because of the death of your partner, child or close family member"
       # Q25
       claiming_esa_abroad_for:
         title: "If you’re claiming ESA, how long are you living or going abroad for?"
@@ -263,7 +275,7 @@ en-GB:
         title: "Have you or a family member paid enough National Insurance contributions to claim a contribution-based sickness benefit?"
       # Q34
       getting_ssp_iib_esa_or_bereavment:
-        title: "Are you or a family member getting State Pension, Industrial Injuries Benefit, ESA or bereavement benefits?"
+        title: "Are you or a family member getting State Pension, Industrial Injuries Benefit, ESA (contributory) or bereavement benefits?"
         body: |
 
           *[ESA]: Employment and Support Allowance
@@ -343,7 +355,7 @@ en-GB:
         body: |
           $!You usually can’t claim UK-based benefits.$!
 
-          However, you may be able to get [tax credits if you’re a crown servant](/tax-credits-if-moving-country-or-travelling/you-live-outside-the-uk "Tax Credits if you live outside the UK") (you work for the UK government overseas).
+          However, you may be able to get [tax credits if you’re a Crown servant](/tax-credits-if-moving-country-or-travelling/you-live-outside-the-uk "Tax Credits if you live outside the UK") (you work for the UK government overseas).
 
           [Contact the International Pension Centre](/state-pension-if-you-retire-abroad/how-to-claim "State Pension if you retire abroad") to find out about your State Pension.
 
@@ -384,7 +396,7 @@ en-GB:
           $!You can’t get Winter Fuel Payments.$!
       answer_12:
         body: |
-          $!You can get Winter Fuel Payments.$!
+          $!You can get Winter Fuel Payments if you have a genuine link with the UK.$!
 
           [Email the Winter Fuel Payments team](https://www2.dwp.gov.uk/tps-directgov/en/contact-tps/winterfuel.asp "email the Winter Fuel Payments Team"){:rel="external"} or contact the helpline. 
 
@@ -399,11 +411,33 @@ en-GB:
           $!You can’t get Statutory Maternity Pay.$!
 
           You may be able to get [Maternity Allowance](/maternity-allowance "Maternity Allowance").
+
+          Contact the International Pension Centre if you have any queries:
+
+
+          $C
+          **International Pension Centre**  
+          **Telephone:**: + 44 191 21 87777  
+          **Textphone:** + 44 191 21 87280  
+          <TVP-IPC-Customer-Care@thepensionservice.gsi.gov.uk>
+          Monday to Friday, 8am to 8pm
+          $C
       answer_14:
         body: |
           $!You can claim Statutory Maternity Pay.$!
 
           Find out [how to claim](/statutory-maternity-pay#how-to-claim "Claim Statutory Maternity Pay").
+
+          Contact the International Pension Centre if you have any queries:
+
+
+          $C
+          **International Pension Centre**  
+          **Telephone:**: + 44 191 21 87777  
+          **Textphone:** + 44 191 21 87280  
+          <TVP-IPC-Customer-Care@thepensionservice.gsi.gov.uk>
+          Monday to Friday, 8am to 8pm
+          $C
       answer_15:
         body: |
           $!You can’t get Statutory Maternity Pay.$!
@@ -420,13 +454,35 @@ en-GB:
           - Montenegro 
           - Serbia
           - Turkey
-      answer_16:
+
+          Contact the International Pension Centre if you have any queries:
+
+
+          $C
+          **International Pension Centre**  
+          **Telephone:**: + 44 191 21 87777  
+          **Textphone:** + 44 191 21 87280  
+          <TVP-IPC-Customer-Care@thepensionservice.gsi.gov.uk>
+          Monday to Friday, 8am to 8pm
+          $C
+      answer_16a:
+        body: |
+          $!The UK has agreements in place with these countries. You may be able to get Child Benefit if you’re 
+          responsible for a [child under 16 (or 20 if they’re in approved education or training)](/child-benefit/eligibility "eligibility for Child Benefit").$!
+
+          [Find out more.](http://www.dwp.gov.uk/international/benefits/benefits-for-children/social-security-agreement/ "Benefits for children in social security agreement countries"){:rel="external"}
+      answer_16b:
         body: |
           $!The UK has agreements in place with these countries. You may be able to get Child Benefit if you’re looking after a child or children under 16.$!
 
-          If you’re looking after a child whose parents have died, and are getting Child Benefit for them, you may also be able to claim [Guardian’s Allowance](/guardians-allowance "Guardian’s Allowance").
+          If you’re responsible for an eligible child whose parents have died, and you’re getting [Child Benefit] (/child-benefit/eligibility "eligibility for Child Benefit") for them, you may also be able to claim [Guardian’s Allowance](/guardians-allowance “Guardian’s Allowance”) if you’re in a country that has a 
+          [social security agreement with the UK for Guardian’s Allowance.](http://www.dwp.gov.uk/international/benefits/benefits-for-children-where-one/social-security-agreement/ "countries with social security agreements with the UK for Guardian’s Allowance"){:rel="external"}
+      answer_16c:
+        body: |
+          If you’re responsible for a child whose parents have died, and you’re eligible for [Child Benefit] (/child-benefit/eligibility "eligibility for Child Benefit") for them, you may be able to claim [Guardian’s Allowance](/guardians-allowance “Guardian’s Allowance”) if you’re in a country that has a 
+          [social security agreement with the UK for Guardian’s Allowance.](http://www.dwp.gov.uk/international/benefits/benefits-for-children-where-one/social-security-agreement/ "countries with social security agreements with the UK for Guardian’s Allowance"){:rel="external"}
 
-          [Find out more.](http://www.dwp.gov.uk/international/benefits/benefits-for-children/social-security-agreement/ "Benefits for children in social security agreement countries"){:rel="external"}
+          ^You can’t claim Child Benefit in Jamaica, Turkey or the USA.^    
       answer_17:
         body: |
           $!You should be able to get Child Benefit for a child or children living with you.$!
@@ -453,7 +509,7 @@ en-GB:
           Find out who is [eligible to claim tax credits](/claim-tax-credits#eligibility "Tax credits eligibility").
       answer_22:
         body: |
-          $!You can claim tax credits.$!
+          $!You may be able to claim tax credits.$!
 
           Contact the Tax Credits Helpline for more information.
 
@@ -473,8 +529,9 @@ en-GB:
           You could get this if you either: 
 
           - live in Switzerland or an EEA country and travel to the UK to work
-          - travel abroad to work, but return regularly to live in the UK 
+          - travel abroad to work, but are an 'ordinary resident' in the UK 
 
+          ^Ordinarily resident means you normally live in the UK, and plan to stay here for the time being.^
 
           ##Child Tax Credit 
 
@@ -509,7 +566,8 @@ en-GB:
         body: |
           $!You can carry on getting tax credits for up to 8 weeks.$!
 
-          If you do need to stay abroad for longer than 8 weeks, you must let the Tax Credit Office know within 1 month.
+          If you do need to stay abroad for longer than 8 weeks, you must let the Tax Credit Office know within 1 month 
+          of the date you find out.
 
 
           $C
@@ -522,7 +580,8 @@ en-GB:
         body: |
           $!You can carry on getting tax credits for up to 12 weeks.$!
 
-          If you do need to stay abroad for longer than 12 weeks, you must let the Tax Credit Office know within 1 month.
+          If you do need to stay abroad for longer than 12 weeks, you must let the Tax Credit Office know within 1 month
+          of the date you find out.
 
           
           $C
@@ -568,9 +627,9 @@ en-GB:
 
           $C
           **International Pension Centre**  
-          [Email the International Pension Centre](https://www2.dwp.gov.uk/tps-directgov/en/contact-tps/ipc.asp "Email the International Pension Centre")  
-          Phone number  : +44 191 218 7777  
-          Textphone:  +44 191 218 7280  
+          **Telephone:**: + 44 191 21 87777  
+          **Textphone:** + 44 191 21 87280  
+          <TVP-IPC-Customer-Care@thepensionservice.gsi.gov.uk>
           Monday to Friday, 8am to 8pm
           $C
       answer_32:
@@ -584,9 +643,9 @@ en-GB:
 
           $C
           **International Pension Centre**  
-          [Email the International Pension Centre](https://www2.dwp.gov.uk/tps-directgov/en/contact-tps/ipc.asp "Email the International Pension Centre"){:rel="external"}  
-          Phone number  : +44 191 218 7777  
-          Textphone:  +44 191 218 7280  
+          **Telephone:**: + 44 191 21 87777  
+          **Textphone:** + 44 191 21 87280  
+          <TVP-IPC-Customer-Care@thepensionservice.gsi.gov.uk>
           Monday to Friday, 8am to 8pm
           $C
       answer_33:
@@ -600,9 +659,9 @@ en-GB:
 
           $C
           **International Pension Centre**  
-          [Email the International Pension Centre](https://www2.dwp.gov.uk/tps-directgov/en/contact-tps/ipc.asp "Email the International Pension Centre"){:rel="external"}  
-          Phone number  : +44 191 218 7777  
-          Textphone:  +44 191 218 7280  
+          **Telephone:**: + 44 191 21 87777  
+          **Textphone:** + 44 191 21 87280  
+          <TVP-IPC-Customer-Care@thepensionservice.gsi.gov.uk>
           Monday to Friday, 8am to 8pm
           $C
       answer_34:
