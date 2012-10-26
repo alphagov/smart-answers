@@ -133,7 +133,7 @@ en-GB:
           Your agency will enrol you into a [workplace pension](/workplace-pensions "Workplace pensions").
           $C
 
-          The earliest they must do this is %{enrollment_date}. But they can choose to do it earlier.
+          They won&apos;t have to do this until %{enrollment_date}. But they can choose to do it earlier.
 
           If you ask to join the pension scheme in the meantime, they must let you join.
       ## A9
@@ -149,7 +149,7 @@ en-GB:
           - £156 per week
           $C
 
-          The earliest they must do this is %{enrollment_date}. But they can choose to do it earlier.
+          They won&apos;t have to do this until %{enrollment_date}. But they can choose to do it earlier.
 
           If you ask to join the pension scheme in the meantime, they must let you join.
 
@@ -163,7 +163,7 @@ en-GB:
 
           The pension must meet the UK government’s standards within the European Economic Area. It will be regulated in the UK.
 
-          The earliest they must do this is %{enrollment_date}. But they can choose to do it earlier.
+          They won&apos;t have to do this until %{enrollment_date}. But they can choose to do it earlier.
 
           If you ask to join the pension scheme in the meantime, they must let you join.
       ## A11
@@ -173,7 +173,7 @@ en-GB:
           You’ll be automatically enrolled into a [workplace pension](/workplace-pensions "Workplace pensions") by your employer.
           $C
 
-          The earliest they must do this is %{enrollment_date}. But they can choose to do it earlier.
+          They won&apos;t have to do this until %{enrollment_date}. But they can choose to do it earlier.
 
           This means your contract may end before you are enrolled. If you
           want to join while you are employed there, write to your employer -
@@ -191,7 +191,7 @@ en-GB:
           You'll be automatically enrolled into your employer’s [workplace pension](/workplace-pensions "Workplace pensions") scheme. 
           $C
 
-          The earliest they must do this is %{enrollment_date}. But they can choose to do it earlier.
+          They won&apos;t have to do this until %{enrollment_date}. But they can choose to do it earlier.
 
           Your employer will write to you explaining the scheme and how it works.
       ## A14
