@@ -109,7 +109,7 @@ end
 # Q5
 value_question :how_many_hours_do_you_work? do
   calculate :basic_hours do 
-    basic_hours = Integer(responses.last)
+    basic_hours = Float(responses.last)
     if basic_hours < 0 or basic_hours > (pay_frequency * 16)
       raise SmartAnswer::InvalidResponse
     end
@@ -121,7 +121,7 @@ end
 # Q5 Past
 value_question :how_many_hours_did_you_work? do
   calculate :basic_hours do 
-    basic_hours = Integer(responses.last)
+    basic_hours = Float(responses.last)
     if basic_hours < 0 or basic_hours > (pay_frequency * 16)
       raise SmartAnswer::InvalidResponse
     end
