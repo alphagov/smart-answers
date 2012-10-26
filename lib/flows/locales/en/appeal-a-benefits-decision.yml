@@ -3,7 +3,10 @@ en-GB:
     appeal-a-benefits-decision:
       title: "Appeal a benefits decision"
       body: |
-        If you think a decision about your benefits is wrong, you can ask for an explanation, challenge the decision or appeal against it.
+        If you think a decision about your benefits is wrong, you can ask for an explanation, 
+        challenge the decision or appeal against it. If your query is about child maintenance, 
+        this isn’t a benefit but you can still 
+        [make an appeal](/arranging-child-maintenance-child-support-agency/appeal-a-decision “appeal a decision about child maintenance”).
       meta:
         description: "If you think a decision about your benefits is wrong, you can ask for an explanation, challenge the decision or appeal against it"
       options:
@@ -11,11 +14,11 @@ en-GB:
         "no": "No"
       # Q1
       already_appealed_the_decision?:
-        title: "Have you already appealed against the decision?"
+        title: "Has your appeal already been heard?"
         body: |
           If you've already had an appeal hearing and you disagree with the tribunal's decision, you may be able to:
 
-          * ask to have the decision cancelled (this is known as ‘setting aside')
+          * ask to have the decision cancelled (this is known as 'setting aside')
           * make a further appeal to the Upper Tribunal
       # Q2
       problem_with_tribunal_proceedure?:
@@ -23,13 +26,13 @@ en-GB:
         body: |
           If you disagree with the tribunal's decision, you can ask to have it cancelled (set aside) if:
 
-          * you didn't get an important document about the hearing in time
+          * you didn&apos;t get an important document about the hearing in time
           * you couldn't go to the hearing even though you wanted to
 
           If you think they made a mistake in the law, you can ask for permission to appeal to the Upper Tribunal.  
         options:
           "missing_doc_or_not_present": "Yes - missing document or you couldn't go"
-          "mistake_in_law": "Yes - tribunal made a mistake in the law"
+          "mistake_in_law": "Yes - I think the tribunal made a mistake in the law"
           "none": "No"
       # Q3
       date_of_decision_letter?:
@@ -37,7 +40,8 @@ en-GB:
         body: |
           Whether or not you can appeal depends on how long ago you got the letter with the decision.
 
-          You normally have 1 month after you got the decision to start an appeal. You can never appeal if more than 13 months have passed.
+          You normally have 1 month after you got the decision letter to start an appeal. You can never 
+          appeal if more than 13 months have passed.
       # Q4
       had_written_explanation?:
         title: "Have you had any other information explaining the decision?"
@@ -45,7 +49,7 @@ en-GB:
           This includes:
 
           * talking to someone at the benefits office who explained the decision, either on the phone or face to face
-          * a written ‘statement of reasons' explaining the decision
+          * a written 'statement of reasons' explaining the decision
         options:
           "spoken_explanation": "Yes, talked to someone"
           "written_explanation": "Yes, had a written statement"
@@ -59,7 +63,7 @@ en-GB:
           * when you asked for the written statement
           * when the benefits office sent it to you
 
-          If you're not sure when you asked for the written statement, your benefits office will be able to tell you. Contact them using the details on your decision letter.
+          If you&apos;re not sure when you asked for the written statement, your benefits office will be able to tell you. Contact them using the details on your decision letter.
       # Q6
       when_did_you_get_it?:
         title: "When did you get it?"
@@ -72,21 +76,29 @@ en-GB:
       special_circumstances?:
         title: "Did something happen to stop you appealing when you first got the decision?"
         body: |
-          You normally have 1 month after you got the decision to start an appeal, but you might be able to ask for more time.
+          You normally have 1 month after you got the decision to start an appeal, but you might 
+          be able to ask for more time.
 
-          Contact the benefits office using the details on your decision letter if you couldn't appeal because you were:
+          Contact the benefits office using the details on your decision letter if you couldn&apos;t 
+          appeal because you were:
 
           * in hospital or coping with illness
           * coping with bereavement
           * outside the UK
-          * couldn't send your appeal form (eg if there was a postal strike)
+          * couldn&apos;t send your appeal form (eg if there was a postal strike)
+          * affected by something else that meant you couldn’t appeal within a month
+
+          You might be able to:
+
+          - make a late appeal
+          - make a late request for the decision to be looked at again
       # Q8
       asked_to_reconsider?:
         title: "Have you asked the benefits office to look at the decision again?"
         body: |
           Sometimes, the benefits office will change a decision about your benefits if you ask them to look at it again (reconsider).
 
-          You don't have to ask them to reconsider before you appeal. If you don't think you'll have enough time before the deadline, you might want to skip this stage and start an appeal straight away.
+          You don&apos;t have to ask them to reconsider before you appeal. If you don't think you'll have enough time before the deadline, you might want to skip this stage and start an appeal straight away.
           
           %{appeal_expiry_text}
         options:
@@ -112,12 +124,17 @@ en-GB:
 #          * Disability Living Allowance
 #          * Attendance Allowance
         body: |
-          Social fund benefits are: budgeting loans, community care grants, crisis loans or social fund overpayments. 
+          Social fund payments are: budgeting loans, community care grants, crisis loans or 
+          social fund overpayments. 
 
-          Other benefits and credits include 'social security' benefits like Income Support, Jobseeker's Allowance, Incapacity Benefit, Employment Support Allowance, Disability Living Allowance or Attendance Allowance.
+          Child maintenance isn&apos;t a benefit, but you can still appeal if you think a decision 
+          about your payments was wrong.
+
+          Other benefits and credits include 'social security' benefits like Income Support, 
+          Jobseeker&apos;s Allowance, Incapacity Benefit, Employment Support Allowance, Disability 
+          Living Allowance or Attendance Allowance.
         options:
           "budgeting_loan": "Social fund benefit"
-          "child_maintenance": "Child maintenance"
           "housing_benefit": "Housing Benefit or Council Tax Benefit"
           "tax_credits": "Tax credits"
           "child_benefit": "Child Benefit or Guardian's Allowance"
@@ -138,15 +155,23 @@ en-GB:
       # A2
       can_appeal_to_upper_tribunal:
         title: |
-          The decision letter from Her Majesty’s Courts and Tribunal Service (HMCTS) will tell you what to do if you want to challenge their decision.
+          The decision letter from Her Majesty’s Courts and Tribunal Service (HMCTS) will tell you what 
+          to do if you want to challenge their decision.
         body: |
-          If you think the tribunal made a mistake in the law, you can ask for them to explain their decision in a ‘statement of reasons’.
+          If you think the tribunal made a mistake in the law, you can ask for them to explain their 
+          decision in a 'statement of reasons'.
+
+          This can include many aspects of the decision, so get advice (eg from 
+          [Citizens Advice](http://www.citizensadvice.org.uk/index/getadvice.htm “get advice from Citizens Advice”){:rel=”external”}) 
+          if you’re not sure of your rights.
 
           You have 1 month after getting a decision to ask for a statement of reasons.
 
-          If you still think they didn’t apply the law correctly, you can ask for permission to appeal to the Upper Tribunal.
+          If you still think they didn’t apply the law correctly, you can ask for permission to appeal 
+          to the Upper Tribunal. You have 1 month after getting a statement of reasons to do this.
 
-          The Upper Tribunal is made up of experienced lawyers who specialise in benefits law. If they agree that the decision was wrong, they can:
+          The Upper Tribunal is made up of experienced lawyers who specialise in benefits law. If they 
+          agree that the decision was wrong, they can:
 
           * make a different decision
           * cancel (set aside) the decision and arrange a new hearing
@@ -158,10 +183,13 @@ en-GB:
           * facts the tribunal have used
           * the tribunal’s medical findings or conclusions
 
-          Remember that the other side in your appeal are also allowed to challenge a decision if they think it’s wrong.
+          Remember that the other side in your appeal are also allowed to challenge a decision if they 
+          think it’s wrong.
       # A3
       cant_challenge_or_appeal:
-        title: "You can’t challenge or appeal the decision."
+        body: |
+          If you can't identify a problem with the way the hearing was managed or a mistake in the law, 
+          the tribunal decision will stand even if you're unhappy with it.
       # A4
       ask_for_an_explanation:
         title: |
@@ -173,7 +201,9 @@ en-GB:
           * speak to someone on the phone
           * get a written ‘statement of reasons’
 
-          However, you’ll get an extra 2 weeks to decide about appealing if you get a written statement of reasons. 
+          If you ask for a written statement of reasons and this is provided within the original 1 month dispute period, you will be given an extra 2 weeks to make an appeal.
+
+          If it’s provided later, the 2 weeks will run from the date it was sent to you.
 
           Once you’ve had an explanation, if still not happy with the decision you may be able to:
 
@@ -181,20 +211,27 @@ en-GB:
           * appeal against the decision
       # A5
       cant_appeal:
-        title: |
-          You can’t challenge or appeal the decision.
         body: |
-          However, you may still be able ask the benefits office to look at their decision again (reconsider), particularly if your situation has changed since it was made.
+          You may still be able ask the benefits office to look at their decision again (reconsider), 
+          particularly if your situation has changed since it was made.
 
-          If they change the decision more than 1 month after it was made, you normally won’t get any ‘backdated’ benefits. This means you’ll only get the new amount from the date of the changed decision.
+          ^If your circumstances have changed since the decision was made, let the benefits office 
+          know.^
+
+          If they change the decision more than 1 month after it was made, you normally won&apos;t 
+          get any 'backdated' benefits. This means you’ll only get the new amount from the date of the changed decision.
       # A6
       ask_to_reconsider:
         title: |
-          You can contact your benefits office using the details on your decision letter, and ask them to look at it again (reconsider).
+          You can contact your benefits office using the details on your decision letter, and ask 
+          them to look at it again (reconsider).
         body: |
-          Normally, someone else at the benefits office will do this -- not the person who made the first decision. If they agree that they’ve made a mistake, they’ll give you a new decision and you won’t need to appeal.
+          Normally, someone else at the benefits office will do this -- not the person who made the 
+          first decision. If they agree that they've made a mistake, they'll give you a new decision 
+          and you may not need to appeal.
 
-          They might ask you for new information about why you think the first decision was wrong. If they do, you should give it to them as soon as possible.
+          They might ask you for new information about why you think the first decision was wrong. 
+          If they do, you should give it to them as soon as possible.
       # A7
       apply_to_the_independent_review_service:
         body: |
@@ -217,7 +254,7 @@ en-GB:
           Independent Review Service
           $A
 
-          You don't need a stamp.
+          You don&apos;t need a stamp.
 
           ##What happens next
 
@@ -230,61 +267,7 @@ en-GB:
           ##Help with your review
 
           If you need any help with things like filling in forms, or what to do if the inspector asks you for more information, you can contact the [Citizens Advice Bureau](http://www.citizensadvice.org.uk/index/getadvice.htm "Citizens Advice Bureau"){:rel="external"}.
-      # A8
-      appeal_to_the_child_support_agency:
-        title: |
-          You can appeal to the Child Support Agency (CSA) if you think they’ve made the wrong decision about how much child maintenance you must pay, or should get.
-        body: |
-          You can do this by downloading and filling in the form at the end of the leaflet, ‘How can I appeal against a child maintenance decision?’.
-
-
-          $D
-          [Download ‘How can I appeal against a child maintenance decision?’ (PDF, 346KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@benefits/documents/digitalasset/dg_198854.pdf "Download ‘How can I appeal against a child maintenance decision?’ (PDF, 346KB)"){:rel="external"}
-          $D
-
-          You can also appeal by writing a letter to the CSA, including:
-
-          * your child maintenance reference number from the top of your decision letter
-          * the date on your decision letter
-          * details of the decision you’re appealing against
-          * why you think the decision is wrong
-
-          Sign the appeal form or letter, and send it to:
-
-
-          $A
-          Central Appeals Unit
-          Child Support Agency
-          PO Box 33
-          Preston
-          PR11 2DT
-          $A
-
-          You can also contact the CSA by phone.
-
-
-          $C
-          Telephone: 0845 713 3133
-          
-          Textphone: 0845 713 8924
-          $C
-
-          Either parent can make an appeal. However, if you’re not the parent with day-to-day care of the child, you must keep paying the amount of child maintenance you’ve been told to pay until your appeal is decided.
-
-          ##What happens next
-
-          Your appeal will be looked at by the [Social Security and Child Support Tribunal](http://www.justice.gov.uk/tribunals/sscs/appeals "Social Security and Child Support Tribunal"){:rel="external"}. They will:
-
-          * explain how the appeal process works
-          * let you know what you need to do before, during and after the hearing
-
-          ##Help with your appeal
-
-          If you need any help with your appeal like filling in forms, or advice on what to do at the hearing, you can contact the [Citizens Advice Bureau](http://www.citizensadvice.org.uk/index/getadvice.htm "Citizens Advice Bureau"){:rel="external"}.
-
-          Someone from the Citizens Advice Bureau may be able to go to the hearing with you. You can also ask an adviser, friend or family member to appeal on your behalf.
-
-          *[CSA]:Child Support Agency
+      # A8 - removed
       # A9
       appeal_to_your_council:
         title: |
