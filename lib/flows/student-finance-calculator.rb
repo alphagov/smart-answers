@@ -64,19 +64,15 @@ money_question :whats_your_household_income? do
 
   calculate :maintenance_grant_amount do
     if start_date == "2013-2014"
-      # decreases from max by £1 for each complete £5.33 of income above £25k up to £40k, then by £1 for each £5.30 up to £42600
-      # min of £50 at 42600
+      # decreases from max by £1 for each complete £5.33 of income above £25k
+      # min of £50 at £42611
       if responses.last <= 25000
         Money.new('3354')
       else
-        if responses.last > 42600
+        if responses.last > 42611
           Money.new ('0')
         else
-          if responses.last > 40000
-            Money.new ( 540 - ((responses.last - 40000)/5.30).floor )
-          else
-            Money.new( 3354 - ((responses.last - 25000)/5.33).floor )
-          end
+          Money.new( 3354 - ((responses.last - 25000)/5.33).floor )
         end
       end
     else

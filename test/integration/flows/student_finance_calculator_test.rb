@@ -435,9 +435,9 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
             end
           end
 
-          context "household income at 42.6k and not checking additional grants" do
+          context "household income at 42611 and not checking additional grants" do
             setup do
-              add_response '42600'
+              add_response '42611'
               add_response 'no'
             end
 
