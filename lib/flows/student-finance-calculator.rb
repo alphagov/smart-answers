@@ -43,7 +43,7 @@ multiple_choice :where_will_you_live_while_studying? do
   option :'away-outside-london'
   option :'away-in-london'
 
-  calculate :maintenance_loan_amount do
+  calculate :max_maintenance_loan_amount do
     case responses.last
     when "at-home" then Money.new("4375")
     when "away-outside-london" then Money.new("5500")
@@ -51,10 +51,6 @@ multiple_choice :where_will_you_live_while_studying? do
     else
       raise SmartAnswer::InvalidResponse
     end
-  end
-
-  calculate :eligible_finance do
-    eligible_finance + :maintenance_loan
   end
 
   next_node :whats_your_household_income?
@@ -90,11 +86,30 @@ money_question :whats_your_household_income? do
     end
   end
 
-  calculate :eligible_finance do
-    if maintenance_grant_amount > 0
-      eligible_finance + :maintenance_grant
+  # loan amount depends on maintenance grant amount and household income
+  calculate :maintenance_loan_amount do
+    if responses.last <= 42875
+      # reduce maintenance loan by £0.5 for each £1 of maintenance grant
+      Money.new ( max_maintenance_loan_amount - (maintenance_grant_amount.value / 2.0).floor)
     else
-      eligible_finance
+      # reduce maintenance loan by £1 for each full £10 of income above £42875 until loan reaches 65% of max, when no further reduction applies
+      min_loan_amount = (0.65 * max_maintenance_loan_amount.value).floor # to match the reference table
+      reduced_loan_amount = max_maintenance_loan_amount - ((responses.last - 42875)/10.0).floor
+      if reduced_loan_amount > min_loan_amount
+        Money.new (reduced_loan_amount)
+      else
+        Money.new (min_loan_amount)
+      end
+    end 
+  end
+
+  calculate :eligible_finance do
+    finance = eligible_finance + :maintenance_loan
+
+    if maintenance_grant_amount > 0
+      finance + :maintenance_grant
+    else
+      finance
     end
   end
 

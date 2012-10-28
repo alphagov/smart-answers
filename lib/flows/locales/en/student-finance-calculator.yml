@@ -25,7 +25,7 @@ en-GB:
         tuition_fee_loan: |
           - %{tuition_fee_amount} Tuition Fee Loan
         maintenance_loan: |
-          - up to %{maintenance_loan_amount} Maintenance Loan (for living costs)
+          - %{maintenance_loan_amount} Maintenance Loan (for living costs)
         maintenance_grant: |
           - %{maintenance_grant_amount} Maintenance Grant (for living costs)
         additional_grants_and_allowances: You don't qualify for extra grants and allowances.
@@ -67,7 +67,7 @@ en-GB:
           away-outside-london: Away from home, outside of London
           away-in-london: Away from home, in London
       whats_your_household_income?:
-        title: What's your household income?
+        title: What's your annual household income?
         hint: This is your parents' or partner's income plus your own. It affects how much Maintenance Grant for help with living costs you get.
         error_message: Please enter a number
       part_time_do_you_want_to_check_for_additional_grants_and_allowances?:
