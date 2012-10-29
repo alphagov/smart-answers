@@ -88,7 +88,9 @@ end
 # Q13
 multiple_choice :moving_to do
   option :eea_or_switzerland => :paying_nics_and_receiving_uk_benefits
-  option :barbados_canada_israel => :answer_16
+  option :bosnia_croatia_kosova => :answer_16a
+  option :barbados_canada_israel => :answer_16b
+  option :jamaica_turkey_usa => :answer_16c
   option :other => :answer_18
 end
 
@@ -250,7 +252,9 @@ outcome :answer_12
 outcome :answer_13
 outcome :answer_14
 outcome :answer_15
-outcome :answer_16
+outcome :answer_16a
+outcome :answer_16b
+outcome :answer_16c
 outcome :answer_17
 outcome :answer_18
 outcome :answer_19

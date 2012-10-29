@@ -26,6 +26,7 @@ en-GB:
         title: |
           Have you had a full category A motorcycle licence for at least 3
           years?
+      ## A1
       down_trained_cbt_instructor_response:
         title: |
           You can start applying to become 2 other types of motorcycle instructor
@@ -57,6 +58,7 @@ en-GB:
           *[CBT]: Compulsory basic training
           *[ATB]: Approved training body
           *[RPMT]: Register of post-test motorcycle trainers
+      ## A2
       cardington_cbt_instructor_response:
         title: You can start applying to become 2 other types of motorcycle instructor.
         body: |
@@ -89,6 +91,7 @@ en-GB:
           *[ATB]: Approved training body
           *[RPMT]: Register of post-test motorcycle trainers
           *[DAS]: Direct access scheme
+      ## A3
       direct_access_instructor_response:
         title: You can start applying to join the register of post-test motorcycle trainers (RPMT).
         body: |
@@ -101,13 +104,13 @@ en-GB:
           including the [enhanced rider scheme](/enhanced-rider-scheme "Enhanced rider scheme").
 
           *[RPMT]: Register of post-test motorcycle trainers
-
+      ## A4
       rpmt_instructor_response:
         title: You can start applying to become 2 other types of motorcycle instructor.
         body: |
           ##Down-trained instructor
 
-          You can work at a [motorcycle approved training body (ATB)](/compulsory-basic-training-cbt-courses "Motorcycle approved training body") and be trained there. You’ll have to:
+          To be a down-trained instructor you must work at a [motorcycle approved training body (ATB)](/compulsory-basic-training-cbt-courses "Motorcycle approved training body") and be trained there. You’ll have to:
 
           s1. Be trained by a Driving Standards Agency (DSA) assessed instructor (this is known as ‘down-training’).
           s2. Apply to the DSA to register.
