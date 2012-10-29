@@ -9,8 +9,13 @@ en-GB:
         "yes": "Yes"
         "no": "No"
       body: |
-        This tool tells you if you’re old enough to or have the right kind of driving licence to drive different kinds of vehicle.
+        This tool tells you if you're old enough to or have the right kind of driving licence to 
+        drive different kinds of vehicle.
+
+        ^Related links:
         
+        [Driving licence categories](/driving-licence-categories)
+
       ## Q1
       what_type_of_vehicle?:
         title: What kind of vehicle do you want to drive?
@@ -467,9 +472,7 @@ en-GB:
 
           ##Towing
 
-          You can also drive minibuses with trailers where the total weight of vehicle and trailer isn’t more than 4,250 kg.
-
-          The fully loaded trailer can’t weigh more than the unladen vehicle weight.
+          You have the D1+E towing entitlement, which means you can drive minibuses with trailers over 750 kg.           
         next_steps: |
           [Driving a minibus](/driving-a-minibus "Driving a minibus")
       ## A27

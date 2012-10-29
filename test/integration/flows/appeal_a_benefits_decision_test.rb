@@ -324,13 +324,6 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
                   end
                 end
                 
-                context "answer 'child maintenance' to 'kind of benefit or credit?'" do
-                  should "say 'appeal to the CSA'" do
-                    add_response :child_maintenance
-                    assert_current_node :appeal_to_the_child_support_agency
-                  end
-                end
-                
                 context "answer 'housing benefit' to 'kind of benefit or credit?'" do
                   should "say 'appeal to your council'" do
                     add_response :housing_benefit

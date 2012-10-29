@@ -140,7 +140,6 @@ end
 # Q9
 multiple_choice :kind_of_benefit_or_credit? do
   option :budgeting_loan => :apply_to_the_independent_review_service
-  option :child_maintenance => :appeal_to_the_child_support_agency
   option :housing_benefit => :appeal_to_your_council
   option :tax_credits => :appeal_to_hmrc_wtc
   option :child_benefit => :appeal_to_hmrc_ch24a
@@ -154,7 +153,7 @@ outcome :ask_for_an_explanation #A4
 outcome :cant_appeal #A5
 outcome :ask_to_reconsider #A6
 outcome :apply_to_the_independent_review_service #A7
-outcome :appeal_to_the_child_support_agency #A8
+#A8 - removed
 outcome :appeal_to_your_council #A9
 outcome :appeal_to_hmrc_wtc #A10
 outcome :appeal_to_hmrc_ch24a #A11
