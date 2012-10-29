@@ -22,8 +22,9 @@ en-GB:
                 hint: |
                     Only full years of service count - up to a maximum of 20 years. For example, 3 years and 9 months count as 3 years.
                 label: Full years worked
-                error_message: Please enter a number
-
+                error_message: |
+                    Please enter a number. Based on your previous answers this should be 
+                    no greater than %{years_available}
             weekly_pay_before_tax?:
                 title: What is your weekly pay before tax?
                 hint: |

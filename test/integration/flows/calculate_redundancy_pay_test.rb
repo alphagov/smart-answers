@@ -133,7 +133,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
 
       context "over 2 years" do
         setup do
-          add_response "6"
+          add_response "4"
         end
 
         should "ask for salary" do
@@ -150,7 +150,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
           end
 
           should "give me a figure no higher than 430 per week" do
-            assert_state_variable :statutory_redundancy_pay, "1,290"
+            assert_state_variable :statutory_redundancy_pay, "860"
           end
         end
 
@@ -160,7 +160,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
           end
 
           should "give me a figure below 430" do
-            assert_state_variable :statutory_redundancy_pay, "900"
+            assert_state_variable :statutory_redundancy_pay, "600"
           end
         end
       end
@@ -270,6 +270,31 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
           should "give me a figure below 430" do
             assert_state_variable :statutory_redundancy_pay, "600"
           end
+        end
+      end
+    end
+
+
+    context "catches years_employed greater than age_of_employee" do
+      context "be 18 years old and worked 20" do
+        setup do
+          add_response 18
+        end
+        should "fail on 4 years" do
+          add_response 4
+          assert_current_node_is_error
+        end
+        should "fail on 20 years" do
+          add_response 20
+          assert_current_node_is_error
+        end
+        should "succeed on 3" do
+          add_response 3 
+          assert_current_node :weekly_pay_before_tax?
+        end
+        should "succeed on 2" do
+          add_response 2 
+          assert_current_node :weekly_pay_before_tax?
         end
       end
     end
