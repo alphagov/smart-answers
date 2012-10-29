@@ -6,6 +6,9 @@ value_question :age_of_employee? do
     raise InvalidResponse if age <= 16 or age >= 100
     age
   end
+  calculate :years_available do
+    employee_age - 15
+  end
   next_node :years_employed?
 end
 
@@ -14,7 +17,9 @@ end
 value_question :years_employed? do
   save_input_as :years_employed
   calculate :years_employed do
-    Float(responses.last).floor
+    ye = Float(responses.last).floor
+    raise InvalidResponse if ye.to_i > years_available
+    ye
   end
   next_node do |response|
     if Float(response).floor < 2
