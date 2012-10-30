@@ -5,7 +5,7 @@ en-GB:
         description: "Use this student finance calculator to estimate what student finance you could get for university - student loans, student grants, bursaries and other funding"
       phrases:
         body:
-          "You also qualify for extra grants and allowances:"
+          "You may also qualify for extra grants and allowances:"
         dependent_children: |
           - up to £148.75/week (1 child) or up to £255/week (2 or more children) of [Childcare Grant](/childcare-grant "Childcare Grant")
           - up to £1,508 of [Parents Learning Allowance](/parents-learning-allowance "Parents Learning Allowance")
@@ -19,7 +19,7 @@ en-GB:
         teacher_training: |
           - [Funding for teacher training](/teacher-training-funding "Funding for teacher training")
         medical: |
-          - [NHS Bursary](/nhs-bursaries "NHS Bursary") (NHS funding towards your fees and living costs)
+          - [NHS Bursary](/nhs-bursaries "NHS Bursary") (NHS funding towards your fees and living costs) - this might affect the amount of other student finance you get
         social_work: |
           - [Social Work Bursary](/social-work-bursaries "Social Work Bursary") (NHS funding towards your fees and living costs)
         tuition_fee_loan: |
@@ -41,7 +41,7 @@ en-GB:
         It estimates what loans, grants and extra help you can get - eg if you're disabled or have children.
 
         ##What you need to know
-        Your result will be more accurate if you know your household income (your parents' or partner's income plus your own).
+        Your result will be more accurate if you know your annual household income (your parents' or partner's income plus your own).
 
       devolved_body: |
         If you're not from England, go to:
@@ -75,7 +75,7 @@ en-GB:
         body: |
           Choose 'yes' if any of the following are true:
 
-          - you're doing a teacher training, medical or social work course
+          - you're doing a teacher training, social work, dental, medical, or healthcare course
           - you have children or an adult who depends on you financially
           - you have a disability, learning difficulty or health condition
           - you're on a low income
@@ -84,7 +84,7 @@ en-GB:
         body: |
           Choose 'yes' if any of the following are true:
 
-          - you're doing a teacher training, medical or social work course
+          - you're doing a teacher training, social work, dental, medical, or healthcare course
           - you have children or an adult who depends on you financially
           - you have a disability, learning difficulty or health condition
           - you're on a low income
@@ -101,7 +101,7 @@ en-GB:
       done_dont_qualify:
         body: |
           
-          You could get:
+          You could get per year:
 
           %{eligible_finance}
 
@@ -119,7 +119,7 @@ en-GB:
           - Read the guide to [student finance](/student-finance "Guide to student finance")
       done:
         body: |
-          You could get:
+          You could get per year:
 
           %{eligible_finance}
 

@@ -31,8 +31,6 @@ en-GB:
         carers_allowance_women_hint_q9: Don't count years before April 2010 when you opted for the reduced National Insurance rate for married women and widows.
         will_reach_pension_age: You'll reach State Pension age on %{formatted_state_pension_date}.
         have_reached_pension_age: You reached State Pension age on %{formatted_state_pension_date}.
-        claim_pension_now_text: |
-          You have already reached State Pension age. You can [claim your State Pension](/state-pension#how-to-claim "How to claim") if you haven't already or [defer claiming it](/deferring-state-pension "Deferring your State Pension")^.
         remaining_contributions_years_callout: |
           You still need to pay National Insurance contributions for %{remaining_contribution_years} to get the full State Pension.
         automatic_years_phrase: |
@@ -44,30 +42,34 @@ en-GB:
 
           You should get your pension claim pack in %{formatted_pension_pack_date}. 
 
+          Once you claim your State Pension, the Pension Service will work out how much exactly you get.
+
           If you&rsquo;re on a low income, you might be eligible to claim [Pension Credit](/pension-credit "Pension Credit").
 
           %{pension_credit_statement}
 
-          You may also apply for an [elderly person’s bus pass.](/apply-for-elderly-person-bus-pass "Elderly person’s bus pass")
+          %{bus_pass_statement}
 
-          This calculation is according to the current law. The State Pension age may change in the future.
+          This calculation is according to the current law. The State Pension age may [change in the future.](/increase-state-pension-age "Increase in State Pension age")
         state_pension_age_was: |
 
           Your State Pension age was %{state_pension_age}.
 
           You should have got your pension claim pack in %{formatted_pension_pack_date}.
 
-          Contact the Pension Service if you haven't received it.
+          Contact the Pension Service on 0800 731 7898 if you haven't received it.
 
           ^You have already reached State Pension age. You can [claim your State Pension](/state-pension#how-to-claim "How to claim") if you haven't already or [defer claiming it](/deferring-state-pension "Deferring your State Pension").^
+
+          Once you claim your State Pension, the Pension Service will work out how much you get.
 
           If you&rsquo;re on a low income, you might be eligible to claim [Pension Credit](/pension-credit "Pension Credit").
 
           You may have been entitled to receive Pension Credit from %{pension_credit_date}
 
-          You may also apply for an [elderly person’s bus pass.](/apply-for-elderly-person-bus-pass "Elderly person’s bus pass")
+          You may also apply for an [elderly person’s bus pass](/apply-for-elderly-person-bus-pass "Elderly person’s bus pass") from %{pension_credit_date}.
 
-          This calculation is according to the current law. The State Pension age may change in the future.
+          This calculation is according to the current law. The State Pension age may [change in the future.](/increase-state-pension-age "Increase in State Pension age")
         ##Result 1
         too_few_qy_enough_remaining_years: |
           
@@ -85,7 +87,7 @@ en-GB:
 
 
           $C
-          You can [apply for a State Pension forecast](/state-pension-statement "get a State Pension forecast or statement") to get an estimate of your full State Pension.
+          You can [apply for a State Pension statement](/state-pension-statement "get a State Pension statement") to get an estimate of your full State Pension.
           $C
 
 
@@ -125,7 +127,7 @@ en-GB:
 
 
           $C
-          You can [apply for a State Pension forecast](/state-pension-statement "get a State Pension forecast or statement") to get an estimate of your full State Pension.
+          You can [apply for a State Pension statement](/state-pension-statement "get a State Pension statement") to get an estimate of your full State Pension.
           $C
 
           How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance "National Insurance") you have. 
@@ -159,7 +161,7 @@ en-GB:
 
 
           $C
-          You can [apply for a State Pension forecast](/state-pension-statement "get a State Pension forecast or statement") to get an estimate of your full State Pension.
+          You can [apply for a State Pension statement](/state-pension-statement "get a State Pension statement") to get an estimate of your full State Pension.
           $C
 
           How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance "National Insurance") you have.
@@ -266,6 +268,8 @@ en-GB:
 
           You can [claim your State Pension](/state-pension#how-to-claim "Claim your state pension") if you haven’t done so already. You need a Government Gateway account to claim online.
 
+          Once you claim your State Pension, the Pension Service will work out how much you get. 
+
 
           $C
           *Pension Service claim line:* 0800 731 7898  
@@ -285,6 +289,7 @@ en-GB:
 
           You can now [claim your State Pension](/state-pension#how-to-claim "Claim your state pension") if you haven't already done so. You need a Government Gateway account to claim online.
 
+          Once you claim your State Pension, the Pension Service will work out how much you get. 
 
           You don’t have to stop working or claim your State Pension when you reach State Pension age. You can put off claiming your State Pension when you reach State Pension age. You can also choose to stop claiming it after having claimed it for a period. [Defer your State Pension](/deferring-state-pension "Deferring your State Pension"). 
 
