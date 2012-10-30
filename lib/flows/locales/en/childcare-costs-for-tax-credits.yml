@@ -71,7 +71,7 @@ en-GB:
       how_much_do_you_pay_each_month?:
         title: "Your current childcare costs"
         body: |
-          How much do you pay each month:
+          How much do you pay each month?
       # C5
       how_much_do_you_pay_each_fortnight?:
         title: "Your current childcare costs"
@@ -100,7 +100,7 @@ en-GB:
 
           Add up how much you have spent in total over the last 12 months - start backwards from the date you’re doing the calculation.
 
-          Enter the number here:
+          How much have you spent on childcare in the last 12 months?
       # C10A
       new_weekly_costs?:
         title: "Your current childcare costs"
@@ -116,7 +116,7 @@ en-GB:
       new_annual_costs?:
         title: "Your current childcare costs"
         body: |
-          Add up the amounts you expect to pay in total for the next 52 weeks and enter it here:
+          How much do you expect to pay for childcare for the next 52 weeks?
       # C11B, C12B, C14B
       old_annual_costs?:
         title: "Your reported childcare costs"
