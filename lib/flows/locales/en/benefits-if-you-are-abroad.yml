@@ -379,21 +379,21 @@ en-GB:
 
           Ask your local [Jobcentre Plus](http://los.direct.gov.uk/default.aspx?type=2&lang=en "Jobcentre Plus"){:rel="external"} for more information.
 
-          [JSA]: Jobseeker’s Allowance
+          *[JSA]: Jobseeker’s Allowance
       answer_9:
         body: |
           $!You can’t get JSA.  However, under existing agreements with the UK, you may be able to qualify for unemployment benefits in these countries.$!
 
           [Find out more about Jobseeker's Allowance in these countries.](http://www.dwp.gov.uk/international/benefits/jobseekers-allowance/jobseekers-allowance-in-social/ "Jobseeker's Allowance in social security agreement countries"){:rel="external"}
 
-          [JSA]: Jobseeker’s Allowance
+          *[JSA]: Jobseeker’s Allowance
       answer_10:
         body: |
           $!You can’t get JSA.$!
 
           Ask the authorities in the country you’re living in about any benefits you might be entitled to.
 
-          [JSA]: Jobseeker’s Allowance
+          *[JSA]: Jobseeker’s Allowance
       answer_11:
         body: |
           $!You can’t get Winter Fuel Payments.$!
@@ -481,11 +481,11 @@ en-GB:
         body: |
           $!The UK has agreements in place with these countries. You may be able to get Child Benefit if you’re looking after a child or children under 16.$!
 
-          If you’re responsible for an eligible child whose parents have died, and you’re getting [Child Benefit] (/child-benefit/eligibility "eligibility for Child Benefit") for them, you may also be able to claim [Guardian’s Allowance](/guardians-allowance "Guardian’s Allowance") if you’re in a country that has a 
+          If you’re responsible for an eligible child whose parents have died, and you’re getting [Child Benefit](/child-benefit/eligibility "eligibility for Child Benefit") for them, you may also be able to claim [Guardian’s Allowance](/guardians-allowance "Guardian’s Allowance") if you’re in a country that has a 
           [social security agreement with the UK for Guardian’s Allowance.](http://www.dwp.gov.uk/international/benefits/benefits-for-children-where-one/social-security-agreement/ "countries with social security agreements with the UK for Guardian’s Allowance"){:rel="external"}
       answer_16c:
         body: |
-          If you’re responsible for a child whose parents have died, and you’re eligible for [Child Benefit] (/child-benefit/eligibility "eligibility for Child Benefit") for them, you may be able to claim [Guardian’s Allowance](/guardians-allowance "Guardian’s Allowance") if you’re in a country that has a 
+          If you’re responsible for a child whose parents have died, and you’re eligible for [Child Benefit](/child-benefit/eligibility "eligibility for Child Benefit") for them, you may be able to claim [Guardian’s Allowance](/guardians-allowance "Guardian’s Allowance") if you’re in a country that has a 
           [social security agreement with the UK for Guardian’s Allowance.](http://www.dwp.gov.uk/international/benefits/benefits-for-children-where-one/social-security-agreement/ "countries with social security agreements with the UK for Guardian’s Allowance"){:rel="external"}
 
           ^You can’t claim Child Benefit in Jamaica, Turkey or the USA.^    
@@ -608,6 +608,8 @@ en-GB:
           $!You can carry on getting income-related or contribution-based ESA for up to 4 weeks.$!
 
           Talk to your local [Jobcentre Plus](http://los.direct.gov.uk/default.aspx?type=2&lang=en "Jobcentre Plus"){:rel="external"} before you go.
+
+          *[ESA]: Employment Support Allowance
       answer_29:
         body: |
           $!You may be able to get contribution-based ESA.$!
