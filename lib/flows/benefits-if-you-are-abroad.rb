@@ -1,5 +1,5 @@
 satisfies_need "392"
-status :draft
+status :published
 
 # Q1
 multiple_choice :have_you_told_jobcentre_plus do
