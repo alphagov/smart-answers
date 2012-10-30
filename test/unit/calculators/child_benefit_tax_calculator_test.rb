@@ -25,7 +25,7 @@ module SmartAnswer::Calculators
           assert_equal 0.0, @calc.percent_tax_charge
         end
       end
-      
+
       context "percent tax charge test 2" do
         setup do
           @calc.income = 50199
@@ -55,7 +55,7 @@ module SmartAnswer::Calculators
           assert_equal 40.0, @calc.percent_tax_charge
         end
       end
-      
+
       context "percent tax charge rounding test 2" do
         setup do
           @calc.income = 54089
@@ -299,7 +299,7 @@ module SmartAnswer::Calculators
 
       context "two children starting and stopping in the same year" do
         setup do
-          @calc.claim_periods = [Date.new(2013, 6, 1)..Date.new(2013, 6, 30), Date.new(2013, 9, 1)..Date.new(2014, 2, 2)]
+          @calc.claim_periods = [Date.new(2013, 6, 1)..Date.new(2013, 6, 30), Date.new(2013, 9, 1)..Date.new(2014, 2, 1)]
         end
 
         should "calculate the total amount of benefit claimed" do

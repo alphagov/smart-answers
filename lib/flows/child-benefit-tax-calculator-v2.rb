@@ -187,17 +187,41 @@ end
     calculate "#{ordinal_string}_child_start_date".to_sym do
       start_date = Date.parse(responses.last)
       if !(start_of_tax_year..end_of_tax_year).include_with_range? start_date
-        puts "Error - #{start_date} is not in range #{start_of_tax_year}..#{end_of_tax_year}"
-        raise SmartAnswer::InvalidResponse, "Please enter a date within the selected tax year"
+        raise SmartAnswer::InvalidResponse, "Please enter a date between #{start_of_tax_year} and #{end_of_tax_year}"
       end
       start_date
     end
 
     next_node do |response|
+      "will_the_#{ordinal_string}_child_leave_the_household_this_year?".to_sym
+    end
+  end
+
+  optional_date "will_the_#{ordinal_string}_child_leave_the_household_this_year?".to_sym do
+    from { Date.new(2012, 4, 6) }
+    to { Date.new(2014, 4, 5) }
+
+    calculate "#{ordinal_string}_child_early_leave_date".to_sym do
+      raise SmartAnswer::InvalidResponse if responses.last.blank?
+
+      unless responses.last == :no
+        date = Date.parse(responses.last)
+        if !(start_of_tax_year..end_of_tax_year).include_with_range? date
+          raise SmartAnswer::InvalidResponse, "Please enter a date between #{start_of_tax_year} and #{end_of_tax_year}"
+        elsif (date < self.send("#{ordinal_string}_child_start_date".to_sym))
+          raise SmartAnswer::InvalidResponse, "The child leaving date cannot be before the arrival date."
+        end
+      end
+      date || responses.last
+    end
+
+    next_node do |response|
       if num_children_starting > index+1
         "when_will_the_#{(index+2).ordinalize}_child_enter_the_household?".to_sym
-      else
+      elsif number_of_children > 0
         :how_many_children_to_stop_claiming?
+      else
+        :estimated_tax_charge
       end
     end
   end
@@ -259,9 +283,14 @@ outcome :estimated_tax_charge do
 
     # Children starting
     (1..3).map(&:ordinalize).each do |method|
-      method = (method + "_child_start_date").to_sym
-      start_date = self.send(method)
-      claim_periods << (start_date..end_of_tax_year) unless start_date.nil?
+      start_date = self.send (method + "_child_start_date").to_sym
+      early_leave_date = self.send (method + "_child_early_leave_date").to_sym
+
+      unless early_leave_date.is_a?(Date)
+        claim_periods << (start_date..end_of_tax_year) unless start_date.nil?
+      else
+        claim_periods << (start_date..early_leave_date) unless start_date.nil?
+      end
     end
 
     # Children stopping
