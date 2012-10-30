@@ -6,7 +6,7 @@ en-GB:
         If you think a decision about your benefits is wrong, you can ask for an explanation, 
         challenge the decision or appeal against it. If your query is about child maintenance, 
         this isn’t a benefit but you can still 
-        [make an appeal](/arranging-child-maintenance-child-support-agency/appeal-a-decision “appeal a decision about child maintenance”).
+        [make an appeal](/arranging-child-maintenance-child-support-agency/appeal-a-decision "appeal a decision about child maintenance").
       meta:
         description: "If you think a decision about your benefits is wrong, you can ask for an explanation, challenge the decision or appeal against it"
       options:
@@ -107,22 +107,6 @@ en-GB:
       # Q9
       kind_of_benefit_or_credit?:
         title: "What kind of benefit or credit was the decision about?"
-#        body: |
-#          Social fund benefits are:
-#
-#          * budgeting loans
-#          * community care grants, 
-#          * crisis loans
-#          * social fund overpayments
-#
-#          Other benefits and credits include ‘social security' benefits, like:
-#
-#          * Income Support
-#          * Jobseeker's Allowance
-#          * Incapacity Benefit
-#          * Employment Support Allowance
-#          * Disability Living Allowance
-#          * Attendance Allowance
         body: |
           Social fund payments are: budgeting loans, community care grants, crisis loans or 
           social fund overpayments. 
@@ -162,7 +146,7 @@ en-GB:
           decision in a 'statement of reasons'.
 
           This can include many aspects of the decision, so get advice (eg from 
-          [Citizens Advice](http://www.citizensadvice.org.uk/index/getadvice.htm “get advice from Citizens Advice”){:rel=”external”}) 
+          [Citizens Advice](http://www.citizensadvice.org.uk/index/getadvice.htm "get advice from Citizens Advice"){:rel="external"}) 
           if you’re not sure of your rights.
 
           You have 1 month after getting a decision to ask for a statement of reasons.
