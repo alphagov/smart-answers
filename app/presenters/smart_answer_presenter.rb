@@ -97,6 +97,8 @@ class SmartAnswerPresenter
 
   def presenter_for(node)
     presenter_class = case node
+    when SmartAnswer::Question::OptionalDate
+      OptionalDateQuestionPresenter
     when SmartAnswer::Question::Date
       DateQuestionPresenter
     when SmartAnswer::Question::CountrySelect
