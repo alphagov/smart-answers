@@ -18,10 +18,10 @@ en-GB:
           $!The statutory holiday entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes for the time that's been worked.$!
 
         answer_hours_minutes_annualised: |
-          $!The statutory holiday entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes.$!
+          $!The statutory entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes holiday for the year.$!
 
         answer_compressed_hours: |
-          $!The statutory holiday entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes. Each day's leave is %{hours_daily} hours and %{minutes_daily} minutes long ie the same number of hours as the normal working day.$!
+          $!The statutory holiday entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes holiday for the year. Rather than taking a day's holiday it's %{hours_daily} hours and %{minutes_daily} minutes holiday for each day otherwise worked.$!
 
         answer_shift_worker: |
           $!The statutory holiday entitlement is %{holiday_entitlement_shifts} shifts for the year. Each shift being %{hours_per_shift} hours.$!
@@ -77,13 +77,16 @@ en-GB:
       what_is_your_leaving_date?:
         title: What was the employment end date?
 
+      how_many_hours_per_week?:
+        title: Number of hours worked per week?
+      
       compressed_hours_how_many_hours_per_week?:
         title: How many hours per week will be worked?
         label: Hours per week
         error_message: There are only 168 hours in a week. Please check and enter a correct value.
 
       compressed_hours_how_many_days_per_week?:
-        title: How many days per week will be worked?
+        title: Number of days per week worked?
         label: Days per week
         error_message: There are only 7 days in a week. Please check and enter a correct value.
 
