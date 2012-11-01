@@ -2,7 +2,7 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
-class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
+class ChildBenefitTaxCalculatorV2Test < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
@@ -324,8 +324,8 @@ class ChildBenefitTaxCalculatorTest < ActiveSupport::TestCase
                     assert_current_node_is_error
                   end
 
-                  should "reject > 3" do
-                    add_response "4"
+                  should "reject > 9" do
+                    add_response "10"
                     assert_current_node :how_many_children_to_start_claiming?
                     assert_current_node_is_error
                   end

@@ -162,8 +162,10 @@ end
 value_question :how_many_children_to_start_claiming? do
   calculate :num_children_starting do
     num_children = responses.last.to_i
-    if ! (responses.last.to_s =~ /\A\d+\z/) or num_children < 0 or num_children > 3 or (num_children + number_of_children) < 1
-      raise SmartAnswer::InvalidResponse, "This calculator can only deal with up to 3 new children."
+    if ! (responses.last.to_s =~ /\A\d+\z/) or num_children < 0 or num_children > 9
+      raise SmartAnswer::InvalidResponse, "This calculator can only deal with up to 9 new children."
+    elsif (num_children + number_of_children) < 1
+      raise SmartAnswer::InvalidResponse, "There must be at least one child to claim child benefit."
     end
     num_children
   end
@@ -179,7 +181,7 @@ end
 
 # Question 9A, 9B, 9C
 
-(1..3).map(&:ordinalize).each_with_index do |ordinal_string, index|
+(1..9).map(&:ordinalize).each_with_index do |ordinal_string, index|
   date_question "when_will_the_#{ordinal_string}_child_enter_the_household?".to_sym do
     from { Date.new(2012, 4, 6) }
     to { Date.new(2014, 4, 5) }
@@ -232,8 +234,8 @@ end
 value_question :how_many_children_to_stop_claiming? do
   calculate :num_children_stopping do
     num_children_stopping = responses.last.to_i
-    if num_children_stopping < 0 or num_children_stopping > 3
-      raise SmartAnswer::InvalidResponse, "This calculator can only deal with stopping claims for 3 new children in a year."
+    if num_children_stopping < 0 or num_children_stopping > 9
+      raise SmartAnswer::InvalidResponse, "This calculator can only deal with stopping claims for 9 new children in a year."
     elsif num_children_stopping > number_of_children
       raise SmartAnswer::InvalidResponse, "You cannot stop claiming benefit for more children than you're claiming for."
     end
@@ -251,7 +253,7 @@ end
 
 # Question 10A, 10B, 10C
 
-(1..3).map(&:ordinalize).each_with_index do |ordinal_string, index|
+(1..9).map(&:ordinalize).each_with_index do |ordinal_string, index|
   date_question "when_do_you_expect_to_stop_claiming_for_the_#{ordinal_string}_child?".to_sym do
     from { Date.new(2012, 4, 6) }
     to { Date.new(2014, 4, 5) }
@@ -282,7 +284,7 @@ outcome :estimated_tax_charge do
     claim_periods = []
 
     # Children starting
-    (1..3).map(&:ordinalize).each do |method|
+    (1..9).map(&:ordinalize).each do |method|
       start_date = self.send (method + "_child_start_date").to_sym
       early_leave_date = self.send (method + "_child_early_leave_date").to_sym
 
@@ -294,7 +296,7 @@ outcome :estimated_tax_charge do
     end
 
     # Children stopping
-    (1..3).map(&:ordinalize).each do |method|
+    (1..9).map(&:ordinalize).each do |method|
       method = (method + "_child_stop_date").to_sym
       stop_date = self.send(method)
       claim_periods << (start_of_tax_year..stop_date) unless stop_date.nil?
