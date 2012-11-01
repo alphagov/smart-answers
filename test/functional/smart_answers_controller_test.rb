@@ -220,6 +220,31 @@ class SmartAnswersControllerTest < ActionController::TestCase
         get :show, id: 'sample', started: 'y', responses: ["12345"]
         assert_select ".done", /1\s*How many green bottles\?\s+12,345/
       end
+
+      context "label in translation file" do
+        setup do
+          using_translation_file(fixture_file('smart_answers_controller_test/label_for_sample_question.yml')) do
+            get :show, id: 'sample', started: 'y'
+          end
+        end
+        should "show the label text before the question input" do
+          assert_match /Enter a number.*?input.*?name="response".*?/, response.body
+          assert_select "label > input[type=text][name=response]"
+        end
+      end
+      
+      context "suffix_label in translation file" do
+        setup do
+          using_translation_file(fixture_file('smart_answers_controller_test/suffix_label_for_sample_question.yml')) do
+            get :show, id: 'sample', started: 'y'
+          end
+        end
+
+        should "show the label text after the question input" do
+          assert_match /input.*?name="response".*?bottles\./, response.body
+          assert_select "label > input[type=text][name=response]"
+        end
+      end
     end
 
     context "money question" do
@@ -245,7 +270,19 @@ class SmartAnswersControllerTest < ActionController::TestCase
         assert_select ".step.current h2", /1\s+How much\?/
         assert_select "body", /Please answer this question/
       end
+      
+      context "suffix_label in translation file" do
+        setup do
+          using_translation_file(fixture_file('smart_answers_controller_test/suffix_label_for_sample_question.yml')) do
+            get :show, id: 'sample', started: 'y'
+          end
+        end
 
+        should "show the label after the question input" do
+          assert_select "label > input[type=text][name=response]"
+          assert_match /input.*?name="response".*?millions\./, response.body
+        end
+      end
     end
 
     context "salary question" do
