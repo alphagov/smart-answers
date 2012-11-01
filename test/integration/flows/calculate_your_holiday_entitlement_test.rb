@@ -10,17 +10,17 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     @stubbed_calculator = SmartAnswer::Calculators::HolidayEntitlement.new
   end
 
-  should "ask your employment status" do
-    assert_current_node :what_is_your_employment_status?
+  should "ask what the basis of the calculation is" do
+    assert_current_node :basis_of_calculation?
   end
 
-  context "full-time" do
+  context "calculate days worked per week" do
     setup do
-      add_response 'full-time'
+      add_response 'days-worked-per-week'
     end
 
-    should "ask how long you've been employed full-time" do
-      assert_current_node :full_time_how_long_employed?
+    should "ask the time period for the calculation" do
+      assert_current_node :calculation_period?
     end
 
     context "full year" do
@@ -29,7 +29,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       end
 
       should "ask how many days per week you're working" do
-        assert_current_node :full_time_how_many_days_per_week?
+        assert_current_node :how_many_days_per_week?
       end
 
       should "calculate and be done when 5 days a week" do
@@ -43,11 +43,11 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           ).
           returns(@stubbed_calculator)
         @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns('formatted days')
-
-        add_response '5-days'
+        
+        add_response '5'
         assert_current_node :done
+        assert_phrase_list :content_sections, [:answer_days, :your_employer_with_rounding]
         assert_state_variable :holiday_entitlement_days, 'formatted days'
-        assert_phrase_list :content_sections, [:answer_ft_pt, :your_employer, :calculation_ft]
       end
 
       should "calculate and be done when more than 5 days a week" do
@@ -61,11 +61,12 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           ).
           returns(@stubbed_calculator)
         @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns('formatted days')
-
-        add_response '6-or-7-days'
+        @stubbed_calculator.expects(:full_time_part_time_days).returns(29)
+        
+        add_response '6'
         assert_current_node :done
+        assert_phrase_list :content_sections, [:answer_days, :maximum_days_calculated, :your_employer_with_rounding]
         assert_state_variable :holiday_entitlement_days, 'formatted days'
-        assert_phrase_list :content_sections, [:answer_fy_capped, :your_employer, :calculation_ft_capped]
       end
     end # full year
 
@@ -93,7 +94,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           end
 
           should "ask how many days per week you work" do
-            assert_current_node :full_time_how_many_days_per_week?
+            assert_current_node :how_many_days_per_week?
           end
 
           should "calculate and be done part year when 5 days" do
@@ -107,14 +108,12 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
               ).
               returns(@stubbed_calculator)
             @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns('formatted days')
-            @stubbed_calculator.expects(:formatted_fraction_of_year).returns('fraction of year')
-
-            add_response '5-days'
+            
+            add_response '5'
             assert_current_node :done
             assert_state_variable :holiday_entitlement_days, 'formatted days'
-            assert_state_variable :fraction_of_year, 'fraction of year'
+            assert_phrase_list :content_sections, [:answer_days, :your_employer_with_rounding]
             assert_state_variable :days_per_week, 5
-            assert_phrase_list :content_sections, [:answer_ft_py, :your_employer_with_rounding, :calculation_ft_partial_year]
           end
 
           should "calculate and be done part year when 6 or 7 days" do
@@ -128,15 +127,14 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
               ).
               returns(@stubbed_calculator)
             @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns('formatted days')
-            @stubbed_calculator.expects(:formatted_fraction_of_year).returns('fraction of year')
-
-            add_response '6-or-7-days'
+            @stubbed_calculator.expects(:full_time_part_time_days).returns(29)
+            
+            add_response '6'
             assert_current_node :done
             assert_state_variable :holiday_entitlement_days, 'formatted days'
-            assert_state_variable :fraction_of_year, 'fraction of year'
             assert_state_variable :days_per_week, 6
+            assert_phrase_list :content_sections, [:answer_days, :maximum_days_calculated, :your_employer_with_rounding]
             assert_state_variable :days_per_week_calculated, 5
-            assert_phrase_list :content_sections, [:answer_py_capped, :your_employer_with_rounding, :calculation_ft_partial_year]
           end
         end # with a leave year start date
       end # with a start date
@@ -166,7 +164,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           end
 
           should "ask how many days per week you work" do
-            assert_current_node :full_time_how_many_days_per_week?
+            assert_current_node :how_many_days_per_week?
           end
 
           should "calculate and be done part year when 5 days" do
@@ -180,14 +178,12 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
               ).
               returns(@stubbed_calculator)
             @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns('formatted days')
-            @stubbed_calculator.expects(:formatted_fraction_of_year).returns('fraction of year')
 
-            add_response '5-days'
+            add_response '5'
             assert_current_node :done
             assert_state_variable :holiday_entitlement_days, 'formatted days'
-            assert_state_variable :fraction_of_year, 'fraction of year'
+            assert_phrase_list :content_sections, [:answer_days, :your_employer_with_rounding]
             assert_state_variable :days_per_week, 5
-            assert_phrase_list :content_sections, [:answer_ft_py, :your_employer_with_rounding, :calculation_ft_partial_year]
           end
 
           should "calculate and be done part year when 6 days" do
@@ -201,172 +197,148 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
               ).
               returns(@stubbed_calculator)
             @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns('formatted days')
-            @stubbed_calculator.expects(:formatted_fraction_of_year).returns('fraction of year')
+            @stubbed_calculator.expects(:full_time_part_time_days).returns(29)
 
-            add_response '6-or-7-days'
+            add_response '6'
             assert_current_node :done
             assert_state_variable :holiday_entitlement_days, 'formatted days'
-            assert_state_variable :fraction_of_year, 'fraction of year'
+            assert_phrase_list :content_sections, [:answer_days, :maximum_days_calculated, :your_employer_with_rounding]
             assert_state_variable :days_per_week, 6
-            assert_phrase_list :content_sections, [:answer_py_capped, :your_employer_with_rounding, :calculation_ft_partial_year]
           end
         end # with a leave year start date
       end # with a start date
     end # leaving this year
-  end # full-time
+  end # calculate for days worked
 
-  context "part-time" do
+  context "for hours worked per week" do
     setup do
-      add_response 'part-time'
+      add_response "hours-worked-per-week"
     end
-
-    should "ask how long you've been employed part-time" do
-      assert_current_node :part_time_how_long_employed?
+    should "ask the time period for the calculation" do
+      assert_current_node :calculation_period?
     end
-
-    context "full year" do
+    context "answer full leave year" do
       setup do
-        add_response 'full-year'
+        add_response "full-year"
       end
-
-      should "ask how many days pwe week you're working" do
-        assert_current_node :part_time_how_many_days_per_week?
+      should "ask the number of hours worked per week" do
+        assert_current_node :how_many_hours_per_week?
       end
+      context "answer 32" do
+        setup do
+          add_response '32'
+        end
+        should "calculate the holiday entitlement" do
+          SmartAnswer::Calculators::HolidayEntitlement.
+            expects(:new).
+              with(:hours_per_week => 32.0, 
+                   :start_date => nil, 
+                   :leaving_date => nil, 
+                   :leave_year_start_date => nil).returns(@stubbed_calculator)
+          @stubbed_calculator.expects(:full_time_part_time_hours).returns(179.2)
 
-      should "be invalid if more than 7 entered" do
-        add_response '8'
-        assert_current_node_is_error
-        assert_current_node :part_time_how_many_days_per_week?
+          assert_current_node :done
+          assert_state_variable "holiday_entitlement_hours", 179
+          assert_state_variable "holiday_entitlement_minutes", 12
+          assert_phrase_list :content_sections, [:answer_hours, :your_employer_with_rounding]
+          assert_current_node :done
+        end
       end
-
-      should "be invalid if less than 1 entered" do
-        add_response '0'
-        assert_current_node_is_error
-        assert_current_node :part_time_how_many_days_per_week?
-      end
-
-      should "calculate and be done with a response" do
-        SmartAnswer::Calculators::HolidayEntitlement.
-          expects(:new).
-          with(
-            :days_per_week => 3,
-            :start_date => nil,
-            :leaving_date => nil,
-            :leave_year_start_date => nil
-          ).
-          returns(@stubbed_calculator)
-        @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns('formatted days')
-
-        add_response '3'
-        assert_current_node :done
-        assert_state_variable :holiday_entitlement_days, 'formatted days'
-        assert_state_variable :days_per_week, 3
-        assert_phrase_list :content_sections, [:answer_ft_pt, :your_employer, :calculation_pt]
-      end
-    end # full year
-
-    context "starting this year" do
+    end
+    context "answer starting part way through the leave year" do
       setup do
-        add_response 'starting'
+        add_response "starting"
       end
-
-      should "ask when you are starting" do
+      should "ask for the employment start date" do
         assert_current_node :what_is_your_starting_date?
       end
-
-      context "with a date" do
+      context "answer June 15th this year" do
         setup do
-          add_response "#{Date.today.year}-03-14"
+          add_response "#{Date.today.year}-06-15"
         end
-
-        should "ask when your leave year starts" do
+        should "ask when the leave year started" do
           assert_current_node :when_does_your_leave_year_start?
         end
-
-        context "with a leave year start date" do
+        context "answer Jan 1st this year" do
           setup do
-            add_response "#{Date.today.year}-08-18"
+            add_response "#{Date.today.year}-01-01"
           end
-
-          should "ask how many days per week you work" do
-            assert_current_node :part_time_how_many_days_per_week?
+          should "ask the number of hours worked per week" do
+            assert_current_node :how_many_hours_per_week?
           end
+          context "answer 37" do
+            setup do
+              add_response '37'
+            end
+            should "calculate the holiday entitlement" do
+              SmartAnswer::Calculators::HolidayEntitlement.
+                expects(:new).
+                with(
+                  :hours_per_week => 37.0,
+                  :start_date => "#{Date.today.year}-06-15",
+                  :leaving_date => nil,
+                  :leave_year_start_date => "#{Date.today.year}-01-01"
+                ).
+                returns(@stubbed_calculator)
+              @stubbed_calculator.expects(:full_time_part_time_hours).returns(79.5)
 
-          should "calculate and be done with a response" do
-            SmartAnswer::Calculators::HolidayEntitlement.
-              expects(:new).
-              with(
-                :days_per_week => 4,
-                :start_date => "#{Date.today.year}-03-14",
-                :leaving_date => nil,
-                :leave_year_start_date => "#{Date.today.year}-08-18"
-              ).
-              returns(@stubbed_calculator)
-            @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns('formatted days')
-            @stubbed_calculator.expects(:formatted_fraction_of_year).returns('fraction of year')
-
-            add_response '4'
-            assert_current_node :done
-            assert_state_variable :holiday_entitlement_days, 'formatted days'
-            assert_state_variable :fraction_of_year, 'fraction of year'
-            assert_state_variable :days_per_week, 4
-            assert_phrase_list :content_sections, [:answer_ft_pt, :your_employer_with_rounding, :calculation_pt_partial_year]
+              assert_current_node :done
+              assert_state_variable "holiday_entitlement_hours", 79
+              assert_state_variable "holiday_entitlement_minutes", 30
+              assert_phrase_list :content_sections, [:answer_hours, :your_employer_with_rounding]
+              assert_current_node :done
+            end
           end
-        end # with a leave year start date
-      end # with a start date
-    end # starting this year
-
-    context "leaving this year" do
-      setup do
-        add_response 'leaving'
+        end
       end
-
-      should "ask when you are leaving" do
+    end
+    context "answer leaving part way through the leave year" do
+      setup do
+        add_response "leaving"
+      end
+      should "ask for the employment end date" do
         assert_current_node :what_is_your_leaving_date?
       end
-
-      context "with a date" do
+      context "answer 2012-06-15" do
         setup do
-          add_response "#{Date.today.year}-07-14"
+          add_response '2012-06-15'
         end
-
-        should "ask when your leave year starts" do
+        should "ask when the leave year started" do
           assert_current_node :when_does_your_leave_year_start?
         end
-
-        context "with a leave year start date" do
+        context "answer 2012-01-01" do
           setup do
-            add_response "#{Date.today.year}-12-01"
+            add_response '2012-01-01'
           end
-
-          should "ask how many days per week you work" do
-            assert_current_node :part_time_how_many_days_per_week?
+          should "ask the number of hours worked per week" do
+            assert_current_node :how_many_hours_per_week?
           end
+          context "answer 26.5" do
+            setup do
+              add_response '26.5'
+            end
+            should "calculate the holiday entitlement" do
+              SmartAnswer::Calculators::HolidayEntitlement.
+                expects(:new).
+                with(
+                  :hours_per_week => 26.5,
+                  :start_date => nil,
+                  :leaving_date => "2012-06-15",
+                  :leave_year_start_date => "2012-01-01"
+                ).
+                returns(@stubbed_calculator)
+              @stubbed_calculator.expects(:full_time_part_time_hours).returns(19.75)
 
-          should "calculate and be done with a response" do
-            SmartAnswer::Calculators::HolidayEntitlement.
-              expects(:new).
-              with(
-                :days_per_week => 2,
-                :start_date => nil,
-                :leaving_date => "#{Date.today.year}-07-14",
-                :leave_year_start_date => "#{Date.today.year}-12-01"
-              ).
-              returns(@stubbed_calculator)
-            @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns('formatted days')
-            @stubbed_calculator.expects(:formatted_fraction_of_year).returns('fraction of year')
-
-            add_response '2'
-            assert_current_node :done
-            assert_state_variable :holiday_entitlement_days, 'formatted days'
-            assert_state_variable :fraction_of_year, 'fraction of year'
-            assert_state_variable :days_per_week, 2
-            assert_phrase_list :content_sections, [:answer_ft_pt, :your_employer_with_rounding, :calculation_pt_partial_year]
+              assert_current_node :done
+              assert_state_variable "holiday_entitlement_hours", 19
+              assert_state_variable "holiday_entitlement_minutes", 45
+              assert_phrase_list :content_sections, [:answer_hours, :your_employer_with_rounding]
+            end
           end
-        end # with a leave year start date
-      end # with a start date
-    end # leaving this year
-  end # part-time
+        end
+      end
+    end
+  end # hours-worked-per-week
 
   context "casual or irregular" do
     setup do
@@ -395,7 +367,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       assert_state_variable :total_hours, 1500.0
       assert_state_variable :holiday_entitlement_hours, 'formatted hours'
       assert_state_variable :holiday_entitlement_minutes, 'formatted minutes'
-      assert_phrase_list :content_sections, [:answer_hours_minutes, :your_employer, :calculation_casual_irregular]
+      assert_phrase_list :content_sections, [:answer_hours_minutes, :your_employer_with_rounding]
     end
   end # casual or irregular
 
@@ -428,7 +400,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       assert_state_variable :holiday_entitlement_hours, 'formatted hours'
       assert_state_variable :holiday_entitlement_minutes, 'formatted minutes'
       assert_state_variable :average_hours_per_week, 'average hours per week'
-      assert_phrase_list :content_sections, [:answer_hours_minutes_annualised, :your_employer, :calculation_annualised]
+      assert_phrase_list :content_sections, [:answer_hours_minutes_annualised, :your_employer_with_rounding]
     end
   end # annualised hours
 
@@ -489,7 +461,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       assert_state_variable :holiday_entitlement_minutes, 'formatted minutes'
       assert_state_variable :hours_daily, 'formatted daily hours'
       assert_state_variable :minutes_daily, 'formatted daily minutes'
-      assert_phrase_list :content_sections, [:answer_compressed_hours, :your_employer_with_rounding, :calculation_compressed_hours]
+      assert_phrase_list :content_sections, [:answer_compressed_hours, :your_employer_with_rounding]
     end
   end # compressed hours
 
@@ -550,7 +522,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         assert_state_variable :shifts_per_week, 'shifts per week'
         assert_state_variable :holiday_entitlement_shifts, 'some shifts'
 
-        assert_phrase_list :content_sections, [:answer_shift_worker, :your_employer, :calculation_shift_worker]
+        assert_phrase_list :content_sections, [:answer_shift_worker, :your_employer_with_rounding]
       end
     end # full year
 
@@ -622,7 +594,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             assert_state_variable :holiday_entitlement_shifts, 'some shifts'
             assert_state_variable :fraction_of_year, 'fraction of year'
 
-            assert_phrase_list :content_sections, [:answer_shift_worker, :your_employer_with_rounding, :calculation_shift_worker_partial_year]
+            assert_phrase_list :content_sections, [:answer_shift_worker, :your_employer_with_rounding]
           end
         end # with a leave year start date
       end # with a date
@@ -696,7 +668,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             assert_state_variable :holiday_entitlement_shifts, 'some shifts'
             assert_state_variable :fraction_of_year, 'fraction of year'
 
-            assert_phrase_list :content_sections, [:answer_shift_worker, :your_employer_with_rounding, :calculation_shift_worker_partial_year]
+            assert_phrase_list :content_sections, [:answer_shift_worker, :your_employer_with_rounding]
           end
         end # with a leave year start date
       end # with a date

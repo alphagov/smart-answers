@@ -268,6 +268,14 @@ module SmartAnswer::Calculators
         assert_equal '18.3', calc.formatted_full_time_part_time_days
       end
     end
+  
+    context "calculating full time or part time holiday entitlement by hour" do
+      should "return the hours of entitlement" do
+        calc = HolidayEntitlement.new(
+          :hours_per_week => 32.5, :start_date => '2012-03-01', :leave_year_start_date => '2011-04-01')
+        assert_equal '15.4', calc.formatted_full_time_part_time_hours
+      end
+    end
 
     context "calculating casual or irregular hours entitlement" do
       should "return the hours and minutes of entitlement" do
