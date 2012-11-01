@@ -2,7 +2,7 @@ en-GB:
   flow:
     maternity-benefits:
       meta:
-        description: "Use the maternity pay tool to work out if you can claim statutory maternity pay (SMP), maternity allowance (MA) or other benefits"
+        description: "Tool to work out if you qualify for Statutory Maternity Pay (SMP), Maternity Allowance (MA) or other benefits and what money you could get"
       title:
         Maternity pay entitlement
       options:
@@ -10,9 +10,7 @@ en-GB:
         "yes": "Yes"
       body: |
 
-        Maternity pay is money you could get when you take time off work to look after your baby.
-
-        You can use this tool to work out which of the different maternity pay schemes or benefits you could claim.
+        Work out which of the different maternity pay schemes or benefits you could get when you take time off to have a baby.
 
       when_is_your_baby_due?:
         title: When is your baby due?
@@ -72,7 +70,7 @@ en-GB:
 
           ^You must give your employer at least 28 days' [notice](/statutory-maternity-pay/how-to-claim "Giving notice") to claim Statutory Maternity Pay.^
 
-          You'll get:
+          You could get:
 
           * %{eligible_amount} for 39 weeks
 
@@ -90,7 +88,7 @@ en-GB:
 
           ^You must give your employer at least 28 days' [notice](/statutory-maternity-pay/how-to-claim "Giving notice") to claim Statutory Maternity Pay.^
 
-          You'll get:
+          You could get:
 
           * %{eligible_amount} for 6 weeks
           * &pound;135.45 for 33 weeks
@@ -108,7 +106,7 @@ en-GB:
         body: |
           Maternity Allowance is a benefit paid by Jobcentre Plus.
 
-          You'll get:
+          You could get:
 
           * %{eligible_amount} for up to 39 weeks
 
@@ -125,7 +123,7 @@ en-GB:
         body: |
           Maternity Allowance is a benefit paid by Jobcentre Plus.
 
-          You'll get: 
+          You could get: 
 
           * &pound;135.45 for up to 39 weeks
 
