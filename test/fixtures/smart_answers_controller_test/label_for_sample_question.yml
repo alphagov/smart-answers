@@ -1,0 +1,5 @@
+en-GB:
+  flow:
+    sample:
+      how_many_green_bottles?:
+        label: "Enter a number"
