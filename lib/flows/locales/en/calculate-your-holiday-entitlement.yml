@@ -12,7 +12,7 @@ en-GB:
           $!The statutory holiday entitlement is %{holiday_entitlement_days} days holiday.$!
 
         answer_hours: |
-          $!The statutory entitlement is %{holiday_entitlement_hours} hours holiday.$!
+          $!The statutory entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes holiday.$!
 
         answer_hours_minutes: |
           $!The statutory holiday entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes for the time that's been worked.$!
@@ -52,7 +52,7 @@ en-GB:
         "casual-or-irregular-hours": "casual or irregular hours"
         "annualised-hours": "annualised hours"
         "compressed-hours": "compressed hours"
-        "shift-worker": "shift worker"
+        "shift-worker": "shifts"
         "full-year": "for a full leave year"
         "starting": "for someone starting part way through a leave year"
         "leaving": "for someone leaving part way through a leave year"

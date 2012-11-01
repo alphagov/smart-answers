@@ -52,7 +52,9 @@ value_question :how_many_days_per_week? do
   end
   calculate :content_sections do
     sections = PhraseList.new :answer_days
-    sections << :maximum_days_calculated if days_per_week > 5
+    if days_per_week > 5 and calculator.full_time_part_time_days >= 28
+      sections << :maximum_days_calculated
+    end
     sections << :your_employer_with_rounding
     sections
   end
@@ -61,24 +63,24 @@ end
 
 # Q4
 date_question :what_is_your_starting_date? do
-  from { Date.civil(Date.today.year, 1, 1) }
-  to { Date.civil(Date.today.year, 12, 31) }
+  from { Date.civil(1.year.ago.year, 1, 1) }
+  to { Date.civil(1.year.since(Date.today).year, 12, 31) }
   save_input_as :start_date
   next_node :when_does_your_leave_year_start?
 end
 
 # Q5
 date_question :what_is_your_leaving_date? do
-  from { Date.civil(Date.today.year, 1, 1) }
-  to { Date.civil(Date.today.year, 12, 31) }
+  from { Date.civil(1.year.ago.year, 1, 1) }
+  to { Date.civil(1.year.since(Date.today).year, 12, 31) }
   save_input_as :leaving_date
   next_node :when_does_your_leave_year_start?
 end
 
 # Q21
 date_question :when_does_your_leave_year_start? do
-  from { Date.civil(Date.today.year - 1, 1, 1) }
-  to { Date.civil(Date.today.year, 12, 31) }
+  from { Date.civil(1.year.ago.year, 1, 1) }
+  to { Date.civil(1.year.since(Date.today).year, 12, 31) }
   save_input_as :leave_year_start_date
   next_node do |response|
     case calculation_basis
@@ -102,11 +104,17 @@ value_question :how_many_hours_per_week? do
       :leave_year_start_date => leave_year_start_date
     )
   end
+  calculate :holiday_entitlement_hours_and_minutes do
+    calculator.full_time_part_time_hours_and_minutes
+  end
   calculate :holiday_entitlement_hours do
-    calculator.formatted_full_time_part_time_hours
+    holiday_entitlement_hours_and_minutes.first
+  end
+  calculate :holiday_entitlement_minutes do
+    holiday_entitlement_hours_and_minutes.last
   end
   calculate :content_sections do
-    PhraseList.new :answer_hours, :your_employer
+    PhraseList.new :answer_hours, :your_employer_with_rounding
   end
   next_node :done
 end
@@ -127,7 +135,7 @@ value_question :casual_or_irregular_hours? do
     calculator.casual_irregular_entitlement.last
   end
   calculate :content_sections do
-    PhraseList.new :answer_hours_minutes, :your_employer
+    PhraseList.new :answer_hours_minutes, :your_employer_with_rounding
   end
   next_node :done
 end
@@ -151,7 +159,7 @@ value_question :annualised_hours? do
     calculator.annualised_entitlement.last
   end
   calculate :content_sections do
-    PhraseList.new :answer_hours_minutes_annualised, :your_employer
+    PhraseList.new :answer_hours_minutes_annualised, :your_employer_with_rounding
   end
   next_node :done
 end
@@ -190,7 +198,7 @@ value_question :compressed_hours_how_many_days_per_week? do
     calculator.compressed_hours_daily_average.last
   end
   calculate :content_sections do
-    PhraseList.new :answer_compressed_hours, :your_employer_with_rounding, :calculation_compressed_hours
+    PhraseList.new :answer_compressed_hours, :your_employer_with_rounding
   end
   next_node :done
 end
@@ -250,17 +258,9 @@ value_question :shift_worker_days_per_shift_pattern? do
   calculate :content_sections do
     full_year = start_date.nil? && leaving_date.nil?
 
-    sections = PhraseList.new :answer_shift_worker
-    if full_year
-      sections << :your_employer
-    else
-      sections << :your_employer_with_rounding
-    end
-    sections
+    PhraseList.new :answer_shift_worker, :your_employer_with_rounding
   end
   next_node :done
 end
 
 outcome :done
-outcome :done_days
-outcome :done_hours
