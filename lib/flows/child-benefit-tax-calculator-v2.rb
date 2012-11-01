@@ -37,6 +37,14 @@ multiple_choice :which_tax_year? do
     end
   end
 
+  calculate :formatted_start_of_tax_year do
+    start_of_tax_year.strftime("%e %B %Y")
+  end
+
+  calculate :formatted_end_of_tax_year do
+    end_of_tax_year.strftime("%e %B %Y")
+  end
+
   # next_node :what_is_your_estimated_income_for_the_year_before_tax?
 
   next_node do |response|
