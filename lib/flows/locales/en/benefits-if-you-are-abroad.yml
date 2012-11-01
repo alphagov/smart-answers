@@ -2,10 +2,10 @@ en-GB:
   flow:
     benefits-if-you-are-abroad:
       meta:
-        description: "Find out what benefits you might be able to get while abroad and how to claim them."
-      title: "Benefits if you’re abroad"
-      body: 
-        "Find out what benefits you might be able to get while abroad and how to claim them"
+        description: Find out what benefits you might be able to get while abroad and how to claim them
+      title: Benefits if you’re abroad
+      body: | 
+        Find out what benefits you might be able to get while abroad and how to claim them.
       options:
         "yes": "Yes"
         "no": "No"
@@ -30,8 +30,11 @@ en-GB:
           **Telephone:**: + 44 191 21 87777  
           **Textphone:** + 44 191 21 87280  
           <TVP-IPC-Customer-Care@thepensionservice.gsi.gov.uk>
+
           Monday to Friday, 8am to 8pm
           $C
+
+          *[HMRC]: HM Revenue and Customs
       # Q2
       have_you_paid_ni_in_the_uk:
         title: |
@@ -52,7 +55,7 @@ en-GB:
       are_you_moving_to_q4:
         title: "Which country are you living in or moving to?"
         body: |
-          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
+          Check which countries are in the [EEA.](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
 
           *[EEA]:European Economic Area
         options:
@@ -80,7 +83,7 @@ en-GB:
       are_you_moving_to_q6:
         title: "Which country are you living in or moving to?"
         body: |
-          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"}
+          Check which countries are in the [EEA.](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"}
 
           [EEA]: European Economic Area
         options:
@@ -93,7 +96,7 @@ en-GB:
       are_you_moving_to_q7:
         title: "Which country are you living in or moving to?"
         body: |
-          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
+          Check which countries are in the [EEA.](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
 
           [EEA]: European Economic Area
         options:
@@ -107,7 +110,7 @@ en-GB:
       are_you_moving_to_a_country_q9:
         title: "Which country are you living in or moving to?"
         body: |
-          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
+          Check which countries are in the [EEA.](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
 
           [EEA]: European Economic Area
         options:
@@ -148,7 +151,7 @@ en-GB:
       are_you_moving_to_a_country_q15:
         title: "Which country are you living in or moving to?"
         body: | 
-          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
+          Check which countries are in the [EEA.](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
 
           *[EEA]: European Economic Area
         options: 
@@ -228,7 +231,7 @@ en-GB:
       are_you_moving_to_q26:
         title: "Which country are you living in or moving to?"
         body: |
-          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
+          Check which countries are in the [EEA.](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
 
           *[EEA]: European Economic Area
         options:
@@ -292,7 +295,7 @@ en-GB:
         title: "Which country are you living in or moving to?"
         body: |
 
-          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
+          Check which countries are in the [EEA.](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
 
           *[EEA]: European Economic Area
       answer_1: 
@@ -376,21 +379,21 @@ en-GB:
 
           Ask your local [Jobcentre Plus](http://los.direct.gov.uk/default.aspx?type=2&lang=en "Jobcentre Plus"){:rel="external"} for more information.
 
-          [JSA]: Jobseeker’s Allowance
+          *[JSA]: Jobseeker’s Allowance
       answer_9:
         body: |
           $!You can’t get JSA.  However, under existing agreements with the UK, you may be able to qualify for unemployment benefits in these countries.$!
 
           [Find out more about Jobseeker's Allowance in these countries.](http://www.dwp.gov.uk/international/benefits/jobseekers-allowance/jobseekers-allowance-in-social/ "Jobseeker's Allowance in social security agreement countries"){:rel="external"}
 
-          [JSA]: Jobseeker’s Allowance
+          *[JSA]: Jobseeker’s Allowance
       answer_10:
         body: |
           $!You can’t get JSA.$!
 
           Ask the authorities in the country you’re living in about any benefits you might be entitled to.
 
-          [JSA]: Jobseeker’s Allowance
+          *[JSA]: Jobseeker’s Allowance
       answer_11:
         body: |
           $!You can’t get Winter Fuel Payments.$!
@@ -420,6 +423,7 @@ en-GB:
           **Telephone:**: + 44 191 21 87777  
           **Textphone:** + 44 191 21 87280  
           <TVP-IPC-Customer-Care@thepensionservice.gsi.gov.uk>
+
           Monday to Friday, 8am to 8pm
           $C
       answer_14:
@@ -436,6 +440,7 @@ en-GB:
           **Telephone:**: + 44 191 21 87777  
           **Textphone:** + 44 191 21 87280  
           <TVP-IPC-Customer-Care@thepensionservice.gsi.gov.uk>
+
           Monday to Friday, 8am to 8pm
           $C
       answer_15:
@@ -463,6 +468,7 @@ en-GB:
           **Telephone:**: + 44 191 21 87777  
           **Textphone:** + 44 191 21 87280  
           <TVP-IPC-Customer-Care@thepensionservice.gsi.gov.uk>
+
           Monday to Friday, 8am to 8pm
           $C
       answer_16a:
@@ -475,11 +481,11 @@ en-GB:
         body: |
           $!The UK has agreements in place with these countries. You may be able to get Child Benefit if you’re looking after a child or children under 16.$!
 
-          If you’re responsible for an eligible child whose parents have died, and you’re getting [Child Benefit] (/child-benefit/eligibility "eligibility for Child Benefit") for them, you may also be able to claim [Guardian’s Allowance](/guardians-allowance “Guardian’s Allowance”) if you’re in a country that has a 
+          If you’re responsible for an eligible child whose parents have died, and you’re getting [Child Benefit](/child-benefit/eligibility "eligibility for Child Benefit") for them, you may also be able to claim [Guardian’s Allowance](/guardians-allowance "Guardian’s Allowance") if you’re in a country that has a 
           [social security agreement with the UK for Guardian’s Allowance.](http://www.dwp.gov.uk/international/benefits/benefits-for-children-where-one/social-security-agreement/ "countries with social security agreements with the UK for Guardian’s Allowance"){:rel="external"}
       answer_16c:
         body: |
-          If you’re responsible for a child whose parents have died, and you’re eligible for [Child Benefit] (/child-benefit/eligibility "eligibility for Child Benefit") for them, you may be able to claim [Guardian’s Allowance](/guardians-allowance “Guardian’s Allowance”) if you’re in a country that has a 
+          If you’re responsible for a child whose parents have died, and you’re eligible for [Child Benefit](/child-benefit/eligibility "eligibility for Child Benefit") for them, you may be able to claim [Guardian’s Allowance](/guardians-allowance "Guardian’s Allowance") if you’re in a country that has a 
           [social security agreement with the UK for Guardian’s Allowance.](http://www.dwp.gov.uk/international/benefits/benefits-for-children-where-one/social-security-agreement/ "countries with social security agreements with the UK for Guardian’s Allowance"){:rel="external"}
 
           ^You can’t claim Child Benefit in Jamaica, Turkey or the USA.^    
@@ -602,6 +608,8 @@ en-GB:
           $!You can carry on getting income-related or contribution-based ESA for up to 4 weeks.$!
 
           Talk to your local [Jobcentre Plus](http://los.direct.gov.uk/default.aspx?type=2&lang=en "Jobcentre Plus"){:rel="external"} before you go.
+
+          *[ESA]: Employment Support Allowance
       answer_29:
         body: |
           $!You may be able to get contribution-based ESA.$!
@@ -630,6 +638,7 @@ en-GB:
           **Telephone:**: + 44 191 21 87777  
           **Textphone:** + 44 191 21 87280  
           <TVP-IPC-Customer-Care@thepensionservice.gsi.gov.uk>
+
           Monday to Friday, 8am to 8pm
           $C
       answer_32:
@@ -646,6 +655,7 @@ en-GB:
           **Telephone:**: + 44 191 21 87777  
           **Textphone:** + 44 191 21 87280  
           <TVP-IPC-Customer-Care@thepensionservice.gsi.gov.uk>
+
           Monday to Friday, 8am to 8pm
           $C
       answer_33:
@@ -662,6 +672,7 @@ en-GB:
           **Telephone:**: + 44 191 21 87777  
           **Textphone:** + 44 191 21 87280  
           <TVP-IPC-Customer-Care@thepensionservice.gsi.gov.uk>
+
           Monday to Friday, 8am to 8pm
           $C
       answer_34:
@@ -682,6 +693,7 @@ en-GB:
           **Benefit Enquiry Line**  
           Telephone: 0800 88 22 00  
           Textphone: 0800 24 33 55  
+
           Monday to Friday, 8:30am to 6:30pm
           $C
       answer_35b:

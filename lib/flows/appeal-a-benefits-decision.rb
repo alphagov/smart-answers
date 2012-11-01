@@ -1,5 +1,5 @@
 satisfies_need "845"
-status :draft
+status :published
 
 decision_appeal_limit_in_months = 13
 
