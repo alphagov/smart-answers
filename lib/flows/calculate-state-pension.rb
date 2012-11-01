@@ -453,6 +453,10 @@ outcome :amount_result do
   precalculate :pension_loss do
     sprintf("%.2f", calculator.pension_loss)
   end
+
+  precalculate :what_if_not_full do
+    sprintf("%.2f", calculator.what_you_would_get_if_not_full)
+  end
   
   precalculate :pension_summary do
     if calculator.pension_loss > 0

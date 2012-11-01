@@ -93,7 +93,7 @@ en-GB:
 
           How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance "National Insurance") you have. 
 
-          National Insurance | Your contributions
+          National Insurance | Your results
           - | - 
           Years of contributions you already have | %{qualifying_years_total}
           Years of contributions you still need for a full basic State Pension | %{missing_years} 
@@ -124,6 +124,7 @@ en-GB:
           When you’ll reach State Pension age | %{formatted_state_pension_date}
           How much per week you may get now | £%{pension_amount}
           Difference to the full basic State Pension of £107.45 | £%{pension_loss}
+          State Pension you get if you make remaining contributions or get credits | £%{what_if_not_full}
 
 
           $C
@@ -132,11 +133,11 @@ en-GB:
 
           How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance "National Insurance") you have. 
 
-          National Insurance | Your contributions 
+          National Insurance | Your results 
           - | - 
           Years of contributions you already have | %{qualifying_years_total}
           Years of contributions you still need for a full State Pension | %{missing_years} 
-          Maximum number of additional contribution years you could still get | %{remaining_years}
+          Years you have left for contributions | %{remaining_years}
 
           You may be able to pay [voluntary contributions](/voluntary-national-insurance-contributions/why-pay-voluntary-contributions) to increase your basic State Pension.
 
@@ -200,12 +201,14 @@ en-GB:
         error_message: |
           Your answer has to match the number of years you actually worked and paid National Insurance. 
           Based on your date of birth you can enter up to %{available_ni_years} years.
+        suffix_label: years
       ## Q5
       years_of_jsa?:
         title: "How many years from the age of 19 have you claimed unemployment, sickness or disability benefits?"
         hint: These are years you may have received credits towards your State Pension. Don’t count years you entered in question 4. Enter 0 if you’ve never claimed benefits.
         error_message: |
           Please enter a number. Based on your previous answers you can enter up to %{available_ni_years} years.
+        suffix_label: years
       ## Q6
       received_child_benefit?:
         title: "Have you ever:"
@@ -222,6 +225,7 @@ en-GB:
           - you worked as a registered carer (only count years from 2003 to 2010)
         hint: These are years when you were getting Home Responsibility Protection. Enter 0 if none of these apply. Don’t count any years you’ve entered in the previous questions. %{carer_hint_for_women}
         error_message: Please enter a number between 0 and %{years_you_can_enter}. The maximum number of Home Responsibility Protection years possible is 22.
+        suffix_label: years
       ## Q8 
       years_of_caring?:
         title: "From 6 April 2010 how many years did any of the following apply:"
@@ -231,16 +235,19 @@ en-GB:
           - you were a registered foster carer
         hint: Enter 0 if none of these apply. Don’t count any years you’ve entered in the previous questions.
         error_message: Please enter a number between 0 and %{years_you_can_enter}.
+        suffix_label: years
       ## Q9
       years_of_carers_allowance?:
         title: How many years have you received Carer’s Allowance?
         hint: Enter 0 if you didn’t get any. Don’t count any years you’ve entered in the previous questions. %{carer_hint_for_women_q9}
         error_message: Please enter a number. Based on your previous answers you can enter up to %{available_ni_years} years.
+        suffix_label: years
       ## Q10
       years_of_work?:
         title: How many years between age 16 and 19 were you working, receiving sickness/disability benefits, or in full-time education?
         hint: Include the years you were working and paying National Insurance contributions, or were not working but claiming benefits because of unemployment, illness or disability. If you were born before 6 April 1959 also include periods in full time education or training (including staying on at school, full time unpaid apprenticeships or approved training course).
         error_message: Please enter a number. You can enter between 0 and %{years_you_can_enter}.
+        suffix_label: years
 
 
       ## Outcomes:
