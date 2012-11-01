@@ -1,1 +1,2 @@
-<label for="response_amount">&pound; <%= text_field_tag('response', nil, size: 5, value: prefill_value_for(question)) %></label>
+<label for="response_amount">&pound; <%= text_field_tag('response', nil, size: 5, value: prefill_value_for(question)) %><% 
+  if question.has_suffix_label? %><%= question.suffix_label %><% end %></label>
