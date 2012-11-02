@@ -221,6 +221,7 @@ en-GB:
       date_leave_starts?:
         title: When does the employee want to start their leave?
         hint: Usually, leave can't start before %{leave_earliest_start_date}
+        error_message: Please enter a valid date
       ## QM4
       did_the_employee_work_for_you?:
         title: Did the employee work for you on or before %{employment_start}?
