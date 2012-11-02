@@ -3,7 +3,7 @@ calculator = Calculators::RedundancyCalculator.new
 value_question :age_of_employee? do
   calculate :employee_age do
     age = responses.last.to_i
-    raise InvalidResponse if age <= 16 or age >= 100
+    raise InvalidResponse if age < 16 or age > 100
     age
   end
   calculate :years_available do
