@@ -12,10 +12,6 @@ en-GB:
                 title: How old were you on the date you were made redundant?
                 hint: Use the original redundancy date even if your notice is brought forward, you’re paid in lieu of notice or made redundant after trialing a new job.
                 error_message: Please enter a number between 16 and 100.
-                options:
-                    "over-41": "41 and over"
-                    "22-40": "22-40"
-                    "under-22": "Under 22"
 
             years_employed?:
                 title: How many years have you worked for your employer?
@@ -51,19 +47,15 @@ en-GB:
         calculate-employee-redundancy-pay:
             title: "Calculate your employee's statutory redundancy pay"
             meta:
-                description: Calculate how much statutory redundancy your employee can get based on age, weekly pay and number of years in the job
+                description: Employer calculator - calculate statutory redundancy for employees based on their age, weekly pay and number of years in the job
             body: |
-                Calculate how much statutory redundancy an employee can get. It’s based on age, weekly pay and number of years in the job.
+                Calculate an employee’s statutory redundancy pay. It’s based on age, weekly pay and number of years in the job.
 
-                They only qualify if they’ve worked for at least 2 full years for you.
+                Employees only qualify if they’ve worked for at least 2 full years for you.
             age_of_employee?:
                 title: What was your employee’s age when they were made redundant?
-                hint: Use the original redundancy date even if their notice is brought forward, they’re  paid in lieu of notice or made redundant after trialing a new job.
+                hint: Use the original redundancy date even if their notice is brought forward, they’re paid in lieu of notice or made redundant after trialing a new job.
                 error_message: Please enter a number between 16 and 100.
-                options:
-                    "over-41": "41 and over"
-                    "22-40": "22-40"
-                    "under-22": "Under 22"
 
             years_employed?:
                 title: Number of years they’ve worked for you
