@@ -133,41 +133,40 @@ en-GB:
         hint: For example, the expected date of birth/adoption or the date you expect to move in with a new partner.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       # leaving the household
-      # TODO update text so that it says ...leave the household before tax_year_end_date
       will_the_1st_child_leave_the_household_this_year?:
-        title: Will the first child leave the household this year?
+        title: Will the first child leave the household before %{formatted_end_of_tax_year}?
         hint: For example, your child will reach 16 or they are over 16 and leave education.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       will_the_2nd_child_leave_the_household_this_year?:
-        title: Will the second child leave the household this year?
+        title: Will the second child leave the household before %{formatted_end_of_tax_year}?
         hint: For example, your child will reach 16 or they are over 16 and leave education.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       will_the_3rd_child_leave_the_household_this_year?:
-        title: Will the third child leave the household this year?
+        title: Will the third child leave the household before %{formatted_end_of_tax_year}?
         hint: For example, your child will reach 16 or they are over 16 and leave education.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       will_the_4th_child_leave_the_household_this_year?:
-        title: Will the fourth child leave the household this year?
+        title: Will the fourth child leave the household before %{formatted_end_of_tax_year}?
         hint: For example, your child will reach 16 or they are over 16 and leave education.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       will_the_5th_child_leave_the_household_this_year?:
-        title: Will the fifth child leave the household this year?
+        title: Will the fifth child leave the household before %{formatted_end_of_tax_year}?
         hint: For example, your child will reach 16 or they are over 16 and leave education.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       will_the_6th_child_leave_the_household_this_year?:
-        title: Will the sixth child leave the household this year?
+        title: Will the sixth child leave the household before %{formatted_end_of_tax_year}?
         hint: For example, your child will reach 16 or they are over 16 and leave education.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       will_the_7th_child_leave_the_household_this_year?:
-        title: Will the seventh child leave the household this year?
+        title: Will the seventh child leave the household before %{formatted_end_of_tax_year}?
         hint: For example, your child will reach 16 or they are over 16 and leave education.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       will_the_8th_child_leave_the_household_this_year?:
-        title: Will the eighth child leave the household this year?
+        title: Will the eighth child leave the household before %{formatted_end_of_tax_year}?
         hint: For example, your child will reach 16 or they are over 16 and leave education.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       will_the_9th_child_leave_the_household_this_year?:
-        title: Will the ninth child leave the household this year?
+        title: Will the ninth child leave the household before %{formatted_end_of_tax_year}?
         hint: For example, your child will reach 16 or they are over 16 and leave education.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       ## Q10
