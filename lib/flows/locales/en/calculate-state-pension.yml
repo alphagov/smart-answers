@@ -123,8 +123,7 @@ en-GB:
           Your State Pension age | %{state_pension_age}
           When you’ll reach State Pension age | %{formatted_state_pension_date}
           How much per week you may get now | £%{pension_amount}
-          Difference to the full basic State Pension of £107.45 | £%{pension_loss}
-          State Pension you get if you make remaining contributions or get credits | £%{what_if_not_full}
+          State Pension you may get if you make contributions or get credits for the years you have left until State Pension age | £%{what_if_not_full}
 
 
           $C
@@ -137,7 +136,7 @@ en-GB:
           - | - 
           Years of contributions you already have | %{qualifying_years_total}
           Years of contributions you still need for a full State Pension | %{missing_years} 
-          Years you have left for contributions | %{remaining_years}
+          Years you have left for contributions until you reach State Pension age | %{remaining_years}
 
           You may be able to pay [voluntary contributions](/voluntary-national-insurance-contributions/why-pay-voluntary-contributions) to increase your basic State Pension.
 
