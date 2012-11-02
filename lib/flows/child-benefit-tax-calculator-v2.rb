@@ -241,7 +241,8 @@ end
 # Question 10
 value_question :how_many_children_to_stop_claiming? do
   calculate :num_children_stopping do
-    #TODO: fix this validation
+    raise SmartAnswer::InvalidResponse, "Please enter a number" if ! (responses.last.to_s =~ /\A\d+\z/)
+
     num_children_stopping = responses.last.to_i
     if num_children_stopping < 0 or num_children_stopping > 9
       raise SmartAnswer::InvalidResponse, "This calculator can only deal with stopping claims for 9 new children in a year."

@@ -387,6 +387,12 @@ class ChildBenefitTaxCalculatorV2Test < ActiveSupport::TestCase
                               assert_current_node_is_error
                             end
 
+                            should "reject non-numeric values" do
+                              add_response "foobar"
+                              assert_current_node :how_many_children_to_stop_claiming?
+                              assert_current_node_is_error
+                            end
+
                             context "no children stopping" do
                               setup do
                                 add_response "0"
