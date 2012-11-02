@@ -241,6 +241,7 @@ end
 # Question 10
 value_question :how_many_children_to_stop_claiming? do
   calculate :num_children_stopping do
+    #TODO: fix this validation
     num_children_stopping = responses.last.to_i
     if num_children_stopping < 0 or num_children_stopping > 9
       raise SmartAnswer::InvalidResponse, "This calculator can only deal with stopping claims for 9 new children in a year."
@@ -286,7 +287,7 @@ end
 
 
 
-
+# TODO: could we show the text for dont_need_to_pay outcome if estimated tax charge ends up being £0? phraselist etc
 outcome :estimated_tax_charge do
   precalculate :claim_periods do
     claim_periods = []

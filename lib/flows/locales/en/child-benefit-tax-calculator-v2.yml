@@ -82,7 +82,7 @@ en-GB:
       ## Q7
       how_many_children_claiming_for?:
         title: How many children will you or your partner be getting paid Child Benefit for from %{formatted_start_of_tax_year}?
-        Hint: If you’re expecting your first child enter 0. Don’t count any children that you start getting paid Child Benefit for after %{formatted_start_of_tax_year}.
+        hint: If you’re expecting your first child enter 0. Don’t count any children that you start getting paid Child Benefit for after %{formatted_start_of_tax_year}.
         error_message: Please enter a number
       ## Q8
       do_you_expect_to_start_or_stop_claiming?:
@@ -133,6 +133,7 @@ en-GB:
         hint: For example, the expected date of birth/adoption or the date you expect to move in with a new partner.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       # leaving the household
+      # TODO update text so that it says ...leave the household before tax_year_end_date
       will_the_1st_child_leave_the_household_this_year?:
         title: Will the first child leave the household this year?
         hint: For example, your child will reach 16 or they are over 16 and leave education.
