@@ -174,7 +174,7 @@ end
 ## Q14
 value_question :normal_workdays_taken_as_sick? do
 	precalculate :total_days_sick do
-		Date.parse(sick_end_date) - Date.parse(sick_start_date)
+		(Date.parse(sick_end_date) - Date.parse(sick_start_date)).to_i
 	end
 
 	calculate :normal_workdays_out do

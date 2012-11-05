@@ -92,6 +92,7 @@ en-GB:
       what_was_average_weekly_pay?:
         title: What was their average weekly pay, before deductions, before %{sick_start_date}?
         error_message: Please enter a number greater than 0
+        suffix_label: per week
 
       ## Q10
       what_was_average_weekly_earnings?:
@@ -99,6 +100,7 @@ en-GB:
         body: |
           If they were the director of a company incorporated before 1 October 2009 the rules can be complex - see page 28 of the [Employee Helpbook for Statutory Sick Pay](http://www.hmrc.gov.uk/helpsheets/e14.pdf "Employee Helpbook for Statutory Sick Pay"){:rel="external"}
         error_message: Please enter a number greater than 0
+        suffix_label: per week
 
       ## Q11
       related_illness?:
@@ -177,7 +179,6 @@ en-GB:
       ## A8
       not_entitled_maximum_reached:
         body: |
-          body: |
           ##Your employee isn’t entitled to Statutory Sick Pay because they’ve already received the maximum amount of SSP (28 weeks). 
 
           You must send them form SSP1 within 7 days of them going off sick. They may be able to get [Employment Support Allowance (ESA)](https://www.gov.uk/employment-support-allowance "Benefits & credits: employment support allowance (ESA)").
