@@ -19,6 +19,17 @@ module SmartAnswer
       assert_equal '2011-02-01', new_state.date
     end
 
+    test "Incomplete dates raise an error" do
+      q = Question::Date.new(:example) do
+        save_input_as :date
+        next_node :done
+      end
+      
+      assert_raise SmartAnswer::InvalidResponse do
+        q.transition(@initial_state, {year: "", month: '2', day: '1'})
+      end
+    end
+
     test "Can define allowable range of dates" do
       q = Question::Date.new(:example) do
         save_input_as :date
