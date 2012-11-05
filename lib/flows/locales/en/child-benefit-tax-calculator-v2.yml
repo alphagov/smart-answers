@@ -8,7 +8,7 @@ en-GB:
         Get an estimate of how much tax the person with the highest income may have to pay.
 
         The person with the highest income has to pay the full amount of Child Benefit as a tax charge if their
-          [adjusted net income](http://www.hmrc.gov.uk/adjustednetincome "Adjusted net income") is more than £60,000 a year.
+          [adjusted net income](http://www.hmrc.gov.uk/adjustednetincome "Adjusted net income"){:rel="external"} is more than £60,000 a year.
 
         If you need to pay the tax charge, you only pay it on Child Benefit that’s for weeks after 7 January 2013.
       options:
@@ -86,134 +86,133 @@ en-GB:
         error_message: Please enter a number
       ## Q8
       do_you_expect_to_start_or_stop_claiming?:
-        title: Do you or your partner expect to start claiming for a new child or stop claiming for an existing child before %{formatted_end_of_tax_year}?
-        hint: For example, you're expecting a baby or a child will reach 16 or leave full-time education.
+        title: Do you or your partner expect to start getting Child Benefit for a new child or stop getting Child Benefit for an existing child before %{formatted_end_of_tax_year}?
+        hint: For example, you're expecting a baby, a child will reach 16 or leave full-time education or you'll be moving in with a new partner and their children.
         error_message: You must have at least 1 child to claim Child Benefit.
       ## Q9
       how_many_children_to_start_claiming?:
-        title: How many children do you or your partner expect to start claiming Child Benefit for?
-        hint: You can only use the calculator if you’ll be starting or stopping claims for up to 9 children.
-        error_message: This calculator can only deal with up to 9 new children.
+        title: How many new children do you or your partner expect to start getting Child Benefit for before %{formatted_end_of_tax_year}?
+        hint: You can only use the calculator if you’ll be starting or stopping Child Benefit for up to 9 children.
+        error_message: You can only use this calculator if you expect to start getting Child Benefit for up to 9 new children.
       ## Q9a,b,c
       when_will_the_1st_child_enter_the_household?:
-        title: When do you expect to become responsible and start claiming for the first child?
-        hint: For example, the expected date of birth/adoption or the date you expect to move in with a new partner.
+        title: When do you or your partner expect to become responsible or start getting Child Benefit for the first new child?
         hint: For example, the expected date of birth/adoption or the date you expect to move in with a new partner.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       when_will_the_2nd_child_enter_the_household?:
-        title: When do you expect to become responsible and start claiming for the second child?
+        title: When do you or your partner expect to become responsible or start getting Child Benefit for the second new child?
         hint: For example, the expected date of birth/adoption or the date you expect to move in with a new partner.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       when_will_the_3rd_child_enter_the_household?:
-        title: When do you expect to become responsible and start claiming for the third child?
+        title: When do you or your partner expect to become responsible or start getting Child Benefit for the third new child?
         hint: For example, the expected date of birth/adoption or the date you expect to move in with a new partner.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       when_will_the_4th_child_enter_the_household?:
-        title: When do you expect to become responsible and start claiming for the fourth child?
+        title: When do you or your partner expect to become responsible or start getting Child Benefit for the fourth new child?
         hint: For example, the expected date of birth/adoption or the date you expect to move in with a new partner.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       when_will_the_5th_child_enter_the_household?:
-        title: When do you expect to become responsible and start claiming for the fifth child?
+        title: When do you or your partner expect to become responsible or start getting Child Benefit for the fifth new child?
         hint: For example, the expected date of birth/adoption or the date you expect to move in with a new partner.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       when_will_the_6th_child_enter_the_household?:
-        title: When do you expect to become responsible and start claiming for the sixth child?
+        title: When do you or your partner expect to become responsible or start getting Child Benefit for the sixth new child?
         hint: For example, the expected date of birth/adoption or the date you expect to move in with a new partner.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       when_will_the_7th_child_enter_the_household?:
-        title: When do you expect to become responsible and start claiming for the seventh child?
+        title: When do you or your partner expect to become responsible or start getting Child Benefit for the seventh new child?
         hint: For example, the expected date of birth/adoption or the date you expect to move in with a new partner.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       when_will_the_8th_child_enter_the_household?:
-        title: When do you expect to become responsible and start claiming for the eighth child?
+        title: When do you or your partner expect to become responsible or start getting Child Benefit for the eighth new child?
         hint: For example, the expected date of birth/adoption or the date you expect to move in with a new partner.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       when_will_the_9th_child_enter_the_household?:
-        title: When do you expect to become responsible and start claiming for the ninth child?
+        title: When do you or your partner expect to become responsible or start getting Child Benefit for the ninth new child?
         hint: For example, the expected date of birth/adoption or the date you expect to move in with a new partner.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       # leaving the household
       will_the_1st_child_leave_the_household_this_year?:
-        title: Will the first child leave the household before %{formatted_end_of_tax_year}?
-        hint: For example, your child will reach 16 or they are over 16 and leave education.
-        error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
+        title: Will you or your partner stop getting Child Benefit for the first new child before %{formatted_end_of_tax_year}?
+        hint: For example, you're no longer responsible for the child or the child reaches 16 or they are over 16 and leave education.
+        error_message: Please enter a date between the Child Benefit start date and %{formatted_end_of_tax_year}.
       will_the_2nd_child_leave_the_household_this_year?:
-        title: Will the second child leave the household before %{formatted_end_of_tax_year}?
-        hint: For example, your child will reach 16 or they are over 16 and leave education.
-        error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
+        title: Will you or your partner stop getting Child Benefit for the second new child before %{formatted_end_of_tax_year}?
+        hint: For example, you're no longer responsible for the child or the child reaches 16 or they are over 16 and leave education.
+        error_message: Please enter a date between the Child Benefit start date and %{formatted_end_of_tax_year}.
       will_the_3rd_child_leave_the_household_this_year?:
-        title: Will the third child leave the household before %{formatted_end_of_tax_year}?
-        hint: For example, your child will reach 16 or they are over 16 and leave education.
-        error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
+        title: Will you or your partner stop getting Child Benefit for the third new child before %{formatted_end_of_tax_year}?
+        hint: For example, you're no longer responsible for the child or the child reaches 16 or they are over 16 and leave education.
+        error_message: Please enter a date between the Child Benefit start date and %{formatted_end_of_tax_year}.
       will_the_4th_child_leave_the_household_this_year?:
-        title: Will the fourth child leave the household before %{formatted_end_of_tax_year}?
-        hint: For example, your child will reach 16 or they are over 16 and leave education.
-        error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
+        title: Will you or your partner stop getting Child Benefit for the fourth new child before %{formatted_end_of_tax_year}?
+        hint: For example, you're no longer responsible for the child or the child reaches 16 or they are over 16 and leave education.
+        error_message: Please enter a date between the Child Benefit start date and %{formatted_end_of_tax_year}.
       will_the_5th_child_leave_the_household_this_year?:
-        title: Will the fifth child leave the household before %{formatted_end_of_tax_year}?
-        hint: For example, your child will reach 16 or they are over 16 and leave education.
-        error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
+        title: Will you or your partner stop getting Child Benefit for the fifth new child before %{formatted_end_of_tax_year}?
+        hint: For example, you're no longer responsible for the child or the child reaches 16 or they are over 16 and leave education.
+        error_message: Please enter a date between the Child Benefit start date and %{formatted_end_of_tax_year}.
       will_the_6th_child_leave_the_household_this_year?:
-        title: Will the sixth child leave the household before %{formatted_end_of_tax_year}?
-        hint: For example, your child will reach 16 or they are over 16 and leave education.
-        error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
+        title: Will you or your partner stop getting Child Benefit for the sixth new child before %{formatted_end_of_tax_year}?
+        hint: For example, you're no longer responsible for the child or the child reaches 16 or they are over 16 and leave education.
+        error_message: Please enter a date between the Child Benefit start date and %{formatted_end_of_tax_year}.
       will_the_7th_child_leave_the_household_this_year?:
-        title: Will the seventh child leave the household before %{formatted_end_of_tax_year}?
-        hint: For example, your child will reach 16 or they are over 16 and leave education.
-        error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
+        title: Will you or your partner stop getting Child Benefit for the seventh new child before %{formatted_end_of_tax_year}?
+        hint: For example, you're no longer responsible for the child or the child reaches 16 or they are over 16 and leave education.
+        error_message: Please enter a date between the Child Benefit start date and %{formatted_end_of_tax_year}.
       will_the_8th_child_leave_the_household_this_year?:
-        title: Will the eighth child leave the household before %{formatted_end_of_tax_year}?
-        hint: For example, your child will reach 16 or they are over 16 and leave education.
-        error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
+        title: Will you or your partner stop getting Child Benefit for the eighth new child before %{formatted_end_of_tax_year}?
+        hint: For example, you're no longer responsible for the child or the child reaches 16 or they are over 16 and leave education.
+        error_message: Please enter a date between the Child Benefit start date and %{formatted_end_of_tax_year}.
       will_the_9th_child_leave_the_household_this_year?:
-        title: Will the ninth child leave the household before %{formatted_end_of_tax_year}?
-        hint: For example, your child will reach 16 or they are over 16 and leave education.
-        error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
+        title: Will you or your partner stop getting Child Benefit for the ninth new child before %{formatted_end_of_tax_year}?
+        hint: For example, you're no longer responsible for the child or the child reaches 16 or they are over 16 and leave education.
+        error_message: Please enter a date between the Child Benefit start date and %{formatted_end_of_tax_year}.
       ## Q10
       how_many_children_to_stop_claiming?:
-        title: How many children do you or your partner expect to stop getting Child Benefit for?
+        title: How many existing children do you or your partner expect to stop getting Child Benefit for before %{formatted_end_of_tax_year}?
         hint: For example, your child will reach 16 or they are over 16 and leave education.
-        error_message: You can’t stop claiming for more children than you have or use this calculator if you expect Child Benefit to stop for more than 9 children in a tax year.
+        error_message: You can’t stop getting Child Benefit for more children than you have or use this calculator if you expect Child Benefit to stop for more than 9 children in a tax year.
       ## 10a,b,c
       when_do_you_expect_to_stop_claiming_for_the_1st_child?:
-        title: What date do you or your partner expect to stop claiming Child Benefit for the first child?
+        title: What date do you or your partner expect to stop getting Child Benefit for the first existing child?
         hint: The calculator will give you an estimate from this date. You may be paid Child Benefit later than this.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       when_do_you_expect_to_stop_claiming_for_the_2nd_child?:
-        title: What date do you or your partner expect to stop claiming Child Benefit for the second child?
+        title: What date do you or your partner expect to stop getting Child Benefit for the second existing child?
         hint: The calculator will give you an estimate from this date. You may be paid Child Benefit later than this.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       when_do_you_expect_to_stop_claiming_for_the_3rd_child?:
-        title: What date do you or your partner expect to stop claiming Child Benefit for the third child?
+        title: What date do you or your partner expect to stop getting Child Benefit for the third existing child?
         hint: The calculator will give you an estimate from this date. You may be paid Child Benefit later than this.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       when_do_you_expect_to_stop_claiming_for_the_4th_child?:
-        title: What date do you or your partner expect to stop claiming Child Benefit for the fourth child?
+        title: What date do you or your partner expect to stop getting Child Benefit for the fourth existing child?
         hint: The calculator will give you an estimate from this date. You may be paid Child Benefit later than this.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       when_do_you_expect_to_stop_claiming_for_the_5th_child?:
-        title: What date do you or your partner expect to stop claiming Child Benefit for the fifth child?
+        title: What date do you or your partner expect to stop getting Child Benefit for the fifth existing child?
         hint: The calculator will give you an estimate from this date. You may be paid Child Benefit later than this.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       when_do_you_expect_to_stop_claiming_for_the_6th_child?:
-        title: What date do you or your partner expect to stop claiming Child Benefit for the sixth child?
+        title: What date do you or your partner expect to stop getting Child Benefit for the sixth existing child?
         hint: The calculator will give you an estimate from this date. You may be paid Child Benefit later than this.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       when_do_you_expect_to_stop_claiming_for_the_7th_child?:
-        title: What date do you or your partner expect to stop claiming Child Benefit for the seventh child?
+        title: What date do you or your partner expect to stop getting Child Benefit for the seventh existing child?
         hint: The calculator will give you an estimate from this date. You may be paid Child Benefit later than this.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       when_do_you_expect_to_stop_claiming_for_the_8th_child?:
-        title: What date do you or your partner expect to stop claiming Child Benefit for the eighth child?
+        title: What date do you or your partner expect to stop getting Child Benefit for the eighth existing child?
         hint: The calculator will give you an estimate from this date. You may be paid Child Benefit later than this.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       when_do_you_expect_to_stop_claiming_for_the_9th_child?:
-        title: What date do you or your partner expect to stop claiming Child Benefit for the ninth child?
+        title: What date do you or your partner expect to stop getting Child Benefit for the ninth existing child?
         hint: The calculator will give you an estimate from this date. You may be paid Child Benefit later than this.
         error_message: Please enter a date between %{formatted_start_of_tax_year} and %{formatted_end_of_tax_year}.
       ## Outcome
       dont_need_to_pay:
-        title: You don’t need to pay the High Income Child Benefit Tax Charge because you or your partner are claiming Child Benefit.
+        title: You don’t need to pay the High Income Child Benefit Tax Charge.
         body: |
           This is an estimate based on the income figures you provided.
 
