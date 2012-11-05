@@ -305,12 +305,10 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 											  		setup do 
 											  			add_response 115 # 28 * 4 + 3
 											  			add_response 4 # pattern days
-											  			add_response 6 # normal days
 											  		end
 
 											  		should "display not entitled because max paid previously for 4 pattern days" do
-											  			assert_current_node :entitled_or_not_enough_days
-											  			assert_phrase_list :outcome_text, [:max_paid_during_previous_illness]
+											  			assert_current_node :not_entitled_maximum_reached
 											  		end
 											  	end
 
@@ -318,12 +316,10 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 											  		setup do 
 											  			add_response 143 # 28 * 5 + 3
 											  			add_response 5 # pattern days
-											  			add_response 8 # normal days
 											  		end
 
 											  		should "display not entitled because max paid previously for 5 pattern days" do
-											  			assert_current_node :entitled_or_not_enough_days
-											  			assert_phrase_list :outcome_text, [:max_paid_during_previous_illness]
+											  			assert_current_node :not_entitled_maximum_reached
 											  		end
 											  	end
 
