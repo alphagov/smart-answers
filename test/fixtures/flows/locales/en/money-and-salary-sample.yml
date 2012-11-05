@@ -3,8 +3,9 @@ en-GB:
     money-and-salary-sample:
 
       what_size_bonus_do_you_want?:
-        error_message: "%{error}"
-
+        error_message: "This should have been overridden"
+        errors:
+          example: "This is the correct error"
       ok:
         title: "OK, here you go."
         body: |
