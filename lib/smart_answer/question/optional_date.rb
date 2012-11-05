@@ -3,11 +3,10 @@ module SmartAnswer
     class OptionalDate < SmartAnswer::Question::Date
 
       def parse_input(input)
-        begin
-          super(input)
-        rescue InvalidResponse => e
-          raise InvalidResponse.new(e) unless input.to_s == "no" || input['selection'].to_s == "no"
+        if negative?(input)
           (input['selection'] || input).to_sym
+        else
+          super(input)
         end
       end
 
@@ -25,6 +24,14 @@ module SmartAnswer
         end
       rescue
         nil
+      end
+
+      def negative?(input)
+        input.to_s == "no" || (
+          input.is_a?(Hash) and 
+          input.has_key?('selection') and 
+          input['selection'].to_s == "no"
+        )
       end
     end
   end
