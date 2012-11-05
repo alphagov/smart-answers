@@ -11,14 +11,10 @@ multiple_choice :exception_to_limits? do
 end
 
 value_question :how_many_night_hours_worked? do
-  precalculate :msg do
-    PhraseList.new (:really_cool_error)
-  end
-
   next_node do |response|
     hours = response.to_i
     if hours < 1
-      raise SmartAnswer::InvalidResponse, "Please enter a number greater than 0."
+      raise SmartAnswer::InvalidResponse, "Please enter a number"
     elsif hours > 3
       :taken_rest_period?
     else

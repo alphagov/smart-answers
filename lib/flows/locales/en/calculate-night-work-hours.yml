@@ -9,8 +9,6 @@ en-GB:
       options:
         "yes": "Yes"
         "no": "No"
-      phrases:
-        really_cool_error: "this is a really cool error message!"
 
       how_old?:
         title: "Is the worker:"
