@@ -62,5 +62,19 @@ class InputValidationTest < EngineIntegrationTest
         end
       end
     end
+
+    should "allow custom error messages with interpolation" do
+      visit "/custom-errors-sample/y"
+      
+      fill_in "Things", :with => "asdfasdf"
+      click_on "Next step"
+
+      within '.current-question' do
+        assert_page_has_content "How many things do you own?"
+        within('.error') { assert_page_has_content "Sorry, but that is not a number. Please try again." }
+        assert page.has_field?("Things", :type => :text, :with => "asdfasdf")
+      end
+
+    end
   end # with_and_without_javascript
 end
