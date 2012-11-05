@@ -50,9 +50,6 @@ en-GB:
         first_three_days_not_paid: |
           ##Your employee isn’t entitled to Statutory Sick Pay because the first 3 days of illness aren’t paid.
 
-        max_paid_during_previous_illness: |
-          ## Your employee isn’t entitled to Statutory Sick Pay because they’ve been paid the statutory maximum for the previous illness.
-
       ## Q1
       getting_maternity_pay?:
         title: Is your employee getting Statutory Maternity Pay or Maternity Allowance?
@@ -105,15 +102,15 @@ en-GB:
 
       ## Q11
       related_illness?:
-        title: Is your employee’s current (or most recent) illness related to another illness within the past 8 weeks that lasted 4 or more days (including non-working days, weekends and holidays)?
+        title: Was your employee off sick within the past 8 weeks for 4 or more days (including non-working days, weekends and holidays)? 
         body: |
           These are called ‘linked Periods of Incapacity for Work (PIW)’. To check if an employee’s PIW links to a previous one, see pages 35 to 38 of the [Employer Helpbook for Statutory Sick Pay](http://www.hmrc.gov.uk/helpsheets/e14.pdf "Employer Helpbook for Statutory Sick Pay"){:rel="external"}
 
           *[PIW]: Period of Incapacity for Work
       ## Q12
       how_many_days_missed?:
-        title: During the previous illness, how many of their normal workdays did your employee take off sick?
-        hint: ‘Normal workdays’ are the days of the week your employee works on a regular basis.
+        title: How many normal workdays did your employee take off sick during all previous linked periods of incapacity for work?
+        hint: Enter the total number of normal workdays taken off sick before %{sick_start_date}. ‘Normal workdays’ are the days of the week your employee works on a regular basis.
         error_message: Please enter a number greater than 0
 
       ## Q13
@@ -176,4 +173,15 @@ en-GB:
           %{warning_message}
 
           %{outcome_text}
- 
+
+      ## A8
+      not_entitled_maximum_reached:
+        body: |
+          body: |
+          ##Your employee isn’t entitled to Statutory Sick Pay because they’ve already received the maximum amount of SSP (28 weeks). 
+
+          You must send them form SSP1 within 7 days of them going off sick. They may be able to get [Employment Support Allowance (ESA)](https://www.gov.uk/employment-support-allowance "Benefits & credits: employment support allowance (ESA)").
+
+          
+          $D [Download ‘Form SSP1, employee not entitled to SSP’ (PDF, 130KB)](http://www.dwp.gov.uk/advisers/claimforms/ssp1.pdf "Download ‘Statutory Sick Pay and an employee’s claim for benefit’ form"){:rel="external"} $D
+
