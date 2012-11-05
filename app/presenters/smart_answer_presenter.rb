@@ -85,7 +85,11 @@ class SmartAnswerPresenter
 
   def error
     if current_state.error.present?
-      current_node.error_message || I18n.translate('flow.defaults.error_message')
+      if current_state.error.include?("::")
+        current_node.error_message || I18n.translate('flow.defaults.error_message')
+      else
+        current_state.error
+      end
     end
   end
 

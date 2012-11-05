@@ -12,7 +12,7 @@ money_question :what_size_bonus_do_you_want? do
   calculate :requested_bonus do
     value = Money.new(responses.last)
     if value < annual_salary
-      raise InvalidResponse, "You can't request a bonus less than your annual salary.", caller
+      raise InvalidResponse, :example, caller
     end
     value
   end
