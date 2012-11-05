@@ -38,8 +38,6 @@ module SmartAnswer
       end
 
       def range
-        # require 'ruby-debug'
-        # debugger
         @range ||= @from_func.present? and @to_func.present? ? @from_func.call..@to_func.call : false
       end
 
@@ -50,12 +48,14 @@ module SmartAnswer
           ::Date.parse("#{input[:year]}-#{input[:month]}-#{input[:day]}")
         when String
           ::Date.parse(input)
-        when Date
+        when ::Date
           input
         else
           raise InvalidResponse, "Bad date", caller
         end
         date.strftime('%Y-%m-%d')
+      rescue
+        raise InvalidResponse, "Bad date: #{input.inspect}", caller
       end
 
       def to_response(input)

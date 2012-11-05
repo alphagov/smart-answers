@@ -59,6 +59,10 @@ module SmartAnswer
       add_node Question::Date.new(name, &block)
     end
 
+    def optional_date(name, &block)
+      add_node Question::OptionalDate.new(name, &block)
+    end
+
     def value_question(name, &block)
       add_node Question::Value.new(name, &block)
     end
