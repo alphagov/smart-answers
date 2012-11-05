@@ -163,8 +163,8 @@ value_question :how_many_days_worked? do
 	next_node do |response|
 		patt_days = response.to_i
 
-		if (previous_related_illness == 'yes')
-			prev_sick_days < (patt_days * 28 + 3) ? :normal_workdays_taken_as_sick? : :not_entitled_maximum_reached
+		if (previous_related_illness == 'yes') and (prev_sick_days >= (patt_days * 28 + 3))
+			 :not_entitled_maximum_reached
 		else
 			:normal_workdays_taken_as_sick?
 		end
