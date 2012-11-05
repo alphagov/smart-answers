@@ -88,12 +88,14 @@ en-GB:
       do_you_expect_to_start_or_stop_claiming?:
         title: Do you or your partner expect to start getting Child Benefit for a new child or stop getting Child Benefit for an existing child before %{formatted_end_of_tax_year}?
         hint: For example, you're expecting a baby, a child will reach 16 or leave full-time education or you'll be moving in with a new partner and their children.
-        error_message: You must have or expect at least 1 child to be getting Child Benefit.
+        error_message: You can't get Child Benefit if you aren't and don't expect to be responsible for children.
       ## Q9
       how_many_children_to_start_claiming?:
         title: How many new children do you or your partner expect to start getting Child Benefit for before %{formatted_end_of_tax_year}?
         hint: You can only use the calculator if you’ll be starting or stopping Child Benefit for up to 9 children.
         error_message: You can only use this calculator if you expect to start getting Child Benefit for up to 9 new children.
+        error_too_few: You can't get Child Benefit if you aren't and don't expect to be responsible for children.
+        error_numeric: Please enter a number.
       ## Q9a,b,c
       when_will_the_1st_child_enter_the_household?:
         title: When do you or your partner expect to become responsible or start getting Child Benefit for the first new child?
@@ -172,7 +174,9 @@ en-GB:
       how_many_children_to_stop_claiming?:
         title: How many existing children do you or your partner expect to stop getting Child Benefit for before %{formatted_end_of_tax_year}?
         hint: For example, your child will reach 16 or they are over 16 and leave education.
-        error_message: You can't stop getting Child Benefit for more children than you have or use this calculator if you expect Child Benefit to stop for more than 9 children in a tax year.
+        error_more_than_you_have: You can't stop Child Benefit for more children than you are getting it for.
+        error_more_than_nine: You can't use this calculator if you expect Child Benefit to stop for more than 9 children in a tax year.
+        error_numeric: Please enter a number.
       ## 10a,b,c
       when_do_you_expect_to_stop_claiming_for_the_1st_child?:
         title: What date do you or your partner expect to stop getting Child Benefit for the first existing child?
