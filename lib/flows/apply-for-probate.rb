@@ -1,25 +1,8 @@
 status :draft
 satisfies_need "131"
 
+
 ## Q1
-multiple_choice :is_there_a_will? do
-  option :yes => :does_the_will_name_an_executor?
-  option :no => :no_will_outcome
-end
-
-## Q2
-multiple_choice :does_the_will_name_an_executor? do
-  option :yes => :executor_willing_to_apply?
-  option :no => :no_executor_outcome
-end
-
-## Q3
-multiple_choice :executor_willing_to_apply? do
-  option :yes => :use_a_solicitor?
-  option :no => :executor_not_willing_outcome
-end
-
-## Q4
 multiple_choice :use_a_solicitor? do
   option :solicitor => :use_a_solicitor_outcome
   option :myself => :where_did_deceased_live?
@@ -142,6 +125,14 @@ outcome :done_scotland do
       PhraseList.new(:scotland_inheritance_tax)
     else
       PhraseList.new(:scotland_no_inheritance_tax)
+    end
+  end
+
+   precalculate :next_steps_info do
+    if inheritance_tax
+      PhraseList.new(:scotland_inheritance_tax_next_steps)
+    else
+      PhraseList.new(:scotland_no_inheritance_tax_next_steps)
     end
   end
 end
