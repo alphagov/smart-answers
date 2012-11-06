@@ -10,7 +10,7 @@ multiple_choice :work_out_income? do
 
   next_node :which_tax_year?
 end
-    
+
 
 # Question 1
 multiple_choice :which_tax_year? do
@@ -37,10 +37,16 @@ multiple_choice :which_tax_year? do
     end
   end
 
-  # next_node :what_is_your_estimated_income_for_the_year_before_tax?
-    
+  calculate :formatted_start_of_tax_year do
+    start_of_tax_year.strftime("%e %B %Y")
+  end
+
+  calculate :formatted_end_of_tax_year do
+    end_of_tax_year.strftime("%e %B %Y")
+  end
+
   next_node do |response|
-    if work_out_income == "income_work_out" 
+    if work_out_income == "income_work_out"
       :what_is_your_estimated_income_for_the_year_before_tax?
     else
       :how_many_children_claiming_for?
@@ -148,7 +154,7 @@ multiple_choice :do_you_expect_to_start_or_stop_claiming? do
 
   calculate :calculator do
     if number_of_children < 1 and responses.last == "no"
-      raise SmartAnswer::InvalidResponse, "You cannot claim child benefit if you do not have a child and are not expecting to start claiming for one in this tax year."
+      raise SmartAnswer::InvalidResponse
     end
   end
 
@@ -161,9 +167,13 @@ end
 # Question 9
 value_question :how_many_children_to_start_claiming? do
   calculate :num_children_starting do
+    raise SmartAnswer::InvalidResponse, :error_numeric if ! (responses.last.to_s =~ /\A\d+\z/)
+
     num_children = responses.last.to_i
-    if ! (responses.last.to_s =~ /\A\d+\z/) or num_children < 0 or num_children > 3 or (num_children + number_of_children) < 1
-      raise SmartAnswer::InvalidResponse, "This calculator can only deal with up to 3 new children."
+    if num_children < 0 or num_children > 9
+      raise SmartAnswer::InvalidResponse 
+    elsif (num_children + number_of_children) < 1
+      raise SmartAnswer::InvalidResponse, :error_too_few
     end
     num_children
   end
@@ -179,7 +189,7 @@ end
 
 # Question 9A, 9B, 9C
 
-(1..3).map(&:ordinalize).each_with_index do |ordinal_string, index|
+(1..9).map(&:ordinalize).each_with_index do |ordinal_string, index|
   date_question "when_will_the_#{ordinal_string}_child_enter_the_household?".to_sym do
     from { Date.new(2012, 4, 6) }
     to { Date.new(2014, 4, 5) }
@@ -187,17 +197,41 @@ end
     calculate "#{ordinal_string}_child_start_date".to_sym do
       start_date = Date.parse(responses.last)
       if !(start_of_tax_year..end_of_tax_year).include_with_range? start_date
-        puts "Error - #{start_date} is not in range #{start_of_tax_year}..#{end_of_tax_year}"
-        raise SmartAnswer::InvalidResponse, "Please enter a date within the selected tax year"
+        raise SmartAnswer::InvalidResponse
       end
       start_date
     end
 
     next_node do |response|
+      "will_the_#{ordinal_string}_child_leave_the_household_this_year?".to_sym
+    end
+  end
+
+  optional_date "will_the_#{ordinal_string}_child_leave_the_household_this_year?".to_sym do
+    from { Date.new(2012, 4, 6) }
+    to { Date.new(2014, 4, 5) }
+
+    calculate "#{ordinal_string}_child_early_leave_date".to_sym do
+      raise SmartAnswer::InvalidResponse if responses.last.blank?
+
+      unless responses.last == :no
+        date = Date.parse(responses.last)
+        if !(start_of_tax_year..end_of_tax_year).include_with_range? date
+          raise SmartAnswer::InvalidResponse
+        elsif (date < self.send("#{ordinal_string}_child_start_date".to_sym))
+          raise SmartAnswer::InvalidResponse
+        end
+      end
+      date || responses.last
+    end
+
+    next_node do |response|
       if num_children_starting > index+1
         "when_will_the_#{(index+2).ordinalize}_child_enter_the_household?".to_sym
-      else
+      elsif number_of_children > 0
         :how_many_children_to_stop_claiming?
+      else
+        :estimated_tax_charge
       end
     end
   end
@@ -207,11 +241,13 @@ end
 # Question 10
 value_question :how_many_children_to_stop_claiming? do
   calculate :num_children_stopping do
+    raise SmartAnswer::InvalidResponse, :error_numeric if ! (responses.last.to_s =~ /\A\d+\z/)
+
     num_children_stopping = responses.last.to_i
-    if num_children_stopping < 0 or num_children_stopping > 3
-      raise SmartAnswer::InvalidResponse, "This calculator can only deal with stopping claims for 3 new children in a year."
+    if num_children_stopping < 0 or num_children_stopping > 9
+      raise SmartAnswer::InvalidResponse, :error_more_than_nine
     elsif num_children_stopping > number_of_children
-      raise SmartAnswer::InvalidResponse, "You cannot stop claiming benefit for more children than you're claiming for."
+      raise SmartAnswer::InvalidResponse, :error_more_than_you_have
     end
     num_children_stopping
   end
@@ -227,7 +263,7 @@ end
 
 # Question 10A, 10B, 10C
 
-(1..3).map(&:ordinalize).each_with_index do |ordinal_string, index|
+(1..9).map(&:ordinalize).each_with_index do |ordinal_string, index|
   date_question "when_do_you_expect_to_stop_claiming_for_the_#{ordinal_string}_child?".to_sym do
     from { Date.new(2012, 4, 6) }
     to { Date.new(2014, 4, 5) }
@@ -235,7 +271,7 @@ end
     calculate "#{ordinal_string}_child_stop_date".to_sym do
       stop_date = Date.parse(responses.last)
       if !(start_of_tax_year..end_of_tax_year).include_with_range? stop_date
-        raise SmartAnswer::InvalidResponse, "Please enter a date within the selected tax year"
+        raise SmartAnswer::InvalidResponse
       end
       stop_date
     end
@@ -252,20 +288,25 @@ end
 
 
 
-
+# TODO: could we show the text for dont_need_to_pay outcome if estimated tax charge ends up being £0? phraselist etc
 outcome :estimated_tax_charge do
   precalculate :claim_periods do
     claim_periods = []
 
     # Children starting
-    (1..3).map(&:ordinalize).each do |method|
-      method = (method + "_child_start_date").to_sym
-      start_date = self.send(method)
-      claim_periods << (start_date..end_of_tax_year) unless start_date.nil?
+    (1..9).map(&:ordinalize).each do |method|
+      start_date = self.send (method + "_child_start_date").to_sym
+      early_leave_date = self.send (method + "_child_early_leave_date").to_sym
+
+      unless early_leave_date.is_a?(Date)
+        claim_periods << (start_date..end_of_tax_year) unless start_date.nil?
+      else
+        claim_periods << (start_date..early_leave_date) unless start_date.nil?
+      end
     end
 
     # Children stopping
-    (1..3).map(&:ordinalize).each do |method|
+    (1..9).map(&:ordinalize).each do |method|
       method = (method + "_child_stop_date").to_sym
       stop_date = self.send(method)
       claim_periods << (start_of_tax_year..stop_date) unless stop_date.nil?
