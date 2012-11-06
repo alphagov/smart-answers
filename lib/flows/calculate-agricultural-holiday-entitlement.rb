@@ -59,10 +59,15 @@ multiple_choice :worked_for_same_employer? do
 end
 
 value_question :how_many_total_days? do
+
+  precalculate :available_days do
+    calculator.available_days
+  end
+
   calculate :total_days_worked do
 
-    if Integer(responses.last) > calculator.available_days
-      raise SmartAnswer::InvalidResponse, "Please enter a valid number of days (max: #{calculator.available_days})"
+    if Integer(responses.last) > available_days
+      raise SmartAnswer::InvalidResponse
     end
     responses.last
   end
