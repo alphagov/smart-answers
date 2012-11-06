@@ -46,7 +46,7 @@ module SmartAnswer
         when Hash, ActiveSupport::HashWithIndifferentAccess
           input = input.symbolize_keys
           [:year, :month, :day].each do |k| 
-            raise InvalidResponse, "Bad date", caller unless input[k].present?
+            raise InvalidResponse, "Please enter a complete date", caller unless input[k].present?
           end
           ::Date.parse("#{input[:year]}-#{input[:month]}-#{input[:day]}")
         when String
