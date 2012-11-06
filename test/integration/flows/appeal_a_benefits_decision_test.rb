@@ -265,12 +265,24 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
         
         context "the statement was requested more than a month ago" do
           setup do
-            add_response 21.days.ago(1.month.ago) # Statement requested one month and 21 days ago
+            @request_date = 21.days.ago(1.month.ago)
+            add_response @request_date # Statement requested one month and 21 days ago
           end
           
           # Q6
           should "ask 'when did you get it?'" do
             assert_current_node :when_did_you_get_it?
+          end
+
+          context "received before requested error" do
+            setup do
+              add_response 23.days.ago(1.month.ago) # should throw an error
+            end
+
+            should "show an error" do 
+              assert_current_node_is_error
+              assert_state_variable "written_explanation_request_date", @request_date.strftime("%e %B %Y")
+            end
           end
           
           context "the statement was received within one month and the decision letter was received more than one month and 14 days ago" do
@@ -331,12 +343,6 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
                   end
                 end
                 
-                context "answer 'tax credits' to 'kind of benefit or credit?'" do
-                  should "say 'appeal to HMRC leaflet WTC/AP'" do
-                    add_response :tax_credits
-                    assert_current_node :appeal_to_hmrc_wtc
-                  end
-                end
                 
                 context "answer 'child benefit' to 'kind of benefit or credit?'" do
                   should "say 'appeal to HMRC leaflet CH24A'" do

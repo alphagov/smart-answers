@@ -29,6 +29,10 @@ module SmartAnswer::Calculators
       @a_notice_leave = @match_date + 7
     end
 
+    def format_date(date)
+      date.strftime("%e %B %Y")
+    end
+
     def format_date_day(date)
       date.strftime("%A, %d %B %Y")
     end

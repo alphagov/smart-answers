@@ -493,7 +493,7 @@ date_question :date_of_adoption_placement? do
     placement_date
   end
   calculate :a_leave_earliest_start do
-    calculator.format_date_day (adoption_placement_date - 14)
+    calculator.format_date (adoption_placement_date - 14)
   end
   next_node :adoption_employment_contract?
 end
@@ -540,7 +540,7 @@ date_question :adoption_date_leave_starts? do
   end
   
   calculate :a_notice_leave do
-    calculator.format_date_day calculator.a_notice_leave
+    calculator.format_date calculator.a_notice_leave
   end
 
   next_node :adoption_did_the_employee_work_for_you?
