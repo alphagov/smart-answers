@@ -50,7 +50,7 @@ multiple_choice :worked_for_same_employer? do
       if !days_worked_per_week.nil?
         calculator.holiday_days(days_worked_per_week)
       elsif !weeks_from_october_1.nil?
-        calculator.holiday_days total_days_worked.to_f / weeks_from_october_1.to_f
+        calculator.holiday_days BigDecimal.new(total_days_worked.to_s) / BigDecimal.new(weeks_from_october_1.to_s)
       end
     else
       nil
@@ -86,7 +86,7 @@ value_question :how_many_weeks_at_current_employer? do
     if !days_worked_per_week.nil?
       days = calculator.holiday_days(days_worked_per_week)
     elsif !weeks_from_october_1.nil?
-      days = calculator.holiday_days total_days_worked.to_f / weeks_from_october_1.to_f
+      days = calculator.holiday_days BigDecimal.new(total_days_worked.to_s) / BigDecimal.new(weeks_from_october_1.to_s)
     end
     sprintf("%.1f", days * (Integer(responses.last) / 52.0))
   end
