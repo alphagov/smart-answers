@@ -9,7 +9,7 @@ module SmartAnswer::Calculators
       years = [20, years.to_i].min
       
       (1..years.to_i).each do |i|
-        pay += ([430.00, weekly_pay.to_f].min * ratio(age))
+        pay += (BigDecimal.new([430.00, weekly_pay.to_f].min.to_s) * ratio(age))
         age -= 1 
       end
       pay
