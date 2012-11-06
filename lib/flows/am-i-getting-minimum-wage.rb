@@ -87,7 +87,7 @@ value_question :how_often_do_you_get_paid? do
   calculate :pay_frequency do
     pay_frequency = responses.last.to_i
     if pay_frequency < 1 or pay_frequency > 31
-      raise SmartAnswer::InvalidResponse, "Please enter a valid number of days."
+      raise SmartAnswer::InvalidResponse
     end
     pay_frequency
   end
@@ -99,7 +99,7 @@ value_question :how_often_did_you_get_paid? do
   calculate :pay_frequency do
     pay_frequency = responses.last.to_i
     if pay_frequency < 1 or pay_frequency > 31
-      raise SmartAnswer::InvalidResponse, "Please enter a valid number of days."
+      raise SmartAnswer::InvalidResponse
     end
     pay_frequency
   end
