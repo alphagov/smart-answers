@@ -19,11 +19,11 @@ module SmartAnswer::Calculators
     end
 
     def full_time_part_time_hours
-      self.class.holiday_multiplier * fraction_of_year * BigDecimal.new(hours_per_week.to_s)  
+      self.class.holiday_multiplier * fraction_of_year * hours_per_week  
     end
 
     def full_time_part_time_hours_and_minutes
-      (full_time_part_time_hours * 60).floor.divmod(60)
+      (full_time_part_time_hours * 60).floor.divmod(60).map(&:floor)
     end
   
     def days_cap
@@ -33,7 +33,7 @@ module SmartAnswer::Calculators
 
     def casual_irregular_entitlement
       minutes = self.class.holiday_multiplier / self.class.working_weeks * total_hours * 60
-      minutes.floor.divmod(60)
+      minutes.floor.divmod(60).map(&:floor)
     end
 
     def annualised_hours_per_week
@@ -47,12 +47,12 @@ module SmartAnswer::Calculators
 
     def compressed_hours_entitlement
       minutes = self.class.holiday_multiplier * hours_per_week * 60
-      minutes.floor.divmod(60)
+      minutes.floor.divmod(60).map(&:floor)
     end
 
     def compressed_hours_daily_average
       minutes = hours_per_week / days_per_week * 60
-      minutes.floor.divmod(60)
+      minutes.floor.divmod(60).map(&:floor)
     end
 
     def shifts_per_week

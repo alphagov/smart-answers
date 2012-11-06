@@ -98,7 +98,7 @@ end
 value_question :how_many_hours_per_week? do
   calculate :calculator do
     Calculators::HolidayEntitlement.new(
-      :hours_per_week => responses.last.to_f,
+      :hours_per_week => BigDecimal.new(responses.last.to_s),
       :start_date => start_date,
       :leaving_date => leaving_date,
       :leave_year_start_date => leave_year_start_date
@@ -108,10 +108,10 @@ value_question :how_many_hours_per_week? do
     calculator.full_time_part_time_hours_and_minutes
   end
   calculate :holiday_entitlement_hours do
-    holiday_entitlement_hours_and_minutes.first.to_i
+    holiday_entitlement_hours_and_minutes.first
   end
   calculate :holiday_entitlement_minutes do
-    holiday_entitlement_hours_and_minutes.last.to_i
+    holiday_entitlement_hours_and_minutes.last
   end
   calculate :content_sections do
     PhraseList.new :answer_hours, :your_employer_with_rounding
@@ -121,7 +121,7 @@ end
 
 value_question :casual_or_irregular_hours? do
   calculate :total_hours do
-    hours = responses.last.to_f
+    hours = BigDecimal.new(responses.last.to_s)
     raise InvalidResponse if hours <= 0
     hours
   end
@@ -142,7 +142,7 @@ end
 
 value_question :annualised_hours? do
   calculate :total_hours do
-    hours = responses.last.to_f
+    hours = BigDecimal.new(responses.last.to_s)
     raise InvalidResponse if hours <= 0
     hours
   end
@@ -166,7 +166,7 @@ end
 
 value_question :compressed_hours_how_many_hours_per_week? do
   calculate :hours_per_week do
-    hours = responses.last.to_f
+    hours = BigDecimal.new(responses.last.to_s)
     raise InvalidResponse if hours <= 0 or hours > 168
     hours
   end
@@ -211,7 +211,7 @@ end
 
 value_question :shift_worker_hours_per_shift? do
   calculate :hours_per_shift do
-    hours_per_shift = responses.last.to_f
+    hours_per_shift = BigDecimal.new(responses.last.to_s)
     raise InvalidResponse if hours_per_shift <= 0
     hours_per_shift
   end
