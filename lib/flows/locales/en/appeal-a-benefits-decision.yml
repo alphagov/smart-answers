@@ -4,9 +4,13 @@ en-GB:
       title: "Appeal a benefits decision"
       body: |
         If you think a decision about your benefits is wrong, you can ask for an explanation, 
-        challenge the decision or appeal against it. If your query is about child maintenance, 
-        this isn’t a benefit but you can still 
-        [make an appeal](/arranging-child-maintenance-child-support-agency/appeal-a-decision "appeal a decision about child maintenance").
+        challenge the decision or appeal against it. If your query is about child maintenance or tax credits, these aren't benefits
+        but you can still:
+
+
+        * [appeal a child maintenance decision](/arranging-child-maintenance-child-support-agency/appeal-a-decision "appeal a decision about child maintenance")
+        * [appeal a tax credits decision](/tax-credits-appeals-complaints "Appeal or complain about a tax credits decision")
+        * [dispute a decision about tax credit overpayments](/tax-credits-overpayments/dispute-form-tc846 "Dispute tax credits overpayments")
       meta:
         description: "If you think a decision about your benefits is wrong, you can ask for an explanation, challenge the decision or appeal against it"
       options:
@@ -72,6 +76,8 @@ en-GB:
 
           * when you asked for the written statement
           * when the benefits office sent it to you
+
+        error_message: Please enter a date on or after %{written_explanation_request_date}
       # Q7
       special_circumstances?:
         title: "Did something happen to stop you appealing when you first got the decision?"
@@ -111,8 +117,6 @@ en-GB:
           Social fund payments are: budgeting loans, community care grants, crisis loans or 
           social fund overpayments. 
 
-          Child maintenance isn&apos;t a benefit, but you can still appeal if you think a decision 
-          about your payments was wrong.
 
           Other benefits and credits include 'social security' benefits like Income Support, 
           Jobseeker&apos;s Allowance, Incapacity Benefit, Employment Support Allowance, Disability 
@@ -120,7 +124,6 @@ en-GB:
         options:
           "budgeting_loan": "Social fund benefit"
           "housing_benefit": "Housing Benefit or Council Tax Benefit"
-          "tax_credits": "Tax credits"
           "child_benefit": "Child Benefit or Guardian's Allowance"
           "other_credit_or_benefit": "Any other benefit or credit"
       # A1
@@ -273,44 +276,7 @@ en-GB:
           If you need any help with your appeal like filling in forms, or advice on what to do at the hearing, you can contact the [Citizens Advice Bureau](http://www.citizensadvice.org.uk/index/getadvice.htm "Citizens Advice Bureau"){:rel="external"}.
 
           Someone from the Citizens Advice Bureau may be able to go to the hearing with you. You can also ask an adviser, friend or family member to appeal on your behalf.
-      # A10
-      appeal_to_hmrc_wtc:
-        title: |
-          You can appeal to HM Revenue & Customs (HMRC) if you think they’ve made the wrong decision about your Working Tax Credits or Child Tax Credits.
-        body: |
-          You can do this by downloading and filling in the form at the end of the leaflet, ‘What to do if you think your Child Tax Credit / Working Tax Credit is wrong’.
-
-
-          $D
-          [Download ‘What to do if you think your Child Tax Credit / Working Tax Credit is wrong’ (PDF, 111KB)](http://www.hmrc.gov.uk/leaflets/wtc_ap.pdf "Download ‘What to do if you think your Child Tax Credit / Working Tax Credit is wrong’ (PDF, 111KB)"){:rel="external"}
-          $D
-
-          You can also appeal by writing a letter to HMRC, including:
-
-          * your name
-          * your National Insurance number
-          * the date at the top of your decision letter
-          * details of the decision you’re appealing against
-          * why you think the decision is wrong
-
-          Write the word 'Appeal' at the top of your letter.
-
-          Sign the appeal form or letter, and send it to the address at the top of your decision letter.
-
-          ##What happens next
-
-          Your appeal will be looked at by the [Social Security and Child Support Tribunal](http://www.justice.gov.uk/tribunals/sscs/appeals "Social Security and Child Support Tribunal"){:rel="external"}. They will:
-
-          * explain how the appeal process works
-          * let you know what you need to do before, during and after the hearing
-
-          ##Help with your appeal
-
-          If you need any help with your appeal like filling in forms, or advice on what to do at the hearing, you can contact the [Citizens Advice Bureau](http://www.citizensadvice.org.uk/index/getadvice.htm "Citizens Advice Bureau"){:rel="external"}.
-
-          Someone from the Citizens Advice Bureau may be able to go to the hearing with you. You can also ask an adviser, friend or family member to appeal on your behalf.
-
-          *[HMRC]:HM Revenue & Customs
+      # A10 - removed
       # A11
       appeal_to_hmrc_ch24a:
         title: |

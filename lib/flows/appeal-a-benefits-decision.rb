@@ -1,5 +1,5 @@
 satisfies_need "845"
-status :draft
+status :published
 
 decision_appeal_limit_in_months = 13
 
@@ -76,12 +76,15 @@ end
 date_question :when_did_you_ask_for_it? do
   from { 5.years.ago }
   to { Date.today }
-  save_input_as :written_explanation_request_date
+  calculate :written_explanation_request_date do
+    Date.parse(responses.last).strftime("%e %B %Y")
+  end
   next_node :when_did_you_get_it?
 end
 
 # Q6
 date_question :when_did_you_get_it? do
+
   save_input_as :written_explanation_received_date
   from { 5.years.ago }
   to { Date.today }
@@ -89,7 +92,9 @@ date_question :when_did_you_get_it? do
   calculate :appeal_expiry_date do
     decision_date = Date.parse(decision_letter_date)
     received_date = Date.parse(responses.last)
-    received_within_a_month = received_date < 1.month.since(Date.parse(written_explanation_request_date))
+    request_date = Date.parse(written_explanation_request_date)
+    raise InvalidResponse if received_date < request_date
+    received_within_a_month = received_date < 1.month.since(request_date)
 
     if received_within_a_month
       expiry_date = 1.fortnight.since(1.month.since(decision_date))
@@ -141,7 +146,6 @@ end
 multiple_choice :kind_of_benefit_or_credit? do
   option :budgeting_loan => :apply_to_the_independent_review_service
   option :housing_benefit => :appeal_to_your_council
-  option :tax_credits => :appeal_to_hmrc_wtc
   option :child_benefit => :appeal_to_hmrc_ch24a
   option :other_credit_or_benefit => :appeal_to_social_security
 end
@@ -155,6 +159,6 @@ outcome :ask_to_reconsider #A6
 outcome :apply_to_the_independent_review_service #A7
 #A8 - removed
 outcome :appeal_to_your_council #A9
-outcome :appeal_to_hmrc_wtc #A10
+#A10 - removed
 outcome :appeal_to_hmrc_ch24a #A11
 outcome :appeal_to_social_security #A12
