@@ -23,7 +23,7 @@ module SmartAnswer::Calculators
     end
 
     def full_time_part_time_hours_and_minutes
-      (full_time_part_time_hours * 60).divmod(60)
+      (full_time_part_time_hours * 60).floor.divmod(60)
     end
   
     def days_cap
