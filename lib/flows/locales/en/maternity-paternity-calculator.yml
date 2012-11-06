@@ -377,7 +377,7 @@ en-GB:
       ## QA4
       adoption_date_leave_starts?:
         title: When does the employee want to start their leave?
-        hint: Leave can't start before %{a_leave_earliest_start}
+        hint: Leave can't start before %{a_leave_earliest_start} or within 28 days of the child arriving in the UK (overseas adoptions only).
         error_message: Please enter a valid date
       ## QA5
       adoption_did_the_employee_work_for_you?:
