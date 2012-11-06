@@ -108,10 +108,10 @@ value_question :how_many_hours_per_week? do
     calculator.full_time_part_time_hours_and_minutes
   end
   calculate :holiday_entitlement_hours do
-    holiday_entitlement_hours_and_minutes.first
+    holiday_entitlement_hours_and_minutes.first.to_i
   end
   calculate :holiday_entitlement_minutes do
-    holiday_entitlement_hours_and_minutes.last
+    holiday_entitlement_hours_and_minutes.last.to_i
   end
   calculate :content_sections do
     PhraseList.new :answer_hours, :your_employer_with_rounding
