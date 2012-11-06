@@ -48,7 +48,7 @@ en-GB:
                 hint: |
                     This includes any days that you worked basic hours, took annual leave or were off sick (whether paid or not).
                 label: Total days worked for current employer
-                error_message: Please enter a valid number of days
+                error_message: "Please enter a valid number of days (max: %{available_days})"
 
             done:
                 title: Your statutory holiday entitlement is %{holiday_entitlement_days} days.

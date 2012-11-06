@@ -154,7 +154,7 @@ multiple_choice :do_you_expect_to_start_or_stop_claiming? do
 
   calculate :calculator do
     if number_of_children < 1 and responses.last == "no"
-      raise SmartAnswer::InvalidResponse, "You cannot claim child benefit if you do not have a child and are not expecting to start claiming for one in this tax year."
+      raise SmartAnswer::InvalidResponse
     end
   end
 
@@ -167,11 +167,13 @@ end
 # Question 9
 value_question :how_many_children_to_start_claiming? do
   calculate :num_children_starting do
+    raise SmartAnswer::InvalidResponse, :error_numeric if ! (responses.last.to_s =~ /\A\d+\z/)
+
     num_children = responses.last.to_i
-    if ! (responses.last.to_s =~ /\A\d+\z/) or num_children < 0 or num_children > 9
-      raise SmartAnswer::InvalidResponse, "This calculator can only deal with up to 9 new children."
+    if num_children < 0 or num_children > 9
+      raise SmartAnswer::InvalidResponse 
     elsif (num_children + number_of_children) < 1
-      raise SmartAnswer::InvalidResponse, "There must be at least one child to claim child benefit."
+      raise SmartAnswer::InvalidResponse, :error_too_few
     end
     num_children
   end
@@ -195,7 +197,7 @@ end
     calculate "#{ordinal_string}_child_start_date".to_sym do
       start_date = Date.parse(responses.last)
       if !(start_of_tax_year..end_of_tax_year).include_with_range? start_date
-        raise SmartAnswer::InvalidResponse, "Please enter a date between #{start_of_tax_year} and #{end_of_tax_year}"
+        raise SmartAnswer::InvalidResponse
       end
       start_date
     end
@@ -215,9 +217,9 @@ end
       unless responses.last == :no
         date = Date.parse(responses.last)
         if !(start_of_tax_year..end_of_tax_year).include_with_range? date
-          raise SmartAnswer::InvalidResponse, "Please enter a date between #{start_of_tax_year} and #{end_of_tax_year}"
+          raise SmartAnswer::InvalidResponse
         elsif (date < self.send("#{ordinal_string}_child_start_date".to_sym))
-          raise SmartAnswer::InvalidResponse, "The child leaving date cannot be before the arrival date."
+          raise SmartAnswer::InvalidResponse
         end
       end
       date || responses.last
@@ -239,13 +241,13 @@ end
 # Question 10
 value_question :how_many_children_to_stop_claiming? do
   calculate :num_children_stopping do
-    raise SmartAnswer::InvalidResponse, "Please enter a number" if ! (responses.last.to_s =~ /\A\d+\z/)
+    raise SmartAnswer::InvalidResponse, :error_numeric if ! (responses.last.to_s =~ /\A\d+\z/)
 
     num_children_stopping = responses.last.to_i
     if num_children_stopping < 0 or num_children_stopping > 9
-      raise SmartAnswer::InvalidResponse, "This calculator can only deal with stopping claims for 9 new children in a year."
+      raise SmartAnswer::InvalidResponse, :error_more_than_nine
     elsif num_children_stopping > number_of_children
-      raise SmartAnswer::InvalidResponse, "You cannot stop claiming benefit for more children than you're claiming for."
+      raise SmartAnswer::InvalidResponse, :error_more_than_you_have
     end
     num_children_stopping
   end
@@ -269,7 +271,7 @@ end
     calculate "#{ordinal_string}_child_stop_date".to_sym do
       stop_date = Date.parse(responses.last)
       if !(start_of_tax_year..end_of_tax_year).include_with_range? stop_date
-        raise SmartAnswer::InvalidResponse, "Please enter a date within the selected tax year"
+        raise SmartAnswer::InvalidResponse
       end
       stop_date
     end
