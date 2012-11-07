@@ -63,7 +63,7 @@ en-GB:
         error_message: Please enter a number up to the maximum amount
       where_will_you_live_while_studying?:
         options:
-          at-home: At home with my parents
+          at-home: At home
           away-outside-london: Away from home, outside of London
           away-in-london: Away from home, in London
       whats_your_household_income?:
