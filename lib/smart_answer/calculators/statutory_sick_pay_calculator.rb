@@ -6,7 +6,7 @@ module SmartAnswer::Calculators
 
     # LEL changes on 1 April each year - update when we know the April 2013 rate
     LOWER_EARNING_LIMIT = 107.00
-    SSP_WEEKLY_RATE = 85.85
+    SSP_WEEKLY_RATE = BigDecimal.new('85.85')
 
     def earning_limit_rates
       [
@@ -26,8 +26,8 @@ module SmartAnswer::Calculators
     # TODO: find out what the rate was for before 6 april 2011
     def ssp_rates
       [
-        {min: Date.parse("6 April 2011"), max: Date.parse("5 April 2012"), ssp_weekly_rate: 81.60 },
-        {min: Date.parse("6 April 2012"), max: Date.parse("5 April 2012"), ssp_weekly_rate: 85.85}
+        {min: Date.parse("6 April 2011"), max: Date.parse("5 April 2012"), ssp_weekly_rate: BigDecimal.new('81.60') },
+        {min: Date.parse("6 April 2012"), max: Date.parse("5 April 2012"), ssp_weekly_rate: BigDecimal.new('85.85')}
       ]
     end
 
@@ -46,8 +46,8 @@ module SmartAnswer::Calculators
     # TODO use truncate to four decimal places to match unrounded daily rates used by HMRC for 2012-13 for 3 and 7 pattern days
     # The current calculation will match rates for 2011-12 exactly
     def set_daily_rate(pattern_days)
-      @pattern_days = pattern_days
-    	@daily_rate = pattern_days > 0 ? (ssp_weekly_rate / pattern_days.to_f).round(4) : 0.0000 
+      @pattern_days = BigDecimal.new(pattern_days.to_s)
+    	@daily_rate = pattern_days > 0 ? (ssp_weekly_rate / self.pattern_days).round(4) : BigDecimal.new('0.0000') 
     end
 
     def set_normal_work_days(normal_work_days)

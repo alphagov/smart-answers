@@ -1,7 +1,7 @@
 satisfies_need "2546"
 status :published
 
-calculator = AgriculturalHolidayEntitlementCalculator.new()
+calculator = Calculators::AgriculturalHolidayEntitlementCalculator.new()
 
 
 multiple_choice :work_the_same_number_of_days_each_week? do
@@ -88,7 +88,7 @@ value_question :how_many_weeks_at_current_employer? do
     elsif !weeks_from_october_1.nil?
       days = calculator.holiday_days BigDecimal.new(total_days_worked.to_s) / BigDecimal.new(weeks_from_october_1.to_s)
     end
-    sprintf("%.1f", days * (Integer(responses.last) / 52.0))
+    sprintf("%.1f", days * (Integer(responses.last) / BigDecimal.new('52.0')))
   end
 end
 
