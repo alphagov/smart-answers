@@ -243,33 +243,6 @@ value_question :years_of_jsa? do
   end
 end
 
-## Q5a - removed for initial release
-# multiple_choice :employed_between_60_and_64? do
-#   save_input_as :employed_between_60_and_64_yes_no
-
-#   option :yes 
-#   option :no 
-
-#   calculate :automatic_years do
-#     employed_between_60_and_64_yes_no == "no" ? calc.allocate_automatic_years : 0
-#   end
-
-#   calculate :qualifying_years do
-#     (qualifying_years + calc.allocate_automatic_years)
-#   end
-
-#   calculate :available_ni_years do
-#     calculator.available_years_sum(qualifying_years) 
-#   end
-
-#   next_node do |response|
-#     if response == "yes"
-#       :received_child_benefit?
-#     else
-#       (((calc.allocate_automatic_years + calc.qualifying_years) >= 30) ? :amount_result : :received_child_benefit?)
-#     end
-#   end
-# end
 
 ## Q6
 multiple_choice :received_child_benefit? do
@@ -296,7 +269,11 @@ value_question :years_of_benefit? do
   calculate :qualifying_years do
     benefit_years = Integer(responses.last)
     qy = (benefit_years + qualifying_years)
-    raise InvalidResponse if (benefit_years < 0 or benefit_years > 22) or !(calculator.has_available_years?(qy))
+    if benefit_years > 22 and calculator.has_available_years?(qy)
+      raise InvalidResponse, :error_maximum_hrp_years
+    elsif benefit_years < 0 or !(calculator.has_available_years?(qy))
+      raise InvalidResponse, :error_too_many_years
+    end
     qy
   end
 
