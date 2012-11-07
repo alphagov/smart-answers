@@ -64,7 +64,7 @@ en-GB:
           Fill in:
 
 
-          - [Probate application form PA1](http://hmctsformfinder.direct.gov.uk/HMCTS/GetForm.do?court_forms_id=735){:rel="external"}
+          - [Probate application form PA1](http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=735){:rel="external"}
 
           - [Inheritance Tax form IHT205](http://search2.hmrc.gov.uk/kbroker/hmrc/forms/viewform.jsp?formId=3307){:rel="external"}
         
@@ -133,12 +133,13 @@ en-GB:
           Fill in:
 
 
-          - [‘Inventory’ Form C1](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=DQJACJmu-f0&formid=3322){:rel="external"} and [‘Return of Estate Information’ Form C5.](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=zQYhbzVQOUU&formId=3325){:rel="external"}
+          - [‘Inventory’ Form C1](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=DQJACJmu-f0&formid=3322){:rel="external"} 
+          - [‘Return of Estate Information’ Form C5](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=zQYhbzVQOUU&formId=3325){:rel="external"}
         
-        scotland_inheritance_tax_next_steps: |
-          ^ Probate is called ‘confirmation’ in Scotland. ^
-
+        scotland_no_inheritance_tax_next_steps: |
           Send the forms to your [local sheriff’s court,](http://www.scotcourts.gov.uk/locations/index.asp){:rel="external"} along with a cheque if there’s a fee.
+
+          ^ Probate is called ‘confirmation’ in Scotland. ^
 
         scotland_inheritance_tax: |
           Fill in:
@@ -150,15 +151,23 @@ en-GB:
 
           Use the [Form IHT400 help notes](http://search2.hmrc.gov.uk/kbroker/hmrc/forms/viewform.jsp?formId=3309){:rel="external"} if needed.
 
-        scotland_no_inheritance_tax_next_steps: |
+        scotland_inheritance_tax_next_steps: |
+          Send the forms to HM Revenue and Customs (HMRC):
 
-          Send the 'Inventory' form to your [local sheriff’s court,](http://www.scotcourts.gov.uk/locations/index.asp){:rel="external"} along with a cheque if there’s a fee.
 
-          Send the Inheritance Tax form to HM Revenue & Customs (HMRC) - the address is on the form.
+          $A
+          HMRC
+          Inheritance Tax
+          Ferrers House
+          PO Box 38
+          Castle Meadow Road
+          Nottingham
+          NG2 1BB
+          $A
+          
+          You will also have to go to an interview at your local sheriff’s court to confirm the details on the forms.
 
           ^ Probate is called ‘confirmation’ in Scotland. ^
-
-          You will also have to go to an interview at your local sheriff’s court to confirm the details on the forms.
 
         ni_no_inheritance_tax: |
           Fill in: 
@@ -166,6 +175,7 @@ en-GB:
           
           - [Inheritance Tax form IHT205](http://search2.hmrc.gov.uk/kbroker/hmrc/forms/viewform.jsp?formId=3307){:rel="external"}
 
+        ni_no_inheritance_tax_part2: |
           Make an appointment at a probate office. Which office depends on where the deceased lived.
 
         ni_inheritance_tax: |
@@ -178,6 +188,7 @@ en-GB:
 
           Use the [Form IHT400 help notes](http://search2.hmrc.gov.uk/kbroker/hmrc/forms/viewform.jsp?formId=3309){:rel="external"}if needed.
 
+        ni_inheritance_tax_part2: |
           Send the completed Inheritance Tax forms to HM Revenue & Customs (HMRC). The address is on the forms.
 
           HMRC will stamp and return the IHT421 form. You may have to pay some tax first.
@@ -190,8 +201,8 @@ en-GB:
       use_a_solicitor?:
         title: Do you want to apply for probate yourself or use a solicitor?
         options:
-          solicitor: use a solicitor
-          myself: apply myself
+          solicitor: Use a solicitor
+          myself: Apply myself
       ## Q2
       where_did_deceased_live?:
         title: Where did the deceased live?
@@ -257,9 +268,12 @@ en-GB:
         body: |
           %{application_info}
 
+          ^ %{fee_section} ^
+
+          %{application_info_part2}
+
           %{where_to_apply}
 
-          ^ %{fee_section} ^
 
            Bring the completed IHT205 form, along with:
 

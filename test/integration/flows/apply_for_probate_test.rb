@@ -41,7 +41,7 @@ class ApplyForProbateTest < ActiveSupport::TestCase
         assert_current_node :inheritance_tax?
       end
 
-      context "yes to inheritance tax" do
+      context "yes to inheritance tax (estate worth over 325k)" do
         setup do
           add_response :yes
         end
@@ -59,6 +59,7 @@ class ApplyForProbateTest < ActiveSupport::TestCase
             assert_current_node :done_eng_wales
             assert_phrase_list :application_info, [:eng_wales_inheritance_tax]
             assert_phrase_list :fee_section, [:no_fee]
+            assert_phrase_list :next_steps_info, [:eng_wales_inheritance_tax_next_steps]
           end
         end
 
@@ -71,6 +72,7 @@ class ApplyForProbateTest < ActiveSupport::TestCase
             assert_current_node :done_eng_wales
             assert_phrase_list :application_info, [:eng_wales_inheritance_tax]
             assert_phrase_list :fee_section, [:fee_info_eng_sco]
+            assert_phrase_list :next_steps_info, [:eng_wales_inheritance_tax_next_steps]
           end
         end
       end # yes to inheritance tax
@@ -85,7 +87,7 @@ class ApplyForProbateTest < ActiveSupport::TestCase
         assert_current_node :inheritance_tax?
       end
 
-      context "no to inheritance tax" do
+      context "no to inheritance tax (estate worth under 325k)" do
         setup do
           add_response :no
         end
@@ -103,6 +105,7 @@ class ApplyForProbateTest < ActiveSupport::TestCase
             assert_current_node :done_scotland
             assert_phrase_list :application_info, [:scotland_no_inheritance_tax]
             assert_phrase_list :fee_section, [:no_fee]
+            assert_phrase_list :next_steps_info, [:scotland_no_inheritance_tax_next_steps]
           end
         end
 
@@ -115,6 +118,7 @@ class ApplyForProbateTest < ActiveSupport::TestCase
             assert_current_node :done_scotland
             assert_phrase_list :application_info, [:scotland_no_inheritance_tax]
             assert_phrase_list :fee_section, [:fee_info_eng_sco]
+            assert_phrase_list :next_steps_info, [:scotland_no_inheritance_tax_next_steps]
           end
         end
       end #no inheritance tax
@@ -155,8 +159,10 @@ class ApplyForProbateTest < ActiveSupport::TestCase
             should "display inheritance tax and no fee in antrim armagh and down in NI" do
               assert_current_node :done_ni
               assert_phrase_list :application_info, [:ni_inheritance_tax]
-              assert_phrase_list :where_to_apply, [:apply_in_antrim_armagh_down]
               assert_phrase_list :fee_section, [:no_fee]
+              assert_phrase_list :application_info_part2, [:ni_inheritance_tax_part2]
+              assert_phrase_list :where_to_apply, [:apply_in_antrim_armagh_down]
+              
             end
           end
         end
@@ -188,8 +194,9 @@ class ApplyForProbateTest < ActiveSupport::TestCase
             should "display no inheritance tax and fee to be paid in fermanagh, londonderry, tyrone in NI" do
               assert_current_node :done_ni
               assert_phrase_list :application_info, [:ni_no_inheritance_tax]
-              assert_phrase_list :where_to_apply, [:apply_in_fermanagh_londonderry_tyrone]
               assert_phrase_list :fee_section, [:fee_info_ni]
+              assert_phrase_list :application_info_part2, [:ni_no_inheritance_tax_part2]
+              assert_phrase_list :where_to_apply, [:apply_in_fermanagh_londonderry_tyrone]
             end
           end
         end
