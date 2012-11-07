@@ -121,6 +121,7 @@ module SmartAnswer::Calculators
 
 	  		should "use ssp rate and lel for 2011-12" do
 	  			assert_equal @calculator.lower_earning_limit, 102
+          assert_equal BigDecimal, @calculator.ssp_weekly_rate.class
 	  			assert_equal @calculator.ssp_weekly_rate, 81.60
 	  		end
 	  	end
