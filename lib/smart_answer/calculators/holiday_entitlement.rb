@@ -5,17 +5,25 @@ module SmartAnswer::Calculators
   class HolidayEntitlement < OpenStruct
     # created for the holiday entitlement calculator
 
+    def self.holiday_multiplier
+      BigDecimal.new('5.6')
+    end
+
+    def self.working_weeks
+      BigDecimal.new('46.4')
+    end
+
     def full_time_part_time_days
-      days = 5.6 * fraction_of_year * self.days_per_week
+      days = self.class.holiday_multiplier * fraction_of_year * days_per_week
       days > days_cap ? days_cap : days
     end
 
     def full_time_part_time_hours
-      5.6 * fraction_of_year * self.hours_per_week  
+      self.class.holiday_multiplier * fraction_of_year * hours_per_week  
     end
 
     def full_time_part_time_hours_and_minutes
-      (full_time_part_time_hours * 60).floor.divmod(60)
+      (full_time_part_time_hours * 60).floor.divmod(60).map(&:floor)
     end
   
     def days_cap
@@ -24,12 +32,12 @@ module SmartAnswer::Calculators
 
 
     def casual_irregular_entitlement
-      minutes = 5.6 / 46.4 * total_hours * 60
-      minutes.floor.divmod(60)
+      minutes = self.class.holiday_multiplier / self.class.working_weeks * total_hours * 60
+      minutes.floor.divmod(60).map(&:floor)
     end
 
     def annualised_hours_per_week
-      total_hours / 46.4
+      total_hours / self.class.working_weeks
     end
 
     def annualised_entitlement
@@ -38,13 +46,13 @@ module SmartAnswer::Calculators
     end
 
     def compressed_hours_entitlement
-      minutes = 5.6 * hours_per_week * 60
-      minutes.floor.divmod(60)
+      minutes = self.class.holiday_multiplier * hours_per_week * 60
+      minutes.floor.divmod(60).map(&:floor)
     end
 
     def compressed_hours_daily_average
       minutes = hours_per_week / days_per_week * 60
-      minutes.floor.divmod(60)
+      minutes.floor.divmod(60).map(&:floor)
     end
 
     def shifts_per_week
@@ -52,7 +60,7 @@ module SmartAnswer::Calculators
     end
 
     def shift_entitlement
-      5.6 * fraction_of_year * shifts_per_week
+      self.class.holiday_multiplier * fraction_of_year * shifts_per_week
     end
 
     def date_calc
