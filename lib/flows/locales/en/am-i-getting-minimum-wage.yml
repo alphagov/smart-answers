@@ -56,15 +56,19 @@ en-GB:
       how_often_do_you_get_paid?:
         title: "How often do you get paid?"
         hint: |
-          For weekly payments enter 7 days, for monthly payments enter 31 days, or another number, depending on how often you get paid. This is your pay period.
+          You get paid every
         suffix_label: days  
         error_message: Please enter a number between 1 and 31.  
+        body: |
+          This is your pay period.
       # Q4 Past
       how_often_did_you_get_paid?:
         title: "How often did you get paid?"
         hint: |
-          For weekly payments enter 7 days, for monthly payments enter 31 days, or another number, depending on how often you got paid. This is your pay period.
+          You get paid every
         suffix_label: days
+        body: |
+          This is your pay period.
         error_message: Please enter a number between 1 and 31.
       # Q5
       how_many_hours_do_you_work?:
@@ -86,13 +90,13 @@ en-GB:
       how_much_are_you_paid_during_pay_period?:
         title: "How much do you get paid in the pay period?"
         hint: "Don’t include payments for overtime or anything extra to your pay, eg sales commission, money for clothes or goods."
-        suffix_label: for the pay period
+        suffix_label: in the pay period
         error_message: Please enter a number
       # Q6 Past
       how_much_were_you_paid_during_pay_period?:
         title: "How much were you paid in the pay period?"
         hint: "Don’t include payments for overtime or anything extra to your pay, eg sales commission, money for clothes or goods."
-        suffix_label: for the pay period
+        suffix_label: in the pay period
         error_message: Please enter a number
       # Q7
       how_many_hours_overtime_do_you_work?:
@@ -250,3 +254,5 @@ en-GB:
 
       under_school_leaving_age:
         body: You must be at least [school leaving age](/know-when-you-can-leave-school "School leaving age") to be entitled to the National Minimum Wage.
+      under_school_leaving_age_past:
+        body: You must have been at least [school leaving age](/know-when-you-can-leave-school "School leaving age") at the time to be entitled to the National Minimum Wage.

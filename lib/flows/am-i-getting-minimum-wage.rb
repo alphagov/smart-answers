@@ -88,7 +88,7 @@ value_question :how_old_were_you? do
 
   next_node do |response|
     if response.to_i < 16
-      :under_school_leaving_age
+      :under_school_leaving_age_past
     else
      :how_often_did_you_get_paid?
     end
@@ -465,3 +465,4 @@ outcome :past_payment_below do
   end
 end
 outcome :does_not_apply_to_historical_apprentices
+outcome :under_school_leaving_age_past
