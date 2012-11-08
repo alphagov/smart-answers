@@ -65,7 +65,13 @@ value_question :how_old_are_you? do
     end
     age
   end
-  next_node :how_often_do_you_get_paid?
+  next_node do |response|
+    if response.to_i < 16
+      :under_school_leaving_age
+    else
+      :how_often_do_you_get_paid?
+    end
+  end
 end
 
 # Q3 Past
@@ -79,7 +85,14 @@ value_question :how_old_were_you? do
     end
     age  
   end
-  next_node :how_often_did_you_get_paid?
+
+  next_node do |response|
+    if response.to_i < 16
+      :under_school_leaving_age_past
+    else
+     :how_often_did_you_get_paid?
+    end
+  end
 end
 
 # Q4
@@ -111,7 +124,7 @@ value_question :how_many_hours_do_you_work? do
   calculate :basic_hours do 
     basic_hours = Float(responses.last)
     if basic_hours < 0 or basic_hours > (pay_frequency * 16)
-      raise SmartAnswer::InvalidResponse
+      raise SmartAnswer::InvalidResponse, :error_hours
     end
     basic_hours
   end
@@ -123,7 +136,7 @@ value_question :how_many_hours_did_you_work? do
   calculate :basic_hours do 
     basic_hours = Float(responses.last)
     if basic_hours < 0 or basic_hours > (pay_frequency * 16)
-      raise SmartAnswer::InvalidResponse
+      raise SmartAnswer::InvalidResponse, :error_hours
     end
     basic_hours
   end
@@ -444,6 +457,7 @@ outcome :current_payment_below do
     calculator.format_money calculator.total_underpayment
   end
 end
+outcome :under_school_leaving_age
 outcome :past_payment_above
 outcome :past_payment_below do
   precalculate :total_underpayment do
@@ -451,3 +465,4 @@ outcome :past_payment_below do
   end
 end
 outcome :does_not_apply_to_historical_apprentices
+outcome :under_school_leaving_age_past
