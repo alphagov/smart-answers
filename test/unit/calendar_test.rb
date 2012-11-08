@@ -39,9 +39,9 @@ module SmartAnswer
 
       output = calendar.evaluate(@state).to_ics
 
-      assert_match "BEGIN:VEVENT\nDTEND;VALUE=DATE:20121014\nDTSTART;VALUE=DATE:20121013\nSUMMARY:event_one\nEND:VEVENT", output
-      assert_match "BEGIN:VEVENT\nDTEND;VALUE=DATE:20121021\nDTSTART;VALUE=DATE:20121020\nSUMMARY:event_two\nEND:VEVENT", output
-      assert_match "BEGIN:VEVENT\nDTEND;VALUE=DATE:20121104\nDTSTART;VALUE=DATE:20121104\nSUMMARY:event_three\nEND:VEVENT", output
+      assert_match "BEGIN:VEVENT\r\nDTEND;VALUE=DATE:20121014\r\nDTSTART;VALUE=DATE:20121013\r\nSUMMARY:event_one\r\nEND:VEVENT", output
+      assert_match "BEGIN:VEVENT\r\nDTEND;VALUE=DATE:20121021\r\nDTSTART;VALUE=DATE:20121020\r\nSUMMARY:event_two\r\nEND:VEVENT", output
+      assert_match "BEGIN:VEVENT\r\nDTEND;VALUE=DATE:20121104\r\nDTSTART;VALUE=DATE:20121104\r\nSUMMARY:event_three\r\nEND:VEVENT", output
     end
   end
 end

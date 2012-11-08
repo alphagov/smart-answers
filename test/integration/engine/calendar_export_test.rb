@@ -30,6 +30,6 @@ class CalendarExportTest < EngineIntegrationTest
 
   def assert_calendar_has_event(start_date, stop_date = nil)
     stop_date = start_date if stop_date.nil?
-    assert_match "DTEND;VALUE=DATE:#{stop_date.strftime('%Y%m%d')}\nDTSTART;VALUE=DATE:#{start_date.strftime('%Y%m%d')}", page.body
+    assert_match "DTEND;VALUE=DATE:#{stop_date.strftime('%Y%m%d')}\r\nDTSTART;VALUE=DATE:#{start_date.strftime('%Y%m%d')}", page.body
   end
 end

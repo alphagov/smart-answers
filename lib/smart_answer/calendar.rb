@@ -18,21 +18,22 @@ module SmartAnswer
     end
 
     def to_ics
-      RiCal.Calendar do |cal|
-        @dates.each do |(title,date_or_range)|
-          cal.event do |event|
-            event.summary = title.to_s
-
-            if date_or_range.is_a?(Range)
-              event.dtstart = date_or_range.first
-              event.dtend = date_or_range.last
-            elsif date_or_range.is_a?(Date)
-              event.dtstart = date_or_range
-              event.dtend = date_or_range
-            end
-          end
+      output = "BEGIN:VCALENDAR\r\nVERSION:2.0\r\n"
+      output << "PRODID:-//uk.gov/GOVUK smart-answers//EN\r\n"
+      output << "CALSCALE:GREGORIAN\r\n"
+      @dates.each do |(title,date_or_range)|
+        output << "BEGIN:VEVENT\r\n"
+        if date_or_range.is_a?(Range)
+          output << "DTEND;VALUE=DATE:#{ date_or_range.last.strftime("%Y%m%d") }\r\n"
+          output << "DTSTART;VALUE=DATE:#{ date_or_range.first.strftime("%Y%m%d") }\r\n"
+        elsif date_or_range.is_a?(Date)
+          output << "DTEND;VALUE=DATE:#{ date_or_range.strftime("%Y%m%d") }\r\n"
+          output << "DTSTART;VALUE=DATE:#{ date_or_range.strftime("%Y%m%d") }\r\n"
         end
-      end.export
+        output << "SUMMARY:#{ title }\r\n"
+        output << "END:VEVENT\r\n"
+      end
+      output << "END:VCALENDAR\r\n"
     end
 
   end
