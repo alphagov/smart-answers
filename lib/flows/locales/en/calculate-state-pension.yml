@@ -115,7 +115,7 @@ en-GB:
           
 
           $C
-          You currently don’t have the 30 qualifying years needed to get a full basic State Pension of £107.45. You don’t have enough years before your State Pension age to get the further years needed.
+          You currently don’t have the 30 qualifying years needed to get a full basic State Pension of £107.45 per week. You don’t have enough years before your State Pension age to get the further years needed.
           $C
 
           State Pension | Your results
@@ -209,20 +209,18 @@ en-GB:
         suffix_label: years
       ## Q6
       received_child_benefit?:
-        title: "Have you ever:"
-        body: |
-          - claimed Child Benefit for a child under 16
-          - cared for someone sick or disabled
-          - worked as a registered carer (but since 2003)
+        title: Have you ever claimed Child Benefit, cared for someone or worked as a registered carer?
       ## Q7
       years_of_benefit?:
         title: "Before 6 April 2010 how many years did any of the following apply:"
         body: |
           - you claimed Child Benefit for a child under 16
           - you cared for someone sick or disabled 
-          - you worked as a registered carer (only count years from 2003 to 2010)
+          - you worked as a registered carer (from 2003 to 2010)
         hint: These are years when you were getting Home Responsibility Protection. Enter 0 if none of these apply. Don’t count any years you’ve entered in the previous questions. %{carer_hint_for_women}
-        error_message: Please enter a number between 0 and %{years_you_can_enter}. The maximum number of Home Responsibility Protection years possible is 22.
+        error_message: Please enter a whole number 
+        error_too_many_years: Please enter a number between 0 and %{years_you_can_enter}.
+        error_maximum_hrp_years: Please enter a number up to 22. This is the maximum number of Home Responsibility Protection years possible.
         suffix_label: years
       ## Q8 
       years_of_caring?:
@@ -242,8 +240,8 @@ en-GB:
         suffix_label: years
       ## Q10
       years_of_work?:
-        title: How many years between age 16 and 19 were you working, receiving sickness/disability benefits, or in full-time education?
-        hint: Include the years you were working and paying National Insurance contributions, or were not working but claiming benefits because of unemployment, illness or disability. If you were born before 6 April 1959 also include periods in full time education or training (including staying on at school, full time unpaid apprenticeships or approved training course).
+        title: How many years between age 16 and 19 were you working, in full-time education, or getting unemployment, sickness or disability benefits?
+        hint: When working include the years you paid National Insurance. If you were born before 6 April 1959 include years in full-time education and training.
         error_message: Please enter a number. You can enter between 0 and %{years_you_can_enter}.
         suffix_label: years
 
