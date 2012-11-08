@@ -5,7 +5,12 @@ module SmartAnswer
 
     def initialize(&block)
       @dates = []
-      instance_eval(&block) if block_given?
+      @block = block if block_given?
+    end
+
+    def evaluate(state)
+      instance_exec(state, &@block) if @block and !@dates.any?
+      return self
     end
 
     def date(name, date_or_range)
@@ -14,16 +19,16 @@ module SmartAnswer
 
     def to_ics
       RiCal.Calendar do |cal|
-        @dates.each do |(title,date)|
+        @dates.each do |(title,date_or_range)|
           cal.event do |event|
             event.summary = title.to_s
 
-            if date.is_a?(Range)
-              event.dtstart = date.first
-              event.dtend = date.last
-            elsif date.is_a?(Date)
-              event.dtstart = date
-              event.dtend = date
+            if date_or_range.is_a?(Range)
+              event.dtstart = date_or_range.first
+              event.dtend = date_or_range.last
+            elsif date_or_range.is_a?(Date)
+              event.dtstart = date_or_range
+              event.dtend = date_or_range
             end
           end
         end
