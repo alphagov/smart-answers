@@ -22,7 +22,7 @@ gem 'ri_cal', '0.8.8'
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
 else
-  gem 'slimmer', '3.3.2'
+  gem 'slimmer', '3.8.0'
 end
 
 if ENV['GOVSPEAK_DEV']

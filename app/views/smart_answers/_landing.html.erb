@@ -36,4 +36,6 @@
   <%= render :partial => 'smartanswer_metadata' %>
 </div>
 
-<div id="related-items"></div>
+<% content_for :end_of_wrapper do %>
+  <div id="related-items"></div>
+<% end %>
