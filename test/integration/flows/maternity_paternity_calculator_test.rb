@@ -139,6 +139,11 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       assert_phrase_list :maternity_leave_info, [:maternity_leave_table]
                       assert_current_node :maternity_leave_and_pay_result
                     end
+                    should "output a calendar" do
+                      assert_calendar
+                      assert_calendar_date Date.parse("21 November 2012")..Date.parse("20 November 2013")
+                      assert_calendar_date Date.parse("5 August 2012")
+                    end
                   end #answer 135.40
                 end
               end

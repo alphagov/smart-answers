@@ -20,10 +20,10 @@ class OutcomePresenter < NodePresenter
   end
 
   def has_calendar?
-    ! @node.calendar_object.nil?
+    ! @node.evaluate_calendar(@state).nil?
   end
 
   def calendar
-    @node.calendar_object
+    @node.evaluate_calendar(@state)
   end
 end

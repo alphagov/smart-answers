@@ -38,8 +38,8 @@ module SmartAnswer
       @calendar = Calendar.new(&block)
     end
 
-    def calendar_object
-      @calendar
+    def evaluate_calendar(state)
+      @calendar.evaluate(state) if @calendar
     end
   end
 end
