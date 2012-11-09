@@ -2,7 +2,7 @@ en-GB:
   flow:
     towing-rules:
       meta:
-        description: "Use this tool to find out if you’re old enough or have the right kind of licence to tow a trailer from different kinds of vehicle."
+        description: "Work out if you’re old enough or have the right kind of licence to tow a trailer from different kinds of vehicle"
       title: "Towing: licence and age requirements"
       body: |
         Use this tool to find out if you’re old enough or have the right kind of licence to tow a trailer from different kinds of vehicle.
@@ -76,7 +76,7 @@ en-GB:
         title: Was your car driving licence issued before 1 January 1997?
       ## Q27
       do_you_have_lv_or_bus_towing_entitlement?:
-        title: Do you have a full category D+E towing with a bus or C+E towing with a large vehicle licence?
+        title: Do you have a full category D+E towing with a bus licence?
       ## Q29
       full_minibus_licence?:
         title: Do you have a full category D1 minibus licence?

@@ -46,7 +46,7 @@ class BecomeADrivingInstructorTest < ActiveSupport::TestCase
       should "be able to transfer registration if EC ADI" do # response 3
         add_response :yes
         assert_current_node :can_apply_to_transfer_registration
-        assert_phrase_list :content_sections, [:acronym_definitions]
+        assert_phrase_list :content_sections, [:DSA_guide_to_ADI_register, :acronym_definitions]
       end
 
       context "not EC ADI" do
@@ -61,7 +61,7 @@ class BecomeADrivingInstructorTest < ActiveSupport::TestCase
         should "be possible with caveats if have disqualifications etc." do # response 4
           add_response :yes
           assert_current_node :can_start_process_of_applying
-          assert_phrase_list :content_sections, [:apply_to_dsa_with_endorsments, :apply_with_caveats_what_next, :acronym_definitions]
+          assert_phrase_list :content_sections, [:apply_to_dsa_with_endorsments, :apply_with_caveats_what_next, :DSA_guide_to_ADI_register, :acronym_definitions]
         end
 
         context "with no disqualifications etc." do
@@ -85,13 +85,13 @@ class BecomeADrivingInstructorTest < ActiveSupport::TestCase
             should "be possible to apply with no convictions" do # response 6
               add_response :no
               assert_current_node :can_start_process_of_applying
-              assert_phrase_list :content_sections, [:apply_steps, :criminal_record_check, :apply_to_dsa, :acronym_definitions]
+              assert_phrase_list :content_sections, [:apply_steps, :criminal_record_check, :apply_to_dsa, :DSA_guide_to_ADI_register, :acronym_definitions]
             end
 
             should "be possible to apply with caveats with convictions" do # response 5
               add_response :yes
               assert_current_node :can_start_process_of_applying
-              assert_phrase_list :content_sections, [:apply_to_dsa_with_criminal_record, :apply_with_caveats_what_next, :acronym_definitions]
+              assert_phrase_list :content_sections, [:apply_to_dsa_with_criminal_record, :apply_with_caveats_what_next, :DSA_guide_to_ADI_register, :acronym_definitions]
             end
           end # manual licence
 
@@ -122,13 +122,13 @@ class BecomeADrivingInstructorTest < ActiveSupport::TestCase
               should "be possible to apply with no convictions" do # response 9
                 add_response :no
                 assert_current_node :can_start_process_of_applying
-                assert_phrase_list :content_sections, [:apply_steps_with_emergency_control, :emergency_control, :criminal_record_check, :apply_to_dsa, :acronym_definitions]
+                assert_phrase_list :content_sections, [:apply_steps_with_emergency_control, :emergency_control, :criminal_record_check, :apply_to_dsa, :DSA_guide_to_ADI_register, :acronym_definitions]
               end
 
               should "be possible to apply with caveats with convictions" do # response 8
                 add_response :yes
                 assert_current_node :can_start_process_of_applying
-                assert_phrase_list :content_sections, [:apply_to_dsa_with_criminal_record, :apply_with_caveats_and_emergency_control_what_next, :acronym_definitions]
+                assert_phrase_list :content_sections, [:apply_to_dsa_with_criminal_record, :apply_with_caveats_and_emergency_control_what_next, :DSA_guide_to_ADI_register, :acronym_definitions]
               end
             end # limited fue to disability
           end # automatic licence

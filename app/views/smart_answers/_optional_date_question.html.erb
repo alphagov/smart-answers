@@ -1,0 +1,14 @@
+<ul class="options optional-date">
+  <li>
+    <label for="response_selection_yes">
+      <%= radio_button_tag "response[selection]", "yes", prefill_value_is?("yes"), id: "response_selection_yes" %>
+      Yes &mdash; on <%= render "date_question", :question => question %>
+    </label>
+  </li>
+  <li>
+    <label for="response_selection_no">
+      <%= radio_button_tag "response[selection]", "no", prefill_value_is?("no"), id: "response_selection_no" %>
+      No
+    </label>
+  </li>
+</ul>

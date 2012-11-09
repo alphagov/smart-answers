@@ -50,7 +50,29 @@ date_question :dob_age? do
   calculate :state_pension_date do
     calculator.state_pension_date
   end
+
+  calculate :pension_credit_date do
+    calculator.state_pension_date(:female).strftime("%e %B %Y")
+  end
   
+  #TODO: refactor this so text lives in .yml file
+  calculate :pension_credit_statement do
+    if calculator.state_pension_date(:female) > Date.today
+      "You may be entitled to receive Pension Credit from " + pension_credit_date + "."
+    else
+      "You may have been entitled to receive Pension Credit from " + pension_credit_date + "."
+    end
+  end
+
+  #TODO: refactor this so text lives in .yml file
+  calculate :bus_pass_statement do
+    if calculator.state_pension_date(:female) > Date.today
+      "You may qualify for an [elderly person’s bus pass](/apply-for-elderly-person-bus-pass) from " + pension_credit_date + "."
+    else
+      "You may have qualified for an [elderly person’s bus pass](/apply-for-elderly-person-bus-pass) from" + pension_credit_date + "."
+    end
+  end
+
   calculate :formatted_state_pension_date do
     state_pension_date.strftime("%e %B %Y")
   end
@@ -221,33 +243,6 @@ value_question :years_of_jsa? do
   end
 end
 
-## Q5a - removed for initial release
-# multiple_choice :employed_between_60_and_64? do
-#   save_input_as :employed_between_60_and_64_yes_no
-
-#   option :yes 
-#   option :no 
-
-#   calculate :automatic_years do
-#     employed_between_60_and_64_yes_no == "no" ? calc.allocate_automatic_years : 0
-#   end
-
-#   calculate :qualifying_years do
-#     (qualifying_years + calc.allocate_automatic_years)
-#   end
-
-#   calculate :available_ni_years do
-#     calculator.available_years_sum(qualifying_years) 
-#   end
-
-#   next_node do |response|
-#     if response == "yes"
-#       :received_child_benefit?
-#     else
-#       (((calc.allocate_automatic_years + calc.qualifying_years) >= 30) ? :amount_result : :received_child_benefit?)
-#     end
-#   end
-# end
 
 ## Q6
 multiple_choice :received_child_benefit? do
@@ -274,7 +269,11 @@ value_question :years_of_benefit? do
   calculate :qualifying_years do
     benefit_years = Integer(responses.last)
     qy = (benefit_years + qualifying_years)
-    raise InvalidResponse if (benefit_years < 0 or benefit_years > 22) or !(calculator.has_available_years?(qy))
+    if benefit_years > 22 and calculator.has_available_years?(qy)
+      raise InvalidResponse, :error_maximum_hrp_years
+    elsif benefit_years < 0 or !(calculator.has_available_years?(qy))
+      raise InvalidResponse, :error_too_many_years
+    end
     qy
   end
 
@@ -430,6 +429,10 @@ outcome :amount_result do
 
   precalculate :pension_loss do
     sprintf("%.2f", calculator.pension_loss)
+  end
+
+  precalculate :what_if_not_full do
+    sprintf("%.2f", calculator.what_you_would_get_if_not_full)
   end
   
   precalculate :pension_summary do

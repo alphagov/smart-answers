@@ -2,7 +2,7 @@ en-GB:
   flow:
     calculate-statutory-sick-pay:
       meta:
-        description: Statutory Sick Pay (SSP) calculator - Check if an employee qualifies for statutory sick pay and how much to pay them
+        description: Statutory Sick Pay (SSP) calculator - check if an employee qualifies for statutory sick pay and how much to pay them
       title: Calculate your employee's Statutory Sick Pay
       body: |
         Check if an employee qualifies for Statutory Sick Pay (SSP) and how much to pay them.
@@ -29,11 +29,11 @@ en-GB:
           ##Your employee is entitled to sick pay:
 
           + £%{ssp_payment} in total
-          + for %{normal_workdays_out} days taken off sick between %{sick_start_date} and %{sick_end_date}
+          + for %{days_paid} days taken off sick between %{sick_start_date} and %{sick_end_date}
 
           The first 3 days of any period of illness (or any linked periods of illness separated by less than 8 weeks) won’t be paid. The payment amount will reflect this.
 
-          Employees can get SSP for up to 28 weeks. After that you must give them form SSP1 within 7 days of SSP ending. They may be able to get [Employment Support Allowance (ESA).](https://www.gov.uk/employment-support-allowance "Benefits & credits: employment support allowance (ESA)")
+          SSP can be paid for up to 28 weeks of an employee’s normal workdays. For this employee that equals a total of %{max_days_payable} days. After that you must give them form SSP1 within 7 days of SSP ending. They may be able to get [Employment Support Allowance (ESA).](https://www.gov.uk/employment-support-allowance "Benefits & credits: employment support allowance (ESA)")
 
 
           $D
@@ -46,6 +46,7 @@ en-GB:
           You may be able to [recover the statutory payments](http://www.hmrc.gov.uk/paye/employees/statutory-pay/ssp-calc.htm "How to calculate and recover Statutory Sick Pay") you’ve paid from HM Revenue & Customs (HMRC). 
           Your payroll software or [HMRC&apos;s basic PAYE tools](http://www.hmrc.gov.uk/paye/tools/basic-paye-tools.htm "Using HMRC's Basic PAYE Tools") can tell you how much you’ll get back.
 
+          *[SSP]: Statutory Sick Pay
         first_three_days_not_paid: |
           ##Your employee isn’t entitled to Statutory Sick Pay because the first 3 days of illness aren’t paid.
 
@@ -73,6 +74,7 @@ en-GB:
       ## Q6
       sickness_start_date?:
         title: On what date did your employee first become sick during the most recent period of illness (including weekends, bank holidays and non-working days)?
+        error_message: This calculator currently doesn't support periods of sickness that start before 6 April 2012
         body: |
           Note: This is the first day of their ‘Period of Incapacity for Work (PIW)’
 
@@ -90,6 +92,7 @@ en-GB:
       what_was_average_weekly_pay?:
         title: What was their average weekly pay, before deductions, before %{sick_start_date}?
         error_message: Please enter a number greater than 0
+        suffix_label: per week
 
       ## Q10
       what_was_average_weekly_earnings?:
@@ -97,18 +100,19 @@ en-GB:
         body: |
           If they were the director of a company incorporated before 1 October 2009 the rules can be complex - see page 28 of the [Employee Helpbook for Statutory Sick Pay](http://www.hmrc.gov.uk/helpsheets/e14.pdf "Employee Helpbook for Statutory Sick Pay"){:rel="external"}
         error_message: Please enter a number greater than 0
+        suffix_label: per week
 
       ## Q11
       related_illness?:
-        title: Is your employee’s current (or most recent) illness related to another illness within the past 8 weeks that lasted 4 or more days (including non-working days, weekends and holidays)?
+        title: Was your employee off sick within the past 8 weeks for 4 or more days (including non-working days, weekends and holidays)? 
         body: |
           These are called ‘linked Periods of Incapacity for Work (PIW)’. To check if an employee’s PIW links to a previous one, see pages 35 to 38 of the [Employer Helpbook for Statutory Sick Pay](http://www.hmrc.gov.uk/helpsheets/e14.pdf "Employer Helpbook for Statutory Sick Pay"){:rel="external"}
 
           *[PIW]: Period of Incapacity for Work
       ## Q12
       how_many_days_missed?:
-        title: During the previous illness, how many days was your employee away sick from work?
-        hint: Only count days that your employee was contracted to work for you.
+        title: How many normal workdays did your employee take off sick during all previous linked periods of incapacity for work?
+        hint: Enter the total number of normal workdays taken off sick before %{sick_start_date}. ‘Normal workdays’ are the days of the week your employee works on a regular basis.
         error_message: Please enter a number greater than 0
 
       ## Q13
@@ -171,4 +175,14 @@ en-GB:
           %{warning_message}
 
           %{outcome_text}
- 
+
+      ## A8
+      not_entitled_maximum_reached:
+        body: |
+          ##Your employee isn’t entitled to Statutory Sick Pay because they’ve already received the maximum amount of SSP (28 weeks). 
+
+          You must send them form SSP1 within 7 days of them going off sick. They may be able to get [Employment Support Allowance (ESA)](https://www.gov.uk/employment-support-allowance "Benefits & credits: employment support allowance (ESA)").
+
+          
+          $D [Download ‘Form SSP1, employee not entitled to SSP’ (PDF, 130KB)](http://www.dwp.gov.uk/advisers/claimforms/ssp1.pdf "Download ‘Statutory Sick Pay and an employee’s claim for benefit’ form"){:rel="external"} $D
+

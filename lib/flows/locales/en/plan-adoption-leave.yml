@@ -16,8 +16,8 @@ en-GB:
         ##What you need to know 
 
         You can’t use this tool if you’re 
-        [adopting from abroad](/adoption-leave “Adopting leave”) or taking 
-        [paternity leave for an adoption](/paternityleave “Paternity leave”).       
+        [adopting from abroad](/adoption-leave "Adopting leave") or taking 
+        [paternity leave for an adoption](/paternityleave "Paternity leave").
       # Questions
       child_match_date?:
         title: When were you matched with the child?
@@ -33,7 +33,7 @@ en-GB:
       adoption_leave_details:
         title: Your Adoption Leave dates
         next_steps: |
-          Read our guides to adoption [leave](/adoption-leave) or [pay](/statutory-adoption-pay “Statutory Adoption Pay”) 
+          Read our guides to adoption [leave](/adoption-leave "Adopting leave") or [pay](/statutory-adoption-pay "Statutory Adoption Pay") 
         body: |
           You can take up to 52 weeks Statutory Adoption Leave. 
           The dates below are based on this and the date the child starts to 
@@ -50,5 +50,5 @@ en-GB:
 
           ##Statutory Adoption Pay 
           While on leave, you might qualify for 
-          [Statutory Adoption Pay](/statutory-adoption-pay “Statutory Adoption Pay”) 
+          [Statutory Adoption Pay](/statutory-adoption-pay "Statutory Adoption Pay") 
           - up to £135.45 a week (before tax).

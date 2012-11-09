@@ -69,7 +69,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
               assert_current_node :done
               assert_phrase_list :eligible_finance, [:tuition_fee_loan, :maintenance_loan, :maintenance_grant]
               assert_state_variable :tuition_fee_amount, 8490
-              assert_state_variable :maintenance_loan_amount, 4375
+              assert_state_variable :maintenance_loan_amount, 2750 #4375 - (maintenance_grant_amount/2.0).floor
               assert_state_variable :maintenance_grant_amount, 3250
               assert_phrase_list :additional_benefits, []
             end
@@ -85,6 +85,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
             assert_current_node :done
             assert_phrase_list :eligible_finance, [:tuition_fee_loan, :maintenance_loan, :maintenance_grant]
             assert_state_variable :maintenance_grant_amount, 2341
+            assert_state_variable :maintenance_loan_amount, 3205
           end
 
           should "be done if 35k and not checking additional grants" do
@@ -94,6 +95,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
             assert_current_node :done
             assert_phrase_list :eligible_finance, [:tuition_fee_loan, :maintenance_loan, :maintenance_grant]
             assert_state_variable :maintenance_grant_amount, 1432
+            assert_state_variable :maintenance_loan_amount, 3659
           end
 
           should "be done if 40k and not checking additional grants" do
@@ -103,6 +105,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
             assert_current_node :done
             assert_phrase_list :eligible_finance, [:tuition_fee_loan, :maintenance_loan, :maintenance_grant]
             assert_state_variable :maintenance_grant_amount, 523
+            assert_state_variable :maintenance_loan_amount, 4114
           end
 
           should "be done if 42.6k and not checking additional grants" do
@@ -112,16 +115,41 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
             assert_current_node :done
             assert_phrase_list :eligible_finance, [:tuition_fee_loan, :maintenance_loan, :maintenance_grant]
             assert_state_variable :maintenance_grant_amount, 50
+            assert_state_variable :maintenance_loan_amount, 4350
           end
 
-          should "be done if 42.60k+ and not checking additional grants" do
-            add_response '50000'
+          should "be done if 42.6000 - 42875 and not checking additional grants" do
+            add_response '42875'
             add_response 'no'
 
             assert_current_node :done
             assert_phrase_list :eligible_finance, [:tuition_fee_loan, :maintenance_loan]
             assert_state_variable :maintenance_grant_amount, 0
+            assert_state_variable :maintenance_loan_amount, 4375
           end
+
+
+          should "be done and min loan amount if 58195 and not checking additional grants" do
+            add_response '58195'
+            add_response 'no'
+
+            assert_current_node :done
+            assert_phrase_list :eligible_finance, [:tuition_fee_loan, :maintenance_loan]
+            assert_state_variable :maintenance_grant_amount, 0
+            assert_state_variable :maintenance_loan_amount, 2843
+          end
+
+          should "be done and min loan amount if 60k and not checking additional grants" do
+            add_response '60000'
+            add_response 'no'
+
+            assert_current_node :done
+            assert_phrase_list :eligible_finance, [:tuition_fee_loan, :maintenance_loan]
+            assert_state_variable :maintenance_grant_amount, 0
+            assert_state_variable :maintenance_loan_amount, 2843
+          end
+
+
         end # at-home
 
         context "living away from home, outside London" do
@@ -129,14 +157,79 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
             add_response 'away-outside-london'
           end
 
-          should "set maintenance loan of 5500" do
-            assert_state_variable :maintenance_loan_amount, 5500
+          should "set max maintenance loan of 5500" do
+            assert_state_variable :max_maintenance_loan_amount, 5500
           end
 
           should "ask about household income" do
             assert_current_node :whats_your_household_income?
-            # rest of this tree tested above
           end
+
+          # additional maintenance grant and loan tests for living away from home, outside London
+          should "display correct grant and loan for under 25k" do
+            add_response 24500
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 3250
+            assert_state_variable :maintenance_loan_amount, 3875
+          end
+
+          should "display correct grant and loan for 30k" do
+            add_response 30000
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 2341
+            assert_state_variable :maintenance_loan_amount, 4330
+          end
+
+          should "display correct grant and loan for 35k" do
+            add_response 35000
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 1432
+            assert_state_variable :maintenance_loan_amount, 4784
+          end
+
+          should "display correct grant and loan for 40k" do
+            add_response 40000
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 523
+            assert_state_variable :maintenance_loan_amount, 5239
+          end
+
+
+          should "display correct grant and loan for 42601" do
+            add_response 42601
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 0
+            assert_state_variable :maintenance_loan_amount, 5500
+          end
+
+          should "display correct grant and loan for 45k" do
+            add_response 45000
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 0
+            assert_state_variable :maintenance_loan_amount, 5288
+          end
+
+          should "display correct min loan amount for 65k" do
+            add_response 65000
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 0
+            assert_state_variable :maintenance_loan_amount, 3575
+          end
+
         end # away-outside-london
 
         context "living away from home, in London" do
@@ -144,14 +237,88 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
             add_response 'away-in-london'
           end
 
-          should "set maintenance loan of 7675" do
-            assert_state_variable :maintenance_loan_amount, 7675
+          should "set max maintenance loan of 7675" do
+            assert_state_variable :max_maintenance_loan_amount, 7675
           end
 
           should "ask about household income" do
             assert_current_node :whats_your_household_income?
-            # rest of this tree tested above
           end
+
+          # additional maintenance grant and loan tests for living away from home, in London
+          should "display correct grant and loan for under 25k" do
+            add_response 24500
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 3250
+            assert_state_variable :maintenance_loan_amount, 6050
+          end
+
+          should "display correct grant and loan for 30k" do
+            add_response 30000
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 2341
+            assert_state_variable :maintenance_loan_amount, 6505
+          end
+
+          should "display correct grant and loan for 35k" do
+            add_response 35000
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 1432
+            assert_state_variable :maintenance_loan_amount, 6959
+          end
+
+          should "display correct grant and loan for 40k" do
+            add_response 40000
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 523
+            assert_state_variable :maintenance_loan_amount, 7414
+          end
+
+
+          should "display correct grant and loan for 42601" do
+            add_response 42601
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 0
+            assert_state_variable :maintenance_loan_amount, 7675
+          end
+
+          should "display correct grant and loan for 45k" do
+            add_response 45000
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 0
+            assert_state_variable :maintenance_loan_amount, 7463
+          end
+
+          should "display correct loan amount for 65k" do
+            add_response 65000
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 0
+            assert_state_variable :maintenance_loan_amount, 5463
+          end
+
+          should "display correct min loan amount for 70k" do
+            add_response 70000
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 0
+            assert_state_variable :maintenance_loan_amount, 4988
+          end
+
         end # away-in-london
 
       end # with fees
@@ -405,7 +572,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
               assert_current_node :done
               assert_phrase_list :eligible_finance, [:tuition_fee_loan, :maintenance_loan, :maintenance_grant]
               assert_state_variable :tuition_fee_amount, 8490
-              assert_state_variable :maintenance_loan_amount, 4375
+              assert_state_variable :maintenance_loan_amount, 2698 #4375 - (maintenance_grant_amount/2.0).floor
               assert_state_variable :maintenance_grant_amount, 3354
               assert_phrase_list :additional_benefits, []
             end
@@ -417,9 +584,10 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
               add_response 'no'
             end
 
-            should "be done and display correct maintenance grant amount" do
+            should "be done and display correct maintenance grant and loan amount" do
               assert_current_node :done
               assert_state_variable :maintenance_grant_amount, 2416
+              assert_state_variable :maintenance_loan_amount, 3167
             end
           end
 
@@ -429,25 +597,150 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
               add_response 'no'
             end
 
-            should "be done and display correct maintenance grant amount" do
+            should "be done and display correct maintenance grant and loan amount" do
               assert_current_node :done
               assert_state_variable :maintenance_grant_amount, 540
+              assert_state_variable :maintenance_loan_amount, 4105
             end
           end
 
-          context "household income at 42.6k and not checking additional grants" do
+          context "household income at 42611 and not checking additional grants" do
             setup do
-              add_response '42600'
+              add_response '42611'
               add_response 'no'
             end
 
-            should "be done and display correct maintenance grant amount" do
+            should "be done and display correct maintenance grant and loan amount" do
               assert_current_node :done
               assert_state_variable :maintenance_grant_amount, 50
+              assert_state_variable :maintenance_loan_amount, 4350
             end
           end
 
-        end # checking for grants etc.
+          context "household income at 60000 and not checking additional grants" do
+            setup do
+              add_response '60000'
+              add_response 'no'
+            end
+
+            should "be done and display correct maintenance grant and loan amount" do
+              assert_current_node :done
+              assert_state_variable :maintenance_grant_amount, 0
+              assert_state_variable :maintenance_loan_amount, 2843
+            end
+          end
+
+        end # living at home
+
+        # test grant and loan amounts for living away from home outside London
+        context "living away from home, outside London" do
+          setup do
+            add_response 'away-outside-london'
+          end
+
+          should "ask whats your household income" do
+            assert_current_node :whats_your_household_income?
+          end
+
+          should "display correct grant and loan amount for under £25k" do
+            add_response 22000
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 3354
+            assert_state_variable :maintenance_loan_amount, 3823
+          end
+
+
+          should "display correct grant and loan amount for 42611" do
+            add_response 42611
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 50
+            assert_state_variable :maintenance_loan_amount, 5475
+          end          
+
+          should "display correct grant and loan amount for 42612" do
+            add_response 42612
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 0
+            assert_state_variable :maintenance_loan_amount, 5500
+          end
+
+          should "display correct min loan amount for 65k" do
+            add_response 65000
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 0
+            assert_state_variable :maintenance_loan_amount, 3575
+          end
+
+
+        end # away from home, outside London
+
+
+        # test grant and loan amounts living away from home in London
+        context "living away from home, in London" do
+          setup do
+            add_response 'away-in-london'
+          end
+
+          should "ask whats your household income" do
+            assert_current_node :whats_your_household_income?
+          end
+
+          should "display correct grant and loan amount for under £25k" do
+            add_response 22000
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 3354
+            assert_state_variable :maintenance_loan_amount, 5998
+          end
+
+
+          should "display correct grant and loan amount for 42611" do
+            add_response 42611
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 50
+            assert_state_variable :maintenance_loan_amount, 7650
+          end          
+
+          should "display correct grant and loan amount for 42612" do
+            add_response 42612
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 0
+            assert_state_variable :maintenance_loan_amount, 7675
+          end
+
+          should "display correct loan amount for 65k" do
+            add_response 65000
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 0
+            assert_state_variable :maintenance_loan_amount, 5463
+          end
+
+          should "display correct min amount for 69745" do
+            add_response 69745
+            add_response 'no'
+
+            assert_current_node :done
+            assert_state_variable :maintenance_grant_amount, 0
+            assert_state_variable :maintenance_loan_amount, 4988
+          end
+
+        end # away from home, in london
+
       end # valid fees
     end # part-time student
   end # when course starts

@@ -5,7 +5,7 @@ en-GB:
         description: "Use this student finance calculator to estimate what student finance you could get for university - student loans, student grants, bursaries and other funding"
       phrases:
         body:
-          "You also qualify for extra grants and allowances:"
+          "You may also qualify for extra grants and allowances:"
         dependent_children: |
           - up to £148.75/week (1 child) or up to £255/week (2 or more children) of [Childcare Grant](/childcare-grant "Childcare Grant")
           - up to £1,508 of [Parents Learning Allowance](/parents-learning-allowance "Parents Learning Allowance")
@@ -19,13 +19,13 @@ en-GB:
         teacher_training: |
           - [Funding for teacher training](/teacher-training-funding "Funding for teacher training")
         medical: |
-          - [NHS Bursary](/nhs-bursaries "NHS Bursary") (NHS funding towards your fees and living costs)
+          - [NHS Bursary](/nhs-bursaries "NHS Bursary") (NHS funding towards your fees and living costs) - this might affect the amount of other student finance you get
         social_work: |
           - [Social Work Bursary](/social-work-bursaries "Social Work Bursary") (NHS funding towards your fees and living costs)
         tuition_fee_loan: |
           - %{tuition_fee_amount} Tuition Fee Loan
         maintenance_loan: |
-          - up to %{maintenance_loan_amount} Maintenance Loan (for living costs)
+          - %{maintenance_loan_amount} Maintenance Loan (for living costs)
         maintenance_grant: |
           - %{maintenance_grant_amount} Maintenance Grant (for living costs)
         additional_grants_and_allowances: You don't qualify for extra grants and allowances.
@@ -41,7 +41,7 @@ en-GB:
         It estimates what loans, grants and extra help you can get - eg if you're disabled or have children.
 
         ##What you need to know
-        Your result will be more accurate if you know your household income (your parents' or partner's income plus your own).
+        Your result will be more accurate if you know your annual household income (your parents' or partner's income plus your own).
 
       devolved_body: |
         If you're not from England, go to:
@@ -63,11 +63,11 @@ en-GB:
         error_message: Please enter a number up to the maximum amount
       where_will_you_live_while_studying?:
         options:
-          at-home: At home with my parents
+          at-home: At home
           away-outside-london: Away from home, outside of London
           away-in-london: Away from home, in London
       whats_your_household_income?:
-        title: What's your household income?
+        title: What's your annual household income?
         hint: This is your parents' or partner's income plus your own. It affects how much Maintenance Grant for help with living costs you get.
         error_message: Please enter a number
       part_time_do_you_want_to_check_for_additional_grants_and_allowances?:
@@ -75,7 +75,7 @@ en-GB:
         body: |
           Choose 'yes' if any of the following are true:
 
-          - you're doing a teacher training, medical or social work course
+          - you're doing a teacher training, social work, dental, medical, or healthcare course
           - you have children or an adult who depends on you financially
           - you have a disability, learning difficulty or health condition
           - you're on a low income
@@ -84,7 +84,7 @@ en-GB:
         body: |
           Choose 'yes' if any of the following are true:
 
-          - you're doing a teacher training, medical or social work course
+          - you're doing a teacher training, social work, dental, medical, or healthcare course
           - you have children or an adult who depends on you financially
           - you have a disability, learning difficulty or health condition
           - you're on a low income
@@ -101,7 +101,7 @@ en-GB:
       done_dont_qualify:
         body: |
           
-          You could get:
+          You could get per year:
 
           %{eligible_finance}
 
@@ -112,13 +112,16 @@ en-GB:
           You could also get extra [bursaries or scholarships](/extra-money-pay-university "Help from your university or college") from your university or college.
 
           ^Student loans have to be paid back - grants do not.
+
+          Generally, you’ll only get student finance if you’re doing your first higher education qualification. 
         next_steps: |
 
-          - [apply for student finance](http://www.studentfinance.direct.gov.uk/ "Apply for student finance")
-          - [read the guide to student finance](/apply-for-student-finance-2012-13 "Guide to student finance")
+          - Apply for [student finance](http://www.studentfinance.direct.gov.uk/ "Apply for student finance")
+
+          - Read the guide to [student finance](/student-finance "Guide to student finance")
       done:
         body: |
-          You could get:
+          You could get per year:
 
           %{eligible_finance}
 
@@ -129,7 +132,10 @@ en-GB:
           You could also get extra [bursaries or scholarships](/extra-money-pay-university "Help from your university or college") from your university or college.
 
           ^Student loans have to be paid back - grants do not.
+
+          Generally, you’ll only get student finance if you’re doing your first higher education qualification. 
         next_steps: |
 
-          - [apply for student finance](http://www.studentfinance.direct.gov.uk/ "Apply for student finance")
-          - [read the guide to student finance](/apply-for-student-finance-2012-13 "Guide to student finance")
+          - Apply for [student finance](http://www.studentfinance.direct.gov.uk/ "Apply for student finance")
+          
+          - Read the guide to [student finance](/student-finance "Guide to student finance")

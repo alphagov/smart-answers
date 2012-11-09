@@ -1,8 +1,8 @@
 en-GB:
   flow:
-    which-finance-is-rignt-for-your-business:
+    which-finance-is-right-for-your-business:
       meta:
-        description: Work out what type of finance is best for your business
+        description: "Work out what type of finance is best for your business, taking into account your business' size, turnover, shares and the amount of funding you need"
       title: "Which finance is right for your business?"
       options:
         "no": "No"
@@ -23,32 +23,32 @@ en-GB:
         info_shares: |
           **Shares**
 
-          Sell [shares](/business-finance-explained/shares “shares”) in your business to investors to raise money.
+          Sell [shares](/business-finance-explained/shares "shares") in your business to investors to raise money.
 
         info_loans: |
           **Loans**
 
-          A [loan](/business-finance-explained/loans “loans”) is an amount of money that you borrow and repay over an agreed length of time.
+          A [loan](/business-finance-explained/loans "loans") is an amount of money that you borrow and repay over an agreed length of time.
 
         info_grants: |
           **Grants**
 
-          A [grant](/business-finance-explained/grants “Grants”) is an amount of money given to an individual or business for a specific project or purpose.
+          A [grant](/business-finance-explained/grants "grants") is an amount of money given to an individual or business for a specific project or purpose.
 
         info_overdrafts: |
           **Overdrafts**
 
-          An [overdraft](/business-finance-explained/overdrafts “Overdrafts”) is a feature of a bank account that allows you to spend more money than you have in the account.
+          An [overdraft](/business-finance-explained/overdrafts "overdrafts") is a feature of a bank account that allows you to spend more money than you have in the account.
           
         info_invoice_financing: |
           **Invoice financing**
 
-          [Invoice financing](/business-finance-explained/invoice-financing “Invoice financing”) is when you sell your unpaid invoices to a third party to raise money.
+          [Invoice financing](/business-finance-explained/invoice-financing "invoice financing") is when you sell your unpaid invoices to a third party to raise money.
           
         info_leasing: |
           **Leasing**
 
-          [Renting or leasing](/business-finance-explained/leasing-or-buying-in-instalments “Leasing or buying in instalments”) assets means you won’t have to buy them outright.
+          [Renting or leasing](/business-finance-explained/leasing-or-buying-in-instalments "leasing or buying in instalments") assets means you won’t have to buy them outright.
 
       willing_to_offer_personal_assets?:
         title: Are you willing to offer personal assets as security?

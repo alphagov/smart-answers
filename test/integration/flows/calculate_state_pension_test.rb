@@ -32,6 +32,15 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_current_node :dob_age?
       end
 
+      context "pension_credit_date check -- born 5th Dec 1953" do
+        setup{ add_response Date.parse("5th Dec 1953")}
+        should "go to age result" do
+          assert_current_node :age_result
+          assert_state_variable :state_pension_date, Date.parse("05 Dec 2018")
+          assert_state_variable :pension_credit_date, Date.parse("06 Nov 2018").strftime("%e %B %Y")
+        end
+      end
+
       context "born on 6th April 1945" do
         setup do
           add_response Date.parse("6th April 1945")

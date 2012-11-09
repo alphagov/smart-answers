@@ -1,31 +1,14 @@
 status :draft
 satisfies_need "131"
 
+
 ## Q1
-multiple_choice :is_there_a_will? do
-  option :yes => :does_the_will_name_an_executor?
-  option :no => :no_will_outcome
-end
-
-## Q2
-multiple_choice :does_the_will_name_an_executor? do
-  option :yes => :executor_willing_to_apply?
-  option :no => :no_executor_outcome
-end
-
-## Q3
-multiple_choice :executor_willing_to_apply? do
-  option :yes => :use_a_solicitor?
-  option :no => :executor_not_willing_outcome
-end
-
-## Q4
 multiple_choice :use_a_solicitor? do
   option :solicitor => :use_a_solicitor_outcome
   option :myself => :where_did_deceased_live?
 end
 
-## Q5
+## Q2
 multiple_choice :where_did_deceased_live? do
   option :england_or_wales 
   option :scotland
@@ -36,7 +19,7 @@ multiple_choice :where_did_deceased_live? do
   next_node :inheritance_tax?
 end
 
-## Q6 
+## Q3 
 multiple_choice :inheritance_tax? do
   option :yes
   option :no
@@ -54,7 +37,7 @@ multiple_choice :inheritance_tax? do
   end
 end
 
-## Q7
+## Q4
 multiple_choice :amount_left_en_sco? do
   option :under_five_thousand
   option :five_thousand_or_more
@@ -80,7 +63,7 @@ multiple_choice :amount_left_en_sco? do
   end
 end
 
-## Q8
+## Q5
 multiple_choice :which_ni_county? do
   option :fermanagh_londonderry_tyrone
   option :antrim_armagh_down
@@ -96,7 +79,7 @@ multiple_choice :which_ni_county? do
   next_node :amount_left_ni?
 end
 
-## Q9
+## Q6
 multiple_choice :amount_left_ni? do
   option :under_ten_thousand
   option :ten_thousand_or_more
@@ -144,6 +127,14 @@ outcome :done_scotland do
       PhraseList.new(:scotland_no_inheritance_tax)
     end
   end
+
+   precalculate :next_steps_info do
+    if inheritance_tax
+      PhraseList.new(:scotland_inheritance_tax_next_steps)
+    else
+      PhraseList.new(:scotland_no_inheritance_tax_next_steps)
+    end
+  end
 end
 
 outcome :done_ni do
@@ -152,6 +143,14 @@ outcome :done_ni do
       PhraseList.new(:ni_inheritance_tax)
     else
       PhraseList.new(:ni_no_inheritance_tax)
+    end
+  end
+
+  precalculate :application_info_part2 do
+    if inheritance_tax
+      PhraseList.new(:ni_inheritance_tax_part2)
+    else
+      PhraseList.new(:ni_no_inheritance_tax_part2)
     end
   end
 end

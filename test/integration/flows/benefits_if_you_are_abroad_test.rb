@@ -267,10 +267,18 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
             assert_current_node :moving_to
           end
           
-          context "Barbados, Canada, Israel for 'Are you moving to:'" do
-            should "be answer 16" do
+          context "answers to 'Are you moving to:'" do
+            should "be answer 16a" do
+              add_response :bosnia_croatia_kosova
+              assert_current_node :answer_16a
+            end
+            should "be answer 16b" do
               add_response :barbados_canada_israel
-              assert_current_node :answer_16
+              assert_current_node :answer_16b
+            end
+            should "be answer 16c" do
+              add_response :jamaica_turkey_usa
+              assert_current_node :answer_16c
             end
           end
           

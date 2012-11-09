@@ -188,10 +188,16 @@ outcome :maternity_leave_and_pay_result do
     end
     pay_info
   end
+
+  calendar do |responses|
+    date "Statutory Maternity Leave", responses.leave_start_date..responses.leave_end_date
+    date "Latest date to give notice", responses.notice_of_leave_deadline
+    date "Earliest date maternity leave can start", responses.leave_earliest_start_date
+  end
 end
 
 
-## Paternity 
+## Paternity
 
 ## QP0
 multiple_choice :leave_or_pay_for_adoption? do
@@ -493,7 +499,7 @@ date_question :date_of_adoption_placement? do
     placement_date
   end
   calculate :a_leave_earliest_start do
-    calculator.format_date_day (adoption_placement_date - 14)
+    calculator.format_date (adoption_placement_date - 14)
   end
   next_node :adoption_employment_contract?
 end
@@ -540,7 +546,7 @@ date_question :adoption_date_leave_starts? do
   end
   
   calculate :a_notice_leave do
-    calculator.format_date_day calculator.a_notice_leave
+    calculator.format_date calculator.a_notice_leave
   end
 
   next_node :adoption_did_the_employee_work_for_you?

@@ -8,6 +8,11 @@
         <% if @presenter.current_node.has_body? %>
           <%= @presenter.current_node.body %>
         <% end %>
+        <% if @presenter.current_node.respond_to?(:calendar) and @presenter.current_node.has_calendar? %>
+          <div class="subscribe">
+            <p><%= link_to "Add dates to your calendar", smart_answer_path(params[:id], 'y', @presenter.current_state.responses, :format => 'ics') %></p>
+          </div>
+        <% end %>
       </div>
       <% if @presenter.current_node.has_next_steps? %>
         <div class="related next-steps">

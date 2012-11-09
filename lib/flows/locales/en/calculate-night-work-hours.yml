@@ -1,6 +1,8 @@
 en-GB:
   flow:
     calculate-night-work-hours:
+      meta:
+        description: "Work out the average time worked to see if the worker has reached the legal limit on night working hours"
       title: Calculate average night working time/night working hours
       body: |
         Night workers can refuse to work more than 8 hours in each 24-hour period, averaged over a 'reference period' (usually 17 weeks). Work out the average time worked to see if the worker has reached the legal limit on night working hours.
@@ -44,7 +46,7 @@ en-GB:
 
           Enter 17 unless the reference period is different in your workplace. If the person has been a nightworker for less than 17 weeks, enter the number of weeks they've been a nightworker.
 
-          Get help with calculating the [reference period](/limits-on-night-work-hours "Limits on night work hours").
+          Get help with calculating the [reference period](/night-working-hours "Night working hours").
         error_message: Please enter a number between 1 and 52
 
       what_is_your_work_cycle?:

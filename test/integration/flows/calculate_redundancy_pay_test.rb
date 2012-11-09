@@ -14,16 +14,16 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
       assert_current_node :age_of_employee?
     end
 
-    context "older than 41" do
+    context "aged 42" do
       setup do
-        add_response "over-41"
+        add_response "42"
       end
 
       should "ask how long the employee has been employed" do
         assert_current_node :years_employed?
       end
 
-      context "under 2 years" do
+      context "1 year of employment" do
         setup do
           add_response "1"
         end
@@ -33,7 +33,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
         end
       end
 
-      context "over 2 years" do
+      context "4 years of employment" do
         setup do
           add_response "4"
         end
@@ -52,7 +52,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
           end
 
           should "give me a figure no higher than 430 per week" do
-            assert_state_variable :statutory_redundancy_pay, "2,580"
+            assert_state_variable :statutory_redundancy_pay, "1,935"
           end
         end
       end
@@ -96,7 +96,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
           end
 
           should "give me a figure no higher than 430 per week" do
-            assert_state_variable :statutory_redundancy_pay, "1,720"
+            assert_state_variable :statutory_redundancy_pay, "860"
           end
         end
 
@@ -106,7 +106,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
           end
 
           should "give me a figure below 430" do
-            assert_state_variable :statutory_redundancy_pay, "1,200"
+            assert_state_variable :statutory_redundancy_pay, "600"
           end
         end
       end
@@ -114,7 +114,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
 
     context "under 22 years of age" do
       setup do
-        add_response "under-22"
+        add_response "19"
       end
 
       should "ask how long the employee has been employed" do
@@ -133,7 +133,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
 
       context "over 2 years" do
         setup do
-          add_response "6"
+          add_response "4"
         end
 
         should "ask for salary" do
@@ -150,7 +150,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
           end
 
           should "give me a figure no higher than 430 per week" do
-            assert_state_variable :statutory_redundancy_pay, "1,290"
+            assert_state_variable :statutory_redundancy_pay, "860"
           end
         end
 
@@ -160,7 +160,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
           end
 
           should "give me a figure below 430" do
-            assert_state_variable :statutory_redundancy_pay, "900"
+            assert_state_variable :statutory_redundancy_pay, "600"
           end
         end
       end
@@ -176,9 +176,9 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
       assert_current_node :age_of_employee?
     end
 
-    context "older than 41" do
+    context "42 years old" do
       setup do
-        add_response "over-41"
+        add_response "42"
       end
 
       should "ask how long the employee has been employed" do
@@ -214,7 +214,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
           end
 
           should "give me a figure no higher than 430 per week" do
-            assert_state_variable :statutory_redundancy_pay, "2,580"
+            assert_state_variable :statutory_redundancy_pay, "1,935"
           end
         end
       end
@@ -258,7 +258,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
           end
 
           should "give me a figure no higher than 430 per week" do
-            assert_state_variable :statutory_redundancy_pay, "1,720"
+            assert_state_variable :statutory_redundancy_pay, "860"
           end
         end
 
@@ -268,15 +268,40 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
           end
 
           should "give me a figure below 430" do
-            assert_state_variable :statutory_redundancy_pay, "1,200"
+            assert_state_variable :statutory_redundancy_pay, "600"
           end
         end
       end
     end
 
-    context "under 22 years of age" do
+
+    context "catches years_employed greater than age_of_employee" do
+      context "be 18 years old and worked 20" do
+        setup do
+          add_response 18
+        end
+        should "fail on 4 years" do
+          add_response 4
+          assert_current_node_is_error
+        end
+        should "fail on 20 years" do
+          add_response 20
+          assert_current_node_is_error
+        end
+        should "succeed on 3" do
+          add_response 3 
+          assert_current_node :weekly_pay_before_tax?
+        end
+        should "succeed on 2" do
+          add_response 2 
+          assert_current_node :weekly_pay_before_tax?
+        end
+      end
+    end
+
+    context "21 years of age" do
       setup do
-        add_response "under-22"
+        add_response "21"
       end
 
       should "ask how long the employee has been employed" do

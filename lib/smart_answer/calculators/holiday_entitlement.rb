@@ -10,6 +10,14 @@ module SmartAnswer::Calculators
       days > days_cap ? days_cap : days
     end
 
+    def full_time_part_time_hours
+      5.6 * fraction_of_year * self.hours_per_week  
+    end
+
+    def full_time_part_time_hours_and_minutes
+      (full_time_part_time_hours * 60).floor.divmod(60)
+    end
+  
     def days_cap
       28 * fraction_of_year
     end

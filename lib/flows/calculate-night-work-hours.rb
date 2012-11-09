@@ -14,7 +14,7 @@ value_question :how_many_night_hours_worked? do
   next_node do |response|
     hours = response.to_i
     if hours < 1
-      raise SmartAnswer::InvalidResponse, "Please enter a number"
+      raise SmartAnswer::InvalidResponse
     elsif hours > 3
       :taken_rest_period?
     else
@@ -37,7 +37,7 @@ value_question :reference_period? do
   calculate :weeks_worked do
     weeks = Integer(responses.last)
     if weeks < 1 or weeks > 52
-      raise SmartAnswer::InvalidResponse, "Please enter a number between 0 and 53"
+      raise SmartAnswer::InvalidResponse
     end
     weeks
   end

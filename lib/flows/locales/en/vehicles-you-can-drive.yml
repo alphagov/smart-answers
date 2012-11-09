@@ -2,15 +2,20 @@ en-GB:
   flow:
     vehicles-you-can-drive:
       meta:
-        description: "Find out if you’re old enough to or have the right kind of driving licence to drive different kinds of vehicle."
+        description: "Find out if you’re old enough to or have the right kind of driving licence to drive different kinds of vehicle"
       title: |
         Vehicles you can drive
       options: 
         "yes": "Yes"
         "no": "No"
       body: |
-        This tool tells you if you’re old enough to or have the right kind of driving licence to drive different kinds of vehicle.
+        This tool tells you if you're old enough to or have the right kind of driving licence to 
+        drive different kinds of vehicle.
+
+        ^Related links:
         
+        [Driving licence categories](/driving-licence-categories)
+
       ## Q1
       what_type_of_vehicle?:
         title: What kind of vehicle do you want to drive?
@@ -201,7 +206,7 @@ en-GB:
 
           Even if you passed your test on a light or medium-sized motorbike (category A1 or restricted category A), you can now ride any larger bikes as you’ve had your licence for more than 2 years.
 
-          %[The rules are changing from 19 January 2013](/ride-motorcycle-moped/new-motorcycle-and-moped-licence-rules-from-19-january-2013 "The rules are changing from 19 January 2013"). If you take your test after this date the new rules will apply to you.%
+          %[The rules are changing from 19 January 2013](/ride-motorcycle-moped/new-rules-from-january-2013 "The rules are changing from 19 January 2013"). If you take your test after this date the new rules will apply to you.%
         next_steps: |
           [Riding a motorcycle or moped](/ride-motorcycle-moped "Riding a motorcycle of moped")
 
@@ -213,7 +218,7 @@ en-GB:
 
           ^If you took the test on a medium-sized category A motorcycle, you’ll be able to ride any size of bike once you’ve had your full licence for 2 years.^
 
-          %[The rules are changing from 19 January 2013](/ride-motorcycle-moped/new-motorcycle-and-moped-licence-rules-from-19-january-2013 "The rules are changing from 19 January 2013"). If you take your test after this date the new rules will apply to you.%
+          %[The rules are changing from 19 January 2013](/ride-motorcycle-moped/new-rules-from-january-2013 "The rules are changing from 19 January 2013"). If you take your test after this date the new rules will apply to you.%
         next_steps: |
           [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
 
@@ -280,7 +285,7 @@ en-GB:
 
           ^If you take your test on a medium-sized category A motorbike, you’ll be able to ride any size of bike once you’ve had your full licence for 2 years.^
 
-          %[The rules are changing from 19 January 2013](/ride-motorcycle-moped/new-motorcycle-and-moped-licence-rules-from-19-january-2013 "The rules are changing from 19 January 2013"). If you take your test after this date the new rules will apply to you.%
+          %[The rules are changing from 19 January 2013](/ride-motorcycle-moped/new-rules-from-january-2013 "The rules are changing from 19 January 2013"). If you take your test after this date the new rules will apply to you.%
 
           ##Motorbike categories
 
@@ -299,11 +304,13 @@ en-GB:
         body: |
           You can apply for a provisional licence then learn to ride any size of motorbike. If you already have a car licence (category B) you’ll automatically have provisional motorbike entitlement.
 
+          You’ll then need to complete compulsory basic training (CBT) and take a full motorbike test within 2 years.
+
           ##Riding larger motorbikes
 
           You’ll need to pass the practical test on a bike with a power output of at least 35kW to ride any size of bike.
 
-          Otherwise you’ll be restricted for 2 years to bikes up to 25kW with a power/weight ratio not more than 0.16kW/kg. After this you can ride any size of bike.
+          Alternatively you can take a test of a motorbike of between 120 and 125cc and capable of 100km/h. This will let you ride motorbikes up to 25kW with a power/weight ratio not more than 0.16kW/kg for 2 years. After this you can ride any size of bike.
         next_steps: |
           [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
           
@@ -467,9 +474,7 @@ en-GB:
 
           ##Towing
 
-          You can also drive minibuses with trailers where the total weight of vehicle and trailer isn’t more than 4,250 kg.
-
-          The fully loaded trailer can’t weigh more than the unladen vehicle weight.
+          You have the D1+E towing entitlement, which means you can drive minibuses with trailers over 750 kg.           
         next_steps: |
           [Driving a minibus](/driving-a-minibus "Driving a minibus")
       ## A27
@@ -488,7 +493,7 @@ en-GB:
 
           [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
           
-          [Driver Certificate of Professional Competence (Driver CPC)](/driver-certificate-of-professional-competence-driver-cpc/overview "Driver Certificate of Professional Competence (Driver CPC)")   
+          [Driver Certificate of Professional Competence (Driver CPC)](/driver-certificate-of-professional-competence-cpc "Driver Certificate of Professional Competence (Driver CPC)")   
       ## A28
       psv_limited_entitlement:
         body: |
@@ -515,7 +520,7 @@ en-GB:
           *[Driver CPC]: Driver Certificate of Professional Competence
 
         next_steps: |
-          [Driver Certificate of Professional Competence (Driver CPC)](/driver-certificate-of-professional-competence-driver-cpc/overview "Driver Certificate of Professional Competence")
+          [Driver Certificate of Professional Competence (Driver CPC)](/driver-certificate-of-professional-competence-cpc "Driver Certificate of Professional Competence")
       ## A32
       bus_apply_for_cat_d:
         body: |

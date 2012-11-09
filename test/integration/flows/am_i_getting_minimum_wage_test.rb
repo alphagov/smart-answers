@@ -53,6 +53,14 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       should "ask 'how old are you?'" do
         assert_current_node :how_old_are_you?
       end
+
+      context "answered 15 to 'how old are you?'" do
+        setup {add_response 15}
+
+        should "display under school leaving age outcome" do
+          assert_current_node :under_school_leaving_age
+        end
+      end
       
       context "answered 19 to 'how old are you?'" do
         setup do
@@ -74,6 +82,20 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
             assert_current_node :how_many_hours_do_you_work?
           end
           
+          context "test hours entry for hours worked" do
+            should "succeed on 37.5 entered" do
+              add_response "37.5"
+              assert_current_node :how_much_are_you_paid_during_pay_period?
+            end
+            should "fail on text entered" do
+              add_response "no numbers"
+              assert_current_node_is_error
+            end
+            should "succeed on 0.01 entered" do
+              add_response "0.01"
+            end
+          end
+
           context "answered 'how many hours do you work?'" do
             setup do
               add_response 42
@@ -330,6 +352,21 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
               assert_current_node :how_many_hours_did_you_work?
             end
             
+
+          context "test hours entry for hours worked" do
+            should "succeed on 37.5 entered" do
+              add_response "37.5"
+              assert_current_node :how_much_were_you_paid_during_pay_period?
+            end
+            should "fail on text entered" do
+              add_response "no numbers"
+              assert_current_node_is_error
+            end
+            should "succeed on 0.01 entered" do
+              add_response "0.01"
+            end
+          end
+
             context "answered 'how many hours did you work?'" do
               setup do
                 add_response 42

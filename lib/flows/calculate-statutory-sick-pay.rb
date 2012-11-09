@@ -40,6 +40,8 @@ end
 date_question :sickness_start_date? do
 	# should really add options to date_question to specify formatting
 	calculate :sick_start_date do
+		# currently no support for sickness periods that start before 6 April 2012
+		raise SmartAnswer::InvalidResponse if Date.parse(responses.last) < Date.parse("6 April 2012")
 		Date.parse(responses.last).strftime("%e %B %Y")
 	end
 	next_node :sickness_end_date?
@@ -77,6 +79,7 @@ money_question :what_was_average_weekly_pay? do
 		end
 	end
 	next_node do |response|
+		## TODO: look up LEL at sickness start date for this test
 		if response.to_f < Calculators::StatutorySickPayCalculator::LOWER_EARNING_LIMIT
 			:not_earned_enough												## A5
 		else
@@ -96,6 +99,7 @@ money_question :what_was_average_weekly_earnings? do
 		end
 	end
 	next_node do |response|
+		## TODO: look up LEL at sickness start date for this test
 		if response.to_f < Calculators::StatutorySickPayCalculator::LOWER_EARNING_LIMIT
 			:not_earned_enough											## A5
 		else
@@ -108,6 +112,8 @@ end
 multiple_choice :related_illness? do
 	option :yes => :how_many_days_missed? 						## Q12
 	option :no => :how_many_days_worked? 						## Q13
+
+	save_input_as :previous_related_illness
 end
 
 ## Q12
@@ -123,7 +129,7 @@ value_question :how_many_days_missed? do
       end
     end
 	end
-	next_node :how_many_days_worked? 								## Q13
+	next_node :how_many_days_worked? ## Q13
 end
 
 
@@ -132,53 +138,68 @@ value_question :how_many_days_worked? do
 	calculate :pattern_days do
 		# ensure we get an integer
 		if ! (responses.last.to_s =~ /\A\d+\z/)
-      		raise SmartAnswer::InvalidResponse
+      	raise SmartAnswer::InvalidResponse
     	else
     	# and one between 1..7
-      		if (1..7).include?(responses.last.to_i)
-      			responses.last.to_i
-      		else
-      			raise SmartAnswer::InvalidResponse
-      		end
+      	if (1..7).include?(responses.last.to_i)
+      		responses.last.to_i
+      	else
+      		raise SmartAnswer::InvalidResponse
+      	end
     	end
 	end
 	calculate :calculator do
 		if prev_sick_days
-			Calculators::StatutorySickPayCalculator.new(prev_sick_days)
+			Calculators::StatutorySickPayCalculator.new(prev_sick_days, Date.parse(sick_start_date))
 		else 
-			Calculators::StatutorySickPayCalculator.new(0)
+			Calculators::StatutorySickPayCalculator.new(0, Date.parse(sick_start_date))
 		end
 	end
 	calculate :daily_rate do
 		calculator.set_daily_rate(pattern_days)
 		calculator.daily_rate
 	end
-	next_node :normal_workdays_taken_as_sick?		## Q8
+
+	next_node do |response|
+		patt_days = response.to_i
+
+		if (previous_related_illness == 'yes') and (prev_sick_days >= (patt_days * 28 + 3))
+			 :not_entitled_maximum_reached
+		else
+			:normal_workdays_taken_as_sick?
+		end
+	end
 end
 
 ## Q14
 value_question :normal_workdays_taken_as_sick? do
 	precalculate :total_days_sick do
-		Date.parse(sick_end_date) - Date.parse(sick_start_date)
+		(Date.parse(sick_end_date) - Date.parse(sick_start_date)).to_i
 	end
 
 	calculate :normal_workdays_out do
 		if ! (responses.last.to_s =~ /\A\d+\z/)
-      		raise SmartAnswer::InvalidResponse
-    	else
+      raise SmartAnswer::InvalidResponse
+    else
 			if (responses.last.to_i < 1) or (responses.last.to_i > total_days_sick)
-      			raise SmartAnswer::InvalidResponse
-      		else
+      	raise SmartAnswer::InvalidResponse
+      else
 				calculator.set_normal_work_days(responses.last.to_i)
 				calculator.normal_work_days
-      		end
+      end
 		end
 	end
 	calculate :ssp_payment do
 		sprintf("%.2f", (calculator.ssp_payment < 1 ? 0.0 : calculator.ssp_payment))
 	end
 
-	next_node :entitled_or_not_enough_days
+	next_node do |response|
+		if calculator.days_that_can_be_paid_for_this_period == 0
+			:not_entitled_maximum_reached
+		else
+			:entitled_or_not_enough_days
+		end
+	end
 end
 
 ## Outcomes
@@ -204,11 +225,22 @@ outcome :entitled_or_not_enough_days do
 		end
 	end
 
+	precalculate :days_paid do
+		calculator.days_to_pay
+	end
+
+	precalculate :max_days_payable do
+		calculator.max_days_that_can_be_paid
+	end
+
 	precalculate :outcome_text do
 		if calculator.ssp_payment >= 1 
-			PhraseList.new(:entitled_info)
+			PhraseList.new(:entitled_info) ## A6
 		else
-			PhraseList.new(:first_three_days_not_paid)
+			PhraseList.new(:first_three_days_not_paid) ## A7
 		end
 	end
 end
+
+## A8
+outcome :not_entitled_maximum_reached
