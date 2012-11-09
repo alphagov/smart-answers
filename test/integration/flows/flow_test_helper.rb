@@ -36,4 +36,13 @@ module FlowTestHelper
     assert phrase_list.is_a?(SmartAnswer::PhraseList), "State variable #{variable_name} is not a PhraseList"
     assert_equal expected_keys, phrase_list.phrase_keys
   end
+
+  def assert_calendar
+    assert @flow.node(current_state.current_node).evaluate_calendar(current_state).present?
+  end
+
+  def assert_calendar_date(expected_date_or_range)
+    calendar = @flow.node(current_state.current_node).evaluate_calendar(current_state)
+    assert calendar.dates.select {|(title, date)| date == expected_date_or_range }.any?
+  end
 end
