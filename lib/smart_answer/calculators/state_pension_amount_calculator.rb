@@ -15,7 +15,7 @@ module SmartAnswer::Calculators
     end
 
     def current_weekly_rate
-      BigDecimal.new('107.45')
+      107.45
     end
 
     # Everyone needs 30 qualifying years in all cases - no need to worry about old rules
@@ -44,7 +44,7 @@ module SmartAnswer::Calculators
 
     def what_you_get_raw
       if qualifying_years < years_needed
-        BigDecimal.new(qualifying_years.to_s) / BigDecimal.new(years_needed.to_s) * current_weekly_rate
+        (qualifying_years.to_f / years_needed.to_f * current_weekly_rate).round(10)
       else
         current_weekly_rate
       end
@@ -53,7 +53,7 @@ module SmartAnswer::Calculators
     # what would you get if all remaining years to pension were qualifying years
     def what_you_would_get_if_not_full
       if (qualifying_years + years_to_pension) < years_needed
-        BigDecimal.new((qualifying_years + years_to_pension).to_s) / BigDecimal.new(years_needed.to_s) * current_weekly_rate
+        ((qualifying_years + years_to_pension) / years_needed.to_f * current_weekly_rate).round(10)
       else
         current_weekly_rate
       end

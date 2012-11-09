@@ -5,21 +5,13 @@ module SmartAnswer::Calculators
   class HolidayEntitlement < OpenStruct
     # created for the holiday entitlement calculator
 
-    def self.holiday_multiplier
-      BigDecimal.new('5.6')
-    end
-
-    def self.working_weeks
-      BigDecimal.new('46.4')
-    end
-
     def full_time_part_time_days
-      days = self.class.holiday_multiplier * fraction_of_year * days_per_week
+      days = (5.6 * fraction_of_year * days_per_week).round(10)
       days > days_cap ? days_cap : days
     end
 
     def full_time_part_time_hours
-      self.class.holiday_multiplier * fraction_of_year * hours_per_week  
+      (5.6 * fraction_of_year * hours_per_week).round(10)
     end
 
     def full_time_part_time_hours_and_minutes
@@ -27,17 +19,17 @@ module SmartAnswer::Calculators
     end
   
     def days_cap
-      28 * fraction_of_year
+      (28 * fraction_of_year).round(10)
     end
 
 
     def casual_irregular_entitlement
-      minutes = self.class.holiday_multiplier / self.class.working_weeks * total_hours * 60
+      minutes = (5.6 / 46.4 * total_hours * 60).round(10)
       minutes.floor.divmod(60).map(&:floor)
     end
 
     def annualised_hours_per_week
-      total_hours / self.class.working_weeks
+      (total_hours / 46.4).round(10)
     end
 
     def annualised_entitlement
@@ -46,21 +38,21 @@ module SmartAnswer::Calculators
     end
 
     def compressed_hours_entitlement
-      minutes = self.class.holiday_multiplier * hours_per_week * 60
+      minutes = (5.6 * hours_per_week * 60).round(10)
       minutes.floor.divmod(60).map(&:floor)
     end
 
     def compressed_hours_daily_average
-      minutes = hours_per_week / days_per_week * 60
+      minutes = (hours_per_week / days_per_week * 60).round(10)
       minutes.floor.divmod(60).map(&:floor)
     end
 
     def shifts_per_week
-      BigDecimal.new(shifts_per_shift_pattern.to_s) / BigDecimal.new(days_per_shift_pattern.to_s) * 7
+      (shifts_per_shift_pattern.to_f / days_per_shift_pattern.to_f * 7).round(10)
     end
 
     def shift_entitlement
-      self.class.holiday_multiplier * fraction_of_year * shifts_per_week
+      (5.6 * fraction_of_year * shifts_per_week).round(10)
     end
 
     def date_calc
@@ -124,11 +116,10 @@ module SmartAnswer::Calculators
       days_divide = feb29th_in_range(leave_year_start, leave_year_end) ? 366 : 365
       
       if self.start_date
-        fraction = (leave_year_end - date_calc + 1) / days_divide
+        (leave_year_end - date_calc + 1) / days_divide
       else
-        fraction = (date_calc - leave_year_start + 1) / days_divide
+        (date_calc - leave_year_start + 1) / days_divide
       end
-      BigDecimal.new(fraction.to_f.to_s)
     end
 
     def formatted_fraction_of_year(dp = 2)

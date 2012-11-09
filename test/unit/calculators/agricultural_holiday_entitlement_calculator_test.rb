@@ -11,7 +11,6 @@ module SmartAnswer::Calculators
           assert_equal 38, @calc.holiday_days(7)
           assert_equal 31, @calc.holiday_days(5)
           assert_equal 13, @calc.holiday_days(1.5)
-          assert_equal BigDecimal, @calc.holiday_days(0.5).class
           assert_equal 7.5, @calc.holiday_days(0.5)
         end
       end

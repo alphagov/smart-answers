@@ -51,7 +51,6 @@ module SmartAnswer::Calculators
         should "return the fraction of a year" do
           calc = HolidayEntitlement.new(:start_date => '2011-02-21')
           assert_equal '0.8603', sprintf('%.4f', calc.fraction_of_year)
-          assert_equal BigDecimal, calc.fraction_of_year.class
         end
 
         should "return the fraction of a year in a leap year" do

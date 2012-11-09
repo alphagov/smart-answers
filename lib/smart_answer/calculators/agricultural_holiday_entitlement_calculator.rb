@@ -39,7 +39,7 @@ module SmartAnswer::Calculators
       elsif days_worked_per_week > 1
         13
       else
-        BigDecimal.new('7.5')
+        7.5
       end
     end
   end
