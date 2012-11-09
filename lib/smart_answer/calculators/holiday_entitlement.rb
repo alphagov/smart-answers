@@ -56,7 +56,7 @@ module SmartAnswer::Calculators
     end
 
     def shifts_per_week
-      shifts_per_shift_pattern.to_f / days_per_shift_pattern.to_f * 7
+      BigDecimal.new(shifts_per_shift_pattern.to_s) / BigDecimal.new(days_per_shift_pattern.to_s) * 7
     end
 
     def shift_entitlement
@@ -122,12 +122,13 @@ module SmartAnswer::Calculators
       # year when leave_year_start_date is not set, but should work a little bit better
       # when it is not set.
       days_divide = feb29th_in_range(leave_year_start, leave_year_end) ? 366 : 365
-
+      
       if self.start_date
-        (leave_year_end - date_calc + 1) / days_divide
+        fraction = (leave_year_end - date_calc + 1) / days_divide
       else
-        (date_calc - leave_year_start + 1) / days_divide
+        fraction = (date_calc - leave_year_start + 1) / days_divide
       end
+      BigDecimal.new(fraction.to_f.to_s)
     end
 
     def formatted_fraction_of_year(dp = 2)
