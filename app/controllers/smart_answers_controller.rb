@@ -20,6 +20,7 @@ class SmartAnswersController < ApplicationController
       }
       format.ics {
         if @presenter.current_node.respond_to?(:calendar) and @presenter.current_node.has_calendar?
+          response.headers['Content-Disposition'] = "attachment; filename=\"#{@name.to_s}.ics\""
           render :text => @presenter.current_node.calendar.to_ics, :layout => false
         else
           render_404
