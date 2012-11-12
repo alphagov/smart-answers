@@ -295,9 +295,9 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
             context "answer 55" do
               setup do
                 add_response 55
-              end              
+              end
               should "say 'costs have not increased'" do
-                assert_current_node :costs_have_not_increased
+                assert_current_node :costs_have_increased_below_threshold
               end
             end
           end
@@ -332,8 +332,17 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
                 add_response 58
               end
               # A15
-              should "say 'your costs have not increased'" do
-                assert_current_node :costs_have_not_increased
+              should "say 'your costs have not increased enough'" do
+                assert_current_node :costs_have_increased_below_threshold
+              end
+            end
+            context "answer '70'" do
+              setup do
+                add_response 90
+              end
+              # A15
+              should "say 'your costs have decreased'" do
+                assert_current_node :costs_have_decreased
               end
             end
           end

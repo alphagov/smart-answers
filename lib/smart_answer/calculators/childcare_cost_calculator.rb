@@ -2,7 +2,7 @@ module SmartAnswer::Calculators
   class ChildcareCostCalculator
     # C1, C2, C4, C8, C9
     def self.weekly_cost(annual_cost)
-      (annual_cost / 52.0).round
+      (Float(annual_cost) / 52.0).round
     end
 
     # C3, C7
@@ -22,7 +22,7 @@ module SmartAnswer::Calculators
 
     # C10
     def self.cost_change(new_weekly_cost, old_weekly_tax)
-      (new_weekly_cost - old_weekly_tax).abs
+      (Float(new_weekly_cost) - Float(old_weekly_tax))
     end
 
     # C11, C12, C14

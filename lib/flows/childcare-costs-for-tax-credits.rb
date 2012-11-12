@@ -62,120 +62,126 @@ end
 #
 
 # C1
-value_question :costs_for_year_in_weeks? do
+money_question :costs_for_year_in_weeks? do
   calculate :cost do
-    Calculators::ChildcareCostCalculator.weekly_cost(responses.last.to_i)
+    Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
   end
   next_node :weekly_costs # A2
 end
 
 # C2, C4
-value_question :costs_for_year_in_months? do
+money_question :costs_for_year_in_months? do
   calculate :cost do
-    Calculators::ChildcareCostCalculator.weekly_cost(responses.last.to_i)
+    Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
   end
   next_node :weekly_costs # A3, A5
 end
 
 # C3, C7
-value_question :how_much_do_you_pay_each_month? do
+money_question :how_much_do_you_pay_each_month? do
   calculate :cost do
-    Calculators::ChildcareCostCalculator.weekly_cost_from_monthly(responses.last.to_i)
+    Calculators::ChildcareCostCalculator.weekly_cost_from_monthly(responses.last)
   end
   next_node :weekly_costs # A4
 end
 
 # C5
-value_question :how_much_do_you_pay_each_fortnight? do
+money_question :how_much_do_you_pay_each_fortnight? do
   calculate :cost do
-    Calculators::ChildcareCostCalculator.weekly_cost_from_fortnightly(responses.last.to_i)
+    Calculators::ChildcareCostCalculator.weekly_cost_from_fortnightly(responses.last)
   end
   next_node :weekly_costs_for_claim_form # A7
 end
 
 # C6
-value_question :how_much_do_you_pay_every_four_weeks? do
+money_question :how_much_do_you_pay_every_four_weeks? do
   calculate :cost do
-    Calculators::ChildcareCostCalculator.weekly_cost_from_four_weekly(responses.last.to_i)
+    Calculators::ChildcareCostCalculator.weekly_cost_from_four_weekly(responses.last)
   end
   next_node :weekly_costs_for_claim_form # A8
 end
 
 # C8
- value_question :how_much_do_you_pay_anually? do
+money_question :how_much_do_you_pay_anually? do
   calculate :cost do
-    Calculators::ChildcareCostCalculator.weekly_cost(responses.last.to_i)
+    Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
   end
   next_node :weekly_costs_for_claim_form # A11
 end
 
 # C9
-value_question :varying_annual_cost? do
+money_question :varying_annual_cost? do
   calculate :cost do
-    Calculators::ChildcareCostCalculator.weekly_cost(responses.last.to_i)
+    Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
   end
   next_node :weekly_costs_for_claim_form # A13
 end
 
 # C10A
-value_question :new_weekly_costs? do
+money_question :new_weekly_costs? do
   save_input_as :new_weekly_cost
   next_node :old_weekly_costs?
 end
 
 # C10B
-value_question :old_weekly_costs? do
+money_question :old_weekly_costs? do
   calculate :cost do
-    Calculators::ChildcareCostCalculator.cost_change(new_weekly_cost.to_i, responses.last.to_i)
+    Calculators::ChildcareCostCalculator.cost_change(new_weekly_cost, responses.last)
   end
   next_node do |response|
-    diff = Calculators::ChildcareCostCalculator.cost_change(new_weekly_cost.to_i, response.to_i)
+    diff = Calculators::ChildcareCostCalculator.cost_change(new_weekly_cost, response)
     if diff > 10
       :costs_have_increased
+    elsif diff > 0
+      :costs_have_increased_below_threshold
     else
-      :costs_have_not_increased
+      :costs_have_decreased
     end
   end
 end
 
 # C11A, C12A, C14A
-value_question :new_annual_costs? do
+money_question :new_annual_costs? do
   save_input_as :new_annual_cost
   next_node :old_annual_costs?
 end
 
 # C11B, C12B, C14B
-value_question :old_annual_costs? do
+money_question :old_annual_costs? do
   calculate :cost do
-    Calculators::ChildcareCostCalculator.cost_change_annual(new_annual_cost.to_i, responses.last.to_i)
+    Calculators::ChildcareCostCalculator.cost_change_annual(new_annual_cost, responses.last)
   end
   next_node do |response|
-    diff = Calculators::ChildcareCostCalculator.cost_change_annual(new_annual_cost.to_i, response.to_i)
+    diff = Calculators::ChildcareCostCalculator.cost_change_annual(new_annual_cost, response)
     if diff > 10
       :costs_have_increased
+    elsif diff > 0
+      :costs_have_increased_below_threshold
     else
-      :costs_have_not_increased
+      :costs_have_decreased
     end
   end
 end
 
 # C13A
-value_question :new_average_weekly_costs? do
+money_question :new_average_weekly_costs? do
   save_input_as :new_average_weekly_cost
   next_node :old_average_weekly_costs?
 end
 
 # C13B
-value_question :old_average_weekly_costs? do
+money_question :old_average_weekly_costs? do
   calculate :cost do
-    Calculators::ChildcareCostCalculator.cost_change_month(new_average_weekly_cost.to_i, responses.last.to_i)
+    Calculators::ChildcareCostCalculator.cost_change_month(new_average_weekly_cost, responses.last)
   end
   next_node do |response|
-    diff = Calculators::ChildcareCostCalculator.cost_change_month(new_average_weekly_cost.to_i, response.to_i)
+    diff = Calculators::ChildcareCostCalculator.cost_change_month(new_average_weekly_cost, response)
     if diff > 10
       :costs_have_increased
+    elsif diff > 0
+      :costs_have_increased_below_threshold
     else
-      :costs_have_not_increased
+      :costs_have_decreased
     end
   end
 end
