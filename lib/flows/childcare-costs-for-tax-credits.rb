@@ -190,7 +190,20 @@ outcome :round_up_total # A1, A6
 outcome :weekly_costs # A2, A3, A4, A5
 outcome :weekly_costs_for_claim_form # A7, A8, A9, A11, A13
 outcome :contact_the_tax_credit_office # A10, A12
-outcome :costs_have_increased # A14, A15, A16, A17, A18
-outcome :costs_have_not_increased # A14, A15, A16, A17, A18
+outcome :costs_have_increased do # A14, A15, A16, A17, A18
+  precalculate :formatted_cost do
+    sprintf("%.02f", cost)
+  end
+end
+outcome :costs_have_increased_below_threshold do # A14, A15, A16, A17, A18
+  precalculate :formatted_cost do
+    sprintf("%.02f", cost)
+  end
+end
+outcome :costs_have_decreased do # A14, A15, A16, A17, A18
+  precalculate :formatted_cost do
+    sprintf("%.02f", cost.abs)
+  end
+end
 outcome :call_the_helpline # A19
 outcome :no_change_to_credits # A20
