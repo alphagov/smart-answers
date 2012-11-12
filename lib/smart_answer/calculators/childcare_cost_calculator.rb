@@ -2,7 +2,7 @@ module SmartAnswer::Calculators
   class ChildcareCostCalculator
     # C1, C2, C4, C8, C9
     def self.weekly_cost(annual_cost)
-      (Float(annual_cost) / 52.0).round
+      (Float(annual_cost) / 52.0).ceil
     end
 
     # C3, C7
@@ -12,12 +12,12 @@ module SmartAnswer::Calculators
 
     # C5
     def self.weekly_cost_from_fortnightly(fortnightly_cost)
-      (fortnightly_cost / 2.0).round
+      (fortnightly_cost / 2.0).ceil
     end
 
     # C6
     def self.weekly_cost_from_four_weekly(four_weekly_cost)
-      (four_weekly_cost / 4.0).round
+      (four_weekly_cost / 4.0).ceil
     end
 
     # C10

@@ -120,20 +120,32 @@ end
 # C10A
 money_question :new_weekly_costs? do
   save_input_as :new_weekly_cost
-  next_node :old_weekly_costs?
+
+  next_node do |response|
+    if response > 0
+      :old_weekly_costs?
+    else
+      :new_costs_are_nil
+    end
+  end
 end
 
 # C10B
 money_question :old_weekly_costs? do
+  ##TODO check that users input whole pounds only
   calculate :cost do
     Calculators::ChildcareCostCalculator.cost_change(new_weekly_cost, responses.last)
   end
   next_node do |response|
     diff = Calculators::ChildcareCostCalculator.cost_change(new_weekly_cost, response)
-    if diff > 10
+    if diff >= 10
       :costs_have_increased
     elsif diff > 0
       :costs_have_increased_below_threshold
+    elsif diff == 0
+      :no_change_to_credits
+    elsif diff > -10
+      :costs_have_decreased_below_threshold
     else
       :costs_have_decreased
     end
@@ -143,20 +155,32 @@ end
 # C11A, C12A, C14A
 money_question :new_annual_costs? do
   save_input_as :new_annual_cost
-  next_node :old_annual_costs?
+
+  next_node do |response|
+    if response > 0
+      :old_annual_costs?
+    else
+      :new_costs_are_nil
+    end
+  end
 end
 
 # C11B, C12B, C14B
 money_question :old_annual_costs? do
+  ##TODO check that users input whole pounds only
   calculate :cost do
     Calculators::ChildcareCostCalculator.cost_change_annual(new_annual_cost, responses.last)
   end
   next_node do |response|
     diff = Calculators::ChildcareCostCalculator.cost_change_annual(new_annual_cost, response)
-    if diff > 10
+    if diff >= 10
       :costs_have_increased
     elsif diff > 0
       :costs_have_increased_below_threshold
+    elsif diff == 0
+      :no_change_to_credits
+    elsif diff > -10
+      :costs_have_decreased_below_threshold
     else
       :costs_have_decreased
     end
@@ -166,20 +190,32 @@ end
 # C13A
 money_question :new_average_weekly_costs? do
   save_input_as :new_average_weekly_cost
-  next_node :old_average_weekly_costs?
+
+  next_node do |response|
+    if response > 0
+      :old_average_weekly_costs?
+    else
+      :new_costs_are_nil
+    end
+  end
 end
 
 # C13B
 money_question :old_average_weekly_costs? do
+  ##TODO check that users input whole pounds only
   calculate :cost do
     Calculators::ChildcareCostCalculator.cost_change_month(new_average_weekly_cost, responses.last)
   end
   next_node do |response|
     diff = Calculators::ChildcareCostCalculator.cost_change_month(new_average_weekly_cost, response)
-    if diff > 10
+    if diff >= 10
       :costs_have_increased
     elsif diff > 0
       :costs_have_increased_below_threshold
+    elsif diff == 0
+      :no_change_to_credits
+    elsif diff > -10
+      :costs_have_decreased_below_threshold
     else
       :costs_have_decreased
     end
@@ -192,18 +228,24 @@ outcome :weekly_costs_for_claim_form # A7, A8, A9, A11, A13
 outcome :contact_the_tax_credit_office # A10, A12
 outcome :costs_have_increased do # A14, A15, A16, A17, A18
   precalculate :formatted_cost do
-    sprintf("%.02f", cost)
+    sprintf("%.0f", cost)
   end
 end
 outcome :costs_have_increased_below_threshold do # A14, A15, A16, A17, A18
   precalculate :formatted_cost do
-    sprintf("%.02f", cost)
+    sprintf("%.0f", cost)
+  end
+end
+outcome :costs_have_decreased_below_threshold do # A14, A15, A16, A17, A18
+  precalculate :formatted_cost do
+    sprintf("%.0f", cost.abs)
   end
 end
 outcome :costs_have_decreased do # A14, A15, A16, A17, A18
   precalculate :formatted_cost do
-    sprintf("%.02f", cost.abs)
+    sprintf("%.0f", cost.abs)
   end
 end
 outcome :call_the_helpline # A19
 outcome :no_change_to_credits # A20
+outcome :new_costs_are_nil # A21

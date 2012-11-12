@@ -19,9 +19,9 @@ en-GB:
       frequency_of_childcare?:
         title: How often do you use childcare?
         options:
-          "regularly_less_than_a_year": "You’ve been using childcare regularly for less than a year"
-          "regularly_more_than_a_year": "You've been using childcare regularly for a year or more"
-          "intermittently": "You only use childcare for short periods once in a while"
+          "regularly_less_than_a_year": "I’ve been using childcare regularly for less than a year"
+          "regularly_more_than_a_year": "I've been using childcare regularly for a year or more"
+          "intermittently": "I only use childcare for short periods once in a while"
       # Q3
       have_the_costs_changed?:
         title: "Have the costs of your childcare changed since you made your claim?"
@@ -67,58 +67,74 @@ en-GB:
         title: How much do you expect to pay for childcare for the next 52 weeks?
         body: |
           Add up the amounts you expect to pay in total for the next 52 weeks - start from the day you're doing the calculation.
+        error_message: Please enter a number
       # C2, C4
       costs_for_year_in_months?:
         title: How much do you expect to pay for childcare for the next 12 months?
         body: |
           Add up the amounts you expect to pay in total for the next 12 months - start from the day you're doing the calculation.
+        error_message: Please enter a number
       # C3, C7
       how_much_do_you_pay_each_month?:
         title: How much do you pay each month?
+        error_message: Please enter a number
       # C5
       how_much_do_you_pay_each_fortnight?:
         title: How much do you pay each fortnight?
+        error_message: Please enter a number
       # C6
       how_much_do_you_pay_every_four_weeks?:
         title: How much do you pay every 4 weeks?
+        error_message: Please enter a number
       # C8
       how_much_do_you_pay_anually?:
         title: How much do you pay every year?
+        error_message: Please enter a number
       # C9
       varying_annual_cost?:
         title: "How much have you spent on childcare in the last 12 months?"
         hint: |
           Add up how much you have spent in total over the last 12 months - start backwards from the date you’re doing the calculation.
+        error_message: Please enter a number
       # C10A
       new_weekly_costs?:
         title: What are your new weekly costs?
         hint: Round the total up to the nearest pound.
+        error_message: Please enter a number
       # C10B
       old_weekly_costs?:
-        title: What was the old average amount per week you gave the Tax Credit Office?
+        title: What was the old average weekly amount you gave the Tax Credit Office?
         body: |
           If you don't know what your previous childcare costs were, check your award or renewal notice, or contact the [Tax Credit Helpline](/contact-the-tax-credit-office "Contact the Tax Credit Office").
+        suffix_label: per week
+        error_message: Please enter a number
       # C11A, C12A, C14A
       new_annual_costs?:
-        title: How much do you expect to pay for childcare for the next 52 weeks?
+        title: How much do you expect to pay for childcare for the next 12 months (52 weeks)?
+        error_message: Please enter a number
       # C11B, C12B, C14B
       old_annual_costs?:
-        title: What was the old average amount per week you gave the Tax Credit Office?
+        title: What was the old average weekly amount you gave the Tax Credit Office?
         body: |
           If you don't know what your previous childcare costs were, check your award or renewal notice, or contact the [Tax Credit Helpline](/contact-the-tax-credit-office "Contact the Tax Credit Office").
+        suffix_label: per week
+        error_message: Please enter a number
       # C13A
       new_average_weekly_costs?:
         title: What's the new monthly cost of your childcare?
+        error_message: Please enter a number
       # C13B
       old_average_weekly_costs?:
-        title: What was the old average amount per week you gave the Tax Credit Office?
+        title: What was the old average weekly amount you gave the Tax Credit Office?
         body: |
           If you don't know what your previous childcare costs were, check your award or renewal notice, or contact the [Tax Credit Helpline](/contact-the-tax-credit-office "Contact the Tax Credit Office").
+        suffix_label: per week
+        error_message: Please enter a number
       # A1, A6
       round_up_total:
-        title: How much do you pay for childcare each week?
-        hint: |
-          Round up the total amount to the nearest pound.
+        title: Your weekly childcare costs are the total amount you pay each week rounded up to the nearest pound.
+        body: |
+          Use this figure on your claim form.
       # A2, A3, A4, A5
       weekly_costs:
         title: Your weekly childcare costs are £%{cost}.
@@ -134,19 +150,24 @@ en-GB:
         title: Contact the Tax Credit Office for help in working out your costs.
       # A14, A15, A16, A17, A18
       costs_have_increased:
-        title: Your average childcare costs have increased by £%{formatted_cost}.
+        title: Your average weekly childcare costs have increased by £%{formatted_cost}.
         body: |
           If you expect this to last for 4 weeks or more, tell the [Tax Credit Office](/contact-the-tax-credit-office "Contact the Tax Credit Office").
       # A14, A15, A16, A17, A18
       costs_have_increased_below_threshold:
-        title: Your average childcare costs have increased by £%{formatted_cost}.
+        title: Your average weekly childcare costs have increased by £%{formatted_cost}.
+        body: |
+          This doesn't affect your tax credits. You don't need to report it.
+      # A14, A15, A16, A17, A18
+      costs_have_decreased_below_threshold:
+        title: Your average weekly childcare costs have decreased by £%{formatted_cost}.
         body: |
           This doesn't affect your tax credits. You don't need to report it.
       # A14, A15, A16, A17, A18
       costs_have_decreased:
-        title: Your average childcare costs have decreased by £%{formatted_cost}.
+        title: Your average weekly childcare costs have decreased by £%{formatted_cost}.
         body: |
-          This doesn't affect your tax credits. You don't need to report it.
+          If you expect this to last for 4 weeks or more, tell the [Tax Credit Office](/contact-the-tax-credit-office "Contact the Tax Credit Office").
       # A19
       call_the_helpline:
         title: Call the Tax Credit Helpline to work out your childcare costs.
@@ -163,3 +184,8 @@ en-GB:
         title: "There is no change to your tax credits."
         body: |
           You don't have to report anything to the Tax Credit Office.
+      # A21
+      new_costs_are_nil:
+        title: You are no longer paying for childcare.
+        body: |
+          If you expect this to last for 4 weeks or more, tell the [Tax Credit Office](/contact-the-tax-credit-office "Contact the Tax Credit Office").

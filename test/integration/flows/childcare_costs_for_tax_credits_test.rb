@@ -109,9 +109,9 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
               add_response 3800
             end
             # A5
-            should "say 'Your weekly childcare cost is 73'" do
+            should "say 'Your weekly childcare cost is 74'" do
               assert_current_node :weekly_costs
-              assert_state_variable "cost", 73
+              assert_state_variable "cost", 74
             end
           end
         end
@@ -282,7 +282,7 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
             should "ask 'what were your previous costs?'" do
               assert_current_node :old_weekly_costs?
             end
-            # A14 where diff is > 10
+            # A14 where diff is >= 10
             context "answer 45" do
               setup do
                 add_response 45
@@ -318,25 +318,43 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
             should "ask 'what were your previous weekly costs?'" do
               assert_current_node :old_annual_costs?
             end
-            context "answer '47'" do
+            context "answer '58' (10 below current)" do
               setup do
-                add_response 47
+                add_response 58
               end
               # A15
               should "say 'your costs have increased'" do
                 assert_current_node :costs_have_increased
               end
             end
-            context "answer '58'" do
+            context "answer '59' (9 below current)" do
               setup do
-                add_response 58
+                add_response 59
               end
               # A15
               should "say 'your costs have not increased enough'" do
                 assert_current_node :costs_have_increased_below_threshold
               end
             end
-            context "answer '70'" do
+            context "answer '69'" do
+              setup do
+                add_response 69
+              end
+              # A15
+              should "say 'your costs have not decreased enough'" do
+                assert_current_node :costs_have_decreased_below_threshold
+              end
+            end
+            context "answer '68'" do
+              setup do
+                add_response 68
+              end
+              # A21
+              should "say 'your costs have not increased enough'" do
+                assert_current_node :no_change_to_credits
+              end
+            end
+            context "answer '90'" do
               setup do
                 add_response 90
               end

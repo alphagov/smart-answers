@@ -10,6 +10,13 @@ module SmartAnswer::Calculators
       end
     end
 
+    context ".weekly_cost" do
+      should "return the weekly cost based on the annual cost - rounding up test" do
+        assert_equal 56, ChildcareCostCalculator.weekly_cost(2880)
+      end
+    end
+
+
     context ".weekly_cost_from_monthly" do
       should "return the weekly cost based on the monthly cost" do
         assert_equal 14, ChildcareCostCalculator.weekly_cost_from_monthly(60)
@@ -24,7 +31,7 @@ module SmartAnswer::Calculators
 
     context ".weekly_cost_from_four_weekly" do
       should "return the weekly cost based on the four weekly cost" do
-        assert_equal 19, ChildcareCostCalculator.weekly_cost_from_four_weekly(77)
+        assert_equal 20, ChildcareCostCalculator.weekly_cost_from_four_weekly(77)
       end
     end
 
