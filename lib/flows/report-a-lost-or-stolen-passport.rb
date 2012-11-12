@@ -46,7 +46,7 @@ country_select :which_country? do
   save_input_as :country
 
   calculate :country_name do
-    country_list = YAML::load( File.open( Rails.root.join('lib', 'smart_answer', 'templates', 'countries.yml') ))
+    country_list = YAML::load( File.open( Rails.root.join('lib', 'data', 'countries.yml') ))
     country_list.select {|c| c[:slug] == country }.first[:name]
   end
 
