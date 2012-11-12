@@ -53,6 +53,14 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       should "ask 'how old are you?'" do
         assert_current_node :how_old_are_you?
       end
+
+      context "answered 15 to 'how old are you?'" do
+        setup {add_response 15}
+
+        should "display under school leaving age outcome" do
+          assert_current_node :under_school_leaving_age
+        end
+      end
       
       context "answered 19 to 'how old are you?'" do
         setup do

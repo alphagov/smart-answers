@@ -3,34 +3,28 @@ en-GB:
     calculate-your-holiday-entitlement:
       title: Calculate holiday entitlement
       meta:
-        description: Work out how much statutory holiday leave someone is entitled to
+        description: Holiday calculator to work out statutory holiday leave in days or hours
       body: |
-        Use this calculator to work out how much statutory holiday leave someone is entitled to.
-
+        Calculate statutory holiday entitlement in days or hours for a full leave year or work out holiday someone is entitled to when they start or leave a job part way through a leave year.
       phrases:
-        answer_ft_pt: |
-          $!The statutory holiday entitlement is %{holiday_entitlement_days} days.$!
-          
-        answer_ft_py: |
-          $!The statutory holiday entitlement is %{holiday_entitlement_days} days during this leave year.$!
+         
+        answer_days: |
+          $!The statutory holiday entitlement is %{holiday_entitlement_days} days holiday.$!
 
-        answer_fy_capped: |
-          $!The statutory holiday entitlement is %{holiday_entitlement_days} days - there is no more statutory leave even if more than 5 days a week are worked.$!
-          
-        answer_py_capped: |
-          $!The statutory holiday entitlement is %{holiday_entitlement_days} days during this leave year. There is no more statutory leave even if more than 5 days a week are worked.$!
+        answer_hours: |
+          $!The statutory entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes holiday.$!
 
         answer_hours_minutes: |
           $!The statutory holiday entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes for the time that's been worked.$!
 
         answer_hours_minutes_annualised: |
-          $!The statutory holiday entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes.$!
+          $!The statutory entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes holiday for the year.$!
 
         answer_compressed_hours: |
-          $!The statutory holiday entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes. Each day's leave is %{hours_daily} hours and %{minutes_daily} minutes long ie the same number of hours as the normal working day.$!
+          $!The statutory holiday entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes holiday for the year. Rather than taking a day's holiday it's %{hours_daily} hours and %{minutes_daily} minutes holiday for each day otherwise worked.$!
 
         answer_shift_worker: |
-          $!The statutory holiday entitlement is %{holiday_entitlement_shifts} %{hours_per_shift} hour shifts during this leave year.$!
+          $!The statutory holiday entitlement is %{holiday_entitlement_shifts} shifts for the year. Each shift being %{hours_per_shift} hours.$!
 
         your_employer: |
           The employer:
@@ -47,80 +41,52 @@ en-GB:
           * must provide [holiday pay](/holiday-entitlement-rights/holiday-pay-the-basics "Holiday pay") during the statutory leave
           * can provide more paid holiday - this will be in the employment contract and is called 'contractual leave entitlement'
 
+        maximum_days_calculated: |
 
-        calculation_ft: |
-          ^This is calculated as: 5.6 (statutory entitlement) x 5 days per week = **%{holiday_entitlement_days} days**
-        calculation_ft_capped: |
-          ^This is calculated as: 5.6 (statutory entitlement) x 5 days per week = **28 days maximum**
-        calculation_ft_partial_year: |
-          ^This is calculated as: 5.6 (statutory entitlement) x (fraction of year: %{fraction_of_year}) x %{days_per_week_calculated} (days per week) = **%{holiday_entitlement_days} days**
-
-        calculation_pt: |
-          ^This is calculated as: 5.6 (statutory entitlement) x %{days_per_week} days per week = **%{holiday_entitlement_days}** of working days
-
-        calculation_pt_partial_year: |
-          ^This is calculated as: 5.6 (statutory entitlement) x (fraction of year: %{fraction_of_year}) x %{days_per_week} days = **%{holiday_entitlement_days}** of working days
-
-        calculation_casual_irregular: |
-          ^This is calculated as: 12.07% (statutory entitlement as a percentage) of %{total_hours} hours = **%{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes**
-
-        calculation_annualised: |
-          ^This is calculated as: 5.6 (statutory entitlement) x (%{total_hours} / 46.4 (working weeks per year) = %{average_hours_per_week} hours per week) = **%{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes**
-
-        calculation_compressed_hours: |
-          ^This is calculated as: (%{days_per_week} days / %{hours_per_week}) x 5.6 (statutory entitlement) = **%{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes**
-
-        calculation_shift_worker: |
-          ^This is calculated as: %{shifts_per_week} shifts (of %{hours_per_shift} hours) x 5.6 (statutory entitlement) = **%{holiday_entitlement_shifts} x %{hours_per_shift} hour shifts on holiday**
-
-        calculation_shift_worker_partial_year: |
-          ^This is calculated as: %{fraction_of_year} of whole year x (%{shifts_per_week} shifts (of %{hours_per_shift} hours) x 5.6 (statutory entitlement)) = **%{holiday_entitlement_shifts} x %{hours_per_shift} hour shifts**
+          Even though more than 5 days a week are worked the maximum statutory holiday entitlement is 28 days.         
+          
 
       options:
-        "full-time": "Full-time"
-        "part-time": "Part-time"
-        "casual-or-irregular-hours": "Casual or irregular hours"
-        "annualised-hours": "Annualised hours"
-        "compressed-hours": "Compressed hours"
-        "shift-worker": "Shift worker"
-        "full-year": "A full year"
-        "starting": "Part of a year - starting this year"
-        "leaving": "Part of a year - leaving this year"
+        "days-worked-per-week": "days worked per week"
+        "hours-worked-per-week": "hours worked per week"
+        "casual-or-irregular-hours": "casual or irregular hours"
+        "annualised-hours": "annualised hours"
+        "compressed-hours": "compressed hours"
+        "shift-worker": "shifts"
+        "full-year": "for a full leave year"
+        "starting": "for someone starting part way through a leave year"
+        "leaving": "for someone leaving part way through a leave year"
         "5-days": "5 days per week"
         "6-days": "6 days per week"
         "6-or-7-days": "6 or 7 days per week"
         "7-days": "7 days per week"
-
-      what_is_your_employment_status?:
-        title: What's the employment status?
-
+      
+      # Q1
+      basis_of_calculation?:
+        title: "Do you want to work out holiday based on:"
+      # Q2
+      calculation_period?:
+        title: "Do you want to work out holiday:"
+      # Q3
+      how_many_days_per_week?:
+        title: Number of days worked per week?
+      # Q4
       what_is_your_starting_date?:
-        title: What is the start date?
-
+        title: What was the employment start date?
+      # Q5
       what_is_your_leaving_date?:
-        title: What is the finish date?
+        title: What was the employment end date?
 
-      full_time_how_long_employed?:
-        title: What's the length of full-time employment?
-
-      full_time_how_many_days_per_week?:
-        title: How many days per week will be worked?
-
-      part_time_how_long_employed?:
-        title: What's the length of part-time employment?
-
-      part_time_how_many_days_per_week?:
-        title: How many days per week will be worked?
-        label: Days per week
-        error_message: There are only 7 days in a week. Please check and enter a correct value.
-
+      how_many_hours_per_week?:
+        title: Number of hours worked per week?
+      
       compressed_hours_how_many_hours_per_week?:
         title: How many hours per week will be worked?
         label: Hours per week
         error_message: There are only 168 hours in a week. Please check and enter a correct value.
 
       compressed_hours_how_many_days_per_week?:
-        title: How many days per week will be worked?
+        title: Number of days per week worked?
         label: Days per week
         error_message: There are only 7 days in a week. Please check and enter a correct value.
 

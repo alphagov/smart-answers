@@ -1,27 +1,27 @@
 status :draft
 
-multiple_choice :choose_your_blind_date do
-  option :contestant_a => :date_one
-  option :contestant_b => :date_two
-  option :contestant_c => :date_three
+date_question :when_are_you_starting? do
+  save_input_as :start_date
 
-  save_input_as :cillas_choice
+  next_node :when_are_you_stopping?
 end
 
-outcome :date_one
+date_question :when_are_you_stopping? do
+  save_input_as :stop_date
 
-outcome :date_two do
-  calendar do
-    date :event_four, Date.parse("1 January 2012")
-    date :event_five, Date.parse("1 February 2012")..Date.parse("5 February 2012")
-    date :event_six, Date.parse("24 March 2012")
+  next_node :do_you_want_a_calendar?
+end
+
+multiple_choice :do_you_want_a_calendar? do
+  option :yes => :date_ranges
+  option :no => :no_calendar
+end
+
+outcome :date_ranges do
+  calendar do |response|
+    date :start_stop, Date.parse(response.start_date)..Date.parse(response.stop_date)
+    date :something_else, Date.parse("16 March 2013")
   end
 end
 
-outcome :date_three do
-  calendar do
-    date :event_seven, Date.parse("12 January 2013")
-    date :event_eight, Date.parse("1 February 2013")..Date.parse("5 February 2013")
-    date :event_nine, Date.parse("16 March 2013")
-  end
-end
+outcome :no_calendar

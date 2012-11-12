@@ -63,7 +63,7 @@ en-GB:
         error_message: Please enter a number up to the maximum amount
       where_will_you_live_while_studying?:
         options:
-          at-home: At home with my parents
+          at-home: At home
           away-outside-london: Away from home, outside of London
           away-in-london: Away from home, in London
       whats_your_household_income?:
@@ -112,6 +112,8 @@ en-GB:
           You could also get extra [bursaries or scholarships](/extra-money-pay-university "Help from your university or college") from your university or college.
 
           ^Student loans have to be paid back - grants do not.
+
+          Generally, you’ll only get student finance if you’re doing your first higher education qualification. 
         next_steps: |
 
           - Apply for [student finance](http://www.studentfinance.direct.gov.uk/ "Apply for student finance")
@@ -130,6 +132,8 @@ en-GB:
           You could also get extra [bursaries or scholarships](/extra-money-pay-university "Help from your university or college") from your university or college.
 
           ^Student loans have to be paid back - grants do not.
+
+          Generally, you’ll only get student finance if you’re doing your first higher education qualification. 
         next_steps: |
 
           - Apply for [student finance](http://www.studentfinance.direct.gov.uk/ "Apply for student finance")

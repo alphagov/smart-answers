@@ -85,7 +85,8 @@ class SmartAnswerPresenter
 
   def error
     if current_state.error.present?
-      current_node.error_message || I18n.translate('flow.defaults.error_message')
+      current_node.translate!(current_state.error.to_sym) || current_node.error_message ||
+        I18n.translate('flow.defaults.error_message')
     end
   end
 
@@ -97,6 +98,8 @@ class SmartAnswerPresenter
 
   def presenter_for(node)
     presenter_class = case node
+    when SmartAnswer::Question::OptionalDate
+      OptionalDateQuestionPresenter
     when SmartAnswer::Question::Date
       DateQuestionPresenter
     when SmartAnswer::Question::CountrySelect

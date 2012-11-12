@@ -34,73 +34,91 @@ en-GB:
       are_you_an_apprentice?:
         title: "Are you an apprentice?"
         options:
-          apprentice_under_19: "Yes and apprentice 19 years or under"
-          apprentice_over_19: "Yes and apprentice over 19 and in your first year" 
+          apprentice_under_19: "Apprentice under 19"
+          apprentice_over_19: "Apprentice aged 19 and over and in your first year" 
       # Q2 Past
       were_you_an_apprentice?:
         title: "Were you an apprentice at the time?"
         options:
-          apprentice_under_19: "Yes and apprentice 19 years or under"
-          apprentice_over_19: "Yes and apprentice over 19 and in your first year"
+          apprentice_under_19: "Apprentice under 19"
+          apprentice_over_19: "Apprentice aged 19 and over and in your first year"
       # Q3
       how_old_are_you?:
         title: How old are you?
-        error_message: Please enter a number greater than 0
+        suffix_label: years old
+        error_message: Please enter a whole number greater than 0
       # Q3 Past
       how_old_were_you?:
         title: How old were you at the time?
-        error_message: Please enter a number greater than 0
+        suffix_label: years old
+        error_message: Please enter a whole number greater than 0
       # Q4  
       how_often_do_you_get_paid?:
         title: "How often do you get paid?"
         hint: |
-          For weekly payments enter 7 days, for monthly payments enter 31 days, or another number, depending on how often you get paid. This is your pay period.  
-        error_message: The highest number you can enter to check minimum wage is 31 days.  
+          You get paid every
+        suffix_label: days  
+        error_message: Please enter a number between 1 and 31.  
+        body: |
+          This is your pay period.
       # Q4 Past
       how_often_did_you_get_paid?:
         title: "How often did you get paid?"
         hint: |
-          For weekly payments enter 7 days, for monthly payments enter 31 days, or another number, depending on how often you got paid. This is your pay period.
-        error_message: The highest number you can enter to check minimum wage is 31 days.
+          You get paid every
+        suffix_label: days
+        body: |
+          This is your pay period.
+        error_message: Please enter a number between 1 and 31.
       # Q5
       how_many_hours_do_you_work?:
         title: "How many hours do you work during the pay period?"
         hint: |
           Don’t include any overtime or other extra hours you might work.
-        error_message: Please enter the number of hours you actually work. 
+        suffix_label: hours
+        error_message: Please enter a number
+        error_hours: Please enter the number of hours you actually work during the pay period. 
       # Q5 Past
       how_many_hours_did_you_work?:
         title: "How many hours did you work during the pay period?"
         hint: |
           Don’t include any overtime or other extra hours you worked.
-        error_message: Please enter the number of hours you actually worked. 
+        suffix_label: hours
+        error_message: Please enter a number
+        error_hours: Please enter the number of hours you actually worked during the pay period. 
       # Q6
       how_much_are_you_paid_during_pay_period?:
         title: "How much do you get paid in the pay period?"
         hint: "Don’t include payments for overtime or anything extra to your pay, eg sales commission, money for clothes or goods."
+        suffix_label: in the pay period
         error_message: Please enter a number
       # Q6 Past
       how_much_were_you_paid_during_pay_period?:
         title: "How much were you paid in the pay period?"
         hint: "Don’t include payments for overtime or anything extra to your pay, eg sales commission, money for clothes or goods."
+        suffix_label: in the pay period
         error_message: Please enter a number
       # Q7
       how_many_hours_overtime_do_you_work?:
         title: "How many hours of overtime do you work during the pay period?"
         hint: "If you don’t work overtime enter 0"
+        suffix_label: hours
         error_message: Please enter a number
       # Q7 Past
       how_many_hours_overtime_did_you_work?:
         title: "How many hours of overtime did you work during the pay period?"
         hint: "If you didn’t work overtime enter 0"
+        suffix_label: hours
         error_message: Please enter a number
       # Q8
       what_is_overtime_pay_per_hour?:
         title: "How much do you get paid for overtime per hour?"
+        suffix_label: per hour
         error_message: Please enter a number
       # Q8 Past
       what_was_overtime_pay_per_hour?:
         title: "How much did you get paid for overtime per hour?"
+        suffix_label: per hour
         error_message: Please enter a number
       # Q9
       is_provided_with_accommodation?:
@@ -117,18 +135,22 @@ en-GB:
       # Q10
       current_accommodation_charge?:
         title: "How much does your employer charge for accommodation per day?"
+        suffix_label: per day
         error_message: Please enter a number greater than 0
       # Q10 Past
       past_accommodation_charge?:
         title: "How much did your employer charge for accommodation per day?"
+        suffix_label: per day
         error_message: Please enter a number greater than 0
       # Q11
       current_accommodation_usage?:
         title: "How many days per week do you live in the accommodation?"
+        suffix_label: days per week
         error_message: 7 is the highest number of days you can enter.  
       # Q11 Past
       past_accommodation_usage?:
         title: "How many days per week did you live in the accommodation?"
+        suffix_label: days per week
         error_message: 7 is the highest number of days you can enter. 
       # Current result over minimum wage
       current_payment_above:
@@ -229,3 +251,8 @@ en-GB:
           Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work "Minimum wage for different types of work").
       does_not_apply_to_historical_apprentices:
         body: "There was no National Minimum Wage rate for apprentices before 1 October 2010. Your employer doesn't owe you any past payments."
+
+      under_school_leaving_age:
+        body: You must be at least [school leaving age](/know-when-you-can-leave-school "School leaving age") to be entitled to the National Minimum Wage.
+      under_school_leaving_age_past:
+        body: You must have been at least [school leaving age](/know-when-you-can-leave-school "School leaving age") at the time to be entitled to the National Minimum Wage.

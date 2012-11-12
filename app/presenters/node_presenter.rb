@@ -93,6 +93,18 @@ class NodePresenter
     !! label
   end
 
+  def suffix_label
+    translate!('suffix_label')
+  end
+
+  def has_suffix_label?
+    !! suffix_label
+  end
+
+  def has_labels?
+    !! label or !! suffix_label
+  end
+  
   def next_steps
     translate_and_render('next_steps')
   end
