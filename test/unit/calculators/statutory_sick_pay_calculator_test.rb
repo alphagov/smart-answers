@@ -32,7 +32,7 @@ module SmartAnswer::Calculators
 	  			should "return 28.6167" do
 	  				@calculator.set_daily_rate(3)
 	  				assert_equal @calculator.daily_rate, 28.6167 # should be 28.6166 according to HMRC table
-	  				assert_equal @calculator.ssp_payment, 85.85
+	  				assert_equal @calculator.ssp_payment.to_f, 85.85
 	  			end
 	  		end
 
@@ -121,7 +121,7 @@ module SmartAnswer::Calculators
 
 	  		should "use ssp rate and lel for 2011-12" do
 	  			assert_equal @calculator.lower_earning_limit, 102
-	  			assert_equal @calculator.ssp_weekly_rate, 81.60
+	  			assert_equal @calculator.ssp_weekly_rate.to_f, 81.60
 	  		end
 	  	end
 
@@ -218,8 +218,8 @@ module SmartAnswer::Calculators
 	  		end
 
 	  		should "give correct ssp calculation" do # there should be no more days for which employee can receive pay
-	  			assert_equal @calculator.daily_rate, 85.8500
-	  			assert_equal @calculator.ssp_payment, 257.55
+	  			assert_equal @calculator.daily_rate.to_f, 85.8500
+	  			assert_equal @calculator.ssp_payment.to_f, 257.55
 	  		end
 	  	end
 

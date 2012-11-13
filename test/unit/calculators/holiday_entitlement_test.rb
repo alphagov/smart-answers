@@ -393,5 +393,18 @@ module SmartAnswer::Calculators
         assert_equal '23', @calc.formatted_foo
       end
     end
+    
+    context "decimal precision in hours and minutes calculations" do
+      setup do
+        @calc = HolidayEntitlement.new(
+          :hours_per_week => 28,
+          :start_date => nil,
+          :leave_year_start_date => nil
+        )
+      end
+      should "calculate with the correct precision" do
+        assert_equal 156.8, @calc.full_time_part_time_hours
+      end
+    end
   end
 end
