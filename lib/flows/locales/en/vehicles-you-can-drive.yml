@@ -101,15 +101,9 @@ en-GB:
       ## Q16
       do_you_have_a_full_cat_b_car_licence?:
         title: Do you have a full car driving licence?
-      ## Q17
-      when_was_cat_b_licence_issued?:
-        title: When was your licence issued?
-        options:
-          before-jan-1997: "Before 1 January 1997"
-          from-jan-1997: "From 1 January 1997"
       ## Q18
       full_cat_b_car_licence_psv?:
-        title: Do you have a full category B car driving licence?
+        title: Do you have a full car driving licence?
       ## Q19
       when_was_licence_issued_psv?:
         title: When was your licence issued?
