@@ -104,6 +104,7 @@ en-GB:
       # C10B
       old_weekly_costs?:
         title: What was the old average weekly amount you gave the Tax Credit Office?
+        hint: Round the total up to the nearest pound.
         body: |
           If you don't know what your previous childcare costs were, check your award or renewal notice, or contact the [Tax Credit Helpline](/contact-the-tax-credit-office "Contact the Tax Credit Office").
         suffix_label: per week
@@ -115,6 +116,7 @@ en-GB:
       # C11B, C12B, C14B
       old_annual_costs?:
         title: What was the old average weekly amount you gave the Tax Credit Office?
+        hint: Round the total up to the nearest pound.
         body: |
           If you don't know what your previous childcare costs were, check your award or renewal notice, or contact the [Tax Credit Helpline](/contact-the-tax-credit-office "Contact the Tax Credit Office").
         suffix_label: per week
@@ -126,6 +128,7 @@ en-GB:
       # C13B
       old_average_weekly_costs?:
         title: What was the old average weekly amount you gave the Tax Credit Office?
+        hint: Round the total up to the nearest pound.
         body: |
           If you don't know what your previous childcare costs were, check your award or renewal notice, or contact the [Tax Credit Helpline](/contact-the-tax-credit-office "Contact the Tax Credit Office").
         suffix_label: per week
@@ -186,6 +189,6 @@ en-GB:
           You don't have to report anything to the Tax Credit Office.
       # A21
       new_costs_are_nil:
-        title: You are no longer paying for childcare.
+        title: You're no longer paying for childcare.
         body: |
           If you expect this to last for 4 weeks or more, tell the [Tax Credit Office](/contact-the-tax-credit-office "Contact the Tax Credit Office").

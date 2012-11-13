@@ -132,7 +132,7 @@ end
 
 # C10B
 money_question :old_weekly_costs? do
-  ##TODO check that users input whole pounds only
+  # the calculator will round user input up to the nearest pound
   calculate :cost do
     Calculators::ChildcareCostCalculator.cost_change(new_weekly_cost, responses.last)
   end
@@ -167,7 +167,7 @@ end
 
 # C11B, C12B, C14B
 money_question :old_annual_costs? do
-  ##TODO check that users input whole pounds only
+  # the calculator will round user input up to the nearest pound
   calculate :cost do
     Calculators::ChildcareCostCalculator.cost_change_annual(new_annual_cost, responses.last)
   end
@@ -202,7 +202,7 @@ end
 
 # C13B
 money_question :old_average_weekly_costs? do
-  ##TODO check that users input whole pounds only
+  # the calculator will round user input up to the nearest pound
   calculate :cost do
     Calculators::ChildcareCostCalculator.cost_change_month(new_average_weekly_cost, responses.last)
   end

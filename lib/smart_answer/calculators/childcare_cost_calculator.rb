@@ -22,7 +22,8 @@ module SmartAnswer::Calculators
 
     # C10
     def self.cost_change(new_weekly_cost, old_weekly_tax)
-      (Float(new_weekly_cost) - Float(old_weekly_tax))
+      # all childcare costs are always rounded up to the nearest pound before calculations
+      (Float(new_weekly_cost) - Float(old_weekly_tax).ceil)
     end
 
     # C11, C12, C14
