@@ -110,15 +110,11 @@ end
 
 ## Q16
 multiple_choice :do_you_have_a_full_cat_b_car_licence? do
-  option :yes => :when_was_cat_b_licence_issued? # Q17
+  option :yes => :apply_for_provisional_cat_c_entitlement #A23
   option :no => :cat_b_driving_licence_required # A25
 end
 
-## Q17
-multiple_choice :when_was_cat_b_licence_issued? do
-  option "before-jan-1997" => :apply_for_provisional_cat_c_entitlement # A23
-  option "from-jan-1997" => :apply_for_conditional_provisional_cat_c_entitlement # A24
-end
+## Q17 - removed
 
 ## Minibus PSV
 ##
@@ -226,7 +222,6 @@ outcome :cat_b_licence_required # A20
 outcome :not_entitled_for_lorry_until_18 # A21
 outcome :limited_entitlement_lorry # A22
 outcome :apply_for_provisional_cat_c_entitlement # A23
-outcome :apply_for_conditional_provisional_cat_c_entitlement # A24
 outcome :cat_b_driving_licence_required # A25
 outcome :psv_entitled # A26
 outcome :psv_conditional_entitlement # A27

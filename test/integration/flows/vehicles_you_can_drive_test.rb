@@ -281,24 +281,11 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
         setup do
           add_response :yes
         end
-        ## Q17
-        should "ask when the licence was issued" do
-          assert_current_node :when_was_cat_b_licence_issued?
+        
+        should "state to apply for provisional category c entitlement" do
+          assert_current_node :apply_for_provisional_cat_c_entitlement # A23
         end
-        context "answer before jan 1997" do
-          ## A23
-          should "say apply for provisional cat C entitlement" do
-            add_response "before-jan-1997"
-            assert_current_node :apply_for_provisional_cat_c_entitlement #A23
-          end
-        end
-        context "answer from jan 1997" do
-          ## A24
-          should "state conditional provisional cat C entitlement" do
-            add_response "from-jan-1997"
-            assert_current_node :apply_for_conditional_provisional_cat_c_entitlement #A24
-          end
-        end        
+        
       end
       ## Full cat B licence?
       context "answer no" do
