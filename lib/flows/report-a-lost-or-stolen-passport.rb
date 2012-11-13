@@ -51,7 +51,7 @@ country_select :which_country? do
   end
 
   calculate :embassies do
-    embassies = JSON.parse( File.read(Rails.root.join('lib','data','embassies.json')) )
+    embassies = YAML.load_file(Rails.root.join('lib','data','embassies.yml'))
     raise SmartAnswer::InvalidResponse.new unless embassies[country]
     embassies[country]
   end
