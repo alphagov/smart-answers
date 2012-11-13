@@ -26,7 +26,7 @@ module SmartAnswer::Calculators
     # TODO: find out what the rate was for before 6 april 2011
     def ssp_rates
       [
-        {min: Date.parse("6 April 2011"), max: Date.parse("5 April 2012"), ssp_weekly_rate: 81.60 },
+        {min: Date.parse("6 April 2011"), max: Date.parse("5 April 2012"), ssp_weekly_rate: 81.60},
         {min: Date.parse("6 April 2012"), max: Date.parse("5 April 2012"), ssp_weekly_rate: 85.85}
       ]
     end
@@ -47,7 +47,7 @@ module SmartAnswer::Calculators
     # The current calculation will match rates for 2011-12 exactly
     def set_daily_rate(pattern_days)
       @pattern_days = pattern_days
-    	@daily_rate = pattern_days > 0 ? (ssp_weekly_rate / pattern_days.to_f).round(4) : 0.0000 
+    	@daily_rate = pattern_days > 0 ? (ssp_weekly_rate / pattern_days).round(4) : 0.0000 
     end
 
     def set_normal_work_days(normal_work_days)
@@ -55,7 +55,7 @@ module SmartAnswer::Calculators
     end
 
     def max_days_that_can_be_paid
-      28 * @pattern_days
+      (28 * @pattern_days).round(10)
     end
 
     def days_paid_in_linked_period

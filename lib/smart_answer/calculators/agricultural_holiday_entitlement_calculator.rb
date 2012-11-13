@@ -1,6 +1,6 @@
 require 'date'
 
-module SmartAnswer
+module SmartAnswer::Calculators
   class AgriculturalHolidayEntitlementCalculator
     # created for the agricultural holiday entitlement calculator
 
