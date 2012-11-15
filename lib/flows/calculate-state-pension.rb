@@ -399,7 +399,7 @@ outcome :amount_result do
   end
 
   precalculate :qualifying_years_total do
-    ## the calculator in Q4 allocates automatic years before 19 for flow validation
+    ## the calculator class allocates starting credits only for flow control
     ## TODO: refactor this so we only worry about this once, rather than separately for flow and calculations
     if calc.three_year_credit_age? 
       qualifying_years + 3

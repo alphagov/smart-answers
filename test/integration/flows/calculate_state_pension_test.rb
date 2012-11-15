@@ -329,6 +329,18 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         end
       end # 61, ni=10, jsa=1, etc
 
+      context "starting credits test 1" do
+        setup do
+          add_response Date.parse('1962-03-06')
+          add_response 20
+          add_response 7
+        end
+
+        should "display result because of starting credits" do
+          assert_state_variable :qualifying_years_total, 30
+          assert_current_node :amount_result
+        end
+      end
     end # male
 
 
@@ -675,6 +687,18 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
           assert_current_node :years_of_benefit?
         end
       end
-    end # gender
+
+      context "starting credits test 2" do
+        setup do
+          add_response Date.parse('1964-12-06')
+          add_response 27
+        end
+
+        should "display result because of starting credits" do
+          assert_state_variable :qualifying_years_total, 30
+          assert_current_node :amount_result
+        end
+      end
+    end # female
   end #amount calculation
 end #ask which calculation

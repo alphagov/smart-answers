@@ -4,7 +4,7 @@ module SmartAnswer::Calculators
   class StatePensionAmountCalculator
     include ActionView::Helpers::TextHelper
 
-    attr_reader :gender, :dob, :qualifying_years, :available_years ,:automatic_years_before_19
+    attr_reader :gender, :dob, :qualifying_years, :available_years ,:starting_credits
     attr_accessor :qualifying_years
 
     def initialize(answers)
@@ -12,7 +12,7 @@ module SmartAnswer::Calculators
       @dob = DateTime.parse(answers[:dob])
       @qualifying_years = answers[:qualifying_years].to_i
       @available_years = ni_years_to_date
-      @automatic_years_before_19 = allocate_automatic_years_before_19
+      @starting_credits = allocate_starting_credits
     end
 
     def current_weekly_rate
@@ -114,10 +114,12 @@ module SmartAnswer::Calculators
       dob > 20.years.ago
     end
     
+    # these people always get 3 years of starting credits 
     def three_year_credit_age?
       dob >= Date.parse('1959-04-06') and dob <= Date.parse('1992-04-05')
     end
     
+    # these people get different starting credits based on when they were born and what they answer to Q10
     def credit_bands
       [
         { min: Date.parse('1957-04-06'), max: Date.parse('1958-04-05'), credit: 1, validate: 0 },
@@ -166,15 +168,16 @@ module SmartAnswer::Calculators
     #   @automatic_years
     # end
 
-    def automatic_years_before_19
-      @automatic_years_before_19
+    def starting_credits
+      @starting_credits
     end
 
-    def allocate_automatic_years_before_19
+    ## this is done just to control flow 
+    def allocate_starting_credits
       if three_year_credit_age?
-        @automatic_years_before_19 = 3
+        @starting_credits = 3
       else
-        @automatic_years_before_19 = 0
+        @starting_credits = 0
       end
     end
     
@@ -202,7 +205,7 @@ module SmartAnswer::Calculators
 
     # enough years to get full basic state pension - used only in flow to test if we should ask more questions
     def enough_qualifying_years?(qual_years = @qualifying_years)
-      (qual_years + automatic_years_before_19) > 29
+      (qual_years + starting_credits) > 29
     end
 
     # are there any more years users can enter based on how many years there are between today and time they were 19?
