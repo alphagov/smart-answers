@@ -11,13 +11,14 @@ en-GB:
             age_of_employee?:
                 title: How old were you on the date you were made redundant?
                 hint: Use the original redundancy date even if your notice is brought forward, you’re paid in lieu of notice or made redundant after trialing a new job.
+                suffix_label: years old
                 error_message: Please enter a number between 16 and 100.
 
             years_employed?:
                 title: How many years have you worked for your employer?
                 hint: |
                     Only full years of service count - up to a maximum of 20 years. For example, 3 years and 9 months count as 3 years.
-                label: Full years worked
+                suffix_label: full years worked
                 error_message: |
                     Please enter a number. Based on your previous answers this should be 
                     no greater than %{years_available}
@@ -25,6 +26,7 @@ en-GB:
                 title: What is your weekly pay before tax?
                 hint: |
                     £430 is the current maximum weekly pay (before tax) when working out statutory redundancy pay - any earnings above this won't count to your total entitlement.
+                suffix_label: per week
                 error_message: Please enter a number    
 
             done_no_statutory:
@@ -68,19 +70,22 @@ en-GB:
             age_of_employee?:
                 title: What was your employee’s age when they were made redundant?
                 hint: Use the original redundancy date even if their notice is brought forward, they’re paid in lieu of notice or made redundant after trialing a new job.
+                suffix_label: years old
                 error_message: Please enter a number between 16 and 100.
 
             years_employed?:
                 title: Number of years they’ve worked for you
                 hint: |
                     Only full years of service count - up to a maximum of 20 years. For example, 3 years and 9 months count as 3 years.
-                label: Full years worked
-                error_message: Please enter a number
+                suffix_label: full years worked
+                error_message: Please enter a number. Based on your previous answers this should be 
+                    no greater than %{years_available}
 
             weekly_pay_before_tax?:
                 title: What is their weekly pay before tax?
                 hint: |
                     £430 is the current maximum weekly pay (before tax) when working out statutory redundancy pay - any earnings above this won't count to the entitlement.
+                suffix_label: per week
                 error_message: Please enter a number
 
             done_no_statutory:
