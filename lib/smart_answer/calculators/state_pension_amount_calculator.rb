@@ -4,7 +4,7 @@ module SmartAnswer::Calculators
   class StatePensionAmountCalculator
     include ActionView::Helpers::TextHelper
 
-    attr_reader :gender, :dob, :qualifying_years, :available_years #,:automatic_years
+    attr_reader :gender, :dob, :qualifying_years, :available_years ,:automatic_years_before_19
     attr_accessor :qualifying_years
 
     def initialize(answers)
@@ -12,6 +12,7 @@ module SmartAnswer::Calculators
       @dob = DateTime.parse(answers[:dob])
       @qualifying_years = answers[:qualifying_years].to_i
       @available_years = ni_years_to_date
+      @automatic_years_before_19 = allocate_automatic_years_before_19
     end
 
     def current_weekly_rate
@@ -144,7 +145,7 @@ module SmartAnswer::Calculators
       end  
     end
 
-    # Automatic years calculation removed for initial release
+    # Automatic years calculation removed for initial release - risk of overestimating
     # applies to men born before 6 Oct 1953
     # def auto_years
     #   [
@@ -164,11 +165,24 @@ module SmartAnswer::Calculators
     # def automatic_years
     #   @automatic_years
     # end
+
+    def automatic_years_before_19
+      @automatic_years_before_19
+    end
+
+    def allocate_automatic_years_before_19
+      if three_year_credit_age?
+        @automatic_years_before_19 = 3
+      else
+        @automatic_years_before_19 = 0
+      end
+    end
     
     def ni_start_date
       (dob + 19.years)
     end
 
+    ## how many years does user have since the age of 19
     def ni_years_to_date
       today = Date.today
       years = today.year - ni_start_date.year
@@ -186,10 +200,13 @@ module SmartAnswer::Calculators
       ! (available_years_sum(qual_years) < 0)
     end
 
+    # enough years to get full basic state pension - used only in flow to test if we should ask more questions
     def enough_qualifying_years?(qual_years = @qualifying_years)
-      qual_years > 29
+      (qual_years + automatic_years_before_19) > 29
     end
 
+    # are there any more years users can enter based on how many years there are between today and time they were 19?
+    # used in flow to test if we should ask more questions
     def no_more_available_years?(qual_years = @qualifying_years)
       available_years_sum(qual_years) < 1
     end
