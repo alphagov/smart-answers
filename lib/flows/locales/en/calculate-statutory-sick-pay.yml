@@ -116,9 +116,18 @@ en-GB:
         error_message: Please enter a number greater than 0
 
       ## Q13
-      how_many_days_worked?:
-        title: How many days per week do they work?
-        error_message: Please enter a number between 1 and 7
+      which_days_worked?:
+        title: Which days of the week do they work?
+        error_message: Please select at least one day
+        options:
+          "1": Monday
+          "2": Tuesday
+          "3": Wednesday
+          "4": Thursday
+          "5": Friday
+          "6": Saturday
+          "0": Sunday
+
       ## Q14
       normal_workdays_taken_as_sick?:
         title: How many of their normal workdays did your employee take off sick between %{sick_start_date} and %{sick_end_date}?

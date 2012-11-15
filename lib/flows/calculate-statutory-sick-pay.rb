@@ -108,10 +108,11 @@ money_question :what_was_average_weekly_earnings? do
 	end
 end
 
+
 ## Q11 
 multiple_choice :related_illness? do
 	option :yes => :how_many_days_missed? 						## Q12
-	option :no => :how_many_days_worked? 						## Q13
+	option :no => :which_days_worked? 						## Q13
 
 	save_input_as :previous_related_illness
 end
@@ -129,25 +130,34 @@ value_question :how_many_days_missed? do
       end
     end
 	end
-	next_node :how_many_days_worked? ## Q13
+	next_node :which_days_worked? ## Q13
 end
 
 
-## Q13
-value_question :how_many_days_worked? do
-	calculate :pattern_days do
-		# ensure we get an integer
-		if ! (responses.last.to_s =~ /\A\d+\z/)
-      	raise SmartAnswer::InvalidResponse
-    	else
-    	# and one between 1..7
-      	if (1..7).include?(responses.last.to_i)
-      		responses.last.to_i
-      	else
-      		raise SmartAnswer::InvalidResponse
-      	end
-    	end
+## Q13 - new
+checkbox_question :which_days_worked? do
+	# these keys match what is returned by date.wday
+	option :"1"
+	option :"2"
+	option :"3"
+	option :"4"
+	option :"5"
+	option :"6"
+	option :"0"
+
+	calculate :days_of_the_week_worked do
+		responses.last.split(',')
 	end
+
+
+	calculate :pattern_days do
+		## ensure at least 1 day per week is worked
+		if responses.last == 'none' 
+			raise SmartAnswer::InvalidResponse
+		end
+		days_of_the_week_worked.length
+	end
+
 	calculate :calculator do
 		if prev_sick_days
 			Calculators::StatutorySickPayCalculator.new(prev_sick_days, Date.parse(sick_start_date))
@@ -155,23 +165,47 @@ value_question :how_many_days_worked? do
 			Calculators::StatutorySickPayCalculator.new(0, Date.parse(sick_start_date))
 		end
 	end
+
 	calculate :daily_rate do
 		calculator.set_daily_rate(pattern_days)
 		calculator.daily_rate
 	end
 
+
+	calculate :normal_workdays_out do
+		dates = sick_start_date..sick_end_date
+		puts(dates)
+		# create an array of all dates that would have been normal workdays
+		normal_workdays_missed = []
+		dates.each do |d|
+			if days_of_the_week_worked.include?(d.wday.to_s)
+				normal_workdays_missed << d
+			end
+		end
+		## TODO: count which days fall before or after 6 April
+		puts(normal_workdays_missed.length)
+		calculator.set_normal_work_days(normal_workdays_missed.length)
+		calculator.normal_work_days
+	end
+
+	calculate :ssp_payment do
+		sprintf("%.2f", (calculator.ssp_payment < 1 ? 0.0 : calculator.ssp_payment))
+	end
+
 	next_node do |response|
-		patt_days = response.to_i
+		patt_days = response.split(',').length
 
 		if (previous_related_illness == 'yes') and (prev_sick_days >= (patt_days * 28 + 3))
 			 :not_entitled_maximum_reached
 		else
-			:normal_workdays_taken_as_sick?
+			#:normal_workdays_taken_as_sick?
+			##TODO: do we need to test for statutory maximum?
+			:entitled_or_not_enough_days
 		end
 	end
 end
 
-## Q14
+## Q14 - redundant 
 value_question :normal_workdays_taken_as_sick? do
 	precalculate :total_days_sick do
 		(Date.parse(sick_end_date) - Date.parse(sick_start_date)).to_i
