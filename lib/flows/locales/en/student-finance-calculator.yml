@@ -2,7 +2,7 @@ en-GB:
   flow:
     student-finance-calculator:
       meta:
-        description: "Use this student finance calculator to estimate what student finance you could get for university - student loans, student grants, bursaries and other funding"
+        description: "Student finance calculator - get an estimate of your student loans, grants, bursaries and other funding for university"
       phrases:
         body:
           "You may also qualify for extra grants and allowances:"
@@ -13,7 +13,7 @@ en-GB:
         dependent_adult: |
           - up to £2,642 of [Adult Dependant's Grant](/adult-dependants-grant "Adult Dedependants Grant")
         disability: |
-          - [Disabled Students' Allowance](/disabled-students-allowances-dsas "Disabled Students' Allowance")
+          - [Disabled Students' Allowances](/disabled-students-allowances-dsas "Disabled Students' Allowances")
         financial_hardship: |
           - [Access to Learning Fund](/access-to-learning-fund "Access to Learning Fund") (extra help with costs while studying)
         teacher_training: |
@@ -36,11 +36,10 @@ en-GB:
         "no": "No"
         "yes": "Yes"
       body: |
-        This tool is for students from England starting their course on or after **1 September 2012**.
+        This calculator is for students from England starting their course on or after **1 September 2012**.
 
         It estimates what loans, grants and extra help you can get - eg if you're disabled or have children.
 
-        ##What you need to know
         Your result will be more accurate if you know your annual household income (your parents' or partner's income plus your own).
 
       devolved_body: |
@@ -63,9 +62,9 @@ en-GB:
         error_message: Please enter a number up to the maximum amount
       where_will_you_live_while_studying?:
         options:
-          at-home: At home
-          away-outside-london: Away from home, outside of London
-          away-in-london: Away from home, in London
+          at-home: Living with parents
+          away-outside-london: Not living with parents and studying outside of London
+          away-in-london: Not living with parents and studying in London
       whats_your_household_income?:
         title: What's your annual household income?
         hint: This is your parents' or partner's income plus your own. It affects how much Maintenance Grant for help with living costs you get.
@@ -116,9 +115,9 @@ en-GB:
           Generally, you’ll only get student finance if you’re doing your first higher education qualification. 
         next_steps: |
 
-          - Apply for [student finance](http://www.studentfinance.direct.gov.uk/ "Apply for student finance")
+          - [Apply for student finance](/student-finance/how-to-apply "Apply for student finance")
 
-          - Read the guide to [student finance](/student-finance "Guide to student finance")
+          - [Read the guide to student finance](/student-finance "Guide to student finance")
       done:
         body: |
           You could get per year:
@@ -136,6 +135,6 @@ en-GB:
           Generally, you’ll only get student finance if you’re doing your first higher education qualification. 
         next_steps: |
 
-          - Apply for [student finance](http://www.studentfinance.direct.gov.uk/ "Apply for student finance")
+          - [Apply for student finance](/student-finance/how-to-apply "Apply for student finance")
           
-          - Read the guide to [student finance](/student-finance "Guide to student finance")
+          - [Read the guide to student finance](/student-finance "Guide to student finance")
