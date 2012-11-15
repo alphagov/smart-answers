@@ -209,7 +209,7 @@ en-GB:
         suffix_label: years
       ## Q6
       received_child_benefit?:
-        title: Have you ever claimed Child Benefit, cared for someone or worked as a registered carer?
+        title: Have you ever claimed Child Benefit, cared for someone sick or disabled or worked as a registered carer?
       ## Q7
       years_of_benefit?:
         title: "Before 6 April 2010 how many years did any of the following apply:"
