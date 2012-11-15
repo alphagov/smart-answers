@@ -62,9 +62,9 @@ en-GB:
         error_message: Please enter a number up to the maximum amount
       where_will_you_live_while_studying?:
         options:
-          at-home: living with parents
-          away-outside-london: not living with parents and studying outside of London
-          away-in-london: not living with parents and studying in London
+          at-home: Living with parents
+          away-outside-london: Not living with parents and studying outside of London
+          away-in-london: Not living with parents and studying in London
       whats_your_household_income?:
         title: What's your annual household income?
         hint: This is your parents' or partner's income plus your own. It affects how much Maintenance Grant for help with living costs you get.
