@@ -35,11 +35,24 @@ en-GB:
                     [Read the guide to Redundancy: your rights](https://www.gov.uk/redundant-your-rights)
 
             done:
-                title: Based on the figures you've given, you could get £%{statutory_redundancy_pay} statutory redundancy pay.
+                title: |
+                    Your statutory redundancy payment could be: £%{statutory_redundancy_pay}.
                 body: |
-                    You can’t get less than the statutory amount but you may get more if you have a company redundancy scheme.
-                    
-                    [Find out more about redundancy pay](https://www.gov.uk/redundant-your-rights/redundancy-pay)
+                    ##Calculation 
+
+                    Your entitlement is %{number_of_weeks_entitlement} weeks.
+
+                    For each year of employment you get:
+
+                    + 0.5 week’s pay up to your 22nd birthday
+                    + 1 week’s pay after your 22nd birthday
+                    + 1.5 weeks’ pay after your 41st birthday
+
+                    Length of service is capped at 20 years and weekly pay at £430.
+
+                    The maximum amount of statutory redundancy pay is £12,900.
+
+                    ^You can’t get less than the statutory amount but you may get more if you have a company redundancy scheme.^
                 next_steps: |
                     [Read the guide to Redundancy: your rights](https://www.gov.uk/redundant-your-rights)
 
@@ -47,7 +60,7 @@ en-GB:
         calculate-employee-redundancy-pay:
             title: "Calculate your employee's statutory redundancy pay"
             meta:
-                description: Employer calculator - calculate statutory redundancy for employees based on their age, weekly pay and number of years in the job
+                description: Employer calculator - calculate your employee's statutory redundancy payment
             body: |
                 Calculate an employee’s statutory redundancy pay. It’s based on age, weekly pay and number of years in the job.
 
@@ -78,6 +91,21 @@ en-GB:
                     [Read the guide to Making staff redundant](https://www.gov.uk/staff-redundant)
 
             done:
-                title: Based on the figures you’ve given, your employee could get £%{statutory_redundancy_pay} statutory redundancy pay.
+                title: |
+                    Statutory redundancy payment: £%{statutory_redundancy_pay}.
+                body: |
+                    ##Calculation 
+
+                    Your employee's entitlement is %{number_of_weeks_entitlement} weeks.
+
+                    For each year of employment an employee gets:
+
+                    + 0.5 week’s pay up to their 22nd birthday
+                    + 1 week’s pay after their 22nd birthday
+                    + 1.5 weeks’ pay after their 41st birthday
+
+                    Length of service is capped at 20 years and weekly pay at £430.
+
+                    The maximum amount of statutory redundancy pay is £12,900
                 next_steps: |
                     [Read the guide to Making staff redundant](https://www.gov.uk/staff-redundant)
