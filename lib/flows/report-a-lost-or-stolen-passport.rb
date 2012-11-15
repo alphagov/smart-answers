@@ -46,12 +46,12 @@ country_select :which_country? do
   save_input_as :country
 
   calculate :country_name do
-    country_list = YAML::load( File.open( Rails.root.join('lib', 'smart_answer', 'templates', 'countries.yml') ))
+    country_list = YAML::load( File.open( Rails.root.join('lib', 'data', 'countries.yml') ))
     country_list.select {|c| c[:slug] == country }.first[:name]
   end
 
   calculate :embassies do
-    embassies = JSON.parse( File.read(Rails.root.join('lib','data','embassies.json')) )
+    embassies = YAML.load_file(Rails.root.join('lib','data','embassies.yml'))
     raise SmartAnswer::InvalidResponse.new unless embassies[country]
     embassies[country]
   end
