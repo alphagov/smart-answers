@@ -185,6 +185,7 @@ value_question :years_paid_ni? do
     ni_years
   end
 
+
   calculate :available_ni_years do
     calculator.available_years_sum(qualifying_years) 
   end
@@ -398,6 +399,8 @@ outcome :amount_result do
   end
 
   precalculate :qualifying_years_total do
+    ## the calculator class allocates starting credits only for flow control
+    ## TODO: refactor this so we only worry about this once, rather than separately for flow and calculations
     if calc.three_year_credit_age? 
       qualifying_years + 3
     else 
@@ -441,10 +444,6 @@ outcome :amount_result do
     else
       PhraseList.new(:this_is_the_full_state_pension)
     end
-  end
-  
-  precalculate :credited_benefit_years do
-    (calculator.three_year_credit_age? ? 3 : 0)
   end
 
 
