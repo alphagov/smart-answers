@@ -11,7 +11,7 @@ module SmartAnswer
       end
 
       def country_list
-        @countries ||= YAML::load( File.open( Rails.root.join('lib', 'smart_answer', 'templates', 'countries.yml') ))
+        @countries ||= YAML::load( File.open( Rails.root.join('lib', 'data', 'countries.yml') ))
       end
 
       def valid_option?(option)
