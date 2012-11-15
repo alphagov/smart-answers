@@ -11,13 +11,14 @@ en-GB:
             age_of_employee?:
                 title: How old were you on the date you were made redundant?
                 hint: Use the original redundancy date even if your notice is brought forward, you’re paid in lieu of notice or made redundant after trialing a new job.
+                suffix_label: years old
                 error_message: Please enter a number between 16 and 100.
 
             years_employed?:
                 title: How many years have you worked for your employer?
                 hint: |
                     Only full years of service count - up to a maximum of 20 years. For example, 3 years and 9 months count as 3 years.
-                label: Full years worked
+                suffix_label: full years worked
                 error_message: |
                     Please enter a number. Based on your previous answers this should be 
                     no greater than %{years_available}
@@ -25,6 +26,7 @@ en-GB:
                 title: What is your weekly pay before tax?
                 hint: |
                     £430 is the current maximum weekly pay (before tax) when working out statutory redundancy pay - any earnings above this won't count to your total entitlement.
+                suffix_label: per week
                 error_message: Please enter a number    
 
             done_no_statutory:
@@ -35,11 +37,24 @@ en-GB:
                     [Read the guide to Redundancy: your rights](https://www.gov.uk/redundant-your-rights)
 
             done:
-                title: Based on the figures you've given, you could get £%{statutory_redundancy_pay} statutory redundancy pay.
+                title: |
+                    Your statutory redundancy payment could be: £%{statutory_redundancy_pay}.
                 body: |
-                    You can’t get less than the statutory amount but you may get more if you have a company redundancy scheme.
-                    
-                    [Find out more about redundancy pay](https://www.gov.uk/redundant-your-rights/redundancy-pay)
+                    ##Calculation 
+
+                    Your entitlement is %{number_of_weeks_entitlement} weeks.
+
+                    For each year of employment you get:
+
+                    + 0.5 week’s pay up to your 22nd birthday
+                    + 1 week’s pay after your 22nd birthday
+                    + 1.5 weeks’ pay after your 41st birthday
+
+                    Length of service is capped at 20 years and weekly pay at £430.
+
+                    The maximum amount of statutory redundancy pay is £12,900.
+
+                    ^You can’t get less than the statutory amount but you may get more if you have a company redundancy scheme.^
                 next_steps: |
                     [Read the guide to Redundancy: your rights](https://www.gov.uk/redundant-your-rights)
 
@@ -47,7 +62,7 @@ en-GB:
         calculate-employee-redundancy-pay:
             title: "Calculate your employee's statutory redundancy pay"
             meta:
-                description: Employer calculator - calculate statutory redundancy for employees based on their age, weekly pay and number of years in the job
+                description: Employer calculator - calculate your employee's statutory redundancy payment
             body: |
                 Calculate an employee’s statutory redundancy pay. It’s based on age, weekly pay and number of years in the job.
 
@@ -55,19 +70,22 @@ en-GB:
             age_of_employee?:
                 title: What was your employee’s age when they were made redundant?
                 hint: Use the original redundancy date even if their notice is brought forward, they’re paid in lieu of notice or made redundant after trialing a new job.
+                suffix_label: years old
                 error_message: Please enter a number between 16 and 100.
 
             years_employed?:
                 title: Number of years they’ve worked for you
                 hint: |
                     Only full years of service count - up to a maximum of 20 years. For example, 3 years and 9 months count as 3 years.
-                label: Full years worked
-                error_message: Please enter a number
+                suffix_label: full years worked
+                error_message: Please enter a number. Based on your previous answers this should be 
+                    no greater than %{years_available}
 
             weekly_pay_before_tax?:
                 title: What is their weekly pay before tax?
                 hint: |
                     £430 is the current maximum weekly pay (before tax) when working out statutory redundancy pay - any earnings above this won't count to the entitlement.
+                suffix_label: per week
                 error_message: Please enter a number
 
             done_no_statutory:
@@ -78,6 +96,21 @@ en-GB:
                     [Read the guide to Making staff redundant](https://www.gov.uk/staff-redundant)
 
             done:
-                title: Based on the figures you’ve given, your employee could get £%{statutory_redundancy_pay} statutory redundancy pay.
+                title: |
+                    Statutory redundancy payment: £%{statutory_redundancy_pay}.
+                body: |
+                    ##Calculation 
+
+                    Your employee's entitlement is %{number_of_weeks_entitlement} weeks.
+
+                    For each year of employment an employee gets:
+
+                    + 0.5 week’s pay up to their 22nd birthday
+                    + 1 week’s pay after their 22nd birthday
+                    + 1.5 weeks’ pay after their 41st birthday
+
+                    Length of service is capped at 20 years and weekly pay at £430.
+
+                    The maximum amount of statutory redundancy pay is £12,900
                 next_steps: |
                     [Read the guide to Making staff redundant](https://www.gov.uk/staff-redundant)

@@ -1,5 +1,3 @@
-calculator = Calculators::RedundancyCalculator.new
-
 value_question :age_of_employee? do
   calculate :employee_age do
     age = responses.last.to_i
@@ -31,8 +29,14 @@ value_question :years_employed? do
 end
 
 money_question :weekly_pay_before_tax? do
+  calculate :calculator do
+    Calculators::RedundancyCalculator.new(employee_age, years_employed, responses.last)
+  end
   calculate :statutory_redundancy_pay do
-    calculator.format_money(calculator.pay(employee_age, years_employed, responses.last).to_f)
+    calculator.format_money(calculator.pay.to_f)
+  end
+  calculate :number_of_weeks_entitlement do
+    calculator.number_of_weeks_entitlement
   end
   next_node do |response|
     if years_employed < 2

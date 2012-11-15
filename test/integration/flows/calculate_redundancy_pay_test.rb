@@ -98,6 +98,11 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
           should "give me a figure no higher than 430 per week" do
             assert_state_variable :statutory_redundancy_pay, "860"
           end
+
+          should "give me the number of weeks entitlement" do
+            assert_state_variable :number_of_weeks_entitlement, 2.0
+          end
+
         end
 
         context "weekly salary of under 430 before tax" do
@@ -107,6 +112,10 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
 
           should "give me a figure below 430" do
             assert_state_variable :statutory_redundancy_pay, "600"
+          end
+
+          should "give me 2 weeks total entitlement" do
+            assert_state_variable :number_of_weeks_entitlement, 2.0
           end
         end
       end
@@ -152,6 +161,9 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
           should "give me a figure no higher than 430 per week" do
             assert_state_variable :statutory_redundancy_pay, "860"
           end
+          should "give me 2 weeks total entitlement" do
+            assert_state_variable :number_of_weeks_entitlement, 2.0
+          end
         end
 
         context "weekly salary of under 430 before tax" do
@@ -161,6 +173,10 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
 
           should "give me a figure below 430" do
             assert_state_variable :statutory_redundancy_pay, "600"
+          end
+
+          should "give me 2 weeks total entitlement" do
+            assert_state_variable :number_of_weeks_entitlement, 2.0
           end
         end
       end
@@ -215,6 +231,10 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
 
           should "give me a figure no higher than 430 per week" do
             assert_state_variable :statutory_redundancy_pay, "1,935"
+          end
+
+          should "give me 2 weeks total entitlement" do
+            assert_state_variable :number_of_weeks_entitlement, 4.5
           end
         end
       end
