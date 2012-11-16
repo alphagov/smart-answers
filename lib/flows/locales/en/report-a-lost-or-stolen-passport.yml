@@ -8,8 +8,6 @@ en-GB:
         You must tell the Identity and Passport Service (IPS) as soon as possible if your passport has been lost or stolen. 
 
         This will reduce the risk of anyone else using your passport or your identity.
-
-        Find out how to report a passport lost or stolen and what you need to do to get a replacement.
       phrases:
         child_forms: |
           ^Your signature will be compared to the signature on the original passport application form. If the original application was made by someone else, you’ll also need to send a signed letter from that person confirming that the passport has been %{lost_or_stolen}. This is to help prevent child abduction.^
@@ -34,9 +32,8 @@ en-GB:
 
           To report your lost passport you can do any of:
 
-
-          - [fill in from LS01 online](https://passports.ips.gov.uk/lsrr1a/index.aspx?c=1 "LS01 form") - the Identity and Passport Service will post you a completed form to sign and return
           - [download a copy](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download LS01"){:rel="external"} of form LS01 and post the completed form to the IPS - the address is on the form
+          - get a copy of form LS01 from a Post Office that offers the [Check and Send service](http://www.postoffice.co.uk/branch-finder "Post Offices that offer the passport Check & Send service"){:rel="external"}
           - [ask for a callback](https://contact.homeoffice.gov.uk/contact.php?survey=1&pager=4 "Ask for a callback"){:rel="external"} from the IPS 
 
           %{child_advice}
@@ -74,8 +71,8 @@ en-GB:
           To report to the IPS you can do any of:
 
 
-          - [fill in from LS01 online](https://passports.ips.gov.uk/lsrr1a/index.aspx?c=1 "LS01 form") - the Identity and Passport Service will post you a completed form to sign and return
           - [download a copy](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download LS01"){:rel="external"} of form LS01 and post the completed form to the IPS - the address is on the form
+          - get a copy of form LS01 from a Post Office that offers the [Check and Send service](http://www.postoffice.co.uk/branch-finder "Post Offices that offer the passport Check & Send service"){:rel="external"}
           - [ask for a callback](https://contact.homeoffice.gov.uk/contact.php?survey=1&pager=4 "Ask for a callback"){:rel="external"} from the IPS 
 
           %{child_advice}
@@ -96,7 +93,7 @@ en-GB:
           % You can’t use the [1-day Premium service](/get-a-passport-urgently "Get a passport urgently") if you’re replacing a stolen passport. %
 
       contact_the_embassy:
-        title: Report the loss to the UK embassy, consulate or high commission of %{country_name}.
+        title: Where to report your lost or stolen passport
         body: |
           +[contact_list]
 
@@ -105,3 +102,7 @@ en-GB:
           %{child_advice}
 
           The embassy will give you replacement travel documents so that you can travel back to the UK. You will be charged for replacement travel documents.
+
+          ##Getting a replacement passport
+
+          You must apply for a replacement passport. You can do this [from the country you’re in or while you’re in the UK.](/apply-renew-passport-abroad "Apply for a replacement passport if you’re outside the UK")
