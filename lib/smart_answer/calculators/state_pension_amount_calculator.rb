@@ -53,6 +53,10 @@ module SmartAnswer::Calculators
 
     # what would you get if all remaining years to pension were qualifying years
     def what_you_would_get_if_not_full
+      what_you_would_get_if_not_full_raw.round(2)
+    end
+
+    def what_you_would_get_if_not_full_raw      
       if (qualifying_years + years_to_pension) < years_needed
         ((qualifying_years + years_to_pension) / years_needed.to_f * current_weekly_rate).round(10)
       else
@@ -118,6 +122,18 @@ module SmartAnswer::Calculators
     def three_year_credit_age?
       dob >= Date.parse('1959-04-06') and dob <= Date.parse('1992-04-05')
     end
+
+    # these people always get at least 2 years of starting credits
+    def at_least_two_year_credit_age?
+      ( dob >= Date.parse('1958-04-06') and dob <= Date.parse('1959-04-05') ) or
+      ( dob >= Date.parse('1992-04-06') and dob <= Date.parse('1993-04-05') )
+    end
+
+    # these people always get at least 1 year of starting credits
+    def at_least_one_year_credit_age?
+      ( dob >= Date.parse('1957-04-06') and dob <= Date.parse('1958-04-05') ) or
+      ( dob >= Date.parse('1993-04-06') and dob <= Date.parse('1994-04-05') )
+    end
     
     # these people get different starting credits based on when they were born and what they answer to Q10
     def credit_bands
@@ -147,35 +163,15 @@ module SmartAnswer::Calculators
       end  
     end
 
-    # Automatic years calculation removed for initial release - risk of overestimating
-    # applies to men born before 6 Oct 1953
-    # def auto_years
-    #   [
-    #     { before: Date.parse("1950-10-06"), credit: 5 },
-    #     { before: Date.parse("1951-10-06"), credit: 4 },
-    #     { before: Date.parse("1952-10-06"), credit: 3 },
-    #     { before: Date.parse("1953-07-06"), credit: 2 },
-    #     { before: Date.parse("1953-10-06"), credit: 1 }
-    #   ]
-    # end
 
-    # def allocate_automatic_years
-    #   auto_year = auto_years.find { |c| c[:before] > dob }
-    #   @automatic_years = (auto_year ? auto_year[:credit] : 0 )   
-    # end
-
-    # def automatic_years
-    #   @automatic_years
-    # end
-
-    def starting_credits
-      @starting_credits
-    end
-
-    ## this is done just to control flow 
+    ## this is done just to control flow
     def allocate_starting_credits
       if three_year_credit_age?
         @starting_credits = 3
+      elsif at_least_two_year_credit_age?
+        @starting_credits = 2
+      elsif at_least_one_year_credit_age?
+        @starting_credits = 1
       else
         @starting_credits = 0
       end
@@ -205,8 +201,15 @@ module SmartAnswer::Calculators
 
     # enough years to get full basic state pension - used only in flow to test if we should ask more questions
     def enough_qualifying_years?(qual_years = @qualifying_years)
-      (qual_years + starting_credits) > 29
+      qual_years > 29
     end
+
+    # used for flow optimisation so users who haven't entered enough qy but will get 
+    # 1,2 or 3 starting credit years are sent to last question or result
+    def enough_qualifying_years_and_credits?(qual_years = @qualifying_years)
+      (qual_years + @starting_credits) > 29
+    end
+
 
     # are there any more years users can enter based on how many years there are between today and time they were 19?
     # used in flow to test if we should ask more questions
