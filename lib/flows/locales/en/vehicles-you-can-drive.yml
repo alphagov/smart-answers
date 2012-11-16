@@ -12,10 +12,6 @@ en-GB:
         This tool tells you if you're old enough to or have the right kind of driving licence to 
         drive different kinds of vehicle.
 
-        ^Related links:
-        
-        [Driving licence categories](/driving-licence-categories)
-
       ## Q1
       what_type_of_vehicle?:
         title: What kind of vehicle do you want to drive?
