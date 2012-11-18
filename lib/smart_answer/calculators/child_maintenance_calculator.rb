@@ -13,17 +13,23 @@ module SmartAnswer::Calculators
     OLD_SCHEME_MAX_INCOME = 2000
     NEW_SCHEME_MAX_INCOME = 3000
     
-    def initialize(number_of_children)
+    def initialize(number_of_children, calculation_scheme, benefits)
       @number_of_children = number_of_children.to_i
-      # Scheme threshold will be determined by number of children in a later iteration
-      # @calculation_scheme = @number_of_children > 3 ? :new : :old
-      # Use current scheme in all cases for now
-      @calculation_scheme = :old
+      @calculation_scheme = calculation_scheme
+      @benefits = benefits
       load_calculator_data
     end
     
     def rate_type
-      @calculator_data[:rates][@calculation_scheme].find { |r| capped_income <= r[:max] }[:rate]
+      if @benefits 
+        if @number_of_shared_care_nights and @number_of_shared_care_nights > 0
+          :nil
+        else
+          :flat
+        end
+      else
+        @calculator_data[:rates][@calculation_scheme].find { |r| capped_income <= r[:max] }[:rate]
+      end
     end
     
     def calculate_maintenance_payment
