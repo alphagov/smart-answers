@@ -20,7 +20,9 @@ date_question :leave_start? do
     start_date = responses.last
     start_date_p = Date.parse(start_date)
     due_date_p = Date.parse(due_date)
-    raise SmartAnswer::InvalidResponse if start_date_p > due_date_p or start_date_p < 11.weeks.ago(due_date_p) 
+    if start_date_p > due_date_p or start_date_p < calculator.leave_earliest_start_date 
+      raise SmartAnswer::InvalidResponse 
+    end
     calculator.enter_start_date(start_date)
     start_date
   end
