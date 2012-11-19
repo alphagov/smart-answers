@@ -21,7 +21,7 @@ module SmartAnswer::Calculators
     end
     
     def rate_type
-      if @benefits 
+      if @benefits == 'yes'
         if @number_of_shared_care_nights and @number_of_shared_care_nights > 0
           :nil
         else

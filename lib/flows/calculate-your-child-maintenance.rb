@@ -41,7 +41,7 @@ multiple_choice :gets_benefits? do
   end
 end
 
-## Q2
+## Q3
 money_question :net_income_of_payee? do
 
 
@@ -59,7 +59,7 @@ money_question :net_income_of_payee? do
   end
 end
 
-## Q2a
+## Q3a
 money_question :gross_income_of_payee? do
 
 
