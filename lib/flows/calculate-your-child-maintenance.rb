@@ -10,7 +10,7 @@ multiple_choice :how_many_children_paid_for? do
   option "4_different_parents"
 
   calculate :number_of_children do
-    ## to_i will look for the first integer  
+    ## to_i will look for the first integer in the string
     responses.last.to_i
   end
 
@@ -93,14 +93,19 @@ multiple_choice :how_many_nights_children_stay_with_payee? do
   option 2
   option 3
   option 4
+
   calculate :child_maintenance_payment do
     calculator.number_of_shared_care_nights = responses.last.to_i
     sprintf("%.0f", calculator.calculate_maintenance_payment)
   end
   next_node do |response|
-    rate_type = calculator.rate_type
-    if [:nil, :flat].include?(rate_type)
-      "#{rate_type.to_s}_rate_result".to_sym
+    if benefits == 'yes'
+      rate_type = calculator.rate_type_when_benefits
+      if [:nil, :flat].include?(rate_type)
+        "#{rate_type.to_s}_rate_result".to_sym
+      else
+        raise SmartAnswer::InvalidResponse ## when receiving benefits it can't be any other rate
+      end
     else
       :reduced_and_basic_rates_result
     end

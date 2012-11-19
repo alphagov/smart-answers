@@ -1,7 +1,7 @@
 ---
 :rates:
   :new:
-    - :max: 4.99
+    - :max: 5
       :rate: :nil
     - :max: 100
       :rate: :flat
@@ -21,18 +21,18 @@
     - :max: 2000
       :rate: :basic
 :new_reduced_rate_multipliers:
-  - - 0.25
-    - 0.35
-    - 0.45
-  - - 0.205
-    - 0.29
-    - 0.37
   - - 0.19
     - 0.27
-    - 0.375
-  - - 0.175
-    - 0.25
-    - 0.325
+    - 0.33
+  - - 0.164
+    - 0.235
+    - 0.288
+  - - 0.156
+    - 0.225
+    - 0.277
+  - - 0.152
+    - 0.219
+    - 0.269
 :old_reduced_rate_multipliers:
   - - 0.25
     - 0.35
@@ -47,27 +47,17 @@
     - 0.25
     - 0.325
 :new_basic_rate_multipliers:
-  - - 0.12
-    - 0.16
-    - 0.19
-  - - 0.12
-    - 0.16
-    - 0.19
-  - - 0.131
-    - 0.198
-    - 0.249
-  - - 0.124
-    - 0.189
-    - 0.237
+  - 0.12
+  - 0.16
+  - 0.19
 :old_basic_rate_multipliers:
   - 0.15
   - 0.20
   - 0.25
 :basic_plus_rate_multipliers:
-  - 0
   - 0.9
   - 0.12
-  - 0.19
+  - 0.15
 :shared_care_reductions:
   - 0
   - 0.143
@@ -76,9 +66,9 @@
   - 0.5
 :new_relevant_other_child_reductions:
   - 0
-  - 0.12
+  - 0.11
+  - 0.14
   - 0.16
-  - 0.19
 :old_relevant_other_child_reductions:
   - 0
   - 0.15

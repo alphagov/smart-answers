@@ -2,10 +2,10 @@ module SmartAnswer::Calculators
   class ChildMaintenanceCalculator
     
     attr_reader :calculation_scheme
-    attr_accessor :net_income, :number_of_other_children, :number_of_shared_care_nights
+    attr_accessor :income, :number_of_other_children, :number_of_shared_care_nights
     
     OLD_SCHEME_BASE_AMOUNT = 5
-    NEW_SCHEME_BASE_AMOUNT = 7
+    NEW_SCHEME_BASE_AMOUNT = 5
     OLD_SCHEME_MINIMUM_REDUCED_BASIC = 5
     REDUCED_RATE_THRESHOLD = 100
     BASIC_PLUS_RATE_THRESHOLD = 800
@@ -20,24 +20,30 @@ module SmartAnswer::Calculators
       load_calculator_data
     end
     
+    # called after we enter income (we know benefits == no)
     def rate_type
-      if @benefits == 'yes'
-        if @number_of_shared_care_nights and @number_of_shared_care_nights > 0
-          :nil
-        else
-          :flat
-        end
+      @calculator_data[:rates][@calculation_scheme].find { |r| capped_income <= r[:max] }[:rate]
+    end
+
+    # called when we know benefits == yes and we know shared care nights, but income is not set
+    def rate_type_when_benefits
+      if @number_of_shared_care_nights > 0
+        :nil
       else
-        @calculator_data[:rates][@calculation_scheme].find { |r| capped_income <= r[:max] }[:rate]
+        :flat
       end
     end
     
     def calculate_maintenance_payment
-      send("calculate_#{rate_type}_rate_payment")
+      if @benefits == 'no'
+        send("calculate_#{rate_type}_rate_payment")
+      else
+        0 # not used so doesn't matter
+      end
     end
     
     def calculate_reduced_rate_payment
-      reduced_rate = ((@net_income - REDUCED_RATE_THRESHOLD) * reduced_rate_multiplier) + base_amount
+      reduced_rate = ((@income - REDUCED_RATE_THRESHOLD) * reduced_rate_multiplier) + base_amount
       reduced_rate_decreased = (reduced_rate - (reduced_rate * shared_care_multiplier)).round(0)
       if shared_care_multiplier == 0.5
         reduced_rate_decreased = reduced_rate_decreased - (@number_of_children * SHARED_CARE_MAX_RELIEF_EXTRA_AMOUNT)
@@ -60,7 +66,7 @@ module SmartAnswer::Calculators
     
     #only used in the 2012 scheme
     def calculate_basic_plus_rate_payment
-      basic_plus_rate = @net_income - (@net_income * relevant_other_child_multiplier)
+      basic_plus_rate = @income - (@income * relevant_other_child_multiplier)
       basic_qualifying_child_amount = (BASIC_PLUS_RATE_THRESHOLD * basic_rate_multiplier)
       additional_qualifying_child_amount = ((basic_plus_rate - BASIC_PLUS_RATE_THRESHOLD) * basic_plus_rate_multiplier)
       child_amounts_total = basic_qualifying_child_amount + additional_qualifying_child_amount
@@ -73,8 +79,7 @@ module SmartAnswer::Calculators
     end
     
     def basic_rate_multiplier
-      #matrix = @calculator_data[scheme_sym(:basic_rate_multipliers)]
-      matrix = @calculator_data[:old_basic_rate_multipliers]
+      matrix = @calculator_data[scheme_sym(:basic_rate_multipliers)]
       matrix[number_of_qualifying_children_index]
     end
     
@@ -93,7 +98,7 @@ module SmartAnswer::Calculators
     # never use more than the net (or gross) income maximum in calculations
     def capped_income
       max_income = ( @calculation_scheme == :old ? OLD_SCHEME_MAX_INCOME : NEW_SCHEME_MAX_INCOME )
-      @net_income > max_income ? max_income : @net_income
+      @income > max_income ? max_income : @income
     end
 
     def number_of_other_children_index
