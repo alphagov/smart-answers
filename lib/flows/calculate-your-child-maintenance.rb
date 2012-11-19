@@ -15,6 +15,7 @@ multiple_choice :how_many_children_paid_for? do
   end
 
   ## initial filtering: 4 children from same parent -> 2012 scheme
+  ## everyone else -> 2003 scheme
   calculate :maintenance_scheme do
     responses.last == '4_same_parent' ? :new : :old
   end
@@ -44,12 +45,8 @@ end
 ## Q3
 money_question :net_income_of_payee? do
 
-
-  calculate :flat_rate_amount do
-    calculator.base_amount
-  end
   next_node do |response|
-    calculator.net_income = response
+    calculator.income = response
     rate_type = calculator.rate_type
     if [:nil, :flat].include?(rate_type)
       "#{rate_type.to_s}_rate_result".to_sym
@@ -67,7 +64,7 @@ money_question :gross_income_of_payee? do
     calculator.base_amount
   end
   next_node do |response|
-    calculator.net_income = response
+    calculator.income = response
     rate_type = calculator.rate_type
     if [:nil, :flat].include?(rate_type)
       "#{rate_type.to_s}_rate_result".to_sym
@@ -99,19 +96,28 @@ multiple_choice :how_many_nights_children_stay_with_payee? do
     sprintf("%.0f", calculator.calculate_maintenance_payment)
   end
   next_node do |response|
-    if benefits == 'yes'
-      rate_type = calculator.rate_type_when_benefits
-      if [:nil, :flat].include?(rate_type)
-        "#{rate_type.to_s}_rate_result".to_sym
-      else
-        raise SmartAnswer::InvalidResponse ## when receiving benefits it can't be any other rate
-      end
+    calculator.number_of_shared_care_nights = response.to_i
+    rate_type = calculator.rate_type
+    if [:nil, :flat].include?(rate_type)
+      "#{rate_type.to_s}_rate_result".to_sym
     else
       :reduced_and_basic_rates_result
     end
   end
 end
 
-outcome :nil_rate_result
-outcome :flat_rate_result
+outcome :nil_rate_result do
+  precalculate :nil_rate_reason do
+    if benefits == 'yes'
+      PhraseList.new(:nil_rate_reason_benefits)
+    else
+      PhraseList.new(:nil_rate_reason_income)
+    end
+  end
+end
+outcome :flat_rate_result do
+  precalculate :flat_rate_amount do
+    calculator.base_amount
+  end
+end
 outcome :reduced_and_basic_rates_result

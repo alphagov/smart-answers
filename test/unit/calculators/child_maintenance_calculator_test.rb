@@ -13,10 +13,10 @@ module SmartAnswer::Calculators
         assert_equal :nil, @calculator.rate_type
         @calculator = ChildMaintenanceCalculator.new(2, :old, 'yes')
         @calculator.number_of_shared_care_nights = 0
-        assert_equal :flat, @calculator.rate_type_when_benefits
+        assert_equal :flat, @calculator.rate_type
         @calculator = ChildMaintenanceCalculator.new(2, :new, 'yes')
         @calculator.number_of_shared_care_nights = 1
-        assert_equal :nil, @calculator.rate_type_when_benefits
+        assert_equal :nil, @calculator.rate_type
       end
     end
     
@@ -85,17 +85,18 @@ module SmartAnswer::Calculators
 
     end
     
-    # context "calculate_reduced_rate_payment method using new scheme" do
-    #   should "give the reduced rate payment total" do
-    #     @calculator = ChildMaintenanceCalculator.new(4)
-    #     @calculator.income = 173.00
-    #     @calculator.number_of_other_children = 1
-    #     @calculator.number_of_shared_care_nights = 1
-    #     assert_equal 0.37, @calculator.reduced_rate_multiplier
-    #     assert_equal 0.14, @calculator.shared_care_multiplier
-    #     assert_equal 29.25, @calculator.calculate_reduced_rate_payment
-    #   end
-    # end
+    # example on p23
+    context "calculate_reduced_rate_payment method using new scheme" do
+      should "give the reduced rate payment total" do
+        @calculator = ChildMaintenanceCalculator.new(2, :new, 'no')
+        @calculator.income = 173.00
+        @calculator.number_of_other_children = 1
+        @calculator.number_of_shared_care_nights = 0
+        assert_equal 0.235, @calculator.reduced_rate_multiplier
+        assert_equal 0, @calculator.shared_care_multiplier
+        assert_equal 22, @calculator.calculate_reduced_rate_payment ##22.15 unrounded
+      end
+    end
     
     context "calculate_reduced_rate_payment method using old scheme" do
       should "give the correct reduced rate payment total" do
@@ -109,20 +110,38 @@ module SmartAnswer::Calculators
       end
     end
     
-    # context "calculate_basic_rate_payment method using new scheme" do
-    #   setup do
-    #     @calculator = ChildMaintenanceCalculator.new(4)
-    #     @calculator.income = 307.00
-    #     @calculator.number_of_other_children = 2
-    #     @calculator.number_of_shared_care_nights = 2
-    #   end
-    #   should "give the reduced rate payment total" do
-    #     assert_equal 0.16, @calculator.relevant_other_child_multiplier
-    #     assert_equal 0.249, @calculator.basic_rate_multiplier
-    #     assert_equal 0.28, @calculator.shared_care_multiplier
-    #     assert_equal 46.23, @calculator.calculate_basic_rate_payment
-    #   end
-    # end
+
+    context "calculate_basic_rate_payment method using new scheme" do
+      setup do
+        @calculator = ChildMaintenanceCalculator.new(2, :new, 'no')
+        @calculator.income = 600.00
+        @calculator.number_of_other_children = 0
+        @calculator.number_of_shared_care_nights = 0
+      end
+      should "give the correct basic rate payment total" do
+        assert_equal 0, @calculator.relevant_other_child_multiplier
+        assert_equal 0.16, @calculator.basic_rate_multiplier
+        assert_equal 0, @calculator.shared_care_multiplier
+        assert_equal 96, @calculator.calculate_basic_rate_payment
+      end
+    end
+
+    ## example from p30
+    context "calculate_basic_rate_payment method using new scheme" do
+      setup do
+        @calculator = ChildMaintenanceCalculator.new(3, :new, 'no')
+        @calculator.income = 517.81
+        @calculator.number_of_other_children = 1
+        @calculator.number_of_shared_care_nights = 2
+      end
+      should "give the correct basic rate payment total" do
+        assert_equal 0.11, @calculator.relevant_other_child_multiplier
+        assert_equal 0.19, @calculator.basic_rate_multiplier
+        assert_equal 0.286, @calculator.shared_care_multiplier
+        assert_equal 63, @calculator.calculate_basic_rate_payment ##62.52 unrounded
+      end
+    end
+
     
     context "calculate_basic_rate_payment method using old scheme" do
       setup do
@@ -139,21 +158,24 @@ module SmartAnswer::Calculators
       end
     end
     
-    # context "calculate_basic_plus_rate_payment method" do
-    #   setup do
-    #     @calculator = ChildMaintenanceCalculator.new(4)
-    #     @calculator.income = 2000.00
-    #     @calculator.number_of_other_children = 3
-    #     @calculator.number_of_shared_care_nights = 3        
-    #   end
-    #   should "give the basic plus rate payment total" do
-    #     assert_equal 0.19, @calculator.relevant_other_child_multiplier
-    #     assert_equal 0.237, @calculator.basic_rate_multiplier
-    #     assert_equal 0.42, @calculator.shared_care_multiplier
-    #     assert_equal 200.33, @calculator.calculate_basic_plus_rate_payment        
-    #   end
-    # end
+    #example from p20
+    context "calculate_basic_plus_rate_payment method" do
+      setup do
+        @calculator = ChildMaintenanceCalculator.new(2, :new, 'no')
+        @calculator.income = 1000.00
+        @calculator.number_of_other_children = 0
+        @calculator.number_of_shared_care_nights = 0        
+      end
+      should "give the basic plus rate payment total" do
+        assert_equal 0, @calculator.relevant_other_child_multiplier
+        assert_equal 0.16, @calculator.basic_rate_multiplier
+        assert_equal 0.12, @calculator.basic_plus_rate_multiplier
+        assert_equal 0, @calculator.shared_care_multiplier
+        assert_equal 152, @calculator.calculate_basic_plus_rate_payment        
+      end
+    end
     
+    ## old scheme tests
     context "calculate_maintenance_payment method" do
       #test scenario 9
       should "calculate the child maintenance payment using the correct scheme and rate" do

@@ -22,15 +22,15 @@ module SmartAnswer::Calculators
     
     # called after we enter income (we know benefits == no)
     def rate_type
-      @calculator_data[:rates][@calculation_scheme].find { |r| capped_income <= r[:max] }[:rate]
-    end
-
-    # called when we know benefits == yes and we know shared care nights, but income is not set
-    def rate_type_when_benefits
-      if @number_of_shared_care_nights > 0
-        :nil
+      if @benefits == 'yes'
+        if @number_of_shared_care_nights > 0
+          :nil
+        else
+          :flat
+        end
       else
-        :flat
+        # work out the rate based on income  
+        @calculator_data[:rates][@calculation_scheme].find { |r| capped_income <= r[:max] }[:rate]
       end
     end
     
@@ -38,7 +38,7 @@ module SmartAnswer::Calculators
       if @benefits == 'no'
         send("calculate_#{rate_type}_rate_payment")
       else
-        0 # not used so doesn't matter
+        0 #irrelevant what we return, with benefits rate is either nil or flat
       end
     end
     
@@ -92,7 +92,7 @@ module SmartAnswer::Calculators
     end
     
     def basic_plus_rate_multiplier
-      @calculator_data[:basic_plus_rate_multipliers][number_of_qualifying_children]
+      @calculator_data[:basic_plus_rate_multipliers][number_of_qualifying_children_index]
     end
 
     # never use more than the net (or gross) income maximum in calculations
