@@ -337,15 +337,16 @@ module SmartAnswer::Calculators
         end
       end
 
-      ## FIXME: this needs to pass once the method is implemented correctly
-      # context "testing what if not enough time to get full state pension" do
-      #   should "state that user has 13 remaining years and would get 2/3 of basic pension" do 
-      #     @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
-      #       gender: "male", dob: "1960-04-04", qualifying_years: 7)
-      #     assert_equal 13, @calculator.years_to_pension
-      #     assert_equal 71.63, @calculator.what_you_would_get_if_not_full
-      #   end
-      # end
+      
+      context "testing what would get if not enough time to get full state pension" do
+        should "state that user has 13 remaining years and would get 2/3 of basic pension" do 
+          @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+            gender: "male", dob: "1960-04-04", qualifying_years: 7)
+          assert_equal 13, @calculator.years_to_pension
+          assert_equal 71.63, @calculator.what_you_would_get_if_not_full
+        end
+      end
+
 
       context "(testing years_to_pension)" do
         
@@ -389,7 +390,7 @@ module SmartAnswer::Calculators
           end
         end
 
-        context "Aleks' tests" do
+        context "remaining years tests" do
           Timecop.freeze(Date.parse("2012-10-09")) do
             should "state that user has 13 remaining_years" do
               @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
