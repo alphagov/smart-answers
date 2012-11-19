@@ -729,8 +729,8 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         add_response 28
       end
 
-      should "display years of work because of starting credits" do
-        assert_current_node :years_of_work?
+      should "display result because of starting credits" do
+        assert_current_node :amount_result
       end
     end
 
@@ -742,8 +742,8 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         add_response 1
       end
 
-      should "display years of work because of starting credits" do
-        assert_current_node :years_of_work?
+      should "display result because of starting credits" do
+        assert_current_node :amount_result
       end
     end
 

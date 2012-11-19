@@ -192,8 +192,10 @@ value_question :years_paid_ni? do
 
   next_node do |response|
     ni = Integer(response)
-    if calculator.enough_qualifying_years_and_credits?(ni) or calculator.no_more_available_years?(ni)
-      if calculator.enough_qualifying_years?(ni) or calculator.three_year_credit_age?
+    if calculator.enough_qualifying_years_and_credits?(ni)
+      :amount_result
+    elsif calculator.no_more_available_years?(ni)
+      if calculator.three_year_credit_age?
         :amount_result
       else
         :years_of_work? # Q10
@@ -224,8 +226,10 @@ value_question :years_of_jsa? do
 
   next_node do |response|
     ni = Integer(response) + qualifying_years
-    if calculator.enough_qualifying_years_and_credits?(ni) or calculator.no_more_available_years?(ni)
-      if calculator.enough_qualifying_years?(ni) or calculator.three_year_credit_age?
+    if calculator.enough_qualifying_years_and_credits?(ni)
+      :amount_result
+    elsif calculator.no_more_available_years?(ni)
+      if calculator.three_year_credit_age?
         :amount_result
       else
         :years_of_work? # Q10
@@ -277,8 +281,10 @@ value_question :years_of_benefit? do
   next_node do |response|
     benefit_years = Integer(response)
     ni = (qualifying_years + benefit_years)
-    if calculator.enough_qualifying_years_and_credits?(ni) or calculator.no_more_available_years?(ni)
-      if calculator.enough_qualifying_years?(ni) or calculator.three_year_credit_age?
+    if calculator.enough_qualifying_years_and_credits?(ni)
+      :amount_result
+    elsif calculator.no_more_available_years?(ni)
+      if calculator.three_year_credit_age?
         :amount_result
       else
         :years_of_work? # Q10
@@ -318,8 +324,10 @@ value_question :years_of_caring? do
   next_node do |response|
     caring_years = Integer(response)
     ni = (qualifying_years + caring_years)
-    if calculator.enough_qualifying_years_and_credits?(ni) or calculator.no_more_available_years?(ni)
-      if calculator.enough_qualifying_years?(ni) or calculator.three_year_credit_age?
+    if calculator.enough_qualifying_years_and_credits?(ni) 
+      :amount_result
+    elsif calculator.no_more_available_years?(ni)
+      if calculator.three_year_credit_age?
         :amount_result
       else
         :years_of_work? # Q10
@@ -342,7 +350,7 @@ value_question :years_of_carers_allowance? do
   next_node do |response|
     caring_years = Integer(response)
     ni = (qualifying_years + caring_years) 
-    if calculator.enough_qualifying_years?(ni) or calculator.three_year_credit_age?
+    if calculator.enough_qualifying_years_and_credits?(ni) or calculator.three_year_credit_age?
       :amount_result    
     else
       :years_of_work?
@@ -387,7 +395,12 @@ outcome :amount_result do
     if calc.three_year_credit_age? 
       qualifying_years + 3
     else 
-      qualifying_years + calc.calc_qualifying_years_credit(years_of_work_entered.to_i)
+      if years_of_work_entered
+        qualifying_years + calc.calc_qualifying_years_credit(years_of_work_entered.to_i)
+      else
+        ## Q10 was skipped because of flow optimisation
+        qualifying_years + calc.calc_qualifying_years_credit(0)
+      end
     end
   end
 
