@@ -2,10 +2,12 @@ module SmartAnswer::Calculators
 	class PlanMaternityLeave
 		include ActionView::Helpers::DateHelper
 
-		attr_reader :formatted_due_date, :formatted_start_date
+		attr_reader :formatted_due_date, :formatted_start_date, :leave_earliest_start_date 
 
 		def initialize(options = {})
 			@due_date = Date.parse(options[:due_date])
+      due_date_week_start = @due_date - @due_date.wday
+      @leave_earliest_start_date = 11.weeks.ago(due_date_week_start)
 			@formatted_due_date = @due_date.strftime("%A, %d %B %Y")
 		end
 
