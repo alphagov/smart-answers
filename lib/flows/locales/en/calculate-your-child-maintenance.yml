@@ -5,7 +5,7 @@ en-GB:
         description: Work out the amount of child maintenance you might have to pay according to the Child Support Agency
       title: Child maintenance calculator
       body: |
-        Use the child maintenance calculator to agree on a child maintenance amount if you’re arranging it yourselves, or to get an idea of the statutory amount the government would work out for you.
+        Use the calculator to agree on a child maintenance amount if you’re arranging it yourselves, or to get an idea of the statutory amount the government would work out for you.
 
         ##What you need to know:##
         
@@ -13,7 +13,7 @@ en-GB:
         - you need information about your income
       phrases:
         nil_rate_reason_benefits: |
-          This is because the parent paying child maintenance is receiving benefits and they have shared care of child(ren).
+          This is because the parent paying child maintenance is receiving benefits and they have shared care of the child(ren).
         nil_rate_reason_income: |
           This is because the income of the parent paying child maintenance is too low.
 
@@ -21,11 +21,11 @@ en-GB:
       how_many_children_paid_for?:
         title: How many children does child maintenance have to be paid for?
         options:
-          "1_child": "One"
-          "2_children": "Two"
-          "3_children": "Three"
-          "4_same_parent": "Four or more with 1 other parent"
-          "4_different_parents": "Four or more with more than 1 other parent"
+          "1_child": "1"
+          "2_children": "2"
+          "3_children": "3"
+          "4_same_parent": "4+ with 1 other parent"
+          "4_different_parents": "4+ with more than 1 other parent"
       ## Q2
       gets_benefits?:
         title: Does the parent paying child maintenance get any of these benefits?
@@ -60,12 +60,12 @@ en-GB:
         error_message: Please enter a number
       ## Q4
       how_many_other_children_in_payees_household?:
-        title: How many children live in the household of the parent paying child maintenance?
+        title: How many other children live in the household of the parent paying child maintenance?
         hint: Enter 0 if no children live there. Don’t count the children child maintenance has to be paid for.
         error_message: Please enter a number
       ## Q5
       how_many_nights_children_stay_with_payee?:
-        title: On average, how many nights a week do the children stay with the parent paying child maintenance?
+        title: On average, how many nights a week do the children stay over with the parent paying child maintenance?
         options:
           "0": "Less than once a week"
           "1": "1 night a week"
@@ -79,9 +79,9 @@ en-GB:
 
           %{nil_rate_reason}
 
-          This is an estimate. The amount the Child Support Agency would calculate might be different.
+          This is an estimate. The amount the [Child Support Agency](/arranging-child-maintenance-child-support-agency "Child Maintenance") would calculate might be different.
 
-          There is more information on [how child maintenance is worked out](/how-child-maintenance-is-worked-out/child-maintenance-rates)
+          There is more information on [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/child-maintenance-rates)
       ## A2
       flat_rate_result:
         body: |
@@ -89,7 +89,7 @@ en-GB:
 
           This is an estimate. The amount the Child Support Agency would calculate might be different.
 
-          There is more information on [how child maintenance is worked out](/how-child-maintenance-is-worked-out/child-maintenance-rates)
+          There is more information on [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/child-maintenance-rates)
       ## A3
       reduced_and_basic_rates_result:
         body: |
@@ -97,5 +97,4 @@ en-GB:
 
           This is an estimate. The amount the Child Support Agency would calculate might be different.
 
-          There is more information on [how child maintenance is worked out](/how-child-maintenance-is-worked-out/child-maintenance-rates)
-      
+          There is more information on [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/child-maintenance-rates)
