@@ -9,28 +9,61 @@ en-GB:
 
         ##What you need to know:##
         
-        - this calculator is for child maintenance agreements from March 2003 onwards  
-        - different rules apply for [agreements before March 2003](/how-child-maintenance-is-worked-out/child-maintenance-before-march-2003 "agreements before 2003")
-        - people on certain benefits are [exempt from paying child maintenance](/how-child-maintenance-is-worked-out/child-maintenance-rates "exempt from paying child maintenance") 
+        - the calculator gives an estimate
+        - you need information about your income
+      phrases:
+        nil_rate_reason_benefits: |
+          This is because the parent paying child maintenance is receiving benefits and they have shared care of child(ren).
+        nil_rate_reason_income: |
+          This is because the income of the parent paying child maintenance is too low.
+
       ## Q1
       how_many_children_paid_for?:
         title: How many children does child maintenance have to be paid for?
-        error_message: Please enter a number
+        options:
+          "1_child": "One"
+          "2_children": "Two"
+          "3_children": "Three"
+          "4_same_parent": "Four or more with 1 other parent"
+          "4_different_parents": "Four or more with more than 1 other parent"
       ## Q2
+      gets_benefits?:
+        title: Does the parent paying child maintenance get any of these benefits?
+        body: |
+
+          - Income Support
+          - income-based Jobseeker’s Allowance
+          - income-related Employment and Support Allowance
+          - Pension Credit
+          - contribution-based Jobseeker’s Allowance
+          - contribution-based Employment and Support Allowance
+          - State Pension
+          - Incapacity Benefit
+          - Training Allowance
+          - Armed Forces Compensation Scheme payments
+          - War Disablement Pension
+          - Bereavement Allowance
+        options: 
+          "yes": "Yes"
+          "no": "No"
+      ## Q3
       net_income_of_payee?:
         title: What is the weekly net income of the parent paying child maintenance?
         hint: This is income after tax, National Insurance and pension contributions.
+        suffix_label: per week
         error_message: Please enter a number
-      ## Q2a
+      ## Q3a
       gross_income_of_payee?:
         title: What is the weekly gross income of the parent paying child maintenance?
         hint: This is income before tax, National Insurance and pension contributions.
-      ## Q3
+        suffix_label: per week
+        error_message: Please enter a number
+      ## Q4
       how_many_other_children_in_payees_household?:
         title: How many children live in the household of the parent paying child maintenance?
         hint: Enter 0 if no children live there. Don’t count the children child maintenance has to be paid for.
         error_message: Please enter a number
-      ## Q4
+      ## Q5
       how_many_nights_children_stay_with_payee?:
         title: On average, how many nights a week do the children stay with the parent paying child maintenance?
         options:
@@ -44,7 +77,7 @@ en-GB:
         body: |
           $!Based on your answers no child maintenance has to be paid. $!
 
-          This is because the income of the parent paying child maintenance is too low.
+          %{nil_rate_reason}
 
           This is an estimate. The amount the Child Support Agency would calculate might be different.
 

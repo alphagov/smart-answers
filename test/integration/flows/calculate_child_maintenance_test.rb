@@ -22,80 +22,123 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
   end
   
   ## Old scheme
-  context "answer less than 4" do
+  context "answer 3" do
     setup do
-      add_response 3
+      add_response '3_children'
     end
-    ## Q2
-    should "ask what the weekly income of the payee" do
-      assert_current_node :net_income_of_payee?
+    should "ask if person paying child benefit receives benefits" do
+      assert_current_node :gets_benefits?
     end
-    context "answer 5" do
-      should "give nil rate result" do
-        add_response 5
-        assert_current_node :nil_rate_result
+
+    context "answer yes to benefits" do
+      setup { add_response 'yes' }
+
+      should "ask about shared care" do
+        assert_current_node :how_many_nights_children_stay_with_payee?
       end
-    end
-    context "answer 100" do
-      should "give flat rate result" do
-        add_response 100
-        assert_state_variable "flat_rate_amount", 5
-        assert_current_node :flat_rate_result
+
+      context "no shared care" do
+        setup { add_response '0' }
+
+        should "display flat rate result" do
+          assert_state_variable "flat_rate_amount", 5
+          assert_current_node :flat_rate_result
+        end
+      end 
+
+      context "shared care" do
+        setup { add_response '1' }
+
+        should "display nil rate result" do
+          assert_current_node :nil_rate_result
+        end
       end
-    end
-    context "answer 101" do
-      setup do
-        add_response 101
-      end
+    end # yes to benefits
+
+    context "no to benefits" do
+      setup { add_response 'no' }
+
       ## Q3
-      should "ask how many other children there are in the payees household" do
-        assert_current_node :how_many_other_children_in_payees_household?
+      should "ask what the weekly net income of the payee" do
+        assert_current_node :net_income_of_payee?
       end
-      
-      context "answer 3" do
+      context "answer 5" do
+        should "give nil rate result" do
+          add_response 5
+          assert_current_node :nil_rate_result
+        end
+      end
+      context "answer 100" do
+        should "give flat rate result" do
+          add_response 100
+          assert_state_variable "flat_rate_amount", 5
+          assert_current_node :flat_rate_result
+        end
+      end
+      context "answer 101" do
         setup do
-          add_response 3
+          add_response 101
         end
         ## Q4
-        should "ask how many nights a week the children stay with the payee" do
-          assert_current_node :how_many_nights_children_stay_with_payee?
+        should "ask how many other children there are in the payees household" do
+          assert_current_node :how_many_other_children_in_payees_household?
         end
-        context "answer more than 3 nights a week" do
+      
+        context "answer 3" do
           setup do
-            add_response "4"
+            add_response 3
           end
+          ## Q5
+          should "ask how many nights a week the children stay with the payee" do
+            assert_current_node :how_many_nights_children_stay_with_payee?
+          end
+          context "answer more than 3 nights a week" do
+            setup do
+              add_response "4"
+            end
           
-          should "give the reduced and basic rates result" do
-            #test just the flow here - calculation values should be in the unit tests
-            assert_current_node :reduced_and_basic_rates_result
+            should "give the reduced and basic rates result" do
+              #test just the flow here - calculation values should be in the unit tests
+              assert_current_node :reduced_and_basic_rates_result
+            end
           end
         end
       end
     end
   end # Old scheme
   
-  ## New scheme - not used in first release
-  # context "answer 4" do
-  #   setup do
-  #     add_response 4
-  #   end
-  #   ## Q2
-  #   should "ask what the weekly income of the payee" do
-  #     assert_current_node :gross_income_of_payee?
-  #   end
-  #   context "answer 100" do
-  #     should "give flat rate result" do
-  #       add_response 100
-  #       assert_state_variable "flat_rate_amount", 7
-  #       assert_current_node :flat_rate_result
-  #     end
-  #     should "flow through to calculation result" do
-  #       add_response 173.00
-  #       add_response 1
-  #       add_response 1
-  #       assert_state_variable "child_maintenance_payment", "29.25"
-  #       assert_current_node :reduced_and_basic_rates_result
-  #     end
-  #   end
-  # end
+  # New scheme - not used in first release
+  context "answer 4 with 1 other parent" do
+    setup do
+      add_response '4_same_parent'
+    end
+
+    should "ask about benefits" do
+       assert_current_node :gets_benefits?
+    end
+
+    context "no to benefits" do
+      setup { add_response 'no' }
+
+      ## Q3a
+      should "ask what the weekly gross income of the payee" do
+        assert_current_node :gross_income_of_payee?
+      end
+    
+      context "answer 100" do
+        should "give flat rate result" do
+          add_response 100
+          assert_state_variable "flat_rate_amount", 5
+          assert_current_node :flat_rate_result
+        end
+
+        should "flow through to calculation result" do
+          add_response 173.00
+          add_response 1
+          add_response 1
+          assert_current_node :reduced_and_basic_rates_result
+        end
+      end
+    end
+  end # new scheme
 end
