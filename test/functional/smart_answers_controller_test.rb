@@ -158,6 +158,20 @@ class SmartAnswersControllerTest < ActionController::TestCase
         assert_response :success
       end
 
+      context "valid response given" do
+        context "format=json" do
+          should "give correct canonical url" do
+            submit_json_response(day: "01", month: "01", year: "2013")
+            assert_redirected_to '/sample/y/2013-01-01.json'
+          end
+
+          should "set correct cache control headers" do
+            submit_json_response(day: "01", month: "01", year: "2013")
+            assert_equal "max-age=1800, public", @response.header["Cache-Control"]
+          end
+        end
+      end
+
       context "no response given" do
         should "redisplay question" do
           submit_response(day: "", month: "", year: "")
