@@ -55,6 +55,14 @@ class ChildBenefitTaxCalculatorV2Test < ActiveSupport::TestCase
           end
         end
       end
+      context "excessive number of children" do
+        setup do
+          add_response 31
+        end
+        should "give an error" do
+          assert_current_node_is_error
+        end
+      end
     end
 
     context "enter 2012-13" do

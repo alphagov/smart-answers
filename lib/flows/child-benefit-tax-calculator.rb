@@ -133,6 +133,8 @@ value_question :how_many_children_claiming_for? do
   calculate :number_of_children do
     if ! (responses.last.to_s =~ /\A\d+\z/)
       raise SmartAnswer::InvalidResponse
+    elsif responses.last.to_i > 30
+      raise SmartAnswer::InvalidResponse, :error_max_children
     else
       responses.last.to_i
     end
