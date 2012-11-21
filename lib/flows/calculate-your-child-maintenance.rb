@@ -120,4 +120,13 @@ outcome :flat_rate_result do
     calculator.base_amount
   end
 end
-outcome :reduced_and_basic_rates_result
+outcome :reduced_and_basic_rates_result do
+  precalculate :rate_type_formatted do
+    rate_type = calculator.rate_type
+    if rate_type.to_s == 'basic_plus'
+      'basic plus'
+    else
+      rate_type.to_s
+    end
+  end
+end

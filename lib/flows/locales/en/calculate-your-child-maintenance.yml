@@ -65,13 +65,13 @@ en-GB:
         error_message: Please enter a number
       ## Q5
       how_many_nights_children_stay_with_payee?:
-        title: On average, how many nights a week do the children stay over with the parent paying child maintenance?
+        title: How many nights a year do the children stay over with the parent paying child maintenance?
         options:
-          "0": "Less than once a week"
-          "1": "1 night a week"
-          "2": "2 nights a week"
-          "3": "3 nights a week"
-          "4": "More than 3 nights a week"
+          "0": "Less than 52 (less than once a week)"
+          "1": "52 to 103 (1 to 2 nights a week)"
+          "2": "104 to 155 (2 to 3 nights a week)"
+          "3": "156 to 174 (ca 3 nights a week)"
+          "4": "175 or more (more than 3 nights a week)"
       ## A1
       nil_rate_result:
         body: |
@@ -79,7 +79,7 @@ en-GB:
 
           %{nil_rate_reason}
 
-          This is an estimate. The amount the [Child Support Agency](/arranging-child-maintenance-child-support-agency "Child Maintenance") would calculate might be different.
+          This is an estimate. The statutory amount the [government](/arranging-child-maintenance-child-support-agency "Child Maintenance") would calculate might be different.
 
           There is more information on [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/child-maintenance-rates)
       ## A2
@@ -87,14 +87,16 @@ en-GB:
         body: |
           $!Based on your answers the child maintenance payment is £%{flat_rate_amount} per week. $!
 
-          This is an estimate. The amount the Child Support Agency would calculate might be different.
+          This is an estimate. The statutory amount the [government](/arranging-child-maintenance-child-support-agency "Child Maintenance") would calculate might be different.
 
           There is more information on [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/child-maintenance-rates)
       ## A3
       reduced_and_basic_rates_result:
         body: |
-          $!Based on your answers the child maintenance payment is £%{child_maintenance_payment} per week. $!
+          $!Based on your answers the child maintenance payment is the %{rate_type_formatted} rate of £%{child_maintenance_payment} per week. $!
 
-          This is an estimate. The amount the Child Support Agency would calculate might be different.
+          This is the total weekly amount, not the amount per child.
+
+          This is an estimate. The amount the [government](/arranging-child-maintenance-child-support-agency "Child Maintenance") would calculate might be different.
 
           There is more information on [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/child-maintenance-rates)

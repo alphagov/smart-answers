@@ -100,6 +100,7 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
             should "give the reduced and basic rates result" do
               #test just the flow here - calculation values should be in the unit tests
               assert_current_node :reduced_and_basic_rates_result
+              assert_state_variable "rate_type_formatted", "reduced"
             end
           end
         end
@@ -133,10 +134,11 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
         end
 
         should "flow through to calculation result" do
-          add_response 173.00
+          add_response 250.00
           add_response 1
           add_response 1
           assert_current_node :reduced_and_basic_rates_result
+          assert_state_variable "rate_type_formatted", "basic"
         end
       end
     end
