@@ -84,6 +84,7 @@ en-GB:
         title: How many children will you or your partner be getting paid Child Benefit for from %{formatted_start_of_tax_year}?
         hint: If you’re expecting your first child enter 0. Don’t count any children that you start getting paid Child Benefit for after %{formatted_start_of_tax_year}.
         error_message: Please enter a number
+        error_max_children: You can only use this calculator for up to 30 children.
       ## Q8
       do_you_expect_to_start_or_stop_claiming?:
         title: Do you or your partner expect to start getting Child Benefit for a new child or stop getting Child Benefit for an existing child before %{formatted_end_of_tax_year}?
