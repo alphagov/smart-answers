@@ -45,9 +45,9 @@ module SmartAnswer::Calculators
     def late_payment_penalty
       if overdue_payment_days <= 30
         0
-      elsif overdue_payment_days <= 179
+      elsif overdue_payment_days <= 182
         SmartAnswer::Money.new(late_payment_penalty_part.round(2))
-      elsif overdue_payment_days <= 364
+      elsif overdue_payment_days <= 366
         SmartAnswer::Money.new((late_payment_penalty_part * 2).round(2))
       else
         SmartAnswer::Money.new((late_payment_penalty_part * 3).round(2))
