@@ -42,6 +42,10 @@ module SmartAnswer::Calculators
       SmartAnswer::Money.new((estimated_bill.value + interest.to_f + late_payment_penalty.to_f).floor)
     end
 
+    def total_owed_plus_filing_penalty
+      SmartAnswer::Money.new(total_owed.value + late_filing_penalty.value)
+    end
+
     def late_payment_penalty
       if overdue_payment_days <= 30
         0
