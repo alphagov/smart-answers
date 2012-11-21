@@ -1,5 +1,5 @@
 satisfies_need "672"
-status :draft
+status :published
 
 # Questions
 #
