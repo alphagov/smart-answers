@@ -3,17 +3,17 @@ require_relative "flow_test_helper"
 
 TEST_CALCULATOR_DATES = {
   :online_filing_deadline => {
-    :"2011-12" => Date.new(2012, 1, 31),
-    :"2012-13" => Date.new(2013, 1, 31)
+    :"2011-12" => Date.new(2013, 1, 31),
+    :"2012-13" => Date.new(2014, 1, 31)
   },
   :offline_filing_deadline => {
-    :"2011-12" => Date.new(2011, 10, 31),
-    :"2012-13" => Date.new(2012, 10, 31)
+    :"2011-12" => Date.new(2012, 10, 31),
+    :"2012-13" => Date.new(2013, 10, 31)
   },
-  :payment_deadline => Date.new(2012, 1, 31),
-  :penalty1date => Date.new(2012, 3, 2),
-  :penalty2date => Date.new(2012, 8, 2),
-  :penalty3date => Date.new(2013, 2, 2)
+  :payment_deadline => Date.new(2013, 1, 31),
+  :penalty1date => Date.new(2013, 3, 2),
+  :penalty2date => Date.new(2013, 8, 2),
+  :penalty3date => Date.new(2014, 2, 2)
 }
 class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
   include FlowTestHelper
@@ -46,7 +46,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
 
       context "a date" do
         setup do
-          add_response "2012-01-01"
+          add_response "2012-05-01"
         end
 
         should "ask when bill was paid" do
@@ -55,13 +55,13 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
 
         context "paid on time" do
           setup do
-            add_response "2012-01-02"
+            add_response "2012-05-02"
             calc = mock()
             SmartAnswer::Calculators::SelfAssessmentPenalties.expects(:new).
                 with(
                   submission_method: "online",
-                  filing_date: "2012-01-01",
-                  payment_date: "2012-01-02",
+                  filing_date: "2012-05-01",
+                  payment_date: "2012-05-02",
                   dates: TEST_CALCULATOR_DATES, 
                   tax_year: '2011-12'
                 ).returns(calc)

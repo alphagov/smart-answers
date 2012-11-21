@@ -4,14 +4,15 @@ en-GB:
       meta:
         description: "If you’ve missed Self Assessment deadlines get an estimate of how much you’ll need to pay in penalties and interest"
       title: 
-        Estimate your penalties for late Self Assessment tax returns and payments
+        Self Assessment Penalty Calculator
+      subtitle: Penalties for late payment or late filing of Self Assessment tax bills and returns
       body: |
         Get an estimate of how much you’ll need to pay in penalties and interest if you’ve missed the deadline for:
 
         - sending your Self Assessment tax return
         - paying your Self Assessment tax bill 
 
-        This calculator will not apply to situations where you make partial payments. This calculator doesn’t take account of any partial payments you’ve made towards your tax bill.
+        This calculator doesn’t take account of any partial payments you’ve made towards your tax bill.
       phrases:
         result_part1_no_penalty: |
           You sent your tax return on or before the deadline, so you don’t have to pay a penalty.
@@ -42,6 +43,9 @@ en-GB:
           - %{interest} - this is the interest added for paying your bill late
           - %{late_payment_penalty} - this is the penalty for paying your bill late
 
+      which_year?:
+        title: For which tax year do you want the estimate?
+
       how_submitted?:
         title: Did you (or do you expect to) send your Self Assessment tax return online or on paper?
         options:
@@ -55,10 +59,14 @@ en-GB:
           If you’re sending it online, enter the date you finished it or expect to finish it.
 
           If you’re sending it on paper, add 2 days to the day you posted (or expect to post) it.
+        error_message: Please enter a date on or after %{start_of_next_tax_year_formatted}
       when_paid?:
         title: When did you pay (or do you expect to pay) the bill?
+        error_message: Please enter a date on or after %{start_of_next_tax_year_formatted}
       how_much_tax?:
         title: Please enter how much your tax bill is (or an estimate if you don’t know)
+        suffix_label: for the tax year
+        error_message: Please enter a number
         body: |
           Giving the amount of the bill will help us give you an estimate of how much you’ll need to pay, including interest.
 
