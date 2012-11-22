@@ -138,16 +138,22 @@ en-GB:
         title: Your weekly childcare costs are the total amount you pay each week rounded up to the nearest pound.
         body: |
           Use this figure on your claim form.
+        next_steps: |
+          [How to claim Childcare Tax Credits](/childcare-tax-credits/how-to-claim "Childcare Tax Credits")
       # A2, A3, A4, A5
       weekly_costs:
         title: Your weekly childcare costs are £%{cost}.
         body: |
           Use this figure on your claim form.
+        next_steps: |
+          [How to claim Childcare Tax Credits](/childcare-tax-credits/how-to-claim "Childcare Tax Credits")
       # A7, A8, A9, A11, A13
       weekly_costs_for_claim_form:
         title: Your weekly childcare costs are £%{cost}
         body: |
           Use this figure on your claim form.
+        next_steps: |
+          [How to claim Childcare Tax Credits](/childcare-tax-credits/how-to-claim "Childcare Tax Credits")
       # A10, A12
       contact_the_tax_credit_office:
         title: Contact the Tax Credit Office for help in working out your costs.
