@@ -14,6 +14,8 @@ en-GB:
       options:
         "yes": "Yes"
         "no": "No"
+      phrases:
+        adjusted_net_income_is: The figures you entered mean your estimated adjusted net income is £%{adjusted_net_income}
       ## Q0
       work_out_income?:
         title: "Do you want to:"
@@ -67,7 +69,7 @@ en-GB:
         title: |
           Enter the total amount you expect to pay into a pension for the whole tax year where your pension
           provider claims tax relief for you (called ‘relief at source’ arrangements).
-        hint: If none, please enter 0.
+        hint: Only enter what you pay - don’t include the tax relief. If none, please enter 0.
         error_message: Please enter a number
       ## Q5
       how_much_interest_from_savings_and_investments?:
@@ -77,7 +79,7 @@ en-GB:
       ## Q6
       how_much_do_you_expect_to_give_to_charity_this_year?:
         title: Enter the amount you expect to give through Gift Aid during the tax year.
-        hint: If none, please enter 0.
+        hint: Only enter what you pay - don’t include the tax relief. If none, please enter 0.
         error_message: Please enter a number
       ## Q7
       how_many_children_claiming_for?:
@@ -226,6 +228,8 @@ en-GB:
       estimated_tax_charge:
         title: The person with the highest income will have to pay £%{benefit_tax}.
         body: |
+          %{conditional_income_text}
+
           Child Benefit | Your results
           -|-
           Child Benefit you get for the tax year | £%{benefit_claimed_amount}

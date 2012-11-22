@@ -332,6 +332,14 @@ outcome :estimated_tax_charge do
     )
   end
 
+  precalculate :conditional_income_text do
+    if work_out_income == "income_work_out"
+      PhraseList.new(:adjusted_net_income_is)
+    else
+      ''
+    end
+  end
+
   precalculate :benefit_tax do
     calculator.formatted_benefit_tax
   end

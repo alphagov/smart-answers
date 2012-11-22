@@ -68,4 +68,4 @@ en-GB:
           | Your penalty for sending the return late | %{late_filing_penalty_formatted} |
           %{result_parts}
 
-          These figures are estimates based on the figures you gave.
+          These figures are estimates based on the figures you gave. The total is rounded down to the nearest pound.
