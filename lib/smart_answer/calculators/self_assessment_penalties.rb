@@ -39,15 +39,19 @@ module SmartAnswer::Calculators
     end
 
     def total_owed
-      SmartAnswer::Money.new((estimated_bill.value + interest.to_f + late_payment_penalty.to_f).round(2))
+      SmartAnswer::Money.new((estimated_bill.value + interest.to_f + late_payment_penalty.to_f).floor)
+    end
+
+    def total_owed_plus_filing_penalty
+      SmartAnswer::Money.new(total_owed.value + late_filing_penalty.value)
     end
 
     def late_payment_penalty
       if overdue_payment_days <= 30
         0
-      elsif overdue_payment_days <= 179
+      elsif overdue_payment_days <= 182
         SmartAnswer::Money.new(late_payment_penalty_part.round(2))
-      elsif overdue_payment_days <= 364
+      elsif overdue_payment_days <= 366
         SmartAnswer::Money.new((late_payment_penalty_part * 2).round(2))
       else
         SmartAnswer::Money.new((late_payment_penalty_part * 3).round(2))
@@ -80,19 +84,19 @@ module SmartAnswer::Calculators
     end
 
     def payment_deadline
-      dates[:payment_deadline]
+      dates[:payment_deadline][tax_year.to_sym]
     end
 
     def penalty1date
-      dates[:penalty1date]
+      dates[:penalty1date][tax_year.to_sym]
     end
 
     def penalty2date
-      dates[:penalty2date]
+      dates[:penalty2date][tax_year.to_sym]
     end
 
     def penalty3date
-      dates[:penalty3date]
+      dates[:penalty3date][tax_year.to_sym]
     end
 
     def parse_date(value)
@@ -100,7 +104,7 @@ module SmartAnswer::Calculators
     end
 
     def calculate_interest(amount, number_of_days)
-      amount * (0.03 / 365) * number_of_days
+      (amount * (0.03 / 365) * number_of_days).round(10)
     end
   end
 end

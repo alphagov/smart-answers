@@ -3,17 +3,29 @@ require_relative "flow_test_helper"
 
 TEST_CALCULATOR_DATES = {
   :online_filing_deadline => {
-    :"2011-12" => Date.new(2012, 1, 31),
-    :"2012-13" => Date.new(2013, 1, 31)
+    :"2011-12" => Date.new(2013, 1, 31),
+    :"2012-13" => Date.new(2014, 1, 31)
   },
   :offline_filing_deadline => {
-    :"2011-12" => Date.new(2011, 10, 31),
-    :"2012-13" => Date.new(2012, 10, 31)
+    :"2011-12" => Date.new(2012, 10, 31),
+    :"2012-13" => Date.new(2013, 10, 31)
   },
-  :payment_deadline => Date.new(2012, 1, 31),
-  :penalty1date => Date.new(2012, 3, 2),
-  :penalty2date => Date.new(2012, 8, 2),
-  :penalty3date => Date.new(2013, 2, 2)
+  :payment_deadline => {
+    :"2011-12" => Date.new(2013, 1, 31),
+    :"2012-13" => Date.new(2014, 1, 31)
+  },
+  :penalty1date => {
+    :"2011-12" => Date.new(2013, 3, 2),
+    :"2012-13" => Date.new(2014, 3, 2)
+  },
+  :penalty2date => {
+    :"2011-12" => Date.new(2013, 8, 2),
+    :"2012-13" => Date.new(2014, 8, 2)
+  },
+  :penalty3date => {
+    :"2011-12" => Date.new(2014, 2, 2),
+    :"2012-13" => Date.new(2015, 2, 2)
+  }
 }
 class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
   include FlowTestHelper
@@ -44,9 +56,19 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
         assert_current_node :when_submitted?
       end
 
-      context "a date" do
+      context "a date during tax year" do
         setup do
-          add_response "2012-01-01"
+          add_response "2012-04-01"
+        end
+
+        should "return an error for filing during tax year" do
+          assert_current_node_is_error
+        end
+      end
+
+      context "a date before filing deadline" do
+        setup do
+          add_response "2012-10-10"
         end
 
         should "ask when bill was paid" do
@@ -55,13 +77,13 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
 
         context "paid on time" do
           setup do
-            add_response "2012-01-02"
+            add_response "2012-05-02"
             calc = mock()
             SmartAnswer::Calculators::SelfAssessmentPenalties.expects(:new).
                 with(
                   submission_method: "online",
-                  filing_date: "2012-01-01",
-                  payment_date: "2012-01-02",
+                  filing_date: "2012-10-10",
+                  payment_date: "2012-05-02",
                   dates: TEST_CALCULATOR_DATES, 
                   tax_year: '2011-12'
                 ).returns(calc)
@@ -75,13 +97,13 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
 
         context "paid late" do
           setup do
-            add_response "2012-03-01"
+            add_response "2013-03-03"
             calc = mock()
             SmartAnswer::Calculators::SelfAssessmentPenalties.expects(:new).
                 with(
                 submission_method: "online",
-                filing_date: "2012-01-01",
-                payment_date: "2012-03-01",
+                filing_date: "2012-10-10",
+                payment_date: "2013-03-03",
                 dates: TEST_CALCULATOR_DATES, 
                 tax_year: '2011-12'
             ).returns(calc)
@@ -94,29 +116,30 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
 
           context "bill entered" do
             setup do
-              add_response "12.50"
+              add_response "1000.00"
               calc = mock()
               SmartAnswer::Calculators::SelfAssessmentPenalties.expects(:new).
                   with(
                     submission_method: "online",
-                    filing_date: "2012-01-01",
-                    payment_date: "2012-03-01",
-                    estimated_bill: 12.5,
+                    filing_date: "2012-10-10",
+                    payment_date: "2013-03-03",
+                    estimated_bill: 1000.00,
                     dates: TEST_CALCULATOR_DATES,
                     tax_year: '2011-12'
               ).returns(calc)
-              calc.expects(:late_filing_penalty).at_least_once.returns(100)
-              calc.expects(:total_owed).returns(200)
-              calc.expects(:interest).returns(12.30)
-              calc.expects(:late_payment_penalty).at_least_once.returns(100)
+              calc.expects(:late_filing_penalty).at_least_once.returns(0)
+              calc.expects(:total_owed_plus_filing_penalty).returns(1052)
+              calc.expects(:interest).returns(2.55)
+              calc.expects(:late_payment_penalty).at_least_once.returns(50)
             end
 
             should "show results" do
               assert_current_node :late
-              assert_state_variable :late_filing_penalty, 100
-              assert_state_variable :total_owed, 200
-              assert_state_variable :interest, 12.30
-              assert_state_variable :late_payment_penalty, 100
+              assert_state_variable :late_filing_penalty, 0
+              assert_state_variable :total_owed, 1052
+              assert_state_variable :interest, 2.55
+              assert_state_variable :late_payment_penalty, 50
+              assert_phrase_list :result_parts, [:result_part2_penalty]
             end
           end
 
