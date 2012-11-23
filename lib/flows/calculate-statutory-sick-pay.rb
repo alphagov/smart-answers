@@ -57,6 +57,8 @@ date_question :sickness_end_date? do
 	next_node do |response|
 		if Date.parse(response) < Date.parse(sick_start_date)
 			raise SmartAnswer::InvalidResponse
+		elsif Date.parse(response) < (Date.parse(sick_start_date) + 4)
+			:must_be_sick_for_at_least_4_days
 		else
 			:employee_paid_for_last_8_weeks?
 		end
@@ -149,43 +151,20 @@ checkbox_question :which_days_worked? do
 		responses.last.split(',')
 	end
 
-
-	calculate :pattern_days do
-		## ensure at least 1 day per week is worked
+	calculate :calculator do
 		if responses.last == 'none' 
 			raise SmartAnswer::InvalidResponse
-		end
-		days_of_the_week_worked.length
-	end
-
-	calculate :calculator do
-		if prev_sick_days
-			Calculators::StatutorySickPayCalculator.new(prev_sick_days, Date.parse(sick_start_date))
-		else 
-			Calculators::StatutorySickPayCalculator.new(0, Date.parse(sick_start_date))
-		end
-	end
-
-	calculate :daily_rate do
-		calculator.set_daily_rate(pattern_days)
-		calculator.daily_rate
-	end
-
-
-	calculate :normal_workdays_out do
-		dates = Date.parse(sick_start_date)..Date.parse(sick_end_date)
-		puts(dates)
-		# create an array of all dates that would have been normal workdays
-		normal_workdays_missed = []
-		dates.each do |d|
-			if days_of_the_week_worked.include?(d.wday.to_s)
-				normal_workdays_missed << d
+		else
+			if prev_sick_days
+				Calculators::StatutorySickPayCalculator.new(prev_sick_days, Date.parse(sick_start_date), Date.parse(sick_end_date), days_of_the_week_worked)
+			else 
+				Calculators::StatutorySickPayCalculator.new(0, Date.parse(sick_start_date), Date.parse(sick_end_date), days_of_the_week_worked)
 			end
 		end
-		## TODO: count which days fall before or after 6 April
-		puts(normal_workdays_missed.length)
-		calculator.set_normal_work_days(normal_workdays_missed.length)
-		calculator.normal_work_days
+	end
+
+	calculate :pattern_days do
+		calculator.pattern_days
 	end
 
 	calculate :ssp_payment do
@@ -198,43 +177,10 @@ checkbox_question :which_days_worked? do
 		if (previous_related_illness == 'yes') and (prev_sick_days >= (patt_days * 28 + 3))
 			 :not_entitled_maximum_reached
 		else
-			#:normal_workdays_taken_as_sick?
-			##TODO: do we need to test for statutory maximum?
 			:entitled_or_not_enough_days
 		end
 	end
 end
-
-## Q14 - redundant 
-# value_question :normal_workdays_taken_as_sick? do
-# 	precalculate :total_days_sick do
-# 		(Date.parse(sick_end_date) - Date.parse(sick_start_date)).to_i
-# 	end
-
-# 	calculate :normal_workdays_out do
-# 		if ! (responses.last.to_s =~ /\A\d+\z/)
-#       raise SmartAnswer::InvalidResponse
-#     else
-# 			if (responses.last.to_i < 1) or (responses.last.to_i > total_days_sick)
-#       	raise SmartAnswer::InvalidResponse
-#       else
-# 				calculator.set_normal_work_days(responses.last.to_i)
-# 				calculator.normal_work_days
-#       end
-# 		end
-# 	end
-# 	calculate :ssp_payment do
-# 		sprintf("%.2f", (calculator.ssp_payment < 1 ? 0.0 : calculator.ssp_payment))
-# 	end
-
-# 	next_node do |response|
-# 		if calculator.days_that_can_be_paid_for_this_period == 0
-# 			:not_entitled_maximum_reached
-# 		else
-# 			:entitled_or_not_enough_days
-# 		end
-# 	end
-#end
 
 ## Outcomes
 
@@ -260,11 +206,15 @@ outcome :entitled_or_not_enough_days do
 	end
 
 	precalculate :days_paid do
-		calculator.days_to_pay
+		sprintf("%.0f", calculator.days_to_pay)
+	end
+
+	precalculate :normal_workdays_out do
+		calculator.normal_workdays
 	end
 
 	precalculate :max_days_payable do
-		calculator.max_days_that_can_be_paid
+		sprintf("%.0f", calculator.max_days_that_can_be_paid)
 	end
 
 	precalculate :outcome_text do

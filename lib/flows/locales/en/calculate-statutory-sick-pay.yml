@@ -29,7 +29,7 @@ en-GB:
           ##Your employee is entitled to sick pay:
 
           + £%{ssp_payment} in total
-          + for %{days_paid} days taken off sick between %{sick_start_date} and %{sick_end_date}
+          + for %{days_paid} out of %{normal_workdays_out} working days taken off sick between %{sick_start_date} and %{sick_end_date}
 
           The first 3 days of any period of illness (or any linked periods of illness separated by less than 8 weeks) won’t be paid. The payment amount will reflect this.
 
@@ -49,6 +49,8 @@ en-GB:
           *[SSP]: Statutory Sick Pay
         first_three_days_not_paid: |
           ##Your employee isn’t entitled to Statutory Sick Pay because the first 3 days of illness aren’t paid.
+
+          This employee has taken %{normal_workdays_out} working days off sick between %{sick_start_date} and %{sick_end_date}.
 
       ## Q1
       getting_maternity_pay?:

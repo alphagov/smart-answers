@@ -1,8 +1,7 @@
 module SmartAnswer::Calculators
   class StatutorySickPayCalculator
   
-    attr_reader :daily_rate, :waiting_days, :normal_work_days, :lower_earning_limit, :ssp_weekly_rate
-    attr_accessor :pattern_days, :normal_work_days
+    attr_reader :daily_rate, :waiting_days, :normal_workdays, :lower_earning_limit, :ssp_weekly_rate, :pattern_days
 
     # LEL changes on 1 April each year - update when we know the April 2013 rate
     LOWER_EARNING_LIMIT = 107.00
@@ -22,8 +21,7 @@ module SmartAnswer::Calculators
       (earning_limit_rate ? earning_limit_rate[:lower_earning_limit_rate] : LOWER_EARNING_LIMIT)
     end
 
-    # ssp weekly rate will be updated in April 2013
-    # TODO: find out what the rate was for before 6 april 2011
+    # ssp weekly rate will be updated in April 2013, we'll know about it in Jan 2013
     def ssp_rates
       [
         {min: Date.parse("6 April 2011"), max: Date.parse("5 April 2012"), ssp_weekly_rate: 81.60},
@@ -37,21 +35,18 @@ module SmartAnswer::Calculators
     end
 
     
-    def initialize(prev_sick_days, sick_start_date)
+    def initialize(prev_sick_days, sick_start_date, sick_end_date, days_of_the_week_worked)
     	@prev_sick_days = prev_sick_days
     	@waiting_days = (@prev_sick_days >= 3 ? 0 : 3 - @prev_sick_days) 
       @sick_start_date = sick_start_date
-    end
-
-    # TODO use truncate to four decimal places to match unrounded daily rates used by HMRC for 2012-13 for 3 and 7 pattern days
-    # The current calculation will match rates for 2011-12 exactly
-    def set_daily_rate(pattern_days)
-      @pattern_days = pattern_days
-    	@daily_rate = pattern_days > 0 ? (ssp_weekly_rate / pattern_days).round(4) : 0.0000 
-    end
-
-    def set_normal_work_days(normal_work_days)
-      @normal_work_days = normal_work_days
+      @sick_end_date = sick_end_date
+      @pattern_days = days_of_the_week_worked.length
+      @normal_workdays_missed = init_normal_workdays_missed(days_of_the_week_worked)
+      @normal_workdays = @normal_workdays_missed.length
+      # we need to calculate the daily rate by truncating to four decimal places to match unrounded daily rates used by HMRC 
+      # doing .round(6) after multiplication to avoid float precision issues
+      # Simply using .round(4) on ssp_weekly_rate/@pattern_days will be off by 0.0001 for 3 and 7 pattern days and lead to 1p difference in some statutory amount calculations
+      @daily_rate = @pattern_days > 0 ? ((((ssp_weekly_rate / @pattern_days) * 10000).round(6).floor)/10000.0) : 0.0000 
     end
 
     def max_days_that_can_be_paid
@@ -71,7 +66,7 @@ module SmartAnswer::Calculators
     end
 
     def days_to_pay
-      current_days_to_pay = @normal_work_days - @waiting_days
+      current_days_to_pay = @normal_workdays - @waiting_days
       if current_days_to_pay < days_that_can_be_paid_for_this_period
         current_days_to_pay
       else
@@ -83,5 +78,24 @@ module SmartAnswer::Calculators
       (days_to_pay * @daily_rate).round(2)
     end
 
+    private
+    def init_normal_workdays_missed(days_of_the_week_worked)
+      dates = @sick_start_date..@sick_end_date
+      # create an array of all dates that would have been normal workdays
+      normal_workdays_missed = []
+      dates.each do |d|
+        if days_of_the_week_worked.include?(d.wday.to_s)
+          normal_workdays_missed << d
+        end
+      end
+      normal_workdays_missed
+    end
+
+    def init_days_payable
+      ## TODO: 
+      ## 1. remove up to 3 first dates if there are waiting days in this period
+      ## 2. take only the first days_that_can_be_paid_for_this_period
+      ## 3. work out how many of those days are before April 6 and how many after, and use appropriate daily rates
+    end
   end
 end
