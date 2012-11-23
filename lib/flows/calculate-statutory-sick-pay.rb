@@ -173,7 +173,7 @@ checkbox_question :which_days_worked? do
 
 
 	calculate :normal_workdays_out do
-		dates = sick_start_date..sick_end_date
+		dates = Date.parse(sick_start_date)..Date.parse(sick_end_date)
 		puts(dates)
 		# create an array of all dates that would have been normal workdays
 		normal_workdays_missed = []
@@ -206,35 +206,35 @@ checkbox_question :which_days_worked? do
 end
 
 ## Q14 - redundant 
-value_question :normal_workdays_taken_as_sick? do
-	precalculate :total_days_sick do
-		(Date.parse(sick_end_date) - Date.parse(sick_start_date)).to_i
-	end
+# value_question :normal_workdays_taken_as_sick? do
+# 	precalculate :total_days_sick do
+# 		(Date.parse(sick_end_date) - Date.parse(sick_start_date)).to_i
+# 	end
 
-	calculate :normal_workdays_out do
-		if ! (responses.last.to_s =~ /\A\d+\z/)
-      raise SmartAnswer::InvalidResponse
-    else
-			if (responses.last.to_i < 1) or (responses.last.to_i > total_days_sick)
-      	raise SmartAnswer::InvalidResponse
-      else
-				calculator.set_normal_work_days(responses.last.to_i)
-				calculator.normal_work_days
-      end
-		end
-	end
-	calculate :ssp_payment do
-		sprintf("%.2f", (calculator.ssp_payment < 1 ? 0.0 : calculator.ssp_payment))
-	end
+# 	calculate :normal_workdays_out do
+# 		if ! (responses.last.to_s =~ /\A\d+\z/)
+#       raise SmartAnswer::InvalidResponse
+#     else
+# 			if (responses.last.to_i < 1) or (responses.last.to_i > total_days_sick)
+#       	raise SmartAnswer::InvalidResponse
+#       else
+# 				calculator.set_normal_work_days(responses.last.to_i)
+# 				calculator.normal_work_days
+#       end
+# 		end
+# 	end
+# 	calculate :ssp_payment do
+# 		sprintf("%.2f", (calculator.ssp_payment < 1 ? 0.0 : calculator.ssp_payment))
+# 	end
 
-	next_node do |response|
-		if calculator.days_that_can_be_paid_for_this_period == 0
-			:not_entitled_maximum_reached
-		else
-			:entitled_or_not_enough_days
-		end
-	end
-end
+# 	next_node do |response|
+# 		if calculator.days_that_can_be_paid_for_this_period == 0
+# 			:not_entitled_maximum_reached
+# 		else
+# 			:entitled_or_not_enough_days
+# 		end
+# 	end
+#end
 
 ## Outcomes
 
