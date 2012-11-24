@@ -40,8 +40,8 @@ end
 date_question :sickness_start_date? do
 	# should really add options to date_question to specify formatting
 	calculate :sick_start_date do
-		# currently no support for sickness periods that start before 6 April 2012
-		raise SmartAnswer::InvalidResponse if Date.parse(responses.last) < Date.parse("6 April 2012")
+		# no support for sickness periods that start before 6 April 2011
+		raise SmartAnswer::InvalidResponse if Date.parse(responses.last) < Date.parse("6 April 2011")
 		Date.parse(responses.last).strftime("%e %B %Y")
 	end
 	next_node :sickness_end_date?
@@ -81,8 +81,8 @@ money_question :what_was_average_weekly_pay? do
 		end
 	end
 	next_node do |response|
-		## TODO: look up LEL at sickness start date for this test
-		if response.to_f < Calculators::StatutorySickPayCalculator::LOWER_EARNING_LIMIT
+		## TODO: check if it's LEL at sickness start date or start of earliest linked period?
+		if response.to_f < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(Date.parse(sick_start_date))
 			:not_earned_enough												## A5
 		else
 			:related_illness?										## Q11
@@ -101,8 +101,8 @@ money_question :what_was_average_weekly_earnings? do
 		end
 	end
 	next_node do |response|
-		## TODO: look up LEL at sickness start date for this test
-		if response.to_f < Calculators::StatutorySickPayCalculator::LOWER_EARNING_LIMIT
+		## TODO: check if it's LEL at sickness start date or start of earliest linked period?
+		if response.to_f < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(Date.parse(sick_start_date))
 			:not_earned_enough											## A5
 		else
 			:related_illness?									## Q11

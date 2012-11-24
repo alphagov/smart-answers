@@ -76,7 +76,7 @@ en-GB:
       ## Q6
       sickness_start_date?:
         title: On what date did your employee first become sick during the most recent period of illness (including weekends, bank holidays and non-working days)?
-        error_message: This calculator currently doesn't support periods of sickness that start before 6 April 2012
+        error_message: This calculator currently doesn't support periods of sickness that start before 6 April 2011
         body: |
           Note: This is the first day of their ‘Period of Incapacity for Work (PIW)’
 

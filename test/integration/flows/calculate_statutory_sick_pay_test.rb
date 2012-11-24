@@ -84,6 +84,14 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 	  							assert_current_node :sickness_end_date?
 	  						end
 
+	  						context "answer 13 September 2012" do
+	  							setup {add_response Date.parse('13 September 2012')}
+
+	  							should "display no pay because not enough days sick" do
+			  						assert_current_node :must_be_sick_for_at_least_4_days
+			  					end
+			  				end
+
 	  						context "answer 20 September 2012" do
 	  							setup {add_response Date.parse('20 September 2012')}
 
@@ -130,15 +138,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 		  											assert_current_node :entitled_or_not_enough_days
 		  										end
 		  										
-		  										# have to handle this by dates taken off
-			  									# context "less than 4 days taken off - no pay" do
-			  									# 	setup {add_response '3'}
-
-			  									# 	should "display no pay because not enough days" do
-			  									# 		assert_phrase_list :outcome_text, [:first_three_days_not_paid]
-			  									# 		assert_current_node :entitled_or_not_enough_days
-			  									# 	end
-			  									# end
 		  									end # which days worked
 		  								end # no related illness	
 		  							end # earnings high enough
@@ -171,7 +170,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
 										  		should "should display an outcome" do
 			  										assert_state_variable "pattern_days", 5
-			  										assert_state_variable "daily_rate", 17.17
 			  										assert_state_variable "normal_workdays_out", 9
 			  										assert_current_node :entitled_or_not_enough_days
 			  									end
@@ -216,34 +214,13 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 												  		end
 												  	end
 										  	
-											  		context "M-W worked worked" do
+											  		context "M-W worked" do
 												  		setup {add_response '1,2,3'}
 
-												  		should "ask how may sick days they had" do
+												  		should "display result" do
 												  			assert_state_variable "pattern_days", 3
-												  			assert_state_variable "daily_rate", 28.6167
 												  			assert_current_node :entitled_or_not_enough_days
 												  		end
-
-												  	# 	context "4 work days out" do
-												  	# 		setup {add_response '4'}
-
-												  	# 		should "give entitled outcome and 4 days pay" do
-													  # 			assert_state_variable "normal_workdays_out", 4
-													  # 			assert_state_variable "ssp_payment", "114.47"
-													  # 			assert_current_node :entitled_or_not_enough_days
-												  	# 		end
-												  	# 	end
-
-												  	# 	context "2 work days out" do
-												  	# 		setup {add_response '2'}
-
-												  	# 		should "give entitled outcome and 2 days' pay" do
-												  	# 			assert_state_variable "normal_workdays_out", 2
-													  # 			assert_state_variable "ssp_payment", "57.23"
-													  # 			assert_current_node :entitled_or_not_enough_days
-													  # 		end
-													  # 	end
 											  		end
 											  	end # 3 sick days	missed
 
@@ -281,6 +258,19 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 			  					end # no to 8 weeks
 			  				end #end date
 			  			end # start date	
+
+			  			context "previous tax year LEL test" do
+			  				setup do
+			  					add_response Date.parse("1 March 2012")
+			  					add_response Date.parse("1 May 2012")
+			  					add_response 'yes'
+			  					add_response 103.00
+			  				end
+
+			  				should "ask if they had relate illness" do
+	  							assert_current_node :related_illness?
+	  						end
+	  					end
 			  		end #no to irregular schedule
 		  		end # told within 7 days
 		  	end # no to less than four days
