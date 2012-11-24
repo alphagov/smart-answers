@@ -29,7 +29,7 @@ en-GB:
           ##Your employee is entitled to sick pay:
 
           + £%{ssp_payment} in total
-          + for %{days_paid} days taken off sick between %{sick_start_date} and %{sick_end_date}
+          + for %{days_paid} out of %{normal_workdays_out} working days taken off sick between %{sick_start_date} and %{sick_end_date}
 
           The first 3 days of any period of illness (or any linked periods of illness separated by less than 8 weeks) won’t be paid. The payment amount will reflect this.
 
@@ -49,6 +49,8 @@ en-GB:
           *[SSP]: Statutory Sick Pay
         first_three_days_not_paid: |
           ##Your employee isn’t entitled to Statutory Sick Pay because the first 3 days of illness aren’t paid.
+
+          This employee has taken %{normal_workdays_out} working days off sick between %{sick_start_date} and %{sick_end_date}.
 
       ## Q1
       getting_maternity_pay?:
@@ -74,7 +76,7 @@ en-GB:
       ## Q6
       sickness_start_date?:
         title: On what date did your employee first become sick during the most recent period of illness (including weekends, bank holidays and non-working days)?
-        error_message: This calculator currently doesn't support periods of sickness that start before 6 April 2012
+        error_message: This calculator currently doesn't support periods of sickness that start before 6 April 2011
         body: |
           Note: This is the first day of their ‘Period of Incapacity for Work (PIW)’
 
@@ -116,14 +118,17 @@ en-GB:
         error_message: Please enter a number greater than 0
 
       ## Q13
-      how_many_days_worked?:
-        title: How many days per week do they work?
-        error_message: Please enter a number between 1 and 7
-      ## Q14
-      normal_workdays_taken_as_sick?:
-        title: How many of their normal workdays did your employee take off sick between %{sick_start_date} and %{sick_end_date}?
-        hint: ‘Normal workdays’ are the days of the week your employee works on a regular basis
-        error_message: Please enter a number up to %{total_days_sick}
+      which_days_worked?:
+        title: Which days of the week do they work?
+        error_message: Please select at least one day
+        options:
+          "1": Monday
+          "2": Tuesday
+          "3": Wednesday
+          "4": Thursday
+          "5": Friday
+          "6": Saturday
+          "0": Sunday
 
 
       ## Outcomes
