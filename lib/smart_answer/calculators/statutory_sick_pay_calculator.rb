@@ -1,14 +1,13 @@
 module SmartAnswer::Calculators
   class StatutorySickPayCalculator
   
-    attr_reader :daily_rate, :waiting_days, :normal_work_days, :lower_earning_limit, :ssp_weekly_rate
-    attr_accessor :pattern_days, :normal_work_days
+    attr_reader :waiting_days, :normal_workdays, :pattern_days
 
     # LEL changes on 1 April each year - update when we know the April 2013 rate
     LOWER_EARNING_LIMIT = 107.00
     SSP_WEEKLY_RATE = 85.85
 
-    def earning_limit_rates
+    def self.earning_limit_rates
       [
         {min: Date.parse("6 April 2010"), max: Date.parse("5 April 2011"), lower_earning_limit_rate: 97},
         {min: Date.parse("6 April 2011"), max: Date.parse("5 April 2012"), lower_earning_limit_rate: 102},
@@ -16,14 +15,13 @@ module SmartAnswer::Calculators
       ]
     end
 
-    # default to current limit if we don't find it
-    def lower_earning_limit
-      earning_limit_rate = earning_limit_rates.find { |c| c[:min] <= @sick_start_date and c[:max] >= @sick_start_date }
+    # define as static so we don't have to instantiate the calculator too early in the flow
+    def self.lower_earning_limit_on(date)
+      earning_limit_rate = earning_limit_rates.find { |c| c[:min] <= date and c[:max] >= date }
       (earning_limit_rate ? earning_limit_rate[:lower_earning_limit_rate] : LOWER_EARNING_LIMIT)
     end
 
-    # ssp weekly rate will be updated in April 2013
-    # TODO: find out what the rate was for before 6 april 2011
+    # ssp weekly rate will be updated in April 2013, we'll know about it in Jan 2013
     def ssp_rates
       [
         {min: Date.parse("6 April 2011"), max: Date.parse("5 April 2012"), ssp_weekly_rate: 81.60},
@@ -31,27 +29,26 @@ module SmartAnswer::Calculators
       ]
     end
 
-    def ssp_weekly_rate
-      ssp_rate = ssp_rates.find { |c| c[:min] <= @sick_start_date and c[:max] >= @sick_start_date }
-      (ssp_rate ? ssp_rate[:ssp_weekly_rate] : SSP_WEEKLY_RATE)
+    
+    def daily_rate_on(date, pattern_days)
+      rate = ssp_rates.find { |c| c[:min] <= date and c[:max] >= date }
+      weekly_rate = (rate ? rate[:ssp_weekly_rate] : SSP_WEEKLY_RATE)
+      # we need to calculate the daily rate by truncating to four decimal places to match unrounded daily rates used by HMRC 
+      # doing .round(6) after multiplication to avoid float precision issues
+      # Simply using .round(4) on ssp_weekly_rate/@pattern_days will be off by 0.0001 for 3 and 7 pattern days and lead to 1p difference in some statutory amount calculations
+      pattern_days > 0 ? ((((weekly_rate / pattern_days) * 10000).round(6).floor)/10000.0) : 0.0000
     end
 
     
-    def initialize(prev_sick_days, sick_start_date)
+    def initialize(prev_sick_days, sick_start_date, sick_end_date, days_of_the_week_worked)
     	@prev_sick_days = prev_sick_days
     	@waiting_days = (@prev_sick_days >= 3 ? 0 : 3 - @prev_sick_days) 
       @sick_start_date = sick_start_date
-    end
-
-    # TODO use truncate to four decimal places to match unrounded daily rates used by HMRC for 2012-13 for 3 and 7 pattern days
-    # The current calculation will match rates for 2011-12 exactly
-    def set_daily_rate(pattern_days)
-      @pattern_days = pattern_days
-    	@daily_rate = pattern_days > 0 ? (ssp_weekly_rate / pattern_days).round(4) : 0.0000 
-    end
-
-    def set_normal_work_days(normal_work_days)
-      @normal_work_days = normal_work_days
+      @sick_end_date = sick_end_date
+      @pattern_days = days_of_the_week_worked.length
+      @normal_workdays_missed = init_normal_workdays_missed(days_of_the_week_worked)
+      @normal_workdays = @normal_workdays_missed.length
+      @payable_days = init_payable_days 
     end
 
     def max_days_that_can_be_paid
@@ -71,17 +68,69 @@ module SmartAnswer::Calculators
     end
 
     def days_to_pay
-      current_days_to_pay = @normal_work_days - @waiting_days
-      if current_days_to_pay < days_that_can_be_paid_for_this_period
-        current_days_to_pay
-      else
-        days_that_can_be_paid_for_this_period
-      end
+      @payable_days.length
     end
 
     def ssp_payment
-      (days_to_pay * @daily_rate).round(2)
+      if days_to_pay > 0
+        daily_rate_at_start = daily_rate_on(@payable_days.first, @pattern_days)
+        if days_to_pay > 1
+          daily_rate_at_end = daily_rate_on(@payable_days.last, @pattern_days)
+          if daily_rate_at_end == daily_rate_at_start
+            ## simple case - not spanning tax years
+            (days_to_pay * daily_rate_at_start).round(2)
+          else
+            days_before_6_april = 0
+            days_on_or_after_6_april = 0
+            # 6th of april after the start_date
+            higher_rate_date = find_6th_april_after(@sick_start_date)
+            ## 2. from @payable_days, count how many are before 6 April, how many after
+            @payable_days.each do |date|
+              if date < higher_rate_date
+                days_before_6_april += 1
+              else
+                days_on_or_after_6_april +=1
+              end
+            end
+            ## 3. multiply before and after by appropriate rate and add the two subtotals up
+            ((days_before_6_april * daily_rate_at_start).round(10) + (days_on_or_after_6_april * daily_rate_at_end).round(10)).round(2)
+          end    
+        else
+          daily_rate_at_start.round(2)
+        end
+      else
+        0.0
+      end
     end
 
+    private
+    def init_normal_workdays_missed(days_of_the_week_worked)
+      dates = @sick_start_date..@sick_end_date
+      # create an array of all dates that would have been normal workdays
+      normal_workdays_missed = []
+      dates.each do |d|
+        if days_of_the_week_worked.include?(d.wday.to_s)
+          normal_workdays_missed << d
+        end
+      end
+      normal_workdays_missed
+    end
+
+    def init_payable_days
+      # copy not to modify the instance variable we need to keep
+      payable_days_temp = @normal_workdays_missed
+      ## 1. remove up to 3 first dates from the array if there are waiting days in this period
+      payable_days_temp.shift(@waiting_days)
+      ## 2. return only the first days_that_can_be_paid_for_this_period
+      payable_days_temp.shift(days_that_can_be_paid_for_this_period)
+    end
+
+    def find_6th_april_after(date)
+      year = date.year
+      if (date.month > 4) or (date.month == 4 and date.day > 6)
+        year +=1
+      end
+      Date.new(year, 4, 6)
+    end
   end
 end
