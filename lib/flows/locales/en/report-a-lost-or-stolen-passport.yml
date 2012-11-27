@@ -10,7 +10,7 @@ en-GB:
         This will reduce the risk of anyone else using your passport or your identity.
       phrases:
         child_forms: |
-          ^Your signature will be compared to the signature on the original passport application form. If the original application was made by someone else, you’ll also need to send a signed letter from that person confirming that the passport has been %{lost_or_stolen}. This is to help prevent child abduction.^
+          Your signature will be compared to the signature on the original passport application form. If the original application was made by someone else, you’ll also need to send a signed letter from that person confirming that the passport has been %{lost_or_stolen}. This is to help prevent child abduction.
       options:
         lost: Lost
         stolen: Stolen
@@ -91,18 +91,23 @@ en-GB:
           - may be asked for original supporting documents (eg birth or marriage certificates) when the IPS gets your application
 
           % You can’t use the [1-day Premium service](/get-a-passport-urgently "Get a passport urgently") if you’re replacing a stolen passport. %
-
+      # A3
       contact_the_embassy:
-        title: Where to report your lost or stolen passport
+        title: You must report your lost or stolen passport
         body: |
-          +[contact_list]
-
-          The embassy will give you a Lost or Stolen (LS01) notification form. You should fill this in and sign it.
+          [Download form LS01 - 'Lost or stolen passport notification'](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download LS01- ‘Lost or stolen passport notification’"){:rel="external"} 
+      
+          Book an appointment at the nearest British Embassy, High Commission or Consulate. Bring your completed form LS01 with you.
 
           %{child_advice}
 
-          The embassy will give you replacement travel documents so that you can travel back to the UK. You will be charged for replacement travel documents.
+          +[contact_list]
 
-          ##Getting a replacement passport
+          ##Get a replacement passport
 
-          You must apply for a replacement passport. You can do this [from the country you’re in or while you’re in the UK.](/apply-renew-passport-abroad "Apply for a replacement passport if you’re outside the UK")
+          If you don’t need to travel urgently, you can apply for a replacement passport [from the country you’re in.](/apply-renew-passport-abroad "Apply for a replacement passport if you’re outside the UK")
+
+          ##Emergency travel documents
+
+          If you need to travel urgently, you can get an [emergency travel document](http://www.fco.gov.uk/en/travel-and-living-abroad/passports1/passports-a-to-z/e-topics/emergency-travel "Emergency travel documents"){:rel="external"} to return to the UK from the Embassy, High Commission or Consulate.
+          You will have to pay a fee.
