@@ -160,7 +160,7 @@ module SmartAnswer::Calculators
 	  		should "give correct ssp calculation" do # 24 days with no waiting days, so 22 days at lower weekly rate, 2 days at higher rate
 	  			assert_equal @calculator.normal_workdays, 24
 	  			assert_equal @calculator.days_to_pay, 24
-	  			assert_equal @calculator.ssp_payment, 490.66
+	  			assert_equal @calculator.ssp_payment, 490.67
 	  		end
 	  	end
 
