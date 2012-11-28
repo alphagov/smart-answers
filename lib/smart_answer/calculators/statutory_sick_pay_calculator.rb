@@ -93,7 +93,11 @@ module SmartAnswer::Calculators
               end
             end
             ## 3. multiply before and after by appropriate rate and add the two subtotals up
-            ((days_before_6_april * daily_rate_at_start).round(10) + (days_on_or_after_6_april * daily_rate_at_end).round(10)).round(2)
+            raw_value1 = (days_before_6_april * daily_rate_at_start).round(10) # doesn't need adjusting
+            raw_value2 = (days_on_or_after_6_april * daily_rate_at_end).round(10)
+            ## round up amounts for 2012-13 on 3rd decimal place to match table of payments for part-weeks
+            adjusted_value2 = (((raw_value2 * 100).round(10)).ceil)/100.0
+            (raw_value1 + adjusted_value2).round(2)
           end    
         else
           daily_rate_at_start.round(2)
