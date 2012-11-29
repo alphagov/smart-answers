@@ -16,7 +16,9 @@ module SmartAnswer::Calculators
 	  		end
 
 	  		should "return daily rate of 17.1700" do
-	  			assert_equal @calculator.daily_rate_on(@start_date, 5), 17.1700
+	  			@weekly_rate = @calculator.weekly_rate_on(@start_date)
+	  			assert_equal @weekly_rate, 85.8500
+	  			assert_equal @calculator.daily_rate_from_weekly(@weekly_rate, 5), 17.1700
 	  		end
 
 	  		should "normal working days missed is 5" do
@@ -35,7 +37,7 @@ module SmartAnswer::Calculators
 	  		end
 
 	  		should "return daily rate of 28.6166" do
-	  			assert_equal @calculator.daily_rate_on(@start_date, 3), 28.6166 # should be 28.6166 according to HMRC table
+	  			assert_equal @calculator.daily_rate_from_weekly(@calculator.weekly_rate_on(@start_date), 3), 28.6166 # should be 28.6166 according to HMRC table
 	  		end
 	  	end
 
@@ -46,7 +48,7 @@ module SmartAnswer::Calculators
 	  		end
 
 	  		should "return daily rate of 12.2642" do
-	  			assert_equal @calculator.daily_rate_on(@start_date, 7), 12.2642 # unrounded, matches the HMRC SSP daily rate table
+	  			assert_equal @calculator.daily_rate_from_weekly(@calculator.weekly_rate_on(@start_date), 7), 12.2642 # unrounded, matches the HMRC SSP daily rate table
 	  		end
 	  	end
 
@@ -57,7 +59,7 @@ module SmartAnswer::Calculators
 	  		end
 
 	  		should "return daily rate of 14.3083" do
-	  			assert_equal @calculator.daily_rate_on(@start_date, 6), 14.3083 
+	  			assert_equal @calculator.daily_rate_from_weekly(@calculator.weekly_rate_on(@start_date), 6), 14.3083 
 	  		end
 	  	end
 
@@ -68,7 +70,7 @@ module SmartAnswer::Calculators
 	  		end
 
 	  		should "return daily rate of 42.9250" do
-	  			assert_equal @calculator.daily_rate_on(@start_date, 2), 42.9250 
+	  			assert_equal @calculator.daily_rate_from_weekly(@calculator.weekly_rate_on(@start_date), 2), 42.9250 
 	  		end
 	  	end
 
@@ -108,7 +110,7 @@ module SmartAnswer::Calculators
 				should "have a max of 140 days payable" do
 					assert_equal @calculator.days_to_pay, 140
 					assert_equal @calculator.normal_workdays, 175
-					assert_equal @calculator.ssp_payment, 2403.80 #140 * 17.1700
+					assert_equal @calculator.ssp_payment, 2403.80 #140 * 17.1700 or 28 * 85.85
 				end
 			end
 
@@ -118,7 +120,7 @@ module SmartAnswer::Calculators
 				should "have a max of 84 days payable" do
 					assert_equal @calculator.days_to_pay, 84
 					assert_equal @calculator.normal_workdays, 105
-					assert_equal @calculator.ssp_payment, 2403.79 #84 * 28.6166
+					assert_equal @calculator.ssp_payment, 2403.80 #28 weeks at 85.85 a week
 				end
 			end
 
@@ -131,7 +133,7 @@ module SmartAnswer::Calculators
 
 	  		should "use ssp rate and lel for 2011-12" do
 	  			assert_equal StatutorySickPayCalculator.lower_earning_limit_on(@start_date), 102
-	  			assert_equal @calculator.daily_rate_on(@start_date, 5), 16.3200
+	  			assert_equal @calculator.daily_rate_from_weekly(@calculator.weekly_rate_on(@start_date), 5), 16.3200
 	  		end
 	  	end
 
