@@ -30,15 +30,18 @@ module SmartAnswer::Calculators
     end
 
     
-    def daily_rate_on(date, pattern_days)
+    def weekly_rate_on(date)
       rate = ssp_rates.find { |c| c[:min] <= date and c[:max] >= date }
-      weekly_rate = (rate ? rate[:ssp_weekly_rate] : SSP_WEEKLY_RATE)
+      rate ? rate[:ssp_weekly_rate] : SSP_WEEKLY_RATE
+    end
+
+    def daily_rate_from_weekly(weekly_rate, pattern_days)
       # we need to calculate the daily rate by truncating to four decimal places to match unrounded daily rates used by HMRC 
       # doing .round(6) after multiplication to avoid float precision issues
       # Simply using .round(4) on ssp_weekly_rate/@pattern_days will be off by 0.0001 for 3 and 7 pattern days and lead to 1p difference in some statutory amount calculations
       pattern_days > 0 ? ((((weekly_rate / pattern_days) * 10000).round(6).floor)/10000.0) : 0.0000
     end
-
+    
     
     def initialize(prev_sick_days, sick_start_date, sick_end_date, days_of_the_week_worked)
     	@prev_sick_days = prev_sick_days
@@ -73,12 +76,12 @@ module SmartAnswer::Calculators
 
     def ssp_payment
       if days_to_pay > 0
-        daily_rate_at_start = daily_rate_on(@payable_days.first, @pattern_days)
+        weekly_rate_at_start = weekly_rate_on(@payable_days.first)
         if days_to_pay > 1
-          daily_rate_at_end = daily_rate_on(@payable_days.last, @pattern_days)
-          if daily_rate_at_end == daily_rate_at_start
+          weekly_rate_at_end = weekly_rate_on(@payable_days.last)
+          if weekly_rate_at_end == weekly_rate_at_start
             ## simple case - not spanning tax years
-            (days_to_pay * daily_rate_at_start).round(2)
+            calculate_ssp(days_to_pay, @pattern_days, weekly_rate_at_start)
           else
             days_before_6_april = 0
             days_on_or_after_6_april = 0
@@ -93,14 +96,28 @@ module SmartAnswer::Calculators
               end
             end
             ## 3. multiply before and after by appropriate rate and add the two subtotals up
-            ((days_before_6_april * daily_rate_at_start).round(10) + (days_on_or_after_6_april * daily_rate_at_end).round(10)).round(2)
+            ## split into full weeks and days to match HMRC calculations
+            ssp_subtotal1 = calculate_ssp(days_before_6_april, @pattern_days, weekly_rate_at_start)
+            ssp_subtotal2 = calculate_ssp(days_on_or_after_6_april, @pattern_days, weekly_rate_at_end)
+            (ssp_subtotal1 + ssp_subtotal2).round(2)
           end    
         else
-          daily_rate_at_start.round(2)
+          daily_rate_from_weekly(weekly_rate_at_start, @pattern_days).round(2)
         end
       else
         0.0
       end
+    end
+
+    # break down the calculation based on HMRC rules 
+    # full weeks * weekly rate + [odd_days * daily rate, rounded up to nearest pound]
+    # round(10) protects against float precision issues
+    def calculate_ssp(total_days, pattern_days, weekly_rate)
+      weeks_days = total_days.divmod(pattern_days)
+      daily_rate = daily_rate_from_weekly(weekly_rate, pattern_days)
+      weekly_subtotal = (weeks_days.first * weekly_rate).round(10)
+      daily_subtotal = (((weeks_days.last * daily_rate).round(10) * 100).round(10).ceil)/100.0
+      (weekly_subtotal + daily_subtotal).round(2)
     end
 
     private

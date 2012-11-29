@@ -14,7 +14,7 @@ gem 'lograge'
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
 else
-  gem 'gds-api-adapters', '2.1.0'
+  gem 'gds-api-adapters', '4.1.3'
 end
 gem 'htmlentities', '~> 4'
 
@@ -35,7 +35,7 @@ group :test do
   gem 'ci_reporter'
   gem 'mocha', :require => false
   gem 'shoulda', '~> 2.11.3'
-  gem 'webmock', :require => false
+  gem 'webmock', '1.8.0', :require => false
   gem 'simplecov', '~> 0.6.4', :require => false
   gem 'simplecov-rcov', '~> 0.2.3', :require => false
   gem 'capybara-webkit', '~> 0.12.1'

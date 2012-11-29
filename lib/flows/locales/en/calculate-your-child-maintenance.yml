@@ -24,8 +24,8 @@ en-GB:
           "1_child": "1"
           "2_children": "2"
           "3_children": "3"
-          "4_same_parent": "4+ with 1 other parent"
-          "4_different_parents": "4+ with more than 1 other parent"
+          "4_children": "4 or more"
+        hint: If you have children with more than 1 other parent, go through the calculator for each other parent separately.
       ## Q2
       gets_benefits?:
         title: Does the parent paying child maintenance get any of these benefits?
