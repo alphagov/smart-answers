@@ -108,10 +108,10 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
     end
   end # Old scheme
   
-  # New scheme - not used in first release
-  context "answer 4 with 1 other parent" do
+  # New scheme
+  context "answer 4 children (with 1 other parent)" do
     setup do
-      add_response '4_same_parent'
+      add_response '4_children'
     end
 
     should "ask about benefits" do
