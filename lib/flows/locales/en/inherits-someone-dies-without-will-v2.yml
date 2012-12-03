@@ -38,7 +38,7 @@ en-GB:
         title: The estate is shared equally between the children or their descendants.
         body: |
           If one (or more) of the children has already died, their children (the grandchildren of the deceased) inherit in their parent's place.
-          
+
           They may have to pay Inheritance Tax.
         next_steps: |
           Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance") to:
@@ -115,7 +115,7 @@ en-GB:
 
           If one (or more) half-blood brother or sister has already died, their children (nieces and nephews of the deceased) inherit in their place.
 
-          They may have to pay Inheritance Tax.  
+          They may have to pay Inheritance Tax.
         next_steps: |
           Read the guide to [Wills, probate and inheritance](/wills-probate-inheritance "Wills, probate and inheritance") to:
 
@@ -142,6 +142,23 @@ en-GB:
           * apply for a ‘Grant of letters of administration’ making you the ‘administrator’ of the estate
 
           Read the guide to [Inheritance Tax](/inheritance-tax "Inheritance Tax").
+
+      partner_receives_first_437000_children_receive_two_thirds_of_remainder:
+        title: The husband, wife or civil partner gets the house up to a value of £473,000.
+
+        body: |
+
+          They also get:
+
+          - furniture and moveable household goods up to the value of £29,000
+          - £50,000 in cash
+          - a third of the rest of the estate
+
+          (If the cash left is less than £50,000, they will get all of what’s left.)
+
+          The children will get two-thirds of the rest of the estate.
+
+          If a son or daughter has already died, their children (the grandchildren of the deceased) will inherit in their parent’s place.
 
       shared_equally_between_grandparents:
          title: The estate is shared equally between the grandparent(s).

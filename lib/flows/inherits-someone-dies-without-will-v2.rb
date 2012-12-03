@@ -1,11 +1,27 @@
 satisfies_need 2006
 status :draft
 
+multiple_choice :where_did_the_deceased_live? do
+  option :'england-and-wales'
+  option :'northern-ireland'
+  option :'scotland'
+
+  save_input_as :region
+  next_node :is_there_a_living_spouse_or_civil_partner?
+end
 
 multiple_choice :is_there_a_living_spouse_or_civil_partner? do
   save_input_as :living_spouse_partner
   option :yes => :is_the_estate_worth_more_than_250000?
   option :no => :are_there_living_children?
+
+  next_node do |response|
+    if region == "england-and-wales"
+      response == "yes" ? :is_the_estate_worth_more_than_250000? : :are_there_living_children?
+    else
+      :are_there_living_children?
+    end
+  end
 end
 
 multiple_choice :is_the_estate_worth_more_than_250000? do
@@ -20,7 +36,10 @@ multiple_choice :are_there_living_children? do
   next_node do |response|
     if response == "yes"
       if living_spouse_partner == "yes"
-        :partner_receives_first_250000_children_receive_share_of_remainder
+        case region
+        when "england-and-wales" then :partner_receives_first_250000_children_receive_share_of_remainder
+        when "scotland" then :partner_receives_first_437000_children_receive_two_thirds_of_remainder
+        end
       else
         :shared_equally_between_children
       end
@@ -33,13 +52,20 @@ end
 multiple_choice :are_there_living_parents? do
   option :yes
   option :no
+  save_input_as :living_parents
 
   next_node do |response|
     if response == "yes"
       if living_spouse_partner == "yes"
-        :partner_receives_first_450000_remainder_to_parents_or_siblings
+        case region
+        when "england-and-wales" then :partner_receives_first_450000_remainder_to_parents_or_siblings
+        when "scotland" then :are_there_any_brothers_or_sisters_living?
+        end
       else
-        :shared_equally_between_parents
+        case region
+        when "england-and-wales" then :shared_equally_between_parents
+        when "scotland" then :are_there_any_brothers_or_sisters_living?
+        end
       end
     else
       :are_there_any_brothers_or_sisters_living?
@@ -54,15 +80,31 @@ multiple_choice :are_there_any_brothers_or_sisters_living? do
   next_node do |response|
     if response == "yes"
       if living_spouse_partner == "yes"
-        :partner_receives_first_450000_remainder_shared_equally_between_brothers_or_sisters
+        case region
+        when "england-and-wales" then :partner_receives_first_450000_remainder_shared_equally_between_brothers_or_sisters
+        when "scotland"
+          living_parents == "yes" ? :partner_receives_first_437000_remainder_split_between_parents_and_siblings : :partner_receives_first_437000_remainder_to_siblings
+        end
       else
-        :shared_equally_between_brothers_or_sisters
+        case region
+        when "england-and-wales" then :shared_equally_between_brothers_or_sisters
+        when "scotland" then
+          living_parents == "yes" ? :shared_equally_between_parents_and_siblings : :shared_equally_between_brothers_or_sisters
+        end
       end
     else
       if living_spouse_partner == "yes"
-        :partner_receives_all_of_the_estate
+        case region
+        when "england-and-wales" then :partner_receives_all_of_the_estate
+        when "scotland"
+          living_parents == "yes" ? :partner_receives_first_437000_remainder_to_parents : :partner_receives_all_of_the_estate
+        end
       else
-        :are_there_half_blood_brothers_or_sisters?
+        case region
+        when "england-and-wales" then :are_there_half_blood_brothers_or_sisters?
+        when "scotland" then
+          living_parents == "yes" ? :shared_equally_between_parents : :are_there_any_living_aunts_or_uncles?
+        end
       end
     end
   end
@@ -74,13 +116,35 @@ multiple_choice :are_there_half_blood_brothers_or_sisters? do
 end
 
 multiple_choice :are_there_grandparents_living? do
-  option :yes => :shared_equally_between_grandparents
-  option :no => :are_there_any_living_aunts_or_uncles?
+  option :yes
+  option :no
+
+  next_node do |response|
+    if response == "yes"
+      :shared_equally_between_grandparents
+    else
+      case region
+      when "england-and-wales" then :are_there_any_living_aunts_or_uncles?
+      when "scotland" then :are_there_any_living_great_aunts_or_uncles?
+      end
+    end
+  end
 end
 
 multiple_choice :are_there_any_living_aunts_or_uncles? do
-  option :yes => :shared_equally_between_aunts_or_uncles
-  option :no => :are_there_any_living_half_aunts_or_uncles?
+  option :yes
+  option :no
+
+  next_node do |response|
+    if response == "yes"
+      :shared_equally_between_aunts_or_uncles
+    else
+      case region
+      when "england-and-wales" then :are_there_any_living_half_aunts_or_uncles?
+      when "scotland" then :are_there_grandparents_living?
+      end
+    end
+  end
 end
 
 multiple_choice :are_there_any_living_half_aunts_or_uncles? do
@@ -89,16 +153,31 @@ multiple_choice :are_there_any_living_half_aunts_or_uncles? do
   option :no => :everything_goes_to_crown
 end
 
+multiple_choice :are_there_any_living_great_aunts_or_uncles? do
+  option :yes => :shared_equally_between_great_aunts_or_uncles
+  option :no => :everything_goes_to_crown
+end
 
 outcome :partner_receives_all_of_the_estate
+
+outcome :partner_receives_first_250000_children_receive_share_of_remainder
+
+outcome :partner_receives_first_437000_children_receive_two_thirds_of_remainder
+outcome :partner_receives_first_437000_remainder_split_between_parents_and_siblings
+outcome :partner_receives_first_437000_remainder_to_siblings
+outcome :partner_receives_first_437000_remainder_to_parents
+
+outcome :partner_receives_first_450000_remainder_shared_equally_between_brothers_or_sisters
+outcome :partner_receives_first_450000_remainder_to_parents_or_siblings
+
 outcome :shared_equally_between_children
 outcome :shared_equally_between_parents
-outcome :partner_receives_first_250000_children_receive_share_of_remainder
-outcome :partner_receives_first_450000_remainder_shared_equally_between_brothers_or_sisters
+outcome :shared_equally_between_parents_and_siblings
 outcome :shared_equally_between_brothers_or_sisters
 outcome :shared_equally_between_half_blood_brothers_sisters
 outcome :shared_equally_between_grandparents
-outcome :partner_receives_first_450000_remainder_to_parents_or_siblings
 outcome :shared_equally_between_aunts_or_uncles
 outcome :shared_equally_between_half_aunts_or_uncles
+outcome :shared_equally_between_great_aunts_or_uncles
+
 outcome :everything_goes_to_crown
