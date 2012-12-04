@@ -229,7 +229,7 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
         end
 
         should "go to the partner up to £473,000 with children receiving two thirds of the estate" do
-          assert_current_node :partner_receives_first_437000_children_receive_two_thirds_of_remainder
+          assert_current_node :partner_receives_first_473000_children_receive_two_thirds_of_remainder
         end
       end # with living children
 
@@ -257,7 +257,7 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
             end
 
             should "go to the partner up to £473,000 with the rest divided in two between parents and siblings" do
-              assert_current_node :partner_receives_first_437000_remainder_split_between_parents_and_siblings
+              assert_current_node :partner_receives_first_473000_remainder_split_between_parents_and_siblings
             end
           end # no living brothers or sisters
 
@@ -267,7 +267,7 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
             end
 
             should "go to the partner" do
-              assert_current_node :partner_receives_first_437000_remainder_to_parents
+              assert_current_node :partner_receives_first_473000_remainder_to_parents
             end
           end # no living brothers or sisters
         end # no living parents
@@ -287,7 +287,7 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
             end
 
             should "go to the partner up to £473,000 with the rest divided in two between parents and siblings" do
-              assert_current_node :partner_receives_first_437000_remainder_to_siblings
+              assert_current_node :partner_receives_first_473000_remainder_to_siblings
             end
           end # living brothers and sisters
 

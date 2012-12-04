@@ -38,7 +38,7 @@ multiple_choice :are_there_living_children? do
       if living_spouse_partner == "yes"
         case region
         when "england-and-wales" then :partner_receives_first_250000_children_receive_half_of_remainder
-        when "scotland" then :partner_receives_first_437000_children_receive_two_thirds_of_remainder
+        when "scotland" then :partner_receives_first_473000_children_receive_two_thirds_of_remainder
         when "northern-ireland" then :more_than_one_child?
         end
       else
@@ -91,7 +91,7 @@ multiple_choice :are_there_any_brothers_or_sisters_living? do
         case region
         when "england-and-wales" then :partner_receives_first_450000_remainder_shared_equally_between_brothers_or_sisters
         when "scotland"
-          living_parents == "yes" ? :partner_receives_first_437000_remainder_split_between_parents_and_siblings : :partner_receives_first_437000_remainder_to_siblings
+          living_parents == "yes" ? :partner_receives_first_473000_remainder_split_between_parents_and_siblings : :partner_receives_first_473000_remainder_to_siblings
         when "northern-ireland" then :partner_receives_first_450000_siblings_receive_half_of_remainder
         end
       else
@@ -108,7 +108,7 @@ multiple_choice :are_there_any_brothers_or_sisters_living? do
         when "england-and-wales" then :partner_receives_all_of_the_estate
         when "northern-ireland" then :partner_receives_all_of_the_estate
         when "scotland"
-          living_parents == "yes" ? :partner_receives_first_437000_remainder_to_parents : :partner_receives_all_of_the_estate
+          living_parents == "yes" ? :partner_receives_first_473000_remainder_to_parents : :partner_receives_all_of_the_estate
         end
       else
         case region
@@ -177,10 +177,10 @@ outcome :partner_receives_all_of_the_estate
 outcome :partner_receives_first_250000_children_receive_half_of_remainder
 outcome :partner_receives_first_250000_children_receive_two_thirds_of_remainder
 
-outcome :partner_receives_first_437000_children_receive_two_thirds_of_remainder
-outcome :partner_receives_first_437000_remainder_split_between_parents_and_siblings
-outcome :partner_receives_first_437000_remainder_to_siblings
-outcome :partner_receives_first_437000_remainder_to_parents
+outcome :partner_receives_first_473000_children_receive_two_thirds_of_remainder
+outcome :partner_receives_first_473000_remainder_split_between_parents_and_siblings
+outcome :partner_receives_first_473000_remainder_to_siblings
+outcome :partner_receives_first_473000_remainder_to_parents
 
 outcome :partner_receives_first_450000_remainder_shared_equally_between_brothers_or_sisters
 outcome :partner_receives_first_450000_remainder_to_parents_or_siblings
