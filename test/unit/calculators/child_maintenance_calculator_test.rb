@@ -6,15 +6,15 @@ module SmartAnswer::Calculators
     context "rate_type when benefits and no shared care" do
       should "show nil rate for low income or any income and benefits and shared care > 0" do
         @calculator = ChildMaintenanceCalculator.new(3, :old, 'no')
-        @calculator.income = 4
+        @calculator.income = 4.99
         assert_equal :nil, @calculator.rate_type
-        @calculator = ChildMaintenanceCalculator.new(3, :new, 'no')
-        @calculator.income = 5
-        assert_equal :nil, @calculator.rate_type
+        @calculator = ChildMaintenanceCalculator.new(4, :new, 'no')
+        @calculator.income = 5.00
+        assert_equal :flat, @calculator.rate_type
         @calculator = ChildMaintenanceCalculator.new(2, :old, 'yes')
         @calculator.number_of_shared_care_nights = 0
         assert_equal :flat, @calculator.rate_type
-        @calculator = ChildMaintenanceCalculator.new(2, :new, 'yes')
+        @calculator = ChildMaintenanceCalculator.new(4, :new, 'yes')
         @calculator.number_of_shared_care_nights = 1
         assert_equal :nil, @calculator.rate_type
       end

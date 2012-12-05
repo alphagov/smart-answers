@@ -2,28 +2,28 @@ status :draft
 satisfies_need "2548"
 
 ## Q1
-multiple_choice :how_many_children_paid_for? do
-  option "1_child"
-  option "2_children"
-  option "3_children"
-  option "4_children"
-
+value_question :how_many_children_paid_for? do
+  
   calculate :number_of_children do
-    ## to_i will look for the first integer in the string
-    responses.last.to_i
+    num_children = Integer(responses.last)
+    raise SmartAnswer::InvalidResponse if num_children < 1
+    num_children
   end
 
-  ## initial filtering: 4+ children (from same parent) -> 2012 scheme
+  ## initial filtering: 4+ children -> 2012 scheme
   ## everyone else -> 2003 scheme
   calculate :maintenance_scheme do
-    responses.last == '4_children' ? :new : :old
+    responses.last.to_i > 3 ? :new : :old
   end
 
-  next_node :gets_benefits?
+  next_node do |response|
+    maintenance_scheme = response.to_i > 3 ? :new : :old
+    "gets_benefits_#{maintenance_scheme.to_s}?".to_sym
+  end
 end
 
 ## Q2
-multiple_choice :gets_benefits? do
+multiple_choice :gets_benefits_old? do
   save_input_as :benefits
   option "yes"
   option "no"
@@ -36,10 +36,31 @@ multiple_choice :gets_benefits? do
     if response == 'yes'
       :how_many_nights_children_stay_with_payee?
     else
-      maintenance_scheme == :new ? :gross_income_of_payee? : :net_income_of_payee?
+      :net_income_of_payee?
     end
   end
 end
+
+## Q2a
+multiple_choice :gets_benefits_new? do
+  save_input_as :benefits
+  option "yes"
+  option "no"
+
+  calculate :calculator do
+    Calculators::ChildMaintenanceCalculator.new(number_of_children, maintenance_scheme, benefits)
+  end
+  
+  next_node do |response|
+    if response == 'yes'
+      :how_many_nights_children_stay_with_payee?
+    else
+      :gross_income_of_payee?
+    end
+  end
+end
+
+
 
 ## Q3
 money_question :net_income_of_payee? do

@@ -11,23 +11,25 @@ en-GB:
         
         - the calculator gives an estimate
         - you need information about your income
+        - if you have children with more than 1 person, you must make a separate calculation for each person you want to have a child maintenance agreement with
+
+        Some people may not have to pay child maintenance. Read [how child maintenance is worked out](/how-child-maintenance-is-worked-out/child-maintenance-rates “child maintenance rates”) for more information.
       phrases:
         nil_rate_reason_benefits: |
           This is because the parent paying child maintenance is receiving benefits and they have shared care of the child(ren).
         nil_rate_reason_income: |
           This is because the income of the parent paying child maintenance is too low.
+      options: 
+        "yes": "Yes"
+        "no": "No"
 
       ## Q1
       how_many_children_paid_for?:
         title: How many children does child maintenance have to be paid for?
-        options:
-          "1_child": "1"
-          "2_children": "2"
-          "3_children": "3"
-          "4_children": "4 or more"
-        hint: If you've had children with more than 1 other parent, go through the calculator for each parent separately.
+        hint: If you have children with more than 1 person, you must make a separate calculation for each person you want to have a child maintenance agreement with.
+        error_message: Please enter a number greater than 0
       ## Q2
-      gets_benefits?:
+      gets_benefits_old?:
         title: Does the parent paying child maintenance get any of these benefits?
         body: |
 
@@ -43,9 +45,31 @@ en-GB:
           - Armed Forces Compensation Scheme payments
           - War Disablement Pension
           - Bereavement Allowance
-        options: 
-          "yes": "Yes"
-          "no": "No"
+      ##Q2a
+      gets_benefits_new?:
+        title: Does the parent paying child maintenance get any of these benefits?
+        body: |
+
+          - Income Support
+          - income-based Jobseeker’s Allowance
+          - income-related Employment and Support Allowance
+          - Pension Credit
+          - contribution-based Jobseeker’s Allowance
+          - contribution-based Employment and Support Allowance
+          - State Pension
+          - Incapacity Benefit
+          - Training Allowance
+          - Armed Forces Compensation Scheme payments
+          - War Disablement Pension
+          - Bereavement Allowance
+          - Carer’s Allowance
+          - Maternity Allowance
+          - Severe Disablement Allowance
+          - Industrial Injuries Disablement Benefit
+          - Widowed Parent’s Allowance
+          - Widow’s pension
+        hint: "In Scotland, this also includes: Skillseekers training, War Widow’s, Widower’s or Surviving Civil Partner’s Pension"
+
       ## Q3
       net_income_of_payee?:
         title: What is the weekly net income of the parent paying child maintenance?
@@ -70,7 +94,7 @@ en-GB:
           "0": "Less than 52 (less than once a week)"
           "1": "52 to 103 (1 to 2 nights a week)"
           "2": "104 to 155 (2 to 3 nights a week)"
-          "3": "156 to 174 (ca 3 nights a week)"
+          "3": "156 to 174 (approx. 3 nights a week)"
           "4": "175 or more (more than 3 nights a week)"
       ## A1
       nil_rate_result:
@@ -85,7 +109,7 @@ en-GB:
       ## A2
       flat_rate_result:
         body: |
-          $!Based on your answers the child maintenance payment is £%{flat_rate_amount} per week. $!
+          $!Based on your answers the child maintenance payment is the flat rate of £%{flat_rate_amount} per week. $!
 
           This is an estimate. The statutory amount the [government](/arranging-child-maintenance-child-support-agency "Child Maintenance") would calculate might be different.
 
