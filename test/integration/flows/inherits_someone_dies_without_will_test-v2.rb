@@ -517,8 +517,8 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
               add_response "yes"
             end
 
-            should "go to the partner for the first 250k, with children receiving two-thirds of remainder" do
-              assert_current_node :partner_receives_first_250000_children_receive_two_thirds_of_remainder
+            should "go to the partner for the first 450k, with children receiving two-thirds of remainder" do
+              assert_current_node :partner_receives_first_450000_children_receive_two_thirds_of_remainder
             end
           end # more than one child
         end # living children

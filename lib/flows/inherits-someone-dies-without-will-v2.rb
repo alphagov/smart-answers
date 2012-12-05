@@ -1,6 +1,7 @@
 satisfies_need 2006
 status :draft
 
+#Q0
 multiple_choice :where_did_the_deceased_live? do
   option :'england-and-wales'
   option :'northern-ireland'
@@ -10,6 +11,7 @@ multiple_choice :where_did_the_deceased_live? do
   next_node :is_there_a_living_spouse_or_civil_partner?
 end
 
+#Q1, Q13, Q24
 multiple_choice :is_there_a_living_spouse_or_civil_partner? do
   save_input_as :living_spouse_partner
   option :yes => :is_the_estate_worth_more_than_250000?
@@ -24,11 +26,13 @@ multiple_choice :is_there_a_living_spouse_or_civil_partner? do
   end
 end
 
+#Q2, Q25
 multiple_choice :is_the_estate_worth_more_than_250000? do
   option :yes => :are_there_living_children?
-  option :no => :partner_receives_all_of_the_estate
+  option :no => :partner_receives_all_of_the_estate #A1, A25
 end
 
+#Q3, Q6, Q14, Q17, Q26, Q30
 multiple_choice :are_there_living_children? do
   option :yes
   option :no
@@ -51,7 +55,7 @@ multiple_choice :are_there_living_children? do
 end
 
 multiple_choice :more_than_one_child? do
-  option :yes => :partner_receives_first_250000_children_receive_two_thirds_of_remainder
+  option :yes => :partner_receives_first_450000_children_receive_two_thirds_of_remainder
   option :no => :partner_receives_first_250000_children_receive_half_of_remainder
 end
 
