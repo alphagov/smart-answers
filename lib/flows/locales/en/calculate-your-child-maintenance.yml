@@ -26,6 +26,11 @@ en-GB:
       ## Q1
       how_many_children_paid_for?:
         title: How many children does child maintenance have to be paid for?
+        options:
+          "1_child": "1"
+          "2_children": "2"
+          "3_children": "3"
+          "4_children": "4 or more"
         hint: If you have children with more than 1 person, you must make a separate calculation for each person you want to have a child maintenance agreement with.
         error_message: Please enter a number greater than 0
       ## Q2

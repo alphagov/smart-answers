@@ -24,7 +24,7 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
   ## Old scheme
   context "answer 3" do
     setup do
-      add_response '3'
+      add_response '3_children'
     end
     should "ask if person paying child benefit receives benefits" do
       assert_current_node :gets_benefits_old?
@@ -111,7 +111,7 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
   # New scheme
   context "answer 4 children (with 1 other parent)" do
     setup do
-      add_response '4'
+      add_response '4_children'
     end
 
     should "ask about benefits" do

@@ -2,18 +2,22 @@ status :draft
 satisfies_need "2548"
 
 ## Q1
-value_question :how_many_children_paid_for? do
+  
+multiple_choice :how_many_children_paid_for? do
+  option "1_child"
+  option "2_children"
+  option "3_children"
+  option "4_children"
   
   calculate :number_of_children do
-    num_children = Integer(responses.last)
-    raise SmartAnswer::InvalidResponse if num_children < 1
-    num_children
+    ## to_i will look for the first integer in the string
+    responses.last.to_i
   end
 
   ## initial filtering: 4+ children -> 2012 scheme
   ## everyone else -> 2003 scheme
   calculate :maintenance_scheme do
-    responses.last.to_i > 3 ? :new : :old
+    responses.last == '4_children' ? :new : :old
   end
 
   next_node do |response|
