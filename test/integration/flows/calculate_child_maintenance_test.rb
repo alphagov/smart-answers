@@ -62,9 +62,9 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
       should "ask what the weekly net income of the payee" do
         assert_current_node :net_income_of_payee?
       end
-      context "answer 5" do
-        should "give nil rate result" do
-          add_response 5
+      context "answer 4.99" do
+        should "give flat rate result" do
+          add_response 4.99
           assert_current_node :nil_rate_result
         end
       end
