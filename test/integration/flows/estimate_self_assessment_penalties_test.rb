@@ -3,26 +3,32 @@ require_relative "flow_test_helper"
 
 TEST_CALCULATOR_DATES = {
   :online_filing_deadline => {
+    :"2010-11" => Date.new(2012, 1, 31),
     :"2011-12" => Date.new(2013, 1, 31),
     :"2012-13" => Date.new(2014, 1, 31)
   },
   :offline_filing_deadline => {
+    :"2010-11" => Date.new(2011, 10, 31),
     :"2011-12" => Date.new(2012, 10, 31),
     :"2012-13" => Date.new(2013, 10, 31)
   },
   :payment_deadline => {
+    :"2010-11" => Date.new(2012, 1, 31),
     :"2011-12" => Date.new(2013, 1, 31),
     :"2012-13" => Date.new(2014, 1, 31)
   },
   :penalty1date => {
+    :"2010-11" => Date.new(2012, 3, 2),
     :"2011-12" => Date.new(2013, 3, 2),
     :"2012-13" => Date.new(2014, 3, 2)
   },
   :penalty2date => {
+    :"2010-11" => Date.new(2012, 8, 2),
     :"2011-12" => Date.new(2013, 8, 2),
     :"2012-13" => Date.new(2014, 8, 2)
   },
   :penalty3date => {
+    :"2010-11" => Date.new(2013, 2, 2),
     :"2011-12" => Date.new(2014, 2, 2),
     :"2012-13" => Date.new(2015, 2, 2)
   }

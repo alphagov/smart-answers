@@ -3,9 +3,7 @@ en-GB:
     estimate-self-assessment-penalties:
       meta:
         description: "If you’ve missed Self Assessment deadlines get an estimate of how much you’ll need to pay in penalties and interest"
-      title: 
-        Self Assessment Penalty Calculator
-      subtitle: Penalties for late payment or late filing of Self Assessment tax bills and returns
+      title: Estimate your penalty for late Self Assessment tax returns and payments
       body: |
         Get an estimate of how much you’ll need to pay in penalties and interest if you’ve missed the deadline for:
 
@@ -28,38 +26,37 @@ en-GB:
 
       which_year?:
         title: For which tax year do you want the estimate?
+        options: 
+          2010-11: "6 April 2010 to 5 April 2011"
+          2011-12: "6 April 2011 to 5 April 2012"
+          2012-13: "6 April 2012 to 5 April 2013"
 
       how_submitted?:
-        title: Did you (or do you expect to) send your Self Assessment tax return online or on paper?
+        title: How did you send your Self Assessment tax return?
         options:
           online: Online
-          paper: Paper
+          paper: On paper
       when_submitted?:
-        title: When did you (or expect to) send your Self Assessment tax return?
-        body: |
-          Enter the date you expect HM Revenue & Customs to get your return. 
-
-          If you’re sending it online, enter the date you finished it or expect to finish it.
-
-          If you’re sending it on paper, add 2 days to the day you posted (or expect to post) it.
+        title: When did you send your Self Assessment tax return?
+        hint: If you sent it online, enter the date you submitted the return.
+          If you sent it on paper, add 2 days to the date you posted it.
+          If you haven’t sent it yet, enter the date you expect to send it.
         error_message: Please enter a date on or after %{start_of_next_tax_year_formatted}
       when_paid?:
-        title: When did you pay (or do you expect to pay) the bill?
+        title: When did you pay the bill?
+        hint: If you haven’t paid yet, enter the date you expect HM Revenue & Customs to get your payment
         error_message: Please enter a date on or after %{start_of_next_tax_year_formatted}
       how_much_tax?:
         title: Please enter how much your tax bill is (or an estimate if you don’t know)
+        hint: This calculator is anonymous. None of your details will be passed to HM Revenue & Customs.
         suffix_label: for the tax year
         error_message: Please enter a number
-        body: |
-          Giving the amount of the bill will help us give you an estimate of how much you’ll need to pay, including interest.
-
-          Using this calculator is anonymous. None of your details will be passed to HM Revenue & Customs.
       filed_and_paid_on_time:
-        title: You filed and paid your tax on time
+        title: You don't have to pay a penalty
         body: |
           You sent your tax return on or before the deadline, so you don’t have to pay a penalty.
 
-          You paid your bill on time, so you don’t have to pay any interest or penalty for late payment
+          You paid your bill on time, so there is no interest or penalty for late payment.
       late:
         title: You paid tax or sent your return late
         body: |
