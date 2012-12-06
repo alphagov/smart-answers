@@ -312,8 +312,7 @@ value_question :years_of_caring? do
   calculate :qualifying_years do
     caring_years = Integer(responses.last)
     qy = (caring_years + qualifying_years)
-    today = Date.today
-    raise InvalidResponse if (caring_years < 0 or caring_years > ((today.month > 4 ? today.year : today.year - 1) - 2010)) or !(calculator.has_available_years?(qy))
+    raise InvalidResponse if (caring_years < 0 or (caring_years > allowed_caring_years) or !(calculator.has_available_years?(qy)))
     qy
   end
 
