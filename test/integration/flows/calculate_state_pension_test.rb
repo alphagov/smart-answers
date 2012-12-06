@@ -59,16 +59,15 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
     context "female, born on 4 August 1951" do 
       setup do
-        Timecop.freeze('2012-10-08') do
-          add_response :female
-          add_response Date.parse("4th August 1951")
-        end
-      
-        should "tell them they are within four months and four days of state pension age" do
-          assert_current_node :near_state_pension_age
-          assert_state_variable "formatted_state_pension_date", " 6 November 2012"
-        end 
+        Timecop.travel('2012-10-08')
+        add_response :female
+        add_response Date.parse("4th August 1951")
       end
+      
+      should "tell them they are within four months and four days of state pension age" do
+        assert_current_node :near_state_pension_age
+        assert_state_variable "formatted_state_pension_date", " 6 November 2012"
+      end 
     end
   end # age calculation
   
@@ -92,9 +91,8 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
       context "within four months and four days of state pension age test" do
         setup do
-          Timecop.freeze('2012-10-08') do
-            add_response Date.parse('1948-02-12')
-          end
+          Timecop.travel('2012-10-08')
+          add_response Date.parse('1948-02-12')
         end
 
         should "display near state pension age response" do
@@ -104,13 +102,12 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
       context "four months and five days from state pension age test" do
         setup do 
-          Timecop.freeze('2012-10-08') do
-            add_response Date.parse('1948-02-13')
-          end
+          Timecop.travel('2012-10-08')
+          add_response Date.parse('1948-02-13')
+        end
           
-          should "ask for years paid ni" do
-            assert_current_node :years_paid_ni
-          end
+        should "ask for years paid ni" do
+          assert_current_node :years_paid_ni?
         end
       end
 
@@ -229,61 +226,66 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
           end # 1 year of JSA
         end # 25 years of NI
 
-        context "NI = 20, JSA = 1 received_child_benefit = yes, years_of_benefit = 1, years_of_caring = 1" do
-          setup do
-            Timecop.freeze('2012-11-01') do
+        context "when date is 1 November 2012" do
+          
+
+          context "NI = 20, JSA = 1 received_child_benefit = yes, years_of_benefit = 1, years_of_caring = 1" do
+            setup do
+              Timecop.travel('2012-11-01')
               add_response 20
               add_response 1
               add_response :yes
               add_response 1
             end
+
+            should "be on years_of_caring" do
+              assert_state_variable "qualifying_years", 22
+              assert_current_node :years_of_caring?
+            end
+
+            context "answer 1 year" do
+              setup do
+                add_response 1
+              end
+
+              should "be on years_of_carers_allowance" do
+                assert_state_variable "qualifying_years", 23
+                assert_current_node :years_of_carers_allowance?
+              end
+
+              should "be on years_of_work" do
+                add_response 1
+                assert_state_variable "qualifying_years", 24
+                assert_current_node :years_of_work?
+              end
+            end 
+
+            should "throw error on years_of_caring = 3 before 6 april 2013" do
+              add_response 3
+              assert_current_node_is_error
+            end
+          end # ni=20, jsa=1, etc...
+        end # when date was 1 Nov 2012
+
+        context "when date is 6 April 2013, NI = 15, JSA = 1 received_child_benefit = yes, years_of_benefit = 1" do
+          setup do
+            Timecop.travel('2013-04-06')
+            add_response 15 #ni
+            add_response 1 #jsa
+            add_response :yes #
+            add_response 1 #benefit
           end
-
-          should "be on years_of_caring" do
-            assert_state_variable "qualifying_years", 22
-            assert_current_node :years_of_caring?
-          end
-
-          context "answer 1 year" do
-            setup do
-              add_response 1
-            end
-
-            should "be on years_of_carers_allowance" do
-              assert_state_variable "qualifying_years", 23
-              assert_current_node :years_of_carers_allowance?
-            end
-
-            should "be on years_of_work" do
-              add_response 1
-              assert_state_variable "qualifying_years", 24
-              assert_current_node :years_of_work?
-            end
-          end 
-
-          ## FIXME: seems to be out of Timecop scope - Date.today returns current date, not the frozen one
-          should "throw error on years_of_caring = 3 before 6 april 2013" do
-            add_response 3
+          
+          should "not allow 4 years of caring before 6 April 2014" do
+            add_response 4 #years of caring
             assert_current_node_is_error
           end
-        end # ni=20, jsa=1, etc...
 
-        context "NI = 20, JSA = 1 received_child_benefit = yes, years_of_benefit = 1" do
-          setup do
-            Timecop.freeze('2013-04-06') do
-              add_response 20
-              add_response 1
-              add_response :yes
-              add_response 1
-              #puts(Date.today) - returns frozen date but next response doesn't progress to next question
-              add_response 3
-            end
+
+          should "allow 3 years of caring on 6 April 2013" do
+            add_response 3
+            assert_current_node :years_of_carers_allowance?
           end
-        
-          # FOXME shouldn't be failing - seems like flow is out of Timecop scope
-          # should "allow 3 years of caring after 6 April 2013" do
-          #   assert_current_node :years_of_carers_allowance?
-          # end
         end
 
       end # born before 6/10/1953
@@ -307,11 +309,10 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
       context "age = 61, NI = 20, JSA = 1" do
         setup do
-          Timecop.freeze("2012-08-08") do
-            add_response 61.years.ago
-            add_response 20
-            add_response 1
-          end
+          Timecop.travel("2012-08-08")
+          add_response 61.years.ago
+          add_response 20
+          add_response 1
         end
 
         should "go to received_child_benefit?" do
