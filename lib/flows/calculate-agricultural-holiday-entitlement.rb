@@ -29,7 +29,7 @@ end
 
 date_question :what_date_does_holiday_start? do
   from { Date.civil(Date.today.year, 1, 1) }
-  to { Date.civil(Date.today.year, 12, 31) }
+  to { Date.civil(Date.today.year + 1, 12, 31) }
   save_input_as :holiday_start_date
 
   calculate :weeks_from_october_1 do
@@ -65,7 +65,6 @@ value_question :how_many_total_days? do
   end
 
   calculate :total_days_worked do
-
     if Integer(responses.last) > available_days
       raise SmartAnswer::InvalidResponse
     end
