@@ -149,7 +149,7 @@ class CalculateAgriculturalHolidayEntitlementTest < ActiveSupport::TestCase
       assert_current_node :what_date_does_holiday_start?
     end
 
-    context "My holiday starts on august 1" do
+    context "My holiday starts on august 1 2012" do
       setup do
         # Fix today's date
         Date.stubs(:today).returns Date.civil(2012, 6, 17)
@@ -167,6 +167,45 @@ class CalculateAgriculturalHolidayEntitlementTest < ActiveSupport::TestCase
       context "worked 50 days" do
         setup do
           add_response "50"
+        end
+
+        should "be asked if I worked for the same employer" do
+          assert_current_node :worked_for_same_employer?
+        end
+
+        context "worked for the same employer" do
+          setup do
+            add_response "same-employer"
+          end
+
+          should "be finished" do
+            assert_current_node :done
+          end
+
+          should "have some holidays" do
+            assert_state_variable :holiday_entitlement_days, 13
+          end
+        end
+      end
+    end
+    context "My holiday starts on feb 1 2013" do
+      setup do
+        # Fix today's date
+        Date.stubs(:today).returns Date.civil(2012, 11, 2)
+        add_response "2013-02-01"
+      end
+
+      should "be asked how many days I've worked" do
+        assert_current_node :how_many_total_days?
+      end
+
+      should "have the number of weeks calculated" do
+        assert_state_variable :weeks_from_october_1, 17 
+      end
+
+      context "worked 28 days" do
+        setup do
+          add_response "28"
         end
 
         should "be asked if I worked for the same employer" do
