@@ -84,7 +84,7 @@ en-GB:
       not_enrolled_automatically:
         body: |
           $C
-          Your employer doesn’t have to automatically enroll you until sometime between 1 November 2015 and 1 February 2018.
+          Your employer doesn’t have to automatically enrol you until sometime between 1 November 2015 and 1 February 2018.
           $C
 
           They will write to you if they choose to do it earlier.
