@@ -55,10 +55,11 @@ multiple_choice :are_there_living_children? do
 end
 
 multiple_choice :more_than_one_child? do
-  option :yes => :partner_receives_first_450000_children_receive_two_thirds_of_remainder
+  option :yes => :partner_receives_first_250000_children_receive_two_thirds_of_remainder
   option :no => :partner_receives_first_250000_children_receive_half_of_remainder
 end
 
+#Q4, Q7, Q15, Q18, Q28, Q31
 multiple_choice :are_there_living_parents? do
   option :yes
   option :no
@@ -85,6 +86,7 @@ multiple_choice :are_there_living_parents? do
   end
 end
 
+#Q5, Q8, Q16, Q19, Q29, Q32
 multiple_choice :are_there_any_brothers_or_sisters_living? do
   option :yes
   option :no
