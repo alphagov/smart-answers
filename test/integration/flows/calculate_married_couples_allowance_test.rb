@@ -182,12 +182,18 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
               setup do
                 add_response '5000.0'
               end
+              should "save the response as gross_pension_contributions" do
+                assert_state_variable :gross_pension_contributions, 5000.0
+              end
               should "ask about tax relief pension contributions" do
                 assert_current_node :tax_relief_pension_payments?
               end
               context "answer 6000" do
                 setup do
                   add_response '6000.0'
+                end
+                should "save the response as net_pension_contributions" do
+                  assert_state_variable :net_pension_contributions, 6000.0
                 end
                 should "ask about gift aid contributions" do
                   assert_current_node :gift_aid_payments?

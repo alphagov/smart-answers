@@ -99,6 +99,14 @@ money_question :gift_aid_payments? do
     raise SmartAnswer::InvalidResponse if responses.last < 0
     responses.last
   end
+  calculate :allowance do
+    age_related_allowance = age_related_allowance_chooser.get_age_related_allowance(Date.parse(birth_date))
+    income = calculator.calculate_high_earner_income(income: responses.last,
+                                                    gross_pension_contributions: gross_pension_contributions,
+                                                    net_pension_contributions: net_pension_contributions,
+                                                    gift_aid_contributions: gift_aid_contributions)
+    calculator.calculate_allowance(age_related_allowance, income)
+  end
   next_node do
     if married_before_05_12_2005 == 'yes'
       :husband_done

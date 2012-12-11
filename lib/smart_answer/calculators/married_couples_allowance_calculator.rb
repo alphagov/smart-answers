@@ -1,4 +1,4 @@
-module SmartAnswer
+module SmartAnswer::Calculators
   class MarriedCouplesAllowanceCalculator
 
     def initialize(current_figures = {})
@@ -35,7 +35,13 @@ module SmartAnswer
       end
 
       mca = mca_entitlement * 0.1
-      Money.new(mca)
+      SmartAnswer::Money.new(mca)
+    end
+
+    def calculate_high_earner_income(income_values)
+      (income_values[:income] - income_values[:gross_pension_contributions] -
+        (income_values[:net_pension_contributions] * 1.25) -
+          (income_values[:gift_aid_contributions] * 1.25)).round(10)
     end
 
     def validate(income)
