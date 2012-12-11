@@ -7,6 +7,7 @@ multiple_choice :were_you_or_your_partner_born_on_or_before_6_april_1935? do
 end
 
 multiple_choice :did_you_marry_or_civil_partner_before_5_december_2005? do
+  save_input_as :married_before_05_12_2005
   option :yes => :whats_the_husbands_date_of_birth?
   option :no => :whats_the_highest_earners_date_of_birth?
 end
@@ -48,7 +49,13 @@ money_question :whats_the_husbands_income? do
     calculator.calculate_allowance(age_related_allowance, responses.last)
   end
 
-  next_node :husband_done
+  next_node do |response|
+    if response > 24500
+      :are_you_paying_a_pension?
+    else
+      :husband_done
+    end
+  end
 end
 
 money_question :whats_the_highest_earners_income? do
@@ -57,7 +64,48 @@ money_question :whats_the_highest_earners_income? do
     calculator.calculate_allowance(age_related_allowance, responses.last)
   end
 
-  next_node :highest_earner_done
+  next_node do |response|
+    if response > 24500
+      :are_you_paying_a_pension?
+    else
+      :highest_earner_done
+    end
+  end
+end
+
+multiple_choice :are_you_paying_a_pension? do
+  option :yes => :total_pension_and_annuities?
+  option :no => :gift_aid_payments?
+end
+
+money_question :total_pension_and_annuities? do
+  calculate :gross_pension_contributions do
+    raise SmartAnswer::InvalidResponse if responses.last < 0
+    responses.last
+  end
+  next_node :tax_relief_pension_payments?
+end
+
+money_question :tax_relief_pension_payments? do
+  calculate :net_pension_contributions do
+    raise SmartAnswer::InvalidResponse if responses.last < 0
+    responses.last
+  end
+  next_node :gift_aid_payments?
+end
+
+money_question :gift_aid_payments? do
+  calculate :gift_aid_contributions do
+    raise SmartAnswer::InvalidResponse if responses.last < 0
+    responses.last
+  end
+  next_node do
+    if married_before_05_12_2005 == 'yes'
+      :husband_done
+    else
+      :highest_earner_done
+    end
+  end
 end
 
 outcome :husband_done
