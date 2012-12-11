@@ -37,16 +37,23 @@ age_related_allowance_chooser = AgeRelatedAllowanceChooser.new(
   over_65_allowance: over_65_allowance,
   over_75_allowance: over_75_allowance)
 
-calculator = MarriedCouplesAllowanceCalculator.new(
+calculator = Calculators::MarriedCouplesAllowanceCalculator.new(
   maximum_mca: 7705,
   minimum_mca: 2960,
   income_limit: 25400,
   personal_allowance: personal_allowance)
 
 money_question :whats_the_husbands_income? do
+  calculate :income do
+    responses.last
+  end
+  calculate :age_related_allowance do
+    age_related_allowance_chooser.get_age_related_allowance(Date.parse(birth_date))
+  end
   calculate :allowance do
-    age_related_allowance = age_related_allowance_chooser.get_age_related_allowance(Date.parse(birth_date))
-    calculator.calculate_allowance(age_related_allowance, responses.last)
+    if responses.last <= 24500
+      calculator.calculate_allowance(age_related_allowance, responses.last)
+    end
   end
 
   next_node do |response|
@@ -59,9 +66,16 @@ money_question :whats_the_husbands_income? do
 end
 
 money_question :whats_the_highest_earners_income? do
+  calculate :income do
+    responses.last
+  end
+  calculate :age_related_allowance do
+    age_related_allowance_chooser.get_age_related_allowance(Date.parse(birth_date))
+  end
   calculate :allowance do
-    age_related_allowance = age_related_allowance_chooser.get_age_related_allowance(Date.parse(birth_date))
-    calculator.calculate_allowance(age_related_allowance, responses.last)
+    if responses.last <= 24500
+      calculator.calculate_allowance(age_related_allowance, responses.last)
+    end
   end
 
   next_node do |response|
@@ -99,14 +113,15 @@ money_question :gift_aid_payments? do
     raise SmartAnswer::InvalidResponse if responses.last < 0
     responses.last
   end
+ 
   calculate :allowance do
-    age_related_allowance = age_related_allowance_chooser.get_age_related_allowance(Date.parse(birth_date))
-    income = calculator.calculate_high_earner_income(income: responses.last,
+    he_income = calculator.calculate_high_earner_income(income: income,
                                                     gross_pension_contributions: gross_pension_contributions,
                                                     net_pension_contributions: net_pension_contributions,
                                                     gift_aid_contributions: gift_aid_contributions)
-    calculator.calculate_allowance(age_related_allowance, income)
+    calculator.calculate_allowance(age_related_allowance, he_income)
   end
+  
   next_node do
     if married_before_05_12_2005 == 'yes'
       :husband_done

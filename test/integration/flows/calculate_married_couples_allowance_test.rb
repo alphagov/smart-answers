@@ -57,7 +57,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             expects(:get_age_related_allowance).
             with(Date.parse '1930-05-25').
             returns("Age related allowance")
-          SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
+          SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
             expects(:calculate_allowance).
             with("Age related allowance", 14500.0).
             returns("Calculated allowance")
@@ -139,25 +139,30 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
         should "ask for the highest earner's income" do
           assert_current_node :whats_the_highest_earners_income?
         end
+        
 
-        should "end at highest_earner_done" do
-          add_response '13850.50'
-          assert_current_node :highest_earner_done
-        end
+        context "answer below the high earner threshold" do
+          setup do
+            add_response '13850.50'
+          end
+        
+          should "calculate allowance using calculators" do
+            SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
+              expects(:get_age_related_allowance).
+                with(Date.parse '1930-05-14').
+                  returns("Age related allowance")
+            SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
+              expects(:calculate_allowance).
+                with("Age related allowance", 13850.5).
+                  returns("Calculated allowance")
 
-        should "calculate allowance using calculators" do
-          SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
-            expects(:get_age_related_allowance).
-            with(Date.parse '1930-05-14').
-            returns("Age related allowance")
-          SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
-            expects(:calculate_allowance).
-            with("Age related allowance", 13850.5).
-            returns("Calculated allowance")
+            assert_state_variable :allowance, "Calculated allowance"
+          end
+          should "end at highest_earner_done" do
+            assert_current_node :highest_earner_done
+          end
+        end # Below high earner threshold
 
-          add_response '13850.50'
-          assert_state_variable :allowance, "Calculated allowance"
-        end
         context "where the highest earner's income is greater than threshold" do
           setup do
             add_response '24500.01'
@@ -212,12 +217,29 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
               setup do
                 add_response '1000.0'
               end
+              should "calculate allowance using calculators" do
+                SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
+                  expects(:get_age_related_allowance).
+                    with(Date.parse '1930-05-14').
+                      returns("Age related allowance")               
+                SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
+                  expects(:calculate_high_earner_income).
+                  with(income: 24500.01, gross_pension_contributions: nil,
+                      net_pension_contributions: nil, gift_aid_contributions: 1000.0).
+                  returns("Calculated income")
+                SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
+                  expects(:calculate_allowance).
+                  with("Age related allowance", "Calculated income").
+                  returns("Calculated allowance")
+
+                assert_state_variable :allowance, "Calculated allowance"
+              end
               should "calculate the adjusted net income and be done" do
                 assert_current_node :highest_earner_done
               end
             end
           end
-        end
+        end # Above high earner threshold
       end
     end # after 2005
   end
