@@ -7,6 +7,13 @@ Toolkit for building smart answers. Have a look at
 Flows are stored in `lib/flows/*.rb`. Corresponding text is in
 `lib/flows/locales/*.yml`.
 
+Testing
+------------
+Run unit tests by executing the following:
+
+    govuk_setenv smartanswers bundle exec rake
+
+
 Issues/todos
 ------------
 
