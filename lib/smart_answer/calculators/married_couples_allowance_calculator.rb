@@ -40,9 +40,9 @@ module SmartAnswer::Calculators
 
     def calculate_high_earner_income(income_values)
       income_values.each { |k,v| income_values[k] = 0.0 unless income_values[k] }
-      (income_values[:income] - income_values[:gross_pension_contributions] -
-        (income_values[:net_pension_contributions] * 1.25) -
-          (income_values[:gift_aid_contributions] * 1.25)).round(10)
+      (income_values[:income].to_f - income_values[:gross_pension_contributions].to_f -
+        (income_values[:net_pension_contributions].to_f * 1.25) -
+          (income_values[:gift_aid_contributions].to_f * 1.25)).round(10)
     end
 
     def validate(income)
