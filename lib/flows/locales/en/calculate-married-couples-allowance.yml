@@ -32,14 +32,14 @@ en-GB:
         error_message: Please choose your date of birth using the drop downs
       whats_the_husbands_income?:
         "title": "What's the husband's yearly income?"
-        hint: Add up your taxable income, eg earnings, pensions and any taxable benefits, eg Employment and Support Allowance.
+        hint: Add up your taxable income, eg earnings, pensions and any taxable benefits, eg Carer's Allowance.
         error_message: Please use numbers only, eg 9000
       whats_the_highest_earners_income?:
         "title": "What's the highest earner's yearly income?"
-        hint: Add up your taxable income, eg earnings, pensions and any taxable benefits, eg Employment and Support Allowance.
+        hint: Add up your taxable income, eg earnings, pensions and any taxable benefits, eg Carer's Allowance.
         error_message: Please use numbers only, eg 9000
       sorry:
-        title: Sorry, you don't qualify for Married Couple's Allowance.
+        title: You don't qualify for Married Couple's Allowance.
 
 
       highest_earner_done:
