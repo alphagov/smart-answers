@@ -32,7 +32,7 @@ personal_allowance = 8105
 over_65_allowance = 10500
 over_75_allowance = 10660
 
-age_related_allowance_chooser = AgeRelatedAllowanceChooser.new(
+age_related_allowance_chooser = Calculators::AgeRelatedAllowanceChooser.new(
   personal_allowance: personal_allowance,
   over_65_allowance: over_65_allowance,
   over_75_allowance: over_75_allowance)
