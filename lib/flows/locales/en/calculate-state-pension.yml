@@ -45,9 +45,11 @@ en-GB:
           Once you claim your State Pension, the Pension Service will work out how much exactly you get.
 
           If you&rsquo;re on a low income, you might be eligible to claim [Pension Credit](/pension-credit "Pension Credit").
-
+          
+          ##Pension Credit
           %{pension_credit_statement}
 
+          ##Bus pass
           %{bus_pass_statement}
 
           This calculation is according to the current law. The State Pension age may [change in the future.](/increase-state-pension-age "Increase in State Pension age")
@@ -63,10 +65,12 @@ en-GB:
 
           Once you claim your State Pension, the Pension Service will work out how much you get.
 
+          ##Pension Credit
           If you&rsquo;re on a low income, you might be eligible to claim [Pension Credit](/pension-credit "Pension Credit").
 
           You may have been entitled to receive Pension Credit from %{pension_credit_date}
-
+          
+          ##Bus pass
           You may also apply for an [elderly person’s bus pass](/apply-for-elderly-person-bus-pass "Elderly person’s bus pass") from %{pension_credit_date}.
 
           This calculation is according to the current law. The State Pension age may [change in the future.](/increase-state-pension-age "Increase in State Pension age")
