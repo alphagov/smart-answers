@@ -84,7 +84,7 @@ en-GB:
       ## Q3a
       gross_income_of_payee?:
         title: What is the weekly gross income of the parent paying child maintenance?
-        hint: This is income before tax, National Insurance and pension contributions.
+        hint: This is income before tax, National Insurance but after pension contributions.
         suffix_label: per week
         error_message: Please enter a number
       ## Q4
