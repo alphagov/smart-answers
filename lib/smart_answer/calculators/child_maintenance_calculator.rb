@@ -66,7 +66,7 @@ module SmartAnswer::Calculators
     
     #only used in the 2012 scheme
     def calculate_basic_plus_rate_payment
-      basic_plus_rate = @income - (@income * relevant_other_child_multiplier)
+      basic_plus_rate = capped_income - (capped_income * relevant_other_child_multiplier)
       basic_qualifying_child_amount = (BASIC_PLUS_RATE_THRESHOLD * basic_rate_multiplier)
       additional_qualifying_child_amount = ((basic_plus_rate - BASIC_PLUS_RATE_THRESHOLD) * basic_plus_rate_multiplier)
       child_amounts_total = basic_qualifying_child_amount + additional_qualifying_child_amount
