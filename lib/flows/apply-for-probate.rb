@@ -1,14 +1,7 @@
 status :draft
 satisfies_need "131"
 
-
 ## Q1
-multiple_choice :use_a_solicitor? do
-  option :solicitor => :use_a_solicitor_outcome
-  option :myself => :where_did_deceased_live?
-end
-
-## Q2
 multiple_choice :where_did_deceased_live? do
   option :england_or_wales 
   option :scotland
@@ -19,7 +12,7 @@ multiple_choice :where_did_deceased_live? do
   next_node :inheritance_tax?
 end
 
-## Q3 
+## Q2 
 multiple_choice :inheritance_tax? do
   option :yes
   option :no
@@ -37,7 +30,7 @@ multiple_choice :inheritance_tax? do
   end
 end
 
-## Q4
+## Q3
 multiple_choice :amount_left_en_sco? do
   option :under_five_thousand
   option :five_thousand_or_more
@@ -63,7 +56,7 @@ multiple_choice :amount_left_en_sco? do
   end
 end
 
-## Q5
+## Q4
 multiple_choice :which_ni_county? do
   option :fermanagh_londonderry_tyrone
   option :antrim_armagh_down
@@ -79,7 +72,7 @@ multiple_choice :which_ni_county? do
   next_node :amount_left_ni?
 end
 
-## Q6
+## Q5
 multiple_choice :amount_left_ni? do
   option :under_ten_thousand
   option :ten_thousand_or_more
