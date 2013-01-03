@@ -41,20 +41,17 @@ en-GB:
       are_you_paying_a_pension?:
         title: Are you paying into a pension?
       total_pension_and_annuities?:
-        title: What do you expect to pay into pensions and annuities?
+        title: How much do you expect to pay into a pension where your contributions are made before tax is taken away?
         body: |
           Enter the total amount you expect to pay for the whole tax year into:
           - pension schemes where your contributions are paid before your income is taxed (called ‘net pay arrangements’)
           - retirement annuity contracts (called ‘gross contributions’) 
         hint: If none, please enter 0
       tax_relief_pension_payments?:
-        title: What do you expect to pay into ‘relief at source‘ pensions?
-        body: |
-          Enter the total amount you expect to pay into a pension for the whole tax year where your pension provider claims tax relief for you (called ‘relief at source’ arrangements).
+        title: How much do you expect to pay into a pension this tax year where your pension provider claims tax relief for you?
         hint: Only enter what you pay - don’t include the tax relief. If none, please enter 0.
       gift_aid_payments?:
-        title: What do you expect to give to Gift Aid?
-        body: Enter the amount you expect to give through Gift Aid during the tax year.
+        title: How much do you expect to donate to charity through Gift Aid during the entire tax year? 
         hint: Only enter what you pay - don’t include any tax relief. If none, please enter 0.
       sorry:
         title: You don't qualify for Married Couple's Allowance.
