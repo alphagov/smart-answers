@@ -715,8 +715,9 @@ module SmartAnswer::Calculators
     end
 
     context "historical below minimum wage" do
-      # setup do
-      # end
+      setup do
+        Timecop.travel(Date.parse('2012-10-09'))
+      end
       should "return false to minimum_wage_or_above?" do
         @calculator = MinimumWageCalculator.new(
           age: 25, 
@@ -737,7 +738,6 @@ module SmartAnswer::Calculators
         assert !@calculator.minimum_wage_or_above?
         assert_equal 32, @calculator.underpayment
         assert_equal 5.52, (@calculator.underpayment / @calculator.per_hour_minimum_wage).round(2)
-        # FIXME: time sensitive; use TimeCop
         assert_equal 6.19, @calculator.per_hour_minimum_wage(Date.today)
         assert_equal 34.15, @calculator.historical_adjustment
         # assert_equal 43.20, @calculator.total_underpayment
@@ -754,7 +754,6 @@ module SmartAnswer::Calculators
         # underpayment
         assert_equal 5.52, @calculator.minimum_hourly_rate
         assert_equal 2.5, @calculator.total_hourly_rate
-        # FIXME: time sensitive; use TimeCop
         assert_equal 135.46, @calculator.historical_adjustment
       end
 
@@ -769,7 +768,6 @@ module SmartAnswer::Calculators
         # underpayment
         assert_equal 5.73, @calculator.minimum_hourly_rate
         assert_equal 2.5, @calculator.total_hourly_rate
-        # FIXME: time sensitive; use TimeCop
         assert_equal 139.57, @calculator.historical_adjustment
       end
 
@@ -784,7 +782,6 @@ module SmartAnswer::Calculators
         # underpayment
         assert_equal 5.73, @calculator.minimum_hourly_rate
         assert_equal 1, @calculator.total_hourly_rate
-        # FIXME: time sensitive; use TimeCop
         assert_equal 204.39, @calculator.historical_adjustment
       end
 
@@ -799,7 +796,6 @@ module SmartAnswer::Calculators
         # underpayment
         assert_equal 5.35, @calculator.minimum_hourly_rate
         assert_equal 5.04, @calculator.total_hourly_rate
-        # FIXME: time sensitive; use TimeCop
         assert_equal 52.59, @calculator.historical_adjustment
       end
 
@@ -814,7 +810,6 @@ module SmartAnswer::Calculators
         # underpayment
         assert_equal 5.35, @calculator.minimum_hourly_rate
         assert_equal 4.73, @calculator.total_hourly_rate
-        # FIXME: time sensitive; use TimeCop
         assert_equal 104.65, @calculator.historical_adjustment
       end
 
@@ -829,7 +824,6 @@ module SmartAnswer::Calculators
         # underpayment
         assert_equal 5.35, @calculator.minimum_hourly_rate
         assert_equal 4.5, @calculator.total_hourly_rate
-        # FIXME: time sensitive; use TimeCop
         assert_equal 145.15, @calculator.historical_adjustment
       end
 
