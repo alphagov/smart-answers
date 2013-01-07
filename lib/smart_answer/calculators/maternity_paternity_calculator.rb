@@ -5,7 +5,8 @@ module SmartAnswer::Calculators
       :leave_earliest_start_date, :adoption_placement_date, :ssp_stop,
       :notice_request_pay, :matched_week, :a_employment_start
 
-    attr_accessor :employment_contract, :leave_start_date, :average_weekly_earnings, :a_notice_leave, :last_payday
+    attr_accessor :employment_contract, :leave_start_date, :average_weekly_earnings, :a_notice_leave,
+      :last_payday, :pre_offset_payday
 
     MATERNITY_RATE = PATERNITY_RATE = 135.45
     LEAVE_TYPE_BIRTH = "birth"
@@ -38,12 +39,16 @@ module SmartAnswer::Calculators
     end
 
     def payday_offset
-      8.weeks.ago(last_payday)
+      8.weeks.ago(last_payday) + 1
     end
 
-    def relevant_period(payday)
-      relevant_period_from = payday + 1
-      "#{format_date_day(relevant_period_from)} and #{format_date_day(last_payday)}"
+    def relevant_period
+      [payday_offset, last_payday]
+    end
+
+    def formatted_relevant_period
+      relevant_period_from, relevant_period_to = relevant_period
+      "#{format_date_day(relevant_period_from)} and #{format_date_day(relevant_period_to)}"
     end
 
     def leave_end_date
@@ -133,21 +138,21 @@ module SmartAnswer::Calculators
       statutory_maternity_rate_b
     end
 
-    def relevant_period_in_days
-      last_payday.to_datetime - (payday_offset + 1).to_datetime
+    def pay_period_in_days
+      (last_payday + 1 - pre_offset_payday).to_i
     end
 
     def calculate_average_weekly_pay(pay_pattern, pay)
       @average_weekly_earnings = (
         case pay_pattern
         when "irregularly"
-          pay / relevant_period_in_days * 7
+          pay.to_f / pay_period_in_days * 7
         when "monthly" 
-          pay / 2 * 12 / 52
+          pay.to_f / 2 * 12 / 52
         else
-          pay / 8
+          pay.to_f / 8
         end
-      ).to_f.round(2)
+      ).round(5) # HMRC rounding to 5 places.
     end
 
     # Total SMP is the sum of 6 weeks at the potentially higher rate A

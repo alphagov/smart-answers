@@ -320,7 +320,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                     context "answer 7463.19" do
                       setup { add_response '7463.19' }
                       should "calculate the dates and payment amounts" do
-                        assert_state_variable "average_weekly_earnings", 949.86
+                        assert_state_variable "average_weekly_earnings", 916.53211
                       end
                     end
                   end

@@ -33,12 +33,13 @@ module SmartAnswer::Calculators
           @calculator = MaternityPaternityCalculator.new(@dd)
           @calculator.last_payday = @calculator.qualifying_week.last
           payday = @calculator.last_payday.julian - (7 * 9)
-          assert_equal "Sunday, 16 April 2012 and Saturday, 30 June 2012", @calculator.relevant_period(payday)
+          @calculator.pre_offset_payday = payday
+          assert_equal "Sunday, 06 May 2012 and Saturday, 30 June 2012", @calculator.formatted_relevant_period
         end
 
         should "calculate payday offset" do
           @calculator.last_payday = Date.parse("2012-03-28")
-          assert_equal Date.parse("2012-02-01"), @calculator.payday_offset
+          assert_equal Date.parse("2012-02-02"), @calculator.payday_offset
         end
 
         should "calculate the ssp_stop date anda the notice request date" do
@@ -251,12 +252,34 @@ module SmartAnswer::Calculators
           assert_equal 382.06, @calculator.calculate_average_weekly_pay("every_4_weeks", 3056.48)
         end
         should "work out the weekly average for a monthly pay pattern" do
-          assert_equal 1846, @calculator.calculate_average_weekly_pay("monthly", 16000)
+          assert_equal 1846.15385, @calculator.calculate_average_weekly_pay("monthly", 16000)
         end
         should "work out the weekly average for a irregular pay pattern" do
           @calculator.last_payday = 15.days.ago(Date.today)
-          assert_equal 55.0, @calculator.relevant_period_in_days.to_f
-          assert_equal 992.55, @calculator.calculate_average_weekly_pay("irregularly", 7798.63)
+          @calculator.pre_offset_payday = 55.days.ago(@calculator.last_payday)
+          assert_equal 56, @calculator.pay_period_in_days
+          assert_equal 974.82875, @calculator.calculate_average_weekly_pay("irregularly", 7798.63)
+        end
+      end
+      context "HMRC scenarios" do
+        setup do
+          @calculator = MaternityPaternityCalculator.new(Date.parse('2013-02-22'))
+        end
+        should "calculate AWE for weekly pay patterns" do
+          assert_equal 200, @calculator.calculate_average_weekly_pay("weekly", 1600) 
+          assert_equal 151, @calculator.calculate_average_weekly_pay("weekly", 1208)
+          assert_equal 150, @calculator.calculate_average_weekly_pay("weekly", 1200)
+        end
+        should "calculate AWE for monthly pay patterns" do
+          @calculator.last_payday = Date.parse('2012-10-31')
+          assert_equal 184.61538, @calculator.calculate_average_weekly_pay("monthly", 1600)
+          @calculator.last_payday = Date.parse('2012-10-26')
+          assert_equal 144.31731, @calculator.calculate_average_weekly_pay("monthly", 1250.75)
+        end
+        should "calculate AWE for irregular pay patterns" do
+          @calculator.last_payday = Date.parse('2012-11-06')
+          @calculator.pre_offset_payday = Date.parse('2012-08-01')
+          assert_equal 214.28571, @calculator.calculate_average_weekly_pay("irregularly", 3000)
         end
       end
 
