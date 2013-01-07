@@ -122,13 +122,14 @@ date_question :payday_eight_weeks? do
 
   calculate :last_payday_eight_weeks do
     payday = Date.parse(responses.last)
+    payday += 1 if leave_type == 'maternity'
     raise SmartAnswer::InvalidResponse if payday > Date.parse(payday_offset)
     calculator.pre_offset_payday = payday
     payday
   end
 
   calculate :relevant_period do
-    calculator.relevant_period  
+    calculator.formatted_relevant_period
   end
 
   next_node do |response|

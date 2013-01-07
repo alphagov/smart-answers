@@ -34,7 +34,7 @@ module SmartAnswer::Calculators
           @calculator.last_payday = @calculator.qualifying_week.last
           payday = @calculator.last_payday.julian - (7 * 9)
           @calculator.pre_offset_payday = payday
-          assert_equal "Sunday, 06 May 2012 and Saturday, 30 June 2012", @calculator.formatted_relevant_period
+          assert_equal "Saturday, 15 April 2012 and Saturday, 30 June 2012", @calculator.formatted_relevant_period
         end
 
         should "calculate payday offset" do
@@ -299,3 +299,4 @@ module SmartAnswer::Calculators
     end    
   end
 end
+

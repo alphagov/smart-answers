@@ -2,7 +2,7 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
-class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
+class MaternityPaternityCalculatorPreviewTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
@@ -320,7 +320,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                     context "answer 7463.19" do
                       setup { add_response '7463.19' }
                       should "calculate the dates and payment amounts" do
-                        assert_state_variable "average_weekly_earnings", 916.53211
+                        assert_state_variable "average_weekly_earnings", 932.89875
                       end
                     end
                   end
