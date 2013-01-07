@@ -15,8 +15,8 @@ en-GB:
       ## Q1
       what_type_of_vehicle?:
         title: What kind of vehicle do you want to drive?
-        hint: |
-          Choose the kind of vehicle you want to drive from the list. If you know the vehicle category these are also shown.
+        body: |
+          Choose the kind of vehicle you want to drive from the list. If you know the [vehicle category](/driving-licence-categories "driving licence categories") these are also shown.
         options:
           car-or-light-vehicle: "Car or light vehicle (category B)"
           motorcycle: "Motorbike (category A)"
@@ -466,7 +466,8 @@ en-GB:
 
           You have the D1+E towing entitlement, which means you can drive minibuses with trailers over 750 kg.           
         next_steps: |
-          [Driving a minibus](/driving-a-minibus "Driving a minibus")
+          [Driving a minibus](/driving-a-minibus "Driving a minibus")  
+          [Driving licence categories](/driving-licence-categories "Driving licence categories")
       ## A27
       psv_conditional_entitlement:
         body: |

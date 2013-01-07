@@ -19,31 +19,28 @@ en-GB:
         fee_info_eng_sco: There is a fee of £105 to pay.
         fee_info_ni: There is a fee of £250 to pay (£200 grant fee plus a £50 application fee).
         apply_in_fermanagh_londonderry_tyrone: |
-          Apply at one of the addresses below:
+          Apply at:
 
 
           $A
           The Probate Office
           Royal Courts of Justice
           Chichester Street
-          Belfast BT1 3JF
+          Belfast
+          BT1 3JF
           $A
 
-          $C
-          **Telephone:** 028 9072 4678
-          $C
-
+          $C Telephone: 028 9072 4678 $C
 
           $A
           The District Probate Office
           The Courthouse
           Bishop Street
-          Londonderry BT48 6PQ
+          Londonderry 
+          BT48 6PQ
           $A
 
-          $C
-          **Telephone:** 028 7126 1832
-          $C
+          $C Telephone: 028 7126 1832 $C
 
         apply_in_antrim_armagh_down: |
           Apply at:
@@ -53,106 +50,86 @@ en-GB:
           The Probate Office
           Royal Courts of Justice
           Chichester Street
-          Belfast BT1 3JF
-          $A
+          Belfast 
+          BT1 3JF
+          $A 
 
-          $C
-          **Telephone:** 028 9072 4678
-          $C
+          $C Telephone: 028 9072 4678 $C
 
         eng_wales_no_inheritance_tax: |
-          Fill in:
+          ##Apply for probate
+
+          Fill in form PA1. 
 
 
-          - [Probate application form PA1](http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=735){:rel="external"}
+          $D
+          [Download form PA1 ‘probate summary’ (PDF, 555KB)](http://hmctsformfinder.justice.gov.uk/courtfinder/forms/pa01-eng.pdf “Download form PA1 ‘probate summary’ (PDF, 555KB)”)
+          $D
 
-          - [Inheritance Tax form IHT205](http://search2.hmrc.gov.uk/kbroker/hmrc/forms/viewform.jsp?formId=3307){:rel="external"}
-        
-        eng_wales_no_inheritance_tax_next_steps: |
-          Send the probate application form to your [local probate registry office,](http://www.justice.gov.uk/courts/probate/probate-registries "Probate registries"){:rel="external"} along with:
 
+          Send the form to your [local probate registry office](http://www.justice.gov.uk/courts/probate/probate-registries “your local probate registry”), along with:
 
           - an official copy of the death certificate
           - the original will, and 2 copies
-          - a cheque, if there's a fee to pay
+          - a cheque made out to XXX, if there’s a fee to pay
 
-          Send the Inheritance Tax form to HM Revenue & Customs (HMRC):
+          You will also have to go to an interview to confirm the details on the forms.
 
-          
-          $A 
+          Read more about [wills, probate and inheritance](/wills-probate-inheritance “wills, probate and inheritance”).
+
+        eng_wales_no_inheritance_tax_next_steps: |
+          ##Inheritance tax
+          You don’t have to pay Inheritance Tax but have to tell HM Revenue & Customs about the deceased’s estate on [form IHT205 ‘return of estate information’](http://search2.hmrc.gov.uk/kbroker/hmrc/forms/viewform.jsp?formId=3307 “form IHT205 return of estate information”)
+
+          Send the form to:
+
+
+          $A
           HMRC
           Inheritance Tax
           Ferrers House
           PO Box 38
           Castle Meadow Road
           Nottingham
-          NG2 1BB 
+          NG2 1BB
           $A
 
-          You will also have to go to an interview at your local probate office to confirm the details on the forms.
+
+          Read more about [Inheritance Tax](/inheritance-tax “Inheritance Tax”).
 
         eng_wales_inheritance_tax: |
-          Fill in:
+
+          ##Apply for probate
+
+          Fill in form PA1. 
 
 
-          - [Probate application form PA1](http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=735){:rel="external"}
+          $D
+          [Download form PA1 ‘probate summary’ (PDF, 555KB)](http://hmctsformfinder.justice.gov.uk/courtfinder/forms/pa01-eng.pdf “Download form PA1 ‘probate summary’ (PDF, 555KB)”)
+          $D
 
-          - [Inheritance Tax form IHT400](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=ID-K_xN6ens&formId=3309){:rel="external"}
 
-          - [Inheritance Tax form IHT421 - Probate Summary](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=knqJIU6CNQg&formId=3405){:rel="external"}
-
-          Use the [Form IHT400 help notes](http://search2.hmrc.gov.uk/kbroker/hmrc/forms/viewform.jsp?formId=3309){:rel="external"} if needed.
-
-        eng_wales_inheritance_tax_next_steps: |
-          Send the probate application form to your [local probate registry office,](http://www.justice.gov.uk/courts/probate/probate-registries "Probate registries"){:rel="external"} along with:
-
+          Send the form to your [local probate registry office](http://www.justice.gov.uk/courts/probate/probate-registries), along with:
 
           - an official copy of the death certificate
           - the original will, and 2 copies
-          - a cheque, if there's a fee to pay
+          - a cheque, if there’s a fee to pay
+
+          You will also have to go to an interview to confirm the details on the forms.
+
+        eng_wales_inheritance_tax_next_steps: |
+          Read more about [wills, probate and inheritance](/wills-probate-inheritance “wills, probate and inheritance”).
+
+          ##Inheritance Tax
+
+          You might have to pay inheritance tax and have to fill in the following forms:
+
+          - [form IHT400 ‘Inheritance Tax Account’](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=ID-K_xN6ens&formId=3309 “form IHT400 ‘Inheritance Tax Account’”)
+
+          - [form IHT421 ‘Probate Summary’](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=knqJIU6CNQg&formId=3405 “form IHT421 ‘Probate Summary’”)
 
 
-          Send the Inheritance Tax forms to HM Revenue & Customs (HMRC).
-
-
-          $A
-          HMRC
-          Inheritance Tax
-          Ferrers House
-          PO Box 38
-          Castle Meadow Road
-          Nottingham
-          NG2 1BB
-          $A
-
-          If there is tax to pay, you'll have to pay at least some of it before a grant of probate can be issued.
-
-          You will also have to go to an interview at your local probate office to confirm the details on the forms.
-
-        scotland_no_inheritance_tax: |
-          Fill in:
-
-
-          - [‘Inventory’ Form C1](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=DQJACJmu-f0&formid=3322){:rel="external"} 
-          - [‘Return of Estate Information’ Form C5](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=zQYhbzVQOUU&formId=3325){:rel="external"}
-        
-        scotland_no_inheritance_tax_next_steps: |
-          Send the forms to your [local sheriff’s court,](http://www.scotcourts.gov.uk/locations/index.asp){:rel="external"} along with a cheque if there’s a fee.
-
-          ^ Probate is called ‘confirmation’ in Scotland. ^
-
-        scotland_inheritance_tax: |
-          Fill in:
-
-
-          - [‘Inventory’ Form C1](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=DQJACJmu-f0&formid=3322){:rel="external"}
-
-          - [Inheritance Tax form IHT400](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=ID-K_xN6ens&formId=3309){:rel="external"}
-
-          Use the [Form IHT400 help notes](http://search2.hmrc.gov.uk/kbroker/hmrc/forms/viewform.jsp?formId=3309){:rel="external"} if needed.
-
-        scotland_inheritance_tax_next_steps: |
-          Send the forms to HM Revenue and Customs (HMRC):
+          Send the forms to:
 
 
           $A
@@ -164,73 +141,158 @@ en-GB:
           Nottingham
           NG2 1BB
           $A
-          
-          You will also have to go to an interview at your local sheriff’s court to confirm the details on the forms.
 
-          ^ Probate is called ‘confirmation’ in Scotland. ^
 
-        ni_no_inheritance_tax: |
-          Fill in: 
-
-          
-          - [Inheritance Tax form IHT205](http://search2.hmrc.gov.uk/kbroker/hmrc/forms/viewform.jsp?formId=3307){:rel="external"}
-
-        ni_no_inheritance_tax_part2: |
-          Make an appointment at a probate office. Which office depends on where the deceased lived.
-
-        ni_inheritance_tax: |
-          Fill in:
-
-          
-          - [Inheritance Tax form IHT400](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=ID-K_xN6ens&formId=3309){:rel="external"}
-
-          - [Inheritance Tax form IHT421 - Probate Summary](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=knqJIU6CNQg&formId=3405){:rel="external"}
-
-          Use the [Form IHT400 help notes](http://search2.hmrc.gov.uk/kbroker/hmrc/forms/viewform.jsp?formId=3309){:rel="external"}if needed.
-
-        ni_inheritance_tax_part2: |
-          Send the completed Inheritance Tax forms to HM Revenue & Customs (HMRC). The address is on the forms.
+          If there is tax to pay, you’ll have to pay at least some of it before a grant of probate can be issued. 
 
           HMRC will stamp and return the IHT421 form. You may have to pay some tax first.
 
-          Make an appointment at a probate office. Which office depends on where the deceased lived.
+          Read more about [Inheritance Tax](/inheritance-tax “Inheritance Tax”).
+
+        scotland_no_inheritance_tax: |
+          ##Apply for probate
+
+          Fill in [form C1 ‘Confirmation’](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=DQJACJmu-f0&formid=3322 “Confirmation form C1”) 
+
+        scotland_no_inheritance_tax_next_steps: |
+          Read more about [confirmation](http://www.scotland.gov.uk/Publications/2006/04/12094440/10 “confirmation”).
+
+          ##Inheritance Tax
+          You don’t have to pay inheritance tax but have to tell HM Revenue & Customs about the deceased’s estate on [form C5 ‘return of estate information’](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=zQYhbzVQOUU&formId=3325 “Form C5 return of estate information”)
+
+          Send the forms to your [local sheriff’s court](http://www.scotcourts.gov.uk/locations/index.asp), along with a cheque if there’s a fee.
+
+          ^Probate is called ‘confirmation’ in Scotland.^
+
+          Read more about [Inheritance Tax](/inheritance-tax “Inheritance Tax”).
+
+        scotland_inheritance_tax: |
+          ##Apply for probate
+
+          Fill in [form C1 ‘Confirmation’](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=DQJACJmu-f0&formid=3322 “Confirmation form C1”)
+
+          You will also have to go to an interview at your local sheriff’s court to confirm the details on the forms.
+        
+        scotland_inheritance_tax_next_steps: |
+          Read more about [confirmation](http://www.scotland.gov.uk/Publications/2006/04/12094440/10 “confirmation”).
+
+          ##Inheritance Tax
+
+          You might have to pay inheritance tax and have to fill in [form IHT400 ‘Inheritance Tax Account’](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=ID-K_xN6ens&formId=3309 “form IHT400 ‘Inheritance Tax Account’”)
+
+          Send the form to:
+
+
+          $A
+          HMRC
+          Inheritance Tax
+          Ferrers House
+          PO Box 38
+          Castle Meadow Road
+          Nottingham
+          NG2 1BB
+          $A
+
+
+          ^Probate is called ‘confirmation’ in Scotland.^
+
+          Read more about [Inheritance Tax](/inheritance-tax “Inheritance Tax”).
+
+        ni_no_inheritance_tax: |
+          ##Apply for probate
+
+
+          You must make an appointment at a probate office to apply.
+
+        ni_no_inheritance_tax_part2: |
+          Bring the completed IHT205 form, along with:
+
+          - an official copy of the death certificate
+          - the original will, and 2 copies
+          - 2 forms of ID with you, like a passport or driving licence
+
+          You will have to swear an oath that everything on the form is true.
+
+          Read more about [wills, probate and inheritance](/wills-probate-inheritance “wills, probate and inheritance”).
+
+
+          ##Inheritance Tax
+
+          You don’t have to pay inheritance tax but you must tell HM Revenue & Customs about the deceased’s estate on [form IHT205 ‘Return of estate information’](http://search2.hmrc.gov.uk/kbroker/hmrc/forms/viewform.jsp?formId=3307 “Form IHT205 Return of estate information”)
+
+          Read more about [Inheritance Tax](/inheritance-tax “Inheritance Tax”).
+
+        ni_inheritance_tax: |
+          ##Apply for probate
+
+          You must make an appointment at a probate office to apply.
+         
+        ni_inheritance_tax_part2: |
+          Bring the completed IHT205 form, along with:
+
+          - an official copy of the death certificate
+          - the original will, and 2 copies
+          - 2 forms of ID with you, like a passport or driving licence
+
+          You will have to swear an oath that everything on the form is true.
+
+          Read more about [wills, probate and inheritance](/wills-probate-inheritance “wills, probate and inheritance”).
+
+
+          ##Inheritance Tax
+
+          You might have to pay inheritance tax and need to fill in the following forms:
+
+          - [form IHT400 - Inheritance Tax Account](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=ID-K_xN6ens&formId=3309 “Inheritance Tax Account form IHT400”)
+
+          - [form IHT421 ‘probate summary’](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=knqJIU6CNQg&formId=3405 “form IHT421 ‘probate summary’”)
+
+          Send the forms to: 
+
+
+          $A
+          HMRC
+          Inheritance Tax
+          Ferrers House
+          PO Box 38
+          Castle Meadow Road
+          Nottingham
+          NG2 1BB
+          $A
+
+
+          HMRC will stamp and return the IHT421 form. You may have to pay some tax first.
+
+          Read more about [Inheritance Tax](/inheritance-tax “Inheritance Tax”).
+
 
       ## Questions:
     
       ## Q1
-      use_a_solicitor?:
-        title: Do you want to apply for probate yourself or use a solicitor?
-        options:
-          solicitor: Use a solicitor
-          myself: Apply myself
-      ## Q2
       where_did_deceased_live?:
         title: Where did the deceased live?
         options:
           england_or_wales: England or Wales
           scotland: Scotland
           northern_ireland: Northern Ireland
-      ## Q3
+      ## Q2
       inheritance_tax?:
         title: Is the estate worth more than £325,000?
-        body: |
-          You may have to pay Inheritance Tax if the value of the estate (eg property and savings) is over £325,000.
 
-          Read more on [valuing the estate of someone who's died](/valuing-estate-of-someone-who-died/overview "Valuing the estate of someone who's died").
-      ## Q4
+      ## Q3
       amount_left_en_sco?:
-        title: What is the amount left in the deceased’s sole name - after debts and funeral costs have been paid?
+        title: After debts and funeral costs have been paid, how much is the estate worth?
         options:
           under_five_thousand: "Less than £5,000"
           five_thousand_or_more: "£5,000 or more"
-      ## Q5
+      ## Q4
       which_ni_county?:
         title: In which county did the deceased live?
         options:
           fermanagh_londonderry_tyrone: County Fermanagh, Londonderry or Tyrone
           antrim_armagh_down: County Antrim, Armagh or Down
 
-      ## Q6
+      ## Q5
       amount_left_ni?:
         title: What is the amount left in the deceased’s sole name - after debts and funeral costs have been paid?
         options: 
@@ -269,18 +331,8 @@ en-GB:
           %{application_info}
 
           ^ %{fee_section} ^
-
+          
+          %{where_to_apply}
+          
           %{application_info_part2}
 
-          %{where_to_apply}
-
-
-           Bring the completed IHT205 form, along with:
-
-
-          - an official copy of the death certificate
-          - the original will, and 2 copies
-          - 2 forms of ID with you, like a passport or driving licence
-          - a cheque, if there's a fee to pay
-
-          You will have to swear an oath that everything on the form is true.

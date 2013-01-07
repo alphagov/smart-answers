@@ -32,7 +32,7 @@ end
 # Q3
 value_question :how_many_days_per_week? do
   calculate :days_per_week do
-    days_per_week = responses.last.to_i
+    days_per_week = responses.last.to_f
     raise InvalidResponse if days_per_week < 1 or days_per_week > 7
     days_per_week
   end
