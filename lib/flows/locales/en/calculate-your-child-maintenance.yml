@@ -13,7 +13,7 @@ en-GB:
         - you need information about your income
         - if you have children with more than 1 person, you must make a separate calculation for each person you want to have a child maintenance agreement with
 
-        [Check the child maintenance rates](/how-child-maintenance-is-worked-out/child-maintenance-rates "Child Maintenance rates") before you use the calculator.
+        [Check the child maintenance rates](/how-child-maintenance-is-worked-out/rates-used-by-the-child-support-agency "Child Maintenance rates") before you use the calculator.
       phrases:
         nil_rate_reason_benefits: |
           This is because the parent paying child maintenance is receiving benefits and they have shared care of the child(ren).
@@ -108,9 +108,9 @@ en-GB:
 
           %{nil_rate_reason}
 
-          This is an estimate. The statutory amount the [government](/arranging-child-maintenance-child-support-agency "Child Maintenance") would calculate might be different.
+          This is an estimate. The statutory amount the [government](/child-maintenance "Child Maintenance") would calculate might be different.
 
-          Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/child-maintenance-rates "Child Maintenance rates")
+          Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/rates-used-by-the-child-support-agency "Child Maintenance rates")
       ## A2
       flat_rate_result:
         body: |
@@ -118,9 +118,9 @@ en-GB:
 
           This is the total weekly amount, not the amount per child.
 
-          This is an estimate. The statutory amount the [government](/arranging-child-maintenance-child-support-agency "Child Maintenance") would calculate might be different.
+          This is an estimate. The statutory amount the [government](/child-maintenance "Child Maintenance") would calculate might be different.
 
-          Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/child-maintenance-rates "Child Maintenance rates")
+          Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/rates-used-by-the-child-support-agency "Child Maintenance rates")
       ## A3
       reduced_and_basic_rates_result:
         body: |
@@ -128,6 +128,6 @@ en-GB:
 
           This is the total weekly amount, not the amount per child.
 
-          This is an estimate. The amount the [government](/arranging-child-maintenance-child-support-agency "Child Maintenance") would calculate might be different.
+          This is an estimate. The amount the [government](/child-maintenance "Child Maintenance") would calculate might be different.
 
-          Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/child-maintenance-rates "Child Maintenance rates")
+          Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/rates-used-by-the-child-support-agency "Child Maintenance rates")
