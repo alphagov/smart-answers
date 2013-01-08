@@ -91,7 +91,7 @@ module SmartAnswer::Calculators
           
           should "calculate the maternity pay at rate B using the percentage of weekly income" do
             @calculator.average_weekly_earnings = 135.40
-            assert_equal (135.40 * 0.9).round(2), @calculator.statutory_maternity_rate_b
+            assert_equal 121.87, @calculator.statutory_maternity_rate_b
           end
 
         end
@@ -289,7 +289,7 @@ module SmartAnswer::Calculators
         end
         should "be statutory leave times statutory rates A and B" do
           @calculator.average_weekly_earnings = 120.40
-          assert_equal 4226.04, @calculator.total_statutory_pay
+          assert_equal 4226.43, @calculator.total_statutory_pay
         end
         should "be statutory leave times statutory higher rate A and statutory rate B" do
           @calculator.average_weekly_earnings = 235.40

@@ -63,8 +63,11 @@ module SmartAnswer::Calculators
       39.weeks.since(pay_start_date)
     end
 
+    # Rounds up at 2 decimal places.
+    #
     def statutory_maternity_rate
-      (@average_weekly_earnings.to_f * 0.9).round(2)
+      rate = average_weekly_earnings.to_f * 0.9
+      (rate * 10**2).ceil.to_f / 10**2
     end
 
     def statutory_maternity_rate_a
