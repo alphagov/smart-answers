@@ -142,7 +142,7 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
         end
       end
 
-      context "answer 5000" do
+      context "answer 4000" do
         should "cap the income at 3000" do
           add_response 4000.0
           add_response 0
