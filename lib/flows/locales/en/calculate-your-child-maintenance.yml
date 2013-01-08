@@ -110,7 +110,7 @@ en-GB:
 
           This is an estimate. The statutory amount the [government](/child-maintenance "Child Maintenance") would calculate might be different.
 
-          Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/rates-used-by-the-child-support-agency "Child Maintenance rates")
+          Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out "How child maintenance is worked out")
       ## A2
       flat_rate_result:
         body: |
@@ -120,7 +120,7 @@ en-GB:
 
           This is an estimate. The statutory amount the [government](/child-maintenance "Child Maintenance") would calculate might be different.
 
-          Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/rates-used-by-the-child-support-agency "Child Maintenance rates")
+          Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out "How child maintenance is worked out")
       ## A3
       reduced_and_basic_rates_result:
         body: |
@@ -130,4 +130,4 @@ en-GB:
 
           This is an estimate. The amount the [government](/child-maintenance "Child Maintenance") would calculate might be different.
 
-          Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/rates-used-by-the-child-support-agency "Child Maintenance rates")
+          Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out "How child maintenance is worked out")
