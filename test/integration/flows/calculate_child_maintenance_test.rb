@@ -141,6 +141,16 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
           assert_state_variable "rate_type_formatted", "basic"
         end
       end
+
+      context "answer 4000" do
+        should "cap the income at 3000" do
+          add_response 4000.0
+          add_response 0
+          add_response 0
+          assert_current_node :reduced_and_basic_rates_result
+          assert_state_variable "child_maintenance_payment", "482"
+        end
+      end
     end
   end # new scheme
 end
