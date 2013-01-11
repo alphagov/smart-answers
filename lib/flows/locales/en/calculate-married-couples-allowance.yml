@@ -32,14 +32,29 @@ en-GB:
         error_message: Please choose your date of birth using the drop downs
       whats_the_husbands_income?:
         "title": "What's the husband's yearly income?"
-        hint: Add up your taxable income, eg earnings, pensions and any taxable benefits, eg Employment and Support Allowance.
+        hint: Add up your taxable income, eg earnings, pensions and any taxable benefits, eg Carer's Allowance.
         error_message: Please use numbers only, eg 9000
       whats_the_highest_earners_income?:
         "title": "What's the highest earner's yearly income?"
-        hint: Add up your taxable income, eg earnings, pensions and any taxable benefits, eg Employment and Support Allowance.
+        hint: Add up your taxable income, eg earnings, pensions and any taxable benefits, eg Carer's Allowance.
         error_message: Please use numbers only, eg 9000
+      are_you_paying_a_pension?:
+        title: Are you paying into a pension?
+      total_pension_and_annuities?:
+        title: How much do you expect to pay into a pension where your contributions are made before tax is taken away?
+        body: |
+          Enter the total amount you expect to pay for the whole tax year into:
+          - pension schemes where your contributions are paid before your income is taxed (called ‘net pay arrangements’)
+          - retirement annuity contracts (called ‘gross contributions’) 
+        hint: If none, please enter 0
+      tax_relief_pension_payments?:
+        title: How much do you expect to pay into a pension this tax year where your pension provider claims tax relief for you?
+        hint: Only enter what you pay - don’t include the tax relief. If none, please enter 0.
+      gift_aid_payments?:
+        title: How much do you expect to donate to charity through Gift Aid during the entire tax year? 
+        hint: Only enter what you pay - don’t include any tax relief. If none, please enter 0.
       sorry:
-        title: Sorry, you don't qualify for Married Couple's Allowance.
+        title: You don't qualify for Married Couple's Allowance.
 
 
       highest_earner_done:

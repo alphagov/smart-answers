@@ -1,6 +1,6 @@
-require_relative '../test_helper'
+require_relative '../../test_helper'
 
-module SmartAnswer
+module SmartAnswer::Calculators
   class AgeRelatedAllowanceChooserTest < ActiveSupport::TestCase
 
     def setup
