@@ -10,7 +10,7 @@ gem 'govuk_frontend_toolkit', '0.3.3'
 gem 'rummageable'
 gem 'aws-ses', :require => 'aws/ses' # Needed by exception_notification
 gem 'exception_notification'
-gem 'lograge'
+gem 'lograge', '~> 0.1.0'
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
 else
