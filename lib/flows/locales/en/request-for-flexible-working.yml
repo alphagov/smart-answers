@@ -17,7 +17,7 @@ en-GB:
         child_care_reason: you're not caring for a child or adult
         wrong_relationship_reason: your relationship to the person you care for doesn't make you eligible
         upbringing_reason: you're not responsible for the child's upbringing
-      
+
       ## Questions:
       ## Q1
       member_of_armed_services?:
@@ -26,14 +26,14 @@ en-GB:
       are_you_employee?:
         title: Are you an employee with 26 weeks continuous employment?
         body: |
-          Find out your [employment status](/employment-status/overview "Employment Status") if you're not sure. 
+          Find out your [employment status](/employment-status/overview "Employment Status") if you're not sure.
 
           Find out more about [continuous employment](/continuous-employment-what-it-is "Continuous Employment").
       ## Q3
       applied_for_flexible_working?:
         title: Have you made a statutory application for flexible working with your current employer in the last 12 months?
         body: |
-          Find out more about [statutory applications](/flexible-working "Flexible working").  
+          Find out more about [statutory applications](/flexible-working "Flexible working").
       ## Q4
       caring_for_child?:
         title: Will you or your spouse/partner be caring for a child or adult?
@@ -46,7 +46,7 @@ en-GB:
         title: "Are you (or your spouse or partner) one of the following:"
         body: |
           - parent (biological)
-          - parent (adoptive) 
+          - parent (adoptive)
           - foster carer
           - guardian
           - special guardian
@@ -64,9 +64,9 @@ en-GB:
           # partner: Partner (civil partner, partner)
           guardian: Guardian or carer (adoptive parent, guardian, special guardian)
           other_relationship: Someone living at the same address as the person who needs caring for
-          # other_relationship: Other (living at the same address as the person who needs caring for) 
-      
-      ## Answers: 
+          # other_relationship: Other (living at the same address as the person who needs caring for)
+
+      ## Answers:
       ## A1
       right_to_apply:
         body: |
@@ -75,8 +75,7 @@ en-GB:
       ## A2
       no_right_to_apply:
         body: |
-          You're not entitled to make a [statutory request](/flexible-working "Flexible working") for 
+          You're not entitled to make a [statutory request](/flexible-working "Flexible working") for
           flexible working because %{no_right_to_apply_reason}.
 
           You can still ask your employer if you can work flexibly, but it's optional.
-      

@@ -43,11 +43,11 @@ multiple_choice :relationship_with_child? do
   calculate :no_right_to_apply_reason do
     PhraseList.new :wrong_relationship_reason
   end
-  option :yes => :responsible_for_upbringing? 
+  option :yes => :responsible_for_upbringing?
   option :no => :no_right_to_apply
 end
 
-## Q6 
+## Q6
 multiple_choice :responsible_for_upbringing? do
   calculate :no_right_to_apply_reason do
     PhraseList.new :upbringing_reason
