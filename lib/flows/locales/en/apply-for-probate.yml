@@ -2,8 +2,8 @@ en-GB:
   flow:
     apply-for-probate:
       meta:
-        description: Find out how to apply for probate, depending on your circumstances
-      title: Find the right probate and Inheritance Tax forms
+        description: How to register for probate, form PA1, Inheritance Tax forms IHT205, IHT400, IHT421, form C1, form C5
+      title: Probate and Inheritance Tax form finder
       body: |
         Probate is the legal right to deal with someone’s money, property and possessions (their ‘estate’) after they die. This is usually carried out by the person named as the ‘executor’ in the will.
 
@@ -18,6 +18,7 @@ en-GB:
         no_fee: There is no fee to pay.
         fee_info_eng_sco: There is a fee of £105 to pay.
         fee_info_ni: There is a fee of £250 to pay (£200 grant fee plus a £50 application fee).
+        fee_cheque_bullet: 
         apply_in_fermanagh_londonderry_tyrone: |
           Apply at:
 
@@ -77,9 +78,28 @@ en-GB:
 
           Read more about [wills, probate and inheritance](/wills-probate-inheritance “wills, probate and inheritance”).
 
+        eng_wales_no_inheritance_tax_no_fee: |
+          ##Apply for probate
+
+          Fill in form PA1. 
+
+
+          $D
+          [Download form PA1 ‘probate summary’ (PDF, 555KB)](http://hmctsformfinder.justice.gov.uk/courtfinder/forms/pa01-eng.pdf “Download form PA1 ‘probate summary’ (PDF, 555KB)”)
+          $D
+
+
+          Send the form to your [local probate registry office](http://www.justice.gov.uk/courts/probate/probate-registries “your local probate registry”), along with:
+
+          - an official copy of the death certificate
+          - the original will, and 2 copies
+
+          You will also have to go to an interview to confirm the details on the forms.
+
+          Read more about [wills, probate and inheritance](/wills-probate-inheritance “wills, probate and inheritance”).
         eng_wales_no_inheritance_tax_next_steps: |
           ##Inheritance tax
-          You don’t have to pay Inheritance Tax but have to tell HM Revenue & Customs about the deceased’s estate on [form IHT205 ‘return of estate information’](http://search2.hmrc.gov.uk/kbroker/hmrc/forms/viewform.jsp?formId=3307 “form IHT205 return of estate information”)
+          You don’t have to pay Inheritance Tax but you have to tell HM Revenue & Customs about the deceased’s estate on [form IHT205 ‘return of estate information’](http://search2.hmrc.gov.uk/kbroker/hmrc/forms/viewform.jsp?formId=3307 “form IHT205 return of estate information”)
 
           Send the form to:
 
@@ -152,13 +172,13 @@ en-GB:
         scotland_no_inheritance_tax: |
           ##Apply for probate
 
-          Fill in [form C1 ‘Confirmation’](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=DQJACJmu-f0&formid=3322 “Confirmation form C1”) 
+          Fill in [form C1 ‘Confirmation’](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=DQJACJmu-f0&formid=3322 “Confirmation form C1”). 
 
         scotland_no_inheritance_tax_next_steps: |
           Read more about [confirmation](http://www.scotland.gov.uk/Publications/2006/04/12094440/10 “confirmation”).
 
           ##Inheritance Tax
-          You don’t have to pay inheritance tax but have to tell HM Revenue & Customs about the deceased’s estate on [form C5 ‘return of estate information’](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=zQYhbzVQOUU&formId=3325 “Form C5 return of estate information”)
+          You don’t have to pay inheritance tax but you have to tell HM Revenue & Customs about the deceased’s estate on [form C5 ‘return of estate information’](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=zQYhbzVQOUU&formId=3325 “Form C5 return of estate information”).
 
           Send the forms to your [local sheriff’s court](http://www.scotcourts.gov.uk/locations/index.asp), along with a cheque if there’s a fee.
 
@@ -169,7 +189,7 @@ en-GB:
         scotland_inheritance_tax: |
           ##Apply for probate
 
-          Fill in [form C1 ‘Confirmation’](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=DQJACJmu-f0&formid=3322 “Confirmation form C1”)
+          Fill in [form C1 ‘Confirmation’](http://search2.hmrc.gov.uk/kb5/hmrc/forms/view.page?record=DQJACJmu-f0&formid=3322 “Confirmation form C1”).
 
           You will also have to go to an interview at your local sheriff’s court to confirm the details on the forms.
         
@@ -205,7 +225,7 @@ en-GB:
           You must make an appointment at a probate office to apply.
 
         ni_no_inheritance_tax_part2: |
-          Bring the completed IHT205 form, along with:
+          Bring the completed [form IHT205 ‘Return of estate information’](http://search2.hmrc.gov.uk/kbroker/hmrc/forms/viewform.jsp?formId=3307 “Form IHT205 Return of estate information”), along with:
 
           - an official copy of the death certificate
           - the original will, and 2 copies
@@ -218,7 +238,7 @@ en-GB:
 
           ##Inheritance Tax
 
-          You don’t have to pay inheritance tax but you must tell HM Revenue & Customs about the deceased’s estate on [form IHT205 ‘Return of estate information’](http://search2.hmrc.gov.uk/kbroker/hmrc/forms/viewform.jsp?formId=3307 “Form IHT205 Return of estate information”)
+          You don’t have to pay inheritance tax but you have to tell HM Revenue & Customs about the deceased’s estate on [form IHT205 ‘Return of estate information’](http://search2.hmrc.gov.uk/kbroker/hmrc/forms/viewform.jsp?formId=3307 “Form IHT205 Return of estate information”).
 
           Read more about [Inheritance Tax](/inheritance-tax “Inheritance Tax”).
 
@@ -228,7 +248,7 @@ en-GB:
           You must make an appointment at a probate office to apply.
          
         ni_inheritance_tax_part2: |
-          Bring the completed IHT205 form, along with:
+          Bring the completed [form IHT205 ‘Return of estate information’](http://search2.hmrc.gov.uk/kbroker/hmrc/forms/viewform.jsp?formId=3307 “Form IHT205 Return of estate information”), along with:
 
           - an official copy of the death certificate
           - the original will, and 2 copies
@@ -294,7 +314,7 @@ en-GB:
 
       ## Q5
       amount_left_ni?:
-        title: What is the amount left in the deceased’s sole name - after debts and funeral costs have been paid?
+        title: What is the amount left of the estate after debts and funeral costs have been paid?
         options: 
           under_ten_thousand: "Less than £10,000"
           ten_thousand_or_more: "£10,000 or more"
