@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 source 'https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/'
 
 gem 'unicorn', '4.3.1'
-gem 'rails', '~> 3.2.8'
+gem 'rails', '3.2.11'
 gem 'rails-i18n'
 gem 'json'
 gem 'plek', '1.0.0'
@@ -10,7 +10,7 @@ gem 'govuk_frontend_toolkit', '0.3.3'
 gem 'rummageable'
 gem 'aws-ses', :require => 'aws/ses' # Needed by exception_notification
 gem 'exception_notification'
-gem 'lograge'
+gem 'lograge', '~> 0.1.0'
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
 else
