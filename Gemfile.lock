@@ -118,7 +118,7 @@ GEM
     multipart-post (1.1.5)
     nokogiri (1.5.5)
     null_logger (0.0.1)
-    plek (0.1.24)
+    plek (1.0.0)
       builder
     polyglot (0.3.3)
     rack (1.4.3)
@@ -178,7 +178,7 @@ GEM
     simplecov-html (0.5.3)
     simplecov-rcov (0.2.3)
       simplecov (>= 0.4.1)
-    slimmer (3.8.0)
+    slimmer (3.9.5)
       json
       lrucache (~> 0.1.3)
       nokogiri (~> 1.5.0)
@@ -231,7 +231,7 @@ DEPENDENCIES
   json
   lograge (~> 0.1.0)
   mocha
-  plek (~> 0.1)
+  plek (= 1.0.0)
   rails (= 3.2.11)
   rails-i18n
   rummageable
@@ -239,7 +239,7 @@ DEPENDENCIES
   shoulda (~> 2.11.3)
   simplecov (~> 0.6.4)
   simplecov-rcov (~> 0.2.3)
-  slimmer (= 3.8.0)
+  slimmer (= 3.9.5)
   therubyracer (~> 0.9.4)
   timecop
   uglifier
