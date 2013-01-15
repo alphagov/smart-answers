@@ -32,14 +32,33 @@ en-GB:
         error_message: Please choose your date of birth using the drop downs
       whats_the_husbands_income?:
         "title": "What's the husband's yearly income?"
-        hint: Add up your taxable income, eg earnings, pensions and any taxable benefits, eg Employment and Support Allowance.
+        hint: Add up your taxable income, eg earnings, pensions and any taxable benefits, eg Carer's Allowance.
         error_message: Please use numbers only, eg 9000
       whats_the_highest_earners_income?:
         "title": "What's the highest earner's yearly income?"
-        hint: Add up your taxable income, eg earnings, pensions and any taxable benefits, eg Employment and Support Allowance.
+        hint: Add up your taxable income, eg earnings, pensions and any taxable benefits, eg Carer's Allowance.
         error_message: Please use numbers only, eg 9000
       sorry:
-        title: Sorry, you don't qualify for Married Couple's Allowance.
+        title: You don't qualify for Married Couple's Allowance.
+      paying_into_a_pension?:
+        title: Are you paying into a pension?
+      how_much_expected_contributions_before_tax?:
+        title: How much do you expect to pay into a pension where your contributions are made before tax is taken away?
+        body: |
+          Enter the total you expect to pay for the whole tax year into:
+
+          - pension schemes where your contributions are paid before your income is taxed (called ‘net pay arrangements’)
+          - retirement annuity contracts (called ‘gross contributions’)
+        hint: If none, please enter 0.
+        error_message: Please use numbers only, eg 9000
+      how_much_expected_contributions_with_tax_relief?:
+        title: How much do you expect to pay into a pension this tax year where your pension provider claims tax relief for you?
+        hint: Only enter what you pay - don’t include the tax relief. If none, please enter 0.
+        error_message: Please use numbers only, eg 9000
+      how_much_expected_gift_aided_donations?:
+        title: How much do you expect to donate to charity through Gift Aid during the entire tax year?
+        hint: Only enter what you pay - don’t include any tax relief. If none, please enter 0.
+        error_message: Please use numbers only, eg 9000
 
 
       highest_earner_done:
