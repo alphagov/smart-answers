@@ -8,6 +8,48 @@ class RequestForFlexibleWorkingTest < ActiveSupport::TestCase
     setup_for_testing_flow "request-for-flexible-working"
   end
 
+  # Q1
+  should "ask if employee or employer" do
+    assert_current_node :are_you_an_employee_or_employer?
+  end
+
+  context "employee" do
+    setup do
+      add_response :employee
+    end
+
+    should "ask which one describes you" do
+      assert_current_node :which_one_of_these_describes_you?
+    end
+
+    context "selecting 'under_17' and 'care_for_adult'" do
+      should "show result 1 if 'under_17' and 'care_for_adult' selected" do
+        add_response "under_17,care_for_adult"
+        assert_current_node :no_right_to_apply
+      end
+
+      should "show result 1 if 'under_17', 'care_for_aduly', and 'less_than_26_weeks' selected" do
+        # As per the logic documentation this test is in place to make
+        # sure that when 'under_17' and 'care_for_adult' are checked
+        # as well as any permutation of the other options (minus
+        # 'none_of_these') that we show the :no_right_to_apply outcome.
+        add_response "under_17,care_for_adult,less_than_26_weeks"
+        assert_current_node :no_right_to_apply
+      end
+    end
+
+    should "show result 1 if 'none_of_these' selected" do
+      add_response "none_of_these"
+      assert_current_node :no_right_to_apply
+    end
+  end
+
+  context "employer" do
+    setup do
+      add_response :employer
+    end
+  end
+
   # ## Q1
   # should "ask if member of armed services" do
   #   assert_current_node :member_of_armed_services?
