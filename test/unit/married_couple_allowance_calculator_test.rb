@@ -76,5 +76,15 @@ module SmartAnswer
       assert_equal Money.new("802"), result
     end
 
+    test "adjusted net income calculation" do
+      income = 35000
+      gross_pension_contributions = 3000
+      net_pension_contributions = 2000
+      gift_aided_donations = 1000
+
+      result = @calculator.calculate_adjusted_net_income(income, gross_pension_contributions, net_pension_contributions, gift_aided_donations)
+      assert_equal Money.new("28250"), result
+    end
+
   end
 end

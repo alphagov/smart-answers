@@ -8,6 +8,10 @@ module SmartAnswer
       @personal_allowance = current_figures[:personal_allowance]
     end
 
+    def calculate_adjusted_net_income(income, gross_pension_contributions, net_pension_contributions, gift_aided_donations)
+      income - gross_pension_contributions - (net_pension_contributions * 1.25) - (gift_aided_donations * 1.25)
+    end
+
     def calculate_allowance(age_related_allowance, income)
       validate income
 
