@@ -43,23 +43,58 @@ calculator = MarriedCouplesAllowanceCalculator.new(
   personal_allowance: personal_allowance)
 
 money_question :whats_the_husbands_income? do
-  calculate :allowance do
-    age_related_allowance = age_related_allowance_chooser.get_age_related_allowance(Date.parse(birth_date))
-    calculator.calculate_allowance(age_related_allowance, responses.last)
+  save_input_as :income
+
+  next_node do |response|
+    if response.to_f >= 25400.0
+      :paying_into_a_pension?
+    else
+      :husband_done
+    end
+  end
+end
+
+multiple_choice :paying_into_a_pension? do
+  option :yes => :how_much_expected_contributions_before_tax?
+  option :no => :how_much_expected_gift_aided_donations?
+end
+
+money_question :how_much_expected_contributions_before_tax? do
+  save_input_as :gross_pension_contributions
+
+  next_node :how_much_expected_contributions_with_tax_relief?
+end
+
+money_question :how_much_expected_contributions_with_tax_relief? do
+  save_input_as :net_pension_contributions
+
+  next_node :how_much_expected_gift_aided_donations?
+end
+
+money_question :how_much_expected_gift_aided_donations? do
+  calculate :income do
+    calculator.calculate_adjusted_net_income(income.to_f, (gross_pension_contributions.to_f || 0), (net_pension_contributions.to_f || 0), responses.last)
   end
 
   next_node :husband_done
 end
 
 money_question :whats_the_highest_earners_income? do
-  calculate :allowance do
-    age_related_allowance = age_related_allowance_chooser.get_age_related_allowance(Date.parse(birth_date))
-    calculator.calculate_allowance(age_related_allowance, responses.last)
-  end
+  save_input_as :income
 
   next_node :highest_earner_done
 end
 
-outcome :husband_done
-outcome :highest_earner_done
+outcome :husband_done do
+  precalculate :allowance do
+    age_related_allowance = age_related_allowance_chooser.get_age_related_allowance(Date.parse(birth_date))
+    calculator.calculate_allowance(age_related_allowance, income)
+  end
+end
+outcome :highest_earner_done do
+  precalculate :allowance do
+    age_related_allowance = age_related_allowance_chooser.get_age_related_allowance(Date.parse(birth_date))
+    calculator.calculate_allowance(age_related_allowance, income)
+  end
+end
 outcome :sorry
