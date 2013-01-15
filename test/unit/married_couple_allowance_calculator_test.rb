@@ -16,6 +16,12 @@ module SmartAnswer
         minimum_mca: @minimum_mca,
         income_limit: @income_limit,
         personal_allowance: @personal_allowance)
+      @calculator_without_income_validation = MarriedCouplesAllowanceCalculator.new(
+        maximum_mca: @maximum_mca,
+        minimum_mca: @minimum_mca,
+        income_limit: @income_limit,
+        personal_allowance: @personal_allowance,
+        validate_income: false)
     end
 
     test  "worked example on directgov for 2011-12" do
@@ -42,10 +48,16 @@ module SmartAnswer
       assert_equal Money.new("721"), result
     end
 
-    test "married couple's allowance calculator validates income" do
+    # backwards compatibility with version 1
+    test "don't allow an income less than 1 by default" do
       assert_raises InvalidResponse do
         @calculator.calculate_allowance(@age_related_allowance, 0)
       end
+    end
+
+    test "allow an income less than 1 when income validation is false" do
+      result = @calculator_without_income_validation.calculate_allowance(@age_related_allowance, 0)
+      assert_equal Money.new("802"), result
     end
 
     test  "minimum allowance when annual income over income limit" do

@@ -49,10 +49,15 @@ calculator = MarriedCouplesAllowanceCalculator.new(
   maximum_mca: 7705,
   minimum_mca: 2960,
   income_limit: 25400,
-  personal_allowance: personal_allowance)
+  personal_allowance: personal_allowance,
+  income_validation: false)
 
 money_question :whats_the_husbands_income? do
   save_input_as :income
+
+  calculate :income_greater_than_0 do
+    raise SmartAnswer::InvalidResponse if responses.last < 1
+  end
 
   next_node do |response|
     if response.to_f >= 25400.0
@@ -65,6 +70,10 @@ end
 
 money_question :whats_the_highest_earners_income? do
   save_input_as :income
+
+  calculate :income_greater_than_0 do
+    raise SmartAnswer::InvalidResponse if responses.last < 1
+  end
 
   next_node do |response|
     if response.to_f >= 25400.0

@@ -41,6 +41,20 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
         assert_current_node :whats_the_husbands_income?
       end
 
+      should "reject an invalid income" do
+        add_response '1930-05-25'
+        add_response "-100.0"
+
+        assert_current_node_is_error
+      end
+
+      should "reject an income of zero" do
+        add_response '1930-05-25'
+
+        add_response '0'
+        assert_current_node_is_error
+      end
+
       context "income > 25400" do
         setup do
           add_response '1930-05-25'
