@@ -104,8 +104,8 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
                   assert_state_variable :allowance, "Calculated allowance"
                 end
-              end
-            end
+              end # donating 100 with gift aid
+            end # paying 500 with tax relief
           end # paying 1000 before tax
 
           context "paying 0 before tax" do
@@ -124,6 +124,65 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             add_response "no"
           end
 
+          should "ask how much expected donation to charity through Gift Aid in tax year" do
+            assert_current_node :how_much_expected_gift_aided_donations?
+          end
+
+          context "donating 100 with gift aid" do
+            setup do
+              add_response "100.0"
+            end
+
+            should "end at husband_done" do
+              assert_current_node :husband_done
+            end
+
+            should "calculate allowance using calculators" do
+              SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
+                expects(:calculate_adjusted_net_income).
+                with(30000.0,0,0,100.0).
+                returns("Adjusted net income")
+
+              SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
+                expects(:get_age_related_allowance).
+                with(Date.parse '1930-05-25').
+                returns("Age related allowance")
+              SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
+                expects(:calculate_allowance).
+                with("Age related allowance", 'Adjusted net income').
+                returns("Calculated allowance")
+
+              assert_state_variable :allowance, "Calculated allowance"
+            end
+          end # donating 100 with gift aid
+
+          context "donating 0 with gift aid" do
+            setup do
+              add_response "0.0"
+            end
+
+            should "end at husband_done" do
+              assert_current_node :husband_done
+            end
+
+            should "calculate allowance using calculators" do
+              SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
+                expects(:calculate_adjusted_net_income).
+                with(30000.0,0,0,0).
+                returns("Adjusted net income")
+
+              SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
+                expects(:get_age_related_allowance).
+                with(Date.parse '1930-05-25').
+                returns("Age related allowance")
+              SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
+                expects(:calculate_allowance).
+                with("Age related allowance", 'Adjusted net income').
+                returns("Calculated allowance")
+
+              assert_state_variable :allowance, "Calculated allowance"
+            end
+          end # donating 0 with gift aid
         end # not paying into a pension
       end # income > 25400
 
