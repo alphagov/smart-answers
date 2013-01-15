@@ -35,6 +35,8 @@ multiple_choice :amount_left_en_sco? do
   option :under_five_thousand
   option :five_thousand_or_more
 
+  save_input_as :amount_left
+
   calculate :fee_section do
     if responses.last == "under_five_thousand"
       PhraseList.new(:no_fee)
@@ -43,6 +45,7 @@ multiple_choice :amount_left_en_sco? do
     end
   end
 
+  
   next_node do
     if where_lived == "england_or_wales"
       :done_eng_wales
@@ -95,9 +98,12 @@ outcome :executor_not_willing_outcome
 outcome :use_a_solicitor_outcome
 
 outcome :done_eng_wales do
+
   precalculate :application_info do
     if inheritance_tax
       PhraseList.new(:eng_wales_inheritance_tax)
+    elsif amount_left == "under_five_thousand"
+      PhraseList.new(:eng_wales_no_inheritance_tax_no_fee)
     else
       PhraseList.new(:eng_wales_no_inheritance_tax)
     end
