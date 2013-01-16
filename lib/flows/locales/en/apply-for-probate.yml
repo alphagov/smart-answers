@@ -5,11 +5,22 @@ en-GB:
         description: How to register for probate, form PA1, Inheritance Tax forms IHT205, IHT400, IHT421, form C1, form C5
       title: Probate and Inheritance Tax form finder
       body: |
+        Get the probate and Inheritance Tax forms you need.
+
+        Probate (‘Confirmation’ in Scotland) is a process that gives you the legal right to deal with someone’s estate (money, property and possessions) after they die. This is usually done by the person named as the ‘executor’ in the will, or the next of kin if there is no will.
+
+        To register for probate you need to fill in certain forms. Inheritance Tax is part of the probate process, even if the estate doesn’t owe any.
+
+        A solicitor can apply for probate for you:
+
+        - [find a solicitor in England](http://www.lawsociety.org.uk/find-a-solicitor/ “Law Society England”) 
+        - [find a solicitor in Scotland](http://www.lawscot.org.uk/wcm/lssservices/find_a_solicitor/Core/directory.aspx “Law Society Scotland”) 
         Probate is the legal right to deal with someone’s money, property and possessions (their ‘estate’) after they die. This is usually carried out by the person named as the ‘executor’ in the will.
 
         If there’s no will, you can apply for the right to do this if you’re the deceased’s next of kin (eg husband, wife or child).
 
         Find out how to apply for probate and what forms you need.
+      
       options:
         "yes": "Yes"
         "no": "No"
