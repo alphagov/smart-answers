@@ -303,6 +303,7 @@ class ChildBenefitTaxCalculatorV2Test < ActiveSupport::TestCase
                     @stubbed_calculator.expects(:percent_tax_charge).returns("percent tax charge")
 
                     assert_current_node :estimated_tax_charge
+                    assert_state_variable :adjusted_net_income_formatted, "50610"
                     assert_phrase_list :conditional_income_text, [:adjusted_net_income_is]
                     assert_state_variable :benefit_taxable_amount, "formatted benefit taxable amount"
                     assert_state_variable :benefit_claimed_amount, "formatted benefit claimed amount"

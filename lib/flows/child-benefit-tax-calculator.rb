@@ -332,6 +332,14 @@ outcome :estimated_tax_charge do
     )
   end
 
+  precalculate :adjusted_net_income_formatted do
+    if adjusted_net_income
+      sprintf("%.0f", adjusted_net_income)
+    else
+      "60,000+" ## not displayed where we don't calculate it
+    end
+  end
+
   precalculate :conditional_income_text do
     if work_out_income == "income_work_out"
       PhraseList.new(:adjusted_net_income_is)

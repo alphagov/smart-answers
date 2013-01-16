@@ -1,0 +1,320 @@
+en-GB:
+  flow:
+    inherits-someone-dies-without-will-v2:
+      title:
+        Who inherits if someone dies without a will?
+      subtitle: Intestacy - how an estate is divided up if there is no will
+      meta:
+        description: Find out who is entitled to a share of someone’s property, possessions and money if they die without making a will
+      options:
+        "no": "No"
+        "yes": "Yes"
+      body: |
+        Use this tool to find out who is entitled to a share of someone’s money, property and possessions if they die without making a will. 
+
+      # questions
+      #Q0
+      where_did_the_deceased_live?:
+        title: Where did the deceased live?
+        options:
+          england-and-wales: England and Wales
+          scotland: Scotland
+          northern-ireland: Northern Ireland
+      #Q1, Q13, Q24
+      is_there_a_living_spouse_or_civil_partner?:
+        title: Is there a living husband, wife or civil partner?
+        hint: A surviving partner who wasn't married or in a civil partnership with the deceased has no automatic right to inherit.
+      #Q2, Q25
+      is_the_estate_worth_more_than_250000?:
+        title: Is the estate likely to be worth more than £250,000?
+      #Q3, Q6, Q14, Q17, Q26, Q30
+      are_there_living_children?:
+        title: Are there any living children, grandchildren or other direct descendants (eg great-grandchildren)?
+        hint: Children include legally-adopted sons or daughters, but not stepchildren.
+      #Q4, Q7, Q15, Q18, Q28, Q31
+      are_there_living_parents?:
+        title: Are there any living parents?
+      #Q27
+      more_than_one_child?:
+        title: Did they have more than one child?
+      #Q5, Q8, Q16, Q19, Q29, Q32
+      are_there_any_brothers_or_sisters_living?:
+        title: Did the deceased have any brothers or sisters who had the same parents?
+      #Q9
+      are_there_half_blood_brothers_or_sisters?:
+        title: Did the deceased have any half-blood brothers or sisters?
+        hint: Half-blood means the brothers or sisters share one parent.
+      #Q10, Q22, Q34
+      are_there_grandparents_living?:
+        title: Are there any living grandparents?
+      #Q11, Q21, Q33
+      are_there_any_living_aunts_or_uncles?:
+        title: Did the deceased have any aunts or uncles?
+      #Q12
+      are_there_any_living_half_aunts_or_uncles?:
+        title: Did the deceased have any half-blood aunts or half-blood uncles?
+        hint: Half-blood aunts and half-blood uncles are half-brothers or half-sisters of the deceased's parents.
+      #Q23
+      are_there_any_living_great_aunts_or_uncles?:
+        title: Are there any living great aunts or great uncles?
+        hint: Great aunts and great uncles are brothers or sisters of the grandparents of the deceased.
+
+      # outcomes
+      # A1, A5
+      partner_receives_all_of_the_estate:
+        title: The husband, wife or civil partner gets all of the estate.
+        next_steps: Read the guide to [wills, probate and inheritance.](/wills-probate-inheritance "Wills, probate and inheritance")
+      # A2, A26
+      partner_receives_first_250000_children_receive_half_of_remainder:
+        title: The husband, wife or civil partner keeps all the assets (including property), up to £250,000, and all the personal possessions, whatever their value.
+        body: |
+          The remainder of the estate is divided in half:
+
+          - one half to the husband, wife or civil partner
+          - the other half shared between their children
+
+          If a son or daughter has already died, their children will inherit in their parent’s place.
+        next_steps: |
+          Read the guide to [wills, probate and inheritance.](https://www.gov.uk/wills-probate-inheritance "Wills, probate and inheritance")
+
+          Find out how to pay [Inheritance Tax.](https://www.gov.uk/inheritance-tax "Inheritance Tax")
+      #A3
+      partner_receives_first_450000_remainder_to_parents_or_siblings:
+        title: The husband, wife or civil partner keeps all the assets (including property) up to £450,000, and all the personal possessions, whatever their value.
+        body: |
+          They also get half of the amount left over.
+
+          The remainder goes to the parent or parents.
+        next_steps: |
+          Read the guide to [wills, probate and inheritance.](https://www.gov.uk/wills-probate-inheritance "Wills, probate and inheritance")
+
+          Find out how to pay [Inheritance Tax.](https://www.gov.uk/inheritance-tax "Inheritance Tax")
+      #A4
+      partner_receives_first_450000_remainder_shared_equally_between_brothers_or_sisters:
+        title: The husband, wife or civil partner keeps all the assets (including property) up to £450,000, and all the personal possessions, whatever their value.
+        body: |
+          They also get half of the amount left over.
+
+          The remainder is divided between any brothers or sisters.
+
+          If a brother or sister has already died, their children (the deceased’s nieces and nephews) inherit.
+        next_steps: |
+          Read the guide to [wills, probate and inheritance.](https://www.gov.uk/wills-probate-inheritance "Wills, probate and inheritance")
+
+          Find out how to pay [Inheritance Tax.](https://www.gov.uk/inheritance-tax "Inheritance Tax")
+
+      #A28 (same as A3)
+      partner_receives_first_450000_parents_receive_half_of_remainder:
+        title: The husband, wife or civil partner keeps all the assets (including property) up to £450,000, and all the personal possessions, whatever their value.
+        body: |
+          They also get half of the amount left over.
+
+          The remainder goes to the parent or parents.
+        next_steps: |
+          Read the guide to [wills, probate and inheritance.](https://www.gov.uk/wills-probate-inheritance "Wills, probate and inheritance")
+
+          Find out how to pay [Inheritance Tax.](https://www.gov.uk/inheritance-tax "Inheritanca Tax")
+      #A29 (same as A4)
+      partner_receives_first_450000_siblings_receive_half_of_remainder:
+        title: The husband, wife or civil partner keeps all the assets (including property) up to £450,000, and all the personal possessions, whatever their value.
+        body: |
+          They also get half the amount left over.
+
+          The remainder is divided between any brothers or sisters.
+
+          If a brother or sister has already died, their children (the deceased’s nieces and nephews) inherit.
+
+      #A6, A17
+      shared_equally_between_children:
+        title: The estate is shared equally between the children or their descendants.
+        body: |
+          If a son or daughter has already died, their children (the grandchildren of the deceased) inherit in their parent's place.
+
+        next_steps: |
+          Read the guide to [wills, probate and inheritance.](https://www.gov.uk/wills-probate-inheritance "Wills, probate and inheritance")
+
+          Find out how to pay [Inheritance Tax.](https://www.gov.uk/inheritance-tax "Inheritanca Tax")
+      #A7, A19
+      shared_equally_between_parents:
+        title: The estate is shared equally between the parents.
+        body: |
+
+          They may have to pay Inheritance Tax.
+
+        next_steps: |
+          Read the guide to [wills, probate and inheritance.](/wills-probate-inheritance "Wills, probate and inheritance")
+
+          Find out how to pay [Inheritance Tax.](https://www.gov.uk/inheritance-tax "Inheritanca Tax")
+      #A18
+      shared_equally_between_parents_and_siblings:
+        title: |
+          The estate is split in two: half goes to the parents, and half to the brothers or sisters.
+        body: |
+          If a brother or sister has already died, their children (nieces and nephews of the deceased) inherit in their place.
+        next_steps: |
+          Read the guide to [wills, probate and inheritance.](https://www.gov.uk/wills-probate-inheritance "Wills, probate and inheritance")
+
+          Find out how to pay [Inheritance Tax.](https://www.gov.uk/inheritance-tax "Inheritance Tax")
+      #A8
+      shared_equally_between_brothers_or_sisters:
+        title: The estate is shared equally between the brothers or sisters.
+        body: |
+          If a brother or sister has already died, their children (nieces and nephews of the deceased) inherit in their place.
+
+        next_steps: |
+          Read the guide to [wills, probate and inheritance.](/wills-probate-inheritance "Wills, probate and inheritance")
+
+          Find out how to pay [Inheritance Tax](https://www.gov.uk/inheritance-tax "Inheritance Tax").
+      #A9
+      shared_equally_between_half_blood_brothers_sisters:
+        title: The estate is shared equally between the half-blood brothers or sisters.
+        body: |
+
+          If a half-blood brother or sister has already died, their children (nieces and nephews of the deceased) inherit in their place.
+ 
+        next_steps: |
+          Read the guide to [wills, probate and inheritance.](/wills-probate-inheritance "Wills, probate and inheritance")
+
+          Find out how to pay [Inheritance Tax](https://www.gov.uk/inheritance-tax "Inheritance Tax").
+      #A10, A22
+      shared_equally_between_grandparents:
+        title: The estate is shared equally between the grandparent(s).
+        body: |
+
+          They may have to pay Inheritance Tax.
+        next_steps: |
+          Read the guide to [wills, probate and inheritance.](/wills-probate-inheritance "Wills, probate and inheritance")
+
+          Find out how to pay [Inheritance Tax](https://www.gov.uk/inheritance-tax "Inheritance Tax").  
+      #A11
+      shared_equally_between_aunts_or_uncles:
+        title: The estate is shared equally between the aunts or uncles.
+        body: |
+
+          If an aunt or uncle has already died, their children (the cousins of the deceased) inherit in their place.
+        next_steps: |
+          Read the guide to [wills, probate and inheritance.](/wills-probate-inheritance "Wills, probate and inheritance")
+
+          Find out how to pay [Inheritance Tax](https://www.gov.uk/inheritance-tax "Inheritance Tax").  
+      #A12
+      shared_equally_between_half_aunts_or_uncles:
+        title: The estate is shared equally between the half-blood aunts or uncles.
+        body: |
+          If an aunt or uncle has already died, their children (the cousins of the deceased) inherit in their place.
+
+        next_steps: |
+          Read the guide to [wills, probate and inheritance.](/wills-probate-inheritance "Wills, probate and inheritance")
+
+          Find out how to pay [Inheritance Tax](https://www.gov.uk/inheritance-tax "Inheritance Tax").    
+      #A23
+      shared_equally_between_great_aunts_or_uncles:
+        title: The estate is shared equally between any great aunts or great uncles.
+        body: They may have to pay Inheritance Tax.
+        next_steps: |
+          Read the guide to [wills, probate and inheritance.](https://www.gov.uk/wills-probate-inheritance "Wills, probate and inheritance")
+
+          Find out how to pay [Inheritance Tax.](https://www.gov.uk/inheritance-tax "Inheritance Tax")
+
+      #A13, A24
+      everything_goes_to_crown:
+        title: The whole estate goes to the Crown.
+        next_steps: Find out what happens to [ownerless property](/unclaimed-estates-bona-vacantia "Ownerless property (bona vacantia)")
+      #A36
+      everything_goes_to_next_of_kin_or_crown:
+        title: The estate goes to the next of kin - the person is closest in blood relationship to the deceased in the family tree.
+        body: |
+          If nobody claims the estate, the whole estate goes to the Crown.
+        next_steps: |
+            Read what happens to [ownerless property](/unclaimed-estates-bona-vacantia "Ownerless property (bona vacantia)")
+
+      #A27
+      partner_receives_first_250000_children_receive_two_thirds_of_remainder:
+        title: The husband, wife or civil partner keeps all the assets (including property), up to £250,000, and all the personal possessions, whatever their value.
+        body: |
+          They also get one third of the rest of the estate.
+
+          The remaining two-thirds are shared between their children.
+
+          If a son or daughter has already died, their children (the grandchildren of the deceased) will inherit in their parent’s place.
+        next_steps: |
+          Read the guide to [wills, probate and inheritance.](https://www.gov.uk/wills-probate-inheritance "Wills, probate and inheritance")
+
+          Find out how to pay [Inheritance Tax.](https://www.gov.uk/inheritance-tax "Inheritance Tax")
+
+      #A14
+      partner_receives_first_473000_children_receive_two_thirds_of_remainder:
+        title: The husband, wife or civil partner gets the house up to a value of £473,000.
+        body: |
+          They also get:
+
+          - furniture and moveable household goods up to the value of £29,000
+          - £50,000 in cash
+          - a third of the rest of the estate
+
+          (If the cash left is less than £50,000, they will get all of what’s left.)
+
+          The children will get two-thirds of the rest of the estate.
+
+          If a son or daughter has already died, their children (the grandchildren of the deceased) will inherit in their parent’s place.
+        next_steps: |
+          Read the guide to [wills, probate and inheritance](https://www.gov.uk/wills-probate-inheritance Wills, probate and inheritance).
+
+          Find out how to pay [Inheritance Tax](https://www.gov.uk/inheritance-tax).
+      #A15 (parents)
+      partner_receives_first_473000_remainder_split_between_parents_and_siblings:
+        title: The husband, wife or civil partner gets the house up to a value of £473,000.
+        body: |
+          They also get:
+
+          - furniture and moveable household goods up to the value of £29,000
+          - £50,000 in cash
+          - a third of the rest of the estate
+
+          (If the cash left is less than £50,000, they will get all of what’s left.)
+
+          The rest of the estate is divided in 2:
+
+          - half goes to the parent or parents
+          - half goes to the brothers or sisters
+
+          If a brother or sister has already died, their children (nieces or nephews of the deceased) inherit in their place.
+        next_steps: |
+          Read the guide to [wills, probate and inheritance](https://www.gov.uk/wills-probate-inheritance Wills, probate and inheritance).
+
+          Find out how to pay [Inheritance Tax](https://www.gov.uk/inheritance-tax).
+      #A15 (no parents)
+      partner_receives_first_473000_remainder_to_siblings:
+        title: The husband, wife or civil partner gets the house up to a value of £473,000.
+        body: |
+          They also get:
+
+          - furniture and moveable household goods up to the value of £29,000
+          - £50,000 in cash
+          - a third of the rest of the estate
+
+          (If the cash left is less than £50,000, they will get all of what’s left.)
+
+          The rest of the estate goes to the brothers or sisters.
+
+          If a brother or sister has already died, their children (nieces or nephews of the deceased) inherit in their place.
+        next_steps: |
+          Read the guide to [wills, probate and inheritance](https://www.gov.uk/wills-probate-inheritance Wills, probate and inheritance).
+
+          Find out how to pay [Inheritance Tax](https://www.gov.uk/inheritance-tax).
+      #A16 (parents)
+      partner_receives_first_473000_remainder_to_parents:
+        title: The husband, wife or civil partner gets the house up to a value of £473,000.
+        body: |
+          They also get:
+
+          - furniture and moveable household goods up to the value of £29,000
+          - £50,000 in cash
+          - a third of the rest of the estate
+
+          (If the cash left is less than £50,000, they will get all of what’s left.)
+
+          The rest of the estate goes to the parent or parents.
+        next_steps: |
+          Read the guide to [wills, probate and inheritance](https://www.gov.uk/wills-probate-inheritance Wills, probate and inheritance).
+
+          Find out how to pay [Inheritance Tax](https://www.gov.uk/inheritance-tax).

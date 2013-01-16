@@ -11,7 +11,7 @@ module SmartAnswer
       end
 
       def country_list
-        @countries ||= YAML::load( File.open( Rails.root.join('lib', 'data', 'countries.yml') ))
+        @countries ||= self.class.countries
       end
 
       def valid_option?(option)
@@ -20,6 +20,10 @@ module SmartAnswer
 
       def to_response(input)
         country_list.find { |el| el[:slug] == input }
+      end
+
+      def self.countries
+        @countries ||= YAML.load_file(Rails.root.join('lib', 'data', 'countries.yml'))
       end
     end
   end

@@ -15,7 +15,7 @@ en-GB:
         "yes": "Yes"
         "no": "No"
       phrases:
-        adjusted_net_income_is: The figures you entered mean your estimated adjusted net income is £%{adjusted_net_income}
+        adjusted_net_income_is: The figures you entered mean your estimated adjusted net income is £%{adjusted_net_income_formatted}
       ## Q0
       work_out_income?:
         title: "Do you want to:"

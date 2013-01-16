@@ -52,8 +52,26 @@ algeria:
     If you are a British citizen in need of emergency assistance outside of our regular office hours, please ring +213 (0) 770 08 50 00 where you will receive further information.  Please note this applies to British citizens with genuine emergencies only and not to visa applications or other routine enquiries.
 
     If you are a British national in distress, and having difficulty reaching us on the emergency telephone number, please call the FCO Switchboard in London on +44 (0)20 7008 1500 for assistance.
-american-samoa: []
-
+american-samoa:
+- address: |-
+    11766 Wilshire Boulevard, Suite 1200 
+    Los Angeles, California 90025-6538
+  designation: British Consulate-General
+  lat: 34.048
+  lon: -118.462
+  location_name: Los Angeles
+  phone: (310) 481 0031
+  fax: (310) 481 2960
+  website: http://ukinusa.fco.gov.uk/la
+  office_hours: |-
+    GMT:
+    Mon-Fri: 1630-0100
+    
+    Local Time:
+    Mon-Fri: 0830-1700
+    
+    Consular Hours:
+    0830 - 1230
 andorra: 
 - address: |-
     Edificio Torre de Barcelona
@@ -191,8 +209,21 @@ armenia:
   office_hours: |-
     Local time Mon-Fri 09:00-13:00 14:00-17:00
     UK time Mon-Fri 05:00-09:00 10:00-13:00
-aruba: []
-
+aruba:
+- address: |-
+    Unit A1K, Bon Bini Business Centre
+    Schottegatweg Oost 10
+    Willemstad
+    Curaçao
+    Dutch Caribbean
+    Willemstad
+  designation: 
+  lat: 
+  lon: 
+  location_name: British Consulate
+  phone: + 599 9 736 3914
+  fax: +599 9 736 3915
+  office_hours: Mon-Fri 0800 - 1200 hrs local time (1200 hrs - 1600 hrs GMT)
 ascension-island: 
 - address: |-
     The Administrator's Office
@@ -614,8 +645,21 @@ bolivia:
     Local Time:
     Mon-Thurs: 0830-1230 and 1330-1700
     Fri: 0830-1330
-bonaire-st-eustatius-saba: []
-
+bonaire-st-eustatius-saba:
+- address: |-
+    Unit A1K, Bon Bini Business Centre
+    Schottegatweg Oost 10
+    Willemstad
+    Curaçao
+    Dutch Caribbean
+    Willemstad
+  designation: 
+  lat: 
+  lon: 
+  location_name: British Consulate
+  phone: + 599 9 736 3914
+  fax: +599 9 736 3915
+  office_hours: Mon-Fri 0800 - 1200 hrs local time (1200 hrs - 1600 hrs GMT)
 bosnia-and-herzegovina: 
 - address: |-
     8 Simeuna Dzaka
@@ -756,8 +800,16 @@ brazil:
     Local Time:
     Mon-Fri: 0830-1700
     Opening hours (open to the public): Monday to Friday: 08:30 to 12:30
-british-antarctic-territory: []
-
+british-antarctic-territory:
+- address: |-
+    Government of the British Antarctic Territory
+    Polar Regions Unit
+    Overseas Territory Department
+    Foreign & Commonwealth Office
+    London SW1A 2AH
+  designation:
+  phone: (44) 0207 008 2617
+  fax: (44) 0207 008 2086
 british-consulate-general-cape-town: 
 - address: |-
     British Consulate General
@@ -2063,10 +2115,42 @@ france:
     Local Time: Monday, Wednesday and Friday (closed on Tuesdays and Thursdays): 09.00-12.30
     By appointment or in an emergency for Emergency Travel Documents (ETD's)
     The telephones are open Mon-Fri: 8.00-11.30 and 12.30-15.30 (GMT) and 09.00-12.30 and 13.30-16.30 (Local Time)
-french-guiana: []
-
-french-polynesia: []
-
+french-guiana:
+- address: |-
+    British Embassy
+    35, rue du Faubourg St Honoré
+    75363 Paris Cedex 08 Paris
+  designation: British Embassy
+  lat: 48.8693
+  lon: 2.31983
+  location_name: Paris
+  phone: (33) 1 44 51 31 00
+  fax: (33) 1 44 51 31 09 Consular
+  website: http://ukinfrance.fco.gov.uk/en/
+  office_hours: |-
+    GMT:
+    Mon -Fri: 0830-1200 / 1330-1700
+    
+    Local Time:
+    Mon-Fri: 0930-1300 / 1430-1800
+french-polynesia:
+- address: |-
+    British Embassy
+    35, rue du Faubourg St Honoré
+    75363 Paris Cedex 08 Paris
+  designation: British Embassy
+  lat: 48.8693
+  lon: 2.31983
+  location_name: Paris
+  phone: (33) 1 44 51 31 00
+  fax: (33) 1 44 51 31 09 Consular
+  website: http://ukinfrance.fco.gov.uk/en/
+  office_hours: |-
+    GMT:
+    Mon -Fri: 0830-1200 / 1330-1700
+    
+    Local Time:
+    Mon-Fri: 0930-1300 / 1430-1800
 gabon: 
 - address: |-
     British High Commission
@@ -2439,8 +2523,24 @@ grenada:
     
     Mon-Thurs: 0800-1600 (Local Time)
     Fri: 0800-1300 (Local Time)
-guadeloupe: []
-
+guadeloupe:
+- address: |-
+    British Embassy
+    35, rue du Faubourg St Honoré
+    75363 Paris Cedex 08 Paris
+  designation: British Embassy
+  lat: 48.8693
+  lon: 2.31983
+  location_name: Paris
+  phone: (33) 1 44 51 31 00
+  fax: (33) 1 44 51 31 09 Consular
+  website: http://ukinfrance.fco.gov.uk/en/
+  office_hours: |-
+    GMT:
+    Mon -Fri: 0830-1200 / 1330-1700
+    
+    Local Time:
+    Mon-Fri: 0930-1300 / 1430-1800
 guatemala: 
 - address: |-
     British Embassy
@@ -2576,7 +2676,7 @@ honduras:
     Local Time:
     Mon-Fri: 0800-1200 and 1300-1700
     Sat: 0800-1200
-hong-kong: 
+hong-kong-(sar-of-china):
 - address: |-
     1 Supreme Court Road 
     Hong Kong
@@ -2601,8 +2701,6 @@ hong-kong:
     Office hours, Monday-Friday:
     08:30-17:15 (Local time)
     00:30-09:15 (GMT)
-hong-kong-(sar-of-china): []
-
 hungary: 
 - address: |-
     British Embassy
@@ -3844,8 +3942,24 @@ marshall-islands:
     Office hours (GMT):
     Monday-Thursday:  00:00-08:45
     Friday: 00:00-05:00
-martinique: []
-
+martinique:
+- address: |-
+    British Embassy
+    35, rue du Faubourg St Honoré
+    75363 Paris Cedex 08 Paris
+  designation: British Embassy
+  lat: 48.8693
+  lon: 2.31983
+  location_name: Paris
+  phone: (33) 1 44 51 31 00
+  fax: (33) 1 44 51 31 09 Consular
+  website: http://ukinfrance.fco.gov.uk/en/
+  office_hours: |-
+    GMT:
+    Mon -Fri: 0830-1200 / 1330-1700
+    
+    Local Time:
+    Mon-Fri: 0930-1300 / 1430-1800
 mauritania:
 - address: |-
     Mr Sid' Ould Abeidna (Honorary Consul)
@@ -3898,8 +4012,24 @@ mauritius:
     
     Local Time:
     Mon-Fri: 0700-1600 Sat: 0800-1200
-mayotte: []
-
+mayotte:
+- address: |-
+    British Embassy
+    35, rue du Faubourg St Honoré
+    75363 Paris Cedex 08 Paris
+  designation: British Embassy
+  lat: 48.8693
+  lon: 2.31983
+  location_name: Paris
+  phone: (33) 1 44 51 31 00
+  fax: (33) 1 44 51 31 09 Consular
+  website: http://ukinfrance.fco.gov.uk/en/
+  office_hours: |-
+    GMT:
+    Mon -Fri: 0830-1200 / 1330-1700
+    
+    Local Time:
+    Mon-Fri: 0930-1300 / 1430-1800
 mexico: 
 - address: |-
     British Embassy
@@ -4033,8 +4163,25 @@ moldova:
     Winter (September - mid June)
     Mon - Thur:  0700 - 1530
     Fri: 0700 - 1200
-monaco: []
-
+monaco:
+- address: |-
+    British Consulate
+    24 Avenue de Prado
+    13006 Marseille
+  designation: British Consulate
+  lat: 43.2841
+  lon: 5.38437
+  location_name: Marseille
+  phone: (33) (4) 91 15 72 10
+  fax: (33) (4) 91 37 47 06
+  email: MarseilleConsular.marseille@fco.gov.uk
+  website: http://ukinfrance.fco.gov.uk
+  office_hours: |-
+    GMT
+    Monday - Friday
+    08.30 - 11.00  / 13.00-15.30
+    LOCAL TIME
+    09.30 - 12.00 / 14.00 - 16.30
 mongolia: 
 - address: |-
     Peace Avenue 30
@@ -4337,8 +4484,24 @@ netherlands:
     
     Local Time:
     Mon-Fri: 0900-1730
-new-caledonia: []
-
+new-caledonia:
+- address: |-
+    British Embassy
+    35, rue du Faubourg St Honoré
+    75363 Paris Cedex 08 Paris
+  designation: British Embassy
+  lat: 48.8693
+  lon: 2.31983
+  location_name: Paris
+  phone: (33) 1 44 51 31 00
+  fax: (33) 1 44 51 31 09 Consular
+  website: http://ukinfrance.fco.gov.uk/en/
+  office_hours: |-
+    GMT:
+    Mon -Fri: 0830-1200 / 1330-1700
+    
+    Local Time:
+    Mon-Fri: 0930-1300 / 1430-1800
 new-zealand: 
 - address: |-
     British High Commission
@@ -5005,8 +5168,24 @@ qatar:
              Sunday: 0800-1100
     Local: Monday-Thursday: 0800-1100
              Sunday: 1100-1400
-reunion: []
-
+reunion:
+- address: |-
+    British Embassy
+    35, rue du Faubourg St Honoré
+    75363 Paris Cedex 08 Paris
+  designation: British Embassy
+  lat: 48.8693
+  lon: 2.31983
+  location_name: Paris
+  phone: (33) 1 44 51 31 00
+  fax: (33) 1 44 51 31 09 Consular
+  website: http://ukinfrance.fco.gov.uk/en/
+  office_hours: |-
+    GMT:
+    Mon -Fri: 0830-1200 / 1330-1700
+    
+    Local Time:
+    Mon-Fri: 0930-1300 / 1430-1800
 romania: 
 - address: |-
     British Embassy, 24 Jules Michelet
@@ -5130,8 +5309,41 @@ rwanda:
     Emergency number out of office hours (+250) (0) 252 556999
 samoa:
 - website: http://ukinnewzealand.fco.gov.uk/en/
-san-marino: []
-
+san-marino:
+- address: |-
+    British Embassy
+    Via XX Settembre 80a 
+    I-00187 Roma RM
+  designation: British Embassy
+  lat: 41.9044
+  lon: 12.4819
+  location_name: Rome
+  phone: (39) 06 4220 0001
+  website: http://ukinitaly.fco.gov.uk/en
+  office_hours: |-
+    GMT:
+    Mon - Fri:  0800-1600
+    
+    Local Time:
+    Mon - Fri:  0900-1700
+    
+    Consular Section open to the public:
+    GMT:
+    Mon and Fri:  0800-1300
+    Tues and Thurs:  0800-1430
+    
+    Local Time:
+    Mon and Fri:  0900-1400
+    Tues and Thurs:  0900-1530
+    
+    Consular Section will normally be closed on Wednesdays
+    
+    Notarial appointments: 
+    GMT:
+    Tues and Thurs:  0800-1400
+    
+    Local Time:
+    Tues and Thurs:  0900-1500
 sao-tome-and-principe:
 - address: |-
     Square Montgomery
@@ -5832,10 +6044,39 @@ st-lucia:
     Local Time:
     Mon-Thurs: 08:00-12:30 / 13:00-16:00 Fri: 08:00 13:00
     Open to public 08:00 - 12:30 Mon - Fri
-st-maarten: []
-
-st-pierre-and-miquelon: []
-
+st-maarten:
+- address: |-
+    Unit A1K, Bon Bini Business Centre
+    Schottegatweg Oost 10
+    Willemstad
+    Curaçao
+    Dutch Caribbean
+    Willemstad
+  designation: 
+  lat: 
+  lon: 
+  location_name: British Consulate
+  phone: + 599 9 736 3914
+  fax: +599 9 736 3915
+  office_hours: Mon-Fri 0800 - 1200 hrs local time (1200 hrs - 1600 hrs GMT)
+st-pierre-and-miquelon:
+- address: |-
+    British Embassy
+    35, rue du Faubourg St Honoré
+    75363 Paris Cedex 08 Paris
+  designation: British Embassy
+  lat: 48.8693
+  lon: 2.31983
+  location_name: Paris
+  phone: (33) 1 44 51 31 00
+  fax: (33) 1 44 51 31 09 Consular
+  website: http://ukinfrance.fco.gov.uk/en/
+  office_hours: |-
+    GMT:
+    Mon -Fri: 0830-1200 / 1330-1700
+    
+    Local Time:
+    Mon-Fri: 0930-1300 / 1430-1800
 st-vincent-and-the-grenadines:
 - address: |-
     Office of the Honorary British Consul
@@ -6997,10 +7238,41 @@ vietnam:
     Friday:
     08:30-12:30 / 13:00-15:00 (Local time)
     02:30-06:30 / 07:00-09:00 (GMT)
-wallis-and-futuna: []
-
-western-sahara: []
-
+wallis-and-futuna:
+- address: |-
+    British Embassy
+    35, rue du Faubourg St Honoré
+    75363 Paris Cedex 08 Paris
+  designation: British Embassy
+  lat: 48.8693
+  lon: 2.31983
+  location_name: Paris
+  phone: (33) 1 44 51 31 00
+  fax: (33) 1 44 51 31 09 Consular
+  website: http://ukinfrance.fco.gov.uk/en/
+  office_hours: |-
+    GMT:
+    Mon -Fri: 0830-1200 / 1330-1700
+    
+    Local Time:
+    Mon-Fri: 0930-1300 / 1430-1800
+western-sahara:
+- address: |-
+    British Embassy                                        
+    28 Avenue S.A.R. Sidi Mohammed            
+    Soussi 10105 (BP 45)
+    Rabat
+  designation: British Embassy
+  lat: 34.0208
+  lon: -6.82397
+  location_name: Rabat
+  phone: +212 (0)537 63 33 33
+  fax: 0537 75 87 09
+  email: rabat.consular@fco.gov.uk
+  website: http://ukinmorocco.fco.gov.uk/en
+  office_hours: |-
+    Monday - Thursday: 08:00 - 16:15 Friday: 08:00 - 13:00.
+    Public opening hours for consular and visa services differ to the Embassy's opening hours.
 yemen: 
 - address: |-
     British Embassy

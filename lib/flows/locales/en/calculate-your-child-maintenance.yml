@@ -11,11 +11,17 @@ en-GB:
         
         - the calculator gives an estimate
         - you need information about your income
+        - if you have children with more than 1 person, you must make a separate calculation for each person you want to have a child maintenance agreement with
+
+        [Check the child maintenance rates](/how-child-maintenance-is-worked-out/rates-used-by-the-child-support-agency "Child Maintenance rates") before you use the calculator.
       phrases:
         nil_rate_reason_benefits: |
           This is because the parent paying child maintenance is receiving benefits and they have shared care of the child(ren).
         nil_rate_reason_income: |
           This is because the income of the parent paying child maintenance is too low.
+      options: 
+        "yes": "Yes"
+        "no": "No"
 
       ## Q1
       how_many_children_paid_for?:
@@ -25,9 +31,10 @@ en-GB:
           "2_children": "2"
           "3_children": "3"
           "4_children": "4 or more"
-        hint: If you have children with more than 1 other parent, go through the calculator for each other parent separately.
+        hint: If you have children with more than 1 person, you must make a separate calculation for each person you want to have a child maintenance agreement with.
+        error_message: Please enter a number greater than 0
       ## Q2
-      gets_benefits?:
+      gets_benefits_old?:
         title: Does the parent paying child maintenance get any of these benefits?
         body: |
 
@@ -43,9 +50,31 @@ en-GB:
           - Armed Forces Compensation Scheme payments
           - War Disablement Pension
           - Bereavement Allowance
-        options: 
-          "yes": "Yes"
-          "no": "No"
+      ##Q2a
+      gets_benefits_new?:
+        title: Does the parent paying child maintenance get any of these benefits?
+        body: |
+
+          - Income Support
+          - income-based Jobseeker’s Allowance
+          - income-related Employment and Support Allowance
+          - Pension Credit
+          - contribution-based Jobseeker’s Allowance
+          - contribution-based Employment and Support Allowance
+          - State Pension
+          - Incapacity Benefit
+          - Training Allowance
+          - Armed Forces Compensation Scheme payments
+          - War Disablement Pension
+          - Bereavement Allowance
+          - Carer’s Allowance
+          - Maternity Allowance
+          - Severe Disablement Allowance
+          - Industrial Injuries Disablement Benefit
+          - Widowed Parent’s Allowance
+          - Widow’s pension
+        hint: "In Scotland, this also includes: Skillseekers training, War Widow’s, Widower’s or Surviving Civil Partner’s Pension"
+
       ## Q3
       net_income_of_payee?:
         title: What is the weekly net income of the parent paying child maintenance?
@@ -55,7 +84,7 @@ en-GB:
       ## Q3a
       gross_income_of_payee?:
         title: What is the weekly gross income of the parent paying child maintenance?
-        hint: This is income before tax, National Insurance and pension contributions.
+        hint: This is income before tax, National Insurance but after pension contributions.
         suffix_label: per week
         error_message: Please enter a number
       ## Q4
@@ -70,7 +99,7 @@ en-GB:
           "0": "Less than 52 (less than once a week)"
           "1": "52 to 103 (1 to 2 nights a week)"
           "2": "104 to 155 (2 to 3 nights a week)"
-          "3": "156 to 174 (ca 3 nights a week)"
+          "3": "156 to 174 (approx. 3 nights a week)"
           "4": "175 or more (more than 3 nights a week)"
       ## A1
       nil_rate_result:
@@ -79,17 +108,19 @@ en-GB:
 
           %{nil_rate_reason}
 
-          This is an estimate. The statutory amount the [government](/arranging-child-maintenance-child-support-agency "Child Maintenance") would calculate might be different.
+          This is an estimate. The statutory amount the [government](/child-maintenance "Child Maintenance") would calculate might be different.
 
-          There is more information on [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/child-maintenance-rates)
+          Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out "How child maintenance is worked out")
       ## A2
       flat_rate_result:
         body: |
-          $!Based on your answers the child maintenance payment is £%{flat_rate_amount} per week. $!
+          $!Based on your answers the child maintenance payment is the flat rate of £%{flat_rate_amount} per week. $!
 
-          This is an estimate. The statutory amount the [government](/arranging-child-maintenance-child-support-agency "Child Maintenance") would calculate might be different.
+          This is the total weekly amount, not the amount per child.
 
-          There is more information on [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/child-maintenance-rates)
+          This is an estimate. The statutory amount the [government](/child-maintenance "Child Maintenance") would calculate might be different.
+
+          Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out "How child maintenance is worked out")
       ## A3
       reduced_and_basic_rates_result:
         body: |
@@ -97,6 +128,6 @@ en-GB:
 
           This is the total weekly amount, not the amount per child.
 
-          This is an estimate. The amount the [government](/arranging-child-maintenance-child-support-agency "Child Maintenance") would calculate might be different.
+          This is an estimate. The amount the [government](/child-maintenance "Child Maintenance") would calculate might be different.
 
-          There is more information on [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/child-maintenance-rates)
+          Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out "How child maintenance is worked out")

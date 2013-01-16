@@ -55,6 +55,6 @@ class StatePensionQuery < Struct.new(:dob, :gender)
   end
 
   def pension_dates_static
-    YAML.load(File.open("lib/data/state_pension_dates.yml").read)
+    @@pension_dates_static ||= YAML.load_file(Rails.root.join("lib", "data", "state_pension_dates.yml"))
   end
 end

@@ -27,7 +27,7 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
       add_response '3_children'
     end
     should "ask if person paying child benefit receives benefits" do
-      assert_current_node :gets_benefits?
+      assert_current_node :gets_benefits_old?
     end
 
     context "answer yes to benefits" do
@@ -62,9 +62,9 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
       should "ask what the weekly net income of the payee" do
         assert_current_node :net_income_of_payee?
       end
-      context "answer 5" do
-        should "give nil rate result" do
-          add_response 5
+      context "answer 4.99" do
+        should "give flat rate result" do
+          add_response 4.99
           assert_current_node :nil_rate_result
         end
       end
@@ -115,7 +115,7 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
     end
 
     should "ask about benefits" do
-       assert_current_node :gets_benefits?
+       assert_current_node :gets_benefits_new?
     end
 
     context "no to benefits" do
@@ -139,6 +139,16 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
           add_response 1
           assert_current_node :reduced_and_basic_rates_result
           assert_state_variable "rate_type_formatted", "basic"
+        end
+      end
+
+      context "answer 4000" do
+        should "cap the income at 3000" do
+          add_response 4000.0
+          add_response 0
+          add_response 0
+          assert_current_node :reduced_and_basic_rates_result
+          assert_state_variable "child_maintenance_payment", "482"
         end
       end
     end

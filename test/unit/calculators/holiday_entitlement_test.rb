@@ -406,5 +406,17 @@ module SmartAnswer::Calculators
         assert_equal 156.8, @calc.full_time_part_time_hours
       end
     end
+    context "decimal precision in days_per_week calculations" do
+      setup do
+        @calc = HolidayEntitlement.new(
+          :days_per_week => 4.5,
+          :start_date => nil,
+          :leave_year_start_date => nil
+        )
+      end
+      should "calculate with the correct precision" do
+        assert_equal 25.2, @calc.full_time_part_time_days
+      end
+    end
   end
 end

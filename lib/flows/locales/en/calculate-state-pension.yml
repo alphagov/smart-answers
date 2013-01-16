@@ -44,10 +44,12 @@ en-GB:
 
           Once you claim your State Pension, the Pension Service will work out how much exactly you get.
 
+          ##Pension Credit
           If you&rsquo;re on a low income, you might be eligible to claim [Pension Credit](/pension-credit "Pension Credit").
-
+          
           %{pension_credit_statement}
 
+          ##Bus pass
           %{bus_pass_statement}
 
           This calculation is according to the current law. The State Pension age may [change in the future.](/increase-state-pension-age "Increase in State Pension age")
@@ -63,10 +65,12 @@ en-GB:
 
           Once you claim your State Pension, the Pension Service will work out how much you get.
 
+          ##Pension Credit
           If you&rsquo;re on a low income, you might be eligible to claim [Pension Credit](/pension-credit "Pension Credit").
 
           You may have been entitled to receive Pension Credit from %{pension_credit_date}
-
+          
+          ##Bus pass
           You may also apply for an [elderly person’s bus pass](/apply-for-elderly-person-bus-pass "Elderly person’s bus pass") from %{pension_credit_date}.
 
           This calculation is according to the current law. The State Pension age may [change in the future.](/increase-state-pension-age "Increase in State Pension age")
@@ -82,7 +86,7 @@ en-GB:
           - | - 
           Your State Pension age | %{state_pension_age}
           When you’ll reach State Pension age | %{formatted_state_pension_date}
-          How much per week you may get now | £%{pension_amount}
+          How much per week you may get | £%{pension_amount}
           Difference to the full basic State Pension of £107.45 | £%{pension_loss}
 
 
@@ -122,7 +126,7 @@ en-GB:
           - | - 
           Your State Pension age | %{state_pension_age}
           When you’ll reach State Pension age | %{formatted_state_pension_date}
-          How much per week you may get now | £%{pension_amount}
+          How much per week you may get | £%{pension_amount}
           How much you may get if you make contributions or get credits for the years you have left until State Pension age | £%{what_if_not_full}
 
 
@@ -209,14 +213,14 @@ en-GB:
         suffix_label: years
       ## Q6
       received_child_benefit?:
-        title: Have you ever claimed Child Benefit, cared for someone sick or disabled or worked as a registered carer?
+        title: Have you ever claimed Child Benefit, cared for someone sick or disabled or worked as a registered foster carer?
       ## Q7
       years_of_benefit?:
         title: "Before 6 April 2010 how many years did any of the following apply:"
         body: |
           - you claimed Child Benefit for a child under 16
           - you cared for someone sick or disabled 
-          - you worked as a registered carer (from 2003 to 2010)
+          - you worked as a registered foster carer (from 2003 to 2010)
         hint: These are years when you were getting Home Responsibility Protection. Enter 0 if none of these apply. Don’t count any years you’ve entered in the previous questions. %{carer_hint_for_women}
         error_message: Please enter a whole number 
         error_too_many_years: Please enter a number between 0 and %{years_you_can_enter}.
@@ -226,7 +230,7 @@ en-GB:
       years_of_caring?:
         title: "From 6 April 2010 how many years did any of the following apply:"
         body: |
-          - you cared for a child under 12
+          - you claimed Child Benefit for a child under 12
           - you cared for someone sick or disabled for at least 20 hours a week
           - you were a registered foster carer
         hint: Enter 0 if none of these apply. Don’t count any years you’ve entered in the previous questions.
