@@ -114,7 +114,7 @@ en-GB:
           *[DVLA]: Driver and Vehicle Licensing Agency
           
         next_steps: |
-          - [Contact DVLA](http://www.dft.gov.uk/dvla/contactus.aspx "Contact DVLA"){rel:="external"}
+          - [Contact DVLA](http://www.dft.gov.uk/dvla/contactus.aspx "Contact DVLA"){:rel="external"}
           - [Exchange a foreign driving licence](/exchange-a-foreign-driving-licence "Exchange a foreign driving licence")
 
       a7:
