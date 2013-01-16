@@ -131,6 +131,38 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
               assert_current_node :how_much_expected_contributions_with_tax_relief?
             end
           end # paying 0 before tax
+
+
+          context "paying a greater amount into a pension than income" do
+            setup do
+              add_response "40000"
+              add_response "0"
+            end
+
+            should "end at husband_done" do
+              add_response "0"
+              assert_current_node :husband_done
+            end
+
+            should "calculate allowance using calculators" do
+              SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
+                expects(:calculate_adjusted_net_income).
+                with(30000.0,40000.0,0,0).
+                returns("Adjusted net income")
+
+              SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
+                expects(:get_age_related_allowance).
+                with(Date.parse '1930-05-25').
+                returns("Age related allowance")
+              SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
+                expects(:calculate_allowance).
+                with("Age related allowance", 'Adjusted net income').
+                returns("Calculated allowance")
+
+              add_response "0"
+              assert_state_variable :allowance, "Calculated allowance"
+            end
+          end
         end # paying into a pension
 
         context "not paying into a pension" do

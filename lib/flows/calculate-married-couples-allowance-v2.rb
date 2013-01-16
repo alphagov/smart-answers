@@ -50,7 +50,7 @@ calculator = MarriedCouplesAllowanceCalculator.new(
   minimum_mca: 2960,
   income_limit: 25400,
   personal_allowance: personal_allowance,
-  income_validation: false)
+  validate_income: false)
 
 money_question :whats_the_husbands_income? do
   save_input_as :income
