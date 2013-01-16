@@ -9,7 +9,7 @@ module SmartAnswer::Calculators
     FINANCE_CRITERIA = [:assets, :property, :shares, :revenue, :funding_min, :funding_max, :employees]
 
     def initialize()
-      load_finance_data
+      @finance_data = self.class.which_finance_data
     end
 
     def calculate_inclusions(answers)
@@ -40,8 +40,8 @@ module SmartAnswer::Calculators
       weighted_scores
     end
 
-    def load_finance_data
-      @finance_data ||= YAML.load(File.open("lib/data/which_finance_data.yml").read)
+    def self.which_finance_data
+      @which_finance_data ||= YAML.load_file(Rails.root.join("lib/data/which_finance_data.yml"))
     end
   end
 end
