@@ -147,7 +147,7 @@ module SmartAnswer::Calculators
     end
 
     def historical_minimum_wage_data
-      @historical_minimum_wage_data ||= YAML.load(File.open("lib/data/minimum_wage_data.yml").read)[:minimum_wage_data]
+      @@historical_minimum_wage_data ||= YAML.load_file(Rails.root.join("lib/data/minimum_wage_data.yml"))[:minimum_wage_data]
     end
 
   end
