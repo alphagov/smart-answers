@@ -15,12 +15,7 @@ en-GB:
 
         - [find a solicitor in England](http://www.lawsociety.org.uk/find-a-solicitor/ “Law Society England”) 
         - [find a solicitor in Scotland](http://www.lawscot.org.uk/wcm/lssservices/find_a_solicitor/Core/directory.aspx “Law Society Scotland”) 
-        Probate is the legal right to deal with someone’s money, property and possessions (their ‘estate’) after they die. This is usually carried out by the person named as the ‘executor’ in the will.
-
-        If there’s no will, you can apply for the right to do this if you’re the deceased’s next of kin (eg husband, wife or child).
-
-        Find out how to apply for probate and what forms you need.
-      
+              
       options:
         "yes": "Yes"
         "no": "No"
@@ -324,7 +319,7 @@ en-GB:
 
       ## Q5
       amount_left_ni?:
-        title: What is the amount left of the estate after debts and funeral costs have been paid?
+        title: After debts and funeral costs have been paid, how much is the estate worth?
         options: 
           under_ten_thousand: "Less than £10,000"
           ten_thousand_or_more: "£10,000 or more"
