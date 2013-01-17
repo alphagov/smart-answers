@@ -64,6 +64,26 @@ class RequestForFlexibleWorkingTest < ActiveSupport::TestCase
       add_response "none_of_these"
       assert_current_node :no_right_to_apply
     end
+
+    context "selecting 'under_17'" do
+      setup do
+        add_response "under_17"
+      end
+
+      should "ask if they are responible for the child" do
+        assert_current_node :responsible_for_childs_upbringing?
+      end
+
+      should "show result 1 if 'no' selected" do
+        add_response "no"
+        assert_current_node :no_right_to_apply
+      end
+
+      should "show result 2 if 'yes' selected" do
+        add_response "yes"
+        assert_current_node :right_to_apply
+      end
+    end
   end
 
   context "employer" do
