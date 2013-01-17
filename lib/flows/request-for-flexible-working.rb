@@ -23,8 +23,10 @@ checkbox_question :which_one_of_these_describes_you? do
 
     if describes_you == ["none_of_these"] || describes_you.include?("none_of_these")
       :no_right_to_apply
-    elsif describes_you.to_set.superset?(["under_17", "care_for_adult"].to_set) &&
-        !describes_you.include?("none_of_these")
+    elsif describes_you.to_set.superset?(["under_17", "care_for_adult"].to_set)
+      :no_right_to_apply
+    elsif describes_you.to_set.superset?(["less_than_26_weeks","agency_worker","member_of_armed_forces","request_in_last_12_months"].to_set) ||
+        !(describes_you & ["less_than_26_weeks","agency_worker","member_of_armed_forces","request_in_last_12_months"]).empty?
       :no_right_to_apply
     end
   end

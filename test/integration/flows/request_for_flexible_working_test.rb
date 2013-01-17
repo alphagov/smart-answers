@@ -38,6 +38,28 @@ class RequestForFlexibleWorkingTest < ActiveSupport::TestCase
       end
     end
 
+    context "selecting permutations of 'less_than_26_weeks', 'agency_worker', 'member_of_armed_forces', and 'request_in_last_12_months'" do
+      should "show result 1 if 'less_than_26_weeks', 'agency_worker', 'member_of_armed_forces', and 'request_in_last_12_months' checked" do
+        add_response "less_than_26_weeks,agency_worker,member_of_armed_forces,request_in_last_12_months"
+        assert_current_node :no_right_to_apply
+      end
+
+      should "show result 1 if 'less_than_26_weeks' selected" do
+        add_response "less_than_26_weeks"
+        assert_current_node :no_right_to_apply
+      end
+
+      should "show result 1 if 'less_than_26_weeks' and 'agency_worker' selected" do
+        add_response "less_than_26_weeks,agency_worker"
+        assert_current_node :no_right_to_apply
+      end
+
+      should "show result 1 if 'member_of_armed_forces' and 'request_in_last_12_months' selected" do
+        add_response "member_of_armed_forces,request_in_last_12_months"
+        assert_current_node :no_right_to_apply
+      end
+    end
+
     should "show result 1 if 'none_of_these' selected" do
       add_response "none_of_these"
       assert_current_node :no_right_to_apply
