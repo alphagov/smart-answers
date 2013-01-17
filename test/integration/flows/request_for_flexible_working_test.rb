@@ -93,6 +93,16 @@ class RequestForFlexibleWorkingTest < ActiveSupport::TestCase
       should "ask about the adult being cared for" do
         assert_current_node :do_any_of_these_describe_the_adult_youre_caring_for?
       end
+
+      should "show result 2 if 'yes' selected" do
+        add_response "yes"
+        assert_current_node :right_to_apply
+      end
+
+      should "show result 1 if 'no' selected" do
+        add_response "no"
+        assert_current_node :no_right_to_apply
+      end
     end
   end
 
