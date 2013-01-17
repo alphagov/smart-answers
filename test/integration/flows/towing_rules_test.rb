@@ -37,7 +37,7 @@ class TowingRulesTest < ActiveSupport::TestCase
         add_response :no
       end
       ## Q4
-      should "ask when you licence was issued" do
+      should "ask when your licence was issued" do
         assert_current_node :date_licence_was_issued?
       end
       
