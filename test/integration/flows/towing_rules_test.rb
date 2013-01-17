@@ -37,7 +37,7 @@ class TowingRulesTest < ActiveSupport::TestCase
         add_response :no
       end
       ## Q4
-      should "ask when your licence was issued" do
+      should "ask when you licence was issued" do
         assert_current_node :date_licence_was_issued?
       end
       
@@ -53,6 +53,13 @@ class TowingRulesTest < ActiveSupport::TestCase
         should "specify entitlement" do
           add_response "from-jan-1997"
           assert_current_node :limited_trailer_entitlement
+        end
+      end
+      context "from jan 2013" do
+        ## A7
+        should "specify entitlement" do
+          add_response "from-jan-2013"
+          assert_current_node :limited_trailer_entitlement_2013
         end
       end
     end
