@@ -49,7 +49,7 @@ en-GB:
       ## A2
       no_right_to_apply:
         body: |
-          You're not entitled to make a [statutory request](/flexible-working "Flexible working") for
-          flexible working because %{no_right_to_apply_reason}.
-
-          You can still ask your employer if you can work flexibly, but it's optional.
+          You're not entitled to make a statutory request for flexible working.
+          You can still make an 'informal request' and ask your employer if you can work flexibly.
+          Your employer doesn't have to agree to your request.
+          More about [flexible working](/flexible-working "Flexible working")
