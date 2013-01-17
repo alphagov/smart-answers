@@ -54,7 +54,7 @@ checkbox_question :which_benefits? do
     if choices.include?('none_of_these')
       :no_benefits
     elsif (no_disability_answers + choices).uniq == no_disability_answers
-      :on_benefits_no_disablilty_or_children
+      :on_benefits_no_disability_or_children
     else
       :disabled_or_have_children?
     end
@@ -82,7 +82,7 @@ checkbox_question :disabled_or_have_children? do
 
   next_node do |response|
     if response.split(",").include?('none_of_these')
-      :on_benefits_no_disablilty_or_children
+      :on_benefits_no_disability_or_children
     else
       :on_benefits
     end
@@ -109,7 +109,7 @@ outcome :on_benefits do
   precalculate :eligibilities do
     phrases = [] 
     phrases << :winter_fuel_payments if age_variant == :winter_fuel_payment
-    if benefits.include?('pension_credits') or income_support_variant == :income_support_1
+    if benefits.include?('pension_credit') or income_support_variant == :income_support_1
       phrases << :warm_home_discount << :cold_weather_payment << :energy_company_obligation
     end
     if benefits.include?('child_tax_credit') or income_support_variant == :income_support_2 or
@@ -125,17 +125,19 @@ end
 
 # Result 3 = (Receiving benefits no disability or children)
 outcome :on_benefits_no_disability_or_children do
-#  phrases = []
-  #phrases << :winter_fuel_payments if age_variant == :winter_fuel_payment
-  #if benefits.include?('pension_credits')
-    #phrases << :warm_home_discount << :cold_weather_payment << :energy_company_obligation
-  #end
-  #if benefits.include?('esa')
-    #phrases << :cold_weather_payment << :energy_company_obligation
-  #end
-  #phrases << :energy_company_obligation if benefits.include?('child_tax_credit')
-  #if benefits.include?('working_tax_credit') and age_variant == :over_60
-    #phrases << :energy_company_obligation
-  #end
-  #PhraseList.new(*phrases.uniq)
+  precalculate :eligibilities do
+  phrases = []
+    phrases << :winter_fuel_payments if age_variant == :winter_fuel_payment
+    if benefits.include?('pension_credit')
+      phrases << :warm_home_discount << :cold_weather_payment << :energy_company_obligation
+    end
+    if benefits.include?('esa')
+      phrases << :cold_weather_payment << :energy_company_obligation
+    end
+    phrases << :energy_company_obligation if benefits.include?('child_tax_credit')
+    if benefits.include?('working_tax_credit') and age_variant == :over_60
+      phrases << :energy_company_obligation
+    end
+    PhraseList.new(*phrases.uniq)
+  end
 end

@@ -44,7 +44,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
           should "give the benefits result (no disability)" do
             add_response 'esa'
             assert_current_node :on_benefits_no_disability_or_children
-            assert_phrase_list :eligibilities, [:winter_fuel_payment, :cold_weather_payment, :energy_company_obligation]
+            assert_phrase_list :eligibilities, [:winter_fuel_payments, :cold_weather_payment, :energy_company_obligation]
           end
         end
       end # pre 05-07-1951
