@@ -84,6 +84,16 @@ class RequestForFlexibleWorkingTest < ActiveSupport::TestCase
         assert_current_node :right_to_apply
       end
     end
+
+    context "selecting 'care_for_adult'" do
+      setup do
+        add_response "care_for_adult"
+      end
+
+      should "ask about the adult being cared for" do
+        assert_current_node :do_any_of_these_describe_the_adult_youre_caring_for?
+      end
+    end
   end
 
   context "employer" do
