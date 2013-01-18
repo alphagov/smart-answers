@@ -38,7 +38,14 @@ en-GB:
 
       ## Q3
       responsible_for_childs_upbringing?:
-        title: Are you responsible for the child’s upbringing and are you or your partner
+        title: Are you responsible for the child’s upbringing and are you or your partner 1 of the following:
+        body: |
+          [hint] The relationship can be either way, eg you can be their uncle or they can be yours. Relationships include step or adoptive family and in-laws.
+
+          - parent, child, sibling, uncle, aunt, grandparent
+          - spouse, partner
+          - guardian or carer (including adoptive parent and special guardian)
+          - you live at the same address
 
       ## Answers:
       ## A1
