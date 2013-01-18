@@ -25,6 +25,8 @@ en-GB:
         options:
           employee: Employee
           employer: Employer
+        body: |
+          [hint] Choose all that apply to you.
       ## Q2
       which_ones_of_these_describe_you?:
         title: Which ones of these describe you?
