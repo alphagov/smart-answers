@@ -38,6 +38,17 @@ en-GB:
           agency_worker: "You're an agency worker"
           member_of_armed_forces: "You're a member of the armed forces"
           request_in_last_12_months: "You've made a statutory request with your current employer in the last 12 months"
+      employer_which_ones_of_these_describe_your_employee?:
+        title: Which ones of these describes your employee?
+        body: |
+          [hint] Choose all that apply.
+        options:
+          under_18: "They care for a child under 18"
+          care_for_adult: "They care for an adult"
+          less_than_26_weeks: "They've been with you for less than 26 continuous weeks"
+          agency_worker: "They're an agency worker"
+          member_of_armed_forces: "They're a member of the armed forces"
+          request_in_last_12_months: "They've made a statutory request with you in the last 12 months"
 
       ## Q3
       employee_responsible_for_childs_upbringing?:
@@ -49,6 +60,15 @@ en-GB:
           - spouse, partner
           - guardian or carer (including adoptive parent and special guardian)
           - you live at the same address
+      employer_responsible_for_childs_upbringing?:
+        title: Is your employee responsible for the child’s upbringing and are they or their spouse/partner one of the following:
+        body: |
+          - parent
+          - foster or kinship carer
+          - guardian or special guardian
+          - been given a residence order for the child
+
+          [hint] A residence order is the court’s decision about who a child should live with.
 
       ## Q4
       employee_do_any_of_these_describe_the_adult_youre_caring_for?:
@@ -60,12 +80,24 @@ en-GB:
           - spouse, partner
           - guardian or carer (including adoptive parent and special guardian)
           - you live at the same address
+      employer_do_any_of_these_describe_the_adult_being_cared_for?:
+        title: Do any of these describe the relationship with the adult being cared for?
+        body: |
+          [hint] The relationship can be either way, eg your employee can be their uncle or the other way around. Relationships include step or adoptive family and in-laws.
+
+          - parent, child, sibling, uncle, aunt, grandparent
+          - spouse, partner
+          - guardian or carer (including adoptive parent and special guardian)
+          - you live at the same address
 
       ## Answers:
       ## A1
       employee_right_to_apply:
         body: |
           You're entitled to [make a request for flexible working](/flexible-working/making-a-statutory-application "Making an application").
+      employer_right_to_apply:
+        body: |
+          Your employee is entitled to [make a request for flexible working.](/flexible-working/making-a-statutory-application "Making an application")
 
       ## A2
       employee_no_right_to_apply:
@@ -73,4 +105,10 @@ en-GB:
           You're not entitled to make a statutory request for flexible working.
           You can still make an 'informal request' and ask your employer if you can work flexibly.
           Your employer doesn't have to agree to your request.
+          More about [flexible working](/flexible-working "Flexible working")
+      employee_no_right_to_apply:
+        body: |
+          Your employee isn't entitled to make a statutory request for flexible working.
+          They can still make an 'informal request' and ask you to work flexibly.
+          You don't have to agree to their request but should find a solution that suits both sides.
           More about [flexible working](/flexible-working "Flexible working")
