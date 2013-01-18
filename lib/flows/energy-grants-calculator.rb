@@ -16,6 +16,8 @@ end
 
 # Q2
 date_question :dob? do
+  from { 100.years.ago }
+  to { Date.today } 
   calculate :age_variant do
     dob = Date.parse(responses.last)
     if dob < Date.new(1951,7,5)
