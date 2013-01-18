@@ -27,8 +27,9 @@ en-GB:
           employer: Employer
         body: |
           [hint] Choose all that apply to you.
+
       ## Q2
-      which_ones_of_these_describe_you?:
+      employee_which_ones_of_these_describe_you?:
         title: Which ones of these describe you?
         options:
           under_17: "You care for a child under 17"
@@ -39,7 +40,7 @@ en-GB:
           request_in_last_12_months: "You've made a statutory request with your current employer in the last 12 months"
 
       ## Q3
-      responsible_for_childs_upbringing?:
+      employee_responsible_for_childs_upbringing?:
         title: Are you responsible for the child’s upbringing and are you or your partner 1 of the following:
         body: |
           [hint] The relationship can be either way, eg you can be their uncle or they can be yours. Relationships include step or adoptive family and in-laws.
@@ -50,7 +51,7 @@ en-GB:
           - you live at the same address
 
       ## Q4
-      do_any_of_these_describe_the_adult_youre_caring_for?:
+      employee_do_any_of_these_describe_the_adult_youre_caring_for?:
         title: Do any of these describe your relationship with the adult you’re caring for?
         body: |
           [hint] The relationship can be either way, eg you can be their uncle or they can be yours. Relationships include step or adoptive family and in-laws.
@@ -62,12 +63,12 @@ en-GB:
 
       ## Answers:
       ## A1
-      right_to_apply:
+      employee_right_to_apply:
         body: |
           You're entitled to [make a request for flexible working](/flexible-working/making-a-statutory-application "Making an application").
 
       ## A2
-      no_right_to_apply:
+      employee_no_right_to_apply:
         body: |
           You're not entitled to make a statutory request for flexible working.
           You can still make an 'informal request' and ask your employer if you can work flexibly.
