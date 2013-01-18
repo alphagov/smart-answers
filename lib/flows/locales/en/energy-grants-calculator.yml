@@ -10,4 +10,81 @@ en-GB:
         - which benefits you’re on if any
       meta:
         description: Financial help with heating costs, insulation, boilers, money for heating costs
-        phrases:
+      phrases:
+        winter_fuel_payments: |
+          [Winter Fuel Payments](/winter-fuel-payment/eligibility "Winter Fuel Payments") - between £100 and £300 towards your heating bills
+        green_deal: |
+          [Green Deal](/green-deal-energy-saving-measures "Green Deal") - energy saving improvements to your home or business
+        renewable_heat_premium: |
+          [Renewable Heat Premium Payment](/renewable-heat-premium-payment/overview "Renewable Heat Premium Payment") - between £300 and £950 to install renewable heating technologies in your home
+        feed_in_tariffs: |
+          [Feed-in Tarrifs](/feed-in-tarriffs-money-for-generating-electricity "Feed-in Tariffs") - selling energy you produced to your energy supplier
+        warm_home_discount: | 
+          [Warm Home Discount scheme](/the-warm-home-discount-scheme/overview "Warm House Discount scheme") - £130 discount on your energy bills
+        cold_weather_payment: |
+          [Cold Weather Payment](/cold-weather-payment/overview "Cold Weather Payment") - £25 a week during very cold weather between November and March
+        energy_company_obligation: |
+          [Energy Company Obligation](https://private-frontend.production.alphagov.co.uk/get-help-with-energy-saving-costs?edition=1&cache=1357313126 "Energy Company Obligation scheme") - help with insulation or boiler repairs
+      
+      what_are_your_circumstances?:
+        title: What are your circumstances?
+        hint: Choose all that apply to you.
+        options:
+          benefits: You’re getting benefits.
+          property: You own your own property.
+          permission: You rent privately but have permission from the owner.
+          own_energy: You generate your own energy.
+      dob?:
+        title: What's your date of birth?
+      which_benefits?:
+        title: Which of these benefits do you get?
+        hint: Choose all that apply to you.
+        options:
+          pension_credit: Pension Credit
+          income_support: Income Support
+          jsa: Income based Jobseeker’s Allowance
+          esa: Income-related Employment and Support Allowance (ESA)
+          child_tax_credit: Child Tax Credit - only if your income is £15,860 or less
+          working_tax_credit: Working Tax Credit- only if your income is £15,860 or less
+          none_of_these: None of these
+      disabled_or_have_children?:
+        title: Are you disabled, or do you have children?
+        hint: Choose all that apply to you.
+        options:
+          disabled: You’re disabled.
+          disabled_child: You have a disabled child.
+          child_under_5: You have a child under 5.
+          child_under_16: You have a child under 16 or under 20 if in full-time education.
+          none_of_these: None of these.
+      no_benefits:
+        body: |
+          $!Based on your answers you might be eligible for these energy grants.$!
+
+          %{eligibilities}
+
+          For some of these grants further eligibility criteria apply. 
+
+          [Smart meters](XXX) can also help you save energy.
+
+      on_benefits:
+        body: |
+          $!Based on your answers you might be eligible for help with your energy bills.$!
+
+          %{eligibilities}
+
+          For some of these schemes further eligibility criteria apply. These can differ depending on your supplier.  
+
+          If you’re interested in energy saving improvements to your home find out about
+          [Green Deal](/green-deal-energy-saving-measures “Green Deal”) and [smart meters](XXX).
+
+      on_benefits_no_disability_or_children:
+        body: |
+          $!Based on your answers you might be eligible for help with your energy bills.$!
+
+          %{eligibilities}
+
+          For some of these schemes further eligibility criteria apply. 
+
+          If you’re interested in energy saving improvements to your home find out about
+          [Green Deal](/green-deal-energy-saving-measures “Green Deal”) and [smart meters](XXX).
+
