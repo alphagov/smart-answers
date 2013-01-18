@@ -7,30 +7,33 @@ en-GB:
             body: |
                 Calculate how much statutory redundancy you can get. It’s based on age, weekly pay and number of years in the job.
 
-                You only qualify if you’ve worked for at least 2 full years for your employer.
+                You only qualify for statutory redundancy pay if you’ve worked for your employer for at least 2 years.
+
+            date_of_redundancy?:
+                title: What date were you made redundant?
+                hint: Use the original redundancy date even if your notice is brought forward, you’re paid in lieu of notice or made redundant after trialing a new job. 
             age_of_employee?:
                 title: How old were you on the date you were made redundant?
-                hint: Use the original redundancy date even if your notice is brought forward, you’re paid in lieu of notice or made redundant after trialing a new job.
                 suffix_label: years old
-                error_message: Please enter a number between 16 and 100.
+                error_message: Please enter an age between 16 and 100.
 
             years_employed?:
                 title: How many years have you worked for your employer?
                 hint: |
-                    Only full years of service count - up to a maximum of 20 years. For example, 3 years and 9 months count as 3 years.
+                    Only count full years of service. For example, 3 years and 9 months count as 3 years.
                 suffix_label: full years worked
                 error_message: |
                     Please enter a number. Based on your previous answers this should be 
                     no greater than %{years_available}
             weekly_pay_before_tax?:
-                title: What is your weekly pay before tax?
+                title: What is your weekly pay before tax and any other deductions?
                 hint: |
-                    £430 is the current maximum weekly pay (before tax) when working out statutory redundancy pay - any earnings above this won't count to your total entitlement.
+                    Examples of other deductions include student loans, child maintenance, salary sacrifice. 
                 suffix_label: per week
                 error_message: Please enter a number    
 
             done_no_statutory:
-                title: You're not entitled to statutory redundancy pay.
+                title: Based on your answers, you’re not entitled to statutory redundancy pay.
                 body: |
                     You need to have worked for your employer continuously for at least 2 years before you can get statutory redundancy pay.
                 next_steps: |
@@ -38,7 +41,7 @@ en-GB:
 
             done:
                 title: |
-                    Your statutory redundancy payment could be: £%{statutory_redundancy_pay}.
+                    Based on your answers, your statutory redundancy payment is £%{statutory_redundancy_pay}.
                 body: |
                     ##Calculation 
 
@@ -50,7 +53,7 @@ en-GB:
                     + 1 week’s pay after your 22nd birthday
                     + 1.5 weeks’ pay after your 41st birthday
 
-                    Length of service is capped at 20 years and weekly pay at £430.
+                    Length of service is capped at 20 years and weekly pay at £%{rate}. Years of service or earnings over these amounts aren’t included in the calculation.
 
                     The maximum amount of statutory redundancy pay is £12,900.
 
@@ -64,27 +67,32 @@ en-GB:
             meta:
                 description: Employer calculator - calculate your employee's statutory redundancy payment
             body: |
-                Calculate an employee’s statutory redundancy pay. It’s based on age, weekly pay and number of years in the job.
+                Calculate an employee’s statutory redundancy pay.
 
-                Employees only qualify if they’ve worked for at least 2 full years for you.
+                Redundancy payments are based on age, weekly pay and number of years in the job.
+
+                Employees only qualify if they’ve worked at least 2 full years for you.
+            date_of_redundancy?:
+                title: What date was your employee made redundant?
+                hint: |
+                    Use the original redundancy date even if their notice is brought forward, they’re paid in lieu of notice or made redundant after trialing a new job.
             age_of_employee?:
-                title: What was your employee’s age when they were made redundant?
-                hint: Use the original redundancy date even if their notice is brought forward, they’re paid in lieu of notice or made redundant after trialing a new job.
+                title: What date was your employee made redundant and how old were they on this date?
                 suffix_label: years old
-                error_message: Please enter a number between 16 and 100.
+                error_message: Please enter an age between 16 and 100.
 
             years_employed?:
                 title: Number of years they’ve worked for you
                 hint: |
-                    Only full years of service count - up to a maximum of 20 years. For example, 3 years and 9 months count as 3 years.
+                    Only count full years of service. For example, 3 years and 9 months count as 3 years.
                 suffix_label: full years worked
                 error_message: Please enter a number. Based on your previous answers this should be 
                     no greater than %{years_available}
 
             weekly_pay_before_tax?:
-                title: What is their weekly pay before tax?
+                title: What is their weekly pay before tax and any other deductions?
                 hint: |
-                    £430 is the current maximum weekly pay (before tax) when working out statutory redundancy pay - any earnings above this won't count to the entitlement.
+                   Examples of other deductions include student loans, child maintenance, salary sacrifice. 
                 suffix_label: per week
                 error_message: Please enter a number
 
@@ -109,7 +117,7 @@ en-GB:
                     + 1 week’s pay after their 22nd birthday
                     + 1.5 weeks’ pay after their 41st birthday
 
-                    Length of service is capped at 20 years and weekly pay at £430.
+                    Length of service is capped at 20 years and weekly pay at £%{rate}. Years of service or earnings over these amounts are not included in the calculation. 
 
                     The maximum amount of statutory redundancy pay is £12,900
                 next_steps: |
