@@ -40,6 +40,14 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             assert_phrase_list :eligibilities, [:winter_fuel_payments, :warm_home_discount, :cold_weather_payment, :energy_company_obligation]
           end
         end
+        context "answer esa and income support with child under 20 in education" do
+          should "give the benefits result" do
+            add_response 'income_support,esa'
+            add_response 'child_under_16'
+            assert_current_node :on_benefits
+            assert_phrase_list :eligibilities, [:winter_fuel_payments, :cold_weather_payment, :energy_company_obligation]
+          end
+        end
         context "answer esa" do
           should "give the benefits result (no disability)" do
             add_response 'esa'
@@ -58,6 +66,14 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         end
         should "ask which benefits you receive" do
           assert_current_node :which_benefits?
+        end
+        context "answer working tax credit with child under 16" do
+          should "give benefits result with specific eligibilities" do
+            add_response 'working_tax_credit'
+            add_response 'child_under_16'
+            assert_current_node :on_benefits
+            assert_phrase_list :eligibilities, [:energy_company_obligation]
+          end
         end
       end # over 60
 

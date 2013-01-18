@@ -112,12 +112,12 @@ outcome :on_benefits do
     if benefits.include?('pension_credit') or income_support_variant == :income_support_1
       phrases << :warm_home_discount << :cold_weather_payment << :energy_company_obligation
     end
+    if benefits.include?('esa')
+      phrases << :cold_weather_payment << :energy_company_obligation
+    end
     if benefits.include?('child_tax_credit') or income_support_variant == :income_support_2 or
       (benefits.include?('working_tax_credit') and age_variant == :over_60)
         phrases << :energy_company_obligation
-    end
-    if benefits.include?('esa')
-      phrases << :cold_weather_payment << :energy_company_obligation
     end
     PhraseList.new(*phrases.uniq)
   end
