@@ -55,6 +55,13 @@ class TowingRulesTest < ActiveSupport::TestCase
           assert_current_node :limited_trailer_entitlement
         end
       end
+      context "from jan 2013" do
+        ## A7
+        should "specify entitlement" do
+          add_response "from-jan-2013"
+          assert_current_node :limited_trailer_entitlement_2013
+        end
+      end
     end
   end ## Cars and light vehicles
   

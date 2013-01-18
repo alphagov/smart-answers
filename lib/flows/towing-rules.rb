@@ -22,6 +22,7 @@ end
 multiple_choice :date_licence_was_issued? do
   option "before-jan-1997" => :car_light_vehicle_entitlement #A5
   option "from-jan-1997" => :limited_trailer_entitlement #A6
+  option "from-jan-2013" => :limited_trailer_entitlement_2013 # A7
 end
 
 ## Medium sized vehicles
@@ -117,6 +118,7 @@ end
 outcome :full_entitlement # A3
 outcome :car_light_vehicle_entitlement #A5
 outcome :limited_trailer_entitlement #A6
+outcome :limited_trailer_entitlement_2013 # A7
 outcome :limited_conditional_trailer_entitlement_msv #A10
 outcome :limited_trailer_entitlement_msv #A11
 outcome :included_entitlement_msv #A13
