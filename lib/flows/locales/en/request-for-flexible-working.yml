@@ -47,6 +47,17 @@ en-GB:
           - guardian or carer (including adoptive parent and special guardian)
           - you live at the same address
 
+      ## Q4
+      do_any_of_these_describe_the_adult_youre_caring_for?:
+        title: Do any of these describe your relationship with the adult you’re caring for?
+        body: |
+          [hint] The relationship can be either way, eg you can be their uncle or they can be yours. Relationships include step or adoptive family and in-laws.
+
+          - parent, child, sibling, uncle, aunt, grandparent
+          - spouse, partner
+          - guardian or carer (including adoptive parent and special guardian)
+          - you live at the same address
+
       ## Answers:
       ## A1
       right_to_apply:
