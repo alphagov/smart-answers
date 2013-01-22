@@ -18,16 +18,17 @@ en-GB:
         body: |
           Choose the kind of vehicle you want to drive from the list. If you know the [vehicle category](/driving-licence-categories "driving licence categories") these are also shown.
         options:
-          car-or-light-vehicle: "Car or light vehicle (category B)"
-          motorcycle: "Motorbike (category A)"
-          moped: "Moped (category P)"
+          car-or-light-vehicle: "Car (category B)"
+          motorcycle: "Motorbike (categories A1, A2 & A)"
+          moped: "Moped (category P or AM)"
           medium-sized-vehicle: "Medium-sized vehicles (category C1)"
           large-vehicle-or-lorry: "Large vehicles and lorries (category C)"
           minibus: "Minibus (category D1)"
           bus: "Bus (category D)"
           tractor: "Agricultural tractor (category F)"
           specialist-vehicle: "Other specialist vehicles (categories G, H and K)"
-          quad-bike: "Quad bike or trike (category B1)"
+          quad-bike: "Quad bikes and 4-wheeled light vehicles (category B1)"
+          trike: "Motor tricycle (categories A & A1)"
       ## Q3
       how_old_are_you?:
         title: How old are you?
@@ -36,16 +37,13 @@ en-GB:
           16: "16"
           17-or-over: "17 or over"
       ## Q4
-      do_you_have_a_full_motorcycle_licence?:
-        title: Do you already have a full motorbike licence?
-        hint: Answer no if you only have a moped licence (category P).
-      ## Q5
       how_old_are_you_mb?:
         title: How old are you?
         options:
-          17-20: "17 to 20"
-          21: "21"
-          22-or-over: "22 or over"
+          under-17: "Under 17"
+          17-18: "17 to 18"
+          19-23: "19 to 23"
+          24-or-over: "24 or over"
       ## Q6
       had_mb_licence_for_more_than_2_years_17_20?:
         title: Have you had your motorbike licence for more than 2 years?
@@ -119,8 +117,8 @@ en-GB:
       how_old_are_you_bus?:
         title: How old are you?
         options:
-          under-21: "Under 21"
-          21-or-above: "21 or above"
+          under-24: "Under 24"
+          24-or-above: "24 or above"
       ## Q23
       full_cat_b_licence_tractor?:
         title: Do you have a full car driving licence?
@@ -158,6 +156,9 @@ en-GB:
           under-16: "Under 16"
           16: "16"
           17-or-over: "17 and over"
+      ## Q30
+      full_cat_b_licence_trike?:
+        title: Do you already have a full category B car driving licence issued before 19 January 2013?
       ## A2
       not_old_enough:
         title: You’re not old enough to drive a car or light vehicle yet.
@@ -184,43 +185,137 @@ en-GB:
       ## A4
       entitled_for_provisional_licence:
         body: |
-          You can apply for a provisional licence to start learning to drive a car or light vehicle.
+          You can apply for a provisional licence to start learning to drive a car.
 
-          ^If you take your driving test in an automatic car you can only drive automatic cars and light vehicles.^
+          ^If you take your driving test in an automatic car you can only drive automatic cars.^
         next_steps: |
             [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence "Apply for your first provisional driving licence") 
       ## A5
-      entitled_for_any_motorcycle:
+      mb_not_old_enough:
         body: |
-          You can ride any size of motorbike.
+          You can’t start to learn to ride a motorbike until you’re 17.
 
-          Even if you passed your test on a light or medium-sized motorbike (category A1 or restricted category A), you can now ride any larger bikes as you’ve had your licence for more than 2 years.
+          You can apply for a provisional licence to ride a **moped** when you’re 16. 
 
-          %[The rules are changing from 19 January 2013](/ride-motorcycle-moped/new-rules-from-january-2013 "The rules are changing from 19 January 2013"). If you take your test after this date the new rules will apply to you.%
         next_steps: |
-          [Riding a motorcycle or moped](/ride-motorcycle-moped "Riding a motorcycle of moped")
-
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
+          [Riding a motorcycle or moped](https://www.gov.uk/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
+      
       ## A6
-      entitled_for_same_motorcycle:
+      mb_apply_provisional:
         body: |
-          You can ride the size of motorbike you passed your test on - this will be shown on your licence.
+          You can apply for a provisional licence for a small motorbike (category A1).
 
-          ^If you took the test on a medium-sized category A motorcycle, you’ll be able to ride any size of bike once you’ve had your full licence for 2 years.^
+          You’ll then need to compete compulsory basic training (CBT) and take the A1 theory and practical tests within 2 years to get a full A1 licence.
 
-          %[The rules are changing from 19 January 2013](/ride-motorcycle-moped/new-rules-from-january-2013 "The rules are changing from 19 January 2013"). If you take your test after this date the new rules will apply to you.%
+          Category A1 covers motorbikes not exceeding:
+          
+          - 125cc engine size
+          - 11kW power output
+          - 0.1kW/kg power to weight ratio
+
+          ##Existing licence holders
+          
+          You can ride the category of motorbike you’ve got on your licence.
+
+          If you want to ride larger motorbikes you need to follow the rules below.
+
+          ^The rules for motorbike driving licences changed in January 2013, but it doesn’t matter when you got your licence - if you want to ride a larger motorbike, the new rules will still apply to you.^ 
+
+          ##Riding larger motorbikes
+
+          If you want to ride larger bikes you’ve got 2 options.
+
+          ###Direct access
+          You can wait until you’re old enough to ride the kind of bike you want, then take the theory and practical tests for that type of bike.
+
+          You need to be 19 to ride medium-sized motorbikes (category A2) and 21 to ride large motorbikes (category A).
+
+          ###Staged access
+          First get a full licence for a category A1 small motorbike.
+
+          Once you’ve had 2 years experience on this licence you can take the practical test for an A2 medium-sized motorbike.
+
+          Once you’ve had a full A2 licence for 2 years you can take the practical test for category A large motorbikes.
+
+          ##Motorbike categories
+
+          ###Category A1 small motorbikes
+
+          These are motorbikes not exceeding:
+          
+          - 125cc engine size
+          - 11kW power output
+          - 0.1kW/kg power to weight ratio
+
+          ###Category A2 medium-sized motorbikes
+
+          These are motorbikes, with or without a sidecar not exceeding:
+          
+          - 35kW power output
+          - 0.2kW/kg power to weight ratio
+
+          They also can’t be derived from a vehicle of more than double its power.
+
+          ###Category A large motorbikes
+
+          These are bikes unlimited in size and power, with or without a sidecar.
+
         next_steps: |
           [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
 
+          [Book a practical driving test](/book-practical-driving-test "Book a practical driving test")
+
           [Driving licence categories](/driving-licence-categories "Driving licence categories")
+      
       ## A7
-      entitled_for_any_motorcycle_21:
+      mb_apply_provisional_a1_a2:
         body: |
-          The size of motorbike you can ride depends on the kind of bike you took your test on.
+          You can apply for a provisional licence for either a category A1 small motorbike or a category A2 medium-sized motorbike.
 
-          If you passed your test on a medium-sized category A motorbike you can now ride any size of motorbike.
+          You’ll then need to compete compulsory basic training (CBT) and take the theory and practical tests for the kind of motorbike you want to ride within 2 years.
 
-          If you passed your test on a category A1 light motorbike you can still only ride that type of bike. You’ll need to take a new test if you want to ride larger bikes.
+          ##Existing licence holders
+
+          If you’ve already got a motorbike licence you can ride the category of motorbike you’ve got on your licence.
+
+          If you want to ride larger motorbikes you need to follow the rules below.
+
+          ##Riding larger motorbikes
+
+          If you want to ride larger bikes (category A) you’ve got 2 options.
+
+          ###Direct access
+          You can wait until you’re 21 then take the theory and practical tests for that type of bike.
+
+          ###Staged access
+          First get a full licence for a category A2 medium-sized motorbike.
+
+          Once you’ve had 2 years experience on this licence you can take the practical test for a category A large motorbike.
+
+          ##Motorbike categories
+
+          ###Category A1 small motorbikes
+
+          These are motorbikes not exceeding:
+          
+          - 125cc engine size
+          - 11kW power output
+          - 0.1kW/kg power to weight ratio
+
+          ###Category A2 medium-sized motorbikes
+
+          These are motorbikes, with or without a sidecar not exceeding:
+          
+          - 35kW power output
+          - 0.2kW/kg power to weight ratio
+
+          They also can’t be derived from a vehicle of more than double its power.
+
+          ###Category A large motorbikes
+
+          These are bikes unlimited in size and power, with or without a sidecar.
+
+ 
         next_steps: |
           [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
           
@@ -228,103 +323,69 @@ en-GB:
 
           [Driving licence categories](/driving-licence-categories "Driving licence categories")
       ## A8
-      entitled_for_same_motorcycle_21:
+      mb_apply_provisional_any:
         body: |
+          You can apply for a provisional licence then learn to ride any size of motorbike.
+
+          You’ll then need to complete compulsory basic training (CBT) and take the theory and practical tests for the kind of motorbike you want to ride within 2 years.
+
+          You’ll need to pass the practical test on a bike with a power output of at least 35kW to ride any size of bike.
+
+          Alternatively you can take a test of a motorbike of between 120 and 125cc and capable of 100km/h. This will let you ride motorbikes up to 25kW with a power/weight ratio not more than 0.16kW/kg for 2 years. After this you can ride any size of bike.
+
+          ##Motorbike categories
+
+          ###Category A1 small motorbikes
+
+          These are motorbikes not exceeding:
+
+          - 125cc engine size
+          - 11kW power output
+          - 0.1kW/kg power to weight ratio
+
+          ###Category A2 medium-sized motorbikes
+
+          These are motorbikes, with or without a sidecar not exceeding:
+          
+          - 35kW power output
+          - 0.2kW/kg power to weight ratio
+
+          They also can’t be derived from a vehicle of more than double its power.
+
+          ###Category A large motorbikes
+
+          These are bikes unlimited in size and power, with or without a sidecar.
           You can ride the category of motorbike you took your test on. 
-
-          ##Accelerated access
-
-          If you took your test on a category A medium-sized motorbike you can ride any size of bike if you now take a practical test on a bike of at least 35kW. This is called **accelerated access**.
           
         next_steps: |          
           [Book a practical driving test](/book-practical-driving-test "Book a practical driving test")
 
           [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
 
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
-      ## A9
-      motorcycle_entitlement_over_22:
-        body: |
-          The size of motorbike you can ride depends on the kind of bike you took your test on.
-
-          If you passed your test on a medium-sized category A motorbike you can now ride any size of bike.
-
-          If you passed your test on a category A1 light motorbike you can only ride that type of bike. You’ll need to take a new test if you want to ride larger bikes.
-        next_steps: |
-          [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
+          You can ride the size of motorbike you passed your test on - this will be shown on your licence.
           
-          [Book a practical driving test](/book-practical-driving-test "Book a practical driving test")
-
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
-      ## A10
-      motorcycle_entitlement_no_licence_under_17:
-        body: |
-          You can’t start to learn to ride a motorbike until you’re 17.
-
-          You can apply for a provisional licence to ride a **moped** when you’re 16.
-
-          ^Mopeds have a maximum speed of 31mph and an engine size of up to 50cc.^
-        next_steps: |
-          [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
-      ## A11
-      motorcycle_entitlement_no_licence_17_20:
-        body: |
-          You can apply for a provisional licence for a light (category A1) or medium-sized (category A) motorbike. If you already have a category B car licence you’ll have these provisional entitlements on your licence already.
-
-          You’ll then need to complete compulsory basic training (CBT) and take a full motorbike test within 2 years.
-
-          ^If you take your test on a medium-sized category A motorbike, you’ll be able to ride any size of bike once you’ve had your full licence for 2 years.^
-
-          %[The rules are changing from 19 January 2013](/ride-motorcycle-moped/new-rules-from-january-2013 "The rules are changing from 19 January 2013"). If you take your test after this date the new rules will apply to you.%
-
-          ##Motorbike categories
-
-          Light motorbikes (category A1) have an engine size up to 125cc and a power output up to 11kW.
-
-          Medium-sized motorbikes (category A) have a power output up to 25kW and a power to weight ratio of up to 0.16kW/kg.
-
-          *[CBT]: Compulsory basic training
-
-        next_steps: |
-          [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
-
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
-      ## A12
-      motorcycle_entitlement_no_licence_21_and_over:
-        body: |
-          You can apply for a provisional licence then learn to ride any size of motorbike. If you already have a car licence (category B) you’ll automatically have provisional motorbike entitlement.
-
-          You’ll then need to complete compulsory basic training (CBT) and take a full motorbike test within 2 years.
-
-          ##Riding larger motorbikes
-
-          You’ll need to pass the practical test on a bike with a power output of at least 35kW to ride any size of bike.
-
-          Alternatively you can take a test of a motorbike of between 120 and 125cc and capable of 100km/h. This will let you ride motorbikes up to 25kW with a power/weight ratio not more than 0.16kW/kg for 2 years. After this you can ride any size of bike.
-        next_steps: |
-          [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
-          
-          [Book a practical driving test](/book-practical-driving-test "Book a practical driving test")
       ## A13
       moped_entitlement_licence_pre_2001:
         body: |
-          You can already ride a moped.
+          You can already ride a moped up to a maximum speed of 50km/h. This is shown as category P on your licence.
 
           You won’t need to take compulsory basic training (CBT) or a full practical test.
 
           ^Mopeds have a maximum speed of 31mph and an engine size of up to 50cc.^
 
           *[CBT]: Compulsory basic training
+
         next_steps: |
           [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
       ## A14
       moped_entitlement_licence_post_2001:
         body: |
-          You’ll already have provisional moped entitlement on your licence.
+          You’ll already have provisional category P moped entitlement on your licence. This covers mopeds with a maximum speed of 50km/h.
 
           You’ll still need to take compulsory basic training (CBT) and then take a moped test within 2 years of this.
 
           *[CBT]: Compulsory basic training
+
         next_steps: |
           [Compulsory basic training (CBT)](/cbt-compulsory-basic-training/overview "Compulsory basic training (CBT)")
           
@@ -342,11 +403,16 @@ en-GB:
       ## A16
       moped_apply_for_provisional:
         body: |
-          You can apply for a provisional moped licence and then take compulsory basic training (CBT) to start riding a moped.
+          You can apply for a provisional moped licence and then take compulsory basic training (CBT) to start riding category AM and category Q mopeds.
 
           You’ll then have to take a moped test within 2 years.
 
+          Category AM mopeds have a maximum speed over 25km/h and no more than 45km/h.
+
+          Category Q mopeds are 2 or 3-wheeled mopeds with a maximum speed of 25km/h.
+
           *[CBT]: Compulsory basic training
+
         next_steps: |
           [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence, "Apply for your first provisional driving licence")
           
@@ -500,9 +566,11 @@ en-GB:
 
           [Driving licence categories](/driving-licence-categories "Driving licence categories")
       ## A29
-      bus_exceptions_under_21:
+      bus_exceptions_under_24:
         body: |
-          You’ll normally have to wait until you’re 21 to drive a bus. 
+          If you’ve got a category D entitlement on your licence you can already drive a bus.
+
+          Otherwise, you’ll normally have to wait until you’re 24 to learn to drive one.
 
           ##Driving a bus at 18
 
@@ -651,37 +719,52 @@ en-GB:
       ## A44
       quad_entitled:
         body: |
-          You can drive quad bikes and trikes on the road and don’t need to take a special test.
+          You can drive quad bikes on the road and don’t need to take a special test.
 
         next_steps: |
           [Quad bikes - the rules](/quad-bikes-the-rules "Quad bikes - the rules")
       ## A45
       quad_not_old_enough:
         body: |
-          You can’t ride a quad bike or trike on the road.
+          You can’t ride a quad bike on the road.
 
           You can apply for provisional quad bike entitlement and take a test when you’re 17. This is 16 if you’re getting Disability Living Allowance (DLA) mobility component at the higher rate.
 
-          ^If you get a full car licence you’ll can ride quad bikes and trikes without taking another test.^
+          ^If you get a full car licence you’ll can ride quad bikes without taking another test.^
         next_steps: |
           [Quad bikes - the rules](/quad-bikes-the-rules "Quad bikes - the rules")
       ## A46
       quad_disability_conditional_entitlement:
         body: |
-          You can’t ride a quad bike or trike on the road unless you’re getting Disability Living Allowance (DLA) mobility component at the higher rate. If you’re getting this you can apply for provisional quad bike provisional entitlement and take a test.
+          You can’t ride a quad bike on the road unless you’re getting Disability Living Allowance (DLA) mobility component at the higher rate. If you’re getting this you can apply for provisional quad bike provisional entitlement and take a test.
 
           Otherwise, you can apply for provisional quad bike entitlement and take a test when you’re 17.
 
-          ^If you get a full car licence you’ll can ride quad bikes and trikes without taking another test.^
+          ^If you get a full car licence you’ll can ride quad bikes without taking another test.^
         next_steps: |
           [Quad bikes - the rules](/quad-bikes-the-rules "Quad bikes - the rules")
       ## A47
       quad_apply_for_provisional_entitlement:
         body: |
-          You can ride quad bikes or trikes on the road. You’ll need to apply for provisional quad bike entitlement then take a test.
+          You can ride quad bikes on the road. You’ll need to apply for provisional quad bike entitlement then take a test.
 
-          ^If you get a full car licence you’ll can ride quad bikes and trikes without taking another test.^
+          ^If you get a full car licence you’ll can ride quad bikes without taking another test.^
         next_steps: |
           [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence "Apply for your first provisional driving licence")
           
           [Quad bikes - the rules](/quad-bikes-the-rules "Quad bikes - the rules")
+
+      ## A48
+      trike_entitled:
+        body: |
+         You can already drive motor tricycles on the road and don’t need to take a special test.
+      
+      ## A49
+      trike_conditional_entitlement:
+        body: |
+         You’ll need a category A1 motorbike licence to ride motor tricycles up to power output 15kW, and a category A motorbike licence to ride trikes with a power output more for 15kW.
+
+          Go back to the start of this tool and choose the motorbike option to see how to get these licence entitlements.
+
+        next_steps: |
+          [Driving licence categories](/driving-licence-categories "Driving licence categories") 
