@@ -1,0 +1,690 @@
+afghanistan:
+    title: Afghanistan
+    group: IPS_groupuments_group_3
+albania:
+    title: Albania
+    group: IPS_groupuments_group_3
+algeria:
+    title: Algeria
+    group: IPS_groupuments_group_3
+american-samoa:
+    title: American Samoa
+    group: IPS_applications_group_1
+andorra:
+    title: Andorra
+    group: IPS_applications_group_1
+angola:
+    title: Angola
+    group: IPS_groupuments_group_3
+anguilla:
+    title: Anguilla
+    group: IPS_groupuments_group_2
+antigua-barbuda:
+    title: Antigua & Barbuda
+    group: IPS_groupuments_group_2
+argentina:
+    title: Argentina
+    group: IPS_applications_group_1
+armenia:
+    title: Armenia
+    group: IPS_groupuments_group_2
+aruba:
+    title: Aruba
+    group: IPS_applications_group_1
+australia:
+    title: Australia
+    group: IPS_applications_group_1
+austria:
+    title: Austria
+    group: IPS_applications_group_1
+azerbaijan:
+    title: Azerbaijan
+    group: IPS_groupuments_group_3
+bahamas:
+    title: Bahamas
+    group: IPS_groupuments_group_2
+bahrain:
+    title: Bahrain
+    group: IPS_applications_group_1
+bangladesh:
+    title: Bangladesh
+    group: IPS_groupuments_group_3
+barbados:
+    title: Barbados
+    group: IPS_groupuments_group_2
+belarus:
+    title: Belarus
+    group: IPS_groupuments_group_3
+belgium:
+    title: Belgium
+    group: IPS_applications_group_1
+belize:
+    title: Belize
+    group: IPS_groupuments_group_2
+benin:
+    title: Benin
+    group: IPS_groupuments_group_3
+bermuda:
+    title: Bermuda
+    group: IPS_groupuments_group_2
+bhutan:
+    title: Bhutan
+    group: IPS_applications_group_1
+bolivia:
+    title: Bolivia
+    group: IPS_groupuments_group_3
+bonaire:
+    title: Bonaire
+    group: IPS_applications_group_1
+bosnia-and-herzegovina:
+    title: Bosnia and Herzegovina
+    group: IPS_groupuments_group_2
+botswana:
+    title: Botswana
+    group: IPS_groupuments_group_2
+brazil:
+    title: Brazil
+    group: IPS_groupuments_group_2
+british-virgin-islands:
+    title: British Virgin Islands
+    group: IPS_groupuments_group_2
+brunei:
+    title: Brunei
+    group: IPS_applications_group_1
+bulgaria:
+    title: Bulgaria
+    group: IPS_groupuments_group_2
+burkina-faso:
+    title: Burkina Faso
+    group: IPS_groupuments_group_3
+burma-myanmar:
+    title: Burma(Myanmar)
+    group: IPS_groupuments_group_3
+burundi:
+    title: Burundi
+    group: IPS_groupuments_group_3
+cambodia:
+    title: Cambodia
+    group: IPS_groupuments_group_3
+cameroon:
+    title: Cameroon
+    group: IPS_groupuments_group_3
+canada:
+    title: Canada
+    group: IPS_applications_group_1
+cape-verde:
+    title: Cape Verde
+    group: IPS_groupuments_group_2
+cayman-islands:
+    title: Cayman Islands
+    group: IPS_groupuments_group_2
+central-african-republic:
+    title: Central African Republic
+    group: IPS_groupuments_group_3
+chad:
+    title: Chad
+    group: IPS_groupuments_group_3
+chile:
+    title: Chile
+    group: IPS_applications_group_1
+china:
+    title: China
+    group: IPS_groupuments_group_2
+christmas-islands:
+    title: Christmas Islands
+    group: IPS_applications_group_1
+colombia:
+    title: Colombia
+    group: IPS_groupuments_group_2
+comoros:
+    title: Comoros
+    group: IPS_groupuments_group_2
+congo-drc:
+    title: Congo (DRC)
+    group: IPS_groupuments_group_3
+congo(brazzaville):
+    title: Congo(Brazzaville)
+    group: IPS_groupuments_group_3
+cook-islands:
+    title: Cook Islands
+    group: IPS_applications_group_1
+costa-rica:
+    title: Costa Rica
+    group: IPS_applications_group_1
+croatia:
+    title: Croatia
+    group: IPS_applications_group_1
+cuba:
+    title: Cuba
+    group: IPS_groupuments_group_2
+curacao:
+    title: Curacao
+    group: IPS_applications_group_1
+cyprus-north:
+    title: Cyprus (North)
+    group: IPS_applications_group_1
+cyprus-south:
+    title: Cyprus (South)
+    group: IPS_applications_group_1
+czech-republic:
+    title: Czech Republic
+    group: IPS_applications_group_1
+denmark:
+    title: Denmark
+    group: IPS_applications_group_1
+djibouti:
+    title: Djibouti
+    group: IPS_groupuments_group_3
+dominica:
+    title: Dominica
+    group: IPS_groupuments_group_2
+dominican-republic:
+    title: Dominican Republic
+    group: IPS_groupuments_group_3
+dutch-antilles:
+    title: Dutch Antilles
+    group: IPS_applications_group_1
+east-timor:
+    title: East Timor
+    group: IPS_groupuments_group_3
+ecuador:
+    title: Ecuador
+    group: IPS_groupuments_group_3
+egypt:
+    title: Egypt
+    group: IPS_groupuments_group_3
+el-salvador:
+    title: El Salvador
+    group: IPS_groupuments_group_2
+equatorial-guinea:
+    title: Equatorial Guinea
+    group: IPS_groupuments_group_3
+eritrea:
+    title: Eritrea
+    group: IPS_groupuments_group_3
+estonia:
+    title: Estonia
+    group: IPS_applications_group_1
+ethiopia:
+    title: Ethiopia
+    group: IPS_groupuments_group_3
+fiji:
+    title: Fiji
+    group: IPS_groupuments_group_2
+finland:
+    title: Finland
+    group: IPS_applications_group_1
+france:
+    title: France
+    group: IPS_applications_group_1
+french-guiana:
+    title: French Guiana
+    group: IPS_applications_group_1
+french-polynesia:
+    title: French Polynesia
+    group: IPS_applications_group_1
+gabon:
+    title: Gabon
+    group: IPS_groupuments_group_3
+gambia:
+    title: Gambia
+    group: IPS_groupuments_group_3
+georgia:
+    title: Georgia
+    group: IPS_groupuments_group_2
+germany:
+    title: Germany
+    group: IPS_applications_group_1
+ghana:
+    title: Ghana
+    group: IPS_groupuments_group_3
+greece:
+    title: Greece
+    group: IPS_groupuments_group_2
+grenada:
+    title: Grenada
+    group: IPS_groupuments_group_2
+guadeloupe:
+    title: Guadeloupe
+    group: IPS_applications_group_1
+guatemala:
+    title: Guatemala
+    group: IPS_groupuments_group_2
+guinea:
+    title: Guinea
+    group: IPS_groupuments_group_3
+guinea-bissau:
+    title: Guinea Bissau
+    group: IPS_groupuments_group_3
+guyana:
+    title: Guyana
+    group: IPS_groupuments_group_3
+haiti:
+    title: Haiti
+    group: IPS_groupuments_group_3
+honduras:
+    title: Honduras
+    group: IPS_groupuments_group_2
+hungary:
+    title: Hungary
+    group: IPS_applications_group_1
+iceland:
+    title: Iceland
+    group: IPS_applications_group_1
+india:
+    title: India
+    group: IPS_groupuments_group_3
+indonesia:
+    title: Indonesia
+    group: IPS_groupuments_group_2
+iran:
+    title: Iran
+    group: IPS_groupuments_group_3
+iraq:
+    title: Iraq
+    group: IPS_groupuments_group_3
+ireland:
+    title: Ireland
+    group: IPS_applications_group_1
+israel:
+    title: Israel
+    group: IPS_applications_group_1
+israel-jerusalem-or-gaza:
+    title: Israel (Jerusalem or Gaza)
+    group: IPS_applications_group_1
+italy:
+    title: Italy
+    group: IPS_groupuments_group_2
+ivory-coast:
+    title: Ivory Coast
+    group: IPS_groupuments_group_3
+jamaica:
+    title: Jamaica
+    group: IPS_groupuments_group_3
+japan:
+    title: Japan
+    group: IPS_applications_group_1
+jordan:
+    title: Jordan
+    group: IPS_applications_group_1
+kazakhstan:
+    title: Kazakhstan
+    group: IPS_groupuments_group_3
+kenya:
+    title: Kenya
+    group: IPS_groupuments_group_3
+kiribati:
+    title: Kiribati
+    group: IPS_applications_group_1
+kosovo:
+    title: Kosovo
+    group: IPS_groupuments_group_3
+kuwait:
+    title: Kuwait
+    group: IPS_applications_group_1
+kyrgyzstan:
+    title: Kyrgyzstan
+    group: IPS_groupuments_group_3
+laos:
+    title: Laos
+    group: IPS_groupuments_group_3
+latvia:
+    title: Latvia
+    group: IPS_applications_group_1
+lebanon:
+    title: Lebanon
+    group: IPS_groupuments_group_3
+lesotho	:
+    title: Lesotho
+    group: IPS_groupuments_group_2
+liberia:
+    title: Liberia
+    group: IPS_groupuments_group_3
+libya:
+    title: Libya
+    group: IPS_groupuments_group_3
+lichtenstein:
+    title: Lichtenstein
+    group: IPS_applications_group_1
+lithuania:
+    title: Lithuania
+    group: IPS_applications_group_1
+luxembourg:
+    title: Luxembourg
+    group: IPS_applications_group_1
+macao:
+    title: Macao
+    group: IPS_applications_group_1
+macedonia:
+    title: Macedonia
+    group: IPS_groupuments_group_2
+madagascar:
+    title: Madagascar
+    group: IPS_groupuments_group_3
+malawi:
+    title: Malawi
+    group: IPS_groupuments_group_3
+malaysia:
+    title: Malaysia
+    group: IPS_applications_group_1
+maldives:
+    title: Maldives
+    group: IPS_groupuments_group_2
+mali:
+    title: Mali
+    group: IPS_groupuments_group_3
+malta:
+    title: Malta
+    group: IPS_applications_group_1
+marshall-islands:
+    title: Marshall Islands
+    group: IPS_applications_group_1
+martinique:
+    title: Martinique
+    group: IPS_applications_group_1
+mauritania:
+    title: Mauritania
+    group: IPS_groupuments_group_3
+mauritius:
+    title: Mauritius
+    group: IPS_groupuments_group_3
+mayotte:
+    title: Mayotte
+    group: IPS_applications_group_1
+mexico:
+    title: Mexico
+    group: IPS_groupuments_group_2
+micronesia:
+    title: Micronesia
+    group: IPS_applications_group_1
+moldova:
+    title: Moldova
+    group: IPS_groupuments_group_3
+monaco:
+    title: Monaco
+    group: IPS_applications_group_1
+mongolia:
+    title: Mongolia
+    group: IPS_groupuments_group_3
+montenegro:
+    title: Montenegro
+    group: IPS_groupuments_group_2
+montserrat:
+    title: Montserrat
+    group: IPS_groupuments_group_2
+morocco:
+    title: Morocco
+    group: IPS_groupuments_group_3
+mozambique:
+    title: Mozambique
+    group: IPS_groupuments_group_3
+namibia:
+    title: Namibia
+    group: IPS_groupuments_group_2
+nauru:
+    title: Nauru
+    group: IPS_applications_group_1
+nepal:
+    title: Nepal
+    group: IPS_groupuments_group_3
+netherlands:
+    title: Netherlands
+    group: IPS_applications_group_1
+new-caledonia:
+    title: New Caledonia
+    group: IPS_applications_group_1
+new-zealand:
+    title: New Zealand
+    group: IPS_applications_group_1
+nicaragua:
+    title: Nicaragua
+    group: IPS_groupuments_group_2
+niger:
+    title: Niger
+    group: IPS_groupuments_group_3
+nigeria:
+    title: Nigeria
+    group: IPS_groupuments_group_3
+niue:
+    title: Niue
+    group: IPS_applications_group_1
+norfolk-island:
+    title: Norfolk Island
+    group: IPS_applications_group_1
+north-korea:
+    title: North Korea
+    group: IPS_groupuments_group_3
+norway:
+    title: Norway
+    group: IPS_applications_group_1
+oman:
+    title: Oman
+    group: IPS_applications_group_1
+pakistan:
+    title: Pakistan
+    group: IPS_groupuments_group_3
+palau:
+    title: Palau
+    group: IPS_applications_group_1
+panama:
+    title: Panama
+    group: IPS_groupuments_group_2
+papua-new-guinea:
+    title: Papua New Guinea
+    group: IPS_groupuments_group_2
+paraguay:
+    title: Paraguay
+    group: IPS_groupuments_group_3
+peru:
+    title: Peru
+    group: IPS_groupuments_group_2
+philippines:
+    title: Philippines
+    group: IPS_groupuments_group_3
+pitcairn-islands:
+    title: Pitcairn Islands
+    group: IPS_applications_group_1
+poland:
+    title: Poland
+    group: IPS_applications_group_1
+portugal:
+    title: Portugal
+    group: IPS_applications_group_1
+qatar:
+    title: Qatar
+    group: IPS_applications_group_1
+reunion:
+    title: Reunion
+    group: IPS_applications_group_1
+romania:
+    title: Romania
+    group: IPS_groupuments_group_2
+russia:
+    title: Russia
+    group: IPS_groupuments_group_3
+rwanda:
+    title: Rwanda
+    group: IPS_groupuments_group_3
+saint-marten:
+    title: Saint Marten
+    group: IPS_applications_group_1
+samoa:
+    title: Samoa
+    group: IPS_applications_group_1
+san-marino:
+    title: San Marino
+    group: IPS_applications_group_1
+sao-tome-and-principe:
+    title: Sao Tome and Principe
+    group: IPS_groupuments_group_2
+sar-china:
+    title: SAR China
+    group: IPS_groupuments_group_2
+saudi-arabia:
+    title: Saudi Arabia
+    group: IPS_applications_group_1
+senegal:
+    title: Senegal
+    group: IPS_groupuments_group_3
+serbia:
+    title: Serbia
+    group: IPS_groupuments_group_2
+seychelles:
+    title: Seychelles
+    group: IPS_applications_group_1
+sierra-leone:
+    title: Sierra Leone
+    group: IPS_groupuments_group_3
+singapore:
+    title: Singapore
+    group: IPS_applications_group_1
+slovakia:
+    title: Slovakia
+    group: IPS_applications_group_1
+slovenia:
+    title: Slovenia
+    group: IPS_applications_group_1
+solomon-islands:
+    title: Solomon Islands
+    group: IPS_groupuments_group_2
+somalia:
+    title: Somalia
+    group: IPS_groupuments_group_3
+south-africa:
+    title: South Africa
+    group: IPS_groupuments_group_2
+south-korea:
+    title: South Korea
+    group: IPS_applications_group_1
+south-sudan:
+    title: South Sudan
+    group: IPS_groupuments_group_3
+spain:
+    title: Spain
+    group: IPS_applications_group_1
+sri-lanka:
+    title: Sri Lanka
+    group: IPS_groupuments_group_3
+st-barthelemy:
+    title: St Barthelemy
+    group: IPS_applications_group_1
+st-helena:
+    title: St Helena
+    group: IPS_applications_group_1
+st-kitts:
+    title: St Kitts
+    group: IPS_groupuments_group_2
+st-lucia:
+    title: St Lucia
+    group: IPS_groupuments_group_2
+st-pierre-miquelon:
+    title: St Pierre & Miquelon
+    group: IPS_applications_group_1
+st-vincent-grenadines:
+    title: St Vincent & Grenadines
+    group: IPS_groupuments_group_2
+sudan:
+    title: Sudan
+    group: IPS_groupuments_group_3
+suriname:
+    title: Suriname
+    group: IPS_groupuments_group_2
+swaziland:
+    title: Swaziland
+    group: IPS_groupuments_group_2
+sweden:
+    title: Sweden
+    group: IPS_applications_group_1
+switzerland:
+    title: Switzerland
+    group: IPS_applications_group_1
+syria:
+    title: Syria
+    group: IPS_groupuments_group_3
+taiwan:
+    title: Taiwan
+    group: IPS_applications_group_1
+tajikistan:
+    title: Tajikistan
+    group: IPS_groupuments_group_3
+tanzania:
+    title: Tanzania
+    group: IPS_groupuments_group_3
+thailand:
+    title: Thailand
+    group: IPS_groupuments_group_2
+togo:
+    title: Togo
+    group: IPS_groupuments_group_3
+tokelau:
+    title: Tokelau
+    group: IPS_applications_group_1
+tonga:
+    title: Tonga
+    group: IPS_applications_group_1
+trinidad-tobago:
+    title: Trinidad & Tobago
+    group: IPS_groupuments_group_3
+tristan-da-cunha:
+    title: Tristan da Cunha
+    group: IPS_applications_group_1
+tunisia:
+    title: Tunisia
+    group: IPS_groupuments_group_2
+turkey:
+    title: Turkey
+    group: IPS_groupuments_group_2
+turkmenistan:
+    title: Turkmenistan
+    group: IPS_groupuments_group_3
+turks-and-caicos:
+    title: Turks and Caicos
+    group: IPS_groupuments_group_2
+tuvalu:
+    title: Tuvalu
+    group: IPS_applications_group_1
+uae:
+    title: UAE
+    group: IPS_applications_group_1
+uganda:
+    title: Uganda
+    group: IPS_groupuments_group_3
+ukraine:
+    title: Ukraine
+    group: IPS_groupuments_group_3
+uruguay:
+    title: Uruguay
+    group: IPS_applications_group_1
+usa:
+    title: USA
+    group: IPS_applications_group_1
+uzbekistan:
+    title: Uzbekistan
+    group: IPS_groupuments_group_3
+vanuatu:
+    title: Vanuatu
+    group: IPS_groupuments_group_2
+vatican:
+    title: Vatican
+    group: IPS_applications_group_1
+venezuela:
+    title: Venezuela
+    group: IPS_groupuments_group_3
+vietnam:
+    title: Vietnam
+    group: IPS_groupuments_group_3
+wallis-fortuna:
+    title: Wallis & Fortuna
+    group: IPS_applications_group_1
+western-sahara:
+    title: Western Sahara
+    group: IPS_groupuments_group_3
+yemen:
+    title: Yemen
+    group: IPS_groupuments_group_3
+zambia:
+    title: Zambia
+    group: IPS_groupuments_group_3
+zimbabwe:
+    title: Zimbabwe
+    group: IPS_groupuments_group_3
