@@ -4,7 +4,7 @@ status :published
 ## Q1
 multiple_choice :what_type_of_vehicle? do
   option "car-or-light-vehicle" => :how_old_are_you? #Q3
-  option :motorcycle => :do_you_have_a_full_motorcycle_licence? #Q4
+  option :motorcycle => :how_old_are_you_mb? #Q4
   option :moped => :do_you_have_a_full_driving_licence? #Q9
   option "medium-sized-vehicle" => :do_you_have_a_full_cat_b_driving_licence? #Q12
   option "large-vehicle-or-lorry" => :how_old_are_you_lorry? #Q15
@@ -13,6 +13,7 @@ multiple_choice :what_type_of_vehicle? do
   option :tractor => :full_cat_b_licence_tractor? #Q23
   option "specialist-vehicle" => :full_cat_b_licence_sv? #Q25
   option "quad-bike" => :full_cat_b_licence_quad? #Q28
+  option "trike" => :full_cat_b_licence_trike? # Q30
 end
 
 ## Cars, Light Vehicles
@@ -28,35 +29,11 @@ end
 ## Motorcycles
 ##
 ## Q4
-multiple_choice :do_you_have_a_full_motorcycle_licence? do
-  option :yes => :how_old_are_you_mb? #Q5
-  option :no => :how_old_are_you_mb_no_licence? #Q8
-end
-
-## Q5
 multiple_choice :how_old_are_you_mb? do
-  option "17-20" => :had_mb_licence_for_more_than_2_years_17_20? #Q6
-  option "21" => :had_mb_licence_for_more_2_years_21? #Q7
-  option "22-or-over" => :motorcycle_entitlement_over_22 #A9
-end
-
-## Q6
-multiple_choice :had_mb_licence_for_more_than_2_years_17_20? do
-  option :yes => :entitled_for_any_motorcycle #A5
-  option :no => :entitled_for_same_motorcycle #A6
-end
-
-## Q7
-multiple_choice :had_mb_licence_for_more_2_years_21? do
-  option :yes => :entitled_for_any_motorcycle_21 # A7
-  option :no => :entitled_for_same_motorcycle_21 # A8
-end
-
-## Q8
-multiple_choice :how_old_are_you_mb_no_licence? do
-  option "under-17" => :motorcycle_entitlement_no_licence_under_17 # A10
-  option "17-20" => :motorcycle_entitlement_no_licence_17_20 # A11
-  option "21-or-over" => :motorcycle_entitlement_no_licence_21_and_over # A12
+  option "under-17" => :mb_not_old_enough # A5
+  option "17-18" => :mb_apply_provisional # A6
+  option "19-23" => :mb_apply_provisional_a1_a2 #A7
+  option "24-or-over" => :mb_apply_provisional_any #A9
 end
 
 ## Mopeds
@@ -146,8 +123,8 @@ end
 
 ## Q22
 multiple_choice :how_old_are_you_bus? do
-  option "under-21" => :bus_exceptions_under_21 # A29
-  option "21-or-above" => :bus_apply_for_cat_d # A32 
+  option "under-24" => :bus_exceptions_under_24 # A29
+  option "24-or-above" => :bus_apply_for_cat_d # A32 
 end
 
 ## Tractor
@@ -200,13 +177,19 @@ multiple_choice :how_old_are_you_quad? do
   option "17-or-over" => :quad_apply_for_provisional_entitlement # A47
 end
 
+## Q30
+multiple_choice :full_cat_b_licence_trike? do
+  option :yes => :trike_entitled
+  option :no => :trike_conditional_entitlement
+end
+
 outcome :not_old_enough # A2
 outcome :mobility_rate_clause # A3
 outcome :entitled_for_provisional_licence # A4
-outcome :entitled_for_any_motorcycle # A5
-outcome :entitled_for_same_motorcycle # A6
-outcome :entitled_for_any_motorcycle_21 # A7
-outcome :entitled_for_same_motorcycle_21 # A8
+outcome :mb_not_old_enough # A5
+outcome :mb_apply_provisional # A6
+outcome :mb_apply_provisional_a1_a2 # A7
+outcome :mb_apply_provisional_any # A8
 outcome :motorcycle_entitlement_over_22 # A9
 outcome :motorcycle_entitlement_no_licence_under_17 # A10
 outcome :motorcycle_entitlement_no_licence_17_20 # A11
@@ -226,7 +209,7 @@ outcome :cat_b_driving_licence_required # A25
 outcome :psv_entitled # A26
 outcome :psv_conditional_entitlement # A27
 outcome :psv_limited_entitlement # A28
-outcome :bus_exceptions_under_21 # A29
+outcome :bus_exceptions_under_24 # A29
 outcome :bus_apply_for_cat_d # A32
 outcome :bus_apply_for_cat_b # A33
 outcome :tractor_entitled # A34
@@ -243,3 +226,5 @@ outcome :quad_entitled # A44
 outcome :quad_not_old_enough # A45
 outcome :quad_disability_conditional_entitlement # A46
 outcome :quad_apply_for_provisional_entitlement # A47
+outcome :trike_entitled # A48
+outcome :trike_conditional_entitlement # A49
