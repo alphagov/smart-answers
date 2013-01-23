@@ -78,7 +78,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         context "answer working tax credit with no disabilities or children" do
           should "give benefits result with specific eligibilities" do
             add_response 'working_tax_credit'
-            add_response 'none_of_these'
+            add_response 'none'
             assert_current_node :on_benefits_no_disability_or_children
             assert_phrase_list :eligibilities, [:energy_company_obligation]
           end
@@ -188,7 +188,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
 
         context "none of these" do
           should "give the no benefits result" do
-            add_response 'none_of_these'
+            add_response 'none'
             assert_current_node :no_benefits
             assert_phrase_list :eligibilities, [:green_deal]
           end
@@ -312,6 +312,16 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         assert_phrase_list :eligibilities, [:green_deal, :renewable_heat_premium, :feed_in_tariffs]
       end
     end # homeowner, generate own energy
+
+    context "answer home owner, benefits, generate own energy, esa" do
+      should "calculate eligibilities" do
+        add_response "property,benefits,own_energy"
+        add_response "1971-01-01"
+        add_response "esa"
+        assert_current_node :on_benefits_no_disability_or_children
+        assert_phrase_list :eligibilities, [:renewable_heat_premium, :feed_in_tariffs, :cold_weather_payment, :energy_company_obligation]
+      end
+    end # homeowner, benefits, own energy, on benefits (ESA), no disabilities or children
 
     context "answer renting, generate own energy" do
       should "calculate eligibilities" do
