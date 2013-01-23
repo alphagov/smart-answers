@@ -10,6 +10,8 @@ en-GB:
         - which benefits you’re on if any
       meta:
         description: Financial help with heating costs, insulation, boilers, money for heating costs
+      options:
+        none: "None apply"
       phrases:
         winter_fuel_payments: |
           - [Winter Fuel Payments](/winter-fuel-payment/eligibility "Winter Fuel Payments") - between £100 and £300 towards your heating bills
