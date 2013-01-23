@@ -22,7 +22,7 @@ date_question :dob? do
     dob = Date.parse(responses.last)
     if dob < Date.new(1951,7,5)
       :winter_fuel_payment
-    elsif dob < 60.years.ago(Date.today)
+    elsif dob < 60.years.ago(Date.today + 1)
       :over_60
     end
   end
