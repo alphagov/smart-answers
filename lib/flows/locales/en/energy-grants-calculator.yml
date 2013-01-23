@@ -10,6 +10,8 @@ en-GB:
         - which benefits you’re on if any
       meta:
         description: Financial help with heating costs, insulation, boilers, money for heating costs
+      options:
+        none: "None apply"
       phrases:
         winter_fuel_payments: |
           - [Winter Fuel Payments](/winter-fuel-payment/eligibility "Winter Fuel Payments") - between £100 and £300 towards your heating bills
@@ -28,17 +30,17 @@ en-GB:
       
       what_are_your_circumstances?:
         title: What are your circumstances?
-        hint: Choose all that apply to you.
+        hint: Choose all that apply to you. If none apply just click ‘Next step’.
         options:
           benefits: You’re getting benefits.
-          property: You own your own property.
-          permission: You rent privately but have permission from the owner.
+          property: You own your property.
+          permission: You rent privately but have permission from the owner to install or upgrade the boiler.
           own_energy: You generate your own energy.
       dob?:
         title: What's your date of birth?
       which_benefits?:
         title: Which of these benefits do you get?
-        hint: Choose all that apply to you.
+        hint: Choose all that apply to you. If none apply just click ‘Next step’.
         options:
           pension_credit: Pension Credit
           income_support: Income Support
@@ -46,16 +48,14 @@ en-GB:
           esa: Income-related Employment and Support Allowance (ESA)
           child_tax_credit: Child Tax Credit - only if your income is £15,860 or less
           working_tax_credit: Working Tax Credit- only if your income is £15,860 or less
-          none_of_these: None of these
       disabled_or_have_children?:
         title: Are you disabled, or do you have children?
-        hint: Choose all that apply to you.
+        hint: Choose all that apply to you. If none apply just click ‘Next step’.
         options:
           disabled: You’re disabled.
           disabled_child: You have a disabled child.
           child_under_5: You have a child under 5.
           child_under_16: You have a child under 16 or under 20 if in full-time education.
-          none_of_these: None of these.
       no_benefits:
         body: |
           $!Based on your answers you might be eligible for these energy grants.$!
