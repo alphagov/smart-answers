@@ -219,4 +219,29 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
       
     end
   end # Azerbaijan - IPS_application_3
+
+  # Andorra (an example of FCO application)
+  context "answer Andorra" do
+    setup do
+      add_response 'andorra'
+    end
+    should "ask if you are renewing, replacing or applying for a passport" do
+      assert_current_node :renewing_replacing_applying?
+      assert_state_variable :current_location, 'andorra'
+    end
+    context "answer applying" do
+      setup do
+        add_response 'applying'
+      end
+      should "ask if the passport is for an adult or a child" do
+        assert_current_node :child_or_adult_passport?
+      end
+      context "answer adult" do
+        should "give the FCO result and be done" do
+          add_response 'adult'
+          assert_current_node :fco_result
+        end
+      end
+    end
+  end
 end
