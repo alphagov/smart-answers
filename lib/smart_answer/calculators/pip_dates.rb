@@ -18,6 +18,10 @@ module SmartAnswer::Calculators
       @postcode = pc
     end
 
+    def valid_postcode?
+      @postcode.full?
+    end
+
     def in_selected_area?
       if %w(BL CA CW DH FY L M NE PR SR WA WN).include?(@postcode.area)
         true

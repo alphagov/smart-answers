@@ -13,9 +13,21 @@ class PIPDateCheckerTest < ActiveSupport::TestCase
     assert_current_node :what_is_your_post_code?
   end
 
+  should "error with an invalid postcode" do
+    add_response 'ABCDEF'
+    assert_current_node :what_is_your_post_code?
+    assert_current_node_is_error
+  end
+
+  should "error with a partial postcode" do
+    add_response 'WC1'
+    assert_current_node :what_is_your_post_code?
+    assert_current_node_is_error
+  end
+
   context "with a postcode in the selected area" do
     setup do
-      add_response 'CH4'
+      add_response 'CH4 0TH'
     end
 
     should "ask if you're getting DLA" do
@@ -90,7 +102,7 @@ class PIPDateCheckerTest < ActiveSupport::TestCase
 
   context "with a postcode outside the selected area" do
     setup do
-      add_response 'CH5'
+      add_response 'CH5 7AB'
     end
 
     should "ask if you're getting DLA" do

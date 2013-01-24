@@ -4,7 +4,9 @@ status :draft
 value_question :what_is_your_post_code? do
 
   calculate :calculator do
-    Calculators::PIPDates.new(responses.last)
+    calc = Calculators::PIPDates.new(responses.last)
+    raise SmartAnswer::InvalidResponse unless calc.valid_postcode?
+    calc
   end
   calculate :in_selected_area do
     calculator.in_selected_area?
