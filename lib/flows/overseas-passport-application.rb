@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + "/../data/passport_data_query" # TODO: More elegant way of doing this? 
+require Rails.root.join("lib/data/passport_data_query")
 
 status :draft
 
