@@ -84,18 +84,12 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
         add_response 'renewing_new'
         add_response 'adult'
       end
-      should "ask if you are replacing an blue or black passport" do
-        assert_current_node :replacing_old_passport?
+      should "ask which best describes you" do
+        assert_current_node :which_best_describes_you?
       end
-      context "answer yes" do
-        should "ask which best describes you" do
-          add_response 'yes'
-          assert_current_node :which_best_describes_you?
-        end
-      end
-      context "answer no" do
+      context "answer born in the UK before 1 Dec 1983" do
         should "should give the australian results and be done" do
-          add_response 'no'
+          add_response 'born-in-uk-pre-1983'
           assert_current_node :australian_result
         end
       end
@@ -183,4 +177,16 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
       assert_state_variable :application_type, 'IPS_application_2'
     end
   end # Albania - IPS_application_2
+
+  # Ajerbaijan (an example of IPS application 3).
+  context "answer Azerbaijan" do
+    setup do
+      add_response 'azerbaijan'
+    end
+    should "ask if you are renewing, replacing or applying for a passport" do
+      assert_current_node :renewing_replacing_applying?
+      assert_state_variable :current_location, 'azerbaijan'
+      assert_state_variable :application_type, 'IPS_application_3'
+    end
+  end # Azerbaijan - IPS_application_3
 end

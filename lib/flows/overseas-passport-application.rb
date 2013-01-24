@@ -38,7 +38,7 @@ multiple_choice :child_or_adult_passport? do
 
   next_node do |response|
     if ['australia', 'new-zealand'].include?(current_location)
-      application_action == 'applying' ? :which_best_describes_you? : :replacing_old_passport?
+      :which_best_describes_you?
     elsif ['IPS_application_1', 'IPS_application_2', 'IPS_application_3'].include?(application_type) and
       application_action == 'applying'
         :country_of_birth?
@@ -56,13 +56,15 @@ country_select :country_of_birth? do
 end
 
 # QAUS1
-multiple_choice :replacing_old_passport? do
-  option :yes => :which_best_describes_you?
-  option :no => :australian_result
-end
-
-# QAUS2
 multiple_choice :which_best_describes_you? do
+  option "born-in-uk-pre-1983"
+  option "born-in-uk-post-dec-1982-father"
+  option "born-in-uk-post-dec-1982-mother"
+  option "born-outside-uk-parents-married"
+
+  save_input_as :aus_checklist_variant
+
+  next_node :australian_result
 end
 
 outcome :result

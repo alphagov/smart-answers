@@ -342,7 +342,7 @@ poland:
   :type: IPS_application_1
   :group: IPS_applications_group_1
 azerbaijan: 
-  :type: IPS_application_1
+  :type: IPS_application_3
   :group: IPS_documents_group_3
 french-polynesia: 
   :type: Wellington_New_Zealand
