@@ -130,7 +130,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
     should "ask if you are renewing, replacing or applying for a passport" do
       assert_current_node :renewing_replacing_applying?
       assert_state_variable :current_location, 'austria'
-      assert_state_variable :application_type, 'IPS_application_1'
+      assert_state_variable :application_type, 'ips_application_1'
     end
     context "answer applying" do
       setup do
@@ -160,7 +160,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
       context "answer adult" do
         should "give the result and be done" do
           add_response 'adult'
-          assert_current_node :result
+          assert_current_node :ips_application_1
         end
       end
     end # Replacing
@@ -174,8 +174,30 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
     should "ask if you are renewing, replacing or applying for a passport" do
       assert_current_node :renewing_replacing_applying?
       assert_state_variable :current_location, 'albania'
-      assert_state_variable :application_type, 'IPS_application_2'
+      assert_state_variable :application_type, 'ips_application_2'
     end
+    context "answer applying" do
+      setup do
+        add_response 'applying'
+      end
+      should "ask if the passport is for an adult or a child" do
+        assert_current_node :child_or_adult_passport?
+      end
+      context "answer adult" do
+        setup do
+          add_response 'adult'
+        end
+        should "ask which country you were born in" do
+          assert_current_node :country_of_birth?
+        end
+        context "answer Spain" do
+          should "give the application result" do
+            add_response "spain"
+            assert_current_node :ips_application_2
+          end
+        end
+      end
+    end # Applying
   end # Albania - IPS_application_2
 
   # Ajerbaijan (an example of IPS application 3).
@@ -186,7 +208,15 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
     should "ask if you are renewing, replacing or applying for a passport" do
       assert_current_node :renewing_replacing_applying?
       assert_state_variable :current_location, 'azerbaijan'
-      assert_state_variable :application_type, 'IPS_application_3'
+      assert_state_variable :application_type, 'ips_application_3'
+    end
+    context "answer applying" do
+      setup do
+        add_response 'applying'
+      end
+    end # Applying
+    context "renewing old" do
+      
     end
   end # Azerbaijan - IPS_application_3
 end

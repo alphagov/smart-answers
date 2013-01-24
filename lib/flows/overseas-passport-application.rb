@@ -14,6 +14,14 @@ country_select :which_country_are_you_in? do
     passport_data[:type]
   end
 
+  calculate :application_suffix do
+    if application_type =~ /^IPS_application_\d$/
+      application_type.split('_').slice(1,2).join('_')
+    else
+      nil
+    end
+  end
+
   next_node :renewing_replacing_applying?
 end
 
@@ -37,11 +45,11 @@ multiple_choice :child_or_adult_passport? do
   save_input_as :child_or_adult
 
   next_node do |response|
-    if ['australia', 'new-zealand'].include?(current_location)
+    case application_type
+    when 'Australia_Post', 'New_Zealand'
       :which_best_describes_you?
-    elsif ['IPS_application_1', 'IPS_application_2', 'IPS_application_3'].include?(application_type) and
-      application_action == 'applying'
-        :country_of_birth?
+    when /^ips_application_\d$/
+      application_action == 'applying' ? :country_of_birth? : application_type.to_sym
     else
       :result
     end
@@ -52,7 +60,17 @@ end
 country_select :country_of_birth? do
   save_input_as :birth_location
 
-  next_node :result
+  calculate :application_group do
+    PassportDataQuery.find(responses.last)[:group]
+  end
+
+  next_node do |response|
+    if application_type =~ /^ips_application_\d$/
+      application_type.to_sym
+    else
+      :result # TODO: lots of bespoke outcomes
+    end
+  end
 end
 
 # QAUS1
@@ -68,4 +86,7 @@ multiple_choice :which_best_describes_you? do
 end
 
 outcome :result
+outcome :ips_application_1
+outcome :ips_application_2
+outcome :ips_application_3
 outcome :australian_result
