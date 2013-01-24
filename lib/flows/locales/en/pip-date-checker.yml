@@ -1,0 +1,87 @@
+en-GB:
+  flow:
+    pip-date-checker:
+      title:
+        Check your Personal Independence Payment (PIP) start date
+      body: |
+        Check when you'll switch from Disability Living Allowance (DLA) to Personal Independence Payment (PIP)
+
+        **What you need to know:**
+
+        * the date when your DLA ends if you already get it
+      meta:
+        description:
+          Check when you’ll switch from Disability Living Allowance (DLA) to Personal Independence Payment (PIP)
+      options:
+        "no": "No"
+        "yes": "Yes"
+
+      ## Q1
+      what_is_your_post_code?:
+        error_message: "Please enter a full UK postcode."
+
+      ## Q2
+      are_you_getting_dla?:
+        title: "Are you getting Disability Living Allowance?"
+
+      ## Q3
+      when_does_your_dla_end?:
+        title: "When does your Disability Living Allowance end?"
+
+      ## Q4
+      what_is_your_dob?:
+        title: "What's your date of birth?"
+
+      result_1:
+        body: |
+          $!You can apply for Disability Living Allowance until 8 April, after that you have to apply for Personal Independence Payment (PIP).$!
+
+          You need to [qualify for PIP](/pip "Personal Independence Allowance") to apply. 
+
+      result_2:
+        body: |
+          $!You can apply for Disability Living Allowance until 10 June.$!
+
+          After 10 June you'll have to apply for Personal Independence Allowance.
+
+          [If your circumstances change](/dla-disability-living-allowance-benefit/what-youll-get "If your circumstances change") after 7 October you'll switch to PIP.
+
+          When you phone the Disability Benefits Helpline they'll explain what you need to do.
+
+      result_3:
+        body: |
+          $!Nothing is changing for you.$!
+
+          You'll continue to get [Disability Living Allowance](/dla-disability-living-allowance-benefit "Disability Living Allowance") as long as you're eligible.
+
+      result_4:
+        body: |
+          $!You don’t have to do anything unless your circumstances change.$!
+
+          ##Your health condition or disability doesn't change
+          You'll continue to get [Disability Living Allowance](/dla-disability-living-allowance-benefit "Disability Living Allowance") until 2015.
+
+          You don't have to do anything. DWP will send you a letter telling you how you'll be moved to Personal Living Allowance.
+
+          ##There is a change in your health condition or disability
+          You don't have to do anything until October 2013. After that you need to [contact the Benefit Enquiry line](/benefit-enquiry-line "Benefit Enquiry line") and tell them how your circumstances have changed.
+
+          They'll then explain to you how you'll be moved to the Personal Living Allowance. 
+
+      result_5:
+        body: |
+          $!You'll switch to Personal Living Allowance (PIP).$!
+
+          DWP will write to you before your Disability Living Allowance ends and tell you how to claim PIP.
+
+          [Contact the Benefit Enquiry line](/benefit-enquiry-line "Benefit Enquiry line") if you have any questions.
+
+      result_6:
+        body: |
+          $!You don't have to do anything until the child turns 16.$!
+
+          After the child's 16th birthday you’ll have to apply for Personal Independence Allowance.
+
+          DWP will write to you before this date and explain how to apply and what will happen to your Disability Living Allowance.
+
+          [Contact the Benefit Enquiry line](/benefit-enquiry-line "Benefit Enquiry line") if you have any questions. 

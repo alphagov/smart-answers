@@ -30,6 +30,8 @@ else
   gem 'govspeak', '~> 0.8.15'
 end
 
+gem 'uk_postcode', '1.0.0'
+
 group :test do
   gem 'capybara', '~> 1.1.2'
   gem 'ci_reporter'
