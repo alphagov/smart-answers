@@ -81,7 +81,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
     end # Applying
     context "answer renewing adult passport" do
       setup do
-        add_response 'renewing'
+        add_response 'renewing_new'
         add_response 'adult'
       end
       should "ask if you are replacing an blue or black passport" do

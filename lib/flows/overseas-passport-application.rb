@@ -19,7 +19,8 @@ end
 
 # Q2
 multiple_choice :renewing_replacing_applying? do
-  option :renewing
+  option :renewing_new
+  option :renewing_old
   option :applying
   option :replacing
 
