@@ -13,7 +13,7 @@ $(document).ready(function() {
     $(formSelector).live('submit', function(event) {
       $('input[type=submit]', this).attr('disabled', 'disabled');
       var form = $(this);
-      var postData = form.serializeArray().concat({name: "next", value: "1"});
+      var postData = form.serializeArray();
       reloadQuestions(form.attr('action'), postData);
       event.preventDefault();
       return false;
