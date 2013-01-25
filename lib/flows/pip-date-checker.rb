@@ -46,7 +46,7 @@ end
 
 ## Q4
 date_question :what_is_your_dob? do
-  from { Date.today - 120.years }
+  from { Date.today - 100.years }
   to { Date.today }
   next_node do |response|
     calculator.dob = Date.parse(response)
