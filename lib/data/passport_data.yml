@@ -10,16 +10,16 @@ nigeria:
   :group: ips_documents_group_3
 new-zealand: 
   :type: New_Zealand
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 mongolia: 
   :type: Hong_Kong
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 belize: 
   :type: Washington_USA
   :group: ips_documents_group_2
 andorra: 
   :type: Madrid_Spain
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 grenada: 
   :type: Washington_USA
   :group: ips_documents_group_2
@@ -31,10 +31,10 @@ cambodia:
   :group: ips_documents_group_3
 macao: 
   :type: Hong_Kong
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 uruguay: 
   :type: Washington_USA
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 philippines: 
   :type: Philippines
   :group: ips_documents_group_2
@@ -46,7 +46,7 @@ afghanistan:
   :group: ips_documents_group_3
 costa-rica: 
   :type: Washington_USA
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 egypt: 
   :type: Paris_France
   :group: ips_documents_group_3
@@ -58,10 +58,10 @@ benin:
   :group: ips_documents_group_3
 st-vincent-and-the-grenadines: 
   :type: Washington_USA
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 panama: 
   :type: Washington_USA
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 madagascar: 
   :type: Pretoria_South_Africa
   :group: ips_documents_group_2
@@ -85,22 +85,22 @@ cameroon:
   :group: ips_documents_group_3
 germany: 
   :type: ips_application_1
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 chad: 
   :type: Pretoria_South_Africa
   :group: ips_documents_group_3
 curacao: 
   :type: Washington_USA
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 lesotho: 
   :type: Pretoria_South_Africa
   :group: ips_documents_group_3
 slovakia: 
   :type: ips_application_1
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 mauritania: 
   :type: Mauritania
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 latvia: 
   :type: ips_application_1
   :group: ips_documents_group_3
@@ -109,13 +109,13 @@ dominican-republic:
   :group: ips_documents_group_3
 lebanon: 
   :type: Lebanon
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 turks-and-caicos-islands: 
   :type: Washington_USA
   :group: ips_documents_group_2
 reunion: 
   :type: Pretoria_South_Africa
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 indonesia: 
   :type: Hong_Kong
   :group: ips_documents_group_2
@@ -127,16 +127,16 @@ sudan:
   :group: ips_documents_group_2
 south-sudan: 
   :type: Pretoria_South_Africa
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 qatar: 
   :type: ips_application_1
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 montserrat: 
   :type: Washington_USA
   :group: ips_documents_group_2
 belgium: 
   :type: Paris_France
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 tonga: 
   :type: Togo
   :group: ips_documents_group_3
@@ -163,7 +163,7 @@ zambia:
   :group: ips_documents_group_3
 st-helena: 
   :type: Washington_USA
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 laos: 
   :type: Hong_Kong
   :group: ips_documents_group_3
@@ -190,13 +190,13 @@ india:
   :group: ips_documents_group_3
 solomon-islands: 
   :type: Wellington_New_Zealand
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 bonaire-st-eustatius-saba: 
   :type: Washington_USA
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 ukraine: 
   :type: Wellington_New_Zealand
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 palau: 
   :type: Hong_Kong
   :group: ips_documents_group_3
@@ -217,19 +217,19 @@ spain:
   :group: ips_documents_group_3
 oman: 
   :type: ips_application_1
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 morocco: 
   :type: Morocco
   :group: ips_documents_group_2
 french-guiana: 
   :type: Washington_USA
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 iran: 
   :type: ips_application_1
   :group: ips_documents_group_3
 finland: 
   :type: ips_application_1
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 greece: 
   :type: Madrid_Spain
   :group: ips_documents_group_2
@@ -238,10 +238,10 @@ somalia:
   :group: ips_documents_group_2
 mexico: 
   :type: Washington_USA
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 maldives: 
   :type: Hong_Kong
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 malawi: 
   :type: Pretoria_South_Africa
   :group: ips_documents_group_3
@@ -259,22 +259,22 @@ micronesia:
   :group: ips_documents_group_2
 iceland: 
   :type: ips_application_1
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 anguilla: 
   :type: Washington_USA
   :group: ips_documents_group_2
 austria: 
   :type: ips_application_1
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 brunei: 
   :type: Hong_Kong
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 british-virgin-islands: 
   :type: Washington_USA
   :group: ips_documents_group_2
 aruba: 
   :type: Washington_USA
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 brazil: 
   :type: Washington_USA
   :group: ips_documents_group_2
@@ -283,7 +283,7 @@ haiti:
   :group: ips_documents_group_3
 st-kitts-and-nevis: 
   :type: Washington_USA
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 equatorial-guinea: 
   :type: Pretoria_South_Africa
   :group: ips_documents_group_3
@@ -292,10 +292,10 @@ eritrea:
   :group: ips_documents_group_3
 croatia: 
   :type: ips_application_1
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 tajikistan: 
   :type: ips_application_2
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 serbia: 
   :type: ips_application_1
   :group: ips_documents_group_3
@@ -304,10 +304,10 @@ mozambique:
   :group: ips_documents_group_3
 moldova: 
   :type: ips_application_1
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 martinique: 
   :type: Washington_USA
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 cote-d_ivoire-(ivory-coast): 
   :type: Ghana
   :group: ips_documents_group_2
@@ -316,7 +316,7 @@ burundi:
   :group: ips_documents_group_3
 kazakhstan: 
   :type: ips_application_2
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 south-africa: 
   :type: Pretoria_South_Africa
   :group: ips_documents_group_3
@@ -325,7 +325,7 @@ mayotte:
   :group: ips_documents_group_3
 kyrgyzstan: 
   :type: ips_application_1
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 cape-verde: 
   :type: Pretoria_South_Africa
   :group: ips_documents_group_2
@@ -340,13 +340,13 @@ rwanda:
   :group: ips_documents_group_3
 poland: 
   :type: ips_application_1
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 azerbaijan: 
   :type: ips_application_3
   :group: ips_documents_group_3
 french-polynesia: 
   :type: Wellington_New_Zealand
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 western-sahara: 
   :type: Morocco
   :group: ips_documents_group_3
@@ -355,13 +355,13 @@ taiwan:
   :group: ips_documents_group_3
 portugal: 
   :type: Madrid_Spain
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 nauru: 
   :type: Wellington_New_Zealand
   :group: ips_documents_group_2
 czech-republic: 
   :type: ips_application_1
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 cayman-islands: 
   :type: Washington_USA
   :group: ips_documents_group_2
@@ -370,73 +370,73 @@ kuwait:
   :group: ips_documents_group_3
 tuvalu: 
   :type: ips_application_1
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 turkey: 
   :type: ips_application_1
   :group: ips_documents_group_2
 slovenia: 
   :type: ips_application_1
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 russian-federation: 
   :type: ips_application_2
   :group: ips_documents_group_2
 nicaragua: 
   :type: Washington_USA
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 syria: 
   :type: Syria
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 switzerland: 
   :type: Paris_France
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 pakistan: 
   :type: Pakistan
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 new-caledonia: 
   :type: Wellington_New_Zealand
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 cyprus: 
   :type: Madrid_Spain
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 bermuda: 
   :type: Washington_USA
   :group: ips_documents_group_2
 canada: 
   :type: Washington_USA
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 ghana: 
   :type: Ghana
   :group: ips_documents_group_3
 tristan-da-cunha: 
   :type: Pretoria_South_Africa
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 sierra-leone: 
   :type: Sierra Leone
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 peru: 
   :type: Washington_USA
   :group: ips_documents_group_3
 marshall-islands: 
   :type: Hong_Kong
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 congo-(democratic-republic): 
   :type: Pretoria_South_Africa
   :group: ips_documents_group_3
 american-samoa: 
   :type: Wellington_New_Zealand
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 senegal: 
   :type: Pretoria_South_Africa
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 paraguay: 
   :type: Washington_USA
   :group: ips_documents_group_2
 north-korea: 
   :type: North_Korea
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 nepal: 
   :type: Hong_Kong
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 antigua-and-barbuda: 
   :type: Washington_USA
   :group: ips_documents_group_2
@@ -445,7 +445,7 @@ uganda:
   :group: ips_documents_group_3
 australia: 
   :type: Australia_Post
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 zimbabwe: 
   :type: Zimbabwe
   :group: ips_documents_group_3
@@ -463,16 +463,16 @@ guatemala:
   :group: ips_documents_group_2
 macedonia: 
   :type: ips_application_1
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 hungary: 
   :type: ips_application_1
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 japan: 
   :type: Hong_Kong
   :group: ips_documents_group_3
 wallis-and-futuna: 
   :type: Wellington_New_Zealand
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 singapore: 
   :type: Hong_Kong
   :group: ips_documents_group_3
@@ -493,13 +493,13 @@ bulgaria:
   :group: ips_documents_group_2
 israel: 
   :type: Paris_France
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 colombia: 
   :type: Wellington_New_Zealand
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 togo: 
   :type: Wellington_New_Zealand
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 montenegro: 
   :type: ips_application_1
   :group: ips_documents_group_3
@@ -508,10 +508,10 @@ kiribati:
   :group: ips_documents_group_3
 argentina: 
   :type: Washington_USA
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 lithuania: 
   :type: ips_application_1
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 honduras: 
   :type: Washington_USA
   :group: ips_documents_group_2
@@ -526,10 +526,10 @@ st-lucia:
   :group: ips_documents_group_2
 sri-lanka: 
   :type: Hong_Kong
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 san-marino: 
   :type: Paris_France
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 jamaica: 
   :type: Washington_USA
   :group: ips_documents_group_3
@@ -538,7 +538,7 @@ gabon:
   :group: ips_documents_group_3
 united-arab-emirates: 
   :type: Washington_USA
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 mali: 
   :type: Hong_Kong
   :group: ips_documents_group_2
@@ -553,13 +553,13 @@ botswana:
   :group: ips_documents_group_2
 denmark: 
   :type: ips_application_1
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 burma: 
   :type: Hong_Kong
   :group: ips_documents_group_3
 luxembourg: 
   :type: Paris_France
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 vietnam: 
   :type: Hong_Kong
   :group: ips_documents_group_3
@@ -574,31 +574,31 @@ gambia:
   :group: ips_documents_group_3
 kosovo: 
   :type: ips_application_1
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 burkina-faso: 
   :type: Pretoria_South_Africa
   :group: ips_documents_group_3
 chile: 
   :type: Washington_USA
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 jordan: 
   :type: Paris_France
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 united-states: 
   :type: ips_application_1
   :group: ips_documents_group_3
 sao-tome-and-principe: 
   :type: Paris_France
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 romania: 
   :type: ips_application_1
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 cuba: 
   :type: Cuba
   :group: ips_documents_group_2
 guadeloupe: 
   :type: Washington_USA
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 bangladesh: 
   :type: Bangladesh
   :group: ips_documents_group_3
@@ -607,13 +607,13 @@ yemen:
   :group: ips_documents_group_3
 ireland: 
   :type: Dublin_Ireland
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 estonia: 
   :type: ips_application_1
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 samoa: 
   :type: Wellington_New_Zealand
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 netherlands: 
   :type: Paris_France
   :group: ips_documents_group_3
@@ -622,19 +622,19 @@ malta:
   :group: ips_documents_group_3
 italy: 
   :type: Paris_France
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 france: 
   :type: Paris_France
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 belarus: 
   :type: ips_application_2
   :group: ips_documents_group_3
 bahrain: 
   :type: ips_application_1
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 bhutan: 
   :type: Hong_Kong
-  :group: ips_applications_group_1
+  :group: ips_documents_group_1
 tanzania: 
   :type: Pretoria_South_Africa
   :group: ips_documents_group_3

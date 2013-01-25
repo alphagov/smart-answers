@@ -46,7 +46,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
         end
         context "answer born in the uk before 1 Jan 1983 with mother born in UK" do
           should "give the australian result" do
-            add_response 'born-in-uk-post-dec-1982-mother'
+            add_response 'born-in-uk-post-1982-uk-mother'
           end
         end
         context "answer born outside the uk with british father married to mother" do
@@ -56,19 +56,50 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
         end
         context "answer born outside the uk with british mother" do
           should "give the australian result" do
-            add_response 'born-outside-uk-mother-uk'
+            add_response 'born-outside-uk-mother-born-in-uk'
           end
         end
         context "answer born in UK after 31 Dec 1983 with british citizen father" do
           should "give the australian result" do
-            add_response 'born-in-uk-post-1983-father-citizen'
+            add_response 'born-in-uk-post-1982-father-uk-citizen'
           end
         end
         context "answer born in UK after 31 Dec 1983 with british citizen mother" do
           should "give the australian result" do
-            add_response 'born-in-uk-post-1983-mother-citizen'
+            add_response 'born-in-uk-post-1982-mother-uk-citizen'
           end
         end
+        context "answer born in UK after 31 Dec 1982 with father in UK service" do
+          should "give the australian result" do
+            add_response 'born-in-uk-post-1982-father-uk-service'
+          end
+        end
+        context "answer born in UK after 31 Dec 1982 with mother in UK service" do
+          should "give the australian result" do
+            add_response 'born-in-uk-post-1982-mother-uk-service'
+          end
+        end
+        context "answer married to british citizen 1983 and registered before 1988" do
+          should "give the australian result" do
+            add_response 'married-to-uk-citizen-pre-1983-reg-pre-1988'
+          end
+        end
+        context "answer registered as a british citizen" do
+          should "give the australian result" do
+            add_response 'registered-uk-citizen'
+          end
+        end
+        context "answer child born outside UK after 1 July 2006 with UK father" do
+          should "give the australian result" do
+            add_response 'child-born-outside-uk-father-citizen'
+          end
+        end
+        context "answer woman married to a UK citizen before 1949" do
+          should "give the australian result" do
+            add_response 'woman-married-to-uk-citizen-pre-1949'
+          end
+        end
+
       end # Adult
       context "answer child" do
         setup do
@@ -164,8 +195,8 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
       context "answer adult" do
         should "give the result and be done" do
           add_response 'adult'
+          assert_state_variable :supporting_documents, 'ips_documents_group_1'
           assert_current_node :ips_application_1
-          assert_state_variable :supporting_documents, 'ips_applications_1'
         end
       end
     end # Replacing
