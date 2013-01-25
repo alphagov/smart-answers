@@ -37,82 +37,94 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
         context "answer born in the uk before 1 Jan 1983" do
           should "give the australian result" do
             add_response 'born-in-uk-pre-1983'
-            assert_state_variable :aus_checklist_variant, 'born-in-uk-pre-1983' 
+            assert_state_variable :aus_checklist_variant, 'born-in-uk-pre-1983'
+            assert_current_node :australian_result
           end
         end
         context "answer born in the uk after 31 Dec 1982 with father born in UK" do
           should "give the australian result" do
             add_response 'born-in-uk-post-1982-uk-father'
             assert_state_variable :aus_checklist_variant, 'born-in-uk-post-1982-uk-father' 
+            assert_current_node :australian_result 
           end
         end
         context "answer born in the uk before 1 Jan 1983 with mother born in UK" do
           should "give the australian result" do
             add_response 'born-in-uk-post-1982-uk-mother'
             assert_state_variable :aus_checklist_variant, 'born-in-uk-post-1982-uk-mother'
+            assert_current_node :australian_result 
           end
         end
         context "answer born outside the uk with british father married to mother" do
           should "give the australian result" do
             add_response 'born-outside-uk-parents-married'
             assert_state_variable :aus_checklist_variant, 'born-outside-uk-parents-married'
+            assert_current_node :australian_result 
           end
         end
         context "answer born outside the uk with british mother" do
           should "give the australian result" do
             add_response 'born-outside-uk-mother-born-in-uk'
             assert_state_variable :aus_checklist_variant, 'born-outside-uk-mother-born-in-uk'
+            assert_current_node :australian_result
           end
         end
         context "answer born in UK after 31 Dec 1983 with british citizen father" do
           should "give the australian result" do
             add_response 'born-in-uk-post-1982-father-uk-citizen'
             assert_state_variable :aus_checklist_variant, 'born-in-uk-post-1982-father-uk-citizen'
+            assert_current_node :australian_result
           end
         end
         context "answer born in UK after 31 Dec 1983 with british citizen mother" do
           should "give the australian result" do
             add_response 'born-in-uk-post-1982-mother-uk-citizen'
             assert_state_variable :aus_checklist_variant, 'born-in-uk-post-1982-mother-uk-citizen'
+            assert_current_node :australian_result
           end
         end
         context "answer born in UK after 31 Dec 1982 with father in UK service" do
           should "give the australian result" do
             add_response 'born-in-uk-post-1982-father-uk-service'
             assert_state_variable :aus_checklist_variant, 'born-in-uk-post-1982-father-uk-service'
+            assert_current_node :australian_result
           end
         end
         context "answer born in UK after 31 Dec 1982 with mother in UK service" do
           should "give the australian result" do
             add_response 'born-in-uk-post-1982-mother-uk-service'
             assert_state_variable :aus_checklist_variant, 'born-in-uk-post-1982-mother-uk-service'
+            assert_current_node :australian_result
           end
         end
         context "answer married to british citizen 1983 and registered before 1988" do
           should "give the australian result" do
             add_response 'married-to-uk-citizen-pre-1983-reg-pre-1988'
             assert_state_variable :aus_checklist_variant, 'married-to-uk-citizen-pre-1983-reg-pre-1988'
+            assert_current_node :australian_result
           end
         end
         context "answer registered as a british citizen" do
           should "give the australian result" do
             add_response 'registered-uk-citizen'
             assert_state_variable :aus_checklist_variant, 'registered-uk-citizen'
+            assert_current_node :australian_result
           end
         end
         context "answer child born outside UK after 1 July 2006 with UK father" do
           should "give the australian result" do
             add_response 'child-born-outside-uk-father-citizen'
             assert_state_variable :aus_checklist_variant, 'child-born-outside-uk-father-citizen'
+            assert_current_node :australian_result
           end
         end
         context "answer woman married to a UK citizen before 1949" do
           should "give the australian result" do
             add_response 'woman-married-to-uk-citizen-pre-1949'
             assert_state_variable :aus_checklist_variant, 'woman-married-to-uk-citizen-pre-1949'
+            assert_current_node :australian_result
           end
         end
-
       end # Adult
       context "answer child" do
         setup do

@@ -95,6 +95,7 @@ multiple_choice :which_best_describes_you? do
 end
 
 outcome :result
+## IPS Application (1)
 outcome :ips_application_1 do
   precalculate :how_long_it_takes do
     PhraseList.new("how_long_#{application_action}_ips1".to_sym)
@@ -107,6 +108,7 @@ outcome :ips_application_1 do
     end
   end
 end
+## IPS Application (2)
 outcome :ips_application_2 do
   precalculate :how_long_it_takes do
     PhraseList.new("how_long_#{application_action}_ips2".to_sym)
@@ -119,6 +121,7 @@ outcome :ips_application_2 do
     end
   end
 end
+## IPS Application (3)
 outcome :ips_application_3 do
   precalculate :how_long_it_takes do
     PhraseList.new("how_long_#{application_action}_ips3".to_sym)
@@ -131,9 +134,13 @@ outcome :ips_application_3 do
     end
   end
 end
+## FCO Result
 outcome :fco_result do
-   precalculate :how_long_it_takes do
-    PhraseList.new(application_action.to_sym)
+  precalculate :how_long_it_takes do
+    PhraseList.new("how_long_#{application_action}".to_sym)
+  end
+  precalculate :how_to_apply do
+    PhraseList.new("how_to_apply_#{application_type}".to_sym)
   end
   precalculate :cost_tables do
     if :child_or_adult == 'child'
