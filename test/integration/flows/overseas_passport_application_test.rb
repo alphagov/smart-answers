@@ -299,7 +299,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
       end
     end # Applying
     context "renewing old" do
-      
+      # TODO 
     end
   end # Azerbaijan - IPS_application_3
 
@@ -328,6 +328,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
           assert_phrase_list :cost, [:child_passport_costs_madrid_spain]
           assert_phrase_list :send_your_application, [:send_application_madrid_spain]
           assert_phrase_list :helpline, [:helpline_madrid_spain]
+          assert_state_variable :embassy_address, "Edificio Torre de Barcelona\nAvienda Diagonal 477-13\n08036 Barcelona,"
         end
       end
     end
@@ -347,6 +348,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
           assert_phrase_list :cost, [:adult_passport_costs_madrid_spain]
           assert_phrase_list :send_your_application, [:send_application_madrid_spain]
           assert_phrase_list :helpline, [:helpline_madrid_spain]
+          assert_state_variable :embassy_address, "Edificio Torre de Barcelona\nAvienda Diagonal 477-13\n08036 Barcelona,"
         end
       end
     end # Andorra (FCO result cases)

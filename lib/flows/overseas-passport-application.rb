@@ -7,13 +7,23 @@ country_select :which_country_are_you_in? do
   calculate :passport_data do
     Calculators::PassportAndEmbassyDataQuery.find_passport_data(responses.last)
   end
-
   calculate :application_type do
     passport_data[:type]
   end
-
+  calculate :is_ips_application do
+    application_type =~ Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP
+  end
+  calculate :is_fco_application do
+    application_type =~ Calculators::PassportAndEmbassyDataQuery::FCO_APPLICATIONS_REGEXP
+  end
   calculate :ips_number do
-    application_type.split("_")[2] if application_type =~ Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP
+    application_type.split("_")[2] if is_ips_application 
+  end
+  calculate :embassy_address do
+    if is_fco_application or ips_number.to_i >  1
+      embassy_data = Calculators::PassportAndEmbassyDataQuery.find_embassy_data(current_location)
+      embassy_data.first['address'] if embassy_data
+    end
   end
 
   calculate :supporting_documents do
@@ -114,11 +124,6 @@ outcome :ips_application_result do
   precalculate :how_to_apply do
     PhraseList.new("how_to_apply_ips#{ips_number}".to_sym)
   end
-  precalculate :embassy_address do
-    unless ips_number.to_i ==  1
-      Calculators::PassportAndEmbassyDataQuery.find_embassy_data(current_location).first['address']
-    end
-  end
   precalculate :send_your_application do
     PhraseList.new("send_application_ips#{ips_number}".to_sym)
   end
@@ -142,4 +147,6 @@ outcome :fco_result do
     PhraseList.new("helpline_#{application_type}".to_sym)
   end
 end
-outcome :australian_result
+
+outcome :australian_result do
+end
