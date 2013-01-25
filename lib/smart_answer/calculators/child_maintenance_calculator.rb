@@ -17,7 +17,7 @@ module SmartAnswer::Calculators
       @number_of_children = number_of_children.to_i
       @calculation_scheme = calculation_scheme
       @benefits = benefits
-      load_calculator_data
+      @calculator_data = self.class.child_maintenance_data
     end
     
     # called after we enter income (we know benefits == no)
@@ -66,7 +66,7 @@ module SmartAnswer::Calculators
     
     #only used in the 2012 scheme
     def calculate_basic_plus_rate_payment
-      basic_plus_rate = @income - (@income * relevant_other_child_multiplier)
+      basic_plus_rate = capped_income - (capped_income * relevant_other_child_multiplier)
       basic_qualifying_child_amount = (BASIC_PLUS_RATE_THRESHOLD * basic_rate_multiplier)
       additional_qualifying_child_amount = ((basic_plus_rate - BASIC_PLUS_RATE_THRESHOLD) * basic_plus_rate_multiplier)
       child_amounts_total = basic_qualifying_child_amount + additional_qualifying_child_amount
@@ -121,9 +121,8 @@ module SmartAnswer::Calculators
       "#{@calculation_scheme.to_s}_#{sym.to_s}".to_sym
     end
     
-    def load_calculator_data
-      @calculator_data ||= YAML.load(File.open("lib/data/child_maintenance_data.yml").read)
+    def self.child_maintenance_data
+      @child_maintenance_data ||= YAML.load_file(Rails.root.join("lib/data/child_maintenance_data.yml"))
     end
-
   end
 end

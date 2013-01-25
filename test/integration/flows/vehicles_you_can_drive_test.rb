@@ -52,95 +52,35 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
     end
     
     ## Q4
-    should "ask if you have a full motorcycle licence" do
-      assert_current_node :do_you_have_a_full_motorcycle_licence?
+    should "ask how old you are" do
+      assert_current_node :how_old_are_you_mb?
     end
-    ## full motorcycle licence?
-    context "answer yes" do
-      setup do
-        add_response :yes
-      end
-      
-      ## Q5
-      should "ask how old you are" do
-        assert_current_node :how_old_are_you_mb?
-      end
-      context "answer 17-20" do
-        setup do
-          add_response "17-20"
-        end
-        ## Q6
-        should "ask if you've had the licence for more than 2 years" do
-          assert_current_node :had_mb_licence_for_more_than_2_years_17_20?
-        end
-        context "answer yes" do
-          ## A6
-          should "state elligility" do
-            add_response :yes
-            assert_current_node :entitled_for_any_motorcycle #A5
-          end
-        end
-        context "answer no" do
-          ## A7
-          should "state entitlement" do
-            add_response :no
-            assert_current_node :entitled_for_same_motorcycle # A6
-          end
-        end
-      end
-      context "answer 21" do
-        setup do
-          add_response "21"
-        end
-        ## Q6
-        should "ask if you've had the licence for more than 2 years" do
-          assert_current_node :had_mb_licence_for_more_2_years_21?
-        end
-        context "answer yes" do
-          ## A7
-          should "state elligility" do
-            add_response :yes
-            assert_current_node :entitled_for_any_motorcycle_21 #A7
-          end
-        end
-        context "answer no" do
-          ## A8
-          should "state entitlement" do
-            add_response :no
-            assert_current_node :entitled_for_same_motorcycle_21 # A8
-          end
-        end
+    context "answer under 17" do
+      ## A5 
+      should "state you cannot ride a motorcycle and be done" do
+        add_response 'under-17'
+        assert_current_node :mb_not_old_enough
       end
     end
-    ## full motorcycle licence?
-    context "answer no" do
-      setup do
-        add_response :no
+    context "answer 17-18" do
+      ## A6
+      should "state provisional entitlement and be done" do
+        add_response "17-18"
+        assert_current_node :mb_apply_provisional
       end
-      ## Q8
-      should "ask how old you are" do
-        assert_current_node :how_old_are_you_mb_no_licence?
+    end
+    context "answer 19-23" do
+      ## A7
+      should "state provisional entitlement and be done" do
+        add_response "19-23"
+        assert_current_node :mb_apply_provisional_a1_a2
       end
-      context "answer under 17" do
-        ## A10
-        should "state entitlement" do
-          add_response "under-17"
-          assert_current_node :motorcycle_entitlement_no_licence_under_17 # A10
-        end
-      end
-      context "answer 17-20" do
-        ## A11
-        should "state entitlement" do
-          add_response "17-20"
-          assert_current_node :motorcycle_entitlement_no_licence_17_20 # A11
-        end
-      end
-      context "answer 21 or over" do
-        ## A12
-        should "state entitlement" do
-          add_response "21-or-over"
-          assert_current_node :motorcycle_entitlement_no_licence_21_and_over # A12
-        end
+    end
+    context "answer 24 or over" do
+      ## A8
+      should "state provisional entitlement and be done" do
+        add_response "24-or-over"
+        assert_current_node :mb_apply_provisional_any
       end
     end
   end ## Motorcycle specs
@@ -372,12 +312,12 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
       should "ask how old you are" do
         assert_current_node :how_old_are_you_bus?
       end
-      should "state exceptions for under 21s" do
-        add_response "under-21"
-        assert_current_node :bus_exceptions_under_21 # A29
+      should "state exceptions for under 24s" do
+        add_response "under-24"
+        assert_current_node :bus_exceptions_under_24 # A29
       end
       should "advise you to apply for a cat D licence" do
-        add_response "21-or-above"
+        add_response "24-or-above"
         assert_current_node :bus_apply_for_cat_d # A32
       end
     end
@@ -552,6 +492,26 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
           add_response "17-or-over"
           assert_current_node :quad_apply_for_provisional_entitlement # A47
         end
+      end
+    end
+  end
+  context "trike" do
+    setup do
+      add_response "trike"
+    end
+    should "ask whether you hold a full cat B licence" do
+      assert_current_node :full_cat_b_licence_trike?
+    end
+    context "answer yes" do
+      should "state you are entitled and be done" do
+        add_response 'yes'
+        assert_current_node :trike_entitled
+      end
+    end
+    context "answer no" do
+      should "state you are only entitled with a motorcycle licence and be done" do
+        add_response 'no'
+        assert_current_node :trike_conditional_entitlement
       end
     end
   end

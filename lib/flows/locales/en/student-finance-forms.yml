@@ -1,0 +1,492 @@
+en-GB:
+  flow:
+    student-finance-forms:
+      phrases:
+          postal_address_uk: |
+            ##Where to send your form(s) 
+
+            $A
+            Student Finance England
+            PO Box 210
+            Darlington
+            DL1 9HJ
+            $A
+          postal_address_eu: |
+            ##Where to send your forms 
+
+            $A
+            Student Finance Services European Team
+            Student Loans Company
+            PO Box 89
+            Darlington
+            County Durham
+            England
+            DL1 9AZ
+            $A
+      meta:
+        description: Download Student Finance England application forms and guidance notes
+      title: Student finance form finder
+      body: |
+        Download forms and guidance notes for Student Finance England, including PN1, PR1 and PFF2.
+      devolved_body: |
+        ##Before you start
+
+        For braille or alternative formats contact the helpline. If you email, include your contact details and the format needed.
+
+
+        $C
+        **Helpline - alternative formats only**
+
+        0141 243 3686<br />
+        <brailleandlargefonts@slc.co.uk>
+        $C
+
+
+      ## Questions:
+
+      ## Q1
+      type_of_student?:
+        title: What type of a student are you?
+        options:
+          "uk-full-time": "UK student full time"
+          "uk-part-time": "UK student part time"
+          "eu-full-time": "EU student full time"
+          "eu-part-time": "EU student part time"
+
+      ## Q2
+      form_needed_for_1?:
+        title: What do you need the form for?
+        options:
+          "apply-loans-grants": "apply for student loans and grants"
+          "proof-identity": "send proof of identity"
+          "income-details": "send parent or partner’s income details"
+          "apply-dsa": "apply for Disabled Students’ Allowances"
+          "dsa-expenses": "claim Disabled Students’ Allowances expenses"
+          "apply-ccg": "apply for Childcare Grant"
+          "ccg-expenses": "claim Childcare Grant expenses"
+          "travel-grant": "Travel Grant (medical and dental students only)"
+      form_needed_for_2?:
+        title: What do you need the form for?
+        options:
+          "apply-loans-grants": "apply for student loans and grants"
+          "proof-identity": "send proof of identity"
+          "apply-dsa": "apply for Disabled Students’ Allowances"
+          "dsa-expenses": "claim Disabled Students’ Allowances expenses"
+
+      ## Q3
+      what_year?:
+        title: What academic year do you want funding for?
+        options:
+          "year-1314": "2013 to 2014"
+          "year-1213": "2012 to 2013"
+
+
+      ## Q4
+      continuing_student?:
+        title: Are you a continuing student?
+        hint: You’re usually a continuing student if you got student finance last year.
+        options:
+          "continuing-student": "Yes"
+          "new-student": "No"
+
+
+      ## Q5
+      pt_course_start?:
+        title: Did your part time course start before 1 September 2012?
+        options:
+          "course-start-before-01092012": "Yes"
+          "course-start-after-01092012": "No"
+
+
+      outcome_1:
+        title: Student finance – application form
+        body: |
+          You should [apply online](/) for help with your tuition and living costs.
+
+          If you can’t apply online, use form PN1.
+
+          Academic Year | Form
+          - | -
+          2013 to 2014 | [Apply online](/)
+          2013 to 2014 | [PN1 - form (PDF, 400KB)](/)
+          2013 to 2014 | [PN1 - guidance notes (PDF, 200KB)](/)
+
+          ^You can apply up to 9 months after the start of your course. To get your money by the start of term, apply by xxxx 2013^
+
+          %{form_destination}
+
+      outcome_2:
+        title: Student finance – application form
+        body: |
+          You should [apply online](/) for help with your tuition and living costs.
+
+          If you can’t apply online, use form PR1.
+
+          Academic Year | Form
+          - | -
+          2013 to 2014 | [Apply online](/)
+          2013 to 2014 | [PR1 - form (PDF, 400KB)](/)
+          2013 to 2014 | [PR1 - guidance notes (PDF, 200KB)](/)
+
+          ^You can apply up to 9 months after the start of your course. To get your money by the start of term, apply by xxxx 2013^
+
+          %{form_destination}
+
+      outcome_3:
+        title: Student finance – application form
+        body: |
+          You should [apply online](/) for help with your tuition and living costs.
+
+          If you can’t apply online, use form PN1.
+
+          Academic Year | Form for new students
+          - | -
+          2012 to 2013 | [Apply online](/)
+          2012 to 2013 | [PN1 - form (PDF, 400KB)](/)
+          2012 to 2013 | [PN1 - guidance notes (PDF, 200KB)](/)
+
+          ^You can apply up to 9 months after the start of your course.^
+
+          %{form_destination}
+
+      outcome_4:
+        title: Student finance – application form
+        body: |
+          You should [apply online](/) for help with your tuition and living costs.
+
+          If you can’t apply online, use form PR1.
+
+          Academic Year | Form for new students
+          - | -
+          2012 to 2013 | [Apply online](/)
+          2012 to 2013 | [PR1 - form (PDF, 400KB)](/)
+          2012 to 2013 | [PR1 - guidance notes (PDF, 200KB)](/)
+
+          ^You can apply up to 9 months after the start of your course.^
+
+          %{form_destination}
+
+      outcome_5:
+        title: Student finance – application form 
+        body: |
+          You can apply for student finance from summer 2013. The forms will be available then.
+
+          [This outcome is uk_pt_apply_student_finance_1314_new]
+
+          %{form_destination}
+
+      outcome_6:
+        title: Student finance – application form 
+        body: |
+          You can apply for student finance from summer 2013. The forms will be available then.
+
+          [This outcome is uk_pt_apply_student_finance_1314_continuing]
+
+          %{form_destination}
+
+      outcome_7:
+        title: Student finance – application form 
+        body: |
+          You can apply for student finance from summer 2013. The forms will be available then.
+
+          [This outcome is uk_pt_apply_student_finance_1314_grant]
+
+          %{form_destination}
+
+      outcome_8:
+        title: Student finance – application form 
+        body: |
+          You should [apply online](/) for a Tuition Fee Loan. If you can’t apply online, use form PTL1.
+
+          Academic Year | Form
+          - | -
+          2012 to 2013 | [Apply online](/)
+          2012 to 2013 | [PTL1 - form (PDF, 400KB)](/)
+          2012 to 2013 | [PTL1 - guidance notes (PDF, 200KB)](/) 
+
+          ^You can apply up to 6 months after the start of your course.^
+
+          %{form_destination}
+
+      outcome_9:
+        title: Student finance – application form 
+        body: |
+          You should [apply online](/) for a Tuition Fee Loan. If you can’t apply online, use form PTLC.
+
+          Academic Year | Form
+          - | -
+          2012 to 2013 | [Apply online](/)
+          2012 to 2013 | [PTLC - form (PDF, 400KB)](/)
+          2012 to 2013 | [PTLC - guidance notes (PDF, 200KB)](/)
+
+          ^You can apply up to 6 months after the start of your course.^
+
+          %{form_destination}
+
+      outcome_10:
+        title: Student finance – application form 
+        body: |
+          To apply for a Fee Grant and Course Grant use form PTGC (or PTGN if you're applying for student finance for the first time).  
+
+          Academic year | Form
+          - | - 
+          2012 to 2013 | [PTGC - form (PDF, 400KB)](/) 
+          2012 to 2013 | [PTGC - guidance notes (PDF, 100KB)](/) 
+          2012 to 2013 | [PTCN - form (PDF, 400KB)](/) – if you’re applying for the first time
+          2012 to 2013 | [PTGN - guidance notes (PDF, 100KB)](/) 
+
+          ^You can apply up to 6 months after the start of your course.^
+
+          ##Additional forms 
+
+          You may need to include additional information on the following forms.
+
+          Form | When to use the form
+          - | - 
+          [Change of circumstance (PDF, 100KB)](/) | Your course, university, bank, or contact details change
+          [Income confirmation (PDF, 150KB)](/) | You don't have a P60 or P11D or payslips to prove your income
+          [Benefits confirmation (PDF, 200KB)](/) | You or your partner get certain benefits (check the form for details)
+
+          %{form_destination}
+
+      outcome_11:
+        title: Parents and partners - income forms
+        body: |
+          You can send your income details online as part of the student’s [online application](/). If you can't do this, use form PFF2 to send details of your income for the tax year 2011 to 2012. If you expect your income to drop by 15% or more, use the current tax year form instead. 
+
+          Academic year | Form
+          - | - 
+          2013 to 2014 | [PFF2 - income details form (PDF, 120KB)](/)
+          2013 to 2014 | Current tax year - income details form <br/> Available April 2013
+
+          %{form_destination}
+
+      outcome_12:
+        title: Parents and partners – income assessment
+        body: |
+          You can send your income details online as part of the student’s [online application](/). If you can't do this, use form PFF2 to send details of your income for the tax year 2010 to 2011. If you expect your income to drop by 15% or more, use the current tax year form instead. 
+
+          Academic year | Form
+          - | - 
+          2012 to 2013 | [PFF2 - income details form (PDF, 120KB)](/)
+          2012 to 2013 | [Current tax year - income details form (PDF, 150KB)](/)
+
+          %{form_destination}
+
+      outcome_13:
+        title: Proof of identity
+        body: |
+          To prove your identity, include your passport details in your application. If you forget, use the passport details form. If you don't have a passport  (or it has expired), send your birth or adoption certificate using the certificate form.
+
+          Academic year | Form
+          - | - 
+          2013 to 2014 | [UK Passport details form (PDF, 150KB)](/)   
+          2013 to 2014 | [Birth or adoption certificate form (PDF, 150KB)](/) 
+
+          ^Don’t send your passport.^
+
+          %{form_destination}
+
+      outcome_14:
+        title: Proof of identity
+        body: |
+          To prove your identity, include your passport details in your application. If you forget, use the passport details form. If you don’t have a passport  (or it has expired), send your birth or adoption certificate using the certificate form.
+
+          Academic year | Form
+          - | - 
+          2012 to 2013 | [UK Passport details form (PDF, 150KB)](/)   
+          2012 to 2013 | [Birth or adoption certificate form (PDF, 150KB)](/) 
+
+          ^Don’t send your passport.^
+
+          %{form_destination}
+
+      outcome_15:
+        title: Disabled Students' Allowances
+        body: |
+          To apply, use one of the DSA1 forms. If you’ve applied for student finance use form ‘DSA1 short’. If you’re only applying for DSAs use form ‘DSA1 full’.
+
+          Academic Year | Form
+          - | - 
+          2013 to 2014 | [DSA1 - short form (PDF, 100KB)](/)  
+          2013 to 2014 | [DSA1 - full form (PDF, 200KB)](/)  
+          2013 to 2014 | [DSA1 - guidance notes (PDF, 150KB)](/)  
+
+          ^Open University (OU) students apply to the OU for Disabled Students’ Allowances.^
+
+          %{form_destination}
+
+
+      outcome_16:
+        title: Disabled Students' Allowances
+        body: |
+          To apply, use one of the DSA1 forms. If you’ve applied for student finance use form ‘DSA1 short’. If you’re only applying for DSAs use form ‘DSA1 full’.
+
+          Academic Year | Form
+          - | - 
+          2012 to 2013 | [DSA1 - short form (PDF, 100KB)](/)  
+          2012 to 2013 | [DSA1 - full form (PDF, 200KB)](/)  
+          2012 to 2013 | [DSA1 - guidance notes (PDF, 150KB)](/)  
+
+          ^Open University (OU) students apply to the OU for Disabled Students’ Allowances.^
+
+          %{form_destination}
+
+      outcome_17:
+        title: Childcare grant
+        body: |
+          To apply, estimate your childcare costs on form CCG1 after you've completed your main student finance application. 
+
+          Academic year | Form
+          - | - 
+          2013 to 2014 | [CCG1 - estimate childcare costs form (PDF, 200KB)](/)
+
+          %{form_destination}
+
+      outcome_18:
+        title: Childcare grant 
+        body: |
+          To apply, estimate your childcare costs on form CCG1 after you've completed your main student finance application. 
+
+          Academic year | Form
+          - | - 
+          2012 to 2013 | [CCG1 - estimate childcare costs form (PDF, 200KB)](/)
+
+          %{form_destination}
+
+      outcome_19:
+        title: Disabled Students' Allowances – expenses
+        body: |
+          Use the claim form for the academic year the expenses relate to. You reclaim these expenses at the end of the academic year. 
+
+          Academic year | Form
+          - | - 
+          2013 to 2014 | Available September 2013 
+          2012 to 2013 | [Costs claim form (PDF, 150KB)](/)
+
+          %{form_destination}
+
+      outcome_20:
+        title: Childcare grant – expenses 
+        body: |
+          Use form CCG2 for the academic year the expenses relate to. You reclaim these expenses at the end of each term.
+
+          Academic Year | Form
+          - | - 
+          2013 to 2014 | Available October 2013
+          2012 to 2013 | [CCG2 – expenses claim form (PDF, 1125KB)](/)
+
+          %{form_destination}
+
+      outcome_21:
+        title: Travel grants
+        body: |
+          You [apply online](/) for a travel grant as part of your main student finance application. 
+
+          To get the travel expenses claim forms, [log in to your student finance account](/). You can reclaim your costs every time you travel.
+
+      outcome_22:
+        title: Apply for student finance 
+        body: |
+          ##EU full time student
+
+          You can apply for student finance from April 2013. The forms will be available then.
+
+          %{form_destination}
+
+      outcome_23:
+        title: Apply for student finance 
+        body: |
+          ##EU full time student
+
+          You can apply for student finance from August 2013. The forms will be available then.
+
+          %{form_destination}
+
+      outcome_24:
+        title: Apply for student finance
+        body: |
+          ##EU part time student
+
+          You can apply for student finance from August 2013. The forms will be available then.
+
+          %{form_destination}
+
+      outcome_25:
+        title: Apply for student finance 
+        body: |
+          ##EU part time student
+
+          You can apply for student finance from August 2013. The forms will be available then.
+
+          %{form_destination}
+
+      outcome_26:
+        title: Apply for student finance 
+        body: |
+          ##EU full time student
+
+          To apply for a Tuition Fee Loan use form EU12N (there are no guidance notes for this form)
+
+          Academic year | Form
+          - | -
+          2012 to 2013 | [EU12N - form (PDF, 200KB)](/)
+
+          ##Additional information
+
+          You may need to include additional information on the following forms.
+
+           Form | When to use the form
+          - | -
+          [EUTFLR (PDF, 100KB)](/)  | To change the amount of loan you want to apply for
+          [Evidence factsheet (PDF, 100KB)](/) | List of evidence to send with your application - eg proof of identity or income
+          [Certifier checklist (PDF, 75KB)](/) | Get the person who verifies your evidence to sign this form
+
+          %{form_destination}
+
+      outcome_27:
+        title: Apply for student finance 
+        body: |
+          ##EU full time student
+
+          To apply for a Tuition Fee Loan use form EUPR1A.
+
+          Academic year | Form
+          - | -
+          2012 to 2013 | [EU12N - form (PDF, 200KB)](/)
+          2012 to 2013 | [EU12N - guidance notes (PDF, 100KB)](/)
+
+          %{form_destination}
+
+      outcome_28:
+        title: Apply for student finance
+        body: |
+          ##EU part-time students 
+
+          To apply for a Tuition Fee Loan (form EUPTL1).
+
+          Academic year | Form
+          - | - 
+          2012 to 2013 | [Tuition Fee Loan - application form (PDF, 900KB)](/)
+          2012 to 2013 | [Tuition Fee Loan - guidance notes (PDF, 500KB)](/)
+
+          ^You can apply up to 6 months after the start of your course.^
+
+          %{form_destination}
+
+      outcome_29:
+        title: Apply for student finance
+        body: |
+          ##EU part-time students
+
+          To apply for a Tuition Fee Grant use form EUPTG1.
+
+          Academic Year | Form
+          - | - 
+          2012 to 2013 | [EUPTG1 application form (PDF, 900KB)](/) 
+          2012 to 2013 | [EUPTG1 guidance notes (PDF, 200KB)](/) 
+
+          ^You can apply up to 6 months after the start of your course.
+
+          %{form_destination}
+

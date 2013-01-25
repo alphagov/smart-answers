@@ -57,6 +57,28 @@ class ApplyForProbateTest < ActiveSupport::TestCase
         end
       end
     end # yes to inheritance tax
+    context "no to inheritance tax (estate worth over 325k)" do
+      setup do
+        add_response :no
+      end
+      
+      should "ask about amount left for england and wales or scotland" do
+        assert_current_node :amount_left_en_sco?
+      end
+
+      context "under £5000" do
+        setup do
+          add_response :under_five_thousand
+        end
+        
+        should "display no inheritance tax info for england and wales" do
+          assert_current_node :done_eng_wales
+          assert_phrase_list :application_info, [:eng_wales_no_inheritance_tax_no_fee]
+          assert_phrase_list :fee_section, [:no_fee]
+          assert_phrase_list :next_steps_info, [:eng_wales_no_inheritance_tax_next_steps]
+        end
+      end
+    end # no to inheritance tax
   end # england or wales
 
   context "scotland" do

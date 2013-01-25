@@ -14,11 +14,12 @@ en-GB:
       options:
         "no": "No"
         "yes": "Yes"
+        
       ## Q1
       towing_vehicle_type?:
         title: "What kind of vehicle do you want to tow with?"
         options:
-          car-or-light-vehicle: "Car or light vehicle (category B)"
+          car-or-light-vehicle: "Car (category B)"
           medium-sized-vehicle: "Medium-sized vehicle (category C1)"
           large-vehicle: "Large vehicle (category C)"
           minibus: "Minibus (category D1)"
@@ -33,10 +34,12 @@ en-GB:
           - D+E (towing with a bus)
       ## Q4
       date_licence_was_issued?:
-        title: When was your licence issued?
+        title: When did you pass your test?
         options:
           before-jan-1997: "Before 1 January 1997"
-          from-jan-1997: "From 1 January 1997"
+          from-jan-1997: "From 1 January 1997 to 18 January 2013"
+          from-jan-2013: "From 19 January 2013"
+
       ## Q8
       medium_sized_vehicle_licenceholder?:
         title: Do you already have a C1 medium-sized vehicle licence?
@@ -60,7 +63,7 @@ en-GB:
         title: How old are you?
         options:
           under-18: "Under 18"
-          under-21: "19 or 20"
+          under-21: "18 to 20"
           21-or-over: "21 or over"
       ## Q20
       existing_large_vehicle_licence?:
@@ -73,7 +76,7 @@ en-GB:
           21-or-over: "21 or over"
       ## Q25
       car_licence_before_jan_1997?:
-        title: Was your car driving licence issued before 1 January 1997?
+        title: Did you pass your test before 1 January 1997?
       ## Q27
       do_you_have_lv_or_bus_towing_entitlement?:
         title: Do you have a full category D+E towing with a bus licence?
@@ -98,33 +101,46 @@ en-GB:
       ## A3
       full_entitlement:
         body: |
-          You already have the B+E towing entitlement on your licence. This means you can tow any trailers as long as the weight of the fully loaded trailer isn’t more than the unladen vehicle weight.
+          You can already tow any trailers with a car as long as the weight of the fully loaded trailer isn’t more than the unladen vehicle weight.
         next_steps: |
           [Driving licence categories](/driving-licence-categories "Driving licence categories")
       ## A5
       car_light_vehicle_entitlement:
         body: |
-          You already have the B+E towing entitlement on your licence. This means you can tow trailers of any weight with a car or light vehicle.
+          You can already tow trailers of any weight with a car. 
         next_steps: |
           [Driving licence categories](/driving-licence-categories "Driving licence categories")
       ## A6
       limited_trailer_entitlement:
         body: |
-          You can already tow trailers up to 750 kg.
+          You can already tow trailers up to 750kg.
 
-          You can also tow heavier trailers if the fully laden trailer weight isn’t more than the unladen vehicle weight. The combined weight of trailer and vehicle can’t be more than 3,500 kg.
+          You can also tow heavier trailers if the fully laden trailer weight isn’t more than the unladen vehicle weight. The combined weight of trailer and vehicle can’t be more than 3,500kg. 
 
-          If you want to tow heavier combinations you’ll need to apply for provisional B+E entitlement then pass the B+E towing test.
         next_steps: |
           [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
 
           [Driving licence categories](/driving-licence-categories "Driving licence categories")
+      ## A7
+      limited_trailer_entitlement_2013:
+        body: |
+          You can already tow trailers up to 750kg.
+
+          You can also tow heavier trailers if the fully laden trailer weight isn’t more than the unladen vehicle weight. The combined weight of trailer and vehicle can’t be more than 3,500kg.
+
+          ##Towing heavier combinations
+          You’ll need to apply for provisional BE entitlement and take a BE test to tow trailers over 750kg when the combined trailer and vehicle weight is more than 3,500kg.
+
+          ###Trailers over 3,500kg
+
+          You’ll need to apply for provisional C1E entitlement and take a C1E test to tow trailers weighing more than 3,500kg.
+      
       ## A10
       limited_conditional_trailer_entitlement_msv:
         body: |
-          You can tow trailers up to 750 kg with a standard C1 medium-sized vehicle licence as long as the combined vehicle and trailer weight isn’t more than 8,250 kg.
+          You can tow trailers up to 750 kg with a standard C1 medium-sized vehicle licence as long as the vehicle weight isn’t more than 7,500 kg.
 
-          If you want to tow heavier trailers you’ll need to apply for provisional C1+E entitlement then pass the C1+E test.
+          If you want to tow heavier trailers you’ll need to pass the C1+E test.
 
           This lets you have a restricted C1+E entitlement because you’re under 21. It lets you tow trailers heavier than 750 kg as long as the combined vehicle and trailer weight isn’t more than 7,500 kg.
 
@@ -136,7 +152,7 @@ en-GB:
       ## A11
       limited_trailer_entitlement_msv:
         body: |
-          You can tow trailers up to 750 kg with a standard C1 medium-sized vehicle licence as long as the combined vehicle and trailer weight isn’t more than 7,500 kg.
+          You can tow trailers up to 750 kg with a standard C1 medium-sized vehicle licence as long as the towing vehicle weight isn’t more than 7,500 kg.
 
           If you want to tow heavier trailers you’ll need to apply for provisional C1+E entitlement then pass the C1+E test.
 
@@ -150,13 +166,13 @@ en-GB:
         body: |
           You already have the C1+E towing with a medium-sized vehicle entitlement on your licence. 
 
-          This means you can tow trailers weighing more than 750kg. The total weight of the vehicle and trailer can’t be more than 12,000kg and the fully-loaded trailer can’t weigh more than the unladen vehicle weight.
+          This means you can tow trailers weighing more than 750kg with a C1 medium-sized vehicle. The total weight of the vehicle and trailer can’t be more than 12,000kg and the fully-loaded trailer can’t weigh more than the unladen vehicle weight.
         next_steps: |
           [Driving licence categories](/driving-licence-categories "Driving licence categories")
       ## A15
       full_entitlement_msv:
         body: |
-          You already have the C1+E towing with a medium-sized vehicle entitlement on your licence. 
+          You already have a restricted C1+E towing with a medium-sized vehicle entitlement on your licence. 
 
           This means you can tow trailers weighing more than 750 kg. The total weight of the vehicle and trailer can’t be more than 8,250 kg and the fully-loaded trailer can’t weigh more than the unladen vehicle weight.
         next_steps: |
@@ -178,7 +194,7 @@ en-GB:
       ## A18
       apply_for_provisional_with_exceptions_msv:
         body: |
-         If you apply for a provisional C1 medium-sized vehicle licence then pass the C1 test you can tow trailers up to 750 kg.
+         If you apply for a provisional C1 medium-sized vehicle licence then pass the C1 test you can tow trailers up to 750 kg, as long as the combined vehicle and trailer weight isn’t more than 7,500 kg.
 
          If you want to tow heavier trailers you’ll need the C1+E entitlement. You normally have to wait until you’re 21 to get this.
 
@@ -194,7 +210,7 @@ en-GB:
       ## A19
       apply_for_provisional_msv:
         body: |
-          If you apply for a provisional C1 medium-sized vehicle licence then pass the C1 test you can tow trailers up to 750 kg.
+          If you apply for a provisional C1 medium-sized vehicle licence then pass the C1 test you can tow trailers up to 750 kg, as long as the combined vehicle and trailer weight isn’t more than 7,500 kg.
 
           If you want to tow heavier trailers you need to apply for provisional C1+E medium-sized vehicle entitlement then pass the C1+E test.
         next_steps: |
@@ -206,7 +222,7 @@ en-GB:
         body: |
           You can tow trailers up to 750 kg with a standard category C large vehicle licence.
 
-          If you want to tow heavier trailers you need to apply for a provisional C+E towing entitlement then pass the C+E test.
+          If you want to tow heavier trailers you need to pass the C+E test.
       ## A23
       not_old_enough_lv:
         body: |
@@ -326,7 +342,7 @@ en-GB:
         body: |
           You need to apply for provisional category D bus entitlement then pass a category D test. You can then tow trailers up to 750 kg.
 
-          To tow heavier trailers you then need to apply for provisional D+E towing with a bus entitlement and pass the D+E test.
+          To tow heavier trailers you then need to pass the D+E test.
         next_steps: |
           [Become a lorry or bus driver](/become-lorry-bus-driver/overview "Become a lorry or bus driver")
 

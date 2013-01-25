@@ -5,8 +5,8 @@ module SmartAnswer::Calculators
     attr_accessor :milk_protein_weight
     
     def initialize(weights)
-      load_maxtrix_data
-      populate_commodity_code_matrix
+      @matrix_data = self.class.commodity_codes_data
+      @commodity_code_matrix = self.class.commodity_code_matrix
 
       @starch_glucose_weight = weights[:starch_glucose_weight].to_i
       @sucrose_weight = weights[:sucrose_weight].to_i
@@ -26,11 +26,6 @@ module SmartAnswer::Calculators
       milk_fat_to_milk_protein[@milk_fat_weight][@milk_protein_weight]
     end
     
-    def populate_commodity_code_matrix
-      @commodity_code_matrix = []
-      @matrix_data[:commodity_code_matrix].each_line { |l| @commodity_code_matrix << l.split }
-    end
-    
     def starch_glucose_to_sucrose
       @matrix_data[:starch_glucose_to_sucrose]
     end
@@ -39,8 +34,16 @@ module SmartAnswer::Calculators
       @matrix_data[:milk_fat_to_milk_protein]
     end
     
-    def load_maxtrix_data
-      @matrix_data ||= YAML.load(File.open("lib/data/commodity_codes_data.yml").read)  
-    end    
+    def self.commodity_code_matrix
+      unless @commodity_code_matrix
+        @commodity_code_matrix = []
+        commodity_codes_data[:commodity_code_matrix].each_line { |l| @commodity_code_matrix << l.split }
+      end
+      @commodity_code_matrix
+    end
+
+    def self.commodity_codes_data
+      @commodity_codes_data ||= YAML.load(File.open("lib/data/commodity_codes_data.yml").read)  
+    end
   end
 end
