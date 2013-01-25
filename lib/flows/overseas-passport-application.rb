@@ -12,6 +12,10 @@ country_select :which_country_are_you_in? do
     passport_data[:type]
   end
 
+  calculate :ips_number do
+    application_type.split("_")[2] if application_type =~ Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP
+  end
+
   calculate :supporting_documents do
     passport_data[:group]
   end
@@ -42,9 +46,9 @@ multiple_choice :child_or_adult_passport? do
     case application_type
     when 'Australia_Post', 'New_Zealand'
       :which_best_describes_you?
-    when /^ips_application_\d$/
-      application_action == 'applying' ? :country_of_birth? : application_type.to_sym
-    when Calculators::PassportAndEmbassyDataQuery.fco_applications_regexp
+    when Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP
+      application_action == 'applying' ? :country_of_birth? : :ips_application_result 
+    when Calculators::PassportAndEmbassyDataQuery::FCO_APPLICATIONS_REGEXP
       :fco_result
     else
       :result
@@ -65,10 +69,13 @@ country_select :country_of_birth? do
   end
 
   next_node do |response|
-    if application_type =~ /^ips_application_\d$/
-      application_type.to_sym
+    case application_type
+    when Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP 
+      :ips_application_result 
+    when Calculators::PassportAndEmbassyDataQuery::FCO_APPLICATIONS_REGEXP
+      :fco_result
     else
-      :result # TODO: lots of bespoke outcomes
+      :result
     end
   end
 end
@@ -95,45 +102,26 @@ multiple_choice :which_best_describes_you? do
 end
 
 outcome :result
-## IPS Application (1)
-outcome :ips_application_1 do
+
+## IPS Application Result 
+outcome :ips_application_result do
   precalculate :how_long_it_takes do
-    PhraseList.new("how_long_#{application_action}_ips1".to_sym)
+    PhraseList.new("how_long_#{application_action}_ips#{ips_number}".to_sym)
   end
-  precalculate :cost_tables do
-    if :child_or_adult == 'child'
-      PhraseList.new(:child_passport_costs_ips1)
-    else
-      PhraseList.new(:adult_passport_costs_ips1)
-    end
+  precalculate :cost do
+    PhraseList.new("#{child_or_adult}_passport_costs_ips#{ips_number}".to_sym)
+  end
+  precalculate :how_to_apply do
+    PhraseList.new("how_to_apply_ips#{ips_number}".to_sym)
+  end
+  precalculate :send_your_application do
+    PhraseList.new("send_application_ips#{ips_number}".to_sym)
+  end
+  precalculate :helpline do
+    PhraseList.new("helpline_ips#{ips_number}".to_sym)
   end
 end
-## IPS Application (2)
-outcome :ips_application_2 do
-  precalculate :how_long_it_takes do
-    PhraseList.new("how_long_#{application_action}_ips2".to_sym)
-  end
-  precalculate :cost_tables do
-    if :child_or_adult == 'child'
-      PhraseList.new(:child_passport_costs_ips2)
-    else
-      PhraseList.new(:adult_passport_costs_ips2)
-    end
-  end
-end
-## IPS Application (3)
-outcome :ips_application_3 do
-  precalculate :how_long_it_takes do
-    PhraseList.new("how_long_#{application_action}_ips3".to_sym)
-  end
-  precalculate :cost_tables do
-    if :child_or_adult == 'child'
-      PhraseList.new(:child_passport_costs_ips_3)
-    else
-      PhraseList.new(:adult_passport_costs_ips_3)
-    end
-  end
-end
+
 ## FCO Result
 outcome :fco_result do
   precalculate :how_long_it_takes do
@@ -142,12 +130,8 @@ outcome :fco_result do
   precalculate :how_to_apply do
     PhraseList.new("how_to_apply_#{application_type}".to_sym)
   end
-  precalculate :cost_tables do
-    if :child_or_adult == 'child'
-      PhraseList.new("child_passport_costs_#{application_type}".to_sym)
-    else
-      PhraseList.new("adult_passport_costs_#{application_type}".to_sym)
-    end
+  precalculate :cost do
+    PhraseList.new("#{child_or_adult}_passport_costs_#{application_type}".to_sym)
   end
   precalculate :send_your_application do
     PhraseList.new("send_application_#{application_type}".to_sym)

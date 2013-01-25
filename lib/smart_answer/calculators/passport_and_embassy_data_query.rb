@@ -1,11 +1,8 @@
 module SmartAnswer::Calculators
   class PassportAndEmbassyDataQuery
  
-    FCO_APPLICATIONS = ["hong_kong", "madrid", "paris", "pretoria", "washington_usa", "wellington_new_zealand"]
-
-    def self.fco_applications_regexp
-      Regexp.new("^#{FCO_APPLICATIONS.join('|')}$", 'i')
-    end
+    FCO_APPLICATIONS_REGEXP = /^(hong_kong|madrid_spain|paris_france|pretoria_south_africa|washington_usa|wellington_new_zealand)$/
+    IPS_APPLICATIONS_REGEXP = /^ips_application_\d$/ 
 
     def self.find_passport_data(country_slug)
       passport_data[country_slug]

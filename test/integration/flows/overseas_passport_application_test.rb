@@ -187,6 +187,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
       assert_current_node :renewing_replacing_applying?
       assert_state_variable :current_location, 'austria'
       assert_state_variable :application_type, 'ips_application_1'
+      assert_state_variable :ips_number, "1"
     end
     context "answer applying" do
       setup do
@@ -221,7 +222,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
         should "give the result and be done" do
           add_response 'adult'
           assert_state_variable :supporting_documents, 'ips_documents_group_1'
-          assert_current_node :ips_application_1
+          assert_current_node :ips_application_result
         end
       end
     end # Replacing
@@ -236,6 +237,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
       assert_current_node :renewing_replacing_applying?
       assert_state_variable :current_location, 'albania'
       assert_state_variable :application_type, 'ips_application_2'
+      assert_state_variable :ips_number, "2"
     end
     context "answer applying" do
       setup do
@@ -254,7 +256,12 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
         context "answer Spain" do
           should "give the application result" do
             add_response "spain"
-            assert_current_node :ips_application_2
+            assert_current_node :ips_application_result
+            assert_phrase_list :how_long_it_takes, [:how_long_applying_ips2]
+            assert_phrase_list :how_to_apply, [:how_to_apply_ips2]
+            assert_phrase_list :cost, [:adult_passport_costs_ips2]
+            assert_phrase_list :send_your_application, [:send_application_ips2]
+            assert_phrase_list :helpline, [:helpline_ips2]
           end
         end
       end
@@ -270,6 +277,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
       assert_current_node :renewing_replacing_applying?
       assert_state_variable :current_location, 'azerbaijan'
       assert_state_variable :application_type, 'ips_application_3'
+      assert_state_variable :ips_number, "3"
     end
     context "answer applying" do
       setup do
@@ -301,6 +309,11 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
         should "give the FCO result and be done" do
           add_response 'adult'
           assert_current_node :fco_result
+          assert_phrase_list :how_long_it_takes, [:how_long_applying]
+          assert_phrase_list :how_to_apply, [:how_to_apply_madrid_spain]
+          assert_phrase_list :cost, [:adult_passport_costs_madrid_spain]
+          assert_phrase_list :send_your_application, [:send_application_madrid_spain]
+          assert_phrase_list :helpline, [:helpline_madrid_spain]
         end
       end
     end
