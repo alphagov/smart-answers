@@ -223,6 +223,11 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
           add_response 'adult'
           assert_state_variable :supporting_documents, 'ips_documents_group_1'
           assert_current_node :ips_application_result
+          assert_phrase_list :how_long_it_takes, [:how_long_replacing_ips1]
+          assert_phrase_list :how_to_apply, [:how_to_apply_ips1]
+          assert_phrase_list :cost, [:adult_passport_costs_ips1]
+          assert_phrase_list :send_your_application, [:send_application_ips1]
+          assert_state_variable :embassy_address, nil
         end
       end
     end # Replacing
@@ -261,7 +266,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
             assert_phrase_list :how_to_apply, [:how_to_apply_ips2]
             assert_phrase_list :cost, [:adult_passport_costs_ips2]
             assert_phrase_list :send_your_application, [:send_application_ips2]
-            assert_phrase_list :helpline, [:helpline_ips2]
+            assert_state_variable :embassy_address, "British Embassy\nRruga Skenderbeg 12\nTirana"
           end
         end
       end
@@ -279,9 +284,18 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
       assert_state_variable :application_type, 'ips_application_3'
       assert_state_variable :ips_number, "3"
     end
-    context "answer applying" do
+    context "answer replacing adult passport" do
       setup do
-        add_response 'applying'
+        add_response 'replacing'
+        add_response 'adult'
+      end
+      should "give the IPS application result" do
+        assert_current_node :ips_application_result
+        assert_phrase_list :how_long_it_takes, [:how_long_replacing_ips3]
+        assert_phrase_list :how_to_apply, [:how_to_apply_ips3]
+        assert_phrase_list :cost, [:adult_passport_costs_ips3]
+        assert_phrase_list :send_your_application, [:send_application_ips3]
+        assert_state_variable :embassy_address, "British Embassy\n45 Khagani Street\nAZ1010"
       end
     end # Applying
     context "renewing old" do

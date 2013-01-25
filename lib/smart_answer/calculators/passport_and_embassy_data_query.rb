@@ -8,7 +8,7 @@ module SmartAnswer::Calculators
       passport_data[country_slug]
     end
 
-    def self.embassy_data_for(countr_slug)
+    def self.find_embassy_data(country_slug)
       embassy_data[country_slug]
     end
 

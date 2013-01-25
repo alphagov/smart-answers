@@ -101,7 +101,7 @@ multiple_choice :which_best_describes_you? do
   next_node :australian_result
 end
 
-outcome :result
+outcome :result # TODO: This still needs to accommodate the edge cases. Iran, Syria etc.
 
 ## IPS Application Result 
 outcome :ips_application_result do
@@ -114,11 +114,13 @@ outcome :ips_application_result do
   precalculate :how_to_apply do
     PhraseList.new("how_to_apply_ips#{ips_number}".to_sym)
   end
+  precalculate :embassy_address do
+    unless ips_number.to_i ==  1
+      Calculators::PassportAndEmbassyDataQuery.find_embassy_data(current_location).first['address']
+    end
+  end
   precalculate :send_your_application do
     PhraseList.new("send_application_ips#{ips_number}".to_sym)
-  end
-  precalculate :helpline do
-    PhraseList.new("helpline_ips#{ips_number}".to_sym)
   end
 end
 
