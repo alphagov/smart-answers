@@ -108,7 +108,7 @@ multiple_choice :which_best_describes_you? do
 
   save_input_as :aus_checklist_variant
 
-  next_node :australian_result
+  next_node :fco_result
 end
 
 outcome :result # TODO: This still needs to accommodate the edge cases. Iran, Syria etc.
@@ -146,7 +146,4 @@ outcome :fco_result do
   precalculate :helpline do
     PhraseList.new("helpline_#{application_type}".to_sym)
   end
-end
-
-outcome :australian_result do
 end
