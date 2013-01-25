@@ -128,7 +128,7 @@ outcome :fco_result do
     PhraseList.new("how_long_#{application_action}".to_sym)
   end
   precalculate :how_to_apply do
-    PhraseList.new("how_to_apply_#{application_type}".to_sym)
+    PhraseList.new("#{child_or_adult}_#{application_action}_#{application_type}".to_sym)
   end
   precalculate :cost do
     PhraseList.new("#{child_or_adult}_passport_costs_#{application_type}".to_sym)

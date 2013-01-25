@@ -305,17 +305,36 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
       should "ask if the passport is for an adult or a child" do
         assert_current_node :child_or_adult_passport?
       end
-      context "answer adult" do
+      context "answer child" do
         should "give the FCO result and be done" do
-          add_response 'adult'
+          add_response 'child'
           assert_current_node :fco_result
           assert_phrase_list :how_long_it_takes, [:how_long_applying]
-          assert_phrase_list :how_to_apply, [:how_to_apply_madrid_spain]
-          assert_phrase_list :cost, [:adult_passport_costs_madrid_spain]
+          assert_phrase_list :how_to_apply, [:child_applying_madrid_spain]
+          assert_phrase_list :cost, [:child_passport_costs_madrid_spain]
           assert_phrase_list :send_your_application, [:send_application_madrid_spain]
           assert_phrase_list :helpline, [:helpline_madrid_spain]
         end
       end
     end
+    context "answer renewing old type" do
+      setup do
+        add_response 'renewing_old'
+      end
+      should "ask if the passport is for an adult or a child" do
+        assert_current_node :child_or_adult_passport?
+      end
+      context "answer adult" do
+        should "give the FCO result and be done" do
+          add_response 'adult'
+          assert_current_node :fco_result
+          assert_phrase_list :how_long_it_takes, [:how_long_renewing_old]
+          assert_phrase_list :how_to_apply, [:adult_renewing_old_madrid_spain]
+          assert_phrase_list :cost, [:adult_passport_costs_madrid_spain]
+          assert_phrase_list :send_your_application, [:send_application_madrid_spain]
+          assert_phrase_list :helpline, [:helpline_madrid_spain]
+        end
+      end
+    end # Andorra (FCO result cases)
   end
 end
