@@ -2,8 +2,6 @@ require 'uk_postcode'
 
 module SmartAnswer::Calculators
   class PIPDates
-    DLA_CUTOFF = Date.parse('2013-10-07')
-
     GROUP_65_CUTOFF = Date.parse('1949-04-08')
     MIDDLE_GROUP_CUTOFF = Date.parse('1998-04-07')
     
@@ -11,7 +9,7 @@ module SmartAnswer::Calculators
       self.postcode = postcode if postcode
     end
 
-    attr_accessor :dla_end_date, :dob
+    attr_accessor :dob
 
     def postcode=(postcode_string)
       pc = UKPostcode.new(postcode_string)
@@ -50,10 +48,6 @@ module SmartAnswer::Calculators
 
     def in_middle_group?
       self.dob > GROUP_65_CUTOFF and self.dob < MIDDLE_GROUP_CUTOFF
-    end
-
-    def dla_continues?
-      self.dla_end_date > DLA_CUTOFF
     end
   end
 end

@@ -118,26 +118,5 @@ module SmartAnswer::Calculators
         assert ! @calc.in_middle_group?
       end
     end
-
-    context "dla_continues?" do
-      setup do
-        @calc = PIPDates.new
-      end
-
-      should "be true if dls ends after 2013-10-07" do
-        @calc.dla_end_date = Date.parse('2013-10-08')
-        assert @calc.dla_continues?
-      end
-
-      should "be false if dls ends on 2013-10-07" do
-        @calc.dla_end_date = Date.parse('2013-10-07')
-        assert ! @calc.dla_continues?
-      end
-
-      should "be false if dls ends before 2013-10-07" do
-        @calc.dla_end_date = Date.parse('2013-10-06')
-        assert ! @calc.dla_continues?
-      end
-    end
   end
 end
