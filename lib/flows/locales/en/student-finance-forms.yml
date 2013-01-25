@@ -48,37 +48,37 @@ en-GB:
       type_of_student?:
         title: What type of a student are you?
         options:
-          "1": "UK student full time"
-          "2": "UK student part time"
-          "3": "EU student full time"
-          "4": "EU student part time"
+          "uk-full-time": "UK student full time"
+          "uk-part-time": "UK student part time"
+          "eu-full-time": "EU student full time"
+          "eu-part-time": "EU student part time"
 
       ## Q2
       form_needed_for_1?:
         title: What do you need the form for?
         options:
-          "1": "apply for student loans and grants"
-          "2": "send proof of identity"
-          "3": "send parent or partner’s income details"
-          "4": "apply for Disabled Students’ Allowances"
-          "5": "claim Disabled Students’ Allowances expenses"
-          "6": "apply for Childcare Grant"
-          "7": "claim Childcare Grant expenses"
-          "8": "Travel Grant (medical and dental students only)"
+          "apply-loans-grants": "apply for student loans and grants"
+          "proof-identity": "send proof of identity"
+          "income-details": "send parent or partner’s income details"
+          "apply-dsa": "apply for Disabled Students’ Allowances"
+          "dsa-expenses": "claim Disabled Students’ Allowances expenses"
+          "apply-ccg": "apply for Childcare Grant"
+          "ccg-expenses": "claim Childcare Grant expenses"
+          "travel-grant": "Travel Grant (medical and dental students only)"
       form_needed_for_2?:
         title: What do you need the form for?
         options:
-          "1": "apply for student loans and grants"
-          "2": "send proof of identity"
-          "4": "apply for Disabled Students’ Allowances"
-          "5": "claim Disabled Students’ Allowances expenses"
+          "apply-loans-grants": "apply for student loans and grants"
+          "proof-identity": "send proof of identity"
+          "apply-dsa": "apply for Disabled Students’ Allowances"
+          "dsa-expenses": "claim Disabled Students’ Allowances expenses"
 
       ## Q3
       what_year?:
         title: What academic year do you want funding for?
         options:
-          "1": "2013 to 2014"
-          "2": "2012 to 2013"
+          "year-1314": "2013 to 2014"
+          "year-1213": "2012 to 2013"
 
 
       ## Q4
@@ -86,16 +86,16 @@ en-GB:
         title: Are you a continuing student?
         hint: You’re usually a continuing student if you got student finance last year.
         options:
-          "1": "Yes"
-          "2": "No"
+          "continuing-student": "Yes"
+          "new-student": "No"
 
 
       ## Q5
       pt_course_start?:
         title: Did your part time course start before 1 September 2012?
         options:
-          "1": "Yes"
-          "2": "No"
+          "course-start-before-01092012": "Yes"
+          "course-start-after-01092012": "No"
 
 
       outcome_1:
@@ -489,3 +489,4 @@ en-GB:
           ^You can apply up to 6 months after the start of your course.
 
           %{form_destination}
+
