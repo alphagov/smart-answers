@@ -583,7 +583,7 @@ en-GB:
       ## A32
       bus_apply_for_cat_d:
         body: |
-          You can drive a bus. You’ll need to apply for provisional bus entitlement (category D) then take a category D test.
+          You can learn to drive a bus. You’ll need to apply for provisional bus entitlement (category D) then take a category D test.
 
         next_steps: |
           [Become a lorry or bus driver](/become-lorry-bus-driver/overview "Become a lorry or bus driver")
@@ -594,7 +594,7 @@ en-GB:
         body: |
           You’ll need a full car driving licence before you can apply for provisional bus entitlement (category D) then take your test. 
 
-          You must also normally be 21 or over.
+          You must also normally be 24 or over.
 
         next_steps: |
           [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence "Apply for your first provisional driving licence")
@@ -762,7 +762,7 @@ en-GB:
       ## A49
       trike_conditional_entitlement:
         body: |
-         You’ll need a category A1 motorbike licence to ride motor tricycles up to power output 15kW, and a category A motorbike licence to ride trikes with a power output more for 15kW.
+         You’ll need a category A1 motorbike licence to ride motor tricycles up to power output 15kW, and a category A motorbike licence to ride trikes with a power output more than 15kW.
 
           Go back to the start of this tool and choose the motorbike option to see how to get these licence entitlements.
 
