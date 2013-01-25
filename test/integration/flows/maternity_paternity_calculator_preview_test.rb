@@ -143,9 +143,9 @@ class MaternityPaternityCalculatorPreviewTest < ActiveSupport::TestCase
                         assert_state_variable "pay_start_date", leave_start
                         assert_state_variable "pay_end_date", 39.weeks.since(leave_start)
                         assert_state_variable "average_weekly_earnings", 135.4
-                        assert_state_variable "smp_a", (135.40 * 0.9).round(2).to_s
-                        assert_state_variable "smp_b", (135.40 * 0.9).round(2).to_s
-                        assert_state_variable "total_smp", "4752.54"
+                        assert_state_variable "smp_a", "121.87" 
+                        assert_state_variable "smp_b", "121.87"
+                        assert_state_variable "total_smp", "4752.93"
                       end
                       should "calculate and present the result" do
                         assert_phrase_list :maternity_leave_info, [:maternity_leave_table]
@@ -233,6 +233,16 @@ class MaternityPaternityCalculatorPreviewTest < ActiveSupport::TestCase
                     assert_current_node :pay_frequency?
                   end
                   
+                  context "answer weekly with earnings below threshold" do
+                    ##QM5.5
+                    should "calculate awe and state that they must earn over the minimum threshold" do
+                      add_response 'weekly'
+                      add_response '1000'
+                      assert_current_node :maternity_leave_and_pay_result
+                      assert_state_variable "average_weekly_earnings", 125.0
+                      assert_state_variable :not_entitled_reason, :must_earn_over_threshold
+                    end
+                  end
                   context "answer weekly" do
                     setup { add_response :weekly }
                     ##QM5.5
@@ -250,9 +260,9 @@ class MaternityPaternityCalculatorPreviewTest < ActiveSupport::TestCase
                         assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week)
                         assert_state_variable "pay_start_date", leave_start
                         assert_state_variable "pay_end_date", 39.weeks.since(leave_start)
-                        assert_state_variable "smp_a", (135.40 * 0.9).round(2).to_s
-                        assert_state_variable "smp_b", (135.40 * 0.9).round(2).to_s
-                        assert_state_variable "total_smp", "4752.54"
+                        assert_state_variable "smp_a", "121.87" 
+                        assert_state_variable "smp_b", "121.87" 
+                        assert_state_variable "total_smp", "4752.93"
                       end
                       # no contract means no leave
                       should "calculate and present the result" do
@@ -291,7 +301,7 @@ class MaternityPaternityCalculatorPreviewTest < ActiveSupport::TestCase
                       setup { add_response '2100.80' }
                       should "calculate the dates and payment amounts" do
                         assert_state_variable "average_weekly_earnings", 262.60 
-                        assert_state_variable "smp_a", (262.60 * 0.9).round(2).to_s
+                        assert_state_variable "smp_a", "236.35"
                         assert_state_variable "smp_b", "135.45" # Uses the statutory maternity rate 
                       end
                     end
@@ -306,7 +316,7 @@ class MaternityPaternityCalculatorPreviewTest < ActiveSupport::TestCase
                       setup { add_response '1807.78' }
                       should "calculate the dates and payment amounts" do
                         assert_state_variable "average_weekly_earnings", 208.59 
-                        assert_state_variable "smp_a", (208.59 * 0.9).round(2).to_s
+                        assert_state_variable "smp_a", "187.74" 
                         assert_state_variable "smp_b", "135.45" # Uses the statutory maternity rate 
                       end
                     end
@@ -341,9 +351,9 @@ class MaternityPaternityCalculatorPreviewTest < ActiveSupport::TestCase
                         assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week)
                         assert_state_variable "pay_start_date", leave_start
                         assert_state_variable "pay_end_date", 39.weeks.since(leave_start)
-                        assert_state_variable "smp_a", (239.79 * 0.9).round(2).to_s
+                        assert_state_variable "smp_a", "215.82"
                         assert_state_variable "smp_b", "135.45" # the statutory rate
-                        assert_state_variable "total_smp", "5764.71" 
+                        assert_state_variable "total_smp", "5764.77" 
                       end
                     end
                   end

@@ -167,6 +167,7 @@ money_question :earnings_for_pay_period? do
   calculate :average_weekly_earnings do
     calculator.average_weekly_earnings
   end
+
   next_node :maternity_leave_and_pay_result
 end
 
@@ -208,7 +209,16 @@ outcome :maternity_leave_and_pay_result do
       false
     end
   end
-  
+
+  precalculate :not_entitled_to_pay_reason do
+    if calculator.average_weekly_earnings and 
+      calculator.average_weekly_earnings < calculator.lower_earning_limit
+      :must_earn_over_threshold
+    else
+      not_entitled_to_pay_reason
+    end
+  end
+
   precalculate :maternity_pay_info do
     if eligible_for_maternity_pay
       pay_info = PhraseList.new(:maternity_pay_table)
