@@ -1,0 +1,27 @@
+en-GB:
+  flow:
+    overseas-passport-application:
+      title: Apply for, renew or replace a British passport if you’re outside the UK 
+      meta:
+        description: Renew, replace or apply for an adult or child British passport if you’re living abroad or working overseas - forms, prices, how long it takes 
+      body: |
+        Get the forms, prices and application details you need if you’re a British national and you want to renew or apply for a British passport from overseas.
+
+        % If you were born in or had a connection with Hong Kong and registered as a British National Overseas before 1997, [you must apply a different way.](/hong-kong-british-nationals-passports “Passport applications for British National Overseas from Hong Kong”) %
+
+      which_country_are_you_in?:
+        title: Which country are you in?
+      renewing_replacing_applying?:
+        title: Are you renewing, replacing or applying for a first passport?
+        options:
+          renewing_new: "Renewing a red passport"
+          renewing_old: "Renewing an old black or blue passport"
+          applying: "Applying for a first passport"
+          replacing: "Replacing a lost or stolen passport"
+      child_or_adult_passport?:
+        title: Do you need an adult or child passport?
+        options:
+          adult: "Adult (over 16)"
+          child: "Child (under 16)"
+      country_of_birth?:
+        title: Which country were you born in?
