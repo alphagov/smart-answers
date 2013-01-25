@@ -4,11 +4,12 @@ en-GB:
       title:
         Check your Personal Independence Payment (PIP) start date
       body: |
-        Check when you'll switch from Disability Living Allowance (DLA) to Personal Independence Payment (PIP)
+        Check when you’ll switch from Disability Living Allowance to Personal Independence Payment.
 
         **What you need to know:**
 
-        * the date when your DLA ends if you already get it
+        * the date your Disability Living Allowance ends (if you get it)
+
       meta:
         description:
           Check when you’ll switch from Disability Living Allowance (DLA) to Personal Independence Payment (PIP)
@@ -18,6 +19,7 @@ en-GB:
 
       ## Q1
       what_is_your_post_code?:
+        title: "What's your post code?"
         error_message: "Please enter a full UK postcode."
 
       ## Q2
@@ -25,8 +27,8 @@ en-GB:
         title: "Are you getting Disability Living Allowance?"
 
       ## Q3
-      when_does_your_dla_end?:
-        title: "When does your Disability Living Allowance end?"
+      does_dla_end_before_oct_2013?:
+        title: "Does your Disability Living Allowance end on or before 7 October 2013?"
 
       ## Q4
       what_is_your_dob?:
@@ -34,17 +36,17 @@ en-GB:
 
       result_1:
         body: |
-          $!You can apply for Disability Living Allowance until 8 April, after that you have to apply for Personal Independence Payment (PIP).$!
+          $!You can apply for Disability Living Allowance until 8 April 2013, after that you have to apply for Personal Independence Payment (PIP).$!
 
-          You need to [qualify for PIP](/pip "Personal Independence Allowance") to apply. 
+          You need to [qualify for PIP](/pip "Personal Independence Payment") to apply.
 
       result_2:
         body: |
-          $!You can apply for Disability Living Allowance until 10 June.$!
+          $!You can apply for Disability Living Allowance until 10 June 2013.$!
 
-          After 10 June you'll have to apply for Personal Independence Allowance.
+          After 10 June 2013 you'll have to apply for Personal Independence Allowance.
 
-          [If your circumstances change](/dla-disability-living-allowance-benefit/what-youll-get "If your circumstances change") after 7 October you'll switch to PIP.
+          [If your condition changes](/dla-disability-living-allowance-benefit/what-youll-get "If your condition changes") after 7 October 2013 you'll switch to PIP.
 
           When you phone the Disability Benefits Helpline they'll explain what you need to do.
 
@@ -56,21 +58,21 @@ en-GB:
 
       result_4:
         body: |
-          $!You don’t have to do anything unless your circumstances change.$!
+          $!You don’t have to do anything unless your condition changes.$!
 
           ##Your health condition or disability doesn't change
           You'll continue to get [Disability Living Allowance](/dla-disability-living-allowance-benefit "Disability Living Allowance") until 2015.
 
-          You don't have to do anything. DWP will send you a letter telling you how you'll be moved to Personal Living Allowance.
+          You don't have to do anything. DWP will send you a letter telling you how you'll be moved to Personal Independence Payment.
 
-          ##There is a change in your health condition or disability
-          You don't have to do anything until October 2013. After that you need to [contact the Benefit Enquiry line](/benefit-enquiry-line "Benefit Enquiry line") and tell them how your circumstances have changed.
+          ##Your health condition or disability changes
+          You don't have to do anything until October 2013. After that you need to [contact the Benefit Enquiry line](/benefit-enquiry-line "Benefit Enquiry line") and tell them how your condition has changed.
 
-          They'll then explain to you how you'll be moved to the Personal Living Allowance. 
+          They'll explain to you how you'll be moved to the Personal Independence Payment.
 
       result_5:
         body: |
-          $!You'll switch to Personal Living Allowance (PIP).$!
+          $!You'll switch to Personal Independence Payment (PIP).$!
 
           DWP will write to you before your Disability Living Allowance ends and tell you how to claim PIP.
 

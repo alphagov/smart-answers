@@ -44,13 +44,13 @@ class PIPDateCheckerTest < ActiveSupport::TestCase
         add_response 'yes'
       end
 
-      should "ask when DLA ends" do
-        assert_current_node :when_does_your_dla_end?
+      should "ask if DLA ends before oct 2013" do
+        assert_current_node :does_dla_end_before_oct_2013?
       end
 
       context "DLA ends on or before 7 Oct 2013" do
         setup do
-          add_response '2013-10-07'
+          add_response 'yes'
         end
 
         should "ask for date of birth" do
@@ -75,7 +75,7 @@ class PIPDateCheckerTest < ActiveSupport::TestCase
 
       context "DLA ends after 7 Oct 2013" do
         setup do
-          add_response '2013-10-08'
+          add_response 'no'
         end
 
         should "ask for date of birth" do
@@ -119,13 +119,13 @@ class PIPDateCheckerTest < ActiveSupport::TestCase
         add_response 'yes'
       end
 
-      should "ask when DLA ends" do
-        assert_current_node :when_does_your_dla_end?
+      should "ask if DLA ends before oct 2013" do
+        assert_current_node :does_dla_end_before_oct_2013?
       end
 
       context "DLA ends on or before 7 Oct 2013" do
         setup do
-          add_response '2013-10-07'
+          add_response 'yes'
         end
 
         should "ask for date of birth" do
@@ -150,7 +150,7 @@ class PIPDateCheckerTest < ActiveSupport::TestCase
 
       context "DLA ends after 7 Oct 2013" do
         setup do
-          add_response '2013-10-08'
+          add_response 'no'
         end
 
         should "ask for date of birth" do
