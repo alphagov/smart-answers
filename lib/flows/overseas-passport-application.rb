@@ -76,9 +76,18 @@ end
 # QAUS1
 multiple_choice :which_best_describes_you? do
   option "born-in-uk-pre-1983"
-  option "born-in-uk-post-dec-1982-father"
-  option "born-in-uk-post-dec-1982-mother"
+  option "born-in-uk-post-1982-uk-father"
+  option "born-in-uk-post-1982-uk-mother"
   option "born-outside-uk-parents-married"
+  option "born-outside-uk-mother-born-in-uk"
+  option "born-in-uk-post-1982-father-uk-citizen"
+  option "born-in-uk-post-1982-mother-uk-citizen"
+  option "born-in-uk-post-1982-father-uk-service"
+  option "born-in-uk-post-1982-mother-uk-service"
+  option "married-to-uk-citizen-pre-1983-reg-pre-1988"
+  option "registered-uk-citizen"
+  option "child-born-outside-uk-father-citizen"
+  option "woman-married-to-uk-citizen-pre-1949"
 
   save_input_as :aus_checklist_variant
 
