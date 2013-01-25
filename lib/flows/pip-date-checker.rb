@@ -22,7 +22,7 @@ multiple_choice :are_you_getting_dla? do
 
   next_node do |response|
     if response == 'yes'
-      :when_does_your_dla_end?
+      :does_dla_end_before_oct_2013?
     else
       if in_selected_area
         :result_1
@@ -34,11 +34,13 @@ multiple_choice :are_you_getting_dla? do
 end
 
 ## Q3
-date_question :when_does_your_dla_end? do
-  calculate :dla_end_date do
-    calculator.dla_end_date = Date.parse(responses.last)
-  end
+multiple_choice :does_dla_end_before_oct_2013? do
+  option :yes
+  option :no
 
+  calculate :dla_continues do
+    responses.last == 'no'
+  end
   next_node :what_is_your_dob?
 end
 
@@ -51,7 +53,7 @@ date_question :what_is_your_dob? do
     if calculator.in_group_65?
       :result_3
     elsif calculator.in_middle_group?
-      if calculator.dla_continues?
+      if dla_continues
         :result_4
       else
         :result_5

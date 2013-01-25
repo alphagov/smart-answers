@@ -25,8 +25,8 @@ en-GB:
         title: "Are you getting Disability Living Allowance?"
 
       ## Q3
-      when_does_your_dla_end?:
-        title: "When does your Disability Living Allowance end?"
+      does_dla_end_before_oct_2013?:
+        title: "Does your Disability Living Allowance end on or before 7 October 2013?"
 
       ## Q4
       what_is_your_dob?:
