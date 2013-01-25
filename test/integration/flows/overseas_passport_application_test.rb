@@ -146,7 +146,11 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
         should "give the result and be done" do
           assert_current_node :country_of_birth?
         end
-        context "TODO" do
+        context "answer Greece" do
+          should "use the greek document group in the results" do
+            add_response 'greece'
+            assert_state_variable :supporting_documents, 'ips_documents_group_2'
+          end
         end
       end
     end # Applying
@@ -161,6 +165,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
         should "give the result and be done" do
           add_response 'adult'
           assert_current_node :ips_application_1
+          assert_state_variable :supporting_documents, 'ips_applications_1'
         end
       end
     end # Replacing

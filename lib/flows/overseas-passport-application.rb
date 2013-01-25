@@ -12,6 +12,10 @@ country_select :which_country_are_you_in? do
     passport_data[:type]
   end
 
+  calculate :supporting_documents do
+    passport_data[:group]
+  end
+
   next_node :renewing_replacing_applying?
 end
 
@@ -54,6 +58,10 @@ country_select :country_of_birth? do
 
   calculate :application_group do
     Calculators::PassportAndEmbassyDataQuery.find_passport_data(responses.last)[:group]
+  end
+
+  calculate :supporting_documents do
+    application_group
   end
 
   next_node do |response|
