@@ -1,4 +1,4 @@
-status :draft
+status :published
 
 # Q1
 checkbox_question :what_are_your_circumstances? do
