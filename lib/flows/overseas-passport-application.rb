@@ -99,6 +99,8 @@ multiple_choice :which_best_describes_you? do
   option "born-outside-uk-mother-born-in-uk"
   option "born-in-uk-post-1982-father-uk-citizen"
   option "born-in-uk-post-1982-mother-uk-citizen"
+  option "born-outside-uk-father-registered-uk-citizen"
+  option "born-outside-uk-mother-registered-uk-citizen"
   option "born-in-uk-post-1982-father-uk-service"
   option "born-in-uk-post-1982-mother-uk-service"
   option "married-to-uk-citizen-pre-1983-reg-pre-1988"
@@ -116,10 +118,12 @@ outcome :result # TODO: This still needs to accommodate the edge cases. Iran, Sy
 ## IPS Application Result 
 outcome :ips_application_result do
   precalculate :how_long_it_takes do
-    PhraseList.new("how_long_#{application_action}_ips#{ips_number}".to_sym)
+    PhraseList.new("how_long_#{application_action}_ips#{ips_number}".to_sym,
+                   "how_long_it_takes_ips#{ips_number}".to_sym)
   end
   precalculate :cost do
-    PhraseList.new("#{child_or_adult}_passport_costs_ips#{ips_number}".to_sym)
+    PhraseList.new("#{child_or_adult}_passport_costs_ips#{ips_number}".to_sym,
+                   "passport_costs_ips#{ips_number}".to_sym)
   end
   precalculate :how_to_apply do
     PhraseList.new("how_to_apply_ips#{ips_number}".to_sym)
@@ -132,13 +136,15 @@ end
 ## FCO Result
 outcome :fco_result do
   precalculate :how_long_it_takes do
-    PhraseList.new("how_long_#{application_action}".to_sym)
+    PhraseList.new("how_long_#{application_action}_fco".to_sym)
   end
-  precalculate :how_to_apply do
-    PhraseList.new("#{child_or_adult}_#{application_action}_#{application_type}".to_sym)
+  precalculate :fco_forms do
+    PhraseList.new("#{child_or_adult}_fco_forms".to_sym)
   end
   precalculate :cost do
-    PhraseList.new("#{child_or_adult}_passport_costs_#{application_type}".to_sym)
+    PhraseList.new("passport_courier_costs_#{application_type}".to_sym,
+                   "#{child_or_adult}_passport_costs_#{application_type}".to_sym, 
+                   "passport_costs_#{application_type}".to_sym)
   end
   precalculate :send_your_application do
     PhraseList.new("send_application_#{application_type}".to_sym)

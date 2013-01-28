@@ -223,9 +223,9 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
           add_response 'adult'
           assert_state_variable :supporting_documents, 'ips_documents_group_1'
           assert_current_node :ips_application_result
-          assert_phrase_list :how_long_it_takes, [:how_long_replacing_ips1]
+          assert_phrase_list :how_long_it_takes, [:how_long_replacing_ips1, :how_long_it_takes_ips1]
           assert_phrase_list :how_to_apply, [:how_to_apply_ips1]
-          assert_phrase_list :cost, [:adult_passport_costs_ips1]
+          assert_phrase_list :cost, [:adult_passport_costs_ips1, :passport_costs_ips1]
           assert_phrase_list :send_your_application, [:send_application_ips1]
           assert_state_variable :embassy_address, nil
         end
@@ -262,9 +262,9 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
           should "give the application result" do
             add_response "spain"
             assert_current_node :ips_application_result
-            assert_phrase_list :how_long_it_takes, [:how_long_applying_ips2]
+            assert_phrase_list :how_long_it_takes, [:how_long_applying_ips2, :how_long_it_takes_ips2]
             assert_phrase_list :how_to_apply, [:how_to_apply_ips2]
-            assert_phrase_list :cost, [:adult_passport_costs_ips2]
+            assert_phrase_list :cost, [:adult_passport_costs_ips2, :passport_costs_ips2]
             assert_phrase_list :send_your_application, [:send_application_ips2]
             assert_state_variable :embassy_address, "British Embassy\nRruga Skenderbeg 12\nTirana"
           end
@@ -291,9 +291,9 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
       end
       should "give the IPS application result" do
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_replacing_ips3]
+        assert_phrase_list :how_long_it_takes, [:how_long_replacing_ips3, :how_long_it_takes_ips3]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3]
-        assert_phrase_list :cost, [:adult_passport_costs_ips3]
+        assert_phrase_list :cost, [:adult_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :send_your_application, [:send_application_ips3]
         assert_state_variable :embassy_address, "British Embassy\n45 Khagani Street\nAZ1010"
       end
@@ -303,7 +303,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
     end
   end # Azerbaijan - IPS_application_3
 
-  # Andorra (an example of FCO application)
+  # Andorra (an example of FCO application via Madrid)
   context "answer Andorra" do
     setup do
       add_response 'andorra'
@@ -323,9 +323,9 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
         should "give the FCO result and be done" do
           add_response 'child'
           assert_current_node :fco_result
-          assert_phrase_list :how_long_it_takes, [:how_long_applying]
-          assert_phrase_list :how_to_apply, [:child_applying_madrid_spain]
-          assert_phrase_list :cost, [:child_passport_costs_madrid_spain]
+          assert_phrase_list :how_long_it_takes, [:how_long_applying_fco]
+          assert_phrase_list :fco_forms, [:child_fco_forms]
+          assert_phrase_list :cost, [:passport_courier_costs_madrid_spain, :child_passport_costs_madrid_spain, :passport_costs_madrid_spain]
           assert_phrase_list :send_your_application, [:send_application_madrid_spain]
           assert_phrase_list :helpline, [:helpline_madrid_spain]
           assert_state_variable :embassy_address, "Edificio Torre de Barcelona\nAvienda Diagonal 477-13\n08036 Barcelona,"
@@ -343,9 +343,9 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
         should "give the FCO result and be done" do
           add_response 'adult'
           assert_current_node :fco_result
-          assert_phrase_list :how_long_it_takes, [:how_long_renewing_old]
-          assert_phrase_list :how_to_apply, [:adult_renewing_old_madrid_spain]
-          assert_phrase_list :cost, [:adult_passport_costs_madrid_spain]
+          assert_phrase_list :how_long_it_takes, [:how_long_renewing_old_fco]
+          assert_phrase_list :fco_forms, [:adult_fco_forms]
+          assert_phrase_list :cost, [:passport_courier_costs_madrid_spain, :adult_passport_costs_madrid_spain, :passport_costs_madrid_spain]
           assert_phrase_list :send_your_application, [:send_application_madrid_spain]
           assert_phrase_list :helpline, [:helpline_madrid_spain]
           assert_state_variable :embassy_address, "Edificio Torre de Barcelona\nAvienda Diagonal 477-13\n08036 Barcelona,"
