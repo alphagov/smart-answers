@@ -565,6 +565,55 @@ en-GB:
           +44 (0) 300 222 0000
           $C
 
+        how_long_australia_post: |
+          You must book an interview at an [Australia Post office.](http://apps.nowwhere.com.au/austpost/PostOfficeLocator/default.aspx?service=Passport_Interviews "Book an appointment at an Australia Post office"){:rel=”external”}
+
+          For passport renewals, you will usually get your passport **3 to 4 weeks** after your interview.
+
+          For first-time applications or replacement of lost or stolen passports, it usually takes **6 weeks.**
+
+          Applications can take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+          Don’t book travel until you have a valid passport. If you need to travel urgently, you can apply for an Emergency Travel Document from the British high commission in Canberra.
+
+
+          $A
+            %{embassy_address}
+          $A
+        
+        cost_australia_post: |
+          | Passport type | Passport fee |
+          |---------------|--------------|
+          | Adult standard 32-page passport | AUS $275.32 |
+          | Adult jumbo 48-page passport | AUS $318.32 |
+          | Child passport | AUS $201.32 |
+
+        how_to_apply_australia_post: |
+          Book an interview at an [Australia Post office.](http://apps.nowwhere.com.au/austpost/PostOfficeLocator/default.aspx?service=Passport_Interviews "Book an appointment at an Australia Post office"){:rel=”external”} - you must bring cash or a Visa or Mastercard to pay the fee at the interview.
+
+          Download the application form and guidance notes. Bring the application form to your interview.
+
+        how_to_apply_adult_australia_post: |
+          
+          
+          $D
+            [Download ‘Passport appllication form for adults aged 16 and over’ (489KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c1.pdf “Download ‘Passport appllication form for adults aged 16 and over’ (489KB)”)
+
+            [Download ‘Guidance notes for adult applications (PDF, 2.2MB)’](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c1-notes.pdf “‘Guidance notes for adult applications‘ (PDF, 2.2MB)”)
+          $D
+
+        how_to_apply_child_australia_post: |
+          
+          
+          $D
+            [Download ‘Passport application form for children aged 16 and under’ (505KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2.pdf “Download ‘Passport appllication form for children aged 16 and under’ (505KB)”)
+
+            [Download ‘Guidance notes for child applications (PDF, 2MB)’](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2-notes.pdf “‘Guidance notes for adult applications‘ (PDF, 2MB)”) 
+          $D
+
       fco_result:
         body: |
           ## How long it takes
@@ -630,3 +679,17 @@ en-GB:
           %{send_your_application}
 
           %{tracking_and_receiving}
+
+      result:
+        body: |
+          ## How long it takes
+
+          %{how_long_it_takes}
+
+          ## Cost
+
+          %{cost}
+
+          ## How to apply
+          
+          %{how_to_apply}
