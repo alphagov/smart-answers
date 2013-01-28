@@ -25,3 +25,608 @@ en-GB:
           child: "Child (under 16)"
       country_of_birth?:
         title: Which country were you born in?
+      which_best_describes_you?:
+        title: Which of the following best describes you?
+        options:
+          "born-in-uk-pre-1983" : "Born in the UK before 1 January 1983"
+          "born-in-uk-post-1982-uk-father" : "Born in the UK after 31 December 1982 with father born in UK"
+          "born-in-uk-post-1982-uk-mother" : "Born in the UK after 31 December 1982 with mother born in UK"
+          "born-outside-uk-parents-married" : "Born outside the UK, with father born in UK and married to mother at time of birth"
+          "born-outside-uk-mother-born-in-uk" : "Born outside the UK after 31 December 1982 with mother born in UK"
+          "born-in-uk-post-1982-father-uk-citizen" : "Born in the UK after 31 December 1982 with father registered or naturalised as a British Citizen"
+          "born-in-uk-post-1982-mother-uk-citizen" : "Born in the UK after 31 December 1982 with mother registered or naturalised as a British Citizen"
+          "born-outside-uk-father-registered-uk-citizen" : "Born outside the UK after 31 December 1982 and your father was registered or naturalised as a British Citizen"
+          "born-outside-uk-mother-registered-uk-citizen" : "Born outside the UK after 31 December 1982 and your mother registered or naturalised as a British Citizen"
+          "born-in-uk-post-1982-father-uk-service" : "Born after 31 December 1982 and your father was born overseas while he was in British Crown Service after being recruited in the UK"
+          "born-in-uk-post-1982-mother-uk-service" : "Born after 31 December 1982 and your mother was born overseas while her father was in British Crown Service and was recruited in the UK"
+          "married-to-uk-citizen-pre-1983-reg-pre-1988" : "You’re a woman married to a British Citizen before 1 January 1983 and registered as a British Citizen before 1 January 1988"
+          "registered-uk-citizen" : "Registered or naturalised as a British Citizen"
+          "child-born-outside-uk-father-citizen" : "Applying for a child born outside the UK after 1 July 2006, with the father born in UK but not married to mother"
+          "woman-married-to-uk-citizen-pre-1949" : "You’re a woman married to a British Citizen before 1 January 1949"
+
+
+      phrases:
+        how_long_applying_fco:
+          Your application will take **at least** 6 weeks. You may have to attend an interview.
+        how_long_renewing_old_fco:
+          Renewing a British passport takes **at least** 4 weeks.
+        how_long_renewing_new_fco:
+          Renewing a British passport takes **at least** 4 weeks.
+        how_long_replacing_fco:
+          Your application will take **at least** 6 weeks.
+
+          You must report the loss or theft as soon as possible to your [nearest British embassy, high commission or consulate.](/report-a-lost-or-stolen-passport “Report a lost or stolen passport”)
+
+        passport_courier_costs_wellington_new_zealand: |
+
+        adult_passport_costs_wellington_new_zealand:
+          An adult 32-page passport costs NZ $310.71
+
+          An adult 48-page passport costs NZ $366.71
+
+        child_passport_costs_wellington_new_zealand:
+          A child passport costs NZ $213.71.
+
+        passport_costs_wellington_new_zealand: |
+          You can pay using:
+
+          - a banker’s draft in New Zealand Dollars, payable to the ‘British high commission’
+          - Visa or Mastercard
+          
+          If you're paying by card you must send a [card payment authorisation form (PDF, 198KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/637091482/credit-card-form-12-2011 "Card authorisation form (PDF, 198KB)"){:rel="external"} with your application. You can't pay in cash.
+
+        passport_courier_costs_washington_usa: |
+          You’ll have to pay a fee for your passport and a courier fee of US $33. The courier fee pays for your passport and supporting documents to be sent back to you securely. 
+
+        adult_passport_costs_washington_usa: |
+          | Passport type |	Passport fee |	Total to pay (including courier fee) |
+          |---------------|--------------|---------------------------------------|
+          | Adult standard 32-page passport |	US $211 |	US $244 |
+          | Adult jumbo 48-page passport | US $255 | US $288 |
+          
+        child_passport_costs_washington_usa:
+          | Passport type |	Passport fee |	Total to pay (including courier fee) |
+          |---------------|--------------|---------------------------------------|
+          | Child passport |	US $134 |	US $167 |
+
+        passport_costs_washington_usa:
+          You must pay using a Visa or Mastercard. [Download a credit card authorisation form (PDF, 64KB)](http://ukinusa.fco.gov.uk/resources/en/pdf/credit-card-form.pdf “Credit card authorisation form (PDF, 64KB)”) and send it with your application.
+
+        passport_courier_costs_pretoria_south_africa: |
+          
+        adult_passport_costs_pretoria_south_africa:
+          An adult 32-page passport costs 2,144 South African Rand
+
+          An adult 48-page passport costs 2,528 South African Rand
+
+        child_passport_costs_pretoria_south_africa: |
+          A child passport costs 1,470 South African Rand.
+
+        passport_costs_pretoria_south_africa: |
+          You can paying using:
+
+          - a banker’s draft in South African Rand, payable to the ‘British high commission’ - you must add an additional 155 Rand to the fees above if you pay this way
+          - Visa or Mastercard
+
+          If you’re paying by card, you must send a [card payment authorisation form (PDF,198KB)](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/countries-auth-slip “Card authorisation form (PDF, 198KB)”){:rel=”external”} with your application. You can’t pay in cash.
+
+        passport_courier_costs_paris_france:
+          You’ll have to pay a fee for your passport and a courier fee of 25 Euros. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+
+        adult_passport_costs_paris_france: |
+          | Passport type |	Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Adult standard 32-page passport	| 163 Euros | 188 Euros |
+          | Adult jumbo 48-page passport | 196 Euros | 221 Euros |
+        
+        child_passport_costs_paris_france: |
+          | Passport type |	Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Child passport | 104 Euros | 129 Euros |
+          
+        passport_costs_paris_france: |
+          You must pay using either:
+          - a Visa or Mastercard - [download a credit card authorisation form (PDF, 170KB)](http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/credit-card-form-march-12 “Credit card authorisation form (PDF, 170KB)”) and send it with your application
+          - an International Postal order, mandate-cheque or mandate-cash payable to ‘British Embassy Paris’ - your application may take longer if you pay this way 
+
+        passport_courier_costs_madrid_spain:
+          You’ll have to pay a fee for your passport and a courier fee of 25 Euros. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+
+        adult_passport_costs_madrid_spain: |
+          | Passport type | Passport fee | Total to pay (including courier fee) | 
+          |---------------|--------------|--------------|
+          | Adult standard 32-page passport | 163 Euros | 188 Euros |
+          | Adult jumbo 48-page passport | 196 Euros | 221 Euros |
+        
+        child_passport_costs_madrid_spain:
+          | Passport type |	Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|------------------------------------- |
+          | Child passport | 104 Euros | 129 Euros |
+
+        passport_costs_madrid_spain: |
+          You must pay using a Visa or Mastercard. 
+
+          [Download a credit card authorisation form (PDF, 51KB)](http://ukinspain.fco.gov.uk/resources/en/pdf/4758385/credit-card-authorisation-slip “Credit card authorisation form (PDF, 51KB)”) and send it with your application.
+
+        passport_courier_costs_hong_kong:
+          You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent securely to you.
+
+        adult_passport_costs_hong_kong:
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Adult standard 32-page passport | £128.00/HK $1,640 | £147.86 |
+          | Adult jumbo 48-page passport | £154.50/HK $1,978 | £174.36 |
+          
+        child_passport_costs_hong_kong:
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Child passport | £81.50/HK $1,044 | £101.36 |
+
+        passport_costs_hong_kong: |
+          You must pay using either:
+
+          - an International Banker’s Draft, payable to ‘British Consulate-General Hong Kong’
+          - a Visa or Mastercard - [download a credit card authorisation form (PDF, 95KB)](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/credit-card-authorisation.pdf “Credit card authorisation form (PDF, 95KB)”) and send it with your application
+
+          If you pay by card, you’ll be charged the sterling amount in Hong Kong dollars using the exchange rate on the day your application is processed. 
+
+        adult_fco_forms: |
+          __Smart application form__ (fill in on screen, print and sign)
+
+          [Download ‘Smart application form’ (PDF, 188KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/5619320/smart-form.pdf “Passport application - smart form (PDF, 188KB)”){:rel=”external”}
+
+          __Blank application form__ (print, fill in on paper and sign)
+
+          [Download ‘Passport appllication form for adults aged 16 and over’ (489KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c1.pdf “Download ‘Passport application form for adults aged 16 and over’ (489KB)”) 
+
+          __Guidance notes__
+
+          [Download ‘Guidance notes for adult applications (PDF, 2.2MB)’](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c1-notes.pdf “‘Guidance notes for adult applications (PDF, 2.2MB)”) 
+        
+        child_fco_forms: |
+          __Smart application form__ (fill in on screen, print and sign)
+
+            [Download ‘Smart application form’ (PDF, 188KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/5619320/smart-form.pdf “Passport application - smart form (PDF, 188KB)”){:rel=”external”}
+
+          __Blank application form__ (print, fill in on paper and sign)
+
+            [Download ‘Passport appllication form for children aged 16 and under’ (505KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2.pdf “Download ‘Passport appllication form for children aged 16 and under’ (505KB)”)
+
+          __Guidance notes__
+            [Download ‘Guidance notes for child applications (PDF, 2MB)’](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2-notes.pdf “‘Guidance notes for adult applications (PDF, 2MB)”)
+
+        send_application_wellington_new_zealand: |
+          
+          $A
+            British high commission, Wellington
+            44 Hill Street
+            Wellington 6011
+
+            Mailing Address:
+            PO Box 1812
+            Wellington 6140
+          $A
+
+        send_application_paris_france: |
+          
+          $A
+            Regional Passport Processing Centre Paris 
+            16 rue d’Anjou
+            75008 Paris 
+          $A
+
+        send_application_hong_kong: |
+
+          $A
+            British Consulate-General
+            RPPC - 5th Floor
+            1 Supreme Court Road
+            Hong Kong
+          $A
+
+        send_application_pretoria_south_africa: |
+          
+          $A
+            British high commission,
+            Consular Section, Block B,
+            1st Floor, Liberty Place Building,
+            256 Glyn Street,
+            Hatfield,
+            Pretoria, 0083,
+            South Africa. 
+          $A
+
+        send_application_washington_usa: |
+          
+          $A
+            British Embassy
+            19 Observatory Circle N.W.
+            Washington DC 20008 
+          $A
+    
+        send_application_madrid_spain: |
+          
+          $A
+            UK Regional Passport Processing Centre
+            British Consulate-General Madrid
+            Torre Espacio
+            Paseo de la Castellana 259D
+            28046 Madrid, Spain 
+          $A
+
+        helpline_wellington_new_zealand: |
+          
+          $C
+            __Passport Information Helpline__ 
+
+            Premium rate helpline
+            +44 900 990 202 
+            
+            Landline calls are charged at $4.50 per minute - mobile calls may cost more
+
+            Paying for the call by credit card
+            
+            +44 208 082 4727 
+            
+            Calls charged at £0.72 per minute plus VAT
+
+            Textphone: +44 1750 725 368 
+          $C
+
+        helpline_paris_france: |
+
+          $C
+            __Passport Information Helpline__ 
+
+            +44 208 082 4727 
+            
+            Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call 
+          $C
+
+        helpline_hong_kong: |
+
+          $C
+            __Passport Information Helpline__ 
+
+            +44 208 082 4744
+
+            Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call 
+          $C
+
+        helpline_pretoria_south_africa: |
+
+          $C
+            __Passport Information Helpline__
+
+            +44 208 082 4743 
+            
+            Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call 
+          $C
+
+        helpline_washington_usa: |
+          
+          $C
+            __Passport Information Helpline__
+
+            +44 208 082 4721
+            
+            Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call 
+          $C
+
+        ips_documents_group_1: |
+            
+          $D
+            [Download ‘British passport - overseas application form’ (PDF, 355KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Form.pdf “Download ‘British passport overseas application form’ (PDF, 355KB)”)
+
+            [Download ‘Applying for a passport if you’re outside the UK’ (PDF, 214KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Guidance_Notes.pdf “Download ‘Applying for a passport if you’re outside the UK’ (PDF, 214KB)”)
+
+            [Download ‘Supporting documents you must send with your application’ (PDF, 85KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Guidance_Gp1.pdf “Download ‘Supporting documents you must send with your application’ (PDF, 85KB)”)
+          $D
+
+        ips_documents_group_2: |
+          
+          $D
+            [Download ‘British passport - overseas application form’ (PDF, 355KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Form.pdf “Download ‘British passport overseas application form’ (PDF, 355KB)”)
+
+            [Download ‘Applying for a passport if you’re outside the UK’ (PDF, 214KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Guidance_Notes.pdf “Download ‘Applying for a passport if you’re outside the UK’ (PDF, 214KB)”)
+
+            [Download ‘Supporting documents you must send with your application’ (PDF, 89KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Guidance_Gp2.pdf  “Download ‘Supporting documents you must send with your application’ (PDF, 89KB)”)
+          $D
+
+        ips_documents_group_3: |
+          
+          $D
+            [Download ‘British passport - overseas application form’ (PDF, 355KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Form.pdf “Download ‘British passport overseas application form’ (PDF, 355KB)”)
+
+            [Download ‘Applying for a passport if you’re outside the UK’ (PDF, 214KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Guidance_Notes.pdf “Download ‘Applying for a passport if you’re outside the UK’ (PDF, 214KB)”)
+
+            [Download ‘Supporting documents you must send with your application’ (PDF, 99KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Guidance_Gp3.pdf  “Download ‘Supporting documents you must send with your application’ (PDF, 99KB)”)
+          $D
+
+        how_long_applying_ips1: |
+          Your application will take **at least** 6 weeks from when your application is received by the Identity and Passport Service (IPS) in the UK. You may have to attend an interview.
+
+        how_long_renewing_old_ips1: |
+         Renewing a British passport takes **at least** 4 weeks from when your application is received by the Identity and Passport Service (IPS) in the UK.
+        how_long_renewing_new_ips1: |
+         Renewing a British passport takes **at least** 4 weeks from when your application is received by the Identity and Passport Service (IPS) in the UK. 
+        how_long_replacing_ips1: |
+          Your application will take **at least** 6 weeks from when your application is received by the Identity and Passport Service (IPS) in the UK. 
+
+          You must report the loss or theft as soon as possible to your [nearest British embassy, high commission or consulate.](/report-a-lost-or-stolen-passport “Report a lost or stolen passport”)
+        how_long_it_takes_ips1: |
+          Applications may take longer if: 
+
+          - the IPS needs to ask you for more information or documents
+          - the photographs you send are rejected.
+
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, apply for an [Emergency Travel Document.](http://www.fco.gov.uk/en/travel-and-living-abroad/passports1/passports-a-to-z/e-topics/emergency-travel “Get an emergency travel document”){:rel=”external”}
+
+        passport_courier_costs_ips1: |
+          You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+
+        adult_passport_costs_ips1: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Adult standard 32-page passport | £128.00 | £147.86 |
+          | Adult jumbo 48-page passport | £154.50 | £174.36 |
+
+        child_passport_costs_ips1: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Child passport | £81.50 | £101.36 |
+        
+        passport_costs_ips1: |
+          Fill in a ‘Paying by credit card or debit card’ form for each passport you’re applying for and send it with your application. Your credit or debit card will be charged in sterling.
+
+          You can use most major credit or debit cards - but not American Express.
+
+          [Download ‘Paying by credit card or debit card’ (PDF, 803KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Payment_Instruction.pdf “Download ‘Paying by credit card or debit card’ (PDF, 803KB)”){:rel=”external”}
+
+        how_to_apply_ips1: |
+          1. Download the application form.
+          2. Use the ‘Applying for a passport if you’re outside the UK’ guidance notes to help you fill in the application form.
+          3. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports “Passport photo requirements”) or your application may be delayed.
+          4. Check to guidance notes to find out which supporting documents you must send with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
+
+        send_application_ips1: |
+          ## Send your application
+          
+          The IPS recommends you send your application using a secure delivery service or courier.
+
+
+          $A
+          Identity and Passport Service 
+          OVS-L 
+          101 Old Hall Street 
+          Liverpool 
+          L3 9BP 
+          United Kingdom
+          $A 
+
+        tracking_and_receiving_ips1: |
+          ## Getting your passport
+
+          Your passport and supporting documents will be delivered separately by courier.
+
+        how_long_applying_ips2: |
+          Your application will take at least **8 weeks.**
+
+        how_long_renewing_old_ips2: |
+          Your application will take at least **8 weeks.** 
+
+        how_long_renewing_new_ips2: |
+          Your application will take at least **8 weeks.**
+
+        how_long_it_takes_ips2: |
+          Applications may take longer if: 
+
+          - the Identity and Passport Service needs to ask you for more information or documents
+          - the photographs you send are rejected
+
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, apply for an [Emergency Travel Document.](http://www.fco.gov.uk/en/travel-and-living-abroad/passports1/passports-a-to-z/e-topics/emergency-travel “Get an emergency travel document”){:rel=”external”} 
+
+        how_long_replacing_ips2: |
+          You must report the loss or theft as soon as possible to your [nearest British embassy, high commission or consulate.](/report-a-lost-or-stolen-passport “Report a lost or stolen passport”)
+        passport_courier_costs_ips2: |
+          You’ll have to pay a fee for your passport and a courier fee of £21.11. The courier fee pays for your passport and supporting documents to be sent securely to your nearest embassy, high commission or consulate for you to collect.
+
+        adult_passport_costs_ips2: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Adult standard 32-page passport | £128.00 | £149.11 |
+          | Adult jumbo 48-page passport | £154.50 | £175.61 |
+
+        child_passport_costs_ips2: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Child passport | £81.50 | £102.61 |
+
+        passport_costs_ips2: |
+          Fill in a ‘Paying by credit card or debit card’ form for each passport you’re applying for and send it with your application. Your credit or debit card will be charged in sterling.
+
+          You can use most major credit or debit cards - but not American Express.
+
+          [Download ‘Paying by credit card or debit card’ (PDF, 803KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Payment_Instruction.pdf “Download ‘Paying by credit card or debit card’ (PDF, 803KB)”){:rel=”external”}
+
+        how_to_apply_ips2: |
+          1. Download the application form.
+          2. Use the ‘Applying for a passport if you’re outside the UK’ guidance notes to help you fill in the application form.
+          3. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports “Passport photo requirements”) or your application may be delayed.
+          4. Check which supporting documents you must include with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.  
+
+
+        send_application_ips2: |
+          ## Making your application
+
+          You must apply in person at the British embassy, high commission or consulate.
+
+          Bring your current passport with you when you apply. You can’t travel with it after you’ve applied for a new one.
+
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+          
+
+          $A
+            %{embassy_address}
+          $A
+
+        tracking_and_receiving_ips2: |
+          ## Getting your passport
+          
+          Your passport and supporting documents will be delivered to the British embassy, high commission or consulate - you must collect them in person. 
+
+          They will contact you - using the details on your application form - when your passport and documents are ready to collect. You must bring photo ID with you. if you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
+
+          ## Track your application
+          
+          Call the Passport Adviceline.
+
+
+          $C
+          Passport Adviceline
+          +44 (0) 300 222 0000
+          $C
+
+        how_long_applying_ips3: |
+          Your application will take **at least** 6 weeks from when your application is received by the Identity and Passport Service (IPS) in the UK. You may have to attend an interview.
+
+        how_long_replacing_ips3: |
+          Your application will take **at least** 6 weeks from when your application is received by the Identity and Passport Service (IPS) in the UK. 
+
+          You must report the loss or theft as soon as possible to your [nearest British embassy, high commission or consulate.](/report-a-lost-or-stolen-passport “Report a lost or stolen passport”)
+
+        how_long_renewing_old_ips3: |
+          Renewing a British passport takes **at least** 4 weeks from when your application is received by the Identity and Passport Service (IPS) in the UK.
+
+        how_long_renewing_new_ips3: |
+          Renewing a British passport takes **at least** 4 weeks from when your application is received by the Identity and Passport Service (IPS) in the UK.
+
+        how_long_it_takes_ips3: |
+          Applications may take longer if: 
+
+          - the Identity and Passport Service needs to ask you for more information or documents
+          - the photographs you send are rejected
+
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, apply for an [Emergency Travel Document.](http://www.fco.gov.uk/en/travel-and-living-abroad/passports1/passports-a-to-z/e-topics/emergency-travel “Get an emergency travel document”){:rel=”external”}
+
+        passport_courier_costs_ips3: |
+          You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport and supporting documents to be sent securely to your nearest embassy, high commission or consulate for you to collect.
+
+        adult_passport_costs_ips3: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Adult standard 32-page passport | £128.00 | £151.01 |
+          | Adult jumbo 48-page passport | £154.50 | £177.51 |
+         
+        child_passport_costs_ips3: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Child passport | £81.50 | £104.51 |
+
+        passport_costs_ips3: |
+          Fill in a ‘Paying by credit card or debit card’ form for each passport you’re applying for and send it with your application. Your credit or debit card will be charged in sterling.
+
+          You can use most major credit or debit cards - but not American Express.
+
+          [Download ‘Paying by credit card or debit card’ (PDF, 803KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Payment_Instruction.pdf “Download ‘Paying by credit card or debit card’ (PDF, 803KB)”){:rel=”external”} 
+
+        how_to_apply_ips3: |
+          1. Download the application form.
+          2. Use the ‘Applying for a passport if you’re outside the UK’ guidance notes to help you fill in the application form.
+          3. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports “Passport photo requirements”) or your application may be delayed.
+          4. Check which supporting documents you must send with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
+
+        send_application_ips3: |
+          ## Send your application
+
+          You must apply in person at the British embassy, high commission or consulate.
+
+          Bring your current passport with you when you apply. You can’t travel with it after you’ve applied for a new one.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+        tracking_and_receiving_ips3: |
+          ## Getting your passport
+
+          Your passport and supporting documents will be delivered to the British embassy, high commission or consulate - you must collect them in person. 
+
+          They will contact you - using the details on your application form - when your passport and documents are ready to collect. You must bring photo ID with you. if you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
+
+          ## Track your application
+
+          Call the Passport Adviceline.
+
+
+          $C
+          Passport Adviceline
+          +44 (0) 300 222 0000
+          $C
+
+      fco_result:
+        body: |
+          ## How long it takes
+          %{how_long_it_takes}
+
+          Your application may take longer if: 
+
+          - you don’t send the right supporting documents or payment
+          - the photographs you send are rejected
+
+          Don’t book travel until you have recevied your new passport. If you need to travel more urgently, apply for an [Emergency Travel Document.](http://www.fco.gov.uk/en/travel-and-living-abroad/passports1/passports-a-to-z/e-topics/emergency-travel “Get an emergency travel document”){:rel=”external”}
+
+          ## Cost
+          %{cost}
+
+          ## How to apply
+          
+          1. Download the application form and guidance notes that help you fill it in. 
+         
+          2. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports “Passport photo requirements”) or your application may be delayed.
+
+          3. Check the guidance notes to find out which supporting documents you must send with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
+
+
+          $D
+            %{fco_forms}
+          $D
+
+          ## Send your application
+          
+          Send your application, photographs and supporting documents, ideally by courier.
+
+          %{send_your_application}
+
+          ## Getting your passport
+          
+          Your passport and supporting documents will be delivered separately by courier.
+
+          ## If your passport hasn't arrived
+
+          If you haven’t received your passport within the expected timescale, you can check your application’s progress by phone. You will be charged for the call.
+
+          Don’t use this service any earlier - information won’t be available but you will still be charged for the call.
+
+          %{helpline}
+
+      ips_application_result:
+        body: |
+          ## How long it takes
+
+          %{how_long_it_takes}
+
+          ## Cost
+
+          %{cost}
+
+          ## How to apply
+
+          %{how_to_apply}
+
+          
+
+          %{send_your_application}
+
+          %{tracking_and_receiving}
