@@ -122,14 +122,19 @@ outcome :ips_application_result do
                    "how_long_it_takes_ips#{ips_number}".to_sym)
   end
   precalculate :cost do
-    PhraseList.new("#{child_or_adult}_passport_costs_ips#{ips_number}".to_sym,
+    PhraseList.new("passport_courier_costs_ips#{ips_number}".to_sym,
+                   "#{child_or_adult}_passport_costs_ips#{ips_number}".to_sym,
                    "passport_costs_ips#{ips_number}".to_sym)
   end
   precalculate :how_to_apply do
-    PhraseList.new("how_to_apply_ips#{ips_number}".to_sym)
+    PhraseList.new("how_to_apply_ips#{ips_number}".to_sym,
+                   supporting_documents.to_sym)
   end
   precalculate :send_your_application do
     PhraseList.new("send_application_ips#{ips_number}".to_sym)
+  end
+  precalculate :tracking_and_receiving do
+    PhraseList.new("tracking_and_receiving_ips#{ips_number}".to_sym)
   end
 end
 
