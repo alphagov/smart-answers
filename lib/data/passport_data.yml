@@ -9,7 +9,7 @@ nigeria:
   :type: Nigeria
   :group: ips_documents_group_3
 new-zealand: 
-  :type: New_Zealand
+  :type: new_zealand
   :group: ips_documents_group_1
 mongolia: 
   :type: hong_kong
@@ -444,7 +444,7 @@ uganda:
   :type: pretoria_south_africa
   :group: ips_documents_group_3
 australia: 
-  :type: Australia_Post
+  :type: australia_post
   :group: ips_documents_group_1
 zimbabwe: 
   :type: Zimbabwe
