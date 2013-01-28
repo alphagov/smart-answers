@@ -20,7 +20,7 @@ country_select :which_country_are_you_in? do
     application_type.split("_")[2] if is_ips_application 
   end
   calculate :embassy_address do
-    if is_fco_application or ips_number.to_i >  1
+    unless ips_number.to_i ==  1
       embassy_data = Calculators::PassportAndEmbassyDataQuery.find_embassy_data(current_location)
       embassy_data.first['address'] if embassy_data
     end
@@ -54,7 +54,7 @@ multiple_choice :child_or_adult_passport? do
 
   next_node do |response|
     case application_type
-    when 'Australia_Post', 'New_Zealand'
+    when 'australia_post', 'new_zealand'
       :which_best_describes_you?
     when Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP
       application_action == 'applying' ? :country_of_birth? : :ips_application_result 
@@ -110,10 +110,22 @@ multiple_choice :which_best_describes_you? do
 
   save_input_as :aus_checklist_variant
 
-  next_node :fco_result
+  next_node :result
 end
 
-outcome :result # TODO: This still needs to accommodate the edge cases. Iran, Syria etc.
+outcome :result do
+  precalculate :how_long_it_takes do
+    PhraseList.new("how_long_#{application_type}".to_sym)
+  end
+  precalculate :cost do
+    PhraseList.new("cost_#{application_type}".to_sym)
+  end
+  precalculate :how_to_apply do
+    PhraseList.new("how_to_apply_#{application_type}".to_sym,
+                   "how_to_apply_#{child_or_adult}_#{application_type}".to_sym)
+  end
+end
+
 
 ## IPS Application Result 
 outcome :ips_application_result do
