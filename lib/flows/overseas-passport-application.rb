@@ -61,7 +61,7 @@ multiple_choice :child_or_adult_passport? do
     when 'australia_post', 'new_zealand'
       :which_best_describes_you?
     when Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP
-      application_action == 'applying' ? :country_of_birth? : :ips_application_result 
+      %Q(applying renewing_old).include?(application_action) ? :country_of_birth? : :ips_application_result 
     when Calculators::PassportAndEmbassyDataQuery::FCO_APPLICATIONS_REGEXP
       :fco_result
     else
@@ -98,21 +98,21 @@ end
 
 # QAUS1
 multiple_choice :which_best_describes_you? do
-  option "born-in-uk-pre-1983"
-  option "born-in-uk-post-1982-uk-father"
-  option "born-in-uk-post-1982-uk-mother"
-  option "born-outside-uk-parents-married"
-  option "born-outside-uk-mother-born-in-uk"
-  option "born-in-uk-post-1982-father-uk-citizen"
-  option "born-in-uk-post-1982-mother-uk-citizen"
-  option "born-outside-uk-father-registered-uk-citizen"
-  option "born-outside-uk-mother-registered-uk-citizen"
-  option "born-in-uk-post-1982-father-uk-service"
-  option "born-in-uk-post-1982-mother-uk-service"
-  option "married-to-uk-citizen-pre-1983-reg-pre-1988"
-  option "registered-uk-citizen"
-  option "child-born-outside-uk-father-citizen"
-  option "woman-married-to-uk-citizen-pre-1949"
+  option "born-in-uk-pre-1983" # 4
+  option "born-in-uk-post-1982-uk-father" # 5
+  option "born-in-uk-post-1982-uk-mother" # 6
+  option "born-outside-uk-parents-married" # 7
+  option "born-outside-uk-mother-born-in-uk" # 8
+  option "born-in-uk-post-1982-father-uk-citizen" # 9
+  option "born-in-uk-post-1982-mother-uk-citizen" # 10
+  option "born-outside-uk-father-registered-uk-citizen" # 11
+  option "born-outside-uk-mother-registered-uk-citizen" # 12
+  option "born-in-uk-post-1982-father-uk-service" # 13
+  option "born-in-uk-post-1982-mother-uk-service" # 14
+  option "married-to-uk-citizen-pre-1983-reg-pre-1988" # 15
+  option "registered-uk-citizen" # 16
+  option "child-born-outside-uk-father-citizen" # 17
+  option "woman-married-to-uk-citizen-pre-1949" # 18
 
   save_input_as :aus_nz_checklist_variant
 
@@ -192,4 +192,16 @@ outcome :fco_result do
 end
 
 outcome :result do
+  precalculate :how_long_it_takes do
+    PhraseList.new("how_long_#{application_type}".to_sym)
+  end
+  precalculate :cost do
+    PhraseList.new("cost_#{application_type}".to_sym)
+  end
+  precalculate :how_to_apply do
+    PhraseList.new("how_to_apply_#{application_type}".to_sym)
+  end
+  precalculate :making_application do
+    PhraseList.new("making_application_#{application_type}".to_sym)
+  end
 end

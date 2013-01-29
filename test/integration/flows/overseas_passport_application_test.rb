@@ -164,7 +164,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
     should "ask if you are renewing, replacing or applying for a passport" do
       assert_current_node :renewing_replacing_applying?
       assert_state_variable :current_location, 'afghanistan'
-      assert_state_variable :application_type, 'Afghanistan'
+      assert_state_variable :application_type, 'afghanistan'
     end
     context "answer applying" do
       setup do
@@ -177,7 +177,11 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
         should "give the result and be done" do
           add_response 'adult'
           assert_phrase_list :fco_forms, [:adult_fco_forms]
-          assert_current_node :result # TODO: Individual outcomes...?
+          assert_phrase_list :how_long_it_takes, [:how_long_afghanistan]
+          assert_phrase_list :cost, [:cost_afghanistan]
+          assert_phrase_list :how_to_apply, [:how_to_apply_afghanistan]
+          assert_phrase_list :making_application, [:making_application_afghanistan]
+          assert_current_node :result
         end
       end
     end
@@ -217,6 +221,15 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
         end
       end
     end # Applying
+    context "answer renewing old blue or black passport" do
+      setup do
+        add_response 'renewing_old'
+        add_response 'adult'
+      end
+      should "ask which country you were born in" do
+        assert_current_node :country_of_birth?
+      end
+    end # Renewing old style passport
     context "answer replacing" do
       setup do
         add_response 'replacing'
