@@ -1,65 +1,60 @@
 status :draft
+satisfies_need 2698
 
 ## Q1
-value_question :what_is_your_post_code? do
+multiple_choice :are_you_getting_dla? do
+  option :yes => :what_is_your_dob?
+  option :no => :what_is_your_post_code?
 
+  # Used in later questions
   calculate :calculator do
-    calc = Calculators::PIPDates.new(responses.last)
-    raise SmartAnswer::InvalidResponse unless calc.valid_postcode?
-    calc
-  end
-  calculate :in_selected_area do
-    calculator.in_selected_area?
+    Calculators::PIPDates.new
   end
 
-  next_node :are_you_getting_dla?
+  calculate :getting_dla do
+    responses.last == 'yes'
+  end
 end
 
 ## Q2 
-multiple_choice :are_you_getting_dla? do
-  option :yes
-  option :no
-
-  next_node do |response|
-    if response == 'yes'
-      :does_dla_end_before_oct_2013?
-    else
-      if in_selected_area
-        :result_1
-      else
-        :result_2
-      end
-    end
+value_question :what_is_your_post_code? do
+  calculate :in_selected_area do
+    calculator.postcode = responses.last
+    raise SmartAnswer::InvalidResponse unless calculator.valid_postcode?
+    calculator.in_selected_area?
   end
-end
 
-## Q3
-multiple_choice :does_dla_end_before_oct_2013? do
-  option :yes
-  option :no
-
-  calculate :dla_continues do
-    responses.last == 'no'
-  end
   next_node :what_is_your_dob?
 end
 
-## Q4
+## Q3
 date_question :what_is_your_dob? do
   from { Date.today - 100.years }
   to { Date.today }
   next_node do |response|
     calculator.dob = Date.parse(response)
-    if calculator.in_group_65?
-      :result_3
-    elsif calculator.in_middle_group?
-      if dla_continues
-        :result_4
-      else
+    if getting_dla
+      if calculator.in_group_65?
+        :result_7
+      elsif calculator.turning_16_before_oct_2013?
         :result_5
+      elsif calculator.in_middle_group?
+        :result_8
+      else
+        :result_6
       end
     else
-      :result_6
+      if calculator.in_group_65?
+        :result_2
+      elsif calculator.in_middle_group?
+        if in_selected_area
+          :result_3
+        else
+          :result_4
+        end
+      else
+        :result_1
+      end
     end
   end
 end
@@ -70,3 +65,5 @@ outcome :result_3
 outcome :result_4
 outcome :result_5
 outcome :result_6
+outcome :result_7
+outcome :result_8
