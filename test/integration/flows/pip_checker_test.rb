@@ -2,11 +2,11 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
-class PIPDateCheckerTest < ActiveSupport::TestCase
+class PIPCheckerTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'pip-date-checker'
+    setup_for_testing_flow 'pip-checker'
   end
 
   should "ask if you're getting DLA" do
