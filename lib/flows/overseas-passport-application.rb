@@ -52,6 +52,10 @@ multiple_choice :child_or_adult_passport? do
 
   save_input_as :child_or_adult
 
+  calculate :fco_forms do
+    PhraseList.new("#{responses.last}_fco_forms".to_sym)
+  end
+
   next_node do |response|
     case application_type
     when 'australia_post', 'new_zealand'
@@ -80,6 +84,8 @@ country_select :country_of_birth? do
 
   next_node do |response|
     case application_type
+    when 'australia_post', 'new_zealand'
+      :aus_nz_result
     when Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP 
       :ips_application_result 
     when Calculators::PassportAndEmbassyDataQuery::FCO_APPLICATIONS_REGEXP
@@ -108,12 +114,13 @@ multiple_choice :which_best_describes_you? do
   option "child-born-outside-uk-father-citizen"
   option "woman-married-to-uk-citizen-pre-1949"
 
-  save_input_as :aus_checklist_variant
+  save_input_as :aus_nz_checklist_variant
 
-  next_node :result
+  next_node :aus_nz_result
 end
 
-outcome :result do
+## australia_post/new_zealand result.
+outcome :aus_nz_result do
   precalculate :how_long_it_takes do
     PhraseList.new("how_long_#{application_type}".to_sym)
   end
@@ -121,8 +128,23 @@ outcome :result do
     PhraseList.new("cost_#{application_type}".to_sym)
   end
   precalculate :how_to_apply do
-    PhraseList.new("how_to_apply_#{application_type}".to_sym,
-                   "how_to_apply_#{child_or_adult}_#{application_type}".to_sym)
+    PhraseList.new("how_to_apply_#{application_type}".to_sym)
+  end
+  precalculate :how_to_apply_documents do
+    phrases = PhraseList.new("how_to_apply_#{child_or_adult}_#{application_type}".to_sym)
+
+    if application_action == 'replacing' 
+      phrases << "aus_nz_replacing".to_sym
+    end
+    if application_action =~ /^renewing_/
+      phrases << "aus_nz_renewing".to_sym
+    end
+
+    phrases << "aus_nz_#{aus_nz_checklist_variant}".to_sym
+    phrases
+  end
+  precalculate :receiving_your_passport do
+    PhraseList.new("receiving_your_passport_#{application_type}".to_sym)
   end
 end
 
@@ -155,9 +177,7 @@ outcome :fco_result do
   precalculate :how_long_it_takes do
     PhraseList.new("how_long_#{application_action}_fco".to_sym)
   end
-  precalculate :fco_forms do
-    PhraseList.new("#{child_or_adult}_fco_forms".to_sym)
-  end
+
   precalculate :cost do
     PhraseList.new("passport_courier_costs_#{application_type}".to_sym,
                    "#{child_or_adult}_passport_costs_#{application_type}".to_sym, 
@@ -169,4 +189,7 @@ outcome :fco_result do
   precalculate :helpline do
     PhraseList.new("helpline_#{application_type}".to_sym)
   end
+end
+
+outcome :result do
 end

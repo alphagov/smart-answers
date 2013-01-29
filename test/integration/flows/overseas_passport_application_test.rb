@@ -37,92 +37,96 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
         context "answer born in the uk before 1 Jan 1983" do
           should "give the australian result" do
             add_response 'born-in-uk-pre-1983'
-            assert_state_variable :aus_checklist_variant, 'born-in-uk-pre-1983'
-            assert_current_node :result
+            assert_state_variable :aus_nz_checklist_variant, 'born-in-uk-pre-1983'
+            assert_current_node :aus_nz_result
+            assert_phrase_list :how_long_it_takes, [:how_long_australia_post]
+            assert_phrase_list :cost, [:cost_australia_post]
+            assert_phrase_list :how_to_apply, [:how_to_apply_australia_post]
+            assert_phrase_list :how_to_apply_documents, [:how_to_apply_adult_australia_post, "aus_nz_born-in-uk-pre-1983".to_sym]
           end
         end
         context "answer born in the uk after 31 Dec 1982 with father born in UK" do
           should "give the australian result" do
             add_response 'born-in-uk-post-1982-uk-father'
-            assert_state_variable :aus_checklist_variant, 'born-in-uk-post-1982-uk-father' 
-            assert_current_node :result 
+            assert_state_variable :aus_nz_checklist_variant, 'born-in-uk-post-1982-uk-father' 
+            assert_current_node :aus_nz_result 
           end
         end
         context "answer born in the uk before 1 Jan 1983 with mother born in UK" do
           should "give the australian result" do
             add_response 'born-in-uk-post-1982-uk-mother'
-            assert_state_variable :aus_checklist_variant, 'born-in-uk-post-1982-uk-mother'
-            assert_current_node :result 
+            assert_state_variable :aus_nz_checklist_variant, 'born-in-uk-post-1982-uk-mother'
+            assert_current_node :aus_nz_result 
           end
         end
         context "answer born outside the uk with british father married to mother" do
           should "give the australian result" do
             add_response 'born-outside-uk-parents-married'
-            assert_state_variable :aus_checklist_variant, 'born-outside-uk-parents-married'
-            assert_current_node :result 
+            assert_state_variable :aus_nz_checklist_variant, 'born-outside-uk-parents-married'
+            assert_current_node :aus_nz_result 
           end
         end
         context "answer born outside the uk with british mother" do
           should "give the australian result" do
             add_response 'born-outside-uk-mother-born-in-uk'
-            assert_state_variable :aus_checklist_variant, 'born-outside-uk-mother-born-in-uk'
-            assert_current_node :result
+            assert_state_variable :aus_nz_checklist_variant, 'born-outside-uk-mother-born-in-uk'
+            assert_current_node :aus_nz_result
           end
         end
         context "answer born in UK after 31 Dec 1983 with british citizen father" do
           should "give the australian result" do
             add_response 'born-in-uk-post-1982-father-uk-citizen'
-            assert_state_variable :aus_checklist_variant, 'born-in-uk-post-1982-father-uk-citizen'
-            assert_current_node :result
+            assert_state_variable :aus_nz_checklist_variant, 'born-in-uk-post-1982-father-uk-citizen'
+            assert_current_node :aus_nz_result
           end
         end
         context "answer born in UK after 31 Dec 1983 with british citizen mother" do
           should "give the australian result" do
             add_response 'born-in-uk-post-1982-mother-uk-citizen'
-            assert_state_variable :aus_checklist_variant, 'born-in-uk-post-1982-mother-uk-citizen'
-            assert_current_node :result
+            assert_state_variable :aus_nz_checklist_variant, 'born-in-uk-post-1982-mother-uk-citizen'
+            assert_current_node :aus_nz_result
           end
         end
         context "answer born in UK after 31 Dec 1982 with father in UK service" do
           should "give the australian result" do
             add_response 'born-in-uk-post-1982-father-uk-service'
-            assert_state_variable :aus_checklist_variant, 'born-in-uk-post-1982-father-uk-service'
-            assert_current_node :result
+            assert_state_variable :aus_nz_checklist_variant, 'born-in-uk-post-1982-father-uk-service'
+            assert_current_node :aus_nz_result
           end
         end
         context "answer born in UK after 31 Dec 1982 with mother in UK service" do
           should "give the australian result" do
             add_response 'born-in-uk-post-1982-mother-uk-service'
-            assert_state_variable :aus_checklist_variant, 'born-in-uk-post-1982-mother-uk-service'
-            assert_current_node :result
+            assert_state_variable :aus_nz_checklist_variant, 'born-in-uk-post-1982-mother-uk-service'
+            assert_current_node :aus_nz_result
           end
         end
         context "answer married to british citizen 1983 and registered before 1988" do
           should "give the australian result" do
             add_response 'married-to-uk-citizen-pre-1983-reg-pre-1988'
-            assert_state_variable :aus_checklist_variant, 'married-to-uk-citizen-pre-1983-reg-pre-1988'
-            assert_current_node :result
+            assert_state_variable :aus_nz_checklist_variant, 'married-to-uk-citizen-pre-1983-reg-pre-1988'
+            assert_current_node :aus_nz_result
           end
         end
         context "answer registered as a british citizen" do
           should "give the australian result" do
             add_response 'registered-uk-citizen'
-            assert_state_variable :aus_checklist_variant, 'registered-uk-citizen'
-            assert_current_node :result
+            assert_state_variable :aus_nz_checklist_variant, 'registered-uk-citizen'
+            assert_current_node :aus_nz_result
           end
         end
         context "answer child born outside UK after 1 July 2006 with UK father" do
           should "give the australian result" do
             add_response 'child-born-outside-uk-father-citizen'
-            assert_state_variable :aus_checklist_variant, 'child-born-outside-uk-father-citizen'
-            assert_current_node :result
+            assert_state_variable :aus_nz_checklist_variant, 'child-born-outside-uk-father-citizen'
+            assert_current_node :aus_nz_result
           end
         end
         context "answer woman married to a UK citizen before 1949" do
           should "give the australian result" do
             add_response 'woman-married-to-uk-citizen-pre-1949'
-            assert_state_variable :aus_checklist_variant, 'woman-married-to-uk-citizen-pre-1949'
-            assert_current_node :result
+            assert_state_variable :aus_nz_checklist_variant, 'woman-married-to-uk-citizen-pre-1949'
+            assert_current_node :aus_nz_result
           end
         end
       end # Adult
@@ -146,7 +150,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
       context "answer born in the UK before 1 Dec 1983" do
         should "should give the australian results and be done" do
           add_response 'born-in-uk-pre-1983'
-          assert_current_node :result
+          assert_current_node :aus_nz_result
         end
       end
     end # Renewing
@@ -172,6 +176,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
       context "answer adult" do
         should "give the result and be done" do
           add_response 'adult'
+          assert_phrase_list :fco_forms, [:adult_fco_forms]
           assert_current_node :result # TODO: Individual outcomes...?
         end
       end
@@ -201,6 +206,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
           add_response 'adult'
         end
         should "give the result and be done" do
+          assert_phrase_list :fco_forms, [:adult_fco_forms]
           assert_current_node :country_of_birth?
         end
         context "answer Greece" do
@@ -223,6 +229,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
           add_response 'adult'
           assert_state_variable :supporting_documents, 'ips_documents_group_1'
           assert_current_node :ips_application_result
+          assert_phrase_list :fco_forms, [:adult_fco_forms]
           assert_phrase_list :how_long_it_takes, [:how_long_replacing_ips1, :how_long_it_takes_ips1]
           assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :ips_documents_group_1]
           assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
@@ -326,6 +333,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
         should "give the FCO result and be done" do
           add_response 'child'
           assert_current_node :fco_result
+          assert_phrase_list :fco_forms, [:child_fco_forms]
           assert_phrase_list :how_long_it_takes, [:how_long_applying_fco]
           assert_phrase_list :fco_forms, [:child_fco_forms]
           assert_phrase_list :cost, [:passport_courier_costs_madrid_spain, :child_passport_costs_madrid_spain, :passport_costs_madrid_spain]
