@@ -684,7 +684,73 @@ en-GB:
 
             Textphone: +44 1750 725 368
           $C 
+        
+        how_long_new_zealand: |
+          For passport renewals, you will usually get your passport **3 to 4 weeks** after your application is received.
+
+          For first-time applications or replacement of lost or stolen passports, it usually takes **6 weeks.**
+
+          If your passport has been lost or stolen, you must report it as soon as possible to your [nearest British embassy, high commission or consulate.](/report-a-lost-or-stolen-passport "Report a lost or stolen passport")
+
           
+          $A
+            %{embassy_address}
+          $A
+
+        cost_new_zealand: |
+          | Passport type | Passport fee |
+          |---------------|--------------|
+          | Adult standard 32-page passport | NZ $341.37 |
+          | Adult jumbo 48-page passport | NZ $397.37 |
+          | Child passport | NZ $244.37 |
+
+        how_to_apply_new_zealand: |
+          1. Download the application form and guidance notes. Bring the application form to your interview.
+          2. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports “Passport photo requirements”) or your application may be delayed.
+
+          3. Complete the [passport fees information sheet (PDF, 232KB).](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/533661182/nz-fee-sheet-02-12 “Passport fees information sheet (PDF, 232KB)”)
+
+          4. Bring your application, photos, supporting documents and passport fees sheet to your [nearest New Zealand Postshop](http://www.nzpost.co.nz/tools/postshop-kiwibank-locator "Find a New Zealand Postshop"){:rel="external"} to make your application.
+
+        how_to_apply_adult_new_zealand: |
+          [Download ‘Passport appllication form for adults aged 16 and over’ (489KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c1.pdf "Download ‘Passport application form for adults aged 16 and over’ (489KB)")
+
+          [Download ‘Guidance notes for adult applications (PDF, 2.2MB)’](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c1-notes.pdf "‘Guidance notes for adult applications‘ (PDF, 2.2MB)")
+
+        how_to_apply_child_new_zealand: |
+          [Download ‘Passport appllication form for children aged 16 and under’ (505KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2.pdf “Download ‘Passport appllication form for children aged 16 and under’ (505KB)”)
+
+          [Download ‘Guidance notes for child applications (PDF, 2MB)’](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2-notes.pdf “‘Guidance notes for adult applications (PDF, 2MB)”)
+
+        receiving_your_passport_new_zealand: |
+          Your passport and supporting documents will be returned to you separately by courier. 
+          
+          ##If your passport hasn’t arrived
+
+          If you haven’t received your passport within the expected timescale, you can check your application’s progress by phone. You will be charged for the call.
+
+          Don’t use this service any earlier - information won’t be available but you will still be charged for the call.
+
+          
+          $C
+            __Passport Information Helpline__ 
+
+            Premium rate helpline
+            
+            0900 990 202 
+
+            Landline calls are charged at $4.50 per minute - mobile calls may cost more
+
+            
+            Paying for the call by credit card
+
+            +44 208 082 4727 
+
+            Calls charged at £0.72 per minute plus VAT
+
+            Textphone: +44 1750 725 368
+          $C
+
       fco_result:
         body: |
           ## How long it takes
