@@ -118,7 +118,7 @@ GEM
     multipart-post (1.1.5)
     nokogiri (1.5.5)
     null_logger (0.0.1)
-    plek (1.0.0)
+    plek (1.1.0)
       builder
     polyglot (0.3.3)
     rack (1.4.3)
@@ -232,7 +232,7 @@ DEPENDENCIES
   json
   lograge (~> 0.1.0)
   mocha
-  plek (= 1.0.0)
+  plek (= 1.1.0)
   rails (= 3.2.11)
   rails-i18n
   rummageable
