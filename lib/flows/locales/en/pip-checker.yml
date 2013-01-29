@@ -1,6 +1,6 @@
 en-GB:
   flow:
-    pip-date-checker:
+    pip-checker:
       title:
         Check how Personal Independence Payment (PIP) affects you.
       body: |
