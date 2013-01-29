@@ -1,6 +1,6 @@
 en-GB:
   flow:
-    pip-date-checker:
+    pip-checker:
       title:
         Check how Personal Independence Payment (PIP) affects you.
       body: |
@@ -9,8 +9,11 @@ en-GB:
         Use this tool to check:
 
         * if PIP affects you
-        * when your Diability Living Allowance may be affected
+        * when your Disability Living Allowance may be affected
         * when you can make a new claim for PIP
+
+        *[PIP]: Personal Independence Payment
+        *[DLA]: Disability Living Allowance
       meta:
         description:
           Personal Independence Payment (PIP) - if you get Disability Living Allowance or want to make a new claim for PIP
@@ -40,9 +43,13 @@ en-GB:
 
       result_2:
         body: |
-          $!You aren't affected by Personal Independence Payment because you're 65 or over.$!
+          $!You aren't affected by Personal Independence Payment because you're 65 or over when PIP is introduced.$!
 
-          You can make a claim for [Attendance Allowance](/attendance-allowance "Attendance Allowance") (you won't qualify for Disability Living Allowance because you're over 65).
+          To qualify for Personal Independence Payment (PIP) you must be aged 16 to 64 on 8 April 2013.
+
+          Instead of PIP, you can make a claim for [Attendance Allowance](/attendance-allowance "Attendance Allowance") (you won't normally qualify for Disability Living Allowance because you're 65 or over).
+
+          *[PIP]: Personal Independence Payment
 
       result_3:
         body: |
@@ -50,11 +57,17 @@ en-GB:
 
           After this date, you'll have to make a claim for Personal Independence Payment (PIP) instead. This is because PIP is replacing DLA in your part of the country from 8 April 2013.
 
+          *[PIP]: Personal Independence Payment
+          *[DLA]: Disability Living Allowance
+
       result_4:
         body: |
           $!You can make a claim for [Disability Living Allowance](/dla-disability-living-allowance-benefit "Disability Living Allowance") (DLA) until 10 June 2013.$!
 
           From this date, you'll have to make a claim for Personal Independence Payment (PIP) instead. This is because PIP replaces DLA for new claimants from 10 June 2013.
+
+          *[PIP]: Personal Independence Payment
+          *[DLA]: Disability Living Allowance
 
       result_5:
         body: |
@@ -67,12 +80,15 @@ en-GB:
           They'll be asked to make a claim for PIP if after October 2013 their:
 
           * health condition or disability changes
-          * Disability Living Allowance award is due to end and they haven't got a renewal letter
+          * Disability Living Allowance award is due to end and they haven't received a renewal letter
 
           Unless either of these happen – you don't need to do anything. You'll get a letter in 2015 explaining:
 
           * what will happen to their DLA
           * how they can claim Personal Independence Payment
+
+          *[PIP]: Personal Independence Payment
+          *[DLA]: Disability Living Allowance
 
       result_6:
         body: |
@@ -84,6 +100,8 @@ en-GB:
 
           * what will happen to their DLA
           * how they can claim Personal Independence Payment
+
+          *[DLA]: Disability Living Allowance
 
       result_7:
         body: |
@@ -98,9 +116,12 @@ en-GB:
           You'll be asked to make a claim for PIP if after October 2013 your:
 
           * health condition or disability changes
-          * Disability Living Allowance award is due to end and you haven't got a renewal letter
+          * Disability Living Allowance award is due to end and you haven't received a renewal letter
 
           Unless either of these happen – you don't need to do anything. You'll get a letter in 2015 explaining:
 
           * what will happen to their DLA
           * how they can claim Personal Independence Payment
+
+          *[PIP]: Personal Independence Payment
+          *[DLA]: Disability Living Allowance
