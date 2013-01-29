@@ -4,11 +4,12 @@ en-GB:
       title:
         Check how Personal Independence Payment (PIP) affects you.
       body: |
-        Personal Independence Payment (PIP) will replace Disability Living Allowance for people who, on 8 April 2013, are aged 16 to 64.
+        From 8 April 2013 Personal Independence Payment (PIP) will replace Disability Living Allowance (DLA) for people with a health condition or disability aged 16 to 64.
 
         Use this tool to check:
 
-        * what happens to your Disability Living Allowance
+        * if PIP affects you
+        * when your Diability Living Allowance may be affected
         * when you can make a new claim for PIP
       meta:
         description:
@@ -53,7 +54,7 @@ en-GB:
         body: |
           $!You can make a claim for [Disability Living Allowance](/dla-disability-living-allowance-benefit "Disability Living Allowance") (DLA) until 10 June 2013.$!
 
-          After this date, you'll have to make a claim for Personal Independence Payment (PIP) instead. This is because PIP replaces DLA for new claimants from 10 June 2013.
+          From this date, you'll have to make a claim for Personal Independence Payment (PIP) instead. This is because PIP replaces DLA for new claimants from 10 June 2013.
 
       result_5:
         body: |
