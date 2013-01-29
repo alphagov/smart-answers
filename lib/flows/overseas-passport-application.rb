@@ -201,7 +201,13 @@ outcome :result do
   precalculate :how_to_apply do
     PhraseList.new("how_to_apply_#{application_type}".to_sym)
   end
+  precalculate :supporting_documents do
+    PhraseList.new("supporting_documents_#{application_type}".to_sym)
+  end
   precalculate :making_application do
     PhraseList.new("making_application_#{application_type}".to_sym)
+  end
+  precalculate :getting_your_passport do
+    PhraseList.new("getting_your_passport_#{application_type}".to_sym)
   end
 end
