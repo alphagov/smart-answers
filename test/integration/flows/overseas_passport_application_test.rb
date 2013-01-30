@@ -285,7 +285,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
             add_response "spain"
             assert_current_node :ips_application_result
             assert_phrase_list :how_long_it_takes, [:how_long_applying_ips2, :how_long_it_takes_ips2]
-            assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :ips_documents_group_3]
+            assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :ips_documents_group_1]
             assert_phrase_list :cost, [:passport_courier_costs_ips2, :adult_passport_costs_ips2, :passport_costs_ips2]
             assert_phrase_list :send_your_application, [:send_application_ips2]
             assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips2]
