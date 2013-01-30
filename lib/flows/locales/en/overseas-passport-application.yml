@@ -311,6 +311,24 @@ en-GB:
             Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call 
           $C
 
+        helpline_madrid_spain: |
+          
+          $C
+            __Passport Information Helpline__
+
+            Paying for the call by credit card
+
+            +44 208 082 4734 
+            
+            Calls charged at £0.72 per minute plus VAT
+
+            Premium rate helpline (from within Spain only)
+            
+            +900 990202 
+            
+            Landline calls are charged at 1.21 Euro per minute - mobile calls may cost more
+          $C
+  
         ips_documents_group_1: |
             
           $D
