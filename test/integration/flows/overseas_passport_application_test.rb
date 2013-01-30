@@ -188,6 +188,24 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
     end
   end # Afghanistan
 
+  context "answer Benin, renewing old passport" do
+    setup do
+      add_response 'benin'
+      add_response 'renewing_old'
+      add_response 'adult'
+    end
+    should "give the result with alternative embassy details" do
+      assert_phrase_list :fco_forms, [:adult_fco_forms]
+      assert_phrase_list :how_long_it_takes, [:how_long_lagos_nigeria]
+      assert_phrase_list :cost, [:cost_lagos_nigeria]
+      assert_phrase_list :how_to_apply, [:how_to_apply_lagos_nigeria]
+      assert_phrase_list :making_application, [:making_application_lagos_nigeria]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_lagos_nigeria]
+      assert_state_variable :embassy_address, "British High Commission\n\nNo. 19, Torrens Close,\nMaitama,\nPMB 4808 (Garki),\nAbuja"
+      assert_current_node :result
+    end
+  end
+
   # Austria (An example of IPS application 1).
   context "answer Austria" do
     setup do
@@ -285,7 +303,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
             add_response "spain"
             assert_current_node :ips_application_result
             assert_phrase_list :how_long_it_takes, [:how_long_applying_ips2, :how_long_it_takes_ips2]
-            assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :ips_documents_group_3]
+            assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :ips_documents_group_1]
             assert_phrase_list :cost, [:passport_courier_costs_ips2, :adult_passport_costs_ips2, :passport_costs_ips2]
             assert_phrase_list :send_your_application, [:send_application_ips2]
             assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips2]
@@ -377,5 +395,19 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
         end
       end
     end # Andorra (FCO result cases)
+  end
+  context "answer Iran" do
+    should "give a bespoke outcome stating an application is not possible in Iran" do
+      add_response 'iran'
+      assert_current_node :cannot_apply
+      assert_phrase_list :body_text, [:body_iran]
+    end
+  end # Iran - no application outcome
+  context "answer Syria" do
+    should "give a bespoke outcome stating an application is not possible in Syria" do
+      add_response 'syria'
+      assert_current_node :cannot_apply
+      assert_phrase_list :body_text, [:body_syria]
+    end
   end
 end
