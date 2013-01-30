@@ -57,21 +57,29 @@ en-GB:
 
           The employee is entitled to up to 39 weeks Statutory Maternity Pay (SMP).
           
-          |Pay                                  | Key facts                  |
-          |-------------------------------------|----------------------------|
-          |Start date                           | %{pay_start_date}          |
-          |End date                             | %{pay_end_date}            |
-          |Weekly rate - first 6 weeks          | £%{smp_a}                  |
-          |Weekly rate - for remaining 33 weeks | £%{smp_b}                  |
-          |Latest date to give notice           | %{notice_request_pay}      |
+          |Pay                                  | Key facts                   |
+          |-------------------------------------|-----------------------------|
+          |Average weekly earnings              | £%{average_weekly_earnings} |
+          |Weekly rate - first 6 weeks          | £%{smp_a}                   |
+          |Weekly rate - for remaining 33 weeks | £%{smp_b}                   |
+          |Total SMP                            | £%{total_smp}               |
+          |Start date                           | %{pay_start_date}           |
+          |End date                             | %{pay_end_date}             |
+          |Latest date to give notice           | %{notice_request_pay}       |
           |Proof of pregnancy                   | Usually 28 days before SMP starts (or as soon as possible if baby born early)  |
-          |Start date due to pregnancy related illness| %{ssp_stop}          |
+          |Start date due to pregnancy related illness| %{ssp_stop}           |
 
 
         not_entitled_to_smp_intro: |
           ##Statutory maternity pay
       
           The employee is not entitled to statutory maternity pay. To qualify:
+
+        not_entitled_to_smp_intro_with_awe: |
+          ##Statutory maternity pay
+      
+          The employee is not entitled to statutory maternity pay. 
+          Their average weekly earnings are £%{average_weekly_earnings}. To qualify:
 
         not_entitled_to_smp_outro: |
           You must write confirming this within 28 days of their maternity pay request.
@@ -236,6 +244,16 @@ en-GB:
       payday_eight_weeks?:
         title: What was the last normal payday on or before %{payday_offset}?
         error_message: You must enter a date on or before %{payday_offset}
+      ## QM5.4
+      pay_frequency?:
+        title: How often do you pay the employee?
+        options: 
+          "every_2_weeks": "every 2 weeks"
+          "every_4_weeks": "every 4 weeks"
+          "none_of_the_above": "none of the above"
+      ## QM5.5
+      earnings_for_pay_period?:
+        title: What were the employee’s earnings between %{relevant_period}?  
       ## QM6
       employees_average_weekly_earnings?:
         title: What were the employee’s average weekly earnings between %{relevant_period}?
