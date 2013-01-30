@@ -1,7 +1,7 @@
 module SmartAnswer
   module Question
     class CountrySelect < MultipleChoice
-      def initialize(name, options = {}, &block)
+      def initialize(name, options, &block)
         options = country_list
         super(name, options, &block)
       end

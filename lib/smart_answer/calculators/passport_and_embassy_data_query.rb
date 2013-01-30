@@ -3,6 +3,7 @@ module SmartAnswer::Calculators
  
     FCO_APPLICATIONS_REGEXP = /^(hong_kong|madrid_spain|paris_france|pretoria_south_africa|washington_usa|wellington_new_zealand)$/
     IPS_APPLICATIONS_REGEXP = /^ips_application_\d$/
+    NO_APPLICATION_REGEXP = /^(algeria|iran|syria)$/
 
     ALT_EMBASSIES = {
       'benin' =>  'nigeria',

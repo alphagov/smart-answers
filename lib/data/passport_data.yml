@@ -260,6 +260,9 @@ hungary:
 iceland: 
   :type: ips_application_1
   :group: ips_documents_group_1
+iran:
+  :type: iran
+  :group:
 india: 
   :type: hong_kong
   :group: ips_documents_group_3

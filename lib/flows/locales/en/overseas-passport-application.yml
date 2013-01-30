@@ -49,7 +49,7 @@ en-GB:
         how_long_applying_fco:
           Your application will take **at least** 6 weeks. You may have to attend an interview.
         how_long_renewing_old_fco:
-          Renewing a British passport takes **at least** 4 weeks.
+          Your application will take **at least** 6 weeks. You may have to attend an interview.
         how_long_renewing_new_fco:
           Renewing a British passport takes **at least** 4 weeks.
         how_long_replacing_fco:
@@ -345,9 +345,9 @@ en-GB:
           Your application will take **at least** 6 weeks from when your application is received by the Identity and Passport Service (IPS) in the UK. You may have to attend an interview.
 
         how_long_renewing_old_ips1: |
-         Renewing a British passport takes **at least** 4 weeks from when your application is received by the Identity and Passport Service (IPS) in the UK.
+          Your application will take **at least** 6 weeks from when your application is received by the Identity and Passport Service (IPS) in the UK. You may have to attend an interview.
         how_long_renewing_new_ips1: |
-         Renewing a British passport takes **at least** 4 weeks from when your application is received by the Identity and Passport Service (IPS) in the UK. 
+          Renewing a British passport takes **at least** 4 weeks from when your application is received by the Identity and Passport Service (IPS) in the UK. 
         how_long_replacing_ips1: |
           Your application will take **at least** 6 weeks from when your application is received by the Identity and Passport Service (IPS) in the UK. 
 
@@ -494,7 +494,7 @@ en-GB:
           You must report the loss or theft as soon as possible to your [nearest British embassy, high commission or consulate.](/report-a-lost-or-stolen-passport "Report a lost or stolen passport")
 
         how_long_renewing_old_ips3: |
-          Renewing a British passport takes **at least** 4 weeks from when your application is received by the Identity and Passport Service (IPS) in the UK.
+          Your application will take **at least** 6 weeks from when your application is received by the Identity and Passport Service (IPS) in the UK. You may have to attend an interview.
 
         how_long_renewing_new_ips3: |
           Renewing a British passport takes **at least** 4 weeks from when your application is received by the Identity and Passport Service (IPS) in the UK.
@@ -750,7 +750,7 @@ en-GB:
 
             Textphone: +44 1750 725 368
           $C
-        
+ 
         how_long_afghanistan: |
           Action | Minimum time after you apply
           - | -
@@ -1086,8 +1086,8 @@ en-GB:
         how_long_ethiopia: |
           Action | Minimum time after you apply
           - | -
-          Renew a passport | 4 weeks 
-          First adult or child passports | 16 weeks
+          Renew a red passport | 4 weeks 
+          First adult or child passports or renewing a blue or black passport | 16 weeks
           Replace a lost or stolen passport | 16 weeks
 
           Applications may take longer if: 
@@ -1124,11 +1124,11 @@ en-GB:
         how_to_apply_ethiopia: ''
         supporting_documents_ethiopia: '' 
         making_application_ethiopia: |
-          __First or replacement passports__
+          ### First applications, renewing a black or blue passport or replacing a lost or stolen passport 
           
           You must make your application in person at the British embassy in Addis Ababa.
 
-          __Renewals__
+          ### Renewing a red passport
 
           You can send your application by one-way courier or registered post or apply in person at the British embassy in Addis Ababa.
 
@@ -1171,8 +1171,8 @@ en-GB:
         how_long_ghana: |
           Action | Minimum time after you apply
           - | -
-          Renew a passport | 4 weeks
-          First adult or child passports | 6 weeks
+          Renew a red passport | 4 weeks
+          First adult or child passports or renewing a blue or black passport | 6 weeks
           Replace a lost or stolen passport | 6 weeks
 
           Applications may take longer if: 
@@ -1185,7 +1185,7 @@ en-GB:
         cost_ghana: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. 
 
-          ### Applying for a new passport or replacing a lost or stolen passport
+          ### First applications, renewing a black or blue passport or replacing a lost or stolen passport
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
@@ -1198,7 +1198,7 @@ en-GB:
           - cash
           - a credit card
           
-          ### Renewing a passport
+          ### Renewing a red passport
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
@@ -1223,11 +1223,11 @@ en-GB:
           [Download ‘Supporting documents for lost and stolen passport applications’ (MS Word, 30KB)](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/Lost-Stole-appl-checklist "Download ‘Supporting documents for lost or stolen passport applications’ (MS Word, 30KB)"){:rel="external"}
 
         making_application_ghana: |
-          ### Applying for a new passport or replacing a lost or stolen passport
+          ### First applications, renewing a black or blue passport or replacing a lost or stolen passport
 
           You must send or make your application in person to the British high commission in Accra.
 
-          ### Renewing a passport
+          ### Renewing a red passport
 
           You can either:
 
@@ -1293,8 +1293,6 @@ en-GB:
 
           You must make your application in person to the British embassy Amman, Jordan.
 
-#TODO: Jordanian embassy details.
-                 
         getting_your_passport_iraq: |
           ### Renewals or replacements of lost or stolen passports
 
@@ -1965,6 +1963,83 @@ en-GB:
         getting_your_passport_zimbabwe: |
           The British embassy will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
+        body_algeria: |
+          ## How long it takes
+          It usually takes between **6 and 12 weeks** to get your passport.
+
+          Applications may take longer if: 
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+          Don’t book travel until you have a valid passport. In a genuine emergency only, you may be able to get an Emergency Travel Document from the British embassy in Algiers.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          ## Cost
+
+          You must pay in cash using Algerian Dinars at the British embassy in Algiers. 
+          
+          Passport type | Passport fee
+          -|-
+          Adult standard 32-page passport | AZD16,700
+          Adult jumbo 48-page passport | AZD20,100
+          Child passport | AZD10,600
+
+          ## How to apply
+
+          1. You must usually pick up an application form in person from the British embassy in Algiers. Contact the embassy for advice if this isn’t possible.
+
+          2. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports “Passport photo requirements”) or your application may be delayed.
+
+          3. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator. 
+
+          4. Take your application in person to the British embassy in Algiers.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          ## Getting your passport
+
+          The British embassy in Algiers will contact you when your passport arrives using the contact details on your form. You must collect it in person from the embassy.
+
+        body_iran: |
+          You can’t apply for a British passport from Iran at this time.
+
+          You should apply in a neighbouring country of your choice.
+
+          If you need an emergency travel document to leave Iran, contact the Foreign and Commonwealth Office for further information.
+
+
+          $C
+            Foreign and Commonwealth Office
+
+            Email: consularenquiries.damascus@fco.gov.uk 
+          
+            Telephone:  (+44) 207 008 1500
+          $C
+
+        body_syria: |
+          You can’t apply for a British passport from Syria at this time.
+
+          You should apply in a neighbouring country of your choice.
+
+          If you need an emergency travel document to leave Syria, contact the Foreign and Commonwealth Office for further information.
+
+          
+          $C
+            Foreign and Commonwealth Office
+
+            Email: consularenquiries.damascus@fco.gov.uk 
+            
+            Telephone:  (+44) 207 008 1500
+          $C 
+
       fco_result:
         body: |
           ## How long it takes
@@ -2094,3 +2169,8 @@ en-GB:
 
           %{getting_your_passport}
 
+      cannot_apply:
+        body: |
+          %{body_text}
+      
+      

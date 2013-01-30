@@ -396,4 +396,18 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
       end
     end # Andorra (FCO result cases)
   end
+  context "answer Iran" do
+    should "give a bespoke outcome stating an application is not possible in Iran" do
+      add_response 'iran'
+      assert_current_node :cannot_apply
+      assert_phrase_list :body_text, [:body_iran]
+    end
+  end # Iran - no application outcome
+  context "answer Syria" do
+    should "give a bespoke outcome stating an application is not possible in Syria" do
+      add_response 'syria'
+      assert_current_node :cannot_apply
+      assert_phrase_list :body_text, [:body_syria]
+    end
+  end
 end

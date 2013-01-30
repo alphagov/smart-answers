@@ -25,14 +25,18 @@ country_select :which_country_are_you_in? do
       embassy_data.first['address'] if embassy_data
     end
   end
-  calculate :alt_embassy_address do
-  end
 
   calculate :supporting_documents do
     passport_data[:group]
   end
 
-  next_node :renewing_replacing_applying?
+  next_node do |response|
+    if Calculators::PassportAndEmbassyDataQuery::NO_APPLICATION_REGEXP.match(response)
+      :cannot_apply
+    else
+      :renewing_replacing_applying?
+    end
+  end
 end
 
 # Q2
@@ -73,7 +77,7 @@ multiple_choice :child_or_adult_passport? do
 end
 
 # Q4
-country_select :country_of_birth? do
+country_select :country_of_birth?, include_uk: true do
   save_input_as :birth_location
 
   calculate :application_group do
@@ -212,5 +216,12 @@ outcome :result do
   end
   precalculate :getting_your_passport do
     PhraseList.new("getting_your_passport_#{application_type}".to_sym)
+  end
+end
+
+## No-op outcome.
+outcome :cannot_apply do
+  precalculate :body_text do
+    PhraseList.new("body_#{current_location}".to_sym)
   end
 end
