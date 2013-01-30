@@ -188,6 +188,24 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
     end
   end # Afghanistan
 
+  context "answer Benin, renewing old passport" do
+    setup do
+      add_response 'benin'
+      add_response 'renewing_old'
+      add_response 'adult'
+    end
+    should "give the result with alternative embassy details" do
+      assert_phrase_list :fco_forms, [:adult_fco_forms]
+      assert_phrase_list :how_long_it_takes, [:how_long_lagos_nigeria]
+      assert_phrase_list :cost, [:cost_lagos_nigeria]
+      assert_phrase_list :how_to_apply, [:how_to_apply_lagos_nigeria]
+      assert_phrase_list :making_application, [:making_application_lagos_nigeria]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_lagos_nigeria]
+      assert_state_variable :embassy_address, "British High Commission\n\nNo. 19, Torrens Close,\nMaitama,\nPMB 4808 (Garki),\nAbuja"
+      assert_current_node :result
+    end
+  end
+
   # Austria (An example of IPS application 1).
   context "answer Austria" do
     setup do

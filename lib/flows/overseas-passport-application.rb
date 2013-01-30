@@ -25,6 +25,8 @@ country_select :which_country_are_you_in? do
       embassy_data.first['address'] if embassy_data
     end
   end
+  calculate :alt_embassy_address do
+  end
 
   calculate :supporting_documents do
     passport_data[:group]
@@ -191,6 +193,7 @@ outcome :fco_result do
   end
 end
 
+## Generic country outcome.
 outcome :result do
   precalculate :how_long_it_takes do
     PhraseList.new("how_long_#{application_type}".to_sym)

@@ -154,13 +154,13 @@ en-GB:
         adult_passport_costs_hong_kong:
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Adult standard 32-page passport | £128.00/HK $1,640 | £147.86 |
-          | Adult jumbo 48-page passport | £154.50/HK $1,978 | £174.36 |
+          | Adult standard 32-page passport | £128.00/HK $1,640 | £147.86/HK $1,895 |
+          | Adult jumbo 48-page passport | £154.50/HK $1,978 | £174.36/HK $2,233 |
           
         child_passport_costs_hong_kong:
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Child passport | £81.50/HK $1,044 | £101.36 |
+          | Child passport | £81.50/HK $1,044 | £101.36/HK $1,299 |
 
         passport_costs_hong_kong: |
           You must pay using either:
@@ -841,6 +841,84 @@ en-GB:
         getting_your_passport_bangladesh: |
           The British high commission in Dhaka will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
+        how_long_nairobi_kenya: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks 
+          First adult or child passports | 16 weeks
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if: 
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+          If you’re applying for a first passport, you will be asked to attend an interview.
+
+          If you’re renewing a passport, you may be asked to attend an interview.
+
+          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document at the British high commission/honorary consulate. You will have to pay for the document.
+
+        cost_nairobi_kenya: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. 
+
+          You must pay using a guaranteed banker’s draft in Kenya Shillings, payable to the ‘British high commission’.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 18,600 Kenya Shillings | 23,500 Kenya Shillings
+          Adult jumbo 48-page passport | 22,500 Kenya Shillings | 27,100 Kenya Shillings
+          Child passport | 11,900 Kenya Shillings | 16,500 Kenya Shillings
+          
+        how_to_apply_nairobi_kenya: |
+        
+          For renewals, you must send the passport you’re replacing and a registration/naturalisation certificate (if relevant).
+
+        supporting_documents_nairobi_kenya: |
+          [Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/Checklist-1sttime-Adult "Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)"){:rel="external"}
+
+          [Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/Checklist-1sttime-child "Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)"){:rel="external"}
+
+          [Download ‘Supporting documents for lost and stolen passport applications’ (MS Word, 30KB)](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/Lost-Stole-appl-checklist "Download ‘Supporting documents for lost or stolen passport applications’ (MS Word, 30KB)"){:rel="external"}
+
+        making_application_nairobi_kenya: |
+          Send your application by post or courier to the British high commission in Nairobi, Kenya.
+
+        getting_your_passport_nairobi_kenya: |        
+          Your passport and supporting documents will be returned separately to you by courier.
+
+        how_long_lagos_nigeria: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks 
+          First adult or child passports | 6 weeks
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if: 
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+          - further checks need to be made about your identity - in some cases, this may take up to 6 months
+
+          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British deputy high commission in Lagos. You will have to pay for the document.
+
+        cost_lagos_nigeria: |
+          You must pay - in cash - a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 35,600 Naira | 41,800 Naira
+          Adult jumbo 48-page passport | 41,600 Naira | 47,800 Naria
+          Child passport | 22,000 Naira | 28,600 Naira
+          
+        how_to_apply_lagos_nigeria: '' 
+        supporting_documents_lagos_nigeria: ''
+        making_application_lagos_nigeria: |
+          Bring your application in person to the British Deputy high commission in **Lagos, Nigeria.**
+
+        getting_your_passport_lagos_nigeria: |
+          The British Deputy high commission in Lagos will contact you when your passport arrives using the contact details on your form. You must collect it in person.  
+
         how_long_burundi: |
           Action | Minimum time after you apply
           - | -
@@ -908,16 +986,32 @@ en-GB:
 
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. 
 
-          Passport type	Passport fee	Total to pay (including courier fee)
-          Adult standard 32-page passport	BIF256,000/$US211	BIF322,340/$US266
-          Adult jumbo 48-page passport	BIF309,000BIF/$US255	BIF375,340/$US2310
-          Child passport	BIF163,000/$US134	BIF229,340/$US188
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | BIF256,000/$US211 | BIF322,340/$US266
+          Adult jumbo 48-page passport | BIF309,000BIF/$US255 | BIF375,340/$US2310
+          Child passport | BIF163,000/$US134 | BIF229,340/$US188
           
         how_to_apply_cameroon: ''        
         supporting_documents_cameroon: ''
         making_application_cameroon: |
+          Renewing a passport
+
+          Send your application to the passport processing centre in Pretoria, South Africa, preferably by a one-way courier service.
+
+      
+          $A
+            British high commission,
+            Consular Section, Block B,
+            1st Floor, Liberty Place Building,
+            256 Glyn Street,
+            Hatfield,
+            Pretoria, 0083,
+            South Africa.
+          $A
           
         getting_your_passport_cameroon: |
+          The British high commission will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
         how_long_cuba: |
           Action | Minimum time after you apply
@@ -1073,6 +1167,75 @@ en-GB:
         making_application_gambia: ''
         getting_your_passport_gambia: |
           The British high commission in Banjul will contact you when your passport arrives, using the contact details on your form. You must collect it in person from the high commission.
+
+        how_long_ghana: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks
+          First adult or child passports | 6 weeks
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if: 
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document at the British high commission. You will have to pay for the document.
+
+        cost_ghana: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. 
+
+          ### Applying for a new passport or replacing a lost or stolen passport
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 410 Cedi | 484 Cedi
+          Adult jumbo 48-page passport | 494 Cedi | 568 Cedi
+          Child passport | 261 Cedi | 335 Cedi
+
+          You must pay either using:
+
+          - cash
+          - a credit card
+          
+          ### Renewing a passport
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 1,856 South African Rand | 2,144 South African Rand
+          Adult jumbo 48-page passport | 2,240 South African Rand | 2,528 South African Rand
+          Child passport | 1,182 South African Rand | 1,470 South African Rand
+
+          You can pay:
+
+          - using Visa or Mastercard - enclose a [card authorisation form (MS Word, 334KB)](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/countries-auth-slip "Card authorisation form (MS Word, 334KB)"){:rel="external"} with your application
+          - by Bank Draft (add a 155 South African Rand processing fee if you pay this way)
+
+        how_to_apply_ghana: |
+          
+          For renewals, don’t send your existing passport with your application - you may need it for ID purposes. 
+
+        supporting_documents_ghana: |
+          [Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/Checklist-1sttime-Adult "Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)"){:rel="external"}
+
+          [Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/Checklist-1sttime-child "Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)"){:rel="external"}
+
+          [Download ‘Supporting documents for lost and stolen passport applications’ (MS Word, 30KB)](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/Lost-Stole-appl-checklist "Download ‘Supporting documents for lost or stolen passport applications’ (MS Word, 30KB)"){:rel="external"}
+
+        making_application_ghana: |
+          ### Applying for a new passport or replacing a lost or stolen passport
+
+          You must send or make your application in person to the British high commission in Accra.
+
+          ### Renewing a passport
+
+          You can either:
+
+          - apply to the British high commission in Accra 
+          - send your application by one-way courier or registered post to the passport processing centre in Pretoria, South Africa
+
+        getting_your_passport_ghana: |
+          The British embassy will contact you when your passport and supporting documents arrive using the contact details on your form. You must collect them in person. 
 
         how_long_iraq: |
           Action | Minimum time after you apply
