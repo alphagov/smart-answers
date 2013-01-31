@@ -93,7 +93,7 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
 
       should "year = 2012/13" do
         add_response 'year-1213'
-        assert_current_node :outcome_14
+        assert_current_node :outcome_15
         assert_phrase_list :form_destination, [:postal_address_uk]
       end
     end 
@@ -131,13 +131,13 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
 
       should "year = 2013/14" do
         add_response 'year-1314'
-        assert_current_node :outcome_15
+        assert_current_node :outcome_16
         assert_phrase_list :form_destination, [:postal_address_uk]
       end
 
       should "year = 2012/13" do
         add_response 'year-1213'
-        assert_current_node :outcome_16
+        assert_current_node :outcome_18
         assert_phrase_list :form_destination, [:postal_address_uk]
       end
     end 
@@ -145,7 +145,7 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
     context "claim DSA expenses" do
       setup do
         add_response 'dsa-expenses'
-        assert_current_node :outcome_19
+        assert_current_node :outcome_21
         assert_phrase_list :form_destination, [:postal_address_uk]
       end
     end 
@@ -161,13 +161,13 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
 
       should "year = 2013/14" do
         add_response 'year-1314'
-        assert_current_node :outcome_17
+        assert_current_node :outcome_19
         assert_phrase_list :form_destination, [:postal_address_uk]
       end
 
       should "year = 2012/13" do
         add_response 'year-1213'
-        assert_current_node :outcome_18
+        assert_current_node :outcome_20
         assert_phrase_list :form_destination, [:postal_address_uk]
       end
     end 
@@ -175,7 +175,7 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
     context "claim CcG expenses" do
       setup do
         add_response 'ccg-expenses'
-        assert_current_node :outcome_20
+        assert_current_node :outcome_22
         assert_phrase_list :form_destination, [:postal_address_uk]
       end
     end 
@@ -183,7 +183,7 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
     context "claim travel grants" do
       setup do
         add_response 'travel-grant'
-        assert_current_node :outcome_21
+        assert_current_node :outcome_23
       end
     end 
   end 
@@ -311,13 +311,13 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
       
       should "year = 2013/14" do
         add_response 'year-1314'
-        assert_current_node :outcome_13
+        assert_current_node :outcome_14
         assert_phrase_list :form_destination, [:postal_address_uk]
       end
 
       should "year = 2012/13" do
         add_response 'year-1213'
-        assert_current_node :outcome_14
+        assert_current_node :outcome_15
         assert_phrase_list :form_destination, [:postal_address_uk]
       end
     end
@@ -325,8 +325,19 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
     context "apply DSA" do
       setup do
         add_response 'apply-dsa'
-        assert_current_node :outcome_20
-        assert_phrase_list :form_destination, [:postal_address_uk]
+      end
+
+      should "ask what year you want funding for" do
+        assert_current_node :what_year?
+      end
+      should "year = 2013/14" do
+        add_response 'year-1314'
+        assert_current_node :outcome_17
+      end
+
+      should "year = 2012/13" do
+        add_response 'year-1213'
+        assert_current_node :outcome_18
       end
     end
 
@@ -342,60 +353,6 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
   context "EU student full time" do
     setup do
       add_response 'eu-full-time'
-    end
-
-    should "ask what year you want funding for" do
-      assert_current_node :what_year?
-    end
-
-    context "2013 to 2014" do
-      setup do
-        add_response 'year-1314'
-      end
-
-      should "ask are you a continuing student" do
-        assert_current_node :continuing_student?
-      end
-
-      should "continuing student = yes" do
-        add_response 'continuing-student'
-        assert_current_node :outcome_23
-        assert_phrase_list :form_destination, [:postal_address_eu]
-      end
-
-      should "continuing student = no" do
-        add_response 'new-student'
-        assert_current_node :outcome_22
-        assert_phrase_list :form_destination, [:postal_address_eu]
-      end
-    end 
-
-    context "2012 to 2013" do
-      setup do
-        add_response 'year-1213'
-      end
-
-      should "ask are you a continuing student" do
-        assert_current_node :continuing_student?
-      end
-
-      should "continuing student = yes" do
-        add_response 'continuing-student'
-        assert_current_node :outcome_27
-        assert_phrase_list :form_destination, [:postal_address_eu]
-      end
-
-      should "continuing student = no" do
-        add_response 'new-student'
-        assert_current_node :outcome_26
-        assert_phrase_list :form_destination, [:postal_address_eu]
-      end
-    end
-  end
- 
-  context "EU student part time" do
-    setup do
-      add_response 'eu-part-time'
     end
 
     should "ask what year you want funding for" do
@@ -442,6 +399,60 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
       should "continuing student = no" do
         add_response 'new-student'
         assert_current_node :outcome_28
+        assert_phrase_list :form_destination, [:postal_address_eu]
+      end
+    end
+  end
+ 
+  context "EU student part time" do
+    setup do
+      add_response 'eu-part-time'
+    end
+
+    should "ask what year you want funding for" do
+      assert_current_node :what_year?
+    end
+
+    context "2013 to 2014" do
+      setup do
+        add_response 'year-1314'
+      end
+
+      should "ask are you a continuing student" do
+        assert_current_node :continuing_student?
+      end
+
+      should "continuing student = yes" do
+        add_response 'continuing-student'
+        assert_current_node :outcome_27
+        assert_phrase_list :form_destination, [:postal_address_eu]
+      end
+
+      should "continuing student = no" do
+        add_response 'new-student'
+        assert_current_node :outcome_26
+        assert_phrase_list :form_destination, [:postal_address_eu]
+      end
+    end 
+
+    context "2012 to 2013" do
+      setup do
+        add_response 'year-1213'
+      end
+
+      should "ask are you a continuing student" do
+        assert_current_node :continuing_student?
+      end
+
+      should "continuing student = yes" do
+        add_response 'continuing-student'
+        assert_current_node :outcome_31
+        assert_phrase_list :form_destination, [:postal_address_eu]
+      end
+
+      should "continuing student = no" do
+        add_response 'new-student'
+        assert_current_node :outcome_30
         assert_phrase_list :form_destination, [:postal_address_eu]
       end
     end

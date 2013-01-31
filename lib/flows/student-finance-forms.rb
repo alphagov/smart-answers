@@ -48,11 +48,11 @@ multiple_choice :form_needed_for_1? do
   next_node do |response|
     case response.to_s
       when 'travel-grant'
-        :outcome_21
+        :outcome_23
       when 'ccg-expenses'
-        :outcome_20
+        :outcome_22
       when 'dsa-expenses'
-        :outcome_19  
+        :outcome_21 
       else
         :what_year?      
     end
@@ -71,9 +71,9 @@ multiple_choice :form_needed_for_2? do
   next_node do |response|
     case response.to_s
       when 'dsa-expenses'
-        :outcome_19
+        :outcome_21
       else
-        :what_year?
+        :what_year?     
     end
   end
 end
@@ -91,10 +91,14 @@ multiple_choice :what_year? do
       if form_required == 'apply-loans-grants' 
         :continuing_student?
       elsif form_required == 'proof-identity' 
-        if response == 'year-1314' 
-          :outcome_13 
+        if response == 'year-1314'
+          if student_type == 'uk-full-time'
+            :outcome_13
+          else
+            :outcome_14
+          end
         else 
-          :outcome_14 
+          :outcome_15
         end
       elsif form_required == 'income-details' 
         if response == 'year-1314' 
@@ -103,16 +107,20 @@ multiple_choice :what_year? do
           :outcome_12 
         end
       elsif form_required == 'apply-dsa' 
-        if response == 'year-1314' 
-          :outcome_15 
+        if response == 'year-1314'
+          if student_type == 'uk-full-time'
+            :outcome_16
+          else
+            :outcome_17
+          end
         else
-          :outcome_16 
+          :outcome_18 
         end
       elsif form_required == 'apply-ccg' 
         if response == 'year-1314' 
-          :outcome_17 
+          :outcome_19 
         else
-          :outcome_18 
+          :outcome_20
         end
       end
     else
@@ -155,30 +163,30 @@ multiple_choice :continuing_student? do
     elsif student_type == 'eu-full-time'
       if year_required == "year-1314" 
         if response == 'continuing-student'
-          :outcome_23
+          :outcome_25
         else 
-          :outcome_22
+          :outcome_24
         end
       elsif year_required == "year-1213"
         if response =='continuing-student'
-          :outcome_27
+          :outcome_29
         else
-          :outcome_26
+          :outcome_28
         end
       end
     
     elsif student_type == 'eu-part-time'
       if year_required == 'year-1314'
         if response == 'continuing-student'
-          :outcome_25
+          :outcome_27
         else
-          :outcome_24
+          :outcome_26
         end
       elsif year_required == 'year-1213'
         if response =='continuing-student'
-          :outcome_29
+          :outcome_31
         else
-          :outcome_28
+          :outcome_30
         end
       end
     end
@@ -259,3 +267,5 @@ outcome :outcome_26
 outcome :outcome_27
 outcome :outcome_28
 outcome :outcome_29
+outcome :outcome_30
+outcome :outcome_31
