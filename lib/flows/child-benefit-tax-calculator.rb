@@ -19,6 +19,14 @@ multiple_choice :which_tax_year? do
 
   save_input_as :tax_year
 
+  calculate :tax_year_text do
+    if tax_year == '2012-13'
+      PhraseList.new(:tax_year_text_2012)
+    else
+      PhraseList.new(:tax_year_text_2013)
+    end
+  end
+
   calculate :start_of_tax_year do
     case responses.last
     when "2012-13" then Date.new(2012, 4, 6)
