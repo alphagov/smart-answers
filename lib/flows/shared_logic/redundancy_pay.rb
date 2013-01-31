@@ -1,3 +1,16 @@
+date_question :date_of_redundancy? do
+  from { Date.civil(Date.today.year - 1,1,1) }
+  to { Date.today }
+  calculate :rate do
+    if Date.parse(responses.last) < Date.new(2013,02,01)
+      430
+    else
+      450
+    end
+  end
+  next_node :age_of_employee?
+end
+
 value_question :age_of_employee? do
   calculate :employee_age do
     age = responses.last.to_i
@@ -30,7 +43,7 @@ end
 
 money_question :weekly_pay_before_tax? do
   calculate :calculator do
-    Calculators::RedundancyCalculator.new(employee_age, years_employed, responses.last)
+    Calculators::RedundancyCalculator.new(rate, employee_age, years_employed, responses.last)
   end
   calculate :statutory_redundancy_pay do
     calculator.format_money(calculator.pay.to_f)
