@@ -19,11 +19,27 @@ country_select :which_country_are_you_in? do
   calculate :ips_number do
     application_type.split("_")[2] if is_ips_application 
   end
+  calculate :embassy_data do
+    data = Calculators::PassportAndEmbassyDataQuery.find_embassy_data(current_location)
+    data ? data.first : nil
+  end
   calculate :embassy_address do
+    address = nil
     unless ips_number.to_i ==  1
-      embassy_data = Calculators::PassportAndEmbassyDataQuery.find_embassy_data(current_location)
-      embassy_data.first['address'] if embassy_data
+      address = embassy_data['address'] if embassy_data
     end
+    address
+  end
+  calculate :embassy_details do
+    details = nil
+    if embassy_address
+      details = [embassy_address]
+      details << embassy_data['phone'] if embassy_data['phone'].present?
+      details << embassy_data['email'] if embassy_data['email'].present?
+      details << embassy_data['office_hours'] if embassy_data['office_hours'].present?
+      details = details.join("\n")
+    end
+    details
   end
 
   calculate :supporting_documents do
