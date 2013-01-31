@@ -1,143 +1,90 @@
-status :published
+en-GB:
+  flow:
+    energy-grants-calculator:
+      title: Find energy grants and help with heating costs
+      body: |
+        Check what money and other help you can get to reduce your energy costs.
 
-# Q1
-checkbox_question :what_are_your_circumstances? do
-  option :benefits
-  option :property
-  option :permission
-  option :own_energy
+        **What you need to know:**
 
-  calculate :circumstances do
-    responses.last.split(",")
-  end
+        - which benefits you’re on if any
+      meta:
+        description: Financial help with heating costs, insulation, boilers, money for heating costs
+      options:
+        none: "None apply"
+      phrases:
+        winter_fuel_payments: |
+          - [Winter Fuel Payments](/winter-fuel-payment/eligibility "Winter Fuel Payments") - between £100 and £300 towards your heating bills
+        green_deal: | 
+          - [Green Deal](/green-deal-energy-saving-measures "Green Deal") - energy saving improvements to your home or business
+        renewable_heat_premium: |
+          - [Renewable Heat Premium Payment](/renewable-heat-premium-payment/overview "Renewable Heat Premium Payment") - between £300 and £950 to install renewable heating technologies in your home
+        feed_in_tariffs: |
+          - [Feed-in Tarrifs](/feed-in-tariffs "Feed-in Tariffs") - selling energy you produced to your energy supplier
+        warm_home_discount: | 
+          - [Warm Home Discount scheme](/the-warm-home-discount-scheme/overview "Warm House Discount scheme") - £130 discount on your energy bills
+        cold_weather_payment: |
+          - [Cold Weather Payment](/cold-weather-payment/overview "Cold Weather Payment") - £25 a week during very cold weather between November and March
+        energy_company_obligation: |
+          - [Energy Company Obligation](/energy-company-obligation "Energy Company Obligation scheme") - help with insulation or boiler repairs
+      
+      what_are_your_circumstances?:
+        title: What are your circumstances?
+        hint: Choose all that apply to you. If none apply just click ‘Next step’.
+        options:
+          benefits: You’re getting benefits.
+          property: You own your property.
+          permission: You rent privately but have permission from the owner to install or upgrade the boiler.
+          own_energy: You generate your own energy.
+      dob?:
+        title: What's your date of birth?
+      which_benefits?:
+        title: Which of these benefits do you get?
+        hint: Choose all that apply to you. If none apply just click ‘Next step’.
+        options:
+          pension_credit: Pension Credit
+          income_support: Income Support
+          jsa: Income based Jobseeker’s Allowance
+          esa: Income-related Employment and Support Allowance (ESA)
+          child_tax_credit: Child Tax Credit - only if your income is £15,860 or less
+          working_tax_credit: Working Tax Credit - only if your income is £15,860 or less
+      disabled_or_have_children?:
+        title: Are you disabled, or do you have children?
+        hint: Choose all that apply to you. If none apply just click ‘Next step’.
+        options:
+          disabled: You’re disabled.
+          disabled_child: You have a disabled child.
+          child_under_5: You have a child under 5.
+          child_under_16: You have a child under 16 or under 20 if in full-time education.
+      no_benefits:
+        body: |
+          $!Based on your answers you might be eligible for help with your energy bills.$!
+          
+          %{eligibilities}
 
-  next_node :dob?
-end
+          For some of these grants further eligibility criteria apply. 
 
-# Q2
-date_question :dob? do
-  from { 100.years.ago }
-  to { Date.today } 
-  calculate :age_variant do
-    dob = Date.parse(responses.last)
-    if dob < Date.new(1951,7,5)
-      :winter_fuel_payment
-    elsif dob < 60.years.ago(Date.today + 1)
-      :over_60
-    end
-  end
-  next_node do
-    if circumstances.include?('benefits')
-      :which_benefits?
-    else
-      :no_benefits
-    end
-  end
-end
+          [Smart meters](/smart-meters-how-they-work "Smart meters") can also help you save energy.
 
-# Q3
-checkbox_question :which_benefits? do
-  option :pension_credit
-  option :income_support
-  option :jsa
-  option :esa
-  option :child_tax_credit
-  option :working_tax_credit
+      on_benefits:
+        body: |
+          $!Based on your answers you might be eligible for help with your energy bills.$!
 
-  calculate :benefits do
-    responses.last.split(',')
-  end
+          %{eligibilities}
 
-  next_node do |response|
-    choices = response.split(',')
-    no_disability_answers = ['pension_credit','esa','child_tax_credit']
-    
-    if response == 'none'
-      :no_benefits
-    elsif (choices - no_disability_answers).empty?
-      :on_benefits_no_disability_or_children
-    else
-      :disabled_or_have_children?
-    end
-  end
-end
+          For some of these schemes further eligibility criteria apply. These can differ depending on your supplier.  
 
-# Q4
-checkbox_question :disabled_or_have_children? do
-  option :disabled
-  option :disabled_child
-  option :child_under_5
-  option :child_under_16
-  option :pensioner_premium
+          If you’re interested in energy saving improvements to your home find out about
+          [Green Deal](/green-deal-energy-saving-measures "Green Deal") and [smart meters](/smart-meters-how-they-work "Smart meters").
 
-  calculate :benefits_1 do
-    choices = responses.last.split(',')
-    (choices & %w(disabled disabled_child child_under_5 pensioner_premium)).any?
-  end
-  calculate :benefits_2 do
-    responses.last.split(',').include?('child_under_16')
-  end
+      on_benefits_no_disability_or_children:
+        body: |
+          $!Based on your answers you might be eligible for help with your energy bills.$!
 
-  next_node do |response|
-    if response == 'none'
-      :on_benefits_no_disability_or_children
-    else
-      :on_benefits
-    end
-  end
-end
+          %{eligibilities}
 
+          For some of these schemes further eligibility criteria apply. 
 
-# Result 1 - (Not receiving benefits).
-outcome :no_benefits do
-  precalculate :eligibilities do
-    phrases = PhraseList.new
-    phrases << :winter_fuel_payments if age_variant == :winter_fuel_payment
-    phrases << :green_deal
-    if circumstances.include?('property') or circumstances.include?('permission')
-      phrases << :renewable_heat_premium   
-    end
-    phrases << :feed_in_tariffs if circumstances.include?('own_energy')
-    phrases
-  end
-end
+          If you’re interested in energy saving improvements to your home find out about
+          [Green Deal](/green-deal-energy-saving-measures "Green Deal") and [smart meters](/smart-meters-how-they-work "Smart meters").
 
-# Result 2 - (Receiving benefits)
-outcome :on_benefits do
-  precalculate :eligibilities do
-    phrases = [] 
-    phrases << :winter_fuel_payments if age_variant == :winter_fuel_payment
-    if circumstances.include?('property') or circumstances.include?('permission')
-      phrases << :renewable_heat_premium   
-    end
-    phrases << :feed_in_tariffs if circumstances.include?('own_energy')
-    if benefits.include?('pension_credit') or benefits_1 or benefits.include?('esa')
-      phrases << :warm_home_discount << :cold_weather_payment << :energy_company_obligation
-    end
-    if benefits.include?('child_tax_credit') or benefits_2 or
-      (benefits.include?('working_tax_credit') and age_variant == :over_60)
-        phrases << :energy_company_obligation
-    end
-    PhraseList.new(*phrases.uniq)
-  end
-end
-
-# Result 3 = (Receiving benefits no disability or children)
-outcome :on_benefits_no_disability_or_children do
-  precalculate :eligibilities do
-  phrases = []
-    phrases << :winter_fuel_payments if age_variant == :winter_fuel_payment
-    if circumstances.include?('property') or circumstances.include?('permission')
-      phrases << :renewable_heat_premium   
-    end
-    phrases << :feed_in_tariffs if circumstances.include?('own_energy')
-    if benefits.include?('pension_credit') or benefits.include?('esa')
-      phrases << :warm_home_discount << :cold_weather_payment << :energy_company_obligation
-    end
-    phrases << :energy_company_obligation if benefits.include?('child_tax_credit')
-    if benefits.include?('working_tax_credit') and age_variant == :over_60
-      phrases << :energy_company_obligation
-    end
-    PhraseList.new(*phrases.uniq)
-  end
-end
