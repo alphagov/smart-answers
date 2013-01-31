@@ -1,27 +1,48 @@
 en-GB:
   flow:
     child-benefit-tax-calculator:
-      title: Estimate your High Income Child Benefit Tax Charge
-      meta:
-        description: Get an estimate of how much tax you may need to pay if your income is more than £50,000 a year and you or your partner get Child Benefit
-      body: |
-        Get an estimate of how much tax the person with the highest income may have to pay.
-
-        The person with the highest income has to pay the full amount of Child Benefit as a tax charge if their
-          [adjusted net income](http://www.hmrc.gov.uk/adjustednetincome "Adjusted net income"){:rel="external"} is more than £60,000 a year.
-
-        If you need to pay the tax charge, you only pay it on Child Benefit that’s for weeks after 7 January 2013.
       options:
         "yes": "Yes"
         "no": "No"
       phrases:
-        adjusted_net_income_is: The figures you entered mean your estimated adjusted net income is £%{adjusted_net_income_formatted}
+        adjusted_net_income_is: |
+          The figures you entered mean your estimated adjusted net income is £%{adjusted_net_income_formatted}
+        tax_year_text_2012: |
+          Child Benefit | Your results
+          -|-
+          Child Benefit from January 7 2013 that you must pay tax on | £%{benefit_taxable_amount}
+          Child Benefit you get for the whole tax year  | £%{benefit_claimed_amount}
+          Percentage of Child Benefit  from January 7 2013 you must pay as tax | %{percentage_tax_charge}%
+        tax_year_text_2013: |
+          Child Benefit | Your results
+          -|-
+          Child Benefit you get for the whole tax year  | £%{benefit_claimed_amount}
+          Percentage of Child Benefit you must pay as tax | %{percentage_tax_charge}%
+
+      title: Estimate your High Income Child Benefit Tax Charge
+      meta:
+        description: Get an estimate of how much tax you may need to pay if your income is more than £50,000 a year and you or your partner get Child Benefit
+      body: |
+        You must pay the the High Income Child Benefit tax charge on Child Benefit received after 7 January 2013 if all the following apply:
+
+        - you or someone you live with is getting Child Benefit
+        - you have the highest income 
+        - your ‘adjusted net income’ is more than £50,000 a year
+
+        ‘Adjusted net income’ is income that you must pay tax on, excluding things like pension contributions, Gift Aid donations and losses if you’re self employed.
+
+        If your adjusted net income is between £50,000 and £60,000 a year, you pay in tax a percentage of the Child Benefit that’s been paid to you or your partner.
+
+        If it’s more than £60,000 per year, you pay the whole amount of Child Benefit that’s been paid to you or your partner.
+
+        Get an estimate of how much tax the person with the highest income may need to pay.
+      
       ## Q0
       work_out_income?:
         title: "Do you want to:"
         options:
-          "income_work_out": "work out if your income means you'll have to pay tax because you get Child Benefit (and how much you’ll have to pay)"
-          "just_how_much": "just work out how much you have to pay - you already know that your income means you’ll have to pay the full amount"
+          "income_work_out": "get an estimate of your adjusted net income and how much tax you may need to pay"
+          "just_how_much": "just work out how much to pay - you know your adjusted net income is more than £60,000 a year"
       ## Q1
       which_tax_year?:
         title: Choose the tax year you want an estimate for.
@@ -50,6 +71,7 @@ en-GB:
           Don’t include:
 
           - interest you get from tax-free savings, like interest from an Individual Savings Account (ISA)
+          - the value of childcare vouchers you get as part of a salary sacrifice scheme, up to a maximum of £55 per week
       ## Q3
       do_you_expect_to_pay_into_a_pension_this_year?:
         title: Are you paying into a pension?
@@ -230,11 +252,7 @@ en-GB:
         body: |
           %{conditional_income_text}
 
-          Child Benefit | Your results
-          -|-
-          Child Benefit you get for the tax year | £%{benefit_claimed_amount}
-          Child Benefit that's counted when working out the tax to pay | £%{benefit_taxable_amount}
-          Percentage of Child Benefit you must pay as tax | %{percentage_tax_charge}%
+          %{tax_year_text}
 
           This is an estimate based on the income figures you provided. If your income changes during the tax year, use the calculator to get a new estimate.
 
