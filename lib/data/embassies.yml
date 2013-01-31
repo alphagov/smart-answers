@@ -1,4 +1,4 @@
---- 
+﻿--- 
 afghanistan: 
 - address: |-
     British Embassy
@@ -38,6 +38,7 @@ algeria:
     Ambassade Britannique,
     3 Chemin Capitaine Hocine Slimane (ex Chemin des Glycines),
     Hydra, Algiers
+    Passport telephone enquiries: Sun-Thurs: 1300-1500
   phone: +213 (0) 770 085 000
   fax: +213 (0) 770 085 099
   website: http://ukinalgeria.fco.gov.uk/en/
@@ -52,6 +53,7 @@ algeria:
     If you are a British citizen in need of emergency assistance outside of our regular office hours, please ring +213 (0) 770 08 50 00 where you will receive further information.  Please note this applies to British citizens with genuine emergencies only and not to visa applications or other routine enquiries.
 
     If you are a British national in distress, and having difficulty reaching us on the emergency telephone number, please call the FCO Switchboard in London on +44 (0)20 7008 1500 for assistance.
+
 american-samoa:
 - address: |-
     11766 Wilshire Boulevard, Suite 1200 
@@ -363,8 +365,8 @@ azerbaijan:
   website: http://ukinazerbaijan.fco.gov.uk
   office_hours: |-
     Opening hours
-    Mon-Fri: 05:00 - 13:30 GMT
-    Mon-Fri: 09:00 - 17:30 Local Time
+    Mon-Fri: 05:00 - 13:00 GMT
+    Mon-Fri: 09:00 - 17:00 Local Time
     
     If you need to contact the Embassy in an emergency out of hours you should telephone the number above, which will give a telephone number for the Global Response Center.
 bahamas: 
@@ -442,7 +444,7 @@ bangladesh:
     Thursday: 08:00 to 14:00 (Local), 02:00 - 08:00 (GMT)
 
     British Passport Section , Dhaka:
-    Sunday - Wednesday: 0900 - 1200 (Local), 03:00 - 06:00 (GMT)
+    Sunday - Tuesday: 0900 - 1200 (Local), 03:00 - 06:00 (GMT)
 
     For telephone enquiries:
     Passport Information Helpline +44 208 082 4744. The cost of a call is currently about 90 taka per minute (or GBP £0.69 per minute plus 20% VAT) and any international call or mobile phone charges, and you will need to use a credit or debit card. For more information, please click here.
@@ -519,8 +521,9 @@ belarus:
     
     Local Time:
     
-    Mon-Thurs: 0900-1300/1400-1730
-    Fri: 0900-1500
+    Mon-Thurs: 0900-12.30 (passeport applications)
+    Mon-Thurs: 0900-13,00 and 14.00 to 17.30 (passport collection)
+    Fri: 0900-1500 (passport collection)
 belgium: 
 - address: |-
     British Embassy
@@ -3255,6 +3258,7 @@ jordan:
   email: Amman.enquiries@fco.gov.uk
   website: http://ukinjordan.fco.gov.uk/en/
   office_hours: |-
+    Passport opening times: Sun - Wed: 08.30-1200
     Sun-Wed: 0600-1330 GMT (0800-1530 local time)
     Thurs: 0600-1300 GMT (0800-1500 local time)
 kazakhstan: 
@@ -3292,7 +3296,7 @@ kazakhstan:
     +7 573 1502212 Consular and Visa
   email: almaty.consular@fco.gov.uk ,
   website: http://UKinKZ.fco.gov.uk
-  office_hours: |-
+  Passport office_hours: |-
     Mon-Thurs: 0830-1700
     Fri: 0830-1530
 kenya: 
@@ -3560,6 +3564,7 @@ lebanon:
   email: Beirut.Consular@fconet.fco.gov.uk
   website: http://ukinlebanon.fco.gov.uk/en
   office_hours: |-
+    Passport opening times: Mon-Thu: 0900-1230
     GMT: Mon-Thurs: 0600-1400; Fri: 0600-1200
     Local Time: Mon-Thurs: 0800-1600; Fri: 0800-1400
     
@@ -3635,6 +3640,7 @@ libya:
   location_name: Tripoli
   phone: +218 21 335 1084/5/6
   website: http://ukinlibya.fco.gov.uk/en
+  Passport opening times: Sun-Thu - by appointment only. Call and book in advance,
 liechtenstein:
 - address: |-
     Please direct all enquiries to our embassy in Berne, Switzerland:
@@ -4262,7 +4268,8 @@ morocco:
   email: rabat.consular@fco.gov.uk
   website: http://ukinmorocco.fco.gov.uk/en
   office_hours: |-
-    Monday - Thursday: 08:00 - 16:15 Friday: 08:00 - 13:00.
+    Monday - Thursday: 08:00 - 16:15 Friday: 08:00 - 13:00
+    Passport opening times: Mon-Thu: 0800 - 1200
     Public opening hours for consular and visa services differ to the Embassy's opening hours.
 - address: |-
     Villa Les Sallurges
@@ -4587,6 +4594,21 @@ niger:
     Friday 08:00-10:00
 nigeria: 
 - address: |-
+    British Deputy High Commission
+    11 Walter Carrington Crescent
+    Victoria Island
+    Lagos
+  designation: British Deputy High Commission
+  lat: 6.43862
+  lon: 3.40832
+  location_name: Lagos
+  phone: (00234) (0) 1 277 0780/0781/0782
+  fax: (00234) (0) 1 2770789
+  website: http://ukinnigeria.fco.gov.uk/en/
+  office_hours: |-
+    GMT: Mon-Thurs: 0630-1430 and Fri 0630-1130
+    Local Time: Mon-Thur 0730-1530 and Fri 0730-1230
+- address: |-
     British High Commission
     
     No. 19, Torrens Close,
@@ -4610,21 +4632,6 @@ nigeria:
   office_hours: |-
     GMT: Mon-Thur 0700-1500 and Fri 0700-1200
     Local: Mon-Thur 0800-1600 and Fri 0800-1300
-- address: |-
-    British Deputy High Commission
-    11 Walter Carrington Crescent
-    Victoria Island
-    Lagos
-  designation: British Deputy High Commission
-  lat: 6.43862
-  lon: 3.40832
-  location_name: Lagos
-  phone: (00234) (0) 1 277 0780/0781/0782
-  fax: (00234) (0) 1 2770789
-  website: http://ukinnigeria.fco.gov.uk/en/
-  office_hours: |-
-    GMT: Mon-Thurs: 0630-1430 and Fri 0630-1130
-    Local Time: Mon-Thur 0730-1530 and Fri 0730-1230
 - address: |-
     Rotimi Williams Avenue 
     Bodija 
@@ -4859,6 +4866,7 @@ pakistan:
     Mon-Thurs: 0300-1115; Fri: 0300-0800
     Local Time:
     Mon-Thurs: 0800-1615; Fri: 0800-1300
+    Passport opening times: Mon, Tue and Thu only: 0900-1200
 - address: |-
     Shahrah-e-Iran 
     Clifton 
@@ -5243,9 +5251,11 @@ russian-federation:
     GMT:
     Summer: Mon-Fri: 0600-1000 / 1100-1400
     Winter: Mon-Fri: 0500-0900 / 1000-1300
+    Passport opening times: Mon-Fri: 0900-1200
     Local Time:
     Summer: Mon-Fri: 0900-1300 / 1400-1700
     Winter: Mon-Fri: 0800-1200 / 1300-160
+    Passport opening times: Mon-Fri: 0900-1200
 - address: |-
     15a Gogol Street
     620075 Ekaterinburg
@@ -5259,6 +5269,7 @@ russian-federation:
   office_hours: |-
     Monday to Friday 09:00-17:00 (Embassy working hours) - except holidays
     Monday to Friday 09:00-12:00 (Consular section)- except holidays
+    Passport opening times: Mon-Fri: 0900-1200 (by appointment only)
     
     Saturday & Sunday closed.
     
@@ -5282,6 +5293,7 @@ russian-federation:
   website: http://ukinrussia.fco.gov.uk/en
   office_hours: |-
     Monday to Friday 09:00-17:00 (Consular section working hours - except holidays Monday to Friday 09:00-12:00)
+    Passport opening times: Mon-Fri: 0900-1200 (by appointment only)
     All consular services by appointment only. Saturday & Sunday closed.
     Outside of Normal Working hours: For Consular emergencies outside of normal working hours, at weekends and on public holidays, please telephone the Consulate switchboard (7) (812) 320 3200
 rwanda: 
@@ -6289,6 +6301,7 @@ tajikistan:
     
     Local Time:
     Mon-Fri: 0900-1300 / 1400-1700
+    Passport opening times: Mon-Fri: 0900-1300 and 1400-1700
 tanzania: 
 - address: |-
     British High Commission
@@ -6495,6 +6508,7 @@ tunisia:
   office_hours: |-
     Monday - Thursday 08.00am to 04.30pm (local time)
     Friday 08.00am to 01.00pm (local time)
+    Passport opening times: Mon, Wed and Fri: 0800 - 1300   
     Consular opening Hours Summer and Winter
     Monday, Tuesday, Thursday and Friday From 9.00am To 12.00pm (Local time)
     Wednesday Closed 
@@ -6757,7 +6771,7 @@ ukraine:
   office_hours: |-
     Mon-Fri: 09:00 -17:00
     (Local Time = GMT+2)
-    
+    Passport opening times: Mon, Wed and Fri: 0930 - 1100 (by appointment only)    
     Non-urgent Consular visits are available by appointment only: Mon, Wed, Fri 09:30-11:00
 - address: |-
     4/12 Hryhoriya Skovorody St
@@ -7117,6 +7131,7 @@ venezuela:
   office_hours: |-
     GMT: Mon-Thurs: 1230-2100; Fri: 1230-1745
     Local Time: Mon-Thurs: 0800-1630; Fri: 0800-1315
+    Passport opening times: Mon, Tue, Wed and Fri only: 0830 - 1130
     
     Consular Section
     GMT: Mon - Wed & Fri: 1300-1600
@@ -7323,6 +7338,7 @@ zambia:
     (+260) (211) 423273 Chancery
   website: http://ukinzambia.fco.gov.uk/en/
   office_hours: |-
+    Passport opening times: Mon to Fri Fri: 0800 - 1200
     Office hours: British Summer Time (BST): Monday-Thursday: 0600-1100/1200-1445 
     Friday: 0600-1100 
     Local: Monday-Thursday: 0800-1300/1400-1645 
@@ -7339,7 +7355,7 @@ zimbabwe:
   location_name: Harare
   phone: |-
     263 (0) 4 8585 5200 ext 6806 (Passport section)
-    263 (0) 4 8585 5300 (DFID)
+    263 (0) 4 8585 5300 (DFID)x§
   fax: |-
     263 (0) 4 8585 5284 (British Embassy)
     263 (0) 4 8585 5364 (DFID)
