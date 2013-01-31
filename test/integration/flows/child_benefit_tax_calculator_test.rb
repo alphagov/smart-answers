@@ -52,6 +52,7 @@ class ChildBenefitTaxCalculatorV2Test < ActiveSupport::TestCase
             assert_state_variable :benefit_claimed_amount, "2449.20"
             assert_state_variable :percentage_tax_charge, 100.0
             assert_state_variable :benefit_tax, "2449"
+            assert_phrase_list :tax_year_text, [:tax_year_text_2013]
           end
         end
       end
@@ -78,6 +79,7 @@ class ChildBenefitTaxCalculatorV2Test < ActiveSupport::TestCase
         assert_state_variable :benefit_claimed_amount, "2449.20"
         assert_state_variable :percentage_tax_charge, 100.0
         assert_state_variable :benefit_tax, "612"
+        assert_phrase_list :tax_year_text, [:tax_year_text_2012]
       end
     end
   end # just_how_much
@@ -310,6 +312,7 @@ class ChildBenefitTaxCalculatorV2Test < ActiveSupport::TestCase
                     assert_state_variable :percentage_tax_charge, "percent tax charge"
                     assert_state_variable :benefit_taxable_weeks, "benefit taxable weeks"
                     assert_state_variable :benefit_tax, "formatted benefit tax"
+                    assert_phrase_list :tax_year_text, [:tax_year_text_2012]
                   end
                 end # context - not starting or stopping this tax year
 
@@ -429,6 +432,7 @@ class ChildBenefitTaxCalculatorV2Test < ActiveSupport::TestCase
                                 assert_state_variable :percentage_tax_charge, "percent tax charge"
                                 assert_state_variable :benefit_taxable_weeks, "benefit taxable weeks"
                                 assert_state_variable :benefit_tax, "formatted benefit tax"
+                                assert_phrase_list :tax_year_text, [:tax_year_text_2012]
                               end
                             end # context - no children stopping
 
@@ -474,6 +478,7 @@ class ChildBenefitTaxCalculatorV2Test < ActiveSupport::TestCase
                                   assert_state_variable :percentage_tax_charge, "percent tax charge"
                                   assert_state_variable :benefit_taxable_weeks, "benefit taxable weeks"
                                   assert_state_variable :benefit_tax, "formatted benefit tax"
+                                  assert_phrase_list :tax_year_text, [:tax_year_text_2012]
                                 end
                               end # context - valid first child date
                             end # context - 1 child stopping
@@ -634,7 +639,7 @@ class ChildBenefitTaxCalculatorV2Test < ActiveSupport::TestCase
             add_response "5000"    # Q3A Gross Pension
             add_response "0"    # Q4 net pension
             add_response "0"    # Q5 trading losses
-            add_response "0"		# Q6 Gift Aided
+            add_response "0"  	# Q6 Gift Aided
           end
 
           should "ask about children claiming for" do
@@ -690,5 +695,50 @@ class ChildBenefitTaxCalculatorV2Test < ActiveSupport::TestCase
         end
       end
     end
+  end
+
+  context "conditional phraselist test for estimated_tax_charge outcome - 2013-14 year" do
+    setup do
+      add_response :income_work_out
+      add_response "2013-14"
+    end
+    should "ask what is your income" do
+      assert_current_node :what_is_your_estimated_income_for_the_year_before_tax?
+    end
+
+    context "testing total income, no pension payment, 2 children" do 
+      setup do     
+        add_response "60000" # total income
+        add_response "no" # pension payment (Q3)
+        add_response "0" # trading losses (Q5)
+        add_response "0" # gift aid  (Q6)
+        add_response "2" # how many children (Q7)
+        add_response "yes" # start or stop claiming benefit (Q8)
+        add_response "0" # how many new children start (Q9)
+        add_response "0" # how many existing children stop (Q10)
+      end
+      should "present outcome screen" do
+        assert_current_node :estimated_tax_charge
+        assert_phrase_list :tax_year_text, [:tax_year_text_2013] 
+      end
+    end
+
+    context "testing total income with pension payment, 1 child" do 
+      setup do     
+        add_response "55000" # total income
+        add_response "yes" # pension (Q3)
+        add_response "2400" # net pension (Q3A)
+        add_response "0" # relief at source  (Q4)
+        add_response "0" # trading losses (Q5)
+        add_response "100" # gift aid (Q6)
+        add_response "1" # how many children (Q7)
+        add_response "no" # start or stop claiming benefit
+      end
+      should "present outcome screen" do
+        assert_current_node :estimated_tax_charge
+        assert_phrase_list :tax_year_text, [:tax_year_text_2013] 
+      end
+    end
+
   end
 end
