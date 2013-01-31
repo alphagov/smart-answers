@@ -9,6 +9,7 @@ en-GB:
 
                 You only qualify for statutory redundancy pay if you’ve worked for your employer for at least 2 years.
 
+                ^Currently, you can’t use this tool to calculate redundancy pay for [Northern Ireland.](http://www.nidirect.gov.uk/index/information-and-services/employment/redundancy-and-leaving-your-job/redundancy/redundancy-pay.htm "Redundancy pay and Northern Ireland"){:rel="external"}^ 
             date_of_redundancy?:
                 title: What date were you made redundant?
                 hint: Use the original redundancy date even if your notice is brought forward, you’re paid in lieu of notice or made redundant after trialing a new job. 
@@ -72,12 +73,14 @@ en-GB:
                 Redundancy payments are based on age, weekly pay and number of years in the job.
 
                 Employees only qualify if they’ve worked at least 2 full years for you.
+
+                ^Currently, you can’t use this tool to calculate redundancy pay for [Northern Ireland.](http://www.nibusinessinfo.co.uk/content/how-calculate-statutory-redundancy-pay "Redundancy Northern Ireland"){:rel="external"}
             date_of_redundancy?:
                 title: What date was your employee made redundant?
                 hint: |
                     Use the original redundancy date even if their notice is brought forward, they’re paid in lieu of notice or made redundant after trialing a new job.
             age_of_employee?:
-                title: What date was your employee made redundant and how old were they on this date?
+                title: How old was your employee on the date they were made redundant?
                 suffix_label: years old
                 error_message: Please enter an age between 16 and 100.
 
