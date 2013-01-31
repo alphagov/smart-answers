@@ -16,6 +16,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       within '.question-body' do
         # TODO Check country list
         assert page.has_select?("response")
+        assert page.has_no_xpath? "//select/option[@value = 'united-kingdom']"
       end
 
       select "Belarus", :from => "response"
@@ -66,11 +67,13 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
           within('.answer') { assert_page_has_content "Belarus" }
           within('.undo') { assert page.has_link?("Change this answer", :href => "/country-and-date-sample/y/?previous_response=belarus") }
         end
+
         within 'ol li.done:nth-child(2)' do
           within 'h3' do
             within('.question-number') { assert_page_has_content "2" }
             assert_page_has_content "What date did you move there?"
           end
+
           within('.answer') { assert_page_has_content "5 May 1975" }
           within('.undo') { assert page.has_link?("Change this answer", :href => "/country-and-date-sample/y/belarus?previous_response=1975-05-05") }
         end
@@ -83,4 +86,59 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       end
     end
   end # with_and_without_javascript
+
+  should "handle country selects including and omitting the UK option" do
+    visit "/country-sample/y"
+
+    within '.current-question' do
+      within 'h2' do
+        within('.question-number') { assert_page_has_content "1" }
+        assert_page_has_content "Which country do you live in?"
+      end
+    end
+    within '.question-body' do
+      assert page.has_select?("response")
+      assert page.has_no_xpath? "//select/option[@value = 'united-kingdom']"
+    end
+
+    select "Belarus", :from => "response"
+    click_on "Next step"
+
+    assert_current_url "/country-sample/y/belarus"
+
+    within '.done-questions' do
+      within('.start-again') { assert page.has_link?("Start again", :href => '/country-sample') }
+      within 'ol li.done:nth-child(1)' do
+        within 'h3' do
+          within('.question-number') { assert_page_has_content "1" }
+          assert_page_has_content "Which country do you live in?"
+        end
+        within('.answer') { assert_page_has_content "Belarus" }
+        within('.undo') { assert page.has_link?("Change this answer", :href => "/country-sample/y/?previous_response=belarus") }
+      end
+    end
+
+    within '.current-question' do
+      within 'h2' do
+        within('.question-number') { assert_page_has_content "2" }
+        assert_page_has_content "Which country were you born in?"
+        assert page.has_xpath? "//select/option[@value = 'united-kingdom']"
+      end
+    end
+
+    within '.question-body' do
+      assert page.has_select?("response")
+    end
+
+    select "United Kingdom", :from => "response"
+    click_on "Next step"
+
+    assert_current_url "/country-sample/y/belarus/united-kingdom"
+
+    within '.outcome' do
+      within '.result-info' do
+        within('h2.result-title') { assert_page_has_content "Great - you live in belarus and you were born in united-kingdom!" }
+      end
+    end
+  end
 end
