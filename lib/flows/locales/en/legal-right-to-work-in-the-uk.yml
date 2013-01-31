@@ -125,8 +125,8 @@ en-GB:
           - [biometric residence permit](http://www.ukba.homeoffice.gov.uk/visas-immigration/while-in-uk/do-i-need-brp/ "Biometric residence permits"){:rel="external"}
           - [registration certificate](http://www.ukba.homeoffice.gov.uk/eucitizens/rightsandresponsibilites/#header5 "Registration certificates"){:rel="external"}
           - document or letter from the Home Office indicating indefinite leave to remain in the UK
-
-          If they can't produce any of those documents they aren't eligible to work in the UK.
+          
+          If they can't produce any of these documents they won't be able to prove they can work in the UK. Employers should check their documents.
 
           Employers should [check their documents](/check-an-employees-right-to-work-documents "Check an employee's right to work documents").
 
@@ -141,4 +141,5 @@ en-GB:
       maybe2:
         title: The worker is not currently entitled to work in the UK.
         body: |
-          They'll need to be [sponsored](/uk-visa-sponsorship-employers/before-you-can-sponsor-an-employee "UK visa sponsorship for employers") if they're going to work in the UK.
+          If the worker can't produce any of these documents, they may not be entitled to work in the UK.
+          They might need to be [sponsored](/uk-visa-sponsorship-employers "sponsorship").
