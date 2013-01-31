@@ -24,13 +24,12 @@ country_select :which_country_are_you_in? do
     unless ips_number.to_i ==  1
       embassy_data = Calculators::PassportAndEmbassyDataQuery.find_embassy_data(current_location)
       if embassy_data
-        # TODO: Move to calculator data class
-        embassy_data = embassy_data.first
-        addr_parts = [embassy_data['address']]
-        addr_parts << embassy_data['phone'] if embassy_data['phone'].present?
-        addr_parts << embassy_data['email'] if embassy_data['email'].present?
-        # TODO: passport office hours
-        address = addr_parts.join "\n"
+        data = embassy_data.first
+        parts = [data['address']]
+        parts << data['phone'] if data['phone'].present?
+        parts << data['email'] if data['email'].present?
+        parts << data['office_hours'] if data['office_hours'].present?
+        address = parts.join "\n"
       end
     end
     address

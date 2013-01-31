@@ -201,7 +201,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
       assert_phrase_list :how_to_apply, [:how_to_apply_lagos_nigeria]
       assert_phrase_list :making_application, [:making_application_lagos_nigeria]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_lagos_nigeria]
-      assert_state_variable :embassy_address, "British Deputy High Commission\n11 Walter Carrington Crescent\nVictoria Island\nLagos\n(00234) (0) 1 277 0780/0781/0782"
+      assert_state_variable :embassy_address, "British Deputy High Commission\n11 Walter Carrington Crescent\nVictoria Island\nLagos\n(00234) (0) 1 277 0780/0781/0782\nGMT: Mon-Thurs: 0630-1430 and Fri 0630-1130\nLocal Time: Mon-Thur 0730-1530 and Fri 0730-1230"
       assert_current_node :result
     end
   end
@@ -307,7 +307,13 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
             assert_phrase_list :cost, [:passport_courier_costs_ips2, :adult_passport_costs_ips2, :passport_costs_ips2]
             assert_phrase_list :send_your_application, [:send_application_ips2]
             assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips2]
-            assert_state_variable :embassy_address, "British Embassy\nRruga Skenderbeg 12\nTirana\n(355) 4 223 4973/4/5" 
+            assert_state_variable :embassy_address, %Q(British Embassy
+Rruga Skenderbeg 12
+Tirana
+(355) 4 223 4973/4/5
+Local Time:
+Mon-Thur: 0830-1700; Fri: 0830-1430
+(GMT: +1hr in winter/+2hr in summer)) 
           end
         end
       end
@@ -337,12 +343,18 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
         assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :send_your_application, [:send_application_ips3]
         assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips3]
-        assert_state_variable :embassy_address, "British Embassy\n45 Khagani Street\nAZ1010\n+ 994 (12) 4377878\ngeneralenquiries.baku@fco.gov.uk"
+        assert_state_variable :embassy_address, %Q(British Embassy
+45 Khagani Street
+AZ1010
++ 994 (12) 4377878
+generalenquiries.baku@fco.gov.uk
+Opening hours
+Mon-Fri: 05:00 - 13:00 GMT
+Mon-Fri: 09:00 - 17:00 Local Time
+
+If you need to contact the Embassy in an emergency out of hours you should telephone the number above, which will give a telephone number for the Global Response Center.)
       end
     end # Applying
-    context "renewing old" do
-      # TODO 
-    end
   end # Azerbaijan - IPS_application_3
 
   # Andorra (an example of FCO application via Madrid)
