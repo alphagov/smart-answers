@@ -45,21 +45,21 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             add_response 'income_support,esa'
             add_response 'child_under_16'
             assert_current_node :on_benefits
-            assert_phrase_list :eligibilities, [:winter_fuel_payments, :cold_weather_payment, :energy_company_obligation]
+            assert_phrase_list :eligibilities, [:winter_fuel_payments, :warm_home_discount, :cold_weather_payment, :energy_company_obligation]
           end
         end
         context "answer esa" do
           should "give the benefits result (no disability)" do
             add_response 'esa'
             assert_current_node :on_benefits_no_disability_or_children
-            assert_phrase_list :eligibilities, [:winter_fuel_payments, :cold_weather_payment, :energy_company_obligation]
+            assert_phrase_list :eligibilities, [:winter_fuel_payments, :warm_home_discount, :cold_weather_payment, :energy_company_obligation]
           end
         end
       end # pre 05-07-1951
       
       context "answer over 60" do
         setup do
-          add_response 60.years.ago(Date.today - 1).strftime("%Y-%m-%d")
+          add_response 60.years.ago(Date.today).strftime("%Y-%m-%d")
         end
         should "calculate the age variant as over_60" do
           assert_state_variable "age_variant", :over_60
@@ -72,6 +72,14 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             add_response 'working_tax_credit'
             add_response 'child_under_16'
             assert_current_node :on_benefits
+            assert_phrase_list :eligibilities, [:energy_company_obligation]
+          end
+        end
+        context "answer working tax credit with no disabilities or children" do
+          should "give benefits result with specific eligibilities" do
+            add_response 'working_tax_credit'
+            add_response 'none'
+            assert_current_node :on_benefits_no_disability_or_children
             assert_phrase_list :eligibilities, [:energy_company_obligation]
           end
         end
@@ -101,12 +109,35 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
           should "ask if you are disabled or have children" do
             assert_current_node :disabled_or_have_children?
           end
-          context "answer disabled" do
-            should "give benefits result with specific eligibilities" do
-              add_response 'disabled'
-              assert_current_node :on_benefits
-              assert_phrase_list :eligibilities, [:warm_home_discount, :cold_weather_payment, :energy_company_obligation]
-            end
+
+          should "give benefits result with specific eligibilities if disabled" do
+            add_response 'disabled'
+            assert_current_node :on_benefits
+            assert_phrase_list :eligibilities, [:warm_home_discount, :cold_weather_payment, :energy_company_obligation]
+          end
+
+          should "give benefits result with specific eligibilities if have a disabled child" do
+            add_response 'disabled_child'
+            assert_current_node :on_benefits
+            assert_phrase_list :eligibilities, [:warm_home_discount, :cold_weather_payment, :energy_company_obligation]
+          end
+
+          should "give benefits result with specific eligibilities if have a child under 5" do
+            add_response 'child_under_5'
+            assert_current_node :on_benefits
+            assert_phrase_list :eligibilities, [:warm_home_discount, :cold_weather_payment, :energy_company_obligation]
+          end
+
+          should "give benefits result with specific eligibilities if have child under 16 etc." do
+            add_response :child_under_16
+            assert_current_node :on_benefits
+            assert_phrase_list :eligibilities, [:energy_company_obligation]
+          end
+
+          should "give benefits result with specific eligibilities if you get pensioner premium" do
+            add_response 'pensioner_premium'
+            assert_current_node :on_benefits
+            assert_phrase_list :eligibilities, [:warm_home_discount, :cold_weather_payment, :energy_company_obligation]
           end
         end # income support
         
@@ -131,7 +162,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             add_response 'esa'
             assert_current_node :on_benefits_no_disability_or_children
             assert_state_variable :benefits, ['esa']
-            assert_phrase_list :eligibilities, [:cold_weather_payment, :energy_company_obligation]
+            assert_phrase_list :eligibilities, [:warm_home_discount, :cold_weather_payment, :energy_company_obligation]
           end
         end # esa
         
@@ -180,7 +211,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
 
         context "none of these" do
           should "give the no benefits result" do
-            add_response 'none_of_these'
+            add_response 'none'
             assert_current_node :no_benefits
             assert_phrase_list :eligibilities, [:green_deal]
           end
@@ -304,6 +335,16 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         assert_phrase_list :eligibilities, [:green_deal, :renewable_heat_premium, :feed_in_tariffs]
       end
     end # homeowner, generate own energy
+
+    context "answer home owner, benefits, generate own energy, esa" do
+      should "calculate eligibilities" do
+        add_response "property,benefits,own_energy"
+        add_response "1971-01-01"
+        add_response "esa"
+        assert_current_node :on_benefits_no_disability_or_children
+        assert_phrase_list :eligibilities, [:renewable_heat_premium, :feed_in_tariffs, :warm_home_discount, :cold_weather_payment, :energy_company_obligation]
+      end
+    end # homeowner, benefits, own energy, on benefits (ESA), no disabilities or children
 
     context "answer renting, generate own energy" do
       should "calculate eligibilities" do

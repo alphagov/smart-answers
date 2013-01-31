@@ -118,7 +118,7 @@ GEM
     multipart-post (1.1.5)
     nokogiri (1.5.5)
     null_logger (0.0.1)
-    plek (1.0.0)
+    plek (1.1.0)
       builder
     polyglot (0.3.3)
     rack (1.4.3)
@@ -202,6 +202,7 @@ GEM
     uglifier (1.2.4)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    uk_postcode (1.0.0)
     unicorn (4.3.1)
       kgio (~> 2.6)
       rack
@@ -231,7 +232,7 @@ DEPENDENCIES
   json
   lograge (~> 0.1.0)
   mocha
-  plek (= 1.0.0)
+  plek (= 1.1.0)
   rails (= 3.2.11)
   rails-i18n
   rummageable
@@ -243,5 +244,6 @@ DEPENDENCIES
   therubyracer (~> 0.9.4)
   timecop
   uglifier
+  uk_postcode (= 1.0.0)
   unicorn (= 4.3.1)
   webmock (= 1.8.0)

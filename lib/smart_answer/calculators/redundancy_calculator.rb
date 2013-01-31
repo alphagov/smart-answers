@@ -6,14 +6,14 @@ module SmartAnswer::Calculators
 
     attr_reader :pay, :number_of_weeks_entitlement
 
-    def initialize(age, years, weekly_pay)
+    def initialize(rate, age, years, weekly_pay)
       @pay = @number_of_weeks_entitlement = 0
       age = age.to_i
       years = [20, years.to_i].min
       
       (1..years.to_i).each do |i|
         entitlement_ratio = ratio(age)
-        @pay += ([430.00, weekly_pay.to_f].min * entitlement_ratio).round(10)
+        @pay += ([rate.to_f, weekly_pay.to_f].min * entitlement_ratio).round(10)
         @number_of_weeks_entitlement += entitlement_ratio
         age -= 1 
       end

@@ -2,6 +2,7 @@ module SmartAnswer
   module Question
     class CountrySelect < MultipleChoice
       def initialize(name, options = {}, &block)
+        @include_uk = options.delete(:include_uk)
         options = country_list
         super(name, options, &block)
       end
@@ -11,7 +12,13 @@ module SmartAnswer
       end
 
       def country_list
-        @countries ||= self.class.countries
+        @countries ||= begin
+          if @include_uk
+            self.class.countries
+          else
+            self.class.countries.reject {|c| c[:slug] == 'united-kingdom' }
+          end
+        end
       end
 
       def valid_option?(option)

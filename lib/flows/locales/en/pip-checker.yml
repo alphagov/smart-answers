@@ -1,0 +1,127 @@
+en-GB:
+  flow:
+    pip-checker:
+      title:
+        Check how Personal Independence Payment (PIP) affects you.
+      body: |
+        From 8 April 2013 Personal Independence Payment (PIP) will replace Disability Living Allowance (DLA) for people with a health condition or disability aged 16 to 64.
+
+        Use this tool to check:
+
+        * if PIP affects you
+        * when your Disability Living Allowance may be affected
+        * when you can make a new claim for PIP
+
+        *[PIP]: Personal Independence Payment
+        *[DLA]: Disability Living Allowance
+      meta:
+        description:
+          Personal Independence Payment (PIP) - if you get Disability Living Allowance or want to make a new claim for PIP
+      options:
+        "no": "No"
+        "yes": "Yes"
+
+      ## Q1
+      are_you_getting_dla?:
+        title: "Are you getting Disability Living Allowance?"
+
+      ## Q2
+      what_is_your_post_code?:
+        title: "What's your postcode?"
+        error_message: "Please enter a full UK postcode."
+
+      ## Q3
+      what_is_your_dob?:
+        title: "What's your date of birth?"
+        hint: "If you’re checking for someone else, enter their date of birth."
+
+      result_1:
+        body: |
+          $!The child isn't affected by Personal Independence Payment because they're under 16.$!
+
+          You can make a claim for [Disability Living Allowance](/dla-disability-living-allowance-benefit "Disability Living Allowance") for the child until they turn 16.
+
+      result_2:
+        body: |
+          $!You aren't affected by Personal Independence Payment because you're 65 or over when PIP is introduced.$!
+
+          To qualify for Personal Independence Payment (PIP) you must be aged 16 to 64 on 8 April 2013.
+
+          Instead of PIP, you can make a claim for [Attendance Allowance](/attendance-allowance "Attendance Allowance") (you won't normally qualify for Disability Living Allowance because you're 65 or over).
+
+          *[PIP]: Personal Independence Payment
+
+      result_3:
+        body: |
+          $!You can make a claim for [Disability Living Allowance](/dla-disability-living-allowance-benefit "Disability Living Allowance") (DLA) until 8 April 2013.$!
+
+          After this date, you'll have to make a claim for Personal Independence Payment (PIP) instead. This is because PIP is replacing DLA in your part of the country from 8 April 2013.
+
+          *[PIP]: Personal Independence Payment
+          *[DLA]: Disability Living Allowance
+
+      result_4:
+        body: |
+          $!You can make a claim for [Disability Living Allowance](/dla-disability-living-allowance-benefit "Disability Living Allowance") (DLA) until 10 June 2013.$!
+
+          From this date, you'll have to make a claim for Personal Independence Payment (PIP) instead. This is because PIP replaces DLA for new claimants from 10 June 2013.
+
+          *[PIP]: Personal Independence Payment
+          *[DLA]: Disability Living Allowance
+
+      result_5:
+        body: |
+          $!You can continue to claim Disability Living Allowance (DLA) for the child until they turn 16.$!
+
+          ##After they turn 16
+
+          Most children won't be affected by Personal Independent Payment (PIP) until 2015, but there are some exceptions.
+
+          They'll be asked to make a claim for PIP if after October 2013 their:
+
+          * health condition or disability changes
+          * Disability Living Allowance award is due to end and they haven't received a renewal letter
+
+          Unless either of these happen – you don't need to do anything. You'll get a letter in 2015 explaining:
+
+          * what will happen to their DLA
+          * how they can claim Personal Independence Payment
+
+          *[PIP]: Personal Independence Payment
+          *[DLA]: Disability Living Allowance
+
+      result_6:
+        body: |
+          $!You can continue to claim [Disability Living Allowance](/dla-disability-living-allowance-benefit "Disability Living Allowance")(DLA) for the child until they turn 16.$!
+
+          You don't have to do anything now.
+
+          Closer to their 16th birthday you'll get a letter explaining:
+
+          * what will happen to their DLA
+          * how they can claim Personal Independence Payment
+
+          *[DLA]: Disability Living Allowance
+
+      result_7:
+        body: |
+          $!Nothing is changing for you.$!
+
+          Because you'll be 65 or over on 8 April 2013, you can continue to get [Disability Living Allowance](/dla-disability-living-allowance-benefit "Disability Living Allowance") for as long as you're eligible.
+
+      result_8:
+        body: |
+          $!You shouldn't be affected by Personal Independent Payment (PIP) until 2015, but there are some exceptions.$!
+
+          You'll be asked to make a claim for PIP if after October 2013 your:
+
+          * health condition or disability changes
+          * Disability Living Allowance award is due to end and you haven't received a renewal letter
+
+          Unless either of these happen – you don't need to do anything. You'll get a letter in 2015 explaining:
+
+          * what will happen to their DLA
+          * how they can claim Personal Independence Payment
+
+          *[PIP]: Personal Independence Payment
+          *[DLA]: Disability Living Allowance

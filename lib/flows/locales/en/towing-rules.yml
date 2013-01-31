@@ -63,7 +63,7 @@ en-GB:
         title: How old are you?
         options:
           under-18: "Under 18"
-          under-21: "18 or 20"
+          under-21: "18 to 20"
           21-or-over: "21 or over"
       ## Q20
       existing_large_vehicle_licence?:

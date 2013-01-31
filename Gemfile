@@ -5,7 +5,7 @@ gem 'unicorn', '4.3.1'
 gem 'rails', '3.2.11'
 gem 'rails-i18n'
 gem 'json'
-gem 'plek', '1.0.0'
+gem 'plek', '1.1.0'
 gem 'govuk_frontend_toolkit', '0.3.3'
 gem 'rummageable'
 gem 'aws-ses', :require => 'aws/ses' # Needed by exception_notification
@@ -29,6 +29,8 @@ if ENV['GOVSPEAK_DEV']
 else
   gem 'govspeak', '~> 0.8.15'
 end
+
+gem 'uk_postcode', '1.0.0'
 
 group :test do
   gem 'capybara', '~> 1.1.2'
