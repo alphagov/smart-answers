@@ -20,10 +20,20 @@ country_select :which_country_are_you_in? do
     application_type.split("_")[2] if is_ips_application 
   end
   calculate :embassy_address do
+    address = nil
     unless ips_number.to_i ==  1
       embassy_data = Calculators::PassportAndEmbassyDataQuery.find_embassy_data(current_location)
-      embassy_data.first['address'] if embassy_data
+      if embassy_data
+        # TODO: Move to calculator data class
+        embassy_data = embassy_data.first
+        addr_parts = [embassy_data['address']]
+        addr_parts << embassy_data['phone'] if embassy_data['phone'].present?
+        addr_parts << embassy_data['email'] if embassy_data['email'].present?
+        # TODO: passport office hours
+        address = addr_parts.join "\n"
+      end
     end
+    address
   end
 
   calculate :supporting_documents do

@@ -201,7 +201,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
       assert_phrase_list :how_to_apply, [:how_to_apply_lagos_nigeria]
       assert_phrase_list :making_application, [:making_application_lagos_nigeria]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_lagos_nigeria]
-      assert_state_variable :embassy_address, "British High Commission\n\nNo. 19, Torrens Close,\nMaitama,\nPMB 4808 (Garki),\nAbuja"
+      assert_state_variable :embassy_address, "British Deputy High Commission\n11 Walter Carrington Crescent\nVictoria Island\nLagos\n(00234) (0) 1 277 0780/0781/0782"
       assert_current_node :result
     end
   end
@@ -307,7 +307,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
             assert_phrase_list :cost, [:passport_courier_costs_ips2, :adult_passport_costs_ips2, :passport_costs_ips2]
             assert_phrase_list :send_your_application, [:send_application_ips2]
             assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips2]
-            assert_state_variable :embassy_address, "British Embassy\nRruga Skenderbeg 12\nTirana"
+            assert_state_variable :embassy_address, "British Embassy\nRruga Skenderbeg 12\nTirana\n(355) 4 223 4973/4/5" 
           end
         end
       end
@@ -337,7 +337,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
         assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :send_your_application, [:send_application_ips3]
         assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips3]
-        assert_state_variable :embassy_address, "British Embassy\n45 Khagani Street\nAZ1010"
+        assert_state_variable :embassy_address, "British Embassy\n45 Khagani Street\nAZ1010\n+ 994 (12) 4377878\ngeneralenquiries.baku@fco.gov.uk"
       end
     end # Applying
     context "renewing old" do
@@ -371,7 +371,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
           assert_phrase_list :cost, [:passport_courier_costs_madrid_spain, :child_passport_costs_madrid_spain, :passport_costs_madrid_spain]
           assert_phrase_list :send_your_application, [:send_application_madrid_spain]
           assert_phrase_list :helpline, [:helpline_madrid_spain]
-          assert_state_variable :embassy_address, "Edificio Torre de Barcelona\nAvienda Diagonal 477-13\n08036 Barcelona,"
+          assert_state_variable :embassy_address, "Edificio Torre de Barcelona\nAvienda Diagonal 477-13\n08036 Barcelona,\n(34) 93 366 6200"
         end
       end
     end
@@ -391,7 +391,7 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
           assert_phrase_list :cost, [:passport_courier_costs_madrid_spain, :adult_passport_costs_madrid_spain, :passport_costs_madrid_spain]
           assert_phrase_list :send_your_application, [:send_application_madrid_spain]
           assert_phrase_list :helpline, [:helpline_madrid_spain]
-          assert_state_variable :embassy_address, "Edificio Torre de Barcelona\nAvienda Diagonal 477-13\n08036 Barcelona,"
+          assert_state_variable :embassy_address, "Edificio Torre de Barcelona\nAvienda Diagonal 477-13\n08036 Barcelona,\n(34) 93 366 6200"
         end
       end
     end # Andorra (FCO result cases)
