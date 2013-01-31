@@ -148,16 +148,16 @@ en-GB:
 
           [Download a credit card authorisation form (PDF, 51KB)](http://ukinspain.fco.gov.uk/resources/en/pdf/4758385/credit-card-authorisation-slip "Credit card authorisation form (PDF, 51KB)") and send it with your application.
 
-        passport_courier_costs_hong_kong:
+        passport_courier_costs_hong_kong: |
           You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent securely to you.
 
-        adult_passport_costs_hong_kong:
-          | Passport type | Passport fee | Total to pay (including courier fee) |
-          |---------------|--------------|--------------------------------------|
-          | Adult standard 32-page passport | £128.00/HK $1,640 | £147.86/HK $1,895 |
-          | Adult jumbo 48-page passport | £154.50/HK $1,978 | £174.36/HK $2,233 |
+        adult_passport_costs_hong_kong: |
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | £128.00/HK $1,640 | £147.86/HK $1,895
+          Adult jumbo 48-page passport | £154.50/HK $1,978 | £174.36/HK $2,233
           
-        child_passport_costs_hong_kong:
+        child_passport_costs_hong_kong: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
           | Child passport | £81.50/HK $1,044 | £101.36/HK $1,299 |
@@ -687,20 +687,14 @@ en-GB:
           $C
             __Passport Information Helpline__
 
-            Premium rate helpline
-            
-            0900 990 202
+            Premium rate helpline  
+            0900 990 202  
+            Landline calls are charged at $4.50 per minute - mobile calls may cost more  
 
-            Landline calls are charged at $4.50 per minute - mobile calls may cost more
-            
-
-            Paying for the call by credit card
-            
-            +44 208 082 4727
-            
-            Calls charged at £0.72 per minute plus VAT
-
-            Textphone: +44 1750 725 368
+            Paying for the call by credit card  
+            +44 208 082 4727  
+            Calls charged at £0.72 per minute plus VAT  
+            Textphone: +44 1750 725 368  
           $C 
         
         how_long_new_zealand: |
@@ -751,22 +745,16 @@ en-GB:
 
           
           $C
-            __Passport Information Helpline__ 
+            __Passport Information Helpline__
 
-            Premium rate helpline
+            Premium rate helpline  
+            0900 990 202  
+            Landline calls are charged at $4.50 per minute - mobile calls may cost more  
             
-            0900 990 202 
-
-            Landline calls are charged at $4.50 per minute - mobile calls may cost more
-
-            
-            Paying for the call by credit card
-
-            +44 208 082 4727 
-
-            Calls charged at £0.72 per minute plus VAT
-
-            Textphone: +44 1750 725 368
+            Paying for the call by credit card  
+            +44 208 082 4727  
+            Calls charged at £0.72 per minute plus VAT  
+            Textphone: +44 1750 725 368  
           $C
  
         how_long_afghanistan: |
@@ -2180,7 +2168,7 @@ en-GB:
 
 
           $A
-            %{embassy_address}
+            %{embassy_details}
           $A
 
           ## Getting your passport

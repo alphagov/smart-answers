@@ -254,6 +254,9 @@ haiti:
 honduras: 
   :type: washington_usa
   :group: ips_documents_group_2
+hong-kong-(sar-of-china):
+  :type: hong_kong
+  :group: ips_documents_group_2
 hungary: 
   :type: ips_application_1
   :group: ips_documents_group_1
@@ -616,6 +619,9 @@ ukraine:
   :group: ips_documents_group_3
 united-arab-emirates: 
   :type: ips_application_1
+  :group: ips_documents_group_1
+united-kingdom:
+  :type:
   :group: ips_documents_group_1
 united-states: 
   :type: washington_usa
