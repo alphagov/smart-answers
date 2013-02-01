@@ -27,7 +27,7 @@ en-GB:
         description: Download Student Finance England application forms and guidance notes
       title: Student finance forms
       body: |
-        Download forms and guidance notes for Student Finance England, including PN1, PR1 and PFF2.
+        Download forms and guidance notes for Student Finance England.
       devolved_body: |
         ##Before you start
 
@@ -63,15 +63,15 @@ en-GB:
           "apply-dsa": "Apply for Disabled Students’ Allowances"
           "dsa-expenses": "Claim Disabled Students’ Allowances expenses"
           "apply-ccg": "Apply for Childcare Grant"
-          "ccg-expenses": "Claim Childcare Grant expenses"
+          "ccg-expenses": "Childcare Grant costs confirmation"
           "travel-grant": "Travel Grant (medical and dental students only)"
       form_needed_for_2?:
         title: What do you need the form for?
         options:
-          "apply-loans-grants": "apply for student loans and grants"
-          "proof-identity": "send proof of identity"
-          "apply-dsa": "apply for Disabled Students’ Allowances"
-          "dsa-expenses": "claim Disabled Students’ Allowances expenses"
+          "apply-loans-grants": "Apply for student loans and grants"
+          "proof-identity": "Send proof of identity"
+          "apply-dsa": "Apply for Disabled Students’ Allowances"
+          "dsa-expenses": "Claim Disabled Students’ Allowances expenses"
 
       ## Q3
       what_year?:
@@ -125,7 +125,7 @@ en-GB:
           Academic Year | Form
           - | -
           2013 to 2014 | [Apply online](/student-finance-register-login "Apply for student finance online")
-          2013 to 2014 | [PR1 - form (PDF, 400KB)]((http://www.sfengland.slc.co.uk/media/559134/sfe_pr1_1314_d.pdf "Download 'PR1 - form' (PDF, 400KB)"){:rel="external"}
+          2013 to 2014 | [PR1 - form (PDF, 400KB)](http://www.sfengland.slc.co.uk/media/559134/sfe_pr1_1314_d.pdf "Download 'PR1 - form' (PDF, 400KB)"){:rel="external"}
           2013 to 2014 | [PR1 - guidance notes (PDF, 200KB)](/)
 
           ^You can apply up to 9 months after the start of your course. To get your money by the start of term, apply by 28 June 2013^
@@ -171,27 +171,21 @@ en-GB:
         body: |
           You can apply for student finance from summer 2013. The forms will be available then.
 
-          (The form here will be PTL1)
-
-          %{form_destination}
+          
 
       outcome_6:
         title: Student finance – application form 
         body: |
           You can apply for student finance from summer 2013. The forms will be available then.
 
-          (The form here will be PTLC)
-
-          %{form_destination}
+          
 
       outcome_7:
         title: Student finance – application form 
         body: |
           You can apply for student finance from summer 2013. The forms will be available then.
 
-          (The form here will be PTGC or PTGN)
-
-          %{form_destination}
+          
 
       outcome_8:
         title: Student finance – application form 
@@ -201,8 +195,8 @@ en-GB:
           Academic Year | Form
           - | -
           2012 to 2013 | [Apply online](/student-finance-register-login "Apply for student finance online")
-          2012 to 2013 | [PTL1 - form (PDF, 400KB)(http://www.sfengland.slc.co.uk/media/377625/sfe_ptl1_form_1213.pdf "Download 'PTL1 - form' (PDF, 400KB)"){:rel="external"}
-          2012 to 2013 | [PTL1 - guidance notes (PDF, 200KB)(http://www.sfengland.slc.co.uk/media/377562/sfe_ptl1_notes_1213.pdf "Download 'PTL1 - guidance notes' (PDF, 200KB)"){:rel="external"} 
+          2012 to 2013 | [PTL1 - form (PDF, 400KB)](http://www.sfengland.slc.co.uk/media/377625/sfe_ptl1_form_1213.pdf "Download 'PTL1 - form' (PDF, 400KB)"){:rel="external"}
+          2012 to 2013 | [PTL1 - guidance notes (PDF, 200KB)](http://www.sfengland.slc.co.uk/media/377562/sfe_ptl1_notes_1213.pdf "Download 'PTL1 - guidance notes' (PDF, 200KB)"){:rel="external"} 
 
           ^You can apply up to 6 months after the start of your course.^
 
@@ -211,7 +205,7 @@ en-GB:
       outcome_9:
         title: Student finance – application form 
         body: |
-          You should [apply onlin/student-finance-register-login "Apply for student finance online"](/) for a Tuition Fee Loan. If you can’t apply online, use form PTLC.
+          You should [apply online](/student-finance-register-login "Apply for student finance online") for a Tuition Fee Loan. If you can’t apply online, use form PTLC.
 
           Academic Year | Form
           - | -
@@ -264,7 +258,7 @@ en-GB:
       outcome_12:
         title: Parents and partners – forms
         body: |
-          You can send your income details online as part of the student’s [online application](/student-finance-register-login "Apply for student finance online"). If you can't do this, use form PFF2 to send details of your income for the tax year 2010 to 2011. If you expect your income to drop by 15% or more, use the current tax year form instead. 
+          You can send your income details online as part of the student’s [online application](/student-finance-register-login "Apply for student finance online"). If you can't do this online, use form PFF2 to send details of your income for the tax year 2010 to 2011. If you expect your income to drop by 15% or more, use the current tax year form instead. 
 
           Academic year | Form
           - | - 
@@ -335,7 +329,7 @@ en-GB:
           - | - 
           2012 to 2013 | [DSA1 - short form (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/416296/dsa_slim.pdf "Download 'DSA1 - short form' (PDF, 100KB)"){:rel="external"}  
           2012 to 2013 | [DSA1 - full form (PDF, 200KB)](http://www.sfengland.slc.co.uk/media/416293/dsa_full.pdf "Download 'DSA1 - full form' (PDF, 200KB)"){:rel="external"}  
-          2012 to 2013 | [[DSA1 - guidance notes (PDF, 150KB)](http://www.sfengland.slc.co.uk/media/416299/dsa_guidance_notes.pdf "Download 'DSA1 - guidance notes' (PDF, 150KB)"){:rel="external"}  
+          2012 to 2013 | [DSA1 - guidance notes (PDF, 150KB)](http://www.sfengland.slc.co.uk/media/416299/dsa_guidance_notes.pdf "Download 'DSA1 - guidance notes' (PDF, 150KB)"){:rel="external"}  
 
           ^Open University (OU) students apply to the OU for Disabled Students’ Allowances.^
 
@@ -376,9 +370,9 @@ en-GB:
           %{form_destination}
 
       outcome_22:
-        title: Childcare Grant – expenses 
+        title: Childcare Grant - cost confirmation 
         body: |
-          Use form CCG2 for the academic year the expenses relate to. You reclaim these expenses at the end of each term.
+          At the end of each term confirm your actual childcare costs. Use the CCG2 form for the academic year the costs relate to.
 
           Academic Year | Form
           - | - 
@@ -401,9 +395,7 @@ en-GB:
 
           You can apply for student finance from April 2013. The forms will be available then.
 
-          (Form EU13N will be added here)
-
-          %{form_destination}
+          
 
       outcome_25:
         title: EU student finance - application forms 
@@ -412,9 +404,7 @@ en-GB:
 
           You can apply for student finance from April 2013. The forms will be available then.
 
-          (Form EUPR1A will be added here)
-
-          %{form_destination}
+          
 
       outcome_26:
         title: EU student finance - application forms
@@ -423,9 +413,7 @@ en-GB:
 
           You can apply for student finance from August 2013. The forms will be available then.
 
-          (Form EUPTL1 will be added here)
-
-          %{form_destination}
+          
 
       outcome_27:
         title: EU student finance - application forms 
@@ -434,14 +422,14 @@ en-GB:
 
           You can apply for student finance from August 2013. The forms will be available then.
 
-          %{form_destination}
+          
 
       outcome_28:
         title: EU student finance - application forms 
         body: |
           ##EU full-time student
 
-          To apply for a Tuition Fee Loan use form EU12N (there are no guidance notes for this form)
+          To apply for a Tuition Fee Loan use form EU12N. (There are no guidance notes for this form)
 
           Academic year | Form
           - | -
@@ -453,8 +441,8 @@ en-GB:
 
            Form | When to use the form
           - | -
-          [EUTFLR - form (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/420660/eu_tflrf.pdf "Download 'EUTFLR - form' (PDF, 100KB)"){:rel="external"} | To change the amount of loan you want to apply for
-          [Evidence factsheet (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/424439/certifier_checklist.pdf "Download 'Evidence factsheet' (PDF, 100KB)"){:rel="external"} | List of evidence to send with your application - eg proof of identity or income
+          [EUTFLR - form (PDF, 200KB)](http://www.sfengland.slc.co.uk/media/420660/eu_tflrf.pdf "Download 'EUTFLR - form' (PDF, 100KB)"){:rel="external"} | To change the amount of loan you want to apply for
+          [Evidence factsheet (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/420657/factsheet_eu_evidence.pdf "Download 'Evidence factsheet' (PDF, 100KB)"){:rel="external"} | List of evidence to send with your application - eg proof of identity or income
           [Certifier checklist (PDF, 75KB)](http://www.sfengland.slc.co.uk/media/424439/certifier_checklist.pdf "Download 'Certifier checklist' (PDF, 75KB)"){:rel="external"} | Get the person who verifies your evidence to sign this form
           [EUCO1 - form (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/420654/euco1.pdf "Download 'EUCO1 - form' (PDF, 100KB)"){:rel="external"}  | To update your bank, course, name and other details
 
