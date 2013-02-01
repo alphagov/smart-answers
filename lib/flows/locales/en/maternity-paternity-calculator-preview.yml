@@ -42,7 +42,7 @@ en-GB:
           |------------------------------|------------------------------|
           |Start                         | %{leave_start_date}          |
           |End                           | %{leave_end_date}            |
-          |Latest date to give notice    | %{notice_of_leave_deadline}  |
+          |Latest date to claim leave    | %{notice_of_leave_deadline}  |
           |Earliest date leave can start | %{leave_earliest_start_date} |
         
         not_entitled_to_statutory_maternity_leave: |
@@ -55,7 +55,7 @@ en-GB:
         maternity_pay_table: |
           ##Statutory Maternity Pay
 
-          The employee is entitled to up to 39 weeks Statutory Maternity Pay (SMP).
+          The employee is entitled to up to 39 weeks Statutory Maternity Pay (SMP) if they [claim SMP in time](/maternity-leave-pay-employees/notice-period "Notice period") and give [proof of the pregnancy](/maternity-leave-pay-employees/notice-period "Notice period").
           
           |Pay                                  | Key facts                   |
           |-------------------------------------|-----------------------------|
@@ -65,7 +65,7 @@ en-GB:
           |Total SMP                            | £%{total_smp}               |
           |Start date                           | %{pay_start_date}           |
           |End date                             | %{pay_end_date}             |
-          |Latest date to give notice           | %{notice_request_pay}       |
+          |Latest date to claim SMP             | %{notice_request_pay}       |
           |Proof of pregnancy                   | Usually 28 days before SMP starts (or as soon as possible if baby born early)  |
           |Start date due to pregnancy related illness| %{ssp_stop}           |
 
@@ -79,7 +79,7 @@ en-GB:
           ##Statutory maternity pay
       
           The employee is not entitled to statutory maternity pay. 
-          Their average weekly earnings are £%{average_weekly_earnings}. To qualify:
+          Their average weekly earnings are £%{average_weekly_earnings} (you can’t round this figure up or down). To qualify:
 
         not_entitled_to_smp_outro: |
           You must write confirming this within 28 days of their maternity pay request.
@@ -228,7 +228,7 @@ en-GB:
       ## QM3
       date_leave_starts?:
         title: When does the employee want to start their leave?
-        hint: Usually, leave can't start before %{leave_earliest_start_date}
+        hint: Based on the baby's due date, leave usually can't start before %{leave_earliest_start_date}
         error_message: Please enter a valid date
       ## QM4
       did_the_employee_work_for_you?:
