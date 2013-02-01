@@ -45,14 +45,14 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             add_response 'income_support,esa'
             add_response 'child_under_16'
             assert_current_node :on_benefits
-            assert_phrase_list :eligibilities, [:winter_fuel_payments, :cold_weather_payment, :energy_company_obligation]
+            assert_phrase_list :eligibilities, [:winter_fuel_payments, :warm_home_discount, :cold_weather_payment, :energy_company_obligation]
           end
         end
         context "answer esa" do
           should "give the benefits result (no disability)" do
             add_response 'esa'
             assert_current_node :on_benefits_no_disability_or_children
-            assert_phrase_list :eligibilities, [:winter_fuel_payments, :cold_weather_payment, :energy_company_obligation]
+            assert_phrase_list :eligibilities, [:winter_fuel_payments, :warm_home_discount, :cold_weather_payment, :energy_company_obligation]
           end
         end
       end # pre 05-07-1951
@@ -109,12 +109,35 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
           should "ask if you are disabled or have children" do
             assert_current_node :disabled_or_have_children?
           end
-          context "answer disabled" do
-            should "give benefits result with specific eligibilities" do
-              add_response 'disabled'
-              assert_current_node :on_benefits
-              assert_phrase_list :eligibilities, [:warm_home_discount, :cold_weather_payment, :energy_company_obligation]
-            end
+
+          should "give benefits result with specific eligibilities if disabled" do
+            add_response 'disabled'
+            assert_current_node :on_benefits
+            assert_phrase_list :eligibilities, [:warm_home_discount, :cold_weather_payment, :energy_company_obligation]
+          end
+
+          should "give benefits result with specific eligibilities if have a disabled child" do
+            add_response 'disabled_child'
+            assert_current_node :on_benefits
+            assert_phrase_list :eligibilities, [:warm_home_discount, :cold_weather_payment, :energy_company_obligation]
+          end
+
+          should "give benefits result with specific eligibilities if have a child under 5" do
+            add_response 'child_under_5'
+            assert_current_node :on_benefits
+            assert_phrase_list :eligibilities, [:warm_home_discount, :cold_weather_payment, :energy_company_obligation]
+          end
+
+          should "give benefits result with specific eligibilities if have child under 16 etc." do
+            add_response :child_under_16
+            assert_current_node :on_benefits
+            assert_phrase_list :eligibilities, [:energy_company_obligation]
+          end
+
+          should "give benefits result with specific eligibilities if you get pensioner premium" do
+            add_response 'pensioner_premium'
+            assert_current_node :on_benefits
+            assert_phrase_list :eligibilities, [:warm_home_discount, :cold_weather_payment, :energy_company_obligation]
           end
         end # income support
         
@@ -139,7 +162,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             add_response 'esa'
             assert_current_node :on_benefits_no_disability_or_children
             assert_state_variable :benefits, ['esa']
-            assert_phrase_list :eligibilities, [:cold_weather_payment, :energy_company_obligation]
+            assert_phrase_list :eligibilities, [:warm_home_discount, :cold_weather_payment, :energy_company_obligation]
           end
         end # esa
         
@@ -319,7 +342,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         add_response "1971-01-01"
         add_response "esa"
         assert_current_node :on_benefits_no_disability_or_children
-        assert_phrase_list :eligibilities, [:renewable_heat_premium, :feed_in_tariffs, :cold_weather_payment, :energy_company_obligation]
+        assert_phrase_list :eligibilities, [:renewable_heat_premium, :feed_in_tariffs, :warm_home_discount, :cold_weather_payment, :energy_company_obligation]
       end
     end # homeowner, benefits, own energy, on benefits (ESA), no disabilities or children
 

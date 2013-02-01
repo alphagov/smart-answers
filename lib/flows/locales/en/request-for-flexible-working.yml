@@ -3,80 +3,112 @@ en-GB:
     request-for-flexible-working:
       meta:
         description: Making a statutory request for flexible working
-      title: "Can I make a statutory request for flexible working?"
+      title: "Qualifying for a statutory request for flexible working"
       body: |
-        Find out if you have the statutory right to [apply for flexible working](/flexible-working "Flexible working").
+        Check who qualifies for a statutory request for [flexible working](/flexible-working).
       options:
         "yes": "Yes"
         "no": "No"
-        none: "None of the above"
+        none_of_these: "None of these"
       phrases:
-        armed_services_reason: you're a member of the armed services or an agency worker
-        employee_reason: you're not an employee or you've not been with your current employer for 26 continuous weeks
-        statutory_request_reason: you've made a statutory request in the last 12 months
-        child_care_reason: you're not caring for a child or adult
-        wrong_relationship_reason: your relationship to the person you care for doesn't make you eligible
-        upbringing_reason: you're not responsible for the child's upbringing
-      
+        armed_services_reason: "you're a member of the armed services or an agency worker"
+        employee_reason: "you're not an employee or you've not been with your current employer for 26 continuous weeks"
+        statutory_request_reason: "you've made a statutory request in the last 12 months"
+        child_care_reason: "you're not caring for a child or adult"
+        wrong_relationship_reason: "your relationship to the person you care for doesn't make you eligible"
+        upbringing_reason: "you're not responsible for the child's upbringing"
+
       ## Questions:
       ## Q1
-      member_of_armed_services?:
-        title: Are you a member of the armed services or an agency worker?
-      ## Q2
-      are_you_employee?:
-        title: Are you an employee with 26 weeks continuous employment?
+      are_you_an_employee_or_employer?:
+        title: Are you an employee or employer?
+        options:
+          employee: Employee
+          employer: Employer
         body: |
-          Find out your [employment status](/employment-status/overview "Employment Status") if you're not sure. 
+          [hint] Choose all that apply to you.
 
-          Find out more about [continuous employment](/continuous-employment-what-it-is "Continuous Employment").
+      ## Q2
+      employee_which_ones_of_these_describe_you?:
+        title: Which ones of these describe you?
+        options:
+          under_17: "You care for a child under 17"
+          care_for_adult: "You care for an adult"
+          less_than_26_weeks: "You've been with your current employer for less than 26 continuous weeks"
+          agency_worker: "You're an agency worker"
+          member_of_armed_forces: "You're a member of the armed forces"
+          request_in_last_12_months: "You've made a statutory request with your current employer in the last 12 months"
+      employer_which_ones_of_these_describe_your_employee?:
+        title: Which ones of these describes your employee?
+        body: |
+          [hint] Choose all that apply.
+        options:
+          under_18: "They care for a child under 18"
+          care_for_adult: "They care for an adult"
+          less_than_26_weeks: "They've been with you for less than 26 continuous weeks"
+          agency_worker: "They're an agency worker"
+          member_of_armed_forces: "They're a member of the armed forces"
+          request_in_last_12_months: "They've made a statutory request with you in the last 12 months"
+
       ## Q3
-      applied_for_flexible_working?:
-        title: Have you made a statutory application for flexible working with your current employer in the last 12 months?
+      employee_responsible_for_childs_upbringing?:
+        title: "Are you responsible for the child's upbringing and are you or your partner 1 of the following:"
         body: |
-          Find out more about [statutory applications](/flexible-working "Flexible working").  
+          [hint] The relationship can be either way, eg you can be their uncle or they can be yours. Relationships include step or adoptive family and in-laws.
+
+          - parent, child, sibling, uncle, aunt, grandparent
+          - spouse, partner
+          - guardian or carer (including adoptive parent and special guardian)
+          - you live at the same address
+      employer_responsible_for_childs_upbringing?:
+        title: "Is your employee responsible for the child's upbringing and are they or their spouse/partner one of the following:"
+        body: |
+          - parent
+          - foster or kinship carer
+          - guardian or special guardian
+          - been given a residence order for the child
+
+          [hint] A residence order is the court's decision about who a child should live with.
+
       ## Q4
-      caring_for_child?:
-        title: Will you or your spouse/partner be caring for a child or adult?
-        options:
-          caring_for_child: Caring for child
-          caring_for_adult: Caring for adult
-          neither: Neither
-      ## Q5
-      relationship_with_child?:
-        title: "Are you (or your spouse or partner) one of the following:"
+      employee_do_any_of_these_describe_the_adult_youre_caring_for?:
+        title: Do any of these describe your relationship with the adult you’re caring for?
         body: |
-          - parent (biological)
-          - parent (adoptive) 
-          - foster carer
-          - guardian
-          - special guardian
-          - been granted a [residence order](http://www.cafcass.gov.uk/the_law_about_children/contact_and_residence.aspx "Contact and residence"){:rel="external"} for the child
-      ## Q6
-      responsible_for_upbringing?:
-        title: Will you be responsible for the child's upbringing?
-      ## Q7
-      relationship_with_adult_group?:
-        title: "Is your relationship with the adult you are caring for one of the following:"
-        options:
-          family_member: Parent, child, sibling, uncle, aunt, grandparent (including step-family, adoptive family, half-blood-relatives and in-laws)
-          # family_member: Family (including step-family, adoptive family, half-blood-relatives and in-laws)
-          partner: Partner (civil partner, unmarried partner)
-          # partner: Partner (civil partner, partner)
-          guardian: Guardian or carer (adoptive parent, guardian, special guardian)
-          other_relationship: Someone living at the same address as the person who needs caring for
-          # other_relationship: Other (living at the same address as the person who needs caring for) 
-      
-      ## Answers: 
+          [hint] The relationship can be either way, eg you can be their uncle or they can be yours. Relationships include step or adoptive family and in-laws.
+
+          - parent, child, sibling, uncle, aunt, grandparent
+          - spouse, partner
+          - guardian or carer (including adoptive parent and special guardian)
+          - you live at the same address
+      employer_do_any_of_these_describe_the_adult_being_cared_for?:
+        title: Do any of these describe the relationship with the adult being cared for?
+        body: |
+          [hint] The relationship can be either way, eg your employee can be their uncle or the other way around. Relationships include step or adoptive family and in-laws.
+
+          - parent, child, sibling, uncle, aunt, grandparent
+          - spouse, partner
+          - guardian or carer (including adoptive parent and special guardian)
+          - you live at the same address
+
+      ## Answers:
       ## A1
-      right_to_apply:
+      employee_right_to_apply:
         body: |
-          You have the statutory right to [make a request for flexible working](/flexible-working/making-a-statutory-application "Making an application").
+          You're entitled to [make a request for flexible working](/flexible-working/making-a-statutory-application "Making an application").
+      employer_right_to_apply:
+        body: |
+          Your employee is entitled to [make a request for flexible working.](/flexible-working/making-a-statutory-application "Making an application")
 
       ## A2
-      no_right_to_apply:
+      employee_no_right_to_apply:
         body: |
-          You're not entitled to make a [statutory request](/flexible-working "Flexible working") for 
-          flexible working because %{no_right_to_apply_reason}.
-
-          You can still ask your employer if you can work flexibly, but it's optional.
-      
+          You're not entitled to make a statutory request for flexible working.
+          You can still make an 'informal request' and ask your employer if you can work flexibly.
+          Your employer doesn't have to agree to your request.
+          More about [flexible working](/flexible-working "Flexible working")
+      employee_no_right_to_apply:
+        body: |
+          Your employee isn't entitled to make a statutory request for flexible working.
+          They can still make an 'informal request' and ask you to work flexibly.
+          You don't have to agree to their request but should find a solution that suits both sides.
+          More about [flexible working](/flexible-working "Flexible working")
