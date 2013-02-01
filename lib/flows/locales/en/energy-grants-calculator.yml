@@ -56,6 +56,7 @@ en-GB:
           disabled_child: You have a disabled child.
           child_under_5: You have a child under 5.
           child_under_16: You have a child under 16 or under 20 if in full-time education.
+          pensioner_premium: You (or your partner) get a ‘pensioner premium’.
       no_benefits:
         body: |
           $!Based on your answers you might be eligible for help with your energy bills.$!
