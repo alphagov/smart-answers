@@ -12,7 +12,6 @@ module SmartAnswer::Calculators
     LEAVE_TYPE_BIRTH = "birth"
     LEAVE_TYPE_ADOPTION = "adoption"
 
-    # def initialize(match_or_due_date)
     def initialize(match_or_due_date, birth_or_adoption = LEAVE_TYPE_BIRTH)
       @due_date = @match_date = match_or_due_date
       @leave_type = birth_or_adoption
