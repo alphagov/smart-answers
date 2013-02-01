@@ -6,7 +6,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'maternity-paternity-calculator-preview'
+    setup_for_testing_flow 'maternity-paternity-calculator'
   end
   ## Q1
   should "ask what type of leave or pay you want to check" do
