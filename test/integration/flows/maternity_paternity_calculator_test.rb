@@ -35,6 +35,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         add_response :yes
         add_response Date.parse("10 September 2012")
         add_response Date.parse("10 July 2012")
+        add_response "weekly"
         add_response "200"
         assert_state_variable "lower_earning_limit", sprintf("%.2f",107) 
       end
@@ -47,6 +48,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         add_response :yes
         add_response Date.parse("10 September 2011")
         add_response Date.parse("10 July 2011")
+        add_response "weekly"
         add_response "200"
         assert_state_variable "lower_earning_limit", sprintf("%.2f",102) 
       end
@@ -113,38 +115,49 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                   setup do
                     add_response 8.weeks.ago(@qw.last - 2)
                   end
-                
-                  ## QM6
-                  should "ask what the employees average weekly earnings are" do
-                    assert_current_node :employees_average_weekly_earnings?
-                    #TODO relevant period calculation
+                 
+                  ## QM5.4
+                  should "ask how often you pay the employee" do
+                    assert_current_node :pay_frequency?
                   end
-                  context "answer 135.40" do
+                  
+                  context "answer weekly" do
                     setup do
-                      add_response 135.40
+                      add_response 'weekly'
                     end
-                    should "calculate dates and pay amounts" do
-                      leave_start = Date.parse("21 November 2012")
-                      start_of_week = leave_start - leave_start.wday
-                      assert_state_variable "leave_start_date", leave_start
-                      assert_state_variable "leave_end_date", 52.weeks.since(leave_start)
-                      assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week)
-                      assert_state_variable "pay_start_date", leave_start
-                      assert_state_variable "pay_end_date", 39.weeks.since(leave_start)
-                      assert_state_variable "smp_a", (135.40 * 0.9).round(2).to_s
-                      assert_state_variable "smp_b", (135.40 * 0.9).round(2).to_s
-                      #TODO assert_state_variable "ssp_stop", ...
+                    ## QM5.5
+                    should "ask what the employees earnings are for the period" do
+                      assert_current_node :earnings_for_pay_period?
+                      ##TODO relevant period calculation
                     end
-                    should "calculate and present the result" do
-                      assert_phrase_list :maternity_leave_info, [:maternity_leave_table]
-                      assert_current_node :maternity_leave_and_pay_result
-                    end
-                    should "output a calendar" do
-                      assert_calendar
-                      assert_calendar_date Date.parse("21 November 2012")..Date.parse("20 November 2013")
-                      assert_calendar_date Date.parse("5 August 2012")
-                    end
-                  end #answer 135.40
+                    context "answer 1083.20" do
+                      setup do
+                        add_response 1083.20
+                      end
+                      should "calculate dates and pay amounts" do
+                        leave_start = Date.parse("21 November 2012")
+                        start_of_week = leave_start - leave_start.wday
+                        assert_state_variable "leave_start_date", leave_start
+                        assert_state_variable "leave_end_date", 52.weeks.since(leave_start)
+                        assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week)
+                        assert_state_variable "pay_start_date", leave_start
+                        assert_state_variable "pay_end_date", 39.weeks.since(leave_start)
+                        assert_state_variable "average_weekly_earnings", 135.4
+                        assert_state_variable "smp_a", "121.87" 
+                        assert_state_variable "smp_b", "121.87"
+                        assert_state_variable "total_smp", "4752.93"
+                      end
+                      should "calculate and present the result" do
+                        assert_phrase_list :maternity_leave_info, [:maternity_leave_table]
+                        assert_current_node :maternity_leave_and_pay_result
+                      end
+                      should "output a calendar" do
+                        assert_calendar
+                        assert_calendar_date Date.parse("21 November 2012")..Date.parse("20 November 2013")
+                        assert_calendar_date Date.parse("5 August 2012")
+                      end
+                    end #answer 135.40
+                  end
                 end
               end
 
@@ -156,7 +169,8 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                 assert_state_variable "not_entitled_to_pay_reason", :must_be_on_payroll
                 assert_current_node :maternity_leave_and_pay_result
               end
-            end
+            end #answer no to QM5 on payroll
+
           end #answer yes to QM4
           context "answer no" do
             should "state that you they are not entitled to pay" do
@@ -167,7 +181,8 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
           end
         end
       end # answer Yes to QM2 employee has contract?
-      context "no contract" do
+
+      context "no contract" do # means they can't get leave but they may still be able to get pay.
         setup do
           add_response :no
         end
@@ -205,7 +220,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                   add_response @qw.last-2
                 end
                 ## QM5.3
-                should "ask when before lastpayday I was paid" do
+                should "ask the date of the pay before the 8 week offset" do 
                   assert_current_node :payday_eight_weeks?
                 end
 
@@ -213,18 +228,133 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                   setup do
                     add_response 8.weeks.ago(@qw.last - 2)
                   end
-
-                  ## QM6
-                  should "ask what the employees average weekly earnings are" do
-                    assert_current_node :employees_average_weekly_earnings?
+                  #QM5.4
+                  should "ask how often you pay the employee" do
+                    assert_current_node :pay_frequency?
                   end
-                  context "answer 101.00" do
-                    setup do
-                      add_response 101.00
+                  
+                  context "answer weekly with earnings below threshold" do
+                    ##QM5.5
+                    should "calculate awe and state that they must earn over the minimum threshold" do
+                      add_response 'weekly'
+                      add_response '799'
+                      assert_current_node :maternity_leave_and_pay_result
+                      #assert_state_variable "average_weekly_earnings", 125.0
+                      assert_state_variable :not_entitled_to_pay_reason, :must_earn_over_threshold
                     end
-                    should "display not eligible for leave nor pay" do
-                      assert_phrase_list :maternity_leave_info, [:not_entitled_to_statutory_maternity_leave]
-                      assert_state_variable "not_entitled_to_pay_reason", :must_earn_over_threshold
+                  end
+                  context "answer weekly" do
+                    setup { add_response :weekly }
+                    ##QM5.5
+                    should "ask how much the employee was paid in this period" do
+                      assert_current_node :earnings_for_pay_period?
+                    end
+                    context "answer 1083.20" do
+                      setup { add_response '1083.20' }
+                      should "calculate the dates and payment amounts" do
+                        leave_start = Date.parse("21 November 2012")
+                        start_of_week = leave_start - leave_start.wday
+                        assert_state_variable "average_weekly_earnings", 135.40
+                        assert_state_variable "leave_start_date", leave_start
+                        assert_state_variable "leave_end_date", 52.weeks.since(leave_start)
+                        assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week)
+                        assert_state_variable "pay_start_date", leave_start
+                        assert_state_variable "pay_end_date", 39.weeks.since(leave_start)
+                        assert_state_variable "smp_a", "121.87" 
+                        assert_state_variable "smp_b", "121.87" 
+                        assert_state_variable "total_smp", "4752.93"
+                      end
+                      # no contract means no leave
+                      should "calculate and present the result" do
+                        assert_phrase_list :maternity_leave_info, [:not_entitled_to_statutory_maternity_leave]
+                        assert_current_node :maternity_leave_and_pay_result
+                      end
+                      should "output a calendar" do
+                        assert_calendar
+                        assert_calendar_date Date.parse("21 November 2012")..Date.parse("20 November 2013")
+                        assert_calendar_date Date.parse("5 August 2012")
+                      end
+                    end # answer 135.40
+                  end
+                  context "answer every 2 weeks" do
+                    setup { add_response :every_2_weeks }
+                    ##QM5.5
+                    should "ask how much the employee was paid in this period" do
+                      assert_current_node :earnings_for_pay_period?
+                    end
+                    context "answer 2601.60" do
+                      setup { add_response '2601.60' }
+                      should "calculate the dates and payment amounts" do
+                        assert_state_variable "average_weekly_earnings", 325.20
+                        assert_state_variable "smp_a", (325.20 * 0.9).round(2).to_s
+                        assert_state_variable "smp_b", "135.45" # Uses the statutory maternity rate 
+                      end
+                    end
+                  end
+                  context "answer every 4 weeks" do
+                    setup { add_response :every_4_weeks }
+                    ##QM5.5
+                    should "ask how much the employee was paid in this period" do
+                      assert_current_node :earnings_for_pay_period?
+                    end
+                    context "answer 2100.80" do
+                      setup { add_response '2100.80' }
+                      should "calculate the dates and payment amounts" do
+                        assert_state_variable "average_weekly_earnings", 262.60 
+                        assert_state_variable "smp_a", "236.35"
+                        assert_state_variable "smp_b", "135.45" # Uses the statutory maternity rate 
+                      end
+                    end
+                  end
+                  context "answer every month" do
+                    setup { add_response :monthly }
+                    ##QM5.5
+                    should "ask how much the employee was paid in this period" do
+                      assert_current_node :earnings_for_pay_period?
+                    end
+                    context "answer 1807.78" do
+                      setup { add_response '1807.78' }
+                      should "calculate the dates and payment amounts" do
+                        assert_state_variable "average_weekly_earnings", 208.59 
+                        assert_state_variable "smp_a", "187.74" 
+                        assert_state_variable "smp_b", "135.45" # Uses the statutory maternity rate 
+                      end
+                    end
+                  end
+                  context "answer irregularly" do
+                    setup { add_response :irregularly }
+                    ##QM5.5
+                    should "ask how much the employee was paid in this period" do
+                      assert_current_node :earnings_for_pay_period?
+                    end
+                    context "answer 7463.19" do
+                      setup { add_response '7463.19' }
+                      should "calculate the dates and payment amounts" do
+                        assert_state_variable "average_weekly_earnings", 932.89875
+                      end
+                    end
+                  end
+                  context "answer none of the above" do
+                    setup { add_response :none_of_the_above }
+                    ##QM6
+                    should "ask the weekly average paid" do
+                      assert_current_node :employees_average_weekly_earnings?
+                    end
+                    context "answer 239.79" do
+                      setup { add_response '239.79' }
+                      should "calculate the dates and payment amounts" do
+                        leave_start = Date.parse("21 November 2012")
+                        start_of_week = leave_start - leave_start.wday
+                        assert_state_variable "average_weekly_earnings", 239.79 
+                        assert_state_variable "leave_start_date", leave_start
+                        assert_state_variable "leave_end_date", 52.weeks.since(leave_start)
+                        assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week)
+                        assert_state_variable "pay_start_date", leave_start
+                        assert_state_variable "pay_end_date", 39.weeks.since(leave_start)
+                        assert_state_variable "smp_a", "215.82"
+                        assert_state_variable "smp_b", "135.45" # the statutory rate
+                        assert_state_variable "total_smp", "5764.77" 
+                      end
                     end
                   end
                 end

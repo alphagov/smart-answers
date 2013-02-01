@@ -106,9 +106,9 @@ end
 ## QM5.2 && QP6.2 && QA6.2 
 date_question :last_normal_payday? do
   calculate :last_payday do
-    last_payday = Date.parse(responses.last)
-    raise SmartAnswer::InvalidResponse if last_payday > Date.parse(to_saturday)
-    last_payday
+    calculator.last_payday = Date.parse(responses.last)
+    raise SmartAnswer::InvalidResponse if calculator.last_payday > Date.parse(to_saturday)
+    calculator.last_payday
   end
 
   next_node :payday_eight_weeks?
@@ -117,23 +117,25 @@ end
 ## QM5.3 && P6.3 && A6.3
 date_question :payday_eight_weeks? do
   precalculate :payday_offset do
-    calculator.format_date_day calculator.payday_offset(last_payday)
+    calculator.format_date_day calculator.payday_offset
   end
 
   calculate :last_payday_eight_weeks do
-    payday2 = Date.parse(responses.last)
-    raise SmartAnswer::InvalidResponse if payday2 > Date.parse(payday_offset)
-    payday2
+    payday = Date.parse(responses.last)
+    payday += 1 if leave_type == 'maternity'
+    raise SmartAnswer::InvalidResponse if payday > Date.parse(payday_offset)
+    calculator.pre_offset_payday = payday
+    payday
   end
 
   calculate :relevant_period do
-    calculator.relevant_period(last_payday, last_payday_eight_weeks)    
+    calculator.formatted_relevant_period
   end
 
   next_node do |response|
     case payday_exit
     when 'maternity'
-      :employees_average_weekly_earnings?
+      :pay_frequency?
     when 'paternity'
       :employees_average_weekly_earnings_paternity?
     when 'paternity_adoption'
@@ -144,47 +146,82 @@ date_question :payday_eight_weeks? do
   end
 end
 
-## QM6
-money_question :employees_average_weekly_earnings? do
+## QM5.4
+multiple_choice :pay_frequency? do
+  save_input_as :pay_pattern
+  option :weekly => :earnings_for_pay_period? ## QM5.5
+  option :every_2_weeks => :earnings_for_pay_period? ## QM5.5
+  option :every_4_weeks => :earnings_for_pay_period? ## QM5.5
+  option :monthly => :earnings_for_pay_period? ## QM5.5
+  option :irregularly => :earnings_for_pay_period? ## QM5.5
+  option :none_of_the_above => :employees_average_weekly_earnings? ## QM6
+end
+
+## QM5.5
+money_question :earnings_for_pay_period? do
   calculate :calculator do
-    calculator.average_weekly_earnings = responses.last
+    raise SmartAnswer::InvalidNode if responses.last < 1
+    calculator.calculate_average_weekly_pay(pay_pattern, responses.last)
     calculator
   end
-  calculate :smp_a do
-    sprintf("%.2f", calculator.statutory_maternity_rate_a)
+  calculate :average_weekly_earnings do
+    calculator.average_weekly_earnings
   end
-  calculate :smp_b do
-    sprintf("%.2f", calculator.statutory_maternity_rate_b)
-  end
-  calculate :lower_earning_limit do
-    sprintf("%.2f", calculator.lower_earning_limit)
+
+  next_node :maternity_leave_and_pay_result
+end
+
+## QM6
+money_question :employees_average_weekly_earnings? do
+  calculate :average_weekly_earnings do
+    raise SmartAnswer::InvalidNode if responses.last < 1
+    calculator.average_weekly_earnings = responses.last
   end
   calculate :not_entitled_to_pay_reason do
     :must_earn_over_threshold
-  end
-  calculate :notice_request_pay do
-    calculator.notice_request_pay
-  end
-
-  calculate :eligible_for_maternity_pay do
-    if responses.last >= calculator.lower_earning_limit
-      true
-    else
-      false
-    end
   end
   next_node :maternity_leave_and_pay_result
 end
 
 ## Maternity outcomes
 outcome :maternity_leave_and_pay_result do
-  precalculate :maternity_pay_info do
-    if eligible_for_maternity_pay
-      pay_info = PhraseList.new(:maternity_pay_table)
+  precalculate :smp_a do
+    sprintf("%.2f", calculator.statutory_maternity_rate_a)
+  end
+  precalculate :smp_b do
+    sprintf("%.2f", calculator.statutory_maternity_rate_b)
+  end
+  precalculate :lower_earning_limit do
+    sprintf("%.2f", calculator.lower_earning_limit)
+  end
+  precalculate :total_smp do
+    sprintf("%.2f", calculator.total_statutory_pay)
+  end
+  precalculate :notice_request_pay do
+    calculator.notice_request_pay
+  end
+
+  precalculate :not_eligible_for_maternity_pay do
+    calculator.average_weekly_earnings and 
+      calculator.average_weekly_earnings < calculator.lower_earning_limit
+  end
+
+  precalculate :not_entitled_to_pay_reason do
+    if not_eligible_for_maternity_pay 
+      :must_earn_over_threshold
     else
-      pay_info = PhraseList.new(:not_entitled_to_smp_intro)
+      not_entitled_to_pay_reason
+    end
+  end
+
+  precalculate :maternity_pay_info do
+    if not_eligible_for_maternity_pay
+      pay_info = PhraseList.new(calculator.average_weekly_earnings ? 
+                                :not_entitled_to_smp_intro_with_awe : :not_entitled_to_smp_intro)
       pay_info << not_entitled_to_pay_reason
       pay_info << :not_entitled_to_smp_outro
+    else
+      pay_info = PhraseList.new(:maternity_pay_table)
     end
     pay_info
   end

@@ -31,13 +31,15 @@ module SmartAnswer::Calculators
         should "calculate the relevant period" do
           @dd = Date.parse("2012-10-12")
           @calculator = MaternityPaternityCalculator.new(@dd)
-          last_pay_day = @calculator.qualifying_week.last
-          payday2 = last_pay_day.julian - (7 * 9)
-          assert_equal "Sunday, 16 April 2012 and Saturday, 30 June 2012", @calculator.relevant_period(last_pay_day, payday2)
+          @calculator.last_payday = @calculator.qualifying_week.last
+          payday = @calculator.last_payday.julian - (7 * 9)
+          @calculator.pre_offset_payday = payday
+          assert_equal "Saturday, 15 April 2012 and Saturday, 30 June 2012", @calculator.formatted_relevant_period
         end
 
         should "calculate payday offset" do
-          assert_equal Date.parse("2012-02-01"), @calculator.payday_offset(Date.parse("2012-03-28"))
+          @calculator.last_payday = Date.parse("2012-03-28")
+          assert_equal Date.parse("2012-02-02"), @calculator.payday_offset
         end
 
         should "calculate the ssp_stop date anda the notice request date" do
@@ -89,7 +91,7 @@ module SmartAnswer::Calculators
           
           should "calculate the maternity pay at rate B using the percentage of weekly income" do
             @calculator.average_weekly_earnings = 135.40
-            assert_equal (135.40 * 0.9).round(2), @calculator.statutory_maternity_rate_b
+            assert_equal 121.87, @calculator.statutory_maternity_rate_b
           end
 
         end
@@ -235,7 +237,65 @@ module SmartAnswer::Calculators
         # 09/12/12 to 15/12/12 23/06/12
         # 10/03/13 to 16/03/13 22/09/12
       end
+      
+      context "calculate_average_weekly_pay" do
+        setup do
+          @calculator = MaternityPaternityCalculator.new(4.months.since(Date.today))
+        end
+        should "make no calculation for a weekly pay pattern" do
+          assert_equal 665.15, @calculator.calculate_average_weekly_pay("weekly", 5321.20)
+        end
+        should "work out the weekly average for a fortnightly pay pattern" do
+          assert_equal 399.32, @calculator.calculate_average_weekly_pay("every_2_weeks", 3194.56)
+        end
+        should "work out the weekly average for a four week pay pattern" do
+          assert_equal 382.06, @calculator.calculate_average_weekly_pay("every_4_weeks", 3056.48)
+        end
+        should "work out the weekly average for a monthly pay pattern" do
+          assert_equal 1846.15385, @calculator.calculate_average_weekly_pay("monthly", 16000)
+        end
+        should "work out the weekly average for a irregular pay pattern" do
+          @calculator.last_payday = 15.days.ago(Date.today)
+          @calculator.pre_offset_payday = 55.days.ago(@calculator.last_payday)
+          assert_equal 56, @calculator.pay_period_in_days
+          assert_equal 974.82875, @calculator.calculate_average_weekly_pay("irregularly", 7798.63)
+        end
+      end
+      context "HMRC scenarios" do
+        setup do
+          @calculator = MaternityPaternityCalculator.new(Date.parse('2013-02-22'))
+        end
+        should "calculate AWE for weekly pay patterns" do
+          assert_equal 200, @calculator.calculate_average_weekly_pay("weekly", 1600) 
+          assert_equal 151, @calculator.calculate_average_weekly_pay("weekly", 1208)
+          assert_equal 150, @calculator.calculate_average_weekly_pay("weekly", 1200)
+        end
+        should "calculate AWE for monthly pay patterns" do
+          @calculator.last_payday = Date.parse('2012-10-31')
+          assert_equal 184.61538, @calculator.calculate_average_weekly_pay("monthly", 1600)
+          @calculator.last_payday = Date.parse('2012-10-26')
+          assert_equal 144.31731, @calculator.calculate_average_weekly_pay("monthly", 1250.75)
+        end
+        should "calculate AWE for irregular pay patterns" do
+          @calculator.last_payday = Date.parse('2012-11-06')
+          @calculator.pre_offset_payday = Date.parse('2012-08-01')
+          assert_equal 214.28571, @calculator.calculate_average_weekly_pay("irregularly", 3000)
+        end
+      end
 
+      context "total_statutory_pay" do
+        setup do
+          @calculator = MaternityPaternityCalculator.new(4.months.since(Date.today))
+        end
+        should "be statutory leave times statutory rates A and B" do
+          @calculator.average_weekly_earnings = 120.40
+          assert_equal 4226.43, @calculator.total_statutory_pay
+        end
+        should "be statutory leave times statutory higher rate A and statutory rate B" do
+          @calculator.average_weekly_earnings = 235.40
+          assert_equal 5741.01, @calculator.total_statutory_pay
+        end
+      end
     end    
   end
 end
