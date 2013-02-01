@@ -13,7 +13,7 @@ en-GB:
         "adoption": "Adoption"
       body: |
 
-        Calculate the qualifying week, ‘relevant employment period,’ notice period and check an employee’s eligibility for statutory maternity, paternity and adoption leave or pay. 
+        Calculate the qualifying week, relevant employment period, notice period and check an employee’s eligibility for statutory maternity, paternity and adoption leave or pay. 
         
         
         ##What you need
@@ -42,7 +42,7 @@ en-GB:
           |------------------------------|------------------------------|
           |Start                         | %{leave_start_date}          |
           |End                           | %{leave_end_date}            |
-          |Latest date to give notice    | %{notice_of_leave_deadline}  |
+          |Latest date to [claim leave](/maternity-leave-pay-employees/notice-period "Notice period")    | %{notice_of_leave_deadline}  |
           |Earliest date leave can start | %{leave_earliest_start_date} |
         
         not_entitled_to_statutory_maternity_leave: |
@@ -55,23 +55,31 @@ en-GB:
         maternity_pay_table: |
           ##Statutory Maternity Pay
 
-          The employee is entitled to up to 39 weeks Statutory Maternity Pay (SMP).
+          The employee is entitled to up to 39 weeks Statutory Maternity Pay (SMP) if they [claim SMP in time](/maternity-leave-pay-employees/notice-period "Notice period") and give [proof of the pregnancy](/maternity-leave-pay-employees/notice-period "Notice period").
           
-          |Pay                                  | Key facts                  |
-          |-------------------------------------|----------------------------|
-          |Start date                           | %{pay_start_date}          |
-          |End date                             | %{pay_end_date}            |
-          |Weekly rate - first 6 weeks          | £%{smp_a}                  |
-          |Weekly rate - for remaining 33 weeks | £%{smp_b}                  |
-          |Latest date to give notice           | %{notice_request_pay}      |
+          |Pay                                  | Key facts                   |
+          |-------------------------------------|-----------------------------|
+          |Average weekly earnings              | £%{average_weekly_earnings} |
+          |Weekly rate - first 6 weeks          | £%{smp_a}                   |
+          |Weekly rate - for remaining 33 weeks | £%{smp_b}                   |
+          |Total SMP                            | £%{total_smp}               |
+          |Start date                           | %{pay_start_date}           |
+          |End date                             | %{pay_end_date}             |
+          |Latest date to claim SMP             | %{notice_request_pay}       |
           |Proof of pregnancy                   | Usually 28 days before SMP starts (or as soon as possible if baby born early)  |
-          |Start date due to pregnancy related illness| %{ssp_stop}          |
+          |Start date due to pregnancy related illness| %{ssp_stop}           |
 
 
         not_entitled_to_smp_intro: |
           ##Statutory maternity pay
       
           The employee is not entitled to statutory maternity pay. To qualify:
+
+        not_entitled_to_smp_intro_with_awe: |
+          ##Statutory maternity pay
+      
+          The employee is not entitled to statutory maternity pay. 
+          Their average weekly earnings are £%{average_weekly_earnings} (you can’t round this figure up or down). To qualify:
 
         not_entitled_to_smp_outro: |
           You must write confirming this within 28 days of their maternity pay request.
@@ -220,7 +228,7 @@ en-GB:
       ## QM3
       date_leave_starts?:
         title: When does the employee want to start their leave?
-        hint: Usually, leave can't start before %{leave_earliest_start_date}
+        hint: Based on the baby's due date, leave usually can't start before %{leave_earliest_start_date}
         error_message: Please enter a valid date
       ## QM4
       did_the_employee_work_for_you?:
@@ -236,6 +244,16 @@ en-GB:
       payday_eight_weeks?:
         title: What was the last normal payday on or before %{payday_offset}?
         error_message: You must enter a date on or before %{payday_offset}
+      ## QM5.4
+      pay_frequency?:
+        title: How often do you pay the employee?
+        options: 
+          "every_2_weeks": "every 2 weeks"
+          "every_4_weeks": "every 4 weeks"
+          "none_of_the_above": "none of the above"
+      ## QM5.5
+      earnings_for_pay_period?:
+        title: What were the employee’s earnings between %{relevant_period}?  
       ## QM6
       employees_average_weekly_earnings?:
         title: What were the employee’s average weekly earnings between %{relevant_period}?
