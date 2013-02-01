@@ -42,7 +42,7 @@ en-GB:
           |------------------------------|------------------------------|
           |Start                         | %{leave_start_date}          |
           |End                           | %{leave_end_date}            |
-          |Latest date to claim leave    | %{notice_of_leave_deadline}  |
+          |Latest date to [claim leave](/maternity-leave-pay-employees/notice-period "Notice period")    | %{notice_of_leave_deadline}  |
           |Earliest date leave can start | %{leave_earliest_start_date} |
         
         not_entitled_to_statutory_maternity_leave: |
