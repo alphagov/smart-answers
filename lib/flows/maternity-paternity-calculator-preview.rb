@@ -201,18 +201,13 @@ outcome :maternity_leave_and_pay_result do
     calculator.notice_request_pay
   end
 
-  precalculate :eligible_for_maternity_pay do
-    if calculator.average_weekly_earnings and 
-      calculator.average_weekly_earnings >= calculator.lower_earning_limit
-      true
-    else
-      false
-    end
+  precalculate :not_eligible_for_maternity_pay do
+    calculator.average_weekly_earnings and 
+      calculator.average_weekly_earnings < calculator.lower_earning_limit
   end
 
   precalculate :not_entitled_to_pay_reason do
-    if calculator.average_weekly_earnings and 
-      calculator.average_weekly_earnings < calculator.lower_earning_limit
+    if not_eligible_for_maternity_pay 
       :must_earn_over_threshold
     else
       not_entitled_to_pay_reason
@@ -220,13 +215,13 @@ outcome :maternity_leave_and_pay_result do
   end
 
   precalculate :maternity_pay_info do
-    if eligible_for_maternity_pay
-      pay_info = PhraseList.new(:maternity_pay_table)
-    else
+    if not_eligible_for_maternity_pay
       pay_info = PhraseList.new(calculator.average_weekly_earnings ? 
                                 :not_entitled_to_smp_intro_with_awe : :not_entitled_to_smp_intro)
       pay_info << not_entitled_to_pay_reason
       pay_info << :not_entitled_to_smp_outro
+    else
+      pay_info = PhraseList.new(:maternity_pay_table)
     end
     pay_info
   end
