@@ -11,7 +11,7 @@ end
 
 ## QM1
 date_question :baby_due_date_maternity? do
-  from { Date.civil(Date.today.year - 1, 1, 1) }
+  from { 1.year.ago(Date.today) }
   to { 2.years.since(Date.today) } 
 
   calculate :calculator do
@@ -36,7 +36,7 @@ end
 
 ## QM3
 date_question :date_leave_starts? do
-  from { Date.civil(Date.today.year - 2, 1, 1) }
+  from { 2.years.ago(Date.today) }
   to { 2.years.since(Date.today) } 
 
   precalculate :leave_earliest_start_date do
@@ -111,7 +111,7 @@ end
 
 ## QM5.2 && QP6.2 && QA6.2 
 date_question :last_normal_payday? do
-  from { Date.civil(Date.today.year - 2, 1, 1) }
+  from { 2.years.ago(Date.today) }
   to { 2.years.since(Date.today) }
 
   calculate :last_payday do
@@ -125,7 +125,7 @@ end
 
 ## QM5.3 && P6.3 && A6.3
 date_question :payday_eight_weeks? do
-  from { Date.civil(Date.today.year - 2, 1, 1) }
+  from { 2.year.ago(Date.today) }
   to { 2.years.since(Date.today) } 
   
   precalculate :payday_offset do
