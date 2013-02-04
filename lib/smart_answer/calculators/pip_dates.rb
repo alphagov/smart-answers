@@ -3,8 +3,7 @@ require 'uk_postcode'
 module SmartAnswer::Calculators
   class PIPDates
     def postcode=(postcode_string)
-      pc = UKPostcode.new(postcode_string)
-      @postcode = pc
+      @postcode = UKPostcode.new(postcode_string)
     end
 
     def valid_postcode?
