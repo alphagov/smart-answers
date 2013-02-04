@@ -55,11 +55,11 @@ en-GB:
         maternity_pay_table: |
           ##Statutory Maternity Pay
 
-          The employee is entitled to up to 39 weeks Statutory Maternity Pay (SMP) if they [claim SMP in time](/maternity-leave-pay-employees/notice-period "Notice period") and give [proof of the pregnancy](/maternity-leave-pay-employees/notice-period "Notice period").
+          The employee is entitled to up to 39 weeks Statutory Maternity Pay (SMP) if they [claim SMP in time](/maternity-leave-pay-employees/notice-period "Notice period") and give [proof of the pregnancy](/maternity-leave-pay-employees/eligibility "Proof of pregnancy").
           
           |Pay                                  | Key facts                   |
           |-------------------------------------|-----------------------------|
-          |Average weekly earnings              | £%{average_weekly_earnings} |
+          |Average weekly earnings              | £%{average_weekly_earnings} (don't round this up or down) |
           |Weekly rate - first 6 weeks          | £%{smp_a}                   |
           |Weekly rate - for remaining 33 weeks | £%{smp_b}                   |
           |Total SMP                            | £%{total_smp}               |
