@@ -89,6 +89,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
             should "ask if the employee is on your payroll" do
               assert_current_node :is_the_employee_on_your_payroll?
             end
+
             context "answer yes" do
               setup do
                 add_response :yes
@@ -146,6 +147,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         assert_state_variable "smp_a", "121.87" 
                         assert_state_variable "smp_b", "121.87"
                         assert_state_variable "total_smp", "4752.93"
+                        assert_phrase_list :maternity_pay_info, [:maternity_pay_table]
                       end
                       should "calculate and present the result" do
                         assert_phrase_list :maternity_leave_info, [:maternity_leave_table]
@@ -168,6 +170,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                 add_response :no
                 assert_state_variable "not_entitled_to_pay_reason", :must_be_on_payroll
                 assert_current_node :maternity_leave_and_pay_result
+                assert_phrase_list :maternity_pay_info, [:not_entitled_to_smp_intro, :must_be_on_payroll, :not_entitled_to_smp_outro]
               end
             end #answer no to QM5 on payroll
 
@@ -177,6 +180,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
               add_response :no
               assert_state_variable "not_entitled_to_pay_reason", :not_worked_long_enough
               assert_current_node :maternity_leave_and_pay_result
+              assert_phrase_list :maternity_pay_info, [:not_entitled_to_smp_intro, :not_worked_long_enough, :not_entitled_to_smp_outro]
             end
           end
         end
@@ -239,7 +243,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       add_response 'weekly'
                       add_response '799'
                       assert_current_node :maternity_leave_and_pay_result
-                      #assert_state_variable "average_weekly_earnings", 125.0
+                      assert_state_variable :below_threshold, true
                       assert_state_variable :not_entitled_to_pay_reason, :must_earn_over_threshold
                     end
                   end
@@ -263,6 +267,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         assert_state_variable "smp_a", "121.87" 
                         assert_state_variable "smp_b", "121.87" 
                         assert_state_variable "total_smp", "4752.93"
+                        assert_phrase_list :maternity_pay_info, [:maternity_pay_table]
                       end
                       # no contract means no leave
                       should "calculate and present the result" do
@@ -353,7 +358,8 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         assert_state_variable "pay_end_date", 39.weeks.since(leave_start)
                         assert_state_variable "smp_a", "215.82"
                         assert_state_variable "smp_b", "135.45" # the statutory rate
-                        assert_state_variable "total_smp", "5764.77" 
+                        assert_state_variable "total_smp", "5764.77"
+                        assert_phrase_list :maternity_pay_info, [:maternity_pay_table]
                       end
                     end
                   end

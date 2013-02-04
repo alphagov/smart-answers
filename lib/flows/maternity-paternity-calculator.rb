@@ -80,11 +80,7 @@ multiple_choice :did_the_employee_work_for_you? do
   option :yes => :is_the_employee_on_your_payroll?
   option :no => :maternity_leave_and_pay_result
   calculate :not_entitled_to_pay_reason do
-    :not_worked_long_enough
-  end
-  #not yet eligible for pay, keep asking questions
-  calculate :eligible_for_maternity_pay do
-    false
+    responses.last == 'no' ? :not_worked_long_enough : nil
   end
 end
 
@@ -94,11 +90,7 @@ multiple_choice :is_the_employee_on_your_payroll? do
   option :no => :maternity_leave_and_pay_result
   
   calculate :not_entitled_to_pay_reason do
-    :must_be_on_payroll
-  end
-  #not yet eligible for pay, keep asking questions
-  calculate :eligible_for_maternity_pay do
-    false
+    responses.last == 'no' ? :must_be_on_payroll : nil
   end
 
   calculate :payday_exit do
@@ -187,10 +179,7 @@ end
 money_question :employees_average_weekly_earnings? do
   calculate :average_weekly_earnings do
     raise SmartAnswer::InvalidNode if responses.last < 1
-    calculator.average_weekly_earnings = responses.last
-  end
-  calculate :not_entitled_to_pay_reason do
-    :must_earn_over_threshold
+    calculator.average_weekly_earnings = responses.last.to_f
   end
   next_node :maternity_leave_and_pay_result
 end
@@ -213,13 +202,13 @@ outcome :maternity_leave_and_pay_result do
     calculator.notice_request_pay
   end
 
-  precalculate :not_eligible_for_maternity_pay do
-    calculator.average_weekly_earnings and 
+  precalculate :below_threshold do
+    calculator.average_weekly_earnings and
       calculator.average_weekly_earnings < calculator.lower_earning_limit
   end
 
   precalculate :not_entitled_to_pay_reason do
-    if not_eligible_for_maternity_pay 
+    if below_threshold 
       :must_earn_over_threshold
     else
       not_entitled_to_pay_reason
@@ -227,7 +216,7 @@ outcome :maternity_leave_and_pay_result do
   end
 
   precalculate :maternity_pay_info do
-    if not_eligible_for_maternity_pay
+    if not_entitled_to_pay_reason.present?
       pay_info = PhraseList.new(calculator.average_weekly_earnings ? 
                                 :not_entitled_to_smp_intro_with_awe : :not_entitled_to_smp_intro)
       pay_info << not_entitled_to_pay_reason
