@@ -77,18 +77,18 @@ module SmartAnswer::Calculators
         @calc = PIPDates.new
       end
 
-      should "be true if born before 1949-04-08" do
-        @calc.dob = Date.parse('1949-04-07')
+      should "be true if born before 1948-04-08" do
+        @calc.dob = Date.parse('1948-04-07')
         assert @calc.in_group_65?
       end
 
-      should "be true if born on 1949-04-08" do
-        @calc.dob = Date.parse('1949-04-08')
+      should "be true if born on 1948-04-08" do
+        @calc.dob = Date.parse('1948-04-08')
         assert @calc.in_group_65?
       end
 
-      should "be false if born after 1949-04-08" do
-        @calc.dob = Date.parse('1949-04-09')
+      should "be false if born after 1948-04-08" do
+        @calc.dob = Date.parse('1948-04-09')
         assert ! @calc.in_group_65?
       end
     end
@@ -98,13 +98,13 @@ module SmartAnswer::Calculators
         @calc = PIPDates.new
       end
 
-      should "be false if born on 1949-04-08" do
-        @calc.dob = Date.parse('1949-04-08')
+      should "be false if born on 1948-04-08" do
+        @calc.dob = Date.parse('1948-04-08')
         assert ! @calc.in_middle_group?
       end
 
-      should "be true if born just after 1949-04-08" do
-        @calc.dob = Date.parse('1949-04-09')
+      should "be true if born just after 1948-04-08" do
+        @calc.dob = Date.parse('1948-04-09')
         assert @calc.in_middle_group?
       end
 
