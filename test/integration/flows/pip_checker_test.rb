@@ -48,12 +48,12 @@ class PIPCheckerTest < ActiveSupport::TestCase
         assert_current_node :result_1
       end
 
-      should "be result 2 if born on or before 08-04-1949" do
-        add_response "1949-04-08"
+      should "be result 2 if born on or before 08-04-1948" do
+        add_response "1948-04-08"
         assert_current_node :result_2
       end
 
-      should "be result 3 if born between 09-04-1949 and 07-04-1997" do
+      should "be result 3 if born between 09-04-1948 and 07-04-1997" do
         add_response "1996-05-24"
         assert_current_node :result_3
       end
@@ -73,12 +73,12 @@ class PIPCheckerTest < ActiveSupport::TestCase
         assert_current_node :result_1
       end
 
-      should "be result 2 if born on or before 08-04-1949" do
-        add_response "1949-04-08"
+      should "be result 2 if born on or before 08-04-1948" do
+        add_response "1948-04-08"
         assert_current_node :result_2
       end
 
-      should "be result 4 if born between 09-04-1949 and 07-04-1997" do
+      should "be result 4 if born between 09-04-1948 and 07-04-1997" do
         add_response "1996-05-24"
         assert_current_node :result_4
       end
@@ -94,8 +94,8 @@ class PIPCheckerTest < ActiveSupport::TestCase
       assert_current_node :what_is_your_dob?
     end
 
-    should "be result 7 if born on or before 08-04-1949" do
-      add_response "1949-04-08"
+    should "be result 7 if born on or before 08-04-1948" do
+      add_response "1948-04-08"
       assert_current_node :result_7
     end
 
@@ -109,7 +109,7 @@ class PIPCheckerTest < ActiveSupport::TestCase
       assert_current_node :result_6
     end
 
-    should "be result 8 if born between 09-04-1949 and 07-04-1997" do
+    should "be result 8 if born between 09-04-1948 and 07-04-1997" do
       add_response "1996-05-24"
       assert_current_node :result_8
     end

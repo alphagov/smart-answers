@@ -3,8 +3,7 @@ require 'uk_postcode'
 module SmartAnswer::Calculators
   class PIPDates
     def postcode=(postcode_string)
-      pc = UKPostcode.new(postcode_string)
-      @postcode = pc
+      @postcode = UKPostcode.new(postcode_string)
     end
 
     def valid_postcode?
@@ -33,7 +32,7 @@ module SmartAnswer::Calculators
       end
     end
 
-    GROUP_65_CUTOFF = Date.parse('1949-04-08')
+    GROUP_65_CUTOFF = Date.parse('1948-04-08')
     MIDDLE_GROUP_CUTOFF = Date.parse('1997-04-08')
     TURNING_16_UPPER_CUTOFF = Date.parse('1997-10-07')
 
