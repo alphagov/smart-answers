@@ -2,7 +2,7 @@ en-GB:
   flow:
     pip-checker:
       title:
-        Check how Personal Independence Payment (PIP) affects you.
+        Check how Personal Independence Payment (PIP) affects you
       body: |
         From 8 April 2013 Personal Independence Payment (PIP) will replace Disability Living Allowance (DLA) for people with a health condition or disability aged 16 to 64.
 
@@ -75,7 +75,7 @@ en-GB:
 
           ##After they turn 16
 
-          Most children won't be affected by Personal Independent Payment (PIP) until 2015, but there are some exceptions.
+          Most children won't be affected by Personal Independence Payment (PIP) until 2015, but there are some exceptions.
 
           They'll be asked to make a claim for PIP if after October 2013 their:
 
@@ -111,7 +111,7 @@ en-GB:
 
       result_8:
         body: |
-          $!You shouldn't be affected by Personal Independent Payment (PIP) until 2015, but there are some exceptions.$!
+          $!You shouldn't be affected by Personal Independence Payment (PIP) until 2015, but there are some exceptions.$!
 
           You'll be asked to make a claim for PIP if after October 2013 your:
 
@@ -120,8 +120,8 @@ en-GB:
 
           Unless either of these happen – you don't need to do anything. You'll get a letter in 2015 explaining:
 
-          * what will happen to their DLA
-          * how they can claim Personal Independence Payment
+          * what will happen to your DLA
+          * how you can claim Personal Independence Payment
 
           *[PIP]: Personal Independence Payment
           *[DLA]: Disability Living Allowance
