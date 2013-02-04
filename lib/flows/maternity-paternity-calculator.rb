@@ -179,7 +179,7 @@ end
 money_question :employees_average_weekly_earnings? do
   calculate :average_weekly_earnings do
     raise SmartAnswer::InvalidNode if responses.last < 1
-    calculator.average_weekly_earnings = responses.last
+    calculator.average_weekly_earnings = responses.last.to_f
   end
   next_node :maternity_leave_and_pay_result
 end
