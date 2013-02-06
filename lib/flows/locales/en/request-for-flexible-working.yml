@@ -24,7 +24,7 @@ en-GB:
           $C
 
       ## Q2
-      employee_which_ones_of_these_describe_you?:
+      employee_which_ones_of_these_describes_you?:
         title: Which ones of these describe you?
         options:
           under_17: "You care for a child under 17"
@@ -33,7 +33,7 @@ en-GB:
           agency_worker: "You're an agency worker"
           member_of_armed_forces: "You're a member of the armed forces"
           request_in_last_12_months: "You've made a statutory request with your current employer in the last 12 months"
-      employer_which_ones_of_these_describe_your_employee?:
+      employer_which_ones_of_these_describes_your_employee?:
         title: Which ones of these describes your employee?
         body: |
           $C

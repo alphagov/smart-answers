@@ -4,12 +4,12 @@ satisfies_need "357"
 
 ## Q1
 multiple_choice :are_you_an_employee_or_employer? do
-  option :employee => :employee_which_one_of_these_describes_you?
-  option :employer => :employer_which_one_of_these_describes_your_employee?
+  option :employee => :employee_which_ones_of_these_describes_you?
+  option :employer => :employer_which_ones_of_these_describes_your_employee?
 end
 
 ## Q2
-checkbox_question :employee_which_one_of_these_describes_you? do
+checkbox_question :employee_which_ones_of_these_describes_you? do
   option :under_17
   option :care_for_adult
   option :less_than_26_weeks
@@ -36,7 +36,7 @@ checkbox_question :employee_which_one_of_these_describes_you? do
   end
 end
 
-checkbox_question :employer_which_one_of_these_describes_your_employee? do
+checkbox_question :employer_which_ones_of_these_describes_your_employee? do
   option :under_18
   option :care_for_adult
   option :less_than_26_weeks
