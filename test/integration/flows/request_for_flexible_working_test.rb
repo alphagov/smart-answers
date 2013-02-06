@@ -19,7 +19,7 @@ class RequestForFlexibleWorkingTest < ActiveSupport::TestCase
     end
 
     should "ask which one describes you" do
-      assert_current_node :employee_which_one_of_these_describes_you?
+      assert_current_node :employee_which_ones_of_these_describes_you?
     end
 
     context "selecting 'under_17' and 'care_for_adult'" do
@@ -112,7 +112,7 @@ class RequestForFlexibleWorkingTest < ActiveSupport::TestCase
     end
 
     should "ask user to describe themselves" do
-      assert_current_node :employer_which_one_of_these_describes_your_employee?
+      assert_current_node :employer_which_ones_of_these_describes_your_employee?
     end
 
     context "selecting 'under_18' and 'care_for_adult'" do
