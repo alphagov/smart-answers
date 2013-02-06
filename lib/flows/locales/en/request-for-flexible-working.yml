@@ -26,7 +26,9 @@ en-GB:
           employee: Employee
           employer: Employer
         body: |
-          [hint] Choose all that apply to you.
+          $C
+          Choose all that apply to you.
+          $C
 
       ## Q2
       employee_which_ones_of_these_describe_you?:
@@ -41,7 +43,9 @@ en-GB:
       employer_which_ones_of_these_describe_your_employee?:
         title: Which ones of these describes your employee?
         body: |
-          [hint] Choose all that apply.
+          $C
+          Choose all that apply.
+          $C
         options:
           under_18: "They care for a child under 18"
           care_for_adult: "They care for an adult"
@@ -54,12 +58,14 @@ en-GB:
       employee_responsible_for_childs_upbringing?:
         title: "Are you responsible for the child's upbringing and are you or your partner 1 of the following:"
         body: |
-          [hint] The relationship can be either way, eg you can be their uncle or they can be yours. Relationships include step or adoptive family and in-laws.
+          $C
+          The relationship can be either way, eg you can be their uncle or they can be yours. Relationships include step or adoptive family and in-laws.
 
           - parent, child, sibling, uncle, aunt, grandparent
           - spouse, partner
           - guardian or carer (including adoptive parent and special guardian)
           - you live at the same address
+          $C
       employer_responsible_for_childs_upbringing?:
         title: "Is your employee responsible for the child's upbringing and are they or their spouse/partner one of the following:"
         body: |
@@ -68,27 +74,33 @@ en-GB:
           - guardian or special guardian
           - been given a residence order for the child
 
-          [hint] A residence order is the court's decision about who a child should live with.
+          $C
+          A residence order is the court's decision about who a child should live with.
+          $C
 
       ## Q4
       employee_do_any_of_these_describe_the_adult_youre_caring_for?:
         title: Do any of these describe your relationship with the adult you’re caring for?
         body: |
-          [hint] The relationship can be either way, eg you can be their uncle or they can be yours. Relationships include step or adoptive family and in-laws.
+          $C
+          The relationship can be either way, eg you can be their uncle or they can be yours. Relationships include step or adoptive family and in-laws.
 
           - parent, child, sibling, uncle, aunt, grandparent
           - spouse, partner
           - guardian or carer (including adoptive parent and special guardian)
           - you live at the same address
+          $C
       employer_do_any_of_these_describe_the_adult_being_cared_for?:
         title: Do any of these describe the relationship with the adult being cared for?
         body: |
-          [hint] The relationship can be either way, eg your employee can be their uncle or the other way around. Relationships include step or adoptive family and in-laws.
+          $C
+          The relationship can be either way, eg your employee can be their uncle or the other way around. Relationships include step or adoptive family and in-laws.
 
           - parent, child, sibling, uncle, aunt, grandparent
           - spouse, partner
           - guardian or carer (including adoptive parent and special guardian)
           - you live at the same address
+          $C
 
       ## Answers:
       ## A1
