@@ -34,7 +34,7 @@ en-GB:
 
       which_country_issued_car_licence?:
         title: Where was your licence issued?
-        hint: "Designated countries are: Australia, Barbados, British Virgin Islands, Canada, Faroe Islands, Falkland Islands, Gibraltar, Hong Kong, Japan, Monaco, New Zealand, Republic of Korea, Singapore, South Africa, Switzerland, Zimbabwe."
+        hint: "Designated countries are: Andorra, Australia, Barbados, British Virgin Islands, Canada, Faroe Islands, Falkland Islands, Gibraltar, Hong Kong, Japan, Monaco, New Zealand, Republic of Korea, Singapore, South Africa, Switzerland, Zimbabwe."
         options:
           eea_ec: "European Union"
           ni: "Northern Ireland"
@@ -46,6 +46,7 @@ en-GB:
         title: Which designated country was your licence issued in?
         hint: "Designated countries are countries with exchange agreements with Great Britain."
         options:
+          and: "Andorra"
           aus: "Australia"
           bar: "Barbados"
           bvi: "British Virgin Islands"
