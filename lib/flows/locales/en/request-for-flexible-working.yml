@@ -10,13 +10,6 @@ en-GB:
         "yes": "Yes"
         "no": "No"
         none_of_these: "None of these"
-      phrases:
-        armed_services_reason: "you're a member of the armed services or an agency worker"
-        employee_reason: "you're not an employee or you've not been with your current employer for 26 continuous weeks"
-        statutory_request_reason: "you've made a statutory request in the last 12 months"
-        child_care_reason: "you're not caring for a child or adult"
-        wrong_relationship_reason: "your relationship to the person you care for doesn't make you eligible"
-        upbringing_reason: "you're not responsible for the child's upbringing"
 
       ## Questions:
       ## Q1
