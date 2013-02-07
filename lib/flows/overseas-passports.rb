@@ -219,8 +219,8 @@ outcome :fco_result do
   
   precalculate :send_your_application do
     phrases = PhraseList.new
-    if current_location == 'jordan'
-      phrases << :send_application_jordan
+    if current_location =~ /^(indonesia|jamaica|jordan)$/
+      phrases << "send_application_#{current_location}".to_sym
     else
       phrases << :send_application_fco_preamble
       phrases << "send_application_#{application_type}".to_sym

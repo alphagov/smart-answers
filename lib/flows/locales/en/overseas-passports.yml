@@ -226,6 +226,36 @@ en-GB:
             %{embassy_details}
           $A
 
+        send_application_jamaica: |
+          You must make your application in person to the British High Commission, Kingston
+
+
+          $A
+            %{embassy_address}
+          $A
+          
+        send_application_indonesia: |
+          ###Applying for a first passport or replacing a lost or stolen passport
+
+          You must make your application in person to the British Embassy, Jakarta.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          ###Renewing a passport
+
+          Send your application - preferably by one-way courier or secure post - to
+
+
+          $A
+            British Consulate-General
+            RPPC - 5th Floor
+            1 Supreme Court Road
+            Hong Kong
+          $A
+
         send_application_wellington_new_zealand: |
           
           $A
