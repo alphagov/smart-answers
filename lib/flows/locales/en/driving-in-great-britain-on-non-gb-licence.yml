@@ -33,7 +33,7 @@ en-GB:
       which_country_issued_car_licence?:
         title: "Where was your licence issued?"
         hint: "The 'designated countries' are:
-          Australia, Barbados, British Virgin Islands, Canada, Falkland Islands, Faroe Islands, Hong Kong, Japan, Monaco, New Zealand, Republic of Korea, Singapore, South Africa, Switzerland, Zimbabwe."
+          Andorra, Australia, Barbados, British Virgin Islands, Canada, Falkland Islands, Faroe Islands, Hong Kong, Japan, Monaco, New Zealand, Republic of Korea, Singapore, South Africa, Switzerland, Zimbabwe."
         options:
           ni: "Northern Ireland"
           eea_ec: "European Union or European Economic Area"
@@ -194,9 +194,10 @@ en-GB:
           If you don't have a driving licence yet, or your licence is from a 'non-designated country', you'll first need to apply for a provisional GB licence. You can then take a driving test and apply for a full licence once you've been in GB for at least 6 months.
 
           The 'designated countries' are:
-          Australia, Barbados, British Virgin Islands, Canada, Falkland Islands, Faroe Islands, Hong Kong, Japan, Monaco, New Zealand, Republic of Korea, Singapore, South Africa, Switzerland, Zimbabwe.
+          Andorra, Australia, Barbados, British Virgin Islands, Canada, Falkland Islands, Faroe Islands, Hong Kong, Japan, Monaco, New Zealand, Republic of Korea, Singapore, South Africa, Switzerland, Zimbabwe.
 
           *[GB]: Great Britain
+          
         next_steps: |
 
           - [Exchange a non-GB driving licence](/exchange-a-foreign-driving-licence "Exchange a non-GB driving licence")
