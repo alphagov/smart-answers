@@ -56,7 +56,7 @@ en-GB:
 
                     Length of service is capped at 20 years and weekly pay at £%{rate}. Years of service or earnings over these amounts aren’t included in the calculation.
 
-                    The maximum amount of statutory redundancy pay is £12,900.
+                    The maximum amount of statutory redundancy pay is £%{max_amount}.
 
                     ^You can’t get less than the statutory amount but you may get more if you have a company redundancy scheme.^
                 next_steps: |
@@ -122,6 +122,6 @@ en-GB:
 
                     Length of service is capped at 20 years and weekly pay at £%{rate}. Years of service or earnings over these amounts are not included in the calculation. 
 
-                    The maximum amount of statutory redundancy pay is £12,900.
+                    The maximum amount of statutory redundancy pay is £%{max_amount}.
                 next_steps: |
                     [Read the guide to Making staff redundant](https://www.gov.uk/staff-redundant)
