@@ -125,7 +125,7 @@ en-GB:
           | Child passport | 99 Euros | 123 Euros |
         
         passport_costs_dublin_ireland: |
-          You must pay using Visa or Mastercard. Download a [card payment authorisation form (PDF,198KB)](hhttp://britishembassyinireland.fco.gov.uk/resources/en/pdf/card-payment-form "Card authorisation form (PDF, 198KB)"){:rel="external"} and send it with your application.
+          You must pay using Visa or Mastercard. Download a [card payment authorisation form (PDF,198KB)](http://britishembassyinireland.fco.gov.uk/resources/en/pdf/card-payment-form "Card authorisation form (PDF, 198KB)"){:rel="external"} and send it with your application.
 
         how_to_apply_dublin_ireland: |
           If you were born in Ireland before 1 January 1949, you must also send a [completed Form E](http://britishembassyinireland.fco.gov.uk/resources/en/pdf/pdf1/postie_passport_forme "Form E for British subjects born before 1 January 1949") with your application. 
@@ -394,12 +394,12 @@ en-GB:
           $C
             Passport Information Helpline 
 
-            Premium rate helpline
-            1570 999 331
+            Premium rate helpline  
+            1570 999 331  
             Landline calls are charged at 1.78 Euro per minute - mobile calls may cost more
 
-            Paying for the call by credit card
-            +44 208 082 4737 
+            Paying for the call by credit card  
+            +44 208 082 4737  
             Calls charged at £0.72 per minute plus VAT
 
             Textphone: +44 1750 725 368
@@ -666,24 +666,19 @@ en-GB:
           $C
 
         how_long_australia_post: |
-          You must book an interview at an [Australia Post office.](http://apps.nowwhere.com.au/austpost/PostOfficeLocator/default.aspx?service=Passport_Interviews "Book an appointment at an Australia Post office"){:rel="external"}
+          You must book an interview at an [Australia Post office.](http://auspost.com.au/passports-id/british-passports.html "Book an appointment at an Australia Post office"){:rel="external"}
 
-          For passport renewals, you will usually get your passport **3 to 4 weeks** after your interview.
+          Passport renewals take at least **4 weeks**.
 
-          For first-time applications or replacement of lost or stolen passports, it usually takes **6 weeks.**
+          First-time applications or replacement of lost or stolen passports usually take at least **6 weeks.** 
 
           Applications can take longer if:
 
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, you can apply for an Emergency Travel Document from the British high commission in Canberra.
+          Don’t book travel until you have a valid passport. If you need to travel urgently, you can apply for an Emergency Travel Document from any [British high commission or consulate in Australia.](http://ukinaustralia.fco.gov.uk/en/help-for-british-nationals "British high commission and consulates in Australia").
 
-
-          $A
-            %{embassy_address}
-          $A
-        
         cost_australia_post: |
           | Passport type | Passport fee |
           |---------------|--------------|
@@ -759,7 +754,6 @@ en-GB:
 
         receiving_your_passport_australia_post: |
           Your passport and supporting documents will be returned to you separately by courier. 
-          
           
           ##If your passport hasn’t arrived
 
@@ -908,11 +902,11 @@ en-GB:
           - a banker’s draft in Bangladeshi Taka, payable to the British high commission
           - cash, if you apply in person at the British high commission in Dhaka
           
-          | Passport type | Passport fee | Total to pay (including courier fee) |
-          |---------------|--------------|--------------------------------------|
-          | Adult standard 32-page passport | £128 | £151.01 |
-          | Adult jumbo 48-page passport | £154.50 | £177.51 |
-          | Child passport | £81.50 | £104.51 |
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | £128/ 17,200 Taka | £151.01/ 20,300 Taka
+          Adult jumbo 48-page passport | £154.50/ 20,800 Taka | £177.51/ 23,900 Taka
+          Child passport | £81.50/ 11,000 Taka | £104.51/ 14,100 Taka
           
         how_to_apply_bangladesh: |
           4. Fill in a card payment authorisation form if you’re paying with a credit or debit card.
@@ -935,7 +929,7 @@ en-GB:
           Action | Minimum time after you apply
           - | -
           Renew a passport | 4 weeks 
-          First adult or child passports | 16 weeks
+          First adult or child passports | 12 weeks
           Replace a lost or stolen passport | 6 weeks
 
           Applications may take longer if: 
@@ -997,7 +991,7 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | 35,600 Naira | 41,800 Naira
+          Adult standard 32-page passport | 34,600 Naira | 40,800 Naira
           Adult jumbo 48-page passport | 41,600 Naira | 47,800 Naria
           Child passport | 22,000 Naira | 28,600 Naira
           
@@ -1051,7 +1045,7 @@ en-GB:
           Action | Minimum time after you apply
           - | -
           Renew a passport | 4 weeks 
-          First adult or child passports | 16 weeks
+          First adult or child passports | 12 weeks
           Replace a lost or stolen passport | 16 weeks
 
           Applications may take longer if: 
@@ -1138,8 +1132,8 @@ en-GB:
           Action | Minimum time after you apply
           - | -
           Renew a passport | 4 weeks 
-          First adult or child passports | 16 weeks
-          Replace a lost or stolen passport | 16 weeks
+          First adult or child passports | 12 weeks
+          Replace a lost or stolen passport | 12 weeks
 
           Applications may take longer if: 
 
@@ -1177,7 +1171,7 @@ en-GB:
           Action | Minimum time after you apply
           - | -
           Renew a red passport | 4 weeks 
-          First adult or child passports or renewing a blue or black passport | 16 weeks
+          First adult or child passports or renewing a blue or black passport | 12 weeks
           Replace a lost or stolen passport | 16 weeks
 
           Applications may take longer if: 
@@ -2075,9 +2069,9 @@ en-GB:
           
           Passport type | Passport fee
           -|-
-          Adult standard 32-page passport | AZD16,700
-          Adult jumbo 48-page passport | AZD20,100
-          Child passport | AZD10,600
+          Adult standard 32-page passport | DZD16,700
+          Adult jumbo 48-page passport | DZD20,100
+          Child passport | DZD10,600
 
           ## How to apply
 
