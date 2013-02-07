@@ -211,8 +211,21 @@ outcome :fco_result do
                    "#{child_or_adult}_passport_costs_#{cost_type}".to_sym, 
                    "passport_costs_#{application_type}".to_sym)
   end
+
+  precalculate :how_to_apply_supplement do
+    application_type =~ /^(dublin_ireland|india)$/ ?
+      PhraseList.new("how_to_apply_#{application_type}".to_sym) : ''
+  end
+  
   precalculate :send_your_application do
-    PhraseList.new("send_application_#{application_type}".to_sym)
+    phrases = PhraseList.new
+    if current_location == 'jordan'
+      phrases << :send_application_jordan
+    else
+      phrases << :send_application_fco_preamble
+      phrases << "send_application_#{application_type}".to_sym
+    end
+    phrases 
   end
   precalculate :helpline do
     PhraseList.new("helpline_#{application_type}".to_sym)

@@ -1,6 +1,6 @@
 en-GB:
   flow:
-    overseas-passport-application:
+    overseas-passports:
       title: Apply for, renew or replace a British passport if you’re outside the UK 
       meta:
         description: Renew, replace or apply for an adult or child British passport if you’re living abroad or working overseas - forms, prices, how long it takes 
@@ -123,7 +123,13 @@ en-GB:
           | Passport type |	Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
           | Child passport | 99 Euros | 123 Euros |
-          
+        
+        passport_costs_dublin_ireland: |
+          You must pay using Visa or Mastercard. Download a [card payment authorisation form (PDF,198KB)](hhttp://britishembassyinireland.fco.gov.uk/resources/en/pdf/card-payment-form "Card authorisation form (PDF, 198KB)"){:rel="external"} and send it with your application.
+
+        how_to_apply_dublin_ireland: |
+          If you were born in Ireland before 1 January 1949, you must also send a [completed Form E](http://britishembassyinireland.fco.gov.uk/resources/en/pdf/pdf1/postie_passport_forme "Form E for British subjects born before 1 January 1949") with your application. 
+
         passport_costs_paris_france: |
           You must pay using either:
           - a Visa or Mastercard - [download a credit card authorisation form (PDF, 170KB)](http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/credit-card-form-march-12 "Credit card authorisation form (PDF, 170KB)") and send it with your application
@@ -159,6 +165,31 @@ en-GB:
 
           If you pay by card, you’ll be charged the sterling amount in Hong Kong dollars using the exchange rate on the day your application is processed. 
 
+        passport_courier_costs_india: ''
+        adult_passport_costs_india: |
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | £128.00/HK $1,640 | £147.86/HK $1,895
+          Adult jumbo 48-page passport | £154.50/HK $1,978 | £174.36/HK $2,233         
+ 
+        child_passport_costs_india: |
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Child passport | £81.50/HK $1,044 | £101.36/HK $1,299
+
+        passport_costs_india: |
+          You must pay using a Visa or Mastercard - [download a credit card authorisation form (PDF, 95KB)](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/india-credit-card-form.pdf "Credit card authorisation form (PDF, 95KB)") and send it with your application.
+
+          For passport renewals, you card will be charged the sterling amount in Hong Kong dollars using the exchange rate on the day your application is processed. For a first passport or replaciing a lost or stolen passports, your card will be charged in Rupees.
+
+        how_to_apply_india: |
+          Application type | Supporting documents information
+          - | -
+          Adult renewal |  [Download ‘Supporting documents for adult passport renewal’ (PDF, 24KB)](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/india-adult-renewal.pdf "Download ‘Supporting documents for adult passport renewal’ (PDF, 24KB)")
+          Child renewal | [Download ‘Supporting documents for child passport renewal’ (PDF, 24KB)](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/india-child-renewal.pdf "Download ‘Supporting documents for child passport renewal’ (PDF, 35KB)")
+          First adult passport | [Download ‘Supporting documents for adult first passport, (PDF, 41KB)](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/india-adult-first-time-apply.pdf  "Download ‘Supporting documents for first adult passport’ (PDF, 41KB)")
+          First child passport | [Download ‘Supporting documents for first child passport (PDF, 39KB)](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/india-child-first-time-application.pdf "Download ‘Supporting documents for first child passport (PDF, 39KB)") 
+
         adult_fco_forms: |
           __Smart application form__ (fill in on screen, print and sign)
 
@@ -184,10 +215,21 @@ en-GB:
           __Guidance notes__
             [Download ‘Guidance notes for child applications (PDF, 2MB)’](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2-notes.pdf "‘Guidance notes for adult applications (PDF, 2MB)")
 
+        send_application_fco_preamble: |
+          Send your application, photographs and supporting documents, ideally by courier.
+
+        send_application_jordan: |
+          You must make your application in person.  
+ 
+
+          $A
+            %{embassy_details}
+          $A
+
         send_application_wellington_new_zealand: |
           
           $A
-            British high commission, Wellington
+            British High Commission, Wellington
             44 Hill Street
             Wellington 6011
 
@@ -212,22 +254,51 @@ en-GB:
             1 Supreme Court Road
             Hong Kong
           $A
+        
+        send_application_dublin_ireland: |
+          
+          $A
+            Passport Office
+            British Embassy
+            29 Merrion Road
+            Ballsbridge
+            Dublin 4 
+          $A
+
+        send_application_india: |
+          
+          $A
+            PPT Applications
+            British High Commission
+            Shantipath, Chanakyapuri
+            New Delhi, 110021
+          $A
 
         send_application_pretoria_south_africa: |
           
           $A
-            British high commission,
-            Consular Section, Block B,
-            1st Floor, Liberty Place Building,
-            256 Glyn Street,
-            Hatfield,
-            Pretoria, 0083,
-            South Africa. 
+            Postal address:
+
+            British Passport Section
+            British Consulate
+            PO Box 13611 
+            Hatfield, Pretoria 0028
+            South Africa
+
+            Courier address:
+
+            British Passport Section
+            British Consulate
+            256 Glyn Street
+            Hatfield
+            Pretoria 0083
+            South Africa 
           $A
 
         send_application_washington_usa: |
           
           $A
+            Regional Passport Processing Centre 
             British Embassy
             19 Observatory Circle N.W.
             Washington DC 20008 
@@ -316,6 +387,31 @@ en-GB:
             +900 990202 
             
             Landline calls are charged at 1.21 Euro per minute - mobile calls may cost more
+          $C
+
+        helpline_dublin_ireland: |
+          
+          $C
+            Passport Information Helpline 
+
+            Premium rate helpline
+            1570 999 331
+            Landline calls are charged at 1.78 Euro per minute - mobile calls may cost more
+
+            Paying for the call by credit card
+            +44 208 082 4737 
+            Calls charged at £0.72 per minute plus VAT
+
+            Textphone: +44 1750 725 368
+          $C
+
+        helpline_india: |
+          
+          $C
+            Passport Information Helpline 
+
+            +44 208 082 4744
+            Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
           $C
   
         ips_documents_group_1: |
@@ -2057,6 +2153,7 @@ en-GB:
 
           3. Check the guidance notes to find out which supporting documents you must send with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
 
+          %{how_to_apply_supplement}
 
           $D
             %{fco_forms}
@@ -2064,13 +2161,17 @@ en-GB:
 
           ## Send your application
           
-          Send your application, photographs and supporting documents, ideally by courier.
-
           %{send_your_application}
 
           ## Getting your passport
           
           Your passport and supporting documents will be delivered separately by courier.
+
+          When you get your passport, check your name, date of birth and other personal details are correct. 
+
+          If they’re not, send the passport back to the address above with a covering letter and evidence of what needs to be corrected (eg if your name is spelled incorrectly, provide evidence of how your name should be spelled).
+
+          If the error was made by the passport processing office, you’ll get a replacement free of charge. If the error was yours, you’ll have to pay for a replacement passport.
 
           ## If your passport hasn't arrived
 

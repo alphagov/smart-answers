@@ -267,7 +267,7 @@ iran:
   :type: iran
   :group:
 india: 
-  :type: hong_kong
+  :type: india 
   :group: ips_documents_group_3
 indonesia: 
   :type: hong_kong
