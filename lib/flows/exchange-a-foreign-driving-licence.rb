@@ -62,6 +62,7 @@ multiple_choice :which_country_issued_bus_licence? do
 end
 
 multiple_choice :which_designated_country_are_you_from? do
+  option :and => :a10
   option :aus => :a10
   option :bar => :a10
   option :bvi => :a10
