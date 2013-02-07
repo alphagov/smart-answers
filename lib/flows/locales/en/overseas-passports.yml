@@ -668,7 +668,7 @@ en-GB:
         how_long_australia_post: |
           You must book an interview at an [Australia Post office.](http://auspost.com.au/passports-id/british-passports.html "Book an appointment at an Australia Post office"){:rel="external"}
 
-          Passport renewals take at least **4 weeks**.
+          Passport renewals take at least **4 weeks** from when your application is received.
 
           First-time applications or replacement of lost or stolen passports usually take at least **6 weeks.** 
 
@@ -800,7 +800,7 @@ en-GB:
 
           3. Complete the [passport fees information sheet (PDF, 232KB).](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/533661182/nz-fee-sheet-02-12 “Passport fees information sheet (PDF, 232KB)”)
 
-          4. Bring your application, photos, supporting documents and passport fees sheet to your [nearest New Zealand Postshop](http://www.nzpost.co.nz/tools/postshop-kiwibank-locator "Find a New Zealand Postshop"){:rel="external"} to make your application.
+          4. Bring your application, photos, supporting documents and passport fees sheet to your [nearest New Zealand Postshop](http://www.nzpost.co.nz/apply-renew-organise/british-passports "Find a New Zealand Postshop"){:rel="external"} to make your application.
 
         how_to_apply_adult_new_zealand: |
           [Download ‘Passport appllication form for adults aged 16 and over’ (489KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c1.pdf "Download ‘Passport application form for adults aged 16 and over’ (489KB)")
@@ -1506,9 +1506,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | 163 Euros | 190 Euros
-          Adult jumbo 48-page passport | 196 Euros | 223 Euros
-          Child passport | 104 Euros | 131 Euros
+          Adult standard 32-page passport | 156 Euros | 180 Euros
+          Adult jumbo 48-page passport | 188 Euros | 212 Euros
+          Child passport | 99 Euros | 123 Euros
           
         how_to_apply_north_korea: |
           4. Photocopy the pages of your existing passport that show your personal details and picture and send these with your application. You must keep your existing passport for ID purposes.
@@ -1553,7 +1553,18 @@ en-GB:
           Child passport | £81.50 | £106.57
           
         how_to_apply_pakistan: ''
-        supporting_documents_pakistan: ''
+        supporting_documents_pakistan: |
+
+          $D
+            [Download ‘Adult passport renewal supporting documents guidance notes’ (PDF, 32KB)](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/pakistan-adult-renewal.pdf "Download ‘Adult passport renewal supporting documents guidance notes’ (PDF, 32KB)"){:rel="external"}
+
+            [Download ‘Child passport renewal supporting documents guidance notes’ (PDF, 37KB)](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/pakistan-child-renewal.pdf "Download ‘Child passport renewal supporting documents guidance notes’ (PDF, 37KB)"){:rel="external"}
+
+            [Download ‘Adult first passport supporting documents guidance notes’ (PDF, 37KB)](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/pakistan-adult-first-time-apply.pdf "Download ‘Adult first passport supporting documents guidance notes’ (PDF, 37KB)"){:rel="external"}
+
+            [Download ‘Child first passport supporting documents guidance notes’ (PDF, 40KB)](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/pakistan-child-first-time-apply.pdf "Download ‘Child first passport renewal supporting documents guidance notes’ (PDF, 40KB)"){:rel="external"}
+          $D
+
         making_application_pakistan: |
           You can send your application, preferably by secure post or courier, to:
 
@@ -1690,7 +1701,7 @@ en-GB:
           Action | Minimum time after you apply
           - | -
           Renew a passport | 4 weeks 
-          First adult or child passports | 16 weeks
+          First adult or child passports | 12 weeks
           Replace a lost or stolen passport | 6 weeks
 
           Applications may take longer if: 
@@ -1704,7 +1715,6 @@ en-GB:
 
           Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document at the British embassy in Kenya or high commission in Ethiopia. You will have to pay for the document.
 
-#TODO: kenya and ethopia
         cost_somalia: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
 
@@ -1940,18 +1950,17 @@ en-GB:
 
           Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document at the British embassy in Amman, Jordan. You will have to pay for the document. 
 
-# TODO: Use Jordanian embassy details
         cost_yemen: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. 
 
           ### Applying for a first passport or replacing a lost or stolen passport
-
-          You must make your application in person to the British embassy Amman, Jordan and you must pay in cash.
+          
+          You must pay using Visa or Mastercard - enclose a [card authorisation form (MS Word, 334KB](http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/credit-card-form-march-12 "Card authorisation form (MS Word, 334KB)"){:rel="external"} with your application.
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | 155 Jordanian Dinars | 195 Jordanian Dinars
-          Adult jumbo 48-page passport | 187 Jordanian Dinars | 227 Jordanian Dinars
+          Adult standard 32-page passport | 156 Jordanian Dinars | 196 Jordanian Dinars
+          Adult jumbo 48-page passport | 188 Jordanian Dinars | 228 Jordanian Dinars
           Child passport | 99 Jordanian Dinars | 139 Jordanian Dinars
 
           ### Renewing a passport
