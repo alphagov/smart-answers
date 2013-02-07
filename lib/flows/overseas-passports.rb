@@ -201,8 +201,14 @@ outcome :fco_result do
   end
 
   precalculate :cost do
-    PhraseList.new("passport_courier_costs_#{application_type}".to_sym,
-                   "#{child_or_adult}_passport_costs_#{application_type}".to_sym, 
+    if application_type =~ /^(dublin_ireland|madrid_spain|paris_france)$/
+      cost_type = 'fco_europe'
+    else
+      cost_type = application_type
+    end
+
+    PhraseList.new("passport_courier_costs_#{cost_type}".to_sym,
+                   "#{child_or_adult}_passport_costs_#{cost_type}".to_sym, 
                    "passport_costs_#{application_type}".to_sym)
   end
   precalculate :send_your_application do
