@@ -201,12 +201,31 @@ outcome :fco_result do
   end
 
   precalculate :cost do
-    PhraseList.new("passport_courier_costs_#{application_type}".to_sym,
-                   "#{child_or_adult}_passport_costs_#{application_type}".to_sym, 
+    if application_type =~ /^(dublin_ireland|madrid_spain|paris_france)$/
+      cost_type = 'fco_europe'
+    else
+      cost_type = application_type
+    end
+
+    PhraseList.new("passport_courier_costs_#{cost_type}".to_sym,
+                   "#{child_or_adult}_passport_costs_#{cost_type}".to_sym, 
                    "passport_costs_#{application_type}".to_sym)
   end
+
+  precalculate :how_to_apply_supplement do
+    application_type =~ /^(dublin_ireland|india)$/ ?
+      PhraseList.new("how_to_apply_#{application_type}".to_sym) : ''
+  end
+  
   precalculate :send_your_application do
-    PhraseList.new("send_application_#{application_type}".to_sym)
+    phrases = PhraseList.new
+    if current_location =~ /^(indonesia|jamaica|jordan)$/
+      phrases << "send_application_#{current_location}".to_sym
+    else
+      phrases << :send_application_fco_preamble
+      phrases << "send_application_#{application_type}".to_sym
+    end
+    phrases 
   end
   precalculate :helpline do
     PhraseList.new("helpline_#{application_type}".to_sym)
@@ -215,6 +234,13 @@ end
 
 ## Generic country outcome.
 outcome :result do
+  precalculate :embassy_address do
+    if application_type == 'iraq'
+      Calculators::PassportAndEmbassyDataQuery.embassy_data['iraq'].first['address']
+    else
+      embassy_address
+    end
+  end
   precalculate :how_long_it_takes do
     PhraseList.new("how_long_#{application_type}".to_sym)
   end
