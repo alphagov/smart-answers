@@ -2,11 +2,11 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
-class OverseasPassportApplicationTest < ActiveSupport::TestCase
+class OverseasPassportsTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'overseas-passport-application'
+    setup_for_testing_flow 'overseas-passports'
   end
   ## Q1
   should "ask which country you are in" do
