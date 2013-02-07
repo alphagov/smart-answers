@@ -7,7 +7,7 @@ en-GB:
       body: |
         Get the forms, prices and application details you need if you’re a British national and you want to renew or apply for a British passport from overseas.
 
-        % If you were born in or had a connection with Hong Kong and registered as a British National Overseas before 1997, [you must apply a different way.](/hong-kong-british-nationals-passports "Passport applications for British National Overseas from Hong Kong") %
+        % If you were born in or had a connection with Hong Kong and registered as a British National Overseas before 1997, [you must apply a different way.](/bno-passports "Passport applications for British National Overseas from Hong Kong") %
 
       which_country_are_you_in?:
         title: Which country are you in?
@@ -21,8 +21,8 @@ en-GB:
       child_or_adult_passport?:
         title: Do you need an adult or child passport?
         options:
-          adult: "Adult (over 16)"
-          child: "Child (under 16)"
+          adult: "Adult (aged 16 and over)"
+          child: "Child (aged under 16)"
       country_of_birth?:
         title: Which country were you born in?
       which_best_describes_you?:
