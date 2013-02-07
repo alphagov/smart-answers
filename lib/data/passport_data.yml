@@ -360,7 +360,7 @@ maldives:
   :type: hong_kong
   :group: ips_documents_group_2
 mali: 
-  :type: hong_kong
+  :type: pretoria_south_africa 
   :group: ips_documents_group_3
 malta: 
   :type: paris_france
