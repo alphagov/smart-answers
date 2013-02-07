@@ -8,6 +8,14 @@ date_question :date_of_redundancy? do
       450
     end
   end
+  calculate :max_amount do
+    if Date.parse(responses.last) < Date.new(2013,02,01)
+      "12,900"
+    else
+      "13,500"
+    end
+  end
+  
   next_node :age_of_employee?
 end
 
