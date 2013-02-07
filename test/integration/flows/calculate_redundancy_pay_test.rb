@@ -23,6 +23,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
       should "ask the age of the employee" do
         assert_current_node :age_of_employee?
         assert_state_variable :rate, 430
+        assert_state_variable :max_amount, "12,900"
       end
 
       context "aged 42" do
@@ -201,6 +202,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
         add_response '500'
         assert_current_node :done
         assert_state_variable :rate, 450
+        assert_state_variable :max_amount, "13,500"
       end
     end # After Feb 2013
   end
