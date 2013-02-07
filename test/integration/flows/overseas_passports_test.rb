@@ -226,7 +226,7 @@ Thurs: 0600-1300 GMT (0800-1500 local time))
         end
       end
     end
-  end # Afghanistan
+  end # Iraq 
 
   context "answer Benin, renewing old passport" do
     setup do
