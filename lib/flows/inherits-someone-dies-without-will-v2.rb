@@ -3,50 +3,84 @@ status :draft
 
 #Q0
 multiple_choice :where_did_the_deceased_live? do
-  option :'england-and-wales'
-  option :'northern-ireland'
-  option :'scotland'
+  option :"england-and-wales"
+  option :"scotland"
+  option :"northern-ireland"
 
   save_input_as :region
   next_node :is_there_a_living_spouse_or_civil_partner?
 end
 
-#Q1, Q13, Q24
+#Shared 1 EW, SC, NI
 multiple_choice :is_there_a_living_spouse_or_civil_partner? do
+  option :"yes"
+  option :"no"
+
   save_input_as :living_spouse_partner
-  option :yes => :is_the_estate_worth_more_than_250000?
-  option :no => :are_there_living_children?
 
   next_node do |response|
-    if region == "scotland"
-      :are_there_living_children?
+    if response.to_s == "yes"
+      if region == "england-and-wales" or region == "northern-ireland"
+        :is_the_estate_worth_more_than_250000?
+      else
+        :are_there_living_children?
+      end
     else
-      response == "yes" ? :is_the_estate_worth_more_than_250000? : :are_there_living_children?
+      if region == "england-and-wales"
+        :other_living_relatives_ew?
+      elsif region == "scotland"
+        :living_children_sc?
+      else
+        :other_living_relatives_ni?
+      end
     end
   end
 end
 
-#Q2, Q25
+#Shared 2 EW, NI
 multiple_choice :is_the_estate_worth_more_than_250000? do
-  option :yes => :are_there_living_children?
-  option :no => :partner_receives_all_of_the_estate #A1, A25
-end
+  option :"yes"
+  option :"no"
 
-#Q3, Q6, Q14, Q17, Q26, Q30
-multiple_choice :are_there_living_children? do
-  option :yes
-  option :no
+  calculate :next_step_links do
+    if responses.last == "no"
+      PhraseList.new(:wills_link_only)
+    end
+  end
 
   next_node do |response|
-    if response == "yes"
-      if living_spouse_partner == "yes"
-        case region
-        when "england-and-wales" then :partner_receives_first_250000_children_receive_half_of_remainder
-        when "scotland" then :partner_receives_first_473000_children_receive_two_thirds_of_remainder
-        when "northern-ireland" then :more_than_one_child?
-        end
+    if response == "no"
+      if region == "england-and-wales"
+        :outcome_1
       else
-        :shared_equally_between_children
+        :outcome_25
+      end
+    else
+      :are_there_living_children?
+    end
+  end
+end
+
+
+#Shared 3 EW, SC, NI
+multiple_choice :are_there_living_children? do
+  option :"yes"
+  option :"no"
+
+  calculate :next_step_links do
+    if responses.last == "yes"
+      PhraseList.new(:wills_and_inheritance_links)
+    end
+  end
+
+  next_node do |response|
+    if response.to_s == "yes"
+      if region == "england-and-wales"
+        :outcome_2
+      elsif region == "scotland"
+        :outcome_14
+      else
+        :more_than_one_child?
       end
     else
       :are_there_living_parents?
@@ -54,154 +88,269 @@ multiple_choice :are_there_living_children? do
   end
 end
 
+#NI 1
 multiple_choice :more_than_one_child? do
-  option :yes => :partner_receives_first_250000_children_receive_two_thirds_of_remainder
-  option :no => :partner_receives_first_250000_children_receive_half_of_remainder
+  option :"yes" => :outcome_27
+  option :"no" => :outcome_26
 end
 
-#Q4, Q7, Q15, Q18, Q28, Q31
+#Shared 4 EW, SC, NI
 multiple_choice :are_there_living_parents? do
-  option :yes
-  option :no
+  option :"yes"
+  option :"no"
+
   save_input_as :living_parents
 
   next_node do |response|
     if response == "yes"
-      if living_spouse_partner == "yes"
-        case region
-        when "england-and-wales" then :partner_receives_first_450000_remainder_to_parents_or_siblings
-        when "scotland" then :are_there_any_brothers_or_sisters_living?
-        when "northern-ireland" then :partner_receives_first_450000_parents_receive_half_of_remainder
-        end
-      else
-        case region
-        when "england-and-wales" then :shared_equally_between_parents
-        when "scotland" then :are_there_any_brothers_or_sisters_living?
-        when "northern-ireland" then :shared_equally_between_parents
-        end
-      end
+      :are_there_any_brothers_or_sisters_living?    
     else
-      :are_there_any_brothers_or_sisters_living?
+      case region
+        when "england-and-wales" then :outcome_3
+        when "scotland" then :are_there_any_brothers_or_sisters_living?
+        when "northern-ireland" then :outcome_28
+      end
+    end
+  end
+
+  calculate :next_step_links do
+    if region == "england-and-wales" or region == "northern-ireland"
+        PhraseList.new(:wills_and_inheritance_links)
     end
   end
 end
 
-#Q5, Q8, Q16, Q19, Q29, Q32
+#Shared 5 EW, SC, NI
 multiple_choice :are_there_any_brothers_or_sisters_living? do
-  option :yes
-  option :no
+  option :"yes"
+  option :"no"
 
-  next_node do |response|
-    if response == "yes"
-      if living_spouse_partner == "yes"
-        case region
-        when "england-and-wales" then :partner_receives_first_450000_remainder_shared_equally_between_brothers_or_sisters
-        when "scotland"
-          living_parents == "yes" ? :partner_receives_first_473000_remainder_split_between_parents_and_siblings : :partner_receives_first_473000_remainder_to_siblings
-        when "northern-ireland" then :partner_receives_first_450000_siblings_receive_half_of_remainder
-        end
-      else
-        case region
-        when "england-and-wales" then :shared_equally_between_brothers_or_sisters
-        when "northern-ireland" then :shared_equally_between_brothers_or_sisters
-        when "scotland" then
-          living_parents == "yes" ? :shared_equally_between_parents_and_siblings : :shared_equally_between_brothers_or_sisters
-        end
-      end
-    else
-      if living_spouse_partner == "yes"
-        case region
-        when "england-and-wales" then :partner_receives_all_of_the_estate
-        when "northern-ireland" then :partner_receives_all_of_the_estate
-        when "scotland"
-          living_parents == "yes" ? :partner_receives_first_473000_remainder_to_parents : :partner_receives_all_of_the_estate
-        end
-      else
-        case region
-        when "england-and-wales" then :are_there_half_blood_brothers_or_sisters?
-        when "northern-ireland" then :are_there_any_living_aunts_or_uncles?
-        when "scotland" then
-          living_parents == "yes" ? :shared_equally_between_parents : :are_there_any_living_aunts_or_uncles?
-        end
-      end
+  calculate :next_step_links do
+    if region == "scotland" or region == "northern-ireland" or region == "england-and-wales"
+      PhraseList.new(:wills_and_inheritance_links)
     end
   end
-end
-
-multiple_choice :are_there_half_blood_brothers_or_sisters? do
-  option :yes => :shared_equally_between_half_blood_brothers_sisters
-  option :no => :are_there_grandparents_living?
-end
-
-multiple_choice :are_there_grandparents_living? do
-  option :yes
-  option :no
 
   next_node do |response|
     if response == "yes"
-      :shared_equally_between_grandparents
+      case region
+        when "england-and-wales"
+          :outcome_4
+        when "northern-ireland"
+          :outcome_29
+        when "scotland"
+          if living_parents == "yes"
+            :outcome_15a
+          else
+            :outcome_15b
+          end
+      end
     else
       case region
-      when "england-and-wales" then :are_there_any_living_aunts_or_uncles?
-      when "scotland" then :are_there_any_living_great_aunts_or_uncles?
-      when "northern-ireland" then :everything_goes_to_next_of_kin_or_crown
+        when "england-and-wales"
+          :outcome_5
+        when "northern-ireland"
+          :outcome_30
+        when "scotland"
+          if living_parents == "yes"
+            :outcome_16a
+          else
+            :outcome_16b
+          end
+        end
       end
     end
   end
-end
 
-multiple_choice :are_there_any_living_aunts_or_uncles? do
-  option :yes
-  option :no
+
+#EW 1
+multiple_choice :other_living_relatives_ew? do
+  option :"living-children-ew"
+  option :"living-parents-ew"
+  option :"siblings-same-parents-ew"
+  option :"siblings-halfblood-ew"
+  option :"living-grandparents-ew"
+  option :"aunts-or-uncles-ew"
+  option :"aunts-or-uncles-halfblood-ew"
+  option :"no-living-relatives-ew"
+
+  calculate :next_step_links do
+    if responses.last == "no-living-relatives-ew"
+      PhraseList.new(:bona_vacantia_link_only)
+    else
+      PhraseList.new(:wills_and_inheritance_links)
+    end
+  end 
 
   next_node do |response|
-    if response == "yes"
-      :shared_equally_between_aunts_or_uncles
+    case response.to_s
+      when "living-children-ew"
+        :outcome_6
+      when "living-parents-ew"
+        :outcome_7
+      when "siblings-same-parents-ew"
+        :outcome_8
+      when "siblings-halfblood-ew"
+        :outcome_9
+      when "living-grandparents-ew"
+        :outcome_10
+      when "aunts-or-uncles-ew"
+        :outcome_11
+      when "aunts-or-uncles-halfblood-ew"
+        :outcome_12
+      else
+        :outcome_13
+    end
+  end
+end
+
+#SC 1
+multiple_choice :living_children_sc? do
+  option :"yes" => :outcome_17
+  option :"no" => :living_parents_sc?
+
+    calculate :next_step_links do
+    if region == "scotland" or region == "northern-ireland" or region == "england-and-wales"
+      PhraseList.new(:wills_and_inheritance_links)
+    end
+  end
+
+end
+
+#SC 2
+multiple_choice :living_parents_sc? do
+  option :"yes" => :siblings_same_parents_sc?
+  option :"no" => :siblings_same_parents_sc?
+
+  save_input_as :living_parents
+end
+
+#SC 3
+multiple_choice :siblings_same_parents_sc? do
+  option :"yes"
+  option :"no"
+
+  calculate :next_step_links do
+    if region == "scotland" or region == "northern-ireland" or region == "england-and-wales"
+      PhraseList.new(:wills_and_inheritance_links)
+    end
+  end
+
+  next_node do |response|
+    if response.to_s == "yes"
+      if living_parents == "yes"
+        :outcome_18
+      else
+        :outcome_19
+      end
     else
-      case region
-      when "england-and-wales" then :are_there_any_living_half_aunts_or_uncles?
-      when "scotland" then :are_there_grandparents_living?
-      when "northern-ireland" then :are_there_grandparents_living?
+      if living_parents =="yes"
+        :outcome_20
+      else
+        :aunts_or_uncles_sc?
       end
     end
   end
 end
 
-multiple_choice :are_there_any_living_half_aunts_or_uncles? do
-  option :yes => :shared_equally_between_half_aunts_or_uncles
-  # TODO: Check
-  option :no => :everything_goes_to_crown
+#SC 4
+multiple_choice :aunts_or_uncles_sc? do
+  option :"yes" => :outcome_21
+  option :"no" => :living_grandparents_sc?
 end
 
-multiple_choice :are_there_any_living_great_aunts_or_uncles? do
-  option :yes => :shared_equally_between_great_aunts_or_uncles
-  option :no => :everything_goes_to_crown
+#SC 5
+multiple_choice :living_grandparents_sc? do
+  option :"yes" => :outcome_22
+  option :"no" => :great_aunts_or_uncles_sc?
 end
 
-outcome :partner_receives_all_of_the_estate
+#SC 6
+multiple_choice :great_aunts_or_uncles_sc? do
+  option :"yes" => :outcome_23
+  option :"no" => :outcome_24
 
-outcome :partner_receives_first_250000_children_receive_half_of_remainder
-outcome :partner_receives_first_250000_children_receive_two_thirds_of_remainder
+  calculate :next_step_links do
+    if responses.last == "yes"
+      PhraseList.new(:wills_and_inheritance_links)
+    else
+      PhraseList.new(:bona_vacantia_link_only)
+    end
+  end
+end
 
-outcome :partner_receives_first_473000_children_receive_two_thirds_of_remainder
-outcome :partner_receives_first_473000_remainder_split_between_parents_and_siblings
-outcome :partner_receives_first_473000_remainder_to_siblings
-outcome :partner_receives_first_473000_remainder_to_parents
+multiple_choice :other_living_relatives_ni? do
+  option :"living-children-ni"
+  option :"living-parents-ni"
+  option :"siblings-same-parents-ni"
+  option :"aunts-or-uncles-ni"
+  option :"living-grandparents-ni"
+  option :"no-living-relatives-ni"
 
-outcome :partner_receives_first_450000_remainder_shared_equally_between_brothers_or_sisters
-outcome :partner_receives_first_450000_remainder_to_parents_or_siblings
-outcome :partner_receives_first_450000_parents_receive_half_of_remainder
-outcome :partner_receives_first_450000_siblings_receive_half_of_remainder
+  calculate :next_step_links do
+    if responses.last == "no-living-relatives-ni"
+      PhraseList.new(:bona_vacantia_link_only)
+    else
+      PhraseList.new(:wills_and_inheritance_links)
+    end
+  end 
 
-outcome :shared_equally_between_children
-outcome :shared_equally_between_parents
-outcome :shared_equally_between_parents_and_siblings
-outcome :shared_equally_between_brothers_or_sisters
-outcome :shared_equally_between_half_blood_brothers_sisters
-outcome :shared_equally_between_grandparents
-outcome :shared_equally_between_aunts_or_uncles
-outcome :shared_equally_between_half_aunts_or_uncles
-outcome :shared_equally_between_great_aunts_or_uncles
+  next_node do |response|
+    case response.to_s
+      when "living-children-ni"
+        :outcome_31
+      when "living-parents-ni"
+        :outcome_32
+      when "siblings-same-parents-ni"
+        :outcome_33
+      when "aunts-or-uncles-ni"
+        :outcome_34
+      when "living-grandparents-ni"
+        :outcome_35
+      else
+        :outcome_36
+    end
+  end
 
-outcome :everything_goes_to_crown
-outcome :everything_goes_to_next_of_kin_or_crown
+end
+
+
+outcome :outcome_1
+outcome :outcome_2
+outcome :outcome_3
+outcome :outcome_4
+outcome :outcome_5
+outcome :outcome_6
+outcome :outcome_7
+outcome :outcome_8
+outcome :outcome_9
+outcome :outcome_10
+outcome :outcome_11
+outcome :outcome_12
+outcome :outcome_13
+outcome :outcome_14
+outcome :outcome_15a
+outcome :outcome_15b
+outcome :outcome_16a
+outcome :outcome_16b
+outcome :outcome_17
+outcome :outcome_18
+outcome :outcome_19
+outcome :outcome_20
+outcome :outcome_21
+outcome :outcome_22
+outcome :outcome_23
+outcome :outcome_24
+outcome :outcome_25
+outcome :outcome_26
+outcome :outcome_27
+outcome :outcome_28
+outcome :outcome_29
+outcome :outcome_30
+outcome :outcome_31
+outcome :outcome_32
+outcome :outcome_33
+outcome :outcome_34
+outcome :outcome_35
+outcome :outcome_36
+
