@@ -3,7 +3,7 @@ afghanistan:
   :type: afghanistan
   :group: ips_documents_group_3
 albania: 
-  :type: ips_application_2
+  :type: ips_application_1
   :group: ips_documents_group_3
 algeria: 
   :type: algeria
@@ -312,7 +312,7 @@ kuwait:
   :type: ips_application_1
   :group: ips_documents_group_1
 kyrgyzstan:
-  :type: ips_application_1
+  :type: ips_application_2
   :group: ips_documents_group_3
 laos: 
   :type: hong_kong
@@ -615,7 +615,7 @@ uganda:
   :type: pretoria_south_africa
   :group: ips_documents_group_3
 ukraine: 
-  :type: wellington_new_zealand
+  :type: ips_application_3 
   :group: ips_documents_group_3
 united-arab-emirates: 
   :type: ips_application_1
