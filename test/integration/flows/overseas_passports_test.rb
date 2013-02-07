@@ -188,6 +188,46 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
   end # Afghanistan
 
+  # Iraq (An example of bespoke application process with non-standard embassies). 
+  context "answer Iraq" do
+    setup do
+      add_response 'iraq'
+    end
+    should "ask if you are renewing, replacing or applying for a passport" do
+      assert_current_node :renewing_replacing_applying?
+      assert_state_variable :current_location, 'iraq'
+      assert_state_variable :application_type, 'iraq'
+    end
+    context "answer applying" do
+      setup do
+        add_response 'applying'
+      end
+      should "ask if the passport is for an adult or a child" do
+        assert_current_node :child_or_adult_passport?
+      end
+      context "answer adult" do
+        should "give the result and be done" do
+          add_response 'adult'
+          assert_phrase_list :fco_forms, [:adult_fco_forms]
+          assert_phrase_list :how_long_it_takes, [:how_long_iraq]
+          assert_phrase_list :cost, [:cost_iraq]
+          assert_phrase_list :how_to_apply, [:how_to_apply_iraq]
+          assert_phrase_list :making_application, [:making_application_iraq]
+          assert_phrase_list :getting_your_passport, [:getting_your_passport_iraq]
+          assert_state_variable :embassy_address, "British Embassy, Baghdad \nInternational Zone\nBaghdad"
+          assert_state_variable :embassy_details, %Q(British Embassy
+(PO Box 87) Abdoun 
+Amman 11118
+Amman.enquiries@fco.gov.uk
+Passport opening times: Sun - Wed: 08.30-1200
+Sun-Wed: 0600-1330 GMT (0800-1530 local time)
+Thurs: 0600-1300 GMT (0800-1500 local time)) 
+          assert_current_node :result
+        end
+      end
+    end
+  end # Afghanistan
+
   context "answer Benin, renewing old passport" do
     setup do
       add_response 'benin'

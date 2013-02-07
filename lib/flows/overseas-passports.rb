@@ -234,6 +234,13 @@ end
 
 ## Generic country outcome.
 outcome :result do
+  precalculate :embassy_address do
+    if application_type == 'iraq'
+      Calculators::PassportAndEmbassyDataQuery.embassy_data['iraq'].first['address']
+    else
+      embassy_address
+    end
+  end
   precalculate :how_long_it_takes do
     PhraseList.new("how_long_#{application_type}".to_sym)
   end
