@@ -2,11 +2,11 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
-class OverseasPassportApplicationTest < ActiveSupport::TestCase
+class OverseasPassportsTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'overseas-passport-application'
+    setup_for_testing_flow 'overseas-passports'
   end
   ## Q1
   should "ask which country you are in" do
@@ -188,6 +188,46 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
     end
   end # Afghanistan
 
+  # Iraq (An example of bespoke application process with non-standard embassies). 
+  context "answer Iraq" do
+    setup do
+      add_response 'iraq'
+    end
+    should "ask if you are renewing, replacing or applying for a passport" do
+      assert_current_node :renewing_replacing_applying?
+      assert_state_variable :current_location, 'iraq'
+      assert_state_variable :application_type, 'iraq'
+    end
+    context "answer applying" do
+      setup do
+        add_response 'applying'
+      end
+      should "ask if the passport is for an adult or a child" do
+        assert_current_node :child_or_adult_passport?
+      end
+      context "answer adult" do
+        should "give the result and be done" do
+          add_response 'adult'
+          assert_phrase_list :fco_forms, [:adult_fco_forms]
+          assert_phrase_list :how_long_it_takes, [:how_long_iraq]
+          assert_phrase_list :cost, [:cost_iraq]
+          assert_phrase_list :how_to_apply, [:how_to_apply_iraq]
+          assert_phrase_list :making_application, [:making_application_iraq]
+          assert_phrase_list :getting_your_passport, [:getting_your_passport_iraq]
+          assert_state_variable :embassy_address, "British Embassy, Baghdad \nInternational Zone\nBaghdad"
+          assert_state_variable :embassy_details, %Q(British Embassy
+(PO Box 87) Abdoun 
+Amman 11118
+Amman.enquiries@fco.gov.uk
+Passport opening times: Sun - Wed: 08.30-1200
+Sun-Wed: 0600-1330 GMT (0800-1530 local time)
+Thurs: 0600-1300 GMT (0800-1500 local time)) 
+          assert_current_node :result
+        end
+      end
+    end
+  end # Iraq 
+
   context "answer Benin, renewing old passport" do
     setup do
       add_response 'benin'
@@ -282,8 +322,8 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
     should "ask if you are renewing, replacing or applying for a passport" do
       assert_current_node :renewing_replacing_applying?
       assert_state_variable :current_location, 'albania'
-      assert_state_variable :application_type, 'ips_application_2'
-      assert_state_variable :ips_number, "2"
+      assert_state_variable :application_type, 'ips_application_1'
+      assert_state_variable :ips_number, "1"
     end
     context "answer applying" do
       setup do
@@ -303,19 +343,12 @@ class OverseasPassportApplicationTest < ActiveSupport::TestCase
           should "give the application result" do
             add_response "spain"
             assert_current_node :ips_application_result
-            assert_phrase_list :how_long_it_takes, [:how_long_applying_ips2, :how_long_it_takes_ips2]
-            assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :ips_documents_group_1]
-            assert_phrase_list :cost, [:passport_courier_costs_ips2, :adult_passport_costs_ips2, :passport_costs_ips2]
-            assert_phrase_list :send_your_application, [:send_application_ips2]
-            assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips2]
-            assert_state_variable :embassy_address, "British Embassy\nRruga Skenderbeg 12\nTirana"
-            assert_state_variable :embassy_details, %Q(British Embassy
-Rruga Skenderbeg 12
-Tirana
-(355) 4 223 4973/4/5
-Local Time:
-Mon-Thur: 0830-1700; Fri: 0830-1430
-(GMT: +1hr in winter/+2hr in summer)) 
+            assert_phrase_list :how_long_it_takes, [:how_long_applying_ips1, :how_long_it_takes_ips1]
+            assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :ips_documents_group_1]
+            assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
+            assert_phrase_list :send_your_application, [:send_application_ips1]
+            assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
+            assert_state_variable :embassy_address, nil 
           end
         end
       end
@@ -382,9 +415,10 @@ If you need to contact the Embassy in an emergency out of hours you should telep
           assert_current_node :fco_result
           assert_phrase_list :fco_forms, [:child_fco_forms]
           assert_phrase_list :how_long_it_takes, [:how_long_applying_fco]
+          assert_state_variable :how_to_apply_supplement, ''
           assert_phrase_list :fco_forms, [:child_fco_forms]
-          assert_phrase_list :cost, [:passport_courier_costs_madrid_spain, :child_passport_costs_madrid_spain, :passport_costs_madrid_spain]
-          assert_phrase_list :send_your_application, [:send_application_madrid_spain]
+          assert_phrase_list :cost, [:passport_courier_costs_fco_europe, :child_passport_costs_fco_europe, :passport_costs_madrid_spain]
+          assert_phrase_list :send_your_application, [:send_application_fco_preamble, :send_application_madrid_spain]
           assert_phrase_list :helpline, [:helpline_madrid_spain]
           assert_state_variable :embassy_address, "Edificio Torre de Barcelona\nAvienda Diagonal 477-13\n08036 Barcelona,"
           assert_state_variable :embassy_details, "Edificio Torre de Barcelona\nAvienda Diagonal 477-13\n08036 Barcelona,\n(34) 93 366 6200"
@@ -403,9 +437,10 @@ If you need to contact the Embassy in an emergency out of hours you should telep
           add_response 'adult'
           assert_current_node :fco_result
           assert_phrase_list :how_long_it_takes, [:how_long_renewing_old_fco]
+          assert_state_variable :how_to_apply_supplement, ''
           assert_phrase_list :fco_forms, [:adult_fco_forms]
-          assert_phrase_list :cost, [:passport_courier_costs_madrid_spain, :adult_passport_costs_madrid_spain, :passport_costs_madrid_spain]
-          assert_phrase_list :send_your_application, [:send_application_madrid_spain]
+          assert_phrase_list :cost, [:passport_courier_costs_fco_europe, :adult_passport_costs_fco_europe, :passport_costs_madrid_spain]
+          assert_phrase_list :send_your_application, [:send_application_fco_preamble, :send_application_madrid_spain]
           assert_phrase_list :helpline, [:helpline_madrid_spain]
           assert_state_variable :embassy_address, "Edificio Torre de Barcelona\nAvienda Diagonal 477-13\n08036 Barcelona,"
           assert_state_variable :embassy_details, "Edificio Torre de Barcelona\nAvienda Diagonal 477-13\n08036 Barcelona,\n(34) 93 366 6200"
@@ -413,6 +448,24 @@ If you need to contact the Embassy in an emergency out of hours you should telep
       end
     end # Andorra (FCO result cases)
   end
+  context "answer Ireland, replacement, adult passport" do
+    should "give the fco result with custom phrases" do
+      add_response 'ireland'
+      add_response 'replacing'
+      add_response 'adult'
+      assert_current_node :fco_result
+      assert_phrase_list :how_to_apply_supplement, [:how_to_apply_dublin_ireland]
+    end
+  end # Ireland (FCO with custom phrases)
+  context "answer India, replacement, adult passport" do
+    should "give the fco result with custom phrases" do
+      add_response 'india'
+      add_response 'replacing'
+      add_response 'adult'
+      assert_current_node :fco_result
+      assert_phrase_list :how_to_apply_supplement, [:how_to_apply_india]
+    end
+  end # India (FCO with custom phrases)
   context "answer Iran" do
     should "give a bespoke outcome stating an application is not possible in Iran" do
       add_response 'iran'
