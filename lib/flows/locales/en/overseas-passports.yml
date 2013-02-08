@@ -94,12 +94,11 @@ en-GB:
         passport_courier_costs_pretoria_south_africa: '' 
           
         adult_passport_costs_pretoria_south_africa: |
-          An adult 32-page passport costs 2,144 South African Rand.  
-
-          An adult 48-page passport costs 2,528 South African Rand.  
+          An adult 32-page passport costs 2,218 South African Rand.  
+          An adult 48-page passport costs 2,616 South African Rand.  
 
         child_passport_costs_pretoria_south_africa: |
-          A child passport costs 1,470 South African Rand.
+          A child passport costs 1,521 South African Rand.
 
         passport_costs_pretoria_south_africa: |
           You can paying using:
@@ -130,9 +129,13 @@ en-GB:
           If you were born in Ireland before 1 January 1949, you must also send a [completed Form E](http://britishembassyinireland.fco.gov.uk/resources/en/pdf/pdf1/postie_passport_forme "Form E for British subjects born before 1 January 1949") with your application. 
 
         passport_costs_paris_france: |
-          You must pay using either:
-          - a Visa or Mastercard - [download a credit card authorisation form (PDF, 170KB)](http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/credit-card-form-march-12 "Credit card authorisation form (PDF, 170KB)") and send it with your application
-          - an International Postal order, mandate-cheque or mandate-cash payable to ‘British Embassy Paris’ - your application may take longer if you pay this way 
+          You must pay using either: 
+
+          - a Visa or Mastercard - [download a credit card authorisation form (PDF, 170KB)](http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/credit-card-form-march-12 "Credit card authorisation form (PDF, 170KB)") and send it with your application  
+          
+          - an International Postal order, mandate-cheque or mandate-cash payable to ‘British Embassy Paris’ - your application may take longer if you pay this way  
+        passport_costs_malta_netherlands: |
+           You must pay using a Visa or Mastercard. [Download a credit card authorisation form (PDF, 170KB)](http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/credit-card-form-march-12 "Credit card authorisation form (PDF, 170KB)") and send it with your application.
 
         passport_courier_costs_madrid_spain:
           You’ll have to pay a fee for your passport and a courier fee of 25 Euros. The courier fee pays for your passport and supporting documents to be sent back to you securely.
