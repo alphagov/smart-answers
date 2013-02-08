@@ -69,8 +69,8 @@ end
 
 # Q3
 multiple_choice :child_or_adult_passport? do
-  option :child
   option :adult
+  option :child
 
   save_input_as :child_or_adult
 
