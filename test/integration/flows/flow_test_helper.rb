@@ -2,8 +2,7 @@
 
 module FlowTestHelper
   def setup_for_testing_flow(flow_slug)
-    @flow_registry ||= SmartAnswer::FlowRegistry.new(:show_drafts => true)
-    @flow = @flow_registry.find(flow_slug)
+    @flow = SmartAnswer::FlowRegistry.instance.find(flow_slug)
     @responses = []
   end
 
