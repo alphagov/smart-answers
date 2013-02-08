@@ -227,6 +227,9 @@ germany:
 ghana: 
   :type: ghana
   :group: ips_documents_group_3
+gibraltar:
+  :type: madrid_spain
+  :group: ips_documents_group_1
 greece: 
   :type: madrid_spain
   :group: ips_documents_group_2

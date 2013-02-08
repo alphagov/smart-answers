@@ -1,4 +1,4 @@
-status :draft
+status :published
 
 # Q1
 country_select :which_country_are_you_in? do
@@ -69,8 +69,8 @@ end
 
 # Q3
 multiple_choice :child_or_adult_passport? do
-  option :child
   option :adult
+  option :child
 
   save_input_as :child_or_adult
 
@@ -201,15 +201,22 @@ outcome :fco_result do
   end
 
   precalculate :cost do
+    # All european FCO applications cost the same
     if application_type =~ /^(dublin_ireland|madrid_spain|paris_france)$/
       cost_type = 'fco_europe'
     else
       cost_type = application_type
     end
+    # Malta and Netherlands have custom payment methods
+    if current_location =~ /^(malta|netherlands)$/
+      payment_methods = :passport_costs_malta_netherlands
+    else
+      payment_methods = "passport_costs_#{application_type}".to_sym
+    end
 
     PhraseList.new("passport_courier_costs_#{cost_type}".to_sym,
                    "#{child_or_adult}_passport_costs_#{cost_type}".to_sym, 
-                   "passport_costs_#{application_type}".to_sym)
+                   payment_methods)
   end
 
   precalculate :how_to_apply_supplement do
@@ -227,6 +234,9 @@ outcome :fco_result do
     end
     phrases 
   end
+  precalculate :getting_your_passport do
+    PhraseList.new(current_location == 'egypt' ? :getting_your_passport_egypt : :getting_your_passport_fco)
+  end
   precalculate :helpline do
     PhraseList.new("helpline_#{application_type}".to_sym)
   end
@@ -235,7 +245,7 @@ end
 ## Generic country outcome.
 outcome :result do
   precalculate :embassy_address do
-    if application_type == 'iraq'
+    if application_type == 'iraq' # TODO: Mauritania
       Calculators::PassportAndEmbassyDataQuery.embassy_data['iraq'].first['address']
     else
       embassy_address
