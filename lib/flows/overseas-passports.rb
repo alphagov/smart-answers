@@ -1,4 +1,4 @@
-status :draft
+status :published
 
 # Q1
 country_select :which_country_are_you_in? do
