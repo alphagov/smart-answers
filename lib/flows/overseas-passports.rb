@@ -234,6 +234,9 @@ outcome :fco_result do
     end
     phrases 
   end
+  precalculate :getting_your_passport do
+    PhraseList.new(current_location == 'egypt' ? :getting_your_passport_egypt : :getting_your_passport_fco)
+  end
   precalculate :helpline do
     PhraseList.new("helpline_#{application_type}".to_sym)
   end

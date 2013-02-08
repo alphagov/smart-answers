@@ -441,6 +441,7 @@ If you need to contact the Embassy in an emergency out of hours you should telep
           assert_phrase_list :fco_forms, [:adult_fco_forms]
           assert_phrase_list :cost, [:passport_courier_costs_fco_europe, :adult_passport_costs_fco_europe, :passport_costs_madrid_spain]
           assert_phrase_list :send_your_application, [:send_application_fco_preamble, :send_application_madrid_spain]
+          assert_phrase_list :getting_your_passport, [:getting_your_passport_fco]
           assert_phrase_list :helpline, [:helpline_madrid_spain]
           assert_state_variable :embassy_address, "Edificio Torre de Barcelona\nAvienda Diagonal 477-13\n08036 Barcelona,"
           assert_state_variable :embassy_details, "Edificio Torre de Barcelona\nAvienda Diagonal 477-13\n08036 Barcelona,\n(34) 93 366 6200"
@@ -475,6 +476,15 @@ If you need to contact the Embassy in an emergency out of hours you should telep
       assert_phrase_list :cost, [:passport_courier_costs_fco_europe, :adult_passport_costs_fco_europe, :passport_costs_malta_netherlands]
     end
   end # Malta (FCO with custom phrases)
+  context "answer Egypt, replacement, adult passport" do
+    should "give the fco result with custom phrases" do
+      add_response 'egypt'
+      add_response 'replacing'
+      add_response 'adult'
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_egypt]
+      assert_current_node :fco_result
+    end
+  end # Egypt (FCO with custom phrases)
   context "answer Iran" do
     should "give a bespoke outcome stating an application is not possible in Iran" do
       add_response 'iran'

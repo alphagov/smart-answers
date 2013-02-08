@@ -217,6 +217,18 @@ en-GB:
           __Guidance notes__
             [Download ‘Guidance notes for child applications (PDF, 2MB)’](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2-notes.pdf "‘Guidance notes for adult applications (PDF, 2MB)")
 
+        getting_your_passport_fco: |
+          Your passport and supporting documents will be delivered separately by courier.
+
+          When you get your passport, check your name, date of birth and other personal details are correct. 
+
+          If they’re not, send the passport back to the address above with a covering letter and evidence of what needs to be corrected (eg if your name is spelled incorrectly, provide evidence of how your name should be spelled).
+
+          If the error was made by the passport processing office, you’ll get a replacement free of charge. If the error was yours, you’ll have to pay for a replacement passport.
+
+        getting_your_passport_egypt: |
+          The British embassy in Cairo will contact you when your passport arrives using the contact details on your form. You must collect it in person. 
+
         send_application_fco_preamble: |
           Send your application, photographs and supporting documents, ideally by courier.
 
@@ -273,9 +285,10 @@ en-GB:
         send_application_paris_france: |
           
           $A
-            Regional Passport Processing Centre Paris 
-            16 rue d’Anjou
-            75008 Paris 
+            Regional Passport Processing Centre
+            35 rue du Faubourg St Honor E9
+            75383 Paris Cedex 08
+            France
           $A
 
         send_application_hong_kong: |
@@ -400,7 +413,13 @@ en-GB:
 
             +44 208 082 4721
             
-            Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call 
+            Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
+
+            Applicants in the USA and Canada **only**
+
+            A webchat service is available. It costs a flat rate of £3 - you must pay by credit card before you start. Don’t use this service if you’re applying from other countries - the service won’t work but you will still be charged.
+
+            [Webchat if you applying from the USA or Canada](https://www.synthetix.info/fco/ "Passport application webchat"){:rel="external"}
           $C
 
         helpline_madrid_spain: |
@@ -2202,14 +2221,9 @@ en-GB:
           %{send_your_application}
 
           ## Getting your passport
-          
-          Your passport and supporting documents will be delivered separately by courier.
+         
+          %{getting_your_passport}
 
-          When you get your passport, check your name, date of birth and other personal details are correct. 
-
-          If they’re not, send the passport back to the address above with a covering letter and evidence of what needs to be corrected (eg if your name is spelled incorrectly, provide evidence of how your name should be spelled).
-
-          If the error was made by the passport processing office, you’ll get a replacement free of charge. If the error was yours, you’ll have to pay for a replacement passport.
 
           ## If your passport hasn't arrived
 
