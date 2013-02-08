@@ -182,6 +182,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           assert_phrase_list :how_to_apply, [:how_to_apply_afghanistan]
           assert_phrase_list :making_application, [:making_application_afghanistan]
           assert_phrase_list :getting_your_passport, [:getting_your_passport_afghanistan]
+          assert_state_variable :embassy_address, "British Embassy\n15th Street, Roundabout Wazir Akbar Khan\nPO Box 334\nKabul\nAfghanistan,Kabul"
           assert_current_node :result
         end
       end
