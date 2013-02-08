@@ -827,11 +827,13 @@ en-GB:
           $C 
         
         how_long_new_zealand: |
-          For passport renewals, you will usually get your passport **3 to 4 weeks** after your application is received.
+          Passport renewals take at least **4 weeks** from when your application is received. 
 
           For first-time applications or replacement of lost or stolen passports, it usually takes **6 weeks.**
 
           If your passport has been lost or stolen, you must report it as soon as possible to your [nearest British embassy, high commission or consulate.](/report-a-lost-or-stolen-passport "Report a lost or stolen passport")
+
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](http://www.fco.gov.uk/en/travel-and-living-abroad/passports1/passports-a-to-z/e-topics/emergency-travel "Get an emergency travel document"){:rel="external"} 
 
           
           $A
@@ -1409,8 +1411,8 @@ en-GB:
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
           Adult standard 32-page passport | 163 Euros | 188 Euros
-          Adult jumbo 48-page passport | 196 Euros | 221 Euros
-          Child passport | 104 Euros | 129 Euros
+          Adult jumbo 48-page passport | 156 Euros | 180 Euros
+          Child passport | 99 Euros | 123 Euros
 
         how_to_apply_iraq: ''
         supporting_documents_iraq: ''
@@ -1902,13 +1904,13 @@ en-GB:
         cost_sudan: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
 
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | 1,856 South African Rand | 2,144 South African Rand
-          Adult jumbo 48-page passport | 2,240 South African Rand | 2,528 South African Rand
-          Child passport | 1,182 South African Rand | 1,470 South African Rand
+          Passport type |	Passport fee | Total cost for renewals (including courier fee) | Total cost for first passport applications (including courier fee)
+          -|-|-|-
+          Adult standard 32-page passport | 1,280 Sudanese pounds | 1,510 Sudanese pounds | 1,610 Sudanese pounds
+          Adult jumbo 48-page passport | 1,545 Sudanese pounds | 1,775 Sudanese pounds | 1,875 Sudanese pounds
+          Child passport	815 | Sudanese pounds	1,045 | Sudanese pounds | 1,145 Sudanese pounds
 
-          You must pay using Visa or Mastercard - enclose a [card authorisation form (MS Word, 334KB](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/countries-auth-slip "Card authorisation form (MS Word, 334KB)"){:rel="external"} with your application.
+          You must pay in cash. 
 
         how_to_apply_sudan: |
 
@@ -1926,6 +1928,79 @@ en-GB:
 
         getting_your_passport_sudan: | 
           Your passport and supporting documents will be delivered to the British Embassy. They will call you, using the details on your application form when they arrive. You must pick them up in person.
+
+        how_long_thailand: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks
+          First adult or child passports | 6 weeks
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if: 
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document at the British embassy in Bangkok. You will have to pay for the document.
+
+        cost_thailand: |
+          ###Applying for a first passport 
+
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. 
+
+          You can pay using Visa, Mastercard or cash.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | £128/ 6,400 THB | £151.01/ 7,551 THB
+          Adult jumbo 48-page passport | £154.50/ 7,725 THB | £177.51/ 8,876 THB
+          Child passport | £81.50/ 4,075 THB | £104.51/ 5,226 THB
+
+          ###Renewing a passport
+
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. 
+
+          You can pay using:
+
+          - Visa or Mastercard - enclose a [card authorisation form (PDF, 334KB](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/credit-card-authorisation.pdf "Card authorisation form (PDF, 334KB)"){:rel="external"} with your application.
+
+          - bankers’ draft in Hong Kong dollars, payable to ‘British Consulate-General Hong Kong’
+
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | £128.00/HK $1,640 | £147.86/HK $1,895
+          Adult jumbo 48-page passport | £154.50/HK $1,978 | £174.36/HK $2,233
+          Child passport | £81.50/HK $1,044 | £101.36/HK $1,299
+ 
+
+        how_to_apply_thailand: |
+          1. Download the application form and guidance notes that help you fill it in.
+
+          2. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports "Passport photo requirements") or your application may be delayed.
+
+          3. Check the supporting documents you must send with your application. Non-English supporting documents must be translated into English by a professional translator.  
+        
+        supporting_documents_thailand: ''
+        making_application_thailand: |
+          ###Renewals 
+
+          Send your application - preferably by one-way courier or secure post - to
+
+      
+          $A
+            British Consulate-General
+            RPPC - 5th Floor
+            1 Supreme Court Road
+            Hong Kong
+          $A
+
+          ###First passport applications
+
+          You must make your application in person to the British embassy in Bangkok. 
+
+        getting_your_passport_thailand: |
+          Your passport and supporting documents will be returned to you by courier.
 
         how_long_tunisia: |
           Action | Minimum time after you apply
@@ -2023,9 +2098,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | 163 Euros | 188 Euros
-          Adult jumbo 48-page passport | 196 Euros | 221 Euros
-          Child passport | 104 Euros | 129 Euros
+          Adult standard 32-page passport | 156 Euros | 196 Euros
+          Adult jumbo 48-page passport | 188 Euros | 228 Euros
+          Child passport | 99 Euros | 139 Euros
                   
         how_to_apply_yemen: ''
         supporting_documents_yemen: ''
@@ -2067,9 +2142,9 @@ en-GB:
          
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | 1,160,000 Kwacha | 1,370,000 Kwacha
-          Adult jumbo 48-page passport | 1,400,000 Kwacha | 1,160,000 Kwacha
-          Child passport | 740,000 Kwacha | 950,000 Kwacha
+          Adult standard 32-page passport | 1,160 Kwacha | 1,370 Kwacha
+          Adult jumbo 48-page passport | 1,400 Kwacha | 1,160 Kwacha
+          Child passport | 740 Kwacha | 950 Kwacha
 
           You must pay in cash when you apply in person at the British high commission in Lusaka.
 
