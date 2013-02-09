@@ -7,11 +7,13 @@ class EngineIntegrationTest < ActionDispatch::IntegrationTest
   setup do
     fixture_flows_path = Rails.root.join(*%w{test fixtures flows})
     FLOW_REGISTRY_OPTIONS[:load_path] = fixture_flows_path
+    SmartAnswer::FlowRegistry.reset_instance
 
     stub_content_api_default_artefact
   end
 
   teardown do
     FLOW_REGISTRY_OPTIONS.delete(:load_path)
+    SmartAnswer::FlowRegistry.reset_instance
   end
 end
