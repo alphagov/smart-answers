@@ -2,11 +2,11 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
-class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
+class InheritsSomeoneDiesWithoutWillTestV2 < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'inherits-someone-dies-without-will-v3'
+    setup_for_testing_flow 'inherits-someone-dies-without-will-v2'
   end
 
   should "ask where the deceased lived" do
