@@ -1,0 +1,95 @@
+---
+commonwealth_countries:
+- anguilla
+- ascension-island
+- australia
+- bermuda
+- british-indian-ocean-territory
+- british-virgin-islands
+- cayman-islands
+- canada
+- falkland-islands
+- gibraltar
+- ireland
+- montserrat
+- new-zealand
+- pitcairn
+- south-africa
+- south-georgia-and-south-sandwich-islands
+- turks-and-caicos-islands
+death_registration:
+  clickbook:
+  - argentina
+  - belgium
+  - belize
+  - bolivia
+  - brazil
+  - bulgaria
+  - chile
+  - china
+  - colombia
+  - costa-rica
+  - czech-republic
+  - ecuador
+  - france
+  - georgia
+  - greece
+  - guatemala
+  - hungary
+  - italy
+  - japan
+  - kazakhstan
+  - kuwait
+  - luxembourg
+  - mexico
+  - netherlands
+  - norway
+  - oman
+  - panama
+  - peru
+  - philippines
+  - portugal
+  - russia
+  - slovakia
+  - sweden
+  - switzerland
+  - united-states
+  - uruguay
+  - vietnam
+  postal_form:
+  - austria
+  - bangladesh
+  - brazil
+  - chile
+  - cyprus
+  - denmark
+  - dominican-republic
+  - finland
+  - france
+  - germany
+  - greece
+  - india
+  - israel
+  - italy
+  - jamaica
+  - japan
+  - korea
+  - mexico
+  - norway
+  - pakistan
+  - peru
+  - portugal
+  - spain
+  - switzerland
+  - united-states
+  postal_no_form:
+  - barbados
+  - belgium
+  - costa-rica
+  - malaysia
+  - sweden
+  - tanzania
+  - thailand
+  postal_return:
+  - italy
+  - spain
