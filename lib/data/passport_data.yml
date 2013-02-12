@@ -308,6 +308,9 @@ kenya:
 kiribati: 
   :type: wellington_new_zealand
   :group: ips_documents_group_1
+korea:
+  :type: hong_kong
+  :group: ips_documents_2
 kosovo: 
   :type: ips_application_1
   :group: ips_documents_group_3
