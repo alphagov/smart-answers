@@ -48,6 +48,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
           add_response 'australia'
         end
         should "give the commonwealth result" do
+          assert_state_variable :country, "Australia"
           assert_current_node :commonwealth_result
         end
       end # Australia (commonwealth country)
@@ -56,6 +57,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
           add_response 'spain'
         end
         should "ask where you want to register the death" do
+          assert_state_variable :country, "Spain"
           assert_current_node :where_do_you_want_to_register_the_death?
         end
         context "answer embassy" do

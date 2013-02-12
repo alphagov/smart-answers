@@ -1,5 +1,7 @@
 status :draft
 
+data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
+
 multiple_choice :where_did_the_death_happen? do
   save_input_as :where_death_happened
   option :uk
@@ -22,8 +24,11 @@ multiple_choice :was_death_expected? do
 end
 
 country_select :which_country? do
+  calculate :country do
+    SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == responses.last }[:name]
+  end
   next_node do |response|
-    if response =~ /^(australia)$/ # TODO: This should match commonwealth countries (via query class)
+    if data_query.commonwealth_country?(response)
       :commonwealth_result
     else
       :where_do_you_want_to_register_the_death?
