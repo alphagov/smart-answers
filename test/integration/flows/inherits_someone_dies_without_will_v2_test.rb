@@ -2,7 +2,7 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
-class InheritsSomeoneDiesWithoutWillTestV2 < ActiveSupport::TestCase
+class InheritsSomeoneDiesWithoutWillV2Test < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
