@@ -2,6 +2,14 @@ module SmartAnswer
   class FlowRegistry
     class NotFound < StandardError; end
 
+    def self.instance
+      @instance ||= new(FLOW_REGISTRY_OPTIONS)
+    end
+
+    def self.reset_instance
+      @instance = nil
+    end
+
     def initialize(options={})
       @load_path = Pathname.new(options[:load_path] || Rails.root.join('lib', 'flows'))
       @show_drafts = options[:show_drafts]
