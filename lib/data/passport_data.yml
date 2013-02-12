@@ -32,6 +32,9 @@ armenia:
 aruba: 
   :type: washington_usa
   :group: ips_documents_group_1
+ascension-island:
+  :type: pretoria_south_africa
+  :group: ips_documents_group_2
 australia: 
   :type: australia_post
   :group: ips_documents_group_1
