@@ -89,6 +89,9 @@ botswana:
 brazil: 
   :type: washington_usa
   :group: ips_documents_group_2
+british-indian-ocean-territory:
+  :type: ips_application_1
+  :group: ips_documents_group_1
 british-virgin-islands: 
   :type: washington_usa
   :group: ips_documents_group_2
@@ -200,6 +203,9 @@ estonia:
 ethiopia: 
   :type: ethiopia
   :group: ips_documents_group_3
+falkland-islands:
+  :type: ips_application_1
+  :group: ips_documents_group_1
 fiji: 
   :type: wellington_new_zealand
   :group: ips_documents_group_2
@@ -539,6 +545,9 @@ somalia:
 south-africa: 
   :type: pretoria_south_africa
   :group: ips_documents_group_2
+south-georgia-and-south-sandwich-islands:
+  :type: ips_application_1
+  :group: ips_documents_group_1
 south-sudan: 
   :type: pretoria_south_africa
   :group: ips_documents_group_3
@@ -557,6 +566,9 @@ st-kitts-and-nevis:
 st-lucia: 
   :type: washington_usa
   :group: ips_documents_group_2
+st-maarten:
+  :type: washington_usa
+  :group: ips_documents_group_1
 st-pierre-and-miquelon: 
   :type: washington_usa
   :group: ips_documents_group_1
@@ -593,6 +605,9 @@ tanzania:
 thailand: 
   :type: thailand
   :group: ips_documents_group_2
+timor-leste:
+  :type: hong_kong
+  :group: ips_documents_group_1
 togo: 
   :type: ghana 
   :group: ips_documents_group_3
