@@ -1,0 +1,14 @@
+en-GB:
+  flow:
+    register-a-death-v2:
+      title: Register a death
+      meta:
+        description: Find out how to register the death of a british citizen that lived in England, Wales or abroad.
+      body: |
+        Use this tool to register the death of a british citizen that lived in England, Wales or abroad. 
+
+        You need to read different information if:
+
+        - the person lived in Scotland
+        - the person lived in Northern Ireland
+        
