@@ -9,6 +9,135 @@ en-GB:
 
         You need to read different information if:
 
-        - the person lived in Scotland
-        - the person lived in Northern Ireland
-        
+        - [the person lived in Scotland](http://www.gro-scotland.gov.uk/regscot/registering-a-death.html "Registering a death in Scotland"){:rel="external"}
+        - [the person lived in Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/death-and-bereavement/death-and-bereavement-what-to-do-when-someone-dies/registering-a-death.htm "Registering a death in Northern Ireland"){:rel="external"}
+      
+      options:
+        "yes": "Yes"
+        "no": "No"
+      where_did_the_death_happen?:
+        title: Where did the death happen?
+        options:
+          england_wales: "England or Wales"
+          scotland_ni: "Scotland or Northern Ireland"
+          overseas: "Outside of the UK"
+      death_at_home_hospital_elsewhere?:
+        title: Did the person die at home, in hospital or elsewhere?
+        options:
+          home_or_hospital: "At home or in hospital"
+          elsewhere: "Elsewhere"
+      was_death_expected?:
+        title: Was the death expected?
+      which_country?:
+        title: Where did the death happen?
+      where_do_you_want_to_register_the_death?:
+        title: Where would be more convenient to register the death?
+        options:
+          embassy: "At the British embassy, consulate or high commission in the country where the person died."
+          fco_uk: "With the Foreign & Commonwealth Office in the UK"
+      phrases:
+        country_registration_form_download: |
+          [Download ‘Death registration form’](%{registration_form_url} "Download ‘Death registration form’"){:rel="external"}
+      embassy_result:
+        title: |
+          You must register the death with the local authorities in %{country_name}. They will give you a death certificate.
+        body: |
+          ##Register the death with the UK authorities
+
+          You can also register the death with the British Embassy, Consulate or High Commission in %{country_name}.
+
+          You don’t have to do this, but it means:
+
+          - getting a British-style death certificate
+          - having the death registered at the General Registry Office in the UK
+
+          How to register
+
+          Download and complete a registration form.
+
+
+          $D
+            %{registration_form}
+            [Download ‘Death registration form’](http://uk.sitestat.com/fcoweb/fcogov/s?fco.en.travel-and-living-abroad.births-deaths-marriages-civil.registering-a-death.p.pdf.death-registration-app-form-130812&ns_type=pdf&ns_url=http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/death-registration-app-form-130812 "Download ‘Death registration form’"){:rel="external"}
+          $D
+
+          ##Documents
+
+          You must provide:
+
+          - a local death certificate (not a certificate issued by a doctor)
+          - the person’s passport
+
+          You should fill out form D1 if you include their passport.
+
+          If the passport is lost or unavailable, fill out form LS01 and send their full UK birth certificate (if possible) as proof of citizenship.
+
+          [Download ‘Form LS01’](http://www.fco.gov.uk/resources/en/pdf/pdf20/fco_loststolenpassport "Download ‘Form LS01’"){:rel="external"}
+
+          [Download ‘Form D1’](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/d1-returnpassportofdeceased.pdf "Download ‘Form D1’"){:rel="external"}
+
+
+          ##Cost
+          
+          Service | Fee
+          -|-
+          Register a death | £105
+          Copy of a death registration certificate | £65
+
+          See a [list of consular service fees in local currency](https://www.gov.uk "List of consular fees in local currency"){:rel="external"}.
+
+          ^Registration should take around 5 working days.^
+
+      fco_result:
+        title: You must register the death with the local authorities in %{country_name}. They will give you a death certificate.
+        body: |
+          ##Registering the death with the UK authorities
+
+          You can also register the death with the Foreign & Commonwealth Office (FCO) in the UK.
+
+          You don’t have to do this, but advantages include:
+
+          - getting a British-style death certificate
+          - having the death registered at the General Registry Office in the UK
+
+          ##How to register
+
+          Download and complete a death registration form.
+
+          [Download ‘Death registration form’](http://uk.sitestat.com/fcoweb/fcogov/s?fco.en.travel-and-living-abroad.births-deaths-marriages-civil.registering-a-death.p.pdf.death-registration-app-form-130812&ns_type=pdf&ns_url=http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/death-registration-app-form-130812 "Download ‘Death registration form’"){:rel="external"}
+
+
+          ##Documents
+
+          You must provide:
+
+          - a local death certificate (not a certificate issued by a doctor)
+          - the person’s passport
+
+          ##Cost
+          
+          Service | Fee
+          -|-
+          Register a death | £105
+          Copy of a death registration certificate | £65
+          
+          Pay by postal order or bank draft made payable to ‘FCO’. Personal cheques aren’t accepted.
+
+          ##Send your registration
+
+          Post the form, documentation and the correct fee to FCO.
+
+
+          $A
+            Foreign & Commonwealth Office
+            Rm K4.9
+            King Charles Street
+            London
+            SW1A 2AH
+          $A
+            
+          We'll return your documents within 20 working days.
+
+          ^Registration takes about 8 weeks.^
+
+          %{unexpected_death_fco}
