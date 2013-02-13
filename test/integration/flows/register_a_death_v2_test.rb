@@ -159,7 +159,8 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
             add_response 'embassy'
           end
           should "give the embassy result and be done" do
-            assert_state_variable :registration_form_url, "http://ukinspain.fco.gov.uk/resources/en/pdf/help-for-BNs/DeathRegForm"
+            assert_state_variable :registration_form_url, 
+              "http://ukinspain.fco.gov.uk/resources/en/pdf/help-for-BNs/DeathRegForm"
             assert_phrase_list :registration_form, [:country_registration_form_download]
             assert_current_node :embassy_result
           end
@@ -170,9 +171,10 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
           end
           should "give the fco result and be done" do
             assert_current_node :fco_result
+            assert_state_variable :unexpected_death_section, ''
           end
         end # Answer fco 
-      end
+      end # Answer Spain
     end # Answer yes
 
     context "answer no" do
@@ -182,6 +184,24 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
       should "ask which country" do
         assert_current_node :which_country?
       end
+      context "answer Morocco" do
+        setup do
+          add_response 'morocco'
+        end
+        should "ask where you want to register the death" do
+          assert_state_variable :country_name, "Morocco"
+          assert_current_node :where_do_you_want_to_register_the_death?
+        end
+        context "answer fco office in the uk" do
+          setup do
+            add_response 'fco_uk'
+          end
+          should "give the fco result and be done" do
+            assert_current_node :fco_result
+            assert_phrase_list :unexpected_death_section, [:unexpected_death]
+          end
+        end # Answer fco 
+      end # Morocco
     end
   end # Overseas
 end

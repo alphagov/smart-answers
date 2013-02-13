@@ -54,6 +54,7 @@ multiple_choice :where_do_you_want_to_register_the_death? do
 end
 
 outcome :commonwealth_result
+
 outcome :uk_result do
   precalculate :content_sections do
     sections = PhraseList.new
@@ -72,18 +73,18 @@ outcome :uk_result do
     sections
   end
 end
-outcome :fco_result do
 
+outcome :fco_result do
+  precalculate :unexpected_death_section do
+    death_expected ? '' : PhraseList.new(:unexpected_death) 
+  end
 end
+
 outcome :embassy_result do
   precalculate :registration_form_url do
     data_query.data['death_registration']['registration_forms'][country]
   end
   precalculate :registration_form do
-    if registration_form_url
-      PhraseList.new(:country_registration_form_download)
-    else
-      ''
-    end
+    registration_form_url ? PhraseList.new(:country_registration_form_download) : ''
   end
 end
