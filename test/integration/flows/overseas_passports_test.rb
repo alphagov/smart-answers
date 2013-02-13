@@ -349,7 +349,21 @@ Thurs: 0600-1300 GMT (0800-1500 local time))
             assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
             assert_phrase_list :send_your_application, [:send_application_ips1]
             assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
+            assert_state_variable :embassy_address, nil
+            assert_state_variable :supporting_documents, 'ips_documents_group_1'
+          end
+        end
+        context "answer UK" do
+          should "give the application result with the UK documents" do
+            add_response "united-kingdom"
+            assert_current_node :ips_application_result
+            assert_phrase_list :how_long_it_takes, [:how_long_applying_ips1, :how_long_it_takes_ips1]
+            assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :ips_documents_group_3]
+            assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
+            assert_phrase_list :send_your_application, [:send_application_ips1]
+            assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
             assert_state_variable :embassy_address, nil 
+            assert_state_variable :supporting_documents, 'ips_documents_group_3'
           end
         end
       end

@@ -101,7 +101,7 @@ country_select :country_of_birth?, include_uk: true do
   end
 
   calculate :supporting_documents do
-    application_group
+    responses.last == 'united-kingdom' ? supporting_documents : application_group
   end
 
   next_node do |response|
