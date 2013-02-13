@@ -17,7 +17,7 @@ commonwealth_countries:
 - south-africa
 - south-georgia-and-south-sandwich-islands
 - turks-and-caicos-islands
-death_registration:
+death:
   registration_forms:
     brazil: http://ukinbrazil.fco.gov.uk/resources/en/pdf/pdf1/postbr_deathregform
     france: http://uk.sitestat.com/fcoweb/ukingov/s?lon.fra.en.help-for-british-nationals.living-in-france.consularbirthregistration.p.pdf.Birth-pack-1212&ns_type=pdf&ns_url=http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/Birth-pack-1212

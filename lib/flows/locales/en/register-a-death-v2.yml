@@ -193,6 +193,7 @@ en-GB:
           
           If the body’s being brought back to England or Wales to be cremated, the person bringing the body home must report this to the English or Welsh coroner - they will issue a Certificate for Cremation (form 6).  
 
+
 # Outcomes
 #
       uk_result:
@@ -247,6 +248,14 @@ en-GB:
           See a [list of consular service fees in local currency](https://www.gov.uk "List of consular fees in local currency"){:rel="external"}.
 
           ^Registration should take around 5 working days.^
+
+          ##Go to the embassy
+          
+          You can book an appointment at the embassy and bring along the registration form, supporting documents and the fee.
+
+          %{clickbook}
+
+          %{postal}
 
       fco_result:
         title: You must register the death with the local authorities in %{country_name}. They will give you a death certificate.

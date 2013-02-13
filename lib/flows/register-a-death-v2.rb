@@ -82,9 +82,18 @@ end
 
 outcome :embassy_result do
   precalculate :registration_form_url do
-    data_query.data['death_registration']['registration_forms'][country]
+    data_query.data['death']['registration_forms'][country]
   end
   precalculate :registration_form do
     registration_form_url ? PhraseList.new(:country_registration_form_download) : ''
+  end
+  precalculate :clickbook_url do
+    clickbook = data_query.data['death']['clickbook'][country]
+    clickbook['url'] if clickbook
+  end
+  precalculate :clickbook do
+    clickbook_url ? PhraseList.new(:embassy_clickbook) : ''
+  end
+  precalculate :postal do
   end
 end
