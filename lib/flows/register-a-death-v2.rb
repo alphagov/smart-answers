@@ -4,28 +4,32 @@ data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
 
 multiple_choice :where_did_the_death_happen? do
   save_input_as :where_death_happened
-  option :england_wales => :death_at_home_hospital_elsewhere?
-  option :scotland_ni => :death_at_home_hospital_elsewhere?
+  option :england_wales => :did_the_person_die_at_home_hospital?
+  option :scotland_northern_ireland => :did_the_person_die_at_home_hospital?
   option :overseas => :was_death_expected?
 end
 
-multiple_choice :death_at_home_hospital_elsewhere? do
-  save_input_as :home_hospital_elsewhere
-  option :home_or_hospital
+multiple_choice :did_the_person_die_at_home_hospital? do
+  option :at_home_hospital
   option :elsewhere
+  calculate :died_at_home_hospital do
+    responses.last == 'at_home_hospital'
+  end
   next_node :was_death_expected?
 end
 
 multiple_choice :was_death_expected? do
-  save_input_as :death_expected
   option :yes
   option :no
-
+  
+  calculate :death_expected do
+    responses.last == 'yes'
+  end
   next_node do |response|
-    if where_did_the_death_happen == 'uk'
-      :uk_result
-    else
+    if where_death_happened == 'overseas'
       :which_country?
+    else
+      :uk_result
     end
   end
 end
@@ -50,7 +54,24 @@ multiple_choice :where_do_you_want_to_register_the_death? do
 end
 
 outcome :commonwealth_result
-outcome :uk_result
+outcome :uk_result do
+  precalculate :content_sections do
+    sections = PhraseList.new
+    if where_death_happened == 'england_wales'
+      sections << :intro_ew << :who_can_register
+      sections << (died_at_home_hospital ? :who_can_register_home_hospital : :who_can_register_elsewhere)
+      sections << :"what_you_need_to_do_#{death_expected ? :expected : :unexpected}"
+      sections << :need_to_tell_registrar
+      sections << :"documents_youll_get_ew_#{death_expected ? :expected : :unexpected}"
+    else
+      sections << :intro_other
+      sections << :intro_other_unexpected unless death_expected
+      #who can register and documents you need sections are not needed for this type of outcome
+      sections << :"documents_youll_get_other_#{death_expected ? :expected : :unexpected}"
+    end
+    sections
+  end
+end
 outcome :fco_result do
 
 end
