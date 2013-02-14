@@ -1,0 +1,419 @@
+en-GB:
+  flow:
+    getting-married-overseas:
+      title: Getting married overseas
+      meta:
+        description: Requirements, paperwork and processes for marriage and civil paertnerships overseas - registration, restrictions, fees
+        options:
+          "afghanistan" : "Afghanistan"
+
+      body: |
+        Find out what you need to do if you're a British citizen and want to get married or enter into a civil partnership overseas.
+
+      #Q1
+      partner_opposite_or_same_sex?:
+        title: Is your partner of the opposite sex, or the same sex?
+        options:
+          marriage: Opposite sex
+          cp: Same sex
+      #Q2
+      country_ceremony_to_take_place_in?:
+        title: Where would you like the ceremony to take place?
+
+      #Q3
+      where_are_you_legally_resident?:
+        title: Are you legally resident in the UK, %{country_name} or somewhere else?
+        options:
+          uk_resident: "UK"
+          local_resident: "%{country_name}"
+          other_resident: "Somewhere else"
+
+      #Q4
+      partner_citizenship?:
+        title: What is your partner's citizenship?
+        options:
+          partner_british: "British"
+          partner_irish: "Irish"
+          partner_local: "citizen of %{country_name}"
+          partner_other: "citizen of another country"
+
+      #Q5
+      partner_citizenship_sp_eire?:
+        title: What is your partner's citizenship?
+        options:
+          partner_british_sp_eire: "British"
+          partner_irish_sp_eire: "Irish"
+          partner_other_eu: citizen of another EU country](http://europa.eu/about-eu/countries/index_en.htm "Europa - countries in the EU"){:rel="external"}
+          partner_non_eu: citizen of a non-EU country
+
+      phrases:
+        commonwealth_uk_resident: |
+          Contact the [High Commission of %{country_name}](/government/publications/foreign-embassies-in-the-uk "Foreign embassies in the UK") to find out about local marriage laws, including what documents you’ll need.
+
+          ^You should [get legal advice](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"} and check the [travel advice for %{country_name}](/traveladvice/%{country_ceremony} "Travel advice for %{country_name}") before making any plans.^
+        commonwealth_local_resident: |
+          Contact the relevant local authorities to find out about local marriage laws, including what documents you’ll need. The British High Commission may also be able to advise, or put you in touch with the relevant local authorities if you don’t know who to contact.
+
+
+          $A
+            %{embassy_details}
+          $A
+
+          You should also get legal advice before making any plans.
+        commonwealth_other_resident: |
+          Contact your nearest embassy or consulate of %{country_name} before making any plans to find out about local marriage laws, including what documents you’ll need. The local British high commission or consulate where you’re getting married may also be able to advise.
+
+
+          $A
+            %{embassy_details}
+          $A
+
+
+          ^You should get legal advice and check the [travel advice for %{country_name}](/travel/advice/country_ceremony "Travel advice for [country]") before making any plans.^
+        commonwealth_cypus: |
+          ###Special requirements for Cyprus
+
+          If you’re resident in Cyprus but you’ve been there for less than 3 years, you need to provide evidence that you’re allowed to marry. However, the [General Register Office](http://www.gro.gov.uk/gro/content/ "General Register Office"){:rel="external"} (GRO) in the UK can only provide letters covering a specified 3-year period, not including the most recent 18 months.
+
+          You should [contact the municipality](http://www.ucm.org.cy/Account_List.aspx "Municipalities in Cyprus"){:rel="external"} in the area of Cyprus where you'd like to marry to check if they’ll accept this.
+        commonwealth_south_africa: |
+          ^If you’re asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to marry, you’ll need to explain that this isn’t possible. The UK doesn’t issue CNIs for marriages in Commonwealth countries.^
+        commonwealth_india: |
+          ^If you’re asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to marry, you’ll need to explain that this isn’t possible. The UK doesn’t issue CNIs for marriages in Commonwealth countries, but the British High Commission can provide you with a letter explaining this position for a charge - see consular fees for India.^
+        commonwealth_malaysia: |
+          ###Special requirements for Malaysia
+
+          If you or your partner is a Muslim, you can only get married in Malaysia through an Islamic ceremony. Otherwise, you’ll need to have a civil marriage.
+
+          The Malaysian National Registration Department's website has [guidance on marriage registration in English.](http://www.jpn.gov.my/en/servicesmarriageordivorce "Malaysian National Registration Department - marriage and divorce"){:rel="external"}
+
+          If you’re asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to marry, you’ll need to explain that this isn’t possible. The UK doesn’t issue CNIs for marriages in Commonwealth countries, but the British High Commission can provide you with a letter explaining this position for a charge - see consular fees for Malaysia.
+
+          You’ll need to get this letter ‘legalised’ (certified as genuine) by the [Malaysian Ministry of Foreign Affairs](http://www.kln.gov.my/web/guest/in-malaysia "Malaysian Ministry of Foreign Affairs - services offered to foreigners in Malaysia"){:rel="external"} to be able to register your marriage.
+        commonwealth_malta: |
+          ^You’ll need to register your marriage with the Maltese authorities - you can do this on the [Maltese Public Registry website.](https://secure2.gov.mt/certifikati/Marriage.aspx "Maltese Public Registry - Application for marriage certificate"){:rel="external"}^
+        commonwealth_new_zealand: |
+          ^You’ll need to [get a marriage licence](http://www.dia.govt.nz/diawebsite.nsf/wpg_URL/Services-Births-Deaths-and-Marriages-How-to-Get-a-Marriage-Licence "New Zealand Department of Internal Affairs - How to get a marriage licence"){:rel="external"} so your marriage can be officially registered by the New Zealand authorities.^
+        commonwealth_singapore: |
+          The [Singapore Registry of Marriages](http://app.rom.gov.sg/ "Singapore Registry of Marriages") and the [Singapore Registry of Muslim Marriages](http://app.romm.gov.sg/ "Singapore Registry of Muslim Marriages"){:rel="external"} websites have guidance on marriage registration in English.
+
+          If you’re asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to marry, you’ll need to explain that this isn’t possible. The UK doesn’t issue CNIs for marriages in Commonwealth countries, but you can swear an affidavit that you are free to marry in front of a local [notary public or commissioner of oaths.](http://www.conp.sg/co-np-directory-listing "Singapore Academy of Law - directory of commissioners of oaths and notaries public"){:rel="external"}
+        commonwealth_brunei: |
+          If you or your partner is a Muslim, you can only get married in Brunei through an Islamic ceremony. Otherwise, you’ll need to have a civil marriage.
+
+          The Brunei Darussalam Judiciary website has [guidance on civil marriage registration in English.](http://www.judicial.gov.bn/brujud/index.php?option=com_content&task=view&id=72&Itemid=171 "Brunei Darussalam Registry of Civil Marriages"){:rel="external"}
+        commonwealth_partner_naturalisation: |
+          ##Naturalisation of your foreign partner 
+
+          If you both settle in the UK after getting married, your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen "Becoming a British citizen - If your spouse is a British citizen") after 3 years.
+        burma_local_citizen: |
+          %Marriage between a Burmese citizen and a foreign national is not permitted under local law.%
+        north_korea_local_citizen: |
+          %Marriage between a citizen of North Korea and a foreign national is not permitted under local law.%
+        saudi_arabia_local_resident: |
+          ^You can only get married under local laws in Saudi Arabia if one of you is a Muslim. You can only get married at the British Embassy if you’re resident in the country.^
+
+          Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/ "Royal Embassy of Saudi Arabia in the UK"){:rel="external"} to find out about local marriage laws.
+
+          The British Embassy in Saudi Arabia may also be able to advise, or put you in touch with the relevant local authorities.
+
+
+          $A
+            %{embassy_details}
+          $A
+        saudi_arabia_local_resident_partner_irish: |
+          ^You can only get married under local laws in Saudi Arabia if one of you is a Muslim. You can’t get married at the British Embassy in Saudi Arabia if one of you is an Irish citizen, as the Irish authorities do not recognise consular marriages.^
+
+          Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/ "Royal Embassy of Saudi Arabia in the UK"){:rel="external"} to find out about local marriage laws.
+
+          The British Embassy in Saudi Arabia may also be able to advise, or put you in touch with the relevant local authorities.
+
+
+          $A
+            %{embassy_details}
+          $A
+        saudi_arabia_local_resident_partner_not_irish: |
+          You can only get married under local laws in Saudi Arabia if one of you is a Muslim. Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/ "Royal Embassy of Saudi Arabia in the UK"){:rel="external"} to find out about local marriage laws.
+
+          The British Embassy in Saudi Arabia may also be able to advise, or put you in touch with the relevant local authorities.
+
+
+          $A
+            %{embassy_details}
+          $A
+
+          ##Getting married at the British Embassy
+
+          If you’re resident in Saudi Arabia and neither of you is a Muslim, you can apply to get married at the British Embassy.
+        british_indian_ocean_territory_text: |
+          Access to the British Indian Ocean Territory is restricted, and it’s unlikely that marriage would be permitted there. 
+
+          Contact the British Indian Ocean Territory Administration for further details.
+
+
+          $A
+            %{embassy_details}
+          $A
+        british_overseas_territory_text: |
+          %{country_name} is a British overseas territory. This means your marriage will be automatically recognised in the UK. 
+
+          Contact the %{country_name} Government to find out about getting married there, including what documents you’ll need. This will include your:
+
+          - passport
+          - [full birth certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate")
+          - equivalent documents for your partner
+
+          If you’ve been divorced or widowed, you’ll also need:
+
+          - a [decree absolute or final order](/copy-decree-absolute-final-order "Get a copy of a decree absolute or final order"), or
+          - the [death certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate")
+
+          Contact the %{country_name} Government if you need more information or advice. You should also get legal advice before making any plans.
+        british_overseas_territory_not_local_resident: |
+          You should also check the [travel advice for %{country_name}](/foreign-travel-advice/%{country_ceremony} "Travel advice for %{country_name}") before making any plans.
+        british_overseas_territory_partner_naturalisation: |
+          ##Naturalisation of your foreign partner 
+
+          If you both settle in the UK after getting married, your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen "Becoming a British citizen - If your spouse is a British citizen") after 3 years.
+        australia_cp_partner_naturalisation: |
+          ##Naturalisation of your foreign partner 
+
+          If you both settle in the UK after your civil partnership, your partner can apply to [become a British citizen](http://www.ukba.homeoffice.gov.uk/britishcitizenship/eligibility/naturalisation/spouseorcivilpartnerofcitizen/ "UK Border Agency - requirements for naturalisation if you are married to or the civil partner of a British citizen"){:rel="external"} after 3 years.
+        consular_cni_marriage_dutch_islands: |
+          %{country_name} is one of the Dutch Caribbean islands. The rules and requirements for getting married there are similar to the Netherlands.
+        consular_cni_marriage_middle_east_countries: |
+          ^There are no civil marriages in %{country_name}, but you can get married through a religious ceremony at a church or Sharia court.^
+        counsular_cni_marriage_dutch_islands_uk_resident: |
+          Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121 "Contact the Embassy of the Kingdom of the Netherlands"){:rel="external"} before making any plans to find out about local marriage laws, including what documents you’ll need.
+
+          You should also check the [travel advice for %{country_name}](/foreign-travel-advice/%{country-ceremony} "Travel advice for %{country_name}").
+        counsular_cni_marriage_dutch_islands_local_resident: |
+          Contact the relevant local authorities in %{country_name} to find out about local marriage laws, including what documents you’ll need. The British Consulate in Curaçao may also be able to advise, or put you in touch with the relevant local authorities if you don’t know who to contact.
+
+
+          $A
+            %{embassy_details}
+          $A
+        counsular_cni_marriage_dutch_islands_other_resident: |
+          Contact your nearest Dutch embassy or consulate before making any plans to find out about local marriage laws, including what documents you’ll need. The British Consulate in Curaçao may also be able to advise.
+
+
+          $A
+            %{embassy_details}
+          $A
+
+          You should also check the [travel advice for %{country_name}](/foreign-travel-advice/%{country_ceremony} "Travel advice for %{country_name}").
+        counsular_cni_marriage_non_dutch_islands_uk_resident: |
+          Contact the [Embassy of %{country_name}](/government/publications/foreign-embassies-in-the-uk "Foreign embassies in the UK") before making any plans to find out about local marriage laws, including what documents you’ll need.
+
+          You should also check the [travel advice for %{country_name}](/foreign-travel-advice/%{country_ceremony} "Travel advice for [country]").
+        consular_cni_marriage_non_dutch_islands_local_resident: |
+          Contact the relevant local authorities in %{country_name} to find out about local marriage laws, including what documents you’ll need. The local British embassy or consulate may also be able to advise, or put you in touch with the relevant local authorities if you don’t know who to contact.
+
+
+          $A
+            %{embassy_details}
+          $A
+        counsular_cni_marriage_non_dutch_islands_other_resident: |
+          Contact your nearest embassy or consulate of %{country_name} to find out about local marriage laws, including what documents you’ll need. The local British embassy or consulate where you’re getting married may also be able to advise.
+
+
+          $A
+            %{embassy_details}
+          $A
+
+          You should also check the [travel advice for %{country_name}](/foreign-travel-advice/%{country_ceremony} "Travel advice for [country]") before making any plans.
+        consular_cni_marriage_middle_east_countries: |
+          ^There are no civil marriages in [country], but you can get married through a religious ceremony at a church or Sharia court.^
+        consular_cni_marriage_middle_east_local_resident_not_irish: |
+          You may be able to get married at the British Embassy if you're both resident in %{country_name} and can prove that there are no other suitable facilities.
+
+          Contact the British Embassy in %{country_name} to find out how to apply.
+        consular_cni_marriage_spain: |
+          Civil weddings in Spain take place at a town hall, register office or district court. If you have a religious wedding, you’ll need to make sure that it’s registered with the local civil authorities afterwards so you can get an official marriage certificate.
+        consular_cni_marriage_uk_resident: |
+          ^If you follow the correct process according to local law, your marriage should be recognised in the UK - but you should [get legal advice](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"} to make sure.^
+        consular_cni_marriage_non_uk_resident: |
+          ^If you follow the correct process according to local law, your marriage should be recognised in the UK - but you should get legal advice to make sure.^
+        consular_cni_marriage_denmark_germany_spain_denmark: |
+          ^You don’t need a CNI if you’re getting married in the main town hall in Copenhagen.^
+        consular_cni_marriage_denmark_germany_spain_germany: |
+          ^You don’t need a CNI if you’re legally resident in Germany.^
+        consular_cni_marriage_denmark_germany_spain_spain: |
+          ^Depending on where you get married in Spain, you may be required to get a ‘marital status certificate’ (‘certificado de estado civil’) instead of, or as well as, a CNI ('certificado de no impedimento'). Check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC "Spanish Ministry of Justice - civil registries"){:rel="external"} where you’re getting married.^
+        consular_cni_marriage_uk_resident_second_pass_partner_irish: |
+          You can normally get a CNI from your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](/register-offices "Register offices in England and Wales"), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf "Directory of registrars in Scotland"){:rel="external"} or [Northern Ireland.](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm "District Registrars in Northern Ireland"){:rel="external"}
+        consular_cni_marriage_uk_resident_second_pass_partner_not_irish: |
+          If your partner is Irish and you live in England or Wales, you need to get this from the from the Foreign and Commonwealth Office (FCO) in London.
+
+          ^You can get a CNI from your local registrar if you live in [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf "Directory of registrars in Scotland"){:rel="external"} or [Northern Ireland.](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm "District Registrars in Northern Ireland"){:rel="external"}^
+
+          Your Irish partner should contact the Irish authorities to obtain their CNI.
+
+          ###Applying for a CNI from the FCO
+
+          s1. Download the application form.
+          s2. Place a public announcement of your marriage in your local newspaper for at least a week, as described on the form.
+          s3. Swear an affidavit (written statement of facts) in front of a [solicitor](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"} - there’s an example on the form.
+          s4. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
+          s5. You’ll also need to include a pre-paid, self-addressed special delivery envelope, or a £10 postage fee, so the FCO can return your documents.
+          s6. Send your completed form to the FCO with your supporting documents, and a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. Personal cheques aren’t accepted. The address is on the form.
+          s7. FCO will forward your CNI to the local British embassy or consulate where you’re getting married, usually within 20 days - they’ll let you know when it’s ready to collect.
+          s8. The embassy or consulate will charge you an additional fee when you pick it up. It’s normally valid for 3 months, but you should check this with the consulate.
+        consular_cni_marriage_uk_resident_second_pass: |
+          ###Legalisation and translation
+
+          You might need to exchange your UK-issued CNI for one that’s valid in the country where you’re getting married at:
+
+
+          $A
+            %{embassy_details}
+          $A
+
+          You should also check if it needs to be:
+
+          - ‘[legalised]’ (certified as genuine) by the FCO
+          - translated - the embassy or consulate may be able to put you in touch with local translators, or you can contact the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046 "Institute of Linguists - find a translator"){:rel="external"}
+        consular_cni_marriage_local_resident_not_germany: |
+          To get this, you’ll need to give notice of your intended marriage (banns) at your nearest British embassy or consulate:
+
+
+          $A
+            %{embassy_details}
+          $A
+
+          ###Applying for a CNI from the consulate
+
+          You’ll normally need to have been resident in [country] for at least 21 days. You can then book an appointment at the consulate to give notice of your marriage.
+        consular_cni_marriage_other_resident: |
+          To get this, you’ll normally need to give notice of your intended marriage (banns) in the country where you live.
+
+          Contact your nearest [British embassy, consulate or high commission](/find-british-embassy "Find a British embassy") to find out what you need to do.
+
+          ^Some embassies, consulates and high commissions can’t issue CNIs. If they can’t, they should be able to advise you on other ways you can get one.^
+
+          ###Applying for a CNI from the consulate
+
+          If the consulate can give you a CNI, you’ll normally need to have been living in your country of residence for 21 days.
+
+
+
+
+
+
+
+      outcome_uk:
+        title: Marriage in the UK
+        body: See the guide to [marriages and civil partnerships](/marriages-civil-partnerships "Marriages and civil partnerships") in the UK.
+      outcome_marriage_commonwealth:
+        title: Marriage in %{country_name}
+        body: |
+          %{country_name} is a member of the Commonwealth. If you follow the correct process according to local law, your marriage should be recognised in the UK. You won’t need to register with the British consulate.
+
+          ^You can’t deposit a copy of your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/ "General Register Office"){:rel="external"} (GRO) in the UK if you get married in a Commonwealth country.^
+
+          ###What you need to do
+
+          %{commonwealth_residency}
+          %{commonwealth_country_variants}
+          %{commonwealth_just_cyprus}
+          %{commonwealth_naturalisation}
+
+      outcome_marriage_bot:
+        title: Marriage in %{country_name}
+        body: |
+          %{british_overseas_territory_marriage_variant}
+          %{british_overseas_territory_residency_variant}
+          %{british_overseas_territory_naturalisation}
+
+      outcome_marriage_consular_cni:
+        title: Marriage in %{country_name}
+        body: |
+          %{consular_cni_marriage_variant}
+          %{counsular_cni_marriage_residency_variant}
+          %{consular_cni_middle_east_countries_variant}
+          %{consular_cni_marriage_middle_east_countries_local_resident_not_irish}
+          %{consular_cni_marriage_uk_residency_variant}
+          %{consular_cni_marriage_spain_variant}
+          %{consular_cni_marriage_uk_residency_variant}
+
+          ###What you need to do
+
+          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to marry.
+
+          %{consular_cni_marriage_denmark_germany_spain_variant}
+          %{consular_cni_marriage_uk_resident_second_pass_variant}
+          %{consular_cni_marriage_local_resident_not_german_variant}
+          %{consular_cni_marriage_other_resident_variant}
+
+
+      outcome_marriage_italy:
+        title: Marriage in Italy
+
+      outcome_marriage_france_fot:
+        title: Marriage in %{country_name}
+        body: |
+
+
+          ^If you follow the correct process according to local law, your marriage should be recognised in the UK - but you should get legal advice to make sure.^
+
+          Certificate of Custom (ALSO BELGIUM)
+
+      outcome_marriage_greece:
+        title: Marriage in Greece
+
+      outcome_marriage_egypt:
+        title: marriage in Egypt
+
+      outcome_marriage_consular_no_cni:
+        title: Marriage in country where no CNI or affirtmation required
+
+      outcome_marriage_burma:
+        title: Marriage in Burma
+        body: |
+          The British Embassy in Rangoon doesn’t register marriages of British citizens in Burma. Contact the embassy if you need further advice.
+
+
+          $A
+            %{embassy_details}
+          $A
+
+          %{burma_marriage_variant}
+
+      outcome_marriage_north_korea:
+        title: Marriage in North Korea
+        body: |
+          It’s very unlikely that two foreign nationals would be permitted to marry in North Korea, but this may be possible in exceptional circumstances. Contact the British Embassy in Pyongyang if you need further advice.
+
+
+          $A
+            %{embassy_details}
+          $A
+
+          %{north_korea_marriage_variant}
+
+      outcome_marriage_iran_somalia_syria:
+        title: Marriage in %{country_name}
+        body: |
+          There are currently no British consular services available in %{country_name}. See below if you need further advice
+
+
+          $A
+            %{embassy_details}
+          $A
+
+
+      outcome_marriage_saudi_arabia:
+        title: Marriage in Saudi Arabia
+        body: |
+          %{saudi_arabia_marriage_variant}
+
+      outcome_cp_spain:
+        title: Same-sex marriage in Spain
+
+      outcome_cp_australia:
+        title: Civil Parnership in Australia
+        body: |
+          You can enter into a civil partnership in Australia. It's known as a 'significant relationship'.
+
+          %{australia_cp_naturalisation}
