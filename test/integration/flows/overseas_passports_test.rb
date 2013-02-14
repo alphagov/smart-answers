@@ -486,6 +486,15 @@ If you need to contact the Embassy in an emergency out of hours you should telep
       assert_phrase_list :how_to_apply_supplement, [:how_to_apply_india]
     end
   end # India (FCO with custom phrases)
+  context "answer Jamaica, replacement, adult passport" do
+    should "give the fco result with custom phrases" do
+      add_response 'jamaica'
+      add_response 'replacing'
+      add_response 'adult'
+      assert_current_node :fco_result
+      assert_phrase_list :cost, [:passport_courier_costs_jamaica, :adult_passport_costs_jamaica, :passport_costs_washington_usa]
+    end
+  end # Jamaica (Custom courier costs affecting all costs) 
   context "answer Malta, replacement, adult passport" do
     should "give the fco result with custom phrases" do
       add_response 'malta'

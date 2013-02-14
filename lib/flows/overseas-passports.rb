@@ -217,19 +217,16 @@ outcome :fco_result do
   end
 
   precalculate :cost do
+    cost_type = application_type
     # All european FCO applications cost the same
-    if application_type =~ /^(dublin_ireland|madrid_spain|paris_france)$/
-      cost_type = 'fco_europe'
-    else
-      cost_type = application_type
-    end
+    cost_type = 'fco_europe' if application_type =~ /^(dublin_ireland|madrid_spain|paris_france)$/
+    # Jamaican courier costs vary from the USA FCO office standard.
+    cost_type = current_location if current_location == 'jamaica'
+    
+    payment_methods = "passport_costs_#{application_type}".to_sym
     # Malta and Netherlands have custom payment methods
-    if current_location =~ /^(malta|netherlands)$/
-      payment_methods = :passport_costs_malta_netherlands
-    else
-      payment_methods = "passport_costs_#{application_type}".to_sym
-    end
-
+    payment_methods = :passport_costs_malta_netherlands if current_location =~ /^(malta|netherlands)$/
+      
     PhraseList.new("passport_courier_costs_#{cost_type}".to_sym,
                    "#{child_or_adult}_passport_costs_#{cost_type}".to_sym, 
                    payment_methods)

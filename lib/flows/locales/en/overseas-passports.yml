@@ -75,7 +75,10 @@ en-GB:
           If you're paying by card you must send a [card payment authorisation form (PDF, 198KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/637091482/credit-card-form-12-2011 "Card authorisation form (PDF, 198KB)"){:rel="external"} with your application. You can't pay in cash.
 
         passport_courier_costs_washington_usa: |
-          You’ll have to pay a fee for your passport and a courier fee of US $33. The courier fee pays for your passport and supporting documents to be sent back to you securely. 
+          You’ll have to pay a fee for your passport and a courier fee of US $33. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+
+        passport_courier_costs_jamaica: |
+          You’ll have to pay a fee for your passport and a courier fee of US $38. The courier fee pays for your passport and supporting documents to be sent back to you securely. 
 
         adult_passport_costs_washington_usa: |
           | Passport type |	Passport fee |	Total to pay (including courier fee) |
@@ -87,6 +90,17 @@ en-GB:
           | Passport type |	Passport fee |	Total to pay (including courier fee) |
           |---------------|--------------|---------------------------------------|
           | Child passport |	US $134 |	US $167 |
+
+        adult_passport_costs_jamaica: |
+          | Passport type |	Passport fee |	Total to pay (including courier fee) |
+          |---------------|--------------|---------------------------------------|
+          | Adult standard 32-page passport |	US $211 |	US $249 |
+          | Adult jumbo 48-page passport | US $255 | US $293 |
+          
+        child_passport_costs_jamaica: |
+          | Passport type |	Passport fee |	Total to pay (including courier fee) |
+          |---------------|--------------|---------------------------------------|
+          | Child passport |	US $134 |	US $172 |
 
         passport_costs_washington_usa:
           You must pay using a Visa or Mastercard. [Download a credit card authorisation form (PDF, 64KB)](http://ukinusa.fco.gov.uk/resources/en/pdf/credit-card-form.pdf "Credit card authorisation form (PDF, 64KB)") and send it with your application.
