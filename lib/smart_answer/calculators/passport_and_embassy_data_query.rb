@@ -11,6 +11,7 @@ module SmartAnswer::Calculators
       'ivory-coast' => 'ghana',
       'iraq'  =>  'jordan',
       'liberia' => 'ghana',
+      'mauritania' => 'morocco',
       'togo' => 'ghana',
       'yemen' =>  'jordan'
     }
