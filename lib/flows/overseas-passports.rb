@@ -19,27 +19,48 @@ country_select :which_country_are_you_in? do
   calculate :ips_number do
     application_type.split("_")[2] if is_ips_application 
   end
-  calculate :embassy_data do
-    data = Calculators::PassportAndEmbassyDataQuery.find_embassy_data(current_location)
-    data ? data.first : nil
+  calculate :embassies_data do
+    Calculators::PassportAndEmbassyDataQuery.find_embassy_data(current_location)
+  end
+  calculate :embassy_addresses do
+    addresses = nil
+    unless ips_number.to_i ==  1 or embassies_data.nil?
+      addresses = embassies_data.map do |e| 
+        address = [e['address']] 
+        address << e['office_hours'] if e['office_hours'].present?
+        address.join("\n\n")
+      end
+    end
+    addresses
   end
   calculate :embassy_address do
-    address = nil
-    unless ips_number.to_i ==  1
-      address = embassy_data['address'] if embassy_data
+    if embassy_addresses
+      if responses.last =~ /^(russian-federation|pakistan)$/
+        embassy_addresses.join("\n$A\n\n$A\n  ")
+      else
+        embassy_addresses.first
+      end
     end
-    address
+  end
+  calculate :embassies_details do
+    details = []
+    embassies_data.each do |data|
+      embassy = [data['address']]
+      embassy << data['phone'] if data['phone'].present?
+      embassy << data['email'] if data['email'].present?
+      embassy << data['office_hours'] if data['office_hours'].present?
+      details << embassy.join("\n")
+    end if embassies_data
+    details
   end
   calculate :embassy_details do
-    details = nil
-    if embassy_address
-      details = [embassy_address]
-      details << embassy_data['phone'] if embassy_data['phone'].present?
-      details << embassy_data['email'] if embassy_data['email'].present?
-      details << embassy_data['office_hours'] if embassy_data['office_hours'].present?
-      details = details.join("\n")
+    if embassies_details
+      if responses.last =~ /^(russian-federation|pakistan)$/
+        embassies_details.join("\n$A\n\n$A\n  ")
+      else
+        embassies_details.first
+      end
     end
-    details
   end
 
   calculate :supporting_documents do
@@ -81,7 +102,7 @@ multiple_choice :child_or_adult_passport? do
   next_node do |response|
     case application_type
     when 'australia_post', 'new_zealand'
-      :which_best_describes_you?
+      "which_best_describes_you_#{response}?".to_sym
     when Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP
       %Q(applying renewing_old).include?(application_action) ? :country_of_birth? : :ips_application_result 
     when Calculators::PassportAndEmbassyDataQuery::FCO_APPLICATIONS_REGEXP
@@ -101,7 +122,7 @@ country_select :country_of_birth?, include_uk: true do
   end
 
   calculate :supporting_documents do
-    application_group
+    responses.last == 'united-kingdom' ? supporting_documents : application_group
   end
 
   next_node do |response|
@@ -119,7 +140,7 @@ country_select :country_of_birth?, include_uk: true do
 end
 
 # QAUS1
-multiple_choice :which_best_describes_you? do
+multiple_choice :which_best_describes_you_adult? do
   option "born-in-uk-pre-1983" # 4
   option "born-in-uk-post-1982-uk-father" # 5
   option "born-in-uk-post-1982-uk-mother" # 6
@@ -135,6 +156,22 @@ multiple_choice :which_best_describes_you? do
   option "registered-uk-citizen" # 16
   option "child-born-outside-uk-father-citizen" # 17
   option "woman-married-to-uk-citizen-pre-1949" # 18
+
+  save_input_as :aus_nz_checklist_variant
+
+  next_node :aus_nz_result
+end
+# QAUS1 Child specific options
+multiple_choice :which_best_describes_you_child? do
+  option "born-in-uk-post-1982-uk-father" # 5
+  option "born-in-uk-post-1982-uk-mother" # 6
+  option "born-outside-uk-parents-married" # 7
+  option "born-outside-uk-mother-born-in-uk" # 8
+  option "born-in-uk-post-1982-father-uk-citizen" # 9
+  option "born-in-uk-post-1982-mother-uk-citizen" # 10
+  option "born-in-uk-post-1982-father-uk-service" # 13
+  option "born-in-uk-post-1982-mother-uk-service" # 14
+  option "registered-uk-citizen" # 16
 
   save_input_as :aus_nz_checklist_variant
 
@@ -173,6 +210,7 @@ end
 
 ## IPS Application Result 
 outcome :ips_application_result do
+
   precalculate :how_long_it_takes do
     PhraseList.new("how_long_#{application_action}_ips#{ips_number}".to_sym,
                    "how_long_it_takes_ips#{ips_number}".to_sym)
@@ -201,19 +239,16 @@ outcome :fco_result do
   end
 
   precalculate :cost do
+    cost_type = application_type
     # All european FCO applications cost the same
-    if application_type =~ /^(dublin_ireland|madrid_spain|paris_france)$/
-      cost_type = 'fco_europe'
-    else
-      cost_type = application_type
-    end
+    cost_type = 'fco_europe' if application_type =~ /^(dublin_ireland|madrid_spain|paris_france)$/
+    # Jamaican courier costs vary from the USA FCO office standard.
+    cost_type = current_location if current_location == 'jamaica'
+    
+    payment_methods = "passport_costs_#{application_type}".to_sym
     # Malta and Netherlands have custom payment methods
-    if current_location =~ /^(malta|netherlands)$/
-      payment_methods = :passport_costs_malta_netherlands
-    else
-      payment_methods = "passport_costs_#{application_type}".to_sym
-    end
-
+    payment_methods = :passport_costs_malta_netherlands if current_location =~ /^(malta|netherlands)$/
+      
     PhraseList.new("passport_courier_costs_#{cost_type}".to_sym,
                    "#{child_or_adult}_passport_costs_#{cost_type}".to_sym, 
                    payment_methods)
@@ -245,7 +280,7 @@ end
 ## Generic country outcome.
 outcome :result do
   precalculate :embassy_address do
-    if application_type == 'iraq' # TODO: Mauritania
+    if application_type == 'iraq'
       Calculators::PassportAndEmbassyDataQuery.embassy_data['iraq'].first['address']
     else
       embassy_address

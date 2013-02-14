@@ -9,6 +9,22 @@ en-GB:
 
         % If you were born in or had a connection with Hong Kong and registered as a British National Overseas before 1997, [you must apply a different way.](/bno-passports "Passport applications for British National Overseas from Hong Kong") %
 
+      options:
+        "born-in-uk-pre-1983" : "Born in the UK before 1 January 1983"
+        "born-in-uk-post-1982-uk-father" : "Born in the UK after 31 December 1982 with father born in UK"
+        "born-in-uk-post-1982-uk-mother" : "Born in the UK after 31 December 1982 with mother born in UK"
+        "born-outside-uk-parents-married" : "Born outside the UK, with father born in UK and married to mother at time of birth"
+        "born-outside-uk-mother-born-in-uk" : "Born outside the UK after 31 December 1982 with mother born in UK"
+        "born-in-uk-post-1982-father-uk-citizen" : "Born in the UK after 31 December 1982 with father registered or naturalised as a British Citizen"
+        "born-in-uk-post-1982-mother-uk-citizen" : "Born in the UK after 31 December 1982 with mother registered or naturalised as a British Citizen"
+        "born-outside-uk-father-registered-uk-citizen" : "Born outside the UK after 31 December 1982 and your father was registered or naturalised as a British Citizen"
+        "born-outside-uk-mother-registered-uk-citizen" : "Born outside the UK after 31 December 1982 and your mother registered or naturalised as a British Citizen"
+        "born-in-uk-post-1982-father-uk-service" : "Born after 31 December 1982 and your father was born overseas while he was in British Crown Service after being recruited in the UK"
+        "born-in-uk-post-1982-mother-uk-service" : "Born after 31 December 1982 and your mother was born overseas while her father was in British Crown Service and was recruited in the UK"
+        "married-to-uk-citizen-pre-1983-reg-pre-1988" : "You’re a woman married to a British Citizen before 1 January 1983 and registered as a British Citizen before 1 January 1988"
+        "registered-uk-citizen" : "Registered or naturalised as a British Citizen"
+        "child-born-outside-uk-father-citizen" : "Applying for a child born outside the UK after 1 July 2006, with the father born in UK but not married to mother"
+        "woman-married-to-uk-citizen-pre-1949" : "You’re a woman married to a British Citizen before 1 January 1949"
       which_country_are_you_in?:
         title: Which country are you in?
       renewing_replacing_applying?:
@@ -25,26 +41,10 @@ en-GB:
           child: "Child (aged under 16)"
       country_of_birth?:
         title: Which country were you born in?
-      which_best_describes_you?:
+      which_best_describes_you_adult?:
         title: Which of the following best describes you?
-        options:
-          "born-in-uk-pre-1983" : "Born in the UK before 1 January 1983"
-          "born-in-uk-post-1982-uk-father" : "Born in the UK after 31 December 1982 with father born in UK"
-          "born-in-uk-post-1982-uk-mother" : "Born in the UK after 31 December 1982 with mother born in UK"
-          "born-outside-uk-parents-married" : "Born outside the UK, with father born in UK and married to mother at time of birth"
-          "born-outside-uk-mother-born-in-uk" : "Born outside the UK after 31 December 1982 with mother born in UK"
-          "born-in-uk-post-1982-father-uk-citizen" : "Born in the UK after 31 December 1982 with father registered or naturalised as a British Citizen"
-          "born-in-uk-post-1982-mother-uk-citizen" : "Born in the UK after 31 December 1982 with mother registered or naturalised as a British Citizen"
-          "born-outside-uk-father-registered-uk-citizen" : "Born outside the UK after 31 December 1982 and your father was registered or naturalised as a British Citizen"
-          "born-outside-uk-mother-registered-uk-citizen" : "Born outside the UK after 31 December 1982 and your mother registered or naturalised as a British Citizen"
-          "born-in-uk-post-1982-father-uk-service" : "Born after 31 December 1982 and your father was born overseas while he was in British Crown Service after being recruited in the UK"
-          "born-in-uk-post-1982-mother-uk-service" : "Born after 31 December 1982 and your mother was born overseas while her father was in British Crown Service and was recruited in the UK"
-          "married-to-uk-citizen-pre-1983-reg-pre-1988" : "You’re a woman married to a British Citizen before 1 January 1983 and registered as a British Citizen before 1 January 1988"
-          "registered-uk-citizen" : "Registered or naturalised as a British Citizen"
-          "child-born-outside-uk-father-citizen" : "Applying for a child born outside the UK after 1 July 2006, with the father born in UK but not married to mother"
-          "woman-married-to-uk-citizen-pre-1949" : "You’re a woman married to a British Citizen before 1 January 1949"
-
-
+      which_best_describes_you_child?:
+        title: Which of the following best describes you?
       phrases:
         how_long_applying_fco:
           Your application will take **at least** 6 weeks. You may have to attend an interview.
@@ -75,7 +75,10 @@ en-GB:
           If you're paying by card you must send a [card payment authorisation form (PDF, 198KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/637091482/credit-card-form-12-2011 "Card authorisation form (PDF, 198KB)"){:rel="external"} with your application. You can't pay in cash.
 
         passport_courier_costs_washington_usa: |
-          You’ll have to pay a fee for your passport and a courier fee of US $33. The courier fee pays for your passport and supporting documents to be sent back to you securely. 
+          You’ll have to pay a fee for your passport and a courier fee of US $33. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+
+        passport_courier_costs_jamaica: |
+          You’ll have to pay a fee for your passport and a courier fee of US $38. The courier fee pays for your passport and supporting documents to be sent back to you securely. 
 
         adult_passport_costs_washington_usa: |
           | Passport type |	Passport fee |	Total to pay (including courier fee) |
@@ -87,6 +90,17 @@ en-GB:
           | Passport type |	Passport fee |	Total to pay (including courier fee) |
           |---------------|--------------|---------------------------------------|
           | Child passport |	US $134 |	US $167 |
+
+        adult_passport_costs_jamaica: |
+          | Passport type |	Passport fee |	Total to pay (including courier fee) |
+          |---------------|--------------|---------------------------------------|
+          | Adult standard 32-page passport |	US $211 |	US $249 |
+          | Adult jumbo 48-page passport | US $255 | US $293 |
+          
+        child_passport_costs_jamaica: |
+          | Passport type |	Passport fee |	Total to pay (including courier fee) |
+          |---------------|--------------|---------------------------------------|
+          | Child passport |	US $134 |	US $172 |
 
         passport_costs_washington_usa:
           You must pay using a Visa or Mastercard. [Download a credit card authorisation form (PDF, 64KB)](http://ukinusa.fco.gov.uk/resources/en/pdf/credit-card-form.pdf "Credit card authorisation form (PDF, 64KB)") and send it with your application.
@@ -117,7 +131,7 @@ en-GB:
           | Adult standard 32-page passport	| 156 Euros | 180 Euros |
           | Adult jumbo 48-page passport | 188 Euros | 212 Euros |
         
-        child_passport_costs_paris_france: |
+        child_passport_costs_fco_europe: |
           | Passport type |	Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
           | Child passport | 99 Euros | 123 Euros |
@@ -212,7 +226,7 @@ en-GB:
 
           __Blank application form__ (print, fill in on paper and sign)
 
-            [Download ‘Passport application form for children aged under 16’ (505KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2.pdf "Download ‘Passport application form for children aged 16 and under’ (505KB)")
+            [Download ‘Passport application form for children aged 15 or under’ (505KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2.pdf "Download ‘Passport application form for children aged 15 and under’ (505KB)")
 
           __Guidance notes__
             [Download ‘Guidance notes for child applications (PDF, 2MB)’](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2-notes.pdf "‘Guidance notes for adult applications (PDF, 2MB)")
@@ -286,7 +300,7 @@ en-GB:
           
           $A
             Regional Passport Processing Centre
-            35 rue du Faubourg St Honor E9
+            35 rue du Faubourg St Honor
             75383 Paris Cedex 08
             France
           $A
@@ -297,6 +311,7 @@ en-GB:
             British Consulate-General
             RPPC - 5th Floor
             1 Supreme Court Road
+            Admiralty
             Hong Kong
           $A
         
@@ -415,11 +430,11 @@ en-GB:
             
             Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
 
-            Applicants in the USA and Canada **only**
+            **Applicants in the USA and Canada **only**
 
             A webchat service is available. It costs a flat rate of £3 - you must pay by credit card before you start. Don’t use this service if you’re applying from other countries - the service won’t work but you will still be charged.
 
-            [Webchat if you applying from the USA or Canada](https://www.synthetix.info/fco/ "Passport application webchat"){:rel="external"}
+            [Webchat if you are applying from the USA or Canada](https://www.synthetix.info/fco/ "Passport application webchat"){:rel="external"}
           $C
 
         helpline_madrid_spain: |
@@ -707,7 +722,7 @@ en-GB:
 
           Your passport and supporting documents will be delivered to the British embassy, high commission or consulate where you applied - you must collect them in person. 
 
-          They will contact you - using the details on your application form - when your passport and documents are ready to collect. You must bring photo ID with you. if you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
+          They will contact you - using the details on your application form - when your passport and documents are ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
 
           ## Track your application
 
@@ -854,7 +869,7 @@ en-GB:
           1. Download the application form and guidance notes. Bring the application form to your interview.
           2. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports “Passport photo requirements”) or your application may be delayed.
 
-          3. Complete the [passport fees information sheet (PDF, 232KB).](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/533661182/nz-fee-sheet-02-12 “Passport fees information sheet (PDF, 232KB)”)
+          3. Complete the [passport fees information sheet (PDF, 232KB).](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/533661182/nz-fee-sheet-02-12 "Passport fees information sheet (PDF, 232KB)"){:rel="external"}
 
           4. Bring your application, photos, supporting documents and passport fees sheet to your [nearest New Zealand Postshop](http://www.nzpost.co.nz/apply-renew-organise/british-passports "Find a New Zealand Postshop"){:rel="external"} to make your application.
 
@@ -864,9 +879,9 @@ en-GB:
           [Download ‘Guidance notes for adult applications (PDF, 2.2MB)’](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c1-notes.pdf "‘Guidance notes for adult applications‘ (PDF, 2.2MB)")
 
         how_to_apply_child_new_zealand: |
-          [Download ‘Passport appllication form for children aged 16 and under’ (505KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2.pdf “Download ‘Passport appllication form for children aged 16 and under’ (505KB)”)
+          [Download ‘Passport appllication form for children aged 16 and under’ (505KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2.pdf "Download ‘Passport appllication form for children aged 16 and under’ (505KB)")
 
-          [Download ‘Guidance notes for child applications (PDF, 2MB)’](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2-notes.pdf “‘Guidance notes for adult applications (PDF, 2MB)”)
+          [Download ‘Guidance notes for child applications (PDF, 2MB)’](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2-notes.pdf "Guidance notes for adult applications (PDF, 2MB)")
 
         receiving_your_passport_new_zealand: |
           Your passport and supporting documents will be returned to you separately by courier. 
@@ -1625,28 +1640,9 @@ en-GB:
           $D
 
         making_application_pakistan: |
-          You can send your application, preferably by secure post or courier, to:
+          You can send your application British High Commission in Islamabad, preferably by secure post or courier. You must pay using a Banker’s Draft if you send your application this way.
 
-          
-          $A
-            British high commission
-            Consular Section
-            Diplomatic Enclave
-            Ramna 5
-            Islamabad
-          $A
-
-          You must pay using a Banker’s Draft if you send your application this way.
-
-          You can also make your application in person at British high commission ln Islamabad (address above) or the deputy high commission in Karachi.
-      
-
-          $A
-            British deputy high commission
-            Shahrah-e-Iran 
-            Clifton 
-            Karachi 75600
-          $A
+          You can also make your application in person at either the British High Commission in Islamabad or the British Deputy High Commission in Karachi.
 
         getting_your_passport_pakistan: |
           The British high commission or deputy high commission will contact you when your passport arrives using the contact details on your form. You must collect it in person. 
@@ -1911,7 +1907,7 @@ en-GB:
           -|-|-|-
           Adult standard 32-page passport | 1,280 Sudanese pounds | 1,510 Sudanese pounds | 1,610 Sudanese pounds
           Adult jumbo 48-page passport | 1,545 Sudanese pounds | 1,775 Sudanese pounds | 1,875 Sudanese pounds
-          Child passport	815 | Sudanese pounds	1,045 | Sudanese pounds | 1,145 Sudanese pounds
+          Child passport | 815 Sudanese pounds |	1,045 Sudanese pounds | 1,145 Sudanese pounds
 
           You must pay in cash. 
 
@@ -1977,13 +1973,7 @@ en-GB:
           Child passport | £81.50/HK $1,044 | £101.36/HK $1,299
  
 
-        how_to_apply_thailand: |
-          1. Download the application form and guidance notes that help you fill it in.
-
-          2. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports "Passport photo requirements") or your application may be delayed.
-
-          3. Check the supporting documents you must send with your application. Non-English supporting documents must be translated into English by a professional translator.  
-        
+        how_to_apply_thailand: ''
         supporting_documents_thailand: ''
         making_application_thailand: |
           ###Renewals 
