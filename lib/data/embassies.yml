@@ -355,6 +355,7 @@ azerbaijan:
 - address: |-
     British Embassy
     45 Khagani Street
+    Baku
     AZ1010
   designation: British Embassy
   lat: 40.3756
@@ -2400,6 +2401,8 @@ ghana:
     Consular section opening hours:
     Monday to Thursday: 0900 - 1200
     Friday: 0830 - 1030
+
+    Passport opening hours: Monday to Thursday: 0900 to 1200
 gibraltar: 
 - address: |-
     Office of the Governor
@@ -3199,6 +3202,8 @@ jamaica:
     Fri: 0800-1300
     
     Consular Public hours: 0800-1300 Monday, Tuesday, Thursday and Friday
+
+    Passport opening hours: Mondays, Tuesdays and Thursdays only: 0800-1100
 japan: 
 - address: |-
     British Embassy Tokyo
@@ -3264,22 +3269,25 @@ jordan:
     Thurs: 0600-1300 GMT (0800-1500 local time)
 kazakhstan: 
 - address: |-
-    British Embassy, Astana
-    62, Kosmonavtov Street
+    British Embassy Almaty
+    Samal Towers
+    97 Zholdasbekova Street
+    Block A2, 9 Floor Microdistrict
+    Samal 2 Almaty 050051
   designation: British Embassy
   lat: 51.1445
   lon: 71.4293
   location_name: Astana
   phone: |-
-    +7 (7172) 556200
+    +7 (7272) 506191
 
     If you are a British national in distress, and having difficulty reaching us on the emergency telephone number, please call the FCO Switchboard in London on +44 (0)20 7008 1500 for assistance.
   fax: +7 (7172) 556211
   email: ukinkz@fco.gov.uk
   website: http://UKinKZ.fco.gov.uk
   office_hours: |-
-    GMT: Mon-Thurs: 0300-1130; Fri: 0300-1000
-    Local: Mon-Thurs: 0900-1730; Fri: 0900-1600
+    Monday to Thursday: 0830-1700
+    Friday: 0830-1530
 - address: |-
     British Embassy Office, Almaty
     Samal Towers, 97 Zholdasbekova street,
