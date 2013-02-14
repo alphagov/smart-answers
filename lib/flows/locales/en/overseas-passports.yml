@@ -9,6 +9,22 @@ en-GB:
 
         % If you were born in or had a connection with Hong Kong and registered as a British National Overseas before 1997, [you must apply a different way.](/bno-passports "Passport applications for British National Overseas from Hong Kong") %
 
+      options:
+        "born-in-uk-pre-1983" : "Born in the UK before 1 January 1983"
+        "born-in-uk-post-1982-uk-father" : "Born in the UK after 31 December 1982 with father born in UK"
+        "born-in-uk-post-1982-uk-mother" : "Born in the UK after 31 December 1982 with mother born in UK"
+        "born-outside-uk-parents-married" : "Born outside the UK, with father born in UK and married to mother at time of birth"
+        "born-outside-uk-mother-born-in-uk" : "Born outside the UK after 31 December 1982 with mother born in UK"
+        "born-in-uk-post-1982-father-uk-citizen" : "Born in the UK after 31 December 1982 with father registered or naturalised as a British Citizen"
+        "born-in-uk-post-1982-mother-uk-citizen" : "Born in the UK after 31 December 1982 with mother registered or naturalised as a British Citizen"
+        "born-outside-uk-father-registered-uk-citizen" : "Born outside the UK after 31 December 1982 and your father was registered or naturalised as a British Citizen"
+        "born-outside-uk-mother-registered-uk-citizen" : "Born outside the UK after 31 December 1982 and your mother registered or naturalised as a British Citizen"
+        "born-in-uk-post-1982-father-uk-service" : "Born after 31 December 1982 and your father was born overseas while he was in British Crown Service after being recruited in the UK"
+        "born-in-uk-post-1982-mother-uk-service" : "Born after 31 December 1982 and your mother was born overseas while her father was in British Crown Service and was recruited in the UK"
+        "married-to-uk-citizen-pre-1983-reg-pre-1988" : "You’re a woman married to a British Citizen before 1 January 1983 and registered as a British Citizen before 1 January 1988"
+        "registered-uk-citizen" : "Registered or naturalised as a British Citizen"
+        "child-born-outside-uk-father-citizen" : "Applying for a child born outside the UK after 1 July 2006, with the father born in UK but not married to mother"
+        "woman-married-to-uk-citizen-pre-1949" : "You’re a woman married to a British Citizen before 1 January 1949"
       which_country_are_you_in?:
         title: Which country are you in?
       renewing_replacing_applying?:
@@ -25,26 +41,10 @@ en-GB:
           child: "Child (aged under 16)"
       country_of_birth?:
         title: Which country were you born in?
-      which_best_describes_you?:
+      which_best_describes_you_adult?:
         title: Which of the following best describes you?
-        options:
-          "born-in-uk-pre-1983" : "Born in the UK before 1 January 1983"
-          "born-in-uk-post-1982-uk-father" : "Born in the UK after 31 December 1982 with father born in UK"
-          "born-in-uk-post-1982-uk-mother" : "Born in the UK after 31 December 1982 with mother born in UK"
-          "born-outside-uk-parents-married" : "Born outside the UK, with father born in UK and married to mother at time of birth"
-          "born-outside-uk-mother-born-in-uk" : "Born outside the UK after 31 December 1982 with mother born in UK"
-          "born-in-uk-post-1982-father-uk-citizen" : "Born in the UK after 31 December 1982 with father registered or naturalised as a British Citizen"
-          "born-in-uk-post-1982-mother-uk-citizen" : "Born in the UK after 31 December 1982 with mother registered or naturalised as a British Citizen"
-          "born-outside-uk-father-registered-uk-citizen" : "Born outside the UK after 31 December 1982 and your father was registered or naturalised as a British Citizen"
-          "born-outside-uk-mother-registered-uk-citizen" : "Born outside the UK after 31 December 1982 and your mother registered or naturalised as a British Citizen"
-          "born-in-uk-post-1982-father-uk-service" : "Born after 31 December 1982 and your father was born overseas while he was in British Crown Service after being recruited in the UK"
-          "born-in-uk-post-1982-mother-uk-service" : "Born after 31 December 1982 and your mother was born overseas while her father was in British Crown Service and was recruited in the UK"
-          "married-to-uk-citizen-pre-1983-reg-pre-1988" : "You’re a woman married to a British Citizen before 1 January 1983 and registered as a British Citizen before 1 January 1988"
-          "registered-uk-citizen" : "Registered or naturalised as a British Citizen"
-          "child-born-outside-uk-father-citizen" : "Applying for a child born outside the UK after 1 July 2006, with the father born in UK but not married to mother"
-          "woman-married-to-uk-citizen-pre-1949" : "You’re a woman married to a British Citizen before 1 January 1949"
-
-
+      which_best_describes_you_child?:
+        title: Which of the following best describes you?
       phrases:
         how_long_applying_fco:
           Your application will take **at least** 6 weeks. You may have to attend an interview.

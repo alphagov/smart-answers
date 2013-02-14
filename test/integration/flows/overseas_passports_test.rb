@@ -32,7 +32,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           add_response 'adult'
         end
         should "ask which best describes your situation" do
-          assert_current_node :which_best_describes_you?
+          assert_current_node :which_best_describes_you_adult?
         end
         context "answer born in the uk before 1 Jan 1983" do
           should "give the australian result" do
@@ -135,7 +135,11 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           add_response "child"
         end
         should "ask which best describes you" do
-          assert_current_node :which_best_describes_you?
+          assert_current_node :which_best_describes_you_child?
+        end
+        should "proceed to the aus nz result" do
+          add_response 'registered-uk-citizen'
+          assert_current_node :aus_nz_result
         end
       end # Child
     end # Applying
@@ -145,7 +149,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'adult'
       end
       should "ask which best describes you" do
-        assert_current_node :which_best_describes_you?
+        assert_current_node :which_best_describes_you_adult?
       end
       context "answer born in the UK before 1 Dec 1983" do
         should "should give the australian results and be done" do
