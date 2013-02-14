@@ -19,27 +19,48 @@ country_select :which_country_are_you_in? do
   calculate :ips_number do
     application_type.split("_")[2] if is_ips_application 
   end
-  calculate :embassy_data do
-    data = Calculators::PassportAndEmbassyDataQuery.find_embassy_data(current_location)
-    data ? data.first : nil
+  calculate :embassies_data do
+    Calculators::PassportAndEmbassyDataQuery.find_embassy_data(current_location)
+  end
+  calculate :embassy_addresses do
+    addresses = nil
+    unless ips_number.to_i ==  1 or embassies_data.nil?
+      addresses = embassies_data.map do |e| 
+        address = [e['address']] 
+        address << e['office_hours'] if e['office_hours'].present?
+        address.join("\n\n")
+      end
+    end
+    addresses
   end
   calculate :embassy_address do
-    address = nil
-    unless ips_number.to_i ==  1
-      address = embassy_data['address'] if embassy_data
+    if embassy_addresses
+      if responses.last =~ /^(russian-federation|pakistan)$/
+        embassy_addresses.join("\n$A\n\n$A\n  ")
+      else
+        embassy_addresses.first
+      end
     end
-    address
+  end
+  calculate :embassies_details do
+    details = []
+    embassies_data.each do |data|
+      embassy = [data['address']]
+      embassy << data['phone'] if data['phone'].present?
+      embassy << data['email'] if data['email'].present?
+      embassy << data['office_hours'] if data['office_hours'].present?
+      details << embassy.join("\n")
+    end if embassies_data
+    details
   end
   calculate :embassy_details do
-    details = nil
-    if embassy_address
-      details = [embassy_address]
-      details << embassy_data['phone'] if embassy_data['phone'].present?
-      details << embassy_data['email'] if embassy_data['email'].present?
-      details << embassy_data['office_hours'] if embassy_data['office_hours'].present?
-      details = details.join("\n")
+    if embassies_details
+      if responses.last =~ /^(russian-federation|pakistan)$/
+        embassies_details.join("\n$A\n\n$A\n  ")
+      else
+        embassies_details.first
+      end
     end
-    details
   end
 
   calculate :supporting_documents do
@@ -189,6 +210,7 @@ end
 
 ## IPS Application Result 
 outcome :ips_application_result do
+
   precalculate :how_long_it_takes do
     PhraseList.new("how_long_#{application_action}_ips#{ips_number}".to_sym,
                    "how_long_it_takes_ips#{ips_number}".to_sym)
@@ -258,7 +280,7 @@ end
 ## Generic country outcome.
 outcome :result do
   precalculate :embassy_address do
-    if application_type == 'iraq' # TODO: Mauritania
+    if application_type == 'iraq'
       Calculators::PassportAndEmbassyDataQuery.embassy_data['iraq'].first['address']
     else
       embassy_address
