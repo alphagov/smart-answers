@@ -1,6 +1,1 @@
-<ul>
-  <li>
-  <%= select_tag "response", options_from_collection_for_select(question.options, :value, :label, prefill_value_for(question, :slug)) %>
-
-  </li>
-</ul>
+<%= select_tag "response", options_from_collection_for_select(question.options, :value, :label, prefill_value_for(question, :slug)) %>
