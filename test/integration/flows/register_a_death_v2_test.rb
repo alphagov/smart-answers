@@ -71,9 +71,9 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
     end
   end # England, Wales
 
-  context "answer Scotland or NI" do
+  context "answer Scotland" do
     setup do
-      add_response 'scotland_northern_ireland'
+      add_response 'scotland'
     end
     should "ask whether the death occurred at home, in hospital or elsewhere" do
       assert_current_node :did_the_person_die_at_home_hospital?
@@ -88,13 +88,13 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
       should "be outcome5 if death was expected" do
         add_response :yes
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_other,
+        assert_phrase_list :content_sections, [:intro_scotland,
           :documents_youll_get_other_expected]
       end
       should "be outcome7 if death not expected" do
         add_response :no
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_other, :intro_other_unexpected,
+        assert_phrase_list :content_sections, [:intro_scotland, :intro_other_unexpected,
           :documents_youll_get_other_unexpected]
       end
     end
@@ -108,18 +108,68 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
       should "be outcome6 if death was expected" do
         add_response :yes
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_other,
+        assert_phrase_list :content_sections, [:intro_scotland,
           :documents_youll_get_other_expected]
       end
 
       should "be outcome8 if death not expected" do
         add_response :no
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_other, :intro_other_unexpected,
+        assert_phrase_list :content_sections, [:intro_scotland, :intro_other_unexpected,
           :documents_youll_get_other_unexpected]
       end
     end
-  end # Scotland, NI
+  end # Scotland
+
+  context "answer Northern Ireland" do
+    setup do
+      add_response 'northern_ireland'
+    end
+    should "ask whether the death occurred at home, in hospital or elsewhere" do
+      assert_current_node :did_the_person_die_at_home_hospital?
+    end
+    context "answer home or in hospital" do
+      setup do
+        add_response 'at_home_hospital'
+      end
+      should "ask if the death was expected" do
+        assert_current_node :was_death_expected?
+      end
+      should "be outcome5 if death was expected" do
+        add_response :yes
+        assert_current_node :uk_result
+        assert_phrase_list :content_sections, [:intro_northern_ireland,
+          :documents_youll_get_other_expected]
+      end
+      should "be outcome7 if death not expected" do
+        add_response :no
+        assert_current_node :uk_result
+        assert_phrase_list :content_sections, [:intro_northern_ireland, :intro_other_unexpected,
+          :documents_youll_get_other_unexpected]
+      end
+    end
+    context "answer elsewhere" do
+      setup do
+        add_response 'elsewhere'
+      end
+      should "ask if the death was expected" do
+        assert_current_node :was_death_expected?
+      end
+      should "be outcome6 if death was expected" do
+        add_response :yes
+        assert_current_node :uk_result
+        assert_phrase_list :content_sections, [:intro_northern_ireland,
+          :documents_youll_get_other_expected]
+      end
+
+      should "be outcome8 if death not expected" do
+        add_response :no
+        assert_current_node :uk_result
+        assert_phrase_list :content_sections, [:intro_northern_ireland, :intro_other_unexpected,
+          :documents_youll_get_other_unexpected]
+      end
+    end
+  end # Northern Ireland
 
   context "answer overseas" do
     setup do

@@ -5,7 +5,8 @@ data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
 multiple_choice :where_did_the_death_happen? do
   save_input_as :where_death_happened
   option :england_wales => :did_the_person_die_at_home_hospital?
-  option :scotland_northern_ireland => :did_the_person_die_at_home_hospital?
+  option :scotland => :did_the_person_die_at_home_hospital?
+  option :northern_ireland => :did_the_person_die_at_home_hospital?
   option :overseas => :was_death_expected?
 end
 
@@ -65,9 +66,8 @@ outcome :uk_result do
       sections << :need_to_tell_registrar
       sections << :"documents_youll_get_ew_#{death_expected ? :expected : :unexpected}"
     else
-      sections << :intro_other
-      sections << :intro_other_unexpected unless death_expected
-      #who can register and documents you need sections are not needed for this type of outcome
+      sections << :"intro_#{where_death_happened}"
+      sections << :"intro_other_unexpected" unless death_expected
       sections << :"documents_youll_get_other_#{death_expected ? :expected : :unexpected}"
     end
     sections
