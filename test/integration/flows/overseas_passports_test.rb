@@ -32,7 +32,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           add_response 'adult'
         end
         should "ask which best describes your situation" do
-          assert_current_node :which_best_describes_you?
+          assert_current_node :which_best_describes_you_adult?
         end
         context "answer born in the uk before 1 Jan 1983" do
           should "give the australian result" do
@@ -135,7 +135,11 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           add_response "child"
         end
         should "ask which best describes you" do
-          assert_current_node :which_best_describes_you?
+          assert_current_node :which_best_describes_you_child?
+        end
+        should "proceed to the aus nz result" do
+          add_response 'registered-uk-citizen'
+          assert_current_node :aus_nz_result
         end
       end # Child
     end # Applying
@@ -145,7 +149,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'adult'
       end
       should "ask which best describes you" do
-        assert_current_node :which_best_describes_you?
+        assert_current_node :which_best_describes_you_adult?
       end
       context "answer born in the UK before 1 Dec 1983" do
         should "should give the australian results and be done" do
@@ -182,7 +186,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           assert_phrase_list :how_to_apply, [:how_to_apply_afghanistan]
           assert_phrase_list :making_application, [:making_application_afghanistan]
           assert_phrase_list :getting_your_passport, [:getting_your_passport_afghanistan]
-          assert_state_variable :embassy_address, "British Embassy\n15th Street, Roundabout Wazir Akbar Khan\nPO Box 334\nKabul\nAfghanistan,Kabul"
+          assert_state_variable :embassy_address, "British Embassy\n15th Street, Roundabout Wazir Akbar Khan\nPO Box 334\nKabul\nAfghanistan,Kabul\n\n0830-1630 (Sunday to Thursday)"
           assert_current_node :result
         end
       end
@@ -242,7 +246,7 @@ Thurs: 0600-1300 GMT (0800-1500 local time))
       assert_phrase_list :how_to_apply, [:how_to_apply_lagos_nigeria]
       assert_phrase_list :making_application, [:making_application_lagos_nigeria]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_lagos_nigeria]
-      assert_state_variable :embassy_address, "British Deputy High Commission\n11 Walter Carrington Crescent\nVictoria Island\nLagos"
+      assert_state_variable :embassy_address, "British Deputy High Commission\n11 Walter Carrington Crescent\nVictoria Island\nLagos\n\nGMT: Mon-Thurs: 0630-1430 and Fri 0630-1130\nLocal Time: Mon-Thur 0730-1530 and Fri 0730-1230"
       assert_state_variable :embassy_details, "British Deputy High Commission\n11 Walter Carrington Crescent\nVictoria Island\nLagos\n(00234) (0) 1 277 0780/0781/0782\nGMT: Mon-Thurs: 0630-1430 and Fri 0630-1130\nLocal Time: Mon-Thur 0730-1530 and Fri 0730-1230"
       assert_current_node :result
     end
@@ -349,7 +353,21 @@ Thurs: 0600-1300 GMT (0800-1500 local time))
             assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
             assert_phrase_list :send_your_application, [:send_application_ips1]
             assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
+            assert_state_variable :embassy_address, nil
+            assert_state_variable :supporting_documents, 'ips_documents_group_1'
+          end
+        end
+        context "answer UK" do
+          should "give the application result with the UK documents" do
+            add_response "united-kingdom"
+            assert_current_node :ips_application_result
+            assert_phrase_list :how_long_it_takes, [:how_long_applying_ips1, :how_long_it_takes_ips1]
+            assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :ips_documents_group_3]
+            assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
+            assert_phrase_list :send_your_application, [:send_application_ips1]
+            assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
             assert_state_variable :embassy_address, nil 
+            assert_state_variable :supporting_documents, 'ips_documents_group_3'
           end
         end
       end
@@ -379,9 +397,20 @@ Thurs: 0600-1300 GMT (0800-1500 local time))
         assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :send_your_application, [:send_application_ips3]
         assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips3]
-        assert_state_variable :embassy_address, "British Embassy\n45 Khagani Street\nAZ1010"
+        assert_state_variable :embassy_address, %Q(British Embassy
+45 Khagani Street
+Baku
+AZ1010
+
+Opening hours
+Mon-Fri: 05:00 - 13:00 GMT
+Mon-Fri: 09:00 - 17:00 Local Time
+
+If you need to contact the Embassy in an emergency out of hours you should telephone the number above, which will give a telephone number for the Global Response Center.)
+
         assert_state_variable :embassy_details, %Q(British Embassy
 45 Khagani Street
+Baku
 AZ1010
 + 994 (12) 4377878
 generalenquiries.baku@fco.gov.uk
@@ -468,6 +497,15 @@ If you need to contact the Embassy in an emergency out of hours you should telep
       assert_phrase_list :how_to_apply_supplement, [:how_to_apply_india]
     end
   end # India (FCO with custom phrases)
+  context "answer Jamaica, replacement, adult passport" do
+    should "give the fco result with custom phrases" do
+      add_response 'jamaica'
+      add_response 'replacing'
+      add_response 'adult'
+      assert_current_node :fco_result
+      assert_phrase_list :cost, [:passport_courier_costs_jamaica, :adult_passport_costs_jamaica, :passport_costs_washington_usa]
+    end
+  end # Jamaica (Custom courier costs affecting all costs) 
   context "answer Malta, replacement, adult passport" do
     should "give the fco result with custom phrases" do
       add_response 'malta'
