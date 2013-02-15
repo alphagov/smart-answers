@@ -24,43 +24,43 @@ death:
     spain: http://ukinspain.fco.gov.uk/resources/en/pdf/help-for-BNs/DeathRegForm
     united-states: http://ukinusa.fco.gov.uk/resources/en/pdf/birth-reg-document
   clickbook:
-  - argentina
-  - belgium
-  - belize
-  - bolivia
-  - brazil
-  - bulgaria
-  - chile
-  - china
-  - colombia
-  - costa-rica
-  - czech-republic
-  - ecuador
-  - france
-  - georgia
-  - greece
-  - guatemala
-  - hungary
-  - italy
-  - japan
-  - kazakhstan
-  - kuwait
-  - luxembourg
-  - mexico
-  - netherlands
-  - norway
-  - oman
-  - panama
-  - peru
-  - philippines
-  - portugal
-  - russia
-  - slovakia
-  - sweden
-  - switzerland
-  - united-states
-  - uruguay
-  - vietnam
+    argentina:
+    belgium:
+    belize:
+    bolivia:
+    brazil:
+    bulgaria:
+    chile:
+    china:
+    colombia:
+    costa-rica:
+    czech-republic:
+    ecuador:
+    france:
+    georgia:
+    greece:
+    guatemala:
+    hungary:
+    italy:
+    japan:
+    kazakhstan:
+    kuwait:
+    luxembourg:
+    mexico:
+    netherlands:
+    norway:
+    oman:
+    panama:
+    peru:
+    philippines:
+    portugal:
+    russia:
+    slovakia:
+    sweden:
+    switzerland:
+    united-states:
+    uruguay:
+    vietnam:
   postal_form:
   - austria
   - bangladesh
