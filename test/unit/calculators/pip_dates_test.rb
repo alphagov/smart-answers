@@ -24,11 +24,11 @@ module SmartAnswer::Calculators
       end
 
       should "handle CH area correctly" do
-        %w(5 6 7 8).each do |district|
+        %w(1 4 5 6 7 8).each do |district|
           @calculator.postcode = "CH#{district}"
           assert ! @calculator.in_selected_area?, "Expected CH#{district} not to be in area"
         end
-        %w(1 2 3 4 9 10 11 55 66 77 88).each do |district|
+        %w(2 3 9 10 11 55 66 77 88).each do |district|
           @calculator.postcode = "CH#{district}"
           assert @calculator.in_selected_area?, "Expected CH#{district} to be in area"
         end
