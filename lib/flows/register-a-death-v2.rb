@@ -81,19 +81,26 @@ outcome :fco_result do
 end
 
 outcome :embassy_result do
-  precalculate :registration_form_url do
-    data_query.data['death']['registration_forms'][country]
-  end
-  precalculate :registration_form do
-    registration_form_url ? PhraseList.new(:country_registration_form_download) : ''
-  end
-  precalculate :clickbook_url do
-    clickbook = data_query.data['death']['clickbook'][country]
-    clickbook['url'] if clickbook
-  end
+
   precalculate :clickbook do
-    clickbook_url ? PhraseList.new(:embassy_clickbook) : ''
+    result = ''
+    clickbook = data_query.clickbook(country)
+    i18n_prefix = "flow.register-a-death-v2"
+    unless clickbook.nil?
+      if clickbook.class == Hash
+        result = I18n.translate!("#{i18n_prefix}.phrases.multiple_clickbooks_intro") << "\n"
+        clickbook.each do |k,v|
+          result += %Q(- #{I18n.translate!(i18n_prefix + ".phrases.clickbook_link", 
+                                           title: k, clickbook_url: v)})
+        end
+      else
+        result = I18n.translate!("#{i18n_prefix}.phrases.clickbook_link",
+                                 title: "Book an appointment online", clickbook_url: clickbook)
+      end
+    end
+    result
   end
+
   precalculate :postal do
   end
 end

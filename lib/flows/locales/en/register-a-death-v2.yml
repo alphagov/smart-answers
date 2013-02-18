@@ -188,7 +188,13 @@ en-GB:
           ##Bringing the body back to the UK for cremation
           
           If the body’s being brought back to England or Wales to be cremated, the person bringing the body home must report this to the English or Welsh coroner - they will issue a Certificate for Cremation (form 6).  
+       
+        multiple_clickbooks_intro: |
+          You can book an appointment at the British embassy or consulate in:
 
+          
+        clickbook_link: |
+          [%{title}](%{clickbook_url} "Book an appointment at the British Embassy"){:rel="external"}
 
 # Outcomes
 #
@@ -214,7 +220,6 @@ en-GB:
 
 
           $D
-            %{registration_form}
             [Download ‘Death registration form’](http://uk.sitestat.com/fcoweb/fcogov/s?fco.en.travel-and-living-abroad.births-deaths-marriages-civil.registering-a-death.p.pdf.death-registration-app-form-130812&ns_type=pdf&ns_url=http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/death-registration-app-form-130812 "Download ‘Death registration form’"){:rel="external"}
           $D
 
@@ -224,15 +229,16 @@ en-GB:
 
           - a local death certificate (not a certificate issued by a doctor)
           - the person’s passport
+          - their full UK birth, naturalisation or registration certificate (if you can’t provide their passport)
+          - written permission from the next of kin or the ‘executor’ of the person’s estate (if you’re not next of kin or the executor)
 
-          You should fill out form D1 if you include their passport.
-
-          If the passport is lost or unavailable, fill out form LS01 and send their full UK birth certificate (if possible) as proof of citizenship.
-
-          [Download ‘Form LS01’](http://www.fco.gov.uk/resources/en/pdf/pdf20/fco_loststolenpassport "Download ‘Form LS01’"){:rel="external"}
+          If you provide their passport you should fill out form D1.
 
           [Download ‘Form D1’](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/d1-returnpassportofdeceased.pdf "Download ‘Form D1’"){:rel="external"}
 
+          If the passport is lost or unavailable, fill out form LS01.
+
+          [Download ‘Form LS01’](http://www.fco.gov.uk/resources/en/pdf/pdf20/fco_loststolenpassport "Download ‘Form LS01’"){:rel="external"}
 
           ##Cost
           
@@ -241,9 +247,11 @@ en-GB:
           Register a death | £105
           Copy of a death registration certificate | £65
 
-          See a [list of consular service fees in local currency](https://www.gov.uk "List of consular fees in local currency"){:rel="external"}.
+          See a [list of consular service fees in local currency](... "List of consular fees in local currency"){:rel="external"}.
 
-          ^Registration should take around 5 working days.^
+          You can order copies of the registration certificate from the [British embassy] [British embassy or consulate] [high commission] when you register the birth.
+
+          You can also get copies from the [General Register Office](http://www.gro.gov.uk/ "General Register Office"){:rel="external"} from September the next year after you register - they will cost less.
 
           ##Go to the embassy
           

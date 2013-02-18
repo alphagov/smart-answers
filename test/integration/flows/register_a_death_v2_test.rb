@@ -209,9 +209,6 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
             add_response 'embassy'
           end
           should "give the embassy result and be done" do
-            assert_state_variable :registration_form_url, 
-              "http://ukinspain.fco.gov.uk/resources/en/pdf/help-for-BNs/DeathRegForm"
-            assert_phrase_list :registration_form, [:country_registration_form_download]
             assert_current_node :embassy_result
           end
         end # Answer embassy
@@ -252,6 +249,33 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
           end
         end # Answer fco 
       end # Morocco
-    end
+
+      context "answer Argentina, registering at an embassy" do
+        setup do
+          add_response 'argentina'
+          add_response 'embassy'
+        end
+        should "give the embassy result and be done" do
+          assert_current_node :embassy_result
+          assert_state_variable :clickbook, %Q([Book an appointment online](http://www.britishembassyinbsas.clickbook.net/ "Book an appointment at the British Embassy"){:rel="external"}\n)
+        end
+      end # Answer Argentina
+      context "answer China, registering at an embassy" do
+        setup do
+          add_response 'china'
+          add_response 'embassy'
+        end
+        should "give the embassy result and be done" do
+          assert_current_node :embassy_result
+          assert_state_variable :clickbook, %Q(You can book an appointment at the British embassy or consulate in:
+
+- [Beijing](https://www.clickbook.net/dev/bc.nsf/sub/BritEmBeijing \"Book an appointment at the British Embassy\"){:rel=\"external\"}
+- [Shanghai](https://www.clickbook.net/dev/bc.nsf/sub/BritconShanghai \"Book an appointment at the British Embassy\"){:rel=\"external\"}
+- [Chongqing](https://www.clickbook.net/dev/bc.nsf/sub/BritConChongqing \"Book an appointment at the British Embassy\"){:rel=\"external\"}
+- [Guangzhou](https://www.clickbook.net/dev/bc.nsf/sub/BritConGuangzhou \"Book an appointment at the British Embassy\"){:rel=\"external\"}
+)
+        end
+      end # Answer China 
+    end # Answer yes
   end # Overseas
 end
