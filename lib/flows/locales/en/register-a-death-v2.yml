@@ -196,6 +196,10 @@ en-GB:
         clickbook_link: |
           [%{title}](%{clickbook_url} "Book an appointment at the British Embassy"){:rel="external"}
 
+        register_with_embassy: You can also register the death with the British embassy in %{country_name}.
+        register_with_embassy_or_consulate: You can also register the death with the British embassy or consulate in %{country_name}.
+        register_with_high_commission: You can also register the death with the High commission in %{country_name}.
+
 # Outcomes
 #
       uk_result:
@@ -203,15 +207,15 @@ en-GB:
           %{content_sections}
       embassy_result:
         title: |
-          You must register the death with the local authorities in %{country_name}. They will give you a death certificate.
+          You must register the death according to the regulations in %{country_name}. You will be given a local death certificate. 
         body: |
           ##Register the death with the UK authorities
 
-          You can also register the death with the British Embassy, Consulate or High Commission in %{country_name}.
+          %{register_embassy_high_commission_consulate}
 
           You don’t have to do this, but it means:
-
-          - getting a British-style death certificate
+          
+          - a British-style death certificate will be issued 
           - having the death registered at the General Registry Office in the UK
 
           ##How to register
@@ -223,14 +227,14 @@ en-GB:
             [Download ‘Death registration form’](http://uk.sitestat.com/fcoweb/fcogov/s?fco.en.travel-and-living-abroad.births-deaths-marriages-civil.registering-a-death.p.pdf.death-registration-app-form-130812&ns_type=pdf&ns_url=http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/death-registration-app-form-130812 "Download ‘Death registration form’"){:rel="external"}
           $D
 
-          ##Documents
+          ###Documents
 
           You must provide:
 
           - a local death certificate (not a certificate issued by a doctor)
           - the person’s passport
           - their full UK birth, naturalisation or registration certificate (if you can’t provide their passport)
-          - written permission from the next of kin or the ‘executor’ of the person’s estate (if you’re not next of kin or the executor)
+          - written permission from the person's next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
 
           If you provide their passport you should fill out form D1.
 
@@ -240,7 +244,7 @@ en-GB:
 
           [Download ‘Form LS01’](http://www.fco.gov.uk/resources/en/pdf/pdf20/fco_loststolenpassport "Download ‘Form LS01’"){:rel="external"}
 
-          ##Cost
+          ###Cost
           
           Service | Fee
           -|-
@@ -253,7 +257,7 @@ en-GB:
 
           You can also get copies from the [General Register Office](http://www.gro.gov.uk/ "General Register Office"){:rel="external"} from September the next year after you register - they will cost less.
 
-          ##Go to the embassy
+          ###Go to the embassy
           
           You can book an appointment at the embassy and bring along the registration form, supporting documents and the fee.
 

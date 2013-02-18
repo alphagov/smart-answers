@@ -82,6 +82,16 @@ end
 
 outcome :embassy_result do
 
+  precalculate :register_embassy_high_commission_consulate do
+    if data_query.has_high_commission?(country)
+      PhraseList.new(:register_with_high_commission)
+    elsif data_query.has_consulate?(country)
+      PhraseList.new(:register_with_high_commission)
+    else
+      PhraseList.new(:register_with_embassy)
+    end
+  end
+
   precalculate :clickbook do
     result = ''
     clickbook = data_query.clickbook(country)

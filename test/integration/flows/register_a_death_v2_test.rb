@@ -257,6 +257,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         end
         should "give the embassy result and be done" do
           assert_current_node :embassy_result
+          assert_phrase_list :register_embassy_high_commission_consulate, [:register_with_embassy]
           assert_state_variable :clickbook, %Q([Book an appointment online](http://www.britishembassyinbsas.clickbook.net/ "Book an appointment at the British Embassy"){:rel="external"}\n)
         end
       end # Answer Argentina
@@ -267,6 +268,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         end
         should "give the embassy result and be done" do
           assert_current_node :embassy_result
+          assert_phrase_list :register_embassy_high_commission_consulate, [:register_with_high_commission]
           assert_state_variable :clickbook, %Q(You can book an appointment at the British embassy or consulate in:
 
 - [Beijing](https://www.clickbook.net/dev/bc.nsf/sub/BritEmBeijing \"Book an appointment at the British Embassy\"){:rel=\"external\"}
