@@ -46,6 +46,24 @@ en-GB:
       which_best_describes_you_child?:
         title: Which of the following best describes you?
       phrases:
+        embassy_address: |
+ 
+
+          $A
+            %{address}
+            %{opening_hours}
+          $A
+
+        embassy_details: |
+          
+
+          $A
+            %{address}
+            %{telephone}
+            %{email}
+            %{opening_hours}
+          $A
+
         how_long_applying_fco:
           Your application will take **at least** 6 weeks. You may have to attend an interview.
         how_long_renewing_old_fco:
@@ -867,7 +885,7 @@ en-GB:
 
         how_to_apply_new_zealand: |
           1. Download the application form and guidance notes. Bring the application form to your interview.
-          2. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports “Passport photo requirements”) or your application may be delayed.
+          2. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports "Passport photo requirements") or your application may be delayed.
 
           3. Complete the [passport fees information sheet (PDF, 232KB).](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/533661182/nz-fee-sheet-02-12 "Passport fees information sheet (PDF, 232KB)"){:rel="external"}
 
@@ -985,10 +1003,10 @@ en-GB:
         supporting_documents_bangladesh: |
           Application type | Supporting documents information
           - | -
-          Adult renewal |  [Download ‘Supporting documents for adult passport renewal’ (PDF, 26KB)](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/bangladesh-adult-renewal.pdf “Download ‘Supporting documents for adult passport renewal’ (PDF, 24KB)”)
-          Child renewal | [Download ‘Supporting documents for child passport renewal’ (PDF, 23KB)](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/bangladesh-child-renewal.pdf “Download ‘Supporting documents for child passport renewal’ (PDF, 35KB)”)
-          First adult passport | [Download ‘Supporting documents for adult first passport, (PDF, 42KB)](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/bangladesh-adult-first-time-apply.pdf  “Download ‘Supporting documents for first adult passport’ (PDF, 42KB)”)
-          First child passport | [Download ‘Supporting documents for first child passport (PDF, 36KB)](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/bangladesh-child-first-time-apply.pdf“Download ‘Supporting documents for first child passport (PDF, 36KB)”) 
+          Adult renewal |  [Download ‘Supporting documents for adult passport renewal’ (PDF, 26KB)](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/bangladesh-adult-renewal.pdf "Download ‘Supporting documents for adult passport renewal’ (PDF, 24KB)")
+          Child renewal | [Download ‘Supporting documents for child passport renewal’ (PDF, 23KB)](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/bangladesh-child-renewal.pdf "Download ‘Supporting documents for child passport renewal’ (PDF, 35KB)")
+          First adult passport | [Download ‘Supporting documents for adult first passport, (PDF, 42KB)](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/bangladesh-adult-first-time-apply.pdf  "Download ‘Supporting documents for first adult passport’ (PDF, 42KB)")
+          First child passport | [Download ‘Supporting documents for first child passport (PDF, 36KB)](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/bangladesh-child-first-time-apply.pdf"Download ‘Supporting documents for first child passport (PDF, 36KB)") 
         
         making_application_bangladesh: |
           Send your application - or deliver your application in person - to the British high commission in Dhaka.
@@ -1269,7 +1287,7 @@ en-GB:
 
           - using cash in Ethiopian Birr if you apply at the British embassy
           - by Banker’s Draft in South African Rand (you must add a processing fee of 155 Rand)
-          - using Visa or Mastercard - enclose a [card authorisation form (MS Word, 334KB](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/countries-auth-slip "Card authorisation form (MS Word, 334KB)"){:rel=”external”} with your application
+          - using Visa or Mastercard - enclose a [card authorisation form (MS Word, 334KB](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/countries-auth-slip "Card authorisation form (MS Word, 334KB)"){:rel="external"} with your application
 
 
           $I
@@ -2087,7 +2105,7 @@ en-GB:
 
           ### Renewing a passport
 
-          You must pay using Visa or Mastercard - enclose a [card authorisation form (MS Word, 334KB](http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/credit-card-form-march-12 “Card authorisation form (MS Word, 334KB)”){:rel=”external”} with your application.
+          You must pay using Visa or Mastercard - enclose a [card authorisation form (MS Word, 334KB](http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/credit-card-form-march-12 "Card authorisation form (MS Word, 334KB)"){:rel="external"} with your application.
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
@@ -2208,7 +2226,7 @@ en-GB:
 
           1. You must usually pick up an application form in person from the British embassy in Algiers. Contact the embassy for advice if this isn’t possible.
 
-          2. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports “Passport photo requirements”) or your application may be delayed.
+          2. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports "Passport photo requirements") or your application may be delayed.
 
           3. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator. 
 
@@ -2359,7 +2377,7 @@ en-GB:
           
           1. Download the application form and guidance notes that help you fill it in.
 
-          2. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports “Passport photo requirements”) or your application may be delayed.
+          2. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports "Passport photo requirements") or your application may be delayed.
 
           3. Check the supporting documents you must send with your application. Non-English supporting documents must be translated into English by a professional translator. 
           %{how_to_apply}
