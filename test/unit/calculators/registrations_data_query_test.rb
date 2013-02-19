@@ -41,6 +41,30 @@ module SmartAnswer::Calculators
           refute @query.has_consulate?('uganda')
         end
       end
+      context "cash_only?" do
+        should "be true for countries that only accept cash" do
+          assert @query.cash_only?('iceland')
+          refute @query.cash_only?('spain')
+        end
+      end
+      context "register_death_by_post?" do
+        should "be true for countries that allow registration by post" do
+          assert @query.register_death_by_post?('belgium')
+          refute @query.register_death_by_post?('afghanistan')
+        end
+      end
+      context "death_postal_form" do
+        should "give the form url if it exists" do
+          assert_equal "http://ukinaustria.fco.gov.uk/resources/en/pdf/pdf1/credit-card-form", @query.death_postal_form('austria')
+          refute @query.death_postal_form('united-states')
+        end
+      end
+      context "death_postal_return_form" do
+        should "give the form url if it exists" do
+          assert_equal "http://ukinitaly.fco.gov.uk/resources/en/word/3121380/Return-delivery-form", @query.death_postal_return_form('italy')
+          refute @query.death_postal_return_form('belgium')
+        end
+      end
     end
   end
 end
