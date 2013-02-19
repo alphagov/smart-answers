@@ -11,7 +11,9 @@ en-GB:
 
         - [the person lived in Scotland](http://www.gro-scotland.gov.uk/regscot/registering-a-death.html "Registering a death in Scotland"){:rel="external"}
         - [the person lived in Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/death-and-bereavement/death-and-bereavement-what-to-do-when-someone-dies/registering-a-death.htm "Registering a death in Northern Ireland"){:rel="external"}
-      
+     
+        If the person died on a foreign ship or aircraft, you must register the death in the country the ship or aircraft is registered in.  
+
       options:
         "yes": "Yes"
         "no": "No"
@@ -31,11 +33,12 @@ en-GB:
         title: Was the death expected?
       which_country?:
         title: Where did the death happen?
-      where_do_you_want_to_register_the_death?:
-        title: Where would be more convenient to register the death?
+      where_are_you_now?:
+        title: Where are you now?
         options:
-          embassy: "At the British embassy, consulate or high commission in the country where the person died."
-          fco_uk: "With the Foreign & Commonwealth Office in the UK"
+          same_country: In the country where the death happened
+          another_country: In another country
+          back_in_the_uk: In the UK
       phrases:
         intro_ew: |
           $!You should register the death within 5 calendar days. You can go to any [register office](/register-offices "register office") but it’s best to use the one in the area where the person died - otherwise the process can take longer.$!
@@ -191,14 +194,58 @@ en-GB:
        
         multiple_clickbooks_intro: |
           You can book an appointment at the British embassy or consulate in:
-
-          
+  
         clickbook_link: |
           [%{title}](%{clickbook_url} "Book an appointment at the British Embassy"){:rel="external"}
 
-        register_with_embassy: You can also register the death with the British embassy in %{country_name}.
-        register_with_embassy_or_consulate: You can also register the death with the British embassy or consulate in %{country_name}.
-        register_with_high_commission: You can also register the death with the High commission in %{country_name}.
+        postal_intro: |
+          ###Send your registration
+          
+          You can also post your application to the %{embassy_high_commission_or_consulate}.
+
+        postal_registration_by_form: |
+          Pay by credit or debit card - fill in the credit card authorisation slip and post it with your registration form.
+
+          [Download ‘Credit card authorisation slip’](%{postal_form_url} "Download ‘Credit card authorisation slip’ (PDF, ...KB)"){:rel="external"}
+
+          The cost of returning the documents to you will be on the authorisation slip.
+
+        postal_delivery_form: |
+          Use the delivery return form to get your documents delivered back to you.
+
+          [Download ‘Delivery return form’](%{postal_return_form_url} "Download ‘Delivery return form’"){:rel="external"}
+
+        cash_only: |
+          ^You can only pay by cash, which must be in local currency.^
+
+        postal_how_long: |
+          ^It takes about 5 working days for the death to be officially registered.^ 
+
+        postal_registration_barbados: |
+          Pay by bank draft made payable to "British High Commission".
+
+        postal_registration_belgium: |
+          You should pay by bank transfer made payable to "British Embassy Consular Account" (ING) 310-1200800-26.
+
+        postal_registration_costa-rica: |
+          Pay by bankers Draft or Postal Order made payable to "Foreign and Commonwealth Office". Include a stamped addressed envelope with your registration so we can return your documents.
+
+        postal_registration_malaysia: |
+          Return postage costs RM10. Credit cards or company or personal cheques aren’t accepted.
+
+        postal_registration_papua-new-guinea: |
+          Pay by bank cheque made payable to the ‘British High Commission’. Credit cards, personal or company cheques aren’t accepted. 
+
+        postal_registration_sweden: |
+          Pay by bankgiro made payable to bankgiro number 887-8852.
+
+          Return postage costs 70 SEK.
+
+        postal_registration_thailand: |
+          Pay by postal order or bank draft, made payable to ‘The British Embassy, Bangkok’. Cash the postal order at the Nana Post Office (there’s a  THB 200 administration fee).
+
+        postal_registration_united-states: |
+          Pay by money order made payable to the ‘British Embassy Government Account’. Personal cheques aren’t accepted.
 
 # Outcomes
 #
@@ -206,12 +253,12 @@ en-GB:
         body: |
           %{content_sections}
       embassy_result:
-        title: |
-          You must register the death according to the regulations in %{country_name}. You will be given a local death certificate. 
         body: |
+          $!You must register the death according to the regulations in %{country_name}. You will be given a local death certificate.$!
+          
           ##Register the death with the UK authorities
-
-          %{register_embassy_high_commission_consulate}
+          
+          You can also register the death with the %{embassy_high_commission_or_consulate} in %{current_location_name}.
 
           You don’t have to do this, but it means:
           
@@ -251,37 +298,43 @@ en-GB:
           Register a death | £105
           Copy of a death registration certificate | £65
 
-          See a [list of consular service fees in local currency](... "List of consular fees in local currency"){:rel="external"}.
+          You can order copies of the registration certificate from the %{embassy_high_commission_or_consulate} when you register the death.
 
-          You can order copies of the registration certificate from the [British embassy] [British embassy or consulate] [high commission] when you register the birth.
-
-          You can also get copies from the [General Register Office](http://www.gro.gov.uk/ "General Register Office"){:rel="external"} from September the next year after you register - they will cost less.
+          You can also get copies from the [General Register Office](http://www.gro.gov.uk/ "General Register Office"){:rel="external"} from September the year after you register - they will cost less.
 
           ###Go to the embassy
           
-          You can book an appointment at the embassy and bring along the registration form, supporting documents and the fee.
+          You can book an appointment at the %{embassy_high_commission_or_consulate} and bring along the registration form, supporting documents and the fee.
 
           %{clickbook}
 
           %{postal}
 
+          %{cash_only}
+
+          ^It takes about 5 working days for the death to be officially registered.^
+
+
+          $A
+            %{embassy_address}
+          $A
       fco_result:
-        title: You must register the death with the local authorities in %{country_name}. They will give you a death certificate.
         body: |
+          $!You must register the death according to the regulations in %{country_name}. You will be given a local death certificate.$!
+
           ##Registering the death with the UK authorities
 
           You can also register the death with the Foreign & Commonwealth Office (FCO) in the UK.
+          You don’t have to do this, but it means:
 
-          You don’t have to do this, but advantages include:
-
-          - getting a British-style death certificate
-          - having the death registered at the General Registry Office in the UK
+          - a British-style death certificate will be issued
+          - the death will be recorded at the General Registry Office in the UK
 
           ##How to register
 
           Download and complete a death registration form.
-
-          [Download ‘Death registration form’](http://uk.sitestat.com/fcoweb/fcogov/s?fco.en.travel-and-living-abroad.births-deaths-marriages-civil.registering-a-death.p.pdf.death-registration-app-form-130812&ns_type=pdf&ns_url=http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/death-registration-app-form-130812 "Download ‘Death registration form’"){:rel="external"}
+      
+          [Download ‘Death registration form’ (DOC, 50KB)](http://uk.sitestat.com/fcoweb/fcogov/s?fco.en.travel-and-living-abroad.births-deaths-marriages-civil.registering-a-death.p.pdf.death-registration-app-form-130812&ns_type=pdf&ns_url=http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/death-registration-app-form-130812 "Download ‘Death registration form’ (DOC, 50KB)"){:rel="external"} 
 
 
           ##Documents
@@ -289,7 +342,8 @@ en-GB:
           You must provide:
 
           - a local death certificate (not a certificate issued by a doctor)
-          - the person’s passport
+          - the person’s passport (original, not a copy)
+          - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
 
           ##Cost
           
@@ -297,12 +351,13 @@ en-GB:
           -|-
           Register a death | £105
           Copy of a death registration certificate | £65
-          
-          Pay by postal order or bank draft made payable to ‘FCO’. Personal cheques aren’t accepted.
+         
+
+          You can also pay by postal order or bank draft made payable to ‘FCO’. Personal cheques aren’t accepted. 
 
           ##Send your registration
 
-          Post the form, documentation and the correct fee to FCO.
+          Send the form and documentation to FCO.
 
 
           $A
@@ -313,8 +368,20 @@ en-GB:
             SW1A 2AH
           $A
             
-          We'll return your documents within 20 working days.
+          Your original documents will be returned within 20 working days.
 
-          ^Registration takes about 8 weeks.^
+          ^It takes up to 12 weeks for the death to be officially registered as the registration is sent to the country where the death happened.^
 
-          %{unexpected_death_section}
+
+          Copies of the registration certificate 
+
+          You can order copies of the registration certificate from the FCO when you register the death. 
+
+          You can also get copies from the [General Register Office](http://www.gro.gov.uk/ "General Register Office"){:rel="external"} from September the next year after you register - they will cost less.
+
+      commonwealth_result:
+        body: |
+          $!You must register the death according to the regulations in %{country_name}. You will be given a local death certificate.$!
+
+          You can't register the death with the UK authorities. The death certificate you are given in %{country_name} will be accepted and recognised in the UK.
+

@@ -2,6 +2,7 @@ status :draft
 
 data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
 
+# Q1
 multiple_choice :where_did_the_death_happen? do
   save_input_as :where_death_happened
   option :england_wales => :did_the_person_die_at_home_hospital?
@@ -9,7 +10,7 @@ multiple_choice :where_did_the_death_happen? do
   option :northern_ireland => :did_the_person_die_at_home_hospital?
   option :overseas => :was_death_expected?
 end
-
+# Q2
 multiple_choice :did_the_person_die_at_home_hospital? do
   option :at_home_hospital
   option :elsewhere
@@ -18,7 +19,7 @@ multiple_choice :did_the_person_die_at_home_hospital? do
   end
   next_node :was_death_expected?
 end
-
+# Q3
 multiple_choice :was_death_expected? do
   option :yes
   option :no
@@ -34,24 +35,45 @@ multiple_choice :was_death_expected? do
     end
   end
 end
-
+# Q4
 country_select :which_country? do
   save_input_as :country
   calculate :country_name do
+    SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == responses.last }[:name]
+  end
+  calculate :current_location do
+    data_query.registration_country_slug(responses.last) || responses.last 
+  end
+  calculate :current_location_name do
+    SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == current_location }[:name]
+  end
+  next_node do |response|
+    if data_query.commonwealth_country?(response)
+      :commonwealth_result
+    else
+      :where_are_you_now?
+    end
+  end
+end
+# Q5
+multiple_choice :where_are_you_now? do
+  option :same_country => :embassy_result
+  option :another_country => :which_country_are_you_in_now?
+  option :back_in_the_uk => :fco_result
+end
+# Q6
+country_select :which_country_are_you_in_now? do
+  save_input_as :current_location
+  calculate :current_location_name do
     SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == responses.last }[:name]
   end
   next_node do |response|
     if data_query.commonwealth_country?(response)
       :commonwealth_result
     else
-      :where_do_you_want_to_register_the_death?
+      :embassy_result
     end
   end
-end
-
-multiple_choice :where_do_you_want_to_register_the_death? do
-  option :embassy => :embassy_result
-  option :fco_uk => :fco_result
 end
 
 outcome :commonwealth_result
@@ -74,27 +96,18 @@ outcome :uk_result do
   end
 end
 
-outcome :fco_result do
-  precalculate :unexpected_death_section do
-    death_expected ? '' : PhraseList.new(:unexpected_death) 
-  end
-end
+outcome :fco_result
 
 outcome :embassy_result do
-
-  precalculate :register_embassy_high_commission_consulate do
-    if data_query.has_high_commission?(country)
-      PhraseList.new(:register_with_high_commission)
-    elsif data_query.has_consulate?(country)
-      PhraseList.new(:register_with_high_commission)
-    else
-      PhraseList.new(:register_with_embassy)
-    end
+  precalculate :embassy_high_commission_or_consulate do
+    data_query.has_high_commission?(country) ? "High commission" :
+      data_query.has_consulate?(country) ? "British embassy or consulate" :
+        "British embassy"
   end
 
   precalculate :clickbook do
     result = ''
-    clickbook = data_query.clickbook(country)
+    clickbook = data_query.clickbook(current_location)
     i18n_prefix = "flow.register-a-death-v2"
     unless clickbook.nil?
       if clickbook.class == Hash
@@ -111,6 +124,35 @@ outcome :embassy_result do
     result
   end
 
+  precalculate :postal_form_url do
+    data_query.death_postal_form(current_location)
+  end
+
+  precalculate :postal_return_form_url do
+    data_query.death_postal_return_form(current_location)
+  end
+
   precalculate :postal do
+    if data_query.register_death_by_post?(current_location)
+      phrases = PhraseList.new(:postal_intro)
+      if postal_form_url
+        phrases << :postal_registration_by_form
+      else
+        phrases << :"postal_registration_#{current_location}"
+      end
+      phrases << :postal_delivery_form if postal_return_form_url
+      phrases
+    else
+      ''
+    end
+  end
+
+  precalculate :cash_only do
+    data_query.cash_only?(current_location) ? PhraseList.new(:cash_only) : ''
+  end
+
+  precalculate :embassy_address do
+    data = SmartAnswer::Calculators::PassportAndEmbassyDataQuery.find_embassy_data(current_location)
+    data.first['address'] if data
   end
 end
