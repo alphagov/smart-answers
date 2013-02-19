@@ -72,39 +72,39 @@ death:
       Hanoi: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyhanoi?OpenDocument&cb_referer=http%3A%2F%2Fukinvietnam.fco.gov.uk%2Fen%2Fhelp-for-british-nationals%2Fliving-in-vietnam%2Fbirth-registration
       Ho Chi Min City: http://www.bcghochiminh.clickbook.net/
   postal_form:
-  - austria
-  - bangladesh
-  - brazil
-  - chile
-  - cyprus
-  - denmark
-  - dominican-republic
-  - finland
-  - france
-  - germany
-  - greece
-  - india
-  - israel
-  - italy
-  - jamaica
-  - japan
-  - korea
-  - mexico
-  - norway
-  - pakistan
-  - peru
-  - portugal
-  - spain
-  - switzerland
-  - united-states
+    austria: http://ukinaustria.fco.gov.uk/resources/en/pdf/pdf1/credit-card-form
+    bangladesh: http://ukinbangladesh.fco.gov.uk/resources/en/word/doc1/credit-card-form
+    brazil: http://ukinbrazil.fco.gov.uk/resources/en/pdf/pdf1/postbr_birthregform
+    chile: http://ukinchile.fco.gov.uk/resources/en/word/credit-card
+    cyprus: http://ukincyprus.fco.gov.uk/content/en/article/17300881/21697518/credit-card-authorisation
+    denmark: http://ukindenmark.fco.gov.uk/resources/en/pdf/586155482/credit-card-authorisation-slip-19april2011
+    dominican-republic: http://ukindominicanrepublic.fco.gov.uk/resources/en/word/631810082/credit-form
+    finland: http://ukinfinland.fco.gov.uk/resources/en/pdf/733553782/credit-card-authorisation-form
+    france: http://ukinfrance.fco.gov.uk/resources/en/word/consular/2012/death-registration-form
+    germany: http://ukingermany.fco.gov.uk/resources/en/pdf/4971486/4971694/payment_authorisation_slip
+    greece: http://ukingreece.fco.gov.uk/resources/en/pdf/5610670/ccslip
+    india: http://ukinindia.fco.gov.uk/resources/en/pdf/consular/Credit-Card-Payment-Authorisation-Form
+    israel: http://ukinisrael-stage.fco.gov.uk/resources/en/pdf/creditdebitslip.pdf
+    italy: http://ukinitaly.fco.gov.uk/resources/en/word/3121380/credit-card-authorisation-slip
+    jamaica: http://ukinjamaica.fco.gov.uk/resources/en/pdf/2011/credit-debit.pdf
+    japan: http://ukinjapan.fco.gov.uk/resources/en/word/15609108
+    korea: http://ukinrok.fco.gov.uk/resources/en/word/3059742/doc-consular-devit-card
+    mexico: http://uk.sitestat.com/fcoweb/ukingov/s?was.mex.en.help-for-british-nationals.living-in-mexico.consular-fees.p.pdf.credit-debit-authorisation-form&ns_type=pdf&ns_url=http://ukinmexico.fco.gov.uk/resources/en/word/doc1/credit-debit-authorisation-form
+    norway: http://uk.sitestat.com/fcoweb/ukingov/s?lon.swe.en.help-for-british-nationals.living-in-norway.how-register-death.p.pdf.ConsularPaymentForm&ns_type=pdf&ns_url=http://ukinnorway.fco.gov.uk/resources/en/pdf/pdf1/751426782/ConsularPaymentForm
+    peru: http://ukinperu.fco.gov.uk/resources/es/pdf/21597125/death-registration
+    portugal: http://ukinportugal.fco.gov.uk/resources/en/pdf/18177967/credit_card_form
+    spain: http://ukinspain.fco.gov.uk/resources/en/pdf/4758385/20090413_credit_card_form.pdf
+    switzerland: http://ukinswitzerland.fco.gov.uk/resources/en/pdf/pdf1/credit-card-pay-form
   postal_no_form:
   - barbados
   - belgium
   - costa-rica
   - malaysia
+  - papua-new-guinea
   - sweden
   - tanzania
   - thailand
+  - united-states
   postal_return:
-  - italy
-  - spain
+    italy: http://ukinitaly.fco.gov.uk/resources/en/word/3121380/Return-delivery-form
+    spain: http://uk.sitestat.com/fcoweb/ukingov/s?lon.esp.en.help-for-british-nationals.living-in-spain.births-deaths-marriages.death-registration.p.pdf.reg-post-return-delivery-form&ns_type=pdf&ns_url=http://ukinspain.fco.gov.uk/resources/en/pdf/help-for-BNs/reg-post-return-delivery-form 
