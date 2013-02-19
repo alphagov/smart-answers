@@ -88,14 +88,12 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
       should "be outcome5 if death was expected" do
         add_response :yes
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_scotland,
-          :documents_youll_get_other_expected]
+        assert_phrase_list :content_sections, [:intro_scotland]
       end
       should "be outcome7 if death not expected" do
         add_response :no
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_scotland, :intro_other_unexpected,
-          :documents_youll_get_other_unexpected]
+        assert_phrase_list :content_sections, [:intro_scotland]
       end
     end
     context "answer elsewhere" do
@@ -108,15 +106,13 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
       should "be outcome6 if death was expected" do
         add_response :yes
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_scotland,
-          :documents_youll_get_other_expected]
+        assert_phrase_list :content_sections, [:intro_scotland]
       end
 
       should "be outcome8 if death not expected" do
         add_response :no
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_scotland, :intro_other_unexpected,
-          :documents_youll_get_other_unexpected]
+        assert_phrase_list :content_sections, [:intro_scotland]
       end
     end
   end # Scotland
@@ -138,14 +134,12 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
       should "be outcome5 if death was expected" do
         add_response :yes
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_northern_ireland,
-          :documents_youll_get_other_expected]
+        assert_phrase_list :content_sections, [:intro_northern_ireland]
       end
       should "be outcome7 if death not expected" do
         add_response :no
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_northern_ireland, :intro_other_unexpected,
-          :documents_youll_get_other_unexpected]
+        assert_phrase_list :content_sections, [:intro_northern_ireland]
       end
     end
     context "answer elsewhere" do
@@ -158,15 +152,13 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
       should "be outcome6 if death was expected" do
         add_response :yes
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_northern_ireland,
-          :documents_youll_get_other_expected]
+        assert_phrase_list :content_sections, [:intro_northern_ireland]
       end
 
       should "be outcome8 if death not expected" do
         add_response :no
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_northern_ireland, :intro_other_unexpected,
-          :documents_youll_get_other_unexpected]
+        assert_phrase_list :content_sections, [:intro_northern_ireland]
       end
     end
   end # Northern Ireland

@@ -47,10 +47,11 @@ en-GB:
         intro_scotland: |
           You should [register the death](http://www.gro-scotland.gov.uk/regscot/registering-a-death.html "how to register a death in Scotland"){:rel="external"} locally in Scotland.
 
+          If the body’s being brought back to England or Wales to be buried or cremated, the person bringing the body back must report this to the local registrar. They will issue a ‘Certificate of No Liability to Register’.
+
         intro_northern_ireland: |
           You should [register the death](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/death-and-bereavement/death-and-bereavement-what-to-do-when-someone-dies/registering-a-death.htm "how to register a death in Northern Ireland"){:rel="external"} locally in Northern Ireland.
 
-        intro_other_unexpected: |
           If the body’s being brought back to England or Wales to be buried or cremated, the person bringing the body back must report this to the local registrar. They will issue a ‘Certificate of No Liability to Register’.
 
         who_can_register: |
@@ -345,7 +346,7 @@ en-GB:
           - the person’s passport (original, not a copy)
           - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
 
-          ##Cost
+          ###Cost
           
           Service | Fee
           -|-
@@ -355,7 +356,7 @@ en-GB:
 
           You can also pay by postal order or bank draft made payable to ‘FCO’. Personal cheques aren’t accepted. 
 
-          ##Send your registration
+          ###Send your registration
 
           Send the form and documentation to FCO.
 

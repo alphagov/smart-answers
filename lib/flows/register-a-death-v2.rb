@@ -89,8 +89,6 @@ outcome :uk_result do
       sections << :"documents_youll_get_ew_#{death_expected ? :expected : :unexpected}"
     else
       sections << :"intro_#{where_death_happened}"
-      sections << :"intro_other_unexpected" unless death_expected
-      sections << :"documents_youll_get_other_#{death_expected ? :expected : :unexpected}"
     end
     sections
   end
