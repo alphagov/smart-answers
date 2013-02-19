@@ -36,9 +36,9 @@ en-GB:
       where_are_you_now?:
         title: Where are you now?
         options:
-          same_country: In the country where the death happened
-          another_country: In another country
-          back_in_the_uk: In the UK
+          same_country: "In the country where the death happened"
+          another_country: "In another country"
+          back_in_the_uk: "In the UK"
       phrases:
         intro_ew: |
           $!You should register the death within 5 calendar days. You can go to any [register office](/register-offices "register office") but it’s best to use the one in the area where the person died - otherwise the process can take longer.$!
@@ -205,16 +205,10 @@ en-GB:
           You can also post your application to the %{embassy_high_commission_or_consulate}.
 
         postal_registration_by_form: |
-          Pay by credit or debit card - fill in the credit card authorisation slip and post it with your registration form.
-
-          [Download ‘Credit card authorisation slip’](%{postal_form_url} "Download ‘Credit card authorisation slip’ (PDF, ...KB)"){:rel="external"}
-
-          The cost of returning the documents to you will be on the authorisation slip.
+          Pay by credit or debit card - fill in the [credit card authorisation slip](%{postal_form_url} "Credit card authorisation slip"){:rel="external"} and post it with your registration form.
 
         postal_delivery_form: |
-          Use the delivery return form to get your documents delivered back to you.
-
-          [Download ‘Delivery return form’](%{postal_return_form_url} "Download ‘Delivery return form’"){:rel="external"}
+          Use the [delivery return form](%{postal_return_form_url} "Delivery return form"){:rel="external"} to get your documents delivered back to you.
 
         cash_only: |
           ^You can only pay by cash, which must be in local currency.^
@@ -272,7 +266,7 @@ en-GB:
 
 
           $D
-            [Download ‘Death registration form’](http://uk.sitestat.com/fcoweb/fcogov/s?fco.en.travel-and-living-abroad.births-deaths-marriages-civil.registering-a-death.p.pdf.death-registration-app-form-130812&ns_type=pdf&ns_url=http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/death-registration-app-form-130812 "Download ‘Death registration form’"){:rel="external"}
+            [Download ‘Death registration form’ (DOC, 50KB)](http://uk.sitestat.com/fcoweb/fcogov/s?fco.en.travel-and-living-abroad.births-deaths-marriages-civil.registering-a-death.p.pdf.death-registration-app-form-130812&ns_type=pdf&ns_url=http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/death-registration-app-form-130812 "Download ‘Death registration form’"){:rel="external"}
           $D
 
           ###Documents
@@ -286,11 +280,17 @@ en-GB:
 
           If you provide their passport you should fill out form D1.
 
-          [Download ‘Form D1’](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/d1-returnpassportofdeceased.pdf "Download ‘Form D1’"){:rel="external"}
+
+          $D
+            [Download ‘Form D1’ (PDF, 25KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/d1-returnpassportofdeceased.pdf "Download ‘Form D1’"){:rel="external"}
+          $D
 
           If the passport is lost or unavailable, fill out form LS01.
 
-          [Download ‘Form LS01’](http://www.fco.gov.uk/resources/en/pdf/pdf20/fco_loststolenpassport "Download ‘Form LS01’"){:rel="external"}
+
+          $D
+            [Download ‘Form LS01’ (PDF, 815KB)](http://www.fco.gov.uk/resources/en/pdf/pdf20/fco_loststolenpassport "Download ‘Form LS01’"){:rel="external"}
+          $D
 
           ###Cost
           
