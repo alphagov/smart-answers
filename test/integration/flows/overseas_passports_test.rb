@@ -247,7 +247,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
   end
 
-  # Austria (An example of IPS application 1).
+  # Austria (An¿P example of IPS application 1).
   context "answer Austria" do
     setup do
       add_response 'austria'
@@ -468,12 +468,22 @@ class OverseasPassportsTest < ActiveSupport::TestCase
   context "answer India, replacement, adult passport" do
     should "give the fco result with custom phrases" do
       add_response 'india'
-      add_response 'replacing'
+      add_response 'applying'
       add_response 'adult'
       assert_current_node :fco_result
+      assert_phrase_list :how_long_it_takes, [:how_long_applying_india]
       assert_phrase_list :how_to_apply_supplement, [:how_to_apply_india]
     end
   end # India (FCO with custom phrases)
+  context "answer Indonesia, replacement, adult passport" do
+    should "give the fco result with custom phrases" do
+      add_response 'indonesia'
+      add_response 'applying'
+      add_response 'adult'
+      assert_current_node :fco_result
+      assert_phrase_list :cost, [:passport_courier_costs_indonesia, :adult_passport_costs_indonesia, :passport_costs_hong_kong]
+    end
+  end # Indonesia (FCO with custom phrases)
   context "answer Jamaica, replacement, adult passport" do
     should "give the fco result with custom phrases" do
       add_response 'jamaica'

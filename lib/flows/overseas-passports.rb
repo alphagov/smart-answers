@@ -226,7 +226,11 @@ end
 ## FCO Result
 outcome :fco_result do
   precalculate :how_long_it_takes do
-    PhraseList.new("how_long_#{application_action}_fco".to_sym)
+    if application_action == 'applying' and current_location == 'india'
+      PhraseList.new(:how_long_applying_india)
+    else
+      PhraseList.new("how_long_#{application_action}_fco".to_sym)
+    end
   end
 
   precalculate :cost do
@@ -235,19 +239,20 @@ outcome :fco_result do
     cost_type = 'fco_europe' if application_type =~ /^(dublin_ireland|madrid_spain|paris_france)$/
     # Jamaican courier costs vary from the USA FCO office standard.
     cost_type = current_location if current_location == 'jamaica'
-    
-    payment_methods = "passport_costs_#{application_type}".to_sym
+    cost_type = current_location if current_location == 'indonesia' and application_action == 'applying'
+   
+    payment_methods = :"passport_costs_#{application_type}"
     # Malta and Netherlands have custom payment methods
     payment_methods = :passport_costs_malta_netherlands if current_location =~ /^(malta|netherlands)$/
       
-    PhraseList.new("passport_courier_costs_#{cost_type}".to_sym,
-                   "#{child_or_adult}_passport_costs_#{cost_type}".to_sym, 
+    PhraseList.new(:"passport_courier_costs_#{cost_type}",
+                   :"#{child_or_adult}_passport_costs_#{cost_type}", 
                    payment_methods)
   end
 
   precalculate :how_to_apply_supplement do
     application_type =~ /^(dublin_ireland|india)$/ ?
-      PhraseList.new("how_to_apply_#{application_type}".to_sym) : ''
+      PhraseList.new(:"how_to_apply_#{application_type}") : ''
   end
   
   precalculate :send_your_application do
