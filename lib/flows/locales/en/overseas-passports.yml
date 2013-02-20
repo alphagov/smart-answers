@@ -51,7 +51,8 @@ en-GB:
 
           $A
             %{address}
-            %{opening_hours}
+
+            %{office_hours}
           $A
 
         embassy_details: |
@@ -59,9 +60,12 @@ en-GB:
 
           $A
             %{address}
-            %{telephone}
+            
+            %{phone}
+            
             %{email}
-            %{opening_hours}
+            
+            %{office_hours}
           $A
 
         how_long_applying_fco:
