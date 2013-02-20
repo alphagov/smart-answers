@@ -1,13 +1,14 @@
 status :published
 
 i18n_prefix = "flow.overseas-passports"
+data_query = Calculators::PassportAndEmbassyDataQuery.new 
 
 # Q1
 country_select :which_country_are_you_in? do
   save_input_as :current_location
 
   calculate :passport_data do
-    Calculators::PassportAndEmbassyDataQuery.find_passport_data(responses.last)
+    data_query.find_passport_data(responses.last)
   end
   calculate :application_type do
     passport_data[:type]
@@ -22,7 +23,7 @@ country_select :which_country_are_you_in? do
     application_type.split("_")[2] if is_ips_application 
   end
   calculate :embassies_data do
-    Calculators::PassportAndEmbassyDataQuery.find_embassy_data(current_location)
+    data_query.find_embassy_data(current_location)
   end
   calculate :embassy_addresses do
     addresses = nil
@@ -109,7 +110,7 @@ country_select :country_of_birth?, include_uk: true do
   save_input_as :birth_location
 
   calculate :application_group do
-    Calculators::PassportAndEmbassyDataQuery.find_passport_data(responses.last)[:group]
+    data_query.find_passport_data(responses.last)[:group]
   end
 
   calculate :supporting_documents do
@@ -238,6 +239,7 @@ outcome :fco_result do
     # All european FCO applications cost the same
     cost_type = 'fco_europe' if application_type =~ /^(dublin_ireland|madrid_spain|paris_france)$/
     # Jamaican courier costs vary from the USA FCO office standard.
+    # Indonesian first time applications have courier and cost variations.
     cost_type = current_location if current_location == 'jamaica'
     cost_type = current_location if current_location == 'indonesia' and application_action == 'applying'
    
@@ -251,17 +253,23 @@ outcome :fco_result do
   end
 
   precalculate :how_to_apply_supplement do
-    application_type =~ /^(dublin_ireland|india)$/ ?
-      PhraseList.new(:"how_to_apply_#{application_type}") : ''
+
+    if application_type =~ /^(dublin_ireland|india)$/
+      PhraseList.new(:"how_to_apply_#{application_type}")
+    elsif data_query.retain_passport?(current_location)
+      PhraseList.new(:"how_to_apply_retain_passport")
+    else
+      ''
+    end
   end
   
   precalculate :send_your_application do
     phrases = PhraseList.new
     if current_location =~ /^(indonesia|jamaica|jordan)$/
-      phrases << "send_application_#{current_location}".to_sym
+      phrases << :"send_application_#{current_location}"
     else
       phrases << :send_application_fco_preamble
-      phrases << "send_application_#{application_type}".to_sym
+      phrases << :"send_application_#{application_type}"
     end
     phrases 
   end
@@ -269,7 +277,7 @@ outcome :fco_result do
     PhraseList.new(current_location == 'egypt' ? :getting_your_passport_egypt : :getting_your_passport_fco)
   end
   precalculate :helpline do
-    PhraseList.new("helpline_#{application_type}".to_sym)
+    PhraseList.new(:"helpline_#{application_type}")
   end
 end
 

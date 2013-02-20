@@ -16,13 +16,29 @@ module SmartAnswer::Calculators
       'yemen' =>  'jordan'
     }
 
-    def self.find_passport_data(country_slug)
+    RETAIN_PASSPORT_COUNTRIES = %w(afghanistan angola bangladesh burma burundi china cuba
+                                   cyprus east-timor georgia indonesia iraq israel lebanon
+                                   libya mauritius morocco north-korea pakistan rwanda
+                                   sri-lanka sudan thailand tunisia uganda yemen zambia zimbabwe)
+
+    attr_reader :embassy_data, :passport_data
+
+    def initialize
+      @embassy_data = self.class.embassy_data
+      @passport_data = self.class.passport_data
+    end
+
+    def find_passport_data(country_slug)
       passport_data[country_slug]
     end
 
-    def self.find_embassy_data(country_slug)
+    def find_embassy_data(country_slug)
       country = ALT_EMBASSIES.has_key?(country_slug) ? ALT_EMBASSIES[country_slug] : country_slug
       embassy_data[country]
+    end
+
+    def retain_passport?(country_slug)
+      RETAIN_PASSPORT_COUNTRIES.include?(country_slug)
     end
 
     def self.passport_data
