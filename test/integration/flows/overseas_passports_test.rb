@@ -526,4 +526,26 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_phrase_list :body_text, [:body_syria]
     end
   end
+  context "answer Cameroon, renewing, adult passport" do
+    should "give the generic result with custom phrases" do
+      add_response 'cameroon'
+      add_response 'renewing_new'
+      add_response 'adult'
+      assert_current_node :result
+      assert_phrase_list :cost, [:cost_cameroon_renewing]
+      assert_phrase_list :making_application, [:making_application_cameroon_renewing]
+    end
+  end # Cameroon (custom phrases)
+  context "answer Kenya, applying, adult passport" do
+    should "give the generic result with custom phrases" do
+      add_response 'kenya'
+      add_response 'applying'
+      add_response 'adult'
+      assert_current_node :result
+      assert_phrase_list :how_long_it_takes, [:how_long_nairobi_kenya_applying]
+      assert_phrase_list :cost, [:cost_nairobi_kenya_applying]
+      assert_phrase_list :supporting_documents, [:supporting_documents_nairobi_kenya_applying]
+      assert_phrase_list :making_application, [:making_application_nairobi_kenya_applying]
+    end
+  end # Kenya (custom phrases)
 end

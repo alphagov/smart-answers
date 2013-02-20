@@ -289,16 +289,31 @@ en-GB:
         getting_your_passport_egypt: |
           The British embassy in Cairo will contact you when your passport arrives using the contact details on your form. You must collect it in person. 
 
+        getting_your_passport_jamaica: |
+          The British High Commision in Kingston will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+
+        getting_your_passport_jordan: |
+          The British Embassy in Amman will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+
+        getting_your_passport_nepal : |
+          The British Embassy in Kathmandu will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+
         send_application_fco_preamble: |
           Send your application, photographs and supporting documents, ideally by courier.
 
         send_application_jordan: |
-          You must make your application in person.  
  
+          You must make your application in person.
 
-          $A
-            %{embassy_details}
-          $A
+
+          $C
+
+            British Consulate-General  
+            Deutsche Bank Building 19th Floor  
+            Jl Imam Bonjol 80  
+            Jakarta 10310  
+            Indonesia  
+          $C
 
         send_application_jamaica: |
           You must make your application in person to the British High Commission, Kingston
@@ -346,7 +361,7 @@ en-GB:
           
           $A
             Regional Passport Processing Centre
-            35 rue du Faubourg St Honor
+            35 rue du Faubourg St Honoré
             75383 Paris Cedex 08
             France
           $A
@@ -401,6 +416,40 @@ en-GB:
             South Africa 
           $A
 
+        send_application_south-africa: |
+
+          $A
+            Postal address:
+
+            British Passport Section
+            British Consulate
+            PO Box 13611 
+            Hatfield, Pretoria 0028
+            South Africa
+
+            Courier address:
+
+            British Passport Section
+            British Consulate
+            256 Glyn Street
+            Hatfield
+            Pretoria 0083
+            South Africa 
+          $A
+
+          You can use any courier to send your application. But if you use [Supaswift (Pty) Ltd,](https://www.supaswift.com/fx/default.aspx "Supaswift Pty Limited") you will pay a special rate of 195 Rand to collect your application from you and deliver it overnight to the application centre.
+
+          If you’re applying from Port Elizabeth or Durban, you can also apply through the 1820 Settlers Association of South Africa. 
+
+
+          $C
+            **1820 Settlers Association of South Africa**
+
+            Telephone: 041 585 3416 (Port Elizabeth)
+            031 202 6174 (Durban)
+
+          $C
+        
         send_application_washington_usa: |
           
           $A
@@ -476,7 +525,7 @@ en-GB:
             
             Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
 
-            **Applicants in the USA and Canada **only**
+            **Applicants in the USA and Canada only**
 
             A webchat service is available. It costs a flat rate of £3 - you must pay by credit card before you start. Don’t use this service if you’re applying from other countries - the service won’t work but you will still be charged.
 
@@ -490,13 +539,13 @@ en-GB:
 
             Paying for the call by credit card
 
-            +44 208 082 4734 
+            +44 208 082 4734
             
             Calls charged at £0.72 per minute plus VAT
 
             Premium rate helpline (from within Spain only)
             
-            +900 990202 
+            807 444 946
             
             Landline calls are charged at 1.21 Euro per minute - mobile calls may cost more
           $C
@@ -806,6 +855,8 @@ en-GB:
 
           Download the application form and guidance notes. Bring the application form to your interview.
 
+          If you want your passport to be sent to a Post Office Box number, put the full address of the Post Office location on the application form. If you don’t, delivery of your passport could be seriously delayed.
+
         how_to_apply_adult_australia_post: |
             [Download ‘Passport application form for adults aged 16 and over’ (489KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c1.pdf "Download ‘Passport application form for adults aged 16 and over’ (489KB)")
 
@@ -817,10 +868,10 @@ en-GB:
             [Download ‘Guidance notes for child applications’ (PDF, 2MB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2-notes.pdf "‘Guidance notes for adult applications‘ (PDF, 2MB)") 
 
         aus_nz_replacing: |
-            [Download ‘Supporting documents checklist’ (PDF 142KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Checklist2-LostandStolen "Supporting documents checklist (PDF, 142KB)"){:rel="external"}
+            [Download ‘Application checklist’ (PDF 142KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Checklist2-LostandStolen "Application documents checklist (PDF, 142KB)"){:rel="external"}
 
         aus_nz_renewing: |
-            [Download ‘Supporting documents checklist’ (PDF 140KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Checklist1-RenewingPassport "Supporting documents checklist (PDF, 140KB)"){:rel="external"}
+            [Download ‘Application checklist’ (PDF 140KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Checklist1-RenewingPassport "Application documents checklist (PDF, 140KB)"){:rel="external"}
 
         aus_nz_born-in-uk-pre-1983: |
             [Download ‘Supporting documents checklist’ (PDF 145KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Checklist4-ApplicantbornUKbeforeJan1983 "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
@@ -920,12 +971,12 @@ en-GB:
           4. Bring your application, photos, supporting documents and passport fees sheet to your [nearest New Zealand Postshop](http://www.nzpost.co.nz/apply-renew-organise/british-passports "Find a New Zealand Postshop"){:rel="external"} to make your application.
 
         how_to_apply_adult_new_zealand: |
-          [Download ‘Passport appllication form for adults aged 16 and over’ (489KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c1.pdf "Download ‘Passport application form for adults aged 16 and over’ (489KB)")
+          [Download ‘Passport application form for adults aged 16 and over’ (489KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c1.pdf "Download ‘Passport application form for adults aged 16 and over’ (489KB)")
 
           [Download ‘Guidance notes for adult applications (PDF, 2.2MB)’](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c1-notes.pdf "‘Guidance notes for adult applications‘ (PDF, 2.2MB)")
 
         how_to_apply_child_new_zealand: |
-          [Download ‘Passport appllication form for children aged 16 and under’ (505KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2.pdf "Download ‘Passport appllication form for children aged 16 and under’ (505KB)")
+          [Download ‘Passport application form for children aged 16 and under’ (505KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2.pdf "Download ‘Passport application form for children aged 16 and under’ (505KB)")
 
           [Download ‘Guidance notes for child applications (PDF, 2MB)’](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2-notes.pdf "Guidance notes for adult applications (PDF, 2MB)")
 
@@ -1042,25 +1093,23 @@ en-GB:
         getting_your_passport_bangladesh: |
           The British high commission in Dhaka will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
-        how_long_nairobi_kenya: |
-          Action | Minimum time after you apply
-          - | -
-          Renew a passport | 4 weeks 
-          First adult or child passports | 12 weeks
-          Replace a lost or stolen passport | 6 weeks
+        how_long_nairobi_kenya_applying: |
+          Your application will take at least 12 weeks. You will be asked to attend an interview.
+
+        how_long_nairobi_kenya_replacing: |
+          Your application will take at least 6 weeks. You may be asked to attend an interview.
+
+        how_long_nairobi_kenya_renewing: |
+          Your application will take at least 4 weeks. You may be asked to attend an interview.
 
           Applications may take longer if: 
 
           - you need to provide more information or documents
           - your photographs are rejected
 
-          If you’re applying for a first passport, you will be asked to attend an interview.
-
-          If you’re renewing a passport, you may be asked to attend an interview.
-
           Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document at the British high commission/honorary consulate. You will have to pay for the document.
 
-        cost_nairobi_kenya: |
+        cost_nairobi_kenya_renewing: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. 
 
           You must pay using a guaranteed banker’s draft in Kenya Shillings, payable to the ‘British high commission’.
@@ -1068,25 +1117,48 @@ en-GB:
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
           Adult standard 32-page passport | 18,600 Kenya Shillings | 23,500 Kenya Shillings
-          Adult jumbo 48-page passport | 22,500 Kenya Shillings | 27,100 Kenya Shillings
-          Child passport | 11,900 Kenya Shillings | 16,500 Kenya Shillings
-          
-        how_to_apply_nairobi_kenya: |
-        
-          For renewals, you must send the passport you’re replacing and a registration/naturalisation certificate (if relevant).
+          Adult jumbo 48-page passport | 22,500 Kenya Shillings | 27,400 Kenya Shillings
+          Child passport | 11,900 Kenya Shillings | 16,800 Kenya Shillings
 
-        supporting_documents_nairobi_kenya: |
+        cost_nairobi_kenya_applying: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. 
+
+          You must pay using a guaranteed banker’s draft in Kenya Shillings, payable to the ‘British high commission’.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 18,600 Kenya Shillings | 22,100 Kenya Shillings
+          Adult jumbo 48-page passport | 22,500 Kenya Shillings | 26,000 Kenya Shillings
+          Child passport | 11,900 Kenya Shillings | 15,400 Kenya Shillings
+
+        cost_nairobi_kenya_replacing: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. 
+
+          You must pay using a guaranteed banker’s draft in Kenya Shillings, payable to the ‘British high commission’.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 18,600 Kenya Shillings | 22,100 Kenya Shillings
+          Adult jumbo 48-page passport | 22,500 Kenya Shillings | 26,000 Kenya Shillings
+          Child passport | 11,900 Kenya Shillings | 15,400 Kenya Shillings
+          
+        how_to_apply_nairobi_kenya: '' 
+        supporting_documents_nairobi_kenya_applying: |
           [Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/Checklist-1sttime-Adult "Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)"){:rel="external"}
 
           [Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/Checklist-1sttime-child "Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)"){:rel="external"}
 
+        supporting_documents_nairobi_kenya_replacing: |
+          You must send the passport you’re placing and registration/naturalisation certificate (if relevant) as your supporting documents.
+
+        supporting_documents_nairobi_kenya_replacing: |
           [Download ‘Supporting documents for lost and stolen passport applications’ (MS Word, 30KB)](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/Lost-Stole-appl-checklist "Download ‘Supporting documents for lost or stolen passport applications’ (MS Word, 30KB)"){:rel="external"}
 
         making_application_nairobi_kenya: |
           Send your application by post or courier to the British high commission in Nairobi, Kenya.
 
-        getting_your_passport_nairobi_kenya: |        
-          Your passport and supporting documents will be returned separately to you by courier.
+        getting_your_passport_nairobi_kenya: |       
+          The British high commission will contact you when your passport arrives using the contact details on your form. You must collect it in person.  
 
         how_long_lagos_nigeria: |
           Action | Minimum time after you apply
@@ -1163,7 +1235,7 @@ en-GB:
           - | -
           Renew a passport | 4 weeks 
           First adult or child passports | 12 weeks
-          Replace a lost or stolen passport | 16 weeks
+          Replace a lost or stolen passport | 12 weeks
 
           Applications may take longer if: 
 
@@ -1172,7 +1244,31 @@ en-GB:
 
           Don’t book travel until you have a valid passport. If you need to travel urgently, you can apply for an Emergency Travel Document at the British high commission. You will have to pay for the document.
 
-        cost_cameroon: |
+        cost_cameroon_renewing: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. 
+
+          Cost if you send your application to Pretoria, South Africa
+
+          You must pay using a Visa or Mastercard and include a card payment authorisation form (DOC,198KB)](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/countries-auth-slip "Card authorisation form (DOC, 198KB)"){:rel="external"} with your application. You can’t pay in cash.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 1,920 South African Rand | 2,218 South African Rand
+          Adult jumbo 48-page passport | 2,318 South African Rand | 2,616 South African Rand
+          Child passport | 1,223 South African Rand | 1,521 South African Rand
+
+
+          Cost if you apply in person
+
+          If you make your application in person to the British High Commission in Yaounde, you must pay in cash.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 108,800 CFA | 137,000 CFA
+          Adult jumbo 48-page passport | 131,300 CFA | 159,500 CFA
+          Child passport | 69,300 CFA | 97,500 CFA
+
+
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. 
 
           Passport type | Passport fee | Total to pay (including courier fee)
@@ -1181,36 +1277,45 @@ en-GB:
           Adult jumbo 48-page passport | BIF309,000BIF/$US255 | BIF375,340/$US2310
           Child passport | BIF163,000/$US134 | BIF229,340/$US188
 
-          ###First-time passport applications
-
-          If you’re applying for a first adult or child passport, you must bring your application in person to the British high commission.
-
-          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. 
+        cost_cameroon_applying: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. You must pay in cash.
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | BIF256,000/$US211 | BIF322,340/$US266
-          Adult jumbo 48-page passport | BIF309,000BIF/$US255 | BIF375,340/$US2310
-          Child passport | BIF163,000/$US134 | BIF229,340/$US188
-          
+          Adult standard 32-page passport | 108,800 CFA | 137,000 CFA
+          Adult jumbo 48-page passport | 131,300 CFA | 159,500 CFA
+          Child passport | 69,300 CFA | 97,500 CFA
+        
+        cost_cameroon_replacing: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. You must pay in cash.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 108,800 CFA | 137,000 CFA
+          Adult jumbo 48-page passport | 131,300 CFA | 159,500 CFA
+          Child passport | 69,300 CFA | 97,500 CFA
+
         how_to_apply_cameroon: ''        
         supporting_documents_cameroon: ''
-        making_application_cameroon: |
-          Renewing a passport
+        making_application_cameroon_renewing: |
+          You can either: 
 
-          Send your application to the passport processing centre in Pretoria, South Africa, preferably by a one-way courier service.
+          - apply in person at the British High Commission in Yaounde
+          - send your application to the passport processing centre in Pretoria, South Africa, preferably by a one-way courier service
 
-      
-          $A
-            British high commission,
-            Consular Section, Block B,
-            1st Floor, Liberty Place Building,
-            256 Glyn Street,
-            Hatfield,
-            Pretoria, 0083,
-            South Africa.
-          $A
-          
+          British Passport Section
+          British Consulate
+          256 Glyn Street
+          Hatfield
+          Pretoria 0083
+          South Africa
+
+        making_application_cameroon_applying: | 
+          You must bring your application in person to the British high commission in Yaounde. 
+
+        making_application_cameroon_replacing: | 
+          You must bring your application in person to the British high commission in Yaounde. 
+
         getting_your_passport_cameroon: |
           The British high commission will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
@@ -1723,7 +1828,7 @@ en-GB:
 
           You can pay: 
 
-          - using a Visa or Mastercard - download a [card payment authorisation form](http:/iukinhongkong.fco.gov.uk/resources/en/pdf/17274209/credit-card-authorisation.pdf "Card payment authorisation form"){:rel="external"} and include it with your application
+          - using a Visa or Mastercard - download a [card payment authorisation form](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/credit-card-authorisation.pdf "Card payment authorisation form"){:rel="external"} and include it with your application
           - International Banker’s Draft (in Hong Kong dollars), payable to ‘British Consulate-General Hong Kong’
 
           Passport type | Passport fee | Total to pay (including courier fee)
@@ -2174,7 +2279,7 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British high commission in Lusaka. You will have to pay for the document.
+          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British high commission in Lusaka. You can use old Kwacha notes to pay until 30 June 2013.
 
         cost_zambia: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. 
