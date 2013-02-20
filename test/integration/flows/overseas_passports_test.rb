@@ -186,7 +186,8 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           assert_phrase_list :how_to_apply, [:how_to_apply_afghanistan]
           assert_phrase_list :making_application, [:making_application_afghanistan]
           assert_phrase_list :getting_your_passport, [:getting_your_passport_afghanistan]
-          assert_state_variable :embassy_address, "British Embassy\n15th Street, Roundabout Wazir Akbar Khan\nPO Box 334\nKabul\nAfghanistan,Kabul\n\n0830-1630 (Sunday to Thursday)"
+          assert_match /15th Street, Roundabout Wazir Akbar Khan/, current_state.embassy_address
+          assert_match /0830-1630 \(Sunday to Thursday\)/, current_state.embassy_address
           assert_current_node :result
         end
       end
@@ -219,14 +220,8 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           assert_phrase_list :how_to_apply, [:how_to_apply_iraq]
           assert_phrase_list :making_application, [:making_application_iraq]
           assert_phrase_list :getting_your_passport, [:getting_your_passport_iraq]
-          assert_state_variable :embassy_address, "British Embassy, Baghdad \nInternational Zone\nBaghdad"
-          assert_state_variable :embassy_details, %Q(British Embassy
-(PO Box 87) Abdoun 
-Amman 11118
-Amman.enquiries@fco.gov.uk
-Passport opening times: Sun - Wed: 08.30-1200
-Sun-Wed: 0600-1330 GMT (0800-1530 local time)
-Thurs: 0600-1300 GMT (0800-1500 local time)) 
+          assert_match /British Embassy, Baghdad/, current_state.embassy_address
+          assert_match /Passport opening times: Sun - Wed: 08.30-1200/, current_state.embassy_details
           assert_current_node :result
         end
       end
@@ -246,8 +241,8 @@ Thurs: 0600-1300 GMT (0800-1500 local time))
       assert_phrase_list :how_to_apply, [:how_to_apply_lagos_nigeria]
       assert_phrase_list :making_application, [:making_application_lagos_nigeria]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_lagos_nigeria]
-      assert_state_variable :embassy_address, "British Deputy High Commission\n11 Walter Carrington Crescent\nVictoria Island\nLagos\n\nGMT: Mon-Thurs: 0630-1430 and Fri 0630-1130\nLocal Time: Mon-Thur 0730-1530 and Fri 0730-1230"
-      assert_state_variable :embassy_details, "British Deputy High Commission\n11 Walter Carrington Crescent\nVictoria Island\nLagos\n(00234) (0) 1 277 0780/0781/0782\nGMT: Mon-Thurs: 0630-1430 and Fri 0630-1130\nLocal Time: Mon-Thur 0730-1530 and Fri 0730-1230"
+      assert_match /11 Walter Carrington Crescent/, current_state.embassy_address
+      assert_match /GMT: Mon-Thurs: 0630-1430 and Fri 0630-1130/, current_state.embassy_details
       assert_current_node :result
     end
   end
@@ -397,28 +392,10 @@ Thurs: 0600-1300 GMT (0800-1500 local time))
         assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :send_your_application, [:send_application_ips3]
         assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips3]
-        assert_state_variable :embassy_address, %Q(British Embassy
-45 Khagani Street
-Baku
-AZ1010
-
-Opening hours
-Mon-Fri: 05:00 - 13:00 GMT
-Mon-Fri: 09:00 - 17:00 Local Time
-
-If you need to contact the Embassy in an emergency out of hours you should telephone the number above, which will give a telephone number for the Global Response Center.)
-
-        assert_state_variable :embassy_details, %Q(British Embassy
-45 Khagani Street
-Baku
-AZ1010
-+ 994 (12) 4377878
-generalenquiries.baku@fco.gov.uk
-Opening hours
-Mon-Fri: 05:00 - 13:00 GMT
-Mon-Fri: 09:00 - 17:00 Local Time
-
-If you need to contact the Embassy in an emergency out of hours you should telephone the number above, which will give a telephone number for the Global Response Center.)
+        assert_match "45 Khagani Street", current_state.send(:embassy_address)
+        assert_match "Mon-Fri: 09:00 - 17:00 Local Time", current_state.embassy_address
+        assert_match "+ 994 (12) 4377878", current_state.embassy_details
+        assert_match "generalenquiries.baku@fco.gov.uk", current_state.embassy_details
       end
     end # Applying
   end # Azerbaijan - IPS_application_3
@@ -450,8 +427,8 @@ If you need to contact the Embassy in an emergency out of hours you should telep
           assert_phrase_list :cost, [:passport_courier_costs_fco_europe, :child_passport_costs_fco_europe, :passport_costs_madrid_spain]
           assert_phrase_list :send_your_application, [:send_application_fco_preamble, :send_application_madrid_spain]
           assert_phrase_list :helpline, [:helpline_madrid_spain]
-          assert_state_variable :embassy_address, "Edificio Torre de Barcelona\nAvienda Diagonal 477-13\n08036 Barcelona,"
-          assert_state_variable :embassy_details, "Edificio Torre de Barcelona\nAvienda Diagonal 477-13\n08036 Barcelona,\n(34) 93 366 6200"
+          assert_match "Edificio Torre de Barcelona", current_state.embassy_address
+          assert_match "(34) 93 366 6200", current_state.embassy_details
         end
       end
     end
@@ -473,8 +450,8 @@ If you need to contact the Embassy in an emergency out of hours you should telep
           assert_phrase_list :send_your_application, [:send_application_fco_preamble, :send_application_madrid_spain]
           assert_phrase_list :getting_your_passport, [:getting_your_passport_fco]
           assert_phrase_list :helpline, [:helpline_madrid_spain]
-          assert_state_variable :embassy_address, "Edificio Torre de Barcelona\nAvienda Diagonal 477-13\n08036 Barcelona,"
-          assert_state_variable :embassy_details, "Edificio Torre de Barcelona\nAvienda Diagonal 477-13\n08036 Barcelona,\n(34) 93 366 6200"
+          assert_match "08036 Barcelona,", current_state.embassy_address
+          assert_match "Avienda Diagonal 477-13", current_state.embassy_details
         end
       end
     end # Andorra (FCO result cases)

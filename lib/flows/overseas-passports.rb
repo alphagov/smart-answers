@@ -1,5 +1,7 @@
 status :published
 
+i18n_prefix = "flow.overseas-passports"
+
 # Q1
 country_select :which_country_are_you_in? do
   save_input_as :current_location
@@ -25,41 +27,30 @@ country_select :which_country_are_you_in? do
   calculate :embassy_addresses do
     addresses = nil
     unless ips_number.to_i ==  1 or embassies_data.nil?
-      addresses = embassies_data.map do |e| 
-        address = [e['address']] 
-        address << e['office_hours'] if e['office_hours'].present?
-        address.join("\n\n")
+      addresses = embassies_data.map do |e|
+        I18n.translate!("#{i18n_prefix}.phrases.embassy_address",
+                        address: e['address'], office_hours: e['office_hours'])
       end
     end
     addresses
   end
   calculate :embassy_address do
     if embassy_addresses
-      if responses.last =~ /^(russian-federation|pakistan)$/
-        embassy_addresses.join("\n$A\n\n$A\n  ")
-      else
-        embassy_addresses.first
-      end
+      responses.last =~ /^(russian-federation|pakistan)$/ ? embassy_addresses : embassy_addresses.first
     end
   end
   calculate :embassies_details do
     details = []
-    embassies_data.each do |data|
-      embassy = [data['address']]
-      embassy << data['phone'] if data['phone'].present?
-      embassy << data['email'] if data['email'].present?
-      embassy << data['office_hours'] if data['office_hours'].present?
-      details << embassy.join("\n")
+    embassies_data.each do |e|
+      details << I18n.translate!("#{i18n_prefix}.phrases.embassy_details",
+                                address: e['address'], phone: e['phone'],
+                                email: e['email'], office_hours: e['office_hours'])
     end if embassies_data
     details
   end
   calculate :embassy_details do
     if embassies_details
-      if responses.last =~ /^(russian-federation|pakistan)$/
-        embassies_details.join("\n$A\n\n$A\n  ")
-      else
-        embassies_details.first
-      end
+      responses.last =~ /^(russian-federation|pakistan)$/ ? embassies_details : embassies_details.first
     end
   end
 
