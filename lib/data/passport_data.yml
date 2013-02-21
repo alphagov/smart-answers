@@ -525,7 +525,7 @@ seychelles:
   :type: ips_application_1
   :group: ips_documents_group_1
 sierra-leone: 
-  :type: sierra Leone
+  :type: sierra-leone
   :group: ips_documents_group_3
 singapore: 
   :type: hong_kong
@@ -549,7 +549,7 @@ south-georgia-and-south-sandwich-islands:
   :type: ips_application_1
   :group: ips_documents_group_1
 south-sudan: 
-  :type: pretoria_south_africa
+  :type: south-sudan
   :group: ips_documents_group_3
 spain: 
   :type: madrid_spain
