@@ -98,8 +98,8 @@ outcome :fco_result
 
 outcome :embassy_result do
   precalculate :embassy_high_commission_or_consulate do
-    data_query.has_high_commission?(country) ? "High commission" :
-      data_query.has_consulate?(country) ? "British embassy or consulate" :
+    data_query.has_high_commission?(current_location) ? "High commission" :
+      data_query.has_consulate?(current_location) ? "British embassy or consulate" :
         "British embassy"
   end
 
@@ -150,7 +150,7 @@ outcome :embassy_result do
   end
 
   precalculate :embassy_address do
-    data = SmartAnswer::Calculators::PassportAndEmbassyDataQuery.find_embassy_data(current_location)
+    data = SmartAnswer::Calculators::PassportAndEmbassyDataQuery.new.find_embassy_data(current_location)
     data.first['address'] if data
   end
 end
