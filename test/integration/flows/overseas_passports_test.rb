@@ -247,7 +247,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
   end
 
-  # Austria (An¿P example of IPS application 1).
+  # Austria (An example of IPS application 1).
   context "answer Austria" do
     setup do
       add_response 'austria'
