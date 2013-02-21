@@ -26,18 +26,18 @@ country_select :which_country_are_you_in? do
     data_query.find_embassy_data(current_location)
   end
   calculate :embassy_addresses do
-    addresses = nil
+    addresses = [] 
     unless ips_number.to_i ==  1 or embassies_data.nil?
-      addresses = embassies_data.map do |e|
-        I18n.translate!("#{i18n_prefix}.phrases.embassy_address",
-                        address: e['address'], office_hours: e['office_hours'])
+      embassies_data.each do |e|
+        addresses << I18n.translate!("#{i18n_prefix}.phrases.embassy_address",
+                                      address: e['address'], office_hours: e['office_hours'])
       end
     end
     addresses
   end
   calculate :embassy_address do
     if embassy_addresses
-      responses.last =~ /^(russian-federation|pakistan)$/ ? embassy_addresses : embassy_addresses.first
+      responses.last =~ /^(russian-federation|pakistan)$/ ? embassy_addresses.join : embassy_addresses.first
     end
   end
   calculate :embassies_details do
@@ -51,7 +51,7 @@ country_select :which_country_are_you_in? do
   end
   calculate :embassy_details do
     if embassies_details
-      responses.last =~ /^(russian-federation|pakistan)$/ ? embassies_details : embassies_details.first
+      responses.last =~ /^(russian-federation|pakistan)$/ ? embassies_details.join : embassies_details.first
     end
   end
 
@@ -291,7 +291,9 @@ end
 outcome :result do
   precalculate :embassy_address do
     if application_type == 'iraq'
-      Calculators::PassportAndEmbassyDataQuery.embassy_data['iraq'].first['address']
+      e = data_query.find_embassy_data('iraq', false).first
+      I18n.translate!("#{i18n_prefix}.phrases.embassy_address",
+                      address: e['address'], office_hours: e['office_hours'])
     else
       embassy_address
     end
@@ -316,7 +318,7 @@ outcome :result do
   end
   precalculate :making_application do
     phrase = ['making_application', application_type]
-    phrase << general_action if %w(cameroon nairobi_kenya).include?(application_type)
+    phrase << general_action if application_type == 'cameroon'
     PhraseList.new(phrase.join('_').to_sym)
   end
   precalculate :getting_your_passport do

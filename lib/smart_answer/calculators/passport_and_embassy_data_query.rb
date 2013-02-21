@@ -32,9 +32,9 @@ module SmartAnswer::Calculators
       passport_data[country_slug]
     end
 
-    def find_embassy_data(country_slug)
-      country = ALT_EMBASSIES.has_key?(country_slug) ? ALT_EMBASSIES[country_slug] : country_slug
-      embassy_data[country]
+    def find_embassy_data(country_slug, alt=true)
+      country_slug = ALT_EMBASSIES[country_slug] if alt and ALT_EMBASSIES.has_key?(country_slug)
+      embassy_data[country_slug]
     end
 
     def retain_passport?(country_slug)

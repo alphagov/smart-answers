@@ -545,7 +545,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_phrase_list :how_long_it_takes, [:how_long_nairobi_kenya_applying]
       assert_phrase_list :cost, [:cost_nairobi_kenya_applying]
       assert_phrase_list :supporting_documents, [:supporting_documents_nairobi_kenya_applying]
-      assert_phrase_list :making_application, [:making_application_nairobi_kenya_applying]
+      assert_phrase_list :making_application, [:making_application_nairobi_kenya]
     end
   end # Kenya (custom phrases)
 end
