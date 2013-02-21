@@ -51,7 +51,6 @@ en-GB:
 
           $A
             %{address}
-
             %{office_hours}
           $A
 
@@ -60,11 +59,8 @@ en-GB:
 
           $A
             %{address}
-            
             %{phone}
-            
             %{email}
-            
             %{office_hours}
           $A
 
@@ -2498,9 +2494,7 @@ en-GB:
           %{how_long_it_takes}
 
 
-          $A
-            %{embassy_address}
-          $A
+          %{embassy_address}
 
           ## Cost
           
@@ -2527,9 +2521,7 @@ en-GB:
           %{making_application}
 
 
-          $A
-            %{embassy_details}
-          $A
+          %{embassy_details}
 
           ## Getting your passport
 
