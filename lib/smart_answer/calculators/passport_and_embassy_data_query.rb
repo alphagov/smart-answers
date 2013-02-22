@@ -8,8 +8,9 @@ module SmartAnswer::Calculators
     ALT_EMBASSIES = {
       'benin' =>  'nigeria',
       'guinea' => 'ghana',
-      'ivory-coast' => 'ghana',
       'iraq'  =>  'jordan',
+      'ivory-coast' => 'ghana',
+      'krygyzstan' => 'kazakhstan',
       'liberia' => 'ghana',
       'mauritania' => 'morocco',
       'togo' => 'ghana',

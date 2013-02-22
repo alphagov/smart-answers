@@ -231,7 +231,7 @@ end
 ## FCO Result
 outcome :fco_result do
   precalculate :how_long_it_takes do
-    if application_action == 'applying' and current_location == 'india'
+    if application_action == 'applying' and %w(india tanzania).include?(current_location)
       PhraseList.new(:how_long_applying_india)
     else
       PhraseList.new(:"how_long_#{application_action}_fco")
@@ -260,8 +260,8 @@ outcome :fco_result do
 
     if application_type =~ /^(dublin_ireland|india)$/
       PhraseList.new(:"how_to_apply_#{application_type}")
-    elsif data_query.retain_passport?(current_location)
-      PhraseList.new(:"how_to_apply_retain_passport")
+    elsif general_action == 'renewing' and data_query.retain_passport?(current_location)
+      PhraseList.new(:how_to_apply_retain_passport)
     else
       ''
     end
@@ -269,7 +269,9 @@ outcome :fco_result do
   
   precalculate :send_your_application do
     phrases = PhraseList.new
-    if current_location =~ /^(indonesia|jamaica|jordan|south-africa)$/
+    if current_location == 'indonesia' and application_action == 'applying'
+      phrases << :send_application_indonesia_applying
+    elsif current_location =~ /^(indonesia|jamaica|jordan|south-africa)$/
       phrases << :"send_application_#{current_location}"
     else
       phrases << :send_application_fco_preamble
@@ -309,7 +311,11 @@ outcome :result do
     PhraseList.new(phrase.join('_').to_sym)
   end
   precalculate :how_to_apply do
-    PhraseList.new(:"how_to_apply_#{application_type}")
+    phrases = PhraseList.new(:"how_to_apply_#{application_type}")
+    if general_action == 'renewing' and data_query.retain_passport?(current_location)
+      phrases << :how_to_apply_retain_passport 
+    end
+    phrases
   end
   precalculate :supporting_documents do
     phrase = ['supporting_documents', application_type]
