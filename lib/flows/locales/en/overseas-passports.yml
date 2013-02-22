@@ -232,6 +232,8 @@ en-GB:
 
           If you pay by card, you’ll be charged the sterling amount in Hong Kong dollars using the exchange rate on the day your application is processed. 
 
+        passport_costs_indonesia: ''
+
         how_long_applying_india: |
           Your application will take **at least** 12 weeks. You may have to attend an interview.
 
