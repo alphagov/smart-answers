@@ -136,6 +136,18 @@ en-GB:
           -|-|-
           Child standard 32-page passport | 1,223,000 Indonesian Rupiah | 1,573,000 Indonesian Rupiah
 
+        send_application_indonesia_applying: |
+          You must make your application in person.
+
+
+          $A
+            British Consulate-General
+            Deutsche Bank Building 19th Floor
+            Jl Imam Bonjol 80
+            Jakarta 10310
+            Indonesia
+          $A
+
         passport_costs_washington_usa:
           You must pay using a Visa or Mastercard. [Download a credit card authorisation form (PDF, 64KB)](http://ukinusa.fco.gov.uk/resources/en/pdf/credit-card-form.pdf "Credit card authorisation form (PDF, 64KB)") and send it with your application.
 
@@ -303,18 +315,6 @@ en-GB:
 
           %{embassy_details}
 
-        send_application_indonesia: |
-          You must make your application in person.
-
-
-          $A
-            British Consulate-General
-            Deutsche Bank Building 19th Floor
-            Jl Imam Bonjol 80
-            Jakarta 10310
-            Indonesia
-          $A
-
         send_application_jamaica: |
           You must make your application in person to the British High Commission, Kingston
 
@@ -439,7 +439,7 @@ en-GB:
           $C
             **1820 Settlers Association of South Africa**
 
-            Telephone: 041 585 3416 (Port Elizabeth)
+            Telephone: 041 585 3416 (Port Elizabeth)  
             031 202 6174 (Durban)
 
           $C
