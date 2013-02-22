@@ -226,6 +226,13 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         end
       end
     end
+    context "Renewing" do
+      should "tell you to retain your passport" do
+        add_response 'renewing_old'
+        add_response 'adult'
+        assert_phrase_list :how_to_apply, [:how_to_apply_iraq, :how_to_apply_retain_passport]
+      end
+    end
   end # Iraq 
 
   context "answer Benin, renewing old passport" do
@@ -482,7 +489,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       assert_current_node :fco_result
       assert_phrase_list :cost, [:passport_courier_costs_indonesia, :adult_passport_costs_indonesia, :passport_costs_hong_kong]
-      assert_phrase_list :how_to_apply_supplement, [:how_to_apply_retain_passport]
     end
   end # Indonesia (FCO with custom phrases)
   context "answer Jamaica, replacement, adult passport" do

@@ -136,6 +136,18 @@ en-GB:
           -|-|-
           Child standard 32-page passport | 1,223,000 Indonesian Rupiah | 1,573,000 Indonesian Rupiah
 
+        send_application_indonesia_applying: |
+          You must make your application in person.
+
+
+          $A
+            British Consulate-General
+            Deutsche Bank Building 19th Floor
+            Jl Imam Bonjol 80
+            Jakarta 10310
+            Indonesia
+          $A
+
         passport_costs_washington_usa:
           You must pay using a Visa or Mastercard. [Download a credit card authorisation form (PDF, 64KB)](http://ukinusa.fco.gov.uk/resources/en/pdf/credit-card-form.pdf "Credit card authorisation form (PDF, 64KB)") and send it with your application.
 
@@ -301,15 +313,7 @@ en-GB:
  
           You must make your application in person.
 
-
-          $C
-
-            British Consulate-General  
-            Deutsche Bank Building 19th Floor  
-            Jl Imam Bonjol 80  
-            Jakarta 10310  
-            Indonesia  
-          $C
+          %{embassy_details}
 
         send_application_jamaica: |
           You must make your application in person to the British High Commission, Kingston
@@ -435,7 +439,7 @@ en-GB:
           $C
             **1820 Settlers Association of South Africa**
 
-            Telephone: 041 585 3416 (Port Elizabeth)
+            Telephone: 041 585 3416 (Port Elizabeth)  
             031 202 6174 (Durban)
 
           $C
@@ -1078,8 +1082,23 @@ en-GB:
         how_long_nairobi_kenya_applying: |
           Your application will take at least 12 weeks. You will be asked to attend an interview.
 
+          Applications may take longer if: 
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document at the British high commission/honorary consulate. You will have to pay for the document.
+
         how_long_nairobi_kenya_replacing: |
           Your application will take at least 6 weeks. You may be asked to attend an interview.
+
+          Applications may take longer if: 
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document at the British high commission/honorary consulate. You will have to pay for the document.
+
 
         how_long_nairobi_kenya_renewing: |
           Your application will take at least 4 weeks. You may be asked to attend an interview.
@@ -1256,15 +1275,6 @@ en-GB:
           Adult standard 32-page passport | 108,800 CFA | 137,000 CFA
           Adult jumbo 48-page passport | 131,300 CFA | 159,500 CFA
           Child passport | 69,300 CFA | 97,500 CFA
-
-
-          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. 
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | BIF256,000/$US211 | BIF322,340/$US266
-          Adult jumbo 48-page passport | BIF309,000BIF/$US255 | BIF375,340/$US2310
-          Child passport | BIF163,000/$US134 | BIF229,340/$US188
 
         cost_cameroon_applying: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. You must pay in cash.
@@ -2241,8 +2251,6 @@ en-GB:
         how_to_apply_yemen: ''
         supporting_documents_yemen: ''
         making_application_yemen: |
-        getting_your_passport_yemen: |
-
           ### Renewing a passport
 
           Send your application - preferably by one-way courier or secure post - to:
@@ -2258,6 +2266,9 @@ en-GB:
           ### Applying for a first passport or replacing a lost or stolen passport
 
           You must make your application in person to the British embassy Amman, Jordan.
+
+        getting_your_passport_yemen: |
+          The British embassy in Amman will contact you when your passport and supporting documents arrive using the contact details on your form. You must collect them in person.
 
         how_long_zambia: |
           Action | Minimum time after you apply
