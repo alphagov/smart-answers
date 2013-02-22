@@ -488,7 +488,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'applying'
       add_response 'adult'
       assert_current_node :fco_result
-      assert_phrase_list :cost, [:passport_courier_costs_indonesia, :adult_passport_costs_indonesia, :passport_costs_hong_kong]
+      assert_phrase_list :cost, [:passport_courier_costs_indonesia, :adult_passport_costs_indonesia, :passport_costs_indonesia]
     end
   end # Indonesia (FCO with custom phrases)
   context "answer Jamaica, replacement, adult passport" do
