@@ -10,6 +10,7 @@ module SmartAnswer::Calculators
       'guinea' => 'ghana',
       'ivory-coast' => 'ghana',
       'iraq'  =>  'jordan',
+      'krygyzstan' => 'kazakhstan',
       'liberia' => 'ghana',
       'mauritania' => 'morocco',
       'togo' => 'ghana',
