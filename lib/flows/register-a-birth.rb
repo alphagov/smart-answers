@@ -45,7 +45,7 @@ multiple_choice :where_are_you_now? do
     case response
     when 'same_country' then :embassy_result
     when 'another_country' then :which_country?
-    else 
+    else
       :fco_result
     end
   end
