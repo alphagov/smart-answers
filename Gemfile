@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-source 'https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/'
+source 'https://BnrJb6FZyzspBboNJzYZ@gem.fury.io/govuk/'
 
 gem 'unicorn', '4.3.1'
 gem 'rails', '3.2.12'
