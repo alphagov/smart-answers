@@ -1,4 +1,7 @@
 status :draft
+
+reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
+
 # Q1
 multiple_choice :have_you_adopted_the_child? do
   option :yes => :no_registration_result 
@@ -19,7 +22,7 @@ country_select :country_of_birth? do
   save_input_as :country_of_birth
 
   next_node do |response|
-    if response == 'australia' # TODO Registrations data to be used here.
+    if reg_data_query.commonwealth_country?(response)
       :commonwealth_result
     else
       :married_couple_or_civil_partnership?
