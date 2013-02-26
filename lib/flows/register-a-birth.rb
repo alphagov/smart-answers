@@ -31,8 +31,18 @@ country_select :country_of_birth? do
 end
 # Q4
 multiple_choice :married_couple_or_civil_partnership? do
-  option :yes => :childs_date_of_birth?
-  option :no => :childs_date_of_birth?
+  option :yes
+  option :no
+
+  save_input_as :married_or_cp
+
+  next_node do |response|
+    if response == 'no' and british_national_parent == 'father'
+      :childs_date_of_birth?
+    else
+      :where_are_you_now?
+    end
+  end
 end
 # Q5
 date_question :childs_date_of_birth? do
