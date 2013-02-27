@@ -57,7 +57,7 @@ module SmartAnswer::Calculators
           end
 
           should "make the leave end date 52 weeks from the leave start date" do
-            assert_equal 52.weeks.since(@leave_start_date), @calculator.leave_end_date
+            assert_equal 52.weeks.since(@leave_start_date) - 1, @calculator.leave_end_date
           end
 
           should "make the leave end date after the leave start date" do

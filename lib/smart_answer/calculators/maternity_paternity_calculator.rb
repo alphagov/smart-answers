@@ -53,7 +53,7 @@ module SmartAnswer::Calculators
     end
 
     def leave_end_date
-      52.weeks.since(@leave_start_date)
+      52.weeks.since(@leave_start_date) - 1
     end
 
     def pay_start_date
