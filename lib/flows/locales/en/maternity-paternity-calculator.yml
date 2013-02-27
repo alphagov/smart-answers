@@ -4,7 +4,7 @@ en-GB:
       meta:
         description: Statutory maternity, paternity and adoption leave or pay - calculate the qualifying week, relevant period, pay rate, notice period and the start and end dates
       title:
-        Employers' maternity and paternity calculator
+        Maternity and paternity calculator for employers
       options:
         "no": "No"
         "yes": "Yes"
