@@ -2,7 +2,7 @@ en-GB:
   flow:
     maternity-paternity-calculator:
       meta:
-        description: Statutory maternity, paternity and adoption leave or pay - calculate the qualifying week, relevant period, pay rate, notice period and the start and end dates
+        description: Calculate an employee’s maternity pay (SMP), paternity or adoption pay, qualifying week, relevant period and average weekly earnings
       title:
         Maternity and paternity calculator for employers
       options:
@@ -12,20 +12,30 @@ en-GB:
         "paternity": "Paternity"
         "adoption": "Adoption"
       body: |
+        Calculator your employee’s:
 
-        Calculate the qualifying week, relevant employment period, notice period and check an employee’s eligibility for statutory maternity, paternity and adoption leave or pay.
+        + statutory maternity pay (SMP), paternity pay, adoption pay
+        + qualifying week
+        + relevant employment period and average weekly earnings
+        + leave period
 
-
+      devolved_body: |
         ##What you need
 
-        You’ll need:
+        You need:
 
         + the baby’s due date
         + date of birth - for paternity
-        + your employee's salary details - eg weekly rates of pay
+        + your employee’s salary details - eg weekly rates of pay
         + the dates for adoption - eg match date or date of placement
 
-        % You can’t use the calculator for [Additional Paternity Leave or Pay](/additional-paternity-leave-pay-employees "Additional paternity leave or pay") and paternity leave for [overseas adoptions](/paternity-leave-pay-employees "Paternity leave for adoptions") or births 15 weeks before the due date. %
+        %
+        You can’t use the calculator for:
+
+        + births 15 weeks before the due date
+        + [Additional paternity Leave or Pay](/additional-paternity-leave-pay-employees “Additional paternity leave or pay”)
+        + paternity leave or pay for [overseas adoptions](/paternity-leave-pay-employees “Paternity leave for adoptions”)
+        %
       phrases:
         not_worked_long_enough: + they must have started working for you on or before %{employment_start}
         must_be_on_payroll: + you must be liable for their secondary Class 1 National Insurance contributions - ie you will be if they’re on your payroll
