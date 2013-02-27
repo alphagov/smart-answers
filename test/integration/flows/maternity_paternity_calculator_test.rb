@@ -27,20 +27,6 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
       assert_current_node :baby_due_date_maternity?
     end
 
-    should "be a saturday when providing the notice leave deadline" do
-      add_response Date.parse("2013-02-22")
-      add_response :yes
-      add_response Date.parse("2013-01-25")
-      add_response :yes
-      add_response :yes
-      add_response Date.parse("2012-11-09")
-      add_response Date.parse("2012-09-14")
-      add_response :monthly
-      add_response 4000
-
-      assert_state_variable "notice_of_leave_deadline", Date.parse("2012-11-10")
-    end
-
     context "test lower earning limits returned" do
       should "return lower_earning_limit of £107" do
         dd =Date.parse("1 January 2013")
@@ -1039,6 +1025,20 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
           end # no to contract (QA3)
         end
       end
+    end
+
+    should "be a saturday when providing the notice leave deadline" do
+      add_response Date.parse("2013-02-22")
+      add_response :yes
+      add_response Date.parse("2013-01-25")
+      add_response :yes
+      add_response :yes
+      add_response Date.parse("2012-11-09")
+      add_response Date.parse("2012-09-14")
+      add_response :monthly
+      add_response 4000
+
+      assert_state_variable "notice_of_leave_deadline", Date.parse("2012-11-10")
     end
   end # adoption
 end
