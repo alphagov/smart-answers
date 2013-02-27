@@ -61,7 +61,7 @@ module SmartAnswer::Calculators
     end
 
     def pay_end_date
-      39.weeks.since(pay_start_date)
+      39.weeks.since(pay_start_date) - 1
     end
 
     # Rounds up at 2 decimal places.
