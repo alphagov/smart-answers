@@ -77,12 +77,29 @@ class RegisterABirthTest < ActiveSupport::TestCase
         should "ask if you are married or civil partnered" do
           assert_current_node :married_couple_or_civil_partnership?
         end
+        should "store this as the registration country" do
+          assert_state_variable :registration_country, 'spain'
+        end
         context "answer no" do
           setup do
             add_response 'no'
           end
           should "ask when the child was born" do
             assert_current_node :childs_date_of_birth?
+          end
+          context "answer pre 1st July 2006" do
+            should "give the homeoffice result" do
+              add_response '2007-06-30'
+              assert_current_node :homeoffice_result
+            end
+          end
+          context "answer on or after 1st July 2006" do
+            setup do
+              add_response '2006-07-01'
+            end
+            should "ask where you are now" do
+              assert_current_node :where_are_you_now?
+            end
           end
         end # not married/cp
         context "answer yes" do
@@ -92,8 +109,37 @@ class RegisterABirthTest < ActiveSupport::TestCase
           should "ask where you are now" do
             assert_current_node :where_are_you_now?
           end
-        end
+          context "answer back in the UK" do
+            should "give the fco result" do
+              add_response 'in_the_uk'
+              assert_state_variable :registration_country, 'spain'
+              assert_current_node :fco_result
+            end
+          end
+          context "answer in another country" do
+            setup do
+              add_response "another_country"
+            end
+            should "answer Ireland and get the commonwealth result" do 
+              add_response 'ireland'
+              assert_state_variable :registration_country, 'ireland'
+              assert_current_node :commonwealth_result
+            end # now in Ireland
+            should "answer USA and get the embassy outcome" do
+              add_response 'united-states'
+              assert_current_node :embassy_result
+            end # now in USA
+          end # in another country
+        end # married/cp
       end # Spain
+      context "answer Pakistan" do
+        should "give the embassy result" do
+          add_response "pakistan"
+          add_response "yes"
+          add_response "in_the_uk"
+          assert_current_node :embassy_result
+        end
+      end # Pakistan
     end # father
     context "answer mother and father" do
       setup do

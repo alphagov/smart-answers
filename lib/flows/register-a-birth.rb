@@ -21,6 +21,10 @@ end
 country_select :country_of_birth? do
   save_input_as :country_of_birth
 
+  calculate :registration_country do
+    responses.last
+  end
+
   next_node do |response|
     if reg_data_query.commonwealth_country?(response)
       :commonwealth_result
@@ -46,7 +50,13 @@ multiple_choice :married_couple_or_civil_partnership? do
 end
 # Q5
 date_question :childs_date_of_birth? do
-  next_node :where_are_you_now?
+  next_node do |response|
+    if Date.parse(response) > Date.new(2006,07,01)
+      :homeoffice_result
+    else
+      :where_are_you_now?
+    end
+  end
 end
 # Q6
 multiple_choice :where_are_you_now? do
@@ -54,21 +64,45 @@ multiple_choice :where_are_you_now? do
   option :another_country
   option :in_the_uk 
 
+
+
   next_node do |response|
     case response
     when 'same_country' then :embassy_result
     when 'another_country' then :which_country?
     else
-      :fco_result
+      if %w(niger pakistan).include?(country_of_birth)
+        :embassy_result
+      else
+        :fco_result
+      end
     end
   end
 end
 # Q7
 country_select :which_country? do
-  save_input_as :current_location
-end
 
-outcome :embassy_result
+  calculate :registration_country do
+    responses.last
+  end
+
+  next_node do |response|
+    if reg_data_query.commonwealth_country?(response)
+      :commonwealth_result
+    else
+      :embassy_result
+    end 
+  end
+end
+# Outcomes
+outcome :embassy_result do
+  precalculate :embassy_high_commission_or_consulate do
+    reg_data_query.has_high_commission?(registration_country) ? "High commission" :
+      reg_data_query.has_consulate?(registration_country) ? "British embassy or consulate" :
+        "British embassy"
+  end
+end
 outcome :fco_result
 outcome :commonwealth_result
 outcome :no_registration_result
+outcome :homeoffice_result
