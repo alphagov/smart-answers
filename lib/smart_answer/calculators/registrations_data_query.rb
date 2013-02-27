@@ -30,7 +30,7 @@ module SmartAnswer::Calculators
     end
 
     def clickbook(country_slug)
-      data['death']['clickbook'][country_slug]
+      data['clickbook'][country_slug]
     end
 
     def has_high_commission?(country_slug)
