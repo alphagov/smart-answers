@@ -13,11 +13,13 @@ module SmartAnswer::Calculators
     LEAVE_TYPE_ADOPTION = "adoption"
 
     def initialize(match_or_due_date, birth_or_adoption = LEAVE_TYPE_BIRTH)
+      expected_start = match_or_due_date - match_or_due_date.wday
+      qualifying_start = 15.weeks.ago(expected_start)
+
       @due_date = @match_date = match_or_due_date
       @leave_type = birth_or_adoption
-      expected_start = match_or_due_date - match_or_due_date.wday
       @expected_week = @matched_week = expected_start .. expected_start + 6.days
-      @notice_of_leave_deadline = qualifying_start = 15.weeks.ago(expected_start)
+      @notice_of_leave_deadline = next_saturday(qualifying_start)
       @qualifying_week = qualifying_start .. qualifying_start + 6.days
       @employment_start = 25.weeks.ago(@qualifying_week.last)
       @a_employment_start = 25.weeks.ago(@matched_week.last)
@@ -162,6 +164,14 @@ module SmartAnswer::Calculators
     #
     def total_statutory_pay
       ((statutory_maternity_rate_a * 6) + (statutory_maternity_rate_b * 33)).round(2)
+    end
+
+    private
+
+    def next_saturday(date)
+      (1..7).each do |inc|
+        return date + inc if (date + inc).send(:saturday?)
+      end
     end
   end
 end
