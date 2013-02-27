@@ -69,7 +69,7 @@ module SmartAnswer::Calculators
           end
 
           should "make the pay end date 39 weeks from the start date" do
-            assert_equal 39.weeks.since(@leave_start_date), @calculator.pay_end_date
+            assert_equal 39.weeks.since(@leave_start_date) - 1, @calculator.pay_end_date
           end
         end
 

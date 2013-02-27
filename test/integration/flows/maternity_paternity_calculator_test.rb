@@ -144,7 +144,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         assert_state_variable "leave_end_date", 52.weeks.since(leave_start) - 1
                         assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week).end_of_week + 6
                         assert_state_variable "pay_start_date", leave_start
-                        assert_state_variable "pay_end_date", 39.weeks.since(leave_start)
+                        assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
                         assert_state_variable "average_weekly_earnings", 135.4
                         assert_state_variable "smp_a", "121.87"
                         assert_state_variable "smp_b", "121.87"
@@ -265,7 +265,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         assert_state_variable "leave_end_date", 52.weeks.since(leave_start) - 1
                         assert_state_variable "notice_of_leave_deadline", next_saturday(15.weeks.ago(start_of_week))
                         assert_state_variable "pay_start_date", leave_start
-                        assert_state_variable "pay_end_date", 39.weeks.since(leave_start)
+                        assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
                         assert_state_variable "smp_a", "121.87"
                         assert_state_variable "smp_b", "121.87"
                         assert_state_variable "total_smp", "4752.93"
@@ -357,7 +357,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         assert_state_variable "leave_end_date", 52.weeks.since(leave_start) - 1
                         assert_state_variable "notice_of_leave_deadline", next_saturday(15.weeks.ago(start_of_week))
                         assert_state_variable "pay_start_date", leave_start
-                        assert_state_variable "pay_end_date", 39.weeks.since(leave_start)
+                        assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
                         assert_state_variable "smp_a", "215.82"
                         assert_state_variable "smp_b", "135.45" # the statutory rate
                         assert_state_variable "total_smp", "5764.77"
@@ -390,8 +390,12 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         assert_state_variable "notice_of_leave_deadline", Date.parse("2012-11-10")
       end
 
-      should "be 23rd January 2014 for Statutory Maternity Pay end date" do
+      should "be 23rd January 2014 for leave end date" do
         assert_state_variable "leave_end_date", Date.parse("2014-01-23")
+      end
+
+      should "be 24th October 2013 for pay end date" do
+        assert_state_variable "pay_end_date", Date.parse("2013-10-24")
       end
     end
   end # Maternity flow
