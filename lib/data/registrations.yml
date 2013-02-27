@@ -1,76 +1,77 @@
 ---
+clickbook:
+  argentina: http://www.britishembassyinbsas.clickbook.net/
+  belgium: http://britishconsulate-gen.clickbook.net/ 
+  belize: https://www.clickbook.net/dev/bc.nsf/sub/BRITISHINBELIZE 
+  bolivia: http://www.britishembassyinlapa.clickbook.net/ 
+  brazil: 
+    Brazilia: http://www.britishembassybrasil.clickbook.net/
+    Sao Paulo: http://www.britishconsularnetwo.clickbook.net/
+    Rio de Janeiro: http://www.britishconsulaterj.clickbook.net/
+    Recife: http://www.britishconsulaterec.clickbook.net/
+  bulgaria: http://britishembassysofia.clickbook.net/
+  chile: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyinsant
+  china:
+    Beijing: https://www.clickbook.net/dev/bc.nsf/sub/BritEmBeijing
+    Shanghai: https://www.clickbook.net/dev/bc.nsf/sub/BritconShanghai
+    Chongqing: https://www.clickbook.net/dev/bc.nsf/sub/BritConChongqing
+    Guangzhou: https://www.clickbook.net/dev/bc.nsf/sub/BritConGuangzhou
+  colombia: https://www.clickbook.net/dev/bc.nsf/sub/xxxxxx
+  costa-rica: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyinsanj
+  czech-republic: http://www.ukinczechrepublic.clickbook.net/
+  ecuador: http://britishembassyquito.clickbook.net/
+  france: http://ukinparis.clickbook.net/
+  georgia: https://www.clickbook.net/dev/bc.nsf/sub/britishembassytbilis
+  greece: https://www.clickbook.net/dev/bc.nsf/sub/BRITISHEMBASSYATHENS
+  guatemala: http://www.britishembassyinguat.clickbook.net/
+  hungary: http://www.britishembassyconsul.clickbook.net/
+  italy:
+    Rome: https://www.clickbook.net/dev/bc.nsf/sub/britishconsrome
+    Milan: https://www.clickbook.net/dev/bc.nsf/sub/britishconsmilan
+  japan:
+    Tokyo: http://www.britishembassytokyo.clickbook.net/
+    Osaka: http://www.britishconsulateosak.clickbook.net/
+  kazakhstan: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyastana
+  kuwait: https://www.clickbook.net/dev/bc.nsf/sub/britishembassykuwait
+  luxembourg: http://ukinluxembourg.clickbook.net/
+  mexico: http://www.britishconsulatemex.clickbook.net/
+  netherlands: https://www.clickbook.net/dev/bc.nsf/sub/BRITISHCONSULATE
+  norway: http://www.britishembassy.clickbook.net/ 
+  oman: https://www.clickbook.net/dev/bc.nsf/sub/britishembassymuscat
+  panama: http://www.britishembassyinpana.clickbook.net/
+  peru: http://britishembassyinlima.clickbook.net/
+  philippines: http://britishembassymanila.clickbook.net/
+  portugal:
+    Lisbon: http://www.britishconsulatelis.clickbook.net/
+    Portimao: http://www.britishconsulateptm.clickbook.net/
+    Oporto: http://www.britishconsulateopo.clickbook.net/
+  russia: https://www.clickbook.net/dev/bc.nsf/sub/RussiaConsular
+  slovakia: http://www.ukinslovakia.clickbook.net/
+  sweden: http://www.ukinsweden.clickbook.net/
+  switzerland: http://britishconsulatebern.clickbook.net/
+  united-states:
+    Atlanta: http://www.britishconsulateatl.clickbook.net/
+    Boston: http://www.britishconsulatebost.clickbook.net/
+    Chicago: http://www.britishconsulatechi.clickbook.net/
+    Denver: http://www.britishcgdever.clickbook.net/
+    Houston: http://www.britishconsulatehous.clickbook.net/
+    Los Angeles: http://www.britishconsulatela.clickbook.net/
+    Miami: http://www.britishcgmiami.clickbook.net/
+    New York: http://www.britishconsulateny.clickbook.net/
+    Orlando: http://www.britishconsulateorl.clickbook.net/
+    San Francisco: http://www.britishconsulatesf.clickbook.net/
+    Washington: http://www.britishembassydc.clickbook.net/ 
+  uruguay: http://britishembassyinmvd.clickbook.net/
+  vietnam: 
+    Hanoi: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyhanoi?OpenDocument&cb_referer=http%3A%2F%2Fukinvietnam.fco.gov.uk%2Fen%2Fhelp-for-british-nationals%2Fliving-in-vietnam%2Fbirth-registration
+    Ho Chi Min City: http://www.bcghochiminh.clickbook.net/
 death:
   registration_forms:
     brazil: http://ukinbrazil.fco.gov.uk/resources/en/pdf/pdf1/postbr_deathregform
     france: http://uk.sitestat.com/fcoweb/ukingov/s?lon.fra.en.help-for-british-nationals.living-in-france.consularbirthregistration.p.pdf.Birth-pack-1212&ns_type=pdf&ns_url=http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/Birth-pack-1212
     spain: http://ukinspain.fco.gov.uk/resources/en/pdf/help-for-BNs/DeathRegForm
     united-states: http://ukinusa.fco.gov.uk/resources/en/pdf/birth-reg-document
-  clickbook:
-    argentina: http://www.britishembassyinbsas.clickbook.net/
-    belgium: http://britishconsulate-gen.clickbook.net/ 
-    belize: https://www.clickbook.net/dev/bc.nsf/sub/BRITISHINBELIZE 
-    bolivia: http://www.britishembassyinlapa.clickbook.net/ 
-    brazil: 
-      Brazilia: http://www.britishembassybrasil.clickbook.net/
-      Sao Paulo: http://www.britishconsularnetwo.clickbook.net/
-      Rio de Janeiro: http://www.britishconsulaterj.clickbook.net/
-      Recife: http://www.britishconsulaterec.clickbook.net/
-    bulgaria: http://britishembassysofia.clickbook.net/
-    chile: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyinsant
-    china:
-      Beijing: https://www.clickbook.net/dev/bc.nsf/sub/BritEmBeijing
-      Shanghai: https://www.clickbook.net/dev/bc.nsf/sub/BritconShanghai
-      Chongqing: https://www.clickbook.net/dev/bc.nsf/sub/BritConChongqing
-      Guangzhou: https://www.clickbook.net/dev/bc.nsf/sub/BritConGuangzhou
-    colombia: https://www.clickbook.net/dev/bc.nsf/sub/xxxxxx
-    costa-rica: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyinsanj
-    czech-republic: http://www.ukinczechrepublic.clickbook.net/
-    ecuador: http://britishembassyquito.clickbook.net/
-    france: http://ukinparis.clickbook.net/
-    georgia: https://www.clickbook.net/dev/bc.nsf/sub/britishembassytbilis
-    greece: https://www.clickbook.net/dev/bc.nsf/sub/BRITISHEMBASSYATHENS
-    guatemala: http://www.britishembassyinguat.clickbook.net/
-    hungary: http://www.britishembassyconsul.clickbook.net/
-    italy:
-      Rome: https://www.clickbook.net/dev/bc.nsf/sub/britishconsrome
-      Milan: https://www.clickbook.net/dev/bc.nsf/sub/britishconsmilan
-    japan:
-      Tokyo: http://www.britishembassytokyo.clickbook.net/
-      Osaka: http://www.britishconsulateosak.clickbook.net/
-    kazakhstan: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyastana
-    kuwait: https://www.clickbook.net/dev/bc.nsf/sub/britishembassykuwait
-    luxembourg: http://ukinluxembourg.clickbook.net/
-    mexico: http://www.britishconsulatemex.clickbook.net/
-    netherlands: https://www.clickbook.net/dev/bc.nsf/sub/BRITISHCONSULATE
-    norway: http://www.britishembassy.clickbook.net/ 
-    oman: https://www.clickbook.net/dev/bc.nsf/sub/britishembassymuscat
-    panama: http://www.britishembassyinpana.clickbook.net/
-    peru: http://britishembassyinlima.clickbook.net/
-    philippines: http://britishembassymanila.clickbook.net/
-    portugal:
-      Lisbon: http://www.britishconsulatelis.clickbook.net/
-      Portimao: http://www.britishconsulateptm.clickbook.net/
-      Oporto: http://www.britishconsulateopo.clickbook.net/
-    russia: https://www.clickbook.net/dev/bc.nsf/sub/RussiaConsular
-    slovakia: http://www.ukinslovakia.clickbook.net/
-    sweden: http://www.ukinsweden.clickbook.net/
-    switzerland: http://britishconsulatebern.clickbook.net/
-    united-states:
-      Atlanta: http://www.britishconsulateatl.clickbook.net/
-      Boston: http://www.britishconsulatebost.clickbook.net/
-      Chicago: http://www.britishconsulatechi.clickbook.net/
-      Denver: http://www.britishcgdever.clickbook.net/
-      Houston: http://www.britishconsulatehous.clickbook.net/
-      Los Angeles: http://www.britishconsulatela.clickbook.net/
-      Miami: http://www.britishcgmiami.clickbook.net/
-      New York: http://www.britishconsulateny.clickbook.net/
-      Orlando: http://www.britishconsulateorl.clickbook.net/
-      San Francisco: http://www.britishconsulatesf.clickbook.net/
-      Washington: http://www.britishembassydc.clickbook.net/ 
-    uruguay: http://britishembassyinmvd.clickbook.net/
-    vietnam: 
-      Hanoi: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyhanoi?OpenDocument&cb_referer=http%3A%2F%2Fukinvietnam.fco.gov.uk%2Fen%2Fhelp-for-british-nationals%2Fliving-in-vietnam%2Fbirth-registration
-      Ho Chi Min City: http://www.bcghochiminh.clickbook.net/
+
   postal_form:
     austria: http://ukinaustria.fco.gov.uk/resources/en/pdf/pdf1/credit-card-form
     bangladesh: http://ukinbangladesh.fco.gov.uk/resources/en/word/doc1/credit-card-form
