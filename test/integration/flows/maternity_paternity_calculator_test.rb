@@ -372,6 +372,24 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         end
       end # no to QM2 employee has contract?
     end
+
+    context "calculate maternity with £4000 earnings" do
+      setup do
+        add_response Date.parse("2013-02-22")
+        add_response :yes
+        add_response Date.parse("2013-01-25")
+        add_response :yes
+        add_response :yes
+        add_response Date.parse("2012-11-09")
+        add_response Date.parse("2012-09-14")
+        add_response :monthly
+        add_response 4000
+      end
+
+      should "be a saturday when providing the notice leave deadline" do
+        assert_state_variable "notice_of_leave_deadline", Date.parse("2012-11-10")
+      end
+    end
   end # Maternity flow
 
 
