@@ -89,7 +89,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
           end
           context "answer pre 1st July 2006" do
             should "give the homeoffice result" do
-              add_response '2007-06-30'
+              add_response '2006-06-30'
               assert_current_node :homeoffice_result
             end
           end
@@ -132,8 +132,11 @@ class RegisterABirthTest < ActiveSupport::TestCase
               assert_state_variable :registration_country_name, "United States"
               assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
               assert_phrase_list :go_to_the_embassy, [:registering_clickbooks, :registering_either_parent]
-              assert_state_variable :postal_form_url, nil 
+              assert_state_variable :multiple_clickbooks, true
+              assert_match /Book an appointment in New York/, current_state.clickbook
+              assert_state_variable :postal_form_url, nil
               assert_phrase_list :postal, [:"postal_info_united-states"]
+              assert_match /3100 Massachusetts Ave, NW/, current_state.embassy_details
               assert_match /It takes about 5 working days for the birth to be officially registered/, current_state.footnote 
             end # now in USA
           end # in another country
