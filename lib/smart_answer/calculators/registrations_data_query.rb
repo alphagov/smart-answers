@@ -4,7 +4,8 @@ module SmartAnswer::Calculators
     COMMONWEALTH_COUNTRIES = %w(anguilla ascension-island australia
       bermuda british-indian-ocean-territory british-virgin-islands cayman-islands
       canada falkland-islands gibraltar ireland montserrat new-zealand pitcairn
-      south-africa south-georgia-and-south-sandwich-islands turks-and-caicos-islands)
+      south-africa south-georgia-and-south-sandwich-islands st-helena tristan-da-cunha
+      turks-and-caicos-islands)
 
     COUNTRIES_WITH_HIGH_COMMISSIONS = %w(
       antigua-and-barbuda bangladesh barbados belize botswana brunei cameroon cyprus
