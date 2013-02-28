@@ -128,10 +128,32 @@ class RegisterABirthTest < ActiveSupport::TestCase
             should "answer USA and get the embassy outcome" do
               add_response 'united-states'
               assert_current_node :embassy_result
+              assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
+              assert_state_variable :registration_country_name, "United States"
+              assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
+              assert_phrase_list :go_to_the_embassy, [:registering_clickbooks, :registering_either_parent]
+              assert_state_variable :postal_form_url, nil 
+              assert_phrase_list :postal, [:"postal_info_united-states"]
+              assert_match /It takes about 5 working days for the birth to be officially registered/, current_state.footnote 
             end # now in USA
           end # in another country
         end # married/cp
       end # Spain
+      context "answer Afghanistan" do
+        should "give the embassy result" do
+          add_response "afghanistan"
+          add_response "yes"
+          add_response "same_country"
+          assert_current_node :embassy_result
+          assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
+          assert_state_variable :registration_country_name, "Afghanistan"
+          assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
+          assert_phrase_list :go_to_the_embassy, [:registering_all, :registering_either_parent]
+          assert_state_variable :postal_form_url, nil 
+          assert_state_variable :postal, ""
+          assert_match /It can take around 3 months for the birth to be officially registered/, current_state.footnote
+        end
+      end # Afghanistan
       context "answer Pakistan" do
         should "give the embassy result" do
           add_response "pakistan"
@@ -140,6 +162,26 @@ class RegisterABirthTest < ActiveSupport::TestCase
           assert_current_node :embassy_result
         end
       end # Pakistan
+      context "answer Taiwan" do
+        should "give the embassy result" do
+          add_response "taiwan"
+          add_response "yes"
+          add_response "same_country"
+          assert_current_node :embassy_result
+          assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_taiwan]
+        end
+      end # Taiwan
+      context "answer Belize" do
+        should "give the embassy result" do
+          add_response "belize"
+          add_response "no"
+          add_response "2006-07-01"
+          add_response "same_country"
+          assert_current_node :embassy_result
+          assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
+          assert_phrase_list :go_to_the_embassy, [:registering_clickbook, :registering_paternity_declaration]
+        end # Not married or CP
+      end # Belize
     end # father
     context "answer mother and father" do
       setup do
