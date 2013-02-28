@@ -22,8 +22,36 @@ en-GB:
         "no": "No"
       have_you_adopted_the_child?:
         title: Have you adopted the child?
-      
+      who_has_british_nationality?:
+        title: Who has British nationality?
+        options:
+          mother: Mother only
+          father: Father only
+          mother_and_father: Mother and father
+          neither: Neither
+      country_of_birth?:
+        title: Which country was the child born in?
+      married_couple_or_civil_partnership?:
+        title: Are you part of a married couple or civil partnership?
+      childs_date_of_birth?:
+        title: What is your child’s date of birth?
+      where_are_you_now?:
+        title: Where are you now?
+        options:
+          same_country: In the country where the child was born
+          another_country: In another country
+          in_the_uk: In the UK
+      which_country?:
+        title: Which country?
       phrases:
+        embassy_details: |
+          
+
+          $A
+            %{address}
+            %{phone}
+            %{email}
+          $A
         documents_you_must_provide_taiwan: |
           - both Chinese and English versions of your child’s birth certificate (most hospitals in Taipei issue English versions, otherwise the Chinese version must be translated and certified)
           - declaration of your maternity and paternity
@@ -134,6 +162,8 @@ en-GB:
 
           %{postal}
           %{cash_only}
+          
+          %{embassy_details}
           
           %{footnote}
 

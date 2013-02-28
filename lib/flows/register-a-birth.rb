@@ -1,6 +1,7 @@
 status :draft
 
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
+embassy_data_query = SmartAnswer::Calculators::PassportAndEmbassyDataQuery.new
 i18n_prefix = 'flow.register-a-birth'
 
 # Q1
@@ -24,6 +25,9 @@ country_select :country_of_birth? do
 
   calculate :registration_country do
     responses.last
+  end
+  calculate :registration_country_name do
+    SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == registration_country }[:name]
   end
 
   next_node do |response|
@@ -53,8 +57,10 @@ multiple_choice :married_couple_or_civil_partnership? do
 end
 # Q5
 date_question :childs_date_of_birth? do
+  from { Date.today }
+  to { 50.years.ago(Date.today) }
   next_node do |response|
-    if Date.parse(response) > Date.new(2006,07,01)
+    if Date.new(2006,07,01) > Date.parse(response)
       :homeoffice_result
     else
       :where_are_you_now?
@@ -86,6 +92,9 @@ country_select :which_country? do
   calculate :registration_country do
     responses.last
   end
+  calculate :registration_country_name do
+    SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == registration_country }[:name]
+  end
 
   next_node do |response|
     if reg_data_query.commonwealth_country?(response)
@@ -97,9 +106,6 @@ country_select :which_country? do
 end
 # Outcomes
 outcome :embassy_result do
-  precalculate :registration_country_name do
-    SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == registration_country }[:name]
-  end
   precalculate :embassy_high_commission_or_consulate do
     reg_data_query.has_high_commission?(registration_country) ? "High commission" :
       reg_data_query.has_consulate?(registration_country) ? "British embassy or consulate" :
@@ -152,6 +158,14 @@ outcome :embassy_result do
     end
   end
   precalculate :embassy_details do
+    details = embassy_data_query.find_embassy_data(registration_country)
+    if details
+      details = details.first
+      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
+                     address: details['address'], phone: details['phone'], email: details['email'])
+    else
+      ''
+    end
   end
   precalculate :cash_only do
     reg_data_query.cash_only?(registration_country) ? PhraseList.new(:cash_only) : ''
