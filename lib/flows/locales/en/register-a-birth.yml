@@ -237,4 +237,10 @@ en-GB:
 
           You can’t register your child’s birth with the UK authorities abroad. This is because unmarried fathers can’t pass on British nationality to a child born before 1 July 2006.
 
-          You may still be able to apply for [British citizenship](http://www.ukba.homeoffice.gov.uk/britishcitizenship/ "Find out how to register your child as a British citizen"){:rel="external"} for the child. 
+          You may still be able to apply for [British citizenship](http://www.ukba.homeoffice.gov.uk/britishcitizenship/ "Find out how to register your child as a British citizen"){:rel="external"} for the child.
+
+      no_registration_result:
+        body: |
+          You can’t register your child’s birth with the UK authorities. Your child must have an automatic claim to British nationality at birth to be eligible.
+
+          If one of the biological parents is British, your child may still be eligible for [British Citizenship.](http://www.ukba.homeoffice.gov.uk/britishcitizenship/ "Find out about British Citizenship"){:rel="external"}
