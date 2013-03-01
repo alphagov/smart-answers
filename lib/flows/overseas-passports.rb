@@ -232,7 +232,7 @@ end
 outcome :fco_result do
   precalculate :how_long_it_takes do
     if application_action == 'applying' and %w(india tanzania).include?(current_location)
-      PhraseList.new(:how_long_applying_india)
+      PhraseList.new(:"how_long_applying_#{current_location}")
     else
       PhraseList.new(:"how_long_#{application_action}_fco")
     end

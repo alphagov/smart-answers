@@ -482,6 +482,15 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_phrase_list :how_to_apply_supplement, [:how_to_apply_india]
     end
   end # India (FCO with custom phrases)
+  context "answer Tanzania, replacement, adult passport" do
+    should "give the fco result with custom phrases" do
+      add_response 'tanzania'
+      add_response 'applying'
+      add_response 'adult'
+      assert_current_node :fco_result
+      assert_phrase_list :how_long_it_takes, [:how_long_applying_tanzania]
+    end
+  end # Tanzania (FCO with custom phrases)
   context "answer Indonesia, replacement, adult passport" do
     should "give the fco result with custom phrases" do
       add_response 'indonesia'
