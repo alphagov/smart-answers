@@ -3,6 +3,8 @@ status :draft
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
 embassy_data_query = SmartAnswer::Calculators::PassportAndEmbassyDataQuery.new
 i18n_prefix = 'flow.register-a-birth'
+exclusions = %w(afghanistan cambodia dominican-republic eritrea kosovo laos madagascar 
+                montenegro paraguay slovenia taiwan tajikistan)
 
 # Q1
 multiple_choice :have_you_adopted_the_child? do
@@ -34,7 +36,9 @@ country_select :country_of_birth? do
   end
 
   next_node do |response|
-    if reg_data_query.commonwealth_country?(response)
+    if %w(iran syria yemen).include?(response)
+      :no_embassy_result
+    elsif reg_data_query.commonwealth_country?(response)
       :commonwealth_result
     else
       :married_couple_or_civil_partnership?
@@ -174,8 +178,7 @@ outcome :embassy_result do
     reg_data_query.cash_only?(registration_country) ? PhraseList.new(:cash_only) : ''
   end
   precalculate :footnote do
-    if %w(afghanistan cambodia dominican-republic eritrea kosovo laos madagascar 
-              montenegro paraguay slovenia taiwan tajikistan).include?(registration_country)
+    if exclusions.include?(registration_country)
       PhraseList.new(:footnote_exceptions)
     elsif another_country
       PhraseList.new(:footnote_another_country)
@@ -184,7 +187,16 @@ outcome :embassy_result do
     end
   end
 end
-outcome :fco_result
+outcome :fco_result do
+  precalculate :intro do
+    if exclusions.include?(registration_country)
+      PhraseList.new(:intro_exceptions)
+    else
+      PhraseList.new(:intro_all)
+    end
+  end
+end
 outcome :commonwealth_result
 outcome :no_registration_result
+outcome :no_embassy_result
 outcome :homeoffice_result
