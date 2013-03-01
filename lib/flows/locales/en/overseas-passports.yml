@@ -235,9 +235,17 @@ en-GB:
         passport_costs_indonesia: ''
 
         how_long_applying_india: |
-          Your application will take **at least** 12 weeks. You may have to attend an interview.
+          Your application will take **at least** 16 weeks. You may have to attend an interview.
 
-        passport_courier_costs_india: ''
+        how_long_applying_tanzania: |
+          Your application will take **at least**  12 weeks. You may have to attend an interview.
+
+        passport_courier_costs_india: |
+          You’ll have to pay a fee for your passport and a courier fee of 2,300 Rupees. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+
+        passport_courier_costs_applying_india: |
+          You’ll have to pay a fee for your passport and a courier fee of 2,300 Rupees. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+
         adult_passport_costs_india: |
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
@@ -249,10 +257,19 @@ en-GB:
           -|-|-
           Child passport | £81.50/HK $1,044 | £101.36/HK $1,299
 
+        adult_passport_costs_applying_india: |
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 11,550 Rupees | 13,850 Rupees
+          Adult jumbo 48-page passport | 13,950 Rupees | 16,250 Rupees
+          
+        child_passport_costs_applying_india: |
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Child standard 32-page passport | 7,350 Rupees | 9,650 Rupees
+
         passport_costs_india: |
           You must pay using a Visa or Mastercard - [download a credit card authorisation form (PDF, 95KB)](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/india-credit-card-form.pdf "Credit card authorisation form (PDF, 95KB)") and send it with your application.
-
-          For passport renewals, you card will be charged the sterling amount in Hong Kong dollars using the exchange rate on the day your application is processed. For a first passport or replaciing a lost or stolen passports, your card will be charged in Rupees.
 
         how_to_apply_india: |
           Application type | Supporting documents information
@@ -487,8 +504,8 @@ en-GB:
           $C
             __Passport Information Helpline__ 
 
-            +44 208 082 4727 
-            
+            +44 208 082 4729 
+ 
             Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call 
           $C
 

@@ -244,7 +244,7 @@ outcome :fco_result do
     cost_type = 'fco_europe' if application_type =~ /^(dublin_ireland|madrid_spain|paris_france)$/
     # Jamaican courier costs vary from the USA FCO office standard.
     cost_type = current_location if current_location == 'jamaica'
-    cost_type = current_location if current_location == 'indonesia' and application_action == 'applying'
+    cost_type = "applying_#{current_location}" if current_location == 'india' and general_action != 'renewing'
    
     payment_methods = :"passport_costs_#{application_type}"
     # Malta and Netherlands have custom payment methods

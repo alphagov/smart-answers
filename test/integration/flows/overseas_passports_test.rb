@@ -480,6 +480,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_current_node :fco_result
       assert_phrase_list :how_long_it_takes, [:how_long_applying_india]
       assert_phrase_list :how_to_apply_supplement, [:how_to_apply_india]
+      assert_phrase_list :cost, [:passport_courier_costs_applying_india, :adult_passport_costs_applying_india, :passport_costs_india]
     end
   end # India (FCO with custom phrases)
   context "answer Tanzania, replacement, adult passport" do
