@@ -138,7 +138,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
               assert_state_variable :postal_form_url, nil
               assert_phrase_list :postal, [:"postal_info_united-states"]
               assert_match /3100 Massachusetts Ave, NW/, current_state.embassy_details
-              assert_match /It takes about 5 working days for the birth to be officially registered/, current_state.footnote 
+              assert_phrase_list :footnote, [:footnote_another_country]
             end # now in USA
           end # in another country
         end # married/cp
@@ -155,7 +155,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
           assert_phrase_list :go_to_the_embassy, [:registering_all, :registering_either_parent]
           assert_state_variable :postal_form_url, nil 
           assert_state_variable :postal, ""
-          assert_match /It can take around 3 months for the birth to be officially registered/, current_state.footnote
+          assert_phrase_list :footnote, [:footnote_exceptions] 
         end
       end # Afghanistan
       context "answer Pakistan" do

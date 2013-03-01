@@ -5,17 +5,16 @@ en-GB:
       meta:
         description: Use this tool to find out how to register the birth of a child abroad.
       body: |
-        You must register your child’s birth according to the regulations in the country where the child was born.
+        You must register your child’s birth according to the regulations in the country where the child was born. They will give you a local birth certificate.
 
-        Once you’ve done this you may be able to register the birth with the UK authorities.
-
+        Once you’ve done this you may be able to apply to register the birth with the UK authorities using this tool. 
         You don’t have to do this, but it means:
 
         - you’ll get a UK-style birth certificate for the child
         - you’ll have proof that the child is a British citizen
         - the birth will be recorded with the General Register Office in the UK
 
-        ^A locally-issued birth certificate should be accepted in the UK for all purposes, eg applying for a passport, registering with a school or doctor etc.^
+        ^A locally-issued birth certificate should be accepted in the UK for all purposes, eg applying for a passport, registering with a school or doctor etc. It might need to be translated and [certified](/certifying-a-document "Certify a document").^
       
       options:
         "yes": "Yes"
@@ -61,8 +60,20 @@ en-GB:
         documents_you_must_provide_sweden: |
           - a hospital certificate ("moderskapsintyg") showing exactly which hospital your child was born at
           - your child’s local birth certificate
+        documents_you_must_provide_japan: |
+          You must provide originals and 1 photocopy of:
+
+          - your child’s hospital birth certificate (or a certified copy of Japanese birth registration and ‘mother’s book’ showing the child’s place of birth)
+          - your child’s ward office birth certificate
+          - your child’s local birth certificate
         documents_you_must_provide_all: |
           - your child’s local birth certificate
+
+        docs_footnote_japan: |
+          If one of you is Japanese, you must provide a photocopy of the family register (‘koseki tohon’). 
+
+          If the child's birth is already shown on the family register, you don’t need to provide the ward office birth certificate.  However, you must send an original certified copy of the family register bearing the ward office's stamp (this needs to be original, not a copy).
+
         registering_all: |
           Book an appointment at the %{embassy_high_commission_or_consulate} and bring the registration form, supporting documents and the fee. 
         registering_clickbooks: |
@@ -107,12 +118,12 @@ en-GB:
         cash_only: |
           %You can only pay by cash, which must be in local currency.%
 
+        footnote_another_country: |
+          ^Registration can take up to 3 months - your application will be sent to %{country_of_birth_name} where the birth will be registered.^
+        footnote_exceptions: |
+          ^Registration can take up to 3 months - your application will be sent to London where the birth will be registered.^
         footnote: |
           ^It takes about 5 working days for the birth to be officially registered.^
-        footnote_afghanistan: |
-          ^It can take around 3 months for the birth to be officially registered, as the registration is sent to London.^
-        footnote_dominican-republic: |
-          ^It can take between 4 to 6 weeks for the birth to be officially registered, as the registration is sent to London.^
       embassy_result:
         body: |
           You can register the birth with the %{embassy_high_commission_or_consulate} in %{registration_country_name}.
@@ -134,6 +145,8 @@ en-GB:
           - a marriage certificate (if you’re married)
           - divorce documents (if either of you has ever been divorced)
           - a change of name document (if either of you has ever changed your name)
+
+          %{documents_footnote}
 
           You’ll also need to provide a photocopy of each document.
 

@@ -26,8 +26,11 @@ country_select :country_of_birth? do
   calculate :registration_country do
     responses.last
   end
-  calculate :registration_country_name do
+  calculate :country_of_birth_name do
     SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == registration_country }[:name]
+  end
+  calculate :registration_country_name do
+    country_of_birth_name 
   end
 
   next_node do |response|
@@ -92,7 +95,6 @@ multiple_choice :where_are_you_now? do
 end
 # Q7
 country_select :which_country? do
-
   calculate :registration_country do
     responses.last
   end
@@ -111,8 +113,11 @@ outcome :embassy_result do
   end
   precalculate :documents_you_must_provide do
     key = "documents_you_must_provide_"  
-    key += (%w(sweden taiwan turkey).include?(registration_country) ? registration_country : "all")
+    key += (%w(japan sweden taiwan turkey).include?(registration_country) ? registration_country : "all")
     PhraseList.new(key.to_sym)
+  end
+  precalculate :documents_footnote do
+    registration_country == 'japan' ? PhraseList.new("docs_footnote_japan") : ''
   end
   precalculate :clickbook_data do
     reg_data_query.clickbook(registration_country)
@@ -169,10 +174,13 @@ outcome :embassy_result do
     reg_data_query.cash_only?(registration_country) ? PhraseList.new(:cash_only) : ''
   end
   precalculate :footnote do
-    unless %w(cambodia eritrea kosovo laos madagascar 
+    if %w(afghanistan cambodia dominican-republic eritrea kosovo laos madagascar 
               montenegro paraguay slovenia taiwan tajikistan).include?(registration_country)
-      I18n.translate("#{i18n_prefix}.phrases.footnote_#{registration_country}", 
-                    :default => I18n.translate("#{i18n_prefix}.phrases.footnote"))
+      PhraseList.new(:footnote_exceptions)
+    elsif another_country
+      PhraseList.new(:footnote_another_country)
+    else
+      PhraseList.new(:footnote)
     end
   end
 end
