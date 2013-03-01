@@ -70,6 +70,12 @@ class RegisterABirthTest < ActiveSupport::TestCase
       should "ask where the child was born" do
         assert_current_node :country_of_birth?
       end
+      context "answer Iran" do
+        should "give the no embassy outcome and be done" do
+          add_response 'iran'
+          assert_current_node :no_embassy_result
+        end
+      end # Iran
       context "answer Spain" do
         setup do
           add_response 'spain'
@@ -114,6 +120,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
               add_response 'in_the_uk'
               assert_state_variable :registration_country, 'spain'
               assert_current_node :fco_result
+              assert_phrase_list :intro, [:intro_all]
             end
           end
           context "answer in another country" do

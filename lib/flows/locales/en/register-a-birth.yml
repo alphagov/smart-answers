@@ -124,6 +124,14 @@ en-GB:
           ^Registration can take up to 3 months - your application will be sent to London where the birth will be registered.^
         footnote: |
           ^It takes about 5 working days for the birth to be officially registered.^
+        intro_exceptions: |
+          Your application will be sent to %{country_of_birth_name} to be registered there.
+
+        intro: |
+          Download and complete the birth registration form.
+
+          [Download ‘Birth registration form’ (DOC, 66KB)](http://uk.sitestat.com/fcoweb/fcogov/s?fco.en.travel-and-living-abroad.births-deaths-marriages-civil.registering-a-birth.p.pdf.OutsideUK_birth_reg_form.doc&ns_type=pdf&ns_url=http://www.fco.gov.uk/resources/en/word/OutsideUK_birth_reg_form.doc "Download ‘Birth registration form’ (DOC, 66KB)"){:rel="external"} 
+      
       embassy_result:
         body: |
           You can register the birth with the %{embassy_high_commission_or_consulate} in %{registration_country_name}.
@@ -182,12 +190,7 @@ en-GB:
 
       fco_result:
         body: |
-          $!You can register the birth with the Foreign and Commonwealth Office (FCO) in the UK.$!
-
-          Download and complete the birth registration form.
-
-          [Download ‘Birth registration form’ (DOC, 66KB)](http://uk.sitestat.com/fcoweb/fcogov/s?fco.en.travel-and-living-abroad.births-deaths-marriages-civil.registering-a-birth.p.pdf.OutsideUK_birth_reg_form.doc&ns_type=pdf&ns_url=http://www.fco.gov.uk/resources/en/word/OutsideUK_birth_reg_form.doc "Download ‘Birth registration form’ (DOC, 66KB)"){:rel="external"}
-
+          %{intro}
 
           ##Documents
 
@@ -202,7 +205,7 @@ en-GB:
           - divorce documents (if either of you has ever been divorced)
           - a change of name document (if either of you has ever changed your name)
 
-          You’ll also need to provide a photocopy of each document.
+          You must provide the originals and a photocopy of each document. 
 
           ##Cost
           
@@ -257,3 +260,9 @@ en-GB:
           You can’t register your child’s birth with the UK authorities. Your child must have an automatic claim to British nationality at birth to be eligible.
 
           If one of the biological parents is British, your child may still be eligible for [British Citizenship.](http://www.ukba.homeoffice.gov.uk/britishcitizenship/ "Find out about British Citizenship"){:rel="external"}
+
+      no_embassy_result:
+        body: |
+          %You must register the birth according to the regulations in %{country_of_birth_name}.%
+
+          You can’t currently register the birth of a child in %{country_of_birth_name} with the UK authorities.
