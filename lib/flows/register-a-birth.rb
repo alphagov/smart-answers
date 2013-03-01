@@ -71,7 +71,11 @@ end
 multiple_choice :where_are_you_now? do
   option :same_country
   option :another_country
-  option :in_the_uk 
+  option :in_the_uk
+
+  calculate :another_country do
+    responses.last == 'another_country'
+  end
 
   next_node do |response|
     case response
@@ -96,13 +100,7 @@ country_select :which_country? do
     SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == registration_country }[:name]
   end
 
-  next_node do |response|
-    if reg_data_query.commonwealth_country?(response)
-      :commonwealth_result
-    else
-      :embassy_result
-    end 
-  end
+  next_node :embassy_result
 end
 # Outcomes
 outcome :embassy_result do

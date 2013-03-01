@@ -122,8 +122,9 @@ class RegisterABirthTest < ActiveSupport::TestCase
             end
             should "answer Ireland and get the commonwealth result" do 
               add_response 'ireland'
+              assert_state_variable :another_country, true
               assert_state_variable :registration_country, 'ireland'
-              assert_current_node :commonwealth_result
+              assert_current_node :embassy_result
             end # now in Ireland
             should "answer USA and get the embassy outcome" do
               add_response 'united-states'
