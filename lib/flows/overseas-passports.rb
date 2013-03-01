@@ -198,6 +198,9 @@ outcome :aus_nz_result do
     phrases << :"aus_nz_#{aus_nz_checklist_variant}"
     phrases
   end
+  precalculate :instructions do
+    PhraseList.new(:"instructions_#{application_type}")
+  end
   precalculate :receiving_your_passport do
     PhraseList.new(:"receiving_your_passport_#{application_type}")
   end

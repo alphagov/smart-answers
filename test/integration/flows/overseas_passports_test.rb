@@ -43,6 +43,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
             assert_phrase_list :cost, [:cost_australia_post]
             assert_phrase_list :how_to_apply, [:how_to_apply_australia_post]
             assert_phrase_list :how_to_apply_documents, [:how_to_apply_adult_australia_post, "aus_nz_born-in-uk-pre-1983".to_sym]
+            assert_phrase_list :instructions, [:instructions_australia_post]
           end
         end
         context "answer born in the uk after 31 Dec 1982 with father born in UK" do

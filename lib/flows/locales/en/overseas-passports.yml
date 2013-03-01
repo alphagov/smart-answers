@@ -871,7 +871,7 @@ en-GB:
             [Download ‘Guidance notes for adult applications’ (PDF, 2.2MB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c1-notes.pdf "‘Guidance notes for adult applications‘ (PDF, 2.2MB)")
 
         how_to_apply_child_australia_post: |
-            [Download ‘Passport application form for children aged 16 and under’ (505KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2.pdf "Download ‘Passport application form for children aged 16 and under’ (505KB)")
+            [Download ‘Passport application form for children aged 15 and under’ (505KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2.pdf "Download ‘Passport application form for children aged 15 and under’ (505KB)")
 
             [Download ‘Guidance notes for child applications’ (PDF, 2MB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2-notes.pdf "‘Guidance notes for adult applications‘ (PDF, 2MB)") 
 
@@ -984,6 +984,15 @@ en-GB:
           [Download ‘Passport application form for children aged 16 and under’ (505KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2.pdf "Download ‘Passport application form for children aged 16 and under’ (505KB)")
 
           [Download ‘Guidance notes for child applications (PDF, 2MB)’](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2-notes.pdf "Guidance notes for adult applications (PDF, 2MB)")
+
+        instructions_australia_post: |
+          Bring 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports "Passport photo requirements") or your application may be delayed.
+
+          Complete the [passport fees information sheet (PDF, 232KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Australia-passports/Australia-passport-fee-sheet "Passport fees information sheet (PDF, 232KB)") and bring it to your interview.
+
+          Bring the supporting documents and signed checklist you need to your interview. You must get supporting documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
+
+        instructions_new_zealand: ''
 
         receiving_your_passport_new_zealand: |
           Your passport and supporting documents will be returned to you separately by courier. 
@@ -2504,6 +2513,8 @@ en-GB:
           $D
             %{how_to_apply_documents}
           $D
+
+          %{instructions}
 
           ## Getting your passport
           %{receiving_your_passport}
