@@ -235,9 +235,17 @@ en-GB:
         passport_costs_indonesia: ''
 
         how_long_applying_india: |
-          Your application will take **at least** 12 weeks. You may have to attend an interview.
+          Your application will take **at least** 16 weeks. You may have to attend an interview.
 
-        passport_courier_costs_india: ''
+        how_long_applying_tanzania: |
+          Your application will take **at least** 12 weeks. You may have to attend an interview.
+
+        passport_courier_costs_india: |
+          You’ll have to pay a fee for your passport and a courier fee of 2,300 Rupees. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+
+        passport_courier_costs_applying_india: |
+          You’ll have to pay a fee for your passport and a courier fee of 2,300 Rupees. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+
         adult_passport_costs_india: |
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
@@ -249,10 +257,19 @@ en-GB:
           -|-|-
           Child passport | £81.50/HK $1,044 | £101.36/HK $1,299
 
+        adult_passport_costs_applying_india: |
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 11,550 Rupees | 13,850 Rupees
+          Adult jumbo 48-page passport | 13,950 Rupees | 16,250 Rupees
+          
+        child_passport_costs_applying_india: |
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Child standard 32-page passport | 7,350 Rupees | 9,650 Rupees
+
         passport_costs_india: |
           You must pay using a Visa or Mastercard - [download a credit card authorisation form (PDF, 95KB)](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/india-credit-card-form.pdf "Credit card authorisation form (PDF, 95KB)") and send it with your application.
-
-          For passport renewals, you card will be charged the sterling amount in Hong Kong dollars using the exchange rate on the day your application is processed. For a first passport or replaciing a lost or stolen passports, your card will be charged in Rupees.
 
         how_to_apply_india: |
           Application type | Supporting documents information
@@ -487,8 +504,8 @@ en-GB:
           $C
             __Passport Information Helpline__ 
 
-            +44 208 082 4727 
-            
+            +44 208 082 4729 
+ 
             Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call 
           $C
 
@@ -832,7 +849,7 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, you can apply for an Emergency Travel Document from any [British high commission or consulate in Australia.](http://ukinaustralia.fco.gov.uk/en/help-for-british-nationals "British high commission and consulates in Australia").
+          Don’t book travel until you have a valid passport. If you need to travel urgently, you can apply for an Emergency Travel Document from any [British high commission or consulate in Australia.](http://ukinaustralia.fco.gov.uk/en/help-for-british-nationals "British high commission and consulates in Australia"){:rel="external"}.
 
         cost_australia_post: |
           | Passport type | Passport fee |
@@ -854,7 +871,7 @@ en-GB:
             [Download ‘Guidance notes for adult applications’ (PDF, 2.2MB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c1-notes.pdf "‘Guidance notes for adult applications‘ (PDF, 2.2MB)")
 
         how_to_apply_child_australia_post: |
-            [Download ‘Passport application form for children aged 16 and under’ (505KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2.pdf "Download ‘Passport application form for children aged 16 and under’ (505KB)")
+            [Download ‘Passport application form for children aged 15 and under’ (505KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2.pdf "Download ‘Passport application form for children aged 15 and under’ (505KB)")
 
             [Download ‘Guidance notes for child applications’ (PDF, 2MB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2-notes.pdf "‘Guidance notes for adult applications‘ (PDF, 2MB)") 
 
@@ -921,10 +938,10 @@ en-GB:
 
           $C
             __Passport Information Helpline__
-
+            
             Premium rate helpline  
-            0900 990 202  
-            Landline calls are charged at $4.50 per minute - mobile calls may cost more  
+            1902 241 444  
+            Landline calls are charged at AUS $3.52 per minute - mobile calls may cost more
 
             Paying for the call by credit card  
             +44 208 082 4727  
@@ -967,6 +984,15 @@ en-GB:
           [Download ‘Passport application form for children aged 16 and under’ (505KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2.pdf "Download ‘Passport application form for children aged 16 and under’ (505KB)")
 
           [Download ‘Guidance notes for child applications (PDF, 2MB)’](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2-notes.pdf "Guidance notes for adult applications (PDF, 2MB)")
+
+        instructions_australia_post: |
+          Bring 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports "Passport photo requirements") or your application may be delayed.
+
+          Complete the [passport fees information sheet (PDF, 232KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Australia-passports/Australia-passport-fee-sheet "Passport fees information sheet (PDF, 232KB)"){:rel="external"} and bring it to your interview.
+
+          Bring the supporting documents and signed checklist you need to your interview. You must get supporting documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
+
+        instructions_new_zealand: ''
 
         receiving_your_passport_new_zealand: |
           Your passport and supporting documents will be returned to you separately by courier. 
@@ -1060,9 +1086,9 @@ en-GB:
           
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | £128/ 17,200 Taka | £151.01/ 20,300 Taka
-          Adult jumbo 48-page passport | £154.50/ 20,800 Taka | £177.51/ 23,900 Taka
-          Child passport | £81.50/ 11,000 Taka | £104.51/ 14,100 Taka
+          Adult standard 32-page passport | £128/ 16,000 Taka | £151.01/ 18,800 Taka
+          Adult jumbo 48-page passport | £154.50/ 19,300 Taka | £177.51/ 22,100 Taka
+          Child passport | £81.50/ 10,100 Taka | £104.51/ 12,900 Taka
           
         how_to_apply_bangladesh: |
           4. Fill in a card payment authorisation form if you’re paying with a credit or debit card.
@@ -1119,9 +1145,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | 18,600 Kenya Shillings | 23,500 Kenya Shillings
-          Adult jumbo 48-page passport | 22,500 Kenya Shillings | 27,400 Kenya Shillings
-          Child passport | 11,900 Kenya Shillings | 16,800 Kenya Shillings
+          Adult standard 32-page passport | 17,950 Kenya Shillings | 22,650 Kenya Shillings
+          Adult jumbo 48-page passport | 21,700 Kenya Shillings | 26,400 Kenya Shillings
+          Child passport | 11,500 Kenya Shillings | 16,200 Kenya Shillings
 
         cost_nairobi_kenya_applying: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. 
@@ -1130,9 +1156,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | 18,600 Kenya Shillings | 22,100 Kenya Shillings
-          Adult jumbo 48-page passport | 22,500 Kenya Shillings | 26,000 Kenya Shillings
-          Child passport | 11,900 Kenya Shillings | 15,400 Kenya Shillings
+          Adult standard 32-page passport | 17,950 Kenya Shillings | 21,250 Kenya Shillings
+          Adult jumbo 48-page passport | 21,700 Kenya Shillings | 25,000 Kenya Shillings
+          Child passport | 11,500 Kenya Shillings | 14,800 Kenya Shillings
 
         cost_nairobi_kenya_replacing: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. 
@@ -1141,9 +1167,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | 18,600 Kenya Shillings | 22,100 Kenya Shillings
-          Adult jumbo 48-page passport | 22,500 Kenya Shillings | 26,000 Kenya Shillings
-          Child passport | 11,900 Kenya Shillings | 15,400 Kenya Shillings
+          Adult standard 32-page passport | 17,950 Kenya Shillings | 21,250 Kenya Shillings
+          Adult jumbo 48-page passport | 21,700 Kenya Shillings | 25,000 Kenya Shillings
+          Child passport | 11,500 Kenya Shillings | 14,800 Kenya Shillings
           
         how_to_apply_nairobi_kenya: '' 
         supporting_documents_nairobi_kenya_applying: |
@@ -2060,9 +2086,9 @@ en-GB:
 
           Passport type |	Passport fee | Total cost for renewals (including courier fee) | Total cost for first passport applications (including courier fee)
           -|-|-|-
-          Adult standard 32-page passport | 1,280 Sudanese pounds | 1,510 Sudanese pounds | 1,610 Sudanese pounds
-          Adult jumbo 48-page passport | 1,545 Sudanese pounds | 1,775 Sudanese pounds | 1,875 Sudanese pounds
-          Child passport | 815 Sudanese pounds |	1,045 Sudanese pounds | 1,145 Sudanese pounds
+          Adult standard 32-page passport | 1,150 Sudanese pounds | 1,355 Sudanese pounds | 1,450 Sudanese pounds
+          Adult jumbo 48-page passport | 1,545 Sudanese pounds | 1,595 Sudanese pounds | 1,690 Sudanese pounds
+          Child passport | 735 Sudanese pounds |	940 Sudanese pounds | 1,035 Sudanese pounds
 
           You must pay in cash. 
 
@@ -2292,14 +2318,14 @@ en-GB:
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
           Adult standard 32-page passport | 1,160 Kwacha | 1,370 Kwacha
-          Adult jumbo 48-page passport | 1,400 Kwacha | 1,160 Kwacha
+          Adult jumbo 48-page passport | 1,400 Kwacha | 1,610 Kwacha
           Child passport | 740 Kwacha | 950 Kwacha
 
           You must pay in cash when you apply in person at the British high commission in Lusaka.
 
         how_to_apply_zambia: ''
         supporting_documents_zambia: ''
-        making_application_zambia: Bring your application in person to the British high commission in Lusaka. 
+        making_application_zambia: Bring your application in person to the British high commission in Lusaka. You can use old Kwacha notes to pay until 30 June 2013.  
         getting_your_passport_zambia: | 
           The British high commission will contact you when your passport arrives using the contact details on your form. You must collect it in person. 
     
@@ -2487,6 +2513,8 @@ en-GB:
           $D
             %{how_to_apply_documents}
           $D
+
+          %{instructions}
 
           ## Getting your passport
           %{receiving_your_passport}
