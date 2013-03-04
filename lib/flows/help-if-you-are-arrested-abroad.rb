@@ -16,7 +16,7 @@ country_select :which_country? do
     if NO_PRISONER_PACKS.include?(country)
       ""
     else
-      prisoner_packs.select { |c| c[:slug] == country }.first[:pack] || ""
+      prisoner_packs.select { |c| c["slug"] == country }.first["pack"] || ""
     end
   end
 
@@ -31,7 +31,6 @@ country_select :which_country? do
       :answer_two_has_pack
     end
   end
-
 
 end
 
