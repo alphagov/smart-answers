@@ -27,13 +27,13 @@ country_select :country_of_birth? do
   save_input_as :country_of_birth
 
   calculate :registration_country do
-    responses.last
+    reg_data_query.registration_country_slug(responses.last)
   end
   calculate :country_of_birth_name do
-    SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == registration_country }[:name]
+    SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == responses.last }[:name]
   end
   calculate :registration_country_name do
-    country_of_birth_name 
+    SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == registration_country }[:name]
   end
 
   next_node do |response|

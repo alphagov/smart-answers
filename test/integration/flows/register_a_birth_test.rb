@@ -70,6 +70,12 @@ class RegisterABirthTest < ActiveSupport::TestCase
       should "ask where the child was born" do
         assert_current_node :country_of_birth?
       end
+      context "answer Andorra" do
+        should "store the correct registration country" do
+          add_response 'andorra'
+          assert_state_variable :registration_country, 'spain'
+        end
+      end # Andorra
       context "answer Iran" do
         should "give the no embassy outcome and be done" do
           add_response 'iran'
