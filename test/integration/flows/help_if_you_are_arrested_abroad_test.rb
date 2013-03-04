@@ -28,9 +28,6 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
         assert_state_variable :country_name, "Andorra"
       end
 
-      should "set pack_url to be the url of the prisoner pack" do
-        assert_state_variable :pack_url, "http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest"
-      end
     end
 
   end
@@ -54,13 +51,4 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
     end
   end
 
-  # context "In a country with no prisoner pack" do
-  #   setup do
-  #     add_response :british_consulate_general_cape_town
-  #   end
-
-  #   should "take the user to answer one" do
-  #     assert_current_node :answer_one_no_pack
-  #   end
-  # end
 end
