@@ -1,5 +1,8 @@
+require_relative "../date_helper"
+
 module SmartAnswer::Calculators
   class MaternityPaternityCalculator
+    include DateHelper
 
     attr_reader :due_date, :expected_week, :qualifying_week, :employment_start, :notice_of_leave_deadline,
       :leave_earliest_start_date, :adoption_placement_date, :ssp_stop,
@@ -167,14 +170,6 @@ module SmartAnswer::Calculators
     #
     def total_statutory_pay
       ((statutory_maternity_rate_a * 6) + (statutory_maternity_rate_b * 33)).round(2)
-    end
-
-    private
-
-    def next_saturday(date)
-      (1..7).each do |inc|
-        return date + inc if (date + inc).saturday?
-      end
     end
   end
 end
