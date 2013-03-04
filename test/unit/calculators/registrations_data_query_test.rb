@@ -65,6 +65,14 @@ module SmartAnswer::Calculators
           refute @query.death_postal_return_form('belgium')
         end
       end
+      context "registration_country_slug" do
+        should "map the country to a registration country if one exists" do
+          assert_equal "spain", @query.registration_country_slug('andorra')
+        end
+        should "give the original if no mapping exists" do
+          assert_equal "spain", @query.registration_country_slug('spain')
+        end
+      end
     end
   end
 end
