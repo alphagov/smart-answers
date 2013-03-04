@@ -252,8 +252,8 @@ en-GB:
         error_message: You must enter a date on or before %{to_saturday}
       ## QM5.3
       payday_eight_weeks?:
-        title: What was the last normal payday on or before %{payday_offset}?
-        error_message: You must enter a date on or before %{payday_offset}
+        title: What was the last normal payday before %{payday_offset}?
+        error_message: You must enter a date before %{payday_offset}
       ## QM5.4
       pay_frequency?:
         title: How often do you pay the employee?
