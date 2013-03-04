@@ -14,7 +14,7 @@ module SmartAnswer::Calculators
     def generate_url_for_download(country, field, text)
       url = @data.select { |c| c["slug"] == country }.first[field]
       if url
-        "[Download #{text}](#{url})"
+        "- [#{text}](#{url})"
       else
         ""
       end
