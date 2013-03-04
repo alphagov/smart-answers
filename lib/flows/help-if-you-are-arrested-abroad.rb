@@ -11,15 +11,53 @@ country_select :which_country? do
   end
 
   calculate :pdf do
-    arrested_calc.generate_url_for_download(country, "pdf", "Prisoner Pack (PDF)")
+    arrested_calc.generate_url_for_download(country, "pdf", "Prisoner pack (PDF)")
   end
 
   calculate :doc do
-    arrested_calc.generate_url_for_download(country, "doc", "Prisoner Pack (Doc)")
+    arrested_calc.generate_url_for_download(country, "doc", "Prisoner pack (Doc)")
   end
 
   calculate :lawyer do
-    arrested_calc.generate_url_for_download(country, "lawyer", "Information on Lawyers")
+    arrested_calc.generate_url_for_download(country, "lawyer", "Information on lawyers")
+  end
+
+  calculate :translator do
+    arrested_calc.generate_url_for_download(country, "translator", "Translators and interpreters")
+  end
+
+  calculate :benefits do
+    arrested_calc.generate_url_for_download(country, "benefits", "Benefits or legal aid available")
+  end
+
+  calculate :prison do
+    arrested_calc.generate_url_for_download(country, "prison", "Prison information")
+  end
+
+  calculate :consul do
+    arrested_calc.generate_url_for_download(country, "consul", "Consul help")
+  end
+
+  calculate :judicial do
+    arrested_calc.generate_url_for_download(country, "judicial", "Judicial system")
+  end
+
+  calculate :police do
+    arrested_calc.generate_url_for_download(country, "police", "Police information")
+  end
+
+  calculate :source do
+    country_data = arrested_calc.data.select { |c| c["slug"] == country }.first
+    data = arrested_calc.data.select { |c| c["slug"] == country }.first["is_generic"]
+    if country_data["is_generic"]
+      # generic means it doesn't have any specific PDFs, just the one web page link
+      link = country_data["source"]
+      "- [Prisoner pack and information](#{link})"
+    else
+      ""
+    end
+
+
   end
 
   next_node do |response|

@@ -30,6 +30,32 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
 
     end
 
+    context "Answering Greece" do
+      setup do
+        add_response :greece
+      end
+
+      should "take the user to answer 2" do
+        assert_current_node :answer_two_has_pack
+      end
+
+      should "calculate a link for prison information" do
+        assert_state_variable :prison, "- [Prison information](http://ukingreece.fco.gov.uk/resources/en/pdf/5610670/bns_in_prison)"
+      end
+    end
+  end
+
+  context "In a country with a generic prisoner pack URL" do
+    setup do
+      add_response :benin
+    end
+
+    should "show the generic prisoner pack link" do
+      assert_current_node :answer_two_has_pack
+      assert_state_variable :source, "- [Prisoner pack and information](http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest)"
+    end
+
+
   end
   context "In Iran" do
     setup do

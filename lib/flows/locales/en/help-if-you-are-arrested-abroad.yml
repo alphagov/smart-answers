@@ -112,11 +112,15 @@ en-GB:
 
           ##Download prisoner packs and other helpful information
 
-          $D
           %{pdf}
           %{doc}
           %{lawyer}
-          $D
+          %{translator}
+          %{benefits}
+          %{prison}
+          %{consul}
+          %{judicial}
+          %{police}
 
           Read more about how the FCO can help someone arrested abroad.
 
