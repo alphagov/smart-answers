@@ -12,7 +12,7 @@ en-GB:
         "paternity": "Paternity"
         "adoption": "Adoption"
       body: |
-        Calculator your employee’s:
+        Calculate your employee’s:
 
         + statutory maternity pay (SMP), paternity pay, adoption pay
         + qualifying week
@@ -29,13 +29,12 @@ en-GB:
         + your employee’s salary details - eg weekly rates of pay
         + the dates for adoption - eg match date or date of placement
 
-        %
+
         You can’t use the calculator for:
 
         + births 15 weeks before the due date
         + [Additional paternity Leave or Pay](/additional-paternity-leave-pay-employees “Additional paternity leave or pay”)
         + paternity leave or pay for [overseas adoptions](/paternity-leave-pay-employees “Paternity leave for adoptions”)
-        %
       phrases:
         not_worked_long_enough: + they must have started working for you on or before %{employment_start}
         must_be_on_payroll: + you must be liable for their secondary Class 1 National Insurance contributions - ie you will be if they’re on your payroll
@@ -76,7 +75,7 @@ en-GB:
           |Start date                                     | %{pay_start_date}           |
           |End date                                       | %{pay_end_date}             |
           |Latest date to claim SMP                       | %{notice_request_pay}       |
-          |Proof of pregnancy                             | Usually 28 days before SMP starts (or as soon as possible if baby born early)  |
+          |Proof of pregnancy                             | Usually within 21 days of the SMP start date (or as soon as possible if baby born early) |
           |SMP start date due to pregnancy related illness| %{ssp_stop}           |
 
 
@@ -263,7 +262,8 @@ en-GB:
           "none_of_the_above": "none of the above"
       ## QM5.5
       earnings_for_pay_period?:
-        title: What were the employee’s earnings between %{relevant_period}?
+        title: What were the employee’s total earnings between %{relevant_period}?
+        hint: This is their earnings before tax or any other deductions - eg child maintenance.
       ## QM6
       employees_average_weekly_earnings?:
         title: What were the employee’s average weekly earnings between %{relevant_period}?
