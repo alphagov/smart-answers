@@ -120,7 +120,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
               add_response 'in_the_uk'
               assert_state_variable :registration_country, 'spain'
               assert_current_node :fco_result
-              assert_phrase_list :intro, [:intro_all]
+              assert_phrase_list :intro, [:intro]
             end
           end
           context "answer in another country" do

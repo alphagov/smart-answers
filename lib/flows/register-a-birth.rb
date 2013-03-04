@@ -199,7 +199,7 @@ outcome :fco_result do
     if exclusions.include?(registration_country)
       PhraseList.new(:intro_exceptions)
     else
-      PhraseList.new(:intro_all)
+      PhraseList.new(:intro)
     end
   end
 end
