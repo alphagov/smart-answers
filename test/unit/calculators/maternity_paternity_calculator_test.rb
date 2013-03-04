@@ -1,9 +1,9 @@
 require_relative "../../test_helper"
-require_relative "../../helpers/date_test_helper"
+require_relative "../../../lib/smart_answer/date_helper"
 
 module SmartAnswer::Calculators
   class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
-    include DateTestHelper
+    include DateHelper
 
     context MaternityPaternityCalculator do
       context "due date 4 months in future" do
