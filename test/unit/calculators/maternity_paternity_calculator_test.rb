@@ -43,21 +43,20 @@ module SmartAnswer::Calculators
           assert_equal Date.parse("2012-02-02"), @calculator.payday_offset
         end
 
-        should "calculate the ssp_stop date anda the notice request date" do
+        should "calculate the ssp_stop date" do
           @calculator = MaternityPaternityCalculator.new(Date.parse("2012 Oct 12"))
           expected_week = @calculator.expected_week.first
           assert_equal expected_week.julian - (7 * 4), @calculator.ssp_stop
-          assert_equal Date.parse("2012 Oct 12") - 27, @calculator.notice_request_pay
         end
 
         context "with a requested leave date in one month's time" do
           setup do
-            @leave_start_date = 1.month.since(Date.today)
+            @leave_start_date = 1.month.since(Date.parse("2013 Mar 12"))
             @calculator.leave_start_date = @leave_start_date
           end
 
           should "make the leave end date 52 weeks from the leave start date" do
-            assert_equal 52.weeks.since(@leave_start_date) - 1, @calculator.leave_end_date
+            assert_equal Date.parse("2014 Apr 10"), @calculator.leave_end_date
           end
 
           should "make the leave end date after the leave start date" do
@@ -70,6 +69,10 @@ module SmartAnswer::Calculators
 
           should "make the pay end date 39 weeks from the start date" do
             assert_equal 39.weeks.since(@leave_start_date) - 1, @calculator.pay_end_date
+          end
+
+          should "have a notice request date 28 days before the leave start date" do
+            assert_equal 28.days.ago(@leave_start_date), @calculator.notice_request_pay
           end
         end
 

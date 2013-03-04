@@ -397,6 +397,11 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
       should "be 24th October 2013 for pay end date" do
         assert_state_variable "pay_end_date", Date.parse("2013-10-24")
       end
+
+      should "have a notice request pay date 28 days before the start date" do
+        assert_state_variable "pay_start_date", Date.parse("2013-01-25")
+        assert_state_variable "notice_request_pay", Date.parse("2012-12-28")
+      end
     end
   end # Maternity flow
 
