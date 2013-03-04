@@ -66,7 +66,7 @@ module SmartAnswer::Calculators
     end
 
     def registration_country_slug(country_slug)
-      data['death']['registration_country'][country_slug]
+      data['registration_country'][country_slug] || country_slug
     end
 
     def self.registration_data
