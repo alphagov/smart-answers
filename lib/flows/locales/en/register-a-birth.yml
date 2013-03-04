@@ -263,6 +263,6 @@ en-GB:
 
       no_embassy_result:
         body: |
-          %You must register the birth according to the regulations in %{country_of_birth_name}.%
+          %You must register the birth according to the regulations in %{registration_country_name}.%
 
-          You can’t currently register the birth of a child in %{country_of_birth_name} with the UK authorities.
+          You can’t currently register the birth of a child in %{registration_country_name} with the UK authorities.

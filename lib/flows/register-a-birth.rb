@@ -5,6 +5,7 @@ embassy_data_query = SmartAnswer::Calculators::PassportAndEmbassyDataQuery.new
 i18n_prefix = 'flow.register-a-birth'
 exclusions = %w(afghanistan cambodia dominican-republic eritrea kosovo laos madagascar 
                 montenegro paraguay slovenia taiwan tajikistan)
+no_embassies = %w(iran syria yemen)
 
 # Q1
 multiple_choice :have_you_adopted_the_child? do
@@ -36,7 +37,7 @@ country_select :country_of_birth? do
   end
 
   next_node do |response|
-    if %w(iran syria yemen).include?(response)
+    if no_embassies.include?(response)
       :no_embassy_result
     elsif reg_data_query.commonwealth_country?(response)
       :commonwealth_result
@@ -106,7 +107,13 @@ country_select :which_country? do
     SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == registration_country }[:name]
   end
 
-  next_node :embassy_result
+  next_node do |response| 
+    if no_embassies.include?(response)
+      :no_embassy_result
+    else
+      :embassy_result
+    end
+  end
 end
 # Outcomes
 outcome :embassy_result do

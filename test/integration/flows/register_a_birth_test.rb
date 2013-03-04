@@ -147,6 +147,11 @@ class RegisterABirthTest < ActiveSupport::TestCase
               assert_match /3100 Massachusetts Ave, NW/, current_state.embassy_details
               assert_phrase_list :footnote, [:footnote_another_country]
             end # now in USA
+            should "answer Yemen and get the no embassy outcome" do
+              add_response 'yemen'
+              assert_current_node :no_embassy_result
+              assert_state_variable :registration_country_name, "Yemen"
+            end # now in Yemen 
           end # in another country
         end # married/cp
       end # Spain
