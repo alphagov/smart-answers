@@ -3,7 +3,7 @@ module SmartAnswer::Calculators
 
     attr_reader :due_date, :expected_week, :qualifying_week, :employment_start, :notice_of_leave_deadline,
       :leave_earliest_start_date, :adoption_placement_date, :ssp_stop,
-      :notice_request_pay, :matched_week, :a_employment_start
+      :matched_week, :a_employment_start
 
     attr_accessor :employment_contract, :leave_start_date, :average_weekly_earnings, :a_notice_leave,
       :last_payday, :pre_offset_payday
@@ -25,7 +25,6 @@ module SmartAnswer::Calculators
       @a_employment_start = 25.weeks.ago(@matched_week.last)
       @leave_earliest_start_date = 11.weeks.ago(@expected_week.first)
       @ssp_stop = 4.weeks.ago(@expected_week.first)
-      @notice_request_pay = 27.days.ago(@due_date)
 
       # Adoption instance vars
       @a_notice_leave = @match_date + 7
@@ -62,6 +61,10 @@ module SmartAnswer::Calculators
 
     def pay_end_date
       39.weeks.since(pay_start_date) - 1
+    end
+
+    def notice_request_pay
+      28.days.ago(pay_start_date)
     end
 
     # Rounds up at 2 decimal places.
