@@ -75,7 +75,7 @@ en-GB:
           |Start date                                     | %{pay_start_date}           |
           |End date                                       | %{pay_end_date}             |
           |Latest date to claim SMP                       | %{notice_request_pay}       |
-          |Proof of pregnancy                             | Usually 28 days before SMP starts (or as soon as possible if baby born early)  |
+          |Proof of pregnancy                             | Usually within 21 days of the SMP start date (or as soon as possible if baby born early) |
           |SMP start date due to pregnancy related illness| %{ssp_stop}           |
 
 
@@ -262,7 +262,8 @@ en-GB:
           "none_of_the_above": "none of the above"
       ## QM5.5
       earnings_for_pay_period?:
-        title: What were the employee’s earnings between %{relevant_period}?
+        title: What were the employee’s total earnings between %{relevant_period}?
+        hint: This is their earnings before tax or any other deductions - eg child maintenance.
       ## QM6
       employees_average_weekly_earnings?:
         title: What were the employee’s average weekly earnings between %{relevant_period}?
