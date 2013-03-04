@@ -112,11 +112,16 @@ en-GB:
 
           ##Download prisoner packs and other helpful information
 
-          [Prisoner pack for %{country_name}](%{pack_url})
+          $D
+          %{pdf}
+          %{doc}
+          %{lawyer}
+          $D
 
           Read more about how the FCO can help someone arrested abroad.
 
 
+          $D
           [Download ‘Support for British nationals’ (PDF, 414KB)](http://www.fco.gov.uk/resources/en/pdf/2855621/support-for-british-nationals-abroad.pdf “Download ‘Support for British nationals’ (PDF, 414KB)”){:rel=”external”}
 
           [Download ‘In prison abroad’ (PDF, 208KB)](http://www.fco.gov.uk/resources/en/pdf/2855621/in-prison-abroad “Download ‘In prison abroad’ (PDF, 208KB)”){:rel=”external”}

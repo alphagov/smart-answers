@@ -1,7 +1,5 @@
-NO_PRISONER_PACKS = %w(british-consulate-general-cape-town)
-
-prisoner_packs = YAML::load( File.open( Rails.root.join('lib', 'data', 'prisoner_packs.yml') ))
-
+arrested_calc = SmartAnswer::Calculators::ArrestedAbroad.new
+prisoner_packs = arrested_calc.data
 
 #Q1
 country_select :which_country? do
@@ -12,12 +10,16 @@ country_select :which_country? do
     country_list.select {|c| c[:slug] == country }.first[:name]
   end
 
-  calculate :pack_url do
-    if NO_PRISONER_PACKS.include?(country)
-      ""
-    else
-      prisoner_packs.select { |c| c["slug"] == country }.first["pack"] || ""
-    end
+  calculate :pdf do
+    arrested_calc.generate_url_for_download(country, "pdf", "Prisoner Pack (PDF)")
+  end
+
+  calculate :doc do
+    arrested_calc.generate_url_for_download(country, "doc", "Prisoner Pack (Doc)")
+  end
+
+  calculate :lawyer do
+    arrested_calc.generate_url_for_download(country, "lawyer", "Information on Lawyers")
   end
 
   next_node do |response|
@@ -25,7 +27,7 @@ country_select :which_country? do
       :answer_three_iran
     elsif response == "syria"
       :answer_four_syria
-    elsif NO_PRISONER_PACKS.include?(response)
+    elsif arrested_calc.no_prisoner_packs.include?(response)
       :answer_one_no_pack
     else
       :answer_two_has_pack
