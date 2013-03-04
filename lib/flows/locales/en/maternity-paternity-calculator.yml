@@ -259,17 +259,10 @@ en-GB:
         options:
           "every_2_weeks": "every 2 weeks"
           "every_4_weeks": "every 4 weeks"
-          "none_of_the_above": "none of the above"
       ## QM5.5
       earnings_for_pay_period?:
         title: What were the employee’s total earnings between %{relevant_period}?
         hint: This is their earnings before tax or any other deductions - eg child maintenance.
-      ## QM6
-      employees_average_weekly_earnings?:
-        title: What were the employee’s average weekly earnings between %{relevant_period}?
-        hint: Enter the average weekly amount. The dates are the 8 week 'relevant period'.
-        suffix_label: per week
-        error_message: Please enter a number greater than 0
       ## Combined result for maternity leave and pay.
       maternity_leave_and_pay_result:
         next_steps: |

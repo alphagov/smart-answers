@@ -158,7 +158,6 @@ multiple_choice :pay_frequency? do
   option :every_4_weeks => :earnings_for_pay_period? ## QM5.5
   option :monthly => :earnings_for_pay_period? ## QM5.5
   option :irregularly => :earnings_for_pay_period? ## QM5.5
-  option :none_of_the_above => :employees_average_weekly_earnings? ## QM6
 end
 
 ## QM5.5
@@ -172,15 +171,6 @@ money_question :earnings_for_pay_period? do
     calculator.average_weekly_earnings
   end
 
-  next_node :maternity_leave_and_pay_result
-end
-
-## QM6
-money_question :employees_average_weekly_earnings? do
-  calculate :average_weekly_earnings do
-    raise SmartAnswer::InvalidNode if responses.last < 1
-    calculator.average_weekly_earnings = responses.last.to_f
-  end
   next_node :maternity_leave_and_pay_result
 end
 

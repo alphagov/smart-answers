@@ -330,38 +330,17 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                   end
                   context "answer irregularly" do
                     setup { add_response :irregularly }
+
                     ##QM5.5
                     should "ask how much the employee was paid in this period" do
                       assert_current_node :earnings_for_pay_period?
                     end
+
                     context "answer 7463.19" do
                       setup { add_response '7463.19' }
+
                       should "calculate the dates and payment amounts" do
                         assert_state_variable "average_weekly_earnings", 932.89875
-                      end
-                    end
-                  end
-                  context "answer none of the above" do
-                    setup { add_response :none_of_the_above }
-                    ##QM6
-                    should "ask the weekly average paid" do
-                      assert_current_node :employees_average_weekly_earnings?
-                    end
-                    context "answer 239.79" do
-                      setup { add_response '239.79' }
-                      should "calculate the dates and payment amounts" do
-                        leave_start = Date.parse("21 November 2012")
-                        start_of_week = leave_start - leave_start.wday
-                        assert_state_variable "average_weekly_earnings", 239.79
-                        assert_state_variable "leave_start_date", leave_start
-                        assert_state_variable "leave_end_date", 52.weeks.since(leave_start) - 1
-                        assert_state_variable "notice_of_leave_deadline", next_saturday(15.weeks.ago(start_of_week))
-                        assert_state_variable "pay_start_date", leave_start
-                        assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
-                        assert_state_variable "smp_a", "215.82"
-                        assert_state_variable "smp_b", "135.45" # the statutory rate
-                        assert_state_variable "total_smp", "5764.77"
-                        assert_phrase_list :maternity_pay_info, [:maternity_pay_table]
                       end
                     end
                   end
