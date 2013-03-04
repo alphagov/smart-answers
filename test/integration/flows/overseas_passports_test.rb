@@ -43,6 +43,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
             assert_phrase_list :cost, [:cost_australia_post]
             assert_phrase_list :how_to_apply, [:how_to_apply_australia_post]
             assert_phrase_list :how_to_apply_documents, [:how_to_apply_adult_australia_post, "aus_nz_born-in-uk-pre-1983".to_sym]
+            assert_phrase_list :instructions, [:instructions_australia_post]
           end
         end
         context "answer born in the uk after 31 Dec 1982 with father born in UK" do
@@ -480,8 +481,18 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_current_node :fco_result
       assert_phrase_list :how_long_it_takes, [:how_long_applying_india]
       assert_phrase_list :how_to_apply_supplement, [:how_to_apply_india]
+      assert_phrase_list :cost, [:passport_courier_costs_applying_india, :adult_passport_costs_applying_india, :passport_costs_india]
     end
   end # India (FCO with custom phrases)
+  context "answer Tanzania, replacement, adult passport" do
+    should "give the fco result with custom phrases" do
+      add_response 'tanzania'
+      add_response 'applying'
+      add_response 'adult'
+      assert_current_node :fco_result
+      assert_phrase_list :how_long_it_takes, [:how_long_applying_tanzania]
+    end
+  end # Tanzania (FCO with custom phrases)
   context "answer Indonesia, replacement, adult passport" do
     should "give the fco result with custom phrases" do
       add_response 'indonesia'

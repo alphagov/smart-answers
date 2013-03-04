@@ -4,7 +4,8 @@ module SmartAnswer::Calculators
     COMMONWEALTH_COUNTRIES = %w(anguilla ascension-island australia
       bermuda british-indian-ocean-territory british-virgin-islands cayman-islands
       canada falkland-islands gibraltar ireland montserrat new-zealand pitcairn
-      south-africa south-georgia-and-south-sandwich-islands turks-and-caicos-islands)
+      south-africa south-georgia-and-south-sandwich-islands st-helena tristan-da-cunha
+      turks-and-caicos-islands)
 
     COUNTRIES_WITH_HIGH_COMMISSIONS = %w(
       antigua-and-barbuda bangladesh barbados belize botswana brunei cameroon cyprus
@@ -19,6 +20,9 @@ module SmartAnswer::Calculators
       czech-republic estonia hungary iceland kazakhstan latvia luxembourg poland slovenia
       tunisia uganda)
 
+    NO_POSTAL_COUNTRIES = %w(barbados belgium costa-rica malaysia papua-new-guinea 
+                             sweden tanzania thailand united-states)
+
     attr_reader :data
 
     def initialize
@@ -30,7 +34,7 @@ module SmartAnswer::Calculators
     end
 
     def clickbook(country_slug)
-      data['death']['clickbook'][country_slug]
+      data['clickbook'][country_slug]
     end
 
     def has_high_commission?(country_slug)
@@ -49,12 +53,16 @@ module SmartAnswer::Calculators
       data['death']['postal_form'][country_slug]
     end
 
+    def birth_postal_form(country_slug)
+      data['birth']['postal_form'][country_slug]
+    end
+
     def death_postal_return_form(country_slug)
       data['death']['postal_return'][country_slug]
     end
 
     def register_death_by_post?(country_slug)
-      death_postal_form(country_slug) or data['death']['postal_no_form'].include?(country_slug)
+      death_postal_form(country_slug) or NO_POSTAL_COUNTRIES.include?(country_slug)
     end
 
     def registration_country_slug(country_slug)

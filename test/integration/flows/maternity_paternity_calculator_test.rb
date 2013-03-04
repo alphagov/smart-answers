@@ -1,8 +1,10 @@
 # encoding: UTF-8
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
+require_relative '../../../lib/smart_answer/date_helper'
 
 class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
+  include DateHelper
   include FlowTestHelper
 
   setup do
@@ -12,7 +14,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
   should "ask what type of leave or pay you want to check" do
     assert_current_node :what_type_of_leave?
   end
-  
+
   ##
   ## Maternity flow
   ##
@@ -37,7 +39,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         add_response Date.parse("10 July 2012")
         add_response "weekly"
         add_response "200"
-        assert_state_variable "lower_earning_limit", sprintf("%.2f",107) 
+        assert_state_variable "lower_earning_limit", sprintf("%.2f",107)
       end
       should "return lower_earning_limit of £102" do
         dd =Date.parse("1 January 2012")
@@ -50,7 +52,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         add_response Date.parse("10 July 2011")
         add_response "weekly"
         add_response "200"
-        assert_state_variable "lower_earning_limit", sprintf("%.2f",102) 
+        assert_state_variable "lower_earning_limit", sprintf("%.2f",102)
       end
     end
 
@@ -94,7 +96,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
               setup do
                 add_response :yes
               end
-              
+
               ## QM5.2
               should "ask when the last normal payday" do
                 assert_current_node :last_normal_payday?
@@ -116,12 +118,12 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                   setup do
                     add_response 8.weeks.ago(@qw.last - 2)
                   end
-                 
+
                   ## QM5.4
                   should "ask how often you pay the employee" do
                     assert_current_node :pay_frequency?
                   end
-                  
+
                   context "answer weekly" do
                     setup do
                       add_response 'weekly'
@@ -139,12 +141,12 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         leave_start = Date.parse("21 November 2012")
                         start_of_week = leave_start - leave_start.wday
                         assert_state_variable "leave_start_date", leave_start
-                        assert_state_variable "leave_end_date", 52.weeks.since(leave_start)
-                        assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week)
+                        assert_state_variable "leave_end_date", 52.weeks.since(leave_start) - 1
+                        assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week).end_of_week + 6
                         assert_state_variable "pay_start_date", leave_start
-                        assert_state_variable "pay_end_date", 39.weeks.since(leave_start)
+                        assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
                         assert_state_variable "average_weekly_earnings", 135.4
-                        assert_state_variable "smp_a", "121.87" 
+                        assert_state_variable "smp_a", "121.87"
                         assert_state_variable "smp_b", "121.87"
                         assert_state_variable "total_smp", "4752.93"
                         assert_phrase_list :maternity_pay_info, [:maternity_pay_table]
@@ -155,8 +157,8 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       end
                       should "output a calendar" do
                         assert_calendar
-                        assert_calendar_date Date.parse("21 November 2012")..Date.parse("20 November 2013")
-                        assert_calendar_date Date.parse("5 August 2012")
+                        assert_calendar_date Date.parse("21 November 2012")..Date.parse("19 November 2013")
+                        assert_calendar_date Date.parse("11 August 2012")
                       end
                     end #answer 135.40
                   end
@@ -224,7 +226,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                   add_response @qw.last-2
                 end
                 ## QM5.3
-                should "ask the date of the pay before the 8 week offset" do 
+                should "ask the date of the pay before the 8 week offset" do
                   assert_current_node :payday_eight_weeks?
                 end
 
@@ -236,7 +238,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                   should "ask how often you pay the employee" do
                     assert_current_node :pay_frequency?
                   end
-                  
+
                   context "answer weekly with earnings below threshold" do
                     ##QM5.5
                     should "calculate awe and state that they must earn over the minimum threshold" do
@@ -260,12 +262,12 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         start_of_week = leave_start - leave_start.wday
                         assert_state_variable "average_weekly_earnings", 135.40
                         assert_state_variable "leave_start_date", leave_start
-                        assert_state_variable "leave_end_date", 52.weeks.since(leave_start)
-                        assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week)
+                        assert_state_variable "leave_end_date", 52.weeks.since(leave_start) - 1
+                        assert_state_variable "notice_of_leave_deadline", next_saturday(15.weeks.ago(start_of_week))
                         assert_state_variable "pay_start_date", leave_start
-                        assert_state_variable "pay_end_date", 39.weeks.since(leave_start)
-                        assert_state_variable "smp_a", "121.87" 
-                        assert_state_variable "smp_b", "121.87" 
+                        assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
+                        assert_state_variable "smp_a", "121.87"
+                        assert_state_variable "smp_b", "121.87"
                         assert_state_variable "total_smp", "4752.93"
                         assert_phrase_list :maternity_pay_info, [:maternity_pay_table]
                       end
@@ -276,8 +278,8 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       end
                       should "output a calendar" do
                         assert_calendar
-                        assert_calendar_date Date.parse("21 November 2012")..Date.parse("20 November 2013")
-                        assert_calendar_date Date.parse("5 August 2012")
+                        assert_calendar_date Date.parse("21 November 2012")..Date.parse("19 November 2013")
+                        assert_calendar_date Date.parse("11 August 2012")
                       end
                     end # answer 135.40
                   end
@@ -292,7 +294,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       should "calculate the dates and payment amounts" do
                         assert_state_variable "average_weekly_earnings", 325.20
                         assert_state_variable "smp_a", (325.20 * 0.9).round(2).to_s
-                        assert_state_variable "smp_b", "135.45" # Uses the statutory maternity rate 
+                        assert_state_variable "smp_b", "135.45" # Uses the statutory maternity rate
                       end
                     end
                   end
@@ -305,9 +307,9 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                     context "answer 2100.80" do
                       setup { add_response '2100.80' }
                       should "calculate the dates and payment amounts" do
-                        assert_state_variable "average_weekly_earnings", 262.60 
+                        assert_state_variable "average_weekly_earnings", 262.60
                         assert_state_variable "smp_a", "236.35"
-                        assert_state_variable "smp_b", "135.45" # Uses the statutory maternity rate 
+                        assert_state_variable "smp_b", "135.45" # Uses the statutory maternity rate
                       end
                     end
                   end
@@ -320,9 +322,9 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                     context "answer 1807.78" do
                       setup { add_response '1807.78' }
                       should "calculate the dates and payment amounts" do
-                        assert_state_variable "average_weekly_earnings", 208.59 
-                        assert_state_variable "smp_a", "187.74" 
-                        assert_state_variable "smp_b", "135.45" # Uses the statutory maternity rate 
+                        assert_state_variable "average_weekly_earnings", 208.59
+                        assert_state_variable "smp_a", "187.74"
+                        assert_state_variable "smp_b", "135.45" # Uses the statutory maternity rate
                       end
                     end
                   end
@@ -350,12 +352,12 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       should "calculate the dates and payment amounts" do
                         leave_start = Date.parse("21 November 2012")
                         start_of_week = leave_start - leave_start.wday
-                        assert_state_variable "average_weekly_earnings", 239.79 
+                        assert_state_variable "average_weekly_earnings", 239.79
                         assert_state_variable "leave_start_date", leave_start
-                        assert_state_variable "leave_end_date", 52.weeks.since(leave_start)
-                        assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week)
+                        assert_state_variable "leave_end_date", 52.weeks.since(leave_start) - 1
+                        assert_state_variable "notice_of_leave_deadline", next_saturday(15.weeks.ago(start_of_week))
                         assert_state_variable "pay_start_date", leave_start
-                        assert_state_variable "pay_end_date", 39.weeks.since(leave_start)
+                        assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
                         assert_state_variable "smp_a", "215.82"
                         assert_state_variable "smp_b", "135.45" # the statutory rate
                         assert_state_variable "total_smp", "5764.77"
@@ -367,12 +369,43 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
               end
             end
           end
-        end 
+        end
       end # no to QM2 employee has contract?
     end
+
+    context "calculate maternity with £4000 earnings" do
+      setup do
+        add_response Date.parse("2013-02-22")
+        add_response :yes
+        add_response Date.parse("2013-01-25")
+        add_response :yes
+        add_response :yes
+        add_response Date.parse("2012-11-09")
+        add_response Date.parse("2012-09-14")
+        add_response :monthly
+        add_response 4000
+      end
+
+      should "be a saturday when providing the notice leave deadline" do
+        assert_state_variable "notice_of_leave_deadline", Date.parse("2012-11-10")
+      end
+
+      should "be 23rd January 2014 for leave end date" do
+        assert_state_variable "leave_end_date", Date.parse("2014-01-23")
+      end
+
+      should "be 24th October 2013 for pay end date" do
+        assert_state_variable "pay_end_date", Date.parse("2013-10-24")
+      end
+
+      should "have a notice request pay date 28 days before the start date" do
+        assert_state_variable "pay_start_date", Date.parse("2013-01-25")
+        assert_state_variable "notice_request_pay", Date.parse("2012-12-28")
+      end
+    end
   end # Maternity flow
-  
-  
+
+
   ##
   ## Paternity flow
   ##
@@ -397,17 +430,17 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
           add_response @pat_due_date
         end
 
-        ## QP2 
+        ## QP2
         should "ask if and what context the employee is responsible for the childs upbringing" do
           assert_current_node :employee_responsible_for_upbringing?
         end
 
         context "is biological father or partner and responsible for upbringing" do
           setup { add_response :yes }
-          
+
           ## QP3
           should "ask if employee worked for you before employment_start" do
-            assert_current_node :employee_work_before_employment_start? 
+            assert_current_node :employee_work_before_employment_start?
           end
 
           context "answer yes" do
@@ -463,13 +496,13 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       end
 
                       context "answer 500.55" do
-                        setup do 
+                        setup do
                           add_response 500.55
                           @leave_notice = @pat_due_date - @pat_due_date.wday
                         end
 
                         should "have p_notice_leave qualify" do
-                          assert_state_variable "p_notice_leave", 15.weeks.ago(@leave_notice)
+                          assert_state_variable "p_notice_leave", next_saturday(15.weeks.ago(@leave_notice))
                         end
 
                         should "calculate dates and pay amounts" do
@@ -478,11 +511,11 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                           @notice_of_leave_deadline = qualifying_start = 15.weeks.ago(expected_start)
                           @qualifying_week = qualifying_start .. qualifying_start + 6.days
                           #FIXME@relevant_period = "#{8.weeks.ago(qualifying_start).to_s(:long)} and #{qualifying_start.to_s(:long)}"
-                      
+
                           #FIXME assert_state_variable "relevant_period", @relevant_period
                           #FIXME assert_state_variable "employment_start", 26.weeks.ago(expected_start)
-                          assert_state_variable "employment_end", @pat_due_date 
-                          assert_state_variable "spp_rate", sprintf("%.2f",135.45) 
+                          assert_state_variable "employment_end", @pat_due_date
+                          assert_state_variable "spp_rate", sprintf("%.2f",135.45)
                         end
 
                         should "display employee is entitled to pay" do
@@ -495,9 +528,9 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         setup { add_response 120.25 }
 
                         should "calculate dates and pay amounts" do
-                          assert_state_variable "spp_rate", sprintf("%.2f",108.23) 
+                          assert_state_variable "spp_rate", sprintf("%.2f",108.23)
                           assert_current_node :paternity_leave_and_pay
-                        end 
+                        end
                       end
 
                       context "answer 102.25" do
@@ -506,11 +539,11 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         should "paternity not entitled to pay because earnings too low" do
                           assert_phrase_list :paternity_pay_info, [:paternity_not_entitled_to_pay_intro, :must_earn_over_threshold, :paternity_not_entitled_to_pay_outro]
                           assert_current_node :paternity_leave_and_pay
-                        end 
+                        end
                       end
                     end #QP6.3
                   end #QP6.2
-                end  # yes - QP6 on payroll  
+                end  # yes - QP6 on payroll
 
                 #QP6 - not on payroll:
                 context "answer no" do
@@ -525,8 +558,8 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
               #QP5 - not employed at end of relevant period
               context "answer no" do
                 setup { add_response :no }
-                
-                should "state that they are not entitled to pay because not employed at end date" do  
+
+                should "state that they are not entitled to pay because not employed at end date" do
                   assert_phrase_list :paternity_pay_info, [:paternity_not_entitled_to_pay_intro, :must_be_employed_by_you, :paternity_not_entitled_to_pay_outro]
                   assert_current_node :paternity_leave_and_pay
                 end
@@ -582,7 +615,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         should "display employee is entitled to pay" do
                           assert_phrase_list :paternity_pay_info, [:paternity_entitled_to_pay]
                           assert_current_node :paternity_leave_and_pay
-                        end 
+                        end
                       end #answer 107
                     end
                   end
@@ -594,12 +627,12 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
           context "answer no" do
             setup { add_response :no }
 
-            should "state that they are not entitled to leave or pay because not worked long enough" do  
+            should "state that they are not entitled to leave or pay because not worked long enough" do
               assert_phrase_list :not_entitled_reason, [:not_worked_long_enough]
               assert_current_node :paternity_not_entitled_to_leave_or_pay
             end
           end
-        end 
+        end
         #Q2 - not a father, partner nor husband
         context "answer no" do
           setup { add_response :no }
@@ -611,7 +644,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         end
       end #due date 3 months from now
     end #QP0 - no
-  
+
 
     ##
     ## Paternity - Adoption
@@ -624,7 +657,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
       end
 
       context "date matched date given as 21 June 2012" do
-        setup do 
+        setup do
           @pat_adoption_match = Date.parse("21 June 2012")
           add_response @pat_adoption_match
         end
@@ -652,7 +685,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
 
             context "answer yes" do
               setup { add_response :yes }
-              
+
               # QAP5
               should "ask if employee has an employment contract" do
                  assert_current_node :padoption_have_employee_contract?
@@ -664,7 +697,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                 should "be entitled to leave" do
                   assert_phrase_list :padoption_leave_info, [:padoption_entitled_to_leave]
                 end
-                
+
                 # QAP6
                 should "ask if employee will be employed at employment_end" do
                    assert_current_node :padoption_employed_at_employment_end?
@@ -672,7 +705,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
 
                 context "answer yes" do
                   setup { add_response :yes }
-                  
+
                   # QAP7
                   should "ask if employee is on payroll" do
                      assert_current_node :padoption_employee_on_payroll?
@@ -700,10 +733,10 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         # QAP8
                         should "ask for employee avg weekly earnings" do
                           assert_current_node :padoption_employee_avg_weekly_earnings?
-                        end  
+                        end
 
                         context "answer 500.55" do
-                          setup do 
+                          setup do
                             add_response 500.55
                             @leave_notice = @pat_adoption_match - @pat_adoption_match.wday
                           end
@@ -714,12 +747,12 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                             @notice_of_leave_deadline = qualifying_start = 15.weeks.ago(expected_start)
                             #@qualifying_week = qualifying_start .. qualifying_start + 6.days
                             #FIXME@relevant_period = "#{8.weeks.ago(qualifying_start).to_s(:long)} and #{qualifying_start.to_s(:long)}"
-                        
+
                             #FIXME assert_state_variable "ap_qualifying_week", @qualifying_week
                             #FIXME assert_state_variable "relevant_period", @relevant_period
                             #FIXME assert_state_variable "employment_start", 26.weeks.ago(expected_start)
-                            assert_state_variable "employment_end", @pat_adoption_match 
-                            assert_state_variable "sapp_rate", sprintf("%.2f",135.45) 
+                            assert_state_variable "employment_end", @pat_adoption_match
+                            assert_state_variable "sapp_rate", sprintf("%.2f",135.45)
                           end
 
                           should "display pay info" do
@@ -732,8 +765,8 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                           setup { add_response 120.25 }
 
                           should "calculate dates and pay amounts" do
-                            assert_state_variable "sapp_rate", 108.23.to_s 
-                          end 
+                            assert_state_variable "sapp_rate", 108.23.to_s
+                          end
                         end
 
                         context "answer 90" do
@@ -742,7 +775,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                           should "paternity adoption not entitled to pay because earn too little" do
                             assert_phrase_list :padoption_pay_info, [:padoption_not_entitled_to_pay_intro, :must_earn_over_threshold, :padoption_not_entitled_to_pay_outro]
                             assert_current_node :padoption_leave_and_pay
-                          end 
+                          end
                         end
                       end #QAP7.3
                     end #QAP7.2
@@ -751,7 +784,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                   context "answer no" do
                     # outcome 4AP
                     setup { add_response :no }
-                    
+
                     should "paternity adoption not entitled to pay because not on payroll" do
                       assert_phrase_list :padoption_pay_info, [:padoption_not_entitled_to_pay_intro, :must_be_on_payroll, :padoption_not_entitled_to_pay_outro]
                       assert_current_node :padoption_leave_and_pay
@@ -777,7 +810,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                 setup { add_response :no }
 
                 should "paternity adoption not entitled to leave because no contract" do
-                  assert_phrase_list :padoption_leave_info, [:padoption_not_entitled_to_leave] 
+                  assert_phrase_list :padoption_leave_info, [:padoption_not_entitled_to_leave]
                 end
                 #TODO: complete this flow with different pay scenarios
               end
@@ -787,7 +820,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
 
             context "answer no" do
               # outcome 5AP
-              setup { add_response :no } 
+              setup { add_response :no }
 
               should "not entitled to paternity adoption leave nor pay because not employed long enough" do
                 assert_phrase_list :not_entitled_reason, [:not_worked_long_enough]
@@ -809,8 +842,8 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
 
     end #QP0 - yes
   end # Paternity flow
-  
-  
+
+
 
   ##
   ## Adoption flow
