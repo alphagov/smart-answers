@@ -156,7 +156,7 @@ en-GB:
 
           %{documents_footnote}
 
-          You’ll also need to provide a photocopy of each document.
+          You’ll need to provide originals and a photocopy of each document.
 
           If you work for the Crown Service, European Community or other designated service, you’ll need to provide a recruitment certificate issued at the time of birth, showing date and place of recruitment and current employment.
 
@@ -263,6 +263,6 @@ en-GB:
 
       no_embassy_result:
         body: |
-          %You must register the birth according to the regulations in %{country_of_birth_name}.%
+          %You must register the birth according to the regulations in %{registration_country_name}.%
 
-          You can’t currently register the birth of a child in %{country_of_birth_name} with the UK authorities.
+          You can’t currently register the birth of a child in %{registration_country_name} with the UK authorities.
