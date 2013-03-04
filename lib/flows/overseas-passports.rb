@@ -198,6 +198,9 @@ outcome :aus_nz_result do
     phrases << :"aus_nz_#{aus_nz_checklist_variant}"
     phrases
   end
+  precalculate :instructions do
+    PhraseList.new(:"instructions_#{application_type}")
+  end
   precalculate :receiving_your_passport do
     PhraseList.new(:"receiving_your_passport_#{application_type}")
   end
@@ -232,7 +235,7 @@ end
 outcome :fco_result do
   precalculate :how_long_it_takes do
     if application_action == 'applying' and %w(india tanzania).include?(current_location)
-      PhraseList.new(:how_long_applying_india)
+      PhraseList.new(:"how_long_applying_#{current_location}")
     else
       PhraseList.new(:"how_long_#{application_action}_fco")
     end
@@ -244,7 +247,7 @@ outcome :fco_result do
     cost_type = 'fco_europe' if application_type =~ /^(dublin_ireland|madrid_spain|paris_france)$/
     # Jamaican courier costs vary from the USA FCO office standard.
     cost_type = current_location if current_location == 'jamaica'
-    cost_type = current_location if current_location == 'indonesia' and application_action == 'applying'
+    cost_type = "applying_#{current_location}" if current_location == 'india' and general_action != 'renewing'
    
     payment_methods = :"passport_costs_#{application_type}"
     # Malta and Netherlands have custom payment methods
