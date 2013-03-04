@@ -171,7 +171,13 @@ money_question :earnings_for_pay_period? do
     calculator.average_weekly_earnings
   end
 
-  next_node :maternity_leave_and_pay_result
+  next_node :how_do_you_want_the_smp_calculated?
+end
+
+## QM7
+multiple_choice :how_do_you_want_the_smp_calculated? do
+  option :weekly_starting => :earnings_for_pay_period?
+  option :usual_paydates => :earnings_for_pay_period?
 end
 
 ## Maternity outcomes

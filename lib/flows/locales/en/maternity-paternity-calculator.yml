@@ -263,6 +263,12 @@ en-GB:
       earnings_for_pay_period?:
         title: What were the employee’s total earnings between %{relevant_period}?
         hint: This is their earnings before tax or any other deductions - eg child maintenance.
+      ## QM7
+      how_do_you_want_the_smp_calculated?:
+        title: How do you want the SMP calculated?
+        options:
+          "weekly_starting": "weekly starting %{smp_start_date}"
+          "usual_paydates": "based on their usual paydates"
       ## Combined result for maternity leave and pay.
       maternity_leave_and_pay_result:
         next_steps: |
