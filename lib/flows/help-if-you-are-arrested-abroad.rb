@@ -46,20 +46,6 @@ country_select :which_country? do
     arrested_calc.generate_url_for_download(country, "police", "Police information")
   end
 
-  calculate :source do
-    country_data = arrested_calc.data.select { |c| c["slug"] == country }.first
-    data = arrested_calc.data.select { |c| c["slug"] == country }.first["is_generic"]
-    if country_data["is_generic"]
-      # generic means it doesn't have any specific PDFs, just the one web page link
-      link = country_data["source"]
-      "- [Prisoner pack and information](#{link})"
-    else
-      ""
-    end
-
-
-  end
-
   next_node do |response|
     if response == "iran"
       :answer_three_iran
