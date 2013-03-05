@@ -1,3 +1,5 @@
+status :draft
+
 arrested_calc = SmartAnswer::Calculators::ArrestedAbroad.new
 prisoner_packs = arrested_calc.data
 
@@ -37,7 +39,6 @@ country_select :which_country? do
   calculate :consul do
     arrested_calc.generate_url_for_download(country, "consul", "Consul help available in #{country_name}")
   end
-
 
   calculate :has_extra_downloads do
     [police, judicial, consul, prison, benefits, doc, pdf].select { |x|
