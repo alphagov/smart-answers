@@ -197,6 +197,13 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       add_response "usual_paydates"
                       assert_current_node :when_is_your_employees_next_pay_day?
                     end
+
+                    should "ask for the next pay date if pay frequency is irregular" do
+                      add_response "irregularly"
+                      add_response 1083.20
+                      add_response "usual_paydates"
+                      assert_current_node :when_is_your_employees_next_pay_day?
+                    end
                   end
                 end
               end
