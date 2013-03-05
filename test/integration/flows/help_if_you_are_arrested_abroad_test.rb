@@ -43,20 +43,22 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
         assert_state_variable :prison, "- [Prison information](http://ukingreece.fco.gov.uk/resources/en/pdf/5610670/bns_in_prison)"
       end
     end
+
+    context "Answering Belgium" do
+      setup do
+        add_response :belgium
+      end
+
+      should "take the user to answer 2" do
+        assert_current_node :answer_two_has_pack
+      end
+
+      should "show both links for judicial information" do
+        assert_state_variable :judicial, "- [Judicial system](http://ukinbelgium.fco.gov.uk/resources/en/pdf/consul-help-info)\n- [Judicial system](http://ukinbelgium.fco.gov.uk/resources/en/pdf/belgium-detention-info)"
+      end
+    end
   end
 
-  context "In a country with a generic prisoner pack URL" do
-    setup do
-      add_response :benin
-    end
-
-    should "show the generic prisoner pack link" do
-      assert_current_node :answer_two_has_pack
-      assert_state_variable :source, "- [Prisoner pack and information](http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest)"
-    end
-
-
-  end
   context "In Iran" do
     setup do
       add_response :iran

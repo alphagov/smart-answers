@@ -13,8 +13,13 @@ module SmartAnswer::Calculators
 
     def generate_url_for_download(country, field, text)
       url = @data.select { |c| c["slug"] == country }.first[field]
+      output = []
       if url
-        "- [#{text}](#{url})"
+        urls = url.split(" ")
+        urls.each do |u|
+          output.push("- [#{text}](#{u})")
+        end
+        output.join("\n")
       else
         ""
       end
