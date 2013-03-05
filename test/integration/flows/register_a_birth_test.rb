@@ -70,6 +70,12 @@ class RegisterABirthTest < ActiveSupport::TestCase
       should "ask where the child was born" do
         assert_current_node :country_of_birth?
       end
+      context "answer Andorra" do
+        should "store the correct registration country" do
+          add_response 'andorra'
+          assert_state_variable :registration_country, 'spain'
+        end
+      end # Andorra
       context "answer Iran" do
         should "give the no embassy outcome and be done" do
           add_response 'iran'
@@ -120,7 +126,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
               add_response 'in_the_uk'
               assert_state_variable :registration_country, 'spain'
               assert_current_node :fco_result
-              assert_phrase_list :intro, [:intro_all]
+              assert_phrase_list :intro, [:intro]
             end
           end
           context "answer in another country" do
@@ -147,6 +153,11 @@ class RegisterABirthTest < ActiveSupport::TestCase
               assert_match /3100 Massachusetts Ave, NW/, current_state.embassy_details
               assert_phrase_list :footnote, [:footnote_another_country]
             end # now in USA
+            should "answer Yemen and get the no embassy outcome" do
+              add_response 'yemen'
+              assert_current_node :no_embassy_result
+              assert_state_variable :registration_country_name, "Yemen"
+            end # now in Yemen 
           end # in another country
         end # married/cp
       end # Spain

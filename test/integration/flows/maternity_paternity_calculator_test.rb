@@ -1,8 +1,10 @@
 # encoding: UTF-8
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
+require_relative '../../../lib/smart_answer/date_helper'
 
 class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
+  include DateHelper
   include FlowTestHelper
 
   setup do
@@ -139,10 +141,10 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         leave_start = Date.parse("21 November 2012")
                         start_of_week = leave_start - leave_start.wday
                         assert_state_variable "leave_start_date", leave_start
-                        assert_state_variable "leave_end_date", 52.weeks.since(leave_start)
-                        assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week)
+                        assert_state_variable "leave_end_date", 52.weeks.since(leave_start) - 1
+                        assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week).end_of_week + 6
                         assert_state_variable "pay_start_date", leave_start
-                        assert_state_variable "pay_end_date", 39.weeks.since(leave_start)
+                        assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
                         assert_state_variable "average_weekly_earnings", 135.4
                         assert_state_variable "smp_a", "121.87"
                         assert_state_variable "smp_b", "121.87"
@@ -155,8 +157,8 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       end
                       should "output a calendar" do
                         assert_calendar
-                        assert_calendar_date Date.parse("21 November 2012")..Date.parse("20 November 2013")
-                        assert_calendar_date Date.parse("5 August 2012")
+                        assert_calendar_date Date.parse("21 November 2012")..Date.parse("19 November 2013")
+                        assert_calendar_date Date.parse("11 August 2012")
                       end
                     end #answer 135.40
                   end
@@ -260,10 +262,10 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         start_of_week = leave_start - leave_start.wday
                         assert_state_variable "average_weekly_earnings", 135.40
                         assert_state_variable "leave_start_date", leave_start
-                        assert_state_variable "leave_end_date", 52.weeks.since(leave_start)
-                        assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week)
+                        assert_state_variable "leave_end_date", 52.weeks.since(leave_start) - 1
+                        assert_state_variable "notice_of_leave_deadline", next_saturday(15.weeks.ago(start_of_week))
                         assert_state_variable "pay_start_date", leave_start
-                        assert_state_variable "pay_end_date", 39.weeks.since(leave_start)
+                        assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
                         assert_state_variable "smp_a", "121.87"
                         assert_state_variable "smp_b", "121.87"
                         assert_state_variable "total_smp", "4752.93"
@@ -276,8 +278,8 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       end
                       should "output a calendar" do
                         assert_calendar
-                        assert_calendar_date Date.parse("21 November 2012")..Date.parse("20 November 2013")
-                        assert_calendar_date Date.parse("5 August 2012")
+                        assert_calendar_date Date.parse("21 November 2012")..Date.parse("19 November 2013")
+                        assert_calendar_date Date.parse("11 August 2012")
                       end
                     end # answer 135.40
                   end
@@ -352,10 +354,10 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         start_of_week = leave_start - leave_start.wday
                         assert_state_variable "average_weekly_earnings", 239.79
                         assert_state_variable "leave_start_date", leave_start
-                        assert_state_variable "leave_end_date", 52.weeks.since(leave_start)
-                        assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week)
+                        assert_state_variable "leave_end_date", 52.weeks.since(leave_start) - 1
+                        assert_state_variable "notice_of_leave_deadline", next_saturday(15.weeks.ago(start_of_week))
                         assert_state_variable "pay_start_date", leave_start
-                        assert_state_variable "pay_end_date", 39.weeks.since(leave_start)
+                        assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
                         assert_state_variable "smp_a", "215.82"
                         assert_state_variable "smp_b", "135.45" # the statutory rate
                         assert_state_variable "total_smp", "5764.77"
@@ -369,6 +371,37 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
           end
         end
       end # no to QM2 employee has contract?
+    end
+
+    context "calculate maternity with £4000 earnings" do
+      setup do
+        add_response Date.parse("2013-02-22")
+        add_response :yes
+        add_response Date.parse("2013-01-25")
+        add_response :yes
+        add_response :yes
+        add_response Date.parse("2012-11-09")
+        add_response Date.parse("2012-09-14")
+        add_response :monthly
+        add_response 4000
+      end
+
+      should "be a saturday when providing the notice leave deadline" do
+        assert_state_variable "notice_of_leave_deadline", Date.parse("2012-11-10")
+      end
+
+      should "be 23rd January 2014 for leave end date" do
+        assert_state_variable "leave_end_date", Date.parse("2014-01-23")
+      end
+
+      should "be 24th October 2013 for pay end date" do
+        assert_state_variable "pay_end_date", Date.parse("2013-10-24")
+      end
+
+      should "have a notice request pay date 28 days before the start date" do
+        assert_state_variable "pay_start_date", Date.parse("2013-01-25")
+        assert_state_variable "notice_request_pay", Date.parse("2012-12-28")
+      end
     end
   end # Maternity flow
 
@@ -469,7 +502,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         end
 
                         should "have p_notice_leave qualify" do
-                          assert_state_variable "p_notice_leave", 15.weeks.ago(@leave_notice)
+                          assert_state_variable "p_notice_leave", next_saturday(15.weeks.ago(@leave_notice))
                         end
 
                         should "calculate dates and pay amounts" do
