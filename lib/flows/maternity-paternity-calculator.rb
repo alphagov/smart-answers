@@ -176,8 +176,19 @@ end
 
 ## QM7
 multiple_choice :how_do_you_want_the_smp_calculated? do
-  option :weekly_starting => :earnings_for_pay_period?
-  option :usual_paydates => :earnings_for_pay_period?
+  option :weekly_starting
+  option :usual_paydates
+
+  next_node do |response|
+    if response == "usual_paydates"
+      :when_is_your_employees_next_pay_day? if %w(weekly every_2_weeks).any? { |freq| responses.include? freq }
+    end
+  end
+end
+
+## QM8
+date_question :when_is_your_employees_next_pay_day? do
+  next_node :maternity_leave_and_pay_result
 end
 
 ## Maternity outcomes

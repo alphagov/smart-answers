@@ -267,8 +267,11 @@ en-GB:
       how_do_you_want_the_smp_calculated?:
         title: How do you want the SMP calculated?
         options:
-          "weekly_starting": "weekly starting %{smp_start_date}"
+          "weekly_starting": "weekly starting %{leave_start_date}"
           "usual_paydates": "based on their usual paydates"
+      ## QM8
+      when_is_your_employees_next_pay_day?:
+        title: When is your employee’s next day day
       ## Combined result for maternity leave and pay.
       maternity_leave_and_pay_result:
         next_steps: |

@@ -137,6 +137,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       setup do
                         add_response 1083.20
                       end
+
                       should "calculate dates and pay amounts" do
                         leave_start = Date.parse("21 November 2012")
                         start_of_week = leave_start - leave_start.wday
@@ -155,6 +156,16 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       should "calculate and present the result" do
                         assert_phrase_list :maternity_leave_info, [:maternity_leave_table]
                         assert_current_node :how_do_you_want_the_smp_calculated?
+                      end
+
+                      context "usual pay dates" do
+                        setup do
+                          add_response "usual_paydates"
+                        end
+
+                        should "ask when the next pay day is" do
+                          assert_current_node :when_is_your_employees_next_pay_day?
+                        end
                       end
 
                       # should "output a calendar" do
