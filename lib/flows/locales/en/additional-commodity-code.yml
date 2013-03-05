@@ -11,7 +11,7 @@ en-GB:
         result_with_no_commodity_code: The product composition you indicated is not possible.
         result_explanation_code: Use these four digits together with the ten-digit commodity code from Trade Tariff.
       how_much_starch_glucose?:
-        title: How much starch glucose does the product contain?
+        title: How much starch or glucose does the product contain?
         hint: The values represent % by weight
         options:
           "0": "0 - 4.99"
@@ -35,7 +35,7 @@ en-GB:
           "0": "0 - 4.99"
           "5": "5 - 29.99"
           "30": "30 - 49.99"
-          "50": "50 or more"  
+          "50": "50 or more"
       how_much_sucrose_3?:
         title: How much sucrose, invert sugar or isoglucose does the product contain?
         hint: The values represent % by weight
