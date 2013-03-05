@@ -28,6 +28,12 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
         assert_state_variable :country_name, "Andorra"
       end
 
+      should "correctly set up phrase lists" do
+        assert_phrase_list :intro, [:common_intro]
+        assert_phrase_list :downloads, [:common_downloads]
+        assert_phrase_list :after_downloads, [:fco_cant_do, :dual_nationals_other_help]
+      end
+
     end
 
     context "Answering Greece" do
@@ -66,7 +72,9 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
 
     should "take them to the special Iran outcome" do
       assert_current_node :answer_three_iran
+      assert_phrase_list :downloads, [:common_downloads]
     end
+
   end
 
   context "In Syria" do
@@ -76,6 +84,7 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
 
     should "take the user to the Syria answer" do
       assert_current_node :answer_four_syria
+      assert_phrase_list :downloads, [:common_downloads]
     end
   end
 

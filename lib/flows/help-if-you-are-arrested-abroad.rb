@@ -60,7 +60,34 @@ country_select :which_country? do
 
 end
 
-outcome :answer_one_no_pack
-outcome :answer_two_has_pack
-outcome :answer_three_iran
-outcome :answer_four_syria
+outcome :answer_one_no_pack do
+  precalculate :intro do
+    PhraseList.new(:common_intro, :common_downloads, :fco_cant_do, :dual_nationals_other_help)
+  end
+end
+outcome :answer_two_has_pack do
+  precalculate :intro do
+    PhraseList.new(:common_intro)
+  end
+
+  precalculate :downloads do
+    PhraseList.new(:common_downloads)
+  end
+
+  precalculate :after_downloads do
+    PhraseList.new(:fco_cant_do, :dual_nationals_other_help)
+  end
+end
+
+outcome :answer_three_iran do
+  precalculate :downloads do
+    PhraseList.new(:common_downloads)
+  end
+end
+
+
+outcome :answer_four_syria do
+  precalculate :downloads do
+    PhraseList.new(:common_downloads)
+  end
+end
