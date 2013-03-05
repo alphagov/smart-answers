@@ -1,5 +1,5 @@
 ﻿---
-: # This empty key is a workaround for the concatenation of --- with afghanistan. 
+empty_key: # This empty key is a workaround for the concatenation of --- with afghanistan. This behaviour is particular to the Syck YAML parser. 
 afghanistan: 
 - address: |-
     British Embassy
