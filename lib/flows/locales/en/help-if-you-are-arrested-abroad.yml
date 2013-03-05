@@ -77,33 +77,29 @@ en-GB:
           - [Prisoners Abroad](www.prisonersabroad.org.uk “Prisoners Abroad”){:rel=”external”}
           - [Reprieve](http://www.reprieve.org.uk/ “Reprieve”){:rel=”external”}
 
-      answer_one_no_pack:
-        title: Help for British nationals arrested abroad
-        body: |
-          %{intro}
-
-      answer_two_has_pack:
-        title: Help for British nationals arrested abroad
-        body: |
-          %{intro}
-
+        specific_downloads: |
           ##Download prisoner packs and other helpful information
 
           %{pdf}
           %{doc}
-          %{lawyer}
-          %{translator}
           %{benefits}
-          %{prison}
-          %{consul}
           %{judicial}
+          %{prison}
           %{police}
+          %{consul}
 
-          %{downloads}
+      answer_one_generic:
+        title: Help for British nationals arrested abroad
+        body: |
+          %{intro}
+
+          %{country_downloads}
+
+          %{generic_downloads}
 
           %{after_downloads}
 
-      answer_three_iran:
+      answer_two_iran:
         body: |
           %There are no British consular services in Iran.  British nationals who need help should contact the Swedish Embassy in Tehran%
 
@@ -127,7 +123,8 @@ en-GB:
           - [Fair Trials International](http://www.fairtrials.net/ “Fair Trials International”){:rel=”external”}
           - [Prisoners Abroad](www.prisonersabroad.org.uk “Prisoners Abroad”){:rel=”external”}
           - [Reprieve](http://www.reprieve.org.uk/ “Reprieve”){:rel=”external”}
-      answer_four_syria:
+
+      answer_three_syria:
         body: |
 
           %There are no British consular services in Syria.  British nationals who need help should contact an embassy from any EU state in Damascus%

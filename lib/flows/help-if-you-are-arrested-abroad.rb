@@ -11,67 +11,63 @@ country_select :which_country? do
   end
 
   calculate :pdf do
-    arrested_calc.generate_url_for_download(country, "pdf", "Prisoner pack (PDF)")
+    arrested_calc.generate_url_for_download(country, "pdf", "Prisoner pack for #{country_name}")
   end
 
   calculate :doc do
-    arrested_calc.generate_url_for_download(country, "doc", "Prisoner pack (Doc)")
-  end
-
-  calculate :lawyer do
-    arrested_calc.generate_url_for_download(country, "lawyer", "Information on lawyers")
-  end
-
-  calculate :translator do
-    arrested_calc.generate_url_for_download(country, "translator", "Translators and interpreters")
+    arrested_calc.generate_url_for_download(country, "doc", "Prisoner pack for #{country_name}")
   end
 
   calculate :benefits do
-    arrested_calc.generate_url_for_download(country, "benefits", "Benefits or legal aid available")
+    arrested_calc.generate_url_for_download(country, "benefits", "Benefits or legal aid in #{country_name}")
   end
 
   calculate :prison do
-    arrested_calc.generate_url_for_download(country, "prison", "Prison information")
-  end
-
-  calculate :consul do
-    arrested_calc.generate_url_for_download(country, "consul", "Consul help")
+    arrested_calc.generate_url_for_download(country, "prison", "Information on prisons and prison procedures in #{country_name}")
   end
 
   calculate :judicial do
-    arrested_calc.generate_url_for_download(country, "judicial", "Judicial system")
+    arrested_calc.generate_url_for_download(country, "judicial", "Information on the judicial system and procedures in #{country_name}")
   end
 
   calculate :police do
-    arrested_calc.generate_url_for_download(country, "police", "Police information")
+    arrested_calc.generate_url_for_download(country, "police", "Information on the police and police procedures in #{country_name}")
+  end
+
+  calculate :consul do
+    arrested_calc.generate_url_for_download(country, "consul", "Consul help available in #{country_name}")
+  end
+
+
+  calculate :has_extra_downloads do
+    [police, judicial, consul, prison, benefits, doc, pdf].select { |x|
+      x != ""
+    }.length > 0
   end
 
   next_node do |response|
     if response == "iran"
-      :answer_three_iran
+      :answer_two_iran
     elsif response == "syria"
-      :answer_four_syria
-    elsif arrested_calc.no_prisoner_packs.include?(response)
-      :answer_one_no_pack
+      :answer_three_syria
     else
-      :answer_two_has_pack
+      :answer_one_generic
     end
   end
 
 end
 
-outcome :answer_one_no_pack do
-  precalculate :intro do
-    PhraseList.new(:common_intro, :common_downloads, :fco_cant_do, :dual_nationals_other_help)
-  end
-end
-outcome :answer_two_has_pack do
+outcome :answer_one_generic do
   precalculate :intro do
     PhraseList.new(:common_intro)
   end
 
-  precalculate :downloads do
+  precalculate :generic_downloads do
     PhraseList.new(:common_downloads)
+  end
+
+  precalculate :country_downloads do
+    has_extra_downloads ? PhraseList.new(:specific_downloads) : PhraseList.new
   end
 
   precalculate :after_downloads do
@@ -79,14 +75,13 @@ outcome :answer_two_has_pack do
   end
 end
 
-outcome :answer_three_iran do
+outcome :answer_two_iran do
   precalculate :downloads do
     PhraseList.new(:common_downloads)
   end
 end
 
-
-outcome :answer_four_syria do
+outcome :answer_three_syria do
   precalculate :downloads do
     PhraseList.new(:common_downloads)
   end

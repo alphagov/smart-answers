@@ -19,8 +19,8 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
         add_response :andorra
       end
 
-      should "take the user to Answer 2" do
-        assert_current_node :answer_two_has_pack
+      should "take the user to the generic answer" do
+        assert_current_node :answer_one_generic
       end
 
       should "correctly calculate and store the country variables" do
@@ -30,8 +30,10 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
 
       should "correctly set up phrase lists" do
         assert_phrase_list :intro, [:common_intro]
-        assert_phrase_list :downloads, [:common_downloads]
+        assert_phrase_list :generic_downloads, [:common_downloads]
         assert_phrase_list :after_downloads, [:fco_cant_do, :dual_nationals_other_help]
+        assert_state_variable :has_extra_downloads, false
+        assert_phrase_list :country_downloads, []
       end
 
     end
@@ -41,12 +43,13 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
         add_response :greece
       end
 
-      should "take the user to answer 2" do
-        assert_current_node :answer_two_has_pack
+      should "take the user to the generic answer" do
+        assert_current_node :answer_one_generic
       end
 
-      should "calculate a link for prison information" do
-        assert_state_variable :prison, "- [Prison information](http://ukingreece.fco.gov.uk/resources/en/pdf/5610670/bns_in_prison)"
+      should "set up the country specific downloads phraselist" do
+        assert_state_variable :has_extra_downloads, true
+        assert_phrase_list :country_downloads, [:specific_downloads]
       end
     end
 
@@ -55,12 +58,8 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
         add_response :belgium
       end
 
-      should "take the user to answer 2" do
-        assert_current_node :answer_two_has_pack
-      end
-
-      should "show both links for judicial information" do
-        assert_state_variable :judicial, "- [Judicial system](http://ukinbelgium.fco.gov.uk/resources/en/pdf/consul-help-info)\n- [Judicial system](http://ukinbelgium.fco.gov.uk/resources/en/pdf/belgium-detention-info)"
+      should "take the user to the generic answer" do
+        assert_current_node :answer_one_generic
       end
     end
   end
@@ -71,7 +70,7 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
     end
 
     should "take them to the special Iran outcome" do
-      assert_current_node :answer_three_iran
+      assert_current_node :answer_two_iran
       assert_phrase_list :downloads, [:common_downloads]
     end
 
@@ -83,7 +82,7 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
     end
 
     should "take the user to the Syria answer" do
-      assert_current_node :answer_four_syria
+      assert_current_node :answer_three_syria
       assert_phrase_list :downloads, [:common_downloads]
     end
   end
