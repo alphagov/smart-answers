@@ -1,0 +1,672 @@
+en-GB:
+  flow:
+    marriage-overseas:
+      title: Getting married overseas
+      meta:
+        description: Requirements, paperwork and processes for marriage or civil partnership overseas - registration, restrictions, fees
+
+      body: |
+        Find out what you need to do if you’re a [British national](http://www.ukba.homeoffice.gov.uk/britishcitizenship/aboutcitizenship/ "UK Border Agency - What is British citizenship?"){:rel="external"} and want to get married or enter into a civil partnership overseas.
+
+        There’s a separate guide if you want to [get married or enter into a civil partnership in the UK](/marriages-civil-partnerships "Marriages and civil partnerships").
+
+# Q1
+      country_of_ceremony?:
+        title: Where would you like the ceremony to take place?
+
+# Q2
+      legal_residency?:
+        title: Where are you legally resident?
+        options:
+          uk: "United Kingdom"
+          other: "Elsewhere"
+
+# Q3a
+      residency_uk?:
+        title: Whereabouts in the UK do you live?
+        options:
+          uk_england: "England"
+          uk_wales: "Wales"
+          uk_scotland: "Scotland"
+          uk_ni: "Northern Ireland"
+          uk_iom: "Isle of Man"
+          uk_ci: "Channel Islands" 
+
+# Q3b
+      residency_nonuk?:
+        title: Which country are you resident in?
+
+# Q4
+      what_is_your_partners_nationality?:
+        title: What is your partner’s nationality?
+        options:
+          partner_british: "British"
+          partner_irish: "Irish"
+          partner_local: "National of %{country_name_lowercase_prefix}"
+          partner_other: "National of another country"
+
+# Q5
+      partner_opposite_or_same_sex?:
+        title: Is your partner of the opposite sex, or the same sex?
+        options:
+          opposite_sex: "Opposite sex"
+          same_sex: "Same sex"
+
+      phrases:
+        ceremony_type_marriage: Marriage
+        ceremony_type_civil_partnership: Civil partnership
+        embassy_details_all: |
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+        clickbook_link: |
+          [Book an appointment online](%{clickbook_data} "Book an appointment online")
+        multiple_clickbook_link: |
+          [Book an appointment online in %{city}](%{url})
+        clickbook_links: |
+          %{clickbooks}
+        outcome_ireland_opposite_sex: |
+          The General Register Office of Ireland's website explains what you need to do if you want to [get married in Ireland.](http://www.groireland.ie/getting_married.htm "Getting married in Ireland"){:rel="external"} Your marriage will be recognised in the UK if you follow the correct process according to Irish law.
+        outcome_ireland_same_sex: |
+          The General Register Office of Ireland's website explains what you need to do if you want to [enter into a civil partnership in Ireland.](http://www.groireland.ie/civil_partnership.htm "Civil partnership in Ireland"){:rel="external"} Your civil partnership will be recognised in the UK if you follow the correct process according to Irish law.
+        uk_resident_os_ceremony_not_zimbabwe: |
+          Contact the [High Commission of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk "Foreign embassies in the UK") to find out about local marriage laws, including what documents you’ll need.
+
+          ^You should [get legal advice](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"} and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix}") before making any plans.^
+        local_resident_os_ceremony_not_zimbabwe: |
+          Contact the relevant local authorities to find out about local marriage laws, including what documents you’ll need. The British High Commission in %{country_name_lowercase_prefix} may also be able to give you advice, or put you in touch with the relevant local authorities if you don’t know who to contact.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+
+          You should also [get legal advice] before making any plans.
+        other_resident_os_ceremony_not_zimbabwe: |
+          Contact your nearest embassy, high commission or consulate of %{country_name_lowercase_prefix} before making any plans to find out about local marriage laws, including what documents you’ll need. The local British high commission or consulate where you’re getting married may also be able to give you advice.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+
+          ^You should [get legal advice] and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix}") before making any plans.^
+        uk_resident_os_ceremony_zimbabwe: |
+          Contact the [Zimbabwean Embassy in the UK](http://www.zimlondon.gov.zw/index.php/contact-us "Contact the Zimbabwean Embassy in the UK"){:rel="external"} to find out about local marriage laws, including what documents you’ll need.
+
+          ^You should [get legal advice](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"} and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix}") before making any plans.^
+        local_resident_os_ceremony_zimbabwe: |
+          Contact the relevant local authorities to find out about local marriage laws, including what documents you’ll need. The British Embassy in Zimbabwe may also be able to give you advice, or put you in touch with the relevant local authorities if you don’t know who to contact.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+
+          You should also [get legal advice] before making any plans.
+        other_resident_os_ceremony_zimbabwe: |
+          Contact your nearest embassy or consulate of %{country_name_lowercase_prefix} before making any plans to find out about local marriage laws, including what documents you’ll need. The local British embassy or consulate where you’re getting married may also be able to give you advice.
+
+          
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+
+          ^You should [get legal advice] and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix}") before making any plans.^
+        commonwealth_os_other_countries_south_africe: |
+          %You’ll probably be asked for a CNI if you want to marry a South African citizen in South Africa. You’ll need to ask if there are any other documents the authorities will accept instead.%          
+        commonwealth_os_other_countries_india: |
+          However, the British High Commission in India can provide you with a letter explaining this position for a charge - see consular fees for India.
+        commonwealth_os_other_countries_malaysia: |
+          However, the British High Commission in Malaysia can provide you with a letter explaining this position for a charge - see consular fees for Malaysia.
+
+          ^You must get married through an Islamic ceremony in Malaysia if you or your partner is a Muslim. Otherwise, you’ll need to have a civil marriage.^
+        commonwealth_os_other_countries_singapore: |
+          However, you can swear an affidavit (written statement of facts) that you’re free to marry in front of a local [notary public or commissioner of oaths.](http://www.conp.sg/co-np-directory-listing "Singapore Academy of Law - directory of commissioners of oaths and notaries public"){:rel="external"}
+        commonwealth_os_other_countries_brunei: |
+          ^You must get married through an Islamic ceremony in Brunei if you or your partner is a Muslim. Otherwise, you’ll need to have a civil marriage.^
+        commonwealth_os_other_countries_cyprus: |
+          ###Other requirements for Cyprus
+
+          You must provide evidence that you’re allowed to marry if you’re resident in Cyprus but you’ve been there for less than 3 years. However, the [General Register Office](http://www.gro.gov.uk/gro/content/ "General Register Office"){:rel="external"} (GRO) in the UK can only provide letters covering a specified 3-year period, not including the most recent 18 months.
+
+          You should [contact the municipality](http://www.ucm.org.cy/Account_List.aspx "Municipalities in Cyprus"){:rel="external"} in the area of Cyprus where you’d like to marry to check if they’ll accept this.
+        commonwealth_os_naturalisation: |
+          ##Naturalisation of your partner 
+
+          Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen "Becoming a British citizen - If your spouse is a British citizen") after 3 years if you both settle in the UK after getting married.  
+        bot_os_ceremony_biot: |
+          Access to the British Indian Ocean Territory is restricted, and it’s unlikely that marriage would be allowed there. 
+
+          Contact the British Indian Ocean Territory Administration for further details.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+        bot_os_ceremony_non_biot: |
+          %{country_name_uppercase_prefix} is a British overseas territory. Your marriage will be recognised in the UK  if you follow the correct process according to local law. 
+
+          Contact the %{ceremony_country_name} Government to find out about getting married there, including what documents you’ll need. 
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+
+          You should [get legal advice](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"} before making any plans.
+        bot_os_local_resident: |
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix}").
+        bot_os_naturalisation: |
+          ##Naturalisation of your partner 
+
+          Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen "Becoming a British citizen - If your spouse is a British citizen") after 3 years if you both settle in the UK after getting married.
+        uk_resident_os_consular_cni: |
+          Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk "Foreign embassies in the UK") before making any plans to find out about local marriage laws, including what documents you’ll need.
+
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix}").
+
+          The local British embassy or consulate where you’re getting married may also be able to give you advice.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+        local_resident_os_consular_cni: |
+          Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need. The local British embassy or consulate may also be able to give you advice, or put you in touch with the relevant local authorities if you don’t know who to contact.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+        other_resident_os_consular_cni: |
+          Contact your nearest embassy or consulate of %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need. The local British embassy or consulate where you’re getting married may also be able to give you advice.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix}") before making any plans.
+        gulf_states_os_consular_cni: |
+          ^There are no civil marriages in %{country_name_lowercase_prefix}, but you can get married through a religious ceremony at a church or Sharia court.^
+        gulf_states_os_consular_cni_local_resident_partner_not_irish: |
+          You may be able to get married at the British Embassy if you're both resident in %{country_name_lowercase_prefix} and can prove that there are no other suitable facilities.
+
+          Contact the British Embassy in %{country_name_lowercase_prefix} to find out how to apply.
+        spain_os_consular_cni: |
+          Civil weddings in Spain take place at a town hall, register office or district court. You need to register with the local civil authorities afterwards to get an official marriage certificate if you have a religious wedding.
+        uk_resident_os_consular_cni_two: |
+          ^Your marriage should be recognised in the UK if you follow the correct process according to local law - but you should [get legal advice](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"} to make sure.^
+        other_resident_os_consular_cni_two: |
+          ^Your marriage should be recognised in the UK if you follow the correct process according to local law - but you should [get legal advice] to make sure.^
+        consular_cni_os_italy_scenario_one: |
+          ^The authorities in Italy might refer to your situation as ‘Scenario 1’ (British nationals both resident in the UK marrying in Italy).^
+        consular_cni_os_italy_scenario_two_a: |
+          ^The authorities in Italy might refer to your situation as ‘Scenario 2’ (British national resident in the UK marrying a foreign national in Italy).^
+        consular_cni_os_italy_scenario_two_b: |
+          ^The authorities in Italy might refer to your situation as ‘Scenario 2’ (British national resident in the UK marrying a foreign national in Italy).^
+        consular_cni_os_italy_scenario_three: |
+          ^The authorities in Italy might refer to your situation as ‘Scenario 3’ (British nationals both resident in Italy marrying in Italy).^
+        consular_cni_os_italy_scenario_four: |
+          ^The authorities in Italy might refer to your situation as ‘Scenario 4’ (British national resident in Italy marrying a foreign national, Italian or otherwise, in Italy).^
+        consular_cni_os_italy_scenario_five: |
+          ^The authorities in Italy might refer to your situation as ‘Scenario 5’ (British national resident in the UK marrying an Irish national in Italy).^
+        consular_cni_os_italy_scenario_six: |
+          ^The authorities in Italy might refer to your situation as ‘Scenario 6’ (British nationals both resident in a foreign country - not Italy, not a member of the Commonwealth - marrying in Italy).^
+        consular_cni_os_italy_scenario_seven: |
+          ^The authorities in Italy might refer to your situation as ‘Scenario 7’ (British national resident in a foreign country - not Italy, not a member of the Commonwealth - marrying a foreign national, Italian or otherwise, in Italy).^
+        consular_cni_os_italy_scenario_eight: |
+          ^The authorities in Italy might refer to your situation as ‘Scenario 8’ (British national resident in a Commonwealth country marrying in Italy).^
+        consular_cni_os_italy_scenario_nine: |
+          ^The authorities in Italy might refer to your situation as ‘Scenario 9’ (British national resident in the the Republic of Ireland marrying in Italy).^
+        consular_cni_os_denmark: |
+          ^You don’t need a CNI if you’re getting married in the main town hall in Copenhagen.^
+        consular_cni_os_german_resident: |
+          ^You don’t need a CNI if you’re legally resident in Germany.^
+        consular_cni_os_italy_iom_ci_partner_not_irish: |
+          ^Contact the consular section of the British Embassy in Rome (<Rome.Marriages@fco.gov.uk>) to find out what to do if you’re legally resident in the Isle of Man or the Channel Islands and want to get married in Italy.^
+        uk_resident_partner_not_irish_os_consular_cni_three: |
+          You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](/register-offices "Register offices in England and Wales"), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf "Directory of registrars in Scotland"){:rel="external"} or [Northern Ireland.](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm "District Registrars in Northern Ireland"){:rel="external"}
+
+          They’ll post your notice, and as long as nobody has registered an objection after a specified number of days (normally 15 or 21), they’ll  issue your CNI.
+        scotland_ni_resident_partner_irish_os_consular_cni_three: |
+          You can normally get a CNI by giving a notice of marriage at local registrar if you live in [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf "Directory of registrars in Scotland"){:rel="external"} or [Northern Ireland.](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm "District Registrars in Northern Ireland"){:rel="external"}^
+
+          They’ll post your notice, and as long as nobody has registered an objection after a specified number of days (normally 15 or 21), they’ll  issue your CNI.
+        consular_cni_os_scotland_or_ni_partner_irish_or_partner_not_irish_three: |
+          ###Getting a statutory declaration
+
+          While you’re waiting for your CNI, you should make a statutory declaration before a [solicitor or public notary](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"}. The Italian authorities will need this in addition to your CNI. There’s a standard template in English and Italian that you can download and use.
+
+
+          $D
+          [Download ‘Bilingual statutory declaration for marriage in Italy’ (PDF, 95KB)](... "Download ‘Bilingual statutory declaration for marriage in Italy’ (PDF, 95KB)")
+          $D
+
+          ###Legalisation and translation
+
+          You’ll need to get your statutory declaration and CNI ‘[legalised]’ (certified as genuine) by the FCO.
+
+          You’ll also need to get your CNI translated. The FCO has produced a list of approved translators of wedding documents - they’re all based in Italy and recognised by the Italian courts.
+
+
+          $D
+          [Download ‘Translators in Italy’ (PDF, 351KB)](... "Download ‘Translators in Italy’ (PDF, 351KB)")
+          $D
+        consular_cni_os_england_or_wales_partner_irish_three: |
+          You need to get a Nulla Osta (the Italian version of the CNI) from the Foreign & Commonwealth Office (FCO) in London if your partner is Irish and you live in England or Wales.
+
+          Your partner should contact the Irish authorities to obtain their CNI.
+
+          ###Applying for a Nulla Osta from the FCO
+
+          s1. [Download ‘Nulla Osta application form’ (DOT, 61KB)](http://www.fco.gov.uk/resources/en/word/nulla-osta-form "Download ‘Nulla Osta application form’ (DOT, 61KB)").
+          s2. Place a public announcement of your marriage in your local newspaper for at least 1 week, as described on the form.
+          s3. Swear an affidavit (written statement of facts) in front of a [solicitor](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"} - there’s an example on the form.
+          s4. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
+          s5. You’ll also need to include a pre-paid, self-addressed special delivery envelope, or a £10 postage fee, so the FCO can return your documents.
+          s6. Send your completed form to the FCO with your supporting documents, and a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. [You can also pay by credit card online.] Personal cheques aren’t accepted. The address is on the form.
+          s7. FCO will forward your Nulla Osta to the local British embassy or consulate where you’re getting married, usually within 20 days. The embassy or consulate will charge you an additional fee (see below) - they’ll contact you to arrange payment.
+          s8. They’ll then send it to the town hall (‘commune’) in Italy where you’re getting married - or another address (such as your wedding planner) if you ask them to. It’s normally valid for 3 months, but you should check this with the commune.
+        consular_cni_os_england_or_wales_resident_not_italy: |
+          You need to get a CNI from the Foreign & Commonwealth Office (FCO) in London if your partner is Irish and you live in England or Wales.
+
+          Your partner should contact the Irish authorities to obtain their CNI.
+
+          ###Applying for a CNI from the FCO
+
+          s1. [Download ‘Certificate of no impediment application form’ (DOT, 60KB)](http://www.fco.gov.uk/resources/en/word/cert-no-impediment "Download ‘Certificate of no impediment application form’ (DOT, 60KB)").
+          s2. Place a public announcement of your marriage in your local newspaper for at least 1 week, as described on the form.
+          s3. Swear an affidavit (written statement of facts) in front of a [solicitor](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"} - there’s an example on the form.
+          s4. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
+          s5. You’ll also need to include a pre-paid, self-addressed special delivery envelope, or a £10 postage fee, so the FCO can return your documents.
+          s6. Send your completed form to the FCO with your supporting documents, and a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. [You can also pay by credit card online.] Personal cheques aren’t accepted. The address is on the form.
+          s7. The FCO will forward your CNI to the local British embassy or consulate where you’re getting married, usually within 20 days - they’ll let you know when it’s ready to collect.
+          s8. The embassy or consulate will charge you an additional fee when you pick it up. It’s normally valid for 3 months, but you should check this with the local authorities.
+        consular_cni_os_uk_resident_not_italy_two: |
+          ###Legalisation and translation
+
+          You might need to exchange your UK-issued CNI for one that’s valid in [country] at the nearest embassy or consulate to where you’re getting married.
+
+          You should also check if it needs to be:
+
+          - ‘[legalised]’ (certified as genuine) by the FCO
+          - translated - [find a translator abroad], or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046 "Institute of Linguists - find a translator"){:rel="external"}
+
+          You should also check with the local authorities to find out if you need to provide legalised and translated copies of any other documents.
+        consular_cni_os_local_resident_not_italy_germany: |
+          You’ll need to give notice of your intended marriage (banns) at your nearest British embassy or consulate.
+
+          ###Applying for a CNI from the consulate
+
+          You’ll normally need to have been resident in %{country_name_lowercase_prefix} for at least 21 days. You can then book an appointment at the consulate to give notice of your marriage.
+
+          [link to clickbook if [country] listed under column G of ‘Overseas BDM data’]: [Book an appointment online.]
+          [multiple links to clickbook if [country] listed under column H of ‘Overseas BDM data’]: [Book an appointment online in:]
+        consular_cni_os_local_resident_italy: |
+          In Italy, a CNI is known as a ‘Nulla Osta’. You’ll need to give notice of your intended marriage (banns) at your nearest British embassy or consulate to get one.
+
+          ###Applying for a Nulla Osta from the consulate
+
+          You’ll normally need to have been resident in %{country_name_lowercase_prefix} for at least 21 days. You can then book an appointment at the consulate to give notice of your marriage.
+
+          [link to clickbook if [country] listed under column G of ‘Overseas BDM data’]: [Book an appointment online.]
+          [multiple links to clickbook if [country] listed under column H of ‘Overseas BDM data’]: [Book an appointment online in:]
+
+        consular_cni_os_foreign_resident: |
+          You’ll normally need to give notice of your intended marriage (banns) in the country where you live.
+
+          Check with your nearest [British embassy or consulate](/find-british-embassy "Find a British embassy") to find out if they can do this for you.
+
+          ^Not all consulates are able to do this, but they may still be able to give you advice on other ways you can get a CNI.^
+
+          ###Applying for a CNI from the consulate
+
+          You’ll normally need to have been living in your country of residence for 21 days.
+        consular_cni_os_commonwealth_resident: |
+          You’ll normally need to give notice of your intended marriage (banns) in the country where you live.
+
+          Check with your nearest [British high commission](/find-british-embassy "Find a British embassy") to find out if they can help you with this.
+
+          ^Not all high commissions are able to do this - if they can’t, they may be able to give you advice on other ways you can get a CNI.^
+
+          ###Applying for a CNI from the high commission
+
+          You’ll need to place a public announcement of your marriage in a local newspaper where you live for 1 week. If possible (and appropriate), this should be in English and the local language. It’s easier to do this in a weekly newspaper, as otherwise the announcement needs to appear for 7 consecutive days. 
+
+          You can use the example below as a template.
+
+
+          $E
+          I,………………………………...………………………(full name) single/widow(er)/divorcee,
+
+          of ……………………………………………………………………………….…..(full address),
+
+          intend to marry…………………...……… (full name of fiancee) single/widow(er)/divorcee,
+
+          of …………………………………………………………….……………………..(full address),
+
+          at …………….………(name and address of place where marriage has to be solemnised)
+
+          on…………….….…..(date of proposed marriage).
+
+          Any person knowing of any lawful impediment to the marriage should without delay notify:
+
+          (High Commission address)
+          $E
+
+          You need to wait 21 days after placing the announcement to allow for any objections to be registered. You’ll then need to swear an oath or affidavit (written statement of facts) in front of a local [solicitor or public notary] stating that you’re free to marry.
+        consular_cni_os_commonwealth_resident_british_partner: |
+          ^You’ll both need to place separate announcements and swear separate oaths if you’re both British nationals.^
+        consular_cni_os_commonwealth_resident_two: |
+          Once you’ve done this, you should then send or take the following documents and the relevant fee (see below) to the high commission so they can prepare your CNI:
+        consular_cni_os_ireland_resident: |
+          You’ll normally need to give notice of your intended marriage (banns) in the country where you live. In Ireland, you can do this through the British Embassy in Dublin.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+
+          ###Applying for a CNI from the British Embassy, Dublin
+
+          You’ll need to place a public announcement of your marriage in a local newspaper where you live for 1 week. It’s easier to do this in a weekly newspaper, as otherwise the announcement needs to appear for 7 consecutive days. 
+
+          You can use the example below as a template.
+
+
+          $E
+          I,………………………………...………………………(full name) single/widow(er)/divorcee,
+
+          of ……………………………………………………………………………….…..(full address),
+
+          intend to marry…………………...……… (full name of fiancee) single/widow(er)/divorcee,
+
+          of …………………………………………………………….……………………..(full address),
+
+          at …………….………(name and address of place where marriage has to be solemnised)
+
+          on…………….….…..(date of proposed marriage).
+
+          Any person knowing of any lawful impediment to the marriage should without delay notify:
+
+          British Embassy in Ireland, 29 Merrion Road, Ballsbridge, Dublin 4
+          $E
+
+          You need to wait 21 days after placing the announcement to allow for any objections to be registered. You’ll then need to swear an oath or affidavit (written statement of facts) in front of a local [solicitor or public notary] stating that you’re free to marry.
+        consular_cni_os_ireland_resident_british_partner: |
+          ^You’ll both need to place separate announcements and swear separate oaths if you’re both British nationals.^
+        consular_cni_os_ireland_resident: |
+          Once you’ve done this, you should then send or take the following documents and the relevant fee (see below) to the British Embassy in Dublin so they can prepare your CNI:
+        consular_cni_os_commonwealth_or_ireland_resident_british_partner: |
+          - your original passport (or a photocopy certified by a local solicitor if you’re sending documents in the post)
+          - [full birth certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate")
+          - the whole page of the newspaper your announcement appears on, including the date it was issued
+          - equivalent documents for your partner
+        consular_cni_os_commonwealth_or_ireland_resident_non_british_partner: |
+          - your original passport (or a photocopy certified by a local solicitor if you’re sending documents in the post)
+          - [full birth certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate")
+          - the whole page of the newspaper your announcement appears on, including the date it was issued
+          - a photocopy of your partner’s passport
+        consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident: |
+          You’ll need to provide supporting documents along, including your:
+
+          - passport
+          - [full birth certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate")
+          - proof of residence, such as a residence certificate - check with the consulate to find out what you need
+          - equivalent documents for your partner
+        consular_cni_variant_local_resident_spain: |
+          You’ll need to provide supporting documents along, including your:
+
+          - passport
+          - [full birth certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate")
+          - proof of residence (see below)
+          - equivalent documents for your partner
+
+          ^You’ll need to send copies of all of your supporting documents to the embassy or consulate before making an appointment.^
+
+          Your proof of residence must be one of the following:
+
+          - a ‘certificado de empadronamiento’ (town hall registration certificate) issued between 21 days and 3 months ago
+          - a Spanish police residence certificate (green document with your NIE number address) issued at least 21 days ago
+        consular_cni_os_local_resident_not_germany_or_spain_or_all_other_residency: |
+          If you’ve been divorced or widowed, you’ll also need:
+
+          - a [decree absolute or final order](/copy-decree-absolute-final-order "Get a copy of a decree absolute or final order"), or
+          - the [death certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate")
+
+          ^You’ll also need to provide evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated] if it’s not in English.^
+
+          You’ll also need to provide evidence if you’ve changed your name by deed poll.
+        consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident_two: |
+          The consulate will provide you with forms for your notice of marriage, and an oath or affidavit (written statement of facts) stating that you’re free to marry. You can download and fill in (but not sign) the forms in advance.
+
+
+          $D
+          [Download ‘Notice of marriage’ (PDF, 96KB)](http://ukinpoland.fco.gov.uk/resources/en/pdf/pdf1/nom2012 "Download ‘Notice of marriage’ (PDF, 96KB)")
+
+          [Download ‘Affidavit for marriage’ (PDF, 58KB)](http://ukinpoland.fco.gov.uk/resources/en/pdf/pdf1/affidavit2012 "Download ‘Affidavit for marriage’ (PDF, 58KB)")
+          $D
+        consular_cni_os_local_resident_not_germany_or_italy: |
+          ###What happens next
+
+          The consulate will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 21 days. They’ll then issue the CNI, as long as nobody has registered an objection. There’s an additional fee for this.
+        consular_cni_os_local_resident_italy_two: |
+          ###What happens next
+
+          The consulate will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 21 days. They’ll then issue the Nulla Osta, as long as nobody has registered an objection. There’s an additional fee for this.
+        consular_cni_os_foreign_resident_ceremony_not_italy: |
+          ###What happens next
+
+          The consulate will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 21 days. They’ll then send all of your documentation to the British embassy or consulate in %{ceremony_country_name}, who will issue your CNI (as long as nobody has registered an objection).
+
+          There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
+        consular_cni_os_foreign_resident_ceremony_italy: |
+          ###What happens next
+
+          The consulate will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 21 days. They’ll then send all of your documentation to the British embassy or consulate in %{ceremony_country_name} (as long as nobody has registered an objection).
+
+          They’ll issue your Nulla Osta, which is the Italian equivalent of a CNI. There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
+        consular_cni_os_commonwealth_resident_ceremony_not_italy: |
+          ###What happens next
+
+          The high commission will send a letter confirming that you’re free to marry to the local embassy or consulate where you’re planning the ceremony. They’ll need to include copies of your documents, so you should make sure they’re aware of this.
+
+          The embassy or consulate in %{ceremony_country_name} will then issue your CNI. They’ll contact you to arrange collection or delivery, and payment - see below for fees.
+        consular_cni_os_ireland_resident_ceremony_not_italy: |
+          ###What happens next
+
+          The British Embassy will send a letter confirming that you’re free to marry to the local embassy or consulate where you’re planning the ceremony. They’ll need to include copies of your documents, so you should make sure they’re aware of this.
+
+          The embassy or consulate in %{ceremony_country_name} will then issue your CNI. They’ll contact you to arrange collection or delivery, and payment - see below for fees.
+        consular_cni_os_commonwealth_resident_ceremony_italy: |
+          ###What happens next
+
+          The high commission will send a letter confirming that you’re free to marry to the nearest embassy or consulate (Rome or Milan) to where you’re planning the ceremony. They’ll need to include copies of your documents, so you should make sure they’re aware of this.
+
+          The embassy or consulate in %{ceremony_country_name} will then issue you with a Nulla Osta. This is the Italian equivalent of a CNI. They’ll contact you to arrange collection or delivery, and payment - see below for fees.
+        consular_cni_os_ireland_resident_ceremony_italy: |
+          ###What happens next
+
+          The British Embassy will send a letter confirming that you’re free to marry to the nearest embassy or consulate (Rome or Milan) to where you’re planning the ceremony. They’ll need to include copies of your documents, so you should make sure they’re aware of this.
+
+          The embassy or consulate in will then issue you with a Nulla Osta. This is the Italian equivalent of a CNI. They’ll contact you to arrange collection or delivery, and payment - see below for fees.
+        consular_cni_os_ceremony_italy: |
+          You need to include a completed ‘Request for consular services’ form with all payments.
+
+
+          $D
+          [Download ‘Request for consular services’ (PDF, 400KB)](http://ukinitaly.fco.gov.uk/resources/en/pdf/help-british-nationals/request-for-consular-services "Download ‘Request for consular services’ (PDF, 400KB)")
+          $D
+
+
+
+
+
+# Outcomes
+# outcome Ireland
+      outcome_ireland:
+        title: |
+          %{ceremony_type} in Ireland
+        body: |
+          %{ireland_partner_sex_variant}
+
+# outcome Commonwealth, opposite sex
+      outcome_os_commonwealth:
+        title: |
+          Marriage in %{country_name_lowercase_prefix}
+        body: |
+          %{country_name_uppercase_prefix} is a member of the Commonwealth. Your marriage should be recognised in the UK if you follow the correct process according to local law. You won’t need to register with the British consulate.
+
+          ^You can’t deposit a copy of your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/ "General Register Office"){:rel="external"} (GRO) in the UK if you get married in a Commonwealth country.^
+
+          ##What you need to do
+          %{commonwealth_os_zimbabwe_variant}
+
+          The UK doesn’t issue certificates of no impediment (CNI) for marriages in Commonwealth countries. You’ll need to explain that this if you’re asked to provide a CNI or a similar document to prove you’re allowed to marry.
+
+          %{commonwealth_os_other_countries_variant}
+          %{commonwealth_os_naturalisation_variant}
+
+          *[CNI]:certificate of no impediment
+          *[GRO]:General Register Office
+
+# outcome British oversesas territory, opposite sex
+      outcome_os_bot:
+        title: Marriage in %{country_name_lowercase_prefix}
+        body: |
+          %{bot_outcome}
+
+# outcome Countries with consular CNI, opposite sex
+      outcome_os_consular_cni:
+        title: Marriage in %{country_name_lowercase_prefix}
+        body: |
+          %{consular_cni_os_residency_variant}
+          %{consular_cni_os_gulf_states_variant}
+          %{consular_cni_os_gulf_states_local_resident_not_irish}
+          %{consular_cni_os_spain_variant}
+          %{consular_cni_os_residency_variant_two}
+          ##What you need to do
+
+          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to marry.
+          %{consular_cni_os_italy_variant}
+          %{consular_cni_os_denmark_variant}
+          %{consular_cni_os_germany_local_residency_variant}
+          %{consular_cni_os_italy_variant_two}
+          %{consular_cni_os_residency_variant_three}
+          %{consular_cni_os_italy_variant_three}
+          %{consular_cni_os_uk_residency_not_italy_variant}
+          %{consular_cni_os_uk_residency_not_italy_variant_two}
+          %{consular_cni_os_local_resident_not_italy_or_germany_variant}
+          %{consular_cni_os_local_resident_italy_variant}
+          %{consular_cni_os_foreign_or_commonwealth_resident_variant}
+          %{consular_cni_os_commonwealth_resident_partner_british_variant}
+          %{consular_cni_os_commowealth_or_ireland_resident_variable}
+          %{consular_cni_os_ireland_resident_partner_british_variant}
+          %{consular_cni_os_ireland_residency_variant}
+          %{consular_cni_os_commonwealth_ireland_resident_british_partner_variant}
+          %{consular_cni_os_local_foreign_residency_spain_germany_variant}
+          %{consular_cni_os_local_resident_not_germany_or_spain_or_all_other_residents_variant}
+          %{consular_cni_os_local_foreign_residency_spain_germany_variant_two}
+          %{consular_cni_os_local_resident_not_germany_or_italy_variant}
+          %{consular_cni_os_foreign_resident_not_italy_variant}
+          %{consular_cni_os_commonwealth_resident_ceremony_not_italy_variant}
+
+
+          %{counsular_cni_os_remainder}
+
+# outcome Commonwealth, same sex
+      outcome_ss_commonwealth:
+        title: |
+          %{ceremony_type} in %{country_name_lowercase_prefix}
+        body: |
+            
