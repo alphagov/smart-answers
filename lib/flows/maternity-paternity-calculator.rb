@@ -181,7 +181,7 @@ multiple_choice :how_do_you_want_the_smp_calculated? do
 
   next_node do |response|
     if response == "usual_paydates"
-      frequencies = %w(weekly every_2_weeks)
+      frequencies = %w(weekly every_2_weeks every_4_weeks)
       :when_is_your_employees_next_pay_day? if frequencies.any? { |freq| responses.include? freq }
     end
   end
