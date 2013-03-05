@@ -1,842 +1,389 @@
 ---
 - slug: afghanistan
-  source: http://ukinafghanistan.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: true
 - slug: albania
   doc: http://ukinalbania.fco.gov.uk/resources/en/word/doc1/postal_PrisonersPackSept
-  source: http://ukinalbania.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: algeria
-  source: http://ukinalgeria.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: true
 - slug: american-samoa
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: andorra
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: angola
-  source: http://ukinangola.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: true
 - slug: anguilla
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: antigua-and-barbuda
   pdf: http://ukinbarbados.fco.gov.uk/resources/en/pdf/23156819/antigua-prisoners-pack
-  source: http://ukinbarbados.fco.gov.uk/resources/en/pdf/23156819/antigua-prisoners-pack
-  is_generic: true
 - slug: argentina
   pdf: http://ukinargentina.fco.gov.uk/resources/en/pdf/pdf1/prisoners-abroad
   lawyer: http://ukinargentina.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
   benefits: http://ukinargentina.fco.gov.uk/resources/en/word/doc1/benefits-arg-factsheet
-  source: http://ukinargentina.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/prisoner-info-package
-  is_generic: false
 - slug: armenia
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?lon.arm.en.help-for-british-nationals.when-things-go-wrong.arrested-or-detained.p.pdf.prisonerspack&ns_type=pdf&ns_url=http://ukinarmenia.fco.gov.uk/resources/en/pdf/prisonerspack
-  source: http://ukinarmenia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/arrested-or-detained
-  is_generic: false
 - slug: aruba
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: ascension-island
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: australia
-  source: http://ukinaustralia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested
-  is_generic: false
 - slug: austria
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?lon.aus.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrest-or-detain.p.pdf.In_Prison_Abroad&ns_type=pdf&ns_url=http://ukinaustria.fco.gov.uk/resources/en/pdf/pdf1/In_Prison_Abroad
   benefits: http://uk.sitestat.com/fcoweb/ukingov/s?lon.aus.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrest-or-detain.p.pdf.Legal_Aid_Austria&ns_type=pdf&ns_url=http://ukinaustria.fco.gov.uk/resources/en/pdf/pdf1/Legal_Aid_Austria
   prison: http://uk.sitestat.com/fcoweb/ukingov/s?lon.aus.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrest-or-detain.p.pdf.Austrian_prison_rules&ns_type=pdf&ns_url=http://ukinaustria.fco.gov.uk/resources/en/pdf/pdf1/Austrian_prison_rules
   consul: http://uk.sitestat.com/fcoweb/ukingov/s?lon.aus.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrest-or-detain.p.pdf.How_Consul_can_help&ns_type=pdf&ns_url=http://ukinaustria.fco.gov.uk/resources/en/pdf/pdf1/How_Consul_can_help
-  source: http://ukinaustria.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrest-or-detain
-  is_generic: false
 - slug: azerbaijan
   doc: http://ukinazerbaijan.fco.gov.uk/resources/en/word/7265265/Arrest-information
-  source: http://ukinazerbaijan.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: bahamas
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: bahrain
   doc: http://ukinbahrain.fco.gov.uk/resources/en/word/21605041/PrisonPack
-  source: http://ukinbahrain.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: bangladesh
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?nd.ban.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.prisoner-info-nov-12&ns_type=pdf&ns_url=http://ukinbangladesh.fco.gov.uk/resources/en/pdf/prisoner-info-nov-12
-  source: http://ukinbangladesh.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: barbados
   pdf: http://ukinbarbados.fco.gov.uk/resources/en/pdf/23156819/barbados-prisoners-pack
-  source: http://ukinbarbados.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-are-arrested
-  is_generic: false
 - slug: belarus
-  source: http://ukinbelarus.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-arrested-detained/prisoners-abroad
-  is_generic: false
 - slug: belgium
   pdf: http://ukinbelgium.fco.gov.uk/resources/en/pdf/how-we-can-help
   lawyer: http://ukinbelgium.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
   translators: http://ukinbelgium.fco.gov.uk/en/help-for-british-nationals/living-in-belgium/if-you-need-translator
   consul: http://ukinbelgium.fco.gov.uk/resources/en/pdf/how-we-can-help
-  judicial: http://ukinbelgium.fco.gov.uk/resources/en/pdf/consul-help-info
-  source: http://ukinbelgium.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
+  judicial: http://ukinbelgium.fco.gov.uk/resources/en/pdf/consul-help-info,http://ukinbelgium.fco.gov.uk/resources/en/pdf/belgium-detention-info
 - slug: belize
-  source: http://ukinbelize.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: benin
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: bermuda
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: bhutan
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: bolivia
   pdf: http://ukinbolivia.fco.gov.uk/resources/en/pdf/prisoners-pack
-  source: http://ukinbolivia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: bonaire-st-eustatius-saba
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: bosnia-and-herzegovina
-  source: http://ukinbih.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: true
 - slug: botswana
   doc: http://ukinbotswana.fco.gov.uk/resources/en/word/doc1/prisoner-pack
-  source: http://ukinbotswana.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/arrested-or-detained
-  is_generic: false
 - slug: brazil
   pdf: http://ukinbrazil.fco.gov.uk/resources/en/pdf/information-british-nationals-imprisoned
-  source: http://ukinbrazil.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested
-  is_generic: false
 - slug: british-antarctic-territory
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: british-consulate-general-cape-town
-  is_generic: false
 - slug: british-indian-ocean-territory
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: british-virgin-islands
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: brunei
   doc: http://uk.sitestat.com/fcoweb/ukingov/s?si.bru.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.prisoners-pack&ns_type=pdf&ns_url=http://ukinbrunei.fco.gov.uk/resources/en/word/doc1/prisoners-pack
-  source: http://ukinbrunei.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: true
 - slug: bulgaria
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?lon.bul.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.prisonerspack&ns_type=pdf&ns_url=http://ukinbulgaria.fco.gov.uk/resources/en/pdf/pdf1/prisonerspack
-  source: http://ukinbulgaria.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: burkina-faso
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: burma
-  source: http://ukinburma.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested
-  is_generic: false
 - slug: burundi
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: cambodia
   pdf: http://ukincambodia.fco.gov.uk/resources/en/pdf/Consular/info-british-arrested-detained-2011
   lawyer: http://ukincambodia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
-  source: http://ukincambodia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-arrested-or-detained
-  is_generic: false
 - slug: cameroon
   lawyer: http://ukincameroon.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
-  source: http://ukincameroon.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: canada
   pdf: http://ukinusa.fco.gov.uk/resources/en/pdf/in-prison-in-usa-canada
-  source: http://ukincanada.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: cape-verde
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: cayman-islands
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: central-african-republic
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: chad
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: chile
   doc: http://ukinchile.fco.gov.uk/resources/en/word/prisoner-pack-2
-  source: http://ukinchile.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: china
   doc: http://ukinchina.fco.gov.uk/resources/en/word/3900488/Imprisonment
-  source: http://ukinchina.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: colombia
   doc: http://ukincolombia.fco.gov.uk/resources/en/word/doc1/prisonerspack
-  source: http://ukincolombia.fco.gov.uk/en/help-for-british-nationals/gowrong/arrested
-  is_generic: false
 - slug: comoros
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: congo
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: congo-(democratic-republic)
-  source: http://ukindrc.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested
-  is_generic: true
 - slug: costa-rica
   doc: http://uk.sitestat.com/fcoweb/ukingov/s?was.cos.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested.p.pdf.prisoners-pack.doc&ns_type=pdf&ns_url=http://ukincostarica.fco.gov.uk/resources/en/word/prisoners-pack.doc
-  source: http://ukincostarica.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested
-  is_generic: false
 - slug: cote-d_ivoire-(ivory-coast)
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: croatia
   doc: http://ukincroatia.fco.gov.uk/resources/en/word/prisoner-pack
-  source: http://ukincroatia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: cuba
   doc: http://ukincuba.fco.gov.uk/resources/en/word/doc1/Prisoners-info
-  source: http://ukincuba.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/arrested-or-detained
-  is_generic: false
 - slug: curacao
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: cyprus
-  source: http://ukincyprus.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: czech-republic
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?lon.cze.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.in-prison-abroad&ns_type=pdf&ns_url=http://ukinczechrepublic.fco.gov.uk/resources/en/pdf/580227682/in-prison-abroad
   lawyer: http://ukinczechrepublic.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer-translator
   prison: http://uk.sitestat.com/fcoweb/ukingov/s?lon.cze.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.in-prison-in-the-czech-republic1&ns_type=pdf&ns_url=http://ukinczechrepublic.fco.gov.uk/resources/en/pdf/580227682/in-prison-in-the-czech-republic1
-  source: http://ukinczechrepublic.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: denmark
   pdf: http://ukindenmark.fco.gov.uk/resources/en/pdf/586155482/Pris-Info-Pack-Sept11
   lawyer: http://ukindenmark.fco.gov.uk/resources/en/pdf/586155482/English-speaking-lawyersList-Aug11
-  source: http://ukindenmark.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: djibouti
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: dominica,-commonwealth-of
   pdf: http://ukinbarbados.fco.gov.uk/resources/en/pdf/23156819/dominica-prisoners-pack
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: dominican-republic
   doc: http://ukindominicanrepublic.fco.gov.uk/resources/en/word/631810082/prisioners-pack
-  source: http://ukindominicanrepublic.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: ecuador
   pdf: http://ukinecuador.fco.gov.uk/resources/en/pdf/538846482/prisoners-pack-2012
-  source: http://ukinecuador.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: egypt
   lawyer: http://ukinegypt.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/you-need-a-lawyer/
-  source: http://ukinegypt.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: el-salvador
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?was.arg.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.prison-packgt&ns_type=pdf&ns_url=http://ukinguatemala.fco.gov.uk/resources/en/pdf/prison-packgt
-  source: http://ukinelsalvador.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: true
 - slug: equatorial-guinea
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: eritrea
-  source: http://ukineritrea.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested
-  is_generic: true
 - slug: estonia
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?lon.est.en.help-for-british-nationals.when-thing-go-wrong-1.arrested-or-detained.p.pdf.tallinn-prisoner-pack&ns_type=pdf&ns_url=http://ukinestonia.fco.gov.uk/resources/en/pdf/742081982/tallinn-prisoner-pack
-  source: http://ukinestonia.fco.gov.uk/en/help-for-british-nationals/when-thing-go-wrong-1/arrested-or-detained/
-  is_generic: false
 - slug: ethiopia
-  source: http://ukinethiopia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/arrested
-  is_generic: false
 - slug: falkland-islands
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: fiji
-  source: http://ukinfiji.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: true
 - slug: finland
   doc: http://ukinfinland.fco.gov.uk/resources/en/word/659134582/prisoner-pack
-  source: http://ukinfinland.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: france
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?lon.fra.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.Prisoners-pack-1212&ns_type=pdf&ns_url=http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/Prisoners-pack-1212
-  source: http://ukinfrance.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: french-guiana
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: french-polynesia
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: gabon
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: gambia
-  source: http://ukingambia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: true
 - slug: georgia
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?lon.geo.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.prisoners-pack&ns_type=pdf&ns_url=http://ukingeorgia.fco.gov.uk/resources/en/pdf/pdf1/prisoners-pack
-  source: http://ukingeorgia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: germany
   lawyer: http://ukingermany.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
-  source: http://ukingermany.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested/
-  is_generic: false
 - slug: ghana
   pdf: http://ukinghana.fco.gov.uk/resources/en/pdf/601613182/prosoner_pack
   lawyer: http://ukinghana.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
-  source: http://ukinghana.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: gibraltar
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: greece
   pdf: http://ukingreece.fco.gov.uk/resources/en/pdf/pdf1/prisoers_abroad
   lawyer: http://ukingreece.fco.gov.uk/resources/en/pdf/5610670/lawyers-greece
   prison: http://ukingreece.fco.gov.uk/resources/en/pdf/5610670/bns_in_prison
   police: http://ukingreece.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  source: http://ukingreece.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: grenada
   pdf: http://ukinbarbados.fco.gov.uk/resources/en/pdf/23156819/grenada-prisoners-pack
-  source: http://ukinbarbados.fco.gov.uk/resources/en/pdf/23156819/grenada-prisoners-pack
-  is_generic: false
 - slug: guadeloupe
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: guatemala
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?was.gua.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.prison-packgt&ns_type=pdf&ns_url=http://ukinguatemala.fco.gov.uk/resources/en/pdf/prison-packgt
-  source: http://ukinguatemala.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: guinea
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: guinea-bissau
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: guyana
   pdf: http://ukinguyana.fco.gov.uk/resources/en/pdf/ANNEX_C_Prison_Information_Pack.pdf
-  source: http://ukinguyana.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/arrested-or-detained
-  is_generic: false
 - slug: haiti
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: honduras
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: hong-kong-(sar-of-china)
   pdf: http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/info-for-detainee-in-hk-2012.pdf
-  source: http://ukinhongkong.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested
-  is_generic: false
 - slug: hungary
   doc: http://uk.sitestat.com/fcoweb/ukingov/s?lon.hun.en.help-for-british-nationals.when-things-go-wrong.arrest.p.pdf.information-detained&ns_type=pdf&ns_url=http://ukinhungary.fco.gov.uk/resources/en/word/3520425/information-detained
-  source: http://ukinhungary.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/arrest
-  is_generic: false
 - slug: iceland
   doc: http://uk.sitestat.com/fcoweb/ukingov/s?lon.ice.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.prisoners-info&ns_type=pdf&ns_url=http://ukiniceland.fco.gov.uk/resources/en/word/692313382/prisoners-info
-  source: http://ukiniceland.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: india
   doc: http://ukinindia.fco.gov.uk/resources/en/word/Consular/PrisonersPack
   lawyer: http://ukinindia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer/
-  source: http://ukinindia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: indonesia
   doc: http://uk.sitestat.com/fcoweb/ukingov/s?si.ind.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.prisoner-abroad&ns_type=pdf&ns_url=http://ukinindonesia.fco.gov.uk/resources/en/word/2011/prisoner-abroad
-  source: http://ukinindonesia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: iran
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: iraq
-  source: http://ukiniraq.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: true
 - slug: ireland
   pdf: http://britishembassyinireland.fco.gov.uk/resources/en/pdf/prisoner-pack
   lawyer: http://britishembassyinireland.fco.gov.uk/resources/en/pdf/Lawyers.pdf
-  source: http://britishembassyinireland.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-have-been-arrested
-  is_generic: false
 - slug: israel
   pdf: http://ukinisrael.fco.gov.uk/resources/en/pdf/prisoner-pack
   lawyer: http://ukinisrael.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer/
-  source: http://ukinisrael.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: italy
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?lon.ita.en.help-for-british-nationals.when-things-go-wrong.help-if-arrested.p.pdf.notes-imprisoned1&ns_type=pdf&ns_url=http://ukinitaly.fco.gov.uk/resources/en/pdf/help-british-nationals/notes-imprisoned1
   lawyer: http://ukinitaly.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer/
-  source: http://ukinitaly.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-arrested
-  is_generic: false
 - slug: jamaica
   lawyer: http://ukinjamaica.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
-  source: http://ukinjamaica.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: japan
   pdf: http://ukinjapan.fco.gov.uk/resources/en/pdf/arrestguidancejapan
-  source: http://ukinjapan.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested/
-  is_generic: false
 - slug: jordan
   doc: http://ukinjordan.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or#
-  source: http://ukinjordan.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: kazakhstan
-  source: http://ukinkz.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: true
 - slug: kenya
-  source: http://ukinkenya.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/3302241
-  is_generic: true
 - slug: kiribati
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: korea
   pdf: http://ukinrok.fco.gov.uk/resources/en/pdf/22531103/pdf-prinsoner-pack
-  source: http://ukinrok.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-arrested-detained
-  is_generic: false
 - slug: kosovo
-  source: http://ukinkosovo.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: true
 - slug: kuwait
   doc: http://ukinkuwait.fco.gov.uk/resources/en/word/803520082/Prisoner's-Pack-for-Kuwait
   lawyer: http://uk.sitestat.com/fcoweb/ukingov/s?nd.kuw.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.Lawyers-List-may&ns_type=pdf&ns_url=http://ukinkuwait.fco.gov.uk/resources/en/word/22571885/Lawyers-List-may
   translators: http://uk.sitestat.com/fcoweb/ukingov/s?nd.kuw.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.List-of-Translators-may&ns_type=pdf&ns_url=http://ukinkuwait.fco.gov.uk/resources/en/word/22571885/List-of-Translators-may
-  source: http://ukinkuwait.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: kyrgyzstan
   doc: http://uk.sitestat.com/fcoweb/ukingov/s?nd.kuw.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.List-of-Translators-may&ns_type=pdf&ns_url=http://ukinkuwait.fco.gov.uk/resources/en/word/22571885/List-of-Translators-may
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: laos
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: latvia
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?lon.lat.en.help-for-british-nationals.when-things-go-wrong-lelde.help-if-you-are-arrested-or.p.pdf.prison-info-pack&ns_type=pdf&ns_url=http://ukinlatvia.fco.gov.uk/resources/en/pdf/546352382/652052282/prison-info-pack
-  source: http://ukinlatvia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong-lelde/help-if-you-are-arrested-or
-  is_generic: false
 - slug: lebanon
   doc: http://uk.sitestat.com/fcoweb/ukingov/s?nd.leb.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.prisoner-guide&ns_type=pdf&ns_url=http://ukinlebanon.fco.gov.uk/resources/en/word/prisoner-guide
   lawyer: http://ukinlebanon.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer-or-translator
-  source: http://ukinlebanon.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: lesotho
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: liberia
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: libya
-  source: http://ukinlibya.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: true
 - slug: liechtenstein
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: lithuania
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?lon.lit.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.Lithuania-prisoners-info-pack&ns_type=pdf&ns_url=http://ukinlithuania.fco.gov.uk/resources/en/pdf/649566482/Lithuania-prisoners-info-pack
-  source: http://ukinlithuania.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: luxembourg
   doc: http://ukinluxembourg.fco.gov.uk/resources/en/word/Info-detained-persons
   lawyer: http://ukinluxembourg.fco.gov.uk/resources/en/word/Lawyers
   translators: http://ukinluxembourg.fco.gov.uk/resources/en/word/Translators
   prison: http://ukinluxembourg.fco.gov.uk/resources/en/word/Prison-info
-  source: http://ukinluxembourg.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: macao
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: macedonia
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?lon.mac.en.help-for-british-nationals.when-things-go-wrong.arrested-or-detained.p.pdf.prisoners-information-pack&ns_type=pdf&ns_url=http://ukinmacedonia.fco.gov.uk/resources/en/pdf/716753582/prisoners-information-pack
-  source: http://ukinmacedonia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/arrested-or-detained
-  is_generic: false
 - slug: madagascar
-  source: http://ukinmadagascar.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/hep-if-you-arrested-detained
-  is_generic: true
 - slug: malawi
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?nd.mal.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.prisoners-pack&ns_type=pdf&ns_url=http://ukinmalawi.fco.gov.uk/resources/en/pdf/pdf1/prisoners-pack
-  source: http://ukinmalawi.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: malaysia
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?si.mal.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.prisoners-pack&ns_type=pdf&ns_url=http://ukinmalaysia.fco.gov.uk/resources/en/pdf/3097558/prisoners-pack
-  source: http://ukinmalaysia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: maldives
-  source: http://ukinmaldives.fco.gov.uk/en/help-for-british-nationals/when-go-wrong/if-arrested
-  is_generic: true
 - slug: mali
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: malta
-  source: http://ukinmalta.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: true
 - slug: marshall-islands
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: martinique
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: mauritania
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: mauritius
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?nd.mau.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.Prisoner-pack-final&ns_type=pdf&ns_url=http://ukinmauritius.fco.gov.uk/resources/en/pdf/pdf1/Prisoner-pack-final
-  source: http://ukinmauritius.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: mayotte
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: mexico
   doc: http://uk.sitestat.com/fcoweb/ukingov/s?was.mex.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.mexico-prisoner-info-pack-may12&ns_type=pdf&ns_url=http://ukinmexico.fco.gov.uk/resources/en/word/doc1/mexico-prisoner-info-pack-may12
-  source: http://ukinmexico.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: micronesia
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: moldova
   pdf: http://ukinmoldova.fco.gov.uk/resources/en/pdf/pdf1/prisoner-information-pack
-  source: http://ukinmoldova.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: monaco
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: mongolia
-  source: http://ukinmongolia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: true
 - slug: montenegro
-  source: http://ukinmontenegro.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested
-  is_generic: true
 - slug: montserrat
   lawyer: x
-  source: http://ukinmontserrat.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/arrested-or-detained
-  is_generic: false
 - slug: morocco
   pdf: http://ukinmorocco.fco.gov.uk/resources/en/pdf/711803082/PrisonInformationPack
-  source: http://ukinmorocco.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: mozambique
   doc: http://uk.sitestat.com/fcoweb/ukingov/s?nd.moz.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.nationals-imprisoned&ns_type=pdf&ns_url=http://ukinmozambique.fco.gov.uk/resources/en/word/539078082/nationals-imprisoned
   lawyer: http://ukinmozambique.fco.gov.uk/resources/en/word/539078082/list-lawyers
   translators: http://ukinmozambique.fco.gov.uk/resources/en/word/539078082/list-interpreters
-  source: http://ukinmozambique.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: namibia
-  source: http://ukinnamibia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/prison-pack
-  is_generic: false
 - slug: nauru
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: nepal
   pdf: http://ukinnepal.fco.gov.uk/resources/en/pdf/pdf1/prisoner-pack-kathmandu
-  source: http://ukinnepal.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: netherlands
   pdf: http://ukinnl.fco.gov.uk/resources/en/pdf/3190570/information-for-prisoners
-  source: http://ukinnl.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: new-caledonia
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: new-zealand
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?si.new.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.prisioner-information&ns_type=pdf&ns_url=http://ukinnewzealand.fco.gov.uk/resources/en/pdf/prisioner-information
-  source: http://ukinnewzealand.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: nicaragua
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: niger
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: nigeria
-  source: http://ukinnigeria.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: true
 - slug: north-korea
-  source: http://ukindprk.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested
-  is_generic: true
 - slug: norway
   pdf: http://ukinnorway.fco.gov.uk/resources/en/pdf/pdf1/751426782/InfoForJailedBrits
   lawyer: http://ukinnorway.fco.gov.uk/resources/en/pdf/pdf1/751426782/EnglishSpekaingLawyers
-  source: http://ukinnorway.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: oman
-  source: http://ukinoman.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: true
 - slug: pakistan
   doc: http://uk.sitestat.com/fcoweb/ukingov/s?nd.pak.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.prisoner-pack&ns_type=pdf&ns_url=http://ukinpakistan.fco.gov.uk/resources/en/word/doc1/prisoner-pack
-  source: http://ukinpakistan.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: palau
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: panama
   doc: http://uk.sitestat.com/fcoweb/ukingov/s?was.pan.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.prisoner-pack-information&ns_type=pdf&ns_url=http://ukinpanama.fco.gov.uk/resources/en/word/prisoner-pack-information
-  source: http://ukinpanama.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: papua-new-guinea
-  source: http://ukinpng.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: true
 - slug: paraguay
   lawyer: http://ukinargentina.fco.gov.uk/en/about-us/other-locations/paraguay/help-brit-nat-paraguay/when-things-go-wrong/english-speaking-lawyers
   benefits: http://ukinargentina.fco.gov.uk/resources/en/word/doc1/benefits-paraguay-factsheet
-  source: http://ukinargentina.fco.gov.uk/en/about-us/other-locations/paraguay/help-brit-nat-paraguay/when-things-go-wrong/prisoner-info-package
-  is_generic: false
 - slug: peru
   pdf: http://ukinperu.fco.gov.uk/resources/en/pdf/742191382/information-british-detained-peru
   lawyer: https://ukinperu-stage.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
-  source: http://ukinperu.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: philippines
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?si.phi.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.info-on-arrested-BN&ns_type=pdf&ns_url=http://ukinthephilippines.fco.gov.uk/resources/en/pdf/consular/info-on-arrested-BN
   lawyer: http://ukinthephilippines.fco.gov.uk/resources/en/word/consular/list-of-lawyers-aug-2008
-  source: http://ukinthephilippines.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: pitcairn
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: poland
   doc: http://uk.sitestat.com/fcoweb/ukingov/s?lon.pol.en.help-for-british-nationals.whenthingsgowrong.helpifyouarearrestedordetained.p.pdf.detainedPL&ns_type=pdf&ns_url=http://ukinpoland.fco.gov.uk/resources/en/word/doc1/detainedPL
   judicial: http://ukinpoland.fco.gov.uk/resources/en/pdf/pdf1/inprison
-  source: http://ukinpoland.fco.gov.uk/en/help-for-british-nationals/whenthingsgowrong/helpifyouarearrestedordetained
-  is_generic: false
 - slug: portugal
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?lon.por.en.help-for-british-nationals.how-we-can-help.if-you-are-arrested.p.pdf.Prisoners_Pack&ns_type=pdf&ns_url=http://ukinportugal.fco.gov.uk/resources/en/pdf/pdf1/Prisoners_Pack
   lawyer: http://ukinportugal.fco.gov.uk/en/help-for-british-nationals/how-we-can-help/if-you-need-a-lawyer
-  source: http://ukinportugal.fco.gov.uk/en/help-for-british-nationals/how-we-can-help/if-you-are-arrested
-  is_generic: false
 - slug: qatar
   doc: http://ukinqatar.fco.gov.uk/resources/en/word/doc1/prison-info
   lawyer: http://ukinqatar.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
-  source: http://ukinqatar.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: reunion
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: romania
   pdf: http://ukinromania.fco.gov.uk/resources/en/pdf/prisoner-packro
-  source: http://ukinromania.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: russian-federation
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?nd.rus.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.prisoner-information-pack&ns_type=pdf&ns_url=http://ukinrussia.fco.gov.uk/resources/en/pdf/5035539/prisoner-information-pack
-  source: http://ukinrussia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: rwanda
   doc: http://ukinrwanda.fco.gov.uk/resources/en/word/4791825/Prisonss
-  source: http://ukinrwanda.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: samoa
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: san-marino
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: sao-tome-and-principe
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: saudi-arabia
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?nd.sau.en.help-for-british-nationals.when-things-go-wrong.Prison-Information.p.pdf.In_prison_abroad&ns_type=pdf&ns_url=http://ukinsaudiarabia.fco.gov.uk/resources/en/pdf/5470164/In_prison_abroad
   lawyer: http://ukinsaudiarabia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
   translators: http://ukinsaudiarabia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
-  source: http://ukinsaudiarabia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/Prison-Information
-  is_generic: false
 - slug: senegal
-  source: http://ukinsenegal.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: true
 - slug: serbia
   doc: http://uk.sitestat.com/fcoweb/ukingov/s?lon.ser.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.prisoner-pack&ns_type=pdf&ns_url=http://ukinserbia.fco.gov.uk/resources/en/word/doc1/prisoner-pack
   judicial: http://uk.sitestat.com/fcoweb/ukingov/s?lon.ser.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.srb-legal-sys&ns_type=pdf&ns_url=http://ukinserbia.fco.gov.uk/resources/en/word/doc1/srb-legal-sys
-  source: http://ukinserbia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: seychelles
   lawyer: http://ukinseychelles.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
-  source: http://ukinseychelles.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: true
 - slug: sierra-leone
   pdf: http://ukinsierraleone.fco.gov.uk/content/en/22247359/prisonerpack
-  source: http://ukinsierraleone.fco.gov.uk/content/en/22247359/prisonerpack
-  is_generic: false
 - slug: singapore
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?si.sin.en.help-for-british-nationals.when-things-go-wrong.help-if-arrested.prisonerpack.p.pdf.prisoner-pack&ns_type=pdf&ns_url=http://ukinsingapore.fco.gov.uk/resources/en/pdf/22328160/prisoner-pack
-  source: http://ukinsingapore.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-arrested/prisonerpack
-  is_generic: false
 - slug: slovakia
   doc: http://uk.sitestat.com/fcoweb/ukingov/s?lon.slk.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested.p.pdf.prisoner-pack&ns_type=pdf&ns_url=http://ukinslovakia.fco.gov.uk/resources/en/word/prisoner-pack
-  source: http://ukinslovakia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested
-  is_generic: false
 - slug: slovenia
   lawyer: http://ukinslovenia.fco.gov.uk/resources/en/pdf/pdf1/lawyers
   prison: http://ukinslovenia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or/slovenias-prison-system
-  source: http://ukinslovenia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or/
-  is_generic: false
 - slug: solomon-islands
   pdf: http://ukinsolomonislands.fco.gov.uk/resources/en/word/prisoner-pack
-  source: http://ukinsolomonislands.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested
-  is_generic: false
 - slug: somalia
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: south-africa
   doc: http://uk.sitestat.com/fcoweb/ukingov/s?nd.sou.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.information-prisoner-pack&ns_type=pdf&ns_url=http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/information-prisoner-pack
-  source: http://ukinsouthafrica.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: south-georgia-and-south-sandwich-islands
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: south-sudan
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: spain
   lawyer: http://ukinspain.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
   benefits: http://ukinspain.fco.gov.uk/resources/en/pdf/help-for-BNs/legal-aid-in-spain
   prison: http://ukinspain.fco.gov.uk/resources/en/pdf/help-for-BNs/when-things-go-wrong/spanish-prison-system
   judicial: http://ukinspain.fco.gov.uk/resources/en/pdf/help-for-BNs/when-things-go-wrong/legal-procedures-criminal-cases
-  source: http://ukinspain.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-are-arrested
-  is_generic: true
 - slug: sri-lanka
-  source: http://ukinsrilanka.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: st-helena
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: st-kitts-and-nevis
   pdf: http://ukinbarbados.fco.gov.uk/resources/en/pdf/23156819/skn-prisoners-pack
-  source: http://ukinbarbados.fco.gov.uk/resources/en/pdf/23156819/skn-prisoners-pack
-  is_generic: false
 - slug: st-lucia
   pdf: http://ukinbarbados.fco.gov.uk/resources/en/pdf/23156819/stlucia-prisoners-pack12
-  source: http://ukinbarbados.fco.gov.uk/resources/en/pdf/23156819/stlucia-prisoners-pack12
-  is_generic: false
 - slug: st-maarten
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: st-pierre-and-miquelon
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: st-vincent-and-the-grenadines
   pdf: http://ukinbarbados.fco.gov.uk/resources/en/pdf/23156819/stvincent-prisoners-pack
-  source: http://ukinbarbados.fco.gov.uk/resources/en/pdf/23156819/stvincent-prisoners-pack
-  is_generic: false
 - slug: sudan
-  source: http://ukinsudan.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: true
 - slug: suriname
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: swaziland
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: sweden
   pdf: http://ukinsweden.fco.gov.uk/resources/en/pdf/prison-pack12
-  source: http://ukinsweden.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-are-arrested
-  is_generic: false
 - slug: switzerland
   pdf: http://ukinswitzerland.fco.gov.uk/resources/en/pdf/pdf1/info-detainees
-  source: http://ukinswitzerland.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: syria
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: taiwan
-  source: http://ukintaiwan.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: tajikistan
   lawyer: http://ukintajikistan.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
-  source: http://ukintajikistan.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: true
 - slug: tanzania
   pdf: http://ukintanzania.fco.gov.uk/resources/en/pdf/prisoner-info-pack
-  source: http://ukintanzania.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: thailand
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?si.tha.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.arrest-pack-for-detainees&ns_type=pdf&ns_url=http://ukinthailand.fco.gov.uk/resources/en/pdf/2011/arrest-pack-for-detainees
   lawyer: http://ukinthailand.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-eng-lawyer/
   prison: http://uk.sitestat.com/fcoweb/ukingov/s?si.tha.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.guidance-for-british-detainees&ns_type=pdf&ns_url=http://ukinthailand.fco.gov.uk/resources/en/pdf/2008/guidance-for-british-detainees
-  source: http://ukinthailand.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: timor-leste
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: false
 - slug: togo
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: tonga
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: trinidad-and-tobago
   pdf: http://ukintt.fco.gov.uk/resources/en/word/doc1/post-tt-prisonerpack
   lawyer: http://ukintt.fco.gov.uk/resources/en/pdf/pdf1/List-of-lawyers
-  source: http://ukintt.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: tristan-da-cunha
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: tunisia
   lawyer: http://ukintunisia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
-  source: http://ukintunisia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: turkey
   pdf: http://ukinturkey.fco.gov.uk/resources/en/pdf/3723724/prisoners-pack-pdf
   lawyer: http://ukinturkey.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
-  source: http://ukinturkey.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/arrested-or-detained
-  is_generic: false
 - slug: turkmenistan
-  source: http://ukinturkmenistan.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: true
 - slug: turks-and-caicos-islands
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: tuvalu
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: uganda
   lawyer: http://ukinuganda.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
-  source: http://ukinuganda.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: true
 - slug: ukraine
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?lon.ukr.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.prisonerpack&ns_type=pdf&ns_url=http://ukinukraine.fco.gov.uk/resources/en/pdf/pdf1/prisonerpack
-  source: http://ukinukraine.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: united-arab-emirates
-  source: http://ukinuae.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: united-states
   pdf: http://ukinusa.fco.gov.uk/resources/en/pdf/in-prison-in-usa-canada
-  source: http://ukinusa.fco.gov.uk/en/help-for-british-nationals/whenthings-go-wrong/helpif-you-are-arrested-or
-  is_generic: false
 - slug: uruguay
-  source: http://ukinuruguay.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested
-  is_generic: false
 - slug: uzbekistan
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?nd.uzb.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.827722982&ns_type=pdf&ns_url=http://ukinuzbekistan.fco.gov.uk/resources/en/pdf/775892082/827722982
-  source: http://ukinuzbekistan.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: vanuatu
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: venezuela
   doc: http://uk.sitestat.com/fcoweb/ukingov/s?was.ven.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested.p.pdf.prisoners-pack&ns_type=pdf&ns_url=http://ukinvenezuela.fco.gov.uk/resources/en/word/6521901/prisoners-pack
-  source: http://ukinvenezuela.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested
-  is_generic: false
 - slug: vietnam
   doc: http://uk.sitestat.com/fcoweb/ukingov/s?si.vie.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested.p.pdf.prisoner-pack-vietnam-2012&ns_type=pdf&ns_url=http://ukinvietnam.fco.gov.uk/resources/en/word/3365341/prisoner-pack-vietnam-2012
-  source: http://ukinvietnam.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested
-  is_generic: false
 - slug: wallis-and-futuna
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: western-sahara
-  source: http://www.fco.gov.uk/en/travel-and-living-abroad/when-things-go-wrong/arrest
-  is_generic: true
 - slug: yemen
   pdf: http://ukinyemen.fco.gov.uk/resources/en/pdf/Prison-Pack-Updated
-  source: http://ukinyemen.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: zambia
   doc: http://uk.sitestat.com/fcoweb/ukingov/s?nd.zam.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.prisoner&ns_type=pdf&ns_url=http://ukinzambia.fco.gov.uk/resources/en/pdf/22603459/prisoner
   lawyer: http://ukinzambia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/need-lawyer
-  source: http://ukinzambia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
-  is_generic: false
 - slug: zimbabwe
   doc: http://ukinzimbabwe.fco.gov.uk/resources/en/word/doc1/prisoner
-  source: http://ukinzimbabwe.fco.gov.uk/en/help-for-british-nationals/living-in-zimbabwe/Prisoner
-  is_generic: false
