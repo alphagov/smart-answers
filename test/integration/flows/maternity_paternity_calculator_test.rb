@@ -175,9 +175,24 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       # end
                     end #answer 135.40
                   end
+
+                  context "ask for next pay day if specific subset of pay frequencies" do
+                    should "ask for the next pay date if pay frequency is weekly" do
+                      add_response "weekly"
+                      add_response 1083.20
+                      add_response "usual_paydates"
+                      assert_current_node :when_is_your_employees_next_pay_day?
+                    end
+
+                    should "ask for the next pay date if pay frequency is fortnightly" do
+                      add_response "every_2_weeks"
+                      add_response 1083.20
+                      add_response "usual_paydates"
+                      assert_current_node :when_is_your_employees_next_pay_day?
+                    end
+                  end
                 end
               end
-
             end #answer yes to QM5 on payroll
 
             context "answer no" do
