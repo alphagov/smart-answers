@@ -172,9 +172,9 @@ en-GB:
 
           You should [contact the municipality](http://www.ucm.org.cy/Account_List.aspx "Municipalities in Cyprus"){:rel="external"} in the area of Cyprus where you’d like to marry to check if they’ll accept this.
         commonwealth_os_naturalisation: |
-          ##Naturalisation of your partner 
+          ##Naturalisation of your partner if they move to the UK
 
-          Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen "Becoming a British citizen - If your spouse is a British citizen") after 3 years if you both settle in the UK after getting married.  
+          Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen "Becoming a British citizen - If your spouse is a British citizen") once they've lived in the UK for 3 years.  
         bot_os_ceremony_biot: |
           Access to the British Indian Ocean Territory is restricted, and it’s unlikely that marriage would be allowed there. 
 
@@ -214,9 +214,9 @@ en-GB:
         bot_os_local_resident: |
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix}").
         bot_os_naturalisation: |
-          ##Naturalisation of your partner 
+          ##Naturalisation of your partner if they move to the UK 
 
-          Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen "Becoming a British citizen - If your spouse is a British citizen") after 3 years if you both settle in the UK after getting married.
+          Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen "Becoming a British citizen - If your spouse is a British citizen") once they've lived in the UK for 3 years.
         uk_resident_os_consular_cni: |
           Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk "Foreign embassies in the UK") before making any plans to find out about local marriage laws, including what documents you’ll need.
 
@@ -587,10 +587,655 @@ en-GB:
           $D
           [Download ‘Request for consular services’ (PDF, 400KB)](http://ukinitaly.fco.gov.uk/resources/en/pdf/help-british-nationals/request-for-consular-services "Download ‘Request for consular services’ (PDF, 400KB)")
           $D
+        consular_cni_os_partner_british: |
+          ^You’ll both need to get a CNI if you’re both British, so you’ll both need to pay the fees.^
+        consular_cni_os_other_resident_partner_british_ceremony_italy: |
+          ^You’ll both need to get a Nulla Osta if you’re both British, so you’ll both need to pay the fees.^
+        consular_cni_os_all_names: |
+          ^The names you give to the registrar need to appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead.^
+        consular_cni_os_other_resident_ceremony_not_italy: |
+          You should check if your CNI needs to be ‘legalised’ (certified as genuine) by the local authorities in %{ceremony_country_name}.
+        consular_cni_os_ceremony_belgium: |
+          ###Other requirements for Belgium
+
+          There are several other documents you might need to get from the British Embassy if requested by the town hall, including:
+
+          - certificate of custom law (‘certificat de coutume’ / ‘attest van gewoonterecht’)
+          - certificate of nationality (‘certificat de nationalité’ ‘certificaat van nationaliteit’) - this can be a certified copy of your passport
+          - certificate of celibacy (‘certificat de celibat’ / ‘certificaat van celibaat’) - there’s no UK equivalent, but you can make a statutory declaration at the British embassy instead
+
+          Check with the town hall to find out if you need any of these documents. You’ll need to make an appointment at the embassy to get them. Bring any supporting documents they ask for, and pay a fee (see below).
+        consular_cni_os_belgium_clickbook: |
+          [Book an appointment online.](http://britishconsulate-gen.clickbook.net/ "Book an appointment at the British Consulate-General in Brussels"){:rel="external"}
+        consular_cni_os_ceremony_spain: |
+          ###Getting a marital status certificate
+
+          ^In some parts of Spain you may need to to get a ‘marital status certificate’ (‘certificado de estado civil’) instead of, or as well as, a CNI ('certificado de no impedimento'). Check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC "Spanish Ministry of Justice - civil registries"){:rel="external"} where you’re getting married.^
+
+          Check with the  civil registry to find out if you need a marital status certificate. You can get one through a [solicitor] (‘abogado’). Ask them to draw up a declaration for you printed on their headed paper, and bring this to the consulate.
+
+          You’ll then need to make an appointment at the consulate to make the declaration and sign the document in front of a consular officer - so don’t sign it beforehand.
+
+          Download instructions in English and Spanish on what the declaration needs to include.
 
 
+          $D
+          [Download ‘Marital status declaration instructions in English’ (PDF, 363KB)](http://ukinspain.fco.gov.uk/resources/en/pdf/help-for-BNs/marriage/marital-status-declaration-Instruction-en "Download ‘Marital Status Declaration Instructions in English’ (PDF, 363KB)")
+          [Download ‘Declaración de estado civil instrucciones en Español’ (PDF, 236KB)](http://ukinspain.fco.gov.uk/resources/en/pdf/help-for-BNs/marriage/marital-status-declaration-Instruction-sp "Download ‘Declaración de estado civil instrucciones en Español’ (PDF, 236KB)")
+          $D
+
+          You’ll also need to provide supporting documents, which are the same as the ones you need for a CNI. Once you’ve paid the fees shown below and made the declaration, the consulate will give you your certificate.
+        consular_cni_os_ceremony_spain_partner_british: |
+          ^Your partner will also need to get a marital status certificate from the consulate and pay the fees if the civil registry have told you that you need one.^
+        consular_cni_os_ceremony_spain_two: |
+          ###Other requirements for Spain
+
+          There are 3 other documents the consulate can provide that the civil registrar may ask for. You don’t always need these, so check with the registrar first. These are:
+
+          - a consular letter confirming your addresses for the past 2 years (‘confirmación de domicilio para casarse en España’)
+          - a consular letter confirming your registration at the consulate (‘carta consular que confirma la inscripción consular’)
+          - a consular certificate of Home Office registration or naturalisation ('certificado consular que confirma que al obtener la nacionalidad británica no se obtiene una partida de nacimiento británico')
+
+          You’ll need to make an appointment at the consulate to get these documents - bring any supporting documents they ask for, along with the fee (see below). You’ll also need to pay the fee for administering an oath or making a declaration if you need a letter confirming your addresses.
+        consular_cni_os_naturalisation: |
+          ##Naturalisation of your partner if they move to the UK
+
+          Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen "Becoming a British citizen - If your spouse is a British citizen") once they've lived in the UK for 3 years.
+        consular_cni_os_all_depositing_certificate: |
+          ##Depositing your marriage certificate in the UK
+
+          You can deposit your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/ "General Register Office"){:rel="external"} (GRO) in the UK for safe-keeping after your wedding. There’s a fee for this service (see below).
+
+          This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate") in English at any time from GRO.
+
+          Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in [country] and translated into English first.
+        consular_cni_os_ceremony_finland: |
+          ^You’ll need to specifically request a 'Vihkimisilmoitus' from the local ‘Maistraatti’ (register office) where the marriage is registered if you want to deposit your certificate in the UK.^
+        consular_cni_os_ceremony_turkey: |
+          ^You’ll need to specifically request a ‘Formül B’ from the local ‘nüfus müdürlüğü’ (register office) if you want to deposit your certificate in the UK.^
+        consular_cni_os_uk_resident: |
+          ###Depositing your certificate when you’re back home
+
+          You can also deposit your certificate when you’re back in the UK by sending it to the FCO. The address is on the form. You’ll need to include the fee and supporting documents listed in the form.
 
 
+          $D
+          [Download ‘Application for deposit of foreign marriage certificate’ (DOT, 44KB)](http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/dom-application "Download ‘Application for deposit of foreign marriage certificate’ (DOT, 44KB)")
+          $D
+
+          You can pay by postal order or bank draft made payable to ‘FCO’. [You can also pay by credit card online.] Personal cheques aren’t accepted.
+        consular_cni_os_all_fees: |
+          ##Fees
+
+          Service | Fee
+          -|-
+          Receiving a notice of marriage | £65
+          Issuing a CNI or equivalent | £65
+          Issuing any other consular letter or certificate in English | £45
+          Issuing any other consular letter or certificate in any other language | £70
+          Depositing a marriage certificate | £35
+          Administering an oath or making a declaration | £55
+
+          You normally have to pay fees for consular services in the local currency - these are shown in the [list of consular fees for %{ceremony_country_name}].
+        consular_cni_os_fees_local_currency: |
+          ^You can only pay by cash in %{ceremony_country_name}. This must be in the local currency.^
+        consular_cni_os_fees_no_cheques: |
+          You can pay by cash or credit card, but not by personal cheque.
+# France phrases          
+        france_fot_os_ceremony_france_uk_resident: |
+          Contact the [French Embassy in the UK](http://ambafrance-uk.org/ "French Embassy in the UK"){:rel="external"} before making any plans to find out about local marriage laws, including what documents you’ll need.  
+
+          You should also check the [travel advice for %{ceremony_country_name}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix}").
+        france_fot_os_ceremony_france_local_resident: |
+          Contact the relevant local authorities in France to find out about local marriage laws, including what documents you’ll need. The local British embassy or consulate may also be able to give you advice, or put you in touch with the relevant local authorities if you don’t know who to contact.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+        france_fot_os_ceremony_france_other_resident: |
+          Contact your nearest French embassy or consulate before making any plans to find out about local marriage laws, including what documents you’ll need. The local British embassy or consulate where you’re getting married may also be able to give you advice.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+        france_fot_os_ceremony_fot_uk_resident: |
+          %{country_name_uppercase_prefix} is an overseas department or territory of France. The rules and requirements for getting married there are similar to France.
+
+          Contact the [French Embassy in the UK](http://ambafrance-uk.org/ "French Embassy in the UK"){:rel="external"} before making any plans to find out about specific requirements under local marriage laws, including what documents you’ll need.
+
+          You should also check the [travel advice for %{ceremony_country_name}](/foreign-travel-advice/%{ceremony_country_name} "Travel advice for %{country_name_lowercase_prefix}").
+        france_fot_os_ceremony_fot_local_resident: |
+          %{country_name_uppercase_prefix} is an overseas department or territory of France. The rules and requirements for getting married there are similar to France. Contact the relevant local authorities in to find out about local marriage laws, including what documents you’ll need.
+
+          The [French Embassy in the UK](http://ambafrance-uk.org/ "French Embassy in the UK"){:rel="external"} may also be able to give you advice, or put you in touch with the relevant local authorities if you don’t know who to contact.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+        france_fot_os_ceremony_fot_other_resident: |
+          %{country_name_uppercase_prefix} is an overseas department or territory of France. The rules and requirements for getting married there are similar to France.
+
+          Contact your nearest French embassy or consulate before making any plans to find out about local marriage laws, including what documents you’ll need. The local British embassy or consulate where you’re getting married may also be able to give you advice.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+
+          You should also check the [travel advice for %{ceremony_country_name}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix").
+        france_fot_os_uk_resident: |
+          ^Your marriage should be recognised in the UK if you follow the correct process according to local law - but you should [get legal advice](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"} to make sure.^
+        france_fot_os_not_uk_resident: |
+          ^Your marriage should be recognised in the UK if you follow the correct process according to local law - but you should [get legal advice] to make sure.^
+        france_fot_os_all_what_you_need_to_do: |
+          ##What you need to do
+
+          You may be asked to provide a certificate of custom law (‘certificat de coutume’) if you’re getting married in %{country_name_lowercase_prefix}.
+
+          You should check with the local town hall (‘mairie’) in the town where you’re getting married to find out if you need one. Either you or your partner will need to have been legally resident there for at least 40 days before the ceremony.
+
+          ^You’ll need to have a civil ceremony first if you’re getting married in a religious ceremony.^
+        france_fot_os_uk_resident_two: |
+          You’ll need to get a certificate of custom law from the Foreign & Commonwealth Office (FCO) in London.
+
+          ###Applying for a certificate of custom law from the FCO
+
+          s1. [Download ‘Certificate of custom law application form’ (DOT, 49KB)](http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/cert-of-custom "Download ‘Certificate of custom law application form’ (DOT, 49KB)").
+          s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
+          s3. You’ll also need to include a pre-paid, self-addressed special delivery envelope, or a £10 postage fee, so the FCO can return your documents.
+          s4. Send your completed form to the FCO with your supporting documents, and a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. [You can also pay by credit card online.] Personal cheques aren’t accepted. The address is on the form.
+          s5. The FCO will confirm that they’ve received your application and return your documents within 4 weeks.
+          s6. They’ll then send your application to the British Embassy in Paris, who will issue your certificate between 1 and 3 weeks later.
+          s7. The embassy will send your certificate to the address you specified on the form - it’s likely to arrive much sooner if this address is in France.
+
+          Contact the British Embassy in Paris if you need further advice.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+        france_fot_os_not_uk_resident_two: |
+          You’ll need to get a certificate of custom law from the British Embassy in Paris.
+
+          ###Applying for a certificate of custom law from the British Embassy
+
+          s1. [Download ‘Certificate of custom law application form’ (PDF, 112KB)](http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/cc-marriage "Download ‘Certificate of custom law application form’ (PDF, 112KB)").
+          s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
+          s3. You’ll need to include a pre-paid self-addressed envelope and a registered letter slip (‘récépissé d’un envoi recommandé sans avis de réception’) with your name and address, or a €6.55 postage fee, if you want your documents to be returned.
+          s4. Send your completed form to the British Embassy with your supporting documents, and a postal order (‘mandat-cash’) or guaranteed banker's cheque for €79 made payable to 'British Embassy Paris'. You can also pay by credit card by filling in the authorisation on the form. Personal cheques aren’t accepted.
+          s5. The embassy will send your certificate and return your documents between 5 and 7 days after receiving your application.
+        france_fot_os_all_celibacy: |
+          ###The certificate of celibacy
+
+          The mairie might also ask you for a certificate of celibacy (‘certificat de célibat’) to prove you’re not married. There’s no equivalent to this document in British law, so you’ll need to download the official note which explains this and take it to the mairie instead.
+
+
+          $D
+          [Download ‘Explanatory note in lieu of a certificate of celibacy’ (PDF, 326KB)](http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/certificat-celibat "Download ‘Explanatory note in lieu of a certificate of celibacy’ (PDF, 326KB)")
+          $D
+        france_fot_os_naturalisation: |
+          ##Naturalisation of your partner if they move to the UK
+
+          Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen "Becoming a British citizen - If your spouse is a British citizen") once they've lived in the UK for 3 years.
+        france_fot_os_all_depositing_certificate: |
+          ##Depositing your marriage certificate in the UK
+
+          You can deposit your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/ "General Register Office"){:rel="external"} (GRO) in the UK for safe-keeping after your wedding. There’s a fee for this service (see below).
+
+          This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate") in English at any time from GRO.
+
+          Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in %{country_name_lowercase_prefix} and [translated into English] first. 
+
+          ^You’ll need to get a multilingual extract of the marriage register (‘formule plurilingue d’extrait de l’acte de mariage’) from the mairie if you want to deposit your certificate in the UK.^
+        france_fot_os_uk_resident_three: |
+          ###Depositing your certificate when you’re back home
+
+          You can also deposit your certificate when you’re back in the UK by sending it to the FCO. The address is on the form. You’ll need to include the fee and supporting documents listed in the form.
+
+
+          $D
+          [Download ‘Application for deposit of foreign marriage certificate’ (DOT, 44KB)](http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/dom-application "Download ‘Application for deposit of foreign marriage certificate’ (DOT, 44KB)")
+          $D
+
+          You can pay by postal order or bank draft made payable to ‘FCO’. [You can also pay by credit card online.] Personal cheques aren’t accepted.
+        france_fot_os_all_fees: |
+          ##Fees
+
+          Service | Fee
+          -|-
+          Issuing a certificate of custom law (certificat de coutume) | £65
+          Depositing a marriage certificate | £35
+
+          You normally have to pay fees for consular services in the local currency - these are shown in the [list of consular fees for %{country_name_lowercase_prefix}].
+
+          You can pay by cash or credit card, but not by personal cheque.
+
+#Affirmation to marry phrases
+        affirmation_os_uk_resident: |
+          Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk "Foreign embassies in the UK") before making any plans to find out about local marriage laws, including what documents you’ll need.
+
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix").
+        affirmation_os_local_resident: |
+          Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need. The local British embassy or consulate may also be able to give you advice, or put you in touch with the relevant local authorities if you don’t know who to contact.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+        affirmation_os_other_resident: |
+          Contact your nearest embassy or consulate of %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need. The local British embassy or consulate where you’re getting married may also be able to give you advice.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix").
+        affirmation_os_uk_resident_two: |
+          ^Your marriage should be recognised in the UK if you follow the correct process according to local law - but you should [get legal advice](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"} to make sure.^
+        affirmation_os_not_uk_resident: |
+          ^Your marriage should be recognised in the UK if you follow the correct process according to local law - but you should [get legal advice] to make sure.^
+        affirmation_os_all_what_you_need_to_do: |
+          ##What you need to do
+
+          You may be asked to provide an 'affirmation of freedom to marry' document to prove you're allowed to marry.
+
+          Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
+
+          ^You might need to get your affirmation translated into the local language and ‘legalised’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.^
+
+          If you’ve been divorced or widowed, you’ll also need:
+
+          - a [decree absolute or final order](/copy-decree-absolute-final-order "Get a copy of a decree absolute or final order"), or
+          - the [death certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate")
+
+          ^You’ll also need to provide evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated] if it’s not in English.^
+
+          You’ll also need to provide evidence if you’ve changed your name by deed poll.
+        affirmation_os_partner_british: |
+          ^Your partner will need to get an affirmation and pay the fee as well.^
+        affirmation_os_partner_not_british: |
+          ^Your partner will probably need to get an equivalent document from their national authorities.^
+
+          ##Naturalisation of your partner if they move to the UK 
+
+          Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen "Becoming a British citizen - If your spouse is a British citizen") once they've lived in the UK for 3 years.
+        affirmation_os_all_depositing_certificate: |
+          ##Depositing your marriage certificate in the UK
+
+          You can deposit your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/ "General Register Office"){:rel="external"} (GRO) in the UK for safe-keeping after your wedding. There’s a fee for this service (see below).
+
+          This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate") in English at any time from GRO.
+
+          Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in %{country_name_lowercase_prefix} and translated into English first.
+        affirmation_os_uk_resident_three: |
+          ###Depositing your certificate when you’re back home
+
+          You can also deposit your certificate when you’re back in the UK by sending it to the Foreign &amp; Commonwealth Office (FCO). The address is on the form. You’ll need to include the fee and supporting documents listed in the form.
+
+
+          $D
+          [Download ‘Application for deposit of foreign marriage certificate’ (DOT, 44KB)](http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/dom-application "Download ‘Application for deposit of foreign marriage certificate’ (DOT, 44KB)")
+          $D
+
+          You can pay by postal order or bank draft made payable to ‘FCO’. [You can also pay by credit card online.] Personal cheques aren’t accepted.
+        affirmation_os_all_fees: |
+          ##Fees
+
+          Service | Fee
+          -|-
+          Affirmation for freedom to marry in English | £45
+          Affirmation for freedom to marry in any other language | £70
+          Depositing a marriage certificate | £35
+
+          You normally have to pay fees for consular services in the local currency - these are shown in the [list of consular fees for %{country_name_lowercase_prefix}].
+
+          You can pay by cash or credit card, but not by personal cheque.
+
+#No CNI or consular services phrases
+        no_cni_os_dutch_caribbean_islands: |
+          %{country_name_uppercase_prefix} is one of the Dutch Caribbean islands.
+        no_cni_os_dutch_caribbean_islands_uk_resident: |
+          Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121 "Contact the Embassy of the Kingdom of the Netherlands"){:rel="external"} before making any plans to find out about local marriage laws, including what documents you’ll need.
+
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix").
+        no_cni_os_dutch_caribbean_islands_local_resident: |
+          Contact the relevant local authorities in [country] to find out about local marriage laws, including what documents you’ll need. The British Consulate in Curaçao may also be able to give you advice, or put you in touch with the relevant local authorities if you don’t know who to contact.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+        no_cni_os_dutch_caribbean_other_resident: |
+          Contact your nearest Dutch embassy or consulate before making any plans to find out about local marriage laws, including what documents you’ll need. The British Consulate in Curaçao may also be able to give you advice.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C          
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix").
+        no_cni_os_not_dutch_caribbean_islands_uk_resident: |
+          Contact your [nearest embassy or consulate](/government/publications/foreign-embassies-in-the-uk "Foreign embassies in the UK") representing %{country_name_lowercase_prefix} before making any plans to find out about local marriage laws, including what documents you’ll need.
+
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix").
+        no_cni_os_not_dutch_caribbean_islands_local_resident: |
+          Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need. The local British embassy or consulate may also be able to give you advice, or put you in touch with the relevant local authorities if you don’t know who to contact.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C          
+        no_cni_os_not_dutch_caribbean_other_resident: |
+          Contact your nearest embassy or consulate representing %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need. The local British embassy or consulate where you’re getting married may also be able to give you advice.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C          
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix").
+        no_cni_os_uk_resident: |
+          ^Your marriage should be recognised in the UK if you follow the correct process according to local law - but you should [get legal advice](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"} to make sure.^
+        no_cni_os_not_uk_resident: |
+          ^Your marriage should be recognised in the UK if you follow the correct process according to local law - but you should [get legal advice] to make sure.^
+        no_cni_os_all_nearest_embassy: |
+          There aren’t any British consular facilities to register a marriage or get legal documents to prove you’re eligible to marry in %{country_name_lowercase_prefix}.
+
+          However, your nearest embassy or consulate may be able to deposit your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/ "General Register Office"){:rel="external"} (GRO) in the UK for safe-keeping. There’s a fee for this service (see below).
+        no_cni_os_uk_resident_two: |
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+        no_cni_os_all_depositing_certificate: |
+          ##Depositing your marriage certificate in the UK
+
+          This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate") in English at any time from GRO.
+        no_cni_os_ceremony_usa: |
+          Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in the US first.
+        no_cni_os_ceremony_not_usa: |
+          Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in %{country_name_lowercase_prefix} and [translated into English] first.
+        no_cni_os_uk_resident_three: |
+          ###Depositing your certificate when you’re back home
+
+          You can also deposit your certificate when you’re back in the UK by sending it to the Foreign & Commonwealth Office (FCO). The address is on the form. You’ll need to include the fee and supporting documents listed in the form.
+
+
+          $D
+          [Download ‘Application for deposit of foreign marriage certificate’ (DOT, 44KB)](http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/dom-application "Download ‘Application for deposit of foreign marriage certificate’ (DOT, 44KB)")
+          $D
+
+          You can pay by postal order or bank draft made payable to ‘FCO’. [You can also pay by credit card online.] Personal cheques aren’t accepted.
+        no_cni_os_all_fees: |
+          ##Fees
+
+          Depositing a civil partnership certificate through the embassy or consulate costs £35.
+
+          You normally have to pay fees for consular services in the local currency - these are shown in the [list of consular fees for %{country_name_lowercase_prefix}].
+
+          You can pay by cash or credit card, but not by personal cheque.
+        no_cni_os_naturalisation: |
+          ##Naturalisation of your partner if they move to the UK 
+
+          Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen "Becoming a British citizen - If your spouse is a British citizen") once they've lived in the UK for 3 years.
+
+#Other countries outcome phrases
+        other_countries_os_burma: |
+          The British Embassy in Rangoon doesn’t register marriages of British citizens in Burma. Contact the embassy if you need further advice.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+        other_countries_os_burma_partner_local: |
+          %Marriage between a Burmese citizen and a foreign national is not allowed under local law.%
+        other_countries_os_north_korea: |
+          It’s very unlikely that foreign nationals would be allowed to marry in North Korea. Contact the British Embassy in Pyongyang if you need further advice.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+        other_countries_os_north_korea_partner_local: |
+          %Marriage between a citizen of North Korea and a foreign national is not allowed under local law.%
+        other_countries_os_iran_somalia_syria: |
+          There are currently no British consular services available in %{country_name_lowercase_prefix}. See below if you need further advice.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+        other_countries_os_yemen: |
+          There are only limited British consular services available in %{country_name_lowercase_prefix}. See below if you need further advice.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+        other_countries_os_ceremony_saudia_arabia_not_local_resident: |
+          ^One of you must be a Muslim to get married under local laws in Saudi Arabia. You can only get married at the British Embassy if you’re resident in the country.^
+
+          Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/ "Royal Embassy of Saudi Arabia in the UK"){:rel="external"} to find out about local marriage laws.
+
+          The British Embassy in Saudi Arabia may also be able to give you advice, or put you in touch with the relevant local authorities.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+        other_countries_os_saudi_arabia_local_resident_partner_irish: |
+          ^One of you must be a Muslim to get married under local laws in Saudi Arabia. You can’t get married at the British Embassy in Saudi Arabia if one of you is an Irish national, as the Irish authorities do not recognise consular marriages.^
+
+          Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/ "Royal Embassy of Saudi Arabia in the UK"){:rel="external"} to find out about local marriage laws.
+
+          The British Embassy in Saudi Arabia may also be able to give you advice, or put you in touch with the relevant local authorities.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C
+        other_countries_os_saudi_arabia_local_resident_partner_not_irish: |
+          One of you must be a Muslim to get married under local laws in Saudi Arabia. Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/ "Royal Embassy of Saudi Arabia in the UK"){:rel="external"} to find out about local marriage laws.
+
+          The British Embassy in Saudi Arabia may also be able to give you advice, or put you in touch with the relevant local authorities.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_website}  
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_fax}  
+            %{embassy_office_hours}
+          $C    
+            
+          ##Getting married at the British Embassy
+
+          You can apply to get married at the British Embassy in Riyadh if you’re resident in Saudi Arabia and neither of you is a Muslim. Contact them to make an appointment. You’ll need to provide:
+
+          - proof that you’ve been resident in the area covered by the embassy for at least 7 days, eg an employer’s letter or a bank statement
+          - your original passport and full birth certificate
+          - proof that you’re both over the age of 16, not within prohibited degrees of relationship to each other, and there’s no other impediment to your proposed marriage
+          - equivalent document for your partner
+
+          If either of you have been divorced, widowed or in a civil partnership before, you’ll also need:
+
+          - a [decree absolute or final order](/copy-decree-absolute-final-order "Get a copy of a decree absolute or final order"), or
+          - the [death certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate")
+
+          ###What happens next
+
+          Once you’ve submitted these and paid the registration fee (see below), the embassy or consulate will post your marriage notice publicly for 21 days.
+
+          As long as nobody has registered an objection after this time, the consular officer can then perform the marriage ceremony any time until 3 months after the date you gave notice.
+
+          You’ll need to pay additional fees for the marriage ceremony and to get your marriage certificate (see below).
+        other_countries_os_saudi_arabia_local_resident_partner_not_irish_or_british: |
+          ##Naturalisation of your partner if they move to the UK
+
+          Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen "Becoming a British citizen - If your spouse is a British citizen") once they've lived in the UK for 3 years.
+        other_countries_os_saudi_arabia_local_resident_partner_not_irish_two: |
+          ##Fees
+
+          Service | Fee
+          -|-
+          Posting a marriage notice | £65
+          Performing a marriage ceremony| £140
+          Issuing a marriage certificate | £65
+
+          You normally have to pay fees for consular services in the local currency - these are shown in the [list of consular fees for %{country_name_lowercase_prefix}].
+
+          You can pay by cash or credit card, but not by personal cheque. 
 
 # Outcomes
 # outcome Ireland
@@ -663,6 +1308,40 @@ en-GB:
 
 
           %{counsular_cni_os_remainder}
+          *[CNI]:certificate of no impediment
+          *[GRO]:General Register Office
+          *[FCO]:Foreign &amp; Commonwealth Office
+
+#outcome France or french overseas territories
+      outcome_os_france_or_fot:
+        title: Marriage in %{country_name_lowercase_prefix}
+        body: |
+          %{france_or_fot_os_outcome}
+          *[GRO]:General Register Office
+          *[FCO]:Foreign &amp; Commonwealth Office
+
+#outcome country with affirmation for frredom to marry
+      outcome_os_affirmation:
+        title: Marriage in %{country_name_lowercase_prefix}
+        body: |
+          %{affirmation_os_outcome}
+          *[GRO]:General Register Office
+          *[FCO]:Foreign &amp; Commonwealth Office
+
+#outcome country with no CNI or consular services
+      outcome_os_no_cni:
+        title: Marriage in %{country_name_lowercase_prefix}
+        body: |
+          %{no_cni_os_outcome}
+          *[GRO]:General Register Office
+          *[FCO]:Foreign &amp; Commonwealth Office
+
+#outcome other countries
+      outcome_os_other_countries:
+        title: Marriage in %{country_name_lowercase_prefix}
+        body: |
+          %{other_countries_os_outcome}
+
 
 # outcome Commonwealth, same sex
       outcome_ss_commonwealth:
