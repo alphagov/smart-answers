@@ -17,7 +17,7 @@ module SmartAnswer::Calculators
       if url
         urls = url.split(" ")
         urls.each do |u|
-          output.push("- [#{text}](#{u})")
+          output.push("- [#{text}](#{u}){:rel=\"external\"}")
         end
         output.join("\n")
       else
