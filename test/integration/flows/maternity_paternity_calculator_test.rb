@@ -175,14 +175,14 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                           should "show the result node" do
                             assert_current_node :maternity_leave_and_pay_result
                           end
+
+                          should "output a calendar" do
+                            assert_calendar
+                            assert_calendar_date Date.parse("21 November 2012")..Date.parse("19 November 2013")
+                            assert_calendar_date Date.parse("11 August 2012")
+                          end
                         end
                       end
-
-                      # should "output a calendar" do
-                      #   assert_calendar
-                      #   assert_calendar_date Date.parse("21 November 2012")..Date.parse("19 November 2013")
-                      #   assert_calendar_date Date.parse("11 August 2012")
-                      # end
                     end #answer 135.40
                   end
 
