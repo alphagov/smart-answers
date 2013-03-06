@@ -72,18 +72,27 @@ outcome :answer_one_generic do
   end
 
   precalculate :after_downloads do
-    PhraseList.new(:fco_cant_do, :dual_nationals_other_help)
+    PhraseList.new(:fco_cant_do, :dual_nationals_other_help, :further_links)
   end
+
 end
 
 outcome :answer_two_iran do
   precalculate :downloads do
     PhraseList.new(:common_downloads)
   end
+
+  precalculate :further_help_links do
+    PhraseList.new(:further_links)
+  end
 end
 
 outcome :answer_three_syria do
   precalculate :downloads do
     PhraseList.new(:common_downloads)
+  end
+
+  precalculate :further_help_links do
+    PhraseList.new(:further_links)
   end
 end
