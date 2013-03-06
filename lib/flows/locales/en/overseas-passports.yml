@@ -588,6 +588,57 @@ en-GB:
             Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
           $C
 
+        helpline_afghanistan: |
+
+
+          $C
+            Passport Information Helpline
+
+            +44 208 082 4744
+
+            Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
+
+          $C
+
+          You can also call the British Embassy in Kabul.
+
+
+          $C
+
+            **British Embassy, Kabul**
+
+            +93 (0) 700 102 000
+
+          $C
+        helpline_yemen: |
+
+
+          $C
+            **Passport information - Yemen**
+
+            967 1308 114 
+            8am to-3pm local time, Sunday to Thursday
+
+             +44 207 008 1500 at any other time
+
+          $C
+        helpline_intro: |
+          If you haven’t received your passport within the expected timescale, you can check your application’s progress by phone. You will be charged for the call.
+
+          Don’t use this service any earlier - information won’t be available but you will still be charged for the call.
+        helpline_exceptions: |
+          If you haven’t received your passport within the expected timescales, or need to change your travel plans urgently (eg a close relative has died), you can leave a message with the passport processing centre in Madrid. 
+
+          They will only call you back if your passport has been delayed or you have a genuine emergency.
+
+
+          $C
+
+            **Passport processing centre, Madrid**
+
+            00 34 91 714 6314
+          $C
+        helpline_: ''
         ips_documents_group_1: |
 
           $D
@@ -1017,6 +1068,7 @@ en-GB:
             Textphone: +44 1750 725 368  
           $C
 
+
         how_long_afghanistan: |
           Action | Minimum time after you apply
           - | -
@@ -1074,6 +1126,7 @@ en-GB:
           - you need to be interviewed to confirm your identity
 
           Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British high commission in Dhaka. You will have to pay for the document.
+
 
         cost_bangladesh: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
@@ -1141,7 +1194,7 @@ en-GB:
         cost_nairobi_kenya_renewing: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
 
-          You must pay using a guaranteed banker’s draft in Kenya Shillings, payable to the ‘British high commission’.
+          You must pay using a guaranteed banker’s draft in Kenya Shillings, payable to the ‘British High Commission’.
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
@@ -1271,7 +1324,7 @@ en-GB:
           - | -
           Renew a passport | 4 weeks
           First adult or child passports | 12 weeks
-          Replace a lost or stolen passport | 12 weeks
+          Replace a lost or stolen passport | 6 weeks
 
           Applications may take longer if:
 
@@ -1283,7 +1336,7 @@ en-GB:
         cost_cameroon_renewing: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
 
-          Cost if you send your application to Pretoria, South Africa
+          ###Cost if you send your application to Pretoria, South Africa
 
           You must pay using a Visa or Mastercard and include a [card payment authorisation form (DOC,198KB)](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/countries-auth-slip "Card authorisation form (DOC, 198KB)"){:rel="external"} with your application. You can’t pay in cash.
 
@@ -1323,7 +1376,14 @@ en-GB:
           Child passport | 69,300 CFA | 97,500 CFA
 
         how_to_apply_cameroon: ''
-        supporting_documents_cameroon: ''
+        supporting_documents_cameroon: |
+
+
+          $D
+            [Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/Checklist-1sttime-Adult "Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)"){:rel="external"}
+
+            [Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/Checklist-1sttime-child "Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)"){:rel="external"}
+          $D
         making_application_cameroon_renewing: |
           You can either:
 
@@ -1380,6 +1440,15 @@ en-GB:
         getting_your_passport_cuba: |
           The British embassy will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
+        helpline_cuba: |
+
+
+          $C
+
+            **Passport processing centre, Madrid**
+
+            00 34 91 714 6314
+          $C 
         how_long_eritrea: |
           Action | Minimum time after you apply
           - | -
@@ -1410,7 +1479,14 @@ en-GB:
           Child passport | 1,956 Nakfa | 2,752.08 Nakfa
 
         how_to_apply_eritrea: ''
-        supporting_documents_eritrea: ''
+        supporting_documents_eritrea: |
+
+
+          $D
+            [Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/Checklist-1sttime-Adult "Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)"){:rel="external"}
+
+            [Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/Checklist-1sttime-child "Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)"){:rel="external"}
+          $D
         making_application_eritrea: |
           You must make your application in person at the British embassy in Asmara.
 
@@ -1424,7 +1500,7 @@ en-GB:
           - | -
           Renew a red passport | 4 weeks
           First adult or child passports or renewing a blue or black passport | 12 weeks
-          Replace a lost or stolen passport | 16 weeks
+          Replace a lost or stolen passport | 6 weeks
 
           Applications may take longer if:
 
@@ -1442,9 +1518,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | 3,072 Nakfa | 3,868.08 Nakfa
-          Adult jumbo 48-page passport | 3,708 Nakfa | 4,504.08 Nakfa
-          Child passport | 1,956 Nakfa | 2,752.08 Nakfa
+          Adult standard 32-page passport | 3,968 Birr | 4,996 Birr
+          Adult jumbo 48-page passport | 4,790 Birr | 5,818 Birr
+          Child passport | 2,527 Birr | 3,555 Birr
 
           You can pay:
 
@@ -1454,11 +1530,17 @@ en-GB:
 
 
           $I
-            You must pay in cash using Ethiopan Birr for a new or replacment passport.
+            If you’re applying for a first passport, renewing a black or blue passport or replacing a lost or stolen one, you must pay in cash using Ethiopian Birr.
           $I
-
         how_to_apply_ethiopia: ''
-        supporting_documents_ethiopia: ''
+        supporting_documents_ethiopia: |
+
+
+          $D
+            [Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/Checklist-1sttime-Adult "Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)"){:rel="external"}
+
+            [Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/Checklist-1sttime-child "Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)"){:rel="external"}
+          $D
         making_application_ethiopia: |
           ### First applications, renewing a black or blue passport or replacing a lost or stolen passport
 
@@ -1466,7 +1548,33 @@ en-GB:
 
           ### Renewing a red passport
 
-          You can send your application by one-way courier or registered post or apply in person at the British embassy in Addis Ababa.
+          You can either:
+
+          - send your application by one-way courier to the passport processing centre in Pretoria, South Africa 
+          - apply in person at the British embassy in Addis Ababa.
+
+
+          $A
+            Postal address:
+
+            British Passport Section
+            British Consulate
+            PO Box 13611 
+            Hatfield, Pretoria 0028
+            South Africa
+          $A
+
+
+          $A
+            Courier address:
+
+            British Passport Section
+            British Consulate
+            256 Glyn Street
+            Hatfield
+            Pretoria 0083
+            South Africa
+          $A
 
         getting_your_passport_ethiopia: |
           The British embassy will contact you when your passport and supporting documents arrive using the contact details on your form. You must collect them in person.
@@ -1823,14 +1931,10 @@ en-GB:
         making_application_pakistan: |
           You can send your application British High Commission in Islamabad, preferably by secure post or courier. You must pay using a Banker’s Draft if you send your application this way.
 
-          You can also make your application in person at either the British High Commission in Islamabad or the British Deputy High Commission in Karachi.
-
         getting_your_passport_pakistan: |
-          The British high commission or deputy high commission will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+          The British high commission will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
           The passport counter at the high commission in Islamabad is open from 2pm to 3pm on Mondays, Tuesdays and Thursdays only.
-
-          The deputy high commission in Karachi is open 8am to 4.15pm Monday to Thursday, 8am to 1pm on Friday.
 
         how_long_philippines: |
           Action | Minimum time after you apply
@@ -2557,6 +2661,10 @@ en-GB:
           ## Getting your passport
 
           %{getting_your_passport}
+
+          ## If your passport hasn’t arrived
+          
+          %{helpline}
 
       cannot_apply:
         body: |

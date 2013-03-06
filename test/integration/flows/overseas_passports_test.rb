@@ -189,6 +189,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           assert_phrase_list :getting_your_passport, [:getting_your_passport_afghanistan]
           assert_match /15th Street, Roundabout Wazir Akbar Khan/, current_state.embassy_address
           assert_match /0830-1630 \(Sunday to Thursday\)/, current_state.embassy_address
+          assert_phrase_list :helpline, [:helpline_intro, :helpline_afghanistan]
           assert_current_node :result
         end
       end
@@ -223,6 +224,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           assert_phrase_list :getting_your_passport, [:getting_your_passport_iraq]
           assert_match /British Embassy, Baghdad/, current_state.embassy_address
           assert_match /Passport opening times: Sun - Wed: 08.30-1200/, current_state.embassy_details
+          assert_phrase_list :helpline, [:helpline_intro, :helpline_paris_france]
           assert_current_node :result
         end
       end
@@ -251,6 +253,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_phrase_list :getting_your_passport, [:getting_your_passport_lagos_nigeria]
       assert_match /11 Walter Carrington Crescent/, current_state.embassy_address
       assert_match /GMT: Mon-Thurs: 0630-1430 and Fri 0630-1130/, current_state.embassy_details
+      assert_phrase_list :helpline, [:helpline_intro, :helpline_pretoria_south_africa]
       assert_current_node :result
     end
   end
@@ -563,6 +566,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_phrase_list :cost, [:cost_nairobi_kenya_applying]
       assert_phrase_list :supporting_documents, [:supporting_documents_nairobi_kenya_applying]
       assert_phrase_list :making_application, [:making_application_nairobi_kenya]
+      assert_phrase_list :helpline, [:helpline_intro, :helpline_pretoria_south_africa]
     end
   end # Kenya (custom phrases)
 end

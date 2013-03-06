@@ -265,7 +265,6 @@ outcome :fco_result do
   end
 
   precalculate :how_to_apply_supplement do
-
     if application_type =~ /^(dublin_ireland|india)$/
       PhraseList.new(:"how_to_apply_#{application_type}")
     elsif general_action == 'renewing' and data_query.retain_passport?(current_location)
@@ -337,6 +336,15 @@ outcome :result do
   end
   precalculate :getting_your_passport do
     PhraseList.new(:"getting_your_passport_#{application_type}")
+  end
+  precalculate :helpline do
+    phrases = PhraseList.new
+    if %w(cuba libya morocco tunisia).include?(current_location)
+      phrases << :helpline_exceptions
+    else
+      phrases << :helpline_intro << :"helpline_#{passport_data[:helpline]}"
+    end
+    phrases
   end
 end
 
