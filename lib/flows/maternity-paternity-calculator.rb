@@ -205,6 +205,13 @@ end
 multiple_choice :when_in_the_month_is_the_employee_paid? do
   option :first_day_of_the_month => :maternity_leave_and_pay_result
   option :last_day_of_the_month => :maternity_leave_and_pay_result
+  option :specific_date_each_month => :what_specific_date_each_month_is_the_employee_paid?
+end
+
+value_question :what_specific_date_each_month_is_the_employee_paid? do
+  calculate :specific_pay_date do
+    responses.last
+  end
 end
 
 ## Maternity outcomes

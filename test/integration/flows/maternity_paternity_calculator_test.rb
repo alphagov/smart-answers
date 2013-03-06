@@ -246,6 +246,16 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         add_response "last_day_of_the_month"
                         assert_current_node :maternity_leave_and_pay_result
                       end
+
+                      context "specific date each month" do
+                        setup do
+                          add_response "specific_date_each_month"
+                        end
+
+                        should "ask what specific date each month the employee gets paid" do
+                          assert_current_node :what_specific_date_each_month_is_the_employee_paid?
+                        end
+                      end
                     end
                   end
                 end
