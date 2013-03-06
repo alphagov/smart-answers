@@ -89,7 +89,7 @@ en-GB:
         error_hours: Please enter the number of hours you actually worked during the pay period. 
       # Q6
       how_much_are_you_paid_during_pay_period?:
-        title: "How much do you get paid in the pay period?"
+        title: "How much do you get paid before tax in the pay period?"
         hint: "Don’t include payments for overtime or anything extra to your pay, eg sales commission, money for clothes or goods."
         suffix_label: in the pay period
         error_message: Please enter a number
