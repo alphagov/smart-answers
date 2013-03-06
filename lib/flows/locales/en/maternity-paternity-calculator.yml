@@ -237,7 +237,7 @@ en-GB:
       ## QM3
       date_leave_starts?:
         title: When does the employee want to start their leave?
-        hint: Leave usually can't start before %{leave_earliest_start_date} or within 28 days of the child arriving in the UK (overseas adoptions only).
+        hint: Based on the baby's due date, leave usually can’t start before %{leave_earliest_start_date}.
         error_message: Please enter a valid date
       ## QM4
       did_the_employee_work_for_you?:
