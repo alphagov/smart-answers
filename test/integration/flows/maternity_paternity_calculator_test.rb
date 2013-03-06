@@ -225,10 +225,17 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       add_response "usual_paydates"
                       assert_current_node :when_is_your_employees_next_pay_day?
                     end
+
+                    should "ask when in the month an employee is paid" do
+                      add_response "monthly"
+                      add_response 1083.20
+                      add_response "usual_paydates"
+                      assert_current_node :when_in_the_month_is_the_employee_paid?
+                    end
                   end
                 end
               end
-            end #answer yes to QM5 on payroll
+            end
 
             context "answer no" do
               should "state that you they are not entitled to pay" do
