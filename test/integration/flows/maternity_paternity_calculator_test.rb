@@ -133,6 +133,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       assert_current_node :earnings_for_pay_period?
                       ##TODO relevant period calculation
                     end
+
                     context "answer 1083.20" do
                       setup do
                         add_response 1083.20
@@ -183,7 +184,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                           end
                         end
                       end
-                    end #answer 135.40
+                    end
                   end
 
                   context "ask for next pay day if specific subset of pay frequencies" do
