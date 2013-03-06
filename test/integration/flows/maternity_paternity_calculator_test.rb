@@ -266,6 +266,16 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                           assert_current_node :what_days_does_the_employee_work?
                         end
                       end
+
+                      context "a certain week day each month" do
+                        setup do
+                          add_response "a_certain_week_day_each_month"
+                        end
+
+                        should "ask what particular day of the month the employee is paid" do
+                          assert_current_node :what_particular_day_of_the_month_is_the_employee_paid?
+                        end
+                      end
                     end
                   end
                 end
