@@ -183,6 +183,8 @@ multiple_choice :how_do_you_want_the_smp_calculated? do
     if response == "usual_paydates"
       frequencies = %w(weekly every_2_weeks every_4_weeks irregularly)
       :when_is_your_employees_next_pay_day? if frequencies.any? { |freq| responses.include? freq }
+    else
+      :maternity_leave_and_pay_result
     end
   end
 end

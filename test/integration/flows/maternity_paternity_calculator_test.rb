@@ -184,6 +184,16 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                           end
                         end
                       end
+
+                      context "weekly calculations" do
+                        setup do
+                          add_response "weekly_starting"
+                        end
+
+                        should "go straight to the SMP result" do
+                          assert_current_node :maternity_leave_and_pay_result
+                        end
+                      end
                     end
                   end
 
