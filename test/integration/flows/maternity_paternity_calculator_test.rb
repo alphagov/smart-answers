@@ -265,6 +265,11 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         should "ask what days the employee works" do
                           assert_current_node :what_days_does_the_employee_work?
                         end
+
+                        should "calculate SMP once day provided" do
+                          add_response "Sunday"
+                          assert_current_node :maternity_leave_and_pay_result
+                        end
                       end
 
                       context "a certain week day each month" do

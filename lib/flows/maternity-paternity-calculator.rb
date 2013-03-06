@@ -217,7 +217,13 @@ value_question :what_specific_date_each_month_is_the_employee_paid? do
 end
 
 multiple_choice :what_days_does_the_employee_work? do
-  option :test
+  option :"Sunday"
+  option :"Monday"
+  option :"Tuesday"
+  option :"Wednesday"
+  option :"Thursday"
+  option :"Friday"
+  option :"Saturday"
 
   next_node :maternity_leave_and_pay_result
 end
