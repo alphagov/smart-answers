@@ -256,6 +256,16 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                           assert_current_node :what_specific_date_each_month_is_the_employee_paid?
                         end
                       end
+
+                      context "last working day of the month" do
+                        setup do
+                          add_response "last_working_day_of_the_month"
+                        end
+
+                        should "ask what days the employee works" do
+                          assert_current_node :what_days_does_the_employee_work?
+                        end
+                      end
                     end
                   end
                 end
