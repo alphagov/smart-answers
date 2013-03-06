@@ -226,11 +226,26 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       assert_current_node :when_is_your_employees_next_pay_day?
                     end
 
-                    should "ask when in the month an employee is paid" do
-                      add_response "monthly"
-                      add_response 1083.20
-                      add_response "usual_paydates"
-                      assert_current_node :when_in_the_month_is_the_employee_paid?
+                    context "weekly frequency with usual paydates" do
+                      setup do
+                        add_response "monthly"
+                        add_response 1083.20
+                        add_response "usual_paydates"
+                      end
+
+                      should "ask when in the month an employee is paid" do
+                        assert_current_node :when_in_the_month_is_the_employee_paid?
+                      end
+
+                      should "calculate the SMP for first day of the month" do
+                        add_response "first_day_of_the_month"
+                        assert_current_node :maternity_leave_and_pay_result
+                      end
+
+                      should "calculate the SMP for last day of the month" do
+                        add_response "last_day_of_the_month"
+                        assert_current_node :maternity_leave_and_pay_result
+                      end
                     end
                   end
                 end

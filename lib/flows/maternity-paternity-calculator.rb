@@ -203,9 +203,8 @@ date_question :when_is_your_employees_next_pay_day? do
 end
 
 multiple_choice :when_in_the_month_is_the_employee_paid? do
-  option :test
-
-  next_node :maternity_leave_and_pay_result
+  option :first_day_of_the_month => :maternity_leave_and_pay_result
+  option :last_day_of_the_month => :maternity_leave_and_pay_result
 end
 
 ## Maternity outcomes
