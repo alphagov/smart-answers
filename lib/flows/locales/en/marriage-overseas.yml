@@ -55,28 +55,24 @@ en-GB:
       phrases:
         ceremony_type_marriage: Marriage
         ceremony_type_civil_partnership: Civil partnership
-        embassy_details_all: |
-          $A
-            %{embassy_address}
-          $A
-
-          $C
-            %{embassy_website}  
-            %{embassy_email}  
-            %{embassy_phone}  
-            %{embassy_fax}  
-            %{embassy_office_hours}
-          $C
         clickbook_link: |
           [Book an appointment online](%{clickbook_data} "Book an appointment online")
         multiple_clickbook_link: |
           [Book an appointment online in %{city}](%{url})
         clickbook_links: |
           %{clickbooks}
+#Marriage in Ireland outcome phrases          
         outcome_ireland_opposite_sex: |
           The General Register Office of Ireland's website explains what you need to do if you want to [get married in Ireland.](http://www.groireland.ie/getting_married.htm "Getting married in Ireland"){:rel="external"} Your marriage will be recognised in the UK if you follow the correct process according to Irish law.
         outcome_ireland_same_sex: |
           The General Register Office of Ireland's website explains what you need to do if you want to [enter into a civil partnership in Ireland.](http://www.groireland.ie/civil_partnership.htm "Civil partnership in Ireland"){:rel="external"} Your civil partnership will be recognised in the UK if you follow the correct process according to Irish law.
+#Marriage in commonwealth countries phrases
+        commonwealth_os_all_intro: |
+          %{country_name_uppercase_prefix} is a member of the Commonwealth. Your marriage should be recognised in the UK if you follow the correct process according to local law. You won’t need to register with the British consulate.
+
+          ^You can’t deposit a copy of your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/ "General Register Office"){:rel="external"} (GRO) in the UK if you get married in a Commonwealth country.^
+
+          ##What you need to do
         uk_resident_os_ceremony_not_zimbabwe: |
           Contact the [High Commission of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk "Foreign embassies in the UK") to find out about local marriage laws, including what documents you’ll need.
 
@@ -90,14 +86,12 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
 
-          You should also [get legal advice] before making any plans.
+          You should also get legal advice before making any plans.
         other_resident_os_ceremony_not_zimbabwe: |
           Contact your nearest embassy, high commission or consulate of %{country_name_lowercase_prefix} before making any plans to find out about local marriage laws, including what documents you’ll need. The local British high commission or consulate where you’re getting married may also be able to give you advice.
 
@@ -107,14 +101,12 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
 
-          ^You should [get legal advice] and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix}") before making any plans.^
+          ^You should get legal advice and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix}") before making any plans.^
         uk_resident_os_ceremony_zimbabwe: |
           Contact the [Zimbabwean Embassy in the UK](http://www.zimlondon.gov.zw/index.php/contact-us "Contact the Zimbabwean Embassy in the UK"){:rel="external"} to find out about local marriage laws, including what documents you’ll need.
 
@@ -128,14 +120,12 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
 
-          You should also [get legal advice] before making any plans.
+          You should also get legal advice before making any plans.
         other_resident_os_ceremony_zimbabwe: |
           Contact your nearest embassy or consulate of %{country_name_lowercase_prefix} before making any plans to find out about local marriage laws, including what documents you’ll need. The local British embassy or consulate where you’re getting married may also be able to give you advice.
 
@@ -145,14 +135,14 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
 
-          ^You should [get legal advice] and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix}") before making any plans.^
+          ^You should get legal advice and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix}") before making any plans.^
+        commonwealth_os_all_cni: |
+          The UK doesn’t issue certificates of no impediment (CNI) for marriages in Commonwealth countries. You’ll need to explain that this if you’re asked to provide a CNI or a similar document to prove you’re allowed to marry.
         commonwealth_os_other_countries_south_africe: |
           %You’ll probably be asked for a CNI if you want to marry a South African citizen in South Africa. You’ll need to ask if there are any other documents the authorities will accept instead.%          
         commonwealth_os_other_countries_india: |
@@ -174,7 +164,8 @@ en-GB:
         commonwealth_os_naturalisation: |
           ##Naturalisation of your partner if they move to the UK
 
-          Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen "Becoming a British citizen - If your spouse is a British citizen") once they've lived in the UK for 3 years.  
+          Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen "Becoming a British citizen - If your spouse is a British citizen") once they've lived in the UK for 3 years.
+#Marriage in British overseas territories phrases
         bot_os_ceremony_biot: |
           Access to the British Indian Ocean Territory is restricted, and it’s unlikely that marriage would be allowed there. 
 
@@ -186,10 +177,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
         bot_os_ceremony_non_biot: |
@@ -203,10 +192,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
 
@@ -217,6 +204,7 @@ en-GB:
           ##Naturalisation of your partner if they move to the UK 
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen "Becoming a British citizen - If your spouse is a British citizen") once they've lived in the UK for 3 years.
+#Marriage in a country with consular CNI phrases
         uk_resident_os_consular_cni: |
           Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk "Foreign embassies in the UK") before making any plans to find out about local marriage laws, including what documents you’ll need.
 
@@ -230,10 +218,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
         local_resident_os_consular_cni: |
@@ -245,10 +231,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
         other_resident_os_consular_cni: |
@@ -260,10 +244,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
 
@@ -279,7 +261,11 @@ en-GB:
         uk_resident_os_consular_cni_two: |
           ^Your marriage should be recognised in the UK if you follow the correct process according to local law - but you should [get legal advice](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"} to make sure.^
         other_resident_os_consular_cni_two: |
-          ^Your marriage should be recognised in the UK if you follow the correct process according to local law - but you should [get legal advice] to make sure.^
+          ^Your marriage should be recognised in the UK if you follow the correct process according to local law - but you should get legal advice to make sure.^
+        consular_cni_all_what_you_need_to_do: |
+          ##What you need to do
+
+          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to marry.
         consular_cni_os_italy_scenario_one: |
           ^The authorities in Italy might refer to your situation as ‘Scenario 1’ (British nationals both resident in the UK marrying in Italy).^
         consular_cni_os_italy_scenario_two_a: |
@@ -346,7 +332,7 @@ en-GB:
           s3. Swear an affidavit (written statement of facts) in front of a [solicitor](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"} - there’s an example on the form.
           s4. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
           s5. You’ll also need to include a pre-paid, self-addressed special delivery envelope, or a £10 postage fee, so the FCO can return your documents.
-          s6. Send your completed form to the FCO with your supporting documents, and a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. [You can also pay by credit card online.] Personal cheques aren’t accepted. The address is on the form.
+          s6. Send your completed form to the FCO with your supporting documents, and a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. You can also pay by credit card online. Personal cheques aren’t accepted. The address is on the form.
           s7. FCO will forward your Nulla Osta to the local British embassy or consulate where you’re getting married, usually within 20 days. The embassy or consulate will charge you an additional fee (see below) - they’ll contact you to arrange payment.
           s8. They’ll then send it to the town hall (‘commune’) in Italy where you’re getting married - or another address (such as your wedding planner) if you ask them to. It’s normally valid for 3 months, but you should check this with the commune.
         consular_cni_os_england_or_wales_resident_not_italy: |
@@ -361,7 +347,7 @@ en-GB:
           s3. Swear an affidavit (written statement of facts) in front of a [solicitor](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"} - there’s an example on the form.
           s4. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
           s5. You’ll also need to include a pre-paid, self-addressed special delivery envelope, or a £10 postage fee, so the FCO can return your documents.
-          s6. Send your completed form to the FCO with your supporting documents, and a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. [You can also pay by credit card online.] Personal cheques aren’t accepted. The address is on the form.
+          s6. Send your completed form to the FCO with your supporting documents, and a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. You can also pay by credit card online. Personal cheques aren’t accepted. The address is on the form.
           s7. The FCO will forward your CNI to the local British embassy or consulate where you’re getting married, usually within 20 days - they’ll let you know when it’s ready to collect.
           s8. The embassy or consulate will charge you an additional fee when you pick it up. It’s normally valid for 3 months, but you should check this with the local authorities.
         consular_cni_os_uk_resident_not_italy_two: |
@@ -371,8 +357,8 @@ en-GB:
 
           You should also check if it needs to be:
 
-          - ‘[legalised]’ (certified as genuine) by the FCO
-          - translated - [find a translator abroad], or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046 "Institute of Linguists - find a translator"){:rel="external"}
+          - ‘legalised’ (certified as genuine) by the FCO
+          - translated - find a translator abroad, or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046 "Institute of Linguists - find a translator"){:rel="external"}
 
           You should also check with the local authorities to find out if you need to provide legalised and translated copies of any other documents.
         consular_cni_os_local_resident_not_italy_germany: |
@@ -381,19 +367,12 @@ en-GB:
           ###Applying for a CNI from the consulate
 
           You’ll normally need to have been resident in %{country_name_lowercase_prefix} for at least 21 days. You can then book an appointment at the consulate to give notice of your marriage.
-
-          [link to clickbook if [country] listed under column G of ‘Overseas BDM data’]: [Book an appointment online.]
-          [multiple links to clickbook if [country] listed under column H of ‘Overseas BDM data’]: [Book an appointment online in:]
         consular_cni_os_local_resident_italy: |
           In Italy, a CNI is known as a ‘Nulla Osta’. You’ll need to give notice of your intended marriage (banns) at your nearest British embassy or consulate to get one.
 
           ###Applying for a Nulla Osta from the consulate
 
           You’ll normally need to have been resident in %{country_name_lowercase_prefix} for at least 21 days. You can then book an appointment at the consulate to give notice of your marriage.
-
-          [link to clickbook if [country] listed under column G of ‘Overseas BDM data’]: [Book an appointment online.]
-          [multiple links to clickbook if [country] listed under column H of ‘Overseas BDM data’]: [Book an appointment online in:]
-
         consular_cni_os_foreign_resident: |
           You’ll normally need to give notice of your intended marriage (banns) in the country where you live.
 
@@ -450,10 +429,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
 
@@ -663,7 +640,7 @@ en-GB:
           [Download ‘Application for deposit of foreign marriage certificate’ (DOT, 44KB)](http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/dom-application "Download ‘Application for deposit of foreign marriage certificate’ (DOT, 44KB)")
           $D
 
-          You can pay by postal order or bank draft made payable to ‘FCO’. [You can also pay by credit card online.] Personal cheques aren’t accepted.
+          You can pay by postal order or bank draft made payable to ‘FCO’. You can also pay by credit card online. Personal cheques aren’t accepted.
         consular_cni_os_all_fees: |
           ##Fees
 
@@ -695,10 +672,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
         france_fot_os_ceremony_france_other_resident: |
@@ -710,10 +685,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
         france_fot_os_ceremony_fot_uk_resident: |
@@ -733,10 +706,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
         france_fot_os_ceremony_fot_other_resident: |
@@ -750,10 +721,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
 
@@ -761,7 +730,7 @@ en-GB:
         france_fot_os_uk_resident: |
           ^Your marriage should be recognised in the UK if you follow the correct process according to local law - but you should [get legal advice](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"} to make sure.^
         france_fot_os_not_uk_resident: |
-          ^Your marriage should be recognised in the UK if you follow the correct process according to local law - but you should [get legal advice] to make sure.^
+          ^Your marriage should be recognised in the UK if you follow the correct process according to local law - but you should get legal advice to make sure.^
         france_fot_os_all_what_you_need_to_do: |
           ##What you need to do
 
@@ -778,7 +747,7 @@ en-GB:
           s1. [Download ‘Certificate of custom law application form’ (DOT, 49KB)](http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/cert-of-custom "Download ‘Certificate of custom law application form’ (DOT, 49KB)").
           s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
           s3. You’ll also need to include a pre-paid, self-addressed special delivery envelope, or a £10 postage fee, so the FCO can return your documents.
-          s4. Send your completed form to the FCO with your supporting documents, and a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. [You can also pay by credit card online.] Personal cheques aren’t accepted. The address is on the form.
+          s4. Send your completed form to the FCO with your supporting documents, and a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. You can also pay by credit card online. Personal cheques aren’t accepted. The address is on the form.
           s5. The FCO will confirm that they’ve received your application and return your documents within 4 weeks.
           s6. They’ll then send your application to the British Embassy in Paris, who will issue your certificate between 1 and 3 weeks later.
           s7. The embassy will send your certificate to the address you specified on the form - it’s likely to arrive much sooner if this address is in France.
@@ -791,10 +760,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
         france_fot_os_not_uk_resident_two: |
@@ -840,7 +807,7 @@ en-GB:
           [Download ‘Application for deposit of foreign marriage certificate’ (DOT, 44KB)](http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/dom-application "Download ‘Application for deposit of foreign marriage certificate’ (DOT, 44KB)")
           $D
 
-          You can pay by postal order or bank draft made payable to ‘FCO’. [You can also pay by credit card online.] Personal cheques aren’t accepted.
+          You can pay by postal order or bank draft made payable to ‘FCO’. You can also pay by credit card online. Personal cheques aren’t accepted.
         france_fot_os_all_fees: |
           ##Fees
 
@@ -867,10 +834,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
         affirmation_os_other_resident: |
@@ -882,10 +847,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
 
@@ -893,7 +856,7 @@ en-GB:
         affirmation_os_uk_resident_two: |
           ^Your marriage should be recognised in the UK if you follow the correct process according to local law - but you should [get legal advice](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"} to make sure.^
         affirmation_os_not_uk_resident: |
-          ^Your marriage should be recognised in the UK if you follow the correct process according to local law - but you should [get legal advice] to make sure.^
+          ^Your marriage should be recognised in the UK if you follow the correct process according to local law - but you should get legal advice to make sure.^
         affirmation_os_all_what_you_need_to_do: |
           ##What you need to do
 
@@ -937,7 +900,7 @@ en-GB:
           [Download ‘Application for deposit of foreign marriage certificate’ (DOT, 44KB)](http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/dom-application "Download ‘Application for deposit of foreign marriage certificate’ (DOT, 44KB)")
           $D
 
-          You can pay by postal order or bank draft made payable to ‘FCO’. [You can also pay by credit card online.] Personal cheques aren’t accepted.
+          You can pay by postal order or bank draft made payable to ‘FCO’. You can also pay by credit card online. Personal cheques aren’t accepted.
         affirmation_os_all_fees: |
           ##Fees
 
@@ -967,10 +930,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
         no_cni_os_dutch_caribbean_other_resident: |
@@ -982,10 +943,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C          
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix").
@@ -1002,10 +961,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C          
         no_cni_os_not_dutch_caribbean_other_resident: |
@@ -1017,17 +974,15 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C          
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix").
         no_cni_os_uk_resident: |
           ^Your marriage should be recognised in the UK if you follow the correct process according to local law - but you should [get legal advice](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"} to make sure.^
         no_cni_os_not_uk_resident: |
-          ^Your marriage should be recognised in the UK if you follow the correct process according to local law - but you should [get legal advice] to make sure.^
+          ^Your marriage should be recognised in the UK if you follow the correct process according to local law - but you should get legal advice to make sure.^
         no_cni_os_all_nearest_embassy: |
           There aren’t any British consular facilities to register a marriage or get legal documents to prove you’re eligible to marry in %{country_name_lowercase_prefix}.
 
@@ -1040,10 +995,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
         no_cni_os_all_depositing_certificate: |
@@ -1064,7 +1017,7 @@ en-GB:
           [Download ‘Application for deposit of foreign marriage certificate’ (DOT, 44KB)](http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/dom-application "Download ‘Application for deposit of foreign marriage certificate’ (DOT, 44KB)")
           $D
 
-          You can pay by postal order or bank draft made payable to ‘FCO’. [You can also pay by credit card online.] Personal cheques aren’t accepted.
+          You can pay by postal order or bank draft made payable to ‘FCO’. You can also pay by credit card online. Personal cheques aren’t accepted.
         no_cni_os_all_fees: |
           ##Fees
 
@@ -1088,10 +1041,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
         other_countries_os_burma_partner_local: |
@@ -1105,10 +1056,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
         other_countries_os_north_korea_partner_local: |
@@ -1122,10 +1071,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
         other_countries_os_yemen: |
@@ -1137,10 +1084,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
         other_countries_os_ceremony_saudia_arabia_not_local_resident: |
@@ -1156,10 +1101,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
         other_countries_os_saudi_arabia_local_resident_partner_irish: |
@@ -1175,10 +1118,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C
         other_countries_os_saudi_arabia_local_resident_partner_not_irish: |
@@ -1192,10 +1133,8 @@ en-GB:
           $A
 
           $C
-            %{embassy_website}  
             %{embassy_email}  
             %{embassy_phone}  
-            %{embassy_fax}  
             %{embassy_office_hours}
           $C    
             
@@ -1250,18 +1189,7 @@ en-GB:
         title: |
           Marriage in %{country_name_lowercase_prefix}
         body: |
-          %{country_name_uppercase_prefix} is a member of the Commonwealth. Your marriage should be recognised in the UK if you follow the correct process according to local law. You won’t need to register with the British consulate.
-
-          ^You can’t deposit a copy of your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/ "General Register Office"){:rel="external"} (GRO) in the UK if you get married in a Commonwealth country.^
-
-          ##What you need to do
-          %{commonwealth_os_zimbabwe_variant}
-
-          The UK doesn’t issue certificates of no impediment (CNI) for marriages in Commonwealth countries. You’ll need to explain that this if you’re asked to provide a CNI or a similar document to prove you’re allowed to marry.
-
-          %{commonwealth_os_other_countries_variant}
-          %{commonwealth_os_naturalisation_variant}
-
+          %{commonwealth_os_outcome}
           *[CNI]:certificate of no impediment
           *[GRO]:General Register Office
 
@@ -1275,39 +1203,8 @@ en-GB:
       outcome_os_consular_cni:
         title: Marriage in %{country_name_lowercase_prefix}
         body: |
-          %{consular_cni_os_residency_variant}
-          %{consular_cni_os_gulf_states_variant}
-          %{consular_cni_os_gulf_states_local_resident_not_irish}
-          %{consular_cni_os_spain_variant}
-          %{consular_cni_os_residency_variant_two}
-          ##What you need to do
-
-          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to marry.
-          %{consular_cni_os_italy_variant}
-          %{consular_cni_os_denmark_variant}
-          %{consular_cni_os_germany_local_residency_variant}
-          %{consular_cni_os_italy_variant_two}
-          %{consular_cni_os_residency_variant_three}
-          %{consular_cni_os_italy_variant_three}
-          %{consular_cni_os_uk_residency_not_italy_variant}
-          %{consular_cni_os_uk_residency_not_italy_variant_two}
-          %{consular_cni_os_local_resident_not_italy_or_germany_variant}
-          %{consular_cni_os_local_resident_italy_variant}
-          %{consular_cni_os_foreign_or_commonwealth_resident_variant}
-          %{consular_cni_os_commonwealth_resident_partner_british_variant}
-          %{consular_cni_os_commowealth_or_ireland_resident_variable}
-          %{consular_cni_os_ireland_resident_partner_british_variant}
-          %{consular_cni_os_ireland_residency_variant}
-          %{consular_cni_os_commonwealth_ireland_resident_british_partner_variant}
-          %{consular_cni_os_local_foreign_residency_spain_germany_variant}
-          %{consular_cni_os_local_resident_not_germany_or_spain_or_all_other_residents_variant}
-          %{consular_cni_os_local_foreign_residency_spain_germany_variant_two}
-          %{consular_cni_os_local_resident_not_germany_or_italy_variant}
-          %{consular_cni_os_foreign_resident_not_italy_variant}
-          %{consular_cni_os_commonwealth_resident_ceremony_not_italy_variant}
-
-
-          %{counsular_cni_os_remainder}
+          %{consular_cni_os_start}
+          %{consular_cni_os_remainder}
           *[CNI]:certificate of no impediment
           *[GRO]:General Register Office
           *[FCO]:Foreign &amp; Commonwealth Office
@@ -1343,9 +1240,14 @@ en-GB:
           %{other_countries_os_outcome}
 
 
-# outcome Commonwealth, same sex
+#outcome Commonwealth, same sex
       outcome_ss_commonwealth:
         title: |
           %{ceremony_type} in %{country_name_lowercase_prefix}
         body: |
             
+#outcome for CPs (temporary)
+      outcome_cant_get_there_from_here:
+        title: Civil partnership overseas results
+        body: |
+          Results will appear here.

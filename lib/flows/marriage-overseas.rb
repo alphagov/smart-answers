@@ -33,10 +33,6 @@ country_select :country_of_ceremony? do
     	data = data_query.find_embassy_data(ceremony_country)
     	data.first['address'] if data
   	end
-  	calculate :embassy_website do
-    	data = data_query.find_embassy_data(ceremony_country)
-    	data.first['website'] if data
-  	end		
   	calculate :embassy_email do
     	data = data_query.find_embassy_data(ceremony_country)
     	data.first['email'] if data
@@ -45,16 +41,9 @@ country_select :country_of_ceremony? do
     	data = data_query.find_embassy_data(ceremony_country)
     	data.first['phone'] if data
   	end
-  	calculate :embassy_fax do
-    	data = data_query.find_embassy_data(ceremony_country)
-    	data.first['fax'] if data
-  	end
   	calculate :embassy_office_hours do
     	data = data_query.find_embassy_data(ceremony_country)
     	data.first['office_hours'] if data
-  	end
-  	calculate :embassy_details do
-  		PhraseList.new(:embassy_details_all)
   	end
 	
 	next_node do |response|
@@ -153,18 +142,11 @@ multiple_choice :partner_opposite_or_same_sex? do
 				:outcome_ireland
 			when 'bahamas'
 				:outcome_ss_commonwealth
+			
 			end
 		end
 	end
-
 end
-
-
-
-
-
-
-
 
 
 outcome :outcome_ireland do
@@ -177,8 +159,9 @@ outcome :outcome_ireland do
 	end
 end
 outcome :outcome_os_commonwealth do
-	precalculate :commonwealth_os_zimbabwe_variant do
+	precalculate :commonwealth_os_outcome do
 		phrases = PhraseList.new
+		phrases << :commonwealth_os_all_intro
 		if ceremony_country != 'zimbabwe'
 			if resident_of == 'uk'
 				phrases << :uk_resident_os_ceremony_not_zimbabwe
@@ -196,36 +179,31 @@ outcome :outcome_os_commonwealth do
 				phrases << :other_resident_os_ceremony_zimbabwe
 			end
 		end
-	end
-	precalculate :commonwealth_os_other_countries_variant do
+		phrases << :commonwealth_os_all_cni
 		case ceremony_country
 		when 'south-africa'
 			if partner_nationality == 'partner_local'
-				PhraseList.new(:commonwealth_os_other_countries_south_africe)
+				phrases << :commonwealth_os_other_countries_south_africe
 			end
 		when 'india'
-			PhraseList.new(:commonwealth_os_other_countries_india)
+			phrases << :commonwealth_os_other_countries_india
 		when 'malaysia'
-			PhraseList.new(:commonwealth_os_other_countries_malaysia)
+			phrases << :commonwealth_os_other_countries_malaysia
 		when 'singapore'
-			PhraseList.new(:commonwealth_os_other_countries_singapore)
+			phrases << :commonwealth_os_other_countries_singapore
 		when 'brunei'
-			PhraseList.new(:commonwealth_os_other_countries_brunei)
+			phrases << :commonwealth_os_other_countries_brunei
 		when 'cyprus'
 			if residency_country == 'cyprus'
-				PhraseList.new(:commonwealth_os_other_countries_cyprus)
+				phrases << :commonwealth_os_other_countries_cyprus
 			end
 		end
-	end
-	precalculate :commonwealth_os_naturalisation_variant do
 		if partner_nationality != 'partner_british'
-			PhraseList.new(:commonwealth_os_naturalisation)
-		else ''
+			phrases << :commonwealth_os_naturalisation
 		end
+		phrases
 	end
-
 end
-
 outcome :outcome_os_bot do
 	precalculate :bot_outcome do
 		phrases = PhraseList.new
@@ -246,151 +224,121 @@ end
 
 
 outcome :outcome_os_consular_cni do
-
   precalculate :clickbook_data do
     reg_data_query.clickbook(ceremony_country)
- 	end
+ end
   precalculate :multiple_clickbooks do
     clickbook_data and clickbook_data.class == Hash
   end
   precalculate :clickbooks do
     result = ''
     if multiple_clickbooks
-      clickbook_data.each do |k,v|
-        result += I18n.translate!(i18n_prefix + ".phrases.multiple_clickbook_link", city: k, url: v)
+    	clickbook_data.each do |k,v|
+        	result += I18n.translate!(i18n_prefix + ".phrases.multiple_clickbook_link", city: k, url: v)
     	end
     end
     result
   end
 
-
-
-	precalculate :consular_cni_os_residency_variant do
+  precalculate :consular_cni_os_start do
+  	phrases = PhraseList.new 
 		if resident_of == 'uk'
-			PhraseList.new(:uk_resident_os_consular_cni)
+			phrases << :uk_resident_os_consular_cni
 		elsif residency_country == ceremony_country
-			PhraseList.new(:local_resident_os_consular_cni)
+			phrases << :local_resident_os_consular_cni
 		else
 			unless resident_of == 'uk' or ceremony_country == residency_country
-			PhraseList.new(:other_resident_os_consular_cni)
+			phrases << :other_resident_os_consular_cni
 			end
 		end
-	end
-
-	precalculate :consular_cni_os_gulf_states_variant do
 		case ceremony_country
 		when 'jordan','oman','qatar','united-arab-emirates'
-			PhraseList.new(:gulf_states_os_consular_cni)
+			phrases << :gulf_states_os_consular_cni
 		end
-	end
-	precalculate :consular_cni_os_gulf_states_local_resident_not_irish do
 		case ceremony_country
 		when 'jordan','oman','qatar','united-arab-emirates'
 			if residency_country == ceremony_country and partner_nationality != 'partner_irish'
-				PhraseList.new(:gulf_states_os_consular_cni_local_resident_partner_not_irish)
+				phrases << :gulf_states_os_consular_cni_local_resident_partner_not_irish
 			end
 		end
-	end
-	precalculate :consular_cni_os_spain_variant do
 		if ceremony_country == 'spain'
-			PhraseList.new(:spain_os_consular_cni)
+			phrases << :spain_os_consular_cni
 		end
-	end
-	precalculate :consular_cni_os_residency_variant_two do
 		if resident_of == 'uk'
-			PhraseList.new(:uk_resident_os_consular_cni_two)
+			phrases << :uk_resident_os_consular_cni_two
 		else
-			PhraseList.new(:other_resident_os_consular_cni_two)
+			phrases << :other_resident_os_consular_cni_two
 		end
-	end
-	precalculate :consular_cni_os_italy_variant do
+		phrases << :consular_cni_all_what_you_need_to_do
 		if ceremony_country == 'italy'
 			if resident_of == 'uk' and partner_nationality == 'partner_british'
-				PhraseList.new(:consular_cni_os_italy_scenario_one)
+				phrases << :consular_cni_os_italy_scenario_one
 			elsif resident_of == 'uk' and partner_nationality != 'partner_british' and partner_nationality != 'partner_irish'
-				PhraseList.new(:consular_cni_os_italy_scenario_two_a)
+				phrases << :consular_cni_os_italy_scenario_two_a
 			elsif partner_nationality == 'partner_irish' and residency_uk_region == 'uk_scotland' or residency_uk_region == 'uk_ni'
-				PhraseList.new(:consular_cni_os_italy_scenario_two_b)
+				phrases << :consular_cni_os_italy_scenario_two_b
 			elsif residency_country == ceremony_country and partner_nationality =='partner_british'
-				PhraseList.new(:consular_cni_os_italy_scenario_three)
+				phrases << :consular_cni_os_italy_scenario_three
 			elsif residency_country == ceremony_country and partner_nationality !='partner_british'
-				PhraseList.new(:consular_cni_os_italy_scenario_four)
+				phrases << :consular_cni_os_italy_scenario_four
 			elsif partner_nationality == 'partner_irish' and residency_uk_region == 'uk_england' or residency_uk_region == 'uk_wales'
-				PhraseList.new(:consular_cni_os_italy_scenario_five)
+				phrases << :consular_cni_os_italy_scenario_five
 			elsif data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and partner_nationality == 'partner_british'
-				PhraseList.new(:consular_cni_os_italy_scenario_six)
+				phrases << :consular_cni_os_italy_scenario_six
 			elsif data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and partner_nationality != 'partner_british'
-				PhraseList.new(:consular_cni_os_italy_scenario_seven)
+				phrases << :consular_cni_os_italy_scenario_seven
 			elsif data_query.commonwealth_country?(residency_country)
-				PhraseList.new(:consular_cni_os_italy_scenario_eight)
+				phrases << :consular_cni_os_italy_scenario_eight
 			elsif residency_country == 'ireland'
-				PhraseList.new(:consular_cni_os_italy_scenario_nine)
+				phrases << :consular_cni_os_italy_scenario_nine
 			end
 		end
-	end
-	precalculate :consular_cni_os_denmark_variant do
 		if ceremony_country == 'denmark'
-			PhraseList.new(:consular_cni_os_denmark)
+			phrases << :consular_cni_os_denmark
 		end
-	end
-	precalculate :consular_cni_os_germany_local_residency_variant do
 		if ceremony_country == 'germany' and residency_country == 'germany'
-			PhraseList.new(:consular_cni_os_german_resident)
+			phrases << :consular_cni_os_german_resident
 		end
-	end
-#the consular_cni_os_italy_variant_two calculation is written like this as partner_irish for uk_iom and uk_ci may be different. Awaiting clarifcation from FCO so until then we'll assign the same phrase. (AK)
-	precalculate :consular_cni_os_italy_variant_two do
+#the next calculation is written like this as partner_irish for uk_iom and uk_ci may be different. Awaiting clarifcation from FCO so until then we'll assign the same phrase. (AK)
 		if ceremony_country == 'italy'
 			case residency_uk_region
 			when 'uk_iom','uk_ci'
-					PhraseList.new(:consular_cni_os_italy_iom_ci_partner_not_irish)
+				phrases << :consular_cni_os_italy_iom_ci_partner_not_irish
 			end
 		end
-	end
-	precalculate :consular_cni_os_residency_variant_three do
 		case resident_of
 		when 'uk'
 			if partner_nationality !='partner_irish'
-				PhraseList.new(:uk_resident_partner_not_irish_os_consular_cni_three)
+				phrases << :uk_resident_partner_not_irish_os_consular_cni_three
 			elsif partner_nationality == 'partner_irish' and residency_uk_region == 'uk_scotland' or residency_uk_region == 'uk_ni'
-				PhraseList.new(:scotland_ni_resident_partner_irish_os_consular_cni_three)
+				phrases << :scotland_ni_resident_partner_irish_os_consular_cni_three
 			end
 		end
-	end
-	precalculate :consular_cni_os_italy_variant_three do
 		if ceremony_country == 'italy' and resident_of == 'uk'
 			case residency_uk_region
 			when 'uk_england','uk_wales'
 				if partner_nationality == 'partner_irish'
-					PhraseList.new(:consular_cni_os_england_or_wales_partner_irish_three)
+					phrases << :consular_cni_os_england_or_wales_partner_irish_three
 				else
-					PhraseList.new(:consular_cni_os_scotland_or_ni_partner_irish_or_partner_not_irish_three)
+					phrases << :consular_cni_os_scotland_or_ni_partner_irish_or_partner_not_irish_three
 				end
 			when 'uk_iom', 'uk_ci'
 				''
 			else
-				PhraseList.new(:consular_cni_os_scotland_or_ni_partner_irish_or_partner_not_irish_three)
+				phrases << :consular_cni_os_scotland_or_ni_partner_irish_or_partner_not_irish_three
 			end
 		end
-	end
-	precalculate :consular_cni_os_uk_residency_not_italy_variant do
 		if ceremony_country != 'italy' and partner_nationality == 'partner_irish'
 			if residency_uk_region == 'uk_england' or residency_uk_region == 'uk_wales'
-				PhraseList.new(:consular_cni_os_england_or_wales_resident_not_italy)
+				phrases << :consular_cni_os_england_or_wales_resident_not_italy
 			end
 		end
-	end
-	precalculate :consular_cni_os_uk_residency_not_italy_variant_two do
 		if ceremony_country != 'italy' and resident_of == 'uk'
-			PhraseList.new(:consular_cni_os_uk_resident_not_italy_two)
+			phrases << :consular_cni_os_uk_resident_not_italy_two
 		end
-	end
-
-
-	precalculate :consular_cni_os_local_resident_not_italy_or_germany_variant do
 		if ceremony_country == residency_country
 			if ceremony_country != 'italy' or ceremony_country != 'germany'
-				phrases = PhraseList.new(:consular_cni_os_local_resident_not_italy_germany)
+				phrases << :consular_cni_os_local_resident_not_italy_germany
 				if multiple_clickbooks
 					phrases << :clickbook_links
 				else
@@ -398,118 +346,91 @@ outcome :outcome_os_consular_cni do
 				end
 			end
 		end
-	end
-	
-
-	precalculate :consular_cni_os_local_resident_italy_variant do
 		if ceremony_country == residency_country
 			if ceremony_country == 'italy'
-				PhraseList.new(:consular_cni_os_local_resident_italy)
+				phrases << :consular_cni_os_local_resident_italy
 			end
 		end
-	end
-	precalculate :consular_cni_os_foreign_or_commonwealth_resident_variant do
 		if data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland'
-			PhraseList.new(:consular_cni_os_foreign_resident)
+			phrases << :consular_cni_os_foreign_resident
 		elsif data_query.commonwealth_country?(residency_country) and residency_country != 'ireland'
-			PhraseList.new(:consular_cni_os_commonwealth_resident)
+			phrases << :consular_cni_os_commonwealth_resident
 		end
-	end
-	precalculate :consular_cni_os_commonwealth_resident_partner_british_variant do
 		if data_query.commonwealth_country?(residency_country) and partner_nationality == 'partner_british'
-			PhraseList.new(:consular_cni_os_commonwealth_resident_british_partner)
+			phrases << :consular_cni_os_commonwealth_resident_british_partner
 		end
-	end
-	precalculate :consular_cni_os_commowealth_or_ireland_resident_variable do
 		if data_query.commonwealth_country?(residency_country)
-			PhraseList.new(:consular_cni_os_commonwealth_resident_two)
+			phrases << :consular_cni_os_commonwealth_resident_two
 		elsif residency_country == 'ireland'
-			PhraseList.new(:consular_cni_os_ireland_resident)
+			phrases << :consular_cni_os_ireland_resident
 		end
-	end
-	precalculate :consular_cni_os_ireland_resident_partner_british_variant do
 		if residency_country == 'ireland' and partner_nationality == 'partner_british'
-			PhraseList.new(:consular_cni_os_ireland_resident_british_partner)
+			phrases << :consular_cni_os_ireland_resident_british_partner
 		end
-	end
-	precalculate :consular_cni_os_ireland_residency_variant do
 		if residency_country == 'ireland'
-			PhraseList.new(:consular_cni_os_ireland_resident)
+			phrases << :consular_cni_os_ireland_resident
 		end
-	end
-	precalculate :consular_cni_os_commonwealth_ireland_resident_british_partner_variant do
 		case partner_nationality
 		when 'partner_british'
 			if data_query.commonwealth_country?(residency_country) or residency_country == 'ireland'
-				PhraseList.new(:consular_cni_os_commonwealth_or_ireland_resident_british_partner)
+				phrases << :consular_cni_os_commonwealth_or_ireland_resident_british_partner
 			end
 		else
 			if data_query.commonwealth_country?(residency_country) or residency_country == 'ireland'
-				PhraseList.new(:consular_cni_os_commonwealth_or_ireland_resident_non_british_partner)
+				phrases << :consular_cni_os_commonwealth_or_ireland_resident_non_british_partner
 			end
 		end
-	end
-	precalculate :consular_cni_os_local_foreign_residency_spain_germany_variant do
 		if ceremony_country == residency_country
 			if residency_country != 'spain' and residency_country != 'germany'
-				PhraseList.new(:consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident)			
+				phrases << :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident		
 			elsif ceremony_country == 'spain'
-				PhraseList.new(:consular_cni_variant_local_resident_spain)
+				phrases << :consular_cni_variant_local_resident_spain
 			end
 		elsif data_query.non_commonwealth_country?(residency_country) or residency_country == 'ireland'
-			PhraseList.new(:consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident)
+			phrases << :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident
 		end
-	end
-	precalculate :consular_cni_os_local_resident_not_germany_or_spain_or_all_other_residents_variant do
 		if ceremony_country == residency_country
 			if residency_country != 'spain' and residency_country != 'germany'
-				PhraseList.new(:consular_cni_os_local_resident_not_germany_or_spain_or_all_other_residency)
+				phrases << :consular_cni_os_local_resident_not_germany_or_spain_or_all_other_residency
 			end
 		elsif data_query.non_commonwealth_country?(residency_country) or data_query.commonwealth_country?(residency_country) or residency_country == 'ireland'
-			PhraseList.new(:consular_cni_os_local_resident_not_germany_or_spain_or_all_other_residency)
+			phrases << :consular_cni_os_local_resident_not_germany_or_spain_or_all_other_residency
 		end
-	end
-	precalculate :consular_cni_os_local_foreign_residency_spain_germany_variant_two do
 		if ceremony_country == residency_country
 			if residency_country != 'spain' and residency_country != 'germany'
-				PhraseList.new(:consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident_two)		
+				phrases << :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident_two		
 			end
 		elsif data_query.non_commonwealth_country?(residency_country) or residency_country == 'ireland'
-			PhraseList.new(:consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident_two)
+			phrases << :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident_two
 		end
-	end
-	precalculate :consular_cni_os_local_resident_not_germany_or_italy_variant do
 		if ceremony_country == residency_country
 			if residency_country != 'germany' and residency_country != 'italy'
-				PhraseList.new(:consular_cni_os_local_resident_not_germany_or_italy)
+			phrases << :consular_cni_os_local_resident_not_germany_or_italy
 			end
 		elsif ceremony_country == residency_country and residency_country == 'italy'
-			Phrase.new(:consular_cni_os_local_resident_italy_two)
+			phrases << :consular_cni_os_local_resident_italy_two
 		end
-	end
-	precalculate :consular_cni_os_foreign_resident_not_italy_variant do
 		case ceremony_country
 		when 'italy'
 			if data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != residency_country
-				PhraseList.new(:consular_cni_os_foreign_resident_ceremony_italy)
+				phrases << :consular_cni_os_foreign_resident_ceremony_italy
 			end
 		else			
 			if data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != residency_country
-				PhraseList.new(:consular_cni_os_foreign_resident_ceremony_not_italy)
+				phrases << :consular_cni_os_foreign_resident_ceremony_not_italy
 			end
 		end
-	end
-	precalculate :consular_cni_os_commonwealth_resident_ceremony_not_italy_variant do
 		if ceremony_country != 'italy'
 			if data_query.commonwealth_country?(residency_country)
-				PhraseList.new(:consular_cni_os_commonwealth_resident_ceremony_not_italy)
+				phrases << :consular_cni_os_commonwealth_resident_ceremony_not_italy
 			elsif residency_country == 'ireland'
-				PhraseList.new(:consular_cni_os_ireland_resident_ceremony_not_italy)
+				phrases << :consular_cni_os_ireland_resident_ceremony_not_italy
 			end
 		end
+		phrases
 	end
 
-	precalculate :counsular_cni_os_remainder do
+	precalculate :consular_cni_os_remainder do
 		phrases = PhraseList.new
 		if data_query.commonwealth_country?(residency_country) and ceremony_country == 'italy'
 			phrases << :consular_cni_os_commonwealth_resident_ceremony_italy
@@ -740,5 +661,6 @@ outcome :outcome_os_other_countries do
 	end
 end
 outcome :outcome_ss_commonwealth
+outcome :outcome_cant_get_there_from_here
 
 
