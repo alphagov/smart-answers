@@ -16,6 +16,8 @@ country_select :country_of_ceremony? do
 		case ceremony_country
 		when 'bahamas','gambia','british-virgin-islands','cayman-islands','falkland-islands','turks-and-caicos-islands','dominican-republic','russian-federation'
 			"the #{ceremony_country_name}"
+		when 'korea'
+			"south #{ceremony_country_name}"
 		else
 			"#{ceremony_country_name}"
 		end
@@ -24,6 +26,8 @@ country_select :country_of_ceremony? do
 		case ceremony_country
 		when 'bahamas','gambia','british-virgin-islands','cayman-islands','falkland-islands','turks-and-caicos-islands','dominican-republic','russian-federation'
 			"The #{ceremony_country_name}"
+		when 'korea'
+			"South #{ceremony_country_name}"
 		else
 			"#{ceremony_country_name}"
 		end
@@ -142,7 +146,16 @@ multiple_choice :partner_opposite_or_same_sex? do
 				:outcome_ireland
 			when 'bahamas'
 				:outcome_ss_commonwealth
-			
+			when 'argentina','austria','belgium','brazil','colombia','denmark','ecuador','finland','germany','hungary','iceland','luxembourg','netherlands','norway','portugal','slovenia','spain','sweden','switzerland'
+				:outcome_cp_cp_or_equivalent
+			when 'czech-republic'
+				if partner_nationality == 'partner_local'
+					:outcome_cp_cp_or_equivalent
+				else
+					:outcome_ss_commonwealth
+				end
+			else
+				:outcome_ss_commonwealth
 			end
 		end
 	end
@@ -653,14 +666,47 @@ outcome :outcome_os_other_countries do
 				end
 				if partner_nationality != 'partner_irish'
 					phrases << :other_countries_os_saudi_arabia_local_resident_partner_not_irish_two
-				end
-					
+				end					
 			end
 		end
 		phrases
 	end
 end
 outcome :outcome_ss_commonwealth
-outcome :outcome_cant_get_there_from_here
+outcome :outcome_cp_cp_or_equivalent do
+	precalculate :cp_or_equivalent_cp_outcome do
+		phrases = PhraseList.new
+		phrases << :cp_or_equivalent_cp_all_intro
+		if data_query.cp_equivalent_countries?(ceremony_country)
+			phrases << :"cp_or_equivalent_cp_#{ceremony_country}"
+		end
+		if ceremony_country == 'czech-republic' and partner_nationality == 'partner_local'
+			phrases << :cp_or_equivalent_cp_czech_republic_partner_local
+		end
+		if resident_of == 'uk'
+			phrases << :cp_or_equivalent_cp_uk_resident
+		elsif ceremony_country == residency_country
+			phrases << :cp_or_equivalent_cp_local_resident
+		elsif ceremony_country != residency_country and resident_of !='uk'
+			phrases << :cp_or_equivalent_cp_other_resident
+		end
+		phrases << :cp_or_equivalent_cp_all_what_you_need_to_do
+		if partner_nationality != 'partner_british'
+			phrases << :cp_or_equivalent_cp_naturalisation
+		end
+		phrases << :cp_or_equivalent_all_depositing_certificate
+		if resident_of == 'uk'
+			phrases << :cp_or_equivalent_cp_uk_resident_two
+		end
+		phrases << :cp_or_equivalent_cp_all_fees
+		case ceremony_country
+		when 'czech-republic','hungary','iceland','luxembourg','poland','slovenia'
+			phrases << :cp_or_equivalent_cp_local_currency_countries
+		else
+			phrases << :cp_or_equivalent_cp_cash_or_credit_card_countries
+		end
+		phrases
+	end
+end
 
 

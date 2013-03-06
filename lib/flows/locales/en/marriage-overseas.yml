@@ -415,7 +415,7 @@ en-GB:
           (High Commission address)
           $E
 
-          You need to wait 21 days after placing the announcement to allow for any objections to be registered. You’ll then need to swear an oath or affidavit (written statement of facts) in front of a local [solicitor or public notary] stating that you’re free to marry.
+          You need to wait 21 days after placing the announcement to allow for any objections to be registered. You’ll then need to swear an oath or affidavit (written statement of facts) in front of a local solicitor or public notary stating that you’re free to marry.
         consular_cni_os_commonwealth_resident_british_partner: |
           ^You’ll both need to place separate announcements and swear separate oaths if you’re both British nationals.^
         consular_cni_os_commonwealth_resident_two: |
@@ -459,7 +459,7 @@ en-GB:
           British Embassy in Ireland, 29 Merrion Road, Ballsbridge, Dublin 4
           $E
 
-          You need to wait 21 days after placing the announcement to allow for any objections to be registered. You’ll then need to swear an oath or affidavit (written statement of facts) in front of a local [solicitor or public notary] stating that you’re free to marry.
+          You need to wait 21 days after placing the announcement to allow for any objections to be registered. You’ll then need to swear an oath or affidavit (written statement of facts) in front of a local solicitor or public notary stating that you’re free to marry.
         consular_cni_os_ireland_resident_british_partner: |
           ^You’ll both need to place separate announcements and swear separate oaths if you’re both British nationals.^
         consular_cni_os_ireland_resident: |
@@ -501,7 +501,7 @@ en-GB:
           - a [decree absolute or final order](/copy-decree-absolute-final-order "Get a copy of a decree absolute or final order"), or
           - the [death certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate")
 
-          ^You’ll also need to provide evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated] if it’s not in English.^
+          ^You’ll also need to provide evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it translated if it’s not in English.^
 
           You’ll also need to provide evidence if you’ve changed your name by deed poll.
         consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident_two: |
@@ -589,7 +589,7 @@ en-GB:
 
           ^In some parts of Spain you may need to to get a ‘marital status certificate’ (‘certificado de estado civil’) instead of, or as well as, a CNI ('certificado de no impedimento'). Check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC "Spanish Ministry of Justice - civil registries"){:rel="external"} where you’re getting married.^
 
-          Check with the  civil registry to find out if you need a marital status certificate. You can get one through a [solicitor] (‘abogado’). Ask them to draw up a declaration for you printed on their headed paper, and bring this to the consulate.
+          Check with the  civil registry to find out if you need a marital status certificate. You can get one through a solicitor (‘abogado’). Ask them to draw up a declaration for you printed on their headed paper, and bring this to the consulate.
 
           You’ll then need to make an appointment at the consulate to make the declaration and sign the document in front of a consular officer - so don’t sign it beforehand.
 
@@ -794,7 +794,7 @@ en-GB:
 
           This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate") in English at any time from GRO.
 
-          Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in %{country_name_lowercase_prefix} and [translated into English] first. 
+          Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in %{country_name_lowercase_prefix} and translated into English first. 
 
           ^You’ll need to get a multilingual extract of the marriage register (‘formule plurilingue d’extrait de l’acte de mariage’) from the mairie if you want to deposit your certificate in the UK.^
         france_fot_os_uk_resident_three: |
@@ -871,7 +871,7 @@ en-GB:
           - a [decree absolute or final order](/copy-decree-absolute-final-order "Get a copy of a decree absolute or final order"), or
           - the [death certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate")
 
-          ^You’ll also need to provide evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated] if it’s not in English.^
+          ^You’ll also need to provide evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it translated if it’s not in English.^
 
           You’ll also need to provide evidence if you’ve changed your name by deed poll.
         affirmation_os_partner_british: |
@@ -1175,6 +1175,162 @@ en-GB:
           You normally have to pay fees for consular services in the local currency - these are shown in the [list of consular fees for %{country_name_lowercase_prefix}].
 
           You can pay by cash or credit card, but not by personal cheque. 
+#CP in countries with CP or equivalent phrases
+        cp_or_equivalent_cp_all_intro: |
+          You can get a same-sex relationship legally recognised in %{country_name_lowercase_prefix}. Your union should be recognised as a civil partnership in the UK if you follow the correct process according to local law.
+        cp_or_equivalent_cp_argentina: |
+          Same-sex relationships in Argentina that are recognised as civil partnerships under British law are known as:
+
+          - marriage
+          - ‘unión civil’, or ‘civil union’
+        cp_or_equivalent_cp_austria: |
+          Same-sex relationships in Austria that are recognised as civil partnerships under British law are known as ‘eingetragene Partnerschaft’, or ‘registered partnership’.
+        cp_or_equivalent_cp_belgium: |
+          Same-sex relationships in Belgium that are recognised as civil partnerships under British law are known as:
+
+          - marriage
+          - 'cohabitation légale', 'wettelijke samenwoning', or 'gesetzliches zusammenwohnen' ('statutory cohabitation')
+        cp_or_equivalent_cp_brazil: |
+          Same-sex relationships in Brazil that are recognised as civil partnerships under British law are known as:
+
+          - marriage
+          - 'união estável', or 'stable union'.
+        cp_or_equivalent_cp_colombia: |
+          Same-sex relationships in Colombia that are recognised as civil partnerships under British law are known as ‘unión de hecho’, or ‘common-law relationship’.
+        cp_or_equivalent_cp_czech_republic_partner_local: |
+          Same-sex relationships in the Czech Republic that are recognised as civil partnerships under British law are known as 'registrované partnerství', or ‘registered partnership’. Your partner must be a Czech citizen.
+        cp_or_equivalent_cp_denmark: |
+          Same-sex relationships in Denmark that are recognised as civil partnerships under British law are known as:
+
+          - marriage
+          - 'registreret partnerskab' ('registered partnership')
+          - ‘nalunaarsukkamik inooqatigiinneq’ (in Greenland)
+        cp_or_equivalent_cp_ecuador: |
+          Same-sex relationships in Ecuador that are recognised as civil partnerships under British law are known as ‘unión civil’, or ‘civil union’.
+        cp_or_equivalent_cp_finland: |
+          Same-sex relationships in Finland that are recognised as civil partnerships under British law are known as 'rekisteröity parisuhde', or 'registrerad partnerskap' ('registered partnership').
+        cp_or_equivalent_cp_germany: |
+          Same-sex relationships in Germany that are recognised as civil partnerships under British law are known as 'Lebenspartnerschaft', or 'life partnership'.
+        cp_or_equivalent_cp_hungary: |
+          Same-sex relationships in Hungary that are recognised as civil partnerships under British law are known as 'bejegyzett élettársi kapcsolat', or 'registered partnership'.
+        cp_or_equivalent_cp_iceland: |
+          Same-sex relationships in Iceland that are recognised as civil partnerships under British law are known as:
+
+          - marriage
+          - 'staðfesta samvist', or 'confirmed cohabitation'
+        cp_or_equivalent_cp_luxembourg: |
+          Same-sex relationships in Luxembourg that are recognised as civil partnerships under British law are known as 'partenariat enregistré', or 'eingetragene partnerschaft' ('registered partnership').
+        cp_or_equivalent_cp_netherlands: |
+          Same-sex relationships in the Netherlands that are recognised as civil partnerships under British law are known as:
+
+          - marriage
+          - 'geregistreerd partnerschap' ('registered partnership')
+        cp_or_equivalent_cp_norway: |
+          Same-sex relationships in Norway that are recognised as civil partnerships under British law are known as:
+
+          - marriage
+          - 'registrert partnerskap', or 'registered partnership'.
+        cp_or_equivalent_cp_portugal: |
+          Same-sex relationships in Portugal that are recognised as civil partnerships under British law are known as ‘marriage’.
+        cp_or_equivalent_cp_slovenia: |
+          Same-sex relationships in Slovenia that are recognised as civil partnerships under British law are known as 'istospolne partnerske skupnosti’, or ‘same-sex partnerships’.
+        cp_or_equivalent_cp_spain: |
+          Same-sex relationships in Spain that are recognised as civil partnerships under British law are known as ‘marriage’.
+        cp_or_equivalent_cp_sweden: |
+          Same-sex relationships in Sweden that are recognised as civil partnerships under British law are known as:
+
+          - marriage
+          - 'registrerat partnerskap', or 'registered partnership'.
+        cp_or_equivalent_cp_switzerland: |
+          Same-sex relationships in Switzerland that are recognised as civil partnerships under British law are known as 'eingetragene Partnerschaft', 'partenariat enregistré', 'unione domestica registrata' or 'partenadi registrà' ('registered partnership').
+        cp_or_equivalent_cp_uk_resident: |
+          Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk "Foreign embassies in the UK") before making any plans to find out about local laws, including what documents you’ll need.
+
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix}").
+
+          The local British embassy or consulate where you’re planning the ceremony may also be able to give you advice.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_office_hours}
+          $C
+        cp_or_equivalent_cp_local_resident: |
+          Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need. The local British embassy or consulate may also be able to give you advice, or put you in touch with the relevant local authorities if you don’t know who to contact.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_office_hours}
+          $C
+        cp_or_equivalent_cp_other_resident: |
+          Contact your nearest embassy or consulate of %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need. The local British embassy or consulate where you’re planning the ceremony may also be able to give you advice.
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_email}  
+            %{embassy_phone}  
+            %{embassy_office_hours}
+          $C
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix}") before making any plans.
+        cp_or_equivalent_cp_all_what_you_need_to_do: |
+          ##What you need to do
+
+          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to enter into a civil partnership or equivalent in %{country_name_lowercase_prefix}.
+
+          Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.
+
+        cp_or_equivalent_cp_naturalisation: |
+          ##Naturalisation of your partner if they move to the UK
+
+          Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen "Becoming a British citizen - If your spouse is a British citizen") once they've lived in the UK for 3 years.
+        cp_or_equivalent_all_depositing_certificate: |
+          ##Depositing your civil partnership certificate in the UK
+
+          You can deposit your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/ "General Register Office"){:rel="external"} (GRO) in the UK for safe-keeping after your wedding.  There’s a fee for this service (see below).
+
+          This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate") in English at any time from GRO.
+
+          Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in %{country_name_lowercase_prefix} and translated into English first.
+        cp_or_equivalent_cp_uk_resident_two: |
+          ###Depositing your certificate when you’re back home
+
+          You can also deposit your certificate when you’re back in the UK by sending it to the Foreign & Commonwealth Office (FCO). The address is on the form. You’ll need to include the fee and supporting documents listed in the form.
+
+
+          $D
+          [Download ‘Application for deposit of foreign civil partnership certificate’ (DOT, 45KB)](http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/cp-deposit-application "Download ‘Application for deposit of foreign civil partnership certificate’ (DOT, 45KB)")
+          $D
+
+          You can pay by postal order or bank draft made payable to ‘FCO’. You can also pay by credit card online. Personal cheques aren’t accepted.
+        cp_or_equivalent_cp_all_fees: |
+          ##Fees
+
+          Service | Fee
+          -|-
+          Issuing a CNI or equivalent | £65
+          Depositing a civil partnership certificate | £35
+
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of consular fees for %{country_name_lowercase_prefix}.
+        cp_or_equivalent_cp_local_currency_countries: |
+          ^You can only pay by cash in %{country_name_lowercase_prefix}. This must be in the local currency.^
+        cp_or_equivalent_cp_cash_or_credit_card_countries: |
+          You can pay by cash or credit card, but not by personal cheque.
+
 
 # Outcomes
 # outcome Ireland
@@ -1245,9 +1401,15 @@ en-GB:
         title: |
           %{ceremony_type} in %{country_name_lowercase_prefix}
         body: |
-            
-#outcome for CPs (temporary)
-      outcome_cant_get_there_from_here:
-        title: Civil partnership overseas results
+          These calculations are not yet done.
+#outcome for CP in country with CP or equivalent
+      outcome_cp_cp_or_equivalent:
+        title: Civil partnership in %{country_name_lowercase_prefix}
         body: |
-          Results will appear here.
+          %{cp_or_equivalent_cp_outcome}
+          *[GRO]:General Register Office
+          *[FCO]:Foreign &amp; Commonwealth Office
+
+
+
+          
