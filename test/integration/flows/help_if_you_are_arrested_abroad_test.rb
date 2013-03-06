@@ -33,7 +33,7 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
         should "correctly set up phrase lists" do
           assert_phrase_list :intro, [:common_intro]
           assert_phrase_list :generic_downloads, [:common_downloads]
-          assert_phrase_list :after_downloads, [:fco_cant_do, :dual_nationals_other_help]
+          assert_phrase_list :after_downloads, [:fco_cant_do, :dual_nationals_other_help, :further_links]
           assert_state_variable :has_extra_downloads, false
           assert_phrase_list :country_downloads, []
         end
@@ -56,6 +56,12 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
         should "set up the country specific downloads phraselist" do
           assert_state_variable :has_extra_downloads, true
           assert_phrase_list :country_downloads, [:specific_downloads]
+        end
+
+        should "correctly calculate other phrase lists" do
+          assert_phrase_list :intro, [:common_intro]
+          assert_phrase_list :generic_downloads, [:common_downloads]
+          assert_phrase_list :after_downloads, [:fco_cant_do, :dual_nationals_other_help, :further_links]
         end
       end
 
@@ -85,6 +91,7 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
     should "take them to the special Iran outcome" do
       assert_current_node :answer_two_iran
       assert_phrase_list :downloads, [:common_downloads]
+      assert_phrase_list :further_help_links, [:further_links]
     end
 
   end
@@ -97,6 +104,7 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
     should "take the user to the Syria answer" do
       assert_current_node :answer_three_syria
       assert_phrase_list :downloads, [:common_downloads]
+      assert_phrase_list :further_help_links, [:further_links]
     end
   end
 

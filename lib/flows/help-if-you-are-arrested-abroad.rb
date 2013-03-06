@@ -71,19 +71,32 @@ outcome :answer_one_generic do
     has_extra_downloads ? PhraseList.new(:specific_downloads) : PhraseList.new
   end
 
-  precalculate :after_downloads do
-    PhraseList.new(:fco_cant_do, :dual_nationals_other_help)
+  precalculate :further_help_links do
+    PhraseList.new(:further_links)
   end
+
+  precalculate :after_downloads do
+    PhraseList.new(:fco_cant_do, :dual_nationals_other_help, :further_links)
+  end
+
 end
 
 outcome :answer_two_iran do
   precalculate :downloads do
     PhraseList.new(:common_downloads)
   end
+
+  precalculate :further_help_links do
+    PhraseList.new(:further_links)
+  end
 end
 
 outcome :answer_three_syria do
   precalculate :downloads do
     PhraseList.new(:common_downloads)
+  end
+
+  precalculate :further_help_links do
+    PhraseList.new(:further_links)
   end
 end

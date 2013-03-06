@@ -35,7 +35,7 @@ en-GB:
           - helping with complaints about the police or prison (eg, ill treatment, personal safety, discrimination) with the arrested person or prisoner’s permission
           - sending money to the arrested person from their family
           - sending messages between the arrested person and their family
-          - putting the prisoners in touch with the charity [Prisoners Abroad](www.prisonersabroad.org.uk “Prisoners Abroad”){:rel=”external”}
+          - putting the prisoners in touch with the charity [Prisoners Abroad](http://www.prisonersabroad.org.uk “Prisoners Abroad”){:rel=”external”}
           - helping British prisoners apply for a transfer to UK where possible
           - visiting prisoners when needed
         common_downloads: |
@@ -71,11 +71,15 @@ en-GB:
 
           ##Other organisations that can help
 
+
+        further_links: |
+
           Further help and advice is available from:
 
-          - [Fair Trials International](http://www.fairtrials.net/ “Fair Trials International”){:rel=”external”}
-          - [Prisoners Abroad](www.prisonersabroad.org.uk “Prisoners Abroad”){:rel=”external”}
-          - [Reprieve](http://www.reprieve.org.uk/ “Reprieve”){:rel=”external”}
+          - [Fair Trials International](http://www.fairtrials.net/ "Fair Trials International"){:rel="external"}
+          - [Prisoners Abroad](http://www.prisonersabroad.org.uk "Prisoners Abroad"){:rel="external"}
+          - [Reprieve](http://www.reprieve.org.uk/ "Reprieve"){:rel="external"}
+
 
         specific_downloads: |
           ##Download prisoner packs and other helpful information
@@ -118,11 +122,8 @@ en-GB:
 
           %{downloads}
 
-          Further help and advice is available from:
+          %{further_help_links}
 
-          - [Fair Trials International](http://www.fairtrials.net/ “Fair Trials International”){:rel=”external”}
-          - [Prisoners Abroad](www.prisonersabroad.org.uk “Prisoners Abroad”){:rel=”external”}
-          - [Reprieve](http://www.reprieve.org.uk/ “Reprieve”){:rel=”external”}
 
       answer_three_syria:
         body: |
@@ -140,9 +141,6 @@ en-GB:
 
           %{downloads}
 
-          Further help and advice is available from:
+          %{further_help_links}
 
-          - [Fair Trials International](http://www.fairtrials.net/ “Fair Trials International”){:rel=”external”}
-          - [Prisoners Abroad](www.prisonersabroad.org.uk “Prisoners Abroad”){:rel=”external”}
-          - [Reprieve](http://www.reprieve.org.uk/ “Reprieve”){:rel=”external”}
 
