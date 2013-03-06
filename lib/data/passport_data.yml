@@ -2,6 +2,7 @@
 afghanistan: 
   :type: afghanistan
   :group: ips_documents_group_3
+  :helpline: afghanistan 
 albania: 
   :type: ips_application_1
   :group: ips_documents_group_3
@@ -53,6 +54,7 @@ bahrain:
 bangladesh: 
   :type: bangladesh
   :group: ips_documents_group_3
+  :helpline: pretoria_south_africa 
 barbados: 
   :type: washington_usa
   :group: ips_documents_group_2
@@ -68,6 +70,7 @@ belize:
 benin: 
   :type: lagos_nigeria
   :group: ips_documents_group_3
+  :helpline: pretoria_south_africa
 bermuda: 
   :type: washington_usa
   :group: ips_documents_group_2
@@ -110,12 +113,14 @@ burma:
 burundi: 
   :type: burundi
   :group: ips_documents_group_3
+  :helpline: pretoria_south_africa
 cambodia: 
   :type: hong_kong
   :group: ips_documents_group_3
 cameroon: 
   :type: cameroon
   :group: ips_documents_group_3
+  :helpline: pretoria_south_africa
 canada: 
   :type: washington_usa
   :group: ips_documents_group_1
@@ -176,6 +181,7 @@ denmark:
 djibouti: 
   :type: nairobi_kenya
   :group: ips_documents_group_3
+  :helpline: pretoria_south_africa
 dominica,-commonwealth-of: 
   :type: washington_usa
   :group: ips_documents_group_2
@@ -197,12 +203,14 @@ equatorial-guinea:
 eritrea: 
   :type: eritrea
   :group: ips_documents_group_3
+  :helpline: pretoria_south_africa
 estonia: 
   :type: ips_application_1
   :group: ips_documents_group_1
 ethiopia: 
   :type: ethiopia
   :group: ips_documents_group_3
+  :helpline: pretoria_south_africa
 falkland-islands:
   :type: ips_application_1
   :group: ips_documents_group_1
@@ -227,12 +235,14 @@ gabon:
 gambia: 
   :type: gambia
   :group: ips_documents_group_3
+  :helpline: pretoria_south_africa
 georgia: 
   :type: ips_application_2
   :group: ips_documents_group_2
 germany: 
   :type: ips_application_1
   :group: ips_documents_group_1
+  :helpline: pretoria_south_africa
 ghana: 
   :type: ghana
   :group: ips_documents_group_3
@@ -290,6 +300,7 @@ iran:
 iraq: 
   :type: iraq
   :group: ips_documents_group_3
+  :helpline: paris_france
 ireland: 
   :type: dublin_ireland
   :group: ips_documents_group_1
@@ -314,6 +325,7 @@ kazakhstan:
 kenya: 
   :type: nairobi_kenya
   :group: ips_documents_group_3
+  :helpline: pretoria_south_africa
 kiribati: 
   :type: wellington_new_zealand
   :group: ips_documents_group_1
@@ -338,6 +350,7 @@ latvia:
 lebanon: 
   :type: lebanon
   :group: ips_documents_group_3
+  :helpline: france
 lesotho: 
   :type: pretoria_south_africa
   :group: ips_documents_group_2
@@ -449,9 +462,11 @@ niger:
 nigeria: 
   :type: lagos_nigeria
   :group: ips_documents_group_3
+  :helpline: pretoria_south_africa
 north-korea: 
   :type: north_korea
   :group: ips_documents_group_3
+  :helpline: hong_kong
 norway: 
   :type: ips_application_1
   :group: ips_documents_group_1
@@ -461,6 +476,7 @@ oman:
 pakistan: 
   :type: pakistan
   :group: ips_documents_group_3
+  :helpline: hong_kong 
 palau: 
   :type: hong_kong
   :group: ips_documents_group_1
@@ -479,6 +495,7 @@ peru:
 philippines: 
   :type: philippines
   :group: ips_documents_group_3
+  :helpline: hong_kong
 pitcairn: 
   :type: wellington_new_zealand
   :group: ips_documents_group_1
@@ -527,6 +544,7 @@ seychelles:
 sierra-leone: 
   :type: sierra-leone
   :group: ips_documents_group_3
+  :helpline: pretoria_south_africa
 singapore: 
   :type: hong_kong
   :group: ips_documents_group_1
@@ -542,6 +560,7 @@ solomon-islands:
 somalia: 
   :type: somalia
   :group: ips_documents_group_3
+  :helpline: pretoria_south_africa
 south-africa: 
   :type: pretoria_south_africa
   :group: ips_documents_group_2
@@ -551,6 +570,7 @@ south-georgia-and-south-sandwich-islands:
 south-sudan: 
   :type: south-sudan
   :group: ips_documents_group_3
+  :helpline: pretoria_south_africa
 spain: 
   :type: madrid_spain
   :group: ips_documents_group_1
@@ -578,6 +598,7 @@ st-vincent-and-the-grenadines:
 sudan: 
   :type: sudan
   :group: ips_documents_group_3
+  :helpline: paris_france
 suriname: 
   :type: washington_usa
   :group: ips_documents_group_2
@@ -605,6 +626,7 @@ tanzania:
 thailand: 
   :type: thailand
   :group: ips_documents_group_2
+  :helpline: hong_kong
 timor-leste:
   :type: hong_kong
   :group: ips_documents_group_1
@@ -662,6 +684,7 @@ vanuatu:
 venezuela: 
   :type: venezuela
   :group: ips_documents_group_3
+  :helpline: washington_usa
 vietnam: 
   :type: hong_kong
   :group: ips_documents_group_3
@@ -674,9 +697,12 @@ western-sahara:
 yemen: 
   :type: yemen
   :group: ips_documents_group_3
+  :helpline: yemen
 zambia: 
   :type: zambia
   :group: ips_documents_group_3
+  :helpline: pretoria_south_africa
 zimbabwe: 
   :type: zimbabwe
   :group: ips_documents_group_3
+  :helpline: pretoria_south_africa
