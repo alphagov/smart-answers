@@ -166,6 +166,16 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         should "ask when the next pay day is" do
                           assert_current_node :when_is_your_employees_next_pay_day?
                         end
+
+                        context "next pay date is 11th August 2012" do
+                          setup do
+                            add_response Date.parse("11 August 2012")
+                          end
+
+                          should "show the result node" do
+                            assert_current_node :maternity_leave_and_pay_result
+                          end
+                        end
                       end
 
                       # should "output a calendar" do

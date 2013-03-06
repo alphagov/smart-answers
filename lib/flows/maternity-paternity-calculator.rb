@@ -189,6 +189,10 @@ end
 
 ## QM8
 date_question :when_is_your_employees_next_pay_day? do
+  calculate :next_pay_day do
+    Date.parse(responses.last)
+  end
+
   next_node :maternity_leave_and_pay_result
 end
 
