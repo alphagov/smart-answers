@@ -1,11 +1,11 @@
 require_relative "../../test_helper"
 require_relative "flow_test_helper"
 
-class CalculateEmployeeMinimumWageTest < ActiveSupport::TestCase
+class MinimumWageCalculatorEmployersTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow "calculate-employee-minimum-wage"
+    setup_for_testing_flow "minimum-wage-calculator-employers"
   end
   
   # Q1

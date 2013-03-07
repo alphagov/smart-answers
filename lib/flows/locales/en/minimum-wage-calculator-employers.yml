@@ -1,6 +1,6 @@
 en-GB:
   flow:
-    calculate-employee-minimum-wage:
+    minimum-wage-calculator-employers:
       title: National Minimum Wage calculator
       body: |
         Employers can use the calculator to check if they are paying the National Minimum Wage.
