@@ -69,14 +69,14 @@ en-GB:
           |Pay                                            | Key facts                   |
           |-----------------------------------------------|-----------------------------|
           |Average weekly earnings                        | £%{average_weekly_earnings} (don't round this up or down) |
+          |Latest date to claim SMP                       | %{notice_request_pay}       |
+          |SMP start date due to pregnancy related illness| %{ssp_stop}                 |
+          |Proof of pregnancy                             | Usually within 21 days of the SMP start date (or as soon as possible if baby born early) |
+          |SMP start date                                 | %{pay_start_date}           |
+          |SMP end date                                   | %{pay_end_date}             |
           |Weekly rate - first 6 weeks                    | £%{smp_a}                   |
           |Weekly rate - for remaining 33 weeks           | £%{smp_b}                   |
           |Total SMP                                      | £%{total_smp}               |
-          |Start date                                     | %{pay_start_date}           |
-          |End date                                       | %{pay_end_date}             |
-          |Latest date to claim SMP                       | %{notice_request_pay}       |
-          |Proof of pregnancy                             | Usually within 21 days of the SMP start date (or as soon as possible if baby born early) |
-          |SMP start date due to pregnancy related illness| %{ssp_stop}           |
 
 
         not_entitled_to_smp_intro: |
