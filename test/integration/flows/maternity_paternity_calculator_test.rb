@@ -39,7 +39,8 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         add_response Date.parse("10 July 2012")
         add_response "weekly"
         add_response "200"
-        #TODO:(k) assert_state_variable "lower_earning_limit", sprintf("%.2f",107)
+        add_response "weekly_starting"
+        assert_state_variable "lower_earning_limit", sprintf("%.2f", 107)
       end
       should "return lower_earning_limit of £102" do
         dd = Date.parse("1 January 2012")
@@ -52,7 +53,8 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         add_response Date.parse("10 July 2011")
         add_response "weekly"
         add_response "200"
-        #TODO:(k) assert_state_variable "lower_earning_limit", sprintf("%.2f",102)
+        add_response "weekly_starting"
+        assert_state_variable "lower_earning_limit", sprintf("%.2f", 102)
       end
     end
 
