@@ -16,18 +16,21 @@ module SmartAnswer::Calculators
       @minimum_wage_data = minimum_wage_data_for_date(@date)
     end
 
-    def basic_rate_check
+    def basic_rate
       rate = @basic_pay / @basic_hours
-      rate = @overtime_hourly_rate if rate > @overtime_hourly_rate and @overtime_hourly_rate > 0
-      rate
+      if @overtime_hours > 0 and rate > @overtime_hourly_rate
+        @overtime_hourly_rate
+      else
+        rate
+      end
     end
 
-    def  basic_pay_check
-      basic_total = basic_rate_check * @basic_hours
+    def basic_total
+      basic_rate * @basic_hours
     end
 
     def basic_hourly_rate
-      basic_rate_check.round(2)
+      basic_rate.round(2)
     end
 
     def minimum_hourly_rate
@@ -47,8 +50,12 @@ module SmartAnswer::Calculators
       (@overtime_hours * @overtime_hourly_rate).round(2)
     end
 
+    def total_working_pay
+      (basic_total + total_overtime_pay).round(2)
+    end
+
     def total_pay
-      (basic_pay_check + total_overtime_pay + @accommodation_cost).round(2)
+      (basic_total + total_overtime_pay + @accommodation_cost).round(2)
     end
 
     def total_hourly_rate
@@ -66,10 +73,7 @@ module SmartAnswer::Calculators
     def total_underpayment
       tu = total_entitlement - total_pay
       (tu < 1 ? 0.0 : tu).round(2)
-      # tu
     end
-
-    # historical functions
 
     def historical_entitlement
       (minimum_hourly_rate * total_hours).round(2)
@@ -126,6 +130,10 @@ module SmartAnswer::Calculators
       str = sprintf("%.#{2}f", value).to_s.sub(/\.0+$/, '')
     end
 
+    def free_accommodation_rate
+      @minimum_wage_data[:accommodation_rate]
+    end
+
     protected
     
     def weekly_multiplier
@@ -133,8 +141,7 @@ module SmartAnswer::Calculators
     end
 
     def free_accommodation_adjustment(number_of_nights)
-      accommodation_rate = @minimum_wage_data[:accommodation_rate]
-      (accommodation_rate * number_of_nights).round(2)
+      (free_accommodation_rate * number_of_nights).round(2)
     end
 
     def charged_accomodation_adjustment(charge, number_of_nights)
