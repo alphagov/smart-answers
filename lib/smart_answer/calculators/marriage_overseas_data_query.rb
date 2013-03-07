@@ -9,6 +9,8 @@ module SmartAnswer::Calculators
 
     CP_EQUIVALENT_COUNTRIES = %w(argentina austria belgium brazil colombia denmark ecuador finland germany hungary iceland luxembourg netherlands norway portugal slovenia spain sweden switzerland)
 
+    CP_CNI_NOT_REQUIRED_COUNTRIES = %w(mexico uruguay united-states andorra bonaire-st-eustatius-saba liechtenstein)
+
     attr_reader :embassy_data
 
     def initialize
@@ -33,6 +35,10 @@ module SmartAnswer::Calculators
 
     def cp_equivalent_countries?(country_slug)
       CP_EQUIVALENT_COUNTRIES.include?(country_slug) 
+    end
+
+    def cp_cni_not_required_countries?(country_slug)
+      CP_CNI_NOT_REQUIRED_COUNTRIES.include?(country_slug) 
     end
 
     def find_embassy_data(country_slug)
