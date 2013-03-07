@@ -139,21 +139,6 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                         add_response 1083.20
                       end
 
-                      should "calculate dates and pay amounts" do
-                        leave_start = Date.parse("21 November 2012")
-                        start_of_week = leave_start - leave_start.wday
-                        assert_state_variable "leave_start_date", leave_start
-                        assert_state_variable "leave_end_date", 52.weeks.since(leave_start) - 1
-                        assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week).end_of_week + 6
-                        assert_state_variable "pay_start_date", leave_start
-                        assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
-                        assert_state_variable "average_weekly_earnings", 135.4
-                        #TODO:(k) assert_state_variable "smp_a", "121.87"
-                        #TODO:(k) assert_state_variable "smp_b", "121.87"
-                        #TODO:(k) assert_state_variable "total_smp", "4752.93"
-                        #TODO:(k) assert_phrase_list :maternity_pay_info, [:maternity_pay_table]
-                      end
-
                       should "calculate and present the result" do
                         assert_phrase_list :maternity_leave_info, [:maternity_leave_table]
                         assert_current_node :how_do_you_want_the_smp_calculated?
@@ -181,6 +166,21 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                             assert_calendar
                             assert_calendar_date Date.parse("21 November 2012")..Date.parse("19 November 2013")
                             assert_calendar_date Date.parse("11 August 2012")
+                          end
+
+                          should "calculate dates and pay amounts" do
+                            leave_start = Date.parse("21 November 2012")
+                            start_of_week = leave_start - leave_start.wday
+                            assert_state_variable "leave_start_date", leave_start
+                            assert_state_variable "leave_end_date", 52.weeks.since(leave_start) - 1
+                            assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week).end_of_week + 6
+                            assert_state_variable "pay_start_date", leave_start
+                            assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
+                            assert_state_variable "average_weekly_earnings", 135.4
+                            assert_state_variable "smp_a", "121.87"
+                            assert_state_variable "smp_b", "121.87"
+                            assert_state_variable "total_smp", "4752.93"
+                            assert_phrase_list :maternity_pay_info, [:maternity_pay_table]
                           end
                         end
                       end
