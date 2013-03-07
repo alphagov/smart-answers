@@ -12,4 +12,7 @@ class MinimumWageCalculatorEmployersTest < ActiveSupport::TestCase
   should "ask 'what would you like to check?'" do
     assert_current_node :what_would_you_like_to_check?
   end
+
+  # This is the employer version of the shared minimum wage calculator.
+  # The full flow is tested in the employee version.
 end
