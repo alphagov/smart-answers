@@ -3,6 +3,8 @@ satisfies_need ""
 
 data_query = SmartAnswer::Calculators::MarriageOverseasDataQuery.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
+
+
 i18n_prefix = 'flow.marriage-overseas'
 
 # Q1
@@ -17,7 +19,7 @@ country_select :country_of_ceremony? do
     when 'bahamas','gambia','british-virgin-islands','cayman-islands','falkland-islands','turks-and-caicos-islands','dominican-republic','russian-federation'
       "the #{ceremony_country_name}"
     when 'korea'
-      "south #{ceremony_country_name}"
+      "South #{ceremony_country_name}"
     else
       "#{ceremony_country_name}"
     end
@@ -32,24 +34,32 @@ country_select :country_of_ceremony? do
       "#{ceremony_country_name}"
     end
   end
+  calculate :embassy_details do
+    details = data_query.find_embassy_data(ceremony_country)
+    if details
+      details = details.first
+      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
+                     address: details['address'], phone: details['phone'], email: details['email'], office_hours: details['office_hours'])
+    else
+      ''
+    end
+  end
+  calculate :clickbook_data do
+    reg_data_query.clickbook(ceremony_country)
+  end
+  calculate :multiple_clickbooks do
+    clickbook_data and clickbook_data.class == Hash
+  end
+  calculate :clickbooks do
+    result = ''
+    if multiple_clickbooks
+      clickbook_data.each do |k,v|
+          result += I18n.translate!(i18n_prefix + ".phrases.multiple_clickbook_link", city: k, url: v) << "\n"
+      end
+    end
+    result
+  end
 
-  calculate :embassy_address do
-      data = data_query.find_embassy_data(ceremony_country)
-      data.first['address'] if data
-    end
-    calculate :embassy_email do
-      data = data_query.find_embassy_data(ceremony_country)
-      data.first['email'] if data
-    end
-    calculate :embassy_phone do
-      data = data_query.find_embassy_data(ceremony_country)
-      data.first['phone'] if data
-    end
-    calculate :embassy_office_hours do
-      data = data_query.find_embassy_data(ceremony_country)
-      data.first['office_hours'] if data
-    end
-  
   next_node do |response|
     if response == 'ireland'
       :partner_opposite_or_same_sex?
@@ -239,24 +249,7 @@ outcome :outcome_os_bot do
   end
 end
 
-
 outcome :outcome_os_consular_cni do
-  precalculate :clickbook_data do
-    reg_data_query.clickbook(ceremony_country)
-  end
-  precalculate :multiple_clickbooks do
-    clickbook_data and clickbook_data.class == Hash
-  end
-  precalculate :clickbooks do
-    result = ''
-    if multiple_clickbooks
-      clickbook_data.each do |k,v|
-          result += I18n.translate!(i18n_prefix + ".phrases.multiple_clickbook_link", city: k, url: v)
-      end
-    end
-    result
-  end
-
   precalculate :consular_cni_os_start do
     phrases = PhraseList.new 
     if resident_of == 'uk'
@@ -356,10 +349,12 @@ outcome :outcome_os_consular_cni do
     if ceremony_country == residency_country
       if ceremony_country != 'italy' or ceremony_country != 'germany'
         phrases << :consular_cni_os_local_resident_not_italy_germany
-        if multiple_clickbooks
-          phrases << :clickbook_links
-        else
-          phrases << :clickbook_link
+        if reg_data_query.clickbook(ceremony_country)
+          if multiple_clickbooks
+            phrases << :clickbook_links
+          else
+            phrases << :clickbook_link
+          end
         end
       end
     end
@@ -860,21 +855,6 @@ outcome :outcome_cp_commonwealth_countries do
   end
 end
 outcome :outcome_cp_consular_cni do
-  precalculate :clickbook_data do
-    reg_data_query.clickbook(ceremony_country)
-  end
-  precalculate :multiple_clickbooks do
-    clickbook_data and clickbook_data.class == Hash
-  end
-  precalculate :clickbooks do
-    result = ''
-    if multiple_clickbooks
-      clickbook_data.each do |k,v|
-          result += I18n.translate!(i18n_prefix + ".phrases.multiple_clickbook_link", city: k, url: v)
-      end
-    end
-    result
-  end
   precalculate :consular_cni_cp_outcome do
     phrases = PhraseList.new
     if ceremony_country == 'czech-republic'
@@ -888,7 +868,13 @@ outcome :outcome_cp_consular_cni do
       phrases << :consular_cni_cp_ceremony_vietnam_partner_local
     else
       phrases << :consular_cni_cp_all_contact
-      phrases << :clickbook_link
+      if reg_data_query.clickbook(ceremony_country)
+        if multiple_clickbooks
+          phrases << :clickbook_links
+        else
+          phrases << :clickbook_link
+        end
+      end
       phrases << :consular_cni_cp_all_documents
       if partner_nationality != 'partner_british'
         phrases << :consular_cni_cp_partner_not_british

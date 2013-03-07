@@ -14,7 +14,7 @@ module SmartAnswer::Calculators
     attr_reader :embassy_data
 
     def initialize
-      @embassy_data = self.class.embassy_data
+      @embassy_data = self.class.registration_data
     end
 
     def commonwealth_country?(country_slug)
@@ -45,7 +45,7 @@ module SmartAnswer::Calculators
       embassy_data[country_slug]
     end
 
-    def self.embassy_data
+    def self.registration_data
       @embassy_data ||= YAML.load_file(Rails.root.join("lib", "data", "embassies.yml"))
     end
   end

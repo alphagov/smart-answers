@@ -286,7 +286,7 @@ class MarriageOverseasTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_consular_cni
-      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :other_resident_os_consular_cni_two, :consular_cni_all_what_you_need_to_do, :consular_cni_os_local_resident_not_italy_germany, :clickbook_link, :consular_cni_os_foreign_resident, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident, :consular_cni_os_local_resident_not_germany_or_spain_or_all_other_residency, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident_two, :consular_cni_os_local_resident_not_germany_or_italy]
+      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :other_resident_os_consular_cni_two, :consular_cni_all_what_you_need_to_do, :consular_cni_os_local_resident_not_italy_germany, :consular_cni_os_foreign_resident, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident, :consular_cni_os_local_resident_not_germany_or_spain_or_all_other_residency, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident_two, :consular_cni_os_local_resident_not_germany_or_italy]
     end
   end
   context "resident in canada, ceremony in estonia" do
@@ -312,7 +312,7 @@ class MarriageOverseasTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_consular_cni
-      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :gulf_states_os_consular_cni, :gulf_states_os_consular_cni_local_resident_partner_not_irish, :other_resident_os_consular_cni_two, :consular_cni_all_what_you_need_to_do, :consular_cni_os_local_resident_not_italy_germany, :clickbook_link, :consular_cni_os_foreign_resident, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident, :consular_cni_os_local_resident_not_germany_or_spain_or_all_other_residency, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident_two, :consular_cni_os_local_resident_not_germany_or_italy]
+      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :gulf_states_os_consular_cni, :gulf_states_os_consular_cni_local_resident_partner_not_irish, :other_resident_os_consular_cni_two, :consular_cni_all_what_you_need_to_do, :consular_cni_os_local_resident_not_italy_germany, :consular_cni_os_foreign_resident, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident, :consular_cni_os_local_resident_not_germany_or_spain_or_all_other_residency, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident_two, :consular_cni_os_local_resident_not_germany_or_italy]
     end
   end
 # variants for italy
@@ -471,7 +471,7 @@ class MarriageOverseasTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_consular_cni
-      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :other_resident_os_consular_cni_two, :consular_cni_all_what_you_need_to_do, :consular_cni_os_german_resident, :consular_cni_os_local_resident_not_italy_germany, :clickbook_link, :consular_cni_os_foreign_resident]   
+      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :other_resident_os_consular_cni_two, :consular_cni_all_what_you_need_to_do, :consular_cni_os_german_resident, :consular_cni_os_local_resident_not_italy_germany, :consular_cni_os_foreign_resident]   
     end
   end
 #variants for italy (again)
@@ -594,7 +594,7 @@ class MarriageOverseasTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_consular_cni
-      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :other_resident_os_consular_cni_two, :consular_cni_all_what_you_need_to_do, :consular_cni_os_local_resident_not_italy_germany, :clickbook_link, :consular_cni_os_foreign_resident, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident, :consular_cni_os_local_resident_not_germany_or_spain_or_all_other_residency, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident_two, :consular_cni_os_local_resident_not_germany_or_italy]
+      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :other_resident_os_consular_cni_two, :consular_cni_all_what_you_need_to_do, :consular_cni_os_local_resident_not_italy_germany, :consular_cni_os_foreign_resident, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident, :consular_cni_os_local_resident_not_germany_or_spain_or_all_other_residency, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident_two, :consular_cni_os_local_resident_not_germany_or_italy]
     end
   end
   context "ceremony in portugal, resident in portugal, partner other" do
@@ -787,7 +787,7 @@ class MarriageOverseasTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_consular_cni
-      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :spain_os_consular_cni, :other_resident_os_consular_cni_two, :consular_cni_all_what_you_need_to_do, :consular_cni_os_local_resident_not_italy_germany, :clickbook_link, :consular_cni_os_foreign_resident, :consular_cni_variant_local_resident_spain, :consular_cni_os_local_resident_not_germany_or_italy]
+      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :spain_os_consular_cni, :other_resident_os_consular_cni_two, :consular_cni_all_what_you_need_to_do, :consular_cni_os_local_resident_not_italy_germany, :consular_cni_os_foreign_resident, :consular_cni_variant_local_resident_spain, :consular_cni_os_local_resident_not_germany_or_italy]
     end
   end
 #variant for local residents (not germany or spain) again
@@ -801,7 +801,7 @@ class MarriageOverseasTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_consular_cni
-      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :other_resident_os_consular_cni_two, :consular_cni_all_what_you_need_to_do, :consular_cni_os_local_resident_not_italy_germany, :clickbook_link, :consular_cni_os_foreign_resident, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident, :consular_cni_os_local_resident_not_germany_or_spain_or_all_other_residency, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident_two, :consular_cni_os_local_resident_not_germany_or_italy]
+      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :other_resident_os_consular_cni_two, :consular_cni_all_what_you_need_to_do, :consular_cni_os_local_resident_not_italy_germany, :consular_cni_os_foreign_resident, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident, :consular_cni_os_local_resident_not_germany_or_spain_or_all_other_residency, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident_two, :consular_cni_os_local_resident_not_germany_or_italy]
     end
   end
 #variant for local resident (not germany or spain) or foreign residents
@@ -828,7 +828,7 @@ class MarriageOverseasTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_consular_cni
-      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :other_resident_os_consular_cni_two, :consular_cni_all_what_you_need_to_do, :consular_cni_os_local_resident_not_italy_germany, :clickbook_link, :consular_cni_os_foreign_resident, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident, :consular_cni_os_local_resident_not_germany_or_spain_or_all_other_residency, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident_two, :consular_cni_os_local_resident_not_germany_or_italy]
+      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :other_resident_os_consular_cni_two, :consular_cni_all_what_you_need_to_do, :consular_cni_os_local_resident_not_italy_germany, :consular_cni_os_foreign_resident, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident, :consular_cni_os_local_resident_not_germany_or_spain_or_all_other_residency, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident_two, :consular_cni_os_local_resident_not_germany_or_italy]
     end
   end
 #variant for foreign resident, ceremony not in italy AND foreign resident, ceremony in italy
@@ -1653,7 +1653,7 @@ class MarriageOverseasTest < ActiveSupport::TestCase
     end
     should "go to consular cni cp countries outcome" do
       assert_current_node :outcome_cp_consular_cni
-      assert_phrase_list :consular_cni_cp_outcome, [:consular_cni_cp_ceremony_not_czech_republic, :consular_cni_cp_all_contact, :clickbook_link, :consular_cni_cp_all_documents, :consular_cni_cp_all_what_you_need_to_do, :consular_cni_cp_all_fees, :consular_cni_cp_local_currency]
+      assert_phrase_list :consular_cni_cp_outcome, [:consular_cni_cp_ceremony_not_czech_republic, :consular_cni_cp_all_contact, :consular_cni_cp_all_documents, :consular_cni_cp_all_what_you_need_to_do, :consular_cni_cp_all_fees, :consular_cni_cp_local_currency]
     end
   end
 
