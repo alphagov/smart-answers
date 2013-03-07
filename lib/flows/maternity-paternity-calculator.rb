@@ -202,6 +202,7 @@ date_question :when_is_your_employees_next_pay_day? do
   next_node :maternity_leave_and_pay_result
 end
 
+## QM9
 multiple_choice :when_in_the_month_is_the_employee_paid? do
   option :first_day_of_the_month => :maternity_leave_and_pay_result
   option :last_day_of_the_month => :maternity_leave_and_pay_result
@@ -210,12 +211,13 @@ multiple_choice :when_in_the_month_is_the_employee_paid? do
   option :a_certain_week_day_each_month => :what_particular_day_of_the_month_is_the_employee_paid?
 end
 
+## QM10
 value_question :what_specific_date_each_month_is_the_employee_paid? do
-  calculate :specific_pay_date do
-    responses.last
-  end
+  save_input_as :employee_pay_date
+  next_node :maternity_leave_and_pay_result
 end
 
+## QM11
 multiple_choice :what_days_does_the_employee_work? do
   option :"Sunday"
   option :"Monday"
@@ -225,9 +227,12 @@ multiple_choice :what_days_does_the_employee_work? do
   option :"Friday"
   option :"Saturday"
 
+  save_input_as :days_employee_works
+
   next_node :maternity_leave_and_pay_result
 end
 
+## QM12
 multiple_choice :what_particular_day_of_the_month_is_the_employee_paid? do
   option :"Sunday"
   option :"Monday"
@@ -236,6 +241,8 @@ multiple_choice :what_particular_day_of_the_month_is_the_employee_paid? do
   option :"Thursday"
   option :"Friday"
   option :"Saturday"
+
+  save_input_as :day_of_month_paid
 
   next_node :maternity_leave_and_pay_result
 end
