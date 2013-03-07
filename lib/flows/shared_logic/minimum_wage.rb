@@ -259,6 +259,10 @@ multiple_choice :is_provided_with_accommodation? do
   option "yes_free"
   option "yes_charged"
 
+  calculate :accommodation_provided do
+    responses.last != 'no'
+  end
+  
   calculate :total_hours do
     calculator.total_hours
   end
@@ -300,6 +304,10 @@ multiple_choice :was_provided_with_accommodation? do
   option "yes_free"
   option "yes_charged"
 
+  calculate :accommodation_provided do
+    responses.last != 'no'
+  end
+
   calculate :total_hours do
     calculator.total_hours
   end
@@ -337,8 +345,6 @@ end
 
 # Q10
 money_question :current_accommodation_charge? do
-  save_input_as :accommodation_charge
-
   calculate :accommodation_charge do
     accommodation_charge = Float(responses.last)
     if accommodation_charge <= 0
@@ -351,8 +357,6 @@ end
 
 # Q10 Past
 money_question :past_accommodation_charge? do
-  save_input_as :accommodation_charge
-
   calculate :accommodation_charge do
     accommodation_charge = Float(responses.last)
     if accommodation_charge <= 0
@@ -365,6 +369,8 @@ end
 
 # Q11
 value_question :current_accommodation_usage? do
+
+  save_input_as :accommodation_usage
 
   calculate :calculator do
     days_per_week = Integer(responses.last)
@@ -407,6 +413,8 @@ end
 # Q11 Past
 value_question :past_accommodation_usage? do
 
+  save_input_as :accommodation_usage
+
   calculate :calculator do
     days_per_week = Integer(responses.last)
     if days_per_week < 0 or days_per_week > 7
@@ -448,18 +456,88 @@ value_question :past_accommodation_usage? do
   end
 end
 
-outcome :current_payment_above
+outcome :current_payment_above do
+  precalculate :total_working_pay do
+    calculator.total_working_pay
+  end
+  precalculate :accommodation_charged do
+    accommodation_charge and accommodation_charge > 0
+  end
+  precalculate :accommodation_rate do
+    accommodation_charged ? accommodation_charge : calculator.free_accommodation_rate
+  end
+  precalculate :accommodation_explanation do
+    if accommodation_provided
+      PhraseList.new(accommodation_charged ? :charged_accommodation_exp : :free_accommodation_exp)
+    else
+      ''
+    end
+  end
+end
+
 outcome :current_payment_below do
+  precalculate :total_working_pay do
+    calculator.total_working_pay
+  end
+  precalculate :accommodation_charged do
+    accommodation_charge and accommodation_charge > 0
+  end
+  precalculate :accommodation_rate do
+    accommodation_charged ? accommodation_charge : calculator.free_accommodation_rate
+  end
+  precalculate :accommodation_explanation do
+    if accommodation_provided
+      PhraseList.new(accommodation_charged ? :charged_accommodation_exp : :free_accommodation_exp)
+    else
+      ''
+    end
+  end
   precalculate :total_underpayment do
     calculator.format_money calculator.total_underpayment
   end
 end
-outcome :under_school_leaving_age
-outcome :past_payment_above
+
+outcome :past_payment_above do
+  precalculate :total_working_pay do
+    calculator.total_working_pay
+  end
+  precalculate :accommodation_charged do
+    accommodation_charge and accommodation_charge > 0
+  end
+  precalculate :accommodation_rate do
+    accommodation_charged ? accommodation_charge : calculator.free_accommodation_rate
+  end
+  precalculate :accommodation_explanation do
+    if accommodation_provided
+      PhraseList.new(accommodation_charged ? :charged_accommodation_exp : :free_accommodation_exp)
+    else
+      ''
+    end
+  end
+end
+
 outcome :past_payment_below do
+  precalculate :total_working_pay do
+    calculator.total_working_pay
+  end
+  precalculate :accommodation_charged do
+    accommodation_charge and accommodation_charge > 0
+  end
+  precalculate :accommodation_rate do
+    accommodation_charged ? accommodation_charge : calculator.free_accommodation_rate
+  end
+  precalculate :accommodation_explanation do
+    if accommodation_provided
+      PhraseList.new(accommodation_charged ? :charged_accommodation_exp : :free_accommodation_exp)
+    else
+      ''
+    end
+  end
   precalculate :total_underpayment do
     calculator.format_money calculator.historical_adjustment
   end
 end
+
+outcome :under_school_leaving_age
 outcome :does_not_apply_to_historical_apprentices
 outcome :under_school_leaving_age_past

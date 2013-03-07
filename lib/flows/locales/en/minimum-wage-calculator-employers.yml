@@ -9,7 +9,19 @@ en-GB:
       options:
         "yes": "Yes"
         "no": "No"
+      
+      phrases:
+        free_accommodation_exp: |
+          ## How accommodation is calculated
 
+          £%{accommodation_rate} x %{accommodation_usage} nights + £%{total_working_pay} total pay / %{total_hours} hours = £%{total_hourly_rate}
+
+        charged_accommodation_exp: |
+          ## How accommodation is calculated
+
+          s1. [rate per day charged for accommodation] x [days accommodation is provided in pay period] = [accommodation charge per pay period]  
+          s2. [total pay] - [accommodation charge per pay period] + [£4.82 offset rate x days in pay period] = [total pay]  
+          s3. [total pay] / [hours worked in pay period] = [actual pay per hour]  
       # Q1
       what_would_you_like_to_check?:
         title: "What would you like to check?"
@@ -175,8 +187,9 @@ en-GB:
           Telephone: 0800 917 2368
           $C
 
-
           Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work "Minimum wage for different types of work").
+
+          %{accommodation_explanation}
       current_payment_below:
         body: |
           $C
@@ -198,6 +211,8 @@ en-GB:
           $C
 
           Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work "Minimum wage for different types of work").
+
+          %{accommodation_explanation}
       past_payment_above:
         body: |
           $C
@@ -224,7 +239,8 @@ en-GB:
           
 
           Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work "Minimum wage for different types of work").
-     
+
+          %{accommodation_explanation}
       past_payment_below:
         body: |
           $C
@@ -249,6 +265,8 @@ en-GB:
           
 
           Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work "Minimum wage for different types of work").
+
+          %{accommodation_explanation}
       does_not_apply_to_historical_apprentices:
         body: "There was no National Minimum Wage rate for apprentices before 1 October 2010. Your don't owe the employee any past payments."
 
