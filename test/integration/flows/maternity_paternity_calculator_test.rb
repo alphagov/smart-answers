@@ -29,7 +29,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
 
     context "test lower earning limits returned" do
       should "return lower_earning_limit of £107" do
-        dd =Date.parse("1 January 2013")
+        dd = Date.parse("1 January 2013")
         add_response dd
         add_response :yes
         add_response 1.month.ago(dd)
@@ -42,7 +42,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         #TODO:(k) assert_state_variable "lower_earning_limit", sprintf("%.2f",107)
       end
       should "return lower_earning_limit of £102" do
-        dd =Date.parse("1 January 2012")
+        dd = Date.parse("1 January 2012")
         add_response dd
         add_response :yes
         add_response 1.month.ago(dd)
