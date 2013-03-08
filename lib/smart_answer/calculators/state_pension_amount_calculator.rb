@@ -16,7 +16,7 @@ module SmartAnswer::Calculators
     end
 
     def current_weekly_rate
-      if Date.today < Date.civil(2013,4,8)
+      if Date.today < Date.civil(2013,4,6)
         107.45
       else
         110.15
