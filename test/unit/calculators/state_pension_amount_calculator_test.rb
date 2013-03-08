@@ -122,17 +122,17 @@ module SmartAnswer::Calculators
 
     context "female born 22 years ago" do
       should "return ni_years_to_date = 3" do
-        dob = 22.years.ago.to_s
+        dob = Date.civil(22.years.ago.year,4,6).to_s
         @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: dob, qualifying_years: nil)
         assert_equal 3, @calculator.available_years
       end
       should "return ni_years_to_date = 3" do
-        dob = (22.years.ago + 3.months).to_s
+        dob = Date.civil(22.years.ago.year,7,6).to_s
         @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: dob, qualifying_years: nil)
         assert_equal 2, @calculator.available_years
       end
       should "return ni_years_to_date = 2" do
-        dob = (22.years.ago - 3.months).to_s
+        dob = Date.civil(22.years.ago.year,1,20).to_s
         @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: dob, qualifying_years: nil)
         assert_equal 3, @calculator.available_years
       end
@@ -152,7 +152,7 @@ module SmartAnswer::Calculators
       end
       context "male born 26 years and one month ago, no qualifying_years" do
         setup do
-          dob = 1.month.ago(26.years.ago).to_s
+          dob = Date.civil(26.years.ago.year,3,6).to_s
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "male", dob: dob, qualifying_years: nil)
         end
 
@@ -173,7 +173,7 @@ module SmartAnswer::Calculators
       # end
       context "male born 26 years and one day ago, no qualifying_years" do
         setup do
-          dob = 1.day.ago(26.years.ago).to_s
+          dob = Date.civil(26.years.ago.year,4,5).to_s
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "male", dob: dob, qualifying_years: nil)
         end
 
@@ -183,7 +183,7 @@ module SmartAnswer::Calculators
       end
       context "male born 26 years, no qualifying_years" do
         setup do
-          dob = 26.years.ago.to_s
+          dob = Date.civil(26.years.ago.year,4,6).to_s
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "male", dob: dob, qualifying_years: nil)
         end
 
@@ -195,7 +195,7 @@ module SmartAnswer::Calculators
 
       context "32 years old with 10 qualifying_years" do
         setup do
-          dob = 32.years.ago.to_s
+          dob = Date.civil(32.years.ago.year,4,6).to_s
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
             gender: "female", dob: dob, qualifying_years: 10)
         end
