@@ -142,11 +142,11 @@ module SmartAnswer::Calculators
     context "test available years functions" do
       context "male born 26 years and one month plus, no qualifying_years" do
         setup do
-          dob = 1.month.since(26.years.ago).to_s
+          dob = 1.month.since(Date.new(26.years.ago.year,4,6)).to_s
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "male", dob: dob, qualifying_years: nil)
         end
 
-        should "avialable_years = 6" do
+        should "available_years = 6" do
           assert_equal 6, @calculator.available_years
         end
       end
@@ -156,7 +156,7 @@ module SmartAnswer::Calculators
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "male", dob: dob, qualifying_years: nil)
         end
 
-        should "avialable_years = 7" do
+        should "available_years = 7" do
           assert_equal 7, @calculator.available_years
         end
       end

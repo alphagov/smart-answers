@@ -310,7 +310,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
       context "age = 61, NI = 20, JSA = 1" do
         setup do
           Timecop.travel("2012-08-08")
-          add_response 61.years.ago
+          add_response Date.civil(61.years.ago.year,4,7)
           add_response 20
           add_response 1
         end
@@ -390,7 +390,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
       context "50 years old" do
         setup do
-          add_response 50.years.ago
+          add_response Date.civil(50.years.ago.year,4,7)
         end
 
         should "ask for number of years paid NI" do
@@ -504,7 +504,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
       context "(testing from years_of_benefit) age 40, NI = 5, JSA = 5, cb = yes " do
         setup do
-          add_response 40.years.ago
+          add_response Date.civil(40.years.ago.year,4,7)
           add_response 10
           add_response 5
           add_response :yes
@@ -695,7 +695,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
       end
       context "years_you_can_enter test" do
         setup do
-          add_response 49.years.ago.to_s
+          add_response Date.civil(49.years.ago.year,4,7)
           add_response 20
           add_response 5
           add_response :yes
