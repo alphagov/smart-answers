@@ -232,18 +232,18 @@ en-GB:
 
 
           $D
-          [Download ‘Bilingual statutory declaration for marriage in Italy’ (PDF, 95KB)](... "Download ‘Bilingual statutory declaration for marriage in Italy’ (PDF, 95KB)")
+          Download ‘Bilingual statutory declaration for marriage in Italy’ (PDF, 95KB)
           $D
 
           ###Legalisation and translation
 
-          You’ll need to get your statutory declaration and CNI ‘[legalised]’ (certified as genuine) by the FCO.
+          You’ll need to get your statutory declaration and CNI ‘legalised’ (certified as genuine) by the FCO.
 
           You’ll also need to get your CNI translated. The FCO has produced a list of approved translators of wedding documents - they’re all based in Italy and recognised by the Italian courts.
 
 
           $D
-          [Download ‘Translators in Italy’ (PDF, 351KB)](... "Download ‘Translators in Italy’ (PDF, 351KB)")
+          Download ‘Translators in Italy’ (PDF, 351KB)
           $D
         consular_cni_os_england_or_wales_partner_irish_three: |
           You need to get a Nulla Osta (the Italian version of the CNI) from the Foreign & Commonwealth Office (FCO) in London if your partner is Irish and you live in England or Wales.
@@ -567,7 +567,7 @@ en-GB:
           Depositing a marriage certificate | £35
           Administering an oath or making a declaration | £55
 
-          You normally have to pay fees for consular services in the local currency - these are shown in the [list of consular fees for %{ceremony_country_name}].
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of consular fees for %{ceremony_country_name}.
         consular_cni_os_fees_local_currency: |
           ^You can only pay by cash in %{ceremony_country_name}. This must be in the local currency.^
         consular_cni_os_fees_no_cheques: |
@@ -680,7 +680,7 @@ en-GB:
           Issuing a certificate of custom law (certificat de coutume) | £65
           Depositing a marriage certificate | £35
 
-          You normally have to pay fees for consular services in the local currency - these are shown in the [list of consular fees for %{country_name_lowercase_prefix}].
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of consular fees for %{country_name_lowercase_prefix}.
 
           You can pay by cash or credit card, but not by personal cheque.
 
@@ -753,7 +753,7 @@ en-GB:
           Affirmation for freedom to marry in any other language | £70
           Depositing a marriage certificate | £35
 
-          You normally have to pay fees for consular services in the local currency - these are shown in the [list of consular fees for %{country_name_lowercase_prefix}].
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of consular fees for %{country_name_lowercase_prefix}.
 
           You can pay by cash or credit card, but not by personal cheque.
 
@@ -799,7 +799,7 @@ en-GB:
         no_cni_os_ceremony_usa: |
           Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in the US first.
         no_cni_os_ceremony_not_usa: |
-          Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in %{country_name_lowercase_prefix} and [translated into English] first.
+          Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in %{country_name_lowercase_prefix} and translated into English first.
         no_cni_os_uk_resident_three: |
           ###Depositing your certificate when you’re back home
 
@@ -816,7 +816,7 @@ en-GB:
 
           Depositing a civil partnership certificate through the embassy or consulate costs £35.
 
-          You normally have to pay fees for consular services in the local currency - these are shown in the [list of consular fees for %{country_name_lowercase_prefix}].
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of consular fees for %{country_name_lowercase_prefix}.
 
           You can pay by cash or credit card, but not by personal cheque.
         no_cni_os_naturalisation: |
@@ -895,7 +895,7 @@ en-GB:
           Performing a marriage ceremony| £140
           Issuing a marriage certificate | £65
 
-          You normally have to pay fees for consular services in the local currency - these are shown in the [list of consular fees for %{country_name_lowercase_prefix}].
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of consular fees for %{country_name_lowercase_prefix}.
 
           You can pay by cash or credit card, but not by personal cheque. 
 
@@ -1394,7 +1394,7 @@ en-GB:
 
           You normally have to pay fees for consular services in the local currency - these are shown in the list of consular fees for %{country_name_lowercase_prefix}.
         consular_cni_cp_local_currency: |
-          ^You can only pay by cash in [country]. This must be in the local currency.^
+          ^You can only pay by cash in %{country_name_lowercase_prefix}. This must be in the local currency.^
         consular_cni_cp_cheque: |
           You can pay by cash or credit card, but not by personal cheque.
 
