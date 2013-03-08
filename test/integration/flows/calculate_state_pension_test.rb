@@ -96,6 +96,13 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_current_node :dob_amount?
       end
 
+      context "give a date in the future" do
+        should "raise an error" do
+          add_response (Date.today + 1).to_s
+          assert_current_node_is_error
+        end
+      end
+
       context "within four months and four days of state pension age test" do
         setup do
           Timecop.travel('2012-10-08')
