@@ -50,7 +50,47 @@ module SmartAnswer::Calculators
       
     end
     
-
+    context "current_weekly_rate" do
+      should "be 107.45 before 8th April 2013" do
+        Timecop.travel(Date.parse("2013-04-07")) do
+          @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+            gender: "male", dob: "1950-04-04", qualifying_years: 30)
+          assert_equal 107.45, @calculator.current_weekly_rate
+        end
+      end
+      should "be 110.15 on or after 8th April 2013" do
+        Timecop.travel(Date.parse("2013-04-08")) do
+          @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+            gender: "male", dob: "1950-04-04", qualifying_years: 30)
+          assert_equal 110.15, @calculator.current_weekly_rate
+        end
+      end
+      should "uprate on or after 8th April 2013" do
+        Timecop.travel(Date.parse("2013-04-08")) do
+          @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+            gender: "male", dob: "1950-04-04", qualifying_years: 29)
+          assert_equal 106.48, @calculator.what_you_get
+          @calculator.qualifying_years = 28
+          assert_equal 102.81, @calculator.what_you_get
+          @calculator.qualifying_years = 27
+          assert_equal 99.14, @calculator.what_you_get
+          @calculator.qualifying_years = 26
+          assert_equal 95.46, @calculator.what_you_get
+          @calculator.qualifying_years = 15
+          assert_equal 55.08, @calculator.what_you_get
+          @calculator.qualifying_years = 10
+          assert_equal 36.72, @calculator.what_you_get
+          @calculator.qualifying_years = 5
+          assert_equal 18.36, @calculator.what_you_get
+          @calculator.qualifying_years = 4
+          assert_equal 14.69, @calculator.what_you_get
+          @calculator.qualifying_years = 2
+          assert_equal 7.34, @calculator.what_you_get
+          @calculator.qualifying_years = 1 
+          assert_equal 3.67, @calculator.what_you_get
+        end
+      end
+    end
 
     # one of HMRC test cases
     context "female born 6 April 1992 " do

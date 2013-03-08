@@ -16,7 +16,11 @@ module SmartAnswer::Calculators
     end
 
     def current_weekly_rate
-      107.45
+      if Date.today < Date.civil(2013,4,8)
+        107.45
+      else
+        110.15
+      end
     end
 
     # Everyone needs 30 qualifying years in all cases - no need to worry about old rules
