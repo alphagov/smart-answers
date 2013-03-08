@@ -39,7 +39,10 @@ date_question :dob_age? do
   from { 100.years.ago }
   to { Date.today }
 
-  save_input_as :dob
+  calculate :dob do
+    raise InvalidResponse if Date.parse(responses.last) > Date.today
+    responses.last
+  end
 
   calculate :calculator do
     Calculators::StatePensionAmountCalculator.new(
@@ -119,6 +122,7 @@ date_question :dob_amount? do
   to { Date.today }
 
   calculate :dob do
+    raise InvalidResponse if Date.parse(responses.last) > Date.today
     responses.last
   end
 

@@ -32,6 +32,13 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_current_node :dob_age?
       end
 
+      context "give a date in the future" do
+        should "raise an error" do
+          add_response (Date.today + 1).to_s
+          assert_current_node_is_error
+        end
+      end
+
       context "pension_credit_date check -- born 5th Dec 1953" do
         setup{ add_response Date.parse("5th Dec 1953")}
         should "go to age result" do
