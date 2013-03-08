@@ -681,7 +681,12 @@ en-GB:
         how_long_replacing_ips1: |
           Your application will take **at least** 6 weeks from when your application is received by the Identity and Passport Service (IPS) in the UK.
 
-          You must report the loss or theft as soon as possible to your [nearest British embassy, high commission or consulate.](/report-a-lost-or-stolen-passport "Report a lost or stolen passport")
+          If you haven’t already reported the loss or theft, you must include form LS01 form with your passport application.
+
+          $D
+          [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)")
+          $D
+
         how_long_it_takes_ips1: |
           Applications may take longer if:
 
@@ -737,6 +742,15 @@ en-GB:
 
           Your passport and supporting documents will be delivered separately by courier.
 
+          ## Track your application
+
+          Call the Passport Adviceline.
+
+          $C
+          Passport Adviceline
+          +44 (0) 300 222 0000
+          $C
+
         how_long_applying_ips2: |
           Your application will take at least **8 weeks.**
 
@@ -755,7 +769,12 @@ en-GB:
           Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](http://www.fco.gov.uk/en/travel-and-living-abroad/passports1/passports-a-to-z/e-topics/emergency-travel "Get an emergency travel document"){:rel="external"}
 
         how_long_replacing_ips2: |
-          You must report the loss or theft as soon as possible to your [nearest British embassy, high commission or consulate.](/report-a-lost-or-stolen-passport "Report a lost or stolen passport")
+          If you haven’t already reported the loss or theft, you must include form LS01 form with your passport application.
+
+          $D
+          [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)")
+          $D
+
         passport_courier_costs_ips2: |
           You’ll have to pay a fee for your passport and a courier fee of £21.11. The courier fee pays for your passport and supporting documents to be sent securely to your nearest embassy, high commission or consulate for you to collect.
 
@@ -820,7 +839,11 @@ en-GB:
         how_long_replacing_ips3: |
           Your application will take **at least** 6 weeks from when it's received by the Identity and Passport Service (IPS) in the UK.
 
-          You must report the loss or theft as soon as possible to your [nearest British embassy, high commission or consulate.](/report-a-lost-or-stolen-passport "Report a lost or stolen passport")
+          If you haven’t already reported the loss or theft, you must include form LS01 form with your passport application.
+
+          $D
+          [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)")
+          $D
 
         how_long_renewing_old_ips3: |
           Your application will take **at least** 6 weeks from when it’s received by the Identity and Passport Service (IPS) in the UK. You may have to attend an interview for a first adult passport.
