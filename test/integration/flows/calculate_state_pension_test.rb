@@ -360,6 +360,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         should "display result because of starting credits" do
           assert_state_variable :qualifying_years_total, 30
           assert_current_node :amount_result
+          assert_phrase_list :automatic_credits, [:automatic_credits]
         end
       end
     end # male
@@ -453,6 +454,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
           add_response 1    # jsa years
           add_response :no  
           assert_current_node :amount_result
+          assert_phrase_list :automatic_credits, [:automatic_credits]
         end
       end
 
@@ -498,6 +500,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
             add_response 5
 
             assert_current_node :amount_result
+            assert_state_variable :automatic_credits, ''
           end
         end
       end

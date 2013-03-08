@@ -36,6 +36,9 @@ en-GB:
         automatic_years_phrase: |
           You might be eligible for [credits towards your basic State Pension](/automatic-pension-credits-for-men "automatic pension credits for men") for the years immediately before you reach age 65.
         full_contribution_years_callout: You get the full State Pension.
+        automatic_credits: |
+          Your estimate includes up to 3 years of automatic credits for the years containing your 16th, 17th and 18th birthdays. If you got your National Insurance number after April 2010 you don’t get these automatic credits.
+
         state_pension_age_is: |
 
           Your State Pension age is %{state_pension_age}.
@@ -111,9 +114,6 @@ en-GB:
 
           You might be able to use your partner's or late or former partner's National Insurance to increase your [basic State Pension](/state-pension/eligibility "Increase your basic State Pension")
 
-          Your estimate may include up to 3 years of automatic credits for the years containing your 16th, 17th and 18th birthdays. If you got your National Insurance number after April 2010 you don’t get these automatic credits.
-
-          [State Pension if you retire abroad](/state-pension-if-you-retire-abroad "State Pension if you retire abroad")
         ## Result 2
         too_few_qy_not_enough_remaining_years: |
           
@@ -147,9 +147,6 @@ en-GB:
 
           More information on the [basic State Pension or how to top it up](/state-pension) and the [additional State Pension](/additional-state-pension)
 
-          Your estimate may include up to 3 years of automatic credits for the years containing your 16th, 17th and 18th birthdays. If you got your National Insurance number after April 2010 you don’t get these automatic credits.
-
-          [State Pension if you retire abroad](/state-pension-if-you-retire-abroad "State Pension if you retire abroad")
         ## Result 3
         you_get_full_state_pension: |
           
@@ -170,10 +167,6 @@ en-GB:
           How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance "National Insurance") you have.
 
           More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
-
-          Your estimate may include up to 3 years of automatic credits for the years containing your 16th, 17th and 18th birthdays. If you got your National Insurance number after April 2010 you don’t get these automatic credits.
-
-          [State Pension if you retire abroad](/state-pension-if-you-retire-abroad "State Pension if you retire abroad")
 
       ## Q1
       which_calculation?:
@@ -308,6 +301,9 @@ en-GB:
       amount_result:
         body: |
           %{result_text}
+
+          %{automatic_credits}
+          [State Pension if you retire abroad](/state-pension-if-you-retire-abroad "State Pension if you retire abroad")
 
       ## AGE RESULT
       age_result:
