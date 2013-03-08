@@ -177,10 +177,10 @@ en-GB:
 
       ## Q1
       which_calculation?:
-        title: What would you like to do?
+        title: What would you like to calculate?
         options:
-          age: Calculate your State Pension age and Pension Credit qualifying age
-          amount: Get a basic State Pension estimate and calculate your State Pension age
+          age: Age (State Pension and Pension Credit)
+          amount: Amount of basic State Pension (also gives State Pension age)
       ## Q2
       gender?:
         title: What is your gender?
