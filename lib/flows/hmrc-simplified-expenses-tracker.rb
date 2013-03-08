@@ -50,13 +50,52 @@ end
 
 #Q3 - write off tax
 value_question :how_much_write_off_tax? do
-
+  calculate :vehicle_tax_amount do
+    responses.last
+  end
 end
 
 #Q4 - is vehicle green?
 multiple_choice :is_vehicle_green? do
   option :yes
   option :no
+
+  calculate :vehicle_is_green do
+    responses.last == "yes"
+  end
+
+  next_node :price_of_vehicle?
+end
+
+#Q5 - price of vehicle
+value_question :price_of_vehicle? do
+  # if green => take user input and store as [green_cost]
+  # if dirty  => take 18% of user input and store as [dirty_cost]
+  # if input > 250k store as [over_van_limit]
+  calculate :vehicle_price do
+    responses.last.gsub(",", "").to_f
+  end
+
+  calculate :green_vehicle_price do
+    vehicle_is_green ? vehicle_price : nil
+  end
+
+  calculate :dirty_vehicle_price do
+    vehicle_is_green ? nil : vehicle_price * 0.18
+  end
+
+  calculate :is_over_limit do
+    vehicle_price > 250000.0
+  end
+
+
+  next_node :vehicle_private_use_time?
+
+end
+
+#Q6 - vehicle private use time
+value_question :vehicle_private_use_time? do
+
 end
 
 #Q9 - how much do you claim?
