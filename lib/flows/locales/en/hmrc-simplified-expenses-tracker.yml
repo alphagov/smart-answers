@@ -2,3 +2,74 @@ en-GB:
   flow:
     hmrc-simplified-expenses-tracker:
       title: Simplified expenses checker
+      meta:
+        description: Check if using flat rates with simplified expenses suits your business
+      options:
+        new: New
+        existing: Existing
+        yes: Yes
+        no: No
+        car_or_van: Car or Van
+        motorcycle: Motorcycle
+        using_home_for_business: Using home for business (you work from home all the time or some of the time)
+        live_on_business_premises: Living on your business premises (for guesthouses and bed & breakfasts)
+        none_of_these: None of these
+
+      body: |
+        Check if using flat rates with simplified expenses suits your business
+
+        What you need to know:
+
+          - You have to be sole trader or business partnership to use simplified expenses
+
+      new_or_existing_business?:
+        title: Are you a new or existing business?
+      type_of_expense?:
+        title: Do you have any of these expenses as part of your business?
+
+      how_much_write_off_tax?:
+        title: How much do you write off or expect to write off tax for buying, running and maintaining all the vehicles for your business in the next tax year?
+
+      is_vehicle_green?:
+        title: Is the vehicle you're buying green, ie a low emission vehicle?
+
+      price_of_vehicle?:
+        title: How much is the vehicle?
+        hint: Only include VAT if you're not planning to register for VAT. Don't include any interests
+      vehicle_private_use_time?:
+        title: How much of your driving time will be for private use?
+        hint: For example, when you go shopping or visiting friends.
+        suffix_label: |
+          % of the time
+
+      drive_business_miles_car_van?:
+        title: How many miles do you drive or expect to drive your car or van for business in the next tax year?
+
+      drive_business_miles_motorcycle?:
+        title: How many miles do you drive or expect to drive your motorcycle for business in the next tax year?
+
+      current_claim_amount_home?:
+        title: How much do you currently claim or expect  as business expenses for your private home?
+        hint: For example a proportion of your utility bills, or mortgage. If you don’t work from home enter 0.
+
+      hours_work_home?:
+        title: On average, how many hours a month do you work or expect to work from home?
+
+        deduct_from_premises?:
+          title: How much do you currently deduct or expect to deduct from your business premises expenses because of private use?
+          hint: For example you run a B&B and live there. If you don’t deduct anything enter 0.
+
+      people_live_on_premises?:
+        title: How many people do normally live on the business premises?
+        hint: Only count people who use it as their home, not guests. If there is more people at certain times of the year, give an average.
+
+      you_cant_use_result:
+        body: |
+          You can only use simplified expenses for the following types of expenses:
+
+          - vehicles
+          - business use of your home (eg if you’re working from home)
+          - private use of your business premises (guesthouses and B&Bs)
+
+          You can [file your Self Assessment tax return](XXX) using current expense rules.
+
