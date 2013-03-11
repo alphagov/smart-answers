@@ -80,11 +80,11 @@ value_question :price_of_vehicle? do
   end
 
   calculate :green_vehicle_price do
-    vehicle_is_green ? vehicle_price : nil
+    vehicle_is_green ? vehicle_price : 0
   end
 
   calculate :dirty_vehicle_price do
-    vehicle_is_green ? nil : vehicle_price * 0.18
+    vehicle_is_green ? 0 : vehicle_price * 0.18
   end
 
   calculate :is_over_limit do
@@ -98,25 +98,15 @@ end
 #Q6 - vehicle private use time
 value_question :vehicle_private_use_time? do
   # deduct percentage amount from [green_cost] or [dirty_cost] and store as [green_write_off] or [dirty_write_off]
-  # go to Q7 if [new_business] + [car_van]
-  # go to Q8 if [new_business] +[motorcycle]
-  # go to Q7 + Q8 if [new_business] + [car_van] + [motorcycle]
-  #
   calculate :private_use_percent do
     responses.last.gsub("%", "").to_f
   end
   calculate :green_vehicle_write_off do
-    if vehicle_is_green
-      green_vehicle_price * ( private_use_percent / 100 )
-    else
-      nil
-    end
+    vehicle_is_green ? green_vehicle_price * ( private_use_percent / 100 ) : 0
   end
 
   calculate :dirty_vehicle_write_off do
-    unless vehicle_is_green
-      dirty_vehicle_price * ( private_use_percent / 100 )
-    end
+    vehicle_is_green ? 0 : dirty_vehicle_price * ( private_use_percent / 100 )
   end
 
   next_node do
@@ -129,13 +119,13 @@ end
 value_question :drive_business_miles_car_van? do
   # Calculation:
   # [user input 1-10,000] x 0.45
-  # [user input > 10,001]  x 0.24
+  # [user input > 10,001]  x 0.25
   calculate :simple_vehicle_costs do
     answer = responses.last.gsub(",", "").to_f
     if answer <= 10000
       answer * 0.45
     else
-      answer_over_amount = (answer - 10000) * 0.24
+      answer_over_amount = (answer - 10000) * 0.25
       4500.0 + answer_over_amount
     end
   end
@@ -155,7 +145,7 @@ end
 #Q8 - miles to drive for business motorcycle
 value_question :drive_business_miles_motorcycle? do
   calculate :simple_motorcycle_costs do
-    responses.last.gsub(",","").to_f * 0.25
+    responses.last.gsub(",","").to_f * 0.24
   end
   next_node do
     if list_of_expenses.include?("using_home_for_business")
@@ -184,6 +174,15 @@ value_question :hours_work_home? do
     responses.last.gsub(",","").to_f
   end
 
+  calculate :simple_home_costs do
+    case hours_worked_home
+    when 0..24 then 0
+    when 25..50 then hours_worked_home * 10
+    when 51..100 then hours_worked_home * 18
+    else hours_worked_home * 26
+    end
+  end
+
   next_node do
     list_of_expenses.include?("live_on_business_premises") ? :deduct_from_premises? : :you_can_use_result
   end
@@ -204,11 +203,47 @@ value_question :people_live_on_premises? do
     responses.last.to_i
   end
 
+  calculate :simple_business_costs do
+    case live_on_premises
+    when 0 then 0
+    when 1 then live_on_premises * 350
+    when 2 then live_on_premises * 500
+    else live_on_premises * 650
+    end
+
+  end
+
   next_node :you_can_use_result
 end
 
 
 outcome :you_cant_use_result
-outcome :you_can_use_result
+outcome :you_can_use_result do
+  precalculate :simple_costs do
+    simple_vehicle_costs ||= 0
+    simple_motorcycle_costs ||= 0
+    hours_worked_home ||= 0
+    live_on_premises ||= 0
+    simple_vehicle_costs + simple_motorcycle_costs + hours_worked_home + live_on_premises
+  end
+
+  precalculate :current_scheme_costs do
+    vehicle_tax_amount ||= 0
+    green_vehicle_write_off ||= 0
+    dirty_vehicle_write_off ||= 0
+    home_costs ||= 0
+    business_premises_cost ||= 0
+    vehicle_tax_amount + green_vehicle_write_off + dirty_vehicle_write_off + home_costs + business_premises_cost
+  end
+
+  precalculate :can_use_simple do
+    simple_costs > current_scheme_costs
+  end
+
+  precalculate :result_title do
+    PhraseList.new( can_use_simple ? :simplified_title : :current_title )
+  end
+
+end
 
 

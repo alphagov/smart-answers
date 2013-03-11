@@ -137,7 +137,7 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
 
               should "calculate state variables correctly" do
                 assert_state_variable :is_over_limit, false
-                assert_state_variable :green_vehicle_price, nil
+                assert_state_variable :green_vehicle_price, 0
                 # dirty vehicle cost = 18% of input
                 assert_state_variable :dirty_vehicle_price, 18000.0
               end
@@ -150,7 +150,7 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
 
               should "calculate state variables correctly" do
                 assert_state_variable :is_over_limit, true
-                assert_state_variable :green_vehicle_price, nil
+                assert_state_variable :green_vehicle_price, 0
                 assert_state_variable :dirty_vehicle_price, 45900.0
               end
             end
@@ -184,7 +184,7 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
 
                 should "calculate the amount correctly for value > 10k" do
                   add_response "10400"
-                  assert_state_variable :simple_vehicle_costs, 4596.0
+                  assert_state_variable :simple_vehicle_costs, 4600.0
                 end
               end #Q7
             end # answering Q6
@@ -205,7 +205,7 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
         end
         should "calculate the motorcycle cost correctly" do
           add_response "1000" #Q8
-          assert_state_variable :simple_motorcycle_costs, 250
+          assert_state_variable :simple_motorcycle_costs, 240
         end
       end
 
@@ -295,12 +295,40 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
           end
 
           context "answering Q10" do
-            setup do
-              add_response 5 # Q10
+            context "answering 0" do
+              should "calculate the simple_home_costs" do
+                add_response 5
+                assert_state_variable :hours_worked_home, 5.0
+                assert_state_variable :simple_home_costs, 0
+              end
+            end # answering with 0
+
+            context "answering with 25" do
+              should "calculate the simple_home_costs" do
+                add_response 25
+                assert_state_variable :hours_worked_home, 25.0
+                assert_state_variable :simple_home_costs, 250.0
+              end
+            end
+
+            context "answering with 55" do
+              should "calculate the simple_home_costs" do
+                add_response 55
+                assert_state_variable :hours_worked_home, 55.0
+                assert_state_variable :simple_home_costs, 990.0
+              end
+            end
+
+            context "answering with greater than 100" do
+              should "calculate the simple_home_costs" do
+                add_response 101
+                assert_state_variable :hours_worked_home, 101.0
+                assert_state_variable :simple_home_costs, 2626.0
+              end
             end
 
             should "take the user to outcome" do
-              assert_state_variable :hours_worked_home, 5.0
+              add_response 5
               assert_current_node :you_can_use_result
             end
 
@@ -327,13 +355,43 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
 
           context "Answering Q12" do
             setup do
-              add_response "500"
+              add_response "500" # answering Q11
             end
 
-            should "calculate number and take user to result" do
-              add_response "5"
-              assert_state_variable :live_on_premises, 5
-              assert_current_node :you_can_use_result
+            context "answering 0" do
+              should "calculate simple_business_costs correctly" do
+                add_response 0
+                assert_state_variable :simple_business_costs, 0
+              end
+            end # answering 0 to Q12
+
+            context "answering 1" do
+              should "calculate simple_business_costs correctly" do
+                add_response 1
+                assert_state_variable :simple_business_costs, 350
+              end
+            end # answering 0 to Q12
+
+            context "answering 2" do
+              should "calculate simple_business_costs correctly" do
+                add_response 2
+                assert_state_variable :simple_business_costs, 1000
+              end
+            end # answering 2 to Q12
+
+            context "answering 5" do
+              should "calculate simple_business_costs correctly" do
+                add_response 5
+                assert_state_variable :simple_business_costs, 3250
+              end
+            end # answering 5 to Q12
+
+            context "takes user to outcome" do
+              should "calculate number and take user to result" do
+                add_response "5"
+                assert_state_variable :live_on_premises, 5
+                assert_current_node :you_can_use_result
+              end
             end
           end # answering Q12
 
@@ -441,5 +499,22 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
       assert_current_node :deduct_from_premises?
     end
   end # progressing from Q7
+
+  context "result outcome and calculations" do
+    # simplified cost variables:
+    # Q5 - green_vehicle_price
+    # Q6 - dirty_write_off OR green_write_off
+    # Q7 - simple_vehicle_costs
+    # Q8 - simple_motorcycle_costs
+    # Q12 - live_on_premises
+    # current cost variables:
+    # Q3- vehicle_tax_amount
+    # Q5 - dirty_vehicle_price
+    # Q9 - home_costs
+    # Q11 - business_premises_cost
+    context "simplified costs > current scheme costs" do
+
+    end
+  end
 
 end
