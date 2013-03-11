@@ -160,6 +160,7 @@ costa-rica:
 cote-d_ivoire-(ivory-coast): 
   type: ghana
   group: ips_documents_group_2
+  helpline: pretoria_south_africa
 croatia: 
   type: ips_application_1
   group: ips_documents_group_1
@@ -246,6 +247,7 @@ germany:
 ghana: 
   type: ghana
   group: ips_documents_group_3
+  helpline: pretoria_south_africa
 gibraltar:
   type: madrid_spain
   group: ips_documents_group_1
@@ -264,6 +266,7 @@ guatemala:
 guinea: 
   type: ghana
   group: ips_documents_group_3
+  helpline: pretoria_south_africa
 guinea-bissau: 
   type: pretoria_south_africa
   group: ips_documents_group_3
@@ -357,6 +360,7 @@ lesotho:
 liberia: 
   type: ghana
   group: ips_documents_group_3
+  helpline: pretoria_south_africa
 libya: 
   type: libya
   group: ips_documents_group_3
@@ -633,6 +637,7 @@ timor-leste:
 togo: 
   type: ghana 
   group: ips_documents_group_3
+  helpline: pretoria_south_africa
 tonga: 
   type: wellington_new_zealand
   group: ips_documents_group_1
