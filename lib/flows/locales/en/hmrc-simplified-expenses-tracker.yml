@@ -4,11 +4,34 @@ en-GB:
       title: Simplified expenses checker
       meta:
         description: Check if using flat rates with simplified expenses suits your business
+      phrases:
+        simplified_title: Based on your answers you might be able to claim higher expenses by using the simplified scheme.
+        current_title: Based on your answers you would be able to claim fewer expenses using the simplified scheme.
+        simple_vehicle_costs_bullet: |
+          - £%{simple_vehicle_costs} for cars and vans
+        simple_motorcycle_costs_bullet: |
+          - £%{simple_motorcycle_costs} for motorcycles
+        simple_home_costs_bullet: |
+          - £%{hours_worked_home} for working from home
+        simple_business_costs_bullet: |
+          - £%{simple_business_costs} as a deduction from your business premises costs
+        current_vehicle_cost_bullet: |
+          - £%{vehicle_tax_amount} for cars and vans
+        current_green_vehicle_write_off_bullet: |
+          - £%{green_vehicle_write_off} for cars, vans and motorcycles
+        current_dirty_vehicle_write_off_bullet: |
+          - £%{dirty_vehicle_write_off} for cars, vans and motorcycles
+        current_home_costs_bullet: |
+          - £%{home_costs} for working from home
+        current_business_costs_bullet: |
+          - £%{business_premises_cost} as a deduction from your business premises costs
+        over_van_limit: |
+          The upper limit for Capital Allowance write offs for vans is £250,000.
       options:
         new: New
         existing: Existing
-        yes: Yes
-        no: No
+        "yes": "Yes"
+        "no": "No"
         car_or_van: Car or Van
         motorcycle: Motorcycle
         using_home_for_business: Using home for business (you work from home all the time or some of the time)
@@ -55,9 +78,9 @@ en-GB:
       hours_work_home?:
         title: On average, how many hours a month do you work or expect to work from home?
 
-        deduct_from_premises?:
-          title: How much do you currently deduct or expect to deduct from your business premises expenses because of private use?
-          hint: For example you run a B&B and live there. If you don’t deduct anything enter 0.
+      deduct_from_premises?:
+        title: How much do you currently deduct or expect to deduct from your business premises expenses because of private use?
+        hint: For example you run a B&B and live there. If you don’t deduct anything enter 0.
 
       people_live_on_premises?:
         title: How many people do normally live on the business premises?
@@ -73,3 +96,22 @@ en-GB:
 
           You can [file your Self Assessment tax return](XXX) using current expense rules.
 
+      you_can_use_result:
+        body: |
+          %{result_title}
+
+          ##Simplified expenses - what you can claim
+
+          %{simplified_bullets}
+
+          **Total:** £%{simple_costs}
+
+          ##Standard expenses - what you can claim
+
+          %{current_scheme_bullets}
+
+          **Total:** £%{current_scheme_costs}
+
+          This is an estimate
+
+          %{over_van_limit_message}

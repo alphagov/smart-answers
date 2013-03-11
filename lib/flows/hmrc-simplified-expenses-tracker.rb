@@ -80,11 +80,11 @@ value_question :price_of_vehicle? do
   end
 
   calculate :green_vehicle_price do
-    vehicle_is_green ? vehicle_price : 0
+    vehicle_is_green ? vehicle_price : nil
   end
 
   calculate :dirty_vehicle_price do
-    vehicle_is_green ? 0 : vehicle_price * 0.18
+    vehicle_is_green ? nil : vehicle_price * 0.18
   end
 
   calculate :is_over_limit do
@@ -102,11 +102,11 @@ value_question :vehicle_private_use_time? do
     responses.last.gsub("%", "").to_f
   end
   calculate :green_vehicle_write_off do
-    vehicle_is_green ? green_vehicle_price * ( private_use_percent / 100 ) : 0
+    vehicle_is_green ? green_vehicle_price * ( private_use_percent / 100 ) : nil
   end
 
   calculate :dirty_vehicle_write_off do
-    vehicle_is_green ? 0 : dirty_vehicle_price * ( private_use_percent / 100 )
+    vehicle_is_green ? nil : dirty_vehicle_price * ( private_use_percent / 100 )
   end
 
   next_node do
@@ -206,8 +206,8 @@ value_question :people_live_on_premises? do
   calculate :simple_business_costs do
     case live_on_premises
     when 0 then 0
-    when 1 then live_on_premises * 350
-    when 2 then live_on_premises * 500
+    when 1 then 350
+    when 2 then 1000
     else live_on_premises * 650
     end
 
@@ -220,20 +220,22 @@ end
 outcome :you_cant_use_result
 outcome :you_can_use_result do
   precalculate :simple_costs do
-    simple_vehicle_costs ||= 0
-    simple_motorcycle_costs ||= 0
-    hours_worked_home ||= 0
-    live_on_premises ||= 0
-    simple_vehicle_costs + simple_motorcycle_costs + hours_worked_home + live_on_premises
+
+    vehicle = simple_vehicle_costs || 0
+    motorcycle = simple_motorcycle_costs || 0
+    home = simple_home_costs || 0
+    business = simple_business_costs || 0
+
+    vehicle + motorcycle + home + business
   end
 
   precalculate :current_scheme_costs do
-    vehicle_tax_amount ||= 0
-    green_vehicle_write_off ||= 0
-    dirty_vehicle_write_off ||= 0
-    home_costs ||= 0
-    business_premises_cost ||= 0
-    vehicle_tax_amount + green_vehicle_write_off + dirty_vehicle_write_off + home_costs + business_premises_cost
+    vehicle = vehicle_tax_amount || 0
+    green = green_vehicle_write_off || 0
+    dirty = dirty_vehicle_write_off || 0
+    home = home_costs || 0
+    business = business_premises_cost || 0
+    vehicle + green + dirty + home + business
   end
 
   precalculate :can_use_simple do
@@ -242,6 +244,27 @@ outcome :you_can_use_result do
 
   precalculate :result_title do
     PhraseList.new( can_use_simple ? :simplified_title : :current_title )
+  end
+
+  precalculate :simplified_bullets do
+    bullets = PhraseList.new
+    bullets << :simple_vehicle_costs_bullet unless simple_vehicle_costs.nil?
+    bullets << :simple_motorcycle_costs_bullet unless simple_motorcycle_costs.nil?
+    bullets << :simple_home_costs_bullet unless simple_home_costs.nil?
+    bullets << :simple_business_costs_bullet unless simple_business_costs.nil?
+  end
+
+  precalculate :current_scheme_bullets do
+    bullets = PhraseList.new
+    bullets << :current_vehicle_cost_bullet unless vehicle_tax_amount.nil?
+    bullets << :current_green_vehicle_write_off_bullet unless green_vehicle_write_off.nil?
+    bullets << :current_dirty_vehicle_write_off_bullet unless dirty_vehicle_write_off.nil?
+    bullets << :current_home_costs_bullet unless home_costs.nil?
+    bullets << :current_business_costs_bullet unless business_premises_cost.nil?
+  end
+
+  precalculate :over_van_limit_message do
+    is_over_limit ? PhraseList.new(:over_van_limit) : PhraseList.new
   end
 
 end

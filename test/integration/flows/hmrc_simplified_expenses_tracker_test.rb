@@ -137,7 +137,7 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
 
               should "calculate state variables correctly" do
                 assert_state_variable :is_over_limit, false
-                assert_state_variable :green_vehicle_price, 0
+                assert_state_variable :green_vehicle_price, nil
                 # dirty vehicle cost = 18% of input
                 assert_state_variable :dirty_vehicle_price, 18000.0
               end
@@ -150,7 +150,7 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
 
               should "calculate state variables correctly" do
                 assert_state_variable :is_over_limit, true
-                assert_state_variable :green_vehicle_price, 0
+                assert_state_variable :green_vehicle_price, nil
                 assert_state_variable :dirty_vehicle_price, 45900.0
               end
             end
@@ -503,17 +503,99 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
   context "result outcome and calculations" do
     # simplified cost variables:
     # Q5 - green_vehicle_price
-    # Q6 - dirty_write_off OR green_write_off
     # Q7 - simple_vehicle_costs
     # Q8 - simple_motorcycle_costs
-    # Q12 - live_on_premises
+    # Q12 - live_on_premise
     # current cost variables:
     # Q3- vehicle_tax_amount
     # Q5 - dirty_vehicle_price
+    # Q6 - dirty_write_off OR green_write_off
     # Q9 - home_costs
     # Q11 - business_premises_cost
     context "simplified costs > current scheme costs" do
+      setup do
+        add_response :new #Q1
+        add_response "car_or_van,motorcycle,using_home_for_business,live_on_business_premises"
+        add_response :yes #Q4 - vehicle is clean
+        add_response 5000 #Q5 - price of vehicle
+        add_response 10 #Q6 - % of private use
+        add_response 5000 #Q7 - miles to drive car
+        add_response 1000 #Q8 - miles to drive bike
+        add_response 100 #Q9 - currently claim for expenses
+        add_response 30 #Q10 - hours worked home
+        add_response 500 #Q11 - currently take for private use
+        add_response 2 #Q12 - how many live on premises
+      end
 
+      should "take user to outcome" do
+        assert_current_node :you_can_use_result
+      end
+
+      should "calculate the correct values for the simplified_cost" do
+        # Q7 answer * 0.45
+        assert_state_variable :simple_vehicle_costs, 2250
+
+        # Q8 * 0.24
+        assert_state_variable :simple_motorcycle_costs, 240
+
+        # Q10 * 10
+        assert_state_variable :simple_home_costs, 300
+
+        # Q12 * 500
+        assert_state_variable :simple_business_costs, 1000
+
+        # four above added together
+        assert_state_variable :simple_costs, 3790
+      end
+
+      should "calculate the correct values for the current_scheme_cost" do
+        # Q3 - didn't answer so variable will be nil
+        assert_state_variable :vehicle_tax_amount, nil
+
+        # Q5 - write off. Vehicle is green, this should be (private_use %) of vehicle_price
+        assert_state_variable :green_vehicle_write_off, 500
+
+        # Q9 - home costs
+        assert_state_variable :home_costs, 100
+
+        # Q11 - business premises costs
+        assert_state_variable :business_premises_cost, 500
+
+        assert_state_variable :current_scheme_costs, 1100
+      end
+
+      should "show the simplified is best info" do
+        assert_state_variable :can_use_simple, true
+        assert_phrase_list :result_title, [:simplified_title]
+      end
+
+      should "show all the simplified bullet points" do
+        assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet, :simple_motorcycle_costs_bullet, :simple_home_costs_bullet, :simple_business_costs_bullet]
+      end
+
+      should "show all the current scheme bullet points with a value" do
+        assert_phrase_list :current_scheme_bullets, [:current_green_vehicle_write_off_bullet, :current_home_costs_bullet, :current_business_costs_bullet]
+      end
+
+      should "show the right title" do
+        assert_phrase_list :result_title, [:simplified_title]
+      end
+
+      should "not show the over van limit message" do
+        assert_phrase_list :over_van_limit_message, []
+      end
+    end # simplified > current
+
+    context "vehicle cost > 250k" do
+      should "show the vehicle cost warning" do
+        add_response :new #Q1
+        add_response "car_or_van"
+        add_response :yes #Q4 - vehicle is clean
+        add_response 260000 #Q5 - price of vehicle
+        add_response 10 #Q6 - % of private use
+        add_response 5000 #Q7 - miles to drive car
+        assert_phrase_list :over_van_limit_message, [:over_van_limit]
+      end
     end
   end
 
