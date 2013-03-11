@@ -353,7 +353,7 @@ latvia:
 lebanon: 
   type: lebanon
   group: ips_documents_group_3
-  helpline: france
+  helpline: paris_france
 lesotho: 
   type: pretoria_south_africa
   group: ips_documents_group_2
