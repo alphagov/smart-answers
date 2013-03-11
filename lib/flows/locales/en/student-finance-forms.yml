@@ -2,35 +2,40 @@ en-GB:
   flow:
     student-finance-forms:
       phrases:
-          postal_address_uk: |
-            ##Where to send your form(s) 
+        postal_address_uk: |
+          ##Where to send your form(s) 
 
-            $A
-            Student Finance England
-            PO Box 210
-            Darlington
-            DL1 9HJ
-            $A
-          postal_address_eu: |
-            ##Where to send your forms 
+          $A
+          Student Finance England
+          PO Box 210
+          Darlington
+          DL1 9HJ
+          $A
+        postal_address_eu: |
+          ##Where to send your forms 
 
-            $A
-            Student Finance Services European Team
-            Student Loans Company
-            PO Box 89
-            Darlington
-            County Durham
-            England
-            DL1 9AZ
-            $A
+          $A
+          Student Finance Services European Team
+          Student Loans Company
+          PO Box 89
+          Darlington
+          County Durham
+          England
+          DL1 9AZ
+          $A
       meta:
         description: Download Student Finance England application forms and guidance notes
       title: Student finance forms
       body: |
-        Download forms and guidance notes for Student Finance England.
+        Download student finance forms and guidance notes for Student Finance England including:
+
+        + forms PN1, PR1, PTG1 and PFF2
+        + forms for parents 
+        + forms for EU students 
       devolved_body: |
         ##Before you start
-
+        
+        The forms are different for students from [Scotland](http://www.saas.gov.uk "Students from Scotland"){:rel="external"}, [Wales](http://www.studentfinancewales.co.uk "Students from Wales"){:rel="external"} and [Northern Ireland.](http://www.studentfinanceni.co.uk "Students from Northern Ireland"){:rel="external"}  
         For braille or alternative formats contact the helpline. If you email, include your contact details and the format needed.
 
 
@@ -59,7 +64,7 @@ en-GB:
         options:
           "apply-loans-grants": "Apply for student loans and grants"
           "proof-identity": "Send proof of identity"
-          "income-details": "Send parent or partner’s income details"
+          "income-details": "Send parent or partner’s income detail - eg PFF2"
           "apply-dsa": "Apply for Disabled Students’ Allowances"
           "dsa-expenses": "Claim Disabled Students’ Allowances expenses"
           "apply-ccg": "Apply for Childcare Grant"
@@ -109,12 +114,14 @@ en-GB:
           - | -
           2013 to 2014 | [Apply online](/apply-online-for-student-finance "Apply for student finance online")
           2013 to 2014 | [PN1 - form (PDF, 400KB)](http://www.sfengland.slc.co.uk/media/559131/sfe_pn1_1314_d.pdf "Download 'PN1 - form' (PDF, 400KB)"){:rel="external"}
-          2013 to 2014 | For the guidance notes, [contact Student Finance England](/contact-student-finance-england "Contact Student Finance England")
+          2013 to 2014 | [PN1 - guidance notes (PDF, 300KB)](http://www.sfengland.slc.co.uk/media/559137/sfe_pn1_notes_1314_d.pdf "Download ‘PN1 - guidance notes (PDF, 300KB)"){:rel="external"}  
 
           ^You can apply up to 9 months after the start of your course. To get your money by the start of term, apply by 31 May 2013^
 
           %{form_destination}
 
+        next_steps: |
+          [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
       outcome_2:
         title: Student finance – application form
         body: |
@@ -126,12 +133,14 @@ en-GB:
           - | -
           2013 to 2014 | [Apply online](/apply-online-for-student-finance "Apply for student finance online")
           2013 to 2014 | [PR1 - form (PDF, 400KB)](http://www.sfengland.slc.co.uk/media/559134/sfe_pr1_1314_d.pdf "Download 'PR1 - form' (PDF, 400KB)"){:rel="external"}
-          2013 to 2014 | For the guidance notes, [contact Student Finance England](/contact-student-finance-england "Contact Student Finance England")
+          2013 to 2014 | [PR1 - guidance notes (PDF, 300KB)](http://www.sfengland.slc.co.uk/media/559140/sfe_pr1_notes_1314_d.pdf "Download ‘PR1 - guidance notes (PDF, 300KB)"){:rel="external"} 
 
           ^You can apply up to 9 months after the start of your course. To get your money by the start of term, apply by 28 June 2013^
 
           %{form_destination}
 
+        next_steps: |
+          [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
       outcome_3:
         title: Student finance – application form
         body: |
@@ -149,6 +158,8 @@ en-GB:
 
           %{form_destination}
 
+        next_steps: |
+          [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
       outcome_4:
         title: Student finance – application form
         body: |
@@ -166,27 +177,29 @@ en-GB:
 
           %{form_destination}
 
+        next_steps: |
+          [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
       outcome_5:
         title: Student finance – application form 
         body: |
           You can apply for student finance from summer 2013. The forms will be available then.
 
-          
-
+        next_steps: |
+          [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
       outcome_6:
         title: Student finance – application form 
         body: |
           You can apply for student finance from summer 2013. The forms will be available then.
 
-          
-
+        next_steps: |
+          [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
       outcome_7:
         title: Student finance – application form 
         body: |
           You can apply for student finance from summer 2013. The forms will be available then.
 
-          
-
+        next_steps: |
+          [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
       outcome_8:
         title: Student finance – application form 
         body: |
@@ -202,15 +215,19 @@ en-GB:
 
           %{form_destination}
 
+        next_steps: |
+          [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
       outcome_9:
         title: Student finance – application form 
         body: |
           You should [contact Student Finance England](/contact-student-finance-england "Contact Student Finance England") - you may be able to apply for either a Tuition Fee Loan or the Fee and Course Grants.
 
+        next_steps: |
+          [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
       outcome_10:
         title: Student finance – application form 
         body: |
-          To apply for a Fee Grant and Course Grant use form PTGC (or PTGN if you're applying for student finance for the first time).  
+          To apply for a Fee Grant and Course Grant use form PTGC (or PTGN if you're applying for student finance for the first time).
 
           Academic year | Form
           - | - 
@@ -227,16 +244,25 @@ en-GB:
 
           Form | When to use the form
           - | - 
-          [Change of circumstance (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/434454/sfe_co2_1213.pdf "Download 'Change of circumstance' (PDF, 100KB)"){:rel="external"} | Your course, university, bank, or contact details change
+          [Change of circumstance (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/434454/sfe_co2_1213.pdf "Download 'Change of circumstance' (PDF, 100KB)"){:rel="external"} | Your course, university or contact details change
           [Income confirmation (PDF, 150KB)](http://www.sfengland.slc.co.uk/media/426284/sfe_ptci2_1213_v1_4.pdf "Download 'Income confirmation' (PDF, 150KB)"){:rel="external"} | You don't have a P60, P11D or payslips to prove your income
           [Benefits confirmation (PDF, 200KB)](http://www.sfengland.slc.co.uk/media/434457/cb1.pdf "Download 'Benefits confirmation' (PDF, 200KB)"){:rel="external"} | You or your partner get certain benefits (check the form for details)
 
           %{form_destination}
 
+        next_steps: |
+          [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
       outcome_11:
         title: Parents and partners - forms
         body: |
-          You can send your income details online as part of the student’s [online application](/apply-online-for-student-finance "Apply for student finance online"). If you can't do this online, use form PFF2 to send details of your income for the tax year 2011 to 2012. If you expect your income to drop by 15% or more, use the current tax year form instead. 
+          Some student finance (eg a Maintenance Grant) is based on income. 
+
+          You must send your income details for the 2011 to 2012 tax year. Do this online as part of the student's [online application](/apply-online-for-student-finance "Apply for student finance online"). If you can't do it online, use form PFF2. 
+
+          If you think your income has dropped by 15% or more since the 2011 to 2012 tax year:
+
+          + send your 2011 to 2012 income details (as above), and
+          + complete a CYI form (to ask for the student finance to be based on your expected 2013 to 2014 tax year income)
 
           Academic year | Form
           - | - 
@@ -245,10 +271,19 @@ en-GB:
 
           %{form_destination}
 
+        next_steps: |
+          [How to support an application](/apply-for-student-finance/parents-and-partners "Support an application")
       outcome_12:
         title: Parents and partners – forms
         body: |
-          You can send your income details online as part of the student’s [online application](/apply-online-for-student-finance "Apply for student finance online"). If you can't do this online, use form PFF2 to send details of your income for the tax year 2010 to 2011. If you expect your income to drop by 15% or more, use the current tax year form instead. 
+          Some student finance (eg a Maintenance Grant) is based on income. 
+
+          You must send your income details for the 2011 to 2012 tax year. Do this online as part of the student's [online application](/apply-online-for-student-finance “Apply for student finance online”). If you can't do it online, use form PFF2. 
+
+          If you think your income has dropped by 15% or more since the 2011 to 2012 tax year:
+
+          + send your 2011 to 2012 income details (as above), and
+          + complete a CYI form (to ask for the student finance to be based on your expected 2013 to 2014 tax year income)
 
           Academic year | Form
           - | - 
@@ -257,6 +292,8 @@ en-GB:
 
           %{form_destination}
 
+        next_steps: |
+          [How to support an application](/apply-for-student-finance/parents-and-partners "Support an application")
       outcome_13:
         title: Proof of identity
         body: |
@@ -271,11 +308,15 @@ en-GB:
 
           %{form_destination}
 
+        next_steps: |
+          [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
       outcome_14:
         title: Proof of identity
         body: |
           You apply for student finance from summer 2013. The forms will be available then.
 
+        next_steps: |
+          [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
       outcome_15:
         title: Proof of identity
         body: |
@@ -290,6 +331,8 @@ en-GB:
 
           %{form_destination}
 
+        next_steps: |
+          [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
       outcome_16:
         title: Disabled Students' Allowances
         body: |
@@ -299,16 +342,21 @@ en-GB:
           - | - 
           2013 to 2014 | [DSA1 - short form (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/559158/sfe_dsa_slim_1314_d.pdf "Download 'DSA1 - short form' (PDF, 100KB)"){:rel="external"}  
           2013 to 2014 | [DSA1 - full form (PDF, 200KB)](http://www.sfengland.slc.co.uk/media/559155/sfe_dsa_1314_d.pdf "Download 'DSA1 - full form' (PDF, 200KB)"){:rel="external"}
+          2013 to 2014 | [DSA1 - guidance notes (PDF, 150KB)](/http://www.sfengland.slc.co.uk/media/559161/sfe_dsa__notes_1314_d.pdf "Download ‘DSA notes’ (PDF, 150KB)"){:rel="external"} 
 
           ^Open University (OU) students apply to the OU for Disabled Students’ Allowances.^
 
           %{form_destination}
 
+        next_steps: |
+          [Disabled Student's Allowances](/disabled-students-allowances-dsas "Disabled Students’ Allowances")   
       outcome_17:
         title: Disabled Students' Allowances
         body: |
           You apply for student finance from summer 2013. The forms will be available then.
 
+        next_steps: |
+          [Disabled Student's Allowances](/disabled-students-allowances-dsas "Disabled Students’ Allowances") 
       outcome_18:
         title: Disabled Students' Allowances
         body: |
@@ -324,6 +372,8 @@ en-GB:
 
           %{form_destination}
 
+        next_steps: |
+          [Disabled Student's Allowances](/disabled-students-allowances-dsas "Disabled Students’ Allowances")
       outcome_19:
         title: Childcare Grant
         body: |
@@ -335,6 +385,8 @@ en-GB:
 
           %{form_destination}
 
+        next_steps: |
+          [Childcare Grant](/childcare-grant "Childcare Grant")
       outcome_20:
         title: Childcare Grant 
         body: |
@@ -346,6 +398,8 @@ en-GB:
 
           %{form_destination}
 
+        next_steps: |
+          [Childcare Grant](/childcare-grant "Childcare Grant")
       outcome_21:
         title: Disabled Students' Allowances – expenses
         body: |
@@ -358,6 +412,8 @@ en-GB:
 
           %{form_destination}
 
+        next_steps: |
+          [Disabled Student's Allowances](/disabled-students-allowances-dsas "Disabled Students’ Allowances")
       outcome_22:
         title: Childcare Grant - cost confirmation 
         body: |
@@ -370,6 +426,8 @@ en-GB:
 
           %{form_destination}
 
+        next_steps: |
+          [Childcare Grant](/childcare-grant "Childcare Grant")
       outcome_23:
         title: Travel Grants
         body: |
@@ -377,33 +435,27 @@ en-GB:
 
           To get the travel expenses claim forms, [log in to your student finance account](/student-finance-register-login "Log in to your account"). You can reclaim your costs every time you travel.
 
+        next_steps: |
+          [Travel grants](/travel-grants-medical-dental-students-england "Travel Grants")
       outcome_24:
         title: EU full-time student 
         body: |
           You can apply for student finance from April 2013. The forms will be available then.
-
-          
 
       outcome_25:
         title: EU full-time student 
         body: |
           You can apply for student finance from April 2013. The forms will be available then.
 
-          
-
       outcome_26:
         title: EU part-time student
         body: |
           You can apply for student finance from August 2013. The forms will be available then.
 
-          
-
       outcome_27:
         title: EU part-time student 
         body: |
           You can apply for student finance from August 2013. The forms will be available then.
-
-          
 
       outcome_28:
         title: EU full-time student 
@@ -432,7 +484,7 @@ en-GB:
       outcome_29:
         title: EU full-time student 
         body: |
-          To apply for a Tuition Fee Loan use form EUPR1A. Student Finance England will send this to you. 
+          To apply for a Tuition Fee Loan use form EUPR1A. [Student Finance England](/contact-student-finance-england "Contact Student Finance England") will send this to you. 
 
           ^You can apply up to 9 months after the start of your course.^
 
