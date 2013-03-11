@@ -11,7 +11,7 @@ country_select :which_country_are_you_in? do
     data_query.find_passport_data(responses.last)
   end
   calculate :application_type do
-    passport_data[:type]
+    passport_data['type']
   end
   calculate :is_ips_application do
     application_type =~ Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP
@@ -56,7 +56,7 @@ country_select :which_country_are_you_in? do
   end
 
   calculate :supporting_documents do
-    passport_data[:group]
+    passport_data['group']
   end
 
   next_node do |response|
@@ -114,7 +114,7 @@ country_select :country_of_birth?, include_uk: true do
   save_input_as :birth_location
 
   calculate :application_group do
-    data_query.find_passport_data(responses.last)[:group]
+    data_query.find_passport_data(responses.last)['group']
   end
 
   calculate :supporting_documents do
@@ -342,7 +342,7 @@ outcome :result do
     if %w(cuba libya morocco tunisia).include?(current_location)
       phrases << :helpline_exceptions
     else
-      phrases << :helpline_intro << :"helpline_#{passport_data[:helpline]}"
+      phrases << :helpline_intro << :"helpline_#{passport_data['helpline']}"
     end
     phrases
   end
