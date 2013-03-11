@@ -170,10 +170,24 @@ end
 
 #Q9 - how much do you claim?
 value_question :current_claim_amount_home? do
+  calculate :home_costs do
+    responses.last.gsub(",","").to_f
+  end
+
+  next_node :hours_work_home?
 
 end
 
 #Q10 - hours for home work
+value_question :hours_work_home? do
+  calculate :hours_worked_home do
+    responses.last.gsub(",","").to_f
+  end
+
+  next_node do
+    list_of_expenses.include?("live_on_business_premises") ? :deduct_from_premises? : :you_can_use_result
+  end
+end
 
 #Q11 = how much do you deduct from premises for private use?
 value_question :deduct_from_premises? do
@@ -191,7 +205,6 @@ value_question :people_live_on_premises? do
   end
 
   next_node :you_can_use_result
-
 end
 
 

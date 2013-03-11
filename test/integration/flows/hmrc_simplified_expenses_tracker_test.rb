@@ -281,6 +281,31 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
           add_response "using_home_for_business"
           assert_current_node :current_claim_amount_home?
         end
+
+        context "answering Q9" do
+          setup do
+            add_response "using_home_for_business" # answer Q2
+            add_response "100" # answer Q9
+          end
+          should "calculate home_costs variable" do
+            assert_state_variable :home_costs, 100.0
+          end
+          should "take the user to Q10" do
+            assert_current_node :hours_work_home?
+          end
+
+          context "answering Q10" do
+            setup do
+              add_response 5 # Q10
+            end
+
+            should "take the user to outcome" do
+              assert_state_variable :hours_worked_home, 5.0
+              assert_current_node :you_can_use_result
+            end
+
+          end # answering Q10
+        end # answering Q9
       end # answering using_home_for_business on Q2
 
       context "answering just D for Q2 takes you to Q11" do
@@ -314,6 +339,27 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
 
         end # answering Q11
       end #answering live_on_business_premises for Q2
+
+      context "answering C and D on Q2" do
+        setup do
+          add_response "using_home_for_business,live_on_business_premises"
+        end
+
+        context "answering Q10 should take you to Q11" do
+          setup do
+            add_response "100" # answer Q9
+            add_response "5" # answer Q10
+          end
+
+          should "calculate variables from Q10 answer" do
+            assert_state_variable :hours_worked_home, 5.0
+          end
+
+          should "take user to Q11 after answering Q10" do
+            assert_current_node :deduct_from_premises?
+          end
+        end # answering Q10
+      end # answer using_home_for_business,live_on_business_premises for Q2
 
       context "answering Q3" do
         should "take user to Q7 if they picked car_or_van in Q2" do
