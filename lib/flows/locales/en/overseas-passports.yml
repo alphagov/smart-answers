@@ -776,18 +776,18 @@ en-GB:
           $D
 
         passport_courier_costs_ips2: |
-          You’ll have to pay a fee for your passport and a courier fee of £21.11. The courier fee pays for your passport and supporting documents to be sent securely to your nearest embassy, high commission or consulate for you to collect.
+          You’ll have to pay a fee for your passport and a courier fee of £24.72. The courier fee pays for your passport and supporting documents to be sent securely to your nearest embassy, high commission or consulate for you to collect.
 
         adult_passport_costs_ips2: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Adult standard 32-page passport | £128.00 | £149.11 |
-          | Adult jumbo 48-page passport | £154.50 | £175.61 |
+          | Adult standard 32-page passport | £128.00 | £152.72 |
+          | Adult jumbo 48-page passport | £154.50 | £179.99 |
 
         child_passport_costs_ips2: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Child passport | £81.50 | £102.61 |
+          | Child passport | £81.50 | £106.22 |
 
         passport_costs_ips2: |
           Fill in a ‘Paying by credit card or debit card’ form for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
