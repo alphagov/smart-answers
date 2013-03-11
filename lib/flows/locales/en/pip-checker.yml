@@ -53,7 +53,7 @@ en-GB:
 
       result_3:
         body: |
-          $!You can make a claim for [Disability Living Allowance](/dla-disability-living-allowance-benefit "Disability Living Allowance") (DLA) until 8 April 2013.$!
+          $!You can make a claim for [Disability Living Allowance](/dla-disability-living-allowance-benefit "Disability Living Allowance") (DLA) until 7 April 2013.$!
 
           After this date, you'll have to make a claim for Personal Independence Payment (PIP) instead. This is because PIP is replacing DLA in your part of the country from 8 April 2013.
 
@@ -62,7 +62,7 @@ en-GB:
 
       result_4:
         body: |
-          $!You can make a claim for [Disability Living Allowance](/dla-disability-living-allowance-benefit "Disability Living Allowance") (DLA) until 10 June 2013.$!
+          $!You can make a claim for [Disability Living Allowance](/dla-disability-living-allowance-benefit "Disability Living Allowance") (DLA) until 9 June 2013.$!
 
           From this date, you'll have to make a claim for Personal Independence Payment (PIP) instead. This is because PIP replaces DLA for new claimants from 10 June 2013.
 
@@ -75,12 +75,12 @@ en-GB:
 
           ##After they turn 16
 
-          Most children won't be affected by Personal Independence Payment (PIP) until 2015, but there are some exceptions.
+          Most children won't be affected by Personal Independence Payment (PIP) until 2015 or later, but there are some exceptions.
 
           They'll be asked to make a claim for PIP if after October 2013 their:
 
-          * health condition or disability changes
-          * Disability Living Allowance award is due to end and they haven't received a renewal letter
+          * there’s a change in how their condition affects them
+          * their Disability Living Allowance award is due to end and they haven't received a renewal letter
 
           Unless either of these happen – you don't need to do anything. You'll get a letter in 2015 or later explaining:
 
@@ -111,12 +111,12 @@ en-GB:
 
       result_8:
         body: |
-          $!You shouldn't be affected by Personal Independence Payment (PIP) until 2015, but there are some exceptions.$!
+          $!You shouldn't be affected by Personal Independence Payment (PIP) until 2015 or later, but there are some exceptions.$!
 
           You'll be asked to make a claim for PIP if after October 2013 your:
 
-          * health condition or disability changes
-          * Disability Living Allowance award is due to end and you haven't received a renewal letter
+          * there’s a change in how your condition affects you
+          * your Disability Living Allowance award is due to end and you haven't received a renewal letter
 
           Unless either of these happen – you don't need to do anything. You'll get a letter in 2015 or later explaining:
 
