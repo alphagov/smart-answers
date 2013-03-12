@@ -32,6 +32,13 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_current_node :dob_age?
       end
 
+      context "give a date in the future" do
+        should "raise an error" do
+          add_response (Date.today + 1).to_s
+          assert_current_node_is_error
+        end
+      end
+
       context "pension_credit_date check -- born 5th Dec 1953" do
         setup{ add_response Date.parse("5th Dec 1953")}
         should "go to age result" do
@@ -87,6 +94,13 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
       should "ask for date of birth" do
         assert_current_node :dob_amount?
+      end
+
+      context "give a date in the future" do
+        should "raise an error" do
+          add_response (Date.today + 1).to_s
+          assert_current_node_is_error
+        end
       end
 
       context "within four months and four days of state pension age test" do
@@ -310,7 +324,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
       context "age = 61, NI = 20, JSA = 1" do
         setup do
           Timecop.travel("2012-08-08")
-          add_response 61.years.ago
+          add_response Date.civil(61.years.ago.year,4,7)
           add_response 20
           add_response 1
         end
@@ -360,6 +374,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         should "display result because of starting credits" do
           assert_state_variable :qualifying_years_total, 30
           assert_current_node :amount_result
+          assert_phrase_list :automatic_credits, [:automatic_credits]
         end
       end
     end # male
@@ -390,7 +405,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
       context "50 years old" do
         setup do
-          add_response 50.years.ago
+          add_response Date.civil(50.years.ago.year,4,7)
         end
 
         should "ask for number of years paid NI" do
@@ -453,6 +468,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
           add_response 1    # jsa years
           add_response :no  
           assert_current_node :amount_result
+          assert_phrase_list :automatic_credits, [:automatic_credits]
         end
       end
 
@@ -498,13 +514,14 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
             add_response 5
 
             assert_current_node :amount_result
+            assert_state_variable :automatic_credits, ''
           end
         end
       end
 
       context "(testing from years_of_benefit) age 40, NI = 5, JSA = 5, cb = yes " do
         setup do
-          add_response 40.years.ago
+          add_response Date.civil(40.years.ago.year,4,7)
           add_response 10
           add_response 5
           add_response :yes
@@ -695,7 +712,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
       end
       context "years_you_can_enter test" do
         setup do
-          add_response 49.years.ago.to_s
+          add_response Date.civil(49.years.ago.year,4,7)
           add_response 20
           add_response 5
           add_response :yes

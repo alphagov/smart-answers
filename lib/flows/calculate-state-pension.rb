@@ -103,6 +103,8 @@ date_question :dob_age? do
   end
   
   next_node do |response|
+    raise InvalidResponse if Date.parse(response) > Date.today
+
     calc = Calculators::StatePensionAmountCalculator.new(
       gender: gender, dob: response)
     if (calc.before_state_pension_date? and calc.within_four_months_four_days_from_state_pension?)
@@ -118,9 +120,7 @@ date_question :dob_amount? do
   from { 100.years.ago }
   to { Date.today }
 
-  calculate :dob do
-    responses.last
-  end
+  save_input_as :dob
 
   calculate :calculator do
     Calculators::StatePensionAmountCalculator.new(gender: gender, dob: dob)
@@ -149,6 +149,8 @@ date_question :dob_amount? do
 
 
   next_node do |response|
+    raise InvalidResponse if Date.parse(response) > Date.today
+    
     calc = Calculators::StatePensionAmountCalculator.new(
       gender: gender, dob: response)
     if calc.before_state_pension_date?
@@ -380,7 +382,11 @@ end
 
 outcome :near_state_pension_age
 outcome :reached_state_pension_age
-outcome :too_young 
+outcome :too_young do
+  precalculate :weekly_rate do
+    sprintf("%.2f", calculator.current_weekly_rate)
+  end
+end
 outcome :age_result
 
 outcome :amount_result do
@@ -425,6 +431,10 @@ outcome :amount_result do
     sprintf("%.2f", calculator.what_you_get)
   end
 
+  precalculate :weekly_rate do
+    sprintf("%.2f", calculator.current_weekly_rate)
+  end
+
   precalculate :pension_loss do
     sprintf("%.2f", calculator.pension_loss)
   end
@@ -459,6 +469,15 @@ outcome :amount_result do
       end
     else
       PhraseList.new :you_get_full_state_pension
+    end
+  end
+
+  precalculate :automatic_credits do
+    date_of_birth = Date.parse(dob)
+    if Date.civil(1957,4,7) < date_of_birth and date_of_birth < Date.civil(1994,4,5)
+      PhraseList.new :automatic_credits
+    else
+      ''
     end
   end
 end

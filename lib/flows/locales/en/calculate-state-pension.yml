@@ -36,6 +36,9 @@ en-GB:
         automatic_years_phrase: |
           You might be eligible for [credits towards your basic State Pension](/automatic-pension-credits-for-men "automatic pension credits for men") for the years immediately before you reach age 65.
         full_contribution_years_callout: You get the full State Pension.
+        automatic_credits: |
+          Your estimate includes up to 3 years of automatic credits for the years containing your 16th, 17th and 18th birthdays. If you got your National Insurance number after April 2010 you don’t get these automatic credits.
+
         state_pension_age_is: |
 
           Your State Pension age is %{state_pension_age}.
@@ -87,7 +90,7 @@ en-GB:
           Your State Pension age | %{state_pension_age}
           When you’ll reach State Pension age | %{formatted_state_pension_date}
           How much per week you may get | £%{pension_amount}
-          Difference to the full basic State Pension of £107.45 | £%{pension_loss}
+          Difference to the full basic State Pension of £%{weekly_rate} | £%{pension_loss}
 
 
           $C
@@ -105,21 +108,18 @@ en-GB:
 
           You may still have enough years to make contributions to get a full basic State Pension.
 
-          More information on the [basic State Pension or how to top it up](/state-pension) and the [additional State Pension](/additional-state-pension)
+          More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
 
           You can also read about [voluntary contributions.](/voluntary-national-insurance-contributions "voluntary National Insurance contributions")
 
-          You might be able to use your partner's or late or former partner's National Insurance to increase your [basic State Pension](/state-pension/eligibility "Increase your basic State Pension")
+          Use your partner's or late or former partner's National Insurance to increase your [basic State Pension](/state-pension/eligibility "Increase your basic State Pension")
 
-          Your estimate may include up to 3 years of automatic credits for the years containing your 16th, 17th and 18th birthdays. If you got your National Insurance number after April 2010 you don’t get these automatic credits.
-
-          [State Pension if you retire abroad](/state-pension-if-you-retire-abroad "State Pension if you retire abroad")
         ## Result 2
         too_few_qy_not_enough_remaining_years: |
           
 
           $C
-          You currently don’t have the 30 qualifying years needed to get a full basic State Pension of £107.45 per week. You don’t have enough years before your State Pension age to get the further years needed.
+          You currently don’t have the 30 qualifying years to get a full basic State Pension of £%{weekly_rate} per week but you may have enough time before your State Pension age to get the further years needed.
           $C
 
           State Pension | Your results
@@ -131,7 +131,7 @@ en-GB:
 
 
           $C
-          You can [apply for a State Pension statement](/state-pension-statement "get a State Pension statement") to get an estimate of your full State Pension.
+          You can [apply for a State Pension statement](/state-pension-statement "get a State Pension statement") to get a detailed estimate of your State Pension.
           $C
 
           How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance "National Insurance") you have. 
@@ -143,19 +143,16 @@ en-GB:
 
           You may be able to pay [voluntary contributions](/voluntary-national-insurance-contributions/why-pay-voluntary-contributions) to increase your basic State Pension.
 
-          You might be able to use your partner's or late or former partner's National Insurance to increase your [basic State Pension](/state-pension/eligibility "Increase your basic State Pension")
+          Use your partner's or late or former partner's National Insurance to increase your [basic State Pension](/state-pension/eligibility "Increase your basic State Pension")
 
           More information on the [basic State Pension or how to top it up](/state-pension) and the [additional State Pension](/additional-state-pension)
 
-          Your estimate may include up to 3 years of automatic credits for the years containing your 16th, 17th and 18th birthdays. If you got your National Insurance number after April 2010 you don’t get these automatic credits.
-
-          [State Pension if you retire abroad](/state-pension-if-you-retire-abroad "State Pension if you retire abroad")
         ## Result 3
         you_get_full_state_pension: |
           
 
           $C
-          You already have enough qualifying years for the full basic State Pension of £107.45 a week.
+          You already have enough qualifying years for the full basic State Pension of £%{weekly_rate} a week.
           $C
 
           Your State Pension age is %{state_pension_age}
@@ -171,16 +168,12 @@ en-GB:
 
           More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
 
-          Your estimate may include up to 3 years of automatic credits for the years containing your 16th, 17th and 18th birthdays. If you got your National Insurance number after April 2010 you don’t get these automatic credits.
-
-          [State Pension if you retire abroad](/state-pension-if-you-retire-abroad "State Pension if you retire abroad")
-
       ## Q1
       which_calculation?:
-        title: What would you like to do?
+        title: What would you like to calculate?
         options:
-          age: Calculate your State Pension age and Pension Credit qualifying age
-          amount: Get a basic State Pension estimate and calculate your State Pension age
+          age: Age (State Pension and Pension Credit)
+          amount: Amount of basic State Pension (also gives State Pension age)
       ## Q2
       gender?:
         title: What is your gender?
@@ -261,7 +254,7 @@ en-GB:
         
           How much State Pension you get depends on how many years of National Insurance contributions you have.
 
-          You’ll need 30 years to get a full basic State Pension which is currently worth £107.45 a week.
+          You’ll need 30 years to get a full basic State Pension which is currently worth £%{weekly_rate} a week.
 
           More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
 
@@ -308,6 +301,9 @@ en-GB:
       amount_result:
         body: |
           %{result_text}
+
+          %{automatic_credits}
+          [State Pension if you retire abroad](/state-pension-if-you-retire-abroad "State Pension if you retire abroad")
 
       ## AGE RESULT
       age_result:
