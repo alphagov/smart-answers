@@ -683,6 +683,7 @@ en-GB:
 
           If you haven’t already reported the loss or theft, you must include form LS01 form with your passport application.
 
+
           $D
           [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)")
           $D
@@ -746,8 +747,9 @@ en-GB:
 
           Call the Passport Adviceline.
 
+
           $C
-          Passport Adviceline
+          **Passport Adviceline**  
           +44 (0) 300 222 0000
           $C
 
@@ -771,6 +773,7 @@ en-GB:
         how_long_replacing_ips2: |
           If you haven’t already reported the loss or theft, you must include form LS01 form with your passport application.
 
+
           $D
           [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)")
           $D
@@ -782,7 +785,7 @@ en-GB:
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
           | Adult standard 32-page passport | £128.00 | £152.72 |
-          | Adult jumbo 48-page passport | £154.50 | £179.99 |
+          | Adult jumbo 48-page passport | £154.50 | £179.22 |
 
         child_passport_costs_ips2: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
@@ -829,7 +832,7 @@ en-GB:
 
 
           $C
-          Passport Adviceline
+          **Passport Adviceline**  
           +44 (0) 300 222 0000
           $C
 
@@ -840,6 +843,7 @@ en-GB:
           Your application will take **at least** 6 weeks from when it's received by the Identity and Passport Service (IPS) in the UK.
 
           If you haven’t already reported the loss or theft, you must include form LS01 form with your passport application.
+
 
           $D
           [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)")
@@ -907,7 +911,7 @@ en-GB:
 
 
           $C
-          Passport Adviceline
+          **Passport Adviceline**  
           +44 (0) 300 222 0000
           $C
 
