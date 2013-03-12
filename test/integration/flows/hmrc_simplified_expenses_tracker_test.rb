@@ -612,17 +612,6 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
       add_response 5000 #Q11 - currently take for private use
       add_response 1 #Q12 - how many live on premises
     end
-    # simplified cost variables:
-    # Q5 - green_vehicle_price
-    # Q7 - simple_vehicle_costs
-    # Q8 - simple_motorcycle_costs
-    # Q12 - live_on_premise
-    # current cost variables:
-    # Q3- vehicle_tax_amount
-    # Q5 - dirty_vehicle_price
-    # Q6 - dirty_write_off OR green_write_off
-    # Q9 - home_costs
-    # Q11 - business_premises_cost
 
     should "take user to outcome" do
       assert_current_node :you_can_use_result
@@ -667,7 +656,7 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
     end
 
     should "show only the valid simplified bullets" do
-      assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet, :simple_home_costs_bullet, :simple_business_costs_bullet]
+      assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet, :simple_business_costs_bullet]
     end
 
     should "show all the current scheme bullet points with a value" do

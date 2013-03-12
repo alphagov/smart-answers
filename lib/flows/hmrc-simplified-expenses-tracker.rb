@@ -49,10 +49,9 @@ checkbox_question :type_of_expense? do
 end
 
 #Q3 - write off tax
-value_question :how_much_write_off_tax? do
-  calculate :vehicle_tax_amount do
-    responses.last.gsub(",","").to_f
-  end
+money_question :how_much_write_off_tax? do
+  save_input_as :vehicle_tax_amount
+
   next_node do
     list_of_expenses.include?("car_or_van") ? :drive_business_miles_car_van? : :drive_business_miles_motorcycle?
   end
@@ -71,13 +70,11 @@ multiple_choice :is_vehicle_green? do
 end
 
 #Q5 - price of vehicle
-value_question :price_of_vehicle? do
+money_question :price_of_vehicle? do
   # if green => take user input and store as [green_cost]
   # if dirty  => take 18% of user input and store as [dirty_cost]
   # if input > 250k store as [over_van_limit]
-  calculate :vehicle_price do
-    responses.last.gsub(",", "").to_f
-  end
+  save_input_as :vehicle_price
 
   calculate :green_vehicle_price do
     vehicle_is_green ? vehicle_price : nil
@@ -102,11 +99,11 @@ value_question :vehicle_private_use_time? do
     responses.last.gsub("%", "").to_f
   end
   calculate :green_vehicle_write_off do
-    vehicle_is_green ? green_vehicle_price * ( private_use_percent / 100 ) : nil
+    vehicle_is_green ? Money.new(green_vehicle_price * ( private_use_percent / 100 )) : nil
   end
 
   calculate :dirty_vehicle_write_off do
-    vehicle_is_green ? nil : dirty_vehicle_price * ( private_use_percent / 100 )
+    vehicle_is_green ? nil : Money.new(dirty_vehicle_price * ( private_use_percent / 100 ))
   end
 
   next_node do
@@ -123,10 +120,10 @@ value_question :drive_business_miles_car_van? do
   calculate :simple_vehicle_costs do
     answer = responses.last.gsub(",", "").to_f
     if answer <= 10000
-      answer * 0.45
+      Money.new(answer * 0.45)
     else
       answer_over_amount = (answer - 10000) * 0.25
-      4500.0 + answer_over_amount
+      Money.new(4500.0 + answer_over_amount)
     end
   end
   next_node do
@@ -145,7 +142,7 @@ end
 #Q8 - miles to drive for business motorcycle
 value_question :drive_business_miles_motorcycle? do
   calculate :simple_motorcycle_costs do
-    responses.last.gsub(",","").to_f * 0.24
+    Money.new(responses.last.gsub(",","").to_f * 0.24)
   end
   next_node do
     if list_of_expenses.include?("using_home_for_business")
@@ -159,10 +156,8 @@ value_question :drive_business_miles_motorcycle? do
 end
 
 #Q9 - how much do you claim?
-value_question :current_claim_amount_home? do
-  calculate :home_costs do
-    responses.last.gsub(",","").to_f
-  end
+money_question :current_claim_amount_home? do
+  save_input_as :home_costs
 
   next_node :hours_work_home?
 
@@ -175,12 +170,13 @@ value_question :hours_work_home? do
   end
 
   calculate :simple_home_costs do
-    case hours_worked_home
+    amount = case hours_worked_home
     when 0..24 then 0
     when 25..50 then hours_worked_home * 10
     when 51..100 then hours_worked_home * 18
     else hours_worked_home * 26
     end
+    Money.new(amount)
   end
 
   next_node do
@@ -189,10 +185,8 @@ value_question :hours_work_home? do
 end
 
 #Q11 = how much do you deduct from premises for private use?
-value_question :deduct_from_premises? do
-  calculate :business_premises_cost do
-    responses.last.gsub(",", "").to_f
-  end
+money_question :deduct_from_premises? do
+  save_input_as :business_premises_cost
 
   next_node :people_live_on_premises?
 end
@@ -204,13 +198,14 @@ value_question :people_live_on_premises? do
   end
 
   calculate :simple_business_costs do
-    case live_on_premises
+    amount = case live_on_premises
     when 0 then 0
     when 1 then 350
     when 2 then 1000
     else live_on_premises * 650
     end
 
+    Money.new(amount)
   end
 
   next_node :you_can_use_result
@@ -221,21 +216,21 @@ outcome :you_cant_use_result
 outcome :you_can_use_result do
   precalculate :simple_costs do
 
-    vehicle = simple_vehicle_costs || 0
-    motorcycle = simple_motorcycle_costs || 0
-    home = simple_home_costs || 0
-    business = simple_business_costs || 0
+    vehicle = simple_vehicle_costs.to_f || 0
+    motorcycle = simple_motorcycle_costs.to_f || 0
+    home = simple_home_costs.to_f || 0
+    business = simple_business_costs.to_f || 0
 
-    vehicle + motorcycle + home + business
+    Money.new(vehicle + motorcycle + home + business)
   end
 
   precalculate :current_scheme_costs do
-    vehicle = vehicle_tax_amount || 0
-    green = green_vehicle_write_off || 0
-    dirty = dirty_vehicle_write_off || 0
-    home = home_costs || 0
-    business = business_premises_cost || 0
-    vehicle + green + dirty + home + business
+    vehicle = vehicle_tax_amount.to_f || 0
+    green = green_vehicle_write_off.to_f || 0
+    dirty = dirty_vehicle_write_off.to_f || 0
+    home = home_costs.to_f || 0
+    business = business_premises_cost.to_f || 0
+    Money.new(vehicle + green + dirty + home + business)
   end
 
   precalculate :can_use_simple do
@@ -248,19 +243,19 @@ outcome :you_can_use_result do
 
   precalculate :simplified_bullets do
     bullets = PhraseList.new
-    bullets << :simple_vehicle_costs_bullet unless simple_vehicle_costs.nil?
-    bullets << :simple_motorcycle_costs_bullet unless simple_motorcycle_costs.nil?
-    bullets << :simple_home_costs_bullet unless simple_home_costs.nil?
-    bullets << :simple_business_costs_bullet unless simple_business_costs.nil?
+    bullets << :simple_vehicle_costs_bullet unless simple_vehicle_costs.nil? || simple_vehicle_costs == 0
+    bullets << :simple_motorcycle_costs_bullet unless simple_motorcycle_costs.nil? || simple_motorcycle_costs == 0
+    bullets << :simple_home_costs_bullet unless simple_home_costs.nil? || simple_home_costs == 0
+    bullets << :simple_business_costs_bullet unless simple_business_costs.nil? || simple_business_costs == 0
   end
 
   precalculate :current_scheme_bullets do
     bullets = PhraseList.new
-    bullets << :current_vehicle_cost_bullet unless vehicle_tax_amount.nil?
-    bullets << :current_green_vehicle_write_off_bullet unless green_vehicle_write_off.nil?
-    bullets << :current_dirty_vehicle_write_off_bullet unless dirty_vehicle_write_off.nil?
-    bullets << :current_home_costs_bullet unless home_costs.nil?
-    bullets << :current_business_costs_bullet unless business_premises_cost.nil?
+    bullets << :current_vehicle_cost_bullet unless vehicle_tax_amount.nil? || vehicle_tax_amount == 0
+    bullets << :current_green_vehicle_write_off_bullet unless green_vehicle_write_off.nil? || green_vehicle_write_off == 0
+    bullets << :current_dirty_vehicle_write_off_bullet unless dirty_vehicle_write_off.nil? || dirty_vehicle_write_off == 0
+    bullets << :current_home_costs_bullet unless home_costs.nil? || home_costs == 0
+    bullets << :current_business_costs_bullet unless business_premises_cost.nil? || business_premises_cost == 0
   end
 
   precalculate :over_van_limit_message do
