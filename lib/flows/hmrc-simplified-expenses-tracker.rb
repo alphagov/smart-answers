@@ -247,6 +247,7 @@ outcome :you_can_use_result do
     bullets << :simple_motorcycle_costs_bullet unless simple_motorcycle_costs.to_f == 0.0
     bullets << :simple_home_costs_bullet unless simple_home_costs.to_f == 0.0
     bullets << :simple_business_costs_bullet unless simple_business_costs.to_f == 0.0
+    bullets
   end
 
   precalculate :current_scheme_bullets do
@@ -256,6 +257,7 @@ outcome :you_can_use_result do
     bullets << :current_dirty_vehicle_write_off_bullet unless dirty_vehicle_write_off.to_f == 0.0
     bullets << :current_home_costs_bullet unless home_costs.to_f == 0.0
     bullets << :current_business_costs_bullet unless business_premises_cost.to_f == 0.0
+    bullets
   end
 
   precalculate :over_van_limit_message do

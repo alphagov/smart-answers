@@ -532,35 +532,18 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
       end
 
       should "calculate the correct values for the simplified_cost" do
-        # Q7 answer * 0.45
         assert_state_variable :simple_vehicle_costs, 2250
-
-        # Q8 * 0.24
         assert_state_variable :simple_motorcycle_costs, 240
-
-        # Q10 * 10
         assert_state_variable :simple_home_costs, 300
-
-        # Q12 * 500
         assert_state_variable :simple_business_costs, 1000
-
-        # four above added together
         assert_state_variable :simple_costs, 3790
       end
 
       should "calculate the correct values for the current_scheme_cost" do
-        # Q3 - didn't answer so variable will be nil
         assert_state_variable :vehicle_tax_amount, nil
-
-        # Q5 - write off. Vehicle is green, this should be (private_use %) of vehicle_price
         assert_state_variable :green_vehicle_write_off, 500
-
-        # Q9 - home costs
         assert_state_variable :home_costs, 100
-
-        # Q11 - business premises costs
         assert_state_variable :business_premises_cost, 500
-
         assert_state_variable :current_scheme_costs, 1100
       end
 
@@ -618,35 +601,18 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
     end
 
     should "calculate the correct values for the simplified_cost" do
-      # Q7 answer * 0.45
       assert_state_variable :simple_vehicle_costs, 45
-
-      # Q8 * 0.24 (this question wasn't answered)
       assert_state_variable :simple_motorcycle_costs, nil
-
-      # Q10 * 0 (<24 hours = 0)
       assert_state_variable :simple_home_costs, 0
-
-      # Q12 * 350
       assert_state_variable :simple_business_costs, 350
-
-      # four above added together
       assert_state_variable :simple_costs, 395
     end
 
     should "calculate the correct values for the current_scheme_cost" do
-      # Q3 - didn't answer so variable will be nil
       assert_state_variable :vehicle_tax_amount, nil
-
-      # Q5 - write off. Vehicle is dirty, this should be (private_use %) of vehicle_price
       assert_state_variable :dirty_vehicle_write_off, 900.0
-
-      # Q9 - home costs
       assert_state_variable :home_costs, 1000
-
-      # Q11 - business premises costs
       assert_state_variable :business_premises_cost, 5000
-
       assert_state_variable :current_scheme_costs, 6900.0
     end
 
@@ -669,6 +635,31 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
 
     should "not show the over van limit message" do
       assert_phrase_list :over_van_limit_message, []
+    end
+  end
+
+  context "existing business with car or van for Q2" do
+    setup do
+      add_response :existing
+      add_response "car_or_van"
+      add_response 500
+      add_response 2000
+    end
+    should "take user to outcome" do
+      assert_current_node :you_can_use_result
+    end
+
+    should "calculate right variables" do
+      assert_state_variable :vehicle_tax_amount, 500
+      assert_state_variable :simple_vehicle_costs, 900
+      assert_state_variable :current_scheme_costs, 500
+      assert_state_variable :simple_costs, 900
+      assert_state_variable :can_use_simple, true
+    end
+
+    should "show correct bullet points" do
+      assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet]
+      assert_phrase_list :current_scheme_bullets, [:current_vehicle_cost_bullet]
     end
   end
 
