@@ -2,7 +2,7 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
-class MaternityBenefitsTest < ActiveSupport::TestCase
+class CalculateYourMaternityPayTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   def week_containing(date_or_string)
@@ -28,7 +28,7 @@ class MaternityBenefitsTest < ActiveSupport::TestCase
   end
 
   setup do
-    setup_for_testing_flow 'maternity-benefits'
+    setup_for_testing_flow 'calculate-your-maternity-pay'
   end
 
   should "ask when your baby is due" do
