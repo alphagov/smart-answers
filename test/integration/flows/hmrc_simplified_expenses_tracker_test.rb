@@ -657,9 +657,11 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
       assert_state_variable :can_use_simple, true
     end
 
-    should "show correct bullet points" do
+    should "show correct content" do
       assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet]
       assert_phrase_list :current_scheme_bullets, [:current_vehicle_cost_bullet]
+      assert_phrase_list :over_van_limit_message, []
+      assert_phrase_list :result_title, [:simplified_title]
     end
   end
 
