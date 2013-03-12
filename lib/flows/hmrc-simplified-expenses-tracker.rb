@@ -24,25 +24,23 @@ checkbox_question :type_of_expense? do
   option :motorcycle
   option :using_home_for_business
   option :live_on_business_premises
-  option :none_of_these
 
   calculate :list_of_expenses do
-    responses.last.split(",")
+    responses.last == "none" ? [] : responses.last.split(",")
   end
 
   next_node do |response|
     next_question = nil
-    responses = response.split(",")
-    if (responses & ["car_or_van", "motorcycle"]).size > 0
-      is_existing_business ? :how_much_write_off_tax? : :is_vehicle_green?
+    if response == "none"
+      :you_cant_use_result
     else
-      if responses.include?("using_home_for_business")
+      responses = response.split(",")
+      if (responses & ["car_or_van", "motorcycle"]).any?
+        is_existing_business ? :how_much_write_off_tax? : :is_vehicle_green?
+      elsif responses.include?("using_home_for_business")
         :current_claim_amount_home?
-      elsif responses.include?("live_on_business_premises")
+      else responses.include?("live_on_business_premises")
         :deduct_from_premises?
-      else
-        # at this point they must have only picked none_of_these
-        :you_cant_use_result
       end
     end
   end

@@ -269,9 +269,9 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
         end
       end # selecting all but last option Q2
 
-      context "selecting none_of_above on Q2" do
+      context "selecting none for Q2" do
         should "take you to outcome 1" do
-          add_response "none_of_these"
+          add_response "none"
           assert_current_node :you_cant_use_result
         end
       end # selecting none_of_these on Q2
