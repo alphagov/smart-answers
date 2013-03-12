@@ -51,7 +51,7 @@ country_select :which_country_are_you_in? do
   end
   calculate :embassy_details do
     if embassies_details
-      responses.last =~ /^(russian-federation|pakistan)$/ ? embassies_details.join : embassies_details.first
+      responses.last == 'russian-federation' ? embassies_details.join : embassies_details.first
     end
   end
 
