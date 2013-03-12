@@ -158,7 +158,6 @@ multiple_choice :pay_frequency? do
   option :every_4_weeks => :earnings_for_pay_period? ## QM5.5
   option :monthly => :earnings_for_pay_period? ## QM5.5
   option :irregularly => :earnings_for_pay_period? ## QM5.5
-  option :none_of_the_above => :employees_average_weekly_earnings? ## QM6
 end
 
 ## QM5.5
@@ -172,15 +171,79 @@ money_question :earnings_for_pay_period? do
     calculator.average_weekly_earnings
   end
 
+  next_node :how_do_you_want_the_smp_calculated?
+end
+
+## QM7
+multiple_choice :how_do_you_want_the_smp_calculated? do
+  option :weekly_starting
+  option :usual_paydates
+
+  next_node do |response|
+    if response == "usual_paydates"
+      frequencies = %w(weekly every_2_weeks every_4_weeks irregularly)
+      if frequencies.any? { |freq| responses.include? freq }
+        :when_is_your_employees_next_pay_day?
+      else
+        :when_in_the_month_is_the_employee_paid?
+      end
+    else
+      :maternity_leave_and_pay_result
+    end
+  end
+end
+
+## QM8
+date_question :when_is_your_employees_next_pay_day? do
+  calculate :next_pay_day do
+    Date.parse(responses.last)
+  end
+
   next_node :maternity_leave_and_pay_result
 end
 
-## QM6
-money_question :employees_average_weekly_earnings? do
-  calculate :average_weekly_earnings do
-    raise SmartAnswer::InvalidNode if responses.last < 1
-    calculator.average_weekly_earnings = responses.last.to_f
-  end
+## QM9
+multiple_choice :when_in_the_month_is_the_employee_paid? do
+  option :first_day_of_the_month => :maternity_leave_and_pay_result
+  option :last_day_of_the_month => :maternity_leave_and_pay_result
+  option :specific_date_each_month => :what_specific_date_each_month_is_the_employee_paid?
+  option :last_working_day_of_the_month => :what_days_does_the_employee_work?
+  option :a_certain_week_day_each_month => :what_particular_day_of_the_month_is_the_employee_paid?
+end
+
+## QM10
+value_question :what_specific_date_each_month_is_the_employee_paid? do
+  save_input_as :employee_pay_date
+  next_node :maternity_leave_and_pay_result
+end
+
+## QM11
+multiple_choice :what_days_does_the_employee_work? do
+  option :"Sunday"
+  option :"Monday"
+  option :"Tuesday"
+  option :"Wednesday"
+  option :"Thursday"
+  option :"Friday"
+  option :"Saturday"
+
+  save_input_as :days_employee_works
+
+  next_node :maternity_leave_and_pay_result
+end
+
+## QM12
+multiple_choice :what_particular_day_of_the_month_is_the_employee_paid? do
+  option :"Sunday"
+  option :"Monday"
+  option :"Tuesday"
+  option :"Wednesday"
+  option :"Thursday"
+  option :"Friday"
+  option :"Saturday"
+
+  save_input_as :day_of_month_paid
+
   next_node :maternity_leave_and_pay_result
 end
 
