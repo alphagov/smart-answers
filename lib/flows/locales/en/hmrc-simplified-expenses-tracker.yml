@@ -28,15 +28,8 @@ en-GB:
         over_van_limit: |
           The upper limit for Capital Allowance write offs for vans is £250,000.
       options:
-        new: New
-        existing: Existing
         "yes": "Yes"
         "no": "No"
-        car_or_van: Car or Van
-        motorcycle: Motorcycle
-        using_home_for_business: Using home for business (you work from home all the time or some of the time)
-        live_on_business_premises: Living on your business premises (for guesthouses and bed & breakfasts)
-        none_of_these: None of these
 
       body: |
         Check if using flat rates with simplified expenses suits your business
@@ -47,8 +40,16 @@ en-GB:
 
       new_or_existing_business?:
         title: Are you a new or existing business?
+        options:
+          new: New
+          existing: Existing
       type_of_expense?:
         title: Do you have any of these expenses as part of your business?
+        options:
+          car_or_van: Car or Van
+          motorcycle: Motorcycle
+          using_home_for_business: Using home for business (you work from home all the time or some of the time)
+          live_on_business_premises: Living on your business premises (for guesthouses and bed & breakfasts)
 
       how_much_write_off_tax?:
         title: How much do you write off or expect to write off tax for buying, running and maintaining all the vehicles for your business in the next tax year?
