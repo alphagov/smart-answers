@@ -50,6 +50,7 @@ en-GB:
           motorcycle: Motorcycle
           using_home_for_business: Using home for business (you work from home all the time or some of the time)
           live_on_business_premises: Living on your business premises (for guesthouses and bed & breakfasts)
+          none: "None of these"
 
       how_much_write_off_tax?:
         title: How much do you write off or expect to write off tax for buying, running and maintaining all the vehicles for your business in the next tax year?
