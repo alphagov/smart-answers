@@ -127,12 +127,10 @@ value_question :drive_business_miles_car_van? do
   next_node do
     if list_of_expenses.include?("motorcycle")
       :drive_business_miles_motorcycle?
+    elsif list_of_expenses.include?("using_home_for_business")
+      :current_claim_amount_home?
     else
-      if list_of_expenses.include?("using_home_for_business")
-        :current_claim_amount_home?
-      else
-        :you_can_use_result
-      end
+      :you_can_use_result
     end
   end
 end
