@@ -112,6 +112,6 @@ en-GB:
 
           **Total:** %{current_scheme_costs}
 
-          This is an estimate
+          This is an estimate.
 
           %{over_van_limit_message}
