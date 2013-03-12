@@ -77,7 +77,7 @@ en-GB:
 
           Most children won't be affected by Personal Independence Payment (PIP) until 2015 or later, but there are some exceptions.
 
-          They'll be asked to make a claim for PIP if after October 2013 their:
+          They'll be asked to make a claim for PIP if after October 2013:
 
           * there’s a change in how their condition affects them
           * their Disability Living Allowance award is due to end and they haven't received a renewal letter
@@ -113,7 +113,7 @@ en-GB:
         body: |
           $!You shouldn't be affected by Personal Independence Payment (PIP) until 2015 or later, but there are some exceptions.$!
 
-          You'll be asked to make a claim for PIP if after October 2013 your:
+          You'll be asked to make a claim for PIP if after October 2013:
 
           * there’s a change in how your condition affects you
           * your Disability Living Allowance award is due to end and you haven't received a renewal letter
