@@ -243,19 +243,19 @@ outcome :you_can_use_result do
 
   precalculate :simplified_bullets do
     bullets = PhraseList.new
-    bullets << :simple_vehicle_costs_bullet unless simple_vehicle_costs.nil? || simple_vehicle_costs == 0
-    bullets << :simple_motorcycle_costs_bullet unless simple_motorcycle_costs.nil? || simple_motorcycle_costs == 0
-    bullets << :simple_home_costs_bullet unless simple_home_costs.nil? || simple_home_costs == 0
-    bullets << :simple_business_costs_bullet unless simple_business_costs.nil? || simple_business_costs == 0
+    bullets << :simple_vehicle_costs_bullet unless simple_vehicle_costs.to_f == 0.0
+    bullets << :simple_motorcycle_costs_bullet unless simple_motorcycle_costs.to_f == 0.0
+    bullets << :simple_home_costs_bullet unless simple_home_costs.to_f == 0.0
+    bullets << :simple_business_costs_bullet unless simple_business_costs.to_f == 0.0
   end
 
   precalculate :current_scheme_bullets do
     bullets = PhraseList.new
-    bullets << :current_vehicle_cost_bullet unless vehicle_tax_amount.nil? || vehicle_tax_amount == 0
-    bullets << :current_green_vehicle_write_off_bullet unless green_vehicle_write_off.nil? || green_vehicle_write_off == 0
-    bullets << :current_dirty_vehicle_write_off_bullet unless dirty_vehicle_write_off.nil? || dirty_vehicle_write_off == 0
-    bullets << :current_home_costs_bullet unless home_costs.nil? || home_costs == 0
-    bullets << :current_business_costs_bullet unless business_premises_cost.nil? || business_premises_cost == 0
+    bullets << :current_vehicle_cost_bullet unless vehicle_tax_amount.to_f == 0.0
+    bullets << :current_green_vehicle_write_off_bullet unless green_vehicle_write_off.to_f == 0.0
+    bullets << :current_dirty_vehicle_write_off_bullet unless dirty_vehicle_write_off.to_f == 0.0
+    bullets << :current_home_costs_bullet unless home_costs.to_f == 0.0
+    bullets << :current_business_costs_bullet unless business_premises_cost.to_f == 0.0
   end
 
   precalculate :over_van_limit_message do
