@@ -1,0 +1,47 @@
+en-GB:
+  flow:
+    find-a-british-embassy:
+      title: Find a British embassy
+      meta:
+        description: Find contact details and locations of British embassies, consulates and high commissions abroad.
+
+      body: |
+        Find contact details and locations of British embassies, consulates and high commissions abroad.
+
+        Embassies can help if:
+
+        - you or someone you know has been arrested or hospitalised
+        - you need to get in touch with relatives (eg if you’ve run out of money or there’s an emergency)
+        - there’s a crisis in the country you’re in
+
+        ^The embassy won’t be able to give you money or help you financially.^
+
+        They can also provide consular services like:
+
+        - registering a birth, marriage or death that happened abroad
+        - providing copies of certificates for marriages, births or deaths registered abroad
+        - certifying documents (like a passport or birth certificate)
+        - witnessing a signature or affidavit
+#Q1
+      choose_embassy_country:
+        title: Which country would you like details for?
+        body: |
+
+
+#outcome
+      embassy_outcome:
+        title: Embassy details for %{country_name_lowercase_prefix}
+        body: |
+
+
+          $A
+            %{embassy_address}
+          $A
+
+          $C
+            %{embassy_email}
+
+            %{embassy_phone}
+
+            %{embassy_office_hours}
+          $C

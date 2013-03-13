@@ -13,7 +13,7 @@ module SmartAnswer::Calculators
     def in_selected_area?
       if %w(BL CA CW DH FY L M NE PR SR WA WN).include?(@postcode.area)
         true
-      elsif @postcode.area == 'CH' and ! %w(5 6 7 8).include?(@postcode.district)
+      elsif @postcode.area == 'CH' and ! %w(1 4 5 6 7 8).include?(@postcode.district)
         true
       elsif @postcode.area == 'DL' and ! %w(6 7 8 9 10 11).include?(@postcode.district)
         true

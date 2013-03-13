@@ -36,7 +36,7 @@ class PIPCheckerTest < ActiveSupport::TestCase
 
     context "with a postcode in the selected area" do
       setup do
-        add_response 'CH4 0TH'
+        add_response 'CH3 0TH'
       end
 
       should "ask for your date of birth" do

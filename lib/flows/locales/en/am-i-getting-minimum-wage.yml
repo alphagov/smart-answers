@@ -10,7 +10,18 @@ en-GB:
       options:
         "yes": "Yes"
         "no": "No"
+      phrases:
+        free_accommodation_exp: |
+          ## How accommodation is calculated
 
+          £%{accommodation_rate} x %{accommodation_usage} nights + £%{total_working_pay} / %{total_hours} hours = £%{total_hourly_rate}
+
+        charged_accommodation_exp: |
+          ## How accommodation is calculated
+
+          s1. [rate per day charged for accommodation] x [days accommodation is provided in pay period] = [accommodation charge per pay period]  
+          s2. [total pay] - [accommodation charge per pay period] + [£4.82 offset rate x days in pay period] = [total pay]  
+          s3. [total pay] / [hours worked in pay period] = [actual pay per hour]  
       # Q1
       what_would_you_like_to_check?:
         title: "What would you like to check?"
@@ -89,7 +100,7 @@ en-GB:
         error_hours: Please enter the number of hours you actually worked during the pay period. 
       # Q6
       how_much_are_you_paid_during_pay_period?:
-        title: "How much do you get paid in the pay period?"
+        title: "How much do you get paid before tax in the pay period?"
         hint: "Don’t include payments for overtime or anything extra to your pay, eg sales commission, money for clothes or goods."
         suffix_label: in the pay period
         error_message: Please enter a number
@@ -178,6 +189,8 @@ en-GB:
 
 
           Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work "Minimum wage for different types of work").
+
+          %{accommodation_explanation}
       current_payment_below:
         body: |
           $C
@@ -199,6 +212,8 @@ en-GB:
           $C
 
           Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work "Minimum wage for different types of work").
+
+          %{accommodation_explanation}
       past_payment_above:
         body: |
           $C
@@ -225,7 +240,8 @@ en-GB:
           
 
           Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work "Minimum wage for different types of work").
-     
+
+          %{accommodation_explanation}
       past_payment_below:
         body: |
           $C
@@ -250,6 +266,8 @@ en-GB:
           
 
           Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work "Minimum wage for different types of work").
+      
+          %{accommodation_explanation}
       does_not_apply_to_historical_apprentices:
         body: "There was no National Minimum Wage rate for apprentices before 1 October 2010. Your employer doesn't owe you any past payments."
 

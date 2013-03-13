@@ -15,7 +15,7 @@ module SmartAnswer::Calculators
 
       context "compare basic_pay_check and @basic_pay" do
         should "be the same " do
-          assert_equal @basic_pay, @calculator.basic_pay_check
+          assert_equal @basic_pay, @calculator.basic_total
         end
       end
       
@@ -133,7 +133,7 @@ module SmartAnswer::Calculators
         
         context "underpayment" do  
           setup do
-            @underpayment = (191.88 - @calculator.basic_pay_check).round(2)
+            @underpayment = (191.88 - @calculator.basic_total).round(2)
           end    
           should "be the total pay minus the historical entitlement" do
             assert_equal @underpayment, @calculator.underpayment
@@ -580,22 +580,30 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "total_pay and basic_rate_check calculations" do
+    context "total_pay, total_working_pay and basic_rate calculations" do
       setup do
         @calculator = MinimumWageCalculator.new(
           age: 25, pay_frequency: 5, basic_pay: 260, basic_hours: 40)
       end
 
+      should "calculate total_working_pay" do
+        assert_equal 260, @calculator.total_working_pay
+        @calculator.overtime_hours = 10
+        @calculator.overtime_hourly_rate = 7
+        # Basic rate is used for overtime pay calc
+        assert_equal 325, @calculator.total_working_pay
+      end
+
       should "return overtime (5) as the lower rate" do
         @calculator.overtime_hours = 10
         @calculator.overtime_hourly_rate = 5
-        assert_equal 5, @calculator.basic_rate_check
+        assert_equal 5, @calculator.basic_rate
       end
 
       should "return basic (6.5) as the lower rate" do
         @calculator.overtime_hours = 10
         @calculator.overtime_hourly_rate = 25
-        assert_equal 6.5, @calculator.basic_rate_check
+        assert_equal 6.5, @calculator.basic_rate
       end
 
       should "return lower rate total (250.0) based on overtime_hourly_rate" do

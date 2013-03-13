@@ -1,9 +1,12 @@
+require_relative "../date_helper"
+
 module SmartAnswer::Calculators
   class MaternityPaternityCalculator
+    include DateHelper
 
     attr_reader :due_date, :expected_week, :qualifying_week, :employment_start, :notice_of_leave_deadline,
       :leave_earliest_start_date, :adoption_placement_date, :ssp_stop,
-      :notice_request_pay, :matched_week, :a_employment_start
+      :matched_week, :a_employment_start
 
     attr_accessor :employment_contract, :leave_start_date, :average_weekly_earnings, :a_notice_leave,
       :last_payday, :pre_offset_payday
@@ -13,17 +16,18 @@ module SmartAnswer::Calculators
     LEAVE_TYPE_ADOPTION = "adoption"
 
     def initialize(match_or_due_date, birth_or_adoption = LEAVE_TYPE_BIRTH)
+      expected_start = match_or_due_date - match_or_due_date.wday
+      qualifying_start = 15.weeks.ago(expected_start)
+
       @due_date = @match_date = match_or_due_date
       @leave_type = birth_or_adoption
-      expected_start = match_or_due_date - match_or_due_date.wday
       @expected_week = @matched_week = expected_start .. expected_start + 6.days
-      @notice_of_leave_deadline = qualifying_start = 15.weeks.ago(expected_start)
+      @notice_of_leave_deadline = next_saturday(qualifying_start)
       @qualifying_week = qualifying_start .. qualifying_start + 6.days
       @employment_start = 25.weeks.ago(@qualifying_week.last)
       @a_employment_start = 25.weeks.ago(@matched_week.last)
       @leave_earliest_start_date = 11.weeks.ago(@expected_week.first)
       @ssp_stop = 4.weeks.ago(@expected_week.first)
-      @notice_request_pay = 27.days.ago(@due_date)
 
       # Adoption instance vars
       @a_notice_leave = @match_date + 7
@@ -51,7 +55,7 @@ module SmartAnswer::Calculators
     end
 
     def leave_end_date
-      52.weeks.since(@leave_start_date)
+      52.weeks.since(@leave_start_date) - 1
     end
 
     def pay_start_date
@@ -59,7 +63,11 @@ module SmartAnswer::Calculators
     end
 
     def pay_end_date
-      39.weeks.since(pay_start_date)
+      39.weeks.since(pay_start_date) - 1
+    end
+
+    def notice_request_pay
+      28.days.ago(pay_start_date)
     end
 
     # Rounds up at 2 decimal places.

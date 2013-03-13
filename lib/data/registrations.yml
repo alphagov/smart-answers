@@ -1,76 +1,161 @@
 ---
+clickbook:
+  argentina: http://www.britishembassyinbsas.clickbook.net/
+  belgium: http://britishconsulate-gen.clickbook.net/ 
+  belize: https://www.clickbook.net/dev/bc.nsf/sub/BRITISHINBELIZE 
+  bolivia: http://www.britishembassyinlapa.clickbook.net/ 
+  brazil: 
+    Brazilia: http://www.britishembassybrasil.clickbook.net/
+    Sao Paulo: http://www.britishconsularnetwo.clickbook.net/
+    Rio de Janeiro: http://www.britishconsulaterj.clickbook.net/
+    Recife: http://www.britishconsulaterec.clickbook.net/
+  bulgaria: http://britishembassysofia.clickbook.net/
+  chile: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyinsant
+  china:
+    Beijing: https://www.clickbook.net/dev/bc.nsf/sub/BritEmBeijing
+    Shanghai: https://www.clickbook.net/dev/bc.nsf/sub/BritconShanghai
+    Chongqing: https://www.clickbook.net/dev/bc.nsf/sub/BritConChongqing
+    Guangzhou: https://www.clickbook.net/dev/bc.nsf/sub/BritConGuangzhou
+  colombia: https://www.clickbook.net/dev/bc.nsf/sub/xxxxxx
+  costa-rica: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyinsanj
+  czech-republic: http://www.ukinczechrepublic.clickbook.net/
+  ecuador: http://britishembassyquito.clickbook.net/
+  france: http://ukinparis.clickbook.net/
+  georgia: https://www.clickbook.net/dev/bc.nsf/sub/britishembassytbilis
+  greece: https://www.clickbook.net/dev/bc.nsf/sub/BRITISHEMBASSYATHENS
+  guatemala: http://www.britishembassyinguat.clickbook.net/
+  hungary: http://www.britishembassyconsul.clickbook.net/
+  italy:
+    Rome: https://www.clickbook.net/dev/bc.nsf/sub/britishconsrome
+    Milan: https://www.clickbook.net/dev/bc.nsf/sub/britishconsmilan
+  japan:
+    Tokyo: http://www.britishembassytokyo.clickbook.net/
+    Osaka: http://www.britishconsulateosak.clickbook.net/
+  kazakhstan: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyastana
+  kuwait: https://www.clickbook.net/dev/bc.nsf/sub/britishembassykuwait
+  luxembourg: http://ukinluxembourg.clickbook.net/
+  mexico: http://www.britishconsulatemex.clickbook.net/
+  netherlands: https://www.clickbook.net/dev/bc.nsf/sub/BRITISHCONSULATE
+  norway: http://www.britishembassy.clickbook.net/ 
+  oman: https://www.clickbook.net/dev/bc.nsf/sub/britishembassymuscat
+  panama: http://www.britishembassyinpana.clickbook.net/
+  peru: http://britishembassyinlima.clickbook.net/
+  philippines: http://britishembassymanila.clickbook.net/
+  portugal:
+    Lisbon: http://www.britishconsulatelis.clickbook.net/
+    Portimao: http://www.britishconsulateptm.clickbook.net/
+    Oporto: http://www.britishconsulateopo.clickbook.net/
+  russia: https://www.clickbook.net/dev/bc.nsf/sub/RussiaConsular
+  slovakia: http://www.ukinslovakia.clickbook.net/
+  sweden: http://www.ukinsweden.clickbook.net/
+  switzerland: http://britishconsulatebern.clickbook.net/
+  united-states:
+    Atlanta: http://www.britishconsulateatl.clickbook.net/
+    Boston: http://www.britishconsulatebost.clickbook.net/
+    Chicago: http://www.britishconsulatechi.clickbook.net/
+    Denver: http://www.britishcgdever.clickbook.net/
+    Houston: http://www.britishconsulatehous.clickbook.net/
+    Los Angeles: http://www.britishconsulatela.clickbook.net/
+    Miami: http://www.britishcgmiami.clickbook.net/
+    New York: http://www.britishconsulateny.clickbook.net/
+    Orlando: http://www.britishconsulateorl.clickbook.net/
+    San Francisco: http://www.britishconsulatesf.clickbook.net/
+    Washington: http://www.britishembassydc.clickbook.net/ 
+  uruguay: http://britishembassyinmvd.clickbook.net/
+  vietnam: 
+    Hanoi: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyhanoi?OpenDocument&cb_referer=http%3A%2F%2Fukinvietnam.fco.gov.uk%2Fen%2Fhelp-for-british-nationals%2Fliving-in-vietnam%2Fbirth-registration
+    Ho Chi Min City: http://www.bcghochiminh.clickbook.net/
+registration_country:
+  american-samoa: united-states
+  andorra: spain
+  bahamas: jamaica
+  benin: ghana
+  bhutan: india
+  burkina-faso: ghana
+  burundi: rwanda
+  cape-verde: senegal
+  central-african-republic: cameroon
+  chad: cameroon
+  comoros: mauritius
+  cote-d_ivoire-(ivory-coast): ghana
+  curacao: barbados
+  djibouti: ethiopia
+  dominica,-commonwealth-of: barbados
+  el-salvador: guatamala
+  equatorial-guinea: cameroon
+  french-guiana: france
+  french-polynesia: france
+  gabon: cameroon
+  guadeloupe: france
+  guinea-bissau: senegal
+  haiti: dominican-republic
+  honduras: guatamala
+  kiribati: fiji
+  lesotho: south-africa
+  liberia: ghana
+  liechtenstein: switzerland
+  macao: hong-kong
+  mali: senegal
+  marshall-islands: philippines
+  martinique: france
+  mauritania: morocco
+  mayotte: france
+  monaco: france
+  nauru: fiji
+  new-caledonia: france
+  nicaragua: costa-rica
+  niger: senegal
+  palau: philippines
+  reunion: france
+  samoa: new-zealand
+  san-marino: italy
+  sao-tome-and-principe: angola
+  somalia: ethiopia
+  south-sudan: ethiopia
+  st-kitts-and-nevis: barbados
+  st-lucia: barbados
+  st-maarten: barbados
+  st-pierre-and-miquelon: france
+  st-vincent-and-the-grenadines: barbados
+  swaziland: south-africa
+  timor-leste: indonesia
+  togo: ghana
+  tonga: fiji
+  tuvalu: fiji
+  vanuatu: fiji
+  wallis-and-futuna: france
+  western-sahara: morocco
+birth:
+  postal_form:
+    austria: http://ukinaustria.fco.gov.uk/resources/en/pdf/pdf1/credit-card-form
+    bangladesh: http://ukinbangladesh.fco.gov.uk/resources/en/word/doc1/credit-card-form
+    brazil: http://ukinbrazil.fco.gov.uk/resources/en/pdf/pdf1/postbr_birthregform
+    chile: http://ukinchile.fco.gov.uk/resources/en/word/credit-card
+    cyprus: http://ukincyprus.fco.gov.uk/content/en/article/17300881/21697518/credit-card-authorisation
+    denmark: http://ukindenmark.fco.gov.uk/resources/en/pdf/586155482/credit-card-authorisation-slip-19april2011
+    dominican-republic: http://ukindominicanrepublic.fco.gov.uk/resources/en/word/631810082/credit-form
+    finland: http://ukinfinland.fco.gov.uk/resources/en/pdf/733553782/credit-card-authorisation-form
+    france: http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/Birth-pack-1212
+    germany: http://ukingermany.fco.gov.uk/resources/en/pdf/4971486/4971694/payment_authorisation_slip
+    greece: http://ukingreece.fco.gov.uk/resources/en/pdf/5610670/ccslip
+    india: http://ukinindia.fco.gov.uk/resources/en/pdf/consular/Credit-Card-Payment-Authorisation-Form
+    israel: http://ukinisrael-stage.fco.gov.uk/resources/en/pdf/creditdebitslip.pdf
+    italy: http://ukinitaly.fco.gov.uk/resources/en/word/3121380/credit-card-authorisation-slip
+    jamaica: http://ukinjamaica.fco.gov.uk/resources/en/pdf/2011/credit-debit.pdf
+    japan: http://ukinjapan.fco.gov.uk/resources/en/word/15609108
+    korea: http://ukinrok.fco.gov.uk/resources/en/word/3059742/doc-consular-devit-card
+    mexico: http://uk.sitestat.com/fcoweb/ukingov/s?was.mex.en.help-for-british-nationals.living-in-mexico.consular-fees.p.pdf.credit-debit-authorisation-form&ns_type=pdf&ns_url=http://ukinmexico.fco.gov.uk/resources/en/word/doc1/credit-debit-authorisation-form
+    norway: http://uk.sitestat.com/fcoweb/ukingov/s?lon.swe.en.help-for-british-nationals.living-in-norway.how-register-death.p.pdf.ConsularPaymentForm&ns_type=pdf&ns_url=http://ukinnorway.fco.gov.uk/resources/en/pdf/pdf1/751426782/ConsularPaymentForm
+    portugal: http://ukinportugal.fco.gov.uk/resources/en/pdf/18177967/credit_card_form
+    spain: http://ukinspain.fco.gov.uk/resources/en/pdf/4758385/20090413_credit_card_form.pdf
+    switzerland: http://ukinswitzerland.fco.gov.uk/resources/en/pdf/pdf1/credit-card-pay-form
 death:
   registration_forms:
     brazil: http://ukinbrazil.fco.gov.uk/resources/en/pdf/pdf1/postbr_deathregform
     france: http://uk.sitestat.com/fcoweb/ukingov/s?lon.fra.en.help-for-british-nationals.living-in-france.consularbirthregistration.p.pdf.Birth-pack-1212&ns_type=pdf&ns_url=http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/Birth-pack-1212
     spain: http://ukinspain.fco.gov.uk/resources/en/pdf/help-for-BNs/DeathRegForm
     united-states: http://ukinusa.fco.gov.uk/resources/en/pdf/birth-reg-document
-  clickbook:
-    argentina: http://www.britishembassyinbsas.clickbook.net/
-    belgium: http://britishconsulate-gen.clickbook.net/ 
-    belize: https://www.clickbook.net/dev/bc.nsf/sub/BRITISHINBELIZE 
-    bolivia: http://www.britishembassyinlapa.clickbook.net/ 
-    brazil: 
-      Brazilia: http://www.britishembassybrasil.clickbook.net/
-      Sao Paulo: http://www.britishconsularnetwo.clickbook.net/
-      Rio de Janeiro: http://www.britishconsulaterj.clickbook.net/
-      Recife: http://www.britishconsulaterec.clickbook.net/
-    bulgaria: http://britishembassysofia.clickbook.net/
-    chile: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyinsant
-    china:
-      Beijing: https://www.clickbook.net/dev/bc.nsf/sub/BritEmBeijing
-      Shanghai: https://www.clickbook.net/dev/bc.nsf/sub/BritconShanghai
-      Chongqing: https://www.clickbook.net/dev/bc.nsf/sub/BritConChongqing
-      Guangzhou: https://www.clickbook.net/dev/bc.nsf/sub/BritConGuangzhou
-    colombia: https://www.clickbook.net/dev/bc.nsf/sub/xxxxxx
-    costa-rica: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyinsanj
-    czech-republic: http://www.ukinczechrepublic.clickbook.net/
-    ecuador: http://britishembassyquito.clickbook.net/
-    france: http://ukinparis.clickbook.net/
-    georgia: https://www.clickbook.net/dev/bc.nsf/sub/britishembassytbilis
-    greece: https://www.clickbook.net/dev/bc.nsf/sub/BRITISHEMBASSYATHENS
-    guatemala: http://www.britishembassyinguat.clickbook.net/
-    hungary: http://www.britishembassyconsul.clickbook.net/
-    italy:
-      Rome: https://www.clickbook.net/dev/bc.nsf/sub/britishconsrome
-      Milan: https://www.clickbook.net/dev/bc.nsf/sub/britishconsmilan
-    japan:
-      Tokyo: http://www.britishembassytokyo.clickbook.net/
-      Osaka: http://www.britishconsulateosak.clickbook.net/
-    kazakhstan: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyastana
-    kuwait: https://www.clickbook.net/dev/bc.nsf/sub/britishembassykuwait
-    luxembourg: http://ukinluxembourg.clickbook.net/
-    mexico: http://www.britishconsulatemex.clickbook.net/
-    netherlands: https://www.clickbook.net/dev/bc.nsf/sub/BRITISHCONSULATE
-    norway: http://www.britishembassy.clickbook.net/ 
-    oman: https://www.clickbook.net/dev/bc.nsf/sub/britishembassymuscat
-    panama: http://www.britishembassyinpana.clickbook.net/
-    peru: http://britishembassyinlima.clickbook.net/
-    philippines: http://britishembassymanila.clickbook.net/
-    portugal:
-      Lisbon: http://www.britishconsulatelis.clickbook.net/
-      Portimao: http://www.britishconsulateptm.clickbook.net/
-      Oporto: http://www.britishconsulateopo.clickbook.net/
-    russia: https://www.clickbook.net/dev/bc.nsf/sub/RussiaConsular
-    slovakia: http://www.ukinslovakia.clickbook.net/
-    sweden: http://www.ukinsweden.clickbook.net/
-    switzerland: http://britishconsulatebern.clickbook.net/
-    united-states:
-      Atlanta: http://www.britishconsulateatl.clickbook.net/
-      Boston: http://www.britishconsulatebost.clickbook.net/
-      Chicago: http://www.britishconsulatechi.clickbook.net/
-      Denver: http://www.britishcgdever.clickbook.net/
-      Houston: http://www.britishconsulatehous.clickbook.net/
-      Los Angeles: http://www.britishconsulatela.clickbook.net/
-      Miami: http://www.britishcgmiami.clickbook.net/
-      New York: http://www.britishconsulateny.clickbook.net/
-      Orlando: http://www.britishconsulateorl.clickbook.net/
-      San Francisco: http://www.britishconsulatesf.clickbook.net/
-      Washington: http://www.britishembassydc.clickbook.net/ 
-    uruguay: http://britishembassyinmvd.clickbook.net/
-    vietnam: 
-      Hanoi: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyhanoi?OpenDocument&cb_referer=http%3A%2F%2Fukinvietnam.fco.gov.uk%2Fen%2Fhelp-for-british-nationals%2Fliving-in-vietnam%2Fbirth-registration
-      Ho Chi Min City: http://www.bcghochiminh.clickbook.net/
+
   postal_form:
     austria: http://ukinaustria.fco.gov.uk/resources/en/pdf/pdf1/credit-card-form
     bangladesh: http://ukinbangladesh.fco.gov.uk/resources/en/word/doc1/credit-card-form
@@ -108,63 +193,3 @@ death:
   postal_return:
     italy: http://ukinitaly.fco.gov.uk/resources/en/word/3121380/Return-delivery-form
     spain: http://uk.sitestat.com/fcoweb/ukingov/s?lon.esp.en.help-for-british-nationals.living-in-spain.births-deaths-marriages.death-registration.p.pdf.reg-post-return-delivery-form&ns_type=pdf&ns_url=http://ukinspain.fco.gov.uk/resources/en/pdf/help-for-BNs/reg-post-return-delivery-form
-  registration_country:
-    american-samoa: united-states
-    andorra: spain
-    bahamas: jamaica
-    benin: ghana
-    bhutan: india
-    burkina-faso: ghana
-    burundi: rwanda
-    cape-verde: senegal
-    central-african-republic: cameroon
-    chad: cameroon
-    comoros: mauritius
-    cote-d_ivoire-(ivory-coast): ghana
-    curacao: barbados
-    djibouti: ethiopia
-    dominica,-commonwealth-of: barbados
-    el-salvador: guatamala
-    equatorial-guinea: cameroon
-    french-guiana: france
-    french-polynesia: france
-    gabon: cameroon
-    guadeloupe: france
-    guinea-bissau: senegal
-    haiti: dominican-republic
-    honduras: guatamala
-    kiribati: fiji
-    lesotho: south-africa
-    liberia: ghana
-    liechtenstein: switzerland
-    macao: hong-kong
-    mali: senegal
-    marshall-islands: philippines
-    martinique: france
-    mauritania: morocco
-    mayotte: france
-    monaco: france
-    nauru: fiji
-    new-caledonia: france
-    nicaragua: costa-rica
-    niger: senegal
-    palau: philippines
-    reunion: france
-    samoa: new-zealand
-    san-marino: italy
-    sao-tome-and-principe: angola
-    somalia: ethiopia
-    south-sudan: ethiopia
-    st-kitts-and-nevis: barbados
-    st-lucia: barbados
-    st-maarten: barbados
-    st-pierre-and-miquelon: france
-    st-vincent-and-the-grenadines: barbados
-    swaziland: south-africa
-    timor-leste: indonesia
-    togo: ghana
-    tonga: fiji
-    tuvalu: fiji
-    vanuatu: fiji
-    wallis-and-futuna: france
-    western-sahara: morocco
