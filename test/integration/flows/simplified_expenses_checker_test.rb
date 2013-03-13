@@ -1,11 +1,11 @@
 require_relative "../../test_helper"
 require_relative "flow_test_helper"
 
-class HrmcSimplifiedExpensesTrackerTest < ActiveSupport::TestCase
+class SimplifiedExpensesChecker < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow "hmrc-simplified-expenses-tracker"
+    setup_for_testing_flow "simplified-expenses-checker"
   end
 
   should "ask new or existing business question" do
