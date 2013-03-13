@@ -1,6 +1,11 @@
 status :draft
 
 data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
+exclusions = %w(afghanistan cambodia central-african-republic chad comoros 
+                dominican-republic east-timor eritrea haiti kosovo laos lesotho 
+                liberia madagascar montenegro paraguay samoa slovenia somalia 
+                swaziland taiwan tajikistan western-sahara)
+no_embassies = %w(iran syria yemen)
 
 # Q1
 multiple_choice :where_did_the_death_happen? do
@@ -8,7 +13,7 @@ multiple_choice :where_did_the_death_happen? do
   option :england_wales => :did_the_person_die_at_home_hospital?
   option :scotland => :did_the_person_die_at_home_hospital?
   option :northern_ireland => :did_the_person_die_at_home_hospital?
-  option :overseas => :was_death_expected?
+  option :overseas => :which_country?
 end
 # Q2
 multiple_choice :did_the_person_die_at_home_hospital? do
@@ -50,6 +55,8 @@ country_select :which_country? do
   next_node do |response|
     if data_query.commonwealth_country?(response)
       :commonwealth_result
+    elsif no_embassies.include?(response)
+      :no_embassy_result
     else
       :where_are_you_now?
     end
@@ -60,6 +67,10 @@ multiple_choice :where_are_you_now? do
   option :same_country => :embassy_result
   option :another_country => :which_country_are_you_in_now?
   option :back_in_the_uk => :fco_result
+
+  calculate :another_country do
+    responses.last == 'another_country'
+  end
 end
 # Q6
 country_select :which_country_are_you_in_now? do
@@ -67,16 +78,11 @@ country_select :which_country_are_you_in_now? do
   calculate :current_location_name do
     SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == responses.last }[:name]
   end
-  next_node do |response|
-    if data_query.commonwealth_country?(response)
-      :commonwealth_result
-    else
-      :embassy_result
-    end
-  end
+  next_node :embassy_result
 end
 
 outcome :commonwealth_result
+outcome :no_embassy_result
 
 outcome :uk_result do
   precalculate :content_sections do
@@ -94,7 +100,16 @@ outcome :uk_result do
   end
 end
 
-outcome :fco_result
+outcome :fco_result do
+  precalculate :embassy_high_commission_or_consulate do
+    data_query.has_high_commission?(current_location) ? "High commission" :
+      data_query.has_consulate?(current_location) ? "British embassy or consulate" :
+        "British embassy"
+  end
+  precalculate :registration_footnote do
+    exclusions.include?(country) ? '' : PhraseList.new(:reg_footnote)
+  end
+end
 
 outcome :embassy_result do
   precalculate :embassy_high_commission_or_consulate do
@@ -119,6 +134,7 @@ outcome :embassy_result do
                                  title: "Book an appointment online", clickbook_url: clickbook)
       end
     end
+
     result
   end
 
@@ -152,5 +168,15 @@ outcome :embassy_result do
   precalculate :embassy_address do
     data = SmartAnswer::Calculators::PassportAndEmbassyDataQuery.new.find_embassy_data(current_location)
     data.first['address'] if data
+  end
+
+  precalculate :footnote do
+    if exclusions.include?(country)
+      PhraseList.new(:footnote_exceptions)
+    elsif another_country
+      PhraseList.new(:footnote_another_country)
+    else
+      PhraseList.new(:footnote)
+    end
   end
 end
