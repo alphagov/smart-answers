@@ -1,6 +1,10 @@
 status :draft
 
 data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
+exclusions = %w(afghanistan cambodia central-african-republic chad comoros 
+                dominican-republic east-timor eritrea haiti kosovo laos lesotho 
+                liberia madagascar montenegro paraguay samoa slovenia somalia 
+                swaziland taiwan tajikistan western-sahara)
 
 # Q1
 multiple_choice :where_did_the_death_happen? do
@@ -60,6 +64,10 @@ multiple_choice :where_are_you_now? do
   option :same_country => :embassy_result
   option :another_country => :which_country_are_you_in_now?
   option :back_in_the_uk => :fco_result
+
+  calculate :another_country do
+    responses.last == 'another_country'
+  end
 end
 # Q6
 country_select :which_country_are_you_in_now? do
@@ -113,6 +121,7 @@ outcome :embassy_result do
                                  title: "Book an appointment online", clickbook_url: clickbook)
       end
     end
+
     result
   end
 
@@ -146,5 +155,15 @@ outcome :embassy_result do
   precalculate :embassy_address do
     data = SmartAnswer::Calculators::PassportAndEmbassyDataQuery.new.find_embassy_data(current_location)
     data.first['address'] if data
+  end
+
+  precalculate :footnote do
+    if exclusions.include?(country)
+      PhraseList.new(:footnote_exceptions)
+    elsif another_country
+      PhraseList.new(:footnote_another_country)
+    else
+      PhraseList.new(:footnote)
+    end
   end
 end

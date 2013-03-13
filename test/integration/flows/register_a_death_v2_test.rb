@@ -195,6 +195,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         end
         should "give the embassy result and be done" do
           assert_current_node :embassy_result
+          assert_phrase_list :footnote, [:footnote]
         end
       end # Answer embassy
       context "answer fco office in the uk" do
@@ -326,7 +327,20 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form]
         assert_state_variable :country_name, "Andorra"
         assert_state_variable :current_location_name, "France"
+        assert_phrase_list :footnote, [:footnote_another_country]
       end
     end # Answer Andorra, now in France 
+    context "answer Afghanistan" do
+      setup do
+        add_response 'afghanistan'
+        add_response 'same_country'
+      end
+      should "give the embassy result and be done" do
+        assert_current_node :embassy_result
+        assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
+        assert_phrase_list :footnote, [:footnote_exceptions]
+      end
+    end # Answer Afghanistan
+
   end # Overseas
 end

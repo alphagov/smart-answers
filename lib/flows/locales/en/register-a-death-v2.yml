@@ -242,6 +242,12 @@ en-GB:
         postal_registration_united-states: |
           Pay by money order made payable to the ‘British Embassy Government Account’. Personal cheques aren’t accepted.
 
+        footnote_another_country: |
+          ^Registration can take up to 3 months - your application will be sent to %{country_name} where the death will be registered.^
+        footnote_exceptions: |
+          ^Registration can take up to 3 months - your application will be sent to the Foreign and Commonwealth Office in London where the death will be registered.^
+        footnote: |
+          ^It takes about 5 working days for the death to be officially registered.^
 # Outcomes
 #
       uk_result:
@@ -315,8 +321,7 @@ en-GB:
 
           %{cash_only}
 
-          ^It takes about 5 working days for the death to be officially registered.^
-
+          %{footnote}
 
           $A
             %{embassy_address}
