@@ -168,182 +168,165 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
       add_response 'overseas'
     end
 
-    should "ask whether the death was expected" do
-      assert_current_node :was_death_expected?
+    should "ask which country" do
+      assert_current_node :which_country?
     end
-
-    context "answer yes" do
+    context "answer Australia" do
       setup do
-        add_response 'yes'
+        add_response 'australia'
       end
-      should "ask which country" do
-        assert_current_node :which_country?
+      should "give the commonwealth result" do
+        assert_state_variable :country_name, "Australia"
+        assert_current_node :commonwealth_result
       end
-      context "answer Australia" do
-        setup do
-          add_response 'australia'
-        end
-        should "give the commonwealth result" do
-          assert_state_variable :country_name, "Australia"
-          assert_current_node :commonwealth_result
-        end
-      end # Australia (commonwealth country)
-      context "answer Spain" do
-        setup do
-          add_response 'spain'
-        end
-        should "ask where you are now" do
-          assert_state_variable :country_name, "Spain"
-          assert_state_variable :current_location_name, "Spain"
-          assert_current_node :where_are_you_now?
-        end
-        context "answer same country" do
-          setup do
-            add_response 'same_country'
-          end
-          should "give the embassy result and be done" do
-            assert_current_node :embassy_result
-          end
-        end # Answer embassy
-        context "answer fco office in the uk" do
-          setup do
-            add_response 'back_in_the_uk'
-          end
-          should "give the fco result and be done" do
-            assert_current_node :fco_result
-          end
-        end # Answer fco 
-      end # Answer Spain
-    end # Answer yes
-
-    context "answer no" do
+    end # Australia (commonwealth country)
+    context "answer Spain" do
       setup do
-        add_response 'no'
+        add_response 'spain'
       end
-      should "ask which country" do
-        assert_current_node :which_country?
+      should "ask where you are now" do
+        assert_state_variable :country_name, "Spain"
+        assert_state_variable :current_location_name, "Spain"
+        assert_current_node :where_are_you_now?
       end
-      context "answer Morocco" do
+      context "answer same country" do
         setup do
-          add_response 'morocco'
-        end
-        should "ask where you want to register the death" do
-          assert_state_variable :country_name, "Morocco"
-          assert_current_node :where_are_you_now?
-        end
-        context "answer fco office in the uk" do
-          setup do
-            add_response 'back_in_the_uk'
-          end
-          should "give the fco result and be done" do
-            assert_current_node :fco_result
-          end
-        end # Answer fco 
-      end # Morocco
-
-      context "answer Argentina" do
-        setup do
-          add_response 'argentina'
           add_response 'same_country'
         end
         should "give the embassy result and be done" do
           assert_current_node :embassy_result
-          assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-          assert_state_variable :clickbook, %Q([Book an appointment online](http://www.britishembassyinbsas.clickbook.net/ "Book an appointment at the British Embassy"){:rel="external"}\n)
         end
-      end # Answer Argentina
-      context "answer China" do
+      end # Answer embassy
+      context "answer fco office in the uk" do
         setup do
-          add_response 'china'
-          add_response 'same_country'
+          add_response 'back_in_the_uk'
         end
-        should "give the embassy result and be done" do
-          assert_current_node :embassy_result
-          assert_state_variable :embassy_high_commission_or_consulate, "British embassy or consulate"
-          assert_state_variable :clickbook, %Q(You can book an appointment at the British embassy or consulate in:
+        should "give the fco result and be done" do
+          assert_current_node :fco_result
+        end
+      end # Answer fco 
+    end # Answer Spain
+
+    context "answer Morocco" do
+      setup do
+        add_response 'morocco'
+      end
+      should "ask where you want to register the death" do
+        assert_state_variable :country_name, "Morocco"
+        assert_current_node :where_are_you_now?
+      end
+      context "answer fco office in the uk" do
+        setup do
+          add_response 'back_in_the_uk'
+        end
+        should "give the fco result and be done" do
+          assert_current_node :fco_result
+        end
+      end # Answer fco 
+    end # Morocco
+
+    context "answer Argentina" do
+      setup do
+        add_response 'argentina'
+        add_response 'same_country'
+      end
+      should "give the embassy result and be done" do
+        assert_current_node :embassy_result
+        assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
+        assert_state_variable :clickbook, %Q([Book an appointment online](http://www.britishembassyinbsas.clickbook.net/ "Book an appointment at the British Embassy"){:rel="external"}\n)
+      end
+    end # Answer Argentina
+    context "answer China" do
+      setup do
+        add_response 'china'
+        add_response 'same_country'
+      end
+      should "give the embassy result and be done" do
+        assert_current_node :embassy_result
+        assert_state_variable :embassy_high_commission_or_consulate, "British embassy or consulate"
+        assert_state_variable :clickbook, %Q(You can book an appointment at the British embassy or consulate in:
 
 - [Beijing](https://www.clickbook.net/dev/bc.nsf/sub/BritEmBeijing \"Book an appointment at the British Embassy\"){:rel=\"external\"}
 - [Shanghai](https://www.clickbook.net/dev/bc.nsf/sub/BritconShanghai \"Book an appointment at the British Embassy\"){:rel=\"external\"}
 - [Chongqing](https://www.clickbook.net/dev/bc.nsf/sub/BritConChongqing \"Book an appointment at the British Embassy\"){:rel=\"external\"}
 - [Guangzhou](https://www.clickbook.net/dev/bc.nsf/sub/BritConGuangzhou \"Book an appointment at the British Embassy\"){:rel=\"external\"}
 )
-        end
-      end # Answer China
-      context "answer Austria" do
-        setup do
-          add_response 'austria'
-          add_response 'same_country'
-        end
-        should "give the embassy result and be done" do
-          assert_current_node :embassy_result
-          assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-          assert_state_variable :clickbook, '' 
-          assert_state_variable :postal_form_url, "http://ukinaustria.fco.gov.uk/resources/en/pdf/pdf1/credit-card-form"
-          assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form]
-        end
-      end # Answer Austria
-      context "answer Belgium" do
-        setup do
-          add_response 'belgium'
-          add_response 'same_country'
-        end
-        should "give the embassy result and be done" do
-          assert_current_node :embassy_result
-          assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-          assert_state_variable :clickbook, %Q([Book an appointment online](http://britishconsulate-gen.clickbook.net/ "Book an appointment at the British Embassy"){:rel="external"}\n)
-          assert_state_variable :postal_form_url, nil
-          assert_phrase_list :postal, [:postal_intro, :postal_registration_belgium]
-        end
-      end # Answer Belgium
-      context "answer Italy" do
-        setup do
-          add_response 'italy'
-          add_response 'same_country'
-        end
-        should "give the embassy result and be done" do
-          assert_current_node :embassy_result
-          assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-          assert_state_variable :clickbook, %Q(You can book an appointment at the British embassy or consulate in:
+      end
+    end # Answer China
+    context "answer Austria" do
+      setup do
+        add_response 'austria'
+        add_response 'same_country'
+      end
+      should "give the embassy result and be done" do
+        assert_current_node :embassy_result
+        assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
+        assert_state_variable :clickbook, '' 
+        assert_state_variable :postal_form_url, "http://ukinaustria.fco.gov.uk/resources/en/pdf/pdf1/credit-card-form"
+        assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form]
+      end
+    end # Answer Austria
+    context "answer Belgium" do
+      setup do
+        add_response 'belgium'
+        add_response 'same_country'
+      end
+      should "give the embassy result and be done" do
+        assert_current_node :embassy_result
+        assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
+        assert_state_variable :clickbook, %Q([Book an appointment online](http://britishconsulate-gen.clickbook.net/ "Book an appointment at the British Embassy"){:rel="external"}\n)
+        assert_state_variable :postal_form_url, nil
+        assert_phrase_list :postal, [:postal_intro, :postal_registration_belgium]
+      end
+    end # Answer Belgium
+    context "answer Italy" do
+      setup do
+        add_response 'italy'
+        add_response 'same_country'
+      end
+      should "give the embassy result and be done" do
+        assert_current_node :embassy_result
+        assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
+        assert_state_variable :clickbook, %Q(You can book an appointment at the British embassy or consulate in:
 
 - [Rome](https://www.clickbook.net/dev/bc.nsf/sub/britishconsrome \"Book an appointment at the British Embassy\"){:rel=\"external\"}
 - [Milan](https://www.clickbook.net/dev/bc.nsf/sub/britishconsmilan \"Book an appointment at the British Embassy\"){:rel=\"external\"}
 )
-          assert_state_variable :postal_form_url, "http://ukinitaly.fco.gov.uk/resources/en/word/3121380/credit-card-authorisation-slip"
-          assert_state_variable :postal_return_form_url, "http://ukinitaly.fco.gov.uk/resources/en/word/3121380/Return-delivery-form"
-          assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form, :postal_delivery_form]
-        end
-      end # Answer Italy
-      context "death occurred in Andorra" do
-        setup do
-          add_response 'andorra'
-          add_response 'same_country'
-        end
-        should "give the embassy result and be done" do
-          assert_current_node :embassy_result
-          assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-          assert_state_variable :clickbook, '' 
-          assert_state_variable :postal_form_url, "http://ukinspain.fco.gov.uk/resources/en/pdf/4758385/20090413_credit_card_form.pdf" 
-          assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form, :postal_delivery_form]
-          assert_state_variable :country_name, "Andorra"
-          assert_state_variable :current_location, "spain"
-        end
-      end # Answer Andorra
-      context "death occurred in Andorra, but they are now in France" do
-        setup do
-          add_response 'andorra'
-          add_response 'another_country'
-          add_response 'france'
-        end
-        should "give the embassy result and be done" do
-          assert_current_node :embassy_result
-          assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-          assert_state_variable :clickbook, %Q([Book an appointment online](http://ukinparis.clickbook.net/ "Book an appointment at the British Embassy"){:rel="external"}\n)
-          assert_state_variable :postal_form_url, "http://ukinfrance.fco.gov.uk/resources/en/word/consular/2012/death-registration-form" 
-          assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form]
-          assert_state_variable :country_name, "Andorra"
-          assert_state_variable :current_location_name, "France"
-        end
-      end # Answer Andorra, now in France 
-    end # Answer yes
+        assert_state_variable :postal_form_url, "http://ukinitaly.fco.gov.uk/resources/en/word/3121380/credit-card-authorisation-slip"
+        assert_state_variable :postal_return_form_url, "http://ukinitaly.fco.gov.uk/resources/en/word/3121380/Return-delivery-form"
+        assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form, :postal_delivery_form]
+      end
+    end # Answer Italy
+    context "death occurred in Andorra" do
+      setup do
+        add_response 'andorra'
+        add_response 'same_country'
+      end
+      should "give the embassy result and be done" do
+        assert_current_node :embassy_result
+        assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
+        assert_state_variable :clickbook, '' 
+        assert_state_variable :postal_form_url, "http://ukinspain.fco.gov.uk/resources/en/pdf/4758385/20090413_credit_card_form.pdf" 
+        assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form, :postal_delivery_form]
+        assert_state_variable :country_name, "Andorra"
+        assert_state_variable :current_location, "spain"
+      end
+    end # Answer Andorra
+    context "death occurred in Andorra, but they are now in France" do
+      setup do
+        add_response 'andorra'
+        add_response 'another_country'
+        add_response 'france'
+      end
+      should "give the embassy result and be done" do
+        assert_current_node :embassy_result
+        assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
+        assert_state_variable :clickbook, %Q([Book an appointment online](http://ukinparis.clickbook.net/ "Book an appointment at the British Embassy"){:rel="external"}\n)
+        assert_state_variable :postal_form_url, "http://ukinfrance.fco.gov.uk/resources/en/word/consular/2012/death-registration-form" 
+        assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form]
+        assert_state_variable :country_name, "Andorra"
+        assert_state_variable :current_location_name, "France"
+      end
+    end # Answer Andorra, now in France 
   end # Overseas
 end

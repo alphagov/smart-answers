@@ -8,7 +8,7 @@ multiple_choice :where_did_the_death_happen? do
   option :england_wales => :did_the_person_die_at_home_hospital?
   option :scotland => :did_the_person_die_at_home_hospital?
   option :northern_ireland => :did_the_person_die_at_home_hospital?
-  option :overseas => :was_death_expected?
+  option :overseas => :which_country?
 end
 # Q2
 multiple_choice :did_the_person_die_at_home_hospital? do
