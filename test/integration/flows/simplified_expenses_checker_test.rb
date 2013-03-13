@@ -1,7 +1,7 @@
 require_relative "../../test_helper"
 require_relative "flow_test_helper"
 
-class SimplifiedExpensesChecker < ActiveSupport::TestCase
+class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
