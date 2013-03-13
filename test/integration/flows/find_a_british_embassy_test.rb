@@ -10,7 +10,7 @@ class FindABritishEmbassyTest < ActiveSupport::TestCase
   end
 
   should "ask which country you want details for" do
-    assert_current_node :choose_embassy_country?
+    assert_current_node :choose_embassy_country
   end
 
   context "details in afghanistan" do

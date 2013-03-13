@@ -17,7 +17,7 @@ country_select :choose_embassy_country do
     when 'korea'
       "South #{embassy_country_name}"
     else
-      "#{embassy_country_name}"
+      embassy_country_name
     end
   end
 
