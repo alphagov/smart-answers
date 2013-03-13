@@ -248,6 +248,9 @@ en-GB:
           ^Registration can take up to 3 months - your application will be sent to the Foreign and Commonwealth Office in London where the death will be registered.^
         footnote: |
           ^It takes about 5 working days for the death to be officially registered.^
+        reg_footnote: |
+         Your application will be sent to the %{embassy_high_commission_or_consulate} in %{country} to be registered there.  
+
 # Outcomes
 #
       uk_result:
@@ -330,20 +333,25 @@ en-GB:
         body: |
           $!You must register the death according to the regulations in %{country_name}. You will be given a local death certificate.$!
 
+          This local death certificate will be accepted in the UK (it may need to be a certified translation of the document if it’s not in English).
+
           ##Registering the death with the UK authorities
 
-          You can also register the death with the Foreign & Commonwealth Office (FCO) in the UK.
+          You can also apply to register the death with the Foreign & Commonwealth Office (FCO) in the UK.
           You don’t have to do this, but it means:
 
           - a British-style death certificate will be issued
           - the death will be recorded at the General Registry Office in the UK
 
+
           ##How to register
 
           Download and complete a death registration form.
-      
-          [Download ‘Death registration form’ (DOC, 50KB)](http://uk.sitestat.com/fcoweb/fcogov/s?fco.en.travel-and-living-abroad.births-deaths-marriages-civil.registering-a-death.p.pdf.death-registration-app-form-130812&ns_type=pdf&ns_url=http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/death-registration-app-form-130812 "Download ‘Death registration form’ (DOC, 50KB)"){:rel="external"} 
 
+
+          $D
+          [Download ‘Death registration form’ (DOC, 50KB)](http://uk.sitestat.com/fcoweb/fcogov/s?fco.en.travel-and-living-abroad.births-deaths-marriages-civil.registering-a-death.p.pdf.death-registration-app-form-130812&ns_type=pdf&ns_url=http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/death-registration-app-form-130812 "Download ‘Death registration form’ (DOC, 50KB)"){:rel="external"}
+          $D
 
           ##Documents
 
@@ -353,15 +361,14 @@ en-GB:
           - the person’s passport (original, not a copy)
           - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
 
+
           ###Cost
           
           Service | Fee
           -|-
           Register a death | £105
           Copy of a death registration certificate | £65
-         
 
-          You can also pay by postal order or bank draft made payable to ‘FCO’. Personal cheques aren’t accepted. 
 
           ###Send your registration
 
@@ -381,7 +388,7 @@ en-GB:
           ^It takes up to 12 weeks for the death to be officially registered as the registration is sent to the country where the death happened.^
 
 
-          Copies of the registration certificate 
+          ##Copies of the registration certificate 
 
           You can order copies of the registration certificate from the FCO when you register the death. 
 

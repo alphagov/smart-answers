@@ -204,6 +204,8 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         end
         should "give the fco result and be done" do
           assert_current_node :fco_result
+          assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
+          assert_phrase_list :registration_footnote, [:reg_footnote]
         end
       end # Answer fco 
     end # Answer Spain
@@ -333,14 +335,23 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
     context "answer Afghanistan" do
       setup do
         add_response 'afghanistan'
-        add_response 'same_country'
       end
-      should "give the embassy result and be done" do
-        assert_current_node :embassy_result
-        assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-        assert_phrase_list :footnote, [:footnote_exceptions]
+      context "currently still in the country" do
+        should "give the embassy result and be done" do
+          add_response 'same_country'
+          assert_current_node :embassy_result
+          assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
+          assert_phrase_list :footnote, [:footnote_exceptions]
+        end
+      end
+      context "now back in the UK" do
+        should "give the FCO result and be done" do
+          add_response 'back_in_the_uk'
+          assert_current_node :fco_result
+          assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
+          assert_state_variable :registration_footnote, ''      
+        end
       end
     end # Answer Afghanistan
-
   end # Overseas
 end

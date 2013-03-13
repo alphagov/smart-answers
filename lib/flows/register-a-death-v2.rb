@@ -96,7 +96,16 @@ outcome :uk_result do
   end
 end
 
-outcome :fco_result
+outcome :fco_result do
+  precalculate :embassy_high_commission_or_consulate do
+    data_query.has_high_commission?(current_location) ? "High commission" :
+      data_query.has_consulate?(current_location) ? "British embassy or consulate" :
+        "British embassy"
+  end
+  precalculate :registration_footnote do
+    exclusions.include?(country) ? '' : PhraseList.new(:reg_footnote)
+  end
+end
 
 outcome :embassy_result do
   precalculate :embassy_high_commission_or_consulate do
