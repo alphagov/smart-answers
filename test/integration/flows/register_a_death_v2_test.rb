@@ -353,5 +353,10 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         end
       end
     end # Answer Afghanistan
+    context "answer Iran" do
+      should "give the no embassy result" do
+        add_response :no_embassy_result
+      end
+    end # Iran
   end # Overseas
 end

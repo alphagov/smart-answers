@@ -5,6 +5,7 @@ exclusions = %w(afghanistan cambodia central-african-republic chad comoros
                 dominican-republic east-timor eritrea haiti kosovo laos lesotho 
                 liberia madagascar montenegro paraguay samoa slovenia somalia 
                 swaziland taiwan tajikistan western-sahara)
+no_embassies = %w(iran syria yemen)
 
 # Q1
 multiple_choice :where_did_the_death_happen? do
@@ -54,6 +55,8 @@ country_select :which_country? do
   next_node do |response|
     if data_query.commonwealth_country?(response)
       :commonwealth_result
+    elsif no_embassies.include?(response)
+      :no_embassy_result
     else
       :where_are_you_now?
     end
@@ -79,6 +82,7 @@ country_select :which_country_are_you_in_now? do
 end
 
 outcome :commonwealth_result
+outcome :no_embassy_result
 
 outcome :uk_result do
   precalculate :content_sections do

@@ -77,7 +77,9 @@ en-GB:
           What you need to do
           --------
 
-          Take the medical certificate showing the cause of death (signed by a doctor) with you. If available (but don't worry if not), also take the person’s:
+          Take the medical certificate showing the cause of death (signed by a doctor) with you.  
+
+          If available (but don't worry if not), also take the person’s:
 
           - birth certificate
           - marriage or civil partnership certificate
@@ -355,10 +357,10 @@ en-GB:
 
           ##Documents
 
-          You must provide:
+          You must provide originals and a photocopy of:
 
           - a local death certificate (not a certificate issued by a doctor)
-          - the person’s passport (original, not a copy)
+          - the person’s passport
           - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
 
 
@@ -393,6 +395,14 @@ en-GB:
           You can order copies of the registration certificate from the FCO when you register the death. 
 
           You can also get copies from the [General Register Office](http://www.gro.gov.uk/ "General Register Office"){:rel="external"} from September the next year after you register - they will cost less.
+
+      no_embassy_result:
+        body: |
+          $!You must register the death according to the regulations in %{country_name}. You will be given a local death certificate.$!
+
+          You can’t currently register the death with the UK authorities.
+
+          The local death certificate, with a certified translation, should be acceptable for all purposes in the UK. You can apply for registration at any time in the future - check [travel advice](/foreign-travel-advice) to find out if consular services have reopened in %{country_name}.
 
       commonwealth_result:
         body: |
