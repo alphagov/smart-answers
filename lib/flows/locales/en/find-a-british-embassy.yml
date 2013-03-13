@@ -7,7 +7,7 @@ en-GB:
 
       body: |
         Find contact details and locations of British embassies, consulates and high commissions abroad.
-
+      devolved_body: |
         Embassies can help if:
 
         - you or someone you know has been arrested or hospitalised
@@ -22,9 +22,27 @@ en-GB:
         - providing copies of certificates for marriages, births or deaths registered abroad
         - certifying documents (like a passport or birth certificate)
         - witnessing a signature or affidavit
+
+      phrases:
+        embassy_details: |
+          %{embassy_location}
+
+
+          $A
+            %{address}
+          $A
+
+          $C
+            %{email}
+
+            %{phone}
+
+            %{office_hours}
+          $C
 #Q1
       choose_embassy_country:
-        title: Which country would you like details for?
+        title: |
+          Which country would you like details for?
         body: |
 
 
@@ -32,16 +50,4 @@ en-GB:
       embassy_outcome:
         title: Embassy details for %{country_name_lowercase_prefix}
         body: |
-
-
-          $A
-            %{embassy_address}
-          $A
-
-          $C
-            %{embassy_email}
-
-            %{embassy_phone}
-
-            %{embassy_office_hours}
-          $C
+            %{embassy_details}
