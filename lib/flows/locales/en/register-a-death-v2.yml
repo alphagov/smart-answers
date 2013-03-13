@@ -32,7 +32,7 @@ en-GB:
       was_death_expected?:
         title: Was the death expected?
       which_country?:
-        title: Where did the death happen?
+        title: Which country did the death happen?
       where_are_you_now?:
         title: Where are you now?
         options:
