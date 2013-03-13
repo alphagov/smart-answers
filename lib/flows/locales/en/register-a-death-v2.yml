@@ -250,10 +250,12 @@ en-GB:
       embassy_result:
         body: |
           $!You must register the death according to the regulations in %{country_name}. You will be given a local death certificate.$!
+         
+          This local death certificate will be accepted in the UK (it may need to be a certified translation of the document if it’s not in English). 
           
           ##Register the death with the UK authorities
           
-          You can also register the death with the %{embassy_high_commission_or_consulate} in %{current_location_name}.
+          You can also apply to register the death with the %{embassy_high_commission_or_consulate} in %{current_location_name}.
 
           You don’t have to do this, but it means:
           
