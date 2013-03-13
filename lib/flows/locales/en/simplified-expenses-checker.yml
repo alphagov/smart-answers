@@ -1,6 +1,6 @@
 en-GB:
   flow:
-    hmrc-simplified-expenses-tracker:
+    simplified-expenses-checker:
       title: Simplified expenses checker
       meta:
         description: Check if using flat rates with simplified expenses suits your business
@@ -96,7 +96,7 @@ en-GB:
           - business use of your home (eg if you’re working from home)
           - private use of your business premises (guesthouses and B&Bs)
 
-          You can [file your Self Assessment tax return](XXX) using current expense rules.
+          You can [file your Self Assessment tax return](https://www.gov.uk/self-assessment-tax-returns) using current expense rules.
 
       you_can_use_result:
         body: |
