@@ -67,13 +67,7 @@ country_select :which_country_are_you_in_now? do
   calculate :current_location_name do
     SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == responses.last }[:name]
   end
-  next_node do |response|
-    if data_query.commonwealth_country?(response)
-      :commonwealth_result
-    else
-      :embassy_result
-    end
-  end
+  next_node :embassy_result
 end
 
 outcome :commonwealth_result
