@@ -3,18 +3,18 @@ en-GB:
     register-a-birth:
       title: Register a birth abroad
       meta:
-        description: Use this tool to find out how to register the birth of a child abroad.
+        description: Find out how to register the birth of a child abroad with the UK.
       body: |
         You must register your child’s birth according to the regulations in the country where the child was born. They will give you a local birth certificate.
 
-        Once you’ve done this you may be able to apply to register the birth with the UK authorities using this tool. 
+        Once you’ve done this you may be able to apply to register the birth with the UK authorities.  
         You don’t have to do this, but it means:
 
         - you’ll get a UK-style birth certificate for the child
         - you’ll have proof that the child is a British citizen
         - the birth will be recorded with the General Register Office in the UK
 
-        ^A locally-issued birth certificate should be accepted in the UK for all purposes, eg applying for a passport, registering with a school or doctor etc. It might need to be translated and [certified](/certifying-a-document "Certify a document").^
+        ^A locally-issued birth certificate should be accepted in the UK for all purposes, eg applying for a passport, registering with a school or doctor etc. It might need to be translated and [certified](/certifying-a-document "Certify a document") if it's not in English.^
       
       options:
         "yes": "Yes"
