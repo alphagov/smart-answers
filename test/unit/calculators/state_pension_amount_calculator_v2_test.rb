@@ -1,7 +1,7 @@
 require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
-  class StatePensionAmountCalculatorV2V2Test < ActiveSupport::TestCase
+  class StatePensionAmountCalculatorV2Test < ActiveSupport::TestCase
     context "male, born 5th April 1945, 45 qualifying years" do
       setup do
         @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(gender: "male", dob: "1945-04-05", qualifying_years: "45")
