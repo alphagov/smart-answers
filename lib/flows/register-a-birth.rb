@@ -3,26 +3,13 @@ status :draft
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
 embassy_data_query = SmartAnswer::Calculators::PassportAndEmbassyDataQuery.new
 i18n_prefix = 'flow.register-a-birth'
-exclusions = %w(afghanistan cambodia dominican-republic eritrea kosovo laos madagascar 
-                montenegro paraguay slovenia taiwan tajikistan)
+exclusions = %w(afghanistan cambodia central-african-republic chad comoros
+                dominican-republic east-timor eritrea haiti kosovo laos lesotho
+                liberia madagascar montenegro paraguay samoa slovenia somalia swaziland
+                taiwan tajikistan western-sahara)
 no_embassies = %w(iran syria yemen)
 
 # Q1
-multiple_choice :have_you_adopted_the_child? do
-  option :yes => :no_registration_result 
-  option :no => :who_has_british_nationality? 
-end
-# Q2
-multiple_choice :who_has_british_nationality? do
-  option :mother => :country_of_birth?
-  option :father => :country_of_birth?
-  option :mother_and_father => :country_of_birth?
-  option :neither => :no_registration_result
-
-  save_input_as :british_national_parent
-
-end
-# Q3
 country_select :country_of_birth? do
   save_input_as :country_of_birth
 
@@ -42,11 +29,21 @@ country_select :country_of_birth? do
     elsif reg_data_query.commonwealth_country?(response)
       :commonwealth_result
     else
-      :married_couple_or_civil_partnership?
+      :who_has_british_nationality?
     end
   end
 end
-# Q4
+# Q2
+multiple_choice :who_has_british_nationality? do
+  option :mother => :married_couple_or_civil_partnership?
+  option :father => :married_couple_or_civil_partnership?
+  option :mother_and_father => :married_couple_or_civil_partnership?
+  option :neither => :no_registration_result
+
+  save_input_as :british_national_parent
+
+end
+# Q3
 multiple_choice :married_couple_or_civil_partnership? do
   option :yes
   option :no
@@ -63,7 +60,7 @@ multiple_choice :married_couple_or_civil_partnership? do
     end
   end
 end
-# Q5
+# Q4
 date_question :childs_date_of_birth? do
   from { Date.today }
   to { 50.years.ago(Date.today) }
@@ -75,7 +72,7 @@ date_question :childs_date_of_birth? do
     end
   end
 end
-# Q6
+# Q5
 multiple_choice :where_are_you_now? do
   option :same_country
   option :another_country
@@ -98,10 +95,10 @@ multiple_choice :where_are_you_now? do
     end
   end
 end
-# Q7
+# Q6
 country_select :which_country? do
   calculate :registration_country do
-    responses.last
+    reg_data_query.registration_country_slug(responses.last)
   end
   calculate :registration_country_name do
     SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == registration_country }[:name]
@@ -123,8 +120,9 @@ outcome :embassy_result do
         "British embassy"
   end
   precalculate :documents_you_must_provide do
+    checklist_countries = %w(bangladesh japan pakistan philippines sweden taiwan turkey)
     key = "documents_you_must_provide_"  
-    key += (%w(japan sweden taiwan turkey).include?(registration_country) ? registration_country : "all")
+    key += (checklist_countries.include?(registration_country) ? registration_country : "all")
     PhraseList.new(key.to_sym)
   end
   precalculate :documents_footnote do
@@ -197,7 +195,7 @@ end
 outcome :fco_result do
   precalculate :intro do
     if exclusions.include?(registration_country)
-      PhraseList.new(:intro_exceptions)
+      ''
     else
       PhraseList.new(:intro)
     end
