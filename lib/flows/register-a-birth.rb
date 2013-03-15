@@ -118,8 +118,9 @@ outcome :embassy_result do
         "British embassy"
   end
   precalculate :documents_you_must_provide do
+    checklist_countries = %w(bangladesh japan pakistan philippines sweden taiwan turkey)
     key = "documents_you_must_provide_"  
-    key += (%w(japan sweden taiwan turkey).include?(registration_country) ? registration_country : "all")
+    key += (checklist_countries.include?(registration_country) ? registration_country : "all")
     PhraseList.new(key.to_sym)
   end
   precalculate :documents_footnote do
