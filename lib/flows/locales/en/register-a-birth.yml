@@ -8,6 +8,7 @@ en-GB:
         You must register your child’s birth according to the regulations in the country where the child was born. They will give you a local birth certificate.
 
         Once you’ve done this you may be able to apply to register the birth with the UK authorities.  
+        
         You don’t have to do this, but it means:
 
         - you’ll get a UK-style birth certificate for the child
@@ -211,7 +212,7 @@ en-GB:
         footnote: |
           ^It takes about 5 working days for the birth to be officially registered.^
         intro_exceptions: |
-          Your application will be sent to %{country_of_birth_name} to be registered there.
+          Your application will be sent to the %{embassy_high_commission_or_consulate} in %{country_of_birth_name} to be registered there.
 
         intro: |
           Download and complete the birth registration form.
@@ -269,6 +270,8 @@ en-GB:
 
       fco_result:
         body: |
+          $!You can apply to register the birth with the Foreign and Commonwealth Office (FCO) in the UK.$! 
+
           %{intro}
 
           ##Documents
@@ -293,9 +296,6 @@ en-GB:
           Register a birth | £105
           Copy of a birth registration certificate | £65
 
-          Pay by postal order or bank draft made payable to ‘FCO’. Personal cheques aren’t accepted.
-
-
           ##Send your registration
 
           Post the registration form and documentation to FCO.
@@ -309,11 +309,11 @@ en-GB:
             SW1A 2AH
           $A
 
-          Also include 2 stamped addressed special or recorded delivery envelopes so your documents can be returned.
+          You should pay the postage fee (if you pay online), or include 2 stamped addressed special or recorded delivery envelopes so your documents can be returned.
 
           Your documents will be returned within 20 working days. Copies won’t be returned.
 
-          ^It takes up to 12 weeks for the death to be officially registered (or up to 6 months for some countries, eg India, Bangladesh or the Philippines).^
+          ^It takes up to 12 weeks for the birth to be officially registered (or up to 6 months for some countries, eg India, Bangladesh or the Philippines).^
 
           ##Copies of the registration certificate
 
@@ -334,14 +334,15 @@ en-GB:
 
           You may still be able to apply for [British citizenship](http://www.ukba.homeoffice.gov.uk/britishcitizenship/ "Find out how to register your child as a British citizen"){:rel="external"} for the child.
 
+          You may also be able to register the birth if you’ve married the other parent since the child was born. [Contact your local British embassy](http://www.fco.gov.uk/en/travel-and-living-abroad/find-an-embassy/ "Find a British embassy"){:rel="external"} to find out.
       no_registration_result:
         body: |
           You can’t register your child’s birth with the UK authorities. Your child must have an automatic claim to British nationality at birth to be eligible.
 
-          If one of the biological parents is British, your child may still be eligible for [British Citizenship.](http://www.ukba.homeoffice.gov.uk/britishcitizenship/ "Find out about British Citizenship"){:rel="external"}
-
       no_embassy_result:
         body: |
-          %You must register the birth according to the regulations in %{registration_country_name}.%
+          $!You must register the birth according to the regulations in %{country_of_birth}.$!
 
-          You can’t currently register the birth of a child in %{registration_country_name} with the UK authorities.
+          You can’t currently register the birth with the UK authorities.
+
+          The local birth certificate, with a certified translation, should be acceptable for all purposes in the UK. You can apply for registration at any time in the future - check [travel advice](/foreign-travel-advice) to find out if consular services have reopened in %{country_of_birth}.  
