@@ -98,7 +98,7 @@ end
 # Q6
 country_select :which_country? do
   calculate :registration_country do
-    responses.last
+    reg_data_query.registration_country_slug(responses.last)
   end
   calculate :registration_country_name do
     SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == registration_country }[:name]
@@ -195,7 +195,7 @@ end
 outcome :fco_result do
   precalculate :intro do
     if exclusions.include?(registration_country)
-      PhraseList.new(:intro_exceptions)
+      ''
     else
       PhraseList.new(:intro)
     end
