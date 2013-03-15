@@ -2,11 +2,11 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
-class DrivingInGreatBritainOnNonGBLicenceTest < ActiveSupport::TestCase
+class NonGBDrivingLicenceTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'driving-in-great-britain-on-non-gb-licence'
+    setup_for_testing_flow 'non-gb-driving-licence'
   end
 
   should "ask what your status is in the UK" do
