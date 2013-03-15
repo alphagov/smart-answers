@@ -76,7 +76,8 @@ end
 country_select :which_country_are_you_in_now? do
   save_input_as :current_location
   calculate :current_location_name do
-    SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == responses.last }[:name]
+    country_slug = data_query.registration_country_slug(responses.last)
+    SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == country_slug }[:name]
   end
   next_node :embassy_result
 end
