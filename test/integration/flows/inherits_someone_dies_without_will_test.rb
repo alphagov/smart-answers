@@ -9,182 +9,393 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
     setup_for_testing_flow 'inherits-someone-dies-without-will'
   end
 
-  should "ask if there is a living spouse or civil partner" do
-    assert_current_node :is_there_a_living_spouse_or_civil_partner?
+  should "ask where the deceased lived" do
+    assert_current_node :where_did_the_deceased_live?
   end
 
-  context "with a living spouse" do
+  context "england and wales" do
     setup do
-      add_response :yes
+      add_response "england-and-wales"
+    end
+    should "ask is there a living spouse?" do
+      assert_current_node :is_there_a_living_spouse_or_civil_partner?
+    end
+    
+      context "living spouse, estate worth <250,000" do
+        should "give outcome 1" do
+          add_response "yes"
+          add_response "no"
+          assert_current_node :outcome_1
+          assert_phrase_list :next_step_links, [:wills_link_only]
+        end
+      end      
+      context "living spouse, estate worth >250,000, living children" do
+        should "give outcome 2" do
+          add_response "yes"
+          add_response "yes"
+          add_response "yes"
+          assert_current_node :outcome_2
+          assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+        end
+      end
+      context "living spouse, estate worth >250,000, no living children, no living parents" do
+        should "give outcome 3" do
+          add_response "yes"
+          add_response "yes"
+          add_response "no"
+          add_response "no"
+          assert_current_node :outcome_3
+          assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+        end
+      end
+      context "living spouse, estate worth >250,000, no living children, living parents, siblings (same parents)" do
+        should "give outcome 4" do
+          add_response "yes"
+          add_response "yes"
+          add_response "no"
+          add_response "yes"
+          add_response "yes"
+          assert_current_node :outcome_4
+          assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+        end
+      end
+      context "living spouse, estate worth >250,000, no living children, living parents, no siblings (same parents)" do
+        should "give outcome 5" do
+          add_response "yes"
+          add_response "yes"
+          add_response "no"
+          add_response "yes"
+          add_response "no"
+          assert_current_node :outcome_5
+          assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+        end
+      end
+      context "no living spouse, has living children" do
+        should "give outcome 6" do
+          add_response "no"
+          add_response "living-children-ew"
+          assert_current_node :outcome_6
+          assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+        end
+      end
+      context "no living spouse, has living parents" do
+        should "give outcome 7" do
+          add_response "no"
+          add_response "living-parents-ew"
+          assert_current_node :outcome_7
+          assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+        end
+      end
+      context "no living spouse, has siblings (same parents)" do
+        should "give outcome 8" do
+          add_response "no"
+          add_response "siblings-same-parents-ew"
+          assert_current_node :outcome_8
+          assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+        end
+      end
+      context "no living spouse, has siblings (half-blood)" do
+        should "give outcome 9" do
+          add_response "no"
+          add_response "siblings-halfblood-ew"
+          assert_current_node :outcome_9
+          assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+        end
+      end
+      context "no living spouse, has grandparents" do
+        should "give outcome 10" do
+          add_response "no"
+          add_response "living-grandparents-ew"
+          assert_current_node :outcome_10
+          assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+        end
+      end
+      context "no living spouse, has aunts or uncles" do
+        should "give outcome 11" do
+          add_response "no"
+          add_response "aunts-or-uncles-ew"
+          assert_current_node :outcome_11
+          assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+        end
+      end
+      context "no living spouse, has half-blood aunts or uncles" do
+        should "give outcome 12" do
+          add_response "no"
+          add_response "aunts-or-uncles-halfblood-ew"
+          assert_current_node :outcome_12
+          assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+        end
+      end
+      context "no living spouse, no living relatives" do
+        should "give outcome 13" do
+          add_response "no"
+          add_response "no-living-relatives-ew"
+          assert_current_node :outcome_13
+          assert_phrase_list :next_step_links, [:bona_vacantia_link_only]
+        end
+      end
     end
 
-    should "ask if the estate is worth more than 250k" do
-      assert_current_node :is_the_estate_worth_more_than_250000?
-    end
-
-    should "partner receives everything if less than 250k" do
-      add_response :no
-      assert_current_node :partner_receives_all_of_the_estate
-    end
-
-    context "estate worth more than 250k" do
-      setup do
-        add_response :yes
-      end
-
-      should "ask if there are living children" do
-        assert_current_node :are_there_living_children?
-      end
-
-      should "partner gets 250k, children get rest with living children" do
-        add_response :yes
-        assert_current_node :partner_receives_first_250000_children_receive_share_of_remainder
-      end
-
-      context "no living children" do
-        setup do
-          add_response :no
-        end
-
-        should "ask if there are living parents" do
-          assert_current_node :are_there_living_parents?
-        end
-
-        should "partner gets 450k, parents and siblings get rest with living parents" do
-          add_response :yes
-          assert_current_node :partner_receives_first_450000_remainder_to_parents_or_siblings
-        end
-
-        context "no living parents" do
-          setup do
-            add_response :no
-          end
-
-          should "ask if there are any living siblings" do
-            assert_current_node :are_there_any_brothers_or_sisters_living?
-          end
-
-          should "partner gets 450k, siblings get rest with living siblings" do
-            add_response :yes
-            assert_current_node :partner_receives_first_450000_remainder_shared_equally_between_brothers_or_sisters
-          end
-
-          should "all go to partner with no living siblings" do
-            add_response :no
-            assert_current_node :partner_receives_all_of_the_estate
-          end
-        end # no living parents
-      end # no living children
-    end # estate 250k+
-  end # with living spouse
-
-  context "without a living spouse" do
+  context "scotland" do
     setup do
-      add_response :no
+      add_response "scotland"
+    end
+    should "ask is there a living spouse?" do
+      assert_current_node :is_there_a_living_spouse_or_civil_partner?
     end
 
-    should "ask if there are living children" do
-      assert_current_node :are_there_living_children?
+      context "living spouse, living children" do
+        should "give outcome 14" do
+          add_response "yes"
+          add_response "yes"
+          assert_current_node :outcome_14
+          assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+        end
+      end
+      context "living spouse, no living children, living parents, has siblings (same parents)" do
+        should "give outcome 15a" do
+          add_response "yes"
+          add_response "no"
+          add_response "yes"
+          add_response "yes"
+          assert_current_node :outcome_15a
+          assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+        end
+      end
+      context "living spouse, no living children, no living parents, has siblings (same parents)" do
+        should "give outcome 15b" do
+          add_response "yes"
+          add_response "no"
+          add_response "no"
+          add_response "yes"
+          assert_current_node :outcome_15b
+          assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+        end
+      end
+      context "living spouse, no living children, living parents, no siblings (same parents)" do
+        should "give outcome 16a" do
+          add_response "yes"
+          add_response "no"
+          add_response "yes"
+          add_response "no"
+          assert_current_node :outcome_16a
+          assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+        end
+      end
+      context "living spouse, no living children, no living parents, no siblings (same parents)" do
+        should "give outcome 16b" do
+          add_response "yes"
+          add_response "no"
+          add_response "no"
+          add_response "no"
+          assert_current_node :outcome_16b
+          assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+        end
+      end
+      context "no living spouse, living children" do
+        should "give outcome 17" do
+          add_response "no"
+          add_response "yes"
+          assert_current_node :outcome_17
+          assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+        end
+      end
+      context "no living spouse, no living children, living parents, has siblings (same parents)" do
+        should "give outcome 18" do
+          add_response "no"
+          add_response "no"
+          add_response "yes"
+          add_response "yes"
+          assert_current_node :outcome_18
+          assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+        end
+      end
+      context "no living spouse, no living children, no living parents, has siblings (same parents)" do
+        should "give outcome 19" do
+          add_response "no"
+          add_response "no"
+          add_response "no"
+          add_response "yes"
+          assert_current_node :outcome_19
+          assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+        end
+      end
+      context "no living spouse, no living children, living parents, no siblings (same parents)" do
+        should "give outcome 20" do
+          add_response "no"
+          add_response "no"
+          add_response "yes"
+          add_response "no"
+          assert_current_node :outcome_20
+          assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+        end
+      end
+      context "no living spouse, no living children, no living parents, no siblings (same parents), has aunts and uncles" do
+        should "give outcome 21" do
+          add_response "no"
+          add_response "no"
+          add_response "no"
+          add_response "no"
+          add_response "yes"
+          assert_current_node :outcome_21
+          assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+        end
+      end
+      context "no living spouse, no living children, no living parents, no siblings (same parents), no aunts and uncles, has grandparents" do
+        should "give outcome 22" do
+          add_response "no"
+          add_response "no"
+          add_response "no"
+          add_response "no"
+          add_response "no"
+          add_response "yes"
+          assert_current_node :outcome_22
+          assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+        end
+      end
+      context "no living spouse, no living children, no living parents, no siblings (same parents), no aunts and uncles, no grandparents, has great aunts and uncles" do
+        should "give outcome 23" do
+          add_response "no"
+          add_response "no"
+          add_response "no"
+          add_response "no"
+          add_response "no"
+          add_response "no"
+          add_response "yes"
+          assert_current_node :outcome_23
+          assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+        end
+      end
+      context "no living spouse, no living children, no living parents, no siblings (same parents), no aunts and uncles, no grandparents, no great aunts and uncles" do
+        should "give outcome 24" do
+          add_response "no"
+          add_response "no"
+          add_response "no"
+          add_response "no"
+          add_response "no"
+          add_response "no"
+          add_response "no"
+          assert_current_node :outcome_24
+          assert_phrase_list :next_step_links, [:bona_vacantia_link_only]
+        end
+      end
     end
 
-    should "be shared between children if there are any" do
-      add_response :yes
-      assert_current_node :shared_equally_between_children
+  context "Northern Ireland" do
+    setup do
+      add_response "northern-ireland"
+    end
+    should "ask is there a living spouse?" do
+      assert_current_node :is_there_a_living_spouse_or_civil_partner?
     end
 
-    context "no living children" do
-      setup do
-        add_response :no
+    context "living spouse, estate worth <250,000" do
+      should "give outcome 25" do
+        add_response "yes"
+        add_response "no"
+        assert_current_node :outcome_25
+        assert_phrase_list :next_step_links, [:wills_link_only]
       end
-
-      should "ask if there are living parents" do
-        assert_current_node :are_there_living_parents?
+    end      
+    context "living spouse, estate worth >250,000, living children, only one child" do
+      should "give outcome 26" do
+        add_response "yes"
+        add_response "yes"
+        add_response "yes"
+        add_response "no"
+        assert_current_node :outcome_26
+        assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
       end
-
-      should "be shared between parents if they are living" do
-        add_response :yes
-        assert_current_node :shared_equally_between_parents
+    end      
+    context "living spouse, estate worth >250,000, living children, more then one child" do
+      should "give outcome 27" do
+        add_response "yes"
+        add_response "yes"
+        add_response "yes"
+        add_response "yes"        
+        assert_current_node :outcome_27
+        assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
       end
-
-      context "no living parents" do
-        setup do
-          add_response :no
-        end
-
-        should "ask if there are any living siblings" do
-          assert_current_node :are_there_any_brothers_or_sisters_living?
-        end
-
-        should "be shared between siblings if there are any living" do
-          add_response :yes
-          assert_current_node :shared_equally_between_brothers_or_sisters
-        end
-
-        context "with no living siblings" do
-          setup do
-            add_response :no
-          end
-
-          should "ask if there are any half siblings" do
-            assert_current_node :are_there_half_blood_brothers_or_sisters?
-          end
-
-          should "be shared between half siblings if there are any" do
-            add_response :yes
-            assert_current_node :shared_equally_between_half_blood_brothers_sisters
-          end
-
-          context "with no half siblings" do
-            setup do
-              add_response :no
-            end
-
-            should "ask if there are any living grandparents" do
-              assert_current_node :are_there_grandparents_living?
-            end
-
-            should "be shared between grandparents if any living" do
-              add_response :yes
-              assert_current_node :shared_equally_between_grandparents
-            end
-
-            context "with no grandparents living" do
-              setup do
-                add_response :no
-              end
-
-              should "ask if there are any living aunts or uncles" do
-                assert_current_node :are_there_any_living_aunts_or_uncles?
-              end
-
-              should "be shared between aunts and uncles if there are any" do
-                add_response :yes
-                assert_current_node :shared_equally_between_aunts_or_uncles
-              end
-
-              context "with no living aunts or uncles" do
-                setup do
-                  add_response :no
-                end
-
-                should "ask if there are any living half aunts or uncles" do
-                  assert_current_node :are_there_any_living_half_aunts_or_uncles?
-                end
-
-                should "be shared between half aunts and uncles if there are any" do
-                  add_response :yes
-                  assert_current_node :shared_equally_between_half_aunts_or_uncles
-                end
-
-                should "go to the crown if there are no half aunts or uncles" do
-                  add_response :no
-                  assert_current_node :everything_goes_to_crown
-                end
-              end # no living aunts or uncles
-            end # no living grandparents
-          end # no half siblings
-        end # no living siblings
-      end # no living parents
-    end # no living children
-  end # no living spouse
+    end      
+    context "living spouse, estate worth >250,000, no living children, no living parents" do
+      should "give outcome 28" do
+        add_response "yes"
+        add_response "yes"
+        add_response "no"
+        add_response "no"        
+        assert_current_node :outcome_28
+        assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+      end
+    end      
+    context "living spouse, estate worth >250,000, no living children, has living parents, has siblings (same parents)" do
+      should "give outcome 29" do
+        add_response "yes"
+        add_response "yes"
+        add_response "no"
+        add_response "yes"
+        add_response "yes"      
+        assert_current_node :outcome_29
+        assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+      end
+    end
+    context "living spouse, estate worth >250,000, no living children, has living parents, no siblings (same parents)" do
+      should "give outcome 30" do
+        add_response "yes"
+        add_response "yes"
+        add_response "no"
+        add_response "yes"
+        add_response "no"      
+        assert_current_node :outcome_30
+        assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+      end
+    end
+    context "no living spouse, living children" do
+      should "give outcome 31" do
+        add_response "no"
+        add_response "living-children-ni"
+        assert_current_node :outcome_31
+        assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+      end
+    end      
+    context "no living spouse, living parents" do
+      should "give outcome 32" do
+        add_response "no"
+        add_response "living-parents-ni"
+        assert_current_node :outcome_32
+        assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+      end
+    end
+    context "no living spouse, has siblings (same parents)" do
+      should "give outcome 33" do
+        add_response "no"
+        add_response "siblings-same-parents-ni"
+        assert_current_node :outcome_33
+        assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+      end
+    end
+    context "no living spouse, has aunts and uncles" do
+      should "give outcome 34" do
+        add_response "no"
+        add_response "aunts-or-uncles-ni"
+        assert_current_node :outcome_34
+        assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+      end
+    end      
+    context "no living spouse, has grandparents" do
+      should "give outcome 35" do
+        add_response "no"
+        add_response "living-grandparents-ni"
+        assert_current_node :outcome_35
+        assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
+      end
+    end
+    context "no living spouse, no living relatives" do
+      should "give outcome 36" do
+        add_response "no"
+        add_response "no-living-relatives-ni"
+        assert_current_node :outcome_36
+        assert_phrase_list :next_step_links, [:bona_vacantia_link_only]
+      end
+    end        
+  end
 end
