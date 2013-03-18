@@ -193,8 +193,8 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_taiwan]
     end
   end # Taiwan
-  context "answer Taiwan" do
-    should "give the embassy result" do
+  context "answer Taiwan now in the UK" do
+    should "give the FCO result" do
       add_response "taiwan"
       add_response "mother_and_father"
       add_response "yes"
@@ -204,8 +204,8 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_state_variable :british_national_parent, 'mother_and_father'
     end
   end # Taiwan
-  context "answer Central African Republic now back in the UK" do
-    should "give the fco result" do
+  context "answer Central African Republic now in the UK" do
+    should "give the FCO result" do
       add_response "central-african-republic"
       add_response "mother_and_father"
       add_response "yes"
