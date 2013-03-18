@@ -118,6 +118,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
             assert_state_variable :registration_country, 'spain'
             assert_current_node :fco_result
             assert_phrase_list :intro, [:intro]
+            assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
           end
         end
         context "answer in another country" do

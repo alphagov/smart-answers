@@ -193,6 +193,11 @@ outcome :embassy_result do
   end
 end
 outcome :fco_result do
+  precalculate :embassy_high_commission_or_consulate do
+    reg_data_query.has_high_commission?(registration_country) ? "High commission" :
+      reg_data_query.has_consulate?(registration_country) ? "British embassy or consulate" :
+        "British embassy"
+  end
   precalculate :intro do
     if exclusions.include?(registration_country)
       ''
