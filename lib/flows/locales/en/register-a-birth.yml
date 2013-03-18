@@ -216,7 +216,7 @@ en-GB:
 
       embassy_result:
         body: |
-          You can register the birth with the %{embassy_high_commission_or_consulate} in %{registration_country_name}.
+          $!You can apply to register the birth with the %{embassy_high_commission_or_consulate} in %{registration_country_name}.$!
 
           Download and complete the birth registration form.
 
@@ -296,6 +296,8 @@ en-GB:
           Register a birth | £105
           Copy of a birth registration certificate | £65
 
+          Pay by postal order or bank draft made payable to ‘FCO’. Personal cheques aren’t accepted.  
+
           ##Send your registration
 
           Post the registration form and documentation to FCO.
@@ -328,7 +330,7 @@ en-GB:
           You can’t register the birth with the UK authorities. However, the birth certificate you are given in %{registration_country_name} will be recognised and accepted in the UK. 
       homeoffice_result:
         body: |
-          $!You must register the birth according to the regulations in %{registration_country_name}.$!
+          $!You must register the birth according to the regulations in %{country_of_birth_name}.$!
 
           You can’t register your child’s birth with the UK authorities abroad. This is because unmarried fathers can’t pass on British nationality to a child born before 1 July 2006.
 
@@ -341,8 +343,8 @@ en-GB:
 
       no_embassy_result:
         body: |
-          $!You must register the birth according to the regulations in %{country_of_birth}.$!
+          $!You must register the birth according to the regulations in %{country_of_birth_name}.$!
 
           You can’t currently register the birth with the UK authorities.
 
-          The local birth certificate, with a certified translation, should be acceptable for all purposes in the UK. You can apply for registration at any time in the future - check [travel advice](/foreign-travel-advice) to find out if consular services have reopened in %{country_of_birth}.  
+          The local birth certificate, with a certified translation, should be acceptable for all purposes in the UK. You can apply for registration at any time in the future - check [travel advice](/foreign-travel-advice) to find out if consular services have reopened in %{country_of_birth_name}.  

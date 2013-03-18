@@ -199,7 +199,7 @@ outcome :fco_result do
         "British embassy"
   end
   precalculate :intro do
-    if exclusions.include?(registration_country)
+    if exclusions.include?(country_of_birth)
       ''
     else
       PhraseList.new(:intro)
