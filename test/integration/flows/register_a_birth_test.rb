@@ -204,6 +204,17 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_state_variable :british_national_parent, 'mother_and_father'
     end
   end # Taiwan
+  context "answer Central African Republic now back in the UK" do
+    should "give the fco result" do
+      add_response "central-african-republic"
+      add_response "mother_and_father"
+      add_response "yes"
+      add_response "in_the_uk"
+      assert_current_node :fco_result
+      assert_state_variable :intro, ''
+      assert_state_variable :british_national_parent, 'mother_and_father'
+    end
+  end # Central African Republic
   context "answer Belize" do
     should "give the embassy result" do
       add_response "belize"
