@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 source 'https://BnrJb6FZyzspBboNJzYZ@gem.fury.io/govuk/'
 
 gem 'unicorn', '4.3.1'
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 gem 'rails-i18n'
 gem 'json'
 gem 'plek', '1.1.0'
@@ -35,7 +35,7 @@ gem 'uk_postcode', '1.0.0'
 group :test do
   gem 'capybara', '~> 1.1.2'
   gem 'ci_reporter'
-  gem 'mocha', :require => false
+  gem 'mocha', '0.13.3', :require => false
   gem 'shoulda', '~> 2.11.3'
   gem 'webmock', '1.8.0', :require => false
   gem 'simplecov', '~> 0.6.4', :require => false
