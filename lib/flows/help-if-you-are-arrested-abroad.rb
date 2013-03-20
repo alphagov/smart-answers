@@ -1,4 +1,4 @@
-status :draft
+status :published
 
 arrested_calc = SmartAnswer::Calculators::ArrestedAbroad.new
 prisoner_packs = arrested_calc.data
