@@ -1,4 +1,5 @@
-status :draft
+status :published
+satisfies_need "2759"
 
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
 embassy_data_query = SmartAnswer::Calculators::PassportAndEmbassyDataQuery.new
