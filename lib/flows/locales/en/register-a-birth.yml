@@ -3,18 +3,19 @@ en-GB:
     register-a-birth:
       title: Register a birth abroad
       meta:
-        description: Use this tool to find out how to register the birth of a child abroad.
+        description: Parents must register the birth in the country where the child was born - find out if you can also register the birth in the UK
       body: |
         You must register your child’s birth according to the regulations in the country where the child was born. They will give you a local birth certificate.
 
-        Once you’ve done this you may be able to apply to register the birth with the UK authorities using this tool. 
+        Once you’ve done this you may be able to apply to register the birth with the UK authorities.  
+        
         You don’t have to do this, but it means:
 
         - you’ll get a UK-style birth certificate for the child
         - you’ll have proof that the child is a British citizen
         - the birth will be recorded with the General Register Office in the UK
 
-        ^A locally-issued birth certificate should be accepted in the UK for all purposes, eg applying for a passport, registering with a school or doctor etc. It might need to be translated and [certified](/certifying-a-document "Certify a document").^
+        ^A locally-issued birth certificate should be accepted in the UK for all purposes, eg applying for a passport, registering with a school or doctor etc. It might need to be translated and [certified](/certifying-a-document "Certify a document") if it's not in English.^
       
       options:
         "yes": "Yes"
@@ -31,7 +32,7 @@ en-GB:
       country_of_birth?:
         title: Which country was the child born in?
       married_couple_or_civil_partnership?:
-        title: Are you part of a married couple or civil partnership?
+        title: Were you married to the other parent when your child was born?
       childs_date_of_birth?:
         title: What is your child’s date of birth?
       where_are_you_now?:
@@ -51,24 +52,110 @@ en-GB:
             %{phone}
             %{email}
           $A
+        documents_you_must_provide_philippines: |
+          Download the following document to see what documents you’ll need to provide with your application.
+
+
+          $D
+          [Download ‘Documents you need to provide’ (DOC, 1.2MB)](http://ukinthephilippines.fco.gov.uk/resources/en/word/consular/2010/birthreg-jan2013 "Download 'Documents you need to provide' (DOC, 1.2MB)"){:rel="external"}
+          $D
         documents_you_must_provide_taiwan: |
+          You and the other parent must provide:
+
           - both Chinese and English versions of your child’s birth certificate (most hospitals in Taipei issue English versions, otherwise the Chinese version must be translated and certified)
-          - declaration of your maternity and paternity
+          - your child’s local birth certificate
+          - your British birth certificates (long version) showing details of your parents
+          - a naturalisation or registration certificate (if either of you were not born in the UK)
+          - your current British passports
+          - a copy of a passport or birth certificate (if one of you isn’t British)
+          - a marriage certificate (if you’re married)
+          - divorce documents (if either of you has ever been divorced)
+          - a change of name document (if either of you has ever changed your name)
         documents_you_must_provide_turkey: |
+          You and the other parent must provide:
+
           - a hospital birth report
           - your child’s local birth certificate
+          - your British birth certificates (long version) showing details of your parents
+          - a naturalisation or registration certificate (if either of you were not born in the UK)
+          - your current British passports
+          - a copy of a passport or birth certificate (if one of you isn’t British)
+          - a marriage certificate (if you’re married)
+          - divorce documents (if either of you has ever been divorced)
+          - a change of name document (if either of you has ever changed your name)
         documents_you_must_provide_sweden: |
+          You and the other parent must provide:
+
           - a hospital certificate ("moderskapsintyg") showing exactly which hospital your child was born at
           - your child’s local birth certificate
+          - your British birth certificates (long version) showing details of your parents
+          - a naturalisation or registration certificate (if either of you were not born in the UK)
+          - your current British passports
+          - a copy of a passport or birth certificate (if one of you isn’t British)
+          - a marriage certificate (if you’re married)
+          - divorce documents (if either of you has ever been divorced)
+          - a change of name document (if either of you has ever changed your name)
         documents_you_must_provide_japan: |
-          You must provide originals and 1 photocopy of:
+          You and the other parent must provide:
 
           - your child’s hospital birth certificate (or a certified copy of Japanese birth registration and ‘mother’s book’ showing the child’s place of birth)
           - your child’s ward office birth certificate
           - your child’s local birth certificate
-        documents_you_must_provide_all: |
-          - your child’s local birth certificate
+          - your British birth certificates (long version) showing details of your parents
+          - a naturalisation or registration certificate (if either of you were not born in the UK)
+          - your current British passports
+          - a copy of a passport or birth certificate (if one of you isn’t British)
+          - a marriage certificate (if you’re married)
+          - divorce documents (if either of you has ever been divorced)
+          - a change of name document (if either of you has ever changed your name)
+        documents_you_must_provide_pakistan: |
+          You and the other parent must provide:
 
+          - your nationality certificates or full UK birth certificates showing details of your parents
+          - your marriage certificate (if you’re married)
+          - divorce documents (if either of you have ever been divorced)
+          - your child’s local birth certificate (showing both your names)
+          - your child’s hospital certificate (if born in a hospital) 
+          - a marriage certificate (if you’re married)
+          - your current passports 
+          - any passports used to travel when you were married (if relevant)
+          - any passports used to travel at the time of your child’s birth
+          - a Pakistani ID card (if one of you is Pakistani and never held a passport)
+          - photocopies of the data page of any British passport issued to a member of your immediate family by the British High Commission Islamabad
+          - hospital antenatal documents and vaccination cards
+          - 3 identical passport-size photos
+          - family registration form "B"
+          - your school leaving certificates
+          - family photographs
+
+          Translated versions of Urdu documents should also be provided.
+        documents_you_must_provide_bangladesh: |
+          You and the other parent must provide:
+
+          - your nationality certificates or full UK birth certificates showing details of your parents
+          - your marriage certificate (if you’re married)
+          - divorce documents (if either of you have ever been divorced)
+          - your child’s local birth certificate (showing both your names)
+          - your child’s hospital certificate (if born in a hospital) 
+          - a marriage certificate (if you’re married)
+          - your current passports 
+          - any passports used to travel when you were married (if relevant), including any stamps, visas or observations
+          - any passports used to travel at the time of your childs birth, including all stamps, visas or observations
+          - a Bangladeshi ID card (if one of you is Bangladeshi and never held a passport)
+          - photocopies of the data page of any British passport issued to a member of your immediate family by the British High Commission Dhaka
+          - 3 identical passport-size photos
+          - maternity documents
+        documents_you_must_provide_all: |
+          You and the other parent must provide:
+
+          - your child’s local birth certificate
+          - your British birth certificates (long version) showing details of your parents
+          - a naturalisation or registration certificate (if either of you were not born in the UK)
+          - your current British passports
+          - a copy of a passport or birth certificate (if one of you isn’t British)
+          - a marriage certificate (if you’re married)
+          - divorce documents (if either of you has ever been divorced)
+          - a change of name document (if either of you has ever changed your name)
         docs_footnote_japan: |
           If one of you is Japanese, you must provide a photocopy of the family register (‘koseki tohon’). 
 
@@ -119,46 +206,32 @@ en-GB:
           %You can only pay by cash, which must be in local currency.%
 
         footnote_another_country: |
-          ^Registration can take up to 3 months - your application will be sent to %{country_of_birth_name} where the birth will be registered.^
+          ^Registration can take up to 3 months - your application will be sent to the %{embassy_high_commission_or_consulate} in %{country_of_birth_name} where the birth will be registered.^
         footnote_exceptions: |
-          ^Registration can take up to 3 months - your application will be sent to London where the birth will be registered.^
+          ^Registration can take up to 3 months - your application will be sent to the Foreign and Commonwealth Office in London where the birth will be registered.^
         footnote: |
           ^It takes about 5 working days for the birth to be officially registered.^
-        intro_exceptions: |
-          Your application will be sent to %{country_of_birth_name} to be registered there.
-
         intro: |
-          Download and complete the birth registration form.
+          Your application will be sent to the %{embassy_high_commission_or_consulate} in %{country_of_birth_name} to be registered there.
 
-          [Download ‘Birth registration form’ (DOC, 66KB)](http://uk.sitestat.com/fcoweb/fcogov/s?fco.en.travel-and-living-abroad.births-deaths-marriages-civil.registering-a-birth.p.pdf.OutsideUK_birth_reg_form.doc&ns_type=pdf&ns_url=http://www.fco.gov.uk/resources/en/word/OutsideUK_birth_reg_form.doc "Download ‘Birth registration form’ (DOC, 66KB)"){:rel="external"} 
-      
       embassy_result:
         body: |
-          You can register the birth with the %{embassy_high_commission_or_consulate} in %{registration_country_name}.
+          $!You can apply to register the birth with the %{embassy_high_commission_or_consulate} in %{registration_country_name}.$!
 
           Download and complete the birth registration form.
 
-          [Download ‘Birth registration form’ (DOC, 66KB)](http://uk.sitestat.com/fcoweb/fcogov/s?fco.en.travel-and-living-abroad.births-deaths-marriages-civil.registering-a-birth.p.pdf.OutsideUK_birth_reg_form.doc&ns_type=pdf&ns_url=http://www.fco.gov.uk/resources/en/word/OutsideUK_birth_reg_form.doc "Download ‘Birth registration form’ (DOC, 66KB)"){:rel="external"}
 
+          $D
+          [Download ‘Birth registration form’ (DOC, 66KB)](http://uk.sitestat.com/fcoweb/fcogov/s?fco.en.travel-and-living-abroad.births-deaths-marriages-civil.registering-a-birth.p.pdf.OutsideUK_birth_reg_form.doc&ns_type=pdf&ns_url=http://www.fco.gov.uk/resources/en/word/OutsideUK_birth_reg_form.doc "Download ‘Birth registration form’ (DOC, 66KB)"){:rel="external"}
+          $D
 
           ##Documents
 
-          You must provide:
-
           %{documents_you_must_provide}
-          - your British birth certificates (long version) showing details of your parents
-          - a naturalisation or registration certificate (if either of you were not born in the UK)
-          - your current British passports
-          - a copy of a passport or birth certificate (if one of you isn’t British)
-          - a marriage certificate (if you’re married)
-          - divorce documents (if either of you has ever been divorced)
-          - a change of name document (if either of you has ever changed your name)
 
           %{documents_footnote}
 
           You’ll need to provide originals and a photocopy of each document.
-
-          If you work for the Crown Service, European Community or other designated service, you’ll need to provide a recruitment certificate issued at the time of birth, showing date and place of recruitment and current employment.
 
           ##Cost
           
@@ -190,7 +263,16 @@ en-GB:
 
       fco_result:
         body: |
+          $!You can apply to register the birth with the Foreign and Commonwealth Office (FCO) in the UK.$! 
+
           %{intro}
+
+          Download and complete the birth registration form.
+
+
+          $D
+          [Download ‘Birth registration form’ (DOC, 66KB)](http://uk.sitestat.com/fcoweb/fcogov/s?fco.en.travel-and-living-abroad.births-deaths-marriages-civil.registering-a-birth.p.pdf.OutsideUK_birth_reg_form.doc&ns_type=pdf&ns_url=http://www.fco.gov.uk/resources/en/word/OutsideUK_birth_reg_form.doc "Download ‘Birth registration form’ (DOC, 66KB)"){:rel="external"} 
+          $D
 
           ##Documents
 
@@ -214,8 +296,7 @@ en-GB:
           Register a birth | £105
           Copy of a birth registration certificate | £65
 
-          Pay by postal order or bank draft made payable to ‘FCO’. Personal cheques aren’t accepted.
-
+          Pay by postal order or bank draft made payable to ‘FCO’. Personal cheques aren’t accepted.  
 
           ##Send your registration
 
@@ -230,11 +311,11 @@ en-GB:
             SW1A 2AH
           $A
 
-          Also include 2 stamped addressed special or recorded delivery envelopes so your documents can be returned.
+          You should pay the postage fee (if you pay online), or include 2 stamped addressed special or recorded delivery envelopes so your documents can be returned.
 
           Your documents will be returned within 20 working days. Copies won’t be returned.
 
-          ^It takes up to 12 weeks for the death to be officially registered (or up to 6 months for some countries, eg India, Bangladesh or the Philippines).^
+          ^It takes up to 12 weeks for the birth to be officially registered (or up to 6 months for some countries, eg India, Bangladesh or the Philippines).^
 
           ##Copies of the registration certificate
 
@@ -249,20 +330,21 @@ en-GB:
           You can’t register the birth with the UK authorities. However, the birth certificate you are given in %{registration_country_name} will be recognised and accepted in the UK. 
       homeoffice_result:
         body: |
-          $!You must register the birth according to the regulations in %{registration_country_name}.$!
+          $!You must register the birth according to the regulations in %{country_of_birth_name}.$!
 
           You can’t register your child’s birth with the UK authorities abroad. This is because unmarried fathers can’t pass on British nationality to a child born before 1 July 2006.
 
           You may still be able to apply for [British citizenship](http://www.ukba.homeoffice.gov.uk/britishcitizenship/ "Find out how to register your child as a British citizen"){:rel="external"} for the child.
 
+          You may also be able to register the birth if you’ve married the other parent since the child was born. [Contact your local British embassy](http://www.fco.gov.uk/en/travel-and-living-abroad/find-an-embassy/ "Find a British embassy"){:rel="external"} to find out.
       no_registration_result:
         body: |
           You can’t register your child’s birth with the UK authorities. Your child must have an automatic claim to British nationality at birth to be eligible.
 
-          If one of the biological parents is British, your child may still be eligible for [British Citizenship.](http://www.ukba.homeoffice.gov.uk/britishcitizenship/ "Find out about British Citizenship"){:rel="external"}
-
       no_embassy_result:
         body: |
-          %You must register the birth according to the regulations in %{registration_country_name}.%
+          $!You must register the birth according to the regulations in %{country_of_birth_name}.$!
 
-          You can’t currently register the birth of a child in %{registration_country_name} with the UK authorities.
+          You can’t currently register the birth with the UK authorities.
+
+          The local birth certificate, with a certified translation, should be acceptable for all purposes in the UK. You can apply for registration at any time in the future - check [travel advice](/foreign-travel-advice) to find out if consular services have reopened in %{country_of_birth_name}.  
