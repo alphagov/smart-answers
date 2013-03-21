@@ -307,7 +307,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
               should "calculate the simple_home_costs" do
                 add_response 25
                 assert_state_variable :hours_worked_home, 25.0
-                assert_state_variable :simple_home_costs, 3000.0
+                assert_state_variable :simple_home_costs, 120.0
               end
             end
 
@@ -315,7 +315,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
               should "calculate the simple_home_costs" do
                 add_response 55
                 assert_state_variable :hours_worked_home, 55.0
-                assert_state_variable :simple_home_costs, 11880.0
+                assert_state_variable :simple_home_costs, 216.0
               end
             end
 
@@ -323,7 +323,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
               should "calculate the simple_home_costs" do
                 add_response 101
                 assert_state_variable :hours_worked_home, 101.0
-                assert_state_variable :simple_home_costs, 31512.0
+                assert_state_variable :simple_home_costs, 312.0
               end
             end
 
@@ -534,9 +534,9 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       should "calculate the correct values for the simplified_cost" do
         assert_state_variable :simple_vehicle_costs, 2250
         assert_state_variable :simple_motorcycle_costs, 240
-        assert_state_variable :simple_home_costs, 3600
+        assert_state_variable :simple_home_costs, 120
         assert_state_variable :simple_business_costs, 6000
-        assert_state_variable :simple_costs, 12090
+        assert_state_variable :simple_costs, 8610
       end
 
       should "calculate the correct values for the current_scheme_cost" do

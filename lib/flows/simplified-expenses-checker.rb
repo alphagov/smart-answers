@@ -168,9 +168,9 @@ value_question :hours_work_home? do
   calculate :simple_home_costs do
     amount = case hours_worked_home
     when 0..24 then 0
-    when 25..50 then hours_worked_home * 120
-    when 51..100 then hours_worked_home * 216
-    else hours_worked_home * 312
+    when 25..50 then 120
+    when 51..100 then 216
+    else 312
     end
     Money.new(amount)
   end
