@@ -13,6 +13,4 @@ require 'rails/test_help'
 require 'minitest/unit'
 require 'minitest/autorun'
 
-require 'mocha/setup'
-
 require 'webmock/minitest'
