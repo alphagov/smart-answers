@@ -64,7 +64,7 @@ outcome :answer_one_generic do
   end
 
   precalculate :generic_downloads do
-    PhraseList.new(:common_downloads)
+    PhraseList.new(:fco_link, :common_downloads)
   end
 
   precalculate :country_downloads do
