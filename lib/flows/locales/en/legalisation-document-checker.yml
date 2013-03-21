@@ -1,0 +1,183 @@
+en-GB:
+  flow:
+    legalisation-document-checker:
+      meta:
+        description: Find out what documents the Legalisation Office can legalise - confirming the signature, seal or stamp on a document is genuine
+      title: What documents can be legalised
+      body: |
+        You can get a UK public document ‘legalised’ - this means a signature, seal or stamp made by a UK public official on the document is confirmed as genuine by the UK government.
+
+        Use this tool to check if your document can be legalised.
+
+#Q1
+      what_documents_do_you_want_legalised?:
+        title: What documents do you want legalised?
+        options:
+          "acro-police-certificate": "ACRO Police Certificate"
+          "affidavit": "Affidavit"
+          "articles-of-association": "Articles of association"
+          "bank-statement": "Bank statement"
+          "baptism-certificate": "Baptism certificate"
+          "birth-certificate": "Birth certificate"
+          "certificate-of-incorporation": "Certificate of incorporation"
+          "certificate-of-freesale": "Certificate of freesale"
+          "certificate-of-memorandum": "Certificate of memorandum"
+          "certificate-of-naturalisation": "Certificate of naturalisation"
+          "certificate-of-no-impediment": "Certificate of no impediment"
+          "chamber-of-commerce-document": "Chamber of Commerce document"
+          "change-of-name-deed": "Change of name deed"
+          "civil-partnership-certificate": "Civil partnership certificate"
+          "criminal-records-bureau-document": "Criminal Records Bureau (CRB) document"
+          "criminal-records-check": "Criminal records check"
+          "companies-house-document": "Companies House document"
+          "county-court-document": "County court document"
+          "court-document": "Court document"
+          "court-of-bankruptcy-document": "Court of Bankruptcy document"
+          "death-certificate": "Death certificate"
+          "decree-nisi": "Decree nisi"
+          "decree-absolute": "Decree absolute"
+          "degree-certificate-uk": "Degree certificate (UK)"
+          "department-of-business-innovation-skills-document": "Department of Business, Innovation and Skills (BIS) document"
+          "department-of-health-document": "Department of Health document"
+          "diploma": "Diploma"
+          "disclosure-scotland-document": "Disclosure Scotland document"
+          "doctor-letter-medical": "Doctor’s letter (medical)"
+          "educational-certificate-uk": "Educational certificate (UK)"
+          "export-certificate": "Export certificate"
+          "family-division-high-court-justice-document": "Family Division of the High Court of Justice document"
+          "fingerprints": "Fingerprints"
+          "fit-note-from-a-doctor": "Fit note (from a doctor)"
+          "government-issued-document": "Government issued document"
+          "grant-of-probate": "Grant of probate"
+          "high-court-justice-document": "High Court of Justice document"
+          "hmrc-document": "HM Revenue and Customs document"
+          "home-office-document": "Home Office document"
+          "last-will-testament": "Last will and testament"
+          "letter-from-employer": "Letter from an employer"
+          "letter-of-enrolment": "Letter of enrolment"
+          "letter-of-invitation": "Letter of invitation"
+          "letter-of-no-trace": "Letter of no trace"
+          "medical-report": "Medical report"
+          "marriage-certificate": "Marriage certificate"
+          "name-change-deed-or-document": "Name change deed or document"
+          "passport-copy-only": "Passport (copy only)"
+          "pet-export-document": "Pet export document from the Department of Environment, Food and Rural Affairs (DEFRA)"
+          "police-disclosure-document": "Police disclosure document"
+          "power-of-attorney": "Power of attorney"
+          "probate": "Probate"
+          "reference-from-an-employer": "Reference from an employer"
+          "religious-document": "Religious document"
+          "sheriff-court-document": "Sheriff court document"
+          "sick-note-from-doctor": "Sick note (from a doctor)"
+          "statutory-declaration": "Statutory declaration"
+          "test-results-medical": "Test results (medical)"
+          "translation": "Translation"
+          "utility-bill": "Utility bill"
+
+      phrases:
+        police_disclosure: |
+          ##%{document_heading}
+          Your %{document_type} can be only be legalised if it has been:
+
+          - signed by an official from the issuing authority
+          - [certified](/certifying-a-document "Certified copy of a document")
+
+          ^A photocopy of your document won’t be accepted.^
+        solicitors_notaries: |
+          ##%{document_heading}
+          Your %{document_type} can only be legalised if it has been [certified](/certifying-a-document "Certified copy of a document").
+
+          You can also provide a certified photocopy of your document.
+        government_companies: |
+          ##%{document_heading}
+          Your %{document_type} can be only be legalised if it has been:
+
+          - signed by an official from the issuing authority
+          - [certified](/certifying-a-document "Certified copy of a document")
+
+          ^A photocopy of your document can be legalised, but it must be certified.^
+        birth_death: |
+          ##%{document_heading}
+          Your %{document_type} can be legalised if it is either:
+
+          - an official certified copy of the certificate issued by the General Register Officer (GRO) with the original seal
+          - an original certificate (or original certified copy) issued by a church, religious establishment or local register office, with the original signature of the official who issued the certificate
+
+          It can take longer to legalise a signature on an original certificate, especially if it was issued before 1991.
+
+          You can [order a certifed copy of your certificate](https://www.gro.gov.uk/gro/content/certificates/default.asp "Order a certified copy of your certificate"){:rel="external"} from the GRO which could be quicker.
+        birth_death_marriage_certificate_only: |
+          ##%{document_heading}
+          Your %{document_type} can be legalised if it is either:
+
+          - an official certified copy of the certificate issued by the General Register Officer (GRO) with the original seal
+          - an original certificate (or original certified copy) issued by a church, religious establishment or local register office, with the original signature of the official who issued the certificate
+
+          It can take longer to legalise a signature on an original certificate, especially if it was issued before 1991.
+
+          You can [order a certifed copy of your certificate](https://www.gro.gov.uk/gro/content/certificates/default.asp "Order a certified copy of your certificate"){:rel="external"} from the GRO which could be quicker.
+          ^Non-GRO marriage certificates (eg Islamic marriage certificates) can't be legalised unless they are [certified](/certifying-a-document "Certified copy of a document").^
+        court_document: |
+          ##%{document_heading}
+          Your %{document_type} must have been issued by either the:
+
+          - County Court
+          - Court of Bankruptcy
+          - Family Division of the High Court of Justice
+          - High Court of Justice
+          - Sheriff Court
+
+          It can only be legalised if it has either:
+
+          - the original seal or ink stamp of the court
+          - the signature of a court official
+
+          It can take the Legalisation Office longer to legalise a court document that only has a signature. You can get your document [certified](/certifying-a-document "Certified copy of a document") which could make the process quicker.
+        vet_health: |
+          ##Veterinary Health Certificate
+          Your Veterinary Health Certificate can only be legalised if it has been signed and stamped by a veterinary surgeon registered with the Department of Food and Rural Affairs.
+        education_document_degree_certificate_only: |
+          ##%{document_heading}
+          Your degree certificate must be be awarded by a [recognised body](/check-a-university-is-officially-recognised "Check if a university or college is recognised").
+
+          It must also be [certified](/certifying-a-document "Certified copy of a document") by either:
+
+          - a solicitor or notary public in the UK
+          - an official of the British Council (only original certificates)
+          - an official from a [British embassy or consulate](/find-a-british-embassy "Find a British embassy abroad")
+
+          ^A photocopy of your document can be legalised, but it must be certified.^
+        education_document: |
+          ##%{document_heading}
+          Your %{document_type} must be accredited by one of the following organisations:
+
+          - UK Border Agency
+          - Scottish Qualifications Authority  
+          - OfQual
+          - British Accreditation Council
+          - Open and Distance Learning Quality Council
+          - Association of British Language Schools
+
+          It must also be [certified](/certifying-a-document "Certified copy of a document") by either:
+
+          - a solicitor or notary public in the UK
+          - an official of the British Council (only original certificates)
+          - an official from a [British embassy or consulate](/find-a-british-embassy "Find a British embassy abroad")
+
+          ^A photocopy of your document can be legalised, but it must be certified.^
+        medical_reports: |
+          ##%{document_heading}
+          Your %{document_type} must be signed by a doctor registered with the [General Medical Council.](http://www.gmc-uk.org/doctors/register/LRMP.asp "Check if a doctor is registered with the General Medical Council"){:rel="external"} 
+
+          A photocopy of your document can be legalised, but it must be [certified.](/certifying-a-document "Certified copy of a document")
+
+          ^Your document can’t be legalised if it has been signed on behalf of your doctor by another doctor or member of staff.^
+
+      outcome_results:
+        body: |
+          %{document_details}
+          ##Get your documents legalised
+
+          You can [get your documents legalised](/get-a-document-legalised "Get your documents legalised") by the Legalisation Office if they meet the standards above.
+          
+
