@@ -80,12 +80,12 @@ en-GB:
           Your %{document_type} can be only be legalised if it has been:
 
           - signed by an official from the issuing authority
-          - [certified](/certifying-a-document “Certified copy of a document”)
+          - [certified](/certifying-a-document "Certified copy of a document")
 
           ^A photocopy of your document won’t be accepted.^
         solicitors_notaries: |
           ##%{document_heading}
-          Your %{document_type} can only be legalised if it has been [certified](/certifying-a-document “Certified copy of a document”).
+          Your %{document_type} can only be legalised if it has been [certified](/certifying-a-document "Certified copy of a document").
 
           You can also provide a certified photocopy of your document.
         government_companies: |
@@ -93,7 +93,7 @@ en-GB:
           Your %{document_type} can be only be legalised if it has been:
 
           - signed by an official from the issuing authority
-          - [certified](/certifying-a-document “Certified copy of a document”)
+          - [certified](/certifying-a-document "Certified copy of a document")
 
           ^A photocopy of your document can be legalised, but it must be certified.^
         birth_death: |
@@ -105,7 +105,7 @@ en-GB:
 
           It can take longer to legalise a signature on an original certificate, especially if it was issued before 1991.
 
-          You can [order a certifed copy of your certificate](https://www.gro.gov.uk/gro/content/certificates/default.asp “Order a certified copy of your certificate”){:rel="external"} from the GRO which could be quicker.
+          You can [order a certifed copy of your certificate](https://www.gro.gov.uk/gro/content/certificates/default.asp "Order a certified copy of your certificate"){:rel="external"} from the GRO which could be quicker.
         birth_death_marriage_certificate_only: |
           ##%{document_heading}
           Your %{document_type} can be legalised if it is either:
@@ -115,8 +115,8 @@ en-GB:
 
           It can take longer to legalise a signature on an original certificate, especially if it was issued before 1991.
 
-          You can [order a certifed copy of your certificate](https://www.gro.gov.uk/gro/content/certificates/default.asp “Order a certified copy of your certificate”){:rel="external"} from the GRO which could be quicker.
-          ^Non-GRO marriage certificates (eg Islamic marriage certificates) can't be legalised unless they are [certified](/certifying-a-document “Certified copy of a document”).^
+          You can [order a certifed copy of your certificate](https://www.gro.gov.uk/gro/content/certificates/default.asp "Order a certified copy of your certificate"){:rel="external"} from the GRO which could be quicker.
+          ^Non-GRO marriage certificates (eg Islamic marriage certificates) can't be legalised unless they are [certified](/certifying-a-document "Certified copy of a document").^
         court_document: |
           ##%{document_heading}
           Your %{document_type} must have been issued by either the:
@@ -132,19 +132,19 @@ en-GB:
           - the original seal or ink stamp of the court
           - the signature of a court official
 
-          It can take the Legalisation Office longer to legalise a court document that only has a signature. You can get your document [certified](/certifying-a-document “Certified copy of a document”) which could make the process quicker.
+          It can take the Legalisation Office longer to legalise a court document that only has a signature. You can get your document [certified](/certifying-a-document "Certified copy of a document") which could make the process quicker.
         vet_health: |
           ##Veterinary Health Certificate
           Your Veterinary Health Certificate can only be legalised if it has been signed and stamped by a veterinary surgeon registered with the Department of Food and Rural Affairs.
         education_document_degree_certificate_only: |
           ##%{document_heading}
-          Your degree certificate must be be awarded by a [recognised body](/check-a-university-is-officially-recognised “Check if a university or college is recognised”).
+          Your degree certificate must be be awarded by a [recognised body](/check-a-university-is-officially-recognised "Check if a university or college is recognised").
 
-          It must also be [certified](/certifying-a-document “Certified copy of a document”) by either:
+          It must also be [certified](/certifying-a-document "Certified copy of a document") by either:
 
           - a solicitor or notary public in the UK
           - an official of the British Council (only original certificates)
-          - an official from a [British embassy or consulate](/find-a-british-embassy “Find a British embassy abroad”)
+          - an official from a [British embassy or consulate](/find-a-british-embassy "Find a British embassy abroad")
 
           ^A photocopy of your document can be legalised, but it must be certified.^
         education_document: |
@@ -158,18 +158,18 @@ en-GB:
           - Open and Distance Learning Quality Council
           - Association of British Language Schools
 
-          It must also be [certified](/certifying-a-document “Certified copy of a document”) by either:
+          It must also be [certified](/certifying-a-document "Certified copy of a document") by either:
 
           - a solicitor or notary public in the UK
           - an official of the British Council (only original certificates)
-          - an official from a [British embassy or consulate](/find-a-british-embassy “Find a British embassy abroad”)
+          - an official from a [British embassy or consulate](/find-a-british-embassy "Find a British embassy abroad")
 
           ^A photocopy of your document can be legalised, but it must be certified.^
         medical_reports: |
           ##%{document_heading}
-          Your %{document_type} must be signed by a doctor registered with the [General Medical Council.](http://www.gmc-uk.org/doctors/register/LRMP.asp “Check if a doctor is registered with the General Medical Council”){:rel="external"} 
+          Your %{document_type} must be signed by a doctor registered with the [General Medical Council.](http://www.gmc-uk.org/doctors/register/LRMP.asp "Check if a doctor is registered with the General Medical Council"){:rel="external"} 
 
-          A photocopy of your document can be legalised, but it must be [certified.](/certifying-a-document “Certified copy of a document”)
+          A photocopy of your document can be legalised, but it must be [certified.](/certifying-a-document "Certified copy of a document")
 
           ^Your document can’t be legalised if it has been signed on behalf of your doctor by another doctor or member of staff.^
 
@@ -178,6 +178,6 @@ en-GB:
           %{document_details}
           ##Get your documents legalised
 
-          You can [get your documents legalised](/get-a-document-legalised “Get your documents legalised”) by the Legalisation Office if they meet the standards above.
+          You can [get your documents legalised](/get-a-document-legalised "Get your documents legalised") by the Legalisation Office if they meet the standards above.
           
 
