@@ -22,35 +22,35 @@ class DocumentLegalisationCheckerTest < ActiveSupport::TestCase
       assert_phrase_list :document_details, ["##ACRO Police Certificate\nYour ACRO Police Certificate can be only be legalised if it has been:
 
 - signed by an official from the issuing authority
-- [certified](/certifying-a-document “Certified copy of a document”)
+- [certified](/certifying-a-document \"Certified copy of a document\")
 
 ^A photocopy of your document won’t be accepted.^
 ", "##Criminal Records Bureau (CRB) document
 Your CRB document can be only be legalised if it has been:
 
 - signed by an official from the issuing authority
-- [certified](/certifying-a-document “Certified copy of a document”)
+- [certified](/certifying-a-document \"Certified copy of a document\")
 
 ^A photocopy of your document won’t be accepted.^
 ", "##Criminal records check
 Your criminal records check can be only be legalised if it has been:
 
 - signed by an official from the issuing authority
-- [certified](/certifying-a-document “Certified copy of a document”)
+- [certified](/certifying-a-document \"Certified copy of a document\")
 
 ^A photocopy of your document won’t be accepted.^
 ", "##Disclosure Scotland document
 Your Disclosure Scotland document can be only be legalised if it has been:
 
 - signed by an official from the issuing authority
-- [certified](/certifying-a-document “Certified copy of a document”)
+- [certified](/certifying-a-document \"Certified copy of a document\")
 
 ^A photocopy of your document won’t be accepted.^
 ", "##Fingerprints
 Your fingerprints can be only be legalised if it has been:
 
 - signed by an official from the issuing authority
-- [certified](/certifying-a-document “Certified copy of a document”)
+- [certified](/certifying-a-document \"Certified copy of a document\")
 
 ^A photocopy of your document won’t be accepted.^
 "]
@@ -66,7 +66,7 @@ Your fingerprints can be only be legalised if it has been:
       assert_phrase_list :document_details, ["##ACRO Police Certificate\nYour ACRO Police Certificate can be only be legalised if it has been:
 
 - signed by an official from the issuing authority
-- [certified](/certifying-a-document “Certified copy of a document”)
+- [certified](/certifying-a-document \"Certified copy of a document\")
 
 ^A photocopy of your document won’t be accepted.^
 ", ]
@@ -82,7 +82,7 @@ Your fingerprints can be only be legalised if it has been:
       assert_phrase_list :document_details, ["##ACRO Police Certificate\nYour ACRO Police Certificate can be only be legalised if it has been:
 
 - signed by an official from the issuing authority
-- [certified](/certifying-a-document “Certified copy of a document”)
+- [certified](/certifying-a-document \"Certified copy of a document\")
 
 ^A photocopy of your document won’t be accepted.^
 ", "##Veterinary Health Certificate
