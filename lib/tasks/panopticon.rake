@@ -11,7 +11,7 @@ namespace :panopticon do
     registerer = GdsApi::Panopticon::Registerer.new(owning_app: "smartanswers", kind: "smart-answer")
     flow_registry.flows.each do |flow|
       registerable = FlowRegistrationPresenter.new(flow)
-      registerer.register(registerable) if registerable.slug != "vehicles-you-can-drive"
+      registerer.register(registerable)
     end
   end
 end
