@@ -105,9 +105,13 @@ end
 
 outcome :fco_result do
   precalculate :embassy_high_commission_or_consulate do
-    data_query.has_high_commission?(current_location) ? "High commission" :
-      data_query.has_consulate?(current_location) ? "British embassy or consulate" :
-        "British embassy"
+    if data_query.has_high_commission?(current_location)
+      "High commission"
+    elsif data_query.has_consulate?(current_location)
+      "British embassy or consulate"
+    else
+      "British embassy"
+    end
   end
   precalculate :registration_footnote do
     exclusions.include?(country) ? '' : PhraseList.new(:reg_footnote)
@@ -116,9 +120,13 @@ end
 
 outcome :embassy_result do
   precalculate :embassy_high_commission_or_consulate do
-    data_query.has_high_commission?(current_location) ? "High commission" :
-      data_query.has_consulate?(current_location) ? "British embassy or consulate" :
-        "British embassy"
+    if data_query.has_high_commission?(current_location)
+      "High commission"
+    elsif data_query.has_consulate?(current_location)
+      "British embassy or consulate"
+    else
+      "British embassy"
+    end
   end
 
   precalculate :clickbook do
