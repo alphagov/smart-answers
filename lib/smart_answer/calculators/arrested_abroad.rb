@@ -5,7 +5,7 @@ module SmartAnswer::Calculators
 
     def initialize
       @data = self.class.prisoner_packs
-      end
+    end
 
     def generate_url_for_download(country, field, text)
       url = @data.select { |c| c["slug"] == country }.first[field]
