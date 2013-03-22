@@ -43,7 +43,19 @@ country_select :which_country? do
   calculate :has_extra_downloads do
     [police, judicial, consul, prison, benefits, doc, pdf].select { |x|
       x != ""
-    }.length > 0
+    }.length > 0 || arrested_calc.countries_with_regions.include?(country)
+  end
+
+  calculate :region_links do
+    links = []
+    if arrested_calc.countries_with_regions.include?(country)
+      regions = arrested_calc.get_country_regions(country)
+      regions.each do |key, val|
+        puts "REGIONS #{key}"
+        links << "- [#{val['url_text']}](#{val['link']}){:rel=\"external\"}"
+      end
+    end
+    links
   end
 
   next_node do |response|
@@ -64,11 +76,15 @@ outcome :answer_one_generic do
   end
 
   precalculate :generic_downloads do
-    PhraseList.new(:fco_link, :common_downloads)
+    PhraseList.new(:common_downloads)
   end
 
   precalculate :country_downloads do
     has_extra_downloads ? PhraseList.new(:specific_downloads) : PhraseList.new
+  end
+
+  precalculate :region_downloads do
+    region_links.join("\n")
   end
 
   precalculate :after_downloads do
