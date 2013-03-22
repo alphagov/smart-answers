@@ -3,15 +3,18 @@ module SmartAnswer::Calculators
   
     attr_reader :waiting_days, :normal_workdays, :pattern_days
 
-    # LEL changes on 1 April each year - update when we know the April 2013 rate
-    LOWER_EARNING_LIMIT = 107.00
-    SSP_WEEKLY_RATE = 85.85
+    # LEL changes on 6 April each year
+    # the two constants below are meant as 'safety' if the calculator gets a query for future dates past the latest known
+    # and should be updated to the latest known rate
+    LOWER_EARNING_LIMIT = 109.00
+    SSP_WEEKLY_RATE = 86.70
 
     def self.earning_limit_rates
       [
         {min: Date.parse("6 April 2010"), max: Date.parse("5 April 2011"), lower_earning_limit_rate: 97},
         {min: Date.parse("6 April 2011"), max: Date.parse("5 April 2012"), lower_earning_limit_rate: 102},
-        {min: Date.parse("6 April 2012"), max: Date.parse("5 April 2013"), lower_earning_limit_rate: 107}
+        {min: Date.parse("6 April 2012"), max: Date.parse("5 April 2013"), lower_earning_limit_rate: 107},
+        {min: Date.parse("6 April 2013"), max: Date.parse("5 April 2014"), lower_earning_limit_rate: 109} 
       ]
     end
 
@@ -21,11 +24,12 @@ module SmartAnswer::Calculators
       (earning_limit_rate ? earning_limit_rate[:lower_earning_limit_rate] : LOWER_EARNING_LIMIT)
     end
 
-    # ssp weekly rate will be updated in April 2013, we'll know about it in Jan 2013
+    # ssp weekly rate changes on 6 April each year
     def ssp_rates
       [
         {min: Date.parse("6 April 2011"), max: Date.parse("5 April 2012"), ssp_weekly_rate: 81.60},
-        {min: Date.parse("6 April 2012"), max: Date.parse("5 April 2012"), ssp_weekly_rate: 85.85}
+        {min: Date.parse("6 April 2012"), max: Date.parse("5 April 2013"), ssp_weekly_rate: 85.85},
+        {min: Date.parse("6 April 2013"), max: Date.parse("5 April 2014"), ssp_weekly_rate: 86.70}
       ]
     end
 
