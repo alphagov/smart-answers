@@ -39,9 +39,6 @@ en-GB:
           - helping British prisoners apply for a transfer to UK where possible
           - visiting prisoners when needed
 
-        fco_link: |
-          The FCO has produced [guides explaining the legal and prison system](/government/organisations/foreign-commonwealth-office/series/prisoner-pack "Prisoner packs") in different countries for British nationals arrested abroad.
-
         common_downloads: |
           Read more about how the FCO can help someone arrested abroad.
 
@@ -87,6 +84,8 @@ en-GB:
         specific_downloads: |
           ##Download prisoner packs and other helpful information
 
+          The FCO has produced guides explaining the legal and prison system in different countries for British nationals arrested abroad.
+
           %{pdf}
           %{doc}
           %{benefits}
@@ -94,6 +93,8 @@ en-GB:
           %{prison}
           %{police}
           %{consul}
+
+          %{region_downloads}
 
       answer_one_generic:
         title: Help for British nationals arrested abroad
