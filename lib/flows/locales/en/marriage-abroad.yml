@@ -51,7 +51,7 @@ en-GB:
           The General Register Office of Ireland's website explains what you need to do if you want to [enter into a civil partnership in Ireland.](http://www.groireland.ie/civil_partnership.htm "Civil partnership in Ireland"){:rel="external"}.
 #Marriage in commonwealth countries phrases
         commonwealth_os_all_intro: |
-          %{country_name_uppercase_prefix} is a member of the Commonwealth. You won’t need to register with the British consulate.
+          %{country_name_uppercase_prefix} is a member of the Commonwealth.
 
           ^You can’t deposit a copy of your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/ "General Register Office"){:rel="external"} (GRO) in the UK if you get married in a Commonwealth country.^
 
@@ -121,7 +121,7 @@ en-GB:
           Contact the %{ceremony_country_name} Government to find out about getting married there, including what documents you’ll need. 
           %{embassy_details}
           You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers "Find a lawyer abroad") before making any plans.
-        bot_os_local_resident: |
+        bot_os_not_local_resident: |
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix}").
         bot_os_naturalisation: |
           ##Naturalisation of your partner if they move to the UK 
@@ -136,6 +136,7 @@ en-GB:
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
         other_resident_os_consular_cni: |
           Contact your nearest embassy or consulate of %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
+
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix}") before making any plans.
         gulf_states_os_consular_cni: |
           ^There are no civil marriages in %{country_name_lowercase_prefix}, but you can get married through a religious ceremony at a church or Sharia court.^
@@ -217,7 +218,7 @@ en-GB:
           s3. Swear an affidavit (written statement of facts) in front of a [solicitor](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"} - there’s an example on the form.
           s4. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
           s5. You’ll also need to include a pre-paid, self-addressed special delivery envelope, or a £10 postage fee, so the FCO can return your documents.
-          s6. Send your completed form to the FCO with your supporting documents and payment. [You can pay by credit card online](/pay-foreign-marriage-certificates "Payment for certificates to get married abroad"), or send a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. Personal cheques aren’t accepted. The address is on the form.
+          s6. Send your completed form to the FCO with your supporting documents and payment. [You can pay by credit card online](/pay-foreign-marriage-certificates/start "Payment for certificates to get married abroad"), or send a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. Personal cheques aren’t accepted. The address is on the form.
           s7. FCO will forward your Nulla Osta to the local British embassy or consulate where you’re getting married, usually within 20 days. The embassy or consulate will charge you an additional fee (see below) - they’ll contact you to arrange payment.
           s8. They’ll then send it to the town hall (‘commune’) in Italy where you’re getting married - or another address (such as your wedding planner) if you ask them to. It’s normally valid for 3 months, but you should check this with the commune.
         consular_cni_os_england_or_wales_resident_not_italy: |
@@ -232,7 +233,7 @@ en-GB:
           s3. Swear an affidavit (written statement of facts) in front of a [solicitor](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"} - there’s an example on the form.
           s4. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
           s5. You’ll also need to include a pre-paid, self-addressed special delivery envelope, or a £10 postage fee, so the FCO can return your documents.
-          s6. Send your completed form to the FCO with your supporting documents and payment. [You can pay by credit card online](/pay-foreign-marriage-certificates "Payment for certificates to get married abroad"), or send a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. Personal cheques aren’t accepted. The address is on the form.
+          s6. Send your completed form to the FCO with your supporting documents and payment. [You can pay by credit card online](/pay-foreign-marriage-certificates/start "Payment for certificates to get married abroad"), or send a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. Personal cheques aren’t accepted. The address is on the form.
           s7. The FCO will forward your application to the local British embassy or consulate where you’re getting married, usually within 20 days - they’ll let you know when it’s ready to collect.
           s8. The embassy or consulate will charge you an additional fee when you pick it up. It’s normally valid for 3 months, but you should check this with the local authorities.
         consular_cni_os_uk_resident_not_italy_two: |
@@ -355,14 +356,14 @@ en-GB:
           - the whole page of the newspaper your announcement appears on, including the date it was issued
           - a photocopy of your partner’s passport
         consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident: |
-          You’ll need to provide supporting documents along, including your:
+          You’ll need to provide supporting documents, including your:
 
           - passport
           - [full birth certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate")
           - proof of residence, such as a residence certificate - check with the consulate to find out what you need
           - equivalent documents for your partner
         consular_cni_variant_local_resident_spain: |
-          You’ll need to provide supporting documents along, including your:
+          You’ll need to provide supporting documents, including your:
 
           - passport
           - [full birth certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate")
@@ -513,7 +514,7 @@ en-GB:
         consular_cni_os_uk_resident: |
           ###Depositing your certificate when you’re back home
 
-          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage "Deposit foreign marriage or civil partnership certificates") through the FCO.
+          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage/start "Deposit foreign marriage or civil partnership certificates") through the FCO.
         consular_cni_os_all_fees: |
           ##Fees
 
@@ -579,7 +580,7 @@ en-GB:
           s1. [Download ‘Certificate of custom law application form’ (DOT, 49KB)](http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/cert-of-custom "Download ‘Certificate of custom law application form’ (DOT, 49KB)").
           s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
           s3. You’ll also need to include a pre-paid, self-addressed special delivery envelope, or a £10 postage fee, so the FCO can return your documents.
-          s4. Send your completed form to the FCO with your supporting documents and payment. [You can pay by credit card online](/pay-foreign-marriage-certificates "Payment for certificates to get married abroad"), or send a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. Personal cheques aren’t accepted. The address is on the form.
+          s4. Send your completed form to the FCO with your supporting documents and payment. [You can pay by credit card online](/pay-foreign-marriage-certificates/start "Payment for certificates to get married abroad"), or send a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. Personal cheques aren’t accepted. The address is on the form.
           s5. The FCO will confirm that they’ve received your application and return your documents within 4 weeks.
           s6. They’ll then send your application to the British Embassy in Paris, who will issue your certificate between 1 and 3 weeks later.
           s7. The embassy will send your certificate to the address you specified on the form - it’s likely to arrive much sooner if this address is in France.
@@ -609,7 +610,7 @@ en-GB:
         consular_cni_os_uk_resident: |
           ###Depositing your certificate when you’re back home
 
-          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage "Deposit foreign marriage or civil partnership certificates") through the FCO.
+          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage/start "Deposit foreign marriage or civil partnership certificates") through the FCO.
         consular_cni_os_all_fees: |
           ##Fees
 
@@ -675,7 +676,7 @@ en-GB:
           s1. [Download ‘Certificate of custom law application form’ (DOT, 49KB)](http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/cert-of-custom "Download ‘Certificate of custom law application form’ (DOT, 49KB)").
           s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
           s3. You’ll also need to include a pre-paid, self-addressed special delivery envelope, or a £10 postage fee, so the FCO can return your documents.
-          s4. Send your completed form to the FCO with your supporting documents and payment. [You can pay by credit card online](/pay-foreign-marriage-certificates "Payment for certificates to get married abroad"), or send a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. Personal cheques aren’t accepted. The address is on the form.
+          s4. Send your completed form to the FCO with your supporting documents and payment. [You can pay by credit card online](/pay-foreign-marriage-certificates/start "Payment for certificates to get married abroad"), or send a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. Personal cheques aren’t accepted. The address is on the form.
           s5. The FCO will confirm that they’ve received your application and return your documents within 4 weeks.
           s6. They’ll then send your application to the British Embassy in Paris, who will issue your certificate between 1 and 3 weeks later.
           s7. The embassy will send your certificate to the address you specified on the form - it’s likely to arrive much sooner if this address is in France.
@@ -718,7 +719,7 @@ en-GB:
         france_fot_os_uk_resident_three: |
           ###Depositing your certificate when you’re back home
 
-          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage "Deposit foreign marriage or civil partnership certificates") through the FCO.
+          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage/start "Deposit foreign marriage or civil partnership certificates") through the FCO.
         france_fot_os_all_fees: |
           ##Fees
 
@@ -787,7 +788,7 @@ en-GB:
         affirmation_os_uk_resident_three: |
           ###Depositing your certificate when you’re back home
 
-          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage "Deposit foreign marriage or civil partnership certificates") through the Foreign & Commonwealth Office (FCO).
+          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage/start "Deposit foreign marriage or civil partnership certificates") through the Foreign & Commonwealth Office (FCO).
         affirmation_os_all_fees: |
           ##Fees
 
@@ -842,7 +843,7 @@ en-GB:
         no_cni_os_uk_resident_three: |
           ###Depositing your certificate when you’re back home
 
-          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage "Deposit foreign marriage or civil partnership certificates") through the Foreign & Commonwealth Office (FCO).
+          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage/start "Deposit foreign marriage or civil partnership certificates") through the Foreign & Commonwealth Office (FCO).
         no_cni_os_all_fees: |
           ##Fees
 
@@ -892,8 +893,10 @@ en-GB:
 
           ##Getting married at the British Embassy
 
-          You can apply to get married at the British Embassy in Riyadh if you’re resident in Saudi Arabia and neither of you is a Muslim. Contact them to make an appointment. You’ll need to provide:
+          You can apply to get married at the British Embassy in Riyadh if you’re resident in Saudi Arabia and neither of you is a Muslim. Contact them to make an appointment.
           %{embassy_details}
+          You’ll need to provide:
+
           - proof that you’ve been resident in the area covered by the embassy for at least 7 days, eg an employer’s letter or a bank statement
           - your original passport and full birth certificate
           - proof that you’re both over the age of 16, not within prohibited degrees of relationship to each other, and there’s no other impediment to your proposed marriage
@@ -1026,7 +1029,7 @@ en-GB:
         cp_or_equivalent_cp_uk_resident_two: |
           ###Depositing your certificate when you’re back home
 
-          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage "Deposit foreign marriage or civil partnership certificates") through the Foreign & Commonwealth Office (FCO).
+          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage/start "Deposit foreign marriage or civil partnership certificates") through the Foreign & Commonwealth Office (FCO).
         cp_or_equivalent_cp_all_fees: |
           ##Fees
 
@@ -1086,7 +1089,7 @@ en-GB:
           s1. [Download ‘Certificate of custom law for PACS application form’ (DOT, 51KB)](http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/pacs-form "Download ‘Certificate of custom law for PACS application form’ (DOT, 51KB)").
           s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
           s3. You’ll also need to include a pre-paid, self-addressed special delivery envelope, or a £10 postage fee, so the FCO can return your documents.
-          s4. Send your completed form to the FCO with your supporting documents and payment. [You can pay by credit card online](/pay-foreign-marriage-certificates "Payment for certificates to get married abroad"), or send a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’.
+          s4. Send your completed form to the FCO with your supporting documents and payment. [You can pay by credit card online](/pay-foreign-marriage-certificates/start "Payment for certificates to get married abroad"), or send a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’.
           s5. The FCO will confirm that they’ve received your application and return your documents within 4 weeks.
           s6. They’ll then send your application to the British Embassy in Paris, who will issue your certificate between 1 and 3 weeks later.
           s7. The embassy will send your certificate to the address you specified on the form - it’s likely to arrive much sooner if this address is in France.
@@ -1130,7 +1133,7 @@ en-GB:
         france_pacs_law_cp_uk_resident_three: |
           ###Depositing your certificate when you’re back home
 
-          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage "Deposit foreign marriage or civil partnership certificates") through the FCO.
+          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage/start "Deposit foreign marriage or civil partnership certificates") through the FCO.
         france_pacs_law_cp_all_fees: |
           ##Fees
 
@@ -1227,7 +1230,7 @@ en-GB:
         no_cni_required_cp_uk_resident_three: |
           ###Depositing your certificate when you’re back home
 
-          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage "Deposit foreign marriage or civil partnership certificates") through the Foreign & Commonwealth Office (FCO).
+          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage/start "Deposit foreign marriage or civil partnership certificates") through the Foreign & Commonwealth Office (FCO).
         no_cni_required_cp_naturalisation: |
           ##Naturalisation of your partner if they move to the UK 
 
@@ -1271,6 +1274,7 @@ en-GB:
           ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers "Find a lawyer abroad") and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix}") before making any plans.^
         commonwealth_countries_cp_local_resident: |
           Contact the relevant local authorities to find out about local laws, including what documents you’ll need.
+
           You should also [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers "Find a lawyer abroad") before making any plans.
         commonwealth_countries_cp_other_resident: |
           Contact your nearest high commission, embassy or consulate of %{country_name_lowercase_prefix} before making any plans to find out about local laws, including what documents you’ll need.
@@ -1325,7 +1329,7 @@ en-GB:
         commonwealth_countries_cp_uk_resident_three: |
           ###Depositing your certificate when you’re back home
 
-          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage "Deposit foreign marriage or civil partnership certificates") through the Foreign & Commonwealth Office (FCO).
+          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage/start "Deposit foreign marriage or civil partnership certificates") through the Foreign & Commonwealth Office (FCO).
         commonwealth_countries_cp_naturalisation: |
           ##Naturalisation of your partner if they move to the UK 
 
@@ -1450,12 +1454,14 @@ en-GB:
           %{ceremony_type} in Ireland
         body: |
           %{ireland_partner_sex_variant}
+
 # outcome Commonwealth, opposite sex
       outcome_os_commonwealth:
         title: |
           Marriage in %{country_name_lowercase_prefix}
         body: |
           %{commonwealth_os_outcome}
+
           *[CNI]:certificate of no impediment
           *[GRO]:General Register Office
 # outcome British oversesas territory, opposite sex
@@ -1469,6 +1475,7 @@ en-GB:
         body: |
           %{consular_cni_os_start}
           %{consular_cni_os_remainder}
+
           *[CNI]:certificate of no impediment
           *[GRO]:General Register Office
           *[FCO]:Foreign &amp; Commonwealth Office
@@ -1477,6 +1484,7 @@ en-GB:
         title: Marriage in %{country_name_lowercase_prefix}
         body: |
           %{france_or_fot_os_outcome}
+
           *[GRO]:General Register Office
           *[FCO]:Foreign &amp; Commonwealth Office
 #outcome country with affirmation for frredom to marry
@@ -1484,6 +1492,7 @@ en-GB:
         title: Marriage in %{country_name_lowercase_prefix}
         body: |
           %{affirmation_os_outcome}
+
           *[GRO]:General Register Office
           *[FCO]:Foreign &amp; Commonwealth Office
 #outcome country with no CNI or consular services
@@ -1491,6 +1500,7 @@ en-GB:
         title: Marriage in %{country_name_lowercase_prefix}
         body: |
           %{no_cni_os_outcome}
+
           *[GRO]:General Register Office
           *[FCO]:Foreign &amp; Commonwealth Office
 #outcome other countries
@@ -1498,11 +1508,13 @@ en-GB:
         title: Marriage in %{country_name_lowercase_prefix}
         body: |
           %{other_countries_os_outcome}
+
 #outcome for CP in country with CP or equivalent
       outcome_cp_cp_or_equivalent:
         title: Civil partnership in %{country_name_lowercase_prefix}
         body: |
           %{cp_or_equivalent_cp_outcome}
+
           *[GRO]:General Register Office
           *[FCO]:Foreign &amp; Commonwealth Office
 #outcome for CP in France or fot with PACS law
@@ -1510,6 +1522,7 @@ en-GB:
         title: Civil partnership in %{country_name_lowercase_prefix}
         body: |
           %{france_pacs_law_cp_outcome}
+
           *[GRO]:General Register Office
           *[FCO]:Foreign &amp; Commonwealth Office
           *[PACS]:pacte civil de solidarité
@@ -1518,6 +1531,7 @@ en-GB:
         title: Civil partnership in %{country_name_lowercase_prefix}
         body: |
           %{no_cni_required_cp_outcome}
+
           *[GRO]:General Register Office
           *[FCO]:Foreign &amp; Commonwealth Office
 #outcome for CP in commonwealth countries
@@ -1525,6 +1539,7 @@ en-GB:
         title: Civil partnership in %{country_name_lowercase_prefix}
         body: |
           %{commonwealth_countries_cp_outcome}
+
           *[GRO]:General Register Office
           *[FCO]:Foreign &amp; Commonwealth Office
 #outcome for CP in countries with consular CNI (exc. australia)
@@ -1532,6 +1547,7 @@ en-GB:
         title: Civil partnership in %{country_name_lowercase_prefix}
         body: |
           %{consular_cni_cp_outcome}
+
           *[CNI]:certificate of no impediment
 #outcome for CP in all other countries
       outcome_cp_all_other_countries:
@@ -1598,3 +1614,8 @@ en-GB:
           - Wallis and Futuna
 
           [Start again](/marriage-overseas "Start again") to find out what to do in one of these countries.
+
+      outcome_spain_italy:
+        title: Marriage or civil partnership in %{country_name_lowercase_prefix}
+        body: |
+          The Foreign & Commonwealth Office (FCO) has produced guidance for British nationals [getting married in %{country_name_lowercase_prefix}](/marriage-in-%{ceremony_country} "Marriage in %{country_name_lowercase_prefix}").

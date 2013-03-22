@@ -67,6 +67,10 @@ country_select :country_of_ceremony? do
   next_node do |response|
     if response == 'ireland'
       :partner_opposite_or_same_sex?
+    elsif response == 'spain'
+      :outcome_spain_italy
+    elsif response == 'italy'
+      :outcome_spain_italy
     else
       :legal_residency?
     end
@@ -248,8 +252,8 @@ outcome :outcome_os_bot do
       phrases << :bot_os_ceremony_biot
     else
       phrases << :bot_os_ceremony_non_biot
-      if residency_country == ceremony_country
-        phrases << :bot_os_local_resident
+      if residency_country != ceremony_country
+        phrases << :bot_os_not_local_resident
       end
       unless partner_nationality == 'partner_british'
         phrases << :bot_os_naturalisation
@@ -416,7 +420,7 @@ outcome :outcome_os_consular_cni do
       elsif ceremony_country == 'spain'
         phrases << :consular_cni_variant_local_resident_spain
       end
-    elsif data_query.non_commonwealth_country?(residency_country) or residency_country == 'ireland'
+    elsif data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland'
       phrases << :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident
     end
     if ceremony_country == residency_country
@@ -430,7 +434,7 @@ outcome :outcome_os_consular_cni do
       if residency_country != 'spain' and residency_country != 'germany'
         phrases << :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident_two    
       end
-    elsif data_query.non_commonwealth_country?(residency_country) or residency_country == 'ireland'
+    elsif data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland'
       phrases << :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident_two
     end
     if ceremony_country == residency_country
@@ -893,3 +897,4 @@ outcome :outcome_cp_consular_cni do
   end
 end
 outcome :outcome_cp_all_other_countries
+outcome :outcome_spain_italy
