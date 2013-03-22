@@ -109,7 +109,7 @@ en-GB:
 
       answer_two_iran:
         body: |
-          %There are no British consular services in Iran.  British nationals who need help should contact the Swedish Embassy in Tehran%
+          %There are no British consular services in Iran.  British nationals who need help should contact the Swedish Embassy in Tehran.%
 
           $C
           **The Swedish Embassy**
@@ -132,7 +132,7 @@ en-GB:
       answer_three_syria:
         body: |
 
-          %There are no British consular services in Syria.  British nationals who need help should contact an embassy from any EU state in Damascus%
+          %There are no British consular services in Syria.  British nationals who need help should contact an embassy from any EU state in Damascus.%
 
           In emergency you can also call:
 
