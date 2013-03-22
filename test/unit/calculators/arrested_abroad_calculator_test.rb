@@ -12,7 +12,7 @@ module SmartAnswer::Calculators
           resp = @calc.get_country_regions("australia")["new_south_wales"]
           expected = {
             "link" => "http://ukinaustralia.fco.gov.uk/resources/en/pdf/consular/nsw-prisoner-pack12",
-            "url_text" => "Prisoner Pack for New South Wales"
+            "url_text" => "Prisoner pack for New South Wales"
           }
           assert_equal expected, resp
         end
