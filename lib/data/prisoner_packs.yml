@@ -106,6 +106,14 @@
   doc: http://ukincuba.fco.gov.uk/resources/en/word/doc1/Prisoners-info
 - slug: curacao
 - slug: cyprus
+  regions:
+    north:
+      link: http://ukincyprus.fco.gov.uk/resources/en/pdf/541790282/Prisoner-pack-north
+      url_text: Prisoner Pack for the North of Cyprus
+    republic:
+      link: http://ukincyprus.fco.gov.uk/resources/en/pdf/541790282/Prisoner-pack-South
+      url_text: Prisoner Pack for the Republic of Cyprus
+
 - slug: czech-republic
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?lon.cze.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.in-prison-abroad&ns_type=pdf&ns_url=http://ukinczechrepublic.fco.gov.uk/resources/en/pdf/580227682/in-prison-abroad
   lawyer: http://ukinczechrepublic.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer-translator

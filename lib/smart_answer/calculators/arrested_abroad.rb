@@ -30,7 +30,7 @@ module SmartAnswer::Calculators
     end
 
     def countries_with_regions
-      %w{ australia germany united-arab-emirates }
+      %w{ australia germany united-arab-emirates cyprus }
     end
 
     def get_country_regions(slug)
