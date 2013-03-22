@@ -19,20 +19,20 @@
   regions:
     new_south_wales:
       link: http://ukinaustralia.fco.gov.uk/resources/en/pdf/consular/nsw-prisoner-pack12
-      url_text: "Prisoner Pack for New South Wales"
+      url_text: "Prisoner pack for New South Wales"
     vic_sa_tas:
       link: http://ukinaustralia.fco.gov.uk/resources/en/pdf/VIC_SA_TAS_prisoner_pack.pdf
-      url_text: "Prisoner Pack for Victoria, South Australia and Tasmania"
+      url_text: "Prisoner pack for Victoria, South Australia and Tasmania"
     queensland:
       link: http://ukinaustralia.fco.gov.uk/resources/en/pdf/consular/qld-prisoner-pack12
-      url_text: "Prisoner Pack for Queensland"
+      url_text: "Prisoner pack for Queensland"
     northern_territory:
       link: http://ukinaustralia.fco.gov.uk/resources/en/pdf/consular/nt-prisoner-pack12
-      url_text: "Prisoner Pack for Northern Territories"
+      url_text: "Prisoner pack for Northern Territories"
     western_australia:
       name: Western Australia
       link: http://ukinaustralia.fco.gov.uk/resources/en/pdf/consular/Detained_in_WA.pdf
-      url_text: "Prisoner Pack for Western Australia"
+      url_text: "Prisoner pack for Western Australia"
 - slug: austria
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?lon.aus.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrest-or-detain.p.pdf.In_Prison_Abroad&ns_type=pdf&ns_url=http://ukinaustria.fco.gov.uk/resources/en/pdf/pdf1/In_Prison_Abroad
   benefits: http://uk.sitestat.com/fcoweb/ukingov/s?lon.aus.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrest-or-detain.p.pdf.Legal_Aid_Austria&ns_type=pdf&ns_url=http://ukinaustria.fco.gov.uk/resources/en/pdf/pdf1/Legal_Aid_Austria
@@ -109,10 +109,10 @@
   regions:
     north:
       link: http://ukincyprus.fco.gov.uk/resources/en/pdf/541790282/Prisoner-pack-north
-      url_text: Prisoner Pack for the North of Cyprus
+      url_text: Prisoner pack for the North of Cyprus
     republic:
       link: http://ukincyprus.fco.gov.uk/resources/en/pdf/541790282/Prisoner-pack-South
-      url_text: Prisoner Pack for the Republic of Cyprus
+      url_text: Prisoner pack for the Republic of Cyprus
     republic_police:
       link: http://ukincyprus.fco.gov.uk/resources/en/pdf/541790282/Police-station-pack-South
       url_text: Information on the police and police procedures in the Republic of Cyprus
@@ -156,13 +156,13 @@
   regions:
     berlin_new_lander:
       link: http://ukingermany.fco.gov.uk/resources/en/pdf/4971486/4971665/prisoner_pack.pdf
-      url_text: Prisoner Pack for Berlin and New Lander
+      url_text: Prisoner pack for Berlin and New Lander
     nordrhein:
       link: http://ukingermany.fco.gov.uk/resources/en/pdf/4971486/4971694/prisoner-pack-d
-      url_text: Prisoner Pack for Nordrhein, Westfalen, Hessen, Rheinland-Pfalz and Saarland
+      url_text: Prisoner pack for Nordrhein, Westfalen, Hessen, Rheinland-Pfalz and Saarland
     bavaria:
       link: http://ukingermany.fco.gov.uk/resources/en/pdf/4971486/4971706/prisoner-pack-m
-      url_text: Prisoner Pack for Baden-Wurttemberg and Bavaria
+      url_text: Prisoner pack for Baden-Wurttemberg and Bavaria
 - slug: ghana
   pdf: http://ukinghana.fco.gov.uk/resources/en/pdf/601613182/prosoner_pack
   lawyer: http://ukinghana.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
@@ -325,9 +325,7 @@
 - slug: san-marino
 - slug: sao-tome-and-principe
 - slug: saudi-arabia
-  pdf: http://uk.sitestat.com/fcoweb/ukingov/s?nd.sau.en.help-for-british-nationals.when-things-go-wrong.Prison-Information.p.pdf.In_prison_abroad&ns_type=pdf&ns_url=http://ukinsaudiarabia.fco.gov.uk/resources/en/pdf/5470164/In_prison_abroad
-  lawyer: http://ukinsaudiarabia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
-  translators: http://ukinsaudiarabia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
+  pdf: http://ukinsaudiarabia.fco.gov.uk/en/help-for-british-nationals/when-things-go-wrong/Prison-Information
 - slug: senegal
 - slug: serbia
   doc: http://uk.sitestat.com/fcoweb/ukingov/s?lon.ser.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.prisoner-pack&ns_type=pdf&ns_url=http://ukinserbia.fco.gov.uk/resources/en/word/doc1/prisoner-pack
@@ -405,10 +403,10 @@
   regions:
     abu_dhabi:
       link: http://ukinuae.fco.gov.uk/resources/en/pdf/prisonerauh
-      url_text: Prisoner Pack for Abu Dhabi
+      url_text: Prisoner pack for Abu Dhabi
     dubai_north:
       link: http://ukinuae.fco.gov.uk/resources/en/pdf/prisonerpackdubai
-      url_text: Prisoner Pack for Dubai and The Northern Emirates
+      url_text: Prisoner pack for Dubai and The Northern Emirates
     police_info:
       url_text: Police Station Information in Dubai and The Northern Emirates
       link: http://ukinuae.fco.gov.uk/resources/en/pdf/policeinfodubai
