@@ -1,6 +1,6 @@
 status :draft
 
-data_query = SmartAnswer::Calculators::MarriageOverseasDataQuery.new
+data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
 i18n_prefix = "flow.find-a-british-embassy"
 
 #Question
