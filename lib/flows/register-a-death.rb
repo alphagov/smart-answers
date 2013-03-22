@@ -1,6 +1,7 @@
 satisfies_need "2189"
 status :published
 
+i18n_prefix = "flow.register-a-death"
 data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
 exclusions = %w(afghanistan cambodia central-african-republic chad comoros 
                 dominican-republic east-timor eritrea haiti kosovo laos lesotho 
@@ -123,7 +124,6 @@ outcome :embassy_result do
   precalculate :clickbook do
     result = ''
     clickbook = data_query.clickbook(current_location)
-    i18n_prefix = "flow.register-a-death-v2"
     unless clickbook.nil?
       if clickbook.class == Hash
         result = I18n.translate!("#{i18n_prefix}.phrases.multiple_clickbooks_intro") << "\n"
