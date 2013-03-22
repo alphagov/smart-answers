@@ -113,6 +113,9 @@
     republic:
       link: http://ukincyprus.fco.gov.uk/resources/en/pdf/541790282/Prisoner-pack-South
       url_text: Prisoner Pack for the Republic of Cyprus
+    republic_police:
+      link: http://ukincyprus.fco.gov.uk/resources/en/pdf/541790282/Police-station-pack-South
+      url_text: Information on the police and police procedures in the Republic of Cyprus
 
 - slug: czech-republic
   pdf: http://uk.sitestat.com/fcoweb/ukingov/s?lon.cze.en.help-for-british-nationals.when-things-go-wrong.help-if-you-are-arrested-or.p.pdf.in-prison-abroad&ns_type=pdf&ns_url=http://ukinczechrepublic.fco.gov.uk/resources/en/pdf/580227682/in-prison-abroad
