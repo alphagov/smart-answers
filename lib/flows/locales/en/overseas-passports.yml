@@ -216,13 +216,13 @@ en-GB:
         adult_passport_costs_hong_kong: |
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | £128.00/HK $1,640 | £147.86/HK $1,895
-          Adult jumbo 48-page passport | £154.50/HK $1,978 | £174.36/HK $2,233
+          Adult standard 32-page passport | £128.00/HK $1,574 | £147.86/HK $1,818
+          Adult jumbo 48-page passport | £154.50/HK $1,900 | £174.36/HK $2,144
 
         child_passport_costs_hong_kong: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Child passport | £81.50/HK $1,044 | £101.36/HK $1,299 |
+          | Child passport | £81.50/HK $1,002 | £101.36/HK $1,246 |
 
         passport_costs_hong_kong: |
           You must pay using either:
@@ -2278,9 +2278,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | £128.00/HK $1,640 | £147.86/HK $1,895
-          Adult jumbo 48-page passport | £154.50/HK $1,978 | £174.36/HK $2,233
-          Child passport | £81.50/HK $1,044 | £101.36/HK $1,299
+          Adult standard 32-page passport | £128.00/HK $1,574 | £147.86/HK $1,818
+          Adult jumbo 48-page passport | £154.50/HK $1,900 | £174.36/HK $2,144
+          Child passport | £81.50/HK $1,002 | £101.36/HK $1,246
 
 
         how_to_apply_thailand: ''
