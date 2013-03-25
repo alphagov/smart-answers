@@ -84,8 +84,8 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 	  							assert_current_node :sickness_end_date?
 	  						end
 
-	  						context "answer 13 September 2012" do
-	  							setup {add_response Date.parse('13 September 2012')}
+	  						context "answer 12 September 2012" do
+	  							setup {add_response Date.parse('12 September 2012')}
 
 	  							should "display no pay because not enough days sick" do
 			  						assert_current_node :must_be_sick_for_at_least_4_days
@@ -271,6 +271,20 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 	  							assert_current_node :related_illness?
 	  						end
 	  					end
+
+	  					context "2013/14 LEL test" do
+	  						setup do
+	  							add_response Date.parse("10 April 2013")
+	  							add_response Date.parse("10 May 2013")
+	  							add_response 'yes'
+	  							add_response 108.00
+	  						end
+
+	  						should "say not entitled because weekly earnings too low" do
+	  							assert_current_node :not_earned_enough
+	  						end
+	  					end
+
 			  		end #no to irregular schedule
 		  		end # told within 7 days
 		  	end # no to less than four days
