@@ -119,7 +119,7 @@ en-GB:
           
 
           $C
-          You currently don’t have the 30 qualifying years to get a full basic State Pension of £%{weekly_rate} per week but you may have enough time before your State Pension age to get the further years needed.
+          You currently don’t have the 30 qualifying years to get a full basic State Pension of £%{weekly_rate}. You don’t have enough years before your State Pension age to get the further years needed.
           $C
 
           State Pension | Your results
