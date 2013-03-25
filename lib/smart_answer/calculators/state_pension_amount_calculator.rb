@@ -28,15 +28,8 @@ module SmartAnswer::Calculators
       30
     end
 
-    def current_year
-      Date.today.year
-    end
-
     def years_to_pension
-      t = Date.today
-      speny = state_pension_date.month >= 4 ? state_pension_year : state_pension_year-1
-      speny = state_pension_date.day < 6 && state_pension_date.month == 4 ? speny-1 : speny
-      speny - t.year
+      pension_period_end_year(state_pension_date) - pension_period_end_year(Date.today)
     end
 
     def pension_loss
@@ -68,8 +61,8 @@ module SmartAnswer::Calculators
       end
     end
 
-    def state_pension_year
-      state_pension_date.year
+    def pension_period_end_year(date)
+      date < Date.civil(date.year,4,6) ? date.year - 1 : date.year
     end
 
     def state_pension_date(sp_gender = gender)
@@ -189,7 +182,7 @@ module SmartAnswer::Calculators
     def ni_years_to_date
       today = Date.today
       years = today.year - ni_start_date.year
-      years = ((ni_start_date.month > 4) ? years - 1 : years)
+      years = ((ni_start_date.month > today.month) ? years - 1 : years)
       # NOTE: leave this code in case we need to work out by day
       # years = ((ni_start_date.month == today.month and ni_start_date.day > today.day) ? years - 1 : years)
       years

@@ -4,18 +4,22 @@ module SmartAnswer::Calculators
   class StatePensionAmountCalculatorTest < ActiveSupport::TestCase
     context "male, born 5th April 1945, 45 qualifying years" do
       setup do
-        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "male", dob: "1945-04-05", qualifying_years: "45")
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+          gender: "male", dob: "1945-04-05", qualifying_years: "45")
+        Timecop.travel('6 April 2013')
       end
 
-      should "be 107.45 for what_you_get" do
-        assert_equal 107.45, @calculator.what_you_get
+      should "be 110.15 for what_you_get" do
+        assert_equal 110.15, @calculator.what_you_get
       end
 
     end
 
     context "female, born 7th April 1951, 39 qualifying years" do
       setup do
-        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: "1951-04-07", qualifying_years: "45")
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+          gender: "female", dob: "1951-04-07", qualifying_years: "45")
+        Timecop.travel('5 April 2013')
       end
 
       should "be 107.45 for what_you_get" do
@@ -26,7 +30,9 @@ module SmartAnswer::Calculators
 
     context "female, born 7th April 1951, 20 qualifying years" do
       setup do
-        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: "1951-04-07", qualifying_years: "20")
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+          gender: "female", dob: "1951-04-07", qualifying_years: "20")
+        Timecop.travel('5 April 2013')
       end
 
       should "be 20/30 of 107.45 for what_you_get" do
@@ -37,7 +43,8 @@ module SmartAnswer::Calculators
     
     context "female, born 29th Feb 1968" do
       setup do
-        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: "1968-02-29", qualifying_years: nil)
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+          gender: "female", dob: "1968-02-29", qualifying_years: nil)
       end
 
       should "be eligible for state pension on 1 March 2034" do
@@ -51,14 +58,14 @@ module SmartAnswer::Calculators
     end
     
     context "current_weekly_rate" do
-      should "be 107.45 before 8th April 2013" do
+      should "be 107.45 before 6th April 2013" do
         Timecop.travel(Date.parse("2013-04-05")) do
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
             gender: "male", dob: "1950-04-04", qualifying_years: 30)
           assert_equal 107.45, @calculator.current_weekly_rate
         end
       end
-      should "be 110.15 on or after 8th April 2013" do
+      should "be 110.15 on or after 6th April 2013" do
         Timecop.travel(Date.parse("2013-04-06")) do
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
             gender: "male", dob: "1950-04-04", qualifying_years: 30)
@@ -95,7 +102,9 @@ module SmartAnswer::Calculators
     # one of HMRC test cases
     context "female born 6 April 1992 " do
       setup do
-        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: "1992-04-06", qualifying_years: nil)
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+          gender: "female", dob: "1992-04-06", qualifying_years: nil)
+        Timecop.travel('5 April 2013')
       end
       
       should "qualifying_years_credit = 2 if nothing entered" do
@@ -110,7 +119,8 @@ module SmartAnswer::Calculators
 
     context "male born 6 April 1957 " do
       setup do
-        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: "1957-04-06", qualifying_years: nil)
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+          gender: "female", dob: "1957-04-06", qualifying_years: nil)
       end
       
       should "qualifying_years_credit = 1 if nothing entered" do
@@ -118,7 +128,7 @@ module SmartAnswer::Calculators
       end
     end
 
-    
+        
 
     context "female born 22 years ago" do
       should "return ni_years_to_date = 3" do
@@ -177,8 +187,8 @@ module SmartAnswer::Calculators
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "male", dob: dob, qualifying_years: nil)
         end
 
-        should "avialable_years = 7" do
-          assert_equal 7, @calculator.available_years
+        should "avialable_years = 6" do
+          assert_equal 6, @calculator.available_years
         end
       end
       context "male born 26 years, no qualifying_years" do
@@ -187,8 +197,8 @@ module SmartAnswer::Calculators
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "male", dob: dob, qualifying_years: nil)
         end
 
-        should "available_years = 7" do
-          assert_equal 7, @calculator.available_years
+        should "available_years = 6" do
+          assert_equal 6, @calculator.available_years
         end
 
       end
@@ -200,16 +210,16 @@ module SmartAnswer::Calculators
             gender: "female", dob: dob, qualifying_years: 10)
         end
 
-        should "available_years = 13; available_years_sum = 3" do
-          assert_equal 13, @calculator.available_years
-          assert_equal 3, @calculator.available_years_sum
+        should "available_years = 12; available_years_sum = 2" do
+          assert_equal 12, @calculator.available_years
+          assert_equal 2, @calculator.available_years_sum
         end
 
         should "has_available_years? return true" do
           assert @calculator.has_available_years?
         end
 
-        should "has_available_years?(13) return false" do
+        should "has_available_years?(14) return false" do
           assert ! @calculator.has_available_years?(14)
         end
 
@@ -380,7 +390,7 @@ module SmartAnswer::Calculators
       
       context "testing what would get if not enough time to get full state pension" do
         should "state that user has 13 remaining years and would get 2/3 of basic pension" do
-          Timecop.travel(Date.parse("2012-10-09")) do
+          Timecop.travel("2012-10-09") do
             @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
               gender: "male", dob: "1960-04-04", qualifying_years: 7)
             assert_equal 13, @calculator.years_to_pension
@@ -388,7 +398,6 @@ module SmartAnswer::Calculators
           end
         end
       end
-
 
       context "(testing years_to_pension)" do
         context "born 1988 before and after 6th April" do
@@ -409,6 +418,21 @@ module SmartAnswer::Calculators
             @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
               gender: "male", dob: "1988-04-06", qualifying_years: nil)
             assert_equal 44, @calculator.years_to_pension
+          end
+          should "return 32 for dob 29/06/77" do
+            @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+              gender: "female", dob: "1977-06-29", qualifying_years: nil)
+            assert_equal 32, @calculator.years_to_pension
+          end
+          should "return 3 for dob 03/03/53" do
+            @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+              gender: "female", dob: "1953-03-03", qualifying_years: nil)
+            assert_equal 3, @calculator.years_to_pension
+          end
+          should "return 6 for dob 26/12/53" do
+            @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+              gender: "male", dob: "1953-12-26", qualifying_years: nil)
+            assert_equal 6, @calculator.years_to_pension
           end
         end
 
