@@ -8,7 +8,10 @@ module SmartAnswer::Calculators
     end
 
     def generate_url_for_download(country, field, text)
-      url = @data.select { |c| c["slug"] == country }.first[field]
+      country_data = @data.select { |c| c["slug"] == country }.first
+      return "" unless country_data
+
+      url = country_data[field]
       output = []
       if url
         urls = url.split(" ")
