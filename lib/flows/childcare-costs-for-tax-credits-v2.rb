@@ -140,7 +140,7 @@ end
 #Q17
 money_question :new_weekly_costs? do
   calculate :new_weekly_costs do
-    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
+    Float(responses.last).ceil
   end
   next_node do |response|
     amount = Money.new(response)
@@ -153,11 +153,15 @@ money_question :old_weekly_amount_1? do
   # get weekly amount from Q8 or Q9 (whichever the user answered)
   # calculate different using input from Q18
   calculate :old_weekly_cost do
-    Float(responses.last)
+    Float(responses.last).ceil
   end
 
   calculate :weekly_difference do
-    SmartAnswer::Calculators::ChildcareCostCalculator.cost_change(weekly_cost, old_weekly_cost).abs
+    SmartAnswer::Calculators::ChildcareCostCalculator.cost_change(weekly_cost, old_weekly_cost)
+  end
+
+  calculate :weekly_difference_abs do
+    weekly_difference.abs
   end
 
   next_node :cost_changed
@@ -178,11 +182,19 @@ end
 #Q20
 money_question :old_weekly_amount_2? do
   calculate :old_weekly_costs do
-    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
+    Float(responses.last).ceil
   end
 
   calculate :weekly_difference do
-    SmartAnswer::Calculators::ChildcareCostCalculator.cost_change(new_weekly_costs, old_weekly_costs).abs
+    SmartAnswer::Calculators::ChildcareCostCalculator.cost_change(new_weekly_costs, old_weekly_costs)
+  end
+
+  calculate :weekly_difference_abs do
+    weekly_difference.abs
+  end
+
+  calculate :cost_change_4_weeks do
+    true
   end
 
   next_node :cost_changed
@@ -194,11 +206,15 @@ end
 #Q21
 money_question :old_weekly_amount_3? do
   calculate :old_weekly_costs do
-    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
+    Float(responses.last).ceil
   end
 
   calculate :weekly_difference do
-    SmartAnswer::Calculators::ChildcareCostCalculator.cost_change(new_weekly_costs, old_weekly_costs).abs
+    SmartAnswer::Calculators::ChildcareCostCalculator.cost_change(new_weekly_costs, old_weekly_costs)
+  end
+
+  calculate :weekly_difference_abs do
+    weekly_difference.abs
   end
 
   next_node :cost_changed
@@ -211,22 +227,34 @@ outcome :call_helpline do
 end
 
 #O2
-outcome :no_change do
-
-end
+outcome :no_change
 
 #O3
-outcome :round_up_weekly do
-
-end
+outcome :round_up_weekly
 
 #O4
-outcome :weekly_costs_are_x do
-
-end
+outcome :weekly_costs_are_x
 
 #O6, 7, 8
 outcome :cost_changed do
+  precalculate :ten_or_more do
+    weekly_difference_abs >= 10
+  end
+
+  precalculate :title_change_text do
+    weekly_difference >= 10 ? "increased" : "decreased"
+  end
+  precalculate :body_phrases do
+    if ten_or_more
+      if cost_change_4_weeks
+        PhraseList.new(:cost_change_4_weeks)
+      else
+        PhraseList.new(:cost_change_does_matter)
+      end
+    else
+      PhraseList.new(:cost_change_doesnt_matter)
+    end
+  end
 
 end
 
