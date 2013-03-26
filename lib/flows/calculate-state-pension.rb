@@ -60,7 +60,7 @@ date_question :dob_age? do
     if calculator.state_pension_date(:female) > Date.today
       "You may be entitled to receive Pension Credit from " + pension_credit_date + "."
     else
-      "You may have been entitled to receive Pension Credit from " + pension_credit_date + "."
+      ""
     end
   end
 
