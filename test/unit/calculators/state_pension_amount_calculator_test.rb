@@ -97,6 +97,13 @@ module SmartAnswer::Calculators
           assert_equal 3.67, @calculator.what_you_get
         end
       end
+      should "use the last rate available" do
+        Timecop.travel('2045-01-01') do
+          @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+            gender: "male", dob: "2000-04-04", qualifying_years: 29)
+          assert_equal 110.15, @calculator.current_weekly_rate
+        end
+      end
     end
 
     # one of HMRC test cases

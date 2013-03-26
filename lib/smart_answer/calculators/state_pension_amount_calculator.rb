@@ -7,6 +7,11 @@ module SmartAnswer::Calculators
     attr_reader :gender, :dob, :qualifying_years, :available_years ,:starting_credits
     attr_accessor :qualifying_years
 
+    PENSION_RATES = [ 
+      { :min => Date.parse('5 April 2012'), :max => Date.parse('6 April 2013'), :amount => 107.45 }, 
+      { :min => Date.parse('5 April 2013'), :max => Date.parse('6 April 2014'), :amount => 110.15 }
+    ]
+
     def initialize(answers)
       @gender = answers[:gender].to_sym
       @dob = DateTime.parse(answers[:dob])
@@ -16,11 +21,8 @@ module SmartAnswer::Calculators
     end
 
     def current_weekly_rate
-      if Date.today < Date.civil(2013,4,6)
-        107.45
-      else
-        110.15
-      end
+      rate = PENSION_RATES.find{ |r| r[:min] < Date.today and Date.today < r[:max]} || PENSION_RATES.last
+      rate[:amount]
     end
 
     # Everyone needs 30 qualifying years in all cases - no need to worry about old rules
