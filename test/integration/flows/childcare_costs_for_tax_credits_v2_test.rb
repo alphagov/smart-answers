@@ -228,9 +228,83 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
         assert_state_variable :weekly_difference, 1
         assert_current_node :cost_changed
       end
-
-
-
     end # Q18
+
   end # questions that calculate cost difference
+
+  context "going through Question 17" do
+    setup do
+      add_response :yes #Q1
+      add_response :yes #Q3
+      add_response :weekly_same_amount #Q5
+    end
+
+    should "be at Q17" do
+      assert_current_node :new_weekly_costs?
+    end
+
+    should "take user to not paying output if they answer 0" do
+      add_response 0
+      assert_current_node :no_longer_paying
+    end
+
+    should "take user to Q20 if they give an answer" do
+      add_response 52
+      assert_state_variable :new_weekly_costs, 1
+      assert_current_node :old_weekly_amount_2?
+    end
+
+    context "answering Q20" do
+      setup do
+        add_response 52 #Q17
+      end
+
+      should "calculate the old costs based on user answer" do
+        add_response 104
+        assert_state_variable :old_weekly_costs, 2
+        assert_state_variable :weekly_difference, 1
+        assert_current_node :cost_changed
+      end
+
+    end # Q20
+  end # Q17
+
+  context "going through Q19" do
+    setup do
+      add_response :yes #Q1
+      add_response :yes #Q3
+      add_response :monthly_same_amount #Q5
+    end
+
+    should "be at Q19" do
+      assert_current_node :new_monthly_cost?
+    end
+
+    should "take user to not paying output if they answer 0" do
+      add_response 0
+      assert_current_node :no_longer_paying
+    end
+
+    should "take the user to Q21 if they give an answer" do
+      add_response 4 # so new_weekly_costs nicely rounds to 1
+      assert_state_variable :new_weekly_costs, 1
+      assert_current_node :old_weekly_amount_3?
+    end
+
+    context "answering Q21" do
+      setup do
+        add_response 4 # Q19
+      end
+
+      should "calculate old costs and difference" do
+        add_response 208
+        assert_state_variable :old_weekly_costs, 4
+        assert_state_variable :weekly_difference, 3
+        assert_current_node :cost_changed
+
+      end
+
+    end
+
+  end
 end

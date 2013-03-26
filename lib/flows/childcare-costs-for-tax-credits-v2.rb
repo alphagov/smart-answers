@@ -165,12 +165,27 @@ end
 
 #Q19
 money_question :new_monthly_cost? do
-  # if input 0, O9
-  # else Q21
+  calculate :new_weekly_costs do
+    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost_from_monthly(responses.last)
+  end
+
+  next_node do |response|
+    amount = Money.new(response)
+    amount == 0 ? :no_longer_paying : :old_weekly_amount_3?
+  end
 end
 
 #Q20
 money_question :old_weekly_amount_2? do
+  calculate :old_weekly_costs do
+    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
+  end
+
+  calculate :weekly_difference do
+    SmartAnswer::Calculators::ChildcareCostCalculator.cost_change(new_weekly_costs, old_weekly_costs).abs
+  end
+
+  next_node :cost_changed
   # subtract Q17 answer from Q20 to get difference
   # diff < 10 -> O6
   # diff >= 10 -> O8
@@ -178,9 +193,15 @@ end
 
 #Q21
 money_question :old_weekly_amount_3? do
-  # get weekly from Q19, calculate diff
-  # diff < 10 -> O6
-  # diff >=10 -> O7
+  calculate :old_weekly_costs do
+    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
+  end
+
+  calculate :weekly_difference do
+    SmartAnswer::Calculators::ChildcareCostCalculator.cost_change(new_weekly_costs, old_weekly_costs).abs
+  end
+
+  next_node :cost_changed
 end
 
 ### Outcomes
