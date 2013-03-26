@@ -38,14 +38,14 @@ en-GB:
       annual_earnings?:
         title: How much do you earn?
         options:
-          up_to_5k: Up to £107 per week (£464 per month)
-          more_than_5k: £107 per week (£464 per month) or more
+          up_to_5k: Up to £109 per week (£473 per month)
+          more_than_5k: £109 per week (£473 per month) or more
       annual_earnings2?:
         title: How much do you earn?
         options:
-          up_to_5k: Up to £107 per week (£464 per month)
-          between_5k_8k: Between £107 per week (£464 per month) and £156 per week (£676 per month)
-          more_than_8k: More than £156 per week (£676 per month)
+          up_to_5k: Up to £109 per week (£473 per month)
+          between_5k_9k: Between £109 per week (£473 per month) and £182 per week (£787 per month)
+          more_than_9k: More than £182 per week (£787 per month)
           varies: Hard to say - my income varies
       one_of_the_following?:
         title: Are you one of the following?

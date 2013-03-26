@@ -45,8 +45,8 @@ end
 
 multiple_choice :annual_earnings2? do
   option :up_to_5k => :not_enrolled_with_options
-  option :between_5k_8k => :not_enrolled_opt_in
-  option :more_than_8k => :one_of_the_following?
+  option :between_5k_9k => :not_enrolled_opt_in
+  option :more_than_9k => :one_of_the_following?
   option :varies => :not_enrolled_income_varies
 end
 
