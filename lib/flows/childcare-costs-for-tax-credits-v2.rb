@@ -11,7 +11,7 @@ end
 multiple_choice :how_often_use_childcare? do
   option :regularly_less_than_year => :how_often_pay_1? #Q4
   option :regularly_more_than_year => :pay_same_each_time? #Q11
-  option :only_short_while => :call_helpline #O1
+  option :only_short_while => :call_helpline_detailed #O1
 
 end
 
@@ -99,7 +99,7 @@ multiple_choice :how_often_pay_providers? do
   option :fortnightly => :how_much_fortnightly? #Q13
   option :every_4_weeks => :how_much_4_weeks? #Q14
   option :every_month => :how_much_each_month? #Q10
-  option :termly => :call_helpline #O5
+  option :termly => :call_helpline_plain #O5
   option :yearly => :how_much_yearly? #Q15
   option :other => :call_helpline #O5
 end
@@ -221,10 +221,11 @@ money_question :old_weekly_amount_3? do
 end
 
 ### Outcomes
-#O1, O5
-outcome :call_helpline do
+#O1
+outcome :call_helpline_detailed
 
-end
+#O5
+outcome :call_helpline_plain
 
 #O2
 outcome :no_change

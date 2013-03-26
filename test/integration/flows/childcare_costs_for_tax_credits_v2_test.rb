@@ -86,7 +86,7 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
 
         should "take you to outcome if you answer only_short_while" do
           add_response :only_short_while
-          assert_current_node :call_helpline
+          assert_current_node :call_helpline_detailed
         end
 
         context "answering Q4" do
@@ -225,7 +225,8 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
         add_response 52 # Q8
         add_response 2 # Q18
         assert_state_variable :old_weekly_cost, 2
-        assert_state_variable :weekly_difference, 1
+        assert_state_variable :weekly_difference, -1
+        assert_state_variable :weekly_difference_abs, 1
         assert_current_node :cost_changed
       end
     end # Q18
@@ -249,21 +250,28 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
     end
 
     should "take user to Q20 if they give an answer" do
-      add_response 52
+      add_response 1
       assert_state_variable :new_weekly_costs, 1
       assert_current_node :old_weekly_amount_2?
     end
 
     context "answering Q20" do
       setup do
-        add_response 52 #Q17
+        add_response 1 # Q17
+        add_response 11 # Q20
       end
 
       should "calculate the old costs based on user answer" do
-        add_response 104
-        assert_state_variable :old_weekly_costs, 2
-        assert_state_variable :weekly_difference, 1
+        assert_state_variable :old_weekly_costs, 11
+        assert_state_variable :weekly_difference, -10
+        assert_state_variable :weekly_difference_abs, 10
+        assert_state_variable :ten_or_more, true
         assert_current_node :cost_changed
+      end
+
+      should "show correct phrases" do
+        assert_phrase_list :body_phrases, [:cost_change_4_weeks]
+        assert_state_variable :title_change_text, "decreased"
       end
 
     end # Q20
@@ -297,9 +305,9 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
       end
 
       should "calculate old costs and difference" do
-        add_response 208
-        assert_state_variable :old_weekly_costs, 4
-        assert_state_variable :weekly_difference, 3
+        add_response 10
+        assert_state_variable :old_weekly_costs, 10
+        assert_state_variable :weekly_difference, -9
         assert_current_node :cost_changed
 
       end
