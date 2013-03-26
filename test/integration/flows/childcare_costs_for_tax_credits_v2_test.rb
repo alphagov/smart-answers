@@ -294,7 +294,7 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
     end
 
     should "take the user to Q21 if they give an answer" do
-      add_response 4 # so new_weekly_costs nicely rounds to 1
+      add_response 4
       assert_state_variable :new_weekly_costs, 1
       assert_current_node :old_weekly_amount_3?
     end
