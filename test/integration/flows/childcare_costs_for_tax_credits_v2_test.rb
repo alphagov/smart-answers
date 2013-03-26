@@ -302,14 +302,19 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
     context "answering Q21" do
       setup do
         add_response 4 # Q19
+        add_response 10
       end
 
       should "calculate old costs and difference" do
-        add_response 10
         assert_state_variable :old_weekly_costs, 10
         assert_state_variable :weekly_difference, -9
+        assert_state_variable :ten_or_more, false
+        assert_state_variable :title_change_text, "decreased"
         assert_current_node :cost_changed
+      end
 
+      should "show the correct phrase list" do
+        assert_phrase_list :body_phrases, [:cost_change_doesnt_matter]
       end
 
     end

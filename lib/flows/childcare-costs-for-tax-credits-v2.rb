@@ -193,14 +193,9 @@ money_question :old_weekly_amount_2? do
     weekly_difference.abs
   end
 
-  calculate :cost_change_4_weeks do
-    true
-  end
+  calculate :cost_change_4_weeks do true end
 
   next_node :cost_changed
-  # subtract Q17 answer from Q20 to get difference
-  # diff < 10 -> O6
-  # diff >= 10 -> O8
 end
 
 #Q21
@@ -260,6 +255,5 @@ outcome :cost_changed do
 end
 
 #O9
-outcome :no_longer_paying do
-end
+outcome :no_longer_paying
 
