@@ -241,14 +241,84 @@ module SmartAnswer::Calculators
 	  		end
 	  	end
 
+	  	# new test scenario 2 - SSP spanning 2013/14 tax year, Tue - Thu, rate above LEL, no previous sickness
+	  	context "2013/14 test scenario 1" do
+	  		setup do
+	  			@calculator = StatutorySickPayCalculator.new(0, Date.parse("26 March 2013"), Date.parse("12 April 2013"), ['2','3','4'])
+	  		end
+
+	  		should "give correct SSP calculation" do
+	  			assert_equal @calculator.days_to_pay, 6 # first 3 days are waiting days, so no pay
+	  			assert_equal @calculator.ssp_payment, 172.55 # one week at 85.85 plus one week at 86.70
+	  		end
+	  	end
+
+		# new test scenario 2 - SSP spanning 2013/14 tax year, Mon - Thu, no previous sickness
+		context "2013/14 test scenario 2" do
+	  		setup do
+	  			@calculator = StatutorySickPayCalculator.new(0, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['1','2','3','4'])
+	  		end
+
+	  		should "give correct SSP calculation" do
+	  			assert_equal @calculator.days_to_pay, 65 # 1 day + 16 weeks (4 days/week)
+	  			assert_equal @calculator.ssp_payment, 1398.47 # see spreadsheet
+	  		end
+	  	end
+
+	  	# new test scenario 3 - SSP spanning 2013/14 tax year, Wed and Sat, previous sickness of 8 days
+		context "2013/14 test scenario 3" do
+	  		setup do
+	  			@calculator = StatutorySickPayCalculator.new(8, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['3','6'])
+	  		end
+
+	  		should "give correct SSP calculation" do
+	  			assert_equal @calculator.days_to_pay, 33 # 1 day + 16 weeks (2 days/week)
+	  			assert_equal @calculator.ssp_payment, 1419.93 # see spreadsheet
+	  		end
+	  	end
+
+	  	# new test scenario 4 - SSP spanning 2013/14 tax year, Tue, Wed, Thu previous sickness of 42 days
+		context "2013/14 test scenario 4" do
+	  		setup do
+	  			@calculator = StatutorySickPayCalculator.new(42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2','3','4'])
+	  		end
+
+	  		should "give correct SSP calculation" do
+	  			assert_equal @calculator.days_to_pay, 45 # 15 weeks (3 days/week)
+	  			assert_equal @calculator.ssp_payment, 1289.45 # see spreadsheet
+	  		end
+	  	end
+
 	  	context "LEL test 1" do
-	 			setup do
-	 				@date = Date.parse("1 April 2012") 
-	 				@lel = StatutorySickPayCalculator.lower_earning_limit_on(@date)
+	 		setup do
+	 			@date = Date.parse("1 April 2012") 
+	 			@lel = StatutorySickPayCalculator.lower_earning_limit_on(@date)
 	  		end
 
 	  		should "give correct LEL for date" do
 	  			assert_equal @lel, 102.00
+	  		end
+	  	end
+
+	  	context "LEL test 2" do
+	  		setup do
+	  			@date = Date.parse("6 April 2012")
+	  			@lel = StatutorySickPayCalculator.lower_earning_limit_on(@date)
+	  		end
+
+	  		should "give correct LEL for date" do
+	  			assert_equal @lel, 107.00
+	  		end
+	  	end
+
+	  	context "LEL test 3" do
+	  		setup do
+	  			@date = Date.parse("6 April 2013")
+	  			@lel = StatutorySickPayCalculator.lower_earning_limit_on(@date)
+	  		end
+
+	  		should "give correct LEL for date" do
+	  			assert_equal @lel, 109.00
 	  		end
 	  	end
 

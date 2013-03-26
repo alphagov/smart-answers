@@ -57,7 +57,7 @@ date_question :sickness_end_date? do
 	next_node do |response|
 		if Date.parse(response) < Date.parse(sick_start_date)
 			raise SmartAnswer::InvalidResponse
-		elsif Date.parse(response) < (Date.parse(sick_start_date) + 4)
+		elsif Date.parse(response) < (Date.parse(sick_start_date) + 3) # the date entered in this question is treated as inclusive
 			:must_be_sick_for_at_least_4_days
 		else
 			:employee_paid_for_last_8_weeks?
