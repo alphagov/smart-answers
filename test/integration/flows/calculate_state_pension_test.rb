@@ -242,7 +242,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
         context "when date is 1 November 2012" do
           
-
           context "NI = 20, JSA = 1 received_child_benefit = yes, years_of_benefit = 1, years_of_caring = 1" do
             setup do
               Timecop.travel('2012-11-01')
@@ -377,8 +376,19 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
           assert_phrase_list :automatic_credits, [:automatic_credits]
         end
       end
+      context "starting credits test 2" do
+        setup do
+          add_response Date.parse('1957-04-06')
+          add_response 28
+          add_response 1
+        end
+        should "display result because of starting credits" do
+          assert_state_variable :qualifying_years_total, 30
+          assert_current_node :amount_result
+          assert_phrase_list :automatic_credits, [:automatic_credits]
+        end
+      end
     end # male
-
 
     context "female" do
       setup do

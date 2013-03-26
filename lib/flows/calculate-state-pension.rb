@@ -474,7 +474,7 @@ outcome :amount_result do
 
   precalculate :automatic_credits do
     date_of_birth = Date.parse(dob)
-    if Date.civil(1957,4,7) < date_of_birth and date_of_birth < Date.civil(1994,4,5)
+    if Date.civil(1957,4,5) < date_of_birth and date_of_birth < Date.civil(1994,4,6)
       PhraseList.new :automatic_credits
     else
       ''
