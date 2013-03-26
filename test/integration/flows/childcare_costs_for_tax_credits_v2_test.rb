@@ -46,7 +46,7 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
 
           should "take you to how_much_12_months_2 if you answer with weekly diff amount" do
             add_response :weekly_diff_amount
-            assert_current_node :how_much_12_months_2?
+            assert_current_node :how_much_52_weeks_2?
           end
 
           should "take you to the new_monthly_cost if you say monthly_same_amount" do
@@ -56,7 +56,7 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
 
           should "take you to 52 weeks question if you answer with monthly diff" do
             add_response :monthly_diff_amount
-            assert_current_node :how_much_52_weeks_2?
+            assert_current_node :how_much_12_months_2?
           end
         end #Q5
 
@@ -104,12 +104,29 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
             assert_current_node :how_much_12_months_1?
           end
 
+          context "answering Q7" do
+            setup do
+              add_response :weekly_diff_amount
+            end
+            should "calculate the weekly cost and take user to outcome" do
+              add_response 52
+              assert_current_node :weekly_costs_are_x
+              assert_state_variable :weekly_cost, 1
+            end
+
+          end #Q7
+
           context "answering Q6" do
             setup do
-              add_response :other
+              add_response :other # answer Q4
+              add_response 52 # answer Q6
             end
             should "take you to weekly costs outcome" do
               assert_current_node :weekly_costs_are_x
+            end
+
+            should "calculate the weekly cost" do
+              assert_state_variable :weekly_cost, 1
             end
 
           end #Q6
@@ -120,4 +137,100 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
 
     end
   end #Q1
+
+  context "calculating weekly costs" do
+    context "through Question 10" do
+      setup do
+        add_response :no #Q1
+        add_response :regularly_more_than_year #Q2
+        add_response :yes #Q11
+        add_response :every_month #Q12
+      end
+
+      should "calculate the weekly cost" do
+        add_response 4 #Q10
+        assert_state_variable :weekly_cost, 1
+        assert_current_node :weekly_costs_are_x
+      end
+    end
+    context "through Question 13" do
+      setup do
+        add_response :no #Q1
+        add_response :regularly_more_than_year #Q2
+        add_response :yes #Q11
+        add_response :fortnightly #Q12
+      end
+
+      should "ask you how much you pay fortnightly" do
+        add_response 10 # Answer Q13
+        assert_state_variable :weekly_cost, 5
+        assert_current_node :weekly_costs_are_x
+      end
+    end # Q13
+
+    context "through Question 14" do
+      setup do
+        add_response :no #Q1
+        add_response :regularly_more_than_year #Q2
+        add_response :yes #Q11
+        add_response :every_4_weeks #Q12
+      end
+
+      should "calculate the weekly cost" do
+        add_response 20 #Q14
+        assert_state_variable :weekly_cost, 5
+        assert_current_node :weekly_costs_are_x
+      end
+    end # Q14
+
+    context "through Question 15" do
+      setup do
+        add_response :no #Q1
+        add_response :regularly_more_than_year #Q2
+        add_response :yes #Q11
+        add_response :yearly #Q12
+      end
+
+      should "calculate the weekly cost" do
+        add_response 52 #Q14
+        assert_state_variable :weekly_cost, 1
+        assert_current_node :weekly_costs_are_x
+      end
+    end # Q15
+  end # questions that lead to weekly-costs outcome
+
+  context "questions that calculate the difference in costs" do
+    context "Through Question 18" do
+      setup do
+        add_response :yes #Q1
+        add_response :yes #Q3
+        add_response :weekly_diff_amount #Q5
+      end
+
+      should "be at Q8" do
+        assert_current_node :how_much_52_weeks_2?
+      end
+
+      should "be at Q18" do
+        add_response 52 #Q8
+        assert_current_node :old_weekly_amount_1?
+      end
+
+      should "calculate weekly_cost from Q8" do
+        add_response 52 #Q8
+        assert_state_variable :weekly_cost, 1
+      end
+
+      should "calculate diff after answering Q18" do
+        add_response 52 # Q8
+        add_response 2 # Q18
+        assert_state_variable :old_weekly_cost, 2
+        assert_state_variable :weekly_difference, 1
+        assert_current_node :cost_changed
+      end
+
+
+
+    end # Q18
+  end # questions that calculate cost difference
 end
