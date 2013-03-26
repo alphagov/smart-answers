@@ -172,7 +172,7 @@ en-GB:
         body: "Use this figure on your claim form."
 
       cost_changed:
-        title: "Your average weekly childcare costs have %{title_change_text} by £%{weekly_difference_abs}."
+        title: "Your average weekly childcare costs have %{title_change_text} by %{difference_money}."
         body: |
           %{body_phrases}
 

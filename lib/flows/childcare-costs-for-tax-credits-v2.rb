@@ -240,6 +240,10 @@ outcome :cost_changed do
   precalculate :title_change_text do
     weekly_difference >= 10 ? "increased" : "decreased"
   end
+
+  precalculate :difference_money do
+    Money.new(weekly_difference)
+  end
   precalculate :body_phrases do
     if ten_or_more
       if cost_change_4_weeks
