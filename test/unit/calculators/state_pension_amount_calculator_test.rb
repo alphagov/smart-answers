@@ -6,7 +6,7 @@ module SmartAnswer::Calculators
       setup do
         @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
           gender: "male", dob: "1945-04-05", qualifying_years: "45")
-        Timecop.travel('6 April 2013')
+        Timecop.travel('8 April 2013')
       end
 
       should "be 110.15 for what_you_get" do
@@ -66,14 +66,14 @@ module SmartAnswer::Calculators
         end
       end
       should "be 110.15 on or after 6th April 2013" do
-        Timecop.travel(Date.parse("2013-04-06")) do
+        Timecop.travel(Date.parse("2013-04-08")) do
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
             gender: "male", dob: "1950-04-04", qualifying_years: 30)
           assert_equal 110.15, @calculator.current_weekly_rate
         end
       end
       should "uprate on or after 8th April 2013" do
-        Timecop.travel(Date.parse("2013-04-06")) do
+        Timecop.travel(Date.parse("2013-04-08")) do
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
             gender: "male", dob: "1950-04-04", qualifying_years: 29)
           assert_equal 106.48, @calculator.what_you_get

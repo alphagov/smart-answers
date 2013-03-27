@@ -8,8 +8,8 @@ module SmartAnswer::Calculators
     attr_accessor :qualifying_years
 
     PENSION_RATES = [ 
-      { :min => Date.parse('5 April 2012'), :max => Date.parse('6 April 2013'), :amount => 107.45 }, 
-      { :min => Date.parse('5 April 2013'), :max => Date.parse('6 April 2014'), :amount => 110.15 }
+      { :min => Date.parse('7 April 2012'), :max => Date.parse('8 April 2013'), :amount => 107.45 }, 
+      { :min => Date.parse('7 April 2013'), :max => Date.parse('8 April 2014'), :amount => 110.15 }
     ]
 
     def initialize(answers)
