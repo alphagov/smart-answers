@@ -1,251 +1,263 @@
 satisfies_need "672"
 status :published
 
-# Questions
-#
-
-# Q1
-multiple_choice :first_time_claim? do
-  option :yes => :frequency_of_childcare?
-  option :no => :have_the_costs_changed?
+#Q1
+multiple_choice :currently_claiming? do
+  option :yes => :have_costs_changed? #Q3
+  option :no => :how_often_use_childcare? #Q2
 end
 
-# Q2
-multiple_choice :frequency_of_childcare? do
-  option :regularly_less_than_a_year => :how_often_do_you_pay?
-  option :regularly_more_than_a_year => :do_you_pay_the_same_every_time?
-  option :intermittently => :call_the_helpline # A19
+#Q2
+multiple_choice :how_often_use_childcare? do
+  option :regularly_less_than_year => :how_often_pay_1? #Q4
+  option :regularly_more_than_year => :pay_same_each_time? #Q11
+  option :only_short_while => :call_helpline_detailed #O1
+
 end
 
-# Q3
-multiple_choice :have_the_costs_changed? do
-  option :yes => :how_often_and_what_do_you_pay_your_providers? # Q7
-  option :no => :no_change_to_credits # A20
+#Q3
+multiple_choice :have_costs_changed? do
+  option :yes => :how_often_pay_2? #Q5
+  option :no => :no_change #O2
 end
 
-# Q4
-multiple_choice :how_often_do_you_pay? do
-  option :same_amount_weekly => :round_up_total # A1
-  option :varying_amount_weekly => :costs_for_year_in_weeks? # C1
-  option :same_monthly => :how_much_do_you_pay_each_month? # C3
-  option :varying_amount_monthly => :costs_for_year_in_months? # C4
-  option :other => :costs_for_year_in_months? # C2
+#Q4
+multiple_choice :how_often_pay_1? do
+  option :weekly_same_amount => :round_up_weekly #O3
+  option :weekly_diff_amount => :how_much_52_weeks_1? #Q7
+  option :monthly_same_amount => :how_much_each_month? #Q10
+  option :monthly_diff_amount => :how_much_12_months_1? #Q6
+  option :other => :how_much_12_months_1? #Q6
 end
 
-# Q5
-multiple_choice :do_you_pay_the_same_every_time? do
-  option :yes => :how_often_do_you_pay_your_providers? # Q6
-  option :no => :varying_annual_cost? # C9
+#Q5
+multiple_choice :how_often_pay_2? do
+  option :weekly_same_amount => :new_weekly_costs? #Q17
+  option :weekly_diff_amount => :how_much_52_weeks_2? #Q8
+  option :monthly_same_amount => :new_monthly_cost? #Q19
+  option :monthly_diff_amount => :how_much_12_months_2? #Q9
+  option :other => :how_much_52_weeks_2? #Q9
 end
 
-# Q6
-multiple_choice :how_often_do_you_pay_your_providers? do
-  option :weekly => :round_up_total # A6
-  option :fornightly => :how_much_do_you_pay_each_fortnight? # C5
-  option :every_four_weeks => :how_much_do_you_pay_every_four_weeks? # C6
-  option :monthly => :how_much_do_you_pay_each_month? # C7
-  option :termly => :contact_the_tax_credit_office # A10
-  option :yearly => :how_much_do_you_pay_anually? # C8
-  option :other => :contact_the_tax_credit_office # A12
-end
-
-# Q7
-multiple_choice :how_often_and_what_do_you_pay_your_providers? do
-  option :same_amount_weekly => :new_weekly_costs? # C10
-  option :varying_amount_weekly => :new_annual_costs? # C11
-  option :same_monthly => :new_average_weekly_costs? # C13
-  option :varying_amount_monthly => :new_annual_costs? # C14
-  option :other => :new_annual_costs? # C12
-end
-
-# Calculation Questions
-#
-
-# C1
-money_question :costs_for_year_in_weeks? do
-  calculate :cost do
-    Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
+#Q6
+money_question :how_much_12_months_1? do
+  calculate :weekly_cost do
+    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
   end
-  next_node :weekly_costs # A2
+  next_node :weekly_costs_are_x #O4
 end
 
-# C2, C4
-money_question :costs_for_year_in_months? do
-  calculate :cost do
-    Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
+#Q7
+money_question :how_much_52_weeks_1? do
+  calculate :weekly_cost do
+    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
   end
-  next_node :weekly_costs # A3, A5
+  next_node :weekly_costs_are_x #O4
 end
 
-# C3, C7
-money_question :how_much_do_you_pay_each_month? do
-  calculate :cost do
-    Calculators::ChildcareCostCalculator.weekly_cost_from_monthly(responses.last)
+#Q8
+money_question :how_much_52_weeks_2? do
+  calculate :weekly_cost do
+    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
   end
-  next_node :weekly_costs # A4
-end
 
-# C5
-money_question :how_much_do_you_pay_each_fortnight? do
-  calculate :cost do
-    Calculators::ChildcareCostCalculator.weekly_cost_from_fortnightly(responses.last)
+  next_node do |response|
+    amount = Money.new(response)
+    amount == 0 ? :no_longer_paying : :old_weekly_amount_1?
   end
-  next_node :weekly_costs_for_claim_form # A7
 end
 
-# C6
-money_question :how_much_do_you_pay_every_four_weeks? do
-  calculate :cost do
-    Calculators::ChildcareCostCalculator.weekly_cost_from_four_weekly(responses.last)
+
+#Q9
+money_question :how_much_12_months_2? do
+  calculate :weekly_cost do
+    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
   end
-  next_node :weekly_costs_for_claim_form # A8
-end
-
-# C8
-money_question :how_much_do_you_pay_anually? do
-  calculate :cost do
-    Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
+  next_node do |response|
+    amount = Money.new(response)
+    amount == 0 ? :no_longer_paying : :old_weekly_amount_1?
   end
-  next_node :weekly_costs_for_claim_form # A11
 end
 
-# C9
-money_question :varying_annual_cost? do
-  calculate :cost do
-    Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
+#Q10
+money_question :how_much_each_month? do
+  calculate :weekly_cost do
+    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost_from_monthly(responses.last)
   end
-  next_node :weekly_costs_for_claim_form # A13
+  next_node :weekly_costs_are_x #O4
 end
 
-# C10A
+#Q11
+multiple_choice :pay_same_each_time? do
+  option :yes => :how_often_pay_providers? #Q12
+  option :no => :weekly_costs_are_x #Q16
+end
+
+#Q12
+multiple_choice :how_often_pay_providers? do
+  option :weekly => :round_up_weekly #O3
+  option :fortnightly => :how_much_fortnightly? #Q13
+  option :every_4_weeks => :how_much_4_weeks? #Q14
+  option :every_month => :how_much_each_month? #Q10
+  option :termly => :call_helpline_plain #O5
+  option :yearly => :how_much_yearly? #Q15
+  option :other => :call_helpline #O5
+end
+
+#Q13
+money_question :how_much_fortnightly? do
+  calculate :weekly_cost do
+    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost_from_fortnightly(responses.last)
+  end
+
+  next_node :weekly_costs_are_x #O4
+end
+
+#Q14
+money_question :how_much_4_weeks? do
+  calculate :weekly_cost do
+    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost_from_four_weekly(responses.last)
+  end
+  next_node :weekly_costs_are_x #04
+end
+
+#Q15
+money_question :how_much_yearly? do
+  calculate :weekly_cost do
+    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
+  end
+  next_node :weekly_costs_are_x #O4
+end
+
+#Q16
+money_question :how_much_spent_last_12_months? do
+  calculate :weekly_cost do
+    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
+  end
+  next_node :weekly_costs_are_x #O4
+end
+
+#Q17
 money_question :new_weekly_costs? do
-  save_input_as :new_weekly_cost
-
-  next_node do |response|
-    if response > 0
-      :old_weekly_costs?
-    else
-      :new_costs_are_nil
-    end
-  end
-end
-
-# C10B
-money_question :old_weekly_costs? do
-  # the calculator will round user input up to the nearest pound
-  calculate :cost do
-    Calculators::ChildcareCostCalculator.cost_change(new_weekly_cost, responses.last)
+  calculate :new_weekly_costs do
+    Float(responses.last).ceil
   end
   next_node do |response|
-    diff = Calculators::ChildcareCostCalculator.cost_change(new_weekly_cost, response)
-    if diff >= 10
-      :costs_have_increased
-    elsif diff > 0
-      :costs_have_increased_below_threshold
-    elsif diff == 0
-      :no_change_to_credits
-    elsif diff > -10
-      :costs_have_decreased_below_threshold
-    else
-      :costs_have_decreased
-    end
+    amount = Money.new(response)
+    amount == 0 ? :no_longer_paying : :old_weekly_amount_2?
   end
 end
 
-# C11A, C12A, C14A
-money_question :new_annual_costs? do
-  save_input_as :new_annual_cost
-
-  next_node do |response|
-    if response > 0
-      :old_annual_costs?
-    else
-      :new_costs_are_nil
-    end
+#Q18
+money_question :old_weekly_amount_1? do
+  # get weekly amount from Q8 or Q9 (whichever the user answered)
+  # calculate different using input from Q18
+  calculate :old_weekly_cost do
+    Float(responses.last).ceil
   end
+
+  calculate :weekly_difference do
+    SmartAnswer::Calculators::ChildcareCostCalculator.cost_change(weekly_cost, old_weekly_cost)
+  end
+
+  calculate :weekly_difference_abs do
+    weekly_difference.abs
+  end
+
+  next_node :cost_changed
 end
 
-# C11B, C12B, C14B
-money_question :old_annual_costs? do
-  # the calculator will round user input up to the nearest pound
-  calculate :cost do
-    Calculators::ChildcareCostCalculator.cost_change_annual(new_annual_cost, responses.last)
+#Q19
+money_question :new_monthly_cost? do
+  calculate :new_weekly_costs do
+    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost_from_monthly(responses.last)
   end
-  next_node do |response|
-    diff = Calculators::ChildcareCostCalculator.cost_change_annual(new_annual_cost, response)
-    if diff >= 10
-      :costs_have_increased
-    elsif diff > 0
-      :costs_have_increased_below_threshold
-    elsif diff == 0
-      :no_change_to_credits
-    elsif diff > -10
-      :costs_have_decreased_below_threshold
-    else
-      :costs_have_decreased
-    end
-  end
-end
-
-# C13A
-money_question :new_average_weekly_costs? do
-  save_input_as :new_average_weekly_cost
 
   next_node do |response|
-    if response > 0
-      :old_average_weekly_costs?
-    else
-      :new_costs_are_nil
-    end
+    amount = Money.new(response)
+    amount == 0 ? :no_longer_paying : :old_weekly_amount_3?
   end
 end
 
-# C13B
-money_question :old_average_weekly_costs? do
-  # the calculator will round user input up to the nearest pound
-  calculate :cost do
-    Calculators::ChildcareCostCalculator.cost_change_month(new_average_weekly_cost, responses.last)
+#Q20
+money_question :old_weekly_amount_2? do
+  calculate :old_weekly_costs do
+    Float(responses.last).ceil
   end
-  next_node do |response|
-    diff = Calculators::ChildcareCostCalculator.cost_change_month(new_average_weekly_cost, response)
-    if diff >= 10
-      :costs_have_increased
-    elsif diff > 0
-      :costs_have_increased_below_threshold
-    elsif diff == 0
-      :no_change_to_credits
-    elsif diff > -10
-      :costs_have_decreased_below_threshold
-    else
-      :costs_have_decreased
-    end
+
+  calculate :weekly_difference do
+    SmartAnswer::Calculators::ChildcareCostCalculator.cost_change(new_weekly_costs, old_weekly_costs)
   end
+
+  calculate :weekly_difference_abs do
+    weekly_difference.abs
+  end
+
+  calculate :cost_change_4_weeks do true end
+
+  next_node :cost_changed
 end
 
-outcome :round_up_total # A1, A6
-outcome :weekly_costs # A2, A3, A4, A5
-outcome :weekly_costs_for_claim_form # A7, A8, A9, A11, A13
-outcome :contact_the_tax_credit_office # A10, A12
-outcome :costs_have_increased do # A14, A15, A16, A17, A18
-  precalculate :formatted_cost do
-    sprintf("%.0f", cost)
+#Q21
+money_question :old_weekly_amount_3? do
+  calculate :old_weekly_costs do
+    Float(responses.last).ceil
   end
-end
-outcome :costs_have_increased_below_threshold do # A14, A15, A16, A17, A18
-  precalculate :formatted_cost do
-    sprintf("%.0f", cost)
+
+  calculate :weekly_difference do
+    SmartAnswer::Calculators::ChildcareCostCalculator.cost_change(new_weekly_costs, old_weekly_costs)
   end
-end
-outcome :costs_have_decreased_below_threshold do # A14, A15, A16, A17, A18
-  precalculate :formatted_cost do
-    sprintf("%.0f", cost.abs)
+
+  calculate :weekly_difference_abs do
+    weekly_difference.abs
   end
+
+  next_node :cost_changed
 end
-outcome :costs_have_decreased do # A14, A15, A16, A17, A18
-  precalculate :formatted_cost do
-    sprintf("%.0f", cost.abs)
+
+### Outcomes
+#O1
+outcome :call_helpline_detailed
+
+#O5
+outcome :call_helpline_plain
+
+#O2
+outcome :no_change
+
+#O3
+outcome :round_up_weekly
+
+#O4
+outcome :weekly_costs_are_x
+
+#O6, 7, 8
+outcome :cost_changed do
+  precalculate :ten_or_more do
+    weekly_difference_abs >= 10
   end
+
+  precalculate :title_change_text do
+    weekly_difference >= 10 ? "increased" : "decreased"
+  end
+
+  precalculate :difference_money do
+    Money.new(weekly_difference.abs)
+  end
+  precalculate :body_phrases do
+    if ten_or_more
+      if cost_change_4_weeks
+        PhraseList.new(:cost_change_4_weeks)
+      else
+        PhraseList.new(:cost_change_does_matter)
+      end
+    else
+      PhraseList.new(:cost_change_doesnt_matter)
+    end
+  end
+
 end
-outcome :call_the_helpline # A19
-outcome :no_change_to_credits # A20
-outcome :new_costs_are_nil # A21
+
+#O9
+outcome :no_longer_paying
+
