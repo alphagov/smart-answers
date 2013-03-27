@@ -166,8 +166,8 @@ en-GB:
 
           It can take the Legalisation Office longer to legalise a court document that only has a signature. You can get your document certified which could make the process quicker.
         vet_health: |
-          ##Veterinary health certificate
-          Your Veterinary health certificate can only be legalised if it has been signed and stamped by a veterinary surgeon registered with the Department of Food and Rural Affairs.
+          ##Pet export document from DEFRA
+          Your pet export document can only be legalised if it has been signed and stamped by a veterinary surgeon registered with the Department of Food and Rural Affairs.
         education_document_degree_certificate_only: |
           ##%{document_heading}
           Your degree certificate must be awarded by a [recognised body](/check-a-university-is-officially-recognised "Check if a university or college is recognised").
