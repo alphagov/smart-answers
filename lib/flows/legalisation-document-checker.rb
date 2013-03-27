@@ -99,7 +99,7 @@ outcome :outcome_results do
 
   precalculate :generic_conditional_content do
     # all apart from birth_death, certificate_impediment and medical_reports
-    no_content = (groups_selected & ["birth_death" ,"certificate_impediment", "medical_reports"]).size > 0
+    no_content = (groups_selected & ["birth_death" ,"certificate_impediment", "medical_reports", "vet_health"]).size > 0
     no_content ? PhraseList.new : PhraseList.new(:generic_certifying_content)
   end
 end

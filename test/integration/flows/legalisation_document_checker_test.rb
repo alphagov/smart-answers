@@ -56,6 +56,10 @@ class DocumentLegalisationCheckerTest < ActiveSupport::TestCase
     should "take you to the outcome for the ACRO police certificate document" do
       assert_state_variable :groups_selected, ["police_disclosure"]
     end
+
+    should "show the generic output" do
+      assert_phrase_list :generic_conditional_content, [:generic_certifying_content]
+    end
   end
 
   context "one police and one vet health documents" do
@@ -65,6 +69,11 @@ class DocumentLegalisationCheckerTest < ActiveSupport::TestCase
 
     should "take you to the outcome for the ACRO police certificate document" do
       assert_state_variable :groups_selected, ["police_disclosure", "vet_health"]
+    end
+
+    should "not show the generic content" do
+      assert_phrase_list :generic_conditional_content, []
+
     end
   end
 
