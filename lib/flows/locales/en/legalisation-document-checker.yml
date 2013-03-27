@@ -80,11 +80,11 @@ en-GB:
 
           Your %{document_type} can be legalised if it’s either:
 
-            - an official certified copy of the certificate issued by the General Register Office (GRO) with the original seal
+          - an official certified copy of the certificate issued by the General Register Office (GRO) with the original seal
 
-            - an original certificate (or original certified copy) issued by a church, religious establishment or local register office, with the original signature of the official who issued the certificate
+          - an original certificate (or original certified copy) issued by a church, religious establishment or local register office, with the original signature of the official who issued the certificate  
 
-              It can take longer to legalise a signature on an original certificate, especially if it was issued before 1991.
+          It can take longer to legalise a signature on an original certificate, especially if it was issued before 1991.
 
           You can [order a certified copy of your certificate](https://www.gro.gov.uk/gro/content/certificates/default.asp "Order a certified copy of your certificate"){:rel="external"} from the GRO which could be quicker.
 
@@ -115,7 +115,7 @@ en-GB:
           ^A photocopy of your document won’t be accepted.^
         solicitors_notaries: |
           ##%{document_heading}
-          Your %{document_type} can only be legalised if it has been [certified](/certifying-a-document "Certified copy of a document").
+          Your %{document_type} can only be legalised if it has been certified.
 
           You can also provide a certified photocopy of your document.
 
@@ -123,12 +123,10 @@ en-GB:
         solicitors_notaries_copy_passport: |
 
           ##%{document_heading}
-          Your %{document_type} can only be legalised if it has been [certified](/certifying-a-document "Certified copy of a document").
+          Your %{document_type} can only be legalised if it has been certified.
 
           ^You must send a photocopy - your actual passport won’t be accepted.^
 
-
-          You can also provide a certified photocopy of your document.
         government_companies: |
           ##%{document_heading}
           Your %{document_type} can only be legalised if it has been either:
@@ -168,8 +166,8 @@ en-GB:
 
           It can take the Legalisation Office longer to legalise a court document that only has a signature. You can get your document certified which could make the process quicker.
         vet_health: |
-          ##Veterinary health certificate
-          Your Veterinary health certificate can only be legalised if it has been signed and stamped by a veterinary surgeon registered with the Department of Food and Rural Affairs.
+          ##Pet export document from DEFRA
+          Your pet export document can only be legalised if it has been signed and stamped by a veterinary surgeon registered with the Department of Food and Rural Affairs.
         education_document_degree_certificate_only: |
           ##%{document_heading}
           Your degree certificate must be awarded by a [recognised body](/check-a-university-is-officially-recognised "Check if a university or college is recognised").
@@ -223,13 +221,13 @@ en-GB:
 
           You can find:
 
-          - [solicitors in England and Wales](http://www.lawsociety.org.uk/home.law "solicitors in England and Wales")
+          - [solicitors in England and Wales](http://www.lawsociety.org.uk/home.law "solicitors in England and Wales"){:rel="external"}
 
-          - [notaries public in England and Wales](http://www.facultyoffice.org.uk/Notaries1.html "notaries Public in England and Wales")
+          - [notaries public in England and Wales](http://www.facultyoffice.org.uk/Notaries1.html "notaries Public in England and Wales"){:rel="external"} 
 
-          - [solicitors and notaries public in Scotland](http://www.lawscot.org.uk/ "solicitors and Notaries Public in Scotland")
+          - [solicitors and notaries public in Scotland](http://www.lawscot.org.uk/ "solicitors and Notaries Public in Scotland"){:rel="external"} 
 
-          - [solicitors and notaries public in Northern Ireland](http://www.lawsoc-ni.org/ "solicitors and notaries public in Northern Ireland")
+          - [solicitors and notaries public in Northern Ireland](http://www.lawsoc-ni.org/ "solicitors and notaries public in Northern Ireland"){:rel="external"} 
 
 
 

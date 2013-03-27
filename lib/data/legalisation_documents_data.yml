@@ -129,7 +129,7 @@ family-division-high-court-justice-document:
   group: court_document
 fingerprints:
   heading: Fingerprints document
-  type: fingerprints
+  type: fingerprints document
   group: police_disclosure
 fit-note-from-a-doctor:
   heading: Fit note (from a doctor)
