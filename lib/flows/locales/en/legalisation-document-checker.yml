@@ -123,12 +123,10 @@ en-GB:
         solicitors_notaries_copy_passport: |
 
           ##%{document_heading}
-          Your %{document_type} can only be legalised if it has been [certified](/certifying-a-document "Certified copy of a document").
+          Your %{document_type} can only be legalised if it has been certified.
 
           ^You must send a photocopy - your actual passport won’t be accepted.^
 
-
-          You can also provide a certified photocopy of your document.
         government_companies: |
           ##%{document_heading}
           Your %{document_type} can only be legalised if it has been either:
