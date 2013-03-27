@@ -69,6 +69,7 @@ checkbox_question :what_documents_do_you_want_legalised? do
   option "utility-bill"
 
   calculate :choices do
+    raise InvalidResponse if responses.last == 'none'
     responses.last.split(',')
   end
 
