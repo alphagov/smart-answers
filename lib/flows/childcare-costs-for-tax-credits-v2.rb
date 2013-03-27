@@ -242,7 +242,7 @@ outcome :cost_changed do
   end
 
   precalculate :difference_money do
-    Money.new(weekly_difference)
+    Money.new(weekly_difference.abs)
   end
   precalculate :body_phrases do
     if ten_or_more
