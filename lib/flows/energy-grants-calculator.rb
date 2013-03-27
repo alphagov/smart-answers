@@ -5,6 +5,7 @@ checkbox_question :what_are_your_circumstances? do
   option :benefits
   option :property
   option :permission
+  option :social_housing
   option :own_energy
 
   calculate :circumstances do
@@ -17,7 +18,7 @@ end
 # Q2
 date_question :dob? do
   from { 100.years.ago }
-  to { Date.today } 
+  to { Date.today }
   calculate :age_variant do
     dob = Date.parse(responses.last)
     if dob < Date.new(1951,7,5)
@@ -50,8 +51,8 @@ checkbox_question :which_benefits? do
 
   next_node do |response|
     choices = response.split(',')
-    no_disability_answers = ['pension_credit','esa','child_tax_credit']
-    
+    no_disability_answers = ['pension_credit','child_tax_credit']
+
     if response == 'none'
       :no_benefits
     elsif (choices - no_disability_answers).empty?
@@ -69,13 +70,15 @@ checkbox_question :disabled_or_have_children? do
   option :child_under_5
   option :child_under_16
   option :pensioner_premium
+  option :work_support_esa
 
   calculate :benefits_1 do
     choices = responses.last.split(',')
     (choices & %w(disabled disabled_child child_under_5 pensioner_premium)).any?
   end
   calculate :benefits_2 do
-    responses.last.split(',').include?('child_under_16')
+    morechoices = responses.last.split(',')
+    (morechoices & %w(child_under_16 work_support_esa)).any?
   end
 
   next_node do |response|
@@ -95,7 +98,7 @@ outcome :no_benefits do
     phrases << :winter_fuel_payments if age_variant == :winter_fuel_payment
     phrases << :green_deal
     if circumstances.include?('property') or circumstances.include?('permission')
-      phrases << :renewable_heat_premium   
+      phrases << :renewable_heat_premium
     end
     phrases << :feed_in_tariffs if circumstances.include?('own_energy')
     phrases
@@ -105,16 +108,16 @@ end
 # Result 2 - (Receiving benefits)
 outcome :on_benefits do
   precalculate :eligibilities do
-    phrases = [] 
+    phrases = []
     phrases << :winter_fuel_payments if age_variant == :winter_fuel_payment
     if circumstances.include?('property') or circumstances.include?('permission')
-      phrases << :renewable_heat_premium   
+      phrases << :renewable_heat_premium
     end
     phrases << :feed_in_tariffs if circumstances.include?('own_energy')
     if benefits.include?('pension_credit') or benefits_1 or benefits.include?('esa')
       phrases << :warm_home_discount << :cold_weather_payment << :energy_company_obligation
     end
-    if benefits.include?('child_tax_credit') or benefits_2 or
+    if benefits.include?('child_tax_credit') or (benefits_2 if ! circumstances.include?('social_housing')) or
       (benefits.include?('working_tax_credit') and age_variant == :over_60)
         phrases << :energy_company_obligation
     end
@@ -128,7 +131,7 @@ outcome :on_benefits_no_disability_or_children do
   phrases = []
     phrases << :winter_fuel_payments if age_variant == :winter_fuel_payment
     if circumstances.include?('property') or circumstances.include?('permission')
-      phrases << :renewable_heat_premium   
+      phrases << :renewable_heat_premium
     end
     phrases << :feed_in_tariffs if circumstances.include?('own_energy')
     if benefits.include?('pension_credit') or benefits.include?('esa')

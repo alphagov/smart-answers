@@ -4,17 +4,17 @@ require_relative 'flow_test_helper'
 
 class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
   include FlowTestHelper
-  
+
   setup do
     setup_for_testing_flow 'energy-grants-calculator'
   end
 
   context "Energy grants calculator" do
-   
+
     should "ask what your circumstances are" do
       assert_current_node :what_are_your_circumstances?
     end
-    
+
     context "answer on benefits" do
       setup do
         add_response :benefits
@@ -48,15 +48,8 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             assert_phrase_list :eligibilities, [:winter_fuel_payments, :warm_home_discount, :cold_weather_payment, :energy_company_obligation]
           end
         end
-        context "answer esa" do
-          should "give the benefits result (no disability)" do
-            add_response 'esa'
-            assert_current_node :on_benefits_no_disability_or_children
-            assert_phrase_list :eligibilities, [:winter_fuel_payments, :warm_home_discount, :cold_weather_payment, :energy_company_obligation]
-          end
-        end
       end # pre 05-07-1951
-      
+
       context "answer over 60" do
         setup do
           add_response 60.years.ago(Date.today).strftime("%Y-%m-%d")
@@ -92,7 +85,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         should "ask which benefits you receive" do
           assert_current_node :which_benefits?
         end
-        
+
         context "answer pension credit" do
           should "give the result with specific eligibilities" do
             add_response 'pension_credit'
@@ -140,7 +133,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             assert_phrase_list :eligibilities, [:warm_home_discount, :cold_weather_payment, :energy_company_obligation]
           end
         end # income support
-        
+
         context "answer jsa" do
           setup do
             add_response 'jsa'
@@ -156,16 +149,17 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             end
           end
         end # jsa
-        
+
         context "answer esa" do
           should "give the result with specific eligibilities" do
             add_response 'esa'
+            add_response ''
             assert_current_node :on_benefits_no_disability_or_children
             assert_state_variable :benefits, ['esa']
             assert_phrase_list :eligibilities, [:warm_home_discount, :cold_weather_payment, :energy_company_obligation]
           end
         end # esa
-        
+
         context "child tax credit" do
           should "give the result with specific eligibilities" do
             add_response 'child_tax_credit'
@@ -173,7 +167,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             assert_state_variable :benefits, ['child_tax_credit']
           end
         end # child tax credit
-        
+
         context "answer income support and child tax credit and a disabled child" do
           should "give the benefits result with specific eligibilities" do
             add_response 'income_support,child_tax_credit'
@@ -220,15 +214,15 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
 
     end # on benefits
 
-    context "answer you own your own property" do 
+    context "answer you own your own property" do
       setup do
         add_response :property
       end
-      
+
       should "ask your D.O.B." do
         assert_current_node :dob?
       end
-      
+
       context "answer pre 05-07-1951" do
         setup do
           add_response "1951-07-04"
@@ -286,7 +280,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       end # D.O.B. post 05-07-1951
 
     end # renting with permission
-    
+
     context "answer you generate your own energy" do
       setup do
         add_response :own_energy
@@ -336,13 +330,14 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       end
     end # homeowner, generate own energy
 
-    context "answer home owner, benefits, generate own energy, esa" do
+    context "answer home owner, benefits, generate own energy, jsa" do
       should "calculate eligibilities" do
         add_response "property,benefits,own_energy"
         add_response "1971-01-01"
-        add_response "esa"
-        assert_current_node :on_benefits_no_disability_or_children
-        assert_phrase_list :eligibilities, [:renewable_heat_premium, :feed_in_tariffs, :warm_home_discount, :cold_weather_payment, :energy_company_obligation]
+        add_response "jsa"
+        add_response 'work_support_esa'
+        assert_current_node :on_benefits
+        assert_phrase_list :eligibilities, [:renewable_heat_premium, :feed_in_tariffs, :energy_company_obligation]
       end
     end # homeowner, benefits, own energy, on benefits (ESA), no disabilities or children
 
@@ -354,6 +349,42 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         assert_phrase_list :eligibilities, [:green_deal, :renewable_heat_premium, :feed_in_tariffs]
       end
     end # renting, generate own energy
-
   end
+
+#test for new social housing option
+  context "answer getting benefits, social housing tenant, child under 16" do
+    should "calculate eligibilities" do
+      add_response 'benefits,social_housing'
+      add_response '1950-01-01'
+      add_response 'income_support'
+      add_response 'child_under_16'
+      assert_current_node :on_benefits
+      assert_phrase_list :eligibilities, [:winter_fuel_payments]
+    end
+  end
+
+  context "answer getting benefits, not a social housing social housing tenant, child under 16" do
+    should "calculate eligibilities" do
+      add_response 'benefits'
+      add_response '1950-01-01'
+      add_response 'income_support'
+      add_response 'child_under_16'
+      assert_current_node :on_benefits
+      assert_phrase_list :eligibilities, [:winter_fuel_payments, :energy_company_obligation]
+    end
+  end
+#test for esa
+  context "answer getting benefits, esa, child under 16" do
+    should "calculate eligibilities" do
+      add_response 'benefits'
+      add_response '1980-01-01'
+      add_response 'esa'
+      add_response 'work_support_esa'
+      assert_current_node :on_benefits
+      assert_phrase_list :eligibilities, [:warm_home_discount, :cold_weather_payment, :energy_company_obligation]
+    end
+  end
+
+
+
 end
