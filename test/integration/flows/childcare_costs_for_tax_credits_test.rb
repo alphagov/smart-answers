@@ -318,6 +318,24 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
       end
 
     end
+  end
+
+  context "answering Q16" do
+    setup do
+      add_response :no #Q1
+      add_response :regularly_more_than_year #Q2
+      add_response :no #Q11
+    end
+
+    should "be on Q16" do
+      assert_current_node :how_much_spent_last_12_months?
+    end
+
+    should "take user to weekly outcome" do
+      add_response 52
+      assert_state_variable :weekly_cost, 1
+      assert_current_node :weekly_costs_are_x
+    end
 
   end
 end
