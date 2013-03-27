@@ -13,47 +13,38 @@ class DocumentLegalisationCheckerTest < ActiveSupport::TestCase
     assert_current_node :what_documents_do_you_want_legalised?
   end
 
+  context "doesnt include birth_data, certificate_impediment or medical_reports" do
+    setup do
+      add_response 'acro-police-certificate,affidavit'
+    end
+
+    should "show extra generic content" do
+      assert_phrase_list :generic_conditional_content, [:generic_certifying_content]
+    end
+  end
+
+  context "includes birth_data, certificate_impediment or medical_reports" do
+    setup do
+      add_response 'birth-certificate'
+    end
+
+    should "not show extra generic content" do
+      assert_phrase_list :generic_conditional_content, []
+    end
+  end
+
   context "police disclosure documents" do
     setup do
       add_response 'acro-police-certificate,criminal-records-bureau-document,criminal-records-check,disclosure-scotland-document,fingerprints'
     end
 
     should "take you to the outcome for these police disclosure documents" do
-      assert_phrase_list :document_details, ["##ACRO Police Certificate\nYour ACRO Police Certificate can only be legalised if it has been either:
-
-- signed by an official from the issuing authority
-- certified
-
-^A photocopy of your document won’t be accepted.^
-", "##Criminal Records Bureau (CRB) document
-Your CRB document can only be legalised if it has been either:
-
-- signed by an official from the issuing authority
-- certified
-
-^A photocopy of your document won’t be accepted.^
-", "##Criminal records check
-Your criminal records check can only be legalised if it has been either:
-
-- signed by an official from the issuing authority
-- certified
-
-^A photocopy of your document won’t be accepted.^
-", "##Disclosure Scotland document
-Your Disclosure Scotland document can only be legalised if it has been either:
-
-- signed by an official from the issuing authority
-- certified
-
-^A photocopy of your document won’t be accepted.^
-", "##Fingerprints document
-Your fingerprints document can only be legalised if it has been either:
-
-- signed by an official from the issuing authority
-- certified
-
-^A photocopy of your document won’t be accepted.^
-"]
+      selected = [].tap { |ary|
+        5.times do
+          ary.push "police_disclosure"
+        end
+      }
+      assert_state_variable :groups_selected, selected
     end
   end
 
@@ -63,13 +54,7 @@ Your fingerprints document can only be legalised if it has been either:
     end
 
     should "take you to the outcome for the ACRO police certificate document" do
-      assert_phrase_list :document_details, ["##ACRO Police Certificate\nYour ACRO Police Certificate can only be legalised if it has been either:
-
-- signed by an official from the issuing authority
-- certified
-
-^A photocopy of your document won’t be accepted.^
-", ]
+      assert_state_variable :groups_selected, ["police_disclosure"]
     end
   end
 
@@ -79,15 +64,7 @@ Your fingerprints document can only be legalised if it has been either:
     end
 
     should "take you to the outcome for the ACRO police certificate document" do
-      assert_phrase_list :document_details, ["##ACRO Police Certificate\nYour ACRO Police Certificate can only be legalised if it has been either:
-
-- signed by an official from the issuing authority
-- certified
-
-^A photocopy of your document won’t be accepted.^
-", "##Pet export document from DEFRA
-Your pet export document can only be legalised if it has been signed and stamped by a veterinary surgeon registered with the Department of Food and Rural Affairs.
-"]
+      assert_state_variable :groups_selected, ["police_disclosure", "vet_health"]
     end
   end
 
