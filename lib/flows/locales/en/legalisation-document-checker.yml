@@ -115,7 +115,7 @@ en-GB:
           ^A photocopy of your document won’t be accepted.^
         solicitors_notaries: |
           ##%{document_heading}
-          Your %{document_type} can only be legalised if it has been [certified](/certifying-a-document "Certified copy of a document").
+          Your %{document_type} can only be legalised if it has been certified.
 
           You can also provide a certified photocopy of your document.
 
