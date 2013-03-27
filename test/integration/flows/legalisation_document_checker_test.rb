@@ -13,6 +13,12 @@ class DocumentLegalisationCheckerTest < ActiveSupport::TestCase
     assert_current_node :what_documents_do_you_want_legalised?
   end
 
+  should "error if nothing selected" do
+    add_response 'none'
+    assert_current_node :what_documents_do_you_want_legalised?
+    assert_current_node_is_error
+  end
+
   context "doesnt include birth_data, certificate_impediment or medical_reports" do
     setup do
       add_response 'acro-police-certificate,affidavit'
