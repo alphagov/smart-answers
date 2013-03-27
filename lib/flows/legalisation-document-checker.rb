@@ -1,4 +1,5 @@
-status :draft
+status :published
+satisfies_need 2762
 
 data_query = SmartAnswer::Calculators::LegalisationDocumentsDataQuery.new
 i18n_prefix = "flow.legalisation-document-checker"
