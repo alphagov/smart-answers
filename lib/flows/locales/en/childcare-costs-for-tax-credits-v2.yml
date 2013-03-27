@@ -26,11 +26,16 @@ en-GB:
 
         ^When calculating your childcare costs, you can only include costs you pay yourself. You may be fined if you provide the wrong amount.^
 
-      You cannot include childcare:
-        - payments from your employer - either in money or childcare vouchers
-        - vouchers in return for a reduction in your pay - this is called a 'salary sacrifice'
-        - payments or grants from a government scheme, for example to help you start work or because you are a student
-        - costs your educational or local authority is paying, for example for your child's nursery childcare
+        You cannot include childcare:
+
+          - payments from your employer - either in money or childcare vouchers  
+
+          - vouchers in return for a reduction in your pay - this is called a 'salary sacrifice'  
+
+          - payments or grants from a government scheme, for example to help you start work or because you are a student  
+
+          - costs your educational or local authority is paying, for example for your child's nursery childcare  
+
       #Q1
       currently_claiming?:
         title: "Are you currently claiming tax credits for childcare costs?"
