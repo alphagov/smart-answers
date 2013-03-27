@@ -90,7 +90,7 @@ end
 #Q11
 multiple_choice :pay_same_each_time? do
   option :yes => :how_often_pay_providers? #Q12
-  option :no => :weekly_costs_are_x #Q16
+  option :no => :how_much_spent_last_12_months? #Q16
 end
 
 #Q12
