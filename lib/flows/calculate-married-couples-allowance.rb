@@ -36,7 +36,7 @@ date_question :whats_the_highest_earners_date_of_birth? do
   next_node :whats_the_highest_earners_income?
 end
 
-personal_allowance = 8105
+personal_allowance = 9440
 over_65_allowance = 10500
 over_75_allowance = 10660
 
@@ -46,9 +46,9 @@ age_related_allowance_chooser = AgeRelatedAllowanceChooser.new(
   over_75_allowance: over_75_allowance)
 
 calculator = MarriedCouplesAllowanceCalculator.new(
-  maximum_mca: 7705,
-  minimum_mca: 2960,
-  income_limit: 25400,
+  maximum_mca: 7915,
+  minimum_mca: 3040,
+  income_limit: 26100,
   personal_allowance: personal_allowance,
   validate_income: false)
 
@@ -60,7 +60,7 @@ money_question :whats_the_husbands_income? do
   end
 
   next_node do |response|
-    if response.to_f >= 25400.0
+    if response.to_f >= 26100.0
       :paying_into_a_pension?
     else
       :husband_done
@@ -76,7 +76,7 @@ money_question :whats_the_highest_earners_income? do
   end
 
   next_node do |response|
-    if response.to_f >= 25400.0
+    if response.to_f >= 26100.0
       :paying_into_a_pension?
     else
       :highest_earner_done
