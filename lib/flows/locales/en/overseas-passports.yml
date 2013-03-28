@@ -78,8 +78,8 @@ en-GB:
         passport_courier_costs_wellington_new_zealand: |
 
         adult_passport_costs_wellington_new_zealand: |
-          An adult 32-page passport costs NZ $310.71.  
-          An adult 48-page passport costs NZ $366.71.  
+          An adult 32-page passport costs NZ $310.71.
+          An adult 48-page passport costs NZ $366.71.
 
         child_passport_costs_wellington_new_zealand:
           A child passport costs NZ $213.71.
@@ -154,8 +154,8 @@ en-GB:
         passport_courier_costs_pretoria_south_africa: ''
 
         adult_passport_costs_pretoria_south_africa: |
-          An adult 32-page passport costs 2,110 South African Rand.  
-          An adult 48-page passport costs 2,490 South African Rand.  
+          An adult 32-page passport costs 2,110 South African Rand.
+          An adult 48-page passport costs 2,490 South African Rand.
 
         child_passport_costs_pretoria_south_africa: |
           A child passport costs 1,450 South African Rand.
@@ -196,9 +196,9 @@ en-GB:
         passport_costs_paris_france: |
           You must pay using either:
 
-          - a Visa or Mastercard - [download a credit card authorisation form (PDF, 170KB)](http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/credit-card-form-march-12 "Credit card authorisation form (PDF, 170KB)") and send it with your application  
+          - a Visa or Mastercard - [download a credit card authorisation form (PDF, 170KB)](http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/credit-card-form-march-12 "Credit card authorisation form (PDF, 170KB)") and send it with your application
 
-          - an International Postal order, mandate-cheque or mandate-cash payable to ‘British Embassy Paris’ - your application may take longer if you pay this way  
+          - an International Postal order, mandate-cheque or mandate-cash payable to ‘British Embassy Paris’ - your application may take longer if you pay this way
         passport_costs_malta_netherlands: |
            You must pay using a Visa or Mastercard. [Download a credit card authorisation form (PDF, 170KB)](http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/credit-card-form-march-12 "Credit card authorisation form (PDF, 170KB)") and send it with your application.
 
@@ -458,7 +458,7 @@ en-GB:
           $C
             **1820 Settlers Association of South Africa**
 
-            Telephone: 041 585 3416 (Port Elizabeth)  
+            Telephone: 041 585 3416 (Port Elizabeth)
             031 202 6174 (Durban)
 
           $C
@@ -568,12 +568,12 @@ en-GB:
           $C
             **Passport Information Helpline**
 
-            Premium rate helpline   
-            1570 999 331  
+            Premium rate helpline
+            1570 999 331
             Landline calls are charged at 1.78 Euro per minute - mobile calls may cost more
 
-            Paying for the call by credit card  
-            +44 208 082 4737  
+            Paying for the call by credit card
+            +44 208 082 4737
             Calls charged at £0.72 per minute plus VAT
 
             Textphone: +44 1750 725 368
@@ -616,7 +616,7 @@ en-GB:
           $C
             **Passport information - Yemen**
 
-            967 1308 114 
+            967 1308 114
             8am to-3pm local time, Sunday to Thursday
 
              +44 207 008 1500 at any other time
@@ -627,7 +627,7 @@ en-GB:
 
           Don’t use this service any earlier - information won’t be available but you will still be charged for the call.
         helpline_exceptions: |
-          If you haven’t received your passport within the expected timescales, or need to change your travel plans urgently (eg a close relative has died), you can leave a message with the passport processing centre in Madrid. 
+          If you haven’t received your passport within the expected timescales, or need to change your travel plans urgently (eg a close relative has died), you can leave a message with the passport processing centre in Madrid.
 
           They will only call you back if your passport has been delayed or you have a genuine emergency.
 
@@ -749,7 +749,7 @@ en-GB:
 
 
           $C
-          **Passport Adviceline**  
+          **Passport Adviceline**
           +44 (0) 300 222 0000
           $C
 
@@ -832,7 +832,7 @@ en-GB:
 
 
           $C
-          **Passport Adviceline**  
+          **Passport Adviceline**
           +44 (0) 300 222 0000
           $C
 
@@ -911,7 +911,7 @@ en-GB:
 
 
           $C
-          **Passport Adviceline**  
+          **Passport Adviceline**
           +44 (0) 300 222 0000
           $C
 
@@ -1017,14 +1017,14 @@ en-GB:
           $C
             __Passport Information Helpline__
 
-            Premium rate helpline  
-            1902 241 444  
+            Premium rate helpline
+            1902 241 444
             Landline calls are charged at AUS $3.52 per minute - mobile calls may cost more
 
-            Paying for the call by credit card  
-            +44 208 082 4727  
-            Calls charged at £0.72 per minute plus VAT  
-            Textphone: +44 1750 725 368  
+            Paying for the call by credit card
+            +44 208 082 4727
+            Calls charged at £0.72 per minute plus VAT
+            Textphone: +44 1750 725 368
           $C
 
         how_long_new_zealand: |
@@ -1085,21 +1085,21 @@ en-GB:
           $C
             __Passport Information Helpline__
 
-            Premium rate helpline  
-            0900 990 202  
+            Premium rate helpline
+            0900 990 202
             Landline calls are charged at $4.50 per minute - mobile calls may cost more
 
-            Paying for the call by credit card  
-            +44 208 082 4727  
-            Calls charged at £0.72 per minute plus VAT  
-            Textphone: +44 1750 725 368  
+            Paying for the call by credit card
+            +44 208 082 4727
+            Calls charged at £0.72 per minute plus VAT
+            Textphone: +44 1750 725 368
           $C
 
 
         how_long_afghanistan: |
           Action | Minimum time after you apply
           - | -
-          Renew a passport | 4 weeks 
+          Renew a passport | 4 weeks
           First adult or child passports | 6 months
           Replace a lost or stolen passport | 6 weeks
           Change your name in a passport | 6 weeks
@@ -1475,7 +1475,7 @@ en-GB:
             **Passport processing centre, Madrid**
 
             00 34 91 714 6314
-          $C 
+          $C
         how_long_eritrea: |
           Action | Minimum time after you apply
           - | -
@@ -1577,7 +1577,7 @@ en-GB:
 
           You can either:
 
-          - send your application by one-way courier to the passport processing centre in Pretoria, South Africa 
+          - send your application by one-way courier to the passport processing centre in Pretoria, South Africa
           - apply in person at the British embassy in Addis Ababa.
 
 
@@ -1586,7 +1586,7 @@ en-GB:
 
             British Passport Section
             British Consulate
-            PO Box 13611 
+            PO Box 13611
             Hatfield, Pretoria 0028
             South Africa
           $A
@@ -1661,8 +1661,8 @@ en-GB:
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
           Adult standard 32-page passport | 397 Cedi | 468 Cedi from Ghana, 500 Cedi from Liberia or Guinea
-          Adult jumbo 48-page passport | 497 Cedi | 550 Cedi from Ghana, 582 Cedi from Liberia or Guinea 
-          Child passport | 253 Cedi | 324 Cedi from Ghana, 356 Cedi from Liberia or Guinea 
+          Adult jumbo 48-page passport | 497 Cedi | 550 Cedi from Ghana, 582 Cedi from Liberia or Guinea
+          Child passport | 253 Cedi | 324 Cedi from Ghana, 356 Cedi from Liberia or Guinea
 
           You must pay either using:
 
@@ -2689,7 +2689,7 @@ en-GB:
           %{getting_your_passport}
 
           ## If your passport hasn’t arrived
-          
+
           %{helpline}
 
       cannot_apply:
