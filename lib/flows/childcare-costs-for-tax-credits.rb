@@ -101,7 +101,7 @@ multiple_choice :how_often_pay_providers? do
   option :every_month => :how_much_each_month? #Q10
   option :termly => :call_helpline_plain #O5
   option :yearly => :how_much_yearly? #Q15
-  option :other => :call_helpline #O5
+  option :other => :call_helpline_plain #O5
 end
 
 #Q13
