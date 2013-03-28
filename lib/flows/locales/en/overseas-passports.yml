@@ -78,11 +78,11 @@ en-GB:
         passport_courier_costs_wellington_new_zealand: |
 
         adult_passport_costs_wellington_new_zealand: |
-          An adult 32-page passport costs NZ $310.71.  
-          An adult 48-page passport costs NZ $366.71.  
+          An adult 32-page passport costs NZ $323.72.  
+          An adult 48-page passport costs NZ $375.72.  
 
         child_passport_costs_wellington_new_zealand:
-          A child passport costs NZ $213.71.
+          A child passport costs NZ $232.72.
 
         passport_costs_wellington_new_zealand: |
           You can pay using:
@@ -227,7 +227,7 @@ en-GB:
         passport_costs_hong_kong: |
           You must pay using either:
 
-          - an International Banker’s Draft, payable to ‘British Consulate-General Hong Kong’
+          - an International Banker’s Draft in Hong Kong dollars, payable to ‘British Consulate-General Hong Kong’
           - a Visa or Mastercard - [download a credit card authorisation form (PDF, 95KB)](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/credit-card-authorisation.pdf "Credit card authorisation form (PDF, 95KB)") and send it with your application
 
           If you pay by card, you’ll be charged the sterling amount in Hong Kong dollars using the exchange rate on the day your application is processed.
@@ -449,8 +449,6 @@ en-GB:
             Pretoria 0083
             South Africa
           $A
-
-          You can use any courier to send your application. But if you use [Supaswift (Pty) Ltd,](https://www.supaswift.com/fx/default.aspx "Supaswift Pty Limited") you will pay a special rate of 195 Rand to collect your application from you and deliver it overnight to the application centre.
 
           If you’re applying from Port Elizabeth or Durban, you can also apply through the 1820 Settlers Association of South Africa.
 
@@ -954,55 +952,55 @@ en-GB:
             [Download ‘Guidance notes for child applications’ (PDF, 2MB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c2-notes.pdf "‘Guidance notes for adult applications‘ (PDF, 2MB)")
 
         aus_nz_replacing: |
-            [Download ‘Application checklist’ (PDF 142KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Checklist2-LostandStolen "Application documents checklist (PDF, 142KB)"){:rel="external"}
+            [Download ‘Application checklist’ (PDF 142KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136865/Checklist2-LostandStolen.pdf "Application documents checklist (PDF, 142KB)"){:rel="external"}
 
         aus_nz_renewing: |
-            [Download ‘Application checklist’ (PDF 140KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Checklist1-RenewingPassport "Application documents checklist (PDF, 140KB)"){:rel="external"}
+            [Download ‘Application checklist’ (PDF 140KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136864/Checklist1-RenewingPassport.pdf "Application documents checklist (PDF, 140KB)"){:rel="external"}
 
         aus_nz_born-in-uk-pre-1983: |
-            [Download ‘Supporting documents checklist’ (PDF 145KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Checklist4-ApplicantbornUKbeforeJan1983 "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
+            [Download ‘Supporting documents checklist’ (PDF 145KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136867/Checklist4-ApplicantbornUKbeforeJan1983.pdf "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
 
         aus_nz_born-in-uk-post-1982-uk-father: |
-            [Download ‘Supporting documents checklist’ (PDF 149KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Checklist5-Applicantbornafter01Jan1983FatherbornUK "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
+            [Download ‘Supporting documents checklist’ (PDF 149KB)](https://www.gov.uk/government/publications/checklist-5-applicant-born-in-uk-after-31-december-1982-and-father-born-uk-new-zealand "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
 
         aus_nz_born-in-uk-post-1982-uk-mother: |
-            [Download ‘Supporting documents checklist’ (PDF 147KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Checklist6-ApplicantbornUKafterJan1983motherbornUK "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
+            [Download ‘Supporting documents checklist’ (PDF 147KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136869/Checklist6-ApplicantbornUKafterJan1983motherbornUK.pdf "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
 
         aus_nz_born-outside-uk-parents-married: |
-            [Download ‘Supporting documents checklist’ (PDF 149KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Checklist7-ApplicantbornoutsideUKandfatherbornUK "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
+            [Download ‘Supporting documents checklist’ (PDF 149KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136870/Checklist7-ApplicantbornoutsideUKandfatherbornUK.pdf "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
 
         aus_nz_born-outside-uk-mother-born-in-uk : |
-            [Download ‘Supporting documents checklist’ (PDF 214KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Checklist8-ApplicantbornoutsideUKafterJan1983MotherbornUK "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
+            [Download ‘Supporting documents checklist’ (PDF 214KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136871/Checklist8-ApplicantbornoutsideUKafterJan1983MotherbornUK.pdf "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
 
         aus_nz_born-in-uk-post-1982-father-uk-citizen: |
-            [Download ‘Supporting documents checklist’ (PDF 214KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Checklist9-ApplicantbornUKafter01January1983andfatherregornatasaBC "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
+            [Download ‘Supporting documents checklist’ (PDF 214KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136872/Checklist9-ApplicantbornUKafter01January1983andfatherregornatasaBC.pdf "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
 
         aus_nz_born-in-uk-post-1982-mother-uk-citizen: |
-            [Download ‘Supporting documents checklist’ (PDF 214KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Checklist10-ApplicantbornUKafter01Jan1983andmotherregornatasaBC "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
+            [Download ‘Supporting documents checklist’ (PDF 214KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136873/Checklist10-ApplicantbornUKafter01Jan1983andmotherregornatasaBC.pdf "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
 
         aus_nz_born-outside-uk-father-registered-uk-citizen: |
-            [Download ‘Supporting documents checklist’ (PDF 217KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Checklist11-ApplicantbornoutsidetheUK-FatherregornatasBritishCitizen "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
+            [Download ‘Supporting documents checklist’ (PDF 217KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136874/Checklist11-ApplicantbornoutsidetheUK-FatherregornatasBritishCitizen.pdf "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
 
         aus_nz_born-outside-uk-mother-registered-uk-citizen: |
-            [Download ‘Supporting documents checklist’ (PDF 214KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Checklist12-ApplicantbornoutsidetheUK-MotherregornatasBritishCitizen "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
+            [Download ‘Supporting documents checklist’ (PDF 214KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/153754/Checklist12-ApplicantbornoutsidetheUK-MotherregornatasBritishCitizen.pdf "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
 
         aus_nz_born-in-uk-post-1982-father-uk-service: |
-            [Download ‘Supporting documents checklist’ (PDF 221KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Checklist13-Applicantbornafter01Jan1983-Fatherbornwhilehisfatherwasincrownservice "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
+            [Download ‘Supporting documents checklist’ (PDF 221KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/153755/Checklist13-Applicantbornafter01Jan1983-Fatherbornwhilehisfatherwasincrownservice.pdf "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
 
         aus_nz_born-in-uk-post-1982-mother-uk-service: |
-            [Download ‘Supporting documents checklist’ (PDF 216KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Checklist14-Applicantbornafter01Jan1983-MotherbornoverseaswhilefatherwasinBCSandrecruitedinUK "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
+            [Download ‘Supporting documents checklist’ (PDF 216KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136877/Checklist14-Applicantbornafter01Jan1983-MotherbornoverseaswhilefatherwasinBCSandrecruitedinUK.pdf "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
 
         aus_nz_married-to-uk-citizen-pre-1983-reg-pre-1988: |
-            [Download ‘Supporting documents checklist’ (PDF 213KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Checklist15-Womanmarriedtoabritishcitizenbefore01January1983andregasBCbefore01Jan1988 "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
+            [Download ‘Supporting documents checklist’ (PDF 213KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/153758/Checklist15-Womanmarriedtoabritishcitizenbefore01January1983andregasBCbefore01Jan1988.pdf "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
 
         aus_nz_registered-uk-citizen: |
-            [Download ‘Supporting documents checklist’ (PDF 211KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Checklist16-ApplicantregornatasaBC "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
+            [Download ‘Supporting documents checklist’ (PDF 211KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136879/Checklist16-ApplicantregornatasaBC.pdf "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
 
         aus_nz_child-born-outside-uk-father-citizen: |
-            [Download ‘Supporting documents checklist’ (PDF 211KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Checklist17-ChildbornoutsidetheUKafter01July2006-FatherbornUKbutnotmarriedtomother "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
+            [Download ‘Supporting documents checklist’ (PDF 211KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136880/Checklist17-ChildbornoutsidetheUKafter01July2006-FatherbornUKbutnotmarriedtomother.pdf "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
 
         aus_nz_woman-married-to-uk-citizen-pre-1949: |
-            [Download ‘Supporting documents checklist’ (PDF 210KB)](http://ukinnewzealand.fco.gov.uk/resources/en/pdf/Passports/Checklist18-WomanmarriedtoaBCbefore01Jan1949 "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
+            [Download ‘Supporting documents checklist’ (PDF 210KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136881/Checklist18-WomanmarriedtoaBCbefore01Jan1949.pdf "Supporting documents checklist (PDF, 145KB)"){:rel="external"}
 
         receiving_your_passport_australia_post: |
           Your passport and supporting documents will be returned to you separately by courier.
@@ -1100,7 +1098,7 @@ en-GB:
           Action | Minimum time after you apply
           - | -
           Renew a passport | 4 weeks 
-          First adult or child passports | 12 weeks
+          First adult or child passports | 6 months
           Replace a lost or stolen passport | 6 weeks
           Change your name in a passport | 6 weeks
 
@@ -2041,7 +2039,7 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          If you’re applying for a first passport, you’ll usually be asked to attend an interview at the High Commission in Islamabad.
+          If you’re applying for a first passport, you’ll usually be asked to attend an interview at the High Commission.
 
           If you’re renewing or replacing a lost or stolen passport, you may be asked to attend an interview.
 
