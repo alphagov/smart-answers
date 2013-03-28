@@ -50,6 +50,9 @@ en-GB:
           Don’t include:
 
           - interest you get from tax-free savings, like interest from an Individual Savings Account (ISA)
+          - up to £55 per week of childcare paid for directly by your employer and/or childcare vouchers you get as part of a salary sacrifice scheme
+          - the value of any workplace nursery places your employer provides for you
+
       ## Q3
       do_you_expect_to_pay_into_a_pension_this_year?:
         title: Are you paying into a pension?
