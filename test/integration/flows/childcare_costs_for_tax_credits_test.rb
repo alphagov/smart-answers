@@ -89,6 +89,27 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
           assert_current_node :call_helpline_detailed
         end
 
+        context "answering Q11" do
+          setup do
+            add_response :regularly_more_than_year #Q2
+            add_response :yes #Q11
+          end
+
+          should "be on Q12 if you answer yes to Q11" do
+            assert_current_node :how_often_pay_providers?
+          end
+
+          context "answering Q12" do
+            setup do
+              add_response :other
+            end
+
+            should "take user to helpline outcome" do
+              assert_current_node :call_helpline_plain
+            end
+          end
+        end
+
         context "answering Q4" do
           setup do
             add_response :regularly_less_than_year
