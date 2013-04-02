@@ -9,6 +9,8 @@ en-GB:
 
         % If you were born in or had a connection with Hong Kong and registered as a British National Overseas before 1997, [you must apply a different way.](/bno-passports "Passport applications for British National Overseas from Hong Kong") %
 
+        ^You shouldn’t use this application process if you’re applying from the UK. If you are currently in the UK, there’s a different way to apply for [your first adult passport](/apply-first-adult-passport “apply for your first adult passport from within the UK”), [a child passport](/get-a-child-passport “apply for a passport for your child from within the UK”) or to [renew or replace your adult passport](/renew-adult-passport “renew or replace your adult passport from within the UK”).^
+
       options:
         "born-in-uk-pre-1983": "Born in the UK before 1 January 1983"
         "born-in-uk-post-1982-uk-father": "Born in the UK after 31 December 1982 with father born in UK"
@@ -78,8 +80,8 @@ en-GB:
         passport_courier_costs_wellington_new_zealand: |
 
         adult_passport_costs_wellington_new_zealand: |
-          An adult 32-page passport costs NZ $323.72.  
-          An adult 48-page passport costs NZ $375.72.  
+          An adult 32-page passport costs NZ $323.72.
+          An adult 48-page passport costs NZ $375.72.
 
         child_passport_costs_wellington_new_zealand:
           A child passport costs NZ $232.72.
@@ -154,8 +156,8 @@ en-GB:
         passport_courier_costs_pretoria_south_africa: ''
 
         adult_passport_costs_pretoria_south_africa: |
-          An adult 32-page passport costs 2,110 South African Rand.  
-          An adult 48-page passport costs 2,490 South African Rand.  
+          An adult 32-page passport costs 2,110 South African Rand.
+          An adult 48-page passport costs 2,490 South African Rand.
 
         child_passport_costs_pretoria_south_africa: |
           A child passport costs 1,450 South African Rand.
@@ -196,9 +198,9 @@ en-GB:
         passport_costs_paris_france: |
           You must pay using either:
 
-          - a Visa or Mastercard - [download a credit card authorisation form (PDF, 170KB)](http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/credit-card-form-march-12 "Credit card authorisation form (PDF, 170KB)") and send it with your application  
+          - a Visa or Mastercard - [download a credit card authorisation form (PDF, 170KB)](http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/credit-card-form-march-12 "Credit card authorisation form (PDF, 170KB)") and send it with your application
 
-          - an International Postal order, mandate-cheque or mandate-cash payable to ‘British Embassy Paris’ - your application may take longer if you pay this way  
+          - an International Postal order, mandate-cheque or mandate-cash payable to ‘British Embassy Paris’ - your application may take longer if you pay this way
         passport_costs_malta_netherlands: |
            You must pay using a Visa or Mastercard. [Download a credit card authorisation form (PDF, 170KB)](http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/credit-card-form-march-12 "Credit card authorisation form (PDF, 170KB)") and send it with your application.
 
@@ -227,7 +229,7 @@ en-GB:
         passport_costs_hong_kong: |
           You must pay using either:
 
-          - an International Banker’s Draft in Hong Kong dollars, payable to ‘British Consulate-General Hong Kong’
+          - an International Banker’s Draft, payable in Hong Kong Dollars to ‘British Consulate-General Hong Kong’
           - a Visa or Mastercard - [download a credit card authorisation form (PDF, 95KB)](http://ukinhongkong.fco.gov.uk/resources/en/pdf/17274209/credit-card-authorisation.pdf "Credit card authorisation form (PDF, 95KB)") and send it with your application
 
           If you pay by card, you’ll be charged the sterling amount in Hong Kong dollars using the exchange rate on the day your application is processed.
@@ -456,7 +458,7 @@ en-GB:
           $C
             **1820 Settlers Association of South Africa**
 
-            Telephone: 041 585 3416 (Port Elizabeth)  
+            Telephone: 041 585 3416 (Port Elizabeth)
             031 202 6174 (Durban)
 
           $C
@@ -505,6 +507,8 @@ en-GB:
             +44 208 082 4729
 
             Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
+
+            Textphone: +44 1750 725 368
           $C
 
         helpline_hong_kong: |
@@ -515,6 +519,8 @@ en-GB:
             +44 208 082 4744
 
             Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
+
+            Textphone: +44 1750 725 368
           $C
 
         helpline_pretoria_south_africa: |
@@ -525,6 +531,8 @@ en-GB:
             +44 208 082 4743
 
             Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
+
+            Textphone: +44 1750 725 368
           $C
 
         helpline_washington_usa: |
@@ -535,6 +543,8 @@ en-GB:
             +44 208 082 4721
 
             Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
+
+            Textphone: +44 1750 725 368
 
             **Applicants in the USA and Canada only**
 
@@ -554,6 +564,8 @@ en-GB:
 
             Calls charged at £0.72 per minute plus VAT
 
+            Textphone: +44 1750 725 368
+
             Premium rate helpline (from within Spain only)
 
             807 444 946
@@ -566,12 +578,12 @@ en-GB:
           $C
             **Passport Information Helpline**
 
-            Premium rate helpline   
-            1570 999 331  
+            Premium rate helpline
+            1570 999 331
             Landline calls are charged at 1.78 Euro per minute - mobile calls may cost more
 
-            Paying for the call by credit card  
-            +44 208 082 4737  
+            Paying for the call by credit card
+            +44 208 082 4737
             Calls charged at £0.72 per minute plus VAT
 
             Textphone: +44 1750 725 368
@@ -614,7 +626,7 @@ en-GB:
           $C
             **Passport information - Yemen**
 
-            967 1308 114 
+            967 1308 114
             8am to-3pm local time, Sunday to Thursday
 
              +44 207 008 1500 at any other time
@@ -625,7 +637,7 @@ en-GB:
 
           Don’t use this service any earlier - information won’t be available but you will still be charged for the call.
         helpline_exceptions: |
-          If you haven’t received your passport within the expected timescales, or need to change your travel plans urgently (eg a close relative has died), you can leave a message with the passport processing centre in Madrid. 
+          If you haven’t received your passport within the expected timescales, or need to change your travel plans urgently (eg a close relative has died), you can leave a message with the passport processing centre in Madrid.
 
           They will only call you back if your passport has been delayed or you have a genuine emergency.
 
@@ -692,7 +704,7 @@ en-GB:
           - the IPS needs to ask you for more information or documents
           - the photographs you send are rejected.
 
-          Don’t book travel until you have a valid passport. If you need to travel more urgently, apply for an [Emergency Travel Document.](http://www.fco.gov.uk/en/travel-and-living-abroad/passports1/passports-a-to-z/e-topics/emergency-travel "Get an emergency travel document"){:rel="external"}
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, apply for an [Emergency Travel Document.](https://www.gov.uk/emergency-travel-document "Get an emergency travel document"){:rel="external"}
 
         passport_courier_costs_ips1: |
           You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent back to you securely.
@@ -747,7 +759,7 @@ en-GB:
 
 
           $C
-          **Passport Adviceline**  
+          **Passport Adviceline**
           +44 (0) 300 222 0000
           $C
 
@@ -766,9 +778,11 @@ en-GB:
           - the Identity and Passport Service needs to ask you for more information or documents
           - the photographs you send are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](http://www.fco.gov.uk/en/travel-and-living-abroad/passports1/passports-a-to-z/e-topics/emergency-travel "Get an emergency travel document"){:rel="external"}
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](https://www.gov.uk/emergency-travel-document "Get an emergency travel document"){:rel="external"}
 
         how_long_replacing_ips2: |
+          Your application will take at least **8 weeks.**
+
           If you haven’t already reported the loss or theft, you must include form LS01 form with your passport application.
 
 
@@ -830,7 +844,7 @@ en-GB:
 
 
           $C
-          **Passport Adviceline**  
+          **Passport Adviceline**
           +44 (0) 300 222 0000
           $C
 
@@ -859,7 +873,7 @@ en-GB:
           - the Identity and Passport Service needs to ask you for more information or documents
           - the photographs you send are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](http://www.fco.gov.uk/en/travel-and-living-abroad/passports1/passports-a-to-z/e-topics/emergency-travel "Get an emergency travel document"){:rel="external"}
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](https://www.gov.uk/emergency-travel-document "Get an emergency travel document"){:rel="external"}
 
         passport_courier_costs_ips3: |
           You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport and supporting documents to be sent securely to your nearest embassy, high commission or consulate for you to collect.
@@ -909,7 +923,7 @@ en-GB:
 
 
           $C
-          **Passport Adviceline**  
+          **Passport Adviceline**
           +44 (0) 300 222 0000
           $C
 
@@ -1015,14 +1029,14 @@ en-GB:
           $C
             __Passport Information Helpline__
 
-            Premium rate helpline  
-            1902 241 444  
+            Premium rate helpline
+            1902 241 444
             Landline calls are charged at AUS $3.52 per minute - mobile calls may cost more
 
-            Paying for the call by credit card  
-            +44 208 082 4727  
-            Calls charged at £0.72 per minute plus VAT  
-            Textphone: +44 1750 725 368  
+            Paying for the call by credit card
+            +44 208 082 4727
+            Calls charged at £0.72 per minute plus VAT
+            Textphone: +44 1750 725 368
           $C
 
         how_long_new_zealand: |
@@ -1032,7 +1046,7 @@ en-GB:
 
           If your passport has been lost or stolen, you must report it as soon as possible to your [nearest British embassy, high commission or consulate.](/report-a-lost-or-stolen-passport "Report a lost or stolen passport")
 
-          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](http://www.fco.gov.uk/en/travel-and-living-abroad/passports1/passports-a-to-z/e-topics/emergency-travel "Get an emergency travel document"){:rel="external"}
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](https://www.gov.uk/emergency-travel-document "Get an emergency travel document"){:rel="external"}
 
           %{embassy_address}
 
@@ -1083,21 +1097,21 @@ en-GB:
           $C
             __Passport Information Helpline__
 
-            Premium rate helpline  
-            0900 990 202  
+            Premium rate helpline
+            0900 990 202
             Landline calls are charged at $4.50 per minute - mobile calls may cost more
 
-            Paying for the call by credit card  
-            +44 208 082 4727  
-            Calls charged at £0.72 per minute plus VAT  
-            Textphone: +44 1750 725 368  
+            Paying for the call by credit card
+            +44 208 082 4727
+            Calls charged at £0.72 per minute plus VAT
+            Textphone: +44 1750 725 368
           $C
 
 
         how_long_afghanistan: |
           Action | Minimum time after you apply
           - | -
-          Renew a passport | 4 weeks 
+          Renew a passport | 4 weeks
           First adult or child passports | 6 months
           Replace a lost or stolen passport | 6 weeks
           Change your name in a passport | 6 weeks
@@ -1473,7 +1487,7 @@ en-GB:
             **Passport processing centre, Madrid**
 
             00 34 91 714 6314
-          $C 
+          $C
         how_long_eritrea: |
           Action | Minimum time after you apply
           - | -
@@ -1575,7 +1589,7 @@ en-GB:
 
           You can either:
 
-          - send your application by one-way courier to the passport processing centre in Pretoria, South Africa 
+          - send your application by one-way courier to the passport processing centre in Pretoria, South Africa
           - apply in person at the British embassy in Addis Ababa.
 
 
@@ -1584,7 +1598,7 @@ en-GB:
 
             British Passport Section
             British Consulate
-            PO Box 13611 
+            PO Box 13611
             Hatfield, Pretoria 0028
             South Africa
           $A
@@ -1659,8 +1673,8 @@ en-GB:
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
           Adult standard 32-page passport | 397 Cedi | 468 Cedi from Ghana, 500 Cedi from Liberia or Guinea
-          Adult jumbo 48-page passport | 497 Cedi | 550 Cedi from Ghana, 582 Cedi from Liberia or Guinea 
-          Child passport | 253 Cedi | 324 Cedi from Ghana, 356 Cedi from Liberia or Guinea 
+          Adult jumbo 48-page passport | 497 Cedi | 550 Cedi from Ghana, 582 Cedi from Liberia or Guinea
+          Child passport | 253 Cedi | 324 Cedi from Ghana, 356 Cedi from Liberia or Guinea
 
           You must pay either using:
 
@@ -1918,9 +1932,11 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          If you’re applying for a first passport, you’ll usually be asked to attend an interview at the High Commission in Islamabad.
+          If you’re applying for a first passport, you’ll usually be asked to attend an interview at the British High Commission in Islamabad. They will contact you to arrange the interview.
 
-          If you’re renewing or replacing a lost or stolen passport, you may be asked to attend an interview.
+          If you’re renewing or replacing a lost or stolen passport, you may be asked to attend an interview after your documents have been checked. The High Commission will contact you when they decide if they want to interview you.
+
+          For child passport applications, both parents or guardians must come with their child to the passport interview. If only one parent or guardian is in Pakistan, the parent, child and a close relative must come to the interview (eg aunt, uncle or grandparent - but not the child’s brother or sister).
 
           Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British High Commission ln Islamabad or the deputy High Commission in Karachi. You will have to pay for the document.
 
@@ -2344,7 +2360,7 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British embassy ln Carcacas. You will have to pay for the document.
+          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British embassy in Caracas. You will have to pay for the document.
 
         cost_venezuela: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
@@ -2569,7 +2585,7 @@ en-GB:
           - you don’t send the right supporting documents or payment
           - the photographs you send are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](http://www.fco.gov.uk/en/travel-and-living-abroad/passports1/passports-a-to-z/e-topics/emergency-travel "Get an emergency travel document"){:rel="external"}
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](https://www.gov.uk/emergency-travel-document "Get an emergency travel document"){:rel="external"}
 
           ## Cost
           %{cost}
@@ -2687,7 +2703,7 @@ en-GB:
           %{getting_your_passport}
 
           ## If your passport hasn’t arrived
-          
+
           %{helpline}
 
       cannot_apply:
