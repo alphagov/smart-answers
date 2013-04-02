@@ -415,6 +415,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
       context "50 years old" do
         setup do
+          Timecop.travel('2012-10-08')
           add_response Date.civil(50.years.ago.year,4,7)
         end
 
