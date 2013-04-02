@@ -138,6 +138,10 @@ module SmartAnswer::Calculators
         
 
     context "female born 22 years ago" do
+      setup do
+        Timecop.travel(Date.parse("2012-10-09"))
+      end
+
       should "return ni_years_to_date = 3" do
         dob = Date.civil(22.years.ago.year,4,6).to_s
         @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: dob, qualifying_years: nil)
@@ -190,6 +194,7 @@ module SmartAnswer::Calculators
       # end
       context "male born 26 years and one day ago, no qualifying_years" do
         setup do
+          Timecop.travel(Date.parse("2013-03-01"))
           dob = Date.civil(26.years.ago.year,4,5).to_s
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "male", dob: dob, qualifying_years: nil)
         end
@@ -200,6 +205,7 @@ module SmartAnswer::Calculators
       end
       context "male born 26 years, no qualifying_years" do
         setup do
+          Timecop.travel(Date.parse("2013-03-01"))
           dob = Date.civil(26.years.ago.year,4,6).to_s
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "male", dob: dob, qualifying_years: nil)
         end
@@ -212,6 +218,7 @@ module SmartAnswer::Calculators
 
       context "32 years old with 10 qualifying_years" do
         setup do
+          Timecop.travel(Date.parse("2013-03-01"))
           dob = Date.civil(32.years.ago.year,4,6).to_s
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
             gender: "female", dob: dob, qualifying_years: 10)
