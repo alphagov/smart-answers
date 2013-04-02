@@ -9,6 +9,8 @@ en-GB:
 
         % If you were born in or had a connection with Hong Kong and registered as a British National Overseas before 1997, [you must apply a different way.](/bno-passports "Passport applications for British National Overseas from Hong Kong") %
 
+        ^You shouldn’t use this application process if you’re applying from the UK. If you are currently in the UK, there’s a different way to apply for [your first adult passport](/apply-first-adult-passport “apply for your first adult passport from within the UK”), [a child passport](/get-a-child-passport “apply for a passport for your child from within the UK”) or to [renew or replace your adult passport](/renew-adult-passport “renew or replace your adult passport from within the UK”).^
+
       options:
         "born-in-uk-pre-1983": "Born in the UK before 1 January 1983"
         "born-in-uk-post-1982-uk-father": "Born in the UK after 31 December 1982 with father born in UK"
@@ -507,6 +509,8 @@ en-GB:
             +44 208 082 4729
 
             Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
+
+            Textphone: +44 1750 725 368
           $C
 
         helpline_hong_kong: |
@@ -517,6 +521,8 @@ en-GB:
             +44 208 082 4744
 
             Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
+
+            Textphone: +44 1750 725 368
           $C
 
         helpline_pretoria_south_africa: |
@@ -527,6 +533,8 @@ en-GB:
             +44 208 082 4743
 
             Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
+
+            Textphone: +44 1750 725 368
           $C
 
         helpline_washington_usa: |
@@ -537,6 +545,8 @@ en-GB:
             +44 208 082 4721
 
             Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
+
+            Textphone: +44 1750 725 368
 
             **Applicants in the USA and Canada only**
 
@@ -555,6 +565,8 @@ en-GB:
             +44 208 082 4734
 
             Calls charged at £0.72 per minute plus VAT
+
+            Textphone: +44 1750 725 368
 
             Premium rate helpline (from within Spain only)
 
@@ -771,6 +783,8 @@ en-GB:
           Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](http://www.fco.gov.uk/en/travel-and-living-abroad/passports1/passports-a-to-z/e-topics/emergency-travel "Get an emergency travel document"){:rel="external"}
 
         how_long_replacing_ips2: |
+          Your application will take at least **8 weeks.**
+
           If you haven’t already reported the loss or theft, you must include form LS01 form with your passport application.
 
 
@@ -1920,9 +1934,11 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          If you’re applying for a first passport, you’ll usually be asked to attend an interview at the High Commission in Islamabad.
+          If you’re applying for a first passport, you’ll usually be asked to attend an interview at the British High Commission in Islamabad. They will contact you to arrange the interview.
 
-          If you’re renewing or replacing a lost or stolen passport, you may be asked to attend an interview.
+          If you’re renewing or replacing a lost or stolen passport, you may be asked to attend an interview after your documents have been checked. The High Commission will contact you when they decide if they want to interview you.
+
+          For child passport applications, both parents or guardians must come with their child to the passport interview. If only one parent or guardian is in Pakistan, the parent, child and a close relative must come to the interview (eg aunt, uncle or grandparent - but not the child’s brother or sister).
 
           Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British High Commission ln Islamabad or the deputy High Commission in Karachi. You will have to pay for the document.
 
@@ -2346,7 +2362,7 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British embassy ln Carcacas. You will have to pay for the document.
+          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British embassy in Caracas. You will have to pay for the document.
 
         cost_venezuela: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
