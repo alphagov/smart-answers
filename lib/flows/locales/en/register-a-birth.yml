@@ -53,12 +53,13 @@ en-GB:
             %{email}
           $A
         documents_you_must_provide_philippines: |
-          Download the following document to see what documents you’ll need to provide with your application.
+          Download the following document to see what documents you’ll need to provide with your application.  
 
 
           $D
-          [Download ‘Documents you need to provide’ (DOC, 1.2MB)](http://ukinthephilippines.fco.gov.uk/resources/en/word/consular/2010/birthreg-jan2013 "Download 'Documents you need to provide' (DOC, 1.2MB)"){:rel="external"}
+          [Download ‘Documents you need to provide’ (PDF, 405KB)](/government/uploads/system/uploads/attachment_data/file/175570/Philippines_birth_registration_.pdf "Download “Documents you need to provide” (PDF, 405KB)")
           $D
+
         documents_you_must_provide_taiwan: |
           You and the other parent must provide:
 
@@ -71,6 +72,13 @@ en-GB:
           - a marriage certificate (if you’re married)
           - divorce documents (if either of you has ever been divorced)
           - a change of name document (if either of you has ever changed your name)
+
+
+          $D
+          [Download ‘Mother and father paternity declaration’ (DOC, 13KB)](/government/uploads/system/uploads/attachment_data/file/153761/pat_mat_form-2.docx "Download ‘Mother and father paternity declaration’ (DOC, 13KB)")
+          $D
+
+
         documents_you_must_provide_turkey: |
           You and the other parent must provide:
 
