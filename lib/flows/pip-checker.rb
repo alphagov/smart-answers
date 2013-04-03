@@ -16,7 +16,7 @@ multiple_choice :are_you_getting_dla? do
   end
 end
 
-## Q2 
+## Q2
 value_question :what_is_your_post_code? do
   calculate :in_selected_area do
     calculator.postcode = responses.last
@@ -61,7 +61,17 @@ end
 
 outcome :result_1
 outcome :result_2
-outcome :result_3
+outcome :result_3 do
+  precalculate :april_eight_change do
+    phrases = PhraseList.new
+    if Date.today < Date.parse('8 April 2013')
+      phrases << :before_april_eight_thirteen_text
+    else
+      phrases << :after_april_eight_thirteen_text
+    end
+    phrases
+  end
+end
 outcome :result_4
 outcome :result_5
 outcome :result_6

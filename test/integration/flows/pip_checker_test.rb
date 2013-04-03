@@ -114,4 +114,32 @@ class PIPCheckerTest < ActiveSupport::TestCase
       assert_current_node :result_8
     end
   end # getting DLA
+
+#timecop test
+  context "testing outcome 3 with pre-8th april date" do
+    setup do
+      Timecop.travel('2012-10-08')
+      add_response 'no'
+      add_response 'BL1 3EE'
+    end
+    should "be result 3 if born between 09-04-1948 and 07-04-1997" do
+      add_response "1996-05-24"
+      assert_current_node :result_3
+      assert_phrase_list :april_eight_change, [:before_april_eight_thirteen_text]
+    end
+  end
+  context "testing outcome 3 with post-8th april date" do
+    setup do
+      Timecop.travel('2013-10-08')
+      add_response 'no'
+      add_response 'BL1 3EE'
+    end
+    should "be result 3 if born between 09-04-1948 and 07-04-1997" do
+      add_response "1996-05-24"
+      assert_current_node :result_3
+      assert_phrase_list :april_eight_change, [:after_april_eight_thirteen_text]
+    end
+  end
+
+
 end
