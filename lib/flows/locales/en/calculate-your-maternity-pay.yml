@@ -2,15 +2,15 @@ en-GB:
   flow:
     calculate-your-maternity-pay:
       meta:
-        description: "Tool to work out if you qualify for Statutory Maternity Pay (SMP), Maternity Allowance (MA) or other benefits and what money you could get"
+        description: "Estimate your Statutory Maternity Pay (SMP), Maternity Allowance or maternity benefits if you’re having a baby"
       title:
-        Maternity pay entitlement
+        Calculate your maternity pay or benefits
       options:
         "no": "No"
         "yes": "Yes"
       body: |
 
-        Work out which of the different maternity pay schemes or benefits you could get when you take time off to have a baby.
+        Estimate your Statutory Maternity Pay or Maternity Allowance and other help you can get from the government if you’re having a baby.
 
       when_is_your_baby_due?:
         title: When is your baby due?
