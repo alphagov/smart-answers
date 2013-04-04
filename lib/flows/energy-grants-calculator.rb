@@ -11,6 +11,14 @@ checkbox_question :what_are_your_circumstances? do
   calculate :circumstances do
     responses.last.split(",")
   end
+  calculate :warm_home_discount_amount do
+    if Date.today < Date.civil(2013,4,6)
+      130
+    else
+      135
+    end
+  end
+
 
   next_node :dob?
 end
