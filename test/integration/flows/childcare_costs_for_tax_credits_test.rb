@@ -89,6 +89,27 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
           assert_current_node :call_helpline_detailed
         end
 
+        context "answering Q11" do
+          setup do
+            add_response :regularly_more_than_year #Q2
+            add_response :yes #Q11
+          end
+
+          should "be on Q12 if you answer yes to Q11" do
+            assert_current_node :how_often_pay_providers?
+          end
+
+          context "answering Q12" do
+            setup do
+              add_response :other
+            end
+
+            should "take user to helpline outcome" do
+              assert_current_node :call_helpline_plain
+            end
+          end
+        end
+
         context "answering Q4" do
           setup do
             add_response :regularly_less_than_year
@@ -317,6 +338,24 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
         assert_phrase_list :body_phrases, [:cost_change_doesnt_matter]
       end
 
+    end
+  end
+
+  context "answering Q16" do
+    setup do
+      add_response :no #Q1
+      add_response :regularly_more_than_year #Q2
+      add_response :no #Q11
+    end
+
+    should "be on Q16" do
+      assert_current_node :how_much_spent_last_12_months?
+    end
+
+    should "take user to weekly outcome" do
+      add_response 52
+      assert_state_variable :weekly_cost, 1
+      assert_current_node :weekly_costs_are_x
     end
 
   end

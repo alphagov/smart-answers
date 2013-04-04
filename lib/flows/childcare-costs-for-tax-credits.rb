@@ -90,7 +90,7 @@ end
 #Q11
 multiple_choice :pay_same_each_time? do
   option :yes => :how_often_pay_providers? #Q12
-  option :no => :weekly_costs_are_x #Q16
+  option :no => :how_much_spent_last_12_months? #Q16
 end
 
 #Q12
@@ -101,7 +101,7 @@ multiple_choice :how_often_pay_providers? do
   option :every_month => :how_much_each_month? #Q10
   option :termly => :call_helpline_plain #O5
   option :yearly => :how_much_yearly? #Q15
-  option :other => :call_helpline #O5
+  option :other => :call_helpline_plain #O5
 end
 
 #Q13

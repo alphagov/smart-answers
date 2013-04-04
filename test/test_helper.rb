@@ -16,3 +16,9 @@ require 'minitest/autorun'
 require 'mocha/setup'
 
 require 'webmock/minitest'
+
+class MiniTest::Unit::TestCase
+  def teardown
+    Timecop.return
+  end
+end

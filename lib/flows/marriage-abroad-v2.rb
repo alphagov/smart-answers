@@ -1,4 +1,4 @@
-status :published
+status :draft
 satisfies_need "FCO-01"
 
 data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new

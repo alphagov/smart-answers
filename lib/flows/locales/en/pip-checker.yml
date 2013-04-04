@@ -21,6 +21,14 @@ en-GB:
         "no": "No"
         "yes": "Yes"
 
+      phrases:
+        before_april_eight_thirteen_text: |
+          $!You can make a claim for [Disability Living Allowance](/dla-disability-living-allowance-benefit "Disability Living Allowance") (DLA) until 7 April 2013.$!
+
+          After this date, you’ll have to make a claim for Personal Independence Payment (PIP) instead. This is because PIP is replacing DLA in your part of the country from 8 April 2013.
+        after_april_eight_thirteen_text: |
+          $!You can make a claim for [Personal Independence Payment (PIP)](/pip/overview “Personal Independence Payment”).$!
+
       ## Q1
       are_you_getting_dla?:
         title: "Are you getting Disability Living Allowance?"
@@ -53,9 +61,7 @@ en-GB:
 
       result_3:
         body: |
-          $!You can make a claim for [Disability Living Allowance](/dla-disability-living-allowance-benefit "Disability Living Allowance") (DLA) until 7 April 2013.$!
-
-          After this date, you'll have to make a claim for Personal Independence Payment (PIP) instead. This is because PIP is replacing DLA in your part of the country from 8 April 2013.
+          %{april_eight_change}
 
           *[PIP]: Personal Independence Payment
           *[DLA]: Disability Living Allowance

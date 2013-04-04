@@ -26,6 +26,8 @@ else
 end
 gem 'htmlentities', '~> 4'
 
+gem 'extlib', '0.9.16'
+
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
 else
