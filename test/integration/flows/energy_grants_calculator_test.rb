@@ -358,8 +358,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       add_response '1950-01-01'
       add_response 'income_support'
       add_response 'child_under_16'
-      assert_current_node :on_benefits
-      assert_phrase_list :eligibilities, [:winter_fuel_payments]
+      assert_current_node :do_not_qualify
     end
   end
 
