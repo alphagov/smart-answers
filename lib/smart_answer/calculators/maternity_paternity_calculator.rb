@@ -103,7 +103,8 @@ module SmartAnswer::Calculators
       [
         {min: Date.parse("3 April 2010"), max: Date.parse("2 April 2011"), lower_earning_limit_rate: 97},
         {min: Date.parse("3 April 2011"), max: Date.parse("31 March 2012"), lower_earning_limit_rate: 102},
-        {min: Date.parse("1 April 2012"), max: Date.parse("30 March 2013"), lower_earning_limit_rate: 107}
+        {min: Date.parse("1 April 2012"), max: Date.parse("30 March 2013"), lower_earning_limit_rate: 107},
+        {min: Date.parse("1 April 2013"), max: Date.parse("31 March 2014"), lower_earning_limit_rate: 109}
       ]
     end
 
