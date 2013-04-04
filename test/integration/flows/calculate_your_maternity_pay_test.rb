@@ -37,7 +37,7 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
 
   context "qualifying week is not this week" do
     setup do
-      @due_date = Date.today + 16.weeks
+      @due_date = Date.parse("Thu, 04 Apr 2013") + 16.weeks
       add_response @due_date
     end
 
@@ -315,7 +315,7 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
   
   context "qualifying week is this week" do
     setup do
-      @due_date = Date.today + 15.weeks
+      @due_date = Date.parse("Thu, 04 Apr 2013") + 15.weeks
       add_response @due_date
     end
 
