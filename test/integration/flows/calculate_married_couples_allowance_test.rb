@@ -441,4 +441,35 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
       end # income < 25400
     end # after 2005
   end
+
+  context "testing time specific dates" do
+    context "answering before april 6th" do
+      setup do
+        add_response :yes
+      end
+
+      should "use the old rating values" do
+        Timecop.travel("2012-03-13") do
+          assert_state_variable :is_before_april_changes, true
+          assert_state_variable :personal_allowance, 8105
+          assert_state_variable :earner_limit, 25400.0
+        end
+      end
+    end
+
+    context "answering after april 6th" do
+      setup do
+        add_response :yes
+      end
+
+      should "use the new rating values" do
+        Timecop.travel("2014-03-13") do
+          assert_state_variable :is_before_april_changes, false
+          assert_state_variable :personal_allowance, 9440
+          assert_state_variable :earner_limit, 26100.0
+        end
+      end
+
+    end
+  end
 end
