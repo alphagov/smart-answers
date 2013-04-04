@@ -4,6 +4,38 @@ satisfies_need 2012
 multiple_choice :were_you_or_your_partner_born_on_or_before_6_april_1935? do
   option :yes => :did_you_marry_or_civil_partner_before_5_december_2005?
   option :no => :sorry
+
+
+  calculate :is_before_april_changes do
+    Date.today < Date.civil(2013, 04, 06)
+  end
+
+  calculate :personal_allowance do
+    is_before_april_changes ? 8105 : 9440
+  end
+
+  calculate :earner_limit do
+    is_before_april_changes ? 25400.0 : 26100.0
+  end
+
+  calculate :age_related_allowance_chooser do
+    AgeRelatedAllowanceChooser.new(
+      personal_allowance: personal_allowance,
+      over_65_allowance: 10500,
+      over_75_allowance: 10660
+    )
+  end
+
+  calculate :calculator do
+    MarriedCouplesAllowanceCalculator.new(
+      maximum_mca: (is_before_april_changes ? 7705 : 7915),
+      minimum_mca: (is_before_april_changes ? 2960 : 3040),
+      income_limit: (is_before_april_changes ?  25400 : 26100),
+      personal_allowance: personal_allowance,
+      validate_income: false
+    )
+  end
+
 end
 
 multiple_choice :did_you_marry_or_civil_partner_before_5_december_2005? do
@@ -36,22 +68,6 @@ date_question :whats_the_highest_earners_date_of_birth? do
   next_node :whats_the_highest_earners_income?
 end
 
-personal_allowance = 8105
-over_65_allowance = 10500
-over_75_allowance = 10660
-
-age_related_allowance_chooser = AgeRelatedAllowanceChooser.new(
-  personal_allowance: personal_allowance,
-  over_65_allowance: over_65_allowance,
-  over_75_allowance: over_75_allowance)
-
-calculator = MarriedCouplesAllowanceCalculator.new(
-  maximum_mca: 7705,
-  minimum_mca: 2960,
-  income_limit: 25400,
-  personal_allowance: personal_allowance,
-  validate_income: false)
-
 money_question :whats_the_husbands_income? do
   save_input_as :income
 
@@ -60,7 +76,8 @@ money_question :whats_the_husbands_income? do
   end
 
   next_node do |response|
-    if response.to_f >= 25400.0
+    limit = (is_before_april_changes ? 25400.0 : 26100.0)
+    if response.to_f >= limit
       :paying_into_a_pension?
     else
       :husband_done
@@ -76,7 +93,8 @@ money_question :whats_the_highest_earners_income? do
   end
 
   next_node do |response|
-    if response.to_f >= 25400.0
+    limit = (is_before_april_changes ? 25400.0 : 26100.0)
+    if response.to_f >= limit
       :paying_into_a_pension?
     else
       :highest_earner_done
