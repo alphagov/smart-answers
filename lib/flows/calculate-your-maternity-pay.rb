@@ -25,6 +25,10 @@ date_question :when_is_your_baby_due? do
   calculate :twenty_six_weeks_before_qualifying_week do
     calculator.employment_start
   end
+  calculate :smp_LEL do
+    calculator.smp_LEL
+  end
+
   next_node :are_you_employed?
 end
 
@@ -67,18 +71,15 @@ salary_question :how_much_do_you_earn? do
   weekly_salary_90 = nil
   next_node do |salary|
     weekly_salary_90 = Money.new(salary.per_week * 0.9)
-    if salary.per_week >= 107
-      if weekly_salary_90 < 135.45
-        :you_qualify_for_statutory_maternity_pay_below_threshold
-      else
-        :you_qualify_for_statutory_maternity_pay_above_threshold
-      end
-    elsif salary.per_week >= 30
+    if salary.per_week >= smp_LEL
+      :you_qualify_for_statutory_maternity_pay_above_threshold
+    elsif salary.per_week >= 30 && salary.per_week < smp_LEL
       :you_qualify_for_maternity_allowance_below_threshold
     else
       :nothing_maybe_benefits
     end
   end
+
   calculate :eligible_amount do
     weekly_salary_90
   end
