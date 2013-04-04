@@ -44,7 +44,7 @@ multiple_choice :did_you_start_26_weeks_before_qualifying_week? do
       if Date.today < qualifying_week.first
         :will_you_still_be_employed_in_qualifying_week?
       else
-        :how_much_are_you_paid?
+        :how_much_do_you_earn?
       end
     else
       # If they weren't employed 26 weeks before qualifying week, there's no
@@ -55,7 +55,7 @@ multiple_choice :did_you_start_26_weeks_before_qualifying_week? do
 end
 
 multiple_choice :will_you_still_be_employed_in_qualifying_week? do
-  option :yes => :how_much_are_you_paid?
+  option :yes => :how_much_do_you_earn?
   option :no => :will_you_work_at_least_26_weeks_during_test_period?
 end
 
@@ -63,7 +63,7 @@ end
 # have worked 26 weeks for the same employer
 # 135.45 is standard weekly rate. This may change
 # 107 is the lower earnings limit. This may change
-salary_question :how_much_are_you_paid? do
+salary_question :how_much_do_you_earn? do
   weekly_salary_90 = nil
   next_node do |salary|
     weekly_salary_90 = Money.new(salary.per_week * 0.9)
@@ -89,7 +89,7 @@ multiple_choice :will_you_work_at_least_26_weeks_during_test_period? do
   option :no
   next_node do |input|
     if input == 'yes'
-      :how_much_do_you_earn?
+      :how_much_did_you_earn_between?
     else
       :nothing_maybe_benefits
     end
@@ -97,7 +97,7 @@ multiple_choice :will_you_work_at_least_26_weeks_during_test_period? do
 end
 
 # 135.45 is standard weekly rate. This may change
-salary_question :how_much_do_you_earn? do
+salary_question :how_much_did_you_earn_between? do
   weekly_salary_90 = nil
   next_node do |earnings|
     if earnings.per_week >= 30

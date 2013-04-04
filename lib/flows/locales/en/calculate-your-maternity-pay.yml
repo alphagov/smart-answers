@@ -13,7 +13,7 @@ en-GB:
         Estimate your Statutory Maternity Pay or Maternity Allowance and other help you can get from the government if you’re having a baby.
 
       when_is_your_baby_due?:
-        title: When is your baby due?
+        title: What is your baby’s due date?
         error_message: Use the arrows to choose the date from the drop-downs
       are_you_employed?:
         hint: Are you an employee with an employment contract - rather than a 'worker' or self-employed.
@@ -21,12 +21,12 @@ en-GB:
       did_you_start_26_weeks_before_qualifying_week?:
         title: Did you start your current job on or before %{twenty_six_weeks_before_qualifying_week}?
         error_message: Please choose 'yes' or 'no'
-      how_much_are_you_paid?:
-        title: How much are you paid?
-        hint: This is your total take-home pay before any deductions, eg tax.
-        error_message: Use only numbers, eg 500
       how_much_do_you_earn?:
         title: How much do you earn?
+        hint: This is your total take-home pay before any deductions, eg tax.
+        error_message: Use only numbers, eg 500
+      how_much_did_you_earn_between?:
+        title: How much did you earn between %{start_of_test_period} and %{end_of_test_period}?
         hint: This is your total earnings before any deductions, eg tax.
         error_message: Use only numbers, eg 500
       when_did_you_start_your_job?:
@@ -35,7 +35,7 @@ en-GB:
         title: Will you still be in the same job on %{start_of_qualifying_week}?
       will_you_work_at_least_26_weeks_during_test_period?:
         title: Will you have worked at least 26 weeks between %{start_of_test_period} and %{end_of_test_period}?
-        hint: This can be full or part weeks, and the 26 weeks don't have to be in a row.
+        hint: This can be full or part-weeks, and the 26 weeks don't have to be in a row.
         error_message: Please choose 'yes' or 'no'
       nothing_maybe_benefits:
         title: You don't qualify for maternity pay, but you could get other benefits.

@@ -71,7 +71,7 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
           end
 
           should "ask how much you are paid" do
-            assert_current_node :how_much_are_you_paid?
+            assert_current_node :how_much_do_you_earn?
           end
   
           context "weekly salary >= 107 and < 1353.5/9" do
@@ -135,7 +135,7 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
             end
     
             should "ask how much you earn" do
-              assert_current_node :how_much_do_you_earn?
+              assert_current_node :how_much_did_you_earn_between?
             end
     
             context "weekly salary >=30 and < 1353.5/9" do
@@ -200,7 +200,7 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
           end
   
           should "ask how much you earn" do
-            assert_current_node :how_much_do_you_earn?
+            assert_current_node :how_much_did_you_earn_between?
           end
   
           context "weekly salary >=30 and < 1353.5/9" do
@@ -265,7 +265,7 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
         end
   
         should "ask how much you earn" do
-          assert_current_node :how_much_do_you_earn?
+          assert_current_node :how_much_did_you_earn_between?
         end
   
         context "weekly salary >=30 and < 1353.5/9" do
@@ -339,7 +339,7 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
         end
   
         should "ask how much you are paid" do
-          assert_current_node :how_much_are_you_paid?
+          assert_current_node :how_much_do_you_earn?
         end
 
         context "weekly salary >= 107 and < 1353.5/9" do
@@ -403,7 +403,7 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
           end
   
           should "ask how much you earn" do
-            assert_current_node :how_much_do_you_earn?
+            assert_current_node :how_much_did_you_earn_between?
           end
   
           context "weekly salary >=30 and < 1353.5/9" do
@@ -468,7 +468,7 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
         end
   
         should "ask how much you earn" do
-          assert_current_node :how_much_do_you_earn?
+          assert_current_node :how_much_did_you_earn_between?
         end
   
         context "weekly salary >=30 and < 1353.5/9" do
