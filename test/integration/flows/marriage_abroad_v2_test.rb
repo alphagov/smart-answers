@@ -1386,4 +1386,20 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       assert_current_node :outcome_cp_all_other_countries
     end
   end
+
+#testing for nicaragua
+  context "ceremony in nicaragua, resident in poland, partner irish" do
+    setup do
+      add_response 'nicaragua'
+      add_response 'other'
+      add_response 'poland'
+      add_response 'partner_irish'
+      add_response 'opposite_sex'
+    end
+    should "go to consular cni os outcome" do
+      assert_current_node :outcome_os_no_cni
+      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_other_resident, :no_cni_os_all_nearest_embassy, :no_cni_os_all_depositing_certificate, :no_cni_os_ceremony_not_usa, :no_cni_os_all_fees, :no_cni_os_naturalisation]
+    end
+  end
+
 end
