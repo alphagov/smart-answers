@@ -82,8 +82,13 @@ checkbox_question :disabled_or_have_children? do
   end
 
   next_node do |response|
+    allchoices = response.split(',')
+    social_tenant_answers = ['child_under_16','work_support_esa']
+
     if response == 'none'
       :on_benefits_no_disability_or_children
+    elsif (allchoices - social_tenant_answers).empty? and circumstances.include?('social_housing')
+      :do_not_qualify
     else
       :on_benefits
     end
@@ -117,7 +122,7 @@ outcome :on_benefits do
     if benefits.include?('pension_credit') or benefits_1 or benefits.include?('esa')
       phrases << :warm_home_discount << :cold_weather_payment << :energy_company_obligation
     end
-    if benefits.include?('child_tax_credit') or (benefits_2 if ! circumstances.include?('social_housing')) or
+    if benefits.include?('child_tax_credit') or benefits_2 or
       (benefits.include?('working_tax_credit') and age_variant == :over_60)
         phrases << :energy_company_obligation
     end
@@ -144,3 +149,6 @@ outcome :on_benefits_no_disability_or_children do
     PhraseList.new(*phrases.uniq)
   end
 end
+
+# Result 4 = (Social housing tenant claiming JSA or Income Support)
+outcome :do_not_qualify
