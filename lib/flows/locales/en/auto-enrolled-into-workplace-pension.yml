@@ -40,15 +40,15 @@ en-GB:
       annual_earnings?:
         title: How much do you earn?
         options:
-          up_to_5k: Up to £109 per week (£473 per month)
-          more_than_5k: £109 per week (£473 per month) or more
+          up_to_5k: Up to £%{lel_weekly_rate} per week (£%{lel_monthly_rate} per month)
+          more_than_5k: £%{lel_weekly_rate} per week (£%{lel_monthly_rate} per month) or more
 #Q6
       annual_earnings2?:
         title: How much do you earn?
         options:
-          up_to_5k: Up to £109 per week (£473 per month)
-          between_5k_9k: Between £109 per week (£473 per month) and £182 per week (£787 per month)
-          more_than_9k: More than £182 per week (£787 per month)
+          up_to_5k: Up to £%{lel_weekly_rate} per week (£%{lel_monthly_rate} per month)
+          between_5k_9k: Between £%{lel_weekly_rate} per week (£%{lel_monthly_rate} per month) and £%{threshold_weekly_rate} per week (£%{threshold_monthly_rate} per month)
+          more_than_9k: More than £%{threshold_weekly_rate} per week (£%{threshold_monthly_rate} per month)
           varies: Hard to say - my income varies
 #Q7
       one_of_the_following?:
@@ -113,7 +113,7 @@ en-GB:
       not_enrolled_income_varies:
         body: |
           $C
-          If you normally earn less than £9,440 a year (£182 a week or £787 a month), you won’t be enrolled into a [workplace pension](/workplace-pensions "Workplace pensions").
+          If you normally earn less than £%{threshold_annual_rate} a year (£%{threshold_weekly_rate} a week or £%{threshold_monthly_rate} a month), you won’t be enrolled into a [workplace pension](/workplace-pensions "Workplace pensions").
           $C
 
           However, if you earn more than this in a single pay packet (eg because of paid overtime), your employer will enrol you into their scheme automatically.
@@ -140,11 +140,11 @@ en-GB:
         body: |
           $C
           You’ll be automatically enrolled into a [workplace pension](/workplace-pensions "Workplace pensions") for each
-          employer that pays you £9,440 a year or more, which is the same as:
+          employer that pays you £%{threshold_annual_rate} a year or more, which is the same as:
 
 
-          - £787 per month
-          - £182 per week
+          - £%{threshold_monthly_rate} per month
+          - £%{threshold_weekly_rate} per week
           $C
 
           They won’t have to do this until %{enrollment_date}. But they can choose to do it earlier.

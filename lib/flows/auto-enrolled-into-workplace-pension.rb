@@ -18,11 +18,11 @@ value_question :how_many_people? do
     num
   end
 
-  next_node do |response| 
+  next_node do |response|
     # response.to_i returns 2 if user enters 2,500, so prevent them from entering numbers with a comma
     if Integer(response) < 30
       :not_enrolled_automatically
-    else 
+    else
       :how_old?
     end
   end
@@ -31,6 +31,24 @@ end
 multiple_choice :how_old? do
   precalculate :enrollment_date do
     Calculators::WorkplacePensionCalculator.enrollment_date(num_employees)
+  end
+  precalculate :threshold_weekly_rate do
+    Calculators::WorkplacePensionCalculator.new.threshold_weekly_rate
+  end
+  precalculate :threshold_monthly_rate do
+    Calculators::WorkplacePensionCalculator.new.threshold_monthly_rate
+  end
+  precalculate :threshold_annual_rate do
+    Calculators::WorkplacePensionCalculator.new.threshold_annual_rate.round
+  end
+  precalculate :lel_weekly_rate do
+    Calculators::WorkplacePensionCalculator.new.lel_weekly_rate
+  end
+  precalculate :lel_monthly_rate do
+    Calculators::WorkplacePensionCalculator.new.lel_monthly_rate
+  end
+  precalculate :lel_annual_rate do
+    Calculators::WorkplacePensionCalculator.new.lel_annual_rate.round
   end
 
   option :between_16_21 => :annual_earnings?
