@@ -24,6 +24,7 @@ module SmartAnswer::Calculators
       end
       context "weeks_worked" do
         should "give the number of weeks between the calculation period and holiday start dates" do
+          Timecop.travel(Date.civil(Date.today.year, 10, 2))
           assert_equal 4, @calc.weeks_worked(Date.civil(Date.today.year, 11, 1))
         end
       end

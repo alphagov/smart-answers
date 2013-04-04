@@ -42,7 +42,7 @@ certificate-of-naturalisation:
 certificate-of-no-impediment:
   heading: Certificate of no impediment
   type: certificate of no impediment
-  group: birth_death
+  group: certificate_impediment
 chamber-of-commerce-document:
   heading: Chamber of Commerce document
   type: Chamber of Commerce document
@@ -128,8 +128,8 @@ family-division-high-court-justice-document:
   type: court document
   group: court_document
 fingerprints:
-  heading: Fingerprints
-  type: fingerprints
+  heading: Fingerprints document
+  type: fingerprints document
   group: police_disclosure
 fit-note-from-a-doctor:
   heading: Fit note (from a doctor)
@@ -182,7 +182,7 @@ medical-report:
 marriage-certificate:
   heading: Marriage certificate
   type: marriage certificate
-  group: birth_death_marriage_certificate_only
+  group: marriage_document
 name-change-deed-or-document:
   heading: Name change deed or document
   type: name change deed or document
@@ -190,7 +190,7 @@ name-change-deed-or-document:
 passport-copy-only:
   heading: Passport (copy only)
   type: copy of your passport
-  group: solicitors_notaries
+  group: solicitors_notaries_copy_passport
 pet-export-document:
   heading: Pet export document from DEFRA
   type: pet export document

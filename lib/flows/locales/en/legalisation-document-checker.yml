@@ -9,7 +9,7 @@ en-GB:
 
         Use this tool to check if your document can be legalised.
 
-#Q1
+      #Q1
       what_documents_do_you_want_legalised?:
         title: What documents do you want legalised?
         options:
@@ -45,7 +45,7 @@ en-GB:
           "educational-certificate-uk": "Educational certificate (UK)"
           "export-certificate": "Export certificate"
           "family-division-high-court-justice-document": "Family Division of the High Court of Justice document"
-          "fingerprints": "Fingerprints"
+          "fingerprints": "Fingerprints document"
           "fit-note-from-a-doctor": "Fit note (from a doctor)"
           "government-issued-document": "Government issued document"
           "grant-of-probate": "Grant of probate"
@@ -75,48 +75,80 @@ en-GB:
           "utility-bill": "Utility bill"
 
       phrases:
+        marriage_document: |
+          ##%{document_heading}
+
+          Your %{document_type} can be legalised if it’s either:
+
+          - an official certified copy of the certificate issued by the General Register Office (GRO) with the original seal
+
+          - an original certificate (or original certified copy) issued by a church, religious establishment or local register office, with the original signature of the official who issued the certificate  
+
+          It can take longer to legalise a signature on an original certificate, especially if it was issued before 1991.
+
+          You can [order a certified copy of your certificate](https://www.gro.gov.uk/gro/content/certificates/default.asp "Order a certified copy of your certificate"){:rel="external"} from the GRO which could be quicker.
+
+          ^Non-GRO marriage certificates (eg Islamic marriage certificates) can't be legalised unless they are certified.^
+
+
+          ^A photocopy of your document won’t be accepted.^
+
+        certificate_impediment: |
+          ##%{document_heading}
+
+          Your %{document_type} can be legalised if it:
+
+          - is an original certificate (or original certified copy) issued by a local register office
+
+          - has the original signature of the official who issued the certificate
+
+
+          ^A photocopy of your document won’t be accepted.^
+
         police_disclosure: |
           ##%{document_heading}
-          Your %{document_type} can be only be legalised if it has been:
+          Your %{document_type} can only be legalised if it has been either:
 
           - signed by an official from the issuing authority
-          - [certified](/certifying-a-document "Certified copy of a document")
+          - certified
 
           ^A photocopy of your document won’t be accepted.^
         solicitors_notaries: |
           ##%{document_heading}
-          Your %{document_type} can only be legalised if it has been [certified](/certifying-a-document "Certified copy of a document").
+          Your %{document_type} can only be legalised if it has been certified.
 
           You can also provide a certified photocopy of your document.
+
+
+        solicitors_notaries_copy_passport: |
+
+          ##%{document_heading}
+          Your %{document_type} can only be legalised if it has been certified.
+
+          ^You must send a photocopy - your actual passport won’t be accepted.^
+
         government_companies: |
           ##%{document_heading}
-          Your %{document_type} can be only be legalised if it has been:
+          Your %{document_type} can only be legalised if it has been either:
 
           - signed by an official from the issuing authority
-          - [certified](/certifying-a-document "Certified copy of a document")
+          - certified
 
           ^A photocopy of your document can be legalised, but it must be certified.^
+
         birth_death: |
           ##%{document_heading}
           Your %{document_type} can be legalised if it is either:
 
-          - an official certified copy of the certificate issued by the General Register Officer (GRO) with the original seal
-          - an original certificate (or original certified copy) issued by a church, religious establishment or local register office, with the original signature of the official who issued the certificate
+          - an official certified copy of the certificate issued by the General Register Office (GRO) with the original seal
+          - an original certificate (or original certified copy) issued by a local register office, with the original signature of the official who issued the certificate
 
           It can take longer to legalise a signature on an original certificate, especially if it was issued before 1991.
 
-          You can [order a certifed copy of your certificate](https://www.gro.gov.uk/gro/content/certificates/default.asp "Order a certified copy of your certificate"){:rel="external"} from the GRO which could be quicker.
-        birth_death_marriage_certificate_only: |
-          ##%{document_heading}
-          Your %{document_type} can be legalised if it is either:
+          You can [order a certified copy of your certificate](https://www.gro.gov.uk/gro/content/certificates/default.asp "Order a certified copy of your certificate"){:rel="external"} from the GRO which could be quicker.
 
-          - an official certified copy of the certificate issued by the General Register Officer (GRO) with the original seal
-          - an original certificate (or original certified copy) issued by a church, religious establishment or local register office, with the original signature of the official who issued the certificate
+          ^A photocopy of your document won’t be accepted.^
 
-          It can take longer to legalise a signature on an original certificate, especially if it was issued before 1991.
-
-          You can [order a certifed copy of your certificate](https://www.gro.gov.uk/gro/content/certificates/default.asp "Order a certified copy of your certificate"){:rel="external"} from the GRO which could be quicker.
-          ^Non-GRO marriage certificates (eg Islamic marriage certificates) can't be legalised unless they are [certified](/certifying-a-document "Certified copy of a document").^
         court_document: |
           ##%{document_heading}
           Your %{document_type} must have been issued by either the:
@@ -131,16 +163,18 @@ en-GB:
 
           - the original seal or ink stamp of the court
           - the signature of a court official
+          - been certified
 
-          It can take the Legalisation Office longer to legalise a court document that only has a signature. You can get your document [certified](/certifying-a-document "Certified copy of a document") which could make the process quicker.
+          It can take the Legalisation Office longer to legalise a court document that only has a signature. Getting your document certified might make the process quicker.
+
         vet_health: |
-          ##Veterinary Health Certificate
-          Your Veterinary Health Certificate can only be legalised if it has been signed and stamped by a veterinary surgeon registered with the Department of Food and Rural Affairs.
+          ##Pet export document from DEFRA
+          Your pet export document can only be legalised if it has been signed and stamped by a veterinary surgeon registered with the Department of Food and Rural Affairs.
         education_document_degree_certificate_only: |
           ##%{document_heading}
-          Your degree certificate must be be awarded by a [recognised body](/check-a-university-is-officially-recognised "Check if a university or college is recognised").
+          Your degree certificate must be awarded by a [recognised body](/check-a-university-is-officially-recognised "Check if a university or college is recognised").
 
-          It must also be [certified](/certifying-a-document "Certified copy of a document") by either:
+          It must also be certified by either:
 
           - a solicitor or notary public in the UK
           - an official of the British Council (only original certificates)
@@ -158,7 +192,7 @@ en-GB:
           - Open and Distance Learning Quality Council
           - Association of British Language Schools
 
-          It must also be [certified](/certifying-a-document "Certified copy of a document") by either:
+          It must also be certified by either:
 
           - a solicitor or notary public in the UK
           - an official of the British Council (only original certificates)
@@ -169,15 +203,43 @@ en-GB:
           ##%{document_heading}
           Your %{document_type} must be signed by a doctor registered with the [General Medical Council.](http://www.gmc-uk.org/doctors/register/LRMP.asp "Check if a doctor is registered with the General Medical Council"){:rel="external"} 
 
-          A photocopy of your document can be legalised, but it must be [certified.](/certifying-a-document "Certified copy of a document")
-
           ^Your document can’t be legalised if it has been signed on behalf of your doctor by another doctor or member of staff.^
+
+        generic_certifying_content: |
+          ##Certifying documents
+
+          If you provide a certified document, it must be certified in the UK by a solicitor or ‘notary public’.
+
+          When the solicitor or notary public signs the document, they must:
+
+          - note the type of certification they have done (eg the document is a true copy of the original)
+          - use their personal signature, not a company signature
+          - include the date of certification
+          - include their company address
+
+          If they add a notarial certificate, it must be attached to the document. The certificate must also  contain a specific reference to the document they have certified.
+
+          If a notary public from England, Wales or Northern Ireland signs a document for legalisation, they must also stamp or emboss the document with their notarial seal.
+
+          You can find:
+
+          - [solicitors in England and Wales](http://www.lawsociety.org.uk/home.law "solicitors in England and Wales"){:rel="external"}
+
+          - [notaries public in England and Wales](http://www.facultyoffice.org.uk/Notaries1.html "notaries Public in England and Wales"){:rel="external"} 
+
+          - [solicitors and notaries public in Scotland](http://www.lawscot.org.uk/ "solicitors and Notaries Public in Scotland"){:rel="external"} 
+
+          - [solicitors and notaries public in Northern Ireland](http://www.lawsoc-ni.org/ "solicitors and notaries public in Northern Ireland"){:rel="external"} 
+
+
 
       outcome_results:
         body: |
           %{document_details}
+
+          %{generic_conditional_content}
           ##Get your documents legalised
 
-          You can [get your documents legalised](/get-a-document-legalised "Get your documents legalised") by the Legalisation Office if they meet the standards above.
-          
+          You can [get your documents legalised](/get-document-legalised "Get your documents legalised") by the Legalisation Office if they meet the standards above.
+
 

@@ -37,7 +37,7 @@ en-GB:
           You might be eligible for [credits towards your basic State Pension](/automatic-pension-credits-for-men "automatic pension credits for men") for the years immediately before you reach age 65.
         full_contribution_years_callout: You get the full State Pension.
         automatic_credits: |
-          Your estimate includes up to 3 years of automatic credits for the years containing your 16th, 17th and 18th birthdays. If you got your National Insurance number after April 2010 you don’t get these automatic credits.
+          Your estimate includes up to 3 years of automatic credits for the years covering your 16th, 17th and 18th birthdays. If you got your National Insurance number after April 2010 you don’t get these automatic credits.
 
         state_pension_age_is: |
 
@@ -71,8 +71,6 @@ en-GB:
           ##Pension Credit
           If you&rsquo;re on a low income, you might be eligible to claim [Pension Credit](/pension-credit "Pension Credit").
 
-          You may have been entitled to receive Pension Credit from %{pension_credit_date}
-          
           ##Bus pass
           You may also apply for an [elderly person’s bus pass](/apply-for-elderly-person-bus-pass "Elderly person’s bus pass") from %{pension_credit_date}.
 
@@ -94,7 +92,7 @@ en-GB:
 
 
           $C
-          You can [apply for a State Pension statement](/state-pension-statement "get a State Pension statement") to get an estimate of your full State Pension.
+          You can [apply for a State Pension statement](/state-pension-statement "get a State Pension statement") to get a detailed estimate of your full State Pension.
           $C
 
 
@@ -119,7 +117,7 @@ en-GB:
           
 
           $C
-          You currently don’t have the 30 qualifying years to get a full basic State Pension of £%{weekly_rate} per week but you may have enough time before your State Pension age to get the further years needed.
+          You currently don’t have the 30 qualifying years to get a full basic State Pension of £%{weekly_rate}. You don’t have enough years before your State Pension age to get the further years needed.
           $C
 
           State Pension | Your results
