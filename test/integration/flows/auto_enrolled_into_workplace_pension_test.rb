@@ -149,9 +149,9 @@ class AutoEnrolledIntoWorkplacePensionTest < ActiveSupport::TestCase
             end
           end
 
-          context "between 5k and 8k" do
+          context "between 5k and 9k" do
             should "not be enrolled" do
-              add_response :between_5k_8k
+              add_response :between_5k_9k
               assert_current_node :not_enrolled_opt_in
             end
           end
@@ -163,9 +163,9 @@ class AutoEnrolledIntoWorkplacePensionTest < ActiveSupport::TestCase
             end
           end
 
-          context "above 8k" do
+          context "above 9k" do
             setup do
-              add_response :more_than_8k
+              add_response :more_than_9k
             end
 
             should "ask if you are one of the following" do
