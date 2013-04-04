@@ -6,6 +6,10 @@ module SmartAnswer::Calculators
 			period_start..period_end
 		end
 
+    def eleven_weeks
+      11.weeks.ago(@due_date) + 1.day
+    end
+
     def smp_rate
       if due_date_before_7th_april_2013?
         135.45

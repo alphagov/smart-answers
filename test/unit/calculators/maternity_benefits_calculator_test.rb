@@ -79,5 +79,12 @@ module SmartAnswer::Calculators
         end
       end
     end
+
+    context "eleven_weeks" do
+      should "work out earliest date maternity allowance payments can start" do
+        calculator = MaternityBenefitsCalculator.new(Date.parse("1st April 2013"))
+        assert_equal Date.parse("15 Jan 2013"), calculator.eleven_weeks
+      end
+    end
   end
 end
