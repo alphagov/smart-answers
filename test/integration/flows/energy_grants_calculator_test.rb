@@ -384,26 +384,20 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
     end
   end
 
-
-#test for timecop pre-April 2013
-  context "testing warm home discount amount pre-April 2013" do
-    should "calculate eligibilities" do
+#test for timecop
+  context "testing warm home discount amounts" do
+    setup do
+      add_response 'benefits'
+    end
+    should "be £130 pre 06 April 2013" do
       Timecop.travel('2013-03-13') do
-        add_response 'benefits'
         assert_state_variable :warm_home_discount_amount, 130
       end
     end
-  end
-
-#test for timecop post-April 2013
-  context "testing warm home discount amount post-April 2013" do
-    should "calculate eligibilities" do
+    should "be £135 post 06 April 2013" do
       Timecop.travel('2014-03-13') do
-        add_response 'benefits'
         assert_state_variable :warm_home_discount_amount, 135
       end
     end
   end
-
-
 end
