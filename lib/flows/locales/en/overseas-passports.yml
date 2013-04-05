@@ -720,6 +720,20 @@ en-GB:
           |---------------|--------------|--------------------------------------|
           | Child passport | £81.50 | £101.36 |
 
+        passport_courier_costs_replacing_ips1: |
+          You’ll have to pay a fee for your passport and a courier fee of £9.70. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+
+        adult_passport_costs_replacing_ips1: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Adult standard 32-page passport | £128.00 | £137.70 |
+          | Adult jumbo 48-page passport | £154.50 | £164.20 |
+
+        child_passport_costs_replacing_ips1: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Child passport | £81.50 | £91.20 |
+
         passport_costs_ips1: |
           Fill in a ‘Paying by credit card or debit card’ form for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
 

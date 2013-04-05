@@ -215,9 +215,15 @@ outcome :ips_application_result do
                    :"how_long_it_takes_ips#{ips_number}")
   end
   precalculate :cost do
-    PhraseList.new(:"passport_courier_costs_ips#{ips_number}",
+    if application_action == 'replacing' && ips_number == '1'
+      PhraseList.new(:"passport_courier_costs_replacing_ips#{ips_number}",
+                   :"#{child_or_adult}_passport_costs_replacing_ips#{ips_number}",
+                   :"passport_costs_ips#{ips_number}")
+    else
+      PhraseList.new(:"passport_courier_costs_ips#{ips_number}",
                    :"#{child_or_adult}_passport_costs_ips#{ips_number}",
                    :"passport_costs_ips#{ips_number}")
+    end
   end
   precalculate :how_to_apply do
     PhraseList.new(:"how_to_apply_ips#{ips_number}",
