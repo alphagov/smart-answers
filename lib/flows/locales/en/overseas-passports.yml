@@ -679,6 +679,9 @@ en-GB:
             [Download ‘Supporting documents you must send with your application’ (PDF, 99KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Guidance_Gp3.pdf "Download ‘Supporting documents you must send with your application’ (PDF, 99KB)")
           $D
 
+        passport_costs_ips_cash: |
+          You must pay in cash using local currency - the prices above will be converted according to the exchange rate when you apply.
+
         how_long_applying_ips1: |
           Your application will take **at least** 6 weeks from when it’s received by the Identity and Passport Service (IPS) in the UK. You may have to attend an interview for a first adult passport.
 
@@ -841,9 +844,6 @@ en-GB:
           You can use Mastercard, Visa, Electron, Diners Club and JCB.
 
           [Download ‘Paying by credit card or debit card’ (PDF, 803KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Payment_Instruction.pdf "Download ‘Paying by credit card or debit card’ (PDF, 803KB)"){:rel="external"}
-
-        passport_costs_ips2_cash: |
-          You must pay in cash using local currency - the prices above will be converted according to the exchange rate when you apply.
 
         how_to_apply_ips2: |
           1. Download the application form.
