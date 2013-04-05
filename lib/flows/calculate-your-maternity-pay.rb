@@ -29,6 +29,18 @@ date_question :when_is_your_baby_due? do
     calculator.smp_LEL
   end
 
+  calculate :smp_rate do
+    calculator.smp_rate
+  end
+
+  calculate :ma_rate do
+    calculator.ma_rate
+  end
+
+  calculate :eleven_weeks do
+    calculator.eleven_weeks
+  end
+
   next_node :are_you_employed?
 end
 
@@ -87,6 +99,27 @@ salary_question :how_much_do_you_earn? do
   calculate :eligible_amount do
     weekly_salary_90
   end
+
+  calculate :smp_6_weeks do
+    Money.new(weekly_salary_90)
+  end
+
+  calculate :smp_33_weeks do
+    Money.new(smp_rate > smp_6_weeks.to_f ? smp_6_weeks : smp_rate)
+  end
+
+  calculate :smp_total do
+    Money.new(smp_6_weeks.to_f * 6 + smp_33_weeks.to_f * 33)
+  end
+
+  calculate :ma_rate do
+    # either ma_rate or weekly_salary_90, whichever is lower
+    calculator.ma_rate > weekly_salary_90.to_f ? weekly_salary_90 : Money.new(calculator.ma_rate)
+  end
+
+  calculate :ma_payable do
+    Money.new(ma_rate * 39)
+  end
 end
 
 multiple_choice :will_you_work_at_least_26_weeks_during_test_period? do
@@ -130,21 +163,27 @@ salary_question :how_much_did_you_earn_between? do
   end
 
   calculate :ma_payable do
-    ma_rate * 39
+    Money.new(ma_rate * 39)
   end
 end
 
 # Outcome 1
-outcome :nothing_maybe_benefits
+outcome :nothing_maybe_benefits do
+  precalculate :extra_help_phrase do
+    PhraseList.new(:extra_help)
+  end
+end
 
 # Outcome 2
-outcome :smp_from_employer
+outcome :smp_from_employer do
+  precalculate :extra_help_phrase do
+    PhraseList.new(:extra_help)
+  end
+end
 
 # Outcome 3
-outcome :you_qualify_for_maternity_allowance
-
-# old outcomes
-outcome :you_qualify_for_statutory_maternity_pay_above_threshold
-outcome :you_qualify_for_statutory_maternity_pay_below_threshold
-outcome :you_qualify_for_maternity_allowance_above_threshold
-outcome :you_qualify_for_maternity_allowance_below_threshold
+outcome :you_qualify_for_maternity_allowance do
+  precalculate :extra_help_phrase do
+    PhraseList.new(:extra_help)
+  end
+end
