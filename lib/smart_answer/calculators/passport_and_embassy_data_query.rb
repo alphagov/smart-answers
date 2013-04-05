@@ -15,6 +15,7 @@ module SmartAnswer::Calculators
       'liberia' => 'ghana',
       'mauritania' => 'morocco',
       'togo' => 'ghana',
+      'western-sahara' => 'morocco',
       'yemen' =>  'jordan'
     }
 
