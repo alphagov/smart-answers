@@ -21,8 +21,8 @@ module SmartAnswer::Calculators
 
     RETAIN_PASSPORT_COUNTRIES = %w(afghanistan angola bangladesh brazil burma burundi china cuba
                                    east-timor egypt eritrea georgia indonesia iraq israel laos lebanon
-                                   libya mauritius morocco nepal north-korea pakistan rwanda
-                                   sri-lanka sudan thailand timor-leste tunisia uganda yemen zambia zimbabwe)
+                                   libya morocco nepal north-korea pakistan rwanda
+                                   sri-lanka sudan thailand timor-leste tunisia uganda yemen zambia)
 
     attr_reader :embassy_data, :passport_data
 
