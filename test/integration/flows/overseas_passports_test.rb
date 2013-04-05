@@ -285,13 +285,27 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           assert_current_node :country_of_birth?
         end
         context "answer Greece" do
-          should "use the greek document group in the results" do
+          setup do
             add_response 'greece'
+          end
+
+          should "use the greek document group in the results" do
             assert_state_variable :supporting_documents, 'ips_documents_group_2'
+          end
+
+          should "give the result" do
+            assert_current_node :ips_application_result
+            assert_phrase_list :fco_forms, [:adult_fco_forms]
+            assert_phrase_list :how_long_it_takes, [:how_long_applying_ips1, :how_long_it_takes_ips1]
+            assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :ips_documents_group_2]
+            assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
+            assert_phrase_list :send_your_application, [:send_application_ips1]
+            assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
           end
         end
       end
     end # Applying
+
     context "answer renewing old blue or black passport" do
       setup do
         add_response 'renewing_old'
@@ -316,7 +330,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           assert_phrase_list :fco_forms, [:adult_fco_forms]
           assert_phrase_list :how_long_it_takes, [:how_long_replacing_ips1, :how_long_it_takes_ips1]
           assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :ips_documents_group_1]
-          assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
+          assert_phrase_list :cost, [:passport_courier_costs_replacing_ips1, :adult_passport_costs_replacing_ips1, :passport_costs_ips1]
           assert_phrase_list :send_your_application, [:send_application_ips1]
           assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
           assert_state_variable :embassy_address, nil

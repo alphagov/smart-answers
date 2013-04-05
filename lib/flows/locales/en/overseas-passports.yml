@@ -679,6 +679,9 @@ en-GB:
             [Download ‘Supporting documents you must send with your application’ (PDF, 99KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Guidance_Gp3.pdf "Download ‘Supporting documents you must send with your application’ (PDF, 99KB)")
           $D
 
+        passport_costs_ips_cash: |
+          You must pay in cash using local currency - the prices above will be converted according to the exchange rate when you apply.
+
         how_long_applying_ips1: |
           Your application will take **at least** 6 weeks from when it’s received by the Identity and Passport Service (IPS) in the UK. You may have to attend an interview for a first adult passport.
 
@@ -720,10 +723,24 @@ en-GB:
           |---------------|--------------|--------------------------------------|
           | Child passport | £81.50 | £101.36 |
 
+        passport_courier_costs_replacing_ips1: |
+          You’ll have to pay a fee for your passport and a courier fee of £9.70. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+
+        adult_passport_costs_replacing_ips1: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Adult standard 32-page passport | £128.00 | £137.70 |
+          | Adult jumbo 48-page passport | £154.50 | £164.20 |
+
+        child_passport_costs_replacing_ips1: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Child passport | £81.50 | £91.20 |
+
         passport_costs_ips1: |
           Fill in a ‘Paying by credit card or debit card’ form for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
 
-          You can use most major credit or debit cards - but not American Express.
+          You can use Mastercard, Visa, Electron, Diners Club and JCB.
 
           [Download ‘Paying by credit card or debit card’ (PDF, 803KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Payment_Instruction.pdf "Download ‘Paying by credit card or debit card’ (PDF, 803KB)"){:rel="external"}
 
@@ -745,6 +762,23 @@ en-GB:
             101 Old Hall Street
             Liverpool
             L3 9BP
+            United Kingdom
+          $A
+
+        send_application_ips1_belfast: |
+          ## Send your application
+
+          The IPS recommends you send your application using a secure delivery service or courier.
+
+
+          $A
+            Identity and Passport Service  
+            OVS-B  
+            Ground Floor  
+            Law Society House  
+            90-106 Victoria Street  
+            Belfast  
+            BT1 3GN  
             United Kingdom
           $A
 
@@ -771,6 +805,13 @@ en-GB:
 
         how_long_renewing_new_ips2: |
           Your application will take at least **8 weeks.**
+
+        how_long_renewing_new_ips2_morocco: |
+          Your application will take **at least** 4 weeks from when it’s received by the Identity and Passport Service (IPS) in the UK.
+
+        how_long_other_ips2_morocco: |
+          Your application will take **at least** 6 weeks from when it’s received by the Identity and Passport Service (IPS) in the UK.
+
 
         how_long_it_takes_ips2: |
           Applications may take longer if:
@@ -807,7 +848,7 @@ en-GB:
         passport_costs_ips2: |
           Fill in a ‘Paying by credit card or debit card’ form for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
 
-          You can use most major credit or debit cards - but not American Express.
+          You can use Mastercard, Visa, Electron, Diners Club and JCB.
 
           [Download ‘Paying by credit card or debit card’ (PDF, 803KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Payment_Instruction.pdf "Download ‘Paying by credit card or debit card’ (PDF, 803KB)"){:rel="external"}
 
@@ -892,7 +933,7 @@ en-GB:
         passport_costs_ips3: |
           Fill in a ‘Paying by credit card or debit card’ form for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
 
-          You can use most major credit or debit cards - but not American Express.
+          You can use Mastercard, Visa, Electron, Diners Club and JCB.
 
           [Download ‘Paying by credit card or debit card’ (PDF, 803KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Payment_Instruction.pdf "Download ‘Paying by credit card or debit card’ (PDF, 803KB)"){:rel="external"}
 
@@ -1448,46 +1489,6 @@ en-GB:
         getting_your_passport_cameroon: |
           The British High Commission will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
-        how_long_cuba: |
-          Action | Minimum time after you apply
-          - | -
-          Renew a passport | 4 weeks
-          First adult or child passports | 6 weeks
-          Replace a lost or stolen passport | 6 weeks
-
-          Applications may take longer if:
-
-          - you need to provide more information or documents
-          - your photographs are rejected
-
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British embassy ln Havana. You will have to pay for the document.
-
-        cost_cuba: |
-          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
-
-          You must pay using Convertible Pesos (CUCs)
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | CUC 218 | CUC 274
-          Adult jumbo 48-page passport | CUC 263 | CUC 319
-          Child passport | CUC 139 | CUC 195
-
-        how_to_apply_cuba: ''
-        supporting_documents_cuba: ''
-        making_application_cuba: Bring your application in person to the British embassy in Havana.
-        getting_your_passport_cuba: |
-          The British embassy will contact you when your passport arrives using the contact details on your form. You must collect it in person.
-
-        helpline_cuba: |
-
-
-          $C
-
-            **Passport processing centre, Madrid**
-
-            00 34 91 714 6314
-          $C
         how_long_eritrea: |
           Action | Minimum time after you apply
           - | -
@@ -1823,68 +1824,6 @@ en-GB:
         supporting_documents_lebanon: ''
         making_application_lebanon: Bring your application in person to the British embassy in Beirut.
         getting_your_passport_lebanon: |
-          The British embassy will contact you when your passport arrives using the contact details on your form. You must collect it in person.
-
-        how_long_libya: |
-          Action | Minimum time after you apply
-          - | -
-          Renew a passport | 4 weeks
-          First adult or child passports | 6 weeks
-          Replace a lost or stolen passport | 6 weeks
-
-          Applications may take longer if:
-
-          - you need to provide more information or documents
-          - your photographs are rejected
-
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British embassy in Tripoli. You will have to pay for the document.
-
-        cost_libya: |
-          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
-
-          You must pay in cash using local currency - the prices below will be converted according to the exchange rate when you apply.
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | £128 | £161.17
-          Adult jumbo 48-page passport | £154.50 | £187.67
-          Child passport | £81.50 | £114.67
-
-        how_to_apply_libya: ''
-        supporting_documents_libya: ''
-        making_application_libya: Bring your application in person to the British embassy in Tripoli.
-        getting_your_passport_libya: |
-          The British embassy will contact you when your passport arrives using the contact details on your form. You must collect it in person.
-
-        how_long_morocco: |
-          Action | Minimum time after you apply
-          - | -
-          Renew a passport | 4 weeks
-          First adult or child passports | 6 weeks
-          Replace a lost or stolen passport | 6 weeks
-
-          Applications may take longer if:
-
-          - you need to provide more information or documents
-          - your photographs are rejected
-
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British embassy in Rabat, Morocco. You will have to pay for the document.
-
-        cost_morocco: |
-          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
-
-          You must pay in cash using local currency - the prices below will be converted according to the exchange rate when you apply.
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | £128 | £162.88
-          Adult jumbo 48-page passport | £154.50 | £189.38
-          Child passport | £81.50 | £116.38
-
-        how_to_apply_morocco: ''
-        supporting_documents_morocco: ''
-        making_application_morocco: Bring your application in person to the British embassy in Rabat, Morocco.
-        getting_your_passport_morocco: |
           The British embassy will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
         how_long_north_korea: |

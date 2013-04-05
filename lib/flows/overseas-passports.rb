@@ -211,20 +211,44 @@ end
 outcome :ips_application_result do
 
   precalculate :how_long_it_takes do
-    PhraseList.new(:"how_long_#{application_action}_ips#{ips_number}",
-                   :"how_long_it_takes_ips#{ips_number}")
+    if %w{mauritania morocco western-sahara}.include?(current_location)
+      if application_action == 'renewing_new'
+        PhraseList.new(:how_long_renewing_new_ips2_morocco,
+                       :"how_long_it_takes_ips#{ips_number}")
+      else
+        PhraseList.new(:how_long_other_ips2_morocco,
+                       :"how_long_it_takes_ips#{ips_number}")
+      end
+    else
+      PhraseList.new(:"how_long_#{application_action}_ips#{ips_number}",
+                     :"how_long_it_takes_ips#{ips_number}")
+    end
   end
   precalculate :cost do
-    PhraseList.new(:"passport_courier_costs_ips#{ips_number}",
+    if application_action == 'replacing' && ips_number == '1'
+      PhraseList.new(:"passport_courier_costs_replacing_ips#{ips_number}",
+                   :"#{child_or_adult}_passport_costs_replacing_ips#{ips_number}",
+                   :"passport_costs_ips#{ips_number}")
+    elsif %w{mauritania morocco western-sahara cuba libya}.include?(current_location) # IPS 2&3 countries where payment must be made in cash
+      PhraseList.new(:"passport_courier_costs_ips#{ips_number}",
+                   :"#{child_or_adult}_passport_costs_ips#{ips_number}",
+                   :"passport_costs_ips_cash")
+    else
+      PhraseList.new(:"passport_courier_costs_ips#{ips_number}",
                    :"#{child_or_adult}_passport_costs_ips#{ips_number}",
                    :"passport_costs_ips#{ips_number}")
+    end
   end
   precalculate :how_to_apply do
     PhraseList.new(:"how_to_apply_ips#{ips_number}",
                    supporting_documents.to_sym)
   end
   precalculate :send_your_application do
-    PhraseList.new(:"send_application_ips#{ips_number}")
+    if %w{cyprus greece portugal}.include?(current_location)
+      PhraseList.new(:"send_application_ips#{ips_number}_belfast")
+    else
+      PhraseList.new(:"send_application_ips#{ips_number}")
+    end
   end
   precalculate :tracking_and_receiving do
     PhraseList.new(:"tracking_and_receiving_ips#{ips_number}")
