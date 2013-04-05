@@ -806,6 +806,13 @@ en-GB:
         how_long_renewing_new_ips2: |
           Your application will take at least **8 weeks.**
 
+        how_long_renewing_new_ips2_morocco: |
+          Your application will take **at least** 4 weeks from when it’s received by the Identity and Passport Service (IPS) in the UK.
+
+        how_long_other_ips2_morocco: |
+          Your application will take **at least** 6 weeks from when it’s received by the Identity and Passport Service (IPS) in the UK.
+
+
         how_long_it_takes_ips2: |
           Applications may take longer if:
 

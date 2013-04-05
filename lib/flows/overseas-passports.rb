@@ -211,8 +211,18 @@ end
 outcome :ips_application_result do
 
   precalculate :how_long_it_takes do
-    PhraseList.new(:"how_long_#{application_action}_ips#{ips_number}",
-                   :"how_long_it_takes_ips#{ips_number}")
+    if %w{mauritania morocco western-sahara}.include?(current_location)
+      if application_action == 'renewing_new'
+        PhraseList.new(:how_long_renewing_new_ips2_morocco,
+                       :"how_long_it_takes_ips#{ips_number}")
+      else
+        PhraseList.new(:how_long_other_ips2_morocco,
+                       :"how_long_it_takes_ips#{ips_number}")
+      end
+    else
+      PhraseList.new(:"how_long_#{application_action}_ips#{ips_number}",
+                     :"how_long_it_takes_ips#{ips_number}")
+    end
   end
   precalculate :cost do
     if application_action == 'replacing' && ips_number == '1'
