@@ -89,8 +89,8 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
               add_response "31"
             end
 
-            should "tell you you get nothing (maybe)" do
-              assert_current_node :you_qualify_for_maternity_allowance_below_threshold
+            should "tell you you qualify for maternity allowance" do
+              assert_current_node :you_qualify_for_maternity_allowance
             end
           end
 
@@ -99,11 +99,11 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
               add_response "110"
             end
 
-            should "tell you you're above the threshold" do
+            should "tell you you qualify for SMP from employer" do
               assert_state_variable :smp_LEL, 109
-              assert_current_node :you_qualify_for_statutory_maternity_pay_above_threshold
+              assert_current_node :smp_from_employer
             end
-          end
+          end # Answering Q4
         end
 
         context "will not still be employed in qualifying week" do
@@ -126,37 +126,27 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
               assert_current_node :how_much_did_you_earn_between?
             end
 
-            context "weekly salary >=30 and < 1353.5/9" do
+            context "weekly salary >=30" do
               setup do
                 add_response "100"
               end
 
-              should "tell you you qualify for maternity allowance below threshold" do
-                assert_current_node :you_qualify_for_maternity_allowance_below_threshold
+              should "tell you you qualify" do
+                assert_current_node :you_qualify_for_maternity_allowance
                 assert_state_variable :eligible_amount, 90
               end
             end
 
-            context "weekly salary >= 1353.5/9" do
+            context "weekly salary < 30" do
               setup do
-                add_response "160"
+                add_response "10"
               end
 
-              should "tell you you qualify for maternity allowance above threshold" do
-                assert_current_node :you_qualify_for_maternity_allowance_above_threshold
-                assert_state_variable :eligible_amount, 144
-              end
-            end
-
-            context "weekly salary <30" do
-              setup do
-                add_response "25"
-              end
-
-              should "tell you you qualify for nothing, but maybe benefits" do
+              should "tell you you qualify for nothing" do
                 assert_current_node :nothing_maybe_benefits
               end
             end
+
           end # context - work at least 26 weeks
 
           context "will not work at least 26 weeks during the test period" do
@@ -191,25 +181,11 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
             assert_current_node :how_much_did_you_earn_between?
           end
 
-          context "weekly salary >=30 and < 1353.5/9" do
-            setup do
+          context "weekly salary >=30" do
+            should "tell you you qualify" do
               add_response "100"
-            end
-
-            should "tell you you qualify for maternity allowance below threshold" do
-              assert_current_node :you_qualify_for_maternity_allowance_below_threshold
+              assert_current_node :you_qualify_for_maternity_allowance
               assert_state_variable :eligible_amount, 90
-            end
-          end
-
-          context "weekly salary >= 1353.5/9" do
-            setup do
-              add_response "160"
-            end
-
-            should "tell you you qualify for maternity allowance above threshold" do
-              assert_current_node :you_qualify_for_maternity_allowance_above_threshold
-              assert_state_variable :eligible_amount, 144
             end
           end
 
@@ -256,25 +232,14 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
           assert_current_node :how_much_did_you_earn_between?
         end
 
-        context "weekly salary >=30 and < 1353.5/9" do
+        context "weekly salary >=30" do
           setup do
             add_response "100"
           end
 
           should "tell you you qualify for maternity allowance below threshold" do
-            assert_current_node :you_qualify_for_maternity_allowance_below_threshold
+            assert_current_node :you_qualify_for_maternity_allowance
             assert_state_variable :eligible_amount, 90
-          end
-        end
-
-        context "weekly salary >= 1353.5/9" do
-          setup do
-            add_response "160"
-          end
-
-          should "tell you you qualify for maternity allowance above threshold" do
-            assert_current_node :you_qualify_for_maternity_allowance_above_threshold
-             assert_state_variable :eligible_amount, 144
           end
         end
 
@@ -330,36 +295,25 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
           assert_current_node :how_much_do_you_earn?
         end
 
-        context "weekly salary >= 107 and < 1353.5/9" do
+        context "weekly salary >= 30 and < SMP LEL" do
           setup do
-            add_response "110"
+            add_response "35"
           end
 
-          should "tell you you qualify for statutory maternity pay below threshold" do
-            assert_current_node :you_qualify_for_statutory_maternity_pay_above_threshold
-            assert_state_variable :eligible_amount, 99
+          should "tell you you qualify" do
+            assert_current_node :you_qualify_for_maternity_allowance
+            assert_state_variable :eligible_amount, 31.5
           end
         end
 
-        context "weekly salary >= 1353.5/9" do
+        context "weekly salary >= SMP LEL" do
           setup do
             add_response "160"
           end
 
-          should "tell you you qualify for statutory maternity pay above threshold" do
-            assert_current_node :you_qualify_for_statutory_maternity_pay_above_threshold
+          should "tell you you get smp from employer" do
+            assert_current_node :smp_from_employer
             assert_state_variable :eligible_amount, 144
-          end
-        end
-
-        context "weekly salary >= 30 and < 107" do
-          setup do
-            add_response "50"
-          end
-
-          should "tell you you qualify for maternity allowance below threshold" do
-            assert_current_node :you_qualify_for_maternity_allowance_below_threshold
-            assert_state_variable :eligible_amount, 45
           end
         end
 
@@ -394,28 +348,16 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
             assert_current_node :how_much_did_you_earn_between?
           end
 
-          context "weekly salary >=30 and < 1353.5/9" do
+          context "weekly salary >=30" do
             setup do
               add_response "100"
             end
 
             should "tell you you qualify for maternity allowance below threshold" do
-              assert_current_node :you_qualify_for_maternity_allowance_below_threshold
+              assert_current_node :you_qualify_for_maternity_allowance
               assert_state_variable :eligible_amount, 90
             end
           end
-
-          context "weekly salary >= 1353.5/9" do
-            setup do
-              add_response "160"
-            end
-
-            should "tell you you qualify for maternity allowance above threshold" do
-              assert_current_node :you_qualify_for_maternity_allowance_above_threshold
-              assert_state_variable :eligible_amount, 144
-            end
-          end
-
           context "weekly salary <30" do
             setup do
               add_response "25"
@@ -459,25 +401,14 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
           assert_current_node :how_much_did_you_earn_between?
         end
 
-        context "weekly salary >=30 and < 1353.5/9" do
+        context "weekly salary >=30" do
           setup do
             add_response "100"
           end
 
           should "tell you you qualify for maternity allowance below threshold" do
-            assert_current_node :you_qualify_for_maternity_allowance_below_threshold
+            assert_current_node :you_qualify_for_maternity_allowance
             assert_state_variable :eligible_amount, 90
-          end
-        end
-
-        context "weekly salary >= 1353.5/9" do
-          setup do
-            add_response "160"
-          end
-
-          should "tell you you qualify for maternity allowance above threshold" do
-            assert_current_node :you_qualify_for_maternity_allowance_above_threshold
-             assert_state_variable :eligible_amount, 144
           end
         end
 
