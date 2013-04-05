@@ -13,6 +13,7 @@ module SmartAnswer::Calculators
 	  			assert_equal Date.parse("2012-12-30")..Date.parse("2013-01-05"), @calculator.expected_week
 	  		end
 	  	end
+
 	  	context "editor tests" do
 				# Birth 22/12/12
 				# QW 02/09/12 - 08/09/12
@@ -33,6 +34,57 @@ module SmartAnswer::Calculators
 			    end
 			  end
 	  	end
-  	end 
+  	end
+
+    context "uprating calculations" do
+      context "before 7th April 2013" do
+        setup do
+          @calculator = MaternityBenefitsCalculator.new(Date.parse("5th April 2013"))
+        end
+
+        should "have an smp_rate of 135.45" do
+          assert_equal 135.45, @calculator.smp_rate
+        end
+
+        should "have an ma_rate of 135.45" do
+          assert_equal 135.45, @calculator.ma_rate
+        end
+
+        should "have an smp_LEL of 135.45" do
+          assert_equal 107, @calculator.smp_LEL
+        end
+      end
+
+      context "after 7th April 2013" do
+        setup do
+          @calculator = MaternityBenefitsCalculator.new(Date.parse("8th April 2013"))
+        end
+
+        should "have an smp_rate of 136.78" do
+          assert_equal 136.78, @calculator.smp_rate
+        end
+
+        should "have an ma_rate of 135.45" do
+          assert_equal 136.78, @calculator.ma_rate
+        end
+      end
+
+      context "after 14th July 2013" do
+        setup do
+          @calculator = MaternityBenefitsCalculator.new(Date.parse("14th July 2013"))
+        end
+
+        should "have an smp_LEL of 135.45" do
+          assert_equal 109, @calculator.smp_LEL
+        end
+      end
+    end
+
+    context "eleven_weeks" do
+      should "work out earliest date maternity allowance payments can start" do
+        calculator = MaternityBenefitsCalculator.new(Date.parse("1st April 2013"))
+        assert_equal Date.parse("15 Jan 2013"), calculator.eleven_weeks
+      end
+    end
   end
 end
