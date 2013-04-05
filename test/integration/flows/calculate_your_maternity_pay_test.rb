@@ -90,7 +90,6 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
             end
 
             should "tell you you qualify for maternity allowance" do
-              puts current_state.inspect
               assert_current_node :you_qualify_for_maternity_allowance
             end
           end

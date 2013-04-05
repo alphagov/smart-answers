@@ -101,11 +101,11 @@ salary_question :how_much_do_you_earn? do
   end
 
   calculate :smp_6_weeks do
-    Money.new(weekly_salary_90)
+    weekly_salary_90
   end
 
   calculate :smp_33_weeks do
-    Money.new(smp_rate > smp_6_weeks.to_f ? smp_6_weeks : smp_rate)
+    smp_rate > smp_6_weeks.to_f ? smp_6_weeks : Money.new(smp_rate)
   end
 
   calculate :smp_total do
@@ -118,7 +118,7 @@ salary_question :how_much_do_you_earn? do
   end
 
   calculate :ma_payable do
-    Money.new(ma_rate * 39)
+    Money.new(ma_rate.to_f * 39)
   end
 end
 
