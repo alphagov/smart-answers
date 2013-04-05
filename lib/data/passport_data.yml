@@ -164,14 +164,14 @@ cote-d_ivoire-(ivory-coast):
 croatia: 
   type: ips_application_1
   group: ips_documents_group_1
-cuba: 
-  type: cuba
+cuba:
+  type: ips_application_3
   group: ips_documents_group_2
 curacao: 
   type: washington_usa
   group: ips_documents_group_1
-cyprus: 
-  type: madrid_spain
+cyprus:
+  type: ips_application_1
   group: ips_documents_group_1
 czech-republic: 
   type: ips_application_1
@@ -251,8 +251,8 @@ ghana:
 gibraltar:
   type: madrid_spain
   group: ips_documents_group_1
-greece: 
-  type: madrid_spain
+greece:
+  type: ips_application_1
   group: ips_documents_group_2
 grenada: 
   type: washington_usa
@@ -361,8 +361,8 @@ liberia:
   type: ghana
   group: ips_documents_group_3
   helpline: pretoria_south_africa
-libya: 
-  type: libya
+libya:
+  type: ips_application_3
   group: ips_documents_group_3
 liechtenstein: 
   type: paris_france
@@ -403,8 +403,8 @@ marshall-islands:
 martinique: 
   type: washington_usa
   group: ips_documents_group_1
-mauritania: 
-  type: morocco
+mauritania:
+  type: ips_application_2
   group: ips_documents_group_3
 mauritius: 
   type: pretoria_south_africa
@@ -433,8 +433,8 @@ montenegro:
 montserrat: 
   type: washington_usa
   group: ips_documents_group_2
-morocco: 
-  type: morocco
+morocco:
+  type: ips_application_2
   group: ips_documents_group_3
 mozambique: 
   type: pretoria_south_africa
@@ -506,8 +506,8 @@ pitcairn:
 poland: 
   type: ips_application_1
   group: ips_documents_group_1
-portugal: 
-  type: madrid_spain
+portugal:
+  type: ips_application_1
   group: ips_documents_group_1
 qatar: 
   type: ips_application_1
@@ -696,8 +696,8 @@ vietnam:
 wallis-and-futuna: 
   type: wellington_new_zealand
   group: ips_documents_group_1
-western-sahara: 
-  type: morocco
+western-sahara:
+  type: ips_application_2
   group: ips_documents_group_3
 yemen: 
   type: yemen
