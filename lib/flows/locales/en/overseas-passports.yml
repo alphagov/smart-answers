@@ -762,6 +762,23 @@ en-GB:
             United Kingdom
           $A
 
+        send_application_ips1_belfast: |
+          ## Send your application
+
+          The IPS recommends you send your application using a secure delivery service or courier.
+
+
+          $A
+            Identity and Passport Service  
+            OVS-B  
+            Ground Floor  
+            Law Society House  
+            90-106 Victoria Street  
+            Belfast  
+            BT1 3GN  
+            United Kingdom
+          $A
+
         tracking_and_receiving_ips1: |
           ## Getting your passport
 

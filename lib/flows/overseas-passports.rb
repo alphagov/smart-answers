@@ -230,7 +230,11 @@ outcome :ips_application_result do
                    supporting_documents.to_sym)
   end
   precalculate :send_your_application do
-    PhraseList.new(:"send_application_ips#{ips_number}")
+    if %w{cyprus greece portugal}.include?(current_location)
+      PhraseList.new(:"send_application_ips#{ips_number}_belfast")
+    else
+      PhraseList.new(:"send_application_ips#{ips_number}")
+    end
   end
   precalculate :tracking_and_receiving do
     PhraseList.new(:"tracking_and_receiving_ips#{ips_number}")
