@@ -219,6 +219,10 @@ outcome :ips_application_result do
       PhraseList.new(:"passport_courier_costs_replacing_ips#{ips_number}",
                    :"#{child_or_adult}_passport_costs_replacing_ips#{ips_number}",
                    :"passport_costs_ips#{ips_number}")
+    elsif %w{mauritania morocco western-sahara}.include?(current_location) # IPS 2 countries where payment must be made in cash
+      PhraseList.new(:"passport_courier_costs_ips#{ips_number}",
+                   :"#{child_or_adult}_passport_costs_ips#{ips_number}",
+                   :"passport_costs_ips#{ips_number}_cash")
     else
       PhraseList.new(:"passport_courier_costs_ips#{ips_number}",
                    :"#{child_or_adult}_passport_costs_ips#{ips_number}",
