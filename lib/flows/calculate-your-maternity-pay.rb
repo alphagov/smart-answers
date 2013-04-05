@@ -107,7 +107,7 @@ salary_question :how_much_did_you_earn_between? do
   weekly_salary_90 = nil
   next_node do |earnings|
     weekly_salary_90 = Money.new(earnings.per_week * 0.9)
-    if earnings.per_week >= 30
+    if earnings.per_week >= 30.0
       # Outcome 3
       :you_qualify_for_maternity_allowance
     else
@@ -115,6 +115,7 @@ salary_question :how_much_did_you_earn_between? do
       :nothing_maybe_benefits
     end
   end
+
   calculate :weekly_salary_90 do
     weekly_salary_90
   end
@@ -125,7 +126,7 @@ salary_question :how_much_did_you_earn_between? do
 
   calculate :ma_rate do
     # either ma_rate or weekly_salary_90, whichever is lower
-    calculator.ma_rate > weekly_salary_90 ? weekly_salary_90 : calculator.ma_rate
+    calculator.ma_rate > weekly_salary_90.to_f ? weekly_salary_90 : Money.new(calculator.ma_rate)
   end
 
   calculate :ma_payable do
