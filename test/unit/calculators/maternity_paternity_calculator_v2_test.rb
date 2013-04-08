@@ -315,7 +315,7 @@ module SmartAnswer::Calculators
 
         should "be statutory leave times statutory higher rate A and statutory rate B" do
           @calculator.average_weekly_earnings = 235.40
-          assert_equal 5741.01, @calculator.total_statutory_pay
+          assert_equal 5784.9, @calculator.total_statutory_pay
         end
       end
 
