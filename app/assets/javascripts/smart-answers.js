@@ -68,6 +68,7 @@ $(document).ready(function() {
   // update the content (i.e. plonk in the html fragment)
   function updateContent(fragment){
     $('.smart_answer section').html(fragment);
+    $.event.trigger('smartanswerAnswer');
     if ($(".outcome").length !== 0) {
       $.event.trigger('smartanswerOutcome');
     }
@@ -86,4 +87,25 @@ $(document).ready(function() {
     history.replaceState(data, data['title'], data['url']);
   }
 
+  var contentPosition = {
+    lastQuestionTop : 0,
+    lastQuestionIsOffScreen: function() {
+      var $last_question = $('.smart_answer .done-questions li.done:last-child'),
+          top_of_view = $(window).scrollTop();
+
+      this.lastQuestionTop = $last_question.offset().top;
+      return (this.lastQuestionTop < top_of_view);
+    },
+    correctOffscreen: function() {
+      if (this.lastQuestionIsOffScreen()) {
+        $(window).scrollTop(this.lastQuestionTop);
+      }
+    },
+    init: function() {
+      var self = this; 
+      $(document).bind('smartanswerAnswer', function() { self.correctOffscreen() });
+    }
+  }
+
+  contentPosition.init();
 });
