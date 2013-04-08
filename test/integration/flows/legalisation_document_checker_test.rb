@@ -77,9 +77,18 @@ class DocumentLegalisationCheckerTest < ActiveSupport::TestCase
       assert_state_variable :groups_selected, ["police_disclosure", "vet_health"]
     end
 
-    should "not show the generic content" do
-      assert_phrase_list :generic_conditional_content, []
+    should "show the generic content" do
+      assert_phrase_list :generic_conditional_content, [:generic_certifying_content]
+    end
+  end
 
+  context "vet health, birth_death" do
+    setup do
+      add_response 'pet-export-document,birth-certificate'
+    end
+
+    should "not show generic content" do
+      assert_phrase_list :generic_conditional_content, []
     end
   end
 
