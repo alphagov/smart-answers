@@ -2,18 +2,16 @@ en-GB:
   flow:
     calculate-your-child-maintenance:
       meta:
-        description: Work out the amount of child maintenance you might have to pay according to the Child Support Agency
+        description: Work out the amount of child maintenance if you’re arranging it yourselves, or to get an idea of the statutory amounts from the Child Support Agency or Child Maintenance Service
       title: Child maintenance calculator
       body: |
         Use the calculator to agree on a child maintenance amount if you’re arranging it yourselves, or to get an idea of the statutory amount the government would work out for you.
 
         ##What you need to know:##
 
-        - the calculator gives an estimate (it won't cover exceptional circumstances)
+        - the calculator gives an estimate (it won't cover variations for exceptional circumstances)
         - you need information about your income
         - if you have children with more than 1 person, you must make a separate calculation for each person you want to have a child maintenance agreement with
-
-        The calculator won’t help if the child maintenance will be received by more than one parent.
 
         Check the [child maintenance rates](/how-child-maintenance-is-worked-out/rates-used-by-the-child-support-agency "child maintenance rates") before you use the calculator.
 
@@ -82,14 +80,14 @@ en-GB:
       net_income_of_payee?:
         title: What is the weekly net income of the parent paying child maintenance?
         hint: |
-          This is income after tax, National Insurance and pension contributions. Include all your working tax credits if the paying parent’s income is higher than the receiving parent’s income. Include half the working tax credits if your incomes are the same.
+          This is income after tax, National Insurance and pension contributions. Include all the paying parent’s working tax credits if their income is higher than their current partner's. Include half the working tax credits if their incomes are the same.
         suffix_label: per week
         error_message: Please enter a number
       ## Q3a
       gross_income_of_payee?:
         title: What is the weekly gross income of the parent paying child maintenance?
         hint: |
-          This is income after tax, National Insurance and pension contributions. Include all your working tax credits if the paying parent’s income is higher than the receiving parent’s income. Include half the working tax credits if your incomes are the same.
+          This is income before tax, National Insurance and pension contributions. Include all the paying parent’s working tax credits if their income is higher than their current partner's. Include half the working tax credits if their incomes are the same.
         suffix_label: per week
         error_message: Please enter a number
       ## Q4

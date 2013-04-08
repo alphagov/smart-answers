@@ -127,6 +127,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
       context "born before 6/10/1953" do
         setup do 
+          Timecop.travel('2013-10-08')
           add_response Date.parse("4th October 1953")
         end
 
@@ -224,10 +225,10 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
                         assert_state_variable "qualifying_years", 26
                         assert_state_variable "qualifying_years_total", 26
                         assert_state_variable "missing_years", 4
-                        assert_state_variable "pension_amount", "93.12" # 26/30 * 107.45
+                        assert_state_variable "pension_amount", "95.46" # 26/30 * 110.15
                         assert_state_variable "state_pension_age", "65 years"
-                        assert_state_variable "remaining_years", 6
-                        assert_state_variable "pension_loss", "14.33"
+                        assert_state_variable "remaining_years", 5
+                        assert_state_variable "pension_loss", "14.69"
                         assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years, :automatic_years_phrase]
                         assert_state_variable "state_pension_date", Date.parse("2018 Oct 4th")
                         assert_current_node :amount_result
