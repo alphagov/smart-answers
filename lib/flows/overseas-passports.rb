@@ -215,6 +215,9 @@ outcome :ips_application_result do
       if application_action == 'renewing_new'
         PhraseList.new(:how_long_renewing_new_ips2_morocco,
                        :"how_long_it_takes_ips#{ips_number}")
+      elsif application_action == 'replacing'
+        PhraseList.new(:how_long_replacing_ips2_morocco,
+                       :"how_long_it_takes_ips#{ips_number}")
       else
         PhraseList.new(:how_long_other_ips2_morocco,
                        :"how_long_it_takes_ips#{ips_number}")
