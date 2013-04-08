@@ -72,7 +72,7 @@ county-court-document:
   type: county court document
   group: court_document
 court-document:
-  heading: court document
+  heading: Court document
   type: court document
   group: court_document
 court-of-bankruptcy-document:
