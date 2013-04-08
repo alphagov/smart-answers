@@ -11,7 +11,7 @@ Testing
 ------------
 Run unit tests by executing the following:
 
-    govuk_setenv smartanswers bundle exec rake
+    bundle exec rake
 
 
 Issues/todos
