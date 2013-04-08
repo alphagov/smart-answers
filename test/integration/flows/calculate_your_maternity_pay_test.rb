@@ -56,13 +56,12 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
       end
 
       context "started 26 weeks before qualifying week" do
-        setup do
-          add_response "yes"
-        end
-
         should "ask if you will still be employed in qualifying week" do
-          assert_current_node :will_you_still_be_employed_in_qualifying_week?
-          assert_state_variable :start_of_qualifying_week, qualifying_week.first
+          Timecop.travel("2013-04-01") {
+            add_response "yes"
+            assert_current_node :will_you_still_be_employed_in_qualifying_week?
+            assert_state_variable :start_of_qualifying_week, qualifying_week.first
+          }
         end
 
         context "will still be employed in qualifying week" do
