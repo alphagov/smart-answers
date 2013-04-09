@@ -319,7 +319,11 @@ outcome :fco_result do
     PhraseList.new(:"getting_your_passport_#{location}")
   end
   precalculate :helpline do
-    PhraseList.new(:"helpline_#{application_type}")
+    phrases = PhraseList.new(:"helpline_#{application_type}")
+    if %w{dublin_ireland wellington_new_zealand pretoria_south_africa washington_usa}.include?(application_type)
+      phrases << :helpline_fco_webchat
+    end
+    phrases
   end
 end
 
