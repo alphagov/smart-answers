@@ -311,11 +311,11 @@ outcome :fco_result do
       phrases << :send_application_fco_preamble
       phrases << :"send_application_#{application_type}"
     end
-    phrases 
+    phrases
   end
   precalculate :getting_your_passport do
     location = 'fco'
-    location = current_location if %(egypt jamaica jordan nepal).include?(current_location)
+    location = current_location if %(egypt jamaica jordan nepal india).include?(current_location)
     PhraseList.new(:"getting_your_passport_#{location}")
   end
   precalculate :helpline do
