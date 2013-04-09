@@ -300,10 +300,10 @@ outcome :fco_result do
       ''
     end
   end
-  
+
   precalculate :send_your_application do
     phrases = PhraseList.new
-    if current_location == 'indonesia' and application_action == 'applying'
+    if current_location == 'indonesia' and %w{applying replacing}.include?(application_action)
       phrases << :send_application_indonesia_applying
     elsif current_location =~ /^(indonesia|jamaica|jordan|south-africa)$/
       phrases << :"send_application_#{current_location}"
