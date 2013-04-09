@@ -75,7 +75,7 @@ en-GB:
         how_long_replacing_fco:
           Your application will take **at least** 6 weeks.
 
-          You must report the loss or theft as soon as possible to your [nearest British embassy, high commission or consulate.](/report-a-lost-or-stolen-passport "Report a lost or stolen passport")
+          You must [report the loss or theft](/report-a-lost-or-stolen-passport "Report a lost or stolen passport") as soon as possible.
 
         passport_courier_costs_wellington_new_zealand: |
 
@@ -286,7 +286,7 @@ en-GB:
 
           [Download ‘Smart application form’ (PDF, 188KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/5619320/smart-form.pdf "Passport application - smart form (PDF, 188KB)"){:rel="external"}
 
-          __Blank application form__ (print, fill in on paper and sign)
+          __Blank application form__ (If you can't use the smart form above, print this form, fill in on paper and sign)
 
           [Download ‘Passport application form for adults aged 16 and over’ (489KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c1.pdf "Download ‘Passport application form for adults aged 16 and over’ (489KB)")
 
@@ -724,7 +724,7 @@ en-GB:
           | Child passport | £81.50 | £101.36 |
 
         passport_courier_costs_replacing_ips1: |
-          You’ll have to pay a fee for your passport and a courier fee of £9.70. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+          You’ll have to pay a fee for your passport and a courier fee of £9.70. The courier fee pays for your passport to be sent back to you securely.
 
         adult_passport_costs_replacing_ips1: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
@@ -742,7 +742,10 @@ en-GB:
 
           You can use Mastercard, Visa, Electron, Diners Club and JCB.
 
+
+          $D
           [Download ‘Paying by credit card or debit card’ (PDF, 803KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Payment_Instruction.pdf "Download ‘Paying by credit card or debit card’ (PDF, 803KB)"){:rel="external"}
+          $D
 
         how_to_apply_ips1: |
           1. Download the application form.
