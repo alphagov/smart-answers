@@ -15,7 +15,7 @@ afghanistan:
     +93 (0) 700 102 250 (Management)
     +93 (0) 700 102 274 (Political Section)
   email: britishembassy.kabul@fco.gov.uk
-  website: http://ukinafghanistan.fco.gov.uk/en/
+  website: /government/world/afghanistan/
   office_hours: 0830-1630 (Sunday to Thursday)
 albania: 
 - address: |-
@@ -28,7 +28,7 @@ albania:
   location_name: Tirana
   phone: (355) 4 223 4973/4/5
   fax: (355) 4 224 7697
-  website: http://ukinalbania.fco.gov.uk/en
+  website: /government/world/albania
   office_hours: |-
     Local Time:
     Mon-Thur: 0830-1700; Fri: 0830-1430
@@ -40,7 +40,7 @@ algeria:
     Hydra, Algiers
   phone: +213 (0) 770 085 000
   fax: +213 (0) 770 085 099
-  website: http://ukinalgeria.fco.gov.uk/en/
+  website: /government/world/algeria/
   office_hours: |-
     Passport telephone enquiries: Sun-Thurs: 1300-1500
     Sun-Thur: 0700-1430 GMT
@@ -65,7 +65,7 @@ american-samoa:
   location_name: Los Angeles
   phone: (310) 481 0031
   fax: (310) 481 2960
-  website: http://ukinusa.fco.gov.uk/la
+  website: /government/world/organisations/british-consulate-general-los-angeles
   office_hours: |-
     GMT:
     Mon-Fri: 1630-0100
@@ -86,7 +86,7 @@ andorra:
   location_name: 
   phone: (34) 93 366 6200
   fax: (34) 93 366 6221
-  website: http://ukinspain.fco.gov.uk/en
+  website: /government/world/spain
 angola: 
 - address: |-
     British Embassy
@@ -98,7 +98,7 @@ angola:
   location_name: Luanda
   phone: (244) 222 33 45 83
   email: postmaster.luand@fco.gov.uk
-  website: http://ukinangola.fco.gov.uk/en/
+  website: /government/world/angola/
   office_hours: |-
     Embassy opening hours
 
@@ -150,7 +150,7 @@ antigua-and-barbuda:
   location_name: St. John's
   phone: +1 (268) 561 5046
   email: robert.wilkinson-honcon@fconet.fco.gov.uk
-  website: http://ukinbarbados.fco.gov.uk/en/
+  website: /government/world/barbados/
   office_hours: |-
     If the Honorary Consul is not available and for all other non-consular related matters please contact the British High Commission in Barbados at:
     British High Commission
@@ -185,7 +185,7 @@ argentina:
     (54) (11) 4808 2228 Press and Public Affairs fax
     (54) (11) 4808 2316 Chancery fax
   email: consular.baires@fco.gov.uk
-  website: http://ukinargentina.fco.gov.uk/en/
+  website: /government/world/argentina/
   office_hours: |-
     Opening Hours for CONSULAR Section
     Monday to Friday from 9:00 to 13:00
@@ -208,7 +208,7 @@ armenia:
   phone: +374 (0) 10 264301
   fax: +374 (0) 10 264318
   email: enquiries.yerevan@fco.gov.uk
-  website: http://ukinarmenia.fco.gov.uk/en
+  website: /government/world/armenia
   office_hours: |-
     Local time Mon-Fri 09:00-13:00 14:00-17:00
     UK time Mon-Fri 05:00-09:00 10:00-13:00
@@ -251,7 +251,7 @@ australia:
   lon: 149.126
   location_name: Canberra
   phone: (+61) (0) 2 6270 6666
-  website: http://ukinaustralia.fco.gov.uk/en/
+  website: /government/world/australia/
   office_hours: |-
     Apr-Oct: 2300-0500 (GMT) 0900-1400 (Local)
     Nov-Mar: 2200-0400 (GMT) 0900-1400 (Local)
@@ -273,7 +273,7 @@ australia:
     (+61) (0) 2 9233 1826 - Trade & Investment, Marketing & Media
     (+61) (0) 2 9252 0924 - Consular
     For information on passport, visa, pension or other general enquiries, please refer to our Frequently Asked Questions page.
-  website: http://ukinaustralia.fco.gov.uk/en/
+  website: /government/world/australia/
   office_hours: |-
     Monday-Friday (Local times)
     09:00-12:30 / 13:30-17:00 - Main/Trade
@@ -293,7 +293,7 @@ australia:
     (+61) (0) 7 3223 3205 - UK Trade and Investment Section
   fax: |-
     (+61) (0) 7 3223 3220
-  website: http://ukinaustralia.fco.gov.uk/en/
+  website: /government/world/australia/
   office_hours: |-
     Monday-Friday:
     09:00-17:00 (Local)
@@ -316,7 +316,7 @@ australia:
   location_name: Melbourne
   phone: (+61) (0) 3 9652 1600
   fax: (+61) (0) 3 9650 2990
-  website: http://ukinaustralia.fco.gov.uk/en/
+  website: /government/world/australia/
   office_hours: |-
     Monday-Friday:
     09:00-17:00 (Local)
@@ -342,7 +342,7 @@ austria:
     (43) (1) 71613 2900 Management
     (43) (1) 71613 5900 Consular
   email: press@britishembassy.at
-  website: http://ukinaustria.fco.gov.uk/en/
+  website: /government/world/austria/
   office_hours: |-
     Local Time - (Mon to Fri):
     
@@ -416,7 +416,7 @@ bahrain:
     (973) 17574101 Commercial
     (973) 17574101 Consular/Management
     (973) 17215639 Visa Application Centre 
-  website: http://ukinbahrain.fco.gov.uk/en/
+  website: /government/world/bahrain/
   office_hours: |-
     Working hours:
     
@@ -443,7 +443,7 @@ bangladesh:
     + (88) (02) 882 3666 - Immigration Section
     + (88) (02) 882 3437 - Chancery/Management
     + (880) (02) 988 2819 - Consular, Dhaka
-  website: http://ukinbangladesh.fco.gov.uk/en
+  website: /government/world/bangladesh
   office_hours: |-
     British High Commission, Dhaka:
     Sunday - Wednesday: 08:00 to 15:30 (Local), 02:00 - 09:30 (GMT)
@@ -473,7 +473,7 @@ bangladesh:
   location_name: Sylhet
   phone: + 880-2-8822705-9
   fax: + 880-2-8823437, 9882819
-  website: http://ukinbangladesh.fco.gov.uk/en
+  website: /government/world/bangladesh
   office_hours: |-
     Office hours:
 
@@ -519,7 +519,7 @@ belarus:
   fax: |-
     General fax +375 17 2298206
     Visa Section fax +375 17 2298223
-  website: http://ukinbelarus.fco.gov.uk/en/
+  website: /government/world/belarus/
   office_hours: |-
     GMT:
     
@@ -546,7 +546,7 @@ belgium:
     (32) (2) 287 6355 Political, press and public diplomacy
     (32) (2) 287 6240 Trade & Investment
   email: info@britain.be
-  website: http://ukinbelgium.fco.gov.uk/en/
+  website: /government/world/belgium/
   office_hours: |-
     Local Time - (Mon to Fri):
     
@@ -569,7 +569,7 @@ belize:
   phone: "Telephone: (501) 822 2981/2717/2146"
   fax: (501) 822 2761
   email: consular.belize@fco.gov.uk
-  website: http://ukinbelize.fco.gov.uk/en
+  website: /government/world/belize
   office_hours: |-
     GMT:
     Mon-Thurs: 1400-1800/1900-2200
@@ -647,7 +647,7 @@ bolivia:
   switchboard: (591) (2) 243-3424
   phone: (591) (2) 243-3424
   fax: (591) (2) 243-1073
-  website: http://ukinbolivia.fco.gov.uk/en/
+  website: /government/world/bolivia/
   office_hours: |-
     GMT:
     Mon-Thurs: 1230-1630 and 1730-2100
@@ -679,7 +679,7 @@ bosnia-and-herzegovina:
     Bosnia and Herzegovina
   phone: +387 (0) 51 212 395
   fax: +387 (0) 51 212 395
-  website: http://ukinbih.fco.gov.uk/en/
+  website: /government/world/bosnia-and-herzegovina/
   office_hours: |-
     Local Time:
     
@@ -704,7 +704,7 @@ bosnia-and-herzegovina:
     +387 (0) 33 282 280: Visa, Consular, Management
     +387 (0) 33 282 265: MOD and UKTI
   email: britemb@bih.net.ba
-  website: http://ukinbih.fco.gov.uk/en/
+  website: /government/world/bosnia-and-herzegovina/
   office_hours: |-
     Local Time:
     Mon-Thurs: 0830-1700
@@ -730,7 +730,7 @@ botswana:
   location_name: British High Commission
   phone: (267) 395 2841
   fax: (267) 395 6105
-  website: http://ukinbotswana.fco.gov.uk/en/
+  website: /government/world/botswana/
   office_hours: |-
     GMT:
     Mon-Thurs: 0600-1430
@@ -780,7 +780,7 @@ brazil:
     (55) (21) 2555 9672 Management
     (55) (21) 2555 9671 Consular
     (55) (21) 2555 9604 Chancery
-  website: http://ukinbrazil.fco.gov.uk/en
+  website: /government/world/brazil
   office_hours: |-
     GMT:
     Mon-Thurs: 1130-1945
@@ -804,7 +804,7 @@ brazil:
   fax: |-
     (55) (11) 3094 2717 Commercial
     (55) (11) 3094 2750 Management
-  website: http://ukinbrazil.fco.gov.uk/en
+  website: /government/world/brazil
   office_hours: |-
     GMT:
     Mon-Fri: 1030-1900
@@ -882,7 +882,7 @@ brunei:
   switchboard: (673) (2) 222231/223121
   phone: (673) (2) 222231/223121 Switchboard
   fax: (673) (2) 234315
-  website: http://ukinbrunei.fco.gov.uk/en
+  website: /government/world/brunei
   office_hours: |-
     Office hours (Local time):
     Monday-Thursday: 08:00-16:30
@@ -900,7 +900,7 @@ bulgaria:
   fax: |-
     (359) (2) 933 9250 Embassy (including Consular)
     (359) (2) 942 4344 British Council
-  website: http://ukinbulgaria.fco.gov.uk/en/
+  website: /government/world/bulgaria/
   office_hours: |-
     UK time:
     Monday to Friday:  0700 - 1500
@@ -957,7 +957,7 @@ burundi:
     (257) 22 246 478 Main
     (257) 78 827 602 Liaison Officer
   fax: (257) 22 246 479
-  website: http://ukinrwanda.fco.gov.uk/en/
+  website: /government/world/rwanda/
   office_hours: |-
     GMT:
     Mon - Thurs 0600-1030, 1200-1530, Fri 06:00 - 10:00
@@ -977,7 +977,7 @@ cambodia:
   location_name: Phnom Penh
   phone: + 855 (0) 23 427124
   fax: + 855 (0) 23 427125
-  website: http://ukincambodia.fco.gov.uk/en/
+  website: /government/world/cambodia/
   office_hours: |-
     Public opening hours (local time):
     Monday-Friday: 08:30 - 11:30
@@ -992,7 +992,7 @@ cameroon:
     (237) 2222 05 45 
     (237) 2222 07 96
   fax: (237) 2222 01 48
-  website: http://ukincameroon.fco.gov.uk/en/
+  website: /government/world/cameroon/
   office_hours: |-
     GMT: Mon-Thurs: 0645 - 1145, 1300 - 1445
     Fri: 0645 - 1245
@@ -1035,7 +1035,7 @@ canada:
   location_name: Calgary
   phone: (1) (403) 705 1755
   fax: (1) (403) 538 0121
-  website: http://ukincanada.fco.gov.uk/en
+  website: /government/world/canada
   office_hours: |-
     GMT:
     Mon-Fri: 1500-2315
@@ -1053,7 +1053,7 @@ canada:
   lon: -73.5672
   location_name: Montreal
   fax: (1) (514) 866 0202
-  website: http://ukincanada.fco.gov.uk/en/
+  website: /government/world/canada/
   office_hours: |-
     GMT:
     Mon-Fri: 1400-2100 by appointment only
@@ -1073,7 +1073,7 @@ canada:
   location_name: Toronto
   phone: (1) (416) 593 1290
   fax: (1) 416 593 1229
-  website: http://ukincanada.fco.gov.uk/en/
+  website: /government/world/canada/
   office_hours: |-
     GMT:
     Mon-Fri: 1400 - 2130
@@ -1092,7 +1092,7 @@ canada:
   location_name: Vancouver
   phone: (1) 604 683 4421
   fax: (1) 604 681 0693
-  website: http://ukincanada.fco.gov.uk/en
+  website: /government/world/canada
   office_hours: |-
     GMT:
     Mon-Fri: 1630-2300 by appointment only
@@ -1128,7 +1128,7 @@ cayman-islands:
   location_name: George Town
   phone: (+1) 345 949 7900
   fax: (+1) 345 949 7544 General
-  website: http://ukincayman.fco.gov.uk/en/
+  website: /government/world/cayman-islands/
   office_hours: |-
     1430-1900/2000-2300 GMT
     0830-1700 Local Time
@@ -1280,7 +1280,7 @@ china:
     (+86) (10) 5192 4239
     (+86) (10) 5192 4218 Trade & Investment 
     (+86) (10) 8529 6081 Consular
-  website: http://ukinchina.fco.gov.uk/en/
+  website: /government/world/china/
   office_hours: |-
     Office hours, Monday-Friday
     08:30-12:00 / 13:30-17:00 (Local time)
@@ -1322,7 +1322,7 @@ china:
   fax: |-
     (+86) (20) 8331 2799 General
      (+86) (20) 8333 6485 Trade & Investment
-  website: http://ukinchina.fco.gov.uk/en/
+  website: /government/world/china/
   office_hours: |-
     Monday-Friday:
     09:00-12:30 / 13:30-1700 (Local time)
@@ -1366,7 +1366,7 @@ colombia:
   fax: |-
     (57) (1) 326 8302 Main
     (57) (1) 326 8303 Consular
-  website: http://ukincolombia.fco.gov.uk/en/
+  website: /government/world/colombia/
   office_hours: |-
     GMT: Mon-Thurs: 1330-1730 / 1830-2130; Fri: 1330-1830
     
@@ -1384,7 +1384,7 @@ comoros:
   fax: |-
     (230) 202 9408 
     (230) 202 9407 Consular/Visa
-  website: http://ukinmauritius.fco.gov.uk/en
+  website: /government/world/mauritius
   office_hours: |-
     Monday to Thursday
     0745 - 1545
@@ -1414,7 +1414,7 @@ congo-(democratic-republic):
   switchboard: 0813300252/3/4
   phone: +243 (0) 815566200
   fax: (243) 813 46 4291
-  website: http://ukindrc.fco.gov.uk/en/
+  website: /government/world/democratic-republic-of-congo/
   office_hours: |-
     GMT:
     Mon-Thur: 0630-1500
@@ -1435,7 +1435,7 @@ costa-rica:
   phone: (506) 2258 2025
   fax: (506) 2233 9938
   email: consular.costarica@fco.gov.uk
-  website: http://ukincostarica.fco.gov.uk/en/
+  website: /government/world/costa-rica/
   office_hours: |-
     Office hours (GMT):
     Mon-Thurs: 1430-2230/Fri: 1430-1900
@@ -1455,7 +1455,7 @@ cote-d_ivoire-(ivory-coast):
   switchboard: (00) 225 22 44 26 69
   phone: (00) 225 22 48 22 96
   fax: (00) (225) 22 48 95 48
-  website: http://ukinghana.fco.gov.uk/en/
+  website: /government/world/ghana/
   office_hours: |-
     Main Office:
     
@@ -1494,7 +1494,7 @@ croatia:
     (385)(1) 6009 245 Management
     (385)(1) 6009 305 Press and Public Affairs  
   email: british.embassyzagreb@fco.gov.uk
-  website: http://ukincroatia.fco.gov.uk/en/
+  website: /government/world/croatia/
   office_hours: |-
     Embassy
     
@@ -1518,7 +1518,7 @@ croatia:
     21000 Split
   phone: (385) (21) 346 007
   fax: (385) (21) 362 905
-  website: http://ukincroatia.fco.gov.uk/en/
+  website: /government/world/croatia/
   office_hours: |-
     Local time
     Mon - Thurs: 0800 - 1600
@@ -1538,7 +1538,7 @@ cuba:
   location_name: Havana
   phone: +53 7 214 2200
   fax: + 53 7 214 2268 Consular / +53 7 214 2218 Chancery
-  website: http://ukincuba.fco.gov.uk/en/
+  website: /government/world/cuba/
   office_hours: |-
     GMT:
     Mon-Fri: 1300-2030
@@ -1580,7 +1580,7 @@ cyprus:
     (357) (22) 861150 UKTI
     (357) (22) 861315 Chancery
     (357) (22) 861325 Defence
-  website: http://ukincyprus.fco.gov.uk/en
+  website: /government/world/cyprus
   office_hours: |-
     Mon-Fri: 0530-1230 GMT
     Mon-Fri: 0730-1430 Local Time
@@ -1598,7 +1598,7 @@ czech-republic:
   phone: (420) 257 402 111
   fax: (420) 257 402 296
   email: ukinczechrepublic@fco.gov.uk
-  website: http://ukinczechrepublic.fco.gov.uk/en/
+  website: /government/world/czech-republic/
   office_hours: |-
     Mon-Fri:  0830-1700
     
@@ -1640,7 +1640,7 @@ denmark:
   location_name: Aabenraa
   phone: (00) (45) 74 62 77 00
   fax: (00) (45) 74 62 77 02
-  website: http://ukindenmark.fco.gov.uk/en
+  website: /government/world/denmark
   office_hours: ""
 - address: |-
     British Honorary Consulate
@@ -1653,7 +1653,7 @@ denmark:
   location_name: Fredericia
   phone: (00) (45) 75 92 20 00
   fax: (00) (45) 76 20 29 65
-  website: http://ukindenmark.fco.gov.uk/en
+  website: /government/world/denmark
   office_hours: |-
     GMT:
     Mon-Fri: 0600-1430
@@ -1671,7 +1671,7 @@ denmark:
   location_name: Herning
   phone: (00) (45) 96 27 73 00
   fax: (00) (45) 97 12 48 58
-  website: http://ukindenmark.fco.gov.uk/en
+  website: /government/world/denmark
 - address: |-
     British Honorary Consulate
     P/F Damfar
@@ -1684,7 +1684,7 @@ denmark:
   location_name: "Tórshavn (Faroe Islands)"
   phone: (00) (298) 35 00 77
   fax: (00) (298) 35 99 80
-  website: http://ukindenmark.fco.gov.uk/en
+  website: /government/world/denmark
   office_hours: |-
     GMT: (is the same as local time)
     
@@ -1701,7 +1701,7 @@ denmark:
   location_name: "Århus"
   phone: (00) (45) 70 11 11 22
   fax: (00) (45) 70 11 11 33
-  website: http://ukindenmark.fco.gov.uk/en
+  website: /government/world/denmark
 djibouti: 
 - address: |-
     British Honorary Consul
@@ -1728,7 +1728,7 @@ dominica,-commonwealth-of:
   phone: + 1 (767) 275 7800
   fax: +1 (767) 440 2340
   email: justina.alexander-honcon@fconet.fco.gov.uk
-  website: http://ukinbarbados.fco.gov.uk/en/
+  website: /government/world/barbados/
   office_hours: |-
     If the Honorary Consul is not available and for all other non-consular related matters please contact the British High Commission in Barbados at: British High Commission
     Lower Collymore Rock
@@ -1738,7 +1738,7 @@ dominica,-commonwealth-of:
     Tel: +1 246 430 7800
     Email: ukinbarbados@fco.gov.uk
     
-    Website: http://ukinbarbados.fco.gov.uk/en
+    Website: /government/world/barbados
     Office hours:
     Mon-Thurs: 1200-2000 (GMT)
     Fri: 1200-1700 (GMT)
@@ -1779,7 +1779,7 @@ dominican-republic:
     (001) (809) 586 4244 
     (001) (809) 586 3096
   fax: (809) 586 3096
-  website: http://ukindominicanrepublic.fco.gov.uk/en/
+  website: /government/world/dominican-republic/
 ecuador: 
 - address: |-
     British Embassy
@@ -1797,7 +1797,7 @@ ecuador:
     (593) (2) 2970 810 General
     (593) (2) 2970 809 Commercial
     (593) (2) 2970 807 Consular
-  website: http://ukinecuador.fco.gov.uk/en/
+  website: /government/world/ecuador/
   office_hours: |-
     Embassy
     GMT: Mon-Thurs: 1300-2130 
@@ -1825,7 +1825,7 @@ ecuador:
   location_name: Guayaquil
   phone: (593) (2) 2970 800 / 2970 801
   email: quito.consular@fco.gov.uk
-  website: http://ukinecuador.fco.gov.uk/en/
+  website: /government/world/ecuador/
   office_hours: |-
     Public Attention Hours (Notarial & Documentary Services):
     Mon-Thur: 0930-1230
@@ -1848,7 +1848,7 @@ egypt:
     (002) (02) 2791 6131 Political
     (002) (02) 2791 6132 Press
     (002) (02) 2791 6133 Consular
-  website: http://ukinegypt.fco.gov.uk/en/
+  website: /government/world/egypt/
   office_hours: |-
     GMT:
     Sun-Wed: 0500-1230
@@ -1879,7 +1879,7 @@ egypt:
     (20) (3) 5223717 
     (20) (3) 5220507
   fax: (20) (3) 5467177
-  website: http://ukinegypt.fco.gov.uk/en/
+  website: /government/world/egypt/
   office_hours: |-
     GMT:
     Sun-Wed: 0600-1330
@@ -1964,7 +1964,7 @@ estonia:
     (372) 667 4755 Political
     (372) 667 4725 Consular/Visa
   email: infotallinn@fco.gov.uk
-  website: http://ukinestonia.fco.gov.uk/en/
+  website: /government/world/estonia/
   office_hours: |-
     GMT
     Mon - Fri:  0700 - 1500 
@@ -2004,7 +2004,7 @@ ethiopia:
     (251) (11) 6610588 
     (251) (11) 6614154 Consular/Visa Section
   email: Britishembassy.addisababa@fco.gov.uk
-  website: http://ukinethiopia.fco.gov.uk/en/
+  website: /government/world/ethiopia/
   office_hours: |-
     Office Hours (Local time):
     Mon-Thurs: 0800-1630
@@ -2088,7 +2088,7 @@ france:
   location_name: Paris
   phone: (33) 1 44 51 31 00
   fax: (33) 1 44 51 31 09 Consular
-  website: http://ukinfrance.fco.gov.uk/en/
+  website: /government/world/france/
   office_hours: |-
     GMT:
     Mon -Fri: 0830-1200 / 1330-1700
@@ -2140,7 +2140,7 @@ france:
   phone: (33) (5) 57 22 21 10
   fax: (33) (5) 56 08 33 12
   email: postmaster.bordeaux@fco.gov.uk
-  website: http://ukinfrance.fco.gov.uk/en/
+  website: /government/world/france/
   office_hours: |-
     GMT: Monday, Wednesday and Friday (closed on Tuesdays and Thursdays): 08.00-11.30
     Local Time: Monday, Wednesday and Friday (closed on Tuesdays and Thursdays): 09.00-12.30
@@ -2157,7 +2157,7 @@ french-guiana:
   location_name: Paris
   phone: (33) 1 44 51 31 00
   fax: (33) 1 44 51 31 09 Consular
-  website: http://ukinfrance.fco.gov.uk/en/
+  website: /government/world/france/
   office_hours: |-
     GMT:
     Mon -Fri: 0830-1200 / 1330-1700
@@ -2175,7 +2175,7 @@ french-polynesia:
   location_name: Paris
   phone: (33) 1 44 51 31 00
   fax: (33) 1 44 51 31 09 Consular
-  website: http://ukinfrance.fco.gov.uk/en/
+  website: /government/world/france/
   office_hours: |-
     GMT:
     Mon -Fri: 0830-1200 / 1330-1700
@@ -2245,7 +2245,7 @@ georgia:
   fax: |-
     + 995 32 2274792 (Main Embassy) 
     + 995 32 2274779 (Visa/Consular Section)
-  website: http://ukingeorgia.fco.gov.uk/en/
+  website: /government/world/georgia/
   office_hours: |-
     GMT:
     Mon-Fri:  0500-0900   1000-1300
@@ -2265,7 +2265,7 @@ germany:
   location_name: Berlin
   phone: 0049 (0)30 20457-0
   fax: 0049 (0)30 20457 594
-  website: http://ukingermany.fco.gov.uk/en/
+  website: /government/world/germany/
   office_hours: |-
     Local Time Mon-Fri: 0900-1300 / 1400-1730
     GMT Mon-Fri: 0800-1200 / 1300-1630
@@ -2283,7 +2283,7 @@ germany:
   fax: |-
     (49) (211) 48 81 90 (Consular)
     (49) (211) 48 63 59 (UK Trade & Investment Section)
-  website: http://ukingermany.fco.gov.uk/en
+  website: /government/world/germany
   office_hours: |-
     Consular Section
     Opening Hours for visitors:  Monday-Friday
@@ -2299,7 +2299,7 @@ germany:
   location_name: Munich
   phone: (49) (89) 211090
   fax: (49) (89) 21109 144 Management/Consular
-  website: http://ukingermany.fco.gov.uk/en
+  website: /government/world/germany
   office_hours: |-
     Office Hours - Local Time  
      Monday-Thursday: 09.00-12.00 / 13.00-17.00
@@ -2325,14 +2325,14 @@ germany:
   lon: 9.80356
   location_name: Hamburg
   phone: 0049 (0) 40 448 032 36
-  website: http://ukingermany.fco.gov.uk/en
+  website: /government/world/germany
   office_hours: By appointment only
 - address: |-
     Hannover Ruchversicherungs AG 
     Karl-Wiechart Allee 50 
     30625 HANNOVER
   phone: 0049-(0)511 388 3808
-  website: http://ukingermany.fco.gov.uk/en
+  website: /government/world/germany
   office_hours: By appointment only
 - address: |-
     British Honorary Consulate
@@ -2344,7 +2344,7 @@ germany:
   location_name: Bremen
   phone: (49) (421) 590708
   fax: (49) (421) 5907109
-  website: http://ukingermany.fco.gov.uk/en
+  website: /government/world/germany
   office_hours: |-
     Local Time (UK +1):
     0830-1230 / 1430-1530
@@ -2363,7 +2363,7 @@ germany:
   lon: 8.66263
   location_name: Frankfurt
   phone: (069) 7167 5345
-  website: http://ukingermany.fco.gov.uk/en
+  website: /government/world/germany
   office_hours: By appointment only.
 - address: |-
     British Honorary Consulate
@@ -2376,7 +2376,7 @@ germany:
   location_name: Kiel
   phone: (49) (431) 331971
   fax: (49) (431) 3053746
-  website: http://ukingermany.fco.gov.uk/en
+  website: /government/world/germany
   office_hours: |-
     Local Time (UK+1)
     Mon-Fri: 0900-1200 / 1400-1600
@@ -2395,7 +2395,7 @@ germany:
   location_name: Nuremberg
   phone: (49) (911) 2404-303
   fax: (49) (911) 2404 1111
-  website: http://ukingermany.fco.gov.uk/en
+  website: /government/world/germany
 - address: |-
     British Honorary Consulate
     Stafflenbergstrasse 44
@@ -2406,7 +2406,7 @@ germany:
   location_name: Stuttgart
   phone: (49) (0711) 5006 342
   fax: (49) (711) 5006 344
-  website: http://ukingermany.fco.gov.uk/en
+  website: /government/world/germany
 ghana: 
 - address: |-
     British High Commission
@@ -2424,7 +2424,7 @@ ghana:
   fax: |-
     (00) (233) (30) 2213 274
     (00) (233) (30) 2221715 Visa Section
-  website: http://ukinghana.fco.gov.uk/en/
+  website: /government/world/ghana/
   office_hours: |-
     Main Office:
     
@@ -2480,7 +2480,7 @@ greece:
   location_name: Corfu
   phone: 0030 26610 30055 / 23457
   fax: 0030 26610-37995
-  website: http://ukingreece.fco.gov.uk/en/
+  website: /government/world/greece/
 - address: |-
     British Consulate
     Candia Tower
@@ -2494,7 +2494,7 @@ greece:
   location_name: Heraklion (Crete)
   phone: (30) 281 0224012
   fax: (30) 281 0243935
-  website: http://ukingreece.fco.gov.uk/en/
+  website: /government/world/greece/
 - address: |-
     British Consulate 
     43 Tsimiski Street
@@ -2518,7 +2518,7 @@ greece:
   location_name: Rhodes
   phone: 0030 22410-22005
   fax: 0030 22410-24473
-  website: http://ukingreece.fco.gov.uk/en/
+  website: /government/world/greece/
 - address: |-
     British Honorary Vice-Consulate
     Votsi 2
@@ -2529,7 +2529,7 @@ greece:
   location_name: Patras
   phone: (30) 261 0277329
   fax: (30) 261 0225334
-  website: http://ukingreece.fco.gov.uk/en/our-office-in-greece/
+  website: /government/world/greece/our-office-in-greece/
 - address: |-
     British Vice-Consulate
     5 Foskolos Street 
@@ -2540,7 +2540,7 @@ greece:
   location_name: Zakynthos
   phone: (00 30) 26950 22906 / 48030
   fax: (00 30) 26950 22906
-  website: http://ukingreece.fco.gov.uk/en/
+  website: /government/world/greece/
 grenada: 
 - address: |-
     Honorary British Consul 
@@ -2551,7 +2551,7 @@ grenada:
   lon: -61.7487
   location_name: St Georges
   phone: +1 (473) 405 8072
-  website: http://ukinbarbados.fco.gov.uk/en/
+  website: /government/world/barbados/
   office_hours: |-
     For consular related matters please contact the British High Commission in Barbados at:
     British High Commission
@@ -2580,7 +2580,7 @@ guadeloupe:
   location_name: Paris
   phone: (33) 1 44 51 31 00
   fax: (33) 1 44 51 31 09 Consular
-  website: http://ukinfrance.fco.gov.uk/en/
+  website: /government/world/france/
   office_hours: |-
     GMT:
     Mon -Fri: 0830-1200 / 1330-1700
@@ -2662,7 +2662,7 @@ guyana:
     (592) 225 3555 Management/Consular/Immigration
     (592) 223 7321 Chancery
     (592) 223 3360 Dfid
-  website: http://ukinguyana.fco.gov.uk/en
+  website: /government/world/guyana
   office_hours: |-
     GMT:
     Mon-Thu: 1300-2100; Fri: 1300-1800
@@ -2695,7 +2695,7 @@ honduras:
   location_name: Tegucigalpa
   phone: (+504) 2237-6577, 2237-6459
   fax: (+504) 2238-3361, 2238-4097
-  website: http://ukinguatemala.fco.gov.uk/en/working-with-honduras/
+  website: /government/world/guatemala/working-with-honduras/
   office_hours: |-
     Local Time:
     Mon-Fri: 0800-1200 and 1400-1730
@@ -2714,7 +2714,7 @@ honduras:
   location_name: San Pedro Sula
   phone: (+504) 2550-2337
   fax: (+504) 2550-6145
-  website: http://ukinguatemala.fco.gov.uk/en/working-with-honduras/
+  website: /government/world/guatemala/working-with-honduras/
   office_hours: |-
     GMT:
     Mon-Fri 1400-1800 and 1900-2300
@@ -2743,7 +2743,7 @@ hong-kong-(sar-of-china):
     (+852) 2901 3007 - Corporate Services
     (+852) 2901 3008 - Press and Public Affairs
     (+852) 2901 3066 - UK Trade & Investment
-  website: http://ukinhongkong.fco.gov.uk/en/
+  website: /government/world/hong-kong/
   office_hours: |-
     Office hours, Monday-Friday:
     08:30-17:15 (Local time)
@@ -2787,7 +2787,7 @@ iceland:
   phone: (354) 550 5100
   fax: (354) 550 5105
   email: info@britishembassy.is\n\
-  website: http://ukiniceland.fco.gov.uk/en
+  website: /government/world/iceland
   office_hours: |-
     GMT: (Local Time = GMT)
     Mon-Thurs: 0830-1600
@@ -2804,7 +2804,7 @@ iceland:
   location_name: Akureyri
   phone: (354) 463 0102
   fax: (354) 462 4621
-  website: http://ukiniceland.fco.gov.uk/en/
+  website: /government/world/iceland/
   office_hours: |-
     GMT: (Local Time = GMT)
     Mon-Fri: 0900-1200 / 1300-1700
@@ -2957,7 +2957,7 @@ indonesia:
   location_name: Jakarta
   phone: (62) (21) 2356 5200
   fax: (62) (21) 2356 5351
-  website: http://ukinindonesia.fco.gov.uk/en/
+  website: /government/world/indonesia/
   office_hours: |-
     Office hours (Local time):
     Monday-Thursday: 07:45 - 16:00
@@ -2977,7 +2977,7 @@ indonesia:
   location_name: Bali
   phone: +(62) (361) 270601
   fax: +(62) (361) 287804
-  website: http://ukinindonesia.fco.gov.uk/en
+  website: /government/world/indonesia
   office_hours: |-
     Public visiting hours:
     Monday-Friday
@@ -3009,7 +3009,7 @@ iraq:
     Baghdad
   phone: +964 7901 926 280
   email: Baghdad.consularenquiries@fco.gov.uk
-  website: http://ukiniraq.fco.gov.uk/en/
+  website: /government/world/iraq/
   office_hours: |-
     GMT: Sun-Thurs 0500-0700
     Local time: Sun-Thurs 1000-1200
@@ -3036,7 +3036,7 @@ iraq:
   phone: (964) (0) 7400 248 868 (for consular emergencies involving British nationals only)
   fax: Please contact British Embassy Baghdad
   email: Basra.Contact@fco.gov.uk
-  website: http://ukiniraq.fco.gov.uk/en/
+  website: /government/world/iraq/
   office_hours: |-
     GMT:
     Sun-Thurs: 07:00-15:30
@@ -3055,7 +3055,7 @@ iraq:
     If you are a British National requiring consular assistance, please call  00964 66 224 5273 (During the hours of 0900 - 1600) and ask to be put through to the British Consulate General
     If you are a British National requiring urgent consular assistance, outside normal working hours, please call: +964 7901 935 149
   email: enquiries.erbil@fco.gov.uk
-  website: http://ukiniraq.fco.gov.uk/en/
+  website: /government/world/iraq/
   office_hours: |-
     GMT:
     Sun-Wed: 06:00-14:00
@@ -3080,7 +3080,7 @@ ireland:
         (353) (1) 570 999 331
     Visa enquiries:
         (353) (1) 570 214 314
-  website: http://britishembassyinireland.fco.gov.uk/en/
+  website: /government/world/ireland/
   office_hours: |-
     GMT: (Local Time = GMT)
     Mon-Thurs: 0900-1245 / 1400-1715
@@ -3104,7 +3104,7 @@ israel:
     Trade & Investment +972 (0)3 524 3313
     Management +972 (0)3 527 8574
   email: webmaster.telaviv@fco.gov.uk
-  website: http://ukinisrael.fco.gov.uk/en
+  website: /government/world/israel
   office_hours: |-
     GMT
     Mon-Thurs: 0600-1400, Fri: 0600-1130
@@ -3133,7 +3133,7 @@ israel:
   location_name: Tel Aviv
   phone: (972) (3) (7251222)
   fax: (972) (03) 5101167
-  website: http://ukinisrael.fco.gov.uk/en
+  website: /government/world/israel
   office_hours: |-
     GMT:
     Visa Section: Mon-Fri: 0630-1030
@@ -3152,7 +3152,7 @@ israel:
   phone: (972) (8) 634 0810 
   fax: (972) (8) 634 0810
   email: dafna.budden-honcon@fconet.fco.gov.uk
-  website: http://ukinisrael.fco.gov.uk/en
+  website: /government/world/israel
 italy: 
 - address: |-
     British Embassy
@@ -3163,7 +3163,7 @@ italy:
   lon: 12.4819
   location_name: Rome
   phone: (39) 06 4220 0001
-  website: http://ukinitaly.fco.gov.uk/en
+  website: /government/world/italy
   office_hours: |-
     GMT:
     Mon - Fri:  0800-1600
@@ -3200,7 +3200,7 @@ italy:
   fax: |-
     (39) 02 72020153 Commercial
     (39) 02 86465081 Consular/Management/Press and Communications
-  website: http://ukinitaly.fco.gov.uk/en/
+  website: /government/world/italy/
   office_hours: |-
     GMT
     Mon-Fri: 0800 - 1200 / 1300 - 1600
@@ -3280,7 +3280,7 @@ japan:
   location_name: Tokyo
   phone: (00) (81) (3) 3235 8031
   fax: (00) (81) (3) 3235 8040
-  website: http://ukinjapan.fco.gov.uk/en/
+  website: /government/world/japan/
   office_hours: |-
     GMT:
     Monday-Friday 0000-0800
@@ -3301,7 +3301,7 @@ japan:
     (+81) (6) 6120 5600 
     (+81) (6) 6120 5601 - Consular Enquiries
   fax: (+81) (6) 6281 1731
-  website: http://ukinjapan.fco.gov.uk/en/
+  website: /government/world/japan/
   office_hours: |-
     Monday-Friday 
     09:30-12:00 / 13:00-17:00
@@ -3315,7 +3315,7 @@ jordan:
     (962) (6) 590 9279 
     (962) (6) 590 9219 Political
   email: Amman.enquiries@fco.gov.uk
-  website: http://ukinjordan.fco.gov.uk/en/
+  website: /government/world/jordan/
   office_hours: |-
     Passport opening times: Sun - Wed: 08.30-1200
     Sun-Wed: 0600-1330 GMT (0800-1530 local time)
@@ -3440,7 +3440,7 @@ kiribati:
   location_name: British High Commission
   phone: (679) 3229100 (switchboard)
   fax: (679) 322 9132
-  website: http://ukinfiji.fco.gov.uk/en/
+  website: /government/world/fiji/
   office_hours: |-
     GMT:
     Sun-Wed: 2000-0040 / 0100-0400
@@ -3490,7 +3490,7 @@ kosovo:
     Pristina
   phone: (381) (38) 254 700
   fax: (381) (38) 249 799
-  website: http://ukinkosovo.fco.gov.uk/en/
+  website: /government/world/kosovo/
   office_hours: |-
     GMT:
     Mon-Thurs: 0730-1600
@@ -3553,7 +3553,7 @@ kyrgyzstan:
   phone: + 996 (0) 312 69 02 32
   fax: +996 (0) 312 69 02 31
   email: ukin.kyrgyzrepublic@fco.gov.uk
-  website: http://ukinkz.fco.gov.uk/en/
+  website: /government/world/kazakhstan/
   office_hours: |-
     Office Hours: GMT: Mon-Thurs: 0300-1130; Fri: 0300-1000
     Local: Mon-Thurs: 0900-1730; Fri: 0900-1600
@@ -3567,7 +3567,7 @@ kyrgyzstan:
   location_name: Bishkek
   phone: (996) 312 666 637
   fax: (996) 312 690 232
-  website: http://ukinkz.fco.gov.uk/en/
+  website: /government/world/kazakhstan/
 laos: 
 - address: |-
     Non-resident British Ambassador
@@ -3600,7 +3600,7 @@ latvia:
   phone: (371) 6777 4700
   fax: (371) 6777 4707
   email: BritishEmbassy.Riga@fco.gov.uk
-  website: http://ukinlatvia.fco.gov.uk/en/
+  website: /government/world/latvia/
   office_hours: |-
     GMT:
     Mon-Fri:  0700-1100 / 1200-1500
@@ -3626,7 +3626,7 @@ lebanon:
     +961 (1) 9904 20
     +961 (1) 9608 55
   email: Beirut.Consular@fconet.fco.gov.uk
-  website: http://ukinlebanon.fco.gov.uk/en
+  website: /government/world/lebanon
   office_hours: |-
     Passport opening times: Mon-Thu: 0900-1230
     GMT: Mon-Thurs: 0600-1400; Fri: 0600-1200
@@ -3638,20 +3638,20 @@ lebanon:
     Daar Al-Ain 
     Tripoli
   phone: (961) (4) 431320
-  website: http://ukinlebanon.fco.gov.uk/en/
+  website: /government/world/lebanon/
 - address: |-
     British Honorary Consul
     Coolrite Building
     Beirut
   phone: (961) (4) 723502
-  website: http://ukinlebanon.fco.gov.uk/en
+  website: /government/world/lebanon
 lesotho:
 - address: |-
     British High Commission
     255 Hill Street,Arcadia 0002, Pretoria, South Africa
   phone: "Tel: +266 22 31 3929"
   fax: "Fax: +266 22 31 0254"
-  website: http://ukinsouthafrica.fco.gov.uk/en/
+  website: /government/world/south-africa/
   office_hours: |-
     GMT:
     Mon-Thurs: 0600-1500
@@ -3672,7 +3672,7 @@ lesotho:
     +266 22315537 (home)
     +266 58851210 (mobile)
   fax: +266 22310254
-  website: http://ukinsouthafrica.fco.gov.uk/en/
+  website: /government/world/south-africa/
 liberia:
 - address: |-
     Liberia, Monrovia, British Honorary Consul
@@ -3703,7 +3703,7 @@ libya:
   lon: 13.1977
   location_name: Tripoli
   phone: +218 21 335 1084/5/6
-  website: http://ukinlibya.fco.gov.uk/en
+  website: /government/world/libya
   office_hours: |-
     Passport opening times: Sun-Thu - by appointment only. Call and book in advance,
 liechtenstein:
@@ -3718,7 +3718,7 @@ liechtenstein:
     (41) (31) 359 7701 General
     (41) (31) 359 7769 Political, Press and Public Affairs
     (41) (31) 359 7765 Consular
-  website: http://ukinswitzerland.fco.gov.uk/en
+  website: /government/world/switzerland
   office_hours: |-
     General: GMT: 0730-1130 and 1230-1600 
     Local Time: 0830-1230 and 1330-1700
@@ -3776,7 +3776,7 @@ macedonia:
   fax: |-
     (00) (389) (2) 3179 726 
     (00) (389) (2) 3179 729 Consular/Visa
-  website: http://ukinmacedonia.fco.gov.uk/en
+  website: /government/world/macedonia
   office_hours: |-
     GMT:
     Mon-Thurs: 0700-1530; Fri: 0700-1200
@@ -3831,7 +3831,7 @@ madagascar:
   fax: |-
     (230) 202 9408 
     (230) 202 9407 Consular/Visa
-  website: http://ukinmauritius.fco.gov.uk/en
+  website: /government/world/mauritius
   office_hours: |-
     Monday to Thursday
     0745 - 1545
@@ -3854,7 +3854,7 @@ malawi:
     (265) (1) 772 027
     (265) (1) 772 123
   fax: (265) (1) 772 657
-  website: http://ukinmalawi.fco.gov.uk/en/
+  website: /government/world/malawi/
   office_hours: |-
     GMT:
     Monday-Thursday: 0530-1000 / 1130-1430
@@ -3870,7 +3870,7 @@ malaysia:
     50450 Kuala Lumpur
   phone: (+60) (3) 2170 2200
   fax: (+60) (3) 2170 2370
-  website: http://ukinmalaysia.fco.gov.uk/en/
+  website: /government/world/malaysia/
   office_hours: |-
     Office hours (Local time):
     Monday-Thursday: 08:00-12:30 / 13:15-16:30
@@ -3941,7 +3941,7 @@ maldives:
     For dialog users 231
     for international callers 0094 773 908011
   fax: "0094 11 5390694"
-  website: http://ukinmaldives.fco.gov.uk/en/
+  website: /government/world/maldives/
   office_hours: |-
     GMT:
     Mon-Thurs: 0230-1100; Fri: 0230-0730
@@ -3981,7 +3981,7 @@ malta:
     Political: +356 2323 2216
     Consular:  +356 2323 2234
     Management: +356 2323 2269
-  website: http://ukinmalta.fco.gov.uk/en/
+  website: /government/world/malta/
   office_hours: |-
     Consular Section:
     
@@ -4024,7 +4024,7 @@ martinique:
   location_name: Paris
   phone: (33) 1 44 51 31 00
   fax: (33) 1 44 51 31 09 Consular
-  website: http://ukinfrance.fco.gov.uk/en/
+  website: /government/world/france/
   office_hours: |-
     GMT:
     Mon -Fri: 0830-1200 / 1330-1700
@@ -4060,7 +4060,7 @@ mauritius:
   fax: |-
     (230) 202 9408 
     (230) 202 9407 Consular/Visa
-  website: http://ukinmauritius.fco.gov.uk/en
+  website: /government/world/mauritius
   office_hours: |-
     Monday to Thursday
     0745 - 1545
@@ -4076,7 +4076,7 @@ mauritius:
     Rodrigues
   phone: (230) 832 0120
   fax: (230) 832 0120
-  website: http://ukinmauritius.fco.gov.uk/en
+  website: /government/world/mauritius
   office_hours: |-
     GMT:
     Mon-Fri: 0300-1200 Sat: 0400-0800
@@ -4094,7 +4094,7 @@ mayotte:
   location_name: Paris
   phone: (33) 1 44 51 31 00
   fax: (33) 1 44 51 31 09 Consular
-  website: http://ukinfrance.fco.gov.uk/en/
+  website: /government/world/france/
   office_hours: |-
     GMT:
     Mon -Fri: 0830-1200 / 1330-1700
@@ -4110,7 +4110,7 @@ mexico:
     If you are calling from within Mexico City do not add the (55) area code. You just need to dial 1670 3200.
   phone: (52) (55) 1670 3200
   fax: + 52 (55) 1670 3224
-  website: http://ukinmexico.fco.gov.uk/en/
+  website: /government/world/mexico/
   office_hours: |-
     Embassy Hours (GMT):  
     Mon-Thurs: 14:00-22:00
@@ -4127,7 +4127,7 @@ mexico:
     If you are calling from within Mexico City do not add the (55) area code. You just need to dial 1670 3200.
   phone: (52) (55) 1670 3200
   fax: (52) (55) 1670 3223
-  website: http://ukinmexico.fco.gov.uk/en/
+  website: /government/world/mexico/
   office_hours: |-
     Local Time
     Monday to Thursday: 09:00 to 11:30
@@ -4159,7 +4159,7 @@ mexico:
   phone: (52) 998 881 0100
   fax: (52) 998 848 8229
   email: consular.mexico@fco.gov.uk
-  website: http://ukinmexico.fco.gov.uk/en/
+  website: /government/world/mexico/
 - address: |-
     Blvd Paseo de la Marina Lote 7a
     Marina Cabo San Lucas
@@ -4168,7 +4168,7 @@ mexico:
   phone: (52) 624 173 9500 or (52) 624 157 0260
   fax: (52) 624 105 0753
   email: consular.mexico@fco.gov.uk
-  website: http://ukinmexico.fco.gov.uk/en/
+  website: /government/world/mexico/
 - address: |-
     British Honorary Consulate
     Blvd Salinas, No. 1500
@@ -4183,7 +4183,7 @@ mexico:
     (52) (664) 686 5320 
     (52) (664) 681 7323
   fax: (52) (664) 681 8402
-  website: http://ukinmexico.fco.gov.uk/en/
+  website: /government/world/mexico/
 micronesia:
 - address: |-
     120 Upper McKinley Road
@@ -4214,7 +4214,7 @@ moldova:
   phone: (373 22) 22 59 02
   fax: (373 22) 25 18 59
   email: Enquiries.Chisinau@fco.gov.uk
-  website: http://ukinmoldova.fco.gov.uk/en/
+  website: /government/world/moldova/
   office_hours: |-
     Local time:
     
@@ -4267,7 +4267,7 @@ mongolia:
   location_name: Ulaanbaatar
   phone: +976 11 458 133
   fax: +976 11 458036
-  website: http://ukinmongolia.fco.gov.uk/en/
+  website: /government/world/mongolia/
   office_hours: |-
     Office hours (Local Time):
     Mon-Thu: 08:30-13:00 / 14:00-17:00
@@ -4288,7 +4288,7 @@ montenegro:
   location_name: Podgorica
   phone: +382 (0) 20 618 010
   fax: +382 (0) 20 618 020
-  website: http://ukinmontenegro.fco.gov.uk/en/
+  website: /government/world/montenegro/
   office_hours: |-
     GMT
     Mon - Thurs: 0830 - 1600
@@ -4312,7 +4312,7 @@ montserrat:
     
     (664) 491 6124 Governor's Residence
   fax: (1) (664) 491 8867
-  website: http://ukinmontserrat.fco.gov.uk/en/
+  website: /government/world/montserrat/
   office_hours: |-
     GMT:
     Mon-Thur: 1300-2130
@@ -4334,7 +4334,7 @@ morocco:
   phone: +212 (0)537 63 33 33
   fax: 0537 75 87 09
   email: rabat.consular@fco.gov.uk
-  website: http://ukinmorocco.fco.gov.uk/en
+  website: /government/world/morocco
   office_hours: |-
     Monday - Thursday: 08:00 - 16:15 Friday: 08:00 - 13:00
     Passport opening times: Mon-Thu: 0800 - 1200
@@ -4350,7 +4350,7 @@ morocco:
   location_name: Casablanca
   phone: (00) (212) 522 85 74 00
   fax: (00) (212) 522 83 46 25/26
-  website: http://ukinmorocco.fco.gov.uk/en
+  website: /government/world/morocco
   office_hours: "Mon-Thur: 0800-1630 Fri: 0800-1300. See website for opening hours during Ramadan."
 - address: |-
     British Consulate 
@@ -4363,7 +4363,7 @@ morocco:
   location_name: Agadir
   phone: 212 (0) 528 84 12 19
   fax: 212 (0) 528 84 12 57
-  website: http://ukinmorocco.fco.gov.uk/en
+  website: /government/world/morocco
   office_hours: |-
     09h00-13h00 Monday - Friday (without appointment)
     15h00-16h00 Monday - Thursday (by appointment only)
@@ -4377,7 +4377,7 @@ morocco:
   location_name: Marrakech
   phone: (00) (212) 524 42 08 46
   fax: (00) (212) 524 43 52 76
-  website: http://ukinmorocco.fco.gov.uk/en
+  website: /government/world/morocco
   office_hours: |-
     Consular Opening Hours
     
@@ -4395,7 +4395,7 @@ morocco:
   location_name: Tangier
   phone: +212 (0) 539 93 69 39/40
   fax: +212 (0) 539 93 69 14
-  website: http://ukinmorocco.fco.gov.uk/en/
+  website: /government/world/morocco/
   office_hours: |-
     08h30 - 12h30 (Monday to Friday) 
 mozambique: 
@@ -4410,7 +4410,7 @@ mozambique:
   location_name: Maputo
   phone: + (258) 82 313 8580
   fax: (258) (21) 356 060
-  website: http://ukinmozambique.fco.gov.uk/en/
+  website: /government/world/mozambique/
   office_hours: |-
     Office Hours (Mozambican time)
     Monday - Thursday: 0800-1230 and 1300-1600
@@ -4424,7 +4424,7 @@ mozambique:
     Beira
   phone: +258 23 325 997
   fax: +258 23 325 997
-  website: http://ukinmozambique.fco.gov.uk/en/
+  website: /government/world/mozambique/
 namibia: 
 - address: |-
     British High Commission
@@ -4437,7 +4437,7 @@ namibia:
   location_name: Windhoek
   phone: (264) (61) 274800
   fax: (264) (61) 228895
-  website: http://ukinnamibia.fco.gov.uk/en/
+  website: /government/world/namibia/
   office_hours: |-
     GMT:
     Mon-Thurs: 0700-1200 / 1300-1600
@@ -4454,7 +4454,7 @@ namibia:
     Windhoek
   phone: (264) (61) 226776
   fax: (264) (61) 227530
-  website: http://ukinnamibia.fco.gov.uk/en/
+  website: /government/world/namibia/
   office_hours: |-
     GMT:
     Mon-Thurs: 0700-1200 / 1300-1600
@@ -4476,7 +4476,7 @@ nauru:
     Fiji
   phone: (679) 3229100 (switchboard)
   fax: (679) 322 9132
-  website: http://ukinfiji.fco.gov.uk/en/
+  website: /government/world/fiji/
   office_hours: |-
     GMT:
     Sun-Wed: 2000-0040 / 0100-0400
@@ -4497,7 +4497,7 @@ nepal:
   phone: (977) (1) 4414588
   fax: (977) (1) 4411789
   email: BEKathmandu@fco.gov.uk
-  website: http://ukinnepal.fco.gov.uk/en/
+  website: /government/world/nepal/
   office_hours: |-
     GMT:
     Mon-Thurs: 0230-0645/0745-1115
@@ -4517,7 +4517,7 @@ nepal:
     00 (977) (1) 4410798 
     00 (977) (1) 4413003
   fax: 00 (977) (1) 4410545
-  website: http://ukinnepal.fco.gov.uk/en/
+  website: /government/world/nepal/
   office_hours: |-
     GMT:
     Mon-Fri: 0245-0645 and 0745-1200
@@ -4538,7 +4538,7 @@ netherlands:
   fax: |-
     (31) (20) 676 10 69 
     (31) (20) 675 83 81 Consular Section
-  website: http://ukinnl.fco.gov.uk/en
+  website: /government/world/netherlands
   office_hours: |-
     Local (GMT + 1):
     Passport & Consular Services:
@@ -4555,7 +4555,7 @@ netherlands:
   location_name: The Hague
   phone: +31 (0)70 4270 427
   fax: +31 (0)70 4270 345
-  website: http://ukinnl.fco.gov.uk/en/
+  website: /government/world/netherlands/
   office_hours: |-
     GMT:
     Mon-Fri: 0800-1630
@@ -4573,7 +4573,7 @@ new-caledonia:
   location_name: Paris
   phone: (33) 1 44 51 31 00
   fax: (33) 1 44 51 31 09 Consular
-  website: http://ukinfrance.fco.gov.uk/en/
+  website: /government/world/france/
   office_hours: |-
     GMT:
     Mon -Fri: 0830-1200 / 1330-1700
@@ -4598,7 +4598,7 @@ new-zealand:
   fax: |-
     (+64) (4) 473 4982 - Communications/Policy
     (+64) (4) 924 2809 - Corporate Services
-  website: http://ukinnewzealand.fco.gov.uk/en/
+  website: /government/world/new-zealand/
   office_hours: |-
     Office hours: GMT: Sun-Thurs: 20:45-05:00 (Personal Callers to Consular Section between 21:00-01:00 only)
     Local time: Mon-Fri: 08:45-17:00 (Personal Callers to Consular Section between 09:00-13:00 only)
@@ -4620,7 +4620,7 @@ new-zealand:
   location_name: Auckland
   phone: (+64) (9) 303 2973
   fax: (+64) (9) 303 1836
-  website: http://ukinnewzealand.fco.gov.uk/en/
+  website: /government/world/new-zealand/
   office_hours: |-
     Monday-Friday: 09:00-17:00 (Local time)
     Sunday-Thursday: 21:00-05:00 (GMT)
@@ -4636,7 +4636,7 @@ nicaragua:
   location_name: Managua
   phone: (00) (505) 254 5454 / 3839
   fax: (00) (505) 254 5295
-  website: http://ukincostarica.fco.gov.uk/en/nicaragua/
+  website: /government/world/costa-rica/nicaragua/
   office_hours: |-
     Local:
     Mon-Fri: 0900-1300 and 1500-1800
@@ -4677,7 +4677,7 @@ nigeria:
   location_name: Lagos
   phone: (00234) (0) 1 277 0780/0781/0782
   fax: (00234) (0) 1 2770789
-  website: http://ukinnigeria.fco.gov.uk/en/
+  website: /government/world/nigeria/
   office_hours: |-
     GMT: Mon-Thurs: 0630-1430 and Fri 0630-1130
     Local Time: Mon-Thur 0730-1530 and Fri 0730-1230
@@ -4716,7 +4716,7 @@ nigeria:
   location_name: Ibadan
   phone: (234) (22) 810 4953
   fax: (00) (234) (02) 8100612
-  website: http://ukinnigeria.fco.gov.uk/en
+  website: /government/world/nigeria
   office_hours: |-
     GMT: 0630-1330
     Local: 0730-1430
@@ -4738,7 +4738,7 @@ nigeria:
     Kano
   phone: (00) (234) (064) 646652; 643489; 636620
   fax: (00) (234) (064) 632500
-  website: http://ukinnigeria.fco.gov.uk/en
+  website: /government/world/nigeria
   office_hours: |-
     GMT: 0630-1430 Monday to Thursday
     0630-1130 Friday
@@ -4774,7 +4774,7 @@ north-korea:
     From Inside DPRK:
     191 250 7980
   fax: +850 2 381 7985 International dialling
-  website: http://ukindprk.fco.gov.uk/en/
+  website: /government/world/north-korea/
   office_hours: |-
     Monday - Thursday
     GMT: 0000 - 0900
@@ -4796,7 +4796,7 @@ norway:
   phone: (00 47) 23 13 27 00
   fax: (00 47) 23 13 27 41
   email: britemb@online.no
-  website: http://ukinnorway.fco.gov.uk/en/
+  website: /government/world/norway/
   office_hours: |-
     Consular: By appointment only (please phone +47 23 13 27 00 between 0900 - 1100 Monday, Tuesday, Thursday, Friday to make an appointment or 0047 2313 2700 if calling from outside Norway). The Consular section telephone lines are open between 0900 - 1100 on these days only.
     Other departments: 0900 - 1600
@@ -4814,7 +4814,7 @@ norway:
   location_name: Alesund
   phone: (47) 70 11 75 00
   fax: (47) 70 11 75 02
-  website: http://ukinnorway.fco.gov.uk/en/
+  website: /government/world/norway/
 - address: |-
     Øvre Ole Bulls Plass 1 - 1etg
     P O Boks 273
@@ -4825,7 +4825,7 @@ norway:
   location_name: Bergen
   phone: (47) 55 36 78 10
   fax: (47) 55 36 78 11
-  website: http://ukinnorway.fco.gov.uk/en/
+  website: /government/world/norway/
 - address: |-
     Visiting and Postal:
     Byggcon AS
@@ -4837,7 +4837,7 @@ norway:
   location_name: "Bodø"
   phone: (47) 75 56 58 00
   fax: (47) 75 56 58 01
-  website: http://ukinnorway.fco.gov.uk/en/
+  website: /government/world/norway/
 - address: |-
     Post Box 479
     4664 Kristiansand 
@@ -4851,7 +4851,7 @@ norway:
   location_name: Kristiansand
   phone: (47) 38 12 20 70
   fax: (47) 38 12 30 71
-  website: http://ukinnorway.fco.gov.uk/en/
+  website: /government/world/norway/
 - address: |-
     Prinsensgate 12
     4008 Stavanger
@@ -4865,7 +4865,7 @@ norway:
   location_name: Stavanger
   phone: (47) 51 52 97 13
   fax: (47) 51 53 83 01
-  website: http://ukinnorway.fco.gov.uk/en/
+  website: /government/world/norway/
 - address: |-
     c/o A/S Mack's Ølbryggeri
     Storgata 5-13
@@ -4881,7 +4881,7 @@ norway:
   location_name: "Tromsø"
   phone: (47) 77 62 45 00
   fax: (47) 77 65 78 35
-  website: http://ukinnorway.fco.gov.uk/en/
+  website: /government/world/norway/
 - address: |-
     c/o R Kjeldsberg AS 
     Beddingen 8
@@ -4892,7 +4892,7 @@ norway:
   location_name: Trondheim
   phone: (47) 73 60 02 00
   fax: (47) 73 60 02 50
-  website: http://ukinnorway.fco.gov.uk/en/
+  website: /government/world/norway/
 oman:
 - address: |-
     British Embassy
@@ -4909,7 +4909,7 @@ oman:
     (+968) 2460 9011 Consular
     (+968) 2460 9013 Chancery
     (+968) 2460 9012 Commercial
-  website: http://ukinoman.fco.gov.uk/en
+  website: /government/world/oman
   office_hours: |-
     Sat-Wed: 0330-1030 GMT
     Sat-Wed: 0730-1430 Local Time
@@ -4957,7 +4957,7 @@ pakistan:
   fax: |-
     (92) (21) 35827005 General
     (92) (21) 35827012 Consular
-  website: http://ukinpakistan.fco.gov.uk/en/
+  website: /government/world/pakistan/
   office_hours: |-
     GMT:
     Mon-Thurs: 0330-1100
@@ -4996,7 +4996,7 @@ panama:
   location_name: Panama City
   phone: (507) 297 6550
   fax: (507) 297 6588
-  website: http://ukinpanama.fco.gov.uk/en/
+  website: /government/world/panama/
   office_hours: |-
     The Embassy will observe the following schedule during April:
     05 April - 07:30 - 13:00
@@ -5044,7 +5044,7 @@ paraguay:
   location_name: "Asunción"
   phone: (595) (21) 210 405
   fax: (595) (21) 600 448
-  website: http://ukinargentina.fco.gov.uk/en/
+  website: /government/world/argentina/
   office_hours: |-
     GMT:
     Mon-Fri: 1200-1700 and 1900-2300
@@ -5113,7 +5113,7 @@ pitcairn:
     New Zealand
   phone: (+64) (9) 366 0186
   fax: (+64) (9) 366 0187
-  website: http://ukinnewzealand.fco.gov.uk/en/
+  website: /government/world/new-zealand/
   office_hours: |-
     Local Time:
     
@@ -5132,7 +5132,7 @@ poland:
     (48 22) 311 00 00
     If you are a British national in distress, and having difficulty reaching us on the emergency telephone number, please call the FCO Switchboard in London on +44 (0)20 7008 1500 for assistance.
   fax: (48 22) 311 03 11
-  website: http://ukinpoland.fco.gov.uk/en/
+  website: /government/world/poland/
   office_hours: |-
     British Embassy:
     Monday - Friday
@@ -5165,7 +5165,7 @@ portugal:
     (351) (21) 392 40 21 Political/PPA
     (351) (21) 392 41 86 UK Trade & Investment
     (351) (21) 392 41 87 Corporate Services
-  website: http://ukinportugal.fco.gov.uk/en/
+  website: /government/world/portugal/
   office_hours: |-
     GMT: (Local Time =  BST)
     
@@ -5187,7 +5187,7 @@ portugal:
     If calling from Portugal: 808 20 35 37
     If calling from outside Portugal: +351 21 395 4082
   fax: (351) (22) 610 0438
-  website: http://ukinportugal.fco.gov.uk/en/help-for-british-nationals/
+  website: /government/world/portugal/help-for-british-nationals/
   office_hours: |-
     (Local time = CET -1):
     Monday/Wednesday/Thursday: 0930-1230 and 1430-1600
@@ -5208,7 +5208,7 @@ portugal:
     If calling from Portugal: 808 20 35 37
     If calling from outside Portugal: +351 21 395 4082
   fax: (+351) 282 414 054
-  website: http://ukinportugal.fco.gov.uk/en/help-for-british-nationals/
+  website: /government/world/portugal/help-for-british-nationals/
   office_hours: |-
     (Local time = CET -1):
     The Consulate is open to the public from Monday to Friday from 09:30 to 14:30.
@@ -5225,7 +5225,7 @@ portugal:
     If calling from Portugal: 808 20 35 37
     If calling from outside Portugal: +351 21 395 4082
   fax: (351) (296) 628 175
-  website: http://ukinportugal.fco.gov.uk/en/
+  website: /government/world/portugal/
   office_hours: Public opening hours are by appointment only
 qatar: 
 - address: |-
@@ -5268,7 +5268,7 @@ reunion:
   location_name: Paris
   phone: (33) 1 44 51 31 00
   fax: (33) 1 44 51 31 09 Consular
-  website: http://ukinfrance.fco.gov.uk/en/
+  website: /government/world/france/
   office_hours: |-
     GMT:
     Mon -Fri: 0830-1200 / 1330-1700
@@ -5327,7 +5327,7 @@ russian-federation:
     (7) (495) 956 7201 General
     (7) (495) 956 7441 Visa
     (7) (495) 956 7430 Press & Public Affairs
-  website: http://ukinrussia.fco.gov.uk/en/
+  website: /government/world/russia/
   office_hours: |-
     GMT:
     Summer: Mon-Fri: 0600-1000 / 1100-1400
@@ -5347,7 +5347,7 @@ russian-federation:
   location_name: Ekaterinburg
   phone: + 7 (343) 253 5600
   fax: + 7 (343) 259 2901
-  website: http://ukinrussia.fco.gov.uk/en
+  website: /government/world/russia
   office_hours: |-
     Monday to Friday 09:00-17:00 (Embassy working hours) - except holidays
     Monday to Friday 09:00-12:00 (Consular section)- except holidays
@@ -5373,7 +5373,7 @@ russian-federation:
     (7) (812) 320 3211 General
     (7) (812) 320 3222 Trade and Investment section
   email: information.stpetersburg@fco.gov.uk
-  website: http://ukinrussia.fco.gov.uk/en
+  website: /government/world/russia
   office_hours: |-
     Monday to Friday 09:00-17:00 (Consular section working hours - except holidays Monday to Friday 09:00-12:00)
     Passport opening times: Mon-Fri: 0900-1200 (by appointment only)
@@ -5403,7 +5403,7 @@ rwanda:
     Fri: 0800-1200
     Emergency number out of office hours (+250) (0) 252 556999
 samoa:
-- website: http://ukinnewzealand.fco.gov.uk/en/
+- website: /government/world/new-zealand/
 san-marino:
 - address: |-
     British Embassy
@@ -5414,7 +5414,7 @@ san-marino:
   lon: 12.4819
   location_name: Rome
   phone: (39) 06 4220 0001
-  website: http://ukinitaly.fco.gov.uk/en
+  website: /government/world/italy
   office_hours: |-
     GMT:
     Mon - Fri:  0800-1600
@@ -5468,7 +5468,7 @@ saudi-arabia:
     +966 (0) 1 488 2373 
     +966 (0) 1 488 0623 Management
     +966 (0) 1 481 0686 Consular
-  website: http://ukinsaudiarabia.fco.gov.uk/en/
+  website: /government/world/saudi-arabia/
   office_hours: |-
     GMT:
     Sat-Wed: 0500-1200
@@ -5485,7 +5485,7 @@ saudi-arabia:
   location_name: Jeddah
   phone: (966 2) 622 5550
   fax: (966 2) 622 6249
-  website: http://ukinsaudiarabia.fco.gov.uk/en/
+  website: /government/world/saudi-arabia/
   office_hours: |-
     GMT:
     Sat-Wed: 0500-1200
@@ -5529,7 +5529,7 @@ serbia:
     (381) (11) 3061 072 Consular/Visa
     (381) (11) 3061 059 Commercial
     (381) (11) 3061 077 (Information)
-  website: http://ukinserbia.fco.gov.uk/en
+  website: /government/world/serbia
   office_hours: |-
     GMT:
     Mon-Thurs: 0700-1530
@@ -5550,7 +5550,7 @@ seychelles:
   phone: (248) 4283 666
   fax: (248) 4283 657
   email: bhcvictoria@fco.gov.uk
-  website: http://ukinseychelles.fco.gov.uk/en
+  website: /government/world/seychelles
   office_hours: |-
     GMT:
     Mon-Thurs: 0400-1200
@@ -5579,7 +5579,7 @@ sierra-leone:
   fax: |-
     (232) (22) 228169 
     (232) (22) 232070
-  website: http://ukinsierraleone.fco.gov.uk/en/
+  website: /government/world/sierra-leone/
   office_hours: |-
     GMT: (Local Time = GMT)
     Mon-Thurs: 0800-1630  
@@ -5607,7 +5607,7 @@ singapore:
     Singapore 258509
   phone: (65) 6473 1111
   fax: (65) 6472 1010
-  website: http://ukinsingapore.fco.gov.uk/en/
+  website: /government/world/singapore/
 slovakia: 
 - address: |-
     British Embassy
@@ -5619,7 +5619,7 @@ slovakia:
   location_name: Bratislava
   phone: (421) (2) 5998 2000
   fax: (421) (2) 5998 2237
-  website: http://ukinslovakia.fco.gov.uk/en/
+  website: /government/world/slovakia/
   office_hours: |-
     Monday-Thursday:  0830-1700
     Friday:  0830-1400
@@ -5636,7 +5636,7 @@ slovenia:
     (00) (386) (1) 200 3910 
     (00) (386) (1) 200 3940 Commercial
   fax: (386) (1) 425 0174
-  website: http://ukinslovenia.fco.gov.uk/en
+  website: /government/world/slovenia
   office_hours: |-
     Embassy hours
     Mon - Fri: 0800 - 1600 
@@ -5682,7 +5682,7 @@ somalia:
     Airline Liaison Office: (+254) (20) 2844 069
     Defence: (+254) (20) 2844 325
     Political section: (+254) (20) 2844 003
-  website: http://ukinsomalia.fco.gov.uk/en/
+  website: /government/world/somalia/
   office_hours: |-
     GMT:
     Mon-Thurs: 0400-1300
@@ -5713,7 +5713,7 @@ south-africa:
     (27) (12) 421 7599 General Enquiries
     (27) (12) 421 7888 Visa Enquiries
     0044 208  082 4743 (Mon-Frid 8-5pm) Passport Enquiries
-  website: http://ukinsouthafrica.fco.gov.uk/en/
+  website: /government/world/south-africa/
   office_hours: |-
     GMT:
     Mon-Thurs: 0600-1500
@@ -5741,7 +5741,7 @@ south-africa:
   fax: |-
     (27) (21) 405 2455 - Political, UKTI
     (27) (21) 405 2447 - Consular
-  website: http://ukinsouthafrica.fco.gov.uk/en/
+  website: /government/world/south-africa/
   office_hours: |-
     Local:
     Monday-Thursday:0800-1230/1315-1630/
@@ -5871,7 +5871,7 @@ spain:
   location_name: Madrid
   phone: 917 146 300
   fax: 917 146 301
-  website: http://ukinspain.fco.gov.uk/en/
+  website: /government/world/spain/
   office_hours: |-
     GMT (Loc = +1hr):
     
@@ -5889,7 +5889,7 @@ spain:
     (+34) 902 109 356
     Alternative phone number: (+34) 91 334 2194
   fax: +34 917 146 401
-  website: http://ukinspain.fco.gov.uk/en/
+  website: /government/world/spain/
   office_hours: |-
     Office Hours: (local time = CET):
     Public Counter: Mon - Fri 08:30 - 13:30 
@@ -5906,7 +5906,7 @@ spain:
     (+34) 902 109 356
     Alternative number: (+34) 91 334 2194
   fax: (34) 96 514 0528
-  website: http://ukinspain.fco.gov.uk/en/
+  website: /government/world/spain/
   office_hours: |-
     Office Hours: (local = CET)
     Monday to Friday 08:30 to 13:30
@@ -5921,7 +5921,7 @@ spain:
     (+34) 902 109 356
     Alternative number: (+34) 91 334 2194
   fax: (34) 93 366 6221
-  website: http://ukinspain.fco.gov.uk/en/
+  website: /government/world/spain/
   office_hours: |-
     Local time = CET
     Monday to Friday 08:30 to 13:30
@@ -5939,7 +5939,7 @@ spain:
     
     (34) 94 415 7711 (UKTI only)
   fax: (34) 94 4167632
-  website: http://ukinspain.fco.gov.uk/en/
+  website: /government/world/spain/
   office_hours: |-
     (local time = CET)
     We are open to the public Monday to Friday by appointment only
@@ -5957,7 +5957,7 @@ spain:
     (+34) 902 109 356 
     Alternative number: (+34) 91 334 2194
   fax: (34) 971 30 19 72
-  website: http://ukinspain.fco.gov.uk/en/
+  website: /government/world/spain/
   office_hours: |-
     (local = CET): 
     
@@ -5974,7 +5974,7 @@ spain:
     (+34) 902 109 356 
     Alternative telephone number: (+34) 91 334 2194
   fax: (34) 928 267 774
-  website: http://ukinspain.fco.gov.uk/en/
+  website: /government/world/spain/
   office_hours: |-
     (Local = CET -1)
     Monday to Friday 08:30 - 13:30
@@ -5992,7 +5992,7 @@ spain:
     (+34) 902 109 356
     Alternative telephone number: (+34) 91 334 2194
   fax: (34) 95 235 92 11
-  website: http://ukinspain.fco.gov.uk/en/
+  website: /government/world/spain/
   office_hours: |-
     (local time = CET):
     Monday to Friday 09:00 - 13:00
@@ -6009,7 +6009,7 @@ spain:
     (+34) 902 109 356
     Alternative number: (+34) 91 334 2194
   fax: (34) 971 71 75 20
-  website: http://ukinspain.fco.gov.uk/en/
+  website: /government/world/spain/
   office_hours: |-
     (local time = CET):
     Monday to Friday 08:30 - 13:30
@@ -6024,7 +6024,7 @@ spain:
     (+34) 902 109 356
     Alternative telephone number: (+34) 91 334 2194
   fax: (34) 922 28 99 03
-  website: http://ukinspain.fco.gov.uk/en/
+  website: /government/world/spain/
   office_hours: |-
     (Local time = CET -1):
     Monday to Friday 08:30 - 13:30
@@ -6042,7 +6042,7 @@ sri-lanka:
     (94) (11) 5390694
     (94) (11) 5390692 (Consular/Visa)
   email: Colombo.general@fco.gov.uk
-  website: http://ukinsrilanka.fco.gov.uk/en
+  website: /government/world/sri-lanka
   office_hours: |-
     GMT:
     Mon-Thurs: 0230-1100; Fri: 0230-0730
@@ -6060,7 +6060,7 @@ sri-lanka:
     Colombo 3
   phone: (91) (11) 581171/2
   fax: (91) (11) 587079
-  website: http://ukinsrilanka.fco.gov.uk/en/
+  website: /government/world/sri-lanka/
 st-helena: 
 - address: |-
     Governor's Office
@@ -6098,7 +6098,7 @@ st-kitts-and-nevis:
     There is no resident British High Commission in St Kitts and Nevis, but there is a British Honorary Consul to St Kitts covering consular issues.
   phone: +1 (869) 764 4677
   email: Sarah.Percival-HonCon@fconet.fco.gov.uk
-  website: http://ukinbarbados.fco.gov.uk/en/
+  website: /government/world/barbados/
   office_hours: |-
     If the Honorary Consul is not available and for all other non-consular related matters please contact the British High Commission in Barbados at: British High Commission
     Lower Collymore Rock
@@ -6168,7 +6168,7 @@ st-pierre-and-miquelon:
   location_name: Paris
   phone: (33) 1 44 51 31 00
   fax: (33) 1 44 51 31 09 Consular
-  website: http://ukinfrance.fco.gov.uk/en/
+  website: /government/world/france/
   office_hours: |-
     GMT:
     Mon -Fri: 0830-1200 / 1330-1700
@@ -6184,7 +6184,7 @@ st-vincent-and-the-grenadines:
     There is no resident British High Commission in St. Vincent, but there is a British Honorary Consul to St. Vincent covering consular issues.
   phone: +1 (784) 457 6860
   email: donald.browne-honcon@fconet.fco.gov.uk
-  website: http://ukinbarbados.fco.gov.uk/en/
+  website: /government/world/barbados/
   office_hours: |-
     If the Honorary Consul is not available and for all other non-consular related matters please contact the British High Commission in Barbados at:
     British High Commission
@@ -6213,7 +6213,7 @@ sudan:
     (249) (183) 776457 
     (249) (183) 775562
   email: information.khartoum@fco.gov.uk
-  website: http://ukinsudan.fco.gov.uk/en/
+  website: /government/world/sudan/
   office_hours: |-
     Embassy opening hours: Sunday to Wednesday 08:00 - 16:00, Thursday 08:00 - 14:30
     Consular Opening Hours: Sunday to Wednesday 09:00 - 12:00 each day
@@ -6247,7 +6247,7 @@ swaziland:
     We are currently in the process of recruiting a new Honorary Consul in Swaziland. Until further notice, all Consular enquiries should be directed to the Consular Section at the British High Commission in Pretoria
   phone: 0027 (0)12 421 7800
   fax: 0027 (0)12 421 7877
-  website: http://ukinsouthafrica.fco.gov.uk/en/
+  website: /government/world/south-africa/
   office_hours: |-
     GMT:
     Mon-Thurs: 0600-1500
@@ -6272,7 +6272,7 @@ sweden:
   fax: |-
     +46 (0) 8 662 9989 Management Section
     +46 (0) 8 671 3104 Chancery, Defence Section and Media & PR Section
-  website: http://ukinsweden.fco.gov.uk/en/
+  website: /government/world/sweden/
   office_hours: |-
     GMT
     Embassy: 0800 - 1600
@@ -6297,7 +6297,7 @@ switzerland:
     (41) (31) 359 7769 Political, 
     Press and Public Affairs
     (41) (31) 359 7765 Consular
-  website: http://ukinswitzerland.fco.gov.uk/en/
+  website: /government/world/switzerland/
   office_hours: |-
     General:
     GMT: 0730-1130
@@ -6323,7 +6323,7 @@ syria:
   lat: 3.51976
   lon: 36.2772
   location_name: Damascus
-  website: http://ukinsyria.fco.gov.uk/en/
+  website: /government/world/syria/
 taiwan: 
 - address: |-
     British Trade & Cultural Office
@@ -6382,7 +6382,7 @@ tajikistan:
     (00) 870 762 856 221 (Satellite number)
   fax: (00 992 37) 227 1726
   email: dushanbe.reception@fco.gov.uk
-  website: http://ukintajikistan.fco.gov.uk/en/
+  website: /government/world/tajikistan/
   office_hours: |-
     GMT:
     Mon-Fri: 0400-0800 / 0900-1200
@@ -6403,7 +6403,7 @@ tanzania:
   location_name: Dar es Salaam
   phone: 255 (0) 22 229 0000 (24 hours)
   fax: (255) (22) 211 0102
-  website: http://ukintanzania.fco.gov.uk/en/
+  website: /government/world/tanzania/
   office_hours: |-
     Mon-Thur: 04:30-13:30 GMT
     Fri: 04:30-11:30 GMT
@@ -6423,7 +6423,7 @@ tanzania:
   location_name: Dar es Salaam
   phone: (255)(22) 2110141
   fax: (255)(22) 2110130
-  website: http://ukintanzania.fco.gov.uk/en/
+  website: /government/world/tanzania/
   office_hours: |-
     GMT:
     Mon-Fri: 0500-1230
@@ -6461,7 +6461,7 @@ thailand:
   location_name: Chiang Mai
   phone: (+66) (53) 263 015
   fax: (+66) (53) 263 016
-  website: http://ukinthailand.fco.gov.uk/en
+  website: /government/world/thailand
   office_hours: |-
     Monday - Thursday:
     08:00 - 16:30 (Local time)
@@ -6525,7 +6525,7 @@ tonga:
   location_name: British High Commission
   phone: (679) 3229100 (switchboard)
   fax: (679) 322 9132
-  website: http://ukinfiji.fco.gov.uk/en/
+  website: /government/world/fiji/
   office_hours: |-
     GMT:
     Sun-Wed: 2000-0040 / 0100-0400
@@ -6551,7 +6551,7 @@ trinidad-and-tobago:
     (00) (1) (868) 350 0427 Commercial
     (00) (1) (868) 350 0426 Consular
     (00) (1) (868) 628 9380 Chancery
-  website: http://ukintt.fco.gov.uk/en
+  website: /government/world/trinidad-and-tobago
   office_hours: |-
     GMT:
     Mon-Thurs: 1130-1600 and 1700-2000
@@ -6595,7 +6595,7 @@ tunisia:
     (216) 71 108 779 Consular
     (216) 71 108 749 Commercial
   email: british.embassy@planet.tn
-  website: http://ukintunisia.fco.gov.uk/en/
+  website: /government/world/tunisia/
   office_hours: |-
     Monday - Thursday 08.00am to 04.30pm (local time)
     Friday 08.00am to 01.00pm (local time)
@@ -6614,7 +6614,7 @@ turkey:
   location_name: Ankara
   phone: 0312 455 3344
   fax: 0312 455 33 52
-  website: http://ukinturkey.fco.gov.uk/en
+  website: /government/world/turkey
   office_hours: |-
     GMT
     Mon-Fri: 0645-1530
@@ -6642,7 +6642,7 @@ turkey:
   location_name: Antalya
   phone: (90) (242) 228 2811
   fax: (90) (242) 229 2151
-  website: http://ukinturkey.fco.gov.uk/en/
+  website: /government/world/turkey/
   office_hours: |-
     Summer working hours:
     08:45 - 13:00 hrs and 14:00 - 17:00 hrs Monday to Friday
@@ -6662,7 +6662,7 @@ turkey:
   location_name: Bodrum
   phone: (90) (252) 3130021
   fax: (90) (252) 3130017
-  website: http://ukinturkey.fco.gov.uk/en/
+  website: /government/world/turkey/
 - address: |-
     Atatürk Caddesi
     Likya İş Merkezi
@@ -6676,7 +6676,7 @@ turkey:
   location_name: Fethiye
   phone: (90) (252) 614 63 02
   fax: (90) (252) 614 83 94
-  website: http://ukinturkey.fco.gov.uk/en/
+  website: /government/world/turkey/
 - address: |-
     British Consulate General
     Mesrutiyet Caddesi No 34
@@ -6688,7 +6688,7 @@ turkey:
   location_name: Istanbul
   phone: +90 (212) 334 6400
   fax: (90) (212) 334 6401 (General)
-  website: http://ukinturkey.fco.gov.uk/en
+  website: /government/world/turkey
   office_hours: |-
     GMT
     0630-1100 / 1145-1445
@@ -6708,7 +6708,7 @@ turkey:
   location_name: Izmir
   phone: (90) (232) 4635151
   fax: (90) (232) 4650858
-  website: http://ukinturkey.fco.gov.uk/en/
+  website: /government/world/turkey/
 - address: |-
     c/o Yesil Marmaris Tourism 
     and Yacht Management Inc 
@@ -6717,7 +6717,7 @@ turkey:
     48700 Marmaris
   phone: (90) (252) 4126486 Ext 36 and 39
   fax: (90) (252) 4124565
-  website: http://ukinturkey.fco.gov.uk/en/
+  website: /government/world/turkey/
 turkmenistan: 
 - address: |-
     British Embassy
@@ -6732,7 +6732,7 @@ turkmenistan:
   phone: (993) (12) 363462/63/64
   fax: (993) (12) 363465
   email: beasb@online.tm
-  website: http://ukinturkmenistan.fco.gov.uk/en
+  website: /government/world/turkmenistan
   office_hours: |-
     Summer office hours
     GMT:
@@ -6781,7 +6781,7 @@ tuvalu:
   location_name: British High Commission
   phone: (679) 3229100 (switchboard)
   fax: (679) 322 9132
-  website: http://ukinfiji.fco.gov.uk/en/
+  website: /government/world/fiji/
   office_hours: |-
     GMT:
     Sun-Wed: 2000-0040 / 0100-0400
@@ -6804,7 +6804,7 @@ uganda:
   fax: |-
     (256) (41) 4257304 General Enquiries
     (256) (31) 2312267 Political Section
-  website: http://ukinuganda.fco.gov.uk/en/
+  website: /government/world/uganda/
   office_hours: |-
     GMT:
     Mon-Thurs: 0530-1000 / 1100-1400
@@ -6858,7 +6858,7 @@ ukraine:
   fax: |-
     +380 44 490 3662
     Email: ukembinf@gmail.com
-  website: http://ukinukraine.fco.gov.uk/en
+  website: /government/world/ukraine
   office_hours: |-
     Mon-Fri: 09:00 -17:00
     (Local Time = GMT+2)
@@ -6971,7 +6971,7 @@ united-states:
     (1)(617) 245 4500
     Notarial Services must have an appointment: (617) 245-4500
   fax: (1)(617) 621 0220
-  website: http://ukinusa.fco.gov.uk/en
+  website: /government/world/usa
   office_hours: |-
     GMT:
     Mon-Fri: 1400-2200
@@ -6990,7 +6990,7 @@ united-states:
   location_name: Chicago
   phone: (1)(312) 970 3800
   fax: (1) (312) 970 3852
-  website: http://ukinusa.fco.gov.uk/chicago
+  website: /government/world/organisations/british-consulate-general-chicago
   office_hours: |-
     By appointment only
     
@@ -7009,7 +7009,7 @@ united-states:
   location_name: Denver
   phone: (1) (303) 592 5200
   fax: (1) (303) 592 5209
-  website: http://ukinusa.fco.gov.uk/en
+  website: /government/world/usa
   office_hours: |-
     GMT:
     Mon-Fri: 1600-0000
@@ -7044,7 +7044,7 @@ united-states:
   location_name: Los Angeles
   phone: (310) 481 0031
   fax: (310) 481 2960
-  website: http://ukinusa.fco.gov.uk/la
+  website: /government/world/organisations/british-consulate-general-los-angeles
   office_hours: |-
     GMT:
     Mon-Fri: 1630-0100
@@ -7063,7 +7063,7 @@ united-states:
   location_name: Miami
   phone: |-
     +1 (305) 400-6400 (All enquiries.  Monday to Friday 09.00am to 4.30pm (2.00pm to 9.30pm GMT))
-  website: http://ukinusa.fco.gov.uk/miami
+  website: /government/world/organisations/british-consulate-general-miami
   office_hours: |-
     YOU WILL NEED AN APPOINTMENT AT THIS LOCATION
     
@@ -7124,7 +7124,7 @@ united-states:
   location_name: San Francisco
   phone: (1) (415) 617 1300
   fax: (1) (415) 434 2018
-  website: http://ukinusa.fco.gov.uk/sf/
+  website: /government/world/organisations/british-consulate-general-san-francisco/
   office_hours: |-
     Commercial, Inward Investment and General Enquiries:
     GMT: Mon-Fri: 1630-0100
@@ -7175,7 +7175,7 @@ uzbekistan:
     (99871) 1201520 (Switchboard) 
     (99871) 1201506 (Consular/Visa)
   email: Consular.Tashkent@fco.gov.uk
-  website: http://ukinuzbekistan.fco.gov.uk/en/
+  website: /government/world/uzbekistan/
   office_hours: |-
     GMT:
     Mon-Fri: 0400-0730 / 0830-1200
@@ -7195,7 +7195,7 @@ vanuatu:
     Fiji
   phone: (679) 3229100 (switchboard)
   fax: (679) 322 9132
-  website: http://ukinfiji.fco.gov.uk/en/
+  website: /government/world/fiji/
   office_hours: |-
     GMT:
     Sun-Wed: 2000-0040 / 0100-0400
@@ -7219,7 +7219,7 @@ venezuela:
   phone: +58 (0) 212 263-8411
   fax: +58 (0) 212 267-1275
   email: Consular.Venezuela@fco.gov.uk
-  website: http://ukinvenezuela.fco.gov.uk/en
+  website: /government/world/venezuela
   office_hours: |-
     GMT: Mon-Thurs: 1230-2100; Fri: 1230-1745
     Local Time: Mon-Thurs: 0800-1630; Fri: 0800-1315
@@ -7254,7 +7254,7 @@ venezuela:
     Mobile: +58 (0414) 639-3957
   fax: (58) (261) 7970025
   email: Alex.Podolecki-HonCon@fconet.fco.gov.uk
-  website: http://ukinvenezuela.fco.gov.uk/en
+  website: /government/world/venezuela
   office_hours: |-
     GMT:
     Mon-Fri: 1300 - 2130
@@ -7274,7 +7274,7 @@ venezuela:
     (+58) (0) 276 356 673
     Mobile: (+58) (0) 412 968 0570
   fax: (+58) (0) 276 347 0544
-  website: http://ukinvenezuela.fco.gov.uk/en
+  website: /government/world/venezuela
 vietnam: 
 - address: |-
     Central Building
@@ -7317,7 +7317,7 @@ vietnam:
   location_name: Hanoi
   phone: (84)(4) 8436780/2
   fax: (84)(4) 8434962
-  website: http://ukinvietnam.fco.gov.uk/en/
+  website: /government/world/vietnam/
   office_hours: "(GMT): Mon-Fri: 0130-0500 and 0630-1000"
 - address: |-
     25 Le Duan Street
@@ -7333,7 +7333,7 @@ vietnam:
   fax: |-
     (+84) (8) 3822 1971 - Commercial and Management sections
     (+84) (8) 3829 5257 - Visa and Consular sections
-  website: http://ukinvietnam.fco.gov.uk/en
+  website: /government/world/vietnam
   office_hours: |-
     Consular section
     Monday-Friday:
@@ -7356,7 +7356,7 @@ wallis-and-futuna:
   location_name: Paris
   phone: (33) 1 44 51 31 00
   fax: (33) 1 44 51 31 09 Consular
-  website: http://ukinfrance.fco.gov.uk/en/
+  website: /government/world/france/
   office_hours: |-
     GMT:
     Mon -Fri: 0830-1200 / 1330-1700
@@ -7376,7 +7376,7 @@ western-sahara:
   phone: +212 (0)537 63 33 33
   fax: 0537 75 87 09
   email: rabat.consular@fco.gov.uk
-  website: http://ukinmorocco.fco.gov.uk/en
+  website: /government/world/morocco
   office_hours: |-
     Monday - Thursday: 08:00 - 16:15 Friday: 08:00 - 13:00.
     Public opening hours for consular and visa services differ to the Embassy's opening hours.
@@ -7396,7 +7396,7 @@ yemen:
     (00 967) 1 302480/1/2/3/4/5
     British Nationals in need of urgent consular/passport assistance please telephone +967 1-302 485 from 0800-1530 local (0500-1230 GMT) Sunday-Thursday
   fax: (00 967) 1 302 454
-  website: http://ukinyemen.fco.gov.uk/en/
+  website: /government/world/yemen/
   office_hours: |-
     Following the terrorist attack on 6 October 2010, the British Embassy in Sana'a has withdrawn some staff.  Until further notice the Embassy will be closed to the public and there will be a limited consular service.
     British nationals in need of consular advice, or who have enquiries about an existing passport application, should email ConsularEnquiries.Sanaa@fco.gov.uk . We will reply to your email as soon as possible, and within a maximum of 20 working days. British nationals in need of urgent consular/passport assistance please telephone +967 1308 142 from 0800-1530 local (0500-1230 GMT) Sunday-Thursday.
@@ -7406,7 +7406,7 @@ yemen:
     Hodeidah
   phone: (967) (3) 238130/131, 238958
   fax: (967) (3) 211533, 238269
-  website: http://ukinyemen.fco.gov.uk/en/
+  website: /government/world/yemen/
   office_hours: |-
     GMT:
     Mon-Wed: 0800-1300
@@ -7428,7 +7428,7 @@ zambia:
   fax: |-
     (+260) (211) 423291 Management/Press and Public Affairs
     (+260) (211) 423273 Chancery
-  website: http://ukinzambia.fco.gov.uk/en/
+  website: /government/world/zambia/
   office_hours: |-
     Passport opening times: Mon to Fri Fri: 0800 - 1200
     Office hours: British Summer Time (BST): Monday-Thursday: 0600-1100/1200-1445 
@@ -7451,7 +7451,7 @@ zimbabwe:
   fax: |-
     263 (0) 4 8585 5284 (British Embassy)
     263 (0) 4 8585 5364 (DFID)
-  website: http://ukinzimbabwe.fco.gov.uk/en
+  website: /government/world/zimbabwe
   office_hours: |-
     Opening Hours (Local Time: GMT + 2 Hours)
     Mon-Thur 0800-1630
@@ -7469,7 +7469,7 @@ zimbabwe:
   location_name: Harare
   phone: 0912 124 345; 0912 124 749 -51; 04 338780 -338787
   fax: 04 338794
-  website: http://ukinzimbabwe.fco.gov.uk/en/
+  website: /government/world/zimbabwe/
   office_hours: |-
     GMT:
     Mon-Fri: 0600-1430
