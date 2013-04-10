@@ -230,7 +230,7 @@ en-GB:
 
 
           $D
-          [Download ‘Birth registration form’ (DOC, 66KB)](http://uk.sitestat.com/fcoweb/fcogov/s?fco.en.travel-and-living-abroad.births-deaths-marriages-civil.registering-a-birth.p.pdf.OutsideUK_birth_reg_form.doc&ns_type=pdf&ns_url=http://www.fco.gov.uk/resources/en/word/OutsideUK_birth_reg_form.doc "Download ‘Birth registration form’ (DOC, 66KB)"){:rel="external"}
+          [Download ‘Birth registration form’ (DOC, 66KB)](/government/uploads/system/uploads/attachment_data/file/136824/outsideuk_birth_reg_form.doc.doc "download ‘birth registration form’ (doc, 66kb)")
           $D
 
           ##Documents
@@ -281,7 +281,7 @@ en-GB:
 
 
           $D
-          [Download ‘Birth registration form’ (DOC, 66KB)](http://uk.sitestat.com/fcoweb/fcogov/s?fco.en.travel-and-living-abroad.births-deaths-marriages-civil.registering-a-birth.p.pdf.OutsideUK_birth_reg_form.doc&ns_type=pdf&ns_url=http://www.fco.gov.uk/resources/en/word/OutsideUK_birth_reg_form.doc "Download ‘Birth registration form’ (DOC, 66KB)"){:rel="external"} 
+          [Download ‘Birth registration form’ (DOC, 66KB)](/government/uploads/system/uploads/attachment_data/file/136824/outsideuk_birth_reg_form.doc.doc "download ‘birth registration form’ (doc, 66kb)") 
           $D
 
           ##Documents
@@ -348,7 +348,7 @@ en-GB:
 
           You may still be able to apply for [British citizenship](http://www.ukba.homeoffice.gov.uk/britishcitizenship/ "Find out how to register your child as a British citizen"){:rel="external"} for the child.
 
-          You may also be able to register the birth if you’ve married the other parent since the child was born. [Contact your local British embassy](http://www.fco.gov.uk/en/travel-and-living-abroad/find-an-embassy/ "Find a British embassy"){:rel="external"} to find out.
+          You may also be able to register the birth if you’ve married the other parent since the child was born. [Contact your local British embassy](/government/world "Find a British embassy") to find out.
       no_registration_result:
         body: |
           You can’t register your child’s birth with the UK authorities. Your child must have an automatic claim to British nationality at birth to be eligible.
