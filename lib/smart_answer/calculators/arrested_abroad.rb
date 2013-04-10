@@ -16,7 +16,9 @@ module SmartAnswer::Calculators
       if url
         urls = url.split(" ")
         urls.each do |u|
-          output.push("- [#{text}](#{u}){:rel=\"external\"}")
+          new_link = "- [#{text}](#{u})"
+          new_link += '{:rel="external"}' if u.include? "http"
+          output.push(new_link)
         end
         output.join("\n")
       else
