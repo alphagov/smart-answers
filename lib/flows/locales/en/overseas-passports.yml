@@ -9,7 +9,7 @@ en-GB:
 
         % If you were born in or had a connection with Hong Kong and registered as a British National Overseas before 1997, [you must apply a different way.](/bno-passports "Passport applications for British National Overseas from Hong Kong") %
 
-        ^You shouldn't use this application process if you're applying from the UK. If you are currently in the UK, there's a different way to apply for [your first adult passport](/apply-first-adult-passport "apply for your first adult passport from within the UK"), [a child passport](/get-a-child-passport "apply for a passport for your child from within the UK") or to [renew or replace your adult passport](/renew-adult-passport "renew or replace your adult passport from within the UK").^
+        ^If you’re in the UK, there’s a different way to apply for your [first adult passport](/apply-first-adult-passport "apply for your first adult passport from within the UK"), a [passport for your child](/get-a-child-passport "apply for a passport for your child from within the UK") or to [renew or replace your adult passport](/renew-adult-passport "renew or replace your adult passport from within the UK").^
 
       options:
         "born-in-uk-pre-1983": "Born in the UK before 1 January 1983"
@@ -75,7 +75,13 @@ en-GB:
         how_long_replacing_fco:
           Your application will take **at least** 6 weeks.
 
-          You must report the loss or theft as soon as possible to your [nearest British embassy, high commission or consulate.](/report-a-lost-or-stolen-passport "Report a lost or stolen passport")
+          If you haven't already reported the loss or theft, you must include form LS01 with your passport application.
+
+
+
+          $D
+          [Download 'Form LS01 - Lost or stolen passport notification' (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download 'Form LS01 - Lost or stolen passport notification' (PDF, 236KB)")
+          $D
 
         passport_courier_costs_wellington_new_zealand: |
 
@@ -152,6 +158,27 @@ en-GB:
 
         passport_costs_washington_usa:
           You must pay using a Visa or Mastercard. [Download a credit card authorisation form (PDF, 64KB)](http://ukinusa.fco.gov.uk/resources/en/pdf/credit-card-form.pdf "Credit card authorisation form (PDF, 64KB)") and send it with your application.
+
+        passport_costs_jamaica: |
+          Locally issued debit or credit cards may not be able to carry out transactions in US dollars - you should check with your card company.
+
+        passport_courier_costs_jordan: |
+          You must pay in cash using Jordanian dinars at the British Embassy in Amman.
+
+          You’ll have to pay a fee for your passport and a courier fee of 37 Jordanian dinars. The courier fee pays for your passport and supporting documents to be sent back to the British Embassy in Amman.
+
+        adult_passport_costs_jordan: |
+          | Passport type | Passport fee |  Total to pay (including courier fee) |
+          |---------------|--------------|---------------------------------------|
+          | Adult standard 32-page passport | 144 Jordanian Dinars | 181 Jordanian Dinars |
+          | Adult jumbo 48-page passport | 174 Jordanian Dinars | 211 Jordanian Dinars |
+
+        child_passport_costs_jordan: |
+          | Passport type | Passport fee |  Total to pay (including courier fee) |
+          |---------------|--------------|---------------------------------------|
+          | Child passport | 92 Jordanian Dinars | 129 Jordanian Dinars |
+
+        passport_costs_jordan: |
 
         passport_courier_costs_pretoria_south_africa: ''
 
@@ -286,7 +313,7 @@ en-GB:
 
           [Download ‘Smart application form’ (PDF, 188KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/5619320/smart-form.pdf "Passport application - smart form (PDF, 188KB)"){:rel="external"}
 
-          __Blank application form__ (print, fill in on paper and sign)
+          __Blank application form__ (If you can't use the smart form above, print this form, fill in on paper and sign)
 
           [Download ‘Passport application form for adults aged 16 and over’ (489KB)](http://centralcontent.fco.gov.uk/resources/en/pdf/central-content-pdfs/form-c1.pdf "Download ‘Passport application form for adults aged 16 and over’ (489KB)")
 
@@ -317,6 +344,23 @@ en-GB:
 
         getting_your_passport_egypt: |
           The British embassy in Cairo will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+
+        getting_your_passport_india: |
+          Your passport and supporting documents will be sent to you by registered post.
+
+          You can also choose to collect your passport and supporting documents in person - you’ll need to state this in the ‘Other Information’ section of the application form.
+
+          The British High Commision in New Delhi will contact you when your passport arrives using the contact details on your form. You’ll need to bring photographic ID.
+
+          You can also get someone else to collect your passport on your behalf. Send a signed letter with your application with the name of the person and their contact details. They’ll need to bring photographic ID when they collect it.
+
+          ### Mistakes on your passport
+
+          When you get your passport, check your name, date of birth and other personal details are correct.
+
+          If they’re not, send the passport back to the address above with a covering letter and evidence of what needs to be corrected (eg if your name is spelled incorrectly, provide evidence of how your name should be spelled).
+
+          If the error was made by the passport processing office, you’ll get a replacement free of charge. If the error was yours, you’ll have to pay for a replacement passport.
 
         getting_your_passport_jamaica: |
           The British High Commision in Kingston will contact you when your passport arrives using the contact details on your form. You must collect it in person.
@@ -545,12 +589,6 @@ en-GB:
             Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
 
             Textphone: +44 1750 725 368
-
-            **Applicants in the USA and Canada only**
-
-            A webchat service is available. It costs a flat rate of £3 - you must pay by credit card before you start. Don’t use this service if you’re applying from other countries - the service won’t work but you will still be charged.
-
-            [Webchat if you are applying from the USA or Canada](https://www.synthetix.info/fco/ "Passport application webchat"){:rel="external"}
           $C
 
         helpline_madrid_spain: |
@@ -575,16 +613,17 @@ en-GB:
 
         helpline_dublin_ireland: |
 
+
           $C
             **Passport Information Helpline**
 
-            Premium rate helpline
-            1570 999 331
-            Landline calls are charged at 1.78 Euro per minute - mobile calls may cost more
-
-            Paying for the call by credit card
-            +44 208 082 4737
-            Calls charged at £0.72 per minute plus VAT
+            Premium rate helpline  
+            1570 999 331  
+            Landline calls are charged at 1.78 Euro per minute - mobile calls may cost more  
+  
+            Paying for the call by credit card  
+            +44 208 082 4737  
+            Calls charged at £0.72 per minute plus VAT  
 
             Textphone: +44 1750 725 368
           $C
@@ -649,6 +688,13 @@ en-GB:
             00 34 91 714 6314
           $C
         helpline_: ''
+        helpline_fco_webchat: |
+          **Webchat service**
+
+          A webchat service is available. It costs a flat rate of £4 - you must pay by credit card before you start. Once you’ve paid, you’ll be given a reference number to launch your webchat. You’ll receive an email transcript of your conversation when you finish.
+
+          [Use the webchat service](https://www.synthetix.info/fco/ "Use the webchat service to chat to an advisor"){:rel="external"}
+
         ips_documents_group_1: |
 
           $D
@@ -694,7 +740,7 @@ en-GB:
         how_long_replacing_ips1: |
           Your application will take **at least** 6 weeks from when your application is received by the Identity and Passport Service (IPS) in the UK.
 
-          If you haven’t already reported the loss or theft, you must include form LS01 form with your passport application.
+          If you haven’t already reported the loss or theft, you must include form LS01 with your passport application.
 
 
           $D
@@ -724,7 +770,7 @@ en-GB:
           | Child passport | £81.50 | £101.36 |
 
         passport_courier_costs_replacing_ips1: |
-          You’ll have to pay a fee for your passport and a courier fee of £9.70. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+          You’ll have to pay a fee for your passport and a courier fee of £9.70. The courier fee pays for your passport to be sent back to you securely.
 
         adult_passport_costs_replacing_ips1: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
@@ -742,7 +788,10 @@ en-GB:
 
           You can use Mastercard, Visa, Electron, Diners Club and JCB.
 
+
+          $D
           [Download ‘Paying by credit card or debit card’ (PDF, 803KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Payment_Instruction.pdf "Download ‘Paying by credit card or debit card’ (PDF, 803KB)"){:rel="external"}
+          $D
 
         how_to_apply_ips1: |
           1. Download the application form.
@@ -824,7 +873,7 @@ en-GB:
         how_long_replacing_ips2: |
           Your application will take at least **8 weeks.**
 
-          If you haven’t already reported the loss or theft, you must include form LS01 form with your passport application.
+          If you haven’t already reported the loss or theft, you must include form LS01 with your passport application.
 
 
           $D
@@ -834,7 +883,7 @@ en-GB:
         how_long_replacing_ips2_morocco: |
           Your application will take **at least** 6 weeks from when it’s received by the Identity and Passport Service (IPS) in the UK.
 
-          If you haven’t already reported the loss or theft, you must include form LS01 form with your passport application.
+          If you haven’t already reported the loss or theft, you must include form LS01 with your passport application.
 
 
           $D
@@ -905,7 +954,7 @@ en-GB:
         how_long_replacing_ips3: |
           Your application will take **at least** 6 weeks from when it's received by the Identity and Passport Service (IPS) in the UK.
 
-          If you haven’t already reported the loss or theft, you must include form LS01 form with your passport application.
+          If you haven’t already reported the loss or theft, you must include form LS01 with your passport application.
 
 
           $D
@@ -1095,11 +1144,15 @@ en-GB:
 
           For first-time applications or replacement of lost or stolen passports, it usually takes **6 weeks.**
 
-          If your passport has been lost or stolen, you must report it as soon as possible to your [nearest British embassy, high commission or consulate.](/report-a-lost-or-stolen-passport "Report a lost or stolen passport")
+          Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [emergency travel document](/emergency-travel-document “Get an emergency travel document”).
 
-          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document "Get an emergency travel document")
+          If your passport has been lost or stolen and you haven’t reported it yet, include 'Form LS01' with your application.
 
-          %{embassy_address}
+
+
+          $D
+            [Download 'Form LS01 - Lost or stolen passport notification' (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download 'Form LS01 - Lost or stolen passport notification' (PDF, 236KB)")
+          $D
 
         cost_new_zealand: |
           | Passport type | Passport fee |
@@ -1174,7 +1227,6 @@ en-GB:
 
           The Foreign and Commonwealth Office may ask to interview you at the British embassy in Islamabad, Pakistan.
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British embassy in Kabul. You will have to pay for the document.
 
         cost_afghanistan: |
           You must pay in cash using US Dollars at the British embassy in Kabul. You’ll pay a fee for your passport plus a courier fee of US $55. The courier fee pays for your passport and supporting documents to be returned.
@@ -1215,7 +1267,6 @@ en-GB:
           - your photographs are rejected
           - you need to be interviewed to confirm your identity
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British High Commission in Dhaka. You will have to pay for the document.
 
 
         cost_bangladesh: |
@@ -1258,7 +1309,6 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document at the British High Commission/Honorary Consulate. You will have to pay for the document.
 
         how_long_nairobi_kenya_replacing: |
           Your application will take at least 6 weeks. You may be asked to attend an interview.
@@ -1352,7 +1402,6 @@ en-GB:
           - your photographs are rejected
           - further checks need to be made about your identity - in some cases, this may take up to 6 months
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British deputy High Commission in Lagos. You will have to pay for the document.
 
         cost_lagos_nigeria: |
           You must pay - in cash - a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
@@ -1383,7 +1432,6 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British embassy liaison office in Bujumbura. You will have to pay for the document.
 
         cost_burundi: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
@@ -1421,7 +1469,6 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, you can apply for an Emergency Travel Document at the British High Commission. You will have to pay for the document.
 
         cost_cameroon_renewing: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
@@ -1515,7 +1562,6 @@ en-GB:
 
           If you’re renewing a passport, you may be asked to attend an interview.
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document at the British embassy. You will have to pay for the document.
 
         cost_eritrea: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
@@ -1561,7 +1607,6 @@ en-GB:
 
           If you’re renewing a passport, you may be asked to attend an interview.
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document at the British embassy. You will have to pay for the document.
 
         cost_ethiopia: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
@@ -1641,7 +1686,6 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. In a genuine emergency only, you may be able to get an Emergency Travel Document - an expired passport is not usually a ‘genuine emergency’.
 
         cost_gambia: |
           You must pay in cash at the British High Commission in Banjul (using 100 Dalasi notes)
@@ -1674,7 +1718,6 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document at the British High Commission. You will have to pay for the document.
 
         cost_ghana: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
@@ -1743,7 +1786,6 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document at the British embassy in Baghdad. You will have to pay for the document.
 
         cost_iraq: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
@@ -1817,7 +1859,6 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British embassy ln Beirut. You will have to pay for the document.
 
         cost_lebanon: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
@@ -1848,7 +1889,6 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British embassy in Pyongyang. You will have to pay for the document.
 
         cost_north_korea: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
@@ -1887,7 +1927,6 @@ en-GB:
 
           For child passport applications, both parents or guardians must come with their child to the passport interview. If only one parent or guardian is in Pakistan, the parent, child and a close relative must come to the interview (eg aunt, uncle or grandparent - but not the child’s brother or sister).
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British High Commission ln Islamabad or the deputy High Commission in Karachi. You will have to pay for the document.
 
         cost_pakistan: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
@@ -1938,7 +1977,6 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, you can apply for an Emergency Travel Document at the British embassy. You will have to pay for the document.
 
         cost_philippines: ''
         how_to_apply_philippines: |
@@ -2008,7 +2046,6 @@ en-GB:
 
           If you’re renewing or replacing a lost or stolen passport, you may be asked to attend an interview.
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British high commission. You will have to pay for the document.
 
         cost_sierra-leone: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
@@ -2043,7 +2080,6 @@ en-GB:
 
           If you’re renewing a passport, you may be asked to attend an interview.
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document at the British embassy in Kenya or High Commission in Ethiopia. You will have to pay for the document.
 
         cost_somalia: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
@@ -2104,7 +2140,6 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document at the British High Commission. You will have to pay for the document.
 
         cost_south-sudan: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
@@ -2171,7 +2206,6 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document at the British Embassy. You will have to pay for the document.
 
         cost_sudan: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
@@ -2213,7 +2247,6 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document at the British embassy in Bangkok. You will have to pay for the document.
 
         cost_thailand: |
           ###Applying for a first passport
@@ -2280,7 +2313,6 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British embassy ln Tunis. You will have to pay for the document.
 
         cost_tunisia: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
@@ -2309,7 +2341,6 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British embassy in Caracas. You will have to pay for the document.
 
         cost_venezuela: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
@@ -2319,11 +2350,11 @@ en-GB:
           - a Visa or Mastercard
           - in cash, using Venezuelan Bolivares
 
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | 908 Venezuelan Bolivares | 1,144 Venezuelan Bolivares
-          Adult jumbo 48-page passport | 1095 Venezuelan Bolivares | 1,331 Venezuelan Bolivares
-          Child passport | 578 Venezuelan Bolivares | 814 Venezuelan Bolivares
+          | Passport type | Passport fee |  Total to pay (including courier fee) |
+          |---------------|--------------|---------------------------------------|
+          | Adult standard 32-page passport | 1,329 Venezuelan Bolivares | 1,674 Venezuelan Bolivares |
+          | Adult jumbo 48-page passport | 1,607 Venezuelan Bolivares | 1,952 Venezuelan Bolivares |
+          | Child passport | 832 Venezuelan Bolivares | 1,177 Venezuelan Bolivares |
 
         how_to_apply_venezuela: ''
         supporting_documents_venezuela: ''
@@ -2343,7 +2374,6 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document at the British embassy in Amman, Jordan. You will have to pay for the document.
 
         cost_yemen: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
@@ -2387,6 +2417,13 @@ en-GB:
 
           You must make your application in person to the British embassy Amman, Jordan.
 
+
+          $D
+          Supporting documents
+
+          [Download 'Supporting documents you must send with your application' (PDF, 260KB)](/government/publications/yemen-supporting-documents-for-passport-applications "Download 'Supporting documents you must send with your application' (PDF, 260KB)")
+          $D
+
         getting_your_passport_yemen: |
           The British embassy in Amman will contact you when your passport and supporting documents arrive using the contact details on your form. You must collect them in person.
 
@@ -2402,7 +2439,6 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British High Commission in Lusaka. You can use old Kwacha notes to pay until 30 June 2013.
 
         cost_zambia: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
@@ -2433,7 +2469,6 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document in person at the British embassy in Harare. You will have to pay for the document.
 
         cost_zimbabwe: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
@@ -2545,7 +2580,7 @@ en-GB:
 
           2. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports "Passport photo requirements") or your application may be delayed.
 
-          3. Check the guidance notes to find out which supporting documents you must send with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
+          3. Check the guidance notes to find out which supporting documents you must send with your application. You must get documents that aren’t in English fully translated by a professional translator.
 
           %{how_to_apply_supplement}
 
@@ -2553,7 +2588,7 @@ en-GB:
             %{fco_forms}
           $D
 
-          ## Send your application
+          ## Submit your application
 
           %{send_your_application}
 
@@ -2617,8 +2652,15 @@ en-GB:
 
           %{how_long_it_takes}
 
+          Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [emergency travel document](/emergency-travel-document “Get an emergency travel document”).
 
-          %{embassy_address}
+          If your passport has been lost or stolen and you haven’t reported it yet, include 'Form LS01' with your application.
+
+
+
+          $D
+            [Download 'Form LS01 - Lost or stolen passport notification' (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download 'Form LS01 - Lost or stolen passport notification' (PDF, 236KB)")
+          $D
 
           ## Cost
 

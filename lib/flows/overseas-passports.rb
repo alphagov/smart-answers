@@ -273,13 +273,14 @@ outcome :fco_result do
     # All european FCO applications cost the same
     cost_type = 'fco_europe' if application_type =~ /^(dublin_ireland|madrid_spain|paris_france)$/
     # Jamaican courier costs vary from the USA FCO office standard.
-    cost_type = current_location if current_location == 'jamaica'
+    cost_type = current_location if %w{jamaica jordan}.include?(current_location)
     cost_type = "applying_#{current_location}" if current_location == 'india' and general_action != 'renewing'
    
     payment_methods = :"passport_costs_#{application_type}"
     # Malta and Netherlands have custom payment methods
     payment_methods = :passport_costs_malta_netherlands if current_location =~ /^(malta|netherlands)$/
-    
+    payment_methods = :"passport_costs_#{current_location}" if %w{jamaica jordan}.include?(current_location)
+
     # Indonesian first time applications have courier and cost variations.
     if current_location == 'indonesia' and application_action == 'applying'
       cost_type = current_location
@@ -300,10 +301,10 @@ outcome :fco_result do
       ''
     end
   end
-  
+
   precalculate :send_your_application do
     phrases = PhraseList.new
-    if current_location == 'indonesia' and application_action == 'applying'
+    if current_location == 'indonesia' and %w{applying replacing}.include?(application_action)
       phrases << :send_application_indonesia_applying
     elsif current_location =~ /^(indonesia|jamaica|jordan|south-africa)$/
       phrases << :"send_application_#{current_location}"
@@ -311,15 +312,19 @@ outcome :fco_result do
       phrases << :send_application_fco_preamble
       phrases << :"send_application_#{application_type}"
     end
-    phrases 
+    phrases
   end
   precalculate :getting_your_passport do
     location = 'fco'
-    location = current_location if %(egypt jamaica jordan nepal).include?(current_location)
+    location = current_location if %(egypt jamaica jordan nepal india).include?(current_location)
     PhraseList.new(:"getting_your_passport_#{location}")
   end
   precalculate :helpline do
-    PhraseList.new(:"helpline_#{application_type}")
+    phrases = PhraseList.new(:"helpline_#{application_type}")
+    if %w{dublin_ireland wellington_new_zealand pretoria_south_africa washington_usa}.include?(application_type)
+      phrases << :helpline_fco_webchat
+    end
+    phrases
   end
 end
 
