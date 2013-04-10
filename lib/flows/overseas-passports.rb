@@ -273,13 +273,13 @@ outcome :fco_result do
     # All european FCO applications cost the same
     cost_type = 'fco_europe' if application_type =~ /^(dublin_ireland|madrid_spain|paris_france)$/
     # Jamaican courier costs vary from the USA FCO office standard.
-    cost_type = current_location if current_location == 'jamaica'
+    cost_type = current_location if %w{jamaica jordan}.include?(current_location)
     cost_type = "applying_#{current_location}" if current_location == 'india' and general_action != 'renewing'
    
     payment_methods = :"passport_costs_#{application_type}"
     # Malta and Netherlands have custom payment methods
     payment_methods = :passport_costs_malta_netherlands if current_location =~ /^(malta|netherlands)$/
-    payment_methods = :passport_costs_jamaica if current_location == 'jamaica'
+    payment_methods = :"passport_costs_#{current_location}" if %w{jamaica jordan}.include?(current_location)
 
     # Indonesian first time applications have courier and cost variations.
     if current_location == 'indonesia' and application_action == 'applying'

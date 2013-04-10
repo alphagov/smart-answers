@@ -162,6 +162,23 @@ en-GB:
         passport_costs_jamaica: |
           Locally issue debit or credit cards may not be able to carry out transactions in US dollars - you should check with your card company.
 
+        passport_courier_costs_jordan: |
+          You must pay in cash using Jordanian dinars at the British Embassy in Amman.
+
+          You’ll have to pay a fee for your passport and a courier fee of 37 Jordanian dinars. The courier fee pays for your passport and supporting documents to be sent back to the British Embassy in Amman.
+
+        adult_passport_costs_jordan: |
+          | Passport type | Passport fee |  Total to pay (including courier fee) |
+          |---------------|--------------|---------------------------------------|
+          | Adult standard 32-page passport | 144 Jordanian Dinars | 181 Jordanian Dinars |
+          | Adult jumbo 48-page passport | 174 Jordanian Dinars | 211 Jordanian Dinars |
+
+        child_passport_costs_jordan: |
+          | Passport type | Passport fee |  Total to pay (including courier fee) |
+          |---------------|--------------|---------------------------------------|
+          | Child passport | 92 Jordanian Dinars | 129 Jordanian Dinars |
+
+        passport_costs_jordan: |
 
         passport_courier_costs_pretoria_south_africa: ''
 
