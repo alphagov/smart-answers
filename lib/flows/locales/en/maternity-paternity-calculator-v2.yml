@@ -72,7 +72,13 @@ en-GB:
           Latest date to claim SMP | %{notice_request_pay}
           SMP start date due to pregnancy related illness| %{ssp_stop}
           Proof of pregnancy | Usually within 21 days of the SMP start date (or as soon as possible if baby born early)
+
+          ## SMP calculation
+
+          Date | SMP amount
+          -|-
           %{pay_dates_and_pay}
+           | **Total SMP: £%{total_smp}**
 
         not_entitled_to_smp_intro: |
           ##Statutory maternity pay
