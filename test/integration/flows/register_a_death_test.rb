@@ -265,7 +265,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_current_node :embassy_result
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
         assert_state_variable :clickbook, '' 
-        assert_state_variable :postal_form_url, "http://ukinaustria.fco.gov.uk/resources/en/pdf/pdf1/credit-card-form"
+        assert_state_variable :postal_form_url, "/government/uploads/system/uploads/attachment_data/file/136797/credit-card-form.pdf"
         assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form]
       end
     end # Answer Austria
@@ -295,8 +295,8 @@ class RegisterADeathTest < ActiveSupport::TestCase
 - [Rome](https://www.clickbook.net/dev/bc.nsf/sub/britishconsrome \"Book an appointment at the British Embassy\"){:rel=\"external\"}
 - [Milan](https://www.clickbook.net/dev/bc.nsf/sub/britishconsmilan \"Book an appointment at the British Embassy\"){:rel=\"external\"}
 )
-        assert_state_variable :postal_form_url, "http://ukinitaly.fco.gov.uk/resources/en/word/3121380/credit-card-authorisation-slip"
-        assert_state_variable :postal_return_form_url, "http://ukinitaly.fco.gov.uk/resources/en/word/3121380/Return-delivery-form"
+        assert_state_variable :postal_form_url, "/government/uploads/system/uploads/attachment_data/file/136810/credit-card-authorisation-slip.doc"
+        assert_state_variable :postal_return_form_url, "/government/uploads/system/uploads/attachment_data/file/136822/return-delivery-form.doc"
         assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form, :postal_delivery_form]
       end
     end # Answer Italy
@@ -309,7 +309,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_current_node :embassy_result
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
         assert_state_variable :clickbook, '' 
-        assert_state_variable :postal_form_url, "http://ukinspain.fco.gov.uk/resources/en/pdf/4758385/20090413_credit_card_form.pdf" 
+        assert_state_variable :postal_form_url, "/government/uploads/system/uploads/attachment_data/file/136819/20090413_credit_card_form.pdf.pdf" 
         assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form, :postal_delivery_form]
         assert_state_variable :country_name, "Andorra"
         assert_state_variable :current_location, "spain"
@@ -325,7 +325,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_current_node :embassy_result
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
         assert_state_variable :clickbook, %Q([Book an appointment online](http://ukinparis.clickbook.net/ "Book an appointment at the British Embassy"){:rel="external"}\n)
-        assert_state_variable :postal_form_url, "http://ukinfrance.fco.gov.uk/resources/en/word/consular/2012/death-registration-form" 
+        assert_state_variable :postal_form_url, "/government/uploads/system/uploads/attachment_data/file/136805/death-registration-form.doc" 
         assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form]
         assert_state_variable :country_name, "Andorra"
         assert_state_variable :current_location_name, "France"
