@@ -2602,7 +2602,7 @@ en-GB:
             %{fco_forms}
           $D
 
-          ## Send your application
+          ## Submit your application
 
           %{send_your_application}
 
@@ -2665,9 +2665,6 @@ en-GB:
           ## How long it takes
 
           %{how_long_it_takes}
-
-
-          %{embassy_address}
 
           ## Cost
 
