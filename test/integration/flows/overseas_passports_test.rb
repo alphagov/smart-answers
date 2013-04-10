@@ -557,7 +557,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'replacing'
       add_response 'adult'
       assert_current_node :fco_result
-      assert_phrase_list :cost, [:passport_courier_costs_jamaica, :adult_passport_costs_jamaica, :passport_costs_washington_usa]
+      assert_phrase_list :cost, [:passport_courier_costs_jamaica, :adult_passport_costs_jamaica, :passport_costs_jamaica]
     end
   end # Jamaica (Custom courier costs affecting all costs) 
   context "answer Malta, replacement, adult passport" do
