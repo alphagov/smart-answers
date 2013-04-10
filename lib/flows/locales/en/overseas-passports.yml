@@ -1144,11 +1144,15 @@ en-GB:
 
           For first-time applications or replacement of lost or stolen passports, it usually takes **6 weeks.**
 
-          If your passport has been lost or stolen, you must report it as soon as possible to your [nearest British embassy, high commission or consulate.](/report-a-lost-or-stolen-passport "Report a lost or stolen passport")
+          Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [emergency travel document](/emergency-travel-document “Get an emergency travel document”).
 
-          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document "Get an emergency travel document")
+          If your passport has been lost or stolen and you haven’t reported it yet, include 'Form LS01' with your application.
 
-          %{embassy_address}
+
+
+          $D
+            [Download 'Form LS01 - Lost or stolen passport notification' (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download 'Form LS01 - Lost or stolen passport notification' (PDF, 236KB)")
+          $D
 
         cost_new_zealand: |
           | Passport type | Passport fee |
