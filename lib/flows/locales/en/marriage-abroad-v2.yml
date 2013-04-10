@@ -419,7 +419,7 @@ en-GB:
           - a ‘certificado de empadronamiento’ (town hall registration certificate) or Spanish police residence certificate (green document with your NIE number address) issued at least 21 days ago
 
           ^The Civil Registry will usually ask you for a certificado de empadronamiento issued in the last 3 months.^
-        consular_cni_os_local_resident_not_germany: |
+        consular_cni_os_not_local_resident_not_germany: |
           If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order "Get a copy of a decree absolute or final order")
@@ -1078,6 +1078,10 @@ en-GB:
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
         cp_or_equivalent_cp_other_resident: |
           Contact your nearest embassy or consulate of %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
+        spain_cp_or_equivalent: |
+          The local [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC "Spanish Ministry of Justice - civil registries"){:rel="external"} should be able to tell you about specific requirements.
+        spain_cp_or_equivalent_two: |
+          %There are certain legal restrictions if neither of you is resident in Spain. You should check with the civil registry where you’re planning to get married to find out if this is allowed.%
 
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix}") before making any plans.
         cp_or_equivalent_cp_all_what_you_need_to_do: |
