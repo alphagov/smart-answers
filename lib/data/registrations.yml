@@ -127,59 +127,59 @@ registration_country:
   western-sahara: morocco
 birth:
   postal_form:
-    austria: http://ukinaustria.fco.gov.uk/resources/en/pdf/pdf1/credit-card-form
-    bangladesh: http://ukinbangladesh.fco.gov.uk/resources/en/word/doc1/credit-card-form
-    brazil: http://ukinbrazil.fco.gov.uk/resources/en/pdf/pdf1/postbr_birthregform
-    chile: http://ukinchile.fco.gov.uk/resources/en/word/credit-card
-    cyprus: http://ukincyprus.fco.gov.uk/content/en/article/17300881/21697518/credit-card-authorisation
-    denmark: http://ukindenmark.fco.gov.uk/resources/en/pdf/586155482/credit-card-authorisation-slip-19april2011
-    dominican-republic: http://ukindominicanrepublic.fco.gov.uk/resources/en/word/631810082/credit-form
-    finland: http://ukinfinland.fco.gov.uk/resources/en/pdf/733553782/credit-card-authorisation-form
-    france: http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/Birth-pack-1212
-    germany: http://ukingermany.fco.gov.uk/resources/en/pdf/4971486/4971694/payment_authorisation_slip
-    greece: http://ukingreece.fco.gov.uk/resources/en/pdf/5610670/ccslip
-    india: http://ukinindia.fco.gov.uk/resources/en/pdf/consular/Credit-Card-Payment-Authorisation-Form
+    austria: /government/uploads/system/uploads/attachment_data/file/136797/credit-card-form.pdf
+    bangladesh: /government/uploads/system/uploads/attachment_data/file/136798/credit-card-form.doc
+    brazil: /government/uploads/system/uploads/attachment_data/file/136799/postbr_birthregform.pdf
+    chile: /government/uploads/system/uploads/attachment_data/file/136800/credit-card.doc
+    cyprus: /government/uploads/system/uploads/attachment_data/file/136801/credit-card-authorisation.doc
+    denmark: /government/uploads/system/uploads/attachment_data/file/136802/credit-card-authorisation-slip-19april2011.pdf
+    dominican-republic: /government/uploads/system/uploads/attachment_data/file/136803/credit-form.doc
+    finland: /government/uploads/system/uploads/attachment_data/file/136804/credit-card-authorisation-form.pdf
+    france: /government/publications/france-birth-pack
+    germany: /government/uploads/system/uploads/attachment_data/file/136806/payment_authorisation_slip.pdf
+    greece: /government/uploads/system/uploads/attachment_data/file/136807/ccslip.pdf
+    india: /government/uploads/system/uploads/attachment_data/file/136808/credit-card-payment-authorisation-form.pdf
     israel: http://ukinisrael-stage.fco.gov.uk/resources/en/pdf/creditdebitslip.pdf
-    italy: http://ukinitaly.fco.gov.uk/resources/en/word/3121380/credit-card-authorisation-slip
-    jamaica: http://ukinjamaica.fco.gov.uk/resources/en/pdf/2011/credit-debit.pdf
-    japan: http://ukinjapan.fco.gov.uk/resources/en/word/15609108
-    korea: http://ukinrok.fco.gov.uk/resources/en/word/3059742/doc-consular-devit-card
-    mexico: http://uk.sitestat.com/fcoweb/ukingov/s?was.mex.en.help-for-british-nationals.living-in-mexico.consular-fees.p.pdf.credit-debit-authorisation-form&ns_type=pdf&ns_url=http://ukinmexico.fco.gov.uk/resources/en/word/doc1/credit-debit-authorisation-form
-    norway: http://uk.sitestat.com/fcoweb/ukingov/s?lon.swe.en.help-for-british-nationals.living-in-norway.how-register-death.p.pdf.ConsularPaymentForm&ns_type=pdf&ns_url=http://ukinnorway.fco.gov.uk/resources/en/pdf/pdf1/751426782/ConsularPaymentForm
-    portugal: http://ukinportugal.fco.gov.uk/resources/en/pdf/18177967/credit_card_form
-    spain: http://ukinspain.fco.gov.uk/resources/en/pdf/4758385/20090413_credit_card_form.pdf
-    switzerland: http://ukinswitzerland.fco.gov.uk/resources/en/pdf/pdf1/credit-card-pay-form
+    italy: /government/uploads/system/uploads/attachment_data/file/136810/credit-card-authorisation-slip.doc
+    jamaica: /government/uploads/system/uploads/attachment_data/file/136811/credit-debit.pdf.pdf
+    japan: /government/uploads/system/uploads/attachment_data/file/136812/15609108.doc
+    korea: /government/uploads/system/uploads/attachment_data/file/136813/doc-consular-devit-card.doc
+    mexico: /government/uploads/system/uploads/attachment_data/file/136814/credit-debit-authorisation-form.doc
+    norway: /government/uploads/system/uploads/attachment_data/file/136815/consularpaymentform.pdf
+    portugal: /government/uploads/system/uploads/attachment_data/file/136817/credit_card_form.pdf
+    spain: /government/uploads/system/uploads/attachment_data/file/136819/20090413_credit_card_form.pdf.pdf
+    switzerland: /government/uploads/system/uploads/attachment_data/file/136820/credit-card-pay-form.pdf
 death:
   registration_forms:
-    brazil: http://ukinbrazil.fco.gov.uk/resources/en/pdf/pdf1/postbr_deathregform
-    france: http://uk.sitestat.com/fcoweb/ukingov/s?lon.fra.en.help-for-british-nationals.living-in-france.consularbirthregistration.p.pdf.Birth-pack-1212&ns_type=pdf&ns_url=http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/Birth-pack-1212
-    spain: http://ukinspain.fco.gov.uk/resources/en/pdf/help-for-BNs/DeathRegForm
-    united-states: http://ukinusa.fco.gov.uk/resources/en/pdf/birth-reg-document
+    brazil: /government/publications/brazil-death-registration-form
+    france: /government/publications/france-birth-pack
+    spain: /government/publications/spain-death-registration-form
+    united-states: /government/publications/usa-birth-registration-application
 
   postal_form:
-    austria: http://ukinaustria.fco.gov.uk/resources/en/pdf/pdf1/credit-card-form
-    bangladesh: http://ukinbangladesh.fco.gov.uk/resources/en/word/doc1/credit-card-form
-    brazil: http://ukinbrazil.fco.gov.uk/resources/en/pdf/pdf1/postbr_birthregform
-    chile: http://ukinchile.fco.gov.uk/resources/en/word/credit-card
-    cyprus: http://ukincyprus.fco.gov.uk/content/en/article/17300881/21697518/credit-card-authorisation
-    denmark: http://ukindenmark.fco.gov.uk/resources/en/pdf/586155482/credit-card-authorisation-slip-19april2011
-    dominican-republic: http://ukindominicanrepublic.fco.gov.uk/resources/en/word/631810082/credit-form
-    finland: http://ukinfinland.fco.gov.uk/resources/en/pdf/733553782/credit-card-authorisation-form
-    france: http://ukinfrance.fco.gov.uk/resources/en/word/consular/2012/death-registration-form
-    germany: http://ukingermany.fco.gov.uk/resources/en/pdf/4971486/4971694/payment_authorisation_slip
-    greece: http://ukingreece.fco.gov.uk/resources/en/pdf/5610670/ccslip
-    india: http://ukinindia.fco.gov.uk/resources/en/pdf/consular/Credit-Card-Payment-Authorisation-Form
+    austria: /government/uploads/system/uploads/attachment_data/file/136797/credit-card-form.pdf
+    bangladesh: /government/uploads/system/uploads/attachment_data/file/136798/credit-card-form.doc
+    brazil: /government/uploads/system/uploads/attachment_data/file/136799/postbr_birthregform.pdf
+    chile: /government/uploads/system/uploads/attachment_data/file/136800/credit-card.doc
+    cyprus: /government/uploads/system/uploads/attachment_data/file/136801/credit-card-authorisation.doc
+    denmark: /government/uploads/system/uploads/attachment_data/file/136802/credit-card-authorisation-slip-19april2011.pdf
+    dominican-republic: /government/uploads/system/uploads/attachment_data/file/136803/credit-form.doc
+    finland: /government/uploads/system/uploads/attachment_data/file/136804/credit-card-authorisation-form.pdf
+    france: /government/uploads/system/uploads/attachment_data/file/136805/death-registration-form.doc
+    germany: /government/uploads/system/uploads/attachment_data/file/136806/payment_authorisation_slip.pdf
+    greece: /government/uploads/system/uploads/attachment_data/file/136807/ccslip.pdf
+    india: /government/uploads/system/uploads/attachment_data/file/136808/credit-card-payment-authorisation-form.pdf
     israel: http://ukinisrael-stage.fco.gov.uk/resources/en/pdf/creditdebitslip.pdf
-    italy: http://ukinitaly.fco.gov.uk/resources/en/word/3121380/credit-card-authorisation-slip
-    jamaica: http://ukinjamaica.fco.gov.uk/resources/en/pdf/2011/credit-debit.pdf
-    japan: http://ukinjapan.fco.gov.uk/resources/en/word/15609108
-    korea: http://ukinrok.fco.gov.uk/resources/en/word/3059742/doc-consular-devit-card
-    mexico: http://uk.sitestat.com/fcoweb/ukingov/s?was.mex.en.help-for-british-nationals.living-in-mexico.consular-fees.p.pdf.credit-debit-authorisation-form&ns_type=pdf&ns_url=http://ukinmexico.fco.gov.uk/resources/en/word/doc1/credit-debit-authorisation-form
-    norway: http://uk.sitestat.com/fcoweb/ukingov/s?lon.swe.en.help-for-british-nationals.living-in-norway.how-register-death.p.pdf.ConsularPaymentForm&ns_type=pdf&ns_url=http://ukinnorway.fco.gov.uk/resources/en/pdf/pdf1/751426782/ConsularPaymentForm
-    peru: http://ukinperu.fco.gov.uk/resources/es/pdf/21597125/death-registration
-    portugal: http://ukinportugal.fco.gov.uk/resources/en/pdf/18177967/credit_card_form
-    spain: http://ukinspain.fco.gov.uk/resources/en/pdf/4758385/20090413_credit_card_form.pdf
-    switzerland: http://ukinswitzerland.fco.gov.uk/resources/en/pdf/pdf1/credit-card-pay-form
+    italy: /government/uploads/system/uploads/attachment_data/file/136810/credit-card-authorisation-slip.doc
+    jamaica: /government/uploads/system/uploads/attachment_data/file/136811/credit-debit.pdf.pdf
+    japan: /government/uploads/system/uploads/attachment_data/file/136812/15609108.doc
+    korea: /government/uploads/system/uploads/attachment_data/file/136813/doc-consular-devit-card.doc
+    mexico: /government/uploads/system/uploads/attachment_data/file/136814/credit-debit-authorisation-form.doc
+    norway: /government/uploads/system/uploads/attachment_data/file/136815/consularpaymentform.pdf
+    peru: /government/uploads/system/uploads/attachment_data/file/136816/death-registration.pdf
+    portugal: /government/uploads/system/uploads/attachment_data/file/136817/credit_card_form.pdf
+    spain: /government/uploads/system/uploads/attachment_data/file/136819/20090413_credit_card_form.pdf.pdf
+    switzerland: /government/uploads/system/uploads/attachment_data/file/136820/credit-card-pay-form.pdf
   postal_no_form:
   - barbados
   - belgium
@@ -191,5 +191,5 @@ death:
   - thailand
   - united-states
   postal_return:
-    italy: http://ukinitaly.fco.gov.uk/resources/en/word/3121380/Return-delivery-form
-    spain: http://uk.sitestat.com/fcoweb/ukingov/s?lon.esp.en.help-for-british-nationals.living-in-spain.births-deaths-marriages.death-registration.p.pdf.reg-post-return-delivery-form&ns_type=pdf&ns_url=http://ukinspain.fco.gov.uk/resources/en/pdf/help-for-BNs/reg-post-return-delivery-form
+    italy: /government/uploads/system/uploads/attachment_data/file/136822/return-delivery-form.doc
+    spain: /government/uploads/system/uploads/attachment_data/file/136821/reg-post-return-delivery-form.pdf
