@@ -211,13 +211,11 @@ multiple_choice :when_in_the_month_is_the_employee_paid? do
   option :last_working_day_of_the_month => :what_days_does_the_employee_work?
   option :a_certain_week_day_each_month => :what_particular_day_of_the_month_is_the_employee_paid?
   
-  save_input_as :pay_day_in_month
+  save_input_as :monthly_pay_method
 end
 
 ## QM10
 value_question :what_specific_date_each_month_is_the_employee_paid? do
-  save_input_as :employee_pay_date
-  
   calculate :pay_day_in_month do
     raise InvalidResponse unless responses.last.to_i > 0
     calculator.pay_day_in_month = responses.last.to_i
@@ -285,7 +283,7 @@ end
 outcome :maternity_leave_and_pay_result do
 
   precalculate :pay_method do
-    calculator.pay_method = pay_day_in_month || 
+    calculator.pay_method = monthly_pay_method || 
       (smp_calculation_method == 'weekly_starting' ? 'weekly_starting' : pay_pattern)
   end
   precalculate :smp_a do
