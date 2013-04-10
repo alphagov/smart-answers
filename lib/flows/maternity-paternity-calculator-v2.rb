@@ -157,7 +157,6 @@ multiple_choice :pay_frequency? do
   option :every_2_weeks => :earnings_for_pay_period? ## QM5.5
   option :every_4_weeks => :earnings_for_pay_period? ## QM5.5
   option :monthly => :earnings_for_pay_period? ## QM5.5
-  option :irregularly => :earnings_for_pay_period? ## QM5.5
 end
 
 ## QM5.5

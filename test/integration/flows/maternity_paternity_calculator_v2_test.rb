@@ -234,13 +234,6 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
                         assert_current_node :when_is_your_employees_next_pay_day?
                       end
 
-                      should "ask for the next pay date if pay frequency is irregular" do
-                        add_response "irregularly"
-                        add_response 1083.20
-                        add_response "usual_paydates"
-                        assert_current_node :when_is_your_employees_next_pay_day?
-                      end
-
                       context "weekly frequency with usual paydates" do
                         setup do
                           add_response "monthly"
@@ -510,22 +503,6 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
                           assert_state_variable "average_weekly_earnings", 208.59
                           assert_state_variable "smp_a", "187.74"
                           assert_state_variable "smp_b", "136.78" # Uses the statutory maternity rate
-                        end
-                      end
-                    end
-                    context "answer irregularly" do
-                      setup { add_response :irregularly }
-
-                      ##QM5.5
-                      should "ask how much the employee was paid in this period" do
-                        assert_current_node :earnings_for_pay_period?
-                      end
-
-                      context "answer 7463.19" do
-                        setup { add_response '7463.19' }
-
-                        should "calculate the dates and payment amounts" do
-                          assert_state_variable "average_weekly_earnings", 932.89875
                         end
                       end
                     end
