@@ -266,7 +266,7 @@ en-GB:
           "usual_paydates": "based on their usual paydates"
       ## QM8
       when_is_your_employees_next_pay_day?:
-        title: When is your employee’s next pay day
+        title: When is your employee’s next pay day on or before %{pay_start_date}?
       ## QM9
       when_in_the_month_is_the_employee_paid?:
         options:
