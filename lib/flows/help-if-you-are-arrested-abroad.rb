@@ -51,8 +51,7 @@ country_select :which_country? do
     if arrested_calc.countries_with_regions.include?(country)
       regions = arrested_calc.get_country_regions(country)
       regions.each do |key, val|
-        puts "REGIONS #{key}"
-        links << "- [#{val['url_text']}](#{val['link']}){:rel=\"external\"}"
+        links << "- [#{val['url_text']}](#{val['link']})"
       end
     end
     links
