@@ -44,6 +44,38 @@ en-GB:
             %{email}
             %{office_hours}
           $C
+        residency_embassy_details: |
+
+
+
+          $A
+            %{address}
+          $A
+
+          $C
+            %{phone}
+            %{email}
+            %{office_hours}
+          $C
+#Marriage if resident of Isle of Man or Channel Islands
+        iom_ci_os_all: |
+          Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
+        iom_ci_os_resident_of_iom: |
+          You may be asked for a certificate of no impediment (CNI) or similar document. Check with the authorities in the [Isle of Man](http://www.gov.im/registries/general/civilregistry/ "Isle of Man - Civil Registry"){:rel="external"} to find out what they can provide, then contact the authorities in %{country_name_lowercase_prefix} to confirm if this is acceptable.
+
+          The local British embassy or consulate may be able to advise if you have any problems getting the documents you need from the Manx authorities.
+        iom_ci_os_resident_of_ci: |
+          You may be asked for a certificate of no impediment (CNI) or similar document. Check with the authorities in [Jersey](http://www.gov.je/pages/contacts.aspx?contactId=71 "Jersey - Office of the Superintendent Registrar"){:rel="external"} or [Guernsey](http://www.guernseyroyalcourt.gg/article/1663/Contact-Us "Guernsey - Office of HM Greffier"){:rel="external"} to find out what they can provide, then contact the authorities in %{country_name_lowercase_prefix} to confirm if this is acceptable.
+
+          The local British embassy or consulate may be able to advise if you have any problems getting the documents you need from the authorities in Jersey or Guernsey.
+        iom_ci_os_ceremony_not_italy: |
+          %{embassy_details}
+        iom_ci_os_ceremony_italy: |
+          $C  
+          **British Embassy in Rome - marriages**  
+          <rome.marriages@fco.gov.uk>  
+          $C
+
 #Marriage in Ireland outcome phrases
         outcome_ireland_opposite_sex: |
           The General Register Office of Ireland's website explains what you need to do if you want to [get married in Ireland.](http://www.groireland.ie/getting_married.htm "Getting married in Ireland"){:rel="external"}.
@@ -146,70 +178,61 @@ en-GB:
           Contact the British Embassy in %{country_name_lowercase_prefix} for more information.
         spain_os_consular_cni: |
           Civil weddings in Spain take place at a town hall, register office or district court. You need to register with the local civil authorities afterwards to get an official marriage certificate if you have a religious wedding.
-        consular_cni_all_what_you_need_to_do: |
+
+          Check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC "Spanish Ministry of Justice - civil registries"){:rel="external"} where you’re getting married.
+        spain_os_consular_cni_not_local_resident: |
+          %There are certain legal restrictions if neither of you is resident in Spain. If you both live outside Spain, you should check with the civil registry where you’re planning to getting married to find out if this is allowed.%
+        italy_os_consular_cni_ceremony_italy: |
+          Contact the local comune (town hall) before making any plans to find out about local marriage laws, including what documents you’ll need.
+        italy_os_consular_cni_ceremony_not_italy: |
           ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers "Find a lawyer abroad") before making any plans.^
-
+        consular_cni_all_what_you_need_to_do: |
           ##What you need to do
-
-          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry.
-        consular_cni_os_italy_scenario_one: |
-          ^The authorities in Italy might refer to your situation as ‘Scenario 1’ (British nationals both resident in the UK marrying in Italy).^
-        consular_cni_os_italy_scenario_two_a: |
-          ^The authorities in Italy might refer to your situation as ‘Scenario 2’ (British national resident in the UK marrying a foreign national in Italy).^
-        consular_cni_os_italy_scenario_two_b: |
-          ^The authorities in Italy might refer to your situation as ‘Scenario 2’ (British national resident in the UK marrying a foreign national in Italy).^
-        consular_cni_os_italy_scenario_three: |
-          ^The authorities in Italy might refer to your situation as ‘Scenario 3’ (British nationals both resident in Italy marrying in Italy).^
-        consular_cni_os_italy_scenario_four: |
-          ^The authorities in Italy might refer to your situation as ‘Scenario 4’ (British national resident in Italy marrying a foreign national, Italian or otherwise, in Italy).^
-        consular_cni_os_italy_scenario_five: |
-          ^The authorities in Italy might refer to your situation as ‘Scenario 5’ (British national resident in the UK marrying an Irish national in Italy).^
-        consular_cni_os_italy_scenario_six: |
-          ^The authorities in Italy might refer to your situation as ‘Scenario 6’ (British nationals both resident in a foreign country - not Italy, not a member of the Commonwealth - marrying in Italy).^
-        consular_cni_os_italy_scenario_seven: |
-          ^The authorities in Italy might refer to your situation as ‘Scenario 7’ (British national resident in a foreign country - not Italy, not a member of the Commonwealth - marrying a foreign national, Italian or otherwise, in Italy).^
-        consular_cni_os_italy_scenario_eight: |
-          ^The authorities in Italy might refer to your situation as ‘Scenario 8’ (British national resident in a Commonwealth country marrying in Italy).^
-        consular_cni_os_italy_scenario_nine: |
-          ^The authorities in Italy might refer to your situation as ‘Scenario 9’ (British national resident in the the Republic of Ireland marrying in Italy).^
+        consular_cni_os_ceremony_not_spain_or_italy: |
+          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to marry.
+        spain_os_consular_cni_two: |
+          You may be asked to provide a certificate of no impediment (CNI), marital status certificate or both to prove you're allowed to marry.
+        italy_os_consular_cni_uk_resident: |
+          You’ll need to get a certificate of no impediment (CNI) from the authorities in the UK to prove you’re allowed to marry.
+        italy_os_consular_cni_uk_resident_two: |
+          ^Your partner will need to follow the same process to get their own CNI.^
+        italy_os_consular_cni_uk_resident_three: |
+          You’ll be asked to provide a ‘Nulla Osta’ by the authorities in Italy. This is a certificate that proves you’re allowed to marry.
         consular_cni_os_denmark: |
           ^You don’t need a CNI if you’re getting married in the main town hall in Copenhagen.^
         consular_cni_os_german_resident: |
           ^You don’t need a CNI if you’re legally resident in Germany.^
-        consular_cni_os_italy_iom_ci_partner_not_irish: |
-          ^Contact the consular section of the British Embassy in Rome (<Rome.Marriages@fco.gov.uk>) to find out what to do if you’re legally resident in the Isle of Man or the Channel Islands and want to get married in Italy.^
         uk_resident_partner_not_irish_os_consular_cni_three: |
           You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](/register-offices "Register offices in England and Wales"), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf "Directory of registrars in Scotland"){:rel="external"} or [Northern Ireland.](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm "District Registrars in Northern Ireland"){:rel="external"}
 
+          ^A CNI issued in England, Wales or Northern Ireland is valid for 6 months. A CNI issued in Scotland is valid for 3 months.^
+
           They’ll post your notice, and as long as nobody has registered an objection after a specified number of days (normally 15 or 21), they’ll  issue your CNI.
         scotland_ni_resident_partner_irish_os_consular_cni_three: |
-          You can normally get a CNI by giving a notice of marriage at local registrar if you live in [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf "Directory of registrars in Scotland"){:rel="external"} or [Northern Ireland.](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm "District Registrars in Northern Ireland"){:rel="external"}^
+          You can normally get a CNI by giving a notice of marriage at local registrar if you live in [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf "Directory of registrars in Scotland"){:rel="external"} or [Northern Ireland.](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm "District Registrars in Northern Ireland"){:rel="external"}
+
+          ^A CNI issued in Northern Ireland is valid for 6 months. A CNI issued in Scotland is valid for 3 months.^
 
           They’ll post your notice, and as long as nobody has registered an objection after a specified number of days (normally 15 or 21), they’ll  issue your CNI.
         consular_cni_os_scotland_or_ni_partner_irish_or_partner_not_irish_three: |
           ###Getting a statutory declaration
 
-          While you’re waiting for your CNI, you should make a statutory declaration before a [solicitor or public notary](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"}. The Italian authorities will need this in addition to your CNI. There’s a standard template in English and Italian that you can download and use.
+          While you’re waiting for your CNI, you and your partner will need to make a statutory declaration before a [solicitor or public notary](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"}. The Italian authorities will need this in addition to your CNI. There’s a standard template in English and Italian that you can download and use.
 
 
           $D
-          Download ‘Bilingual statutory declaration for marriage in Italy’ (PDF, 95KB)
+          [Download ‘Bilingual statutory declaration for marriage in Italy’ (PDF, 90KB)](/government/uploads/system/uploads/attachment_data/file/153753/bilingual-statutory-declaration.pdf  "Download ‘Bilingual statutory declaration for marriage in Italy’ (PDF, 90KB)")
           $D
 
           ###Legalisation and translation
 
-          You’ll need to get your statutory declaration and CNI '[legalised](/get-document-legalised "Get a document legalised")' (certified as genuine) by the FCO.
+          You’ll need to get your statutory declaration and CNI '[legalised](/get-document-legalised "Get a document legalised")' (certified as genuine) by the Foreign & Commonwealth Office (FCO).
 
-          You’ll also need to get your CNI translated. The FCO has produced a list of approved translators of wedding documents - they’re all based in Italy and recognised by the Italian courts.
-
-
-          $D
-          Download ‘Translators in Italy’ (PDF, 351KB)
-          $D
+          You’ll also need to get your CNI [translated](/government/publications/italy-list-of-lawyers "Italy - list of lawyers and translators") and sworn before the Italian courts or an Italian Justice of the Peace.
         consular_cni_os_england_or_wales_partner_irish_three: |
-          You need to get a Nulla Osta (the Italian version of the CNI) from the Foreign & Commonwealth Office (FCO) in London if your partner is Irish and you live in England or Wales.
+          You need to get a Nulla Osta by applying to the Foreign & Commonwealth Office (FCO) in London if your partner is Irish and you live in England or Wales.
 
-          Your partner should contact the Irish authorities to obtain their CNI.
+          Your partner should contact the Irish authorities to get their Nulla Osta.
 
           ###Applying for a Nulla Osta from the FCO
 
@@ -219,8 +242,8 @@ en-GB:
           s4. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
           s5. You’ll also need to include a pre-paid, self-addressed special delivery envelope, or a £10 postage fee, so the FCO can return your documents.
           s6. Send your completed form to the FCO with your supporting documents and payment. [You can pay by credit card online](/pay-foreign-marriage-certificates "Payment for certificates to get married abroad"), or send a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. Personal cheques aren’t accepted. The address is on the form.
-          s7. FCO will forward your Nulla Osta to the local British embassy or consulate where you’re getting married, usually within 20 days. The embassy or consulate will charge you an additional fee (see below) - they’ll contact you to arrange payment.
-          s8. They’ll then send it to the town hall (‘commune’) in Italy where you’re getting married - or another address (such as your wedding planner) if you ask them to. It’s normally valid for 3 months, but you should check this with the commune.
+          s7. FCO will forward your Nulla Osta application to the British Embassy in Rome. They'll aim to issue the Nulla Osta within 20 days, and contact you to arrange payment (see fees below).
+          s8. They’ll then send it to the town hall (‘comune’) in Italy where you’re getting married - or another address (such as your wedding planner) if you ask them to. It’s normally valid for 6 months, but you should check this with the comune.
         consular_cni_os_england_or_wales_resident_not_italy: |
           You need to get a CNI from the Foreign & Commonwealth Office (FCO) in London if your partner is Irish and you live in England or Wales.
 
@@ -252,37 +275,49 @@ en-GB:
 
           Once you have your UK-issued CNI, the British Consulate can issue a Portuguese version. You can arrange this by booking an appointment online.
         consular_cni_os_local_resident_not_italy_germany: |
-          You’ll need to give notice of your intended marriage (banns) at your nearest British embassy or consulate.
+          If you need a CNI, you’ll first need to give notice of your intended marriage at your nearest British embassy or consulate.
 
           ###Applying for a CNI from the consulate
 
-          You’ll normally need to have been resident in %{country_name_lowercase_prefix} for at least 21 days. You can then book an appointment at the consulate to give notice of your marriage.
+          You’ll need to have been resident in %{country_name_lowercase_prefix} for at least 21 days. You can then book an appointment at the consulate to give notice of your marriage. There’s a fee for this service (see below).
+        kazakhstan_os_local_resident: |
+          If you need a CNI, you’ll first need to give notice of your intended marriage (banns) at the British Embassy Office in Almaty.
+
+          ###Applying for a CNI from the consulate
+
+          You’ll normally need to have been resident in Kazakhstan for at least 21 days. You can then book an appointment at the consulate to give notice of your marriage. There’s a fee for this service (see below).
         consular_cni_os_no_clickbook_so_embassy_details: |
           %{embassy_details}
         consular_cni_os_local_resident_italy: |
-          In Italy, a CNI is known as a ‘Nulla Osta’. You’ll need to give notice of your intended marriage (banns) at your nearest British embassy or consulate to get one.
+          To get a Nulla Osta, you’ll first need to give notice of your intended marriage at the British Embassy in Rome.
 
-          ###Applying for a Nulla Osta from the consulate
+          ###Applying for a Nulla Osta from the embassy
 
-          You’ll normally need to have been resident in %{country_name_lowercase_prefix} for at least 21 days. You can then book an appointment at the consulate to give notice of your marriage.
+          You’ll need to have been resident in Italy for at least 21 days. You can then book an appointment at the British Embassy in Rome.
+
+          [Book an appointment online in Rome.](https://www.clickbook.net/dev/bc.nsf/sub/britishconsrome "Consular Section, British Embassy, Rome")
         consular_cni_os_foreign_resident: |
-          You’ll normally need to give notice of your intended marriage (banns) in the country where you live.
+          If you need a certificate to prove you’re allowed to marry, you’ll have to give notice of your intended marriage in the country where you live.
 
           Check with your nearest British embassy or consulate to find out if they can do this for you.
 
+          %{residency_embassy_details}
+
           ^Not all consulates are able to do this, but they may still be able to give you advice on other ways you can get a CNI.^
 
-          ###Applying for a CNI from the consulate
+          ###Giving notice of marriage
 
-          You’ll normally need to have been living in your country of residence for 21 days.
+          You need to have been living in your country of residence for 21 days.
         consular_cni_os_commonwealth_resident: |
-          You’ll normally need to give notice of your intended marriage (banns) in the country where you live.
+          If you need a certificate to prove you’re allowed to marry, you’ll have to give notice of your intended marriage in the country where you live.
 
           Check with your nearest British high commission to find out if they can help you with this.
 
-          ^Not all high commissions are able to do this - if they can’t, they may be able to give you advice on other ways you can get a CNI.^
+          %{residency_embassy_details}
 
-          ###Applying for a CNI from the high commission
+          ^Not all high commissions are able to do this - if they can’t, they may be able to give you advice on other ways you can get a certificate.^
+
+          ###Giving notice of marriage
 
           You’ll need to place a public announcement of your marriage in a local newspaper where you live for 1 week. If possible (and appropriate), this should be in English and the local language. It’s easier to do this in a weekly newspaper, as otherwise the announcement needs to appear for 7 consecutive days.
 
@@ -311,11 +346,11 @@ en-GB:
         consular_cni_os_commonwealth_resident_british_partner: |
           ^You’ll both need to place separate announcements and swear separate oaths if you’re both British nationals.^
         consular_cni_os_commonwealth_resident_two: |
-          Once you’ve done this, you should then send or take the following documents and the relevant fee (see below) to the high commission so they can prepare your CNI:
+          Once you’ve done this, you should then send or take the following documents and the relevant fee (see below) to the high commission:
         consular_cni_os_ireland_resident: |
-          You’ll normally need to give notice of your intended marriage (banns) in the country where you live. In Ireland, you can do this through the British Embassy in Dublin.
-          %{embassy_details}
-          ###Applying for a CNI from the British Embassy, Dublin
+          You need to give notice of your intended marriage in the country where you live. In Ireland, you can do this through the British Embassy in Dublin.
+          %{residency_embassy_details}
+          ###Giving notice of marriage
 
           You’ll need to place a public announcement of your marriage in a local newspaper where you live for 1 week. It’s easier to do this in a weekly newspaper, as otherwise the announcement needs to appear for 7 consecutive days.
 
@@ -344,7 +379,7 @@ en-GB:
         consular_cni_os_ireland_resident_british_partner: |
           ^You’ll both need to place separate announcements and swear separate oaths if you’re both British nationals.^
         consular_cni_os_ireland_resident_two: |
-          Once you’ve done this, you should then send or take the following documents and the relevant fee (see below) to the British Embassy in Dublin so they can prepare your CNI:
+          Once you’ve done this, you should then send or take the following documents and the relevant fee (see below) to the British Embassy in Dublin:
         consular_cni_os_commonwealth_or_ireland_resident_british_partner: |
           - your original passport (or a photocopy certified by a local solicitor if you’re sending documents in the post)
           - [full birth certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate")
@@ -356,35 +391,56 @@ en-GB:
           - the whole page of the newspaper your announcement appears on, including the date it was issued
           - a photocopy of your partner’s passport
         consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident: |
-          You’ll need to provide supporting documents, including your:
+          You’ll need to provide supporting documents, including:
 
-          - passport
-          - [full birth certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate")
+          - your passport
+          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate")
           - proof of residence, such as a residence certificate - check with the consulate to find out what you need
           - equivalent documents for your partner
+        italy_consular_cni_os_partner_local: |
+          You’ll need to provide supporting documents, including:
+ 
+          - your passport
+          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate")
+          - a copy of your partner's ID card and Certificato di Stato Libero from the comune
+          - a copy of your partner’s Nulla Osta, if possible
+        italy_consular_cni_os_partner_other_or_irish: |
+          You’ll need to provide supporting documents, including:
+ 
+          - your passport
+          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate")
+          - a copy of your partner’s passport and, if possible, a copy of their Certificate of No Impediment (CNI) or similar document to prove they're allowed to marry
+        italy_consular_cni_os_partner_british: |
+          You and your partner will need to provide your passports and [full birth certificates](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate").
         consular_cni_variant_local_resident_spain: |
-          You’ll need to provide supporting documents, including your:
+          To request an appointment, fill in the CNI appointment request form and make sure you’ve got all of the necessary supporting documents.
 
-          - passport
-          - [full birth certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate")
-          - proof of residence (see below)
-          - equivalent documents for your partner
 
-          ^You’ll need to send copies of all of your supporting documents to the embassy or consulate before making an appointment.^
+          $D  
+          [Download 'CNI appointment request form' (DOC, 54KB)](/government/uploads/system/uploads/attachment_data/file/182250/_Appointment_request_form_for_CNI_6_.doc "Download 'CNI appointment request form' (DOC, 54KB)")
+          $D
 
-          Your proof of residence must be one of the following:
+          The documents you need are:
 
-          - a ‘certificado de empadronamiento’ (town hall registration certificate) issued between 21 days and 3 months ago
-          - a Spanish police residence certificate (green document with your NIE number address) issued at least 21 days ago
-        consular_cni_os_local_resident_not_germany_or_spain_or_all_other_residency: |
-          If you’ve been divorced or widowed, you’ll also need:
+          - your passport
+          - your partner’s passport or national identity document
+          - a ‘certificado de empadronamiento’ (town hall registration certificate) or Spanish police residence certificate (green document with your NIE number address) issued at least 21 days ago
 
-          - a [decree absolute or final order](/copy-decree-absolute-final-order "Get a copy of a decree absolute or final order"), or
-          - the [death certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate")
+          ^The Civil Registry will usually ask you for a certificado de empadronamiento issued in the last 3 months.^
+        consular_cni_os_not_local_resident_not_germany: |
+          If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
 
-          ^You’ll also need to provide evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers "Find a translator abroad") if it’s not in English.^
+          - a [decree absolute or final order](/copy-decree-absolute-final-order "Get a copy of a decree absolute or final order")
+          - a civil partnership dissolution or annulment certificate
+          - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate") 
 
-          You’ll also need to provide evidence if you’ve changed your name by deed poll.
+          ^You’ll also need to provide evidence of nationality or residence if a divorce or dissolution took place if outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers "Find a translator abroad") if it’s not in English.^
+        spain_os_consular_cni_three: |
+          Send your completed appointment request form and copies of the supporting documents to your [nearest British consulate](/notarial-and-documentary-services-guide-for-spain#where-to-send-your-request "Notarial and documentary services guide for Spain - where to send your request"). You can send them as scanned attachments to an email or by fax. You’ll need to bring the original documents to your appointment.
+
+          ###What happens next
+
+          The consulate will check your form and documents, and if everything’s in order they’ll send you details of how to book your appointment to give official notice of your marriage. They’ll then display your notice publicly for 21 days, and if nobody has raise an objection, they’ll issue your CNI. There’s an additional fee for this.
         consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident_two: |
           The consulate will provide you with forms for your notice of marriage, and an oath or affidavit (written statement of facts) stating that you’re free to marry. You can download and fill in (but not sign) the forms in advance.
 
@@ -394,14 +450,14 @@ en-GB:
 
           [Download ‘Affidavit for marriage’ (PDF, 58KB)](/government/uploads/system/uploads/attachment_data/file/136830/affidavit2012.pdf "Download ‘Affidavit for marriage’ (PDF, 58KB)")
           $D
-        consular_cni_os_local_resident_not_germany_or_italy: |
+        consular_cni_os_local_resident_not_germany_or_italy_or_spain: |
           ###What happens next
 
           The consulate will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 21 days. They’ll then issue the CNI, as long as nobody has registered an objection. There’s an additional fee for this.
         consular_cni_os_local_resident_italy_two: |
           ###What happens next
 
-          The consulate will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 21 days. They’ll then issue the Nulla Osta, as long as nobody has registered an objection. There’s an additional fee for this.
+          The embassy will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 21 days. They’ll then issue the Nulla Osta, as long as nobody has registered an objection. There’s an additional fee for this.
         consular_cni_os_foreign_resident_ceremony_not_italy: |
           ###What happens next
 
@@ -411,9 +467,9 @@ en-GB:
         consular_cni_os_foreign_resident_ceremony_italy: |
           ###What happens next
 
-          The consulate will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 21 days. They’ll then send all of your documentation to the British embassy or consulate in %{ceremony_country_name} (as long as nobody has registered an objection).
+          The consulate will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 21 days. They’ll then send all of your documentation to the British Embassy in Rome (as long as nobody has registered an objection).
 
-          They’ll issue your Nulla Osta, which is the Italian equivalent of a CNI. There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
+          They’ll issue your Nulla Osta. There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
         consular_cni_os_commonwealth_resident_ceremony_not_italy: |
           ###What happens next
 
@@ -429,30 +485,32 @@ en-GB:
         consular_cni_os_commonwealth_resident_ceremony_italy: |
           ###What happens next
 
-          The high commission will send a letter confirming that you’re free to marry to the nearest embassy or consulate (Rome or Milan) to where you’re planning the ceremony. They’ll need to include copies of your documents, so you should make sure they’re aware of this.
-
-          The embassy or consulate in %{ceremony_country_name} will then issue you with a Nulla Osta. This is the Italian equivalent of a CNI. They’ll contact you to arrange collection or delivery, and payment - see below for fees.
+          The high commission will send a letter confirming that you’re free to marry to the British Embassy in Rome. They’ll need to include copies of your documents, so you should make sure they’re aware of this.
         consular_cni_os_ireland_resident_ceremony_italy: |
           ###What happens next
 
-          The British Embassy will send a letter confirming that you’re free to marry to the nearest embassy or consulate (Rome or Milan) to where you’re planning the ceremony. They’ll need to include copies of your documents, so you should make sure they’re aware of this.
-
-          The embassy or consulate in will then issue you with a Nulla Osta. This is the Italian equivalent of a CNI. They’ll contact you to arrange collection or delivery, and payment - see below for fees.
-        consular_cni_os_ceremony_italy: |
-          You need to include a completed ‘Request for consular services’ form with all payments.
+          The British Embassy will send a letter confirming that you’re free to marry to the British Embassy in Rome. They’ll need to include copies of your documents, so you should make sure they’re aware of this.
+        italy_os_consular_cni_four: |
+          You’ll then have to email the embassy with completed [credit card authorisation](/government/publications/credit-card-authorisation-form "Credit card authorisation form"), [couple information](/government/publications/couple-information-form "Couple information form") and [request for consular services](/government/publications/request-for-consular-services "Request for consular services") forms to arrange payment so they can issue your Nulla Osta.
 
 
-          $D
-          [Download ‘Request for consular services’ (PDF, 400KB)](/government/uploads/system/uploads/attachment_data/file/136831/request-for-consular-services.pdf "Download ‘Request for consular services’ (PDF, 400KB)")
-          $D
+          $C
+          **British Embassy in Rome - marriages**  
+          <rome.marriages@fco.gov.uk>  
+          $C
+
+          They’ll contact you to arrange collection or delivery, and will normally aim to to issue the Nulla Osta within 20 days.
+
         consular_cni_os_partner_british: |
-          ^You’ll both need to get a CNI if you’re both British, so you’ll both need to pay the fees.^
+          ^Your partner will need to get their own CNI.^
+        consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british: |
+          ^Your partner will need to follow the same process and pay the fees to get their own CNI.^
         consular_cni_os_other_resident_partner_british_ceremony_italy: |
-          ^You’ll both need to get a Nulla Osta if you’re both British, so you’ll both need to pay the fees.^
+          ^Your partner will need to follow the same process to get their own Nulla Osta.^
         consular_cni_os_all_names: |
-          ^The names you give to the registrar need to appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).^
+          %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
         consular_cni_os_other_resident_ceremony_not_italy: |
-          You should check if your CNI needs to be '[legalised](/get-document-legalised "Get a document legalised")' (certified as genuine) by the local authorities in %{ceremony_country_name}.
+          You should check if your CNI needs to be legalised (certified as genuine) by the local authorities in %{ceremony_country_name}.
         consular_cni_os_ceremony_belgium: |
           ###Other requirements for Belgium
 
@@ -468,9 +526,11 @@ en-GB:
         consular_cni_os_ceremony_spain: |
           ###Getting a marital status certificate
 
-          ^In some parts of Spain you may need to to get a ‘marital status certificate’ (‘certificado de estado civil’) instead of, or as well as, a CNI ('certificado de no impedimento'). Check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC "Spanish Ministry of Justice - civil registries"){:rel="external"} where you’re getting married.^
+          In some parts of Spain you may need to to get a ‘marital status certificate’ (‘certificado de estado civil’) instead of, or as well as, a CNI ('certificado de no impedimento').
 
-          Check with the  civil registry to find out if you need a marital status certificate. You can get one through a [solicitor](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers "Find a lawyer abroad") (‘abogado’). Ask them to draw up a declaration for you printed on their headed paper, and bring this to the consulate.
+          Check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC "Spanish Ministry of Justice - civil registries"){:rel="external"} where you’re getting married. If you need one, ask a [solicitor](/government/publications/spain-list-of-lawyers "Spain – list of lawyers") (‘abogado’) to draw up a declaration for you printed on their headed paper.
+
+          ^If it’s on blank, non-headed paper, they’ll need to give you a separate letter including their contact details, confirming that they’ve drawn up the declaration.^
 
           You’ll then need to make an appointment at the consulate to make the declaration and sign the document in front of a consular officer - so don’t sign it beforehand.
 
@@ -482,19 +542,24 @@ en-GB:
           [Download ‘Declaración de estado civil instrucciones en Español’ (PDF, 236KB)](/government/uploads/system/uploads/attachment_data/file/136833/marital-status-declaration-instruction-sp.pdf "Download ‘Declaración de estado civil instrucciones en Español’ (PDF, 236KB)")
           $D
 
-          You’ll also need to provide supporting documents, which are the same as the ones you need for a CNI. Once you’ve paid the fees shown below and made the declaration, the consulate will give you your certificate.
+          You’ll also need to provide supporting documents, which are the same as the ones you need for a CNI, as well as a completed marital status certificate application form.
+
+
+          $D
+          [Download 'Marital status certificate appointment request form' (DOC, 53KB)](/government/uploads/system/uploads/attachment_data/file/182249/Appointment_request_form_marital_status_marriage.doc "Download 'Marital status certificate appointment request form' (DOC, 53KB)")
+          $D
+
+          Once you’ve paid the fees shown below and made the declaration, the consulate will in front of the consular officer, they’ll give you your certificate.
         consular_cni_os_ceremony_spain_partner_british: |
-          ^Your partner will also need to get a marital status certificate from the consulate and pay the fees if the civil registry have told you that you need one.^
+          ^Your partner will also need to get a marital status certificate from the consulate and pay the fees if the civil registry have told you that they need one.^
         consular_cni_os_ceremony_spain_two: |
           ###Other requirements for Spain
 
-          There are 3 other documents the consulate can provide that the civil registrar may ask for. You don’t always need these, so check with the registrar first. These are:
+          There are 3 other documents the consulate can provide that the civil registrar may ask for. You don’t always need these, so check with the registrar first.  Follow the links below to find out how to apply and what fees you need to pay:
 
-          - a consular letter confirming your addresses for the past 2 years (‘confirmación de domicilio para casarse en España’)
-          - a consular letter confirming your registration at the consulate (‘carta consular que confirma la inscripción consular’)
-          - a consular certificate of Home Office registration or naturalisation ('certificado consular que confirma que al obtener la nacionalidad británica no se obtiene una partida de nacimiento británico')
-
-          You’ll need to make an appointment at the consulate to get these documents - bring any supporting documents they ask for, along with the fee (see below). You’ll also need to pay the fee for administering an oath or making a declaration if you need a letter confirming your addresses.
+          - [a consular letter confirming your addresses for the past 2 years](/notarial-and-documentary-services-guide-for-spain#proof-of-transfer-of-address "Proof of transfer of address") (‘confirmación de domicilio para casarse en España’)
+          - [a consular letter confirming your registration at the consulate](/notarial-and-documentary-services-guide-for-spain#registration-at-the-consulate "Registration at the consulate") (‘carta consular que confirma la inscripción consular’)
+          - [a consular certificate of Home Office registration or naturalisation](/notarial-and-documentary-services-guide-for-spain#confirmation-that-british-birth-certificate-is-not-available "Confirmation that British birth certificate is not available") ('certificado consular que confirma que al obtener la nacionalidad británica no se obtiene una partida de nacimiento británico')
         consular_cni_os_naturalisation: |
           ##Naturalisation of your partner if they move to the UK
 
@@ -505,8 +570,22 @@ en-GB:
           You can deposit your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/ "General Register Office"){:rel="external"} (GRO) in the UK for safe-keeping after your wedding. There’s a fee for this service (see below).
 
           This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate") in English at any time from GRO.
-
+        italy_os_consular_cni_five: |
+          Check with the comune to see if they can issue a multilingual marriage certificate for you after the ceremony. If not, the certificate will have to be [translated into English](/government/publications/italy-list-of-lawyers "Italy - list of lawyers and translators").
+        italy_os_consular_cni_six: |
           Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in %{country_name_lowercase_prefix} and [translated into English](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers "Find a translator abroad") first.
+        italy_os_consular_cni_seven: |
+
+          $C
+          **British Embassy in Rome - marriages**  
+          <rome.marriages@fco.gov.uk>  
+
+          **British Consulate in Milan - marriages**  
+          <Milan.Marriages@fco.gov.uk>  
+          $C
+
+
+
         consular_cni_os_ceremony_finland: |
           ^You’ll need to specifically request a 'Vihkimisilmoitus' from the local ‘Maistraatti’ (register office) where the marriage is registered if you want to deposit your certificate in the UK.^
         consular_cni_os_ceremony_turkey: |
@@ -515,23 +594,31 @@ en-GB:
           ###Depositing your certificate when you’re back home
 
           You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage "Deposit foreign marriage or civil partnership certificates") through the FCO.
-        consular_cni_os_all_fees: |
+        italy_os_consular_cni_eight: |
           ##Fees
 
           Service | Fee
           -|-
           Receiving a notice of marriage | £65
-          Issuing a CNI or equivalent | £65
+          Issuing a CNI, Nulla Osta or equivalent | £65
           Issuing any other consular letter or certificate in English | £45
           Issuing any other consular letter or certificate in any other language | £70
           Depositing a marriage certificate | £35
           Administering an oath or making a declaration | £55
 
           You normally have to pay fees for consular services in the local currency - these are shown in the list of consular fees for [consular fees for %{ceremony_country_name}](/government/publications/%{ceremony_country}-consular-fees "Consular fees").
+        italy_os_consular_cni_nine: |
+          ##Fees
+
+          It costs £35 to deposit a marriage certificate in Italy.
+
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Italy](/government/publications/italy-consular-fees "Consular fees - Italy").
         consular_cni_os_fees_local_currency: |
           ^You can only pay by cash in %{ceremony_country_name}. This must be in the local currency.^
+          
         consular_cni_os_fees_no_cheques: |
           You can pay by cash or credit card, but not by personal cheque.
+
 # France phrases
         france_fot_os_ceremony_france_uk_resident: |
           Contact the [French Embassy in the UK](http://ambafrance-uk.org/ "French Embassy in the UK"){:rel="external"} before making any plans to find out about local marriage laws, including what documents you’ll need.
@@ -586,105 +673,20 @@ en-GB:
           s7. The embassy will send your certificate to the address you specified on the form - it’s likely to arrive much sooner if this address is in France.
         france_fot_os_not_uk_resident_two: |
           You’ll need to get a certificate of custom law from the British Embassy in Paris.
-          %{embassy_details}
+          
 
-          ###Applying for a certificate of custom law from the British Embassy
 
-          s1. [Download ‘Certificate of custom law application form’ (PDF, 112KB)](/government/uploads/system/uploads/attachment_data/file/136837/cc-marriage.pdf "Download ‘Certificate of custom law application form’ (PDF, 112KB)").
-          s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
-          s3. You’ll need to include a pre-paid self-addressed envelope and a registered letter slip (‘récépissé d’un envoi recommandé sans avis de réception’) with your name and address, or a €6.55 postage fee, if you want your documents to be returned.
-          s4. Send your completed form to the British Embassy with your supporting documents, and a postal order (‘mandat-cash’) or guaranteed banker's cheque for €79 made payable to 'British Embassy Paris'. You can also pay by credit card by filling in the authorisation on the form. Personal cheques aren’t accepted.
-          s5. The embassy will send your certificate and return your documents between 5 and 7 days after receiving your application.
-        consular_cni_os_all_depositing_certificate: |
-          ##Depositing your marriage certificate in the UK
+          $A  
+          British Embassy (Certificate of Custom)  
+          BP 111-08  
+          75363 Paris Cedex 08 Paris  
+          $A
 
-          You can deposit your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/ "General Register Office"){:rel="external"} (GRO) in the UK for safe-keeping after your wedding. There’s a fee for this service (see below).
-
-          This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate") in English at any time from GRO.
-
-          Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in %{country_name_lowercase_prefix} and [translated into English](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers "Find a translator abroad") first.
-        consular_cni_os_ceremony_finland: |
-          ^You’ll need to specifically request a 'Vihkimisilmoitus' from the local ‘Maistraatti’ (register office) where the marriage is registered if you want to deposit your certificate in the UK.^
-        consular_cni_os_ceremony_turkey: |
-          ^You’ll need to specifically request a ‘Formül B’ from the local ‘nüfus müdürlüğü’ (register office) if you want to deposit your certificate in the UK.^
-        consular_cni_os_uk_resident: |
-          ###Depositing your certificate when you’re back home
-
-          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage "Deposit foreign marriage or civil partnership certificates") through the FCO.
-        consular_cni_os_all_fees: |
-          ##Fees
-
-          Service | Fee
-          -|-
-          Receiving a notice of marriage | £65
-          Issuing a CNI or equivalent | £65
-          Issuing any other consular letter or certificate in English | £45
-          Issuing any other consular letter or certificate in any other language | £70
-          Depositing a marriage certificate | £35
-          Administering an oath or making a declaration | £55
-
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of consular fees for [consular fees for %{ceremony_country_name}](/government/publications/%{ceremony_country}-consular-fees "Consular fees").
-        consular_cni_os_fees_local_currency: |
-          ^You can only pay by cash in %{ceremony_country_name}. This must be in the local currency.^
-        consular_cni_os_fees_no_cheques: |
-          You can pay by cash or credit card, but not by personal cheque.
-        consular_cni_os_outcome_spain_or_italy: |
-          The Foreign & Commonwealth Office (FCO) has produced guidance for British nationals [getting married in %{country_name_lowercase_prefix}](/marriage-in-%{ceremony_country} "Marriage in %{country_name_lowercase_prefix}").
-# France phrases
-        france_fot_os_ceremony_france_uk_resident: |
-          Contact the [French Embassy in the UK](http://ambafrance-uk.org/ "French Embassy in the UK"){:rel="external"} before making any plans to find out about local marriage laws, including what documents you’ll need.
-
-          You should also check the [travel advice for %{ceremony_country_name}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix}").
-        france_fot_os_ceremony_france_local_resident: |
-          Contact the relevant local authorities in France to find out about local marriage laws, including what documents you’ll need.
-        france_fot_os_ceremony_france_other_resident: |
-          Contact your nearest French embassy or consulate before making any plans to find out about local marriage laws, including what documents you’ll need.
-        france_fot_os_ceremony_fot_uk_resident: |
-          %{country_name_uppercase_prefix} is an overseas department or territory of France. The rules and requirements for getting married there are similar to France.
-
-          Contact the [French Embassy in the UK](http://ambafrance-uk.org/ "French Embassy in the UK"){:rel="external"} before making any plans to find out about specific requirements under local marriage laws, including what documents you’ll need.
-
-          You should also check the [travel advice for %{ceremony_country_name}](/foreign-travel-advice/%{ceremony_country_name} "Travel advice for %{country_name_lowercase_prefix}").
-        france_fot_os_ceremony_fot_local_resident: |
-          %{country_name_uppercase_prefix} is an overseas department or territory of France. The rules and requirements for getting married there are similar to France. Contact the relevant local authorities in to find out about local marriage laws, including what documents you’ll need.
-
-          The [French Embassy in the UK](http://ambafrance-uk.org/ "French Embassy in the UK"){:rel="external"} may also be able to give you advice, or put you in touch with the relevant local authorities if you don’t know who to contact.
-        france_fot_os_ceremony_fot_other_resident: |
-          %{country_name_uppercase_prefix} is an overseas department or territory of France. The rules and requirements for getting married there are similar to France.
-
-          Contact your nearest French embassy or consulate before making any plans to find out about local marriage laws, including what documents you’ll need.
-
-          You should also check the [travel advice for %{ceremony_country_name}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix").
-
-        france_fot_os_uk_resident: |
-          ^You should [get legal advice](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"} before making any plans.^
-        france_fot_os_not_uk_resident: |
-          ^You should get legal advice before making any plans.^
-        france_fot_os_all_what_you_need_to_do: |
-          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers "Find a lawyer abroad") before making any plans.^
-
-          ##What you need to do
-
-          You may be asked to provide a certificate of custom law (‘certificat de coutume’) if you’re getting married in %{country_name_lowercase_prefix}.
-
-          You should check with the local town hall (‘mairie’) in the town where you’re getting married to find out if you need one. Either you or your partner will need to have been legally resident there for at least 40 days before the ceremony.
-
-          ^You’ll need to have a civil ceremony first if you’re getting married in a religious ceremony.^
-        france_fot_os_uk_resident_two: |
-          If you need a certificate of custom law, you can get one from the Foreign & Commonwealth Office (FCO) in London.
-
-          ###Applying for a certificate of custom law from the FCO
-
-          s1. [Download ‘Certificate of custom law application form’ (DOT, 49KB)](/government/uploads/system/uploads/attachment_data/file/136836/cert-of-custom.doc "Download ‘Certificate of custom law application form’ (DOT, 49KB)").
-          s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
-          s3. You’ll also need to include a pre-paid, self-addressed special delivery envelope, or a £10 postage fee, so the FCO can return your documents.
-          s4. Send your completed form to the FCO with your supporting documents and payment. [You can pay by credit card online](/pay-foreign-marriage-certificates "Payment for certificates to get married abroad"), or send a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. Personal cheques aren’t accepted. The address is on the form.
-          s5. The FCO will confirm that they’ve received your application and return your documents within 4 weeks.
-          s6. They’ll then send your application to the British Embassy in Paris, who will issue your certificate between 1 and 3 weeks later.
-          s7. The embassy will send your certificate to the address you specified on the form - it’s likely to arrive much sooner if this address is in France.
-        france_fot_os_not_uk_resident_two: |
-          You’ll need to get a certificate of custom law from the British Embassy in Paris.
-          %{embassy_details}
+          $C  
+          *Telephone:* (33) 1 44 51 31 00  
+          GMT: Monday to Friday 8:30 to 12:00 / 13:30 to 17:00  
+          Local time: Monday to Friday 9:30 to 13:00 / 14:30 to 18:00  
+          $C
 
           ###Applying for a certificate of custom law from the British Embassy
 
@@ -1007,6 +1009,10 @@ en-GB:
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
         cp_or_equivalent_cp_other_resident: |
           Contact your nearest embassy or consulate of %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
+        spain_cp_or_equivalent: |
+          The local [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC "Spanish Ministry of Justice - civil registries"){:rel="external"} should be able to tell you about specific requirements.
+        spain_cp_or_equivalent_two: |
+          %There are certain legal restrictions if neither of you is resident in Spain. You should check with the civil registry where you’re planning to get married to find out if this is allowed.%
 
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix}") before making any plans.
         cp_or_equivalent_cp_all_what_you_need_to_do: |
@@ -1097,7 +1103,20 @@ en-GB:
           s7. The embassy will send your certificate to the address you specified on the form - it’s likely to arrive much sooner if this address is in France.
         france_pacs_law_cp_not_uk_resident_two: |
           You’ll need to get a certificate of custom law from the British Embassy in Paris.
-          %{embassy_details}
+          
+
+
+          $A  
+          British Embassy (Certificate of Custom)  
+          BP 111-08  
+          75363 Paris Cedex 08 Paris  
+          $A
+
+          $C  
+          *Telephone:* (33) 1 44 51 31 00  
+          GMT: Monday to Friday 8:30 to 12:00 / 13:30 to 17:00  
+          Local time: Monday to Friday 9:30 to 13:00 / 14:30 to 18:00  
+          $C
 
           ###Applying for a certificate of custom law from the British Embassy
 
@@ -1438,7 +1457,7 @@ en-GB:
         options:
           partner_british: "British"
           partner_irish: "Irish"
-          partner_local: "National of %{country_name_lowercase_prefix}"
+          partner_local: "%{country_name_partner_residence}"
           partner_other: "National of another country"
 
 # Q5
@@ -1450,6 +1469,12 @@ en-GB:
 
 
 # Outcomes
+# outcome Channel Isles and Isle of Man
+      outcome_os_iom_ci:
+        title:
+        body: |
+          %{iom_ci_os_outcome}
+
 # outcome Ireland
       outcome_ireland:
         title: |
