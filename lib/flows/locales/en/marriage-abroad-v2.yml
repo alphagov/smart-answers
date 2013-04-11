@@ -181,7 +181,7 @@ en-GB:
 
           Check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC "Spanish Ministry of Justice - civil registries"){:rel="external"} where you’re getting married.
         spain_os_consular_cni_not_local_resident: |
-          %There are certain legal restrictions if neither of you is resident in Spain. If you both live outside Spain, you should check with the civil registry where you’re planning to getting married to find out if this is allowed.%.
+          %There are certain legal restrictions if neither of you is resident in Spain. If you both live outside Spain, you should check with the civil registry where you’re planning to getting married to find out if this is allowed.%
         italy_os_consular_cni_ceremony_italy: |
           Contact the local comune (town hall) before making any plans to find out about local marriage laws, including what documents you’ll need.
         italy_os_consular_cni_ceremony_not_italy: |
@@ -280,6 +280,12 @@ en-GB:
           ###Applying for a CNI from the consulate
 
           You’ll need to have been resident in %{country_name_lowercase_prefix} for at least 21 days. You can then book an appointment at the consulate to give notice of your marriage. There’s a fee for this service (see below).
+        kazakhstan_os_local_resident: |
+          If you need a CNI, you’ll first need to give notice of your intended marriage (banns) at the British Embassy Office in Almaty.
+
+          ###Applying for a CNI from the consulate
+
+          You’ll normally need to have been resident in Kazakhstan for at least 21 days. You can then book an appointment at the consulate to give notice of your marriage. There’s a fee for this service (see below).
         consular_cni_os_no_clickbook_so_embassy_details: |
           %{embassy_details}
         consular_cni_os_local_resident_italy: |
