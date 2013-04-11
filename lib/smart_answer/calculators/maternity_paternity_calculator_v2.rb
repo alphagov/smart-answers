@@ -173,8 +173,9 @@ module SmartAnswer::Calculators
     end
 
     def paydates_and_pay
-      paydates = pay_method == 'a_certain_week_day_each_month' ? 
-        paydates_for_a_certain_week_day_each_month : pay_pattern_start_dates 
+      paydates = send(:"paydates_#{pay_method}") 
+
+      paydates.unshift pay_start_date unless paydates.first <= pay_start_date
 
       [].tap do |ary|
         paydates.each_with_index do |date, index|
@@ -185,47 +186,79 @@ module SmartAnswer::Calculators
       end
     end
 
-    def is_pay_date?(date)
-      send(:"is_pay_date_#{pay_method}?", date)
+
+    def paydates_every_2_weeks
+      paydates_every_n_days(14)
     end
 
-    # TODO: This includes the pay date prior to maternity pay start date which feels wrong
-    # it would be better to modify paydates_and_pay to understand how to calculate the last pay date
-    # possibly by adding a date parameter to last_pay_date
-    def pay_pattern_start_dates
-      step = 1
-      case pay_method
-      when 'every_2_weeks'
-        step = 14
-        range_start = pay_date
-      when 'every_4_weeks'
-        step = 28
-        range_start = pay_date
-      when 'first_day_of_the_month'
-        range_start = Date.civil(pay_start_date.year, pay_start_date.month, 1)
-      when 'last_day_of_the_month'
-        range_start = Date.civil(pay_start_date.year, pay_start_date.month, -1) << 1
-      else
-        range_start = pay_start_date
-      end
+    def paydates_every_4_weeks
+      paydates_every_n_days(28)
+    end
 
+    def paydates_first_day_of_the_month
+      start_date = Date.civil(pay_start_date.year, pay_start_date.month, 1)
+      end_date = Date.civil(pay_end_date.year, pay_end_date.month, 1) >> 1
       [].tap do |ary|
-        (range_start...39.weeks.since(range_start)).step(step).each do |d|
-          ary << d if is_pay_date?(d)
-        end
-        ary << last_pay_date
+        (start_date..end_date).each do |d|
+          ary << d if d.day == 1
+        end 
       end
     end
 
-    def paydates_for_a_certain_week_day_each_month
-      def months_between_dates(start_date, end_date)
-        start_date.beginning_of_month.step(end_date.beginning_of_month).select do |date|
-          date.day == 1
+    def paydates_last_day_of_the_month
+      start_date = Date.civil(pay_start_date.year, pay_start_date.month, -1)
+      end_date = Date.civil(pay_end_date.year, pay_end_date.month, -1)
+      [].tap do |ary|
+        (start_date..end_date).each do |d|
+          ary << d if d.day == Date.new(d.year, d.month, -1).day
+        end 
+      end
+    end
+
+    def paydates_last_working_day_of_the_month
+      end_date = Date.civil(pay_end_date.year, pay_end_date.month, -1)
+
+      [].tap do |ary|
+        (pay_start_date..end_date).each do |d|
+          ary << d if d.day == Date.new(d.year, d.month, last_working_day_of_the_month_offset(d)).day
+        end 
+      end
+    end
+
+    def paydates_monthly
+      end_date = Date.civil(pay_end_date.year, pay_end_date.month, pay_day_in_month)
+      [].tap do |ary|
+        pay_start_date.step(end_date) do |d|
+          ary << d if d.day == pay_day_in_month
+        end 
+      end
+    end
+
+    alias paydates_specific_date_each_month paydates_monthly
+
+    def paydates_weekly
+      pay_end_weekend = pay_end_date + (6 - pay_end_date.wday)
+      end_date = Date.civil(pay_end_date.year, pay_end_date.month, pay_end_weekend.day)
+      [].tap do |ary|
+        (pay_start_date..end_date).each do |d|
+          ary << d if d.wday == pay_date.wday
         end
       end
-      
+    end
+
+    def paydates_weekly_starting
+      pay_end_weekend = pay_end_date + (6 - pay_end_date.wday)
+      end_date = Date.civil(pay_end_date.year, pay_end_date.month, pay_end_weekend.day)
       [].tap do |ary|
-        months_between_dates(pay_start_date << 1, pay_end_date).each do |date|
+        (pay_start_date..end_date).each do |d|
+          ary << d if d.wday == pay_start_date.wday
+        end
+      end
+    end
+
+    def paydates_a_certain_week_day_each_month
+      [].tap do |ary|
+        months_between_dates(pay_start_date, pay_end_date).each do |date|
           weekdays = weekdays_for_month(date, pay_day_in_week)
           ary << weekdays.send(pay_week_in_month)
         end
@@ -246,6 +279,20 @@ module SmartAnswer::Calculators
     end
   
   private
+ 
+    def paydates_every_n_days(days)
+      [].tap do |ary|
+        (pay_date..40.weeks.since(pay_date)).step(days).each do |d|
+          ary << d
+        end
+      end
+    end   
+
+    def months_between_dates(start_date, end_date)
+      start_date.beginning_of_month.step(end_date.beginning_of_month).select do |date|
+        date.day == 1
+      end
+    end
 
     def pay_for_period(start_date, end_date)
       pay = 0.0
@@ -280,41 +327,6 @@ module SmartAnswer::Calculators
       end
     end
     
-    def is_pay_date_weekly_starting?(date)
-      date.wday == pay_start_date.wday
-    end
-
-    def is_pay_date_weekly?(date)
-      date.wday == pay_date.wday 
-    end
-    
-    def is_pay_date_every_2_weeks?(date)
-      true # The step in the pay date range handles this.
-    end
-    alias is_pay_date_every_4_weeks? is_pay_date_every_2_weeks?
-    
-    def is_pay_date_monthly?(date)
-      date.day == pay_day_in_month
-    end
-
-    alias is_pay_date_specific_date_each_month? is_pay_date_monthly?
-    
-    def is_pay_date_irregularly?(date)
-      # TODO: TBC irregular pay dates cannot be calculated on a 'usual pay date' basis.
-    end
-    
-    def is_pay_date_first_day_of_the_month?(date)
-      date.day == 1
-    end
-    
-    def is_pay_date_last_day_of_the_month?(date)
-      date == Date.new(date.year, date.month, -1)
-    end
-    
-    def is_pay_date_specific_date_each_month?(date)
-      date.day == pay_day_in_month
-    end
-
     def last_working_day_of_the_month_offset(date)
       lwd = Date.new(date.year, date.month, -1) # Last weekday of the month.
       case lwd.wday
@@ -328,26 +340,5 @@ module SmartAnswer::Calculators
       date == Date.new(date.year, date.month, last_working_day_of_the_month_offset(date))
     end
 
-    def last_pay_date
-      case pay_method
-      when 'monthly', 'specific_date_each_month'
-        date = Date.civil(pay_end_date.year, pay_end_date.month, pay_day_in_month)
-        date >> 1 if pay_day_in_month < pay_end_date.day
-        date
-      when 'first_day_of_the_month'
-        Date.civil(pay_end_date.year, pay_end_date.month, 1) >> 1
-      when 'last_day_of_the_month'
-        Date.civil(pay_end_date.year, pay_end_date.month, -1)
-      when 'last_working_day_of_the_month'
-        Date.new(pay_end_date.year, pay_end_date.month, last_working_day_of_the_month_offset(pay_end_date))
-      when 'weekly'
-        number_of_weeks = pay_date < pay_start_date ? 40 : 39
-        number_of_weeks.weeks.since(pay_date)
-      when 'weekly_starting'
-        39.weeks.since(pay_start_date)
-      when 'every_2_weeks', 'every_4_weeks'
-        40.weeks.since(pay_date)
-      end  
-    end
   end
 end
