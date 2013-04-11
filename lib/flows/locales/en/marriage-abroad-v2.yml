@@ -288,6 +288,8 @@ en-GB:
           ###Applying for a Nulla Osta from the embassy
 
           You’ll need to have been resident in Italy for at least 21 days. You can then book an appointment at the British Embassy in Rome.
+
+          [Book an appointment online in Rome.](https://www.clickbook.net/dev/bc.nsf/sub/britishconsrome "Consular Section, British Embassy, Rome")
         consular_cni_os_foreign_resident: |
           If you need a certificate to prove you’re allowed to marry, you’ll have to give notice of your intended marriage in the country where you live.
 
@@ -561,8 +563,6 @@ en-GB:
           You can deposit your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/ "General Register Office"){:rel="external"} (GRO) in the UK for safe-keeping after your wedding. There’s a fee for this service (see below).
 
           This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate") in English at any time from GRO.
-
-          Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in %{country_name_lowercase_prefix} and [translated into English](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers "Find a translator abroad") first.
         italy_os_consular_cni_five: |
           Check with the comune to see if they can issue a multilingual marriage certificate for you after the ceremony. If not, the certificate will have to be [translated into English](/government/publications/italy-list-of-lawyers "Italy - list of lawyers and translators").
         italy_os_consular_cni_six: |
@@ -599,108 +599,18 @@ en-GB:
           Administering an oath or making a declaration | £55
 
           You normally have to pay fees for consular services in the local currency - these are shown in the list of consular fees for [consular fees for %{ceremony_country_name}](/government/publications/%{ceremony_country}-consular-fees "Consular fees").
-        consular_cni_os_fees_local_currency: |
-          ^You can only pay by cash in %{ceremony_country_name}. This must be in the local currency.^
-        consular_cni_os_fees_no_cheques: |
-          You can pay by cash or credit card, but not by personal cheque.
-# France phrases
-        france_fot_os_ceremony_france_uk_resident: |
-          Contact the [French Embassy in the UK](http://ambafrance-uk.org/ "French Embassy in the UK"){:rel="external"} before making any plans to find out about local marriage laws, including what documents you’ll need.
-
-          You should also check the [travel advice for %{ceremony_country_name}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix}").
-        france_fot_os_ceremony_france_local_resident: |
-          Contact the relevant local authorities in France to find out about local marriage laws, including what documents you’ll need.
-        france_fot_os_ceremony_france_other_resident: |
-          Contact your nearest French embassy or consulate before making any plans to find out about local marriage laws, including what documents you’ll need.
-        france_fot_os_ceremony_fot_uk_resident: |
-          %{country_name_uppercase_prefix} is an overseas department or territory of France. The rules and requirements for getting married there are similar to France.
-
-          Contact the [French Embassy in the UK](http://ambafrance-uk.org/ "French Embassy in the UK"){:rel="external"} before making any plans to find out about specific requirements under local marriage laws, including what documents you’ll need.
-
-          You should also check the [travel advice for %{ceremony_country_name}](/foreign-travel-advice/%{ceremony_country_name} "Travel advice for %{country_name_lowercase_prefix}").
-        france_fot_os_ceremony_fot_local_resident: |
-          %{country_name_uppercase_prefix} is an overseas department or territory of France. The rules and requirements for getting married there are similar to France. Contact the relevant local authorities in to find out about local marriage laws, including what documents you’ll need.
-
-          The [French Embassy in the UK](http://ambafrance-uk.org/ "French Embassy in the UK"){:rel="external"} may also be able to give you advice, or put you in touch with the relevant local authorities if you don’t know who to contact.
-        france_fot_os_ceremony_fot_other_resident: |
-          %{country_name_uppercase_prefix} is an overseas department or territory of France. The rules and requirements for getting married there are similar to France.
-
-          Contact your nearest French embassy or consulate before making any plans to find out about local marriage laws, including what documents you’ll need.
-
-          You should also check the [travel advice for %{ceremony_country_name}](/foreign-travel-advice/%{ceremony_country} "Travel advice for %{country_name_lowercase_prefix").
-
-        france_fot_os_uk_resident: |
-          ^You should [get legal advice](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"} before making any plans.^
-        france_fot_os_not_uk_resident: |
-          ^You should get legal advice before making any plans.^
-        france_fot_os_all_what_you_need_to_do: |
-          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers "Find a lawyer abroad") before making any plans.^
-
-          ##What you need to do
-
-          You may be asked to provide a certificate of custom law (‘certificat de coutume’) if you’re getting married in %{country_name_lowercase_prefix}.
-
-          You should check with the local town hall (‘mairie’) in the town where you’re getting married to find out if you need one. Either you or your partner will need to have been legally resident there for at least 40 days before the ceremony.
-
-          ^You’ll need to have a civil ceremony first if you’re getting married in a religious ceremony.^
-        france_fot_os_uk_resident_two: |
-          If you need a certificate of custom law, you can get one from the Foreign & Commonwealth Office (FCO) in London.
-
-          ###Applying for a certificate of custom law from the FCO
-
-          s1. [Download ‘Certificate of custom law application form’ (DOT, 49KB)](http://www.fco.gov.uk/resources/en/word/travelling-living-overseas/cert-of-custom "Download ‘Certificate of custom law application form’ (DOT, 49KB)").
-          s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
-          s3. You’ll also need to include a pre-paid, self-addressed special delivery envelope, or a £10 postage fee, so the FCO can return your documents.
-          s4. Send your completed form to the FCO with your supporting documents and payment. [You can pay by credit card online](/pay-foreign-marriage-certificates "Payment for certificates to get married abroad"), or send a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. Personal cheques aren’t accepted. The address is on the form.
-          s5. The FCO will confirm that they’ve received your application and return your documents within 4 weeks.
-          s6. They’ll then send your application to the British Embassy in Paris, who will issue your certificate between 1 and 3 weeks later.
-          s7. The embassy will send your certificate to the address you specified on the form - it’s likely to arrive much sooner if this address is in France.
-        france_fot_os_not_uk_resident_two: |
-          You’ll need to get a certificate of custom law from the British Embassy in Paris.
-          %{embassy_details}
-
-          ###Applying for a certificate of custom law from the British Embassy
-
-          s1. [Download ‘Certificate of custom law application form’ (PDF, 112KB)](http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/cc-marriage "Download ‘Certificate of custom law application form’ (PDF, 112KB)").
-          s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
-          s3. You’ll need to include a pre-paid self-addressed envelope and a registered letter slip (‘récépissé d’un envoi recommandé sans avis de réception’) with your name and address, or a €6.55 postage fee, if you want your documents to be returned.
-          s4. Send your completed form to the British Embassy with your supporting documents, and a postal order (‘mandat-cash’) or guaranteed banker's cheque for €79 made payable to 'British Embassy Paris'. You can also pay by credit card by filling in the authorisation on the form. Personal cheques aren’t accepted.
-          s5. The embassy will send your certificate and return your documents between 5 and 7 days after receiving your application.
-        consular_cni_os_all_depositing_certificate: |
-          ##Depositing your marriage certificate in the UK
-
-          You can deposit your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/ "General Register Office"){:rel="external"} (GRO) in the UK for safe-keeping after your wedding. There’s a fee for this service (see below).
-
-          This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate/ "Order a copy of a birth, death or marriage certificate") in English at any time from GRO.
-
-          Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in %{country_name_lowercase_prefix} and [translated into English](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers "Find a translator abroad") first.
-        consular_cni_os_ceremony_finland: |
-          ^You’ll need to specifically request a 'Vihkimisilmoitus' from the local ‘Maistraatti’ (register office) where the marriage is registered if you want to deposit your certificate in the UK.^
-        consular_cni_os_ceremony_turkey: |
-          ^You’ll need to specifically request a ‘Formül B’ from the local ‘nüfus müdürlüğü’ (register office) if you want to deposit your certificate in the UK.^
-        consular_cni_os_uk_resident: |
-          ###Depositing your certificate when you’re back home
-
-          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage "Deposit foreign marriage or civil partnership certificates") through the FCO.
-        consular_cni_os_all_fees: |
+        italy_os_consular_cni_nine: |
           ##Fees
 
-          Service | Fee
-          -|-
-          Receiving a notice of marriage | £65
-          Issuing a CNI or equivalent | £65
-          Issuing any other consular letter or certificate in English | £45
-          Issuing any other consular letter or certificate in any other language | £70
-          Depositing a marriage certificate | £35
-          Administering an oath or making a declaration | £55
+          It costs £35 to deposit a marriage certificate in Italy.
 
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of consular fees for [consular fees for %{ceremony_country_name}](/government/publications/%{ceremony_country}-consular-fees "Consular fees").
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Italy](/government/publications/italy-consular-fees "Consular fees - Italy").
         consular_cni_os_fees_local_currency: |
           ^You can only pay by cash in %{ceremony_country_name}. This must be in the local currency.^
+          
         consular_cni_os_fees_no_cheques: |
           You can pay by cash or credit card, but not by personal cheque.
-        consular_cni_os_outcome_spain_or_italy: |
-          The Foreign & Commonwealth Office (FCO) has produced guidance for British nationals [getting married in %{country_name_lowercase_prefix}](/marriage-in-%{ceremony_country} "Marriage in %{country_name_lowercase_prefix}").
+
 # France phrases
         france_fot_os_ceremony_france_uk_resident: |
           Contact the [French Embassy in the UK](http://ambafrance-uk.org/ "French Embassy in the UK"){:rel="external"} before making any plans to find out about local marriage laws, including what documents you’ll need.
@@ -755,7 +665,20 @@ en-GB:
           s7. The embassy will send your certificate to the address you specified on the form - it’s likely to arrive much sooner if this address is in France.
         france_fot_os_not_uk_resident_two: |
           You’ll need to get a certificate of custom law from the British Embassy in Paris.
-          %{embassy_details}
+          
+
+
+          $A  
+          British Embassy (Certificate of Custom)  
+          BP 111-08  
+          75363 Paris Cedex 08 Paris  
+          $A
+
+          $C  
+          *Telephone:* (33) 1 44 51 31 00  
+          GMT: Monday to Friday 8:30 to 12:00 / 13:30 to 17:00  
+          Local time: Monday to Friday 9:30 to 13:00 / 14:30 to 18:00  
+          $C
 
           ###Applying for a certificate of custom law from the British Embassy
 
@@ -1172,7 +1095,20 @@ en-GB:
           s7. The embassy will send your certificate to the address you specified on the form - it’s likely to arrive much sooner if this address is in France.
         france_pacs_law_cp_not_uk_resident_two: |
           You’ll need to get a certificate of custom law from the British Embassy in Paris.
-          %{embassy_details}
+          
+
+
+          $A  
+          British Embassy (Certificate of Custom)  
+          BP 111-08  
+          75363 Paris Cedex 08 Paris  
+          $A
+
+          $C  
+          *Telephone:* (33) 1 44 51 31 00  
+          GMT: Monday to Friday 8:30 to 12:00 / 13:30 to 17:00  
+          Local time: Monday to Friday 9:30 to 13:00 / 14:30 to 18:00  
+          $C
 
           ###Applying for a certificate of custom law from the British Embassy
 
