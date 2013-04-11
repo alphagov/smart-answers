@@ -29,7 +29,7 @@ en-GB:
       body: |
         Download student finance forms and guidance notes for Student Finance England including:
 
-        + forms PN1, PR1, PTG1 and PFF2
+        + forms PN1, PR1, PTG1, PFF2 and CYI
         + forms for parents 
         + forms for EU students 
       devolved_body: |
@@ -65,7 +65,7 @@ en-GB:
         options:
           "apply-loans-grants": "Apply for student loans and grants"
           "proof-identity": "Send proof of identity"
-          "income-details": "Send parent or partner’s income detail - eg PFF2"
+          "income-details": "Send parent or partner’s income detail - eg PFF2 or CYI"
           "apply-dsa": "Apply for Disabled Students’ Allowances"
           "dsa-expenses": "Claim Disabled Students’ Allowances expenses"
           "apply-ccg": "Apply for Childcare Grant"
@@ -268,7 +268,7 @@ en-GB:
           Academic year | Form
           - | - 
           2013 to 2014 | [PFF2 - income details form (PDF, 120 KB)](http://www.sfengland.slc.co.uk/media/559149/sfe_pff2_1314_d.pdf "Download 'PFF2 - income details form' (PDF, 120 KB)"){:rel="external"}
-          2013 to 2014 | Current tax year - income details form <br/> Available April 2013
+          2013 to 2014 | [CYI - current tax year income details form (PDF, 150KB)](http://www.sfengland.slc.co.uk/media/592412/sfe_cyi_1314_d.pdf "Download 'Current tax year - income details form' (PDF, 150KB)"){:rel="external"}
 
           %{form_destination}
 
@@ -289,7 +289,7 @@ en-GB:
           Academic year | Form
           - | - 
           2012 to 2013 | [PFF2 - income details form (PDF, 120 KB)](http://www.sfengland.slc.co.uk/media/393130/sfe_pff2_1213.pdf "Download 'PFF2 - income details form' (PDF, 120KB)"){:rel="external"}
-          2012 to 2013 | [Current tax year - income details form (PDF, 150KB)](http://www.sfengland.slc.co.uk/media/393127/cyi.pdf "Download 'Current tax year - income details form' (PDF, 150KB)"){:rel="external"}
+          2012 to 2013 | [CYI - current tax year income details form (PDF, 150KB)](http://www.sfengland.slc.co.uk/media/393127/cyi.pdf "Download 'CYI - current tax year income details form' (PDF, 150KB)"){:rel="external"}
 
           %{form_destination}
 
@@ -441,12 +441,41 @@ en-GB:
       outcome_24:
         title: EU full-time student 
         body: |
-          You can apply for student finance from April 2013. The forms will be available then.
+          To apply for a Tuition Fee Loan use form EU13N.
+
+          Academic year | Form 
+          - | - 
+          2013 to 2014 | [EU13N - form and notes (PDF, 200KB)](http://www.sfengland.slc.co.uk/media/591405/eu13n_form_1314_d.pdf "Download 'EU13N - form and notes' (PDF, 200KB)"){:rel="external"} 
+
+          ##Additional information
+
+          You may need to include additional information on the following forms.
+
+          Form | When to use the form 
+          - | - 
+          [EUTFLR - form (PDF, 200KB)](http://www.sfengland.slc.co.uk/media/560156/eu_tuitionfeelrf_1314_d.pdf "Download 'EUTFLR - form' (PDF, 100KB)"){:rel="external"} | To change the amount of loan you want to apply for 
+          [Evidence factsheet (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/560168/eu_evidence_factsheet_1314_d.pdf "Download 'Evidence factsheet' (PDF, 100KB)"){:rel="external"} | List of evidence to send with your application - eg proof of identity or income 
+          [Certifier checklist (PDF, 75KB)](http://www.sfengland.slc.co.uk/media/560159/eu_certifier_checklist_1314_d.pdf "Download 'Certifier checklist' (PDF, 75KB)"){:rel="external"} | Get the person who verifies your evidence to sign this form
+          [EUCO1 - form (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/560153/eu_co1_1314_d.pdf "Download 'EUCO1 - form' (PDF, 100KB)"){:rel="external"}  | To update your course, name and other details
+
+          ^You can apply up to 9 months after the start of your course.^
 
       outcome_25:
         title: EU full-time student 
         body: |
-          You can apply for student finance from April 2013. The forms will be available then.
+          To apply for a Tuition Fee Loan use form EUPR1A. This is automaically sent to you. To request a copy, contact [Student Finance Services European Team](/contact-student-finance-england "Contact Student Finance England"). 
+
+          ##Additional information 
+
+          You may need to include additional information on the following forms.
+
+          Form | When to use the form 
+          - | - 
+          [Evidence factsheet (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/560168/eu_evidence_factsheet_1314_d.pdf "Download 'Evidence factsheet' (PDF, 100KB)"){:rel="external"} | List of evidence to send with your application - eg proof of identity or income 
+          [Certifier checklist (PDF, 75KB)](http://www.sfengland.slc.co.uk/media/560159/eu_certifier_checklist_1314_d.pdf "Download 'Certifier checklist' (PDF, 75KB)"){:rel="external"} | Get the person who verifies your evidence to sign this form
+          [EUCO1 - form (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/560153/eu_co1_1314_d.pdf "Download 'EUCO1 - form' (PDF, 100KB)"){:rel="external"}  | To update your course, name and other details
+
+          ^You can apply up to 9 months after the start of your course.^
 
       outcome_26:
         title: EU part-time student
@@ -476,7 +505,7 @@ en-GB:
           [EUTFLR - form (PDF, 200KB)](http://www.sfengland.slc.co.uk/media/420660/eu_tflrf.pdf "Download 'EUTFLR - form' (PDF, 100KB)"){:rel="external"} | To change the amount of loan you want to apply for
           [Evidence factsheet (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/420657/factsheet_eu_evidence.pdf "Download 'Evidence factsheet' (PDF, 100KB)"){:rel="external"} | List of evidence to send with your application - eg proof of identity or income
           [Certifier checklist (PDF, 75KB)](http://www.sfengland.slc.co.uk/media/424439/certifier_checklist.pdf "Download 'Certifier checklist' (PDF, 75KB)"){:rel="external"} | Get the person who verifies your evidence to sign this form
-          [EUCO1 - form (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/420654/euco1.pdf "Download 'EUCO1 - form' (PDF, 100KB)"){:rel="external"} | To update your bank, course, name and other details
+          [EUCO1 - form (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/420654/euco1.pdf "Download 'EUCO1 - form' (PDF, 100KB)"){:rel="external"} | To update your course, name and other details
 
           ^You can apply up to 9 months after the start of your course.^
 
@@ -485,7 +514,17 @@ en-GB:
       outcome_29:
         title: EU full-time student 
         body: |
-          To apply for a Tuition Fee Loan use form EUPR1A. [Student Finance England](/contact-student-finance-england "Contact Student Finance England") will send this to you. 
+          To apply for a Tuition Fee Loan use form EUPR1A. This is automaically sent to you. To request a copy, contact [Student Finance Services European Team](/contact-student-finance-england "Contact Student Finance England"). 
+
+          ##Additional information 
+
+          You may need to include additional information on the following forms.
+
+          Form | When to use the form 
+          - | - 
+          [Evidence factsheet (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/420657/factsheet_eu_evidence.pdf "Download 'Evidence factsheet' (PDF, 100KB)"){:rel="external"} | List of evidence to send with your application - eg proof of identity or income 
+          [Certifier checklist (PDF, 75KB)](http://www.sfengland.slc.co.uk/media/424439/certifier_checklist.pdf "Download 'Certifier checklist' (PDF, 75KB)"){:rel="external"} | Get the person who verifies your evidence to sign this form
+          [EUCO1 - form (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/420654/euco1.pdf "Download 'EUCO1 - form' (PDF, 100KB)"){:rel="external"}  | To update your course, name and other details
 
           ^You can apply up to 9 months after the start of your course.^
 
@@ -508,7 +547,7 @@ en-GB:
           [EUTFLR - form (PDF, 200KB)](http://www.sfengland.slc.co.uk/media/420660/eu_tflrf.pdf "Download 'EUTFLR - form' (PDF, 100KB)"){:rel="external"} | To change the amount of loan you want to apply for 
           [Evidence factsheet (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/420657/factsheet_eu_evidence.pdf "Download 'Evidence factsheet' (PDF, 100KB)"){:rel="external"} | List of evidence to send with your application - eg proof of identity or income 
           [Certifier checklist (PDF, 75KB)](http://www.sfengland.slc.co.uk/media/424439/certifier_checklist.pdf "Download 'Certifier checklist' (PDF, 75KB)"){:rel="external"} | Get the person who verifies your evidence to sign this form
-          [EUCO1 - form (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/420654/euco1.pdf "Download 'EUCO1 - form' (PDF, 100KB)"){:rel="external"}  | To update your bank, course, name and other details
+          [EUCO1 - form (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/420654/euco1.pdf "Download 'EUCO1 - form' (PDF, 100KB)"){:rel="external"}  | To update your course, name and other details
 
           ^You can apply up to 9 months after the start of your course.^
 
