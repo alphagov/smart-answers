@@ -1814,6 +1814,16 @@ en-GB:
 
         how_to_apply_iraq: ''
         supporting_documents_iraq: ''
+
+        iraq_first_passport_documents: |
+
+
+          $D
+          Supporting documents
+
+          [Download 'Supporting documents you must send with your application' (PDF, 264KB)](/government/publications/iraq-supporting-documents-for-passport-applications "Download 'Supporting documents you must send with your application' (PDF, 264KB)")
+          $D
+
         making_application_iraq: |
           ### Renewals or replacements of lost or stolen passports
 
@@ -2053,9 +2063,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport	| 935,000 SL | 1.180,000 SL
-          Adult jumbo 48-page passport | 1,130,000 SL | 1,375,000 SL
-          Child passport | 595,000 SL | 840,000 SL
+          Adult standard 32-page passport	| 875,000 SLL | 1,110,000 SLL
+          Adult jumbo 48-page passport | 1,055,000 SLL | 1,280,000 SLL
+          Child passport | 555,000 SLL | 780,000 SLL
 
         how_to_apply_sierra-leone: ''
         supporting_documents_sierra-leone: ''
@@ -2398,6 +2408,14 @@ en-GB:
           Child passport | 99 Euros | 139 Euros
 
         how_to_apply_yemen: ''
+        yemen_first_passport_documents: |
+
+          $D
+          Supporting documents
+
+          [Download 'Supporting documents you must send with your application' (PDF, 260KB)](/government/publications/yemen-supporting-documents-for-passport-applications "Download 'Supporting documents you must send with your application' (PDF, 260KB)")
+          $D
+
         supporting_documents_yemen: ''
         making_application_yemen: |
           ### Renewing a passport
@@ -2415,13 +2433,6 @@ en-GB:
           ### Applying for a first passport or replacing a lost or stolen passport
 
           You must make your application in person to the British embassy Amman, Jordan.
-
-
-          $D
-          Supporting documents
-
-          [Download 'Supporting documents you must send with your application' (PDF, 260KB)](/government/publications/yemen-supporting-documents-for-passport-applications "Download 'Supporting documents you must send with your application' (PDF, 260KB)")
-          $D
 
         getting_your_passport_yemen: |
           The British embassy in Amman will contact you when your passport and supporting documents arrive using the contact details on your form. You must collect them in person.
