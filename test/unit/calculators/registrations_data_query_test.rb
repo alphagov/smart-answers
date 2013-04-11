@@ -55,13 +55,13 @@ module SmartAnswer::Calculators
       end
       context "death_postal_form" do
         should "give the form url if it exists" do
-          assert_equal "http://ukinaustria.fco.gov.uk/resources/en/pdf/pdf1/credit-card-form", @query.death_postal_form('austria')
+          assert_equal "/government/uploads/system/uploads/attachment_data/file/136797/credit-card-form.pdf", @query.death_postal_form('austria')
           refute @query.death_postal_form('united-states')
         end
       end
       context "death_postal_return_form" do
         should "give the form url if it exists" do
-          assert_equal "http://ukinitaly.fco.gov.uk/resources/en/word/3121380/Return-delivery-form", @query.death_postal_return_form('italy')
+          assert_equal "/government/uploads/system/uploads/attachment_data/file/136822/return-delivery-form.doc", @query.death_postal_return_form('italy')
           refute @query.death_postal_return_form('belgium')
         end
       end

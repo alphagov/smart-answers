@@ -12,6 +12,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
   should "ask which country the child was born in" do
     assert_current_node :country_of_birth?
   end
+
   context "answer Turkey" do
     setup do
       add_response 'turkey'
@@ -228,4 +229,16 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :go_to_the_embassy, [:registering_clickbook, :registering_paternity_declaration]
     end # Not married or CP
   end # Belize
+
+  context "el-salvador, where you have to register in guatemala" do
+    setup do
+      add_response "el-salvador"
+    end
+
+    should "calculate the registration country as Guatemala" do
+      assert_state_variable :registration_country, "guatemala"
+      assert_state_variable :registration_country_name, "Guatemala"
+    end
+
+  end
 end
