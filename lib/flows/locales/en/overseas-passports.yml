@@ -72,11 +72,10 @@ en-GB:
           Your application will take **at least** 6 weeks. You may have to attend an interview.
         how_long_renewing_new_fco:
           Renewing a British passport takes **at least** 4 weeks.
-        how_long_replacing_fco:
+        how_long_replacing_fco: |
           Your application will take **at least** 6 weeks.
 
           If you haven't already reported the loss or theft, you must include form LS01 with your passport application.
-
 
 
           $D
@@ -313,7 +312,7 @@ en-GB:
 
           [Download ‘Smart application form’ (PDF, 188KB)](/government/uploads/system/uploads/attachment_data/file/136841/smart-form.pdf.pdf "Passport application - smart form (PDF, 188KB)")
 
-          __Blank application form__ (If you can't use the smart form above, print this form, fill in on paper and sign)
+          __Blank application form__ (if you can't use the smart form above, print this form, fill in on paper and sign)
 
           [Download ‘Passport application form for adults aged 16 and over’ (489KB)](/government/uploads/system/uploads/attachment_data/file/136843/form-c1.pdf.pdf "Download ‘Passport application form for adults aged 16 and over’ (489KB)")
 
