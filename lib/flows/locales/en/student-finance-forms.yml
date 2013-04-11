@@ -460,18 +460,7 @@ en-GB:
 
           ^You can apply up to 9 months after the start of your course.^
 
-          ##Where to send your forms 
-
-
-          $A
-          Student Finance Services European Team
-          Student Loans Company
-          PO Box 89
-          Darlington
-          County Durham
-          England
-          DL1 9AZ
-          $A
+          %{form_destination}
 
       outcome_25:
         title: EU full-time student 
@@ -490,18 +479,7 @@ en-GB:
 
           ^You can apply up to 9 months after the start of your course.^
 
-          ##Where to send your forms 
-
-
-          $A
-          Student Finance Services European Team
-          Student Loans Company
-          PO Box 89
-          Darlington
-          County Durham
-          England
-          DL1 9AZ
-          $A
+          %{form_destination}
 
       outcome_26:
         title: EU part-time student
@@ -553,6 +531,8 @@ en-GB:
           [EUCO1 - form (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/420654/euco1.pdf "Download 'EUCO1 - form' (PDF, 100KB)"){:rel="external"}  | To update your course, name and other details
 
           ^You can apply up to 9 months after the start of your course.^
+
+          %{form_destination}
 
       outcome_30:
         title: EU part-time students
