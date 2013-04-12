@@ -7,7 +7,7 @@ module SmartAnswer::Calculators
 		end
 
     def eleven_weeks
-      11.weeks.ago(@due_date) + 1.day
+      11.weeks.ago(@due_date)
     end
 
     def smp_rate
