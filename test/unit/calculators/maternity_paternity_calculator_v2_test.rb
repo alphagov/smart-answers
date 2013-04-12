@@ -305,17 +305,19 @@ module SmartAnswer::Calculators
 
       context "total_statutory_pay" do
         setup do
-          @calculator = MaternityPaternityCalculatorV2.new(4.months.since(Date.today))
+          @calculator = MaternityPaternityCalculatorV2.new(Date.parse('3 August 2012'))
+          @calculator.leave_start_date = Date.parse('12 July 2012')
+          @calculator.pay_method = 'weekly_starting'
         end
 
         should "be statutory leave times statutory rates A and B" do
           @calculator.average_weekly_earnings = 120.40
-          assert_equal 4226.43, @calculator.total_statutory_pay
+          assert_equal 4226.429999999998 , @calculator.total_statutory_pay
         end
 
         should "be statutory leave times statutory higher rate A and statutory rate B" do
           @calculator.average_weekly_earnings = 235.40
-          assert_equal 5784.9, @calculator.total_statutory_pay
+          assert_equal 5741.009999999996, @calculator.total_statutory_pay
         end
       end
 
@@ -462,14 +464,14 @@ module SmartAnswer::Calculators
 
           rate_b_payments = paydates_and_pay.select{ |p| p[:pay] == 135.45 }
 
-          assert_equal 7, rate_b_payments.size
+          assert_equal 8, rate_b_payments.size
 
           assert_equal '2013-02-22', rate_b_payments.first[:date].to_s
-          assert_equal '2013-04-05', rate_b_payments.last[:date].to_s
+          assert_equal '2013-04-12', rate_b_payments.last[:date].to_s
           
           uprated_payments = paydates_and_pay.select{ |p| p[:pay] == 136.78 }
          
-          assert_equal '2013-04-12', uprated_payments.first[:date].to_s
+          assert_equal '2013-04-19', uprated_payments.first[:date].to_s
           assert_equal '2013-10-04', paydates_and_pay.last[:date].to_s
         end
         should "calculate pay due for each pay date on a bi-weekly cycle" do
@@ -489,13 +491,9 @@ module SmartAnswer::Calculators
 
           rate_b_payments = paydates_and_pay.select{ |p| p[:pay] == 270.9 }
 
-          assert_equal 3, rate_b_payments.size
+          assert_equal 4, rate_b_payments.size
           assert_equal '2013-02-28', rate_b_payments.first[:date].to_s
-          assert_equal '2013-03-28', rate_b_payments.last[:date].to_s
-
-          split_rate_payment = paydates_and_pay.find{ |p| p[:pay] == 272.23 }
-
-          assert_equal '2013-04-11', split_rate_payment[:date].to_s
+          assert_equal '2013-04-11', rate_b_payments.last[:date].to_s
 
           uprated_payments = paydates_and_pay.select{ |p| p[:pay] == 273.56 }
           

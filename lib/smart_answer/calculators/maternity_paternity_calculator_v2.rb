@@ -165,11 +165,9 @@ module SmartAnswer::Calculators
       ).round(5) # HMRC rounding to 5 places.
     end
 
-    # Total SMP is the sum of 6 weeks at the potentially higher rate A
-    # and 33 weeks at the maximum statutory rate (B)
-    #
     def total_statutory_pay
-      ((statutory_maternity_rate_a * 6) + (statutory_maternity_rate_b * 33)).round(2)
+      #((statutory_maternity_rate_a * 6) + (statutory_maternity_rate_b * 33)).round(2)
+      paydates_and_pay.map{ |h| h[:pay] }.sum
     end
 
     def paydates_and_pay
@@ -313,7 +311,8 @@ module SmartAnswer::Calculators
       else
         # Because uprating is calculated assuming payment in arrears the
         # rate should be calculated at the end of the week.
-        statutory_rate(date + 6)
+        # This also supercedes statutory_maternity_rate_b (still in use by adoption calc)
+        [statutory_rate(date + (6 - date.wday)), statutory_maternity_rate_a].min
       end
     end
 
@@ -336,9 +335,5 @@ module SmartAnswer::Calculators
       end
     end
     
-    def is_pay_date_last_working_day_of_the_month?(date)
-      date == Date.new(date.year, date.month, last_working_day_of_the_month_offset(date))
-    end
-
   end
 end
