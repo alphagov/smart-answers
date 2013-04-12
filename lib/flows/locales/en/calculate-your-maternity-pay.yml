@@ -96,7 +96,7 @@ en-GB:
           - | -
           First 6 weeks | %{smp_6_weeks} a week
           Next 33 weeks | %{smp_33_weeks} a week
-          Total SMP | %{smp_total}
+          Total estimated SMP | %{smp_total}
 
           Tax and National Insurance will be deducted.
 
@@ -121,7 +121,7 @@ en-GB:
           Maternity Allowance | Estimated amount
           - | -
           Weekly | %{ma_rate} a week
-          Total Maternity Allowance  | %{ma_payable}
+          Total estimated Maternity Allowance  | %{ma_payable}
 
           Tax will not be deducted.
 
@@ -129,7 +129,7 @@ en-GB:
 
           Usually, payments start 11 weeks before your baby is due (%{eleven_weeks}).
 
-          %This is an estimate, you must claim Maternity Allowance to find out what you'll get.%
+          %This is an estimate, you must claim Maternity Allowance to find out if you qualify and what you'll get.%
 
           %{extra_help_phrase}
 
