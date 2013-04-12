@@ -177,12 +177,6 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
                               assert_state_variable :pay_method, "weekly"
                             end
 
-                            should "output a calendar" do
-                              assert_calendar
-                              assert_calendar_date Date.parse("21 November 2012")..Date.parse("19 November 2013")
-                              assert_calendar_date Date.parse("11 August 2012")
-                            end
-
                             should "calculate dates and pay amounts" do
                               leave_start = Date.parse("21 November 2012")
                               start_of_week = leave_start - leave_start.wday
@@ -434,11 +428,6 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
                           assert_phrase_list :maternity_leave_info, [:not_entitled_to_statutory_maternity_leave]
                         end
 
-                        should "output a calendar" do
-                          assert_calendar
-                          assert_calendar_date Date.parse("21 November 2012")..Date.parse("19 November 2013")
-                          assert_calendar_date Date.parse("11 August 2012")
-                        end
                       end
                     end
                     context "answer every 2 weeks" do

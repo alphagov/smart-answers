@@ -337,11 +337,6 @@ outcome :maternity_leave_and_pay_result do
     rows.join("\n")
   end
 
-  calendar do |responses|
-    date "Statutory Maternity Leave", responses.leave_start_date..responses.leave_end_date
-    date "Latest date to give notice", responses.notice_of_leave_deadline
-    date "Earliest date maternity leave can start", responses.leave_earliest_start_date
-  end
 end
 
 
