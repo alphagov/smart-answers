@@ -172,7 +172,6 @@ module SmartAnswer::Calculators
 
     def paydates_and_pay
       paydates = send(:"paydates_#{pay_method}") 
-
       paydates.unshift pay_start_date unless paydates.first <= pay_start_date
 
       [].tap do |ary|
@@ -197,7 +196,7 @@ module SmartAnswer::Calculators
       start_date = Date.civil(pay_start_date.year, pay_start_date.month, 1)
       end_date = Date.civil(pay_end_date.year, pay_end_date.month, 1) >> 1
       [].tap do |ary|
-        (start_date..end_date).each do |d|
+        start_date.step(end_date) do |d|
           ary << d if d.day == 1
         end 
       end
@@ -207,7 +206,7 @@ module SmartAnswer::Calculators
       start_date = Date.civil(pay_start_date.year, pay_start_date.month, -1)
       end_date = Date.civil(pay_end_date.year, pay_end_date.month, -1)
       [].tap do |ary|
-        (start_date..end_date).each do |d|
+        start_date.step(end_date) do |d|
           ary << d if d.day == Date.new(d.year, d.month, -1).day
         end 
       end
@@ -217,7 +216,7 @@ module SmartAnswer::Calculators
       end_date = Date.civil(pay_end_date.year, pay_end_date.month, -1)
 
       [].tap do |ary|
-        (pay_start_date..end_date).each do |d|
+        pay_start_date.step(end_date) do |d|
           ary << d if d.day == Date.new(d.year, d.month, last_working_day_of_the_month_offset(d)).day
         end 
       end
@@ -238,7 +237,7 @@ module SmartAnswer::Calculators
       pay_end_weekend = pay_end_date + (6 - pay_end_date.wday)
       end_date = Date.civil(pay_end_date.year, pay_end_date.month, pay_end_weekend.day)
       [].tap do |ary|
-        (pay_start_date..end_date).each do |d|
+        pay_start_date.step(end_date) do |d|
           ary << d if d.wday == pay_date.wday
         end
       end
@@ -248,7 +247,7 @@ module SmartAnswer::Calculators
       pay_end_weekend = pay_end_date + (6 - pay_end_date.wday)
       end_date = Date.civil(pay_end_date.year, pay_end_date.month, pay_end_weekend.day)
       [].tap do |ary|
-        (pay_start_date..end_date).each do |d|
+        pay_start_date.step(end_date) do |d|
           ary << d if d.wday == pay_start_date.wday
         end
       end
