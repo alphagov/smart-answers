@@ -43,7 +43,7 @@ en-GB:
         error_message: Use only numbers, eg 500
       how_much_did_you_earn_between?:
         title: How much did you earn between %{start_of_test_period} and %{end_of_test_period}?
-        hint: This is your total earnings before any deductions, eg tax.
+        hint: This is your total take-home pay before any deductions, eg tax.
         error_message: Use only numbers, eg 500
       when_did_you_start_your_job?:
         title: When did you start your job?
