@@ -19,6 +19,8 @@ en-GB:
         other: "Other"
 
       title: "Tax credits: working out your childcare costs"
+      meta:
+        description: Work out your eligible weekly childcare costs, when to report a change in costs
       body: |
         You can claim extra tax credits to [help with your childcare costs](/childcare-tax-credits "Childcare and tax credits") if you’re eligible. Use this tool to work out what childcare costs you should claim. You can make your claim 7 days before you start paying for childcare.
 
