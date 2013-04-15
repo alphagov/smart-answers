@@ -317,7 +317,7 @@ module SmartAnswer::Calculators
 
         should "be statutory leave times statutory higher rate A and statutory rate B" do
           @calculator.average_weekly_earnings = 235.40
-          assert_equal 5751.93, @calculator.total_statutory_pay.round(2)
+          assert_equal 5741.01, @calculator.total_statutory_pay.round(2)
         end
       end
 
@@ -331,11 +331,11 @@ module SmartAnswer::Calculators
           @calculator.pay_method = 'weekly_starting'
           paydates = @calculator.paydates_weekly_starting
           
-          assert_equal '2012-07-12', paydates.first.to_s
-          assert_equal '2012-07-19', paydates.second.to_s
-          assert_equal '2012-07-26', paydates.third.to_s
-          assert_equal '2012-08-02', paydates.fourth.to_s
-          assert_equal '2013-04-11', paydates.last.to_s
+          assert_equal '2012-07-18', paydates.first.to_s
+          assert_equal '2012-07-25', paydates.second.to_s
+          assert_equal '2012-08-01', paydates.third.to_s
+          assert_equal '2012-08-08', paydates.fourth.to_s
+          assert_equal '2013-04-10', paydates.last.to_s
         end
         should "calculate usual weekly pay dates" do
           @calculator.pay_method = 'weekly'

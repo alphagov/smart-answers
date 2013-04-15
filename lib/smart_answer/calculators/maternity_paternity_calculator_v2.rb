@@ -242,11 +242,9 @@ module SmartAnswer::Calculators
     end
 
     def paydates_weekly_starting
-      pay_end_weekend = pay_end_date + (6 - pay_end_date.wday)
-      end_date = Date.civil(pay_end_date.year, pay_end_date.month, pay_end_weekend.day)
       [].tap do |ary|
-        pay_start_date.step(end_date) do |d|
-          ary << d if d.wday == pay_start_date.wday
+        pay_start_date.step(pay_end_date) do |d|
+          ary << d if d.wday == (pay_start_date - 1).wday and d > pay_start_date
         end
       end
     end
