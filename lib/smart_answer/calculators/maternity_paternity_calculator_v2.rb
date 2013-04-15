@@ -174,6 +174,7 @@ module SmartAnswer::Calculators
 
       [].tap do |ary|
         paydates.each_with_index do |paydate, index|
+          # Pay period includes the date of payment hence the range starts the day after. 
           last_paydate = index == 0 ? pay_start_date : paydates[index - 1] + 1
           ary << { date: paydate, pay: pay_for_period(last_paydate, paydate) }
         end
