@@ -189,7 +189,7 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
                               assert_state_variable "smp_a", "121.87"
                               assert_state_variable "smp_b", "121.87"
                               assert_state_variable "total_smp", "4752.93"
-                              assert_phrase_list :maternity_pay_info, [:maternity_pay_table]
+                              assert_phrase_list :maternity_pay_info, [:maternity_pay_table, :paydates_table]
                             end
                           end
                         end
@@ -421,7 +421,7 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
                           assert_state_variable "smp_a", "121.87"
                           assert_state_variable "smp_b", "121.87"
                           assert_state_variable "total_smp", "4752.93"
-                          assert_phrase_list :maternity_pay_info, [:maternity_pay_table]
+                          assert_phrase_list :maternity_pay_info, [:maternity_pay_table, :paydates_table]
                         end
 
                         should "calculate and present the result" do
