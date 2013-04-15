@@ -164,6 +164,7 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
 
                           should "ask when the next pay day is" do
                             assert_current_node :when_is_your_employees_next_pay_day?
+                            assert_state_variable :pay_start_date, Date.parse("21 November 2012")
                           end
 
                           context "next pay date is 11th August 2012" do
@@ -174,12 +175,6 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
                             should "show the result node" do
                               assert_current_node :maternity_leave_and_pay_result
                               assert_state_variable :pay_method, "weekly"
-                            end
-
-                            should "output a calendar" do
-                              assert_calendar
-                              assert_calendar_date Date.parse("21 November 2012")..Date.parse("19 November 2013")
-                              assert_calendar_date Date.parse("11 August 2012")
                             end
 
                             should "calculate dates and pay amounts" do
@@ -194,7 +189,7 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
                               assert_state_variable "smp_a", "121.87"
                               assert_state_variable "smp_b", "121.87"
                               assert_state_variable "total_smp", "4752.93"
-                              assert_phrase_list :maternity_pay_info, [:maternity_pay_table]
+                              assert_phrase_list :maternity_pay_info, [:maternity_pay_table, :paydates_table]
                             end
                           end
                         end
@@ -234,13 +229,6 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
                         assert_current_node :when_is_your_employees_next_pay_day?
                       end
 
-                      should "ask for the next pay date if pay frequency is irregular" do
-                        add_response "irregularly"
-                        add_response 1083.20
-                        add_response "usual_paydates"
-                        assert_current_node :when_is_your_employees_next_pay_day?
-                      end
-
                       context "weekly frequency with usual paydates" do
                         setup do
                           add_response "monthly"
@@ -255,7 +243,7 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
                         should "calculate the SMP for first day of the month" do
                           add_response "first_day_of_the_month"
                           assert_current_node :maternity_leave_and_pay_result
-                          assert_state_variable :pay_day_in_month, 'first_day_of_the_month'
+                          assert_state_variable :monthly_pay_method, 'first_day_of_the_month'
                         end
 
                         should "calculate the SMP for last day of the month" do
@@ -280,7 +268,7 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
                           end
 
                           should "store this as pay_day_in_month" do
-                            assert_state_variable :pay_day_in_month, 'last_working_day_of_the_month'
+                            assert_state_variable :monthly_pay_method, 'last_working_day_of_the_month'
                           end
 
                           should "ask what days the employee works" do
@@ -433,18 +421,13 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
                           assert_state_variable "smp_a", "121.87"
                           assert_state_variable "smp_b", "121.87"
                           assert_state_variable "total_smp", "4752.93"
-                          assert_phrase_list :maternity_pay_info, [:maternity_pay_table]
+                          assert_phrase_list :maternity_pay_info, [:maternity_pay_table, :paydates_table]
                         end
 
                         should "calculate and present the result" do
                           assert_phrase_list :maternity_leave_info, [:not_entitled_to_statutory_maternity_leave]
                         end
 
-                        should "output a calendar" do
-                          assert_calendar
-                          assert_calendar_date Date.parse("21 November 2012")..Date.parse("19 November 2013")
-                          assert_calendar_date Date.parse("11 August 2012")
-                        end
                       end
                     end
                     context "answer every 2 weeks" do
@@ -510,22 +493,6 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
                           assert_state_variable "average_weekly_earnings", 208.59
                           assert_state_variable "smp_a", "187.74"
                           assert_state_variable "smp_b", "136.78" # Uses the statutory maternity rate
-                        end
-                      end
-                    end
-                    context "answer irregularly" do
-                      setup { add_response :irregularly }
-
-                      ##QM5.5
-                      should "ask how much the employee was paid in this period" do
-                        assert_current_node :earnings_for_pay_period?
-                      end
-
-                      context "answer 7463.19" do
-                        setup { add_response '7463.19' }
-
-                        should "calculate the dates and payment amounts" do
-                          assert_state_variable "average_weekly_earnings", 932.89875
                         end
                       end
                     end

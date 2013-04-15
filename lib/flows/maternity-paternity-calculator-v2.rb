@@ -157,7 +157,6 @@ multiple_choice :pay_frequency? do
   option :every_2_weeks => :earnings_for_pay_period? ## QM5.5
   option :every_4_weeks => :earnings_for_pay_period? ## QM5.5
   option :monthly => :earnings_for_pay_period? ## QM5.5
-  option :irregularly => :earnings_for_pay_period? ## QM5.5
 end
 
 ## QM5.5
@@ -212,13 +211,11 @@ multiple_choice :when_in_the_month_is_the_employee_paid? do
   option :last_working_day_of_the_month => :what_days_does_the_employee_work?
   option :a_certain_week_day_each_month => :what_particular_day_of_the_month_is_the_employee_paid?
   
-  save_input_as :pay_day_in_month
+  save_input_as :monthly_pay_method
 end
 
 ## QM10
 value_question :what_specific_date_each_month_is_the_employee_paid? do
-  save_input_as :employee_pay_date
-  
   calculate :pay_day_in_month do
     raise InvalidResponse unless responses.last.to_i > 0
     calculator.pay_day_in_month = responses.last.to_i
@@ -286,8 +283,15 @@ end
 outcome :maternity_leave_and_pay_result do
 
   precalculate :pay_method do
-    calculator.pay_method = pay_day_in_month || 
-      (smp_calculation_method == 'weekly_starting' ? 'weekly_starting' : pay_pattern)
+    calculator.pay_method = (
+      if monthly_pay_method
+        monthly_pay_method
+      elsif smp_calculation_method == 'weekly_starting'
+        smp_calculation_method
+      elsif pay_pattern
+        pay_pattern
+      end
+    )
   end
   precalculate :smp_a do
     sprintf("%.2f", calculator.statutory_maternity_rate_a)
@@ -298,9 +302,7 @@ outcome :maternity_leave_and_pay_result do
   precalculate :lower_earning_limit do
     sprintf("%.2f", calculator.lower_earning_limit)
   end
-  precalculate :total_smp do
-    sprintf("%.2f", calculator.total_statutory_pay)
-  end
+
   precalculate :notice_request_pay do
     calculator.notice_request_pay
   end
@@ -317,6 +319,12 @@ outcome :maternity_leave_and_pay_result do
       not_entitled_to_pay_reason
     end
   end
+  
+  precalculate :total_smp do
+    unless not_entitled_to_pay_reason.present?
+      sprintf("%.2f", calculator.total_statutory_pay)
+    end
+  end
 
   precalculate :maternity_pay_info do
     if not_entitled_to_pay_reason.present?
@@ -325,7 +333,7 @@ outcome :maternity_leave_and_pay_result do
       pay_info << not_entitled_to_pay_reason
       pay_info << :not_entitled_to_smp_outro
     else
-      pay_info = PhraseList.new(:maternity_pay_table)
+      pay_info = PhraseList.new(:maternity_pay_table, :paydates_table)
     end
     pay_info
   end
@@ -340,11 +348,6 @@ outcome :maternity_leave_and_pay_result do
     rows.join("\n")
   end
 
-  calendar do |responses|
-    date "Statutory Maternity Leave", responses.leave_start_date..responses.leave_end_date
-    date "Latest date to give notice", responses.notice_of_leave_deadline
-    date "Earliest date maternity leave can start", responses.leave_earliest_start_date
-  end
 end
 
 
