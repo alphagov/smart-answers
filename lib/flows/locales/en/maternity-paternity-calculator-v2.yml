@@ -72,7 +72,14 @@ en-GB:
           Latest date to claim SMP | %{notice_request_pay}
           SMP start date due to pregnancy related illness| %{ssp_stop}
           Proof of pregnancy | Usually within 21 days of the SMP start date (or as soon as possible if baby born early)
+
+        paydates_table: |
+          ## SMP calculation
+
+          Date | SMP amount
+          -|-
           %{pay_dates_and_pay}
+           | **Total SMP: £%{total_smp}**
 
         not_entitled_to_smp_intro: |
           ##Statutory maternity pay
@@ -266,7 +273,7 @@ en-GB:
           "usual_paydates": "based on their usual paydates"
       ## QM8
       when_is_your_employees_next_pay_day?:
-        title: When is your employee’s next pay day
+        title: When is your employee’s next pay day on or before %{pay_start_date}?
       ## QM9
       when_in_the_month_is_the_employee_paid?:
         options:
@@ -278,6 +285,7 @@ en-GB:
       ## QM10
       what_specific_date_each_month_is_the_employee_paid?:
         title: What specific date each month is the employee paid?
+        hint: If they’re paid on the 25th enter "25"
       ## QM11
       what_days_does_the_employee_work?:
         title: What days does the employee work?
