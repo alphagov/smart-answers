@@ -73,6 +73,7 @@ en-GB:
           SMP start date due to pregnancy related illness| %{ssp_stop}
           Proof of pregnancy | Usually within 21 days of the SMP start date (or as soon as possible if baby born early)
 
+        paydates_table: |
           ## SMP calculation
 
           Date | SMP amount
