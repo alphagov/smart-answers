@@ -166,23 +166,19 @@ module SmartAnswer::Calculators
     end
 
     def total_statutory_pay
-      #((statutory_maternity_rate_a * 6) + (statutory_maternity_rate_b * 33)).round(2)
-      paydates_and_pay.map{ |h| h[:pay] }.sum
+      paydates_and_pay.map{ |h| h[:pay] }.sum.round(2)
     end
 
     def paydates_and_pay
       paydates = send(:"paydates_#{pay_method}") 
-      paydates.unshift pay_start_date unless paydates.first <= pay_start_date
 
       [].tap do |ary|
-        paydates.each_with_index do |date, index|
-          if next_paydate = paydates[index + 1]
-            ary << { date: next_paydate, pay: pay_for_period(date, next_paydate) }
-          end
+        paydates.each_with_index do |paydate, index|
+          last_paydate = index == 0 ? pay_start_date : paydates[index - 1] + 1
+          ary << { date: paydate, pay: pay_for_period(last_paydate, paydate) }
         end
       end
     end
-
 
     def paydates_every_2_weeks
       paydates_every_n_days(14)
@@ -193,7 +189,8 @@ module SmartAnswer::Calculators
     end
 
     def paydates_first_day_of_the_month
-      start_date = Date.civil(pay_start_date.year, pay_start_date.month, 1)
+      month = pay_start_date.day == 1 ? pay_start_date.month : pay_start_date.month + 1
+      start_date = Date.civil(pay_start_date.year, month, 1)
       end_date = Date.civil(pay_end_date.year, pay_end_date.month, 1) >> 1
       [].tap do |ary|
         start_date.step(end_date) do |d|
@@ -293,7 +290,7 @@ module SmartAnswer::Calculators
 
     def pay_for_period(start_date, end_date)
       pay = 0.0
-      (start_date...end_date).each_slice(7) do |week|
+      (start_date..end_date).each_slice(7) do |week|
         # Calculate the rate for the week
         rate = rate_for(week.first)
         week.each do |day|
