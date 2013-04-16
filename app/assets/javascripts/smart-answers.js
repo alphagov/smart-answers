@@ -52,11 +52,29 @@ $(document).ready(function() {
     return url.replace(/\.json$/, "");
   }
 
+  function redirectToNonAjax(url) {
+    window.location = url;
+  }
+
   // replace all the questions currently in the page with whatever is returned for given url
   function reloadQuestions(url, params) {
-    $.get(toJsonUrl(url), params, function(data) {
-      addToHistory(data);
-      updateContent(data['html_fragment']);
+    var url = toJsonUrl(url);
+
+    addLoading('<p>Loading next step&hellip;</p>');
+
+    $.ajax(url, {
+      type: 'GET',
+      dataType:'json',
+      data: params,
+      timeout: 5000,
+      error: function(jqXHR, textStatus, errorStr) {
+        var paramStr = encodeURI($.param(params));
+        redirectToNonAjax(url.replace('.json', '?' + paramStr));
+      },
+      success: function(data, textStatus, jqXHR) {
+        addToHistory(data);
+        updateContent(data['html_fragment']);
+      }
     });
   }
 
@@ -65,12 +83,20 @@ $(document).ready(function() {
     history.pushState(data, data['title'], data['url']);
   }
 
+  // add an indicator of loading
+  function addLoading(fragment){
+    $('section .step.current')
+      .addClass('loading')
+      .html(fragment);
+    $.event.trigger('smartanswerAnswer');
+  };
+
   // update the content (i.e. plonk in the html fragment)
   function updateContent(fragment){
     $('.smart_answer section').html(fragment);
     $.event.trigger('smartanswerAnswer');
     if ($(".outcome").length !== 0) {
-      $.event.trigger('smartanswerOutcome');
+      $.event.trigger('smartanswerAnswer');
     }
   }
 
@@ -88,17 +114,21 @@ $(document).ready(function() {
   }
 
   var contentPosition = {
-    lastQuestionTop : 0,
-    lastQuestionIsOffScreen: function() {
-      var $last_question = $('.smart_answer .done-questions li.done:last-child'),
-          top_of_view = $(window).scrollTop();
+    latestQuestionTop : 0,
+    latestQuestionIsOffScreen: function($latestQuestion) {
+      var top_of_view = $(window).scrollTop();
 
-      this.lastQuestionTop = $last_question.offset().top;
-      return (this.lastQuestionTop < top_of_view);
+      this.latestQuestionTop = $latestQuestion.offset().top;
+      return (this.latestQuestionTop < top_of_view);
     },
     correctOffscreen: function() {
-      if (this.lastQuestionIsOffScreen()) {
-        $(window).scrollTop(this.lastQuestionTop);
+      $latestQuestion = $('.smart_answer .done-questions li.done:last-child');
+      if (!$latestQuestion.length) {
+        $latestQuestion = $('.smart_answer .step.current');
+      }
+
+      if(this.latestQuestionIsOffScreen($latestQuestion)) {
+        $(window).scrollTop(this.latestQuestionTop);
       }
     },
     init: function() {
