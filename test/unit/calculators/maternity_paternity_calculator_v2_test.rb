@@ -317,7 +317,7 @@ module SmartAnswer::Calculators
 
         should "be statutory leave times statutory higher rate A and statutory rate B" do
           @calculator.average_weekly_earnings = 235.40
-          assert_equal 5751.93, @calculator.total_statutory_pay.round(2)
+          assert_equal 5741.01, @calculator.total_statutory_pay.round(2)
         end
       end
 
@@ -331,20 +331,20 @@ module SmartAnswer::Calculators
           @calculator.pay_method = 'weekly_starting'
           paydates = @calculator.paydates_weekly_starting
           
-          assert_equal '2012-07-12', paydates.first.to_s
-          assert_equal '2012-07-19', paydates.second.to_s
-          assert_equal '2012-07-26', paydates.third.to_s
-          assert_equal '2012-08-02', paydates.fourth.to_s
-          assert_equal '2013-04-11', paydates.last.to_s
+          assert_equal '2012-07-18', paydates.first.to_s
+          assert_equal '2012-07-25', paydates.second.to_s
+          assert_equal '2012-08-01', paydates.third.to_s
+          assert_equal '2012-08-08', paydates.fourth.to_s
+          assert_equal '2013-04-10', paydates.last.to_s
         end
         should "calculate usual weekly pay dates" do
           @calculator.pay_method = 'weekly'
-          @calculator.pay_date = Date.parse('11 July 2012') # Wednesday
+          @calculator.pay_date = Date.parse('12 July 2012')
           paydates = @calculator.paydates_weekly
-
-          assert_equal '2012-07-18', paydates.first.to_s # The next Wednesday after 12 July 2012
-          assert_equal '2012-07-25', paydates.second.to_s
-          assert_equal '2013-04-10', paydates.last.to_s # The Wednesday following 10 April 2013 mp end date
+          assert_equal 40, paydates.size
+          assert_equal '2012-07-12', paydates.first.to_s
+          assert_equal '2012-07-19', paydates.second.to_s
+          assert_equal '2013-04-11', paydates.last.to_s
         end
         should "calculate bi-weekly pay dates" do
           @calculator.pay_method = 'every_2_weeks'
@@ -396,12 +396,13 @@ module SmartAnswer::Calculators
         end
         should "calculate last working day of the month pay dates" do
           @calculator.pay_method = 'last_working_day_of_the_month'
+          @calculator.pay_day_in_week = 3 # Paid last Wednesday in the month
           paydates = @calculator.paydates_last_working_day_of_the_month
 
-          assert_equal '2012-07-31', paydates.first.to_s
-          assert_equal '2012-08-31', paydates.second.to_s
-          assert_equal '2012-09-28', paydates.third.to_s
-          assert_equal '2013-04-30', paydates.last.to_s
+          assert_equal '2012-07-25', paydates.first.to_s
+          assert_equal '2012-08-29', paydates.second.to_s
+          assert_equal '2012-09-26', paydates.third.to_s
+          assert_equal '2013-04-24', paydates.last.to_s
         end
         should "calculate the particular weekday of the month pay dates" do
           @calculator.pay_method = 'a_certain_week_day_each_month'
