@@ -319,16 +319,14 @@ module SmartAnswer::Calculators
       end
     end
     
+    # Calculate the minus offset from the end of the month
+    # for the last working day.
     def last_working_day_of_the_month_offset(date)
-      lwd = Date.new(date.year, date.month, -1) # Last day of the month.
-      puts "lwd.wday #{lwd.wday} pay_day_in_week #{pay_day_in_week}"
-      if lwd.wday == pay_day_in_week 
+      ldm = Date.new(date.year, date.month, -1) # Last day of the month.
+      if ldm.wday == pay_day_in_week
         -1
-      elsif lwd.wday > pay_day_in_week
-        pay_day_in_week - lwd.wday - 1
       else
-        puts "fafaffaa"
-        lwd.wday - pay_day_in_week # - 2 
+        pay_day_in_week - ldm.wday - (ldm.wday > pay_day_in_week ? 1 : 8)
       end
     end
     

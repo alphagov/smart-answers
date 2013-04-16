@@ -396,13 +396,13 @@ module SmartAnswer::Calculators
         end
         should "calculate last working day of the month pay dates" do
           @calculator.pay_method = 'last_working_day_of_the_month'
-          @calculator.pay_day_in_week = 3
+          @calculator.pay_day_in_week = 3 # Paid last Wednesday in the month
           paydates = @calculator.paydates_last_working_day_of_the_month
 
-          assert_equal '2012-07-31', paydates.first.to_s
-          assert_equal '2012-08-31', paydates.second.to_s
-          assert_equal '2012-09-28', paydates.third.to_s
-          assert_equal '2013-04-30', paydates.last.to_s
+          assert_equal '2012-07-25', paydates.first.to_s
+          assert_equal '2012-08-29', paydates.second.to_s
+          assert_equal '2012-09-26', paydates.third.to_s
+          assert_equal '2013-04-24', paydates.last.to_s
         end
         should "calculate the particular weekday of the month pay dates" do
           @calculator.pay_method = 'a_certain_week_day_each_month'
