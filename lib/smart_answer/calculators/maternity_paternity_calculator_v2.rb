@@ -320,11 +320,15 @@ module SmartAnswer::Calculators
     end
     
     def last_working_day_of_the_month_offset(date)
-      lwd = Date.new(date.year, date.month, -1) # Last weekday of the month.
-      case lwd.wday
-      when 0 then -3
-      when 6 then -2
-      else -1
+      lwd = Date.new(date.year, date.month, -1) # Last day of the month.
+      puts "lwd.wday #{lwd.wday} pay_day_in_week #{pay_day_in_week}"
+      if lwd.wday == pay_day_in_week 
+        -1
+      elsif lwd.wday > pay_day_in_week
+        pay_day_in_week - lwd.wday - 1
+      else
+        puts "fafaffaa"
+        lwd.wday - pay_day_in_week # - 2 
       end
     end
     

@@ -1,6 +1,8 @@
 status :draft
 satisfies_need "B1012"
 
+days_of_the_week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
 ## Q1
 multiple_choice :what_type_of_leave? do
   save_input_as :leave_type
@@ -225,43 +227,24 @@ value_question :what_specific_date_each_month_is_the_employee_paid? do
 end
 
 ## QM11
-multiple_choice :what_days_does_the_employee_work? do
-  option :"Sunday"
-  option :"Monday"
-  option :"Tuesday"
-  option :"Wednesday"
-  option :"Thursday"
-  option :"Friday"
-  option :"Saturday"
-
-  save_input_as :days_employee_works
-
+checkbox_question :what_days_does_the_employee_work? do
+  days_of_the_week.each do |day|
+    option day.to_sym
+  end
+  calculate :last_day_in_week_worked do
+    calculator.pay_day_in_week = days_of_the_week.index(responses.last.split(",").last)
+  end
   next_node :maternity_leave_and_pay_result
 end
 
 ## QM12
 multiple_choice :what_particular_day_of_the_month_is_the_employee_paid? do
-  option :"Sunday"
-  option :"Monday"
-  option :"Tuesday"
-  option :"Wednesday"
-  option :"Thursday"
-  option :"Friday"
-  option :"Saturday"
-
-  calculate :pay_day_in_week do
-    calculator.pay_day_in_week = case responses.last
-      when "Sunday" then 0
-      when "Monday" then 1
-      when "Tuesday" then 2
-      when "Wednesday" then 3
-      when "Thursday" then 4
-      when "Friday" then 5
-      when "Saturday" then 6
-      end
-    responses.last
+  days_of_the_week.each do |day|
+    option day.to_sym
   end
-
+  calculate :pay_day_in_week do
+    calculator.pay_day_in_week = days_of_the_week.index(responses.last)
+  end
   next_node :which_week_in_month_is_the_employee_paid?
 end
 
