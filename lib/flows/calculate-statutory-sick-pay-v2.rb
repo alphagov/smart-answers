@@ -138,13 +138,9 @@ money_question :total_employee_earnings? do
     when "weekly", "fortnightly", "every_4_weeks"
       relevant_period_pay / 8.0
     when "monthly"
-      puts "MONTHLY: #{monthly_pattern_payments}"
-      puts "PAY: #{relevant_period_pay}"
-      relevant_period_pay / ( monthly_pattern_payments * ( 12 / 52 ) )
+      (relevant_period_pay / monthly_pattern_payments) * ( 12.0 / 52 )
     when "irregularly"
       relevant_period_pay / (relevant_period_to - relevant_period_from).to_i * 7
-    else
-      puts "WENT WRONG YO"
     end
 
   end
