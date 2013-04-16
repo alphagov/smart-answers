@@ -232,21 +232,17 @@ module SmartAnswer::Calculators
     alias paydates_specific_date_each_month paydates_monthly
 
     def paydates_weekly
-      pay_end_weekend = pay_end_date + (6 - pay_end_date.wday)
-      end_date = Date.civil(pay_end_date.year, pay_end_date.month, pay_end_weekend.day)
       [].tap do |ary|
-        pay_start_date.step(end_date) do |d|
+        pay_start_date.step(pay_end_date + 7) do |d|
           ary << d if d.wday == pay_date.wday
         end
       end
     end
 
     def paydates_weekly_starting
-      pay_end_weekend = pay_end_date + (6 - pay_end_date.wday)
-      end_date = Date.civil(pay_end_date.year, pay_end_date.month, pay_end_weekend.day)
       [].tap do |ary|
-        pay_start_date.step(end_date) do |d|
-          ary << d if d.wday == pay_start_date.wday
+        pay_start_date.step(pay_end_date) do |d|
+          ary << d if d.wday == (pay_start_date - 1).wday and d > pay_start_date
         end
       end
     end
@@ -323,12 +319,14 @@ module SmartAnswer::Calculators
       end
     end
     
+    # Calculate the minus offset from the end of the month
+    # for the last working day.
     def last_working_day_of_the_month_offset(date)
-      lwd = Date.new(date.year, date.month, -1) # Last weekday of the month.
-      case lwd.wday
-      when 0 then -3
-      when 6 then -2
-      else -1
+      ldm = Date.new(date.year, date.month, -1) # Last day of the month.
+      if ldm.wday == pay_day_in_week
+        -1
+      else
+        pay_day_in_week - ldm.wday - (ldm.wday > pay_day_in_week ? 1 : 8)
       end
     end
     

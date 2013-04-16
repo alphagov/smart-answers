@@ -276,7 +276,7 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
                           end
 
                           should "calculate SMP once day provided" do
-                            add_response "Sunday"
+                            add_response "0,1,3"
                             assert_current_node :maternity_leave_and_pay_result
                           end
                         end
