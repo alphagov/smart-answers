@@ -289,6 +289,14 @@ en-GB:
       ## QM11
       what_days_does_the_employee_work?:
         title: What days does the employee work?
+        options:
+          "0": "Sunday"
+          "1": "Monday"
+          "2": "Tuesday"
+          "3": "Wednesday"
+          "4": "Thursday"
+          "5": "Friday"
+          "6": "Saturday"
       ## QM12
       what_particular_day_of_the_month_is_the_employee_paid?:
         title: What particular day of the month is the employee paid?

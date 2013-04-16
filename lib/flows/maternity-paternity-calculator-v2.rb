@@ -228,20 +228,18 @@ end
 
 ## QM11
 checkbox_question :what_days_does_the_employee_work? do
-  days_of_the_week.each do |day|
-    option day.to_sym
-  end
+  (0...days_of_the_week.size).each { |i| option i.to_s.to_sym }
+  
   calculate :last_day_in_week_worked do
-    calculator.pay_day_in_week = days_of_the_week.index(responses.last.split(",").last)
+    calculator.pay_day_in_week = responses.last.split(",").sort.last.to_i
   end
   next_node :maternity_leave_and_pay_result
 end
 
 ## QM12
 multiple_choice :what_particular_day_of_the_month_is_the_employee_paid? do
-  days_of_the_week.each do |day|
-    option day.to_sym
-  end
+  days_of_the_week.each { |d| option d.to_sym }
+
   calculate :pay_day_in_week do
     calculator.pay_day_in_week = days_of_the_week.index(responses.last)
   end
