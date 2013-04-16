@@ -232,10 +232,8 @@ module SmartAnswer::Calculators
     alias paydates_specific_date_each_month paydates_monthly
 
     def paydates_weekly
-      pay_end_weekend = pay_end_date + (6 - pay_end_date.wday)
-      end_date = Date.civil(pay_end_date.year, pay_end_date.month, pay_end_weekend.day)
       [].tap do |ary|
-        pay_start_date.step(end_date) do |d|
+        pay_start_date.step(pay_end_date + 7) do |d|
           ary << d if d.wday == pay_date.wday
         end
       end
