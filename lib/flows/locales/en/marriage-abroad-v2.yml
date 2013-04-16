@@ -60,6 +60,8 @@ en-GB:
 #Marriage if resident of Isle of Man or Channel Islands
         iom_ci_os_all: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
+        iom_ci_os_spain: |
+          %There are certain legal restrictions if neither of you is resident in Spain. You should check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC "Spanish Ministry of Justice - civil registries"){:rel="external"} where you’re planning to get married to find out if this is allowed.%
         iom_ci_os_resident_of_iom: |
           You may be asked for a certificate of no impediment (CNI) or similar document. Check with the authorities in the [Isle of Man](http://www.gov.im/registries/general/civilregistry/ "Isle of Man - Civil Registry"){:rel="external"} to find out what they can provide, then contact the authorities in %{country_name_lowercase_prefix} to confirm if this is acceptable.
 
@@ -251,7 +253,7 @@ en-GB:
 
           ###Applying for a CNI from the FCO
 
-          s1. [Download ‘Certificate of no impediment application form’ (DOT, 60KB)](http://www.fco.gov.uk/resources/en/word/cert-no-impediment "Download ‘Certificate of no impediment application form’ (DOT, 60KB)").
+          s1. [Download ‘Certificate of no impediment application form’ (DOT, 60KB)](/government/uploads/system/uploads/attachment_data/file/136828/nulla-osta-form.doc "Download ‘Certificate of no impediment application form’ (DOT, 60KB)").
           s2. Place a public announcement of your marriage in your local newspaper for at least 1 week, as described on the form.
           s3. Swear an affidavit (written statement of facts) in front of a [solicitor](http://www.lawsociety.org.uk/find-a-solicitor/ "Law Society - find a solicitor"){:rel="external"} - there’s an example on the form.
           s4. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
@@ -339,7 +341,7 @@ en-GB:
 
           Any person knowing of any lawful impediment to the marriage should without delay notify:
 
-          %{embassy_address}
+          (High Commission address)
           $E
 
           You need to wait 21 days after placing the announcement to allow for any objections to be registered. You’ll then need to swear an oath or affidavit (written statement of facts) in front of a local solicitor or public notary stating that you’re free to marry.
@@ -440,7 +442,7 @@ en-GB:
 
           ###What happens next
 
-          The consulate will check your form and documents, and if everything’s in order they’ll send you details of how to book your appointment to give official notice of your marriage. They’ll then display your notice publicly for 21 days, and if nobody has raise an objection, they’ll issue your CNI. There’s an additional fee for this.
+          The consulate will check your form and documents, and if everything’s in order they’ll send you details of how to book your appointment to give official notice of your marriage. They’ll then display your notice publicly for 21 days, and if nobody has raised an objection, they’ll issue your CNI. There’s an additional fee for this.
         consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident_two: |
           The consulate will provide you with forms for your notice of marriage, and an oath or affidavit (written statement of facts) stating that you’re free to marry. You can download and fill in (but not sign) the forms in advance.
 
