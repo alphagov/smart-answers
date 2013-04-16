@@ -87,7 +87,8 @@ $(document).ready(function() {
   function addLoading(fragment){
     $('section .step.current')
       .addClass('loading')
-      .html(fragment);
+      .find('form .next-question')
+      .append(fragment);
     $.event.trigger('smartanswerAnswer');
   };
 
