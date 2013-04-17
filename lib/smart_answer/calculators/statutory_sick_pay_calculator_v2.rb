@@ -18,5 +18,18 @@ module SmartAnswer::Calculators
       109
     end
 
+    def self.average_weekly_earnings(args)
+      pay, pay_pattern, monthly_pattern_payments = args.values_at(:pay, :pay_pattern, :monthly_pattern_payments)
+      case pay_pattern
+      when "weekly", "fortnightly", "every_4_weeks"
+        pay / 8.0
+      when "monthly"
+        pay / monthly_pattern_payments * 12.0 / 52
+      when "irregularly"
+        relevant_period_to, relevant_period_from = args.values_at(:relevant_period_to, :relevant_period_from)
+        pay / (relevant_period_to - relevant_period_from).to_i * 7
+      end
+    end
+
   end
 end
