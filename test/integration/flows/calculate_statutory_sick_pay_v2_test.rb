@@ -105,12 +105,12 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
                       assert_state_variable :pay_day_offset, " 5 February 2012"
                     end
 
-                    should "take user to next Q" do
+                    should "take user to next question" do
                       assert_current_node :last_payday_before_offset?
                     end
 
-                    context "answering Q7" do
-                      context "Answering with valid date" do
+                    context "answer last payday before relevant period" do
+                      context "with a valid date" do
                         setup do
                           add_response "01/02/2012"
                         end
@@ -119,12 +119,12 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
                           assert_state_variable :relevant_period_from, " 2 February 2012"
                         end
 
-                        should "take user to Q8" do
+                        should "ask how oftern you pay the employee" do
                           assert_current_node :how_often_pay_employee?
                         end
 
-                        context "Answering Q8" do
-                          context "answering with pay monthly" do
+                        context "answer employee pay pattern" do
+                          context "monthly" do
                             setup do
                               add_response :monthly
                             end
@@ -135,7 +135,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
                             end
                           end # answering Q8 pay monthly
 
-                          context "Answering with weekly" do
+                          context "weekly" do
                             should "take user to Q9" do
                               add_response :weekly
                               assert_current_node :on_start_date_8_weeks_paid?
@@ -169,6 +169,67 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
                               should "take them to Answer 5 if value < LEL" do
                                 assert_current_node :not_earned_enough
+                              end
+                            end
+                            context "Answer no" do
+                              setup do
+                                add_response :no
+                              end
+                              should "ask the average weekly earnings over the 8 week period prior to sickness" do
+                                assert_current_node :employee_average_earnings?
+                              end
+                              context "answer less than the lower earning limit" do
+                                should "state they are not entitled to SSP" do
+                                  add_response "100"
+                                  assert_current_node :not_earned_enough
+                                end
+                              end
+                              context "answer above the lower earning limit" do
+                                setup do
+                                  add_response "200"
+                                end
+                                should "ask if the employee was sick in the past 8 weeks" do
+                                  assert_current_node :off_sick_4_days?
+                                end
+                                context "answer yes" do
+                                  setup do
+                                    add_response :yes
+                                  end
+                                  should "ask how many sick days" do
+                                    assert_current_node :how_many_days_sick?
+                                  end
+                                  context "answer 88" do
+                                    setup do
+                                      add_response "88"
+                                    end
+                                    should "ask which days they usually work" do
+                                      assert_current_node :usual_work_days?
+                                    end
+                                    context "answer Monday, Tuesday, Thursday" do
+                                      setup do
+                                        add_response "1,2,4"
+                                      end
+                                      should "state maximum entitlement has already been received" do
+                                        assert_current_node :maximum_entitlement_reached
+                                      end
+                                    end
+                                  end # 88 previous sick days
+                                  context "answer 80 and usually work Monday Tuesday and Thursday" do
+                                    should "give the result" do
+                                      add_response "80"
+                                      add_response "1,2,4"
+                                      assert_current_node :result
+                                    end
+                                  end # 80 previous sick days
+                                end
+                                context "answer no" do
+                                  setup do
+                                    add_response :no
+                                  end
+                                  should "ask which days they usually work" do
+                                    assert_current_node :usual_work_days?
+                                  end
+                                end
                               end
                             end
                           end # Answering Q9

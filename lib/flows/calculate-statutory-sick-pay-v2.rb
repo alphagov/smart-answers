@@ -11,7 +11,7 @@ checkbox_question :is_your_employee_getting? do
   calculate :paternity_maternity_warning do
     (responses.last.split(",") & %w{ordinary_statutory_paternity_pay statutory_adoption_pay}).any?
   end
-next_node do |response|
+  next_node do |response|
     if (response.split(",") & %w{ordinary_statutory_paternity_pay statutory_adoption_pay}).any?
       # Question 2
       :employee_tell_within_limit?
@@ -105,7 +105,7 @@ date_question :last_payday_before_offset? do
   end
 end
 
-# Question 8
+# Question 7.4
 multiple_choice :how_often_pay_employee? do
   option :weekly
   option :fortnightly
@@ -124,37 +124,26 @@ multiple_choice :how_often_pay_employee? do
   next_node :on_start_date_8_weeks_paid?
 end
 
-# Question 9
+# Question 8
 multiple_choice :on_start_date_8_weeks_paid? do
   option :yes => :total_employee_earnings? # Question 10
   option :no => :employee_average_earnings? # Question 11
 end
 
-# Question 10
+# Question 9
 money_question :total_employee_earnings? do
   save_input_as :relevant_period_pay
   calculate :relevant_period_awe do
-    case pay_pattern
-    when "weekly", "fortnightly", "every_4_weeks"
-      relevant_period_pay / 8.0
-    when "monthly"
-      (relevant_period_pay / monthly_pattern_payments) * ( 12.0 / 52 )
-    when "irregularly"
-      relevant_period_pay / (relevant_period_to - relevant_period_from).to_i * 7
-    end
-
+    Calculators::StatutorySickPayCalculatorV2.average_weekly_earnings(
+      pay: relevant_period_pay, pay_pattern: pay_pattern, monthly_pattern_payments: monthly_pattern_payments,
+      relevant_period_to: relevant_period_to, relevant_period_from: relevant_period_from)
   end
 
   next_node do |response|
     relevant_period_pay = Money.new(response)
-    relevant_pay_awe = case pay_pattern
-    when "weekly", "fortnightly", "every_4_weeks"
-      relevant_period_pay / 8.0
-    when "monthly"
-      relevant_period_pay / monthly_pattern_payments * 12 / 52
-    when "irregularly"
-      relevant_period_pay / (relevant_period_to - relevant_period_from).to_i * 7
-    end
+    relevant_pay_awe = Calculators::StatutorySickPayCalculatorV2.average_weekly_earnings(
+      pay: relevant_period_pay, pay_pattern: pay_pattern, monthly_pattern_payments: monthly_pattern_payments,
+      relevant_period_to: relevant_period_to, relevant_period_from: relevant_period_from)
 
     if relevant_pay_awe < Calculators::StatutorySickPayCalculatorV2.lel
       # Answer 5
@@ -167,16 +156,46 @@ money_question :total_employee_earnings? do
 
 end
 
-# Question 11
+# Question 10
 money_question :employee_average_earnings? do
-
+  next_node do |response|
+    if response < Calculators::StatutorySickPayCalculatorV2.lel
+       # Answer 5
+      :not_earned_enough
+    else
+      # Question 12
+      :off_sick_4_days?
+    end
+  end
 end
 
-# Question 12
+# Q11
 multiple_choice :off_sick_4_days? do
-
+  option :yes => :how_many_days_sick?
+  option :no => :usual_work_days?
 end
 
+# Q12
+value_question :how_many_days_sick? do
+  save_input_as :prior_sick_days
+  next_node :usual_work_days?
+end
+
+# Q13
+checkbox_question :usual_work_days? do
+  (0..6).each { |n| option n }
+  next_node do |response|
+    days_worked = response.split(',').size
+    if prior_sick_days and prior_sick_days.to_i >= (days_worked * 28 + 3)
+      :maximum_entitlement_reached
+    else
+      :result
+    end
+  end
+end
+
+# Calculations
+outcome :result
 
 # Answer 1
 outcome :already_getting_maternity
@@ -192,3 +211,7 @@ outcome :not_regular_schedule
 
 # Answer 5
 outcome :not_earned_enough
+
+#A8
+outcome :maximum_entitlement_reached
+
