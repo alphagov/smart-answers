@@ -10,6 +10,10 @@ module FlowTestHelper
     @responses << resp.to_s
   end
 
+  def assert_not_error
+    assert current_state.error.nil?, "Flow error: #{current_state.error}"
+  end
+
   def current_state
     @state ||= begin
       @flow.process(@responses)
@@ -17,6 +21,7 @@ module FlowTestHelper
   end
 
   def assert_current_node(node_name)
+    assert_not_error
     assert_equal node_name, current_state.current_node
     assert @flow.node_exists?(node_name), "Node #{node_name} does not exist."
   end
@@ -27,10 +32,12 @@ module FlowTestHelper
   end
 
   def assert_state_variable(name, value)
+    assert_not_error
     assert_equal value, current_state.send(name)
   end
 
   def assert_phrase_list(variable_name, expected_keys)
+    assert_not_error
     phrase_list = current_state.send(variable_name)
     assert phrase_list.is_a?(SmartAnswer::PhraseList), "State variable #{variable_name} is not a PhraseList"
     assert_equal expected_keys, phrase_list.phrase_keys
