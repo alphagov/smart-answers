@@ -186,6 +186,7 @@ checkbox_question :usual_work_days? do
   (0..6).each { |n| option n }
   next_node do |response|
     days_worked = response.split(',').size
+    # TODO: other calculation based outcomes....
     if prior_sick_days and prior_sick_days.to_i >= (days_worked * 28 + 3)
       :maximum_entitlement_reached
     else
