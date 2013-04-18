@@ -187,7 +187,7 @@ end
 
 # Q13
 checkbox_question :usual_work_days? do
-  ((1..6).to_a + [0]).each { |n| option n.to_s }
+  %w{1 2 3 4 5 6 0}.each { |n| option n.to_s }
 
   calculate :calculator do
     calculator = Calculators::StatutorySickPayCalculator.new(prior_sick_days.to_i, Date.parse(sick_start_date), Date.parse(sick_end_date), responses.last.split(","))
