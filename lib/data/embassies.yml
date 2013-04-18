@@ -5473,9 +5473,10 @@ serbia:
   lat: 44.8004
   lon: 20.4566
   location_name: Belgrade
-  phone: |-
-    (381) (11) 2645 055
-    (381) (11) 3060 900
+  phone: "Telephone: (381) (11) 3060 900"
+  email: belgrade.consular@fco.gov.uk
+  office_hours: |-
+    "Consular opening hours - GMT: Monday to Friday 7am to 10am, Local Time: Monday to Friday: 9am to midday"
   fax: |-
     (381) (11) 2659 651 
     (381) (11) 3061 089 Chancery
@@ -5483,13 +5484,6 @@ serbia:
     (381) (11) 3061 059 Commercial
     (381) (11) 3061 077 (Information)
   website: /government/world/serbia
-  office_hours: |-
-    GMT:
-    Mon-Thurs: 0700-1530
-    Fri: 0700-1200
-    Local Time:
-    Mon-Thurs: 0800-1630
-    Fri: 0800-1300
 seychelles: 
 - address: |-
     British High Commission
