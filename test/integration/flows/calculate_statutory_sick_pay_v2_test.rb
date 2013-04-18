@@ -14,6 +14,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
         add_response "statutory_maternity_pay"
         assert_current_node :already_getting_maternity
       end
+
     end
 
     context "Getting maternity allowance" do
@@ -24,7 +25,11 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
     context "Not getting maternity allowance" do
       setup do
-        add_response "ordinary_statutory_paternity_pay"
+        add_response "ordinary_statutory_paternity_pay,statutory_adoption_pay"
+      end
+
+      should "set adoption warning state variable" do
+        assert_state_variable :paternity_maternity_warning, true
       end
 
       should "take the user to Q2" do
@@ -212,13 +217,13 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
                                       should "state maximum entitlement has already been received" do
                                         assert_current_node :maximum_entitlement_reached
                                       end
-                                    end
+                                    end # answering usual_work_days
                                   end # 88 previous sick days
                                   context "answer 80 and usually work Monday Tuesday and Thursday" do
                                     should "give the result" do
                                       add_response "80"
                                       add_response "1,2,4"
-                                      assert_current_node :result
+                                      assert_current_node :entitled_to_sick_pay
                                     end
                                   end # 80 previous sick days
                                 end
@@ -262,10 +267,8 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
                   assert_current_node_is_error
                 end
               end
-
             end
           end
-
         end
 
         context "employee works weird days" do
@@ -275,7 +278,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
           end
         end
       end
-
     end
   end
 end
