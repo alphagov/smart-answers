@@ -19,7 +19,7 @@ class FindABritishEmbassyTest < ActiveSupport::TestCase
     end
     should "go to outcome" do
       assert_current_node :embassy_outcome
-      assert_state_variable :embassy_details, "\n\n\n$A\n  British Embassy\n15th Street, Roundabout Wazir Akbar Khan\nPO Box 334\nKabul\nAfghanistan,Kabul\n$A\n\n$C\n  britishembassy.kabul@fco.gov.uk\n\n  +93 (0) 700 102 000\n\n  0830-1630 (Sunday to Thursday)\n$C\n"
+      assert_state_variable :embassy_details, "\n\n\n$A\n  British Embassy\n15th Street, Roundabout Wazir Akbar Khan\nPO Box 334\nKabul\nAfghanistan,Kabul\n$A\n\n$C\n  britishembassy.kabul@fco.gov.uk\n\n  +93 (0) 700 102 000\n\n  Passport opening hours: \nMonday and Tuesday only, 8.30am to 11.30am\n\nConsular opening times: \nSunday to Thursday, 8.30am to 4.30pm  \n$C\n"
     end
   end
   context "details in brazil" do
