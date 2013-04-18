@@ -11,7 +11,7 @@ module FlowTestHelper
   end
 
   def assert_not_error
-    assert current_state.error.nil?, "Flow error: #{current_state.error}"
+    assert current_state.error.nil?, "Unexpected Flow error: #{current_state.error}"
   end
 
   def current_state
@@ -20,14 +20,15 @@ module FlowTestHelper
     end
   end
 
-  def assert_current_node(node_name)
-    assert_not_error
+  def assert_current_node(node_name, opts = {})
+    expect_error = (opts[:error] ||= false)
+    expect_error ? assert_current_node_is_error : assert_not_error
     assert_equal node_name, current_state.current_node
     assert @flow.node_exists?(node_name), "Node #{node_name} does not exist."
   end
 
   def assert_current_node_is_error(message = nil)
-    assert current_state.error, "Expected #{current_state.current_node} do be in error state"
+    assert current_state.error, "Expected #{current_state.current_node} to be in error state"
     assert_equal message, current_state.error if message
   end
 
