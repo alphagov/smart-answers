@@ -1031,41 +1031,6 @@ canada:
     Switchboard hours:
     8:30am - 5:00pm
 - address: |-
-    3000-150 6 Avenue SW
-    Calgary, AB, Canada
-    T2P 3V7
-  designation: British Trade Office
-  lat: 51.0475
-  lon: -114.067
-  location_name: Calgary
-  phone: (1) (403) 705 1755
-  fax: (1) (403) 538 0121
-  website: /government/world/canada
-  office_hours: |-
-    GMT:
-    Mon-Fri: 1500-2315
-    
-    Local Time:
-    Mon-Fri: 0800-1615
-- address: |-
-    British Consulate-General
-    2000 McGill College Avenue
-    Suite 1940
-    Montreal
-    Quebec H3A 3H3
-  designation: British Consulate-General
-  lat: 45.4981
-  lon: -73.5672
-  location_name: Montreal
-  fax: (1) (514) 866 0202
-  website: /government/world/canada/
-  office_hours: |-
-    GMT:
-    Mon-Fri: 1400-2100 by appointment only
-    
-    Local Time:
-    Mon-Fri: 0900-1600 by appointment only
-- address: |-
     British Trade & Investment Office
     777 Bay Street
     Suite 2800
