@@ -608,7 +608,7 @@ en-GB:
           Depositing a marriage certificate | £35
           Administering an oath or making a declaration | £55
 
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of consular fees for [consular fees for %{ceremony_country_name}](/government/publications/%{country_name_for_links}-consular-fees "Consular fees").
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{ceremony_country_name}](/government/publications/%{country_name_for_links}-consular-fees "Consular fees").
         italy_os_consular_cni_nine: |
           ##Fees
 
