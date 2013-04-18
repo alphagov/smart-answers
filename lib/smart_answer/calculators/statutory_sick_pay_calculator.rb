@@ -96,6 +96,10 @@ module SmartAnswer::Calculators
       end
     end
 
+    def days_paid
+      [days_to_pay, days_that_can_be_paid_for_this_period].min
+    end
+
     def days_that_can_be_paid_for_this_period
       [max_days_that_can_be_paid - days_paid_in_linked_period, 0].max
     end
