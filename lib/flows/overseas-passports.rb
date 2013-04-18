@@ -321,7 +321,7 @@ outcome :fco_result do
   end
   precalculate :helpline do
     phrases = PhraseList.new(:"helpline_#{application_type}")
-    if %w{dublin_ireland wellington_new_zealand pretoria_south_africa washington_usa}.include?(application_type)
+    unless %w{madrid_spain paris_france}.include?(application_type)
       phrases << :helpline_fco_webchat
     end
     phrases

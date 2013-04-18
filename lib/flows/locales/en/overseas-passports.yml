@@ -590,13 +590,6 @@ en-GB:
             Textphone: +44 1750 725 368
           $C
 
-
-          **Webchat service (US and Canada only)**
-
-          A webchat service is available. It costs a flat rate of £3 - you must pay by credit card before you start. Don’t use this service if you’re applying from other countries - the service won’t work but you will still be charged.
-
-          [Use the webchat service](https://www.synthetix.info/fco/ "Use the webchat service to chat to an advisor"){:rel="external"}
-
         helpline_madrid_spain: |
 
           $C
@@ -694,7 +687,12 @@ en-GB:
             00 34 91 714 6314
           $C
         helpline_: ''
-        helpline_fco_webchat: ''
+        helpline_fco_webchat: |
+          ### Webchat service
+
+          A webchat service is available. It costs a flat rate of £4 - you must pay by credit card before you start. Once you’ve paid, you’ll be given a reference number to launch your webchat. You’ll receive an email transcript of your conversation when you finish.
+
+          [Use the webchat service](https://www.synthetix.info/fco/ "Use the webchat service to chat to an advisor"){:rel="external"} 
 
         ips_documents_group_1: |
 
