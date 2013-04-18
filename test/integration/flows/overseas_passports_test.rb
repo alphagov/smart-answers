@@ -520,6 +520,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       assert_current_node :fco_result
       assert_phrase_list :how_to_apply_supplement, [:how_to_apply_dublin_ireland]
+      assert_phrase_list :helpline, [:helpline_dublin_ireland, :helpline_fco_webchat]
     end
   end # Ireland (FCO with custom phrases)
   context "answer India, replacement, adult passport" do
