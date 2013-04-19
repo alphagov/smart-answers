@@ -295,8 +295,10 @@ outcome :fco_result do
   end
 
   precalculate :how_to_apply_supplement do
-    if application_type =~ /^(dublin_ireland|india)$/
+    if %w(dublin_ireland india).include?(application_type)
       PhraseList.new(:"how_to_apply_#{application_type}")
+    elsif application_action == 'applying' and application_type == 'jordan'
+      PhraseList.new(:how_to_apply_jordan_applying)
     elsif general_action == 'renewing' and data_query.retain_passport?(current_location)
       PhraseList.new(:how_to_apply_retain_passport)
     else
@@ -362,7 +364,7 @@ outcome :result do
   end
   precalculate :supporting_documents do
     phrase = ['supporting_documents', application_type]
-    phrase << general_action if application_type == 'nairobi_kenya'
+    phrase << general_action if %w(nairobi_kenya zambia).include?(application_type)
     PhraseList.new(phrase.join('_').to_sym)
   end
   precalculate :making_application do
