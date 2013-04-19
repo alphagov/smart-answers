@@ -279,6 +279,8 @@ outcome :fco_result do
     payment_methods = :"passport_costs_#{application_type}"
     # Malta and Netherlands have custom payment methods
     payment_methods = :passport_costs_malta_netherlands if current_location =~ /^(malta|netherlands)$/
+    # Italy, Switzerland and France have custom payment methods
+    payment_methods = :passport_costs_france_italy_switz if %w{france italy switzerland}.include?(current_location)
     payment_methods = :"passport_costs_#{current_location}" if %w{jamaica jordan}.include?(current_location)
 
     # Indonesian first time applications have courier and cost variations.

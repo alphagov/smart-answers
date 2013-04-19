@@ -570,6 +570,15 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_phrase_list :cost, [:passport_courier_costs_fco_europe, :adult_passport_costs_fco_europe, :passport_costs_malta_netherlands]
     end
   end # Malta (FCO with custom phrases)
+  context "answer Italy, replacement, adult passport" do
+    should "give the fco result with custom phrases" do
+      add_response 'italy'
+      add_response 'replacing'
+      add_response 'adult'
+      assert_current_node :fco_result
+      assert_phrase_list :cost, [:passport_courier_costs_fco_europe, :adult_passport_costs_fco_europe, :passport_costs_france_italy_switz]
+    end
+  end # Italy (FCO with custom phrases)
   context "answer Egypt, replacement, adult passport" do
     should "give the fco result with custom phrases" do
       add_response 'egypt'
