@@ -189,6 +189,8 @@ en-GB:
           A child passport costs 1,450 South African Rand.
 
         passport_costs_pretoria_south_africa: |
+          The fee includes the cost of returning your passport and supporting documents to you securely by courier.
+
           You can pay using:
 
           - a banker’s draft in South African Rand, payable to the ‘British High Commission’ - you must add an additional 155 Rand to the fees above if you pay this way
@@ -385,22 +387,15 @@ en-GB:
           %{embassy_address}
 
         send_application_indonesia: |
-          ###Applying for a first passport or replacing a lost or stolen passport
-
-          You must make your application in person to the British Embassy, Jakarta.
-
-          %{embassy_address}
-
-          ###Renewing a passport
-
           Send your application - preferably by one-way courier or secure post - to
-
-
+          
+          
           $A
             British Consulate-General
-            RPPC - 5th Floor
-            1 Supreme Court Road
-            Hong Kong
+            Deutsche Bank Building 19th Floor
+            Jl Imam Bonjol 80
+            Jakarta 10310
+            Indonesia 
           $A
 
         send_application_wellington_new_zealand: |
@@ -1368,8 +1363,8 @@ en-GB:
 
 
           $D
-            [Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc "Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)")
-            [Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc "Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)")
+            [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc "Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)")
+            [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc "Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)")
           $D
 
         supporting_documents_nairobi_kenya_renewing: |
@@ -1379,7 +1374,7 @@ en-GB:
 
 
           $D
-            [Download ‘Supporting documents for lost and stolen passport applications’ (MS Word, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc "Download ‘Supporting documents for lost or stolen passport applications’ (MS Word, 30KB)")
+            [Download ‘Supporting documents for lost and stolen passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc "Download ‘Supporting documents for lost or stolen passport applications’ (DOC, 30KB)")
           $D
 
         making_application_nairobi_kenya: |
@@ -1516,9 +1511,9 @@ en-GB:
 
 
           $D
-            [Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc "Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)")
+            [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc "Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)")
 
-            [Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc "Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)")
+            [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc "Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)")
           $D
         making_application_cameroon_renewing: |
           You can either:
@@ -1578,9 +1573,9 @@ en-GB:
 
 
           $D
-            [Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc "Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)")
+            [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc "Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)")
 
-            [Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc "Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)")
+            [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc "Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)")
           $D
         making_application_eritrea: |
           You must make your application in person at the British embassy in Asmara.
@@ -1620,7 +1615,7 @@ en-GB:
 
           - using cash in Ethiopian Birr if you apply at the British embassy
           - by Banker’s Draft in South African Rand (you must add a processing fee of 155 Rand)
-          - using Visa or Mastercard - enclose a [card authorisation form (MS Word, 334KB](/government/uploads/system/uploads/attachment_data/file/136854/countries-auth-slip.doc "Card authorisation form (MS Word, 334KB)") with your application
+          - using Visa or Mastercard - enclose a [card authorisation form (DOC, 334KB](/government/uploads/system/uploads/attachment_data/file/136854/countries-auth-slip.doc "Card authorisation form (DOC, 334KB)") with your application
 
 
           $I
@@ -1631,9 +1626,9 @@ en-GB:
 
 
           $D
-            [Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc "Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)")
+            [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc "Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)")
 
-            [Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc "Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)")
+            [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc "Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)")
           $D
         making_application_ethiopia: |
           ### First applications, renewing a black or blue passport or replacing a lost or stolen passport
@@ -1744,7 +1739,7 @@ en-GB:
 
           You can pay:
 
-          - using Visa or Mastercard - enclose a [card authorisation form (MS Word, 334KB)](/government/uploads/system/uploads/attachment_data/file/136854/countries-auth-slip.doc "Card authorisation form (MS Word, 334KB)") with your application
+          - using Visa or Mastercard - enclose a [card authorisation form (DOC, 334KB)](/government/uploads/system/uploads/attachment_data/file/136854/countries-auth-slip.doc "Card authorisation form (DOC, 334KB)") with your application
           - by Bank Draft (add a 155 South African Rand processing fee if you pay this way)
 
         how_to_apply_ghana: |
@@ -1752,11 +1747,11 @@ en-GB:
           For renewals, don’t send your existing passport with your application - you may need it for ID purposes.
 
         supporting_documents_ghana: |
-          [Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc "Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)")
+          [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc "Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)")
 
-          [Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc "Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)")
+          [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc "Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)")
 
-          [Download ‘Supporting documents for lost and stolen passport applications’ (MS Word, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc "Download ‘Supporting documents for lost or stolen passport applications’ (MS Word, 30KB)")
+          [Download ‘Supporting documents for lost and stolen passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc "Download ‘Supporting documents for lost or stolen passport applications’ (DOC, 30KB)")
 
         making_application_ghana: |
           ### First applications, renewing a black or blue passport or replacing a lost or stolen passport
@@ -1804,7 +1799,7 @@ en-GB:
 
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
 
-          You must pay using Visa or Mastercard - enclose a [card authorisation form (MS Word, 334KB](/government/uploads/system/uploads/attachment_data/file/136852/credit-card-form-march-12.pdf "Card authorisation form (MS Word, 334KB)") with your application.
+          You must pay using Visa or Mastercard - enclose a [card authorisation form (DOC, 334KB](/government/uploads/system/uploads/attachment_data/file/136852/credit-card-form-march-12.pdf "Card authorisation form (DOC, 334KB)") with your application.
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
@@ -2122,11 +2117,11 @@ en-GB:
           For renewals, you must send the passport you’re replacing and a registration/naturalisation certificate (if relevant).
 
         supporting_documents_somalia: |
-          [Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc "Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)")
+          [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc "Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)")
 
-          [Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc "Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)")
+          [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc "Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)")
 
-          [Download ‘Supporting documents for lost and stolen passport applications’ (MS Word, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc "Download ‘Supporting documents for lost or stolen passport applications’ (MS Word, 30KB)")
+          [Download ‘Supporting documents for lost and stolen passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc "Download ‘Supporting documents for lost or stolen passport applications’ (DOC, 30KB)")
 
         making_application_somalia: |
           You can:
@@ -2159,18 +2154,18 @@ en-GB:
           Adult jumbo 48-page passport | 2,204 South African Rand | 2,490 South African Rand
           Child passport | 1,164 South African Rand | 1,450 South African Rand
 
-          You must pay using Visa or Mastercard - enclose a [card authorisation form (MS Word, 334KB](/government/uploads/system/uploads/attachment_data/file/136854/countries-auth-slip.doc "Card authorisation form (MS Word, 334KB)") with your application.
+          You must pay using Visa or Mastercard - enclose a [card authorisation form (DOC, 334KB](/government/uploads/system/uploads/attachment_data/file/136854/countries-auth-slip.doc "Card authorisation form (DOC, 334KB)") with your application.
 
         how_to_apply_south-sudan: |
 
           For renewals, don’t send your existing passport with your application - you may need it for ID purposes.
 
         supporting_documents_south-sudan: |
-          [Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc "Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)")
+          [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc "Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)")
 
-          [Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc "Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)")
+          [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc "Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)")
 
-          [Download ‘Supporting documents for lost and stolen passport applications’ (MS Word, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc "Download ‘Supporting documents for lost or stolen passport applications’ (MS Word, 30KB)")
+          [Download ‘Supporting documents for lost and stolen passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc "Download ‘Supporting documents for lost or stolen passport applications’ (DOC, 30KB)")
 
         making_application_south-sudan: |
           You must download [covering letter](/government/uploads/system/uploads/attachment_data/file/136888/covering-letter.doc "Covering letter") and include it with your application.
@@ -2232,11 +2227,11 @@ en-GB:
           For renewals, don’t send your existing passport with your application - you may need it for ID purposes.
 
         supporting_documents_sudan: |
-          [Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc "Download ‘Supporting documents for first time adult passport applications’ (MS Word, 31KB)")
+          [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc "Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)")
 
-          [Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc "Download ‘Supporting documents for first time child passport applications’ (MS Word, 30KB)")
+          [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc "Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)")
 
-          [Download ‘Supporting documents for lost and stolen passport applications’ (MS Word, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc "Download ‘Supporting documents for lost or stolen passport applications’ (MS Word, 30KB)")
+          [Download ‘Supporting documents for lost and stolen passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc "Download ‘Supporting documents for lost or stolen passport applications’ (DOC, 30KB)")
 
         making_application_sudan: |
           Bring your application in person to the British Embassy in Khartoum.
@@ -2389,7 +2384,7 @@ en-GB:
 
           ### Applying for a first passport or replacing a lost or stolen passport
 
-          You must pay using Visa or Mastercard - enclose a [card authorisation form (MS Word, 334KB](/government/uploads/system/uploads/attachment_data/file/136852/credit-card-form-march-12.pdf "Card authorisation form (MS Word, 334KB)") with your application.
+          You must pay using Visa or Mastercard - enclose a [card authorisation form (DOC, 334KB](/government/uploads/system/uploads/attachment_data/file/136852/credit-card-form-march-12.pdf "Card authorisation form (DOC, 334KB)") with your application.
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
@@ -2399,7 +2394,7 @@ en-GB:
 
           ### Renewing a passport
 
-          You must pay using Visa or Mastercard - enclose a [card authorisation form (MS Word, 334KB](/government/uploads/system/uploads/attachment_data/file/136852/credit-card-form-march-12.pdf "Card authorisation form (MS Word, 334KB)") with your application.
+          You must pay using Visa or Mastercard - enclose a [card authorisation form (DOC, 334KB](/government/uploads/system/uploads/attachment_data/file/136852/credit-card-form-march-12.pdf "Card authorisation form (DOC, 334KB)") with your application.
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
