@@ -22,3 +22,13 @@ class MiniTest::Unit::TestCase
     Timecop.return
   end
 end
+
+require 'gds_api/test_helpers/json_client_helper'
+
+def fixture_file(filename)
+  File.expand_path("../fixtures/#{filename}", __FILE__)
+end
+
+def read_fixture_file(filename)
+  File.read(fixture_file(filename))
+end
