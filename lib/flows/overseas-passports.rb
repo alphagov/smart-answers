@@ -356,15 +356,11 @@ outcome :result do
     if general_action == 'renewing' and data_query.retain_passport?(current_location)
       phrases << :how_to_apply_retain_passport 
     end
-    if %w{yemen iraq}.include?(application_type) and application_action == 'applying'
-      phrases << :"#{application_type}_first_passport_documents"
-    end
-
     phrases
   end
   precalculate :supporting_documents do
     phrase = ['supporting_documents', application_type]
-    phrase << general_action if %w(nairobi_kenya zambia).include?(application_type)
+    phrase << general_action if %w(iraq nairobi_kenya yemen zambia).include?(application_type)
     PhraseList.new(phrase.join('_').to_sym)
   end
   precalculate :making_application do

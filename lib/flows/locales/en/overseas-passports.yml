@@ -1396,6 +1396,29 @@ en-GB:
             [Download ‘Supporting documents for lost and stolen passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc "Download ‘Supporting documents for lost or stolen passport applications’ (DOC, 30KB)")
           $D
 
+        supporting_documents_iraq_applying: |
+         
+
+          $D
+          **Supporting documents**
+
+          [Download 'Supporting documents you must send with your application' (PDF, 264KB)](/government/publications/iraq-supporting-documents-for-passport-applications "Download 'Supporting documents you must send with your application' (PDF, 264KB)")
+          $D 
+        
+        supporting_documents_yemen_applying: |
+
+
+          $D
+          **Supporting documents**
+
+          [Download 'Supporting documents you must send with your application' (PDF, 260KB)](/government/publications/yemen-supporting-documents-for-passport-applications "Download 'Supporting documents you must send with your application' (PDF, 260KB)")
+          $D
+
+        supporting_documents_iraq_renewing: ''
+        supporting_documents_iraq_replacing: ''
+        supporting_documents_yemen_renewing: ''
+        supporting_documents_yemen_replacing: ''
+
         making_application_nairobi_kenya: |
           Send your application by post or courier to the British High Commission in Nairobi, Kenya.
 
@@ -1831,12 +1854,6 @@ en-GB:
 
         iraq_first_passport_documents: |
 
-
-          $D
-          **Supporting documents**
-
-          [Download 'Supporting documents you must send with your application' (PDF, 264KB)](/government/publications/iraq-supporting-documents-for-passport-applications "Download 'Supporting documents you must send with your application' (PDF, 264KB)")
-          $D
 
         making_application_iraq: |
           ### Renewals or replacements of lost or stolen passports
@@ -2423,13 +2440,6 @@ en-GB:
 
         how_to_apply_yemen: ''
         yemen_first_passport_documents: |
-
-          $D
-          Supporting documents
-
-          [Download 'Supporting documents you must send with your application' (PDF, 260KB)](/government/publications/yemen-supporting-documents-for-passport-applications "Download 'Supporting documents you must send with your application' (PDF, 260KB)")
-          $D
-
         supporting_documents_yemen: ''
         making_application_yemen: |
           ### Renewing a passport

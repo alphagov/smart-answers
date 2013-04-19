@@ -219,7 +219,8 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           assert_phrase_list :fco_forms, [:adult_fco_forms]
           assert_phrase_list :how_long_it_takes, [:how_long_iraq]
           assert_phrase_list :cost, [:cost_iraq]
-          assert_phrase_list :how_to_apply, [:how_to_apply_iraq, :iraq_first_passport_documents]
+          assert_phrase_list :how_to_apply, [:how_to_apply_iraq]
+          assert_phrase_list :supporting_documents, [:supporting_documents_iraq_applying]
           assert_phrase_list :making_application, [:making_application_iraq]
           assert_phrase_list :getting_your_passport, [:getting_your_passport_iraq]
           assert_match /British Embassy, Baghdad/, current_state.embassy_address
