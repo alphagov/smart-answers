@@ -204,13 +204,13 @@ en-GB:
         adult_passport_costs_fco_europe: |
           | Passport type |	Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Adult standard 32-page passport	| 155 Euros | 179 Euros |
-          | Adult jumbo 48-page passport | 187 Euros | 211 Euros |
+          | Adult standard 32-page passport | 157 Euros | 182 Euros |
+          | Adult jumbo 48-page passport | 190 Euros | 215 Euros |
 
         child_passport_costs_fco_europe: |
           | Passport type |	Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Child passport | 99 Euros | 123 Euros |
+          | Child passport | 100 Euros | 125 Euros |
 
         passport_costs_dublin_ireland: |
           You must pay using Visa or Mastercard. Download a [card payment authorisation form (PDF,198KB)](/government/uploads/system/uploads/attachment_data/file/168042/card-payment-form.pdf "Card authorisation form (PDF, 198KB)") and send it with your application.
