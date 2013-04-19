@@ -586,9 +586,19 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'replacing'
       add_response 'adult'
       assert_phrase_list :getting_your_passport, [:getting_your_passport_egypt]
+      assert_state_variable :supporting_documents, ''
       assert_current_node :fco_result
     end
   end # Egypt (FCO with custom phrases)
+  context "answer Jordan, replacement, adult passport" do
+    should "give the fco result with custom phrases" do
+      add_response 'jordan'
+      add_response 'applying'
+      add_response 'adult'
+      assert_phrase_list :supporting_documents, [:supporting_documents_jordan_applying]
+      assert_current_node :fco_result
+    end
+  end # Jordan (FCO with custom phrases)
   context "answer Iran" do
     should "give a bespoke outcome stating an application is not possible in Iran" do
       add_response 'iran'

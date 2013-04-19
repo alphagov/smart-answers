@@ -223,13 +223,13 @@ en-GB:
 
           Keep your existing passport for security and ID purposes - don’t send it with your application.
 
-        how_to_apply_jordan_applying: |
+        supporting_documents_jordan_applying: |
           
           
           $D
           **Supporting documents**
 
-          [Download ‘Supporting documents you must send with your application’ (PDF, 260KB)](/government/publications/jordan-supporting-documents-for-passport-applications “Download ‘Supporting documents you must send with your application’ (PDF, 260KB)”)
+          [Download ‘Supporting documents you must send with your application’ (PDF, 260KB)](/government/publications/jordan-supporting-documents-for-passport-applications "Download ‘Supporting documents you must send with your application’ (PDF, 260KB)")
           $D 
 
         passport_costs_paris_france: |
@@ -2636,6 +2636,8 @@ en-GB:
           $D
             %{fco_forms}
           $D
+
+          %{supporting_documents}
 
           ## Submit your application
 
