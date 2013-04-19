@@ -223,6 +223,15 @@ en-GB:
 
           Keep your existing passport for security and ID purposes - don’t send it with your application.
 
+        how_to_apply_jordan_applying: |
+          
+          
+          $D
+          **Supporting documents**
+
+          [Download ‘Supporting documents you must send with your application’ (PDF, 260KB)](/government/publications/jordan-supporting-documents-for-passport-applications “Download ‘Supporting documents you must send with your application’ (PDF, 260KB)”)
+          $D 
+
         passport_costs_paris_france: |
           You must pay using either:
 
@@ -1035,8 +1044,15 @@ en-GB:
 
           - you need to provide more information or documents
           - your photographs are rejected
+          
+          Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [emergency travel document](/emergency-travel-document "Get an emergency travel document").
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, you can apply for an Emergency Travel Document from any [British high commission or consulate in Australia.](/government/world/australia/help-for-british-nationals "British high commission and consulates in Australia").
+          If your passport has been lost or stolen and you haven’t reported it yet, include ‘Form LS01’ with your application.
+
+
+          $D
+          [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)")
+          $D
 
         cost_australia_post: |
           | Passport type | Passport fee |
@@ -1806,9 +1822,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | 155 Euros | 179 Euros
-          Adult jumbo 48-page passport | 187 Euros | 211 Euros
-          Child passport | 99 Euros | 123 Euros
+          Adult standard 32-page passport | 157 Euros | 182 Euros
+          Adult jumbo 48-page passport | 190 Euros | 215 Euros
+          Child passport | 100 Euros | 125 Euros
 
         how_to_apply_iraq: ''
         supporting_documents_iraq: ''
@@ -1817,7 +1833,7 @@ en-GB:
 
 
           $D
-          Supporting documents
+          **Supporting documents**
 
           [Download 'Supporting documents you must send with your application' (PDF, 264KB)](/government/publications/iraq-supporting-documents-for-passport-applications "Download 'Supporting documents you must send with your application' (PDF, 264KB)")
           $D
@@ -2461,6 +2477,15 @@ en-GB:
 
         how_to_apply_zambia: ''
         supporting_documents_zambia: ''
+        supporting_documents_zambia_applying: |
+          
+          
+          $D
+          **Supporting documents**
+
+          [Download ‘Supporting documents you must send with your application’ (PDF, 114KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/186951/Zambia_passport_documents.pdf  "Download ‘Supporting documents you must send with your application’ (PDF, 114KB)")
+          $D
+
         making_application_zambia: Bring your application in person to the British High Commission in Lusaka. You can use old Kwacha notes to pay until 30 June 2013.
         getting_your_passport_zambia: |
           The British High Commission will contact you when your passport arrives using the contact details on your form. You must collect it in person.
@@ -2504,8 +2529,14 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. In a genuine emergency only, you may be able to get an Emergency Travel Document from the British embassy in Algiers.
+          Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [emergency travel document](/emergency-travel-document "Get an emergency travel document").
 
+          If your passport has been lost or stolen and you haven’t reported it yet, include ‘Form LS01’ with your application.
+
+
+          $D
+          [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)")
+          $D
 
           %{embassy_address}
 
