@@ -101,7 +101,10 @@ end
 ## Q4
 value_question :how_many_other_children_in_payees_household? do
   calculate :calculator do
-    calculator.number_of_other_children = Integer(responses.last)
+    # if converting to int messes things up, raise invalid response
+    # this deals with nil input through the API
+    raise SmartAnswer::InvalidResponse if responses.last.to_i.to_s != responses.last
+    calculator.number_of_other_children = responses.last.to_i
     calculator
   end
   next_node :how_many_nights_children_stay_with_payee?
