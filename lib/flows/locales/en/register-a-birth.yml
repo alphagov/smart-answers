@@ -226,12 +226,7 @@ en-GB:
         body: |
           $!You can apply to register the birth with the %{embassy_high_commission_or_consulate} in %{registration_country_name}.$!
 
-          Download and complete the birth registration form.
-
-
-          $D
-          [Download ‘Birth registration form’ (DOC, 66KB)](/government/uploads/system/uploads/attachment_data/file/136824/outsideuk_birth_reg_form.doc.doc "download ‘birth registration form’ (doc, 66kb)")
-          $D
+          Download and complete the [birth registration form](/government/publications/application-to-register-an-overseas-birth "Birth registration form").
 
           ##Documents
 
@@ -277,12 +272,7 @@ en-GB:
 
           %{intro}
 
-          Download and complete the birth registration form.
-
-
-          $D
-          [Download ‘Birth registration form’ (DOC, 66KB)](/government/uploads/system/uploads/attachment_data/file/136824/outsideuk_birth_reg_form.doc.doc "download ‘birth registration form’ (doc, 66kb)") 
-          $D
+          Download and complete the [birth registration form](/government/publications/application-to-register-an-overseas-birth "Birth registration form").
 
           ##Documents
 

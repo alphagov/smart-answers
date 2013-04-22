@@ -188,7 +188,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           assert_phrase_list :making_application, [:making_application_afghanistan]
           assert_phrase_list :getting_your_passport, [:getting_your_passport_afghanistan]
           assert_match /15th Street, Roundabout Wazir Akbar Khan/, current_state.embassy_address
-          assert_match /0830-1630 \(Sunday to Thursday\)/, current_state.embassy_address
+          assert_match /Passport opening hours:/, current_state.embassy_address
           assert_phrase_list :helpline, [:helpline_intro, :helpline_afghanistan]
           assert_current_node :result
         end
@@ -520,6 +520,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       assert_current_node :fco_result
       assert_phrase_list :how_to_apply_supplement, [:how_to_apply_dublin_ireland]
+      assert_phrase_list :helpline, [:helpline_dublin_ireland, :helpline_fco_webchat]
     end
   end # Ireland (FCO with custom phrases)
   context "answer India, replacement, adult passport" do

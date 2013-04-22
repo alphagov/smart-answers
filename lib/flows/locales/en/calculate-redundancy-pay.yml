@@ -29,7 +29,7 @@ en-GB:
             weekly_pay_before_tax?:
                 title: What is your weekly pay before tax and any other deductions?
                 hint: |
-                    Examples of other deductions include student loans, child maintenance, salary sacrifice. 
+                    Examples of other deductions include student loans and child maintenance. 
                 suffix_label: per week
                 error_message: Please enter a number    
 
@@ -95,7 +95,7 @@ en-GB:
             weekly_pay_before_tax?:
                 title: What is their weekly pay before tax and any other deductions?
                 hint: |
-                   Examples of other deductions include student loans, child maintenance, salary sacrifice. 
+                   Examples of other deductions include student loans and child maintenance. 
                 suffix_label: per week
                 error_message: Please enter a number
 
