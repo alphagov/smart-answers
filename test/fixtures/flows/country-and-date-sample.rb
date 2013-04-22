@@ -1,6 +1,6 @@
 status :draft
 
-country_select :which_country_do_you_live_in?, :use_legacy_data => true do
+country_select :which_country_do_you_live_in? do
   save_input_as :country
   next_node :what_date_did_you_move_there?
 end
@@ -17,7 +17,7 @@ date_question :what_date_did_you_move_there? do
   next_node :which_country_were_you_born_in?
 end
 
-country_select :which_country_were_you_born_in?, :include_uk => true, :use_legacy_data => true do
+country_select :which_country_were_you_born_in?, :include_uk => true do
   save_input_as :birth_country
   next_node :ok
 end

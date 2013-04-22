@@ -1,9 +1,23 @@
 # encoding: UTF-8
 require_relative 'engine_test_helper'
+require 'gds_api/test_helpers/worldwide'
 
 class CountryAndDateQuestionsTest < EngineIntegrationTest
+  include GdsApi::TestHelpers::Worldwide
 
   with_and_without_javascript do
+    setup do
+      @location_slugs = %w(
+        afghanistan angola aruba bangladesh belarus brazil brunei
+        cambodia chad croatia denmark eritrea france ghana iceland
+        japan laos luxembourg malta micronesia mozambique nicaragua
+        panama portugal sao-tome-and-principe singapore south-korea
+        sri-lanka uk-delegation-to-council-of-europe
+        uk-delegation-to-organization-for-security-and-co-operation-in-europe
+        united-kingdom venezuela vietnam)
+      worldwide_api_has_locations(@location_slugs)
+    end
+
     should "handle country and date questions" do
       visit "/country-and-date-sample/y"
 
@@ -14,9 +28,15 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         end
       end
       within '.question-body' do
-        # TODO Check country list
         assert page.has_select?("response")
-        assert page.has_no_xpath? "//select/option[@value = 'united-kingdom']"
+        # Options above missing delegations and uk
+        expected = %w(afghanistan angola aruba bangladesh belarus brazil brunei
+          cambodia chad croatia denmark eritrea france ghana iceland
+          japan laos luxembourg malta micronesia mozambique nicaragua
+          panama portugal sao-tome-and-principe singapore south-korea
+          sri-lanka venezuela vietnam)
+        actual = page.all('select option').map(&:value)
+        assert_equal expected, actual
       end
 
       select "Belarus", :from => "response"
@@ -86,9 +106,15 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         end
       end
       within '.question-body' do
-        # TODO Check country list
         assert page.has_select?("response")
-        assert page.has_xpath? "//select/option[@value = 'united-kingdom']"
+        # Options above excluding delegations
+        expected = %w(afghanistan angola aruba bangladesh belarus brazil brunei
+          cambodia chad croatia denmark eritrea france ghana iceland
+          japan laos luxembourg malta micronesia mozambique nicaragua
+          panama portugal sao-tome-and-principe singapore south-korea
+          sri-lanka united-kingdom venezuela vietnam)
+        actual = page.all('select option').map(&:value)
+        assert_equal expected, actual
       end
 
       select "United Kingdom", :from => "response"

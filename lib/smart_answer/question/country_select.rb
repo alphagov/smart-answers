@@ -23,7 +23,7 @@ module SmartAnswer
     private
 
       def load_countries
-        countries = @use_legacy_data ? LegacyCountry.all : raise("New country data not implemented yet")
+        countries = @use_legacy_data ? LegacyCountry.all : WorldLocation.all
         if @include_uk
           countries
         else
