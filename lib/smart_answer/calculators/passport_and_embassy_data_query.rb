@@ -1,6 +1,8 @@
 module SmartAnswer::Calculators
   class PassportAndEmbassyDataQuery
- 
+
+    include ActionView::Helpers::NumberHelper
+
     FCO_APPLICATIONS_REGEXP = /^(dublin_ireland|hong_kong|india|madrid_spain|paris_france|pretoria_south_africa|washington_usa|wellington_new_zealand)$/
     IPS_APPLICATIONS_REGEXP = /^ips_application_\d$/
     NO_APPLICATION_REGEXP = /^(algeria|iran|syria)$/
@@ -24,6 +26,11 @@ module SmartAnswer::Calculators
                                    libya morocco nepal north-korea pakistan rwanda
                                    sri-lanka sudan thailand timor-leste tunisia uganda yemen zambia)
 
+    PASSPORT_COSTS = {
+      'South African Rand'  => [[1888, 2181], [2279, 2572], [1203, 1450]],
+      'Euros'               => [[157, 182],   [190, 215],   [100, 125]]
+    }
+
     attr_reader :embassy_data, :passport_data
 
     def initialize
@@ -42,6 +49,17 @@ module SmartAnswer::Calculators
 
     def retain_passport?(country_slug)
       RETAIN_PASSPORT_COUNTRIES.include?(country_slug)
+    end
+
+    def passport_costs
+      {}.tap do |costs|
+        PASSPORT_COSTS.each do |k,v|
+          [:adult_32, :adult_48, :child].each_with_index do |t, i|
+            key = "#{k.downcase.gsub(' ', '_')}_#{t}"
+            costs[key] = v[i].map{ |c| "#{number_with_delimiter(c)} #{k}"}.join(" | ")
+          end
+        end
+      end
     end
 
     def self.passport_data
