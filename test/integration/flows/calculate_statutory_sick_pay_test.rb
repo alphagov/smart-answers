@@ -187,14 +187,12 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 			  								context "days missed" do
 			  									should "return an error if 0" do
 	  												add_response '0'
-	  												assert_current_node_is_error
-	  												assert_current_node :how_many_days_missed?
+	  												assert_current_node :how_many_days_missed?, :error => true
 	  											end
 
 	  											should "return an error if text" do
 	  												add_response 'sometext'
-	  												assert_current_node_is_error
-	  												assert_current_node :how_many_days_missed?
+	  												assert_current_node :how_many_days_missed?, :error => true
 													end
 
 										  		context "answered 3 sick days during related illness" do
@@ -209,8 +207,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 												  		setup {add_response 'sometext'}
 												  		
 												  		should "return an error if text" do
-												  			assert_current_node_is_error
-												  			assert_current_node :which_days_worked?
+												  			assert_current_node :which_days_worked?, :error => true
 												  		end
 												  	end
 										  	
