@@ -1,0 +1,490 @@
+{
+  "results": [
+  {
+    "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-australia",
+    "title": "UK Trade & Investment Australia",
+    "format": "Worldwide Organisation",
+    "updated_at": "2013-04-10T13:51:59+01:00",
+    "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-australia",
+    "details": {
+      "slug": "uk-trade-investment-australia",
+      "summary": "UK Trade & Investment (UKTI) helps UK-based companies succeed in the global economy. We also help overseas companies bring their high-quality investment to the UK’s dynamic economy.",
+      "description": "<div class=\"govspeak\"><p>UKTI offers expertise and contacts through its extensive network of specialists in the UK, and in British embassies and other diplomatic offices around the world. We provide companies with the tools they require to be competitive on the world stage.</p>\n\n<h2 id=\"responsibilities\">Responsibilities</h2>\n\n<p>UKTI in Australia helps companies in Britain increase their competitiveness through overseas trade in Australia. We also offer professional, authoritative and personalised assistance to help companies in Australia locate and expand in the UK.</p>\n\n<p>You can find out more about how we are <a href=\"https://www.gov.uk/government/priority/increasing-business-with-australia\" title=\"GOV.UK website\">increasing business with Australia</a>.</p></div>",
+      "services": "<div class=\"govspeak\"><h2 id=\"start-a-business-in-the-uk\">Start a business in the UK</h2>\n\n<p><abbr title=\"UK Trade &amp; Investment\">UKTI</abbr> offers dedicated, professional, personalised assistance to help you locate and expand your business in the UK, <a rel=\"external\" href=\"http://www.ukti.gov.uk/invest.html?guid=none\" title=\"UKTI website\">read about our investment services</a> or contact our office in Australia to find out more.</p>\n\n<h2 id=\"export-from-the-uk\">Export from the UK</h2>\n\n<p><abbr title=\"UK Trade &amp; Investment\">UKTI</abbr> can assist you on every step of the exporting journey in both the UK and overseas, <a rel=\"external\" href=\"http://www.ukti.gov.uk/export.html\" title=\"UKTI website\">read about our exporting services</a> or contact our office in Australia.</p>\n\n<h2 id=\"events\">Events</h2>\n\n<p><abbr title=\"UK Trade &amp; Investment\">UKTI</abbr> and its partners stage events in the UK and abroad to help companies looking to export. You can <a rel=\"external\" href=\"http://www.ukti.gov.uk/export/eventssearch.html\" title=\"UKTI website\">browse scheduled events and register for alerts</a>.</p>\n\n<h2 id=\"business-opportunities\">Business opportunities</h2>\n\n<p><abbr title=\"UK Trade &amp; Investment\">UKTI</abbr> is always looking to provide an international network of opportunities for UK Companies looking to export. You can <a rel=\"external\" href=\"http://www.ukti.gov.uk/en_gb/export/howwehelp/businessopportunityalerts.html\" title=\"UKTI website\">search these opportunities and register for alerts</a>.</p></div>"
+    },
+    "offices": {
+      "main": {
+        "title": "UK Trade & Investment, Sydney",
+        "format": "World Office",
+        "updated_at": "2013-03-25T10:37:53+00:00",
+        "details": {
+          "email": "",
+          "description": "",
+          "contact_form_url": "",
+          "type": "Other"
+        },
+        "address": {
+          "adr": {
+            "fn": "British Consulate",
+            "street-address": "Level 16, Gateway Building\r\n1 Macquarie Place",
+            "postal-code": "2000",
+            "locality": "Sydney",
+            "region": "New South Wales",
+            "country-name": "Australia"
+          },
+          "label": {
+            "value": "British Consulate\nLevel 16, Gateway Building\r\n1 Macquarie Place\nSydney New South Wales 2000\nAustralia"
+          }
+        },
+        "contact_numbers": [
+        {
+          "label": "Switchboard",
+          "number": "+61 (0) 2 9247 7521 "
+        }
+        ],
+          "services": [ ]
+      },
+      "other": [
+      {
+        "title": "UK Trade & Investment Brisbane",
+        "format": "World Office",
+        "updated_at": "2013-03-25T10:37:53+00:00",
+        "details": {
+          "email": "",
+          "description": "",
+          "contact_form_url": "",
+          "type": "Other"
+        },
+        "address": {
+          "adr": {
+            "fn": "British Consulate",
+            "street-address": "Level 9, 100 Eagle Street",
+            "postal-code": "4000",
+            "locality": "Brisbane",
+            "region": "Queensland",
+            "country-name": "Australia"
+          },
+          "label": {
+            "value": "British Consulate\nLevel 9, 100 Eagle Street\nBrisbane Queensland 4000\nAustralia"
+          }
+        },
+        "contact_numbers": [
+        {
+          "label": "Switchboard",
+          "number": "+61 (0) 7 3223 3200 "
+        }
+        ],
+          "services": [ ]
+      },
+      {
+        "title": "UK Trade & Investment Melbourne",
+        "format": "World Office",
+        "updated_at": "2013-03-25T10:37:53+00:00",
+        "details": {
+          "email": "",
+          "description": "",
+          "contact_form_url": "",
+          "type": "Other"
+        },
+        "address": {
+          "adr": {
+            "fn": "British Consulate",
+            "street-address": "17th Floor, 90 Collins Street",
+            "postal-code": "",
+            "locality": "Melbourne",
+            "region": "Victoria",
+            "country-name": "Australia"
+          },
+          "label": {
+            "value": "British Consulate\n17th Floor, 90 Collins Street\nMelbourne Victoria \nAustralia"
+          }
+        },
+        "contact_numbers": [
+        {
+          "label": "Switchboard",
+          "number": "+61 (0) 3 9652 1600 "
+        }
+        ],
+          "services": [ ]
+      },
+      {
+        "title": "UK Trade & Investment Perth",
+        "format": "World Office",
+        "updated_at": "2013-03-25T10:37:53+00:00",
+        "details": {
+          "email": "",
+          "description": "",
+          "contact_form_url": "",
+          "type": "Other"
+        },
+        "address": {
+          "adr": {
+            "fn": "British Consulate",
+            "street-address": "Level 12, 251 Adelaide Terrace Perth",
+            "postal-code": "",
+            "locality": "Perth",
+            "region": "Western Australia",
+            "country-name": "Australia"
+          },
+          "label": {
+            "value": "British Consulate\nLevel 12, 251 Adelaide Terrace Perth\nPerth Western Australia \nAustralia"
+          }
+        },
+        "contact_numbers": [
+        {
+          "label": "Switchboard",
+          "number": "+61 (0) 8 9224 4700 "
+        }
+        ],
+          "services": [ ]
+      },
+      {
+        "title": "Director of Investment, Australia and New Zealand",
+        "format": "World Office",
+        "updated_at": "2013-03-25T10:37:53+00:00",
+        "details": {
+          "email": "paul.webster@fco.gov.uk ",
+          "description": "",
+          "contact_form_url": "",
+          "type": "Other"
+        },
+        "address": {
+          "adr": {
+            "fn": "Paul Webster",
+            "street-address": "Level 16, Gateway Building\r\n1 Macquarie Place",
+            "postal-code": "2000",
+            "locality": "Sydney",
+            "region": "New South Wales",
+            "country-name": "Australia"
+          },
+          "label": {
+            "value": "Paul Webster\nLevel 16, Gateway Building\r\n1 Macquarie Place\nSydney New South Wales 2000\nAustralia"
+          }
+        },
+        "contact_numbers": [
+        {
+          "label": "Direct line",
+          "number": "+61 (0)2 8247 2234"
+        }
+        ],
+          "services": [ ]
+      },
+      {
+        "title": "Head of Investment New South Wales, ACT and Western Australia",
+        "format": "World Office",
+        "updated_at": "2013-03-25T10:37:53+00:00",
+        "details": {
+          "email": "nicky.vandomburg@fco.gov.uk ",
+          "description": "",
+          "contact_form_url": "",
+          "type": "Other"
+        },
+        "address": {
+          "adr": {
+            "fn": "Nicky van Domburg",
+            "street-address": "Level 16, Gateway Building\r\n1 Macquarie Place",
+            "postal-code": "2000",
+            "locality": "Sydney",
+            "region": "New South Wales",
+            "country-name": "Australia"
+          },
+          "label": {
+            "value": "Nicky van Domburg\nLevel 16, Gateway Building\r\n1 Macquarie Place\nSydney New South Wales 2000\nAustralia"
+          }
+        },
+        "contact_numbers": [
+        {
+          "label": "Direct line",
+          "number": "+61 (0)2 8247 2205"
+        }
+        ],
+          "services": [ ]
+      },
+      {
+        "title": "Head of Investment Victoria, South Australia, Tasmania",
+        "format": "World Office",
+        "updated_at": "2013-03-25T10:37:53+00:00",
+        "details": {
+          "email": "",
+          "description": "",
+          "contact_form_url": "",
+          "type": "Other"
+        },
+        "address": {
+          "adr": {
+            "fn": "Majella Hamilton",
+            "street-address": "17th Floor, 90 Collins Street",
+            "postal-code": "",
+            "locality": "Melbourne",
+            "region": "Victoria",
+            "country-name": "Australia"
+          },
+          "label": {
+            "value": "Majella Hamilton\n17th Floor, 90 Collins Street\nMelbourne Victoria \nAustralia"
+          }
+        },
+        "contact_numbers": [
+        {
+          "label": "Direct line",
+          "number": "+61 (0)3 9652 1621"
+        }
+        ],
+          "services": [ ]
+      },
+      {
+        "title": "Head of Investment Queensland and Northern Territory & Head of Institutional Investment Australia and New Zealand",
+        "format": "World Office",
+        "updated_at": "2013-03-25T10:37:53+00:00",
+        "details": {
+          "email": "craig.o'kane@fco.gov.uk ",
+          "description": "",
+          "contact_form_url": "",
+          "type": "Other"
+        },
+        "address": {
+          "adr": {
+            "fn": "Craig O'Kane",
+            "street-address": "Level 9, 100 Eagle Street\r\n",
+            "postal-code": "4000",
+            "locality": "Brisbane",
+            "region": "Queensland",
+            "country-name": "Australia"
+          },
+          "label": {
+            "value": "Craig O'Kane\nLevel 9, 100 Eagle Street\r\nBrisbane Queensland 4000\nAustralia"
+          }
+        },
+        "contact_numbers": [
+        {
+          "label": "Direct line",
+          "number": "+61 (0)7 3223 3205"
+        }
+        ],
+          "services": [ ]
+      }
+      ]
+    },
+    "sponsors": [
+    {
+      "title": "UK Trade & Investment",
+      "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+      "details": {
+        "acronym": "UKTI"
+      }
+    }
+    ]
+  },
+  {
+    "id": "https://www.gov.uk/api/worldwide-organisations/british-high-commission-canberra",
+    "title": "British High Commission Canberra",
+    "format": "Worldwide Organisation",
+    "updated_at": "2013-03-25T06:21:38+00:00",
+    "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-canberra",
+    "details": {
+      "slug": "british-high-commission-canberra",
+      "summary": "The UK and Australia share a longstanding relationship, as both partners and allies. ",
+      "description": "<div class=\"govspeak\"><p>We represent the British government in its relations with the Australian government and present British policies to the Australian government and to Australians. We report and explain Australian policies to the British government and support British interests as well as co-ordinating the political, economic, environmental and commercial activities of the British government. </p>\n\n<p>We have consulate-generals in Sydney and Melbourne and consulates in Brisbane and Perth. With over one million Britons living in Australia and over 640,000 visiting every year, the consulates support British nationals if they require assistance. </p></div>",
+      "services": "<div class=\"govspeak\"><h2 id=\"visashttpwwwukbahomeofficegovukvisas-immigration-uk-border-agency-website\"><a rel=\"external\" href=\"http://www.ukba.homeoffice.gov.uk/visas-immigration/\" title=\"UK Border Agency website\">Visas</a></h2>\n<p>For information on whether you require a visa for the United Kingdom and how to apply go to the <a rel=\"external\" href=\"http://www.ukba.homeoffice.gov.uk/visas-immigration/\" title=\"UK Border Agency website\">UK Border Agency website</a> </p>\n\n<h2 id=\"births-deaths-and-marriageshttpswwwgovukbrowsebirths-deaths-marriages-births-deaths-and-marriages\"><a href=\"https://www.gov.uk/browse/births-deaths-marriages/\" title=\"Births, deaths and marriages\">Births, deaths and marriages</a></h2>\n<p>Information on how you can register a birth or death which occurred overseas, and legal documents for couples marrying or entering into civil partnerships abroad. </p>\n\n<h2 id=\"passports-and-emergency-travel-documentshttpswwwgovukoverseas-passports-passports-and-emergency-travel-documents\"><a href=\"https://www.gov.uk/overseas-passports/\" title=\"Passports and emergency travel documents\">Passports and emergency travel documents</a></h2>\n<p>How to renew or replace your British passport when visiting the UK and information on getting replacement travel documents if your passport is lost or stolen. </p>\n\n<h2 id=\"travel-advicehttpswwwgovukforeign-travel-adviceaustralia-travel-advice\"><a href=\"https://www.gov.uk/foreign-travel-advice/australia/\" title=\"Travel advice\">Travel advice</a></h2>\n<p>Information on staying safe and avoiding problems when living or travelling abroad, with links to our embassies, high commissions and other diplomatic posts across the world. </p></div>"
+    },
+    "offices": {
+      "main": {
+        "title": "British High Commission Canberra",
+        "format": "World Office",
+        "updated_at": "2013-03-25T10:37:54+00:00",
+        "details": {
+          "email": "",
+          "description": "Opening Hours:\r\nMonday to Friday, 8.45am to 12.30pm/1.30pm to 5.00pm",
+          "contact_form_url": "",
+          "type": "High Commission"
+        },
+        "address": {
+          "adr": {
+            "fn": "High Commissioner: His Excellency Paul Madden",
+            "street-address": "Commonwealth Avenue, Yarralumla",
+            "postal-code": "2600",
+            "locality": "Canberra",
+            "region": "ACT",
+            "country-name": "Australia"
+          },
+          "label": {
+            "value": "High Commissioner: His Excellency Paul Madden\nCommonwealth Avenue, Yarralumla\nCanberra ACT 2600\nAustralia"
+          }
+        },
+        "contact_numbers": [
+        {
+          "label": "Telephone:",
+          "number": "+61 (0)2 6270 6666"
+        }
+        ],
+          "services": [ ]
+      },
+      "other": [
+      {
+        "title": "British Consulate-General Sydney",
+        "format": "World Office",
+        "updated_at": "2013-03-25T10:37:54+00:00",
+        "details": {
+          "email": "",
+          "description": "Opening Hours:\r\nMonday to Friday: 9.00am to 12.30pm/1.30pm to 5.00pm\r\nConsular counter hours:\r\nMonday to Friday 9.00am to 1.00pm\r\nSwitchboard hours:\r\nMonday to Friday 9.00am to 5.00pm",
+          "contact_form_url": "",
+          "type": "Consulate"
+        },
+        "address": {
+          "adr": {
+            "fn": "Consul-General and Director General UK Trade & Investment: Mr Nick McInnes",
+            "street-address": "Level 16, Gateway Building, 1 Macquarie Place",
+            "postal-code": "2000",
+            "locality": "Sydney",
+            "region": "NSW",
+            "country-name": "Australia"
+          },
+          "label": {
+            "value": "Consul-General and Director General UK Trade & Investment: Mr Nick McInnes\nLevel 16, Gateway Building, 1 Macquarie Place\nSydney NSW 2000\nAustralia"
+          }
+        },
+        "contact_numbers": [
+        {
+          "label": "Telephone:",
+          "number": "+61 (0) 9247 7521"
+        }
+        ],
+          "services": [ ]
+      },
+      {
+        "title": "British Consulate-General Melbourne",
+        "format": "World Office",
+        "updated_at": "2013-03-25T10:37:54+00:00",
+        "details": {
+          "email": "",
+          "description": "Opening Hours:\r\nMonday to Friday 9.00am to 5.00pm \r\nPublic counter hours: \r\nMonday to Friday 10.00am to 2.00pm",
+          "contact_form_url": "",
+          "type": "Consulate"
+        },
+        "address": {
+          "adr": {
+            "fn": "Consul-General: Mr Gareth Hoar",
+            "street-address": "17th Floor, 90 Collins St",
+            "postal-code": "3000",
+            "locality": "Melbourne",
+            "region": "VIC",
+            "country-name": "Australia"
+          },
+          "label": {
+            "value": "Consul-General: Mr Gareth Hoar\n17th Floor, 90 Collins St\nMelbourne VIC 3000\nAustralia"
+          }
+        },
+        "contact_numbers": [
+        {
+          "label": "Telephone:",
+          "number": "+61 (0)3 9652 1600"
+        }
+        ],
+          "services": [ ]
+      },
+      {
+        "title": "British Consulate Perth",
+        "format": "World Office",
+        "updated_at": "2013-03-25T10:37:54+00:00",
+        "details": {
+          "email": "",
+          "description": "Opening Hours Mondays to Fridays:\r\nPublic counter hours: 10.00am to 1.00pm\r\nUK Visa (biometric) appointments: 10.00am to 2.00pm\r\nSwitchboard hours: 9.00am to 4.30pm",
+          "contact_form_url": "",
+          "type": "Consulate"
+        },
+        "address": {
+          "adr": {
+            "fn": "Vice Consul and Head of Consular Services: Mr James Frew",
+            "street-address": "Level 12\r\n251 Adelaide Terrace",
+            "postal-code": "6000",
+            "locality": "Perth",
+            "region": "WA",
+            "country-name": "Australia"
+          },
+          "label": {
+            "value": "Vice Consul and Head of Consular Services: Mr James Frew\nLevel 12\r\n251 Adelaide Terrace\nPerth WA 6000\nAustralia"
+          }
+        },
+        "contact_numbers": [
+        {
+          "label": "Telephone:",
+          "number": "+61 (0)8 9224 4700"
+        }
+        ],
+          "services": [
+          {
+            "title": "Emergency Travel Documents service",
+            "type": "Assistance Services"
+          },
+          {
+            "title": "Transferring funds for prisoners / for financial assistance service",
+            "type": "Assistance Services"
+          },
+          {
+            "title": "Marriage or Civil Partnership registrations",
+            "type": "Documentary Services"
+          },
+          {
+            "title": "Citizenship Ceremony service",
+            "type": "Documentary Services"
+          }
+        ]
+      },
+      {
+        "title": "British Consulate Brisbane",
+        "format": "World Office",
+        "updated_at": "2013-03-25T10:37:54+00:00",
+        "details": {
+          "email": "",
+          "description": "Opening Hours Mondays to Fridays:\r\nCounter hours: 10.00am to 3.00pm\r\nSwitchboard hours: 9.30am to 4.30pm",
+          "contact_form_url": "",
+          "type": "Consulate"
+        },
+        "address": {
+          "adr": {
+            "fn": "Vice Consul and Head of Consular Services: Mrs Megan Hunt",
+            "street-address": "Level 9\r\n100 Eagle Street \r\n",
+            "postal-code": "4000",
+            "locality": "Brisbane",
+            "region": "QLD",
+            "country-name": "Australia"
+          },
+          "label": {
+            "value": "Vice Consul and Head of Consular Services: Mrs Megan Hunt\nLevel 9\r\n100 Eagle Street \r\nBrisbane QLD 4000\nAustralia"
+          }
+        },
+        "contact_numbers": [
+        {
+          "label": "Telephone:",
+          "number": "+61 (0)7 3223 3200"
+        }
+        ],
+          "services": [ ]
+      }
+      ]
+    },
+    "sponsors": [
+    {
+      "title": "Foreign & Commonwealth Office",
+      "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+      "details": {
+        "acronym": "FCO"
+      }
+    }
+    ]
+  }
+  ],
+    "current_page": 1,
+    "total": 2,
+    "pages": 1,
+    "page_size": 20,
+    "start_index": 1,
+    "_response_info": {
+      "status": "ok",
+      "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/australia/organisations?page=1",
+        "rel": "self"
+      }
+      ]
+    }
+}
