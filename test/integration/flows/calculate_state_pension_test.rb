@@ -658,22 +658,9 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
               add_response 1
             end
             
-            context "1 year of benefit" do
-              setup do
-                add_response 1
-              end
-
-              should "ask id received child benefit" do
-                assert_current_node :received_child_benefit?
-              end
-
-              context "1 year working or education" do
-                should "show the result" do
-                  add_response 1
-                  assert_current_node :received_child_benefit?
-                end #show result
-              end #years working or education
-            end #years of benefit
+            should "ask if received child benefit" do
+              assert_current_node :received_child_benefit?
+            end
           end #years of jsa
         end #years of NI
       end # years old

@@ -60,7 +60,7 @@ class ChildBenefitTaxCalculatorV2Test < ActiveSupport::TestCase
           add_response 31
         end
         should "give an error" do
-          assert_current_node_is_error
+          assert_current_node :how_many_children_claiming_for?, :error => true
         end
       end
     end
@@ -137,8 +137,7 @@ class ChildBenefitTaxCalculatorV2Test < ActiveSupport::TestCase
 
           should "reject non-numeric values" do
             add_response "foobar"
-            assert_current_node :how_much_pension_contributions_before_tax?
-            assert_current_node_is_error
+            assert_current_node :how_much_pension_contributions_before_tax?, :error => true
           end
 
           context "valid values" do
@@ -156,8 +155,7 @@ class ChildBenefitTaxCalculatorV2Test < ActiveSupport::TestCase
 
             should "reject non-numeric values" do
               add_response "foobar"
-              assert_current_node :how_much_pension_contributions_claimed_back_by_provider?
-              assert_current_node_is_error
+              assert_current_node :how_much_pension_contributions_claimed_back_by_provider?, :error => true
             end
 
             should "store your net pension contributions" do
@@ -188,8 +186,7 @@ class ChildBenefitTaxCalculatorV2Test < ActiveSupport::TestCase
 
           should "reject non-numeric values" do
             add_response "foobar"
-            assert_current_node :how_much_interest_from_savings_and_investments?
-            assert_current_node_is_error
+            assert_current_node :how_much_interest_from_savings_and_investments?, :error => true
           end
 
           context "valid net savings interest" do
@@ -234,14 +231,12 @@ class ChildBenefitTaxCalculatorV2Test < ActiveSupport::TestCase
 
               should "reject non-numeric values" do
                 add_response "foobarbaz"
-                assert_current_node :how_many_children_claiming_for?
-                assert_current_node_is_error
+                assert_current_node :how_many_children_claiming_for?, :error => true
               end
 
               should "reject non-integer values" do
                 add_response "4.3"
-                assert_current_node :how_many_children_claiming_for?
-                assert_current_node_is_error
+                assert_current_node :how_many_children_claiming_for?, :error => true
               end
 
               context "values = 0" do
@@ -256,16 +251,14 @@ class ChildBenefitTaxCalculatorV2Test < ActiveSupport::TestCase
                 should "reject 0 children when not starting or stopping this tax year" do
                   add_response :no
 
-                  assert_current_node :do_you_expect_to_start_or_stop_claiming?
-                  assert_current_node_is_error
+                  assert_current_node :do_you_expect_to_start_or_stop_claiming?, :error => true
                 end
 
                 should "reject 0 children with 0 children starting this year" do
                   add_response :yes
                   add_response "0"
 
-                  assert_current_node :how_many_children_to_start_claiming?
-                  assert_current_node_is_error
+                  assert_current_node :how_many_children_to_start_claiming?, :error => true
                 end
               end
 
@@ -324,20 +317,17 @@ class ChildBenefitTaxCalculatorV2Test < ActiveSupport::TestCase
 
                   should "reject non-numeric values" do
                     add_response "foobarbaz"
-                    assert_current_node :how_many_children_to_start_claiming?
-                    assert_current_node_is_error
+                    assert_current_node :how_many_children_to_start_claiming?, :error => true
                   end
 
                   should "reject < 0" do
                     add_response "-1"
-                    assert_current_node :how_many_children_to_start_claiming?
-                    assert_current_node_is_error
+                    assert_current_node :how_many_children_to_start_claiming?, :error => true
                   end
 
                   should "reject > 9" do
                     add_response "10"
-                    assert_current_node :how_many_children_to_start_claiming?
-                    assert_current_node_is_error
+                    assert_current_node :how_many_children_to_start_claiming?, :error => true
                   end
 
                   context "2 children starting" do
@@ -351,8 +341,7 @@ class ChildBenefitTaxCalculatorV2Test < ActiveSupport::TestCase
 
                     should "reject a date outside of the current tax year" do
                       add_response "2013-11-05"
-                      assert_current_node :when_will_the_1st_child_enter_the_household?
-                      assert_current_node_is_error
+                      assert_current_node :when_will_the_1st_child_enter_the_household?, :error => true
                     end
 
                     context "valid first child date" do
@@ -393,14 +382,12 @@ class ChildBenefitTaxCalculatorV2Test < ActiveSupport::TestCase
 
                             should "reject > number of children" do
                               add_response "6"
-                              assert_current_node :how_many_children_to_stop_claiming?
-                              assert_current_node_is_error
+                              assert_current_node :how_many_children_to_stop_claiming?, :error => true
                             end
 
                             should "reject non-numeric values" do
                               add_response "foobar"
-                              assert_current_node :how_many_children_to_stop_claiming?
-                              assert_current_node_is_error
+                              assert_current_node :how_many_children_to_stop_claiming?, :error => true
                             end
 
                             context "no children stopping" do
@@ -443,8 +430,7 @@ class ChildBenefitTaxCalculatorV2Test < ActiveSupport::TestCase
 
                               should "reject a date outside of the current tax year" do
                                 add_response "2014-01-10" do
-                                  assert_current_node :when_do_you_expect_to_stop_claiming_for_the_1st_child?
-                                  assert_current_node_is_error
+                                  assert_current_node :when_do_you_expect_to_stop_claiming_for_the_1st_child?, :error => true
                                 end
                               end
 
@@ -540,8 +526,7 @@ class ChildBenefitTaxCalculatorV2Test < ActiveSupport::TestCase
             context "leaving on May 1st, 2013" do
               should "raise an error" do
                 add_response "2013-05-01"
-                assert_current_node :will_the_1st_child_leave_the_household_this_year?
-                assert_current_node_is_error
+                assert_current_node :will_the_1st_child_leave_the_household_this_year?, :error => true
               end
             end
 

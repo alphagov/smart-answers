@@ -92,8 +92,7 @@ class CalculateStatutorySickPayV2Test < ActiveSupport::TestCase
                     end
 
                     should "raise error" do
-                      assert_current_node :last_payday_before_sickness?
-                      assert_current_node_is_error
+                      assert_current_node :last_payday_before_sickness?, :error => true
                     end
                   end
 
