@@ -18,7 +18,8 @@ require 'mocha/setup'
 require 'webmock/minitest'
 
 class MiniTest::Unit::TestCase
-  def teardown
+  def after_teardown
+    super
     Timecop.return
   end
 end
