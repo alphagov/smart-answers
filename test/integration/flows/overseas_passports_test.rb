@@ -16,6 +16,10 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     setup do
       add_response 'australia'
     end
+    should "calculate commonly used passport costs" do
+      assert_match /^[\d,]+ Euros \| [\d,]+ Euros$/, current_state.costs_euros_adult_32
+      assert_match /^[\d,]+ South African Rand \| [\d,]+ South African Rand$/, current_state.costs_south_african_rand_adult_32
+    end
     should "ask if you are renewing, replacing or applying for a passport" do
       assert_current_node :renewing_replacing_applying?
       assert_state_variable :current_location, 'australia'
@@ -188,7 +192,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           assert_phrase_list :making_application, [:making_application_afghanistan]
           assert_phrase_list :getting_your_passport, [:getting_your_passport_afghanistan]
           assert_match /15th Street, Roundabout Wazir Akbar Khan/, current_state.embassy_address
-          assert_match /0830-1630 \(Sunday to Thursday\)/, current_state.embassy_address
+          assert_match /Passport opening hours:/, current_state.embassy_address
           assert_phrase_list :helpline, [:helpline_intro, :helpline_afghanistan]
           assert_current_node :result
         end
@@ -219,7 +223,8 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           assert_phrase_list :fco_forms, [:adult_fco_forms]
           assert_phrase_list :how_long_it_takes, [:how_long_iraq]
           assert_phrase_list :cost, [:cost_iraq]
-          assert_phrase_list :how_to_apply, [:how_to_apply_iraq, :iraq_first_passport_documents]
+          assert_phrase_list :how_to_apply, [:how_to_apply_iraq]
+          assert_phrase_list :supporting_documents, [:supporting_documents_iraq_applying]
           assert_phrase_list :making_application, [:making_application_iraq]
           assert_phrase_list :getting_your_passport, [:getting_your_passport_iraq]
           assert_match /British Embassy, Baghdad/, current_state.embassy_address
@@ -520,6 +525,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       assert_current_node :fco_result
       assert_phrase_list :how_to_apply_supplement, [:how_to_apply_dublin_ireland]
+      assert_phrase_list :helpline, [:helpline_dublin_ireland, :helpline_fco_webchat]
     end
   end # Ireland (FCO with custom phrases)
   context "answer India, replacement, adult passport" do
@@ -569,15 +575,34 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_phrase_list :cost, [:passport_courier_costs_fco_europe, :adult_passport_costs_fco_europe, :passport_costs_malta_netherlands]
     end
   end # Malta (FCO with custom phrases)
+  context "answer Italy, replacement, adult passport" do
+    should "give the fco result with custom phrases" do
+      add_response 'italy'
+      add_response 'replacing'
+      add_response 'adult'
+      assert_current_node :fco_result
+      assert_phrase_list :cost, [:passport_courier_costs_fco_europe, :adult_passport_costs_fco_europe, :passport_costs_france_italy_switz]
+    end
+  end # Italy (FCO with custom phrases)
   context "answer Egypt, replacement, adult passport" do
     should "give the fco result with custom phrases" do
       add_response 'egypt'
       add_response 'replacing'
       add_response 'adult'
       assert_phrase_list :getting_your_passport, [:getting_your_passport_egypt]
+      assert_state_variable :supporting_documents, ''
       assert_current_node :fco_result
     end
   end # Egypt (FCO with custom phrases)
+  context "answer Jordan, replacement, adult passport" do
+    should "give the fco result with custom phrases" do
+      add_response 'jordan'
+      add_response 'applying'
+      add_response 'adult'
+      assert_phrase_list :supporting_documents, [:supporting_documents_jordan_applying]
+      assert_current_node :fco_result
+    end
+  end # Jordan (FCO with custom phrases)
   context "answer Iran" do
     should "give a bespoke outcome stating an application is not possible in Iran" do
       add_response 'iran'

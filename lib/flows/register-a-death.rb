@@ -43,16 +43,16 @@ multiple_choice :was_death_expected? do
   end
 end
 # Q4
-country_select :which_country? do
+country_select :which_country?, :use_legacy_data => true do
   save_input_as :country
   calculate :country_name do
-    SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == responses.last }[:name]
+    LegacyCountry.all.find { |c| c.slug == responses.last }.name
   end
   calculate :current_location do
     data_query.registration_country_slug(responses.last) || responses.last 
   end
   calculate :current_location_name do
-    SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == current_location }[:name]
+    LegacyCountry.all.find { |c| c.slug == current_location }.name
   end
   next_node do |response|
     if data_query.commonwealth_country?(response)
@@ -75,11 +75,11 @@ multiple_choice :where_are_you_now? do
   end
 end
 # Q6
-country_select :which_country_are_you_in_now? do
+country_select :which_country_are_you_in_now?, :use_legacy_data => true do
   save_input_as :current_location
   calculate :current_location_name do
     country_slug = data_query.registration_country_slug(responses.last)
-    SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == country_slug }[:name]
+    LegacyCountry.all.find { |c| c.slug == country_slug }.name
   end
   next_node :embassy_result
 end

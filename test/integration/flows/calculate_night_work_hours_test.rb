@@ -94,7 +94,7 @@ class CalculateNightWorkHoursTest < ActiveSupport::TestCase
             context "54 weeks" do
               should "error" do
                 add_response "54"
-                assert_current_node :reference_period?
+                assert_current_node :reference_period?, :error => true
               end
             end
 

@@ -4,7 +4,7 @@ i18n_prefix = "flow.overseas-passports"
 data_query = Calculators::PassportAndEmbassyDataQuery.new 
 
 # Q1
-country_select :which_country_are_you_in? do
+country_select :which_country_are_you_in?, :use_legacy_data => true do
   save_input_as :current_location
 
   calculate :passport_data do
@@ -59,6 +59,12 @@ country_select :which_country_are_you_in? do
     passport_data['group']
   end
 
+  data_query.passport_costs.each do |k,v|
+    calculate "costs_#{k}".to_sym do 
+      v
+    end
+  end
+
   next_node do |response|
     if Calculators::PassportAndEmbassyDataQuery::NO_APPLICATION_REGEXP.match(response)
       :cannot_apply
@@ -110,7 +116,7 @@ multiple_choice :child_or_adult_passport? do
 end
 
 # Q4
-country_select :country_of_birth?, include_uk: true do
+country_select :country_of_birth?, include_uk: true, :use_legacy_data => true do
   save_input_as :birth_location
 
   calculate :application_group do
@@ -279,6 +285,8 @@ outcome :fco_result do
     payment_methods = :"passport_costs_#{application_type}"
     # Malta and Netherlands have custom payment methods
     payment_methods = :passport_costs_malta_netherlands if current_location =~ /^(malta|netherlands)$/
+    # Italy, Switzerland and France have custom payment methods
+    payment_methods = :passport_costs_france_italy_switz if %w{france italy switzerland}.include?(current_location)
     payment_methods = :"passport_costs_#{current_location}" if %w{jamaica jordan}.include?(current_location)
 
     # Indonesian first time applications have courier and cost variations.
@@ -293,7 +301,7 @@ outcome :fco_result do
   end
 
   precalculate :how_to_apply_supplement do
-    if application_type =~ /^(dublin_ireland|india)$/
+    if %w(dublin_ireland india).include?(application_type)
       PhraseList.new(:"how_to_apply_#{application_type}")
     elsif general_action == 'renewing' and data_query.retain_passport?(current_location)
       PhraseList.new(:how_to_apply_retain_passport)
@@ -302,11 +310,17 @@ outcome :fco_result do
     end
   end
 
+  precalculate :supporting_documents do
+    if application_action == 'applying' and current_location == 'jordan'
+      PhraseList.new(:supporting_documents_jordan_applying)
+    else
+      ''
+    end
+  end
+
   precalculate :send_your_application do
     phrases = PhraseList.new
-    if current_location == 'indonesia' and %w{applying replacing}.include?(application_action)
-      phrases << :send_application_indonesia_applying
-    elsif current_location =~ /^(indonesia|jamaica|jordan|south-africa)$/
+    if current_location =~ /^(indonesia|jamaica|jordan|south-africa)$/
       phrases << :"send_application_#{current_location}"
     else
       phrases << :send_application_fco_preamble
@@ -321,7 +335,7 @@ outcome :fco_result do
   end
   precalculate :helpline do
     phrases = PhraseList.new(:"helpline_#{application_type}")
-    if %w{dublin_ireland wellington_new_zealand pretoria_south_africa washington_usa}.include?(application_type)
+    unless %w{madrid_spain paris_france}.include?(application_type)
       phrases << :helpline_fco_webchat
     end
     phrases
@@ -354,15 +368,11 @@ outcome :result do
     if general_action == 'renewing' and data_query.retain_passport?(current_location)
       phrases << :how_to_apply_retain_passport 
     end
-    if %w{yemen iraq}.include?(application_type) and application_action == 'applying'
-      phrases << :"#{application_type}_first_passport_documents"
-    end
-
     phrases
   end
   precalculate :supporting_documents do
     phrase = ['supporting_documents', application_type]
-    phrase << general_action if application_type == 'nairobi_kenya'
+    phrase << general_action if %w(iraq nairobi_kenya yemen zambia).include?(application_type)
     PhraseList.new(phrase.join('_').to_sym)
   end
   precalculate :making_application do

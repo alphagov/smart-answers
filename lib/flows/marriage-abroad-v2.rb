@@ -8,18 +8,36 @@ reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
 i18n_prefix = 'flow.marriage-abroad-v2'
 
 # Q1
-country_select :country_of_ceremony? do
+country_select :country_of_ceremony?, :use_legacy_data => true do
   save_input_as :ceremony_country
 
   calculate :ceremony_country_name do
-    SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == responses.last }[:name]
+    LegacyCountry.all.find { |c| c.slug == responses.last }.name
   end
   calculate :country_name_lowercase_prefix do
     case ceremony_country
     when 'bahamas','british-virgin-islands','cayman-islands','czech-republic','dominican-republic','falkland-islands','gambia','maldives','marshall-islands','philippines','russian-federation','seychelles','solomon-islands','south-georgia-and-south-sandwich-islands','turks-and-caicos-islands','united-states'
       "the #{ceremony_country_name}"
+    when 'congo-(democratic-republic)'
+      "Democratic Republic of Congo"
+    when 'cote-d_ivoire-(ivory-coast)'
+      "Cote d Ivoire"
+    when 'dominica,-commonwealth-of'
+      "Dominica"
+    when 'hong-kong-(sar-of-china)'
+      "Hong Kong"
+    when 'pitcairn'
+      "Pitcairn Island"
+    when "russian-federation"
+      "Russia"
     when 'korea'
-      "South #{ceremony_country_name}"
+      "South Korea"
+    when 'st-helena'
+      "St Helena"
+    when 'tristan-da-cunha'
+      "Tristan da Cunha"
+    when 'united-states'
+      "USA"
     else
       "#{ceremony_country_name}"
     end
@@ -28,10 +46,56 @@ country_select :country_of_ceremony? do
     case ceremony_country
     when 'bahamas','british-virgin-islands','cayman-islands','czech-republic','dominican-republic','falkland-islands','gambia','maldives','marshall-islands','philippines','russian-federation','seychelles','solomon-islands','south-georgia-and-south-sandwich-islands','turks-and-caicos-islands','united-states'
       "The #{ceremony_country_name}"
+    when 'congo-(democratic-republic)'
+      "Democratic Republic of Congo"
+    when 'cote-d_ivoire-(ivory-coast)'
+      "Cote d Ivoire"
+    when 'dominica,-commonwealth-of'
+      "Dominica"
+    when 'hong-kong-(sar-of-china)'
+      "Hong Kong"
+    when 'pitcairn'
+      "Pitcairn Island"
+    when "russian-federation"
+      "Russia"
     when 'korea'
-      "South #{ceremony_country_name}"
+      "South Korea"
+    when 'st-helena'
+      "St Helena"
+    when 'tristan-da-cunha'
+      "Tristan da Cunha"
+    when 'united-states'
+      "USA"
     else
       "#{ceremony_country_name}"
+    end
+  end
+  calculate :country_name_for_links do
+    case ceremony_country
+    when 'ascension-island'
+      "st-helena-ascension-and-tristan-da-cunha"
+    when 'congo-(democratic-republic)'
+      "democratic-republic-of-congo"
+    when 'cote-d_ivoire-(ivory-coast)'
+      "cote-d-ivoire"
+    when 'dominica,-commonwealth-of'
+      "dominica"
+    when 'hong-kong-(sar-of-china)'
+      "hong-kong"
+    when 'pitcairn'
+      "pitcairn-island"
+    when "russian-federation"
+      "russia"
+    when 'korea'
+      "south-korea"
+    when 'st-helena'
+      "st-helena-ascension-and-tristan-da-cunha"
+    when 'tristan-da-cunha'
+      "st-helena-ascension-and-tristan-da-cunha"
+    when 'united-states'
+      "usa"
+    else
+      "#{ceremony_country}"
     end
   end
   calculate :country_name_partner_residence do
@@ -121,11 +185,11 @@ multiple_choice :residency_uk? do
 end
 
 # Q3b
-country_select :residency_nonuk? do
+country_select :residency_nonuk?, :use_legacy_data => true do
   save_input_as :residency_country
 
   calculate :residency_country_name do
-    SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == responses.last }[:name]
+    LegacyCountry.all.find { |c| c.slug == responses.last }.name
   end
   calculate :residency_embassy_address do
     data = data_query.find_embassy_data(residency_country)

@@ -351,8 +351,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
 
     should "be invalid if <= 0 entered" do
       add_response '0.0'
-      assert_current_node_is_error
-      assert_current_node :casual_or_irregular_hours?
+      assert_current_node :casual_or_irregular_hours?, :error => true
     end
 
     should "calculate and be done with a response" do
@@ -382,8 +381,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
 
     should "be invalid if <= 0 entered" do
       add_response '0.0'
-      assert_current_node_is_error
-      assert_current_node :annualised_hours?
+      assert_current_node :annualised_hours?, :error => true
     end
 
     should "calculate and be done with a response" do
@@ -415,14 +413,12 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
 
     should "be invalid if <= 0 hours per week" do
       add_response '0.0'
-      assert_current_node_is_error
-      assert_current_node :compressed_hours_how_many_hours_per_week?
+      assert_current_node :compressed_hours_how_many_hours_per_week?, :error => true
     end
 
     should "be invalid if more than 168 hours per week" do
       add_response '168.1'
-      assert_current_node_is_error
-      assert_current_node :compressed_hours_how_many_hours_per_week?
+      assert_current_node :compressed_hours_how_many_hours_per_week?, :error => true
     end
 
     should "ask how many days per week you work" do
@@ -433,15 +429,13 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     should "be invalid with less than 1 day per week" do
       add_response '20'
       add_response '0'
-      assert_current_node_is_error
-      assert_current_node :compressed_hours_how_many_days_per_week?
+      assert_current_node :compressed_hours_how_many_days_per_week?, :error => true
     end
 
     should "be invalid with more than 7 days per week" do
       add_response '20'
       add_response '8'
-      assert_current_node_is_error
-      assert_current_node :compressed_hours_how_many_days_per_week?
+      assert_current_node :compressed_hours_how_many_days_per_week?, :error => true
     end
 
     should "calculate and be done with hours and days entered" do

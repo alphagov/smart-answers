@@ -24,14 +24,12 @@ class PIPCheckerTest < ActiveSupport::TestCase
 
     should "error with an invalid postcode" do
       add_response 'ABCDEF'
-      assert_current_node :what_is_your_post_code?
-      assert_current_node_is_error
+      assert_current_node :what_is_your_post_code?, :error => true
     end
 
     should "error with a partial postcode" do
       add_response 'WC1'
-      assert_current_node :what_is_your_post_code?
-      assert_current_node_is_error
+      assert_current_node :what_is_your_post_code?, :error => true
     end
 
     context "with a postcode in the selected area" do
