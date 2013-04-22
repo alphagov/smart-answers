@@ -5,15 +5,29 @@ class WorldLocationTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   context "loading all locations" do
-    setup do
+    should "load locations and construct an instance for each one" do
       @location_slugs = %w(the-shire rivendel rohan lorien gondor arnor mordor)
       worldwide_api_has_locations(@location_slugs)
-    end
 
-    should "load locations and construct an instance for each one" do
       results = WorldLocation.all
       assert results.first.is_a?(WorldLocation)
       assert_equal @location_slugs, results.map(&:slug)
+    end
+
+    should "load multiple pages of locations" do
+      @location_slugs = (1..30).map {|n| "location-#{n}" }
+      worldwide_api_has_locations(@location_slugs)
+
+      results = WorldLocation.all
+      assert_equal @location_slugs, results.map(&:slug)
+    end
+
+    should "filter out any results that aren't locations" do
+      @location_slugs = %w(the-shire rivendel rohan delegation-to-lorien gondor arnor mordor)
+      worldwide_api_has_locations(@location_slugs)
+
+      results = WorldLocation.all
+      assert_equal %w(the-shire rivendel rohan gondor arnor mordor), results.map(&:slug)
     end
   end
 

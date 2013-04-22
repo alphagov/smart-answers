@@ -5,9 +5,9 @@ class WorldLocation
   extend GdsApi::Helpers
 
   def self.all
-    worldwide_api.world_locations.map do |l|
-      new(l)
-    end
+    worldwide_api.world_locations.with_subsequent_pages.map do |l|
+      new(l) if l.format == "World location"
+    end.compact
   end
 
   def self.find(location_slug)
