@@ -59,6 +59,12 @@ country_select :which_country_are_you_in? do
     passport_data['group']
   end
 
+  data_query.passport_costs.each do |k,v|
+    calculate "costs_#{k}".to_sym do 
+      v
+    end
+  end
+
   next_node do |response|
     if Calculators::PassportAndEmbassyDataQuery::NO_APPLICATION_REGEXP.match(response)
       :cannot_apply

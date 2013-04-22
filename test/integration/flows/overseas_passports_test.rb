@@ -16,6 +16,10 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     setup do
       add_response 'australia'
     end
+    should "calculate commonly used passport costs" do
+      assert_match /^[\d,]+ Euros \| [\d,]+ Euros$/, current_state.costs_euros_adult_32
+      assert_match /^[\d,]+ South African Rand \| [\d,]+ South African Rand$/, current_state.costs_south_african_rand_adult_32
+    end
     should "ask if you are renewing, replacing or applying for a passport" do
       assert_current_node :renewing_replacing_applying?
       assert_state_variable :current_location, 'australia'
