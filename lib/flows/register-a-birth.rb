@@ -18,10 +18,10 @@ country_select :country_of_birth? do
     reg_data_query.registration_country_slug(responses.last)
   end
   calculate :country_of_birth_name do
-    SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == responses.last }[:name]
+    LegacyCountry.all.find { |c| c.slug == responses.last }.name
   end
   calculate :registration_country_name do
-    SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == registration_country }[:name]
+    LegacyCountry.all.find { |c| c.slug == registration_country }.name
   end
 
   next_node do |response|
@@ -102,7 +102,7 @@ country_select :which_country? do
     reg_data_query.registration_country_slug(responses.last)
   end
   calculate :registration_country_name do
-    SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == registration_country }[:name]
+    LegacyCountry.all.find { |c| c.slug == registration_country }.name
   end
 
   next_node do |response| 

@@ -8,7 +8,7 @@ country_select :choose_embassy_country do
   save_input_as :embassy_country
 
   calculate :embassy_country_name do
-    SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == responses.last }[:name]
+    LegacyCountry.all.find { |c| c.slug == responses.last }.name
   end
   calculate :country_name_lowercase_prefix do
     case embassy_country

@@ -24,10 +24,6 @@ module SmartAnswer
       def valid_option?(option)
         options.map{|v| v.slug}.include? (option.to_s)
       end
-
-      def self.countries
-        LegacyCountry.all
-      end
     end
   end
 end

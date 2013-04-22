@@ -12,7 +12,7 @@ country_select :country_of_ceremony? do
   save_input_as :ceremony_country
 
   calculate :ceremony_country_name do
-    SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == responses.last }[:name]
+    LegacyCountry.all.find { |c| c.slug == responses.last }.name
   end
   calculate :country_name_lowercase_prefix do
     case ceremony_country
@@ -189,7 +189,7 @@ country_select :residency_nonuk? do
   save_input_as :residency_country
 
   calculate :residency_country_name do
-    SmartAnswer::Question::CountrySelect.countries.find { |c| c[:slug] == responses.last }[:name]
+    LegacyCountry.all.find { |c| c.slug == responses.last }.name
   end
   calculate :residency_embassy_address do
     data = data_query.find_embassy_data(residency_country)
