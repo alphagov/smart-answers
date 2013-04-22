@@ -44,7 +44,7 @@ class FlowTest < ActiveSupport::TestCase
 
     assert_equal 1, s.nodes.size
     assert_equal 1, s.questions.size
-    assert_equal "afghanistan", s.questions.first.country_list.first[:slug]
+    assert_equal "afghanistan", s.questions.first.country_list.first.slug
   end
 
   test "Can build date question nodes" do

@@ -14,23 +14,19 @@ module SmartAnswer
       def country_list
         @countries ||= begin
           if @include_uk
-            self.class.countries
+            LegacyCountry.all
           else
-            self.class.countries.reject {|c| c[:slug] == 'united-kingdom' }
+            LegacyCountry.all.reject {|c| c.slug == 'united-kingdom' }
           end
         end
       end
 
       def valid_option?(option)
-        options.map{|v| v[:slug]}.include? (option.to_s)
-      end
-
-      def to_response(input)
-        country_list.find { |el| el[:slug] == input }
+        options.map{|v| v.slug}.include? (option.to_s)
       end
 
       def self.countries
-        @countries ||= YAML.load_file(Rails.root.join('lib', 'data', 'countries.yml'))
+        LegacyCountry.all
       end
     end
   end
