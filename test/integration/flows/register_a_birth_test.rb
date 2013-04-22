@@ -139,9 +139,9 @@ class RegisterABirthTest < ActiveSupport::TestCase
               assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
               assert_state_variable :registration_country_name, "United States"
               assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
-              assert_phrase_list :go_to_the_embassy, [:registering_clickbooks, :registering_either_parent]
-              assert_state_variable :multiple_clickbooks, true
-              assert_match /Book an appointment in New York/, current_state.clickbook
+              assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
+              assert_phrase_list :go_to_the_embassy, [:registering_clickbook, :registering_either_parent]
+              assert_state_variable :clickbook_data, 'http://www.britishembassydc.clickbook.net/'
               assert_state_variable :postal_form_url, nil
               assert_phrase_list :postal, [:"postal_info_united-states"]
               assert_match /3100 Massachusetts Ave, NW/, current_state.embassy_details
@@ -168,6 +168,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_state_variable :registration_country_name, "Afghanistan"
       assert_state_variable :british_national_parent, 'mother_and_father'
       assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
+      assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
       assert_phrase_list :go_to_the_embassy, [:registering_all, :registering_either_parent]
       assert_state_variable :postal_form_url, nil 
       assert_state_variable :postal, ""
@@ -191,6 +192,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "same_country"
       assert_current_node :embassy_result
       assert_state_variable :british_national_parent, 'mother_and_father'
+      assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
       assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_taiwan]
     end
   end # Taiwan
@@ -226,9 +228,36 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_current_node :embassy_result
       assert_state_variable :british_national_parent, 'father'
       assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
+      assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
       assert_phrase_list :go_to_the_embassy, [:registering_clickbook, :registering_paternity_declaration]
     end # Not married or CP
   end # Belize
+  context "answer Libya" do
+    should "give the embassy result" do
+      add_response "libya"
+      add_response "father"
+      add_response "yes"
+      add_response "same_country"
+      assert_current_node :embassy_result
+      assert_state_variable :british_national_parent, 'father'
+      assert_phrase_list :fees_for_consular_services, [:consular_service_fees_libya]
+      assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
+      assert_phrase_list :go_to_the_embassy, [:registering_all, :registering_either_parent]
+    end # Not married or CP
+  end # Libya
+  context "answer Hong Kong" do
+    should "give the embassy result" do
+      add_response "hong-kong-(sar-of-china)"
+      add_response "father"
+      add_response "yes"
+      add_response "same_country"
+      assert_current_node :embassy_result
+      assert_state_variable :british_national_parent, 'father'
+      assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
+      assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
+      assert_phrase_list :go_to_the_embassy, [:registering_hong_kong, :registering_either_parent]
+    end # Not married or CP
+  end # Libya
 
   context "el-salvador, where you have to register in guatemala" do
     setup do
@@ -239,6 +268,27 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_state_variable :registration_country, "guatemala"
       assert_state_variable :registration_country_name, "Guatemala"
     end
-
   end
+
+  context "laos, where you have to register in thailand" do
+    setup do
+      add_response "laos"
+    end
+    should "calculate the registration country as Thailand" do
+      assert_state_variable :registration_country, "thailand"
+      assert_state_variable :registration_country_name, "Thailand"
+    end
+  end
+  context "maldives, where you have to register in sri lanka" do
+    setup do
+      add_response "maldives"
+    end
+    should "calculate the registration country as Sri Lanka" do
+      assert_state_variable :registration_country, "sri-lanka"
+      assert_state_variable :registration_country_name, "Sri Lanka"
+    end
+  end
+
+
+
 end

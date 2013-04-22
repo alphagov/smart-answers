@@ -171,6 +171,8 @@ en-GB:
 
         registering_all: |
           Book an appointment at the %{embassy_high_commission_or_consulate} and bring the registration form, supporting documents and the fee. 
+        registering_hong_kong: |
+          Bring the registration form, supporting documents and the fee.
         registering_clickbooks: |
           Book an appointment online at the British embassy or consulate in:
 
@@ -183,6 +185,10 @@ en-GB:
           [Book an appointment online](%{clickbook_data} "Book an appointment at the British Embassy") at the %{embassy_high_commission_or_consulate}.
 
           Bring the registration form, supporting documents and the fee.
+        consular_service_fees: |
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees "Consular fees").
+        consular_service_fees_libya: |
+          You can only pay fees for consular services in cash in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees "Consular fees").
         registering_either_parent: |
           Either parent can register the birth.
         registering_paternity_declaration: |
@@ -243,8 +249,6 @@ en-GB:
           Register a birth | £105
           Copy of a birth registration certificate | £65
 
-
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees "Consular fees").
 
           You can order copies of the registration certificate from the %{embassy_high_commission_or_consulate} when you register the birth.
 

@@ -14,9 +14,9 @@ module SmartAnswer::Calculators
       papua-new-guinea seychelles sierra-leone singapore solomon-islands sri-lanka
       tanzania trinidad-and-tobago uganda
     )
-    COUNTRIES_WITH_CONSULATES = %w(brazil china colombia israel russian-federation turkey)
+    COUNTRIES_WITH_CONSULATES = %w(china colombia israel russian-federation turkey)
 
-    COUNTRIES_WITH_CONSULATE_GENERALS = %(belgium germany hong-kong-(sar-of-china) indonesia)
+    COUNTRIES_WITH_CONSULATE_GENERALS = %(belgium brazil germany hong-kong-(sar-of-china) indonesia)
 
     CASH_ONLY_COUNTRIES = %w(armenia bosnia-and-herzegovina botswana brunei cambodia
       czech-republic estonia hungary iceland kazakhstan latvia luxembourg poland slovenia
