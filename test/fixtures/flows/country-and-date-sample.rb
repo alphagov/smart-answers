@@ -1,6 +1,6 @@
 status :draft
 
-country_select :which_country_do_you_live_in? do
+country_select :which_country_do_you_live_in?, :use_legacy_data => true do
   save_input_as :country
   next_node :what_date_did_you_move_there?
 end

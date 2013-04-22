@@ -42,7 +42,7 @@ multiple_choice :where_was_the_passport_lost? do
   save_input_as :location
 end
 
-country_select :which_country? do
+country_select :which_country?, :use_legacy_data => true do
   save_input_as :country
 
   calculate :country_name do
