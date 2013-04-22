@@ -87,8 +87,7 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
         should "not raise error if given nil" do
           # add_response converts to string, we explicitly want to test nil here
           @responses << nil
-          assert_current_node :how_many_other_children_in_payees_household?
-          assert_current_node_is_error
+          assert_current_node :how_many_other_children_in_payees_household?, :error => true
         end
       
         context "answer 3" do
