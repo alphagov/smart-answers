@@ -63,7 +63,7 @@ en-GB:
         documents_you_must_provide_taiwan: |
           You and the other parent must provide:
 
-          - both Chinese and English versions of your child’s birth certificate (most hospitals in Taipei issue English versions, otherwise the Chinese version must be translated and certified)
+          - both Chinese and English versions of your child’s birth certificate (most hospitals in Taipei issue English versions, otherwise the Chinese version must be [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers "Find a translator abroad") and certified)
           - your child’s local birth certificate
           - your British birth certificates (long version) showing details of your parents
           - a naturalisation or registration certificate (if either of you were not born in the UK)
@@ -136,7 +136,7 @@ en-GB:
           - your school leaving certificates
           - family photographs
 
-          Translated versions of Urdu documents should also be provided.
+          [Translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers "Find a translator abroad") versions of Urdu documents should also be provided.
         documents_you_must_provide_bangladesh: |
           You and the other parent must provide:
 
@@ -250,7 +250,7 @@ en-GB:
 
           Cheaper copies will be available from the [General Register Office](http://www.gro.gov.uk/ "General Register Office"){:rel="external"} in the UK, but not until September the year after you register.
 
-          ##Go to the embassy
+          ##Go to the %{embassy_high_commission_or_consulate}
           
           %{go_to_the_embassy}
 
@@ -349,4 +349,4 @@ en-GB:
 
           You can’t currently register the birth with the UK authorities.
 
-          The local birth certificate, with a certified translation, should be acceptable for all purposes in the UK. You can apply for registration at any time in the future - check [travel advice](/foreign-travel-advice) to find out if consular services have reopened in %{country_of_birth_name}.  
+          The local birth certificate, with a [certified translation](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers "Find a translator abroad"), should be acceptable for all purposes in the UK. You can apply for registration at any time in the future - check [travel advice](/foreign-travel-advice) to find out if consular services have reopened in %{country_of_birth_name}.  

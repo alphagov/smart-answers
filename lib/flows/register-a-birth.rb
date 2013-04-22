@@ -117,8 +117,9 @@ end
 outcome :embassy_result do
   precalculate :embassy_high_commission_or_consulate do
     reg_data_query.has_high_commission?(registration_country) ? "High commission" :
-      reg_data_query.has_consulate?(registration_country) ? "British embassy or consulate" :
-        "British embassy"
+      reg_data_query.has_consulate?(registration_country) ? "British consulate" :
+        reg_data_query.has_consulate_general?(registration_country) ? "Consulate General" : 
+          "British embassy"
   end
   precalculate :documents_you_must_provide do
     checklist_countries = %w(bangladesh japan pakistan philippines sweden taiwan turkey)
@@ -172,8 +173,12 @@ outcome :embassy_result do
   end
   precalculate :embassy_details do
     details = embassy_data_query.find_embassy_data(registration_country)
-    if details
+    if details and registration_country != 'germany'
       details = details.first
+      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
+                     address: details['address'], phone: details['phone'], email: details['email'])
+    elsif details and registration_country == 'germany'
+      details = details.second
       I18n.translate("#{i18n_prefix}.phrases.embassy_details",
                      address: details['address'], phone: details['phone'], email: details['email'])
     else
@@ -196,8 +201,9 @@ end
 outcome :fco_result do
   precalculate :embassy_high_commission_or_consulate do
     reg_data_query.has_high_commission?(registration_country) ? "High commission" :
-      reg_data_query.has_consulate?(registration_country) ? "British embassy or consulate" :
-        "British embassy"
+      reg_data_query.has_consulate?(registration_country) ? "British consulate" :
+        reg_data_query.has_consulate_general(registration_country) ? "Consulate general" : 
+          "British embassy"
   end
   precalculate :intro do
     if exclusions.include?(country_of_birth)
