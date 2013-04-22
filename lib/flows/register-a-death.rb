@@ -43,7 +43,7 @@ multiple_choice :was_death_expected? do
   end
 end
 # Q4
-country_select :which_country? do
+country_select :which_country?, :use_legacy_data => true do
   save_input_as :country
   calculate :country_name do
     LegacyCountry.all.find { |c| c.slug == responses.last }.name
@@ -75,7 +75,7 @@ multiple_choice :where_are_you_now? do
   end
 end
 # Q6
-country_select :which_country_are_you_in_now? do
+country_select :which_country_are_you_in_now?, :use_legacy_data => true do
   save_input_as :current_location
   calculate :current_location_name do
     country_slug = data_query.registration_country_slug(responses.last)

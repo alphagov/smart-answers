@@ -39,7 +39,7 @@ class FlowTest < ActiveSupport::TestCase
 
   test "Can build country select question nodes" do
     s = SmartAnswer::Flow.new do
-      country_select :which_country?
+      country_select :which_country?, :use_legacy_data => true
     end
 
     assert_equal 1, s.nodes.size

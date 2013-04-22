@@ -4,7 +4,7 @@ i18n_prefix = "flow.overseas-passports"
 data_query = Calculators::PassportAndEmbassyDataQuery.new 
 
 # Q1
-country_select :which_country_are_you_in? do
+country_select :which_country_are_you_in?, :use_legacy_data => true do
   save_input_as :current_location
 
   calculate :passport_data do
@@ -110,7 +110,7 @@ multiple_choice :child_or_adult_passport? do
 end
 
 # Q4
-country_select :country_of_birth?, include_uk: true do
+country_select :country_of_birth?, include_uk: true, :use_legacy_data => true do
   save_input_as :birth_location
 
   calculate :application_group do

@@ -3,7 +3,7 @@ require_relative "../test_helper"
 module SmartAnswer
   class CountrySelectQuestionTest < ActiveSupport::TestCase
     def setup
-      @question = Question::CountrySelect.new(:example)
+      @question = Question::CountrySelect.new(:example, :use_legacy_data => true)
     end
 
     test "Can list options" do

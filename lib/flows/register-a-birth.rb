@@ -11,7 +11,7 @@ exclusions = %w(afghanistan cambodia central-african-republic chad comoros
 no_embassies = %w(iran syria yemen)
 
 # Q1
-country_select :country_of_birth? do
+country_select :country_of_birth?, :use_legacy_data => true do
   save_input_as :country_of_birth
 
   calculate :registration_country do
@@ -97,7 +97,7 @@ multiple_choice :where_are_you_now? do
   end
 end
 # Q6
-country_select :which_country? do
+country_select :which_country?, :use_legacy_data => true do
   calculate :registration_country do
     reg_data_query.registration_country_slug(responses.last)
   end

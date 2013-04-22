@@ -8,7 +8,7 @@ reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
 i18n_prefix = 'flow.marriage-abroad-v2'
 
 # Q1
-country_select :country_of_ceremony? do
+country_select :country_of_ceremony?, :use_legacy_data => true do
   save_input_as :ceremony_country
 
   calculate :ceremony_country_name do
@@ -185,7 +185,7 @@ multiple_choice :residency_uk? do
 end
 
 # Q3b
-country_select :residency_nonuk? do
+country_select :residency_nonuk?, :use_legacy_data => true do
   save_input_as :residency_country
 
   calculate :residency_country_name do

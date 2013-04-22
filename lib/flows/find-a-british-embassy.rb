@@ -4,7 +4,7 @@ data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
 i18n_prefix = "flow.find-a-british-embassy"
 
 #Question
-country_select :choose_embassy_country do
+country_select :choose_embassy_country, :use_legacy_data => true do
   save_input_as :embassy_country
 
   calculate :embassy_country_name do

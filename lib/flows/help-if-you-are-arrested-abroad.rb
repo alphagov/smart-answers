@@ -4,7 +4,7 @@ arrested_calc = SmartAnswer::Calculators::ArrestedAbroad.new
 prisoner_packs = arrested_calc.data
 
 #Q1
-country_select :which_country? do
+country_select :which_country?, :use_legacy_data => true do
   save_input_as :country
 
   calculate :country_name do
