@@ -202,15 +202,15 @@ en-GB:
           You’ll have to pay a fee for your passport and a courier fee of 24 Euros. The courier fee pays for your passport and supporting documents to be sent back to you securely.
 
         adult_passport_costs_fco_europe: |
-          | Passport type |	Passport fee | Total to pay (including courier fee) |
-          |---------------|--------------|--------------------------------------|
-          | Adult standard 32-page passport | 157 Euros | 182 Euros |
-          | Adult jumbo 48-page passport | 190 Euros | 215 Euros |
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | %{costs_euros_adult_32}
+          Adult jumbo 48-page passport | %{costs_euros_adult_48}
 
         child_passport_costs_fco_europe: |
-          | Passport type |	Passport fee | Total to pay (including courier fee) |
-          |---------------|--------------|--------------------------------------|
-          | Child passport | 100 Euros | 125 Euros |
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Child passport | %{costs_euros_child}
 
         passport_costs_dublin_ireland: |
           You must pay using Visa or Mastercard. Download a [card payment authorisation form (PDF,198KB)](/government/uploads/system/uploads/attachment_data/file/168042/card-payment-form.pdf "Card authorisation form (PDF, 198KB)") and send it with your application.
@@ -1515,10 +1515,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | 1,888 South African Rand | 2,181 South African Rand
-          Adult jumbo 48-page passport | 2,279 South African Rand | 2,572 South African Rand
-          Child passport | 1,203 South African Rand | 1,450 South African Rand
-
+          Adult standard 32-page passport | %{costs_south_african_rand_adult_32}
+          Adult standard 48-page passport | %{costs_south_african_rand_adult_48}
+          Child passport | %{costs_south_african_rand_child}
 
           ###Cost if you apply in person
 
@@ -1775,10 +1774,10 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | 1,888 South African Rand | 2,181 South African Rand
-          Adult jumbo 48-page passport | 2,279 South African Rand | 2,572 South African Rand
-          Child passport | 1,203 South African Rand | 1,450 South African Rand
-
+          Adult standard 32-page passport | %{costs_south_african_rand_adult_32}
+          Adult standard 48-page passport | %{costs_south_african_rand_adult_48}
+          Child passport | %{costs_south_african_rand_child}
+          
           You can pay:
 
           - using Visa or Mastercard - enclose a [card authorisation form (DOC, 334KB)](/government/uploads/system/uploads/attachment_data/file/136854/countries-auth-slip.doc "Card authorisation form (DOC, 334KB)") with your application
@@ -1845,9 +1844,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | 157 Euros | 182 Euros
-          Adult jumbo 48-page passport | 190 Euros | 215 Euros
-          Child passport | 100 Euros | 125 Euros
+          Adult standard 32-page passport | %{costs_euros_adult_32} 
+          Adult jumbo 48-page passport | %{costs_euros_adult_48}
+          Child passport | %{costs_euros_child}
 
         how_to_apply_iraq: ''
         supporting_documents_iraq: ''
@@ -1937,9 +1936,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | 157 Euros | 182 Euros
-          Adult jumbo 48-page passport | 190 Euros | 215 Euros
-          Child passport | 100 Euros | 125 Euros
+          Adult standard 32-page passport | %{costs_euros_adult_32} 
+          Adult jumbo 48-page passport | %{costs_euros_adult_48}
+          Child passport | %{costs_euros_child}
 
         how_to_apply_north_korea: |
           4. Photocopy the pages of your existing passport that show your personal details and picture and send these with your application. You must keep your existing passport for ID purposes.
@@ -2186,9 +2185,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | 1,888 South African Rand | 2,181 South African Rand
-          Adult jumbo 48-page passport | 2,279 South African Rand | 2,572 South African Rand
-          Child passport | 1,203 South African Rand | 1,450 South African Rand
+          Adult standard 32-page passport | %{costs_south_african_rand_adult_32}
+          Adult standard 48-page passport | %{costs_south_african_rand_adult_48}
+          Child passport | %{costs_south_african_rand_child}
 
           You must pay using Visa or Mastercard - enclose a [card authorisation form (DOC, 334KB](/government/uploads/system/uploads/attachment_data/file/136854/countries-auth-slip.doc "Card authorisation form (DOC, 334KB)") with your application.
 
@@ -2434,9 +2433,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | 157 Euros | 182 Euros
-          Adult jumbo 48-page passport | 190 Euros | 215 Euros
-          Child passport | 100 Euros | 125 Euros
+          Adult standard 32-page passport | %{costs_euros_adult_32} 
+          Adult jumbo 48-page passport | %{costs_euros_adult_48}
+          Child passport | %{costs_euros_child}
 
         how_to_apply_yemen: ''
         yemen_first_passport_documents: |
