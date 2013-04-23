@@ -11,7 +11,7 @@
   pdf: /government/publications/antigua-prisoner-pack
 - slug: argentina
   pdf: /government/publications/argentina-prisoner-pack
-  lawyer: /government/world/argentina/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
+  lawyer: /government/publications/argentina-list-of-lawyers
   benefits: /government/uploads/system/uploads/attachment_data/file/139609/benefits-arg-factsheet.doc
 - slug: armenia
   pdf: /government/publications/armenia-prisoner-pack
@@ -52,8 +52,8 @@
 - slug: belarus
 - slug: belgium
   pdf: /government/publications/the-british-consulate-general-brussels-how-we-can-help
-  lawyer: /government/world/belgium/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
-  translators: /government/world/belgium/help-for-british-nationals/living-in-belgium/if-you-need-translator
+  lawyer: /government/publications/belgium-list-of-lawyers
+  translators: /government/publications/belgium-list-of-lawyers
   consul: /government/publications/the-british-consulate-general-brussels-how-we-can-help
   judicial: /government/uploads/system/uploads/attachment_data/file/139597/consul-help-info.pdf /government/uploads/system/uploads/attachment_data/file/139598/belgium-detention-info.pdf
 - slug: belize
@@ -81,9 +81,9 @@
 - slug: burundi
 - slug: cambodia
   pdf: /government/publications/cambodia-prisoner-pack
-  lawyer: /government/world/cambodia/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
+  lawyer: /government/publications/cambodia-list-of-lawyers
 - slug: cameroon
-  lawyer: /government/world/cameroon/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
+  lawyer: /government/publications/cameroon-list-of-lawyers
 - slug: canada
   pdf: /government/publications/canada-usa-prisoner-pack
 - slug: cape-verde
@@ -121,7 +121,7 @@
 
 - slug: czech-republic
   pdf: /government/publications/czech-republic-prisoner-pack
-  lawyer: /government/world/czech-republic/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer-translator
+  lawyer: /government/publications/czech-republic-list-of-lawyers
   prison: /government/uploads/system/uploads/attachment_data/file/139610/in-prison-in-the-czech-republic1.pdf
 - slug: denmark
   pdf: /government/publications/denmark-prisoner-pack
@@ -167,13 +167,13 @@
       url_text: Prisoner pack for Baden-Wurttemberg and Bavaria
 - slug: ghana
   pdf: /government/publications/ghana-prisoner-pack
-  lawyer: /government/world/ghana/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
+  lawyer: /government/publications/ghana-list-of-lawyers
 - slug: gibraltar
 - slug: greece
   pdf: /government/publications/greece-prisoner-pack
   lawyer: /government/publications/greece-list-of-lawyers
   prison: /government/uploads/system/uploads/attachment_data/file/139611/bns_in_prison.pdf
-  police: /government/world/greece/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or
+  police: /government/publications/greece-help-if-you-are-arrested-or-detained
 - slug: grenada
   pdf: /government/publications/barbados-prisoner-pack
 - slug: guadeloupe
@@ -208,11 +208,11 @@
   pdf: /government/publications/italy-prisoner-pack
   lawyer: /government/world/italy/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer/
 - slug: jamaica
-  lawyer: /government/world/jamaica/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
+  lawyer: /government/publications/jamaica-list-of-lawyers
 - slug: japan
   pdf: /government/publications/japan-prisoner-pack
 - slug: jordan
-  doc: /government/world/jordan/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or#
+  doc: /government/publications/jordan-prisoner-pack
 - slug: kazakhstan
 - slug: kenya
 - slug: kiribati
@@ -229,7 +229,7 @@
   pdf: /government/publications/latvia-prisoner-pack
 - slug: lebanon
   doc: /government/publications/lebanon-prisoner-pack
-  lawyer: /government/world/lebanon/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer-or-translator
+  lawyer: /government/publications/lebanon-prisoner-pack
 - slug: lesotho
 - slug: liberia
 - slug: libya
@@ -298,7 +298,6 @@
   doc: /government/publications/panama-prisoner-pack
 - slug: papua-new-guinea
 - slug: paraguay
-  lawyer: /government/world/argentina/about-us/other-locations/paraguay/help-brit-nat-paraguay/when-things-go-wrong/english-speaking-lawyers
   benefits: /government/uploads/system/uploads/attachment_data/file/139607/benefits-paraguay-factsheet.doc
 - slug: peru
   pdf: /government/publications/peru-prisoner-pack
@@ -311,10 +310,10 @@
   judicial: /government/publications/poland-prisoner-pack
 - slug: portugal
   pdf: /government/publications/portugal-prisoner-pack
-  lawyer: /government/world/portugal/help-for-british-nationals/how-we-can-help/if-you-need-a-lawyer
+  lawyer: /government/publications/portugal-prisoner-pack
 - slug: qatar
   doc: /government/publications/qatar-prisoner-pack
-  lawyer: /government/world/qatar/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
+  lawyer: /government/publications/qatar-prisoner-pack
 - slug: reunion
 - slug: romania
   pdf: /government/publications/romania-prisoner-pack
@@ -326,13 +325,13 @@
 - slug: san-marino
 - slug: sao-tome-and-principe
 - slug: saudi-arabia
-  pdf: /government/world/saudi-arabia/help-for-british-nationals/when-things-go-wrong/Prison-Information
+  pdf: /government/publications/saudi-arabia-prisoner-pack
 - slug: senegal
 - slug: serbia
   doc: /government/publications/serbia-prisoner-pack
   judicial: /government/uploads/system/uploads/attachment_data/file/139599/srb-legal-sys.doc
 - slug: seychelles
-  lawyer: /government/world/seychelles/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
+  lawyer: /government/publications/seychelles-prisoner-pack
 - slug: sierra-leone
   pdf: /government/publications/sierra-leone-prisoner-pack
 - slug: singapore
@@ -341,7 +340,7 @@
   doc: /government/publications/slovakia-prisoner-pack
 - slug: slovenia
   lawyer: /government/publications/slovenia-list-of-lawyers
-  prison: /government/world/slovenia/help-for-british-nationals/when-things-go-wrong/help-if-you-are-arrested-or/slovenias-prison-system
+  prison: /government/publications/slovenias-prison-system
 - slug: solomon-islands
   pdf: /government/publications/solomon-islands-prisoner-pack
 - slug: somalia
@@ -350,7 +349,7 @@
 - slug: south-georgia-and-south-sandwich-islands
 - slug: south-sudan
 - slug: spain
-  lawyer: /government/world/spain/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
+  lawyer: /government/publications/spain-list-of-lawyers
   benefits: /government/uploads/system/uploads/attachment_data/file/139606/legal-aid-in-spain.pdf
   prison: /government/uploads/system/uploads/attachment_data/file/139604/spanish-prison-system.pdf
   judicial: /government/uploads/system/uploads/attachment_data/file/139600/legal-procedures-criminal-cases.pdf
@@ -375,7 +374,7 @@
 - slug: syria
 - slug: taiwan
 - slug: tajikistan
-  lawyer: /government/world/tajikistan/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
+  lawyer: /government/publications/tajikistan-list-of-lawyers
 - slug: tanzania
   pdf: /government/publications/tanzania-prisoner-pack
 - slug: thailand
@@ -390,15 +389,15 @@
   lawyer: /government/publications/trinidad-and-tobago-list-of-lawyers
 - slug: tristan-da-cunha
 - slug: tunisia
-  lawyer: /government/world/tunisia/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
+  lawyer: /government/publications/tunisia-list-of-lawyers
 - slug: turkey
   pdf: /government/publications/turkey-prisoner-pack
-  lawyer: /government/world/turkey/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
+  lawyer: /government/publications/turkey-list-of-lawyers
 - slug: turkmenistan
 - slug: turks-and-caicos-islands
 - slug: tuvalu
 - slug: uganda
-  lawyer: /government/world/uganda/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer
+  lawyer: /government/publications/uganda-list-of-lawyers
 - slug: ukraine
   pdf: /government/publications/ukraine-prisoner-pack
 - slug: united-arab-emirates
@@ -432,6 +431,6 @@
   pdf: /government/publications/yemen-prisoner-pack
 - slug: zambia
   doc: /government/publications/zambia-prisoner-pack
-  lawyer: /government/world/zambia/help-for-british-nationals/when-things-go-wrong/need-lawyer
+  lawyer: /government/publications/zambia-list-of-lawyers
 - slug: zimbabwe
   doc: /government/publications/zimbabwe-prisoner-pack
