@@ -4,11 +4,7 @@ clickbook:
   belgium: http://britishconsulate-gen.clickbook.net/ 
   belize: https://www.clickbook.net/dev/bc.nsf/sub/BRITISHINBELIZE 
   bolivia: http://www.britishembassyinlapa.clickbook.net/ 
-  brazil: 
-    Brazilia: http://www.britishembassybrasil.clickbook.net/
-    Sao Paulo: http://www.britishconsularnetwo.clickbook.net/
-    Rio de Janeiro: http://www.britishconsulaterj.clickbook.net/
-    Recife: http://www.britishconsulaterec.clickbook.net/
+  brazil: http://www.britishconsulaterj.clickbook.net/
   bulgaria: http://britishembassysofia.clickbook.net/
   chile: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyinsant
   china:
@@ -49,18 +45,7 @@ clickbook:
   slovakia: http://www.ukinslovakia.clickbook.net/
   sweden: http://www.ukinsweden.clickbook.net/
   switzerland: http://britishconsulatebern.clickbook.net/
-  united-states:
-    Atlanta: http://www.britishconsulateatl.clickbook.net/
-    Boston: http://www.britishconsulatebost.clickbook.net/
-    Chicago: http://www.britishconsulatechi.clickbook.net/
-    Denver: http://www.britishcgdever.clickbook.net/
-    Houston: http://www.britishconsulatehous.clickbook.net/
-    Los Angeles: http://www.britishconsulatela.clickbook.net/
-    Miami: http://www.britishcgmiami.clickbook.net/
-    New York: http://www.britishconsulateny.clickbook.net/
-    Orlando: http://www.britishconsulateorl.clickbook.net/
-    San Francisco: http://www.britishconsulatesf.clickbook.net/
-    Washington: http://www.britishembassydc.clickbook.net/ 
+  united-states: http://www.britishembassydc.clickbook.net/
   uruguay: http://britishembassyinmvd.clickbook.net/
   vietnam: 
     Hanoi: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyhanoi?OpenDocument&cb_referer=http%3A%2F%2Fukinvietnam.fco.gov.uk%2Fen%2Fhelp-for-british-nationals%2Fliving-in-vietnam%2Fbirth-registration
@@ -91,11 +76,13 @@ registration_country:
   haiti: dominican-republic
   honduras: guatemala
   kiribati: fiji
+  laos: thailand
   lesotho: south-africa
   liberia: ghana
   liechtenstein: switzerland
   macao: hong-kong-(sar-of-china)
   mali: senegal
+  maldives: sri-lanka
   marshall-islands: philippines
   martinique: france
   mauritania: morocco
