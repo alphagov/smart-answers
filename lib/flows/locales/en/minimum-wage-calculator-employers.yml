@@ -43,7 +43,7 @@ en-GB:
           "2005-10-01": "Oct 2005 - Sep 2006"
       # Q2
       are_you_an_apprentice?:
-        title: "Is the employee an apprentice?"
+        title: "Is the worker an apprentice?"
         options:
           apprentice_under_19: "Apprentice under 19"
           apprentice_over_19: "Apprentice aged 19 and over and in their first year" 
@@ -56,7 +56,7 @@ en-GB:
           apprentice_over_19: "Apprentice aged 19 and over and in their first year"
       # Q3
       how_old_are_you?:
-        title: How old is the employee?
+        title: How old is the worker?
         suffix_label: years old
         error_message: Please enter a whole number greater than 0
       # Q3 Past
@@ -66,25 +66,25 @@ en-GB:
         error_message: Please enter a whole number greater than 0
       # Q4  
       how_often_do_you_get_paid?:
-        title: How often do you pay the employee?
+        title: How often do you pay the worker?
         hint: |
-          You pay the employee every
+          You pay the worker every
         suffix_label: days  
         error_message: Please enter a number between 1 and 31.  
         body: |
           This is the pay period.
       # Q4 Past
       how_often_did_you_get_paid?:
-        title: How often did you pay the employee?
+        title: How often did you pay the worker?
         hint: |
-          You pay the employee every
+          You pay the worker every
         suffix_label: days
         body: |
           This is the pay period.
         error_message: Please enter a number between 1 and 31.
       # Q5
       how_many_hours_do_you_work?:
-        title: "How many hours does the employee work during the pay period?"
+        title: "How many hours does the worker work during the pay period?"
         hint: |
           Don’t include any overtime or other extra hours they might work.
         suffix_label: hours
@@ -92,7 +92,7 @@ en-GB:
         error_hours: Please enter the number of hours they actually work during the pay period. 
       # Q5 Past
       how_many_hours_did_you_work?:
-        title: "How many hours did the employee work during the pay period?"
+        title: "How many hours did the worker work during the pay period?"
         hint: |
           Don’t include any overtime or other extra hours they worked.
         suffix_label: hours
@@ -100,36 +100,36 @@ en-GB:
         error_hours: Please enter the number of hours they actually worked during the pay period. 
       # Q6
       how_much_are_you_paid_during_pay_period?:
-        title: "How much do you pay the employee in the pay period?"
+        title: "How much do you pay the worker in the pay period?"
         hint: "Don’t include payments for overtime or anything extra to their pay, eg sales commission, money for clothes or goods."
         suffix_label: in the pay period
         error_message: Please enter a number
       # Q6 Past
       how_much_were_you_paid_during_pay_period?:
-        title: "How much did you pay the employee in the pay period?"
+        title: "How much did you pay the worker in the pay period?"
         hint: "Don’t include payments for overtime or anything extra to their pay, eg sales commission, money for clothes or goods."
         suffix_label: in the pay period
         error_message: Please enter a number
       # Q7
       how_many_hours_overtime_do_you_work?:
-        title: "How many hours of overtime does the employee work during the pay period?"
+        title: "How many hours of overtime does the worker work during the pay period?"
         hint: "If they don’t work overtime enter 0"
         suffix_label: hours
         error_message: Please enter a number
       # Q7 Past
       how_many_hours_overtime_did_you_work?:
-        title: "How many hours of overtime did the employee work during the pay period?"
+        title: "How many hours of overtime did the worker work during the pay period?"
         hint: "If they didn’t work overtime enter 0"
         suffix_label: hours
         error_message: Please enter a number
       # Q8
       what_is_overtime_pay_per_hour?:
-        title: "How much do you pay the employee for overtime per hour?"
+        title: "How much do you pay the worker for overtime per hour?"
         suffix_label: per hour
         error_message: Please enter a number
       # Q8 Past
       what_was_overtime_pay_per_hour?:
-        title: "How much did you pay the employee for overtime per hour?"
+        title: "How much did you pay the worker for overtime per hour?"
         suffix_label: per hour
         error_message: Please enter a number
       # Q9
@@ -156,12 +156,12 @@ en-GB:
         error_message: Please enter a number greater than 0
       # Q11
       current_accommodation_usage?:
-        title: "How many days per week does the employee live in the accommodation?"
+        title: "How many days per week does the worker live in the accommodation?"
         suffix_label: days per week
         error_message: 7 is the highest number of days you can enter.  
       # Q11 Past
       past_accommodation_usage?:
-        title: "How many days per week did the employee live in the accommodation?"
+        title: "How many days per week did the worker live in the accommodation?"
         suffix_label: days per week
         error_message: 7 is the highest number of days you can enter. 
       # Current result over minimum wage
@@ -172,12 +172,12 @@ en-GB:
           $C
 
          
-          The National Minimum Wage per hour for the employee's age | Your actual pay
+          The National Minimum Wage per hour for the worker's age | The worker's actual pay
           - | -
           £%{minimum_hourly_rate} | £%{total_hourly_rate}
 
           
-          If the employee works overtime or you provide them with accommodation, this has been added to the calculation.
+          If the worker works overtime or you provide them with accommodation, this has been added to the calculation.
 
           This result is an estimate. If you have any questions, call the confidential helpline:
 
@@ -196,11 +196,11 @@ en-GB:
           You aren't paying the National Minimum Wage.
           $C
 
-          The National Minimum Wage per hour for the employee's age | Your actual pay | For each pay period you owe the employee
+          The National Minimum Wage per hour for the worker's age | The worker's actual pay | For each pay period you owe the worker 
           - | - | -
           £%{minimum_hourly_rate} | £%{total_hourly_rate} | £%{total_underpayment}
 
-          If the employee works overtime or you provide accommodation, this has been added to the calculation.
+          If the worker works overtime or you provide accommodation, this has been added to the calculation.
 
           This result is an estimate. If you have a any questions, call the confidential helpline:
 
@@ -218,16 +218,16 @@ en-GB:
           $C
           You were paying the National Minimum Wage.
 
-          You don’t owe the employee any past payments.
+          You don’t owe the worker any past payments.
           $C
 
 
-          The National Minimum Wage per hour at the time | Your actual pay
+          The National Minimum Wage per hour at the time | The worker's actual pay
           - | -
           £%{minimum_hourly_rate} | £%{total_hourly_rate}
 
           
-          If the employee worked overtime or you provided accommodation, this has been added to the calculation.
+          If the worker worked overtime or you provided accommodation, this has been added to the calculation.
 
           This result is an estimate. If you have any questions, call the confidential helpline:
 
@@ -248,12 +248,12 @@ en-GB:
           $C
 
 
-          The National Minimum Wage per hour at the time | Your actual pay | For each pay period you owe the employee
+          The National Minimum Wage per hour at the time | The worker's actual pay | For each pay period you owe the worker 
           - | -
           £%{minimum_hourly_rate} | £%{total_hourly_rate} | £%{total_underpayment}
 
 
-          This calculation includes an additional amount the employee is entitled to by law for past payments. If the employee worked overtime or you provided accommodation, this has been added to the calculation.
+          This calculation includes an additional amount the worker is entitled to by law for past payments. If the worker worked overtime or you provided accommodation, this has been added to the calculation.
 
           This result is an estimate. If you have any questions, call the confidential helpline:
 
@@ -268,9 +268,9 @@ en-GB:
 
           %{accommodation_explanation}
       does_not_apply_to_historical_apprentices:
-        body: "There was no National Minimum Wage rate for apprentices before 1 October 2010. Your don't owe the employee any past payments."
+        body: "There was no National Minimum Wage rate for apprentices before 1 October 2010. Your don't owe the worker any past payments."
 
       under_school_leaving_age:
-        body: The employee must be at least [school leaving age](/know-when-you-can-leave-school "School leaving age") to be entitled to the National Minimum Wage.
+        body: The worker must be at least [school leaving age](/know-when-you-can-leave-school "School leaving age") to be entitled to the National Minimum Wage.
       under_school_leaving_age_past:
-        body: The employee must have been at least [school leaving age](/know-when-you-can-leave-school "School leaving age") at the time to be entitled to the National Minimum Wage.    
+        body: The worker must have been at least [school leaving age](/know-when-you-can-leave-school "School leaving age") at the time to be entitled to the National Minimum Wage.    
