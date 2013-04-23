@@ -456,6 +456,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, "/government/uploads/system/uploads/attachment_data/file/136806/payment_authorisation_slip.pdf"
         assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form]
+        assert_match /40476 Düsseldorf/, current_state.embassy_details
       end
     end # Answer Germany
     context "answer USA" do
@@ -472,6 +473,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, nil
         assert_phrase_list :postal, [:postal_intro, :"postal_registration_united-states"]
+        assert_match /3100 Massachusetts Ave, NW/, current_state.embassy_details
       end
     end # Answer USA
 

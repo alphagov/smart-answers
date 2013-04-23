@@ -215,12 +215,9 @@ outcome :embassy_result do
 
   precalculate :embassy_details do
     details = embassy_data_query.find_embassy_data(current_location)
-    if details and !different_address.include?(current_location)
-      details = details.first
-      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
-                     address: details['address'], phone: details['phone'], email: details['email'])
-    elsif details and different_address.include?(current_location)
-      details = details.second
+
+    if details
+      details = different_address.include?(current_location) ? details.second : details.first
       I18n.translate("#{i18n_prefix}.phrases.embassy_details",
                      address: details['address'], phone: details['phone'], email: details['email'])
     else
