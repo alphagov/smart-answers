@@ -25,8 +25,8 @@ en-GB:
       what_would_you_like_to_check?:
         title: "What would you like to check?"
         options:
-          current_payment: "If you're getting the National Minimum Wage now"
-          past_payment: "If an employer owes you past payments"
+          current_payment: "If you're getting the National Minimum Wage (from October 2012)"
+          past_payment: "If an employer owes you past payments (before October 2012)"
       # Q1A
       past_payment_date?:
         title: "Which year would you like to check past payments for?"
