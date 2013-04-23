@@ -182,7 +182,7 @@ en-GB:
         clickbook_link: |
           - [%{city}](%{url} "Book an appointment in %{city}"){:rel="external"}
         registering_clickbook: |
-          [Book an appointment online](%{clickbook_data} "Book an appointment at the British Embassy") at the %{embassy_high_commission_or_consulate}.
+          [Book an appointment online](%{clickbook_data} "Book an appointment at the %{embassy_high_commission_or_consulate}") at the %{embassy_high_commission_or_consulate}.
 
           Bring the registration form, supporting documents and the fee.
         consular_service_fees: |
@@ -249,6 +249,7 @@ en-GB:
           Register a birth | £105
           Copy of a birth registration certificate | £65
 
+          %{fees_for_consular_services}
 
           You can order copies of the registration certificate from the %{embassy_high_commission_or_consulate} when you register the birth.
 

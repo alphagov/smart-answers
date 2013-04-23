@@ -119,7 +119,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
             assert_state_variable :registration_country, 'spain'
             assert_current_node :fco_result
             assert_phrase_list :intro, [:intro]
-            assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
+            assert_state_variable :embassy_high_commission_or_consulate, "British Embassy"
           end
         end
         context "answer in another country" do
@@ -136,7 +136,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
             should "USA and get the embassy outcome" do
               add_response 'united-states'
               assert_current_node :embassy_result
-              assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
+              assert_state_variable :embassy_high_commission_or_consulate, "British Embassy"
               assert_state_variable :registration_country_name, "United States"
               assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
               assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
@@ -164,7 +164,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "same_country"
       assert_current_node :embassy_result
-      assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
+      assert_state_variable :embassy_high_commission_or_consulate, "British Embassy"
       assert_state_variable :registration_country_name, "Afghanistan"
       assert_state_variable :british_national_parent, 'mother_and_father'
       assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]

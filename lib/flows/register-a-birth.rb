@@ -117,10 +117,10 @@ end
 # Outcomes
 outcome :embassy_result do
   precalculate :embassy_high_commission_or_consulate do
-    reg_data_query.has_high_commission?(registration_country) ? "High commission" :
-      reg_data_query.has_consulate?(registration_country) ? "British consulate" :
-        reg_data_query.has_consulate_general?(registration_country) ? "British Consulate General" : 
-          "British embassy"
+    reg_data_query.has_high_commission?(registration_country) ? "British High Commission" :
+      reg_data_query.has_consulate?(registration_country) ? "British Consulate" :
+        reg_data_query.has_consulate_general?(registration_country) ? "British Consulate-General" : 
+          "British Embassy"
   end
   precalculate :documents_you_must_provide do
     checklist_countries = %w(bangladesh japan pakistan philippines sweden taiwan turkey)
@@ -212,10 +212,10 @@ outcome :embassy_result do
 end
 outcome :fco_result do
   precalculate :embassy_high_commission_or_consulate do
-    reg_data_query.has_high_commission?(registration_country) ? "High commission" :
-      reg_data_query.has_consulate?(registration_country) ? "British consulate" :
-        reg_data_query.has_consulate_general?(registration_country) ? "British Consulate General" : 
-          "British embassy"
+    reg_data_query.has_high_commission?(registration_country) ? "British High Commission" :
+      reg_data_query.has_consulate?(registration_country) ? "British Consulate" :
+        reg_data_query.has_consulate_general?(registration_country) ? "British Consulate-General" : 
+          "British Embassy"
   end
   precalculate :intro do
     if exclusions.include?(country_of_birth)
