@@ -1,7 +1,6 @@
 require 'erubis'
 
 class OutcomePresenter < NodePresenter
-  include OutcomeHelper
 
   def title
     translate!('title')
@@ -9,7 +8,6 @@ class OutcomePresenter < NodePresenter
 
   def translate!(subkey)
     output = super(subkey)
-    output.gsub!(/\+\[contact_list\]/,contact_list) unless output.nil?
     if output
       output.gsub!(/\+\[data_partial:(\w+):(\w+)\]/) do |match|
         render_data_partial($1, $2)
@@ -17,11 +15,6 @@ class OutcomePresenter < NodePresenter
     end
 
     output
-  end
-
-  def contact_list
-    @contact_list = @node.contact_list_sym ? @state.send(@node.contact_list_sym) : []
-    Erubis::Eruby.new( File.read Rails.root.join('app','views','smart_answers','_contact_list.html.erb') ).result(binding)
   end
 
   def has_calendar?
