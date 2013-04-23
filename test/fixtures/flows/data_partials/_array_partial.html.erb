@@ -1,0 +1,14 @@
+<div class="embassies">
+  <%- sample_data.each do |details| -%>
+    <div class="embassy">
+      <div class="address">
+        <h3>Address:</h3>
+        <%= simple_format details["address"] %>
+      </div>
+      <div class="phone">
+        <h3>Phone:</h3>
+        <p><%= details["phone"] %></p>
+      </div>
+    </div>
+  <%- end -%>
+</div>
