@@ -9,6 +9,7 @@ exclusions = %w(afghanistan cambodia central-african-republic chad comoros
                 liberia madagascar montenegro paraguay samoa slovenia somalia swaziland
                 taiwan tajikistan western-sahara)
 no_embassies = %w(iran syria yemen)
+different_address = %w(brazil germany india)
 
 # Q1
 country_select :country_of_birth?, :use_legacy_data => true do
@@ -23,7 +24,7 @@ country_select :country_of_birth?, :use_legacy_data => true do
   calculate :registration_country_name do
     LegacyCountry.all.find { |c| c.slug == registration_country }.name
   end
-
+  
   next_node do |response|
     if no_embassies.include?(response)
       :no_embassy_result
@@ -116,9 +117,15 @@ end
 # Outcomes
 outcome :embassy_result do
   precalculate :embassy_high_commission_or_consulate do
-    reg_data_query.has_high_commission?(registration_country) ? "High commission" :
-      reg_data_query.has_consulate?(registration_country) ? "British embassy or consulate" :
-        "British embassy"
+    if reg_data_query.has_high_commission?(registration_country)
+     "British High Commission"
+    elsif reg_data_query.has_consulate?(registration_country)
+      "British Consulate"
+    elsif reg_data_query.has_consulate_general?(registration_country)
+      "British Consulate-General"
+    else
+      "British Embassy"
+    end
   end
   precalculate :documents_you_must_provide do
     checklist_countries = %w(bangladesh japan pakistan philippines sweden taiwan turkey)
@@ -146,12 +153,23 @@ outcome :embassy_result do
     end
     result
   end
+  precalculate :fees_for_consular_services do
+    phrases = PhraseList.new
+    if registration_country == 'libya'
+      phrases << :consular_service_fees_libya
+    else
+      phrases << :consular_service_fees
+    end
+    phrases
+  end
   precalculate :go_to_the_embassy do
     phrases = PhraseList.new
     if multiple_clickbooks
       phrases << :registering_clickbooks
     elsif clickbook_data
       phrases << :registering_clickbook
+    elsif registration_country == 'hong-kong-(sar-of-china)'
+      phrases << :registering_hong_kong
     else
       phrases << :registering_all
     end
@@ -172,8 +190,12 @@ outcome :embassy_result do
   end
   precalculate :embassy_details do
     details = embassy_data_query.find_embassy_data(registration_country)
-    if details
+    if details and !different_address.include?(registration_country)
       details = details.first
+      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
+                     address: details['address'], phone: details['phone'], email: details['email'])
+    elsif details and different_address.include?(registration_country)
+      details = details.second
       I18n.translate("#{i18n_prefix}.phrases.embassy_details",
                      address: details['address'], phone: details['phone'], email: details['email'])
     else
@@ -195,9 +217,15 @@ outcome :embassy_result do
 end
 outcome :fco_result do
   precalculate :embassy_high_commission_or_consulate do
-    reg_data_query.has_high_commission?(registration_country) ? "High commission" :
-      reg_data_query.has_consulate?(registration_country) ? "British embassy or consulate" :
-        "British embassy"
+    if reg_data_query.has_high_commission?(registration_country)
+     "British High Commission"
+    elsif reg_data_query.has_consulate?(registration_country)
+      "British Consulate"
+    elsif reg_data_query.has_consulate_general?(registration_country)
+      "British Consulate-General"
+    else
+      "British Embassy"
+    end
   end
   precalculate :intro do
     if exclusions.include?(country_of_birth)

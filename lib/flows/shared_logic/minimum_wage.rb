@@ -57,7 +57,7 @@ value_question :how_old_are_you? do
     # Fail-hard cast to Integer here will raise
     # an exception and show the appropriate error.
     age = Integer(responses.last)
-    if age <= 0
+    if age <= 0 || age > 200
       raise SmartAnswer::InvalidResponse
     end
     age
@@ -466,13 +466,6 @@ outcome :current_payment_above do
   precalculate :accommodation_rate do
     accommodation_charged ? accommodation_charge : calculator.free_accommodation_rate
   end
-  precalculate :accommodation_explanation do
-    if accommodation_provided
-      PhraseList.new(accommodation_charged ? :charged_accommodation_exp : :free_accommodation_exp)
-    else
-      ''
-    end
-  end
 end
 
 outcome :current_payment_below do
@@ -484,13 +477,6 @@ outcome :current_payment_below do
   end
   precalculate :accommodation_rate do
     accommodation_charged ? accommodation_charge : calculator.free_accommodation_rate
-  end
-  precalculate :accommodation_explanation do
-    if accommodation_provided
-      PhraseList.new(accommodation_charged ? :charged_accommodation_exp : :free_accommodation_exp)
-    else
-      ''
-    end
   end
   precalculate :total_underpayment do
     calculator.format_money calculator.total_underpayment
@@ -507,13 +493,6 @@ outcome :past_payment_above do
   precalculate :accommodation_rate do
     accommodation_charged ? accommodation_charge : calculator.free_accommodation_rate
   end
-  precalculate :accommodation_explanation do
-    if accommodation_provided
-      PhraseList.new(accommodation_charged ? :charged_accommodation_exp : :free_accommodation_exp)
-    else
-      ''
-    end
-  end
 end
 
 outcome :past_payment_below do
@@ -525,13 +504,6 @@ outcome :past_payment_below do
   end
   precalculate :accommodation_rate do
     accommodation_charged ? accommodation_charge : calculator.free_accommodation_rate
-  end
-  precalculate :accommodation_explanation do
-    if accommodation_provided
-      PhraseList.new(accommodation_charged ? :charged_accommodation_exp : :free_accommodation_exp)
-    else
-      ''
-    end
   end
   precalculate :total_underpayment do
     calculator.format_money calculator.historical_adjustment
