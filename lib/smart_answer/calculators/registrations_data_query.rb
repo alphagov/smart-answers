@@ -16,8 +16,10 @@ module SmartAnswer::Calculators
     )
     COUNTRIES_WITH_CONSULATES = %w(china colombia israel russian-federation turkey)
 
+    COUNTRIES_WITH_CONSULATE_GENERALS = %(brazil germany hong-kong-(sar-of-china))
+
     CASH_ONLY_COUNTRIES = %w(armenia bosnia-and-herzegovina botswana brunei cambodia
-      czech-republic estonia hungary iceland kazakhstan latvia luxembourg poland slovenia
+      czech-republic estonia hungary iceland kazakhstan latvia libya luxembourg poland slovenia
       tunisia uganda)
 
     NO_POSTAL_COUNTRIES = %w(barbados belgium costa-rica malaysia papua-new-guinea 
@@ -43,6 +45,10 @@ module SmartAnswer::Calculators
 
     def has_consulate?(country_slug)
       COUNTRIES_WITH_CONSULATES.include?(country_slug)
+    end
+
+    def has_consulate_general?(country_slug)
+      COUNTRIES_WITH_CONSULATE_GENERALS.include?(country_slug)
     end
 
     def cash_only?(country_slug)
