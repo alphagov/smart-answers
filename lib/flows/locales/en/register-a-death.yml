@@ -40,6 +40,14 @@ en-GB:
           another_country: "In another country"
           back_in_the_uk: "In the UK"
       phrases:
+        embassy_details: |
+          
+
+          $A
+            %{address}
+            %{phone}
+            %{email}
+          $A
         intro_ew: |
           $!You should register the death within 5 calendar days. You can go to any [register office](/register-offices "register office") but it’s best to use the one in the area where the person died - otherwise the process can take longer.$!
 
@@ -194,12 +202,36 @@ en-GB:
           ##Bringing the body back to the UK for cremation
           
           If the body’s being brought back to England or Wales to be cremated, the person bringing the body home must report this to the English or Welsh coroner - they will issue a Certificate for Cremation (form 6).  
-       
+
+        documents_list_embassy: |
+          - a local death certificate (not a certificate issued by a doctor)
+          - the person’s passport
+          - their full UK birth, naturalisation or registration certificate (if you can’t provide their passport)
+          - written permission from the person's next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
+
+        documents_list_embassy_libya: |
+          -  a local death certificate (not a certificate issued by a doctor) translated into English and stamped by the Ministry of Foreign Affairs in Tripoli
+          - the person’s passport 
+          - their full UK birth, naturalisation or registration certificate (if you can’t provide their passport)
+          - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
+
+        documents_list_embassy_sweden: |
+          - a local death certificate (dödsbevis or dödsorsaksintyg) - this can be obtained from the hospital
+          - the person’s British passport 
+          - their full length British birth, naturalisation or registration certificate 
+          - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
+
         multiple_clickbooks_intro: |
-          You can book an appointment at the British embassy or consulate in:
+          You can book an appointment at the British Embassy or Consulate in:
   
         clickbook_link: |
-          [%{title}](%{clickbook_url} "Book an appointment at the British Embassy"){:rel="external"}
+          [%{title}](%{clickbook_url} "Book an appointment at the %{embassy_or_other}%{city}"){:rel="external"}
+
+        booking_text_embassy_hong_kong: |
+          Register at the Consulate General.
+
+        booking_text_embassy: |
+          You can book an appointment at the %{embassy_high_commission_or_consulate} and bring along the registration form, supporting documents and the fee.
 
         postal_intro: |
           ###Send your registration
@@ -214,6 +246,12 @@ en-GB:
 
         cash_only: |
           ^You can only pay by cash, which must be in local currency.^
+
+        consular_service_fees : |
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees "Consular fees").
+
+        consular_service_fees_libya: |
+          You can only pay fees for consular services in cash in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees "Consular fees").
 
         postal_how_long: |
           ^It takes about 5 working days for the death to be officially registered.^ 
@@ -262,7 +300,7 @@ en-GB:
         body: |
           $!You must register the death according to the regulations in %{country_name}. You will be given a local death certificate.$!
          
-          This local death certificate will be accepted in the UK (it may need to be a certified translation of the document if it’s not in English). 
+          This local death certificate will be accepted in the UK (it may need to be a [certified translation](/certifying-a-document "Certifying a document") of the document if it’s not in English). 
           
           ##Register the death with the UK authorities
           
@@ -273,7 +311,7 @@ en-GB:
           - a British-style death certificate will be issued 
           - having the death registered at the General Registry Office in the UK
 
-          ###How to register
+          ##How to register
 
           Download and complete a registration form.
 
@@ -282,12 +320,11 @@ en-GB:
             [Download ‘Death registration form’ (DOC, 50KB)](/government/uploads/system/uploads/attachment_data/file/136823/death-registration-app-form-130812.doc "download ‘death registration form’")
           $D
 
+          ##Documents
+
           You must provide originals and a photocopy of:
 
-          - a local death certificate (not a certificate issued by a doctor)
-          - the person’s passport
-          - their full UK birth, naturalisation or registration certificate (if you can’t provide their passport)
-          - written permission from the person's next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
+          %{documents_required_embassy_result}
 
           If you provide their passport you should fill out form D1.
 
@@ -303,22 +340,22 @@ en-GB:
             [Download ‘Form LS01’ (PDF, 815KB)](/government/uploads/system/uploads/attachment_data/file/136826/fco_loststolenpassport.pdf "Download ‘Form LS01’")
           $D
 
-          ###Cost
+          ##Cost
           
           Service | Fee
           -|-
           Register a death | £105
           Copy of a death registration certificate | £65
 
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees "Consular fees").
+          %{fees_for_consular_services}
 
           You can order copies of the registration certificate from the %{embassy_high_commission_or_consulate} when you register the death.
 
           You can also get copies from the [General Register Office](http://www.gro.gov.uk/ "General Register Office"){:rel="external"} from September the year after you register - they will cost less.
 
-          ###Go to the embassy
-          
-          You can book an appointment at the %{embassy_high_commission_or_consulate} and bring along the registration form, supporting documents and the fee.
+          ##Go to the %{embassy_high_commission_or_consulate}
+
+          %{booking_text_embassy_result}
 
           %{clickbook}
 
@@ -328,14 +365,12 @@ en-GB:
 
           %{footnote}
 
-          $A
-            %{embassy_address}
-          $A
+          %{embassy_details}
       fco_result:
         body: |
           $!You must register the death according to the regulations in %{country_name}. You will be given a local death certificate.$!
 
-          This local death certificate will be accepted in the UK (it may need to be a certified translation of the document if it’s not in English).
+          This local death certificate will be accepted in the UK (it may need to be a [certified translation](/certifying-a-document "Certifying a document") of the document if it’s not in English).
 
           ##Registering the death with the UK authorities
 
@@ -365,7 +400,7 @@ en-GB:
           - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
 
 
-          ###Cost
+          ##Cost
           
           Service | Fee
           -|-
@@ -376,7 +411,7 @@ en-GB:
 
           Alternatively, pay by postal order or bank draft made payable to ‘FCO’. Personal cheques aren’t accepted.
 
-          ###Send your registration
+          ##Send your registration
 
           Send the form and documentation to FCO.
 
@@ -406,7 +441,7 @@ en-GB:
 
           You can’t currently register the death with the UK authorities.
 
-          The local death certificate, with a certified translation, should be acceptable for all purposes in the UK. You can apply for registration at any time in the future - check [travel advice](/foreign-travel-advice) to find out if consular services have reopened in %{country_name}.
+          The local death certificate, with a [certified translation](/certifying-a-document "Certifying a document"), should be acceptable for all purposes in the UK. You can apply for registration at any time in the future - check [travel advice](/foreign-travel-advice) to find out if consular services have reopened in %{country_name}.
 
       commonwealth_result:
         body: |
