@@ -1,17 +1,14 @@
-require 'gds_api/helpers'
-
 class WorldLocation
   extend Forwardable
-  extend GdsApi::Helpers
 
   def self.all
-    worldwide_api.world_locations.with_subsequent_pages.map do |l|
+    $worldwide_api.world_locations.with_subsequent_pages.map do |l|
       new(l) if l.format == "World location"
     end.compact
   end
 
   def self.find(location_slug)
-    data = worldwide_api.world_location(location_slug)
+    data = $worldwide_api.world_location(location_slug)
     self.new(data) if data
   end
 

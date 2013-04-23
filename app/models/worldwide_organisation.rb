@@ -1,11 +1,8 @@
-require 'gds_api/helpers'
-
 class WorldwideOrganisation
   extend Forwardable
-  extend GdsApi::Helpers
 
   def self.for_location(location_slug)
-    worldwide_api.organisations_for_world_location(location_slug).map do |org|
+    $worldwide_api.organisations_for_world_location(location_slug).map do |org|
       new(org)
     end
   end
