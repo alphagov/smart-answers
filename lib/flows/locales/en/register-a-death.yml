@@ -222,10 +222,10 @@ en-GB:
           - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
 
         multiple_clickbooks_intro: |
-          You can book an appointment at the British embassy or consulate in:
+          You can book an appointment at the British Embassy or Consulate in:
   
         clickbook_link: |
-          [%{title}](%{clickbook_url} "Book an appointment at the British embassy"){:rel="external"}
+          [%{title}](%{clickbook_url} "Book an appointment at the %{embassy_or_other} in %{title}"){:rel="external"}
 
         booking_text_embassy_hong_kong: |
           Register at the Consulate General.
@@ -311,7 +311,7 @@ en-GB:
           - a British-style death certificate will be issued 
           - having the death registered at the General Registry Office in the UK
 
-          ###How to register
+          ##How to register
 
           Download and complete a registration form.
 
@@ -320,7 +320,7 @@ en-GB:
             [Download ‘Death registration form’ (DOC, 50KB)](/government/uploads/system/uploads/attachment_data/file/136823/death-registration-app-form-130812.doc "download ‘death registration form’")
           $D
 
-          ###Documents
+          ##Documents
 
           You must provide originals and a photocopy of:
 
@@ -340,7 +340,7 @@ en-GB:
             [Download ‘Form LS01’ (PDF, 815KB)](/government/uploads/system/uploads/attachment_data/file/136826/fco_loststolenpassport.pdf "Download ‘Form LS01’")
           $D
 
-          ###Cost
+          ##Cost
           
           Service | Fee
           -|-
@@ -353,7 +353,7 @@ en-GB:
 
           You can also get copies from the [General Register Office](http://www.gro.gov.uk/ "General Register Office"){:rel="external"} from September the year after you register - they will cost less.
 
-          ###Go to the %{embassy_high_commission_or_consulate}
+          ##Go to the %{embassy_high_commission_or_consulate}
 
           %{booking_text_embassy_result}
 
@@ -400,7 +400,7 @@ en-GB:
           - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
 
 
-          ###Cost
+          ##Cost
           
           Service | Fee
           -|-
@@ -411,7 +411,7 @@ en-GB:
 
           Alternatively, pay by postal order or bank draft made payable to ‘FCO’. Personal cheques aren’t accepted.
 
-          ###Send your registration
+          ##Send your registration
 
           Send the form and documentation to FCO.
 

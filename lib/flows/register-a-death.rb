@@ -107,10 +107,10 @@ end
 
 outcome :fco_result do
   precalculate :embassy_high_commission_or_consulate do
-    data_query.has_high_commission?(current_location) ? "High Commission" :
-      data_query.has_consulate?(current_location) ? "British embassy or consulate" :
-        data_query.has_consulate_general?(current_location) ? "Consulate General" :
-          "British embassy"
+    data_query.has_high_commission?(current_location) ? "British High Commission" :
+      data_query.has_consulate?(current_location) ? "British Embassy or Consulate" :
+        data_query.has_consulate_general?(current_location) ? "British Consulate-General" :
+          "British Embassy"
   end
   precalculate :registration_footnote do
     exclusions.include?(country) ? '' : PhraseList.new(:reg_footnote)
@@ -131,10 +131,10 @@ outcome :embassy_result do
   end
 
   precalculate :embassy_high_commission_or_consulate do
-    data_query.has_high_commission?(current_location) ? "High commission" :
-      data_query.has_consulate?(current_location) ? "British embassy or consulate" :
-        data_query.has_consulate_general?(current_location) ? "Consulate General" : 
-          "British embassy"
+    data_query.has_high_commission?(current_location) ? "British High Commission" :
+      data_query.has_consulate?(current_location) ? "British Embassy or Consulate" :
+        data_query.has_consulate_general?(current_location) ? "British Consulate-General" : 
+          "British Embassy"
   end
 
   precalculate :booking_text_embassy_result do
@@ -155,11 +155,11 @@ outcome :embassy_result do
         result = I18n.translate!("#{i18n_prefix}.phrases.multiple_clickbooks_intro") << "\n"
         clickbook.each do |k,v|
           result += %Q(- #{I18n.translate!(i18n_prefix + ".phrases.clickbook_link", 
-                                           title: k, clickbook_url: v)})
+                                           title: k, clickbook_url: v, embassy_or_other: embassy_high_commission_or_consulate)})
         end
       else
         result = I18n.translate!("#{i18n_prefix}.phrases.clickbook_link",
-                                 title: "Book an appointment online", clickbook_url: clickbook)
+                                 title: "Book an appointment online", clickbook_url: clickbook, embassy_or_other: embassy_high_commission_or_consulate)
       end
     end
 
