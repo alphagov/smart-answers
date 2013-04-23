@@ -27,7 +27,8 @@ module SmartAnswer::Calculators
       
       context "minimum_wage_data_for_date" do
         should "retrieve a map of historical minimum wage data" do
-          # assert_equal 4.73, @calculator.minimum_wage_data_for_date[:accommodation_rate] # needs to be a specified date as answer will change
+          assert_equal 4.91, @calculator.minimum_wage_data_for_date(Date.parse("2013-10-01"))[:accommodation_rate]
+          assert_equal 4.82, @calculator.minimum_wage_data_for_date(Date.parse("2012-10-01"))[:accommodation_rate]
           assert_equal 4.73, @calculator.minimum_wage_data_for_date(Date.parse("2011-10-01"))[:accommodation_rate] 
           assert_equal 4.51, @calculator.minimum_wage_data_for_date(Date.parse("2010-08-21"))[:accommodation_rate]
         end
