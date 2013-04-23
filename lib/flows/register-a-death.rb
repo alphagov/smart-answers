@@ -107,10 +107,15 @@ end
 
 outcome :fco_result do
   precalculate :embassy_high_commission_or_consulate do
-    data_query.has_high_commission?(current_location) ? "British High Commission" :
-      data_query.has_consulate?(current_location) ? "British Embassy or Consulate" :
-        data_query.has_consulate_general?(current_location) ? "British Consulate-General" :
-          "British Embassy"
+    if reg_data_query.has_high_commission?(registration_country)
+     "British High Commission"
+    elsif reg_data_query.has_consulate?(registration_country)
+      "British Consulate"
+    elsif reg_data_query.has_consulate_general?(registration_country)
+      "British Consulate-General"
+    else
+      "British Embassy"
+    end
   end
   precalculate :registration_footnote do
     exclusions.include?(country) ? '' : PhraseList.new(:reg_footnote)
@@ -131,12 +136,17 @@ outcome :embassy_result do
   end
 
   precalculate :embassy_high_commission_or_consulate do
-    data_query.has_high_commission?(current_location) ? "British High Commission" :
-      data_query.has_consulate?(current_location) ? "British Embassy or Consulate" :
-        data_query.has_consulate_general?(current_location) ? "British Consulate-General" : 
-          "British Embassy"
+    if reg_data_query.has_high_commission?(registration_country)
+     "British High Commission"
+    elsif reg_data_query.has_consulate?(registration_country)
+      "British Consulate"
+    elsif reg_data_query.has_consulate_general?(registration_country)
+      "British Consulate-General"
+    else
+      "British Embassy"
+    end
   end
-
+  
   precalculate :booking_text_embassy_result do
     phrases = PhraseList.new
     if current_location == 'hong-kong-(sar-of-china)'
