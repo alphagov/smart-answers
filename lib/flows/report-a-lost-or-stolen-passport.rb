@@ -46,8 +46,8 @@ country_select :which_country?, :use_legacy_data => true do
   save_input_as :country
 
   calculate :country_name do
-    country_list = YAML::load( File.open( Rails.root.join('lib', 'data', 'countries.yml') ))
-    country_list.select {|c| c[:slug] == country }.first[:name]
+    country_list = LegacyCountry.all
+    country_list.select {|c| c.slug == country }.first.name
   end
 
   calculate :embassies do
@@ -60,7 +60,5 @@ country_select :which_country?, :use_legacy_data => true do
 end
 
 outcome :contact_the_police
-outcome :contact_the_embassy do
-  contact_list :embassies
-end
+outcome :contact_the_embassy
 outcome :complete_LS01_form
