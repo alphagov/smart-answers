@@ -199,7 +199,7 @@ en-GB:
           If you’re paying by card, you must send a [card payment authorisation form (DOC,198KB)](/government/uploads/system/uploads/attachment_data/file/136854/countries-auth-slip.doc "Card authorisation form (DOC, 198KB)") with your application. You can’t pay in cash.
 
         passport_courier_costs_fco_europe:
-          You’ll have to pay a fee for your passport and a courier fee of 24 Euros. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+          You’ll have to pay a fee for your passport and a courier fee of 25 Euros. The courier fee pays for your passport and supporting documents to be sent back to you securely.
 
         adult_passport_costs_fco_europe: |
           Passport type | Passport fee | Total to pay (including courier fee)
@@ -1725,13 +1725,13 @@ en-GB:
         cost_gambia: |
           You must pay in cash at the British High Commission in Banjul (using 100 Dalasi notes)
 
-          Passport type | Passport fee
-          -|-
-          Renewal of adult standard 32-page passport | 7,400 Dalasi
-          First adult passport or replacement of lost or stolen adult passport | 8,100 Dalasi
-          48-page adult passport | 8,800 Dalasi
-          Renewal of child passport | 5,100 Dalasi
-          First child passport | 5,800 Dalasi
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Renewal of adult standard 32-page passport | 7,100 Dalasi | 8,200 Dalasi
+          First adult passport or replacement of lost or stolen adult passport | 7,100 Dalasi | 9,000 Dalasi
+          48-page adult passport | 8,500 Dalasi | 9,600
+          Renewal of child passport | 4,500 Dalasi | 6,400 Dalasi
+          First child passport | 4,500 Dalasi | 5,600 Dalasi
 
         how_to_apply_gambia: |
           4. Return your application form in person to the British High Commission in Banjul.
