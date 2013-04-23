@@ -188,8 +188,6 @@ en-GB:
           $C
 
           Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work "Minimum wage for different types of work").
-
-          %{accommodation_explanation}
       current_payment_below:
         body: |
           $C
