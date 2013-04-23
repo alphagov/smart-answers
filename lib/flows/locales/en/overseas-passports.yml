@@ -182,11 +182,15 @@ en-GB:
         passport_courier_costs_pretoria_south_africa: ''
 
         adult_passport_costs_pretoria_south_africa: |
-          An adult 32-page passport costs 2,181 South African Rand.
-          An adult 48-page passport costs 2,572 South African Rand.
+          Passport type | Passport fee |  Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | %{costs_south_african_rand_adult_32}
+          Adult jumbo 48-page passport | %{costs_south_african_rand_adult_48}
 
         child_passport_costs_pretoria_south_africa: |
-          A child passport costs 1,450 South African Rand.
+          Passport type | Passport fee |  Total to pay (including courier fee)
+          -|-|-
+          Child passport | %{costs_south_african_rand_child}
 
         passport_costs_pretoria_south_africa: |
           The fee includes the cost of returning your passport and supporting documents to you securely by courier.
@@ -1729,7 +1733,7 @@ en-GB:
           -|-|-
           Renewal of adult standard 32-page passport | 7,100 Dalasi | 8,200 Dalasi
           First adult passport or replacement of lost or stolen adult passport | 7,100 Dalasi | 9,000 Dalasi
-          48-page adult passport | 8,500 Dalasi | 9,600
+          48-page adult passport | 8,500 Dalasi | 9,600 Dalasi
           Renewal of child passport | 4,500 Dalasi | 6,400 Dalasi
           First child passport | 4,500 Dalasi | 5,600 Dalasi
 
