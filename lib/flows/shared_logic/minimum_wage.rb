@@ -57,7 +57,7 @@ value_question :how_old_are_you? do
     # Fail-hard cast to Integer here will raise
     # an exception and show the appropriate error.
     age = Integer(responses.last)
-    if age <= 0
+    if age <= 0 || age > 200
       raise SmartAnswer::InvalidResponse
     end
     age
