@@ -150,7 +150,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                     end
                     
                     should "show the results" do
-                      assert_state_variable :accommodation_explanation, ''
                       assert_current_node :current_payment_below
                     end
                   end
@@ -205,7 +204,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                       end
                       
                       should "show below min. wage results" do
-                        assert_phrase_list :accommodation_explanation, [:charged_accommodation_exp]
                         assert_current_node :current_payment_below
                       end
                     end
@@ -267,7 +265,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           add_response 7          # accom usage
         end
         should "be above the minimum wage" do
-          assert_phrase_list :accommodation_explanation, [:free_accommodation_exp]
           assert_current_node :current_payment_above
         end
         should "make outcome calculations" do
@@ -425,7 +422,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                     end
                     
                     should "show the results" do
-                      assert_state_variable :accommodation_explanation, ''
                       assert_current_node :past_payment_below
                       # assert_current_node :past_payment_above
                     end
@@ -460,7 +456,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                         end
                         
                         should "show results" do
-                          assert_phrase_list :accommodation_explanation, [:charged_accommodation_exp]
                           assert_current_node :past_payment_below
                         end
                         
@@ -526,7 +521,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           add_response 5   # days per week in accommodation
         end
         should "be above the minimum wage" do
-          assert_phrase_list :accommodation_explanation, [:free_accommodation_exp]
           assert_current_node :past_payment_above
         end
         should "make outcome calculations" do
