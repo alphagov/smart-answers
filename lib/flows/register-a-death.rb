@@ -107,11 +107,11 @@ end
 
 outcome :fco_result do
   precalculate :embassy_high_commission_or_consulate do
-    if reg_data_query.has_high_commission?(registration_country)
+    if data_query.has_high_commission?(current_location)
      "British High Commission"
-    elsif reg_data_query.has_consulate?(registration_country)
-      "British Consulate"
-    elsif reg_data_query.has_consulate_general?(registration_country)
+    elsif data_query.has_consulate?(current_location)
+      "British Embassy or Consulate"
+    elsif data_query.has_consulate_general?(current_location)
       "British Consulate-General"
     else
       "British Embassy"
@@ -136,11 +136,11 @@ outcome :embassy_result do
   end
 
   precalculate :embassy_high_commission_or_consulate do
-    if reg_data_query.has_high_commission?(registration_country)
+    if data_query.has_high_commission?(current_location)
      "British High Commission"
-    elsif reg_data_query.has_consulate?(registration_country)
-      "British Consulate"
-    elsif reg_data_query.has_consulate_general?(registration_country)
+    elsif data_query.has_consulate?(current_location)
+      "British Embassy or Consulate"
+    elsif data_query.has_consulate_general?(current_location)
       "British Consulate-General"
     else
       "British Embassy"
@@ -165,11 +165,11 @@ outcome :embassy_result do
         result = I18n.translate!("#{i18n_prefix}.phrases.multiple_clickbooks_intro") << "\n"
         clickbook.each do |k,v|
           result += %Q(- #{I18n.translate!(i18n_prefix + ".phrases.clickbook_link", 
-                                           title: k, clickbook_url: v, embassy_or_other: embassy_high_commission_or_consulate)})
+                                           title: k, clickbook_url: v, embassy_or_other: embassy_high_commission_or_consulate, city: " in #{k}")})
         end
       else
         result = I18n.translate!("#{i18n_prefix}.phrases.clickbook_link",
-                                 title: "Book an appointment online", clickbook_url: clickbook, embassy_or_other: embassy_high_commission_or_consulate)
+                                 title: "Book an appointment online", clickbook_url: clickbook, embassy_or_other: embassy_high_commission_or_consulate, city: '')
       end
     end
 

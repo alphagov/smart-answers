@@ -225,7 +225,7 @@ en-GB:
           You can book an appointment at the British Embassy or Consulate in:
   
         clickbook_link: |
-          [%{title}](%{clickbook_url} "Book an appointment at the %{embassy_or_other} in %{title}"){:rel="external"}
+          [%{title}](%{clickbook_url} "Book an appointment at the %{embassy_or_other}%{city}"){:rel="external"}
 
         booking_text_embassy_hong_kong: |
           Register at the Consulate General.
