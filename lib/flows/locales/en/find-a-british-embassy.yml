@@ -23,31 +23,13 @@ en-GB:
         - certifying documents (like a passport or birth certificate)
         - witnessing a signature or affidavit
 
-      phrases:
-        embassy_details: |
-          %{embassy_location}
-
-
-          $A
-            %{address}
-          $A
-
-          $C
-            %{email}
-
-            %{phone}
-
-            %{office_hours}
-          $C
 #Q1
       choose_embassy_country:
         title: |
           Which country would you like details for?
-        body: |
-
 
 #outcome
       embassy_outcome:
-        title: Embassy details for %{country_name_lowercase_prefix}
+        title: Embassy details for %{country_name}
         body: |
-            %{embassy_details}
+          +[data_partial:embassies:embassies]
