@@ -234,4 +234,77 @@ class AutoEnrolledIntoWorkplacePensionTest < ActiveSupport::TestCase
 
     end
   end
+
+  context "testing for agency when num_employees < 30" do
+    setup do
+      add_response 'yes'
+      add_response 'no'
+      add_response '25'
+      add_response 'between_22_sp'
+      add_response 'more_than_9k'
+    end
+    should "go to agency output with small company text" do
+      add_response :agency
+      assert_current_node :enrolled_agency
+      assert_phrase_list :small_company, [:small_company_text]
+    end
+  end
+  context "testing for several employers when num_employees < 30" do
+    setup do
+      add_response 'yes'
+      add_response 'no'
+      add_response '1'
+      add_response 'between_22_sp'
+      add_response 'more_than_9k'
+    end
+    should "go to several employers output with small company text" do
+      add_response :several_employers
+      assert_current_node :enrolled_several
+      assert_phrase_list :small_company, [:small_company_text]
+    end
+  end
+  context "testing for overseas employers when num_employees < 30" do
+    setup do
+      add_response 'yes'
+      add_response 'no'
+      add_response '29'
+      add_response 'between_22_sp'
+      add_response 'more_than_9k'
+    end
+    should "go to overseas employers output with small company text" do
+      add_response :overseas_company
+      assert_current_node :enrolled_overseas
+      assert_phrase_list :small_company, [:small_company_text]
+    end
+  end
+  context "testing for contract worker when num_employees < 30" do
+    setup do
+      add_response 'yes'
+      add_response 'no'
+      add_response '27'
+      add_response 'between_22_sp'
+      add_response 'more_than_9k'
+    end
+    should "go to contract worker output with small company text" do
+      add_response :contract
+      assert_current_node :enrolled_contract
+      assert_phrase_list :small_company, [:small_company_text]
+    end
+  end
+  context "testing for 'none of the above' when num_employees < 30" do
+    setup do
+      add_response 'yes'
+      add_response 'no'
+      add_response '27'
+      add_response 'between_22_sp'
+      add_response 'more_than_9k'
+    end
+    should "go to enrolled output with small company text" do
+      add_response :none
+      assert_current_node :enrolled
+      assert_phrase_list :small_company, [:small_company_text]
+    end
+  end
+
+
 end
