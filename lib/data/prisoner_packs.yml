@@ -166,7 +166,7 @@
   prison: /government/uploads/system/uploads/attachment_data/file/139611/bns_in_prison.pdf
   police: /government/publications/greece-help-if-you-are-arrested-or-detained
 - slug: grenada
-  pdf: /government/publications/barbados-prisoner-pack
+  pdf: /government/publications/grenada-prisoner-pack
 - slug: guadeloupe
 - slug: guatemala
   pdf: /government/publications/guatemala-prisoner-pack
@@ -347,7 +347,7 @@
 - slug: sri-lanka
 - slug: st-helena
 - slug: st-kitts-and-nevis
-  pdf: /government/publications/barbados-prisoner-pack
+  pdf: /government/publications/st-kitts-and-nevis-prisoner-pack
 - slug: st-lucia
   pdf: /government/publications/barbados-prisoner-pack
 - slug: st-maarten
