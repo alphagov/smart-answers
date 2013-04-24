@@ -197,7 +197,15 @@ en-GB:
           Paternity declarations are free. Contact the consulate for more details.
 
         postal_form: |
+          ##Send your registration
+
+          You can also post your application to the %{embassy_high_commission_or_consulate}.
+
           Pay by credit or debit card - fill in the [credit card authorisation slip](%{postal_form_url} "Credit card authorisation slip") and post it with your registration form.
+        postal_info: |
+          ##Send your registration
+
+          You can also post your application to the %{embassy_high_commission_or_consulate}.
         postal_info_barbados: |
           Pay by bank draft made payable to ‘British High Commission’.
         postal_info_belgium: |
@@ -260,10 +268,7 @@ en-GB:
           %{go_to_the_embassy}
 
           
-          ##Send your registration
-
-          You can also post your application to the %{embassy_high_commission_or_consulate}.
-
+          
           %{postal}
           %{cash_only}
           
