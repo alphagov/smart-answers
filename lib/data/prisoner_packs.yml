@@ -155,16 +155,7 @@
 - slug: georgia
   pdf: /government/publications/georgia-prisoner-pack
 - slug: germany
-  regions:
-    berlin_new_lander:
-      link: /government/publications/germany-prisoner-pack
-      url_text: Prisoner pack for Berlin and New Lander
-    nordrhein:
-      link: /government/publications/germany-prisoner-pack
-      url_text: Prisoner pack for Nordrhein-Westfalen, Hessen, Rheinland-Pfalz and Saarland
-    bavaria:
-      link: /government/publications/germany-prisoner-pack
-      url_text: Prisoner pack for Baden-Wurttemberg and Bavaria
+  pdf: /government/publications/germany-prisoner-pack
 - slug: ghana
   pdf: /government/publications/ghana-prisoner-pack
   lawyer: /government/publications/ghana-list-of-lawyers
