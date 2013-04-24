@@ -46,6 +46,33 @@ class WorldLocationTest < ActiveSupport::TestCase
     end
   end
 
+  context "equality" do
+    setup do
+      worldwide_api_has_location('rohan')
+      worldwide_api_has_location('gondor')
+    end
+
+    should "consider 2 location instances with the same slug as ==" do
+      loc1 = WorldLocation.find('rohan')
+      WorldLocation.reset_cache
+      loc2 = WorldLocation.find('rohan')
+      assert_not_equal loc1.object_id, loc2.object_id # Ensure we've got different instances
+      assert loc1 == loc2
+    end
+
+    should "not consider instances with different slugs as ==" do
+      loc1 = WorldLocation.find('rohan')
+      loc2 = WorldLocation.find('gondor')
+      refute loc1 == loc2
+    end
+
+    should "not consider instance of a different class as ==" do
+      loc1 = WorldLocation.find('rohan')
+      loc2 = OpenStruct.new(:slug => 'rohan')
+      refute loc1 == loc2
+    end
+  end
+
   context "accessing attributes" do
     setup do
       worldwide_api_has_location('rohan')

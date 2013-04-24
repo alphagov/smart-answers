@@ -16,6 +16,10 @@ class WorldLocation
     @data = data
   end
 
+  def ==(other)
+    other.is_a?(self.class) and other.slug == self.slug
+  end
+
   def_delegators :@data, :title, :details
   def_delegators :details, :slug
   alias_method :name, :title
