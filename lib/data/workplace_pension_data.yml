@@ -1,5 +1,8 @@
 ---
 :enrollment_data:
+- :min_employees: 1
+  :max_employees: 29
+  :start_date: 16 January 2017
 - :min_employees: 30
   :max_employees: 39
   :start_date: 1 October 2015

@@ -46,9 +46,9 @@ class AutoEnrolledIntoWorkplacePensionTest < ActiveSupport::TestCase
       end
 
       context "less than 30 people" do
-        should "go to not enrolled automatically" do
+        should "go to how old" do
           add_response 12 
-          assert_current_node :not_enrolled_automatically
+          assert_current_node :how_old?
         end
       end
 

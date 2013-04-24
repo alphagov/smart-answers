@@ -11,6 +11,9 @@ en-GB:
       options:
         "yes": "Yes"
         "no": "No"
+      phrases:
+        small_company_text: |
+          This tool has set an average joining date of 16 January 2017. However, if you work for a company with fewer than 30 employees this can be between 1 November 2015 and 1 February 2018. Check with your employer.  
 #Q1
       work_in_uk?:
         title: Do you work in the UK?
@@ -81,14 +84,7 @@ en-GB:
           $C
 
           Your employer may need to make changes to your pension scheme in line with new laws around workplace pensions. They’ll let you know if this happens.
-#A3
-      not_enrolled_automatically:
-        body: |
-          $C
-          Your employer doesn’t have to automatically enrol you until sometime between 1 November 2015 and 1 February 2018.
-          $C
-
-          They will write to you if they choose to do it earlier.
+#A3 - removed 24/04/13 as no longer required
 #A4
       not_enrolled_with_options:
         body: |
@@ -135,6 +131,8 @@ en-GB:
           They won’t have to do this until %{enrollment_date}. But they can choose to do it earlier.
 
           If you ask to join the pension scheme in the meantime, they must let you join.
+
+          %{small_company}
 #A9
       enrolled_several:
         body: |
@@ -152,6 +150,9 @@ en-GB:
           If you ask to join the pension scheme in the meantime, they must let you join.
 
           If you have more than 1 workplace pension scheme, you may be able to combine them - talk to your scheme provider.
+
+          %{small_company}
+
 #A10
       enrolled_overseas:
         body: |
@@ -164,6 +165,9 @@ en-GB:
           They won’t have to do this until %{enrollment_date}. But they can choose to do it earlier.
 
           If you ask to join the pension scheme in the meantime, they must let you join.
+
+          %{small_company}
+
 #A11
       enrolled_contract:
         body: |
@@ -174,6 +178,8 @@ en-GB:
           They won’t have to do this until %{enrollment_date}. But they can choose to do it earlier.
 
           This means your contract may end before you are enrolled. If you want to join while you are employed there, write to your employer - they must let you join.
+
+          %{small_company}
 #A12
       not_enrolled_office:
         body: |
@@ -190,6 +196,8 @@ en-GB:
           They won’t have to do this until %{enrollment_date}. But they can choose to do it earlier.
 
           Your employer will write to you explaining the scheme and how it works.
+
+          %{small_company}
 #A14
       not_enrolled_carer:
         body: |
