@@ -118,13 +118,13 @@ end
 outcome :embassy_result do
   precalculate :embassy_high_commission_or_consulate do
     if reg_data_query.has_high_commission?(registration_country)
-     "British High Commission"
+     "British high commission"
     elsif reg_data_query.has_consulate?(registration_country)
-      "British Consulate"
+      "British consulate"
     elsif reg_data_query.has_consulate_general?(registration_country)
-      "British Consulate-General"
+      "British consulate-general"
     else
-      "British Embassy"
+      "British embassy"
     end
   end
   precalculate :documents_you_must_provide do
@@ -176,6 +176,7 @@ outcome :embassy_result do
     phrases << (paternity_declaration ? :registering_paternity_declaration : :registering_either_parent)
     phrases
   end
+
   precalculate :postal_form_url do
     reg_data_query.birth_postal_form(registration_country)
   end
@@ -183,11 +184,12 @@ outcome :embassy_result do
     if postal_form_url
       PhraseList.new(:"postal_form")
     elsif reg_data_query.class::NO_POSTAL_COUNTRIES.include?(registration_country) 
-      PhraseList.new(:"postal_info_#{registration_country}")
+      PhraseList.new(:postal_info, :"postal_info_#{registration_country}")
     else
       ''
     end
   end
+
   precalculate :embassy_details do
     details = embassy_data_query.find_embassy_data(registration_country)
     if details and !different_address.include?(registration_country)
@@ -218,13 +220,13 @@ end
 outcome :fco_result do
   precalculate :embassy_high_commission_or_consulate do
     if reg_data_query.has_high_commission?(registration_country)
-     "British High Commission"
+     "British high commission"
     elsif reg_data_query.has_consulate?(registration_country)
-      "British Consulate"
+      "British consulate"
     elsif reg_data_query.has_consulate_general?(registration_country)
-      "British Consulate-General"
+      "British consulate-general"
     else
-      "British Embassy"
+      "British embassy"
     end
   end
   precalculate :intro do
