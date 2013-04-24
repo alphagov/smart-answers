@@ -3,7 +3,7 @@ en-GB:
     minimum-wage-calculator-employers:
       title: National Minimum Wage calculator for employers
       body: |
-        Employers can use the calculator to check if they are paying the National Minimum Wage.
+        Check if you're paying a worker the National Minimum Wage or if you owe them payments from past years.
       meta:
         description: "Employers can check if they're paying the National Minimum Wage"
       options:
@@ -86,18 +86,18 @@ en-GB:
       how_many_hours_do_you_work?:
         title: "How many hours does the worker work during the pay period?"
         hint: |
-          Don’t include any overtime or other extra hours they might work.
+          Don’t include any overtime or other extra hours the worker might work.
         suffix_label: hours
         error_message: Please enter a number
-        error_hours: Please enter the number of hours they actually work during the pay period. 
+        error_hours: Please enter the number of hours the worker actually works during the pay period. 
       # Q5 Past
       how_many_hours_did_you_work?:
         title: "How many hours did the worker work during the pay period?"
         hint: |
-          Don’t include any overtime or other extra hours they worked.
+          Don’t include any overtime or other extra hours the worker worked.
         suffix_label: hours
         error_message: Please enter a number
-        error_hours: Please enter the number of hours they actually worked during the pay period. 
+        error_hours: Please enter the number of hours the worker actually worked during the pay period. 
       # Q6
       how_much_are_you_paid_during_pay_period?:
         title: "How much do you pay the worker in the pay period?"
