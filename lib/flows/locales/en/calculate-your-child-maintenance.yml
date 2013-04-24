@@ -87,7 +87,7 @@ en-GB:
       gross_income_of_payee?:
         title: What is the weekly gross income of the parent paying child maintenance?
         hint: |
-          This is income before tax, National Insurance and pension contributions. Include all the paying parent’s working tax credits if their income is higher than their current partner's. Include half the working tax credits if their incomes are the same.
+          This is income before tax and National Insurance but after pension contributions. Include all the paying parent’s working tax credits if their income is higher than their current partner's. Include half the working tax credits if their incomes are the same.
         suffix_label: per week
         error_message: Please enter a number
       ## Q4
