@@ -111,13 +111,13 @@
   regions:
     north:
       link: /government/publications/cyprus-north-prisoner-pack
-      url_text: Prisoner pack for the North of Cyprus
+      url_text: Prisoner pack for the north of Cyprus
     republic:
       link: /government/publications/cyprus-prisoner-pack
-      url_text: Prisoner pack for the Republic of Cyprus
+      url_text: Prisoner pack for people who have been imprisoned at Nicosia Central Prison or held on remand at a police station in the Republic of Cyprus
     republic_police:
       link: /government/uploads/system/uploads/attachment_data/file/139596/police-station-pack-south.pdf
-      url_text: Information on the police and police procedures in the Republic of Cyprus
+      url_text: Prisoner pack for people who are detained or held on remand at a police station in the Republic of Cyprus
 
 - slug: czech-republic
   pdf: /government/publications/czech-republic-prisoner-pack
