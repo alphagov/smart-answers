@@ -60,6 +60,8 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
             assert_current_node :contact_the_embassy
             assert_phrase_list :child_advice, []
             assert_state_variable :lost_or_stolen, 'lost'
+            assert_state_variable :country_name, 'Azerbaijan'
+            assert_equal "British Embassy\n45 Khagani Street\nBaku\nAZ1010", current_state.embassies[0]["address"]
           end
         end
       end
