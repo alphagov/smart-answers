@@ -9,7 +9,7 @@ exclusions = %w(afghanistan cambodia central-african-republic chad comoros
                 liberia madagascar montenegro paraguay samoa slovenia somalia 
                 swaziland taiwan tajikistan western-sahara)
 no_embassies = %w(iran syria yemen)
-different_address = %w(brazil germany india)
+different_address = %w(belgium brazil germany india indonesia)
 
 # Q1
 multiple_choice :where_did_the_death_happen? do
@@ -108,13 +108,13 @@ end
 outcome :fco_result do
   precalculate :embassy_high_commission_or_consulate do
     if data_query.has_high_commission?(current_location)
-     "British High Commission"
+     "British high commission"
     elsif data_query.has_consulate?(current_location)
-      "British Embassy or Consulate"
+      "British embassy or consulate"
     elsif data_query.has_consulate_general?(current_location)
-      "British Consulate-General"
+      "British consulate-general"
     else
-      "British Embassy"
+      "British embassy"
     end
   end
   precalculate :registration_footnote do
@@ -137,13 +137,13 @@ outcome :embassy_result do
 
   precalculate :embassy_high_commission_or_consulate do
     if data_query.has_high_commission?(current_location)
-     "British High Commission"
+     "British high commission"
     elsif data_query.has_consulate?(current_location)
-      "British Embassy or Consulate"
+      "British embassy or consulate"
     elsif data_query.has_consulate_general?(current_location)
-      "British Consulate-General"
+      "British consulate-general"
     else
-      "British Embassy"
+      "British embassy"
     end
   end
   
