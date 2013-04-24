@@ -553,15 +553,27 @@ belgium:
   email: info@britain.be
   website: /government/world/belgium/
   office_hours: |-
-    Local Time - (Mon to Fri):
+    Local Time:  
+     Mon to Fri: 0900 - 1730
     
-    Embassy: 0900 - 1730
-    Consular: Mon, Tues, Thurs, Fri: 0900 - 1230 (closed Wed) 
-    
-    GMT - (Mon to Fri)
-    
-    Embassy: 0800 - 1630
-    Consular: Mon, Tues, Thurs, Fri: 0800 - 1130 (closed Wed)
+    GMT:  
+    Mon to Fri 0800 - 1630
+- address: |-
+    British Consulate-General
+    Avenue des Nerviens 9-31 
+    1040 Brussels 
+    Belgium
+  designation: British Consulate-General
+  location_name: Brussels
+  phone: (32) (2) 287 6211
+  email: consularsection.brussels@fco.gov.uk
+  website: /government/world/belgium/
+  office_hours: |-
+    Local Time:  
+    Mon, Tues, Thurs, Fri: 0900 - 1230 (closed Wed) 
+
+    GMT:  
+    Mon, Tues, Thurs, Fri: 0800 - 1130 (closed Wed)
 belize: 
 - address: |-
     British High Commission
@@ -2935,6 +2947,20 @@ indonesia:
     Office hours (GMT):
     Monday-Thursday: 00:45 - 09:00
     Friday: 00:45 - 05:45
+- address: |-
+    British Consulate-General 
+    Deutsche Bank Building 19th Floor 
+    Jalan Imam Bonjol No. 80 
+    Jakarta Pusat
+    10310 
+    Indonesia 
+  designation: British Consulate-General
+  phone: (62) (21) 2356 5200
+  email: Consulate.Jakarta@fco.gov.uk
+  website: /government/world/indonesia/
+  office_hours: |-
+    Local time:
+    Monday to Friday: 08.30 - 12.00
 - address: |-
     British Consulate 
     Jl. Tirta Nadi 2 No. 20
