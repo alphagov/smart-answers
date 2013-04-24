@@ -98,6 +98,65 @@ class WorldLocationTest < ActiveSupport::TestCase
       worldwide_api_does_not_have_location('non-existent')
       assert_nil WorldLocation.find('non-existent')
     end
+
+    context "caching the result" do
+      setup do
+        worldwide_api_has_location('rohan')
+        worldwide_api_has_location('gondor')
+      end
+
+      should "cache the loaded location" do
+        first = WorldLocation.find('rohan')
+        second = WorldLocation.find('rohan')
+
+        assert_requested(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan", :times => 1)
+        assert_equal first, second
+      end
+
+      should "not allow cached items to conflict" do
+        WorldLocation.find('rohan')
+        assert_equal 'gondor', WorldLocation.find('gondor').slug
+      end
+
+      should "cache the loaded location for a day" do
+        first = WorldLocation.find('rohan')
+        second = WorldLocation.find('rohan')
+
+        assert_requested(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan", :times => 1)
+        assert_equal first, second
+
+        Timecop.travel(Time.now + 23.hours) do
+          third = WorldLocation.find('rohan')
+          assert_requested(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan", :times => 1)
+          assert_equal first, third
+        end
+
+        Timecop.travel(Time.now + 25.hours) do
+          fourth = WorldLocation.find('rohan')
+          assert_requested(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan", :times => 2)
+          assert_equal first, fourth
+        end
+      end
+
+      should "use the stale value from the cache on error for a week" do
+        first = WorldLocation.find('rohan')
+
+        stub_request(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan").to_timeout
+
+        Timecop.travel(Time.now + 25.hours) do
+          assert_nothing_raised do
+            second = WorldLocation.find('rohan')
+            assert_equal first, second
+          end
+        end
+
+        Timecop.travel(Time.now + 1.week + 1.hour) do
+          assert_raises RuntimeError do
+            WorldLocation.find('rohan')
+          end
+        end
+      end
+    end
   end
 
   context "equality" do

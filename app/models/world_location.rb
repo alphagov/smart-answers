@@ -12,21 +12,29 @@ class WorldLocation
   end
 
   def self.all
-    cache.fetch("all") do
+    cache_fetch("all") do
+      $worldwide_api.world_locations.with_subsequent_pages.map do |l|
+        new(l) if l.format == "World location"
+      end.compact
+    end
+  end
+
+  def self.find(location_slug)
+    cache_fetch("find_#{location_slug}") do
+      data = $worldwide_api.world_location(location_slug)
+      self.new(data) if data
+    end
+  end
+
+  def self.cache_fetch(key)
+    cache.fetch(key) do
       begin
-        $worldwide_api.world_locations.with_subsequent_pages.map do |l|
-          new(l) if l.format == "World location"
-        end.compact
+        yield
       rescue GdsApi::BaseError => e
         # A Runtime Error is caught by LRUcache, and the stale value will be used if available
         raise RuntimeError.new("Error fetching world_locations: #{e.message}")
       end
     end
-  end
-
-  def self.find(location_slug)
-    data = $worldwide_api.world_location(location_slug)
-    self.new(data) if data
   end
 
   def initialize(data)
