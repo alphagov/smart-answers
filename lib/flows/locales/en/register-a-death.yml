@@ -222,7 +222,7 @@ en-GB:
           - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
 
         multiple_clickbooks_intro: |
-          You can book an appointment at the British Embassy or Consulate in:
+          You can book an appointment at the British embassy or consulate in:
   
         clickbook_link: |
           [%{title}](%{clickbook_url} "Book an appointment at the %{embassy_or_other}%{city}"){:rel="external"}
