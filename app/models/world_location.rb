@@ -26,14 +26,25 @@ class WorldLocation
     end
   end
 
+  # Fetch a value from the cache.
+  #
+  # On GdsApi errors, returns a stale value from the cache if available,
+  # otherwise re-raises the original GdsApi exception
   def self.cache_fetch(key)
+    inner_exception = nil
     cache.fetch(key) do
       begin
         yield
       rescue GdsApi::BaseError => e
-        # A Runtime Error is caught by LRUcache, and the stale value will be used if available
-        raise RuntimeError.new("Error fetching world_locations: #{e.message}")
+        inner_exception = e
+        raise RuntimeError.new("use_stale_value")
       end
+    end
+  rescue RuntimeError => e
+    if e.message == "use_stale_value"
+      raise inner_exception
+    else
+      raise
     end
   end
 

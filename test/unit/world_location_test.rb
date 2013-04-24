@@ -77,7 +77,7 @@ class WorldLocationTest < ActiveSupport::TestCase
         end
 
         Timecop.travel(Time.now + 1.week + 1.hour) do
-          assert_raises RuntimeError do
+          assert_raises GdsApi::TimedOutException do
             WorldLocation.all
           end
         end
@@ -151,7 +151,7 @@ class WorldLocationTest < ActiveSupport::TestCase
         end
 
         Timecop.travel(Time.now + 1.week + 1.hour) do
-          assert_raises RuntimeError do
+          assert_raises GdsApi::TimedOutException do
             WorldLocation.find('rohan')
           end
         end
