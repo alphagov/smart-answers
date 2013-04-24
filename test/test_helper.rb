@@ -21,6 +21,7 @@ class MiniTest::Unit::TestCase
   def teardown_with_customisations
     teardown_without_customisations
     Timecop.return
+    WorldLocation.reset_cache
   end
   alias_method_chain :teardown, :customisations
 end

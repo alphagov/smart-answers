@@ -29,6 +29,60 @@ class WorldLocationTest < ActiveSupport::TestCase
       results = WorldLocation.all
       assert_equal %w(the-shire rivendel rohan gondor arnor mordor), results.map(&:slug)
     end
+
+    context "caching the results" do
+      setup do
+        @location_slugs = (1..30).map {|n| "location-#{n}" }
+        worldwide_api_has_locations(@location_slugs)
+      end
+
+      should "cache the loaded locations" do
+        first = WorldLocation.all
+        second = WorldLocation.all
+
+        assert_requested(:get, %r{\A#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations}, :times => 2) # 2 pages of results, once each
+        assert_equal first, second
+      end
+
+      should "cache the loaded locations for a day" do
+        first = WorldLocation.all
+        second = WorldLocation.all
+
+        assert_requested(:get, %r{\A#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations}, :times => 2) # 2 pages of results, once each
+        assert_equal first, second
+
+        Timecop.travel(Time.now + 23.hours) do
+          third = WorldLocation.all
+          assert_requested(:get, %r{\A#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations}, :times => 2) # 2 pages of results, once each
+          assert_equal first, third
+        end
+
+        Timecop.travel(Time.now + 25.hours) do
+          fourth = WorldLocation.all
+          assert_requested(:get, %r{\A#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations}, :times => 4) # 2 pages of results, twice each
+          assert_equal first, fourth
+        end
+      end
+
+      should "use the stale value from the cache on error for a week" do
+        first = WorldLocation.all
+
+        stub_request(:get, "#{WORLDWIDE_API_ENDPOINT}/api/world-locations").to_timeout
+
+        Timecop.travel(Time.now + 25.hours) do
+          assert_nothing_raised do
+            second = WorldLocation.all
+            assert_equal first, second
+          end
+        end
+
+        Timecop.travel(Time.now + 1.week + 1.hour) do
+          assert_raises RuntimeError do
+            WorldLocation.all
+          end
+        end
+      end
+    end
   end
 
   context "finding a location by slug" do

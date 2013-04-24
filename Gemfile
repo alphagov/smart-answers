@@ -41,6 +41,7 @@ else
 end
 
 gem 'uk_postcode', '1.0.0'
+gem 'lrucache', '0.1.4'
 
 group :test do
   gem 'capybara', '~> 1.1.2'
