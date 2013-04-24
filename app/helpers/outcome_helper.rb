@@ -9,6 +9,8 @@ module OutcomeHelper
     File.read(filepath).html_safe
   end
 
+  # Used by the legacy_emabssies data_partial
+  # This should be considered deprecated
   def prettify_contact(contact)
     contact = contact.dup
 
@@ -28,6 +30,6 @@ module OutcomeHelper
     # highlight the first line
     contact.gsub!(/\A([^\<]+)/,"<strong>\\1</strong>")
 
-    contact
+    contact.html_safe
   end
 end

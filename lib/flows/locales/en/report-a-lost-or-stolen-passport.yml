@@ -101,7 +101,7 @@ en-GB:
 
           %{child_advice}
 
-          +[contact_list]
+          +[data_partial:legacy_embassies:embassies]
 
           ##Get a replacement passport
 
