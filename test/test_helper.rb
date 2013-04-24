@@ -18,10 +18,11 @@ require 'mocha/setup'
 require 'webmock/minitest'
 
 class MiniTest::Unit::TestCase
-  def after_teardown
-    super
+  def teardown_with_customisations
+    teardown_without_customisations
     Timecop.return
   end
+  alias_method_chain :teardown, :customisations
 end
 
 require 'gds_api/test_helpers/json_client_helper'
