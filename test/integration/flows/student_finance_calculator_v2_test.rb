@@ -58,9 +58,9 @@ class StudentFinanceCalculatorV2Test < ActiveSupport::TestCase
               assert_current_node :do_any_of_the_following_apply_uk_full_time_students_only?
             end
 
-            context "has adult dependant" do
+            context "has children under 17 and adult dependant" do
               setup do
-                add_response 'dependant-adult'
+                add_response 'children-under-17,dependant-adult'
               end
               should "ask what course you are studying" do
                 assert_current_node :what_course_are_you_studying?
@@ -73,7 +73,7 @@ class StudentFinanceCalculatorV2Test < ActiveSupport::TestCase
                 assert_state_variable :maintenance_loan_amount, 2698 #4375 - (maintenance_grant_amount/2.0).floor
                 assert_state_variable :maintenance_grant_amount, 3354
                 assert_phrase_list :students_body_text, [:uk_students_body_text]
-                assert_phrase_list :uk_full_time_students, [:additional_benefits, :dependant_adult, :teacher_training]
+                assert_phrase_list :uk_full_time_students, [:additional_benefits, :children_under_17, :dependant_adult, :teacher_training]
                 assert_phrase_list :household_income_figure, [:uk_students_body_text_with_nsp]
               end # end should
             end # end context children
@@ -86,7 +86,7 @@ class StudentFinanceCalculatorV2Test < ActiveSupport::TestCase
       setup do
         add_response 'uk-part-time'
         add_response '6000'
-        add_response 'children-under-17,dependant-adult,has-disability,low-income'
+        add_response 'has-disability,low-income'
         add_response 'dental-medical-healthcare'
       end
       should "go to all uk students outcome" do
@@ -94,7 +94,7 @@ class StudentFinanceCalculatorV2Test < ActiveSupport::TestCase
         assert_phrase_list :eligible_finance, [:tuition_fee_loan]
         assert_state_variable :tuition_fee_amount, 6000
         assert_phrase_list :students_body_text, [:uk_students_body_text]
-        assert_phrase_list :uk_all_students, [:additional_benefits, :children_under_17, :dependant_adult, :has_disability, :low_income, :dental_medical_healthcare, :uk_students_body_text_no_nsp]
+        assert_phrase_list :uk_all_students, [:additional_benefits, :has_disability, :low_income, :dental_medical_healthcare, :uk_students_body_text_no_nsp]
       end
     end
 
