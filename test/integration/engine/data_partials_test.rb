@@ -10,13 +10,16 @@ class DataPartialsTest < EngineIntegrationTest
       within('h2.result-title') { assert_page_has_content "Data partial with scalar data" }
 
       assert page.has_selector?('p', :text => "Some data that was passed through")
-      within '.custom-address' do
+
+      assert page.has_selector?('h2', :text => "An address")
+      within '.address' do
         assert_page_has_content "444-446 Pulteney Street"
         assert_page_has_content "Adelaide"
         assert_page_has_content "SA 5000"
       end
 
-      within '.a-phone-number' do
+      assert page.has_selector?('h2', :text => "And a phone number")
+      within '.contact' do
         assert_page_has_content "(+61) (0) 2 6270 8888"
       end
       assert page.has_selector?('p', :text => "More markdown afterwards")
