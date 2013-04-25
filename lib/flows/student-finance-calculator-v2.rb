@@ -143,8 +143,6 @@ end
 checkbox_question :do_any_of_the_following_apply_uk_full_time_students_only? do
   option :"children-under-17"
   option :"dependant-adult"
-  option :"has-disability"
-  option :"low-income"
   option :"no"
 
   calculate :uk_ft_circumstances do
@@ -156,6 +154,8 @@ end
 
 #Q6b uk students
 checkbox_question :do_any_of_the_following_apply_all_uk_students? do
+  option :"children-under-17"
+  option :"dependant-adult"
   option :"has-disability"
   option :"low-income"
   option :"no"
