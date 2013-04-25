@@ -37,7 +37,6 @@ multiple_choice :form_needed_for_1? do
   option :"apply-loans-grants"
   option :"proof-identity"
   option :"income-details"
-  option :"change-application"
   option :"apply-dsa"
   option :"dsa-expenses"
   option :"apply-ccg"
@@ -101,14 +100,6 @@ multiple_choice :what_year? do
         else 
           :outcome_proof_identity_1213
         end
-      elsif form_required == 'change-application'
-        if response == 'year-1314'
-          if student_type == 'uk-full-time'
-            :outcome_ukft_change_application_1314
-          else
-            :outcome_ukft_change_application_1213
-          end
-      end
       elsif form_required == 'income-details' 
         if response == 'year-1314' 
           :outcome_parent_partner_1314
@@ -262,8 +253,6 @@ outcome :outcome_parent_partner_1213
 outcome :outcome_proof_identity_1314
 outcome :outcome_proof_identity_1314_pt
 outcome :outcome_proof_identity_1213
-outcome :outcome_uk_ft_change_application
-outcome :outcome_uk_pt_change_application
 outcome :outcome_dsa_1314
 outcome :outcome_dsa_1314_pt
 outcome :outcome_dsa_1213
