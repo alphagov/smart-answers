@@ -20,7 +20,7 @@ en-GB:
         title: |
           Does the worker work in a job where there are exceptions or different rules for night work?
         body: |
-          Hint: There are many jobs with different rules - [check the list](/your-rights-when-working-at-night/exceptions-to-night-work-hour-limits "Exceptions to night work hour limits"). Examples include people working in transport, the emergency services and jobs with peak demand times.
+          Hint: There are many jobs with different rules - [check the list](/night-working-hours/exceptions-to-night-work-limits "Exceptions to night work hour limits"). Examples include people working in transport, the emergency services and jobs with peak demand times.
 
       how_many_night_hours_worked?:
         title: How many 'night hours' does the worker work?
@@ -46,7 +46,7 @@ en-GB:
 
           Enter 17 unless the reference period is different in your workplace. If the person has been a nightworker for less than 17 weeks, enter the number of weeks they've been a nightworker.
 
-          Get help with calculating the [reference period](/night-working-hours "Night working hours").
+          Get help with calculating the [reference period](/night-working-hours/hours-and-limits  "Night working hours").
         error_message: Please enter a number between 1 and 52
 
       what_is_your_work_cycle?:
