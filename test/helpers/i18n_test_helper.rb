@@ -8,8 +8,4 @@ module I18nTestHelper
     I18n.config.load_path = @i18n_load_path_stack.pop
     I18n.reload!
   end
-
-  def fixture_file(filename)
-    File.expand_path("../../fixtures/#{filename}", __FILE__)
-  end
 end

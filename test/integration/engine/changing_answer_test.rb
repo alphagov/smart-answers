@@ -1,9 +1,14 @@
 # encoding: UTF-8
 require_relative 'engine_test_helper'
+require 'gds_api/test_helpers/worldwide'
 
 class ChangingAnswerTest < EngineIntegrationTest
+  include GdsApi::TestHelpers::Worldwide
+
   with_and_without_javascript do
     should "be able to change country and date answers" do
+      worldwide_api_has_selection_of_locations
+
       visit "/country-and-date-sample/y"
 
       select "Belarus", :from => "response"
@@ -18,10 +23,10 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       within('.current-question .question-body') { assert page.has_select? "response", :selected => "Belarus" }
 
-      select "India", :from => "response"
+      select "South Korea", :from => "response"
       click_on "Next step"
 
-      assert_current_url "/country-and-date-sample/y/india"
+      assert_current_url "/country-and-date-sample/y/south-korea"
 
       select "10", :from => "Day"
       select "June", :from => "Month"
@@ -41,7 +46,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       select "2000", :from => "Year"
       click_on "Next step"
 
-      assert_current_url "/country-and-date-sample/y/india/2000-04-15"
+      assert_current_url "/country-and-date-sample/y/south-korea/2000-04-15"
     end
 
     should "be able to change money and salary answers" do

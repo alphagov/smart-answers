@@ -1,9 +1,23 @@
 # encoding: UTF-8
 require_relative 'engine_test_helper'
+require 'gds_api/test_helpers/worldwide'
 
 class CountryAndDateQuestionsTest < EngineIntegrationTest
+  include GdsApi::TestHelpers::Worldwide
 
   with_and_without_javascript do
+    setup do
+      @location_slugs = %w(
+        afghanistan angola aruba bangladesh belarus brazil brunei
+        cambodia chad croatia denmark eritrea france ghana iceland
+        japan laos luxembourg malta micronesia mozambique nicaragua
+        panama portugal sao-tome-and-principe singapore south-korea
+        sri-lanka uk-delegation-to-council-of-europe
+        uk-delegation-to-organization-for-security-and-co-operation-in-europe
+        united-kingdom venezuela vietnam)
+      worldwide_api_has_locations(@location_slugs)
+    end
+
     should "handle country and date questions" do
       visit "/country-and-date-sample/y"
 
@@ -14,9 +28,15 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         end
       end
       within '.question-body' do
-        # TODO Check country list
         assert page.has_select?("response")
-        assert page.has_no_xpath? "//select/option[@value = 'united-kingdom']"
+        # Options above missing delegations and uk
+        expected = %w(afghanistan angola aruba bangladesh belarus brazil brunei
+          cambodia chad croatia denmark eritrea france ghana iceland
+          japan laos luxembourg malta micronesia mozambique nicaragua
+          panama portugal sao-tome-and-principe singapore south-korea
+          sri-lanka venezuela vietnam)
+        actual = page.all('select option').map(&:value)
+        assert_equal expected, actual
       end
 
       select "Belarus", :from => "response"
@@ -79,16 +99,71 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         end
       end
 
+      within '.current-question' do
+        within 'h2' do
+          within('.question-number') { assert_page_has_content "3" }
+          assert_page_has_content "Which country were you born in?"
+        end
+      end
+      within '.question-body' do
+        assert page.has_select?("response")
+        # Options above excluding delegations
+        expected = %w(afghanistan angola aruba bangladesh belarus brazil brunei
+          cambodia chad croatia denmark eritrea france ghana iceland
+          japan laos luxembourg malta micronesia mozambique nicaragua
+          panama portugal sao-tome-and-principe singapore south-korea
+          sri-lanka united-kingdom venezuela vietnam)
+        actual = page.all('select option').map(&:value)
+        assert_equal expected, actual
+      end
+
+      select "United Kingdom", :from => "response"
+      click_on "Next step"
+
+      assert_current_url "/country-and-date-sample/y/belarus/1975-05-05/united-kingdom"
+
+      within '.done-questions' do
+        within('.start-again') { assert page.has_link?("Start again", :href => '/country-and-date-sample') }
+        within 'ol li.done:nth-child(1)' do
+          within 'h3' do
+            within('.question-number') { assert_page_has_content "1" }
+            assert_page_has_content "Which country do you live in?"
+          end
+          within('.answer') { assert_page_has_content "Belarus" }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/country-and-date-sample/y/?previous_response=belarus") }
+        end
+
+        within 'ol li.done:nth-child(2)' do
+          within 'h3' do
+            within('.question-number') { assert_page_has_content "2" }
+            assert_page_has_content "What date did you move there?"
+          end
+
+          within('.answer') { assert_page_has_content "5 May 1975" }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/country-and-date-sample/y/belarus?previous_response=1975-05-05") }
+        end
+
+        within 'ol li.done:nth-child(3)' do
+          within 'h3' do
+            within('.question-number') { assert_page_has_content "3" }
+            assert_page_has_content "Which country were you born in?"
+          end
+
+          within('.answer') { assert_page_has_content "United Kingdom" }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/country-and-date-sample/y/belarus/1975-05-05?previous_response=united-kingdom") }
+        end
+      end
+
       within '.outcome' do
         within '.result-info' do
-          within('h2.result-title') { assert_page_has_content "Great - you've lived in belarus for 37 years!" }
+          within('h2.result-title') { assert_page_has_content "Great - you've lived in belarus for 37 years, and were born in united-kingdom!" }
         end
       end
     end
   end # with_and_without_javascript
 
-  should "handle country selects including and omitting the UK option" do
-    visit "/country-sample/y"
+  should "handle country selects using the legacy data including and omitting the UK option" do
+    visit "/country-legacy-sample/y"
 
     within '.current-question' do
       within 'h2' do
@@ -104,17 +179,17 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
     select "Belarus", :from => "response"
     click_on "Next step"
 
-    assert_current_url "/country-sample/y/belarus"
+    assert_current_url "/country-legacy-sample/y/belarus"
 
     within '.done-questions' do
-      within('.start-again') { assert page.has_link?("Start again", :href => '/country-sample') }
+      within('.start-again') { assert page.has_link?("Start again", :href => '/country-legacy-sample') }
       within 'ol li.done:nth-child(1)' do
         within 'h3' do
           within('.question-number') { assert_page_has_content "1" }
           assert_page_has_content "Which country do you live in?"
         end
         within('.answer') { assert_page_has_content "Belarus" }
-        within('.undo') { assert page.has_link?("Change this answer", :href => "/country-sample/y/?previous_response=belarus") }
+        within('.undo') { assert page.has_link?("Change this answer", :href => "/country-legacy-sample/y/?previous_response=belarus") }
       end
     end
 
@@ -133,7 +208,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
     select "United Kingdom", :from => "response"
     click_on "Next step"
 
-    assert_current_url "/country-sample/y/belarus/united-kingdom"
+    assert_current_url "/country-legacy-sample/y/belarus/united-kingdom"
 
     within '.outcome' do
       within '.result-info' do
