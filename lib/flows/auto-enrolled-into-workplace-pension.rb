@@ -18,14 +18,15 @@ value_question :how_many_people? do
     num
   end
 
-  next_node do |response|
-    # response.to_i returns 2 if user enters 2,500, so prevent them from entering numbers with a comma
-    if Integer(response) < 30
-      :not_enrolled_automatically
+  calculate :small_company do
+    if num_employees < 30
+      PhraseList.new(:small_company_text)
     else
-      :how_old?
+      ''
     end
   end
+
+  next_node :how_old?
 end
 
 multiple_choice :how_old? do
@@ -79,17 +80,16 @@ multiple_choice :one_of_the_following? do
   option :none => :enrolled
 end
 
-outcome :not_enrolled_automatically
-outcome :not_enrolled
-outcome :continue_to_pay
-outcome :not_enrolled_with_options
-outcome :not_enrolled_opt_in
-outcome :not_enrolled_income_varies
-outcome :not_enrolled_mod
-outcome :enrolled_agency
-outcome :enrolled_several
-outcome :enrolled_overseas
-outcome :enrolled_contract
-outcome :not_enrolled_office
-outcome :not_enrolled_carer
-outcome :enrolled
+outcome :not_enrolled #A1
+outcome :continue_to_pay #A2
+outcome :not_enrolled_with_options #A4
+outcome :not_enrolled_opt_in #A5
+outcome :not_enrolled_income_varies #A6
+outcome :not_enrolled_mod #A7
+outcome :enrolled_agency #A8
+outcome :enrolled_several #A9
+outcome :enrolled_overseas #A10
+outcome :enrolled_contract #A11
+outcome :not_enrolled_office #A12
+outcome :enrolled #A13
+outcome :not_enrolled_carer #A14 
