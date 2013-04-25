@@ -36,6 +36,8 @@ en-GB:
         automatic_years_phrase: |
           You might be eligible for [credits towards your basic State Pension](/automatic-pension-credits-for-men "automatic pension credits for men") for the years immediately before you reach age 65.
         full_contribution_years_callout: You get the full State Pension.
+        amount_disclaimer: |
+          This calculation is according to the current law. The State Pension may [change in the future](/changes-state-pension "Changes to the State Pension"). 
         automatic_credits: |
           Your estimate includes up to 3 years of automatic credits for the years covering your 16th, 17th and 18th birthdays. If you got your National Insurance number after April 2010 you don’t get these automatic credits.
 
@@ -303,8 +305,7 @@ en-GB:
           %{automatic_credits}
           [State Pension if you retire abroad](/state-pension-if-you-retire-abroad "State Pension if you retire abroad")
 
-          This calculation is according to the current law. The State Pension may [change in the future](/changes-state-pension "Changes to the State Pension"). 
-
+          %{disclaimer}
       ## AGE RESULT
       age_result:
         title: |
@@ -312,5 +313,4 @@ en-GB:
           
         body: |
           %{state_pension_age_statement}
-
-      
+ 

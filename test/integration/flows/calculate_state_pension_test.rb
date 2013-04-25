@@ -230,6 +230,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
                         assert_state_variable "remaining_years", 5
                         assert_state_variable "pension_loss", "14.69"
                         assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years, :automatic_years_phrase]
+                        assert_phrase_list :disclaimer, [:amount_disclaimer]
                         assert_state_variable "state_pension_date", Date.parse("2018 Oct 4th")
                         assert_current_node :amount_result
                       end
@@ -676,6 +677,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         should "add 3 years credit for a person born between 1959 and 1992" do
           assert_current_node :amount_result
           assert_state_variable "missing_years", 7
+
         end
       end
 
@@ -774,6 +776,19 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
       should "display result because of starting credits" do
         assert_current_node :amount_result
+      end
+    end
+
+    context "not enough remaining years" do
+      should "not display a disclaimer" do
+        add_response 'male'
+        add_response '1955-01-01'
+        add_response 0
+        add_response 0
+        add_response 'no'
+        add_response 0
+        assert_current_node :amount_result
+        assert_state_variable :disclaimer, ''
       end
     end
       
