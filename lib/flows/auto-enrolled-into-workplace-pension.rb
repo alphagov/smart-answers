@@ -21,6 +21,8 @@ value_question :how_many_people? do
   calculate :small_company do
     if num_employees < 30
       PhraseList.new(:small_company_text)
+    else
+      ''
     end
   end
 
@@ -78,7 +80,6 @@ multiple_choice :one_of_the_following? do
   option :none => :enrolled
 end
 
-# outcome :not_enrolled_automatically removed 24/04/13, no longer required
 outcome :not_enrolled #A1
 outcome :continue_to_pay #A2
 outcome :not_enrolled_with_options #A4
