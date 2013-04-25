@@ -58,14 +58,14 @@ en-GB:
         options:
           "children-under-17": "You’ve got children under 17"
           "dependant-adult": "An adult depends on you financially"
+          "has-disability": "You’ve a disability, health condition or learning difficulty -  eg dyslexia"
+          "low-income": "You’re on low income - eg you find it hard to pay for basics like food and accommodation"
           "no": "None of these"
 
 #Q6b
       do_any_of_the_following_apply_all_uk_students?:
         title: Do any of the following apply (you might get extra funding)?
         options:
-          "children-under-17": "You’ve got children under 17"
-          "dependant-adult": "An adult depends on you financially"
           "has-disability": "You’ve a disability, health condition or learning difficulty -  eg dyslexia"
           "low-income": "You’re on low income - eg you find it hard to pay for basics like food and accommodation"
           "no": "None of these"
