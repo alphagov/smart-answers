@@ -24,7 +24,7 @@ en-GB:
           DL1 9AZ
           $A
       meta:
-        description: Download Student Finance England application forms and guidance notes
+        description: Download Student Finance England application forms and guidance notes - including forms PN1, PR1, PTG1, PFF2 and CYI
       title: Student finance forms
       body: |
         Download student finance forms and guidance notes for Student Finance England including:
@@ -66,6 +66,7 @@ en-GB:
           "apply-loans-grants": "Apply for student loans and grants"
           "proof-identity": "Send proof of identity"
           "income-details": "Send parent or partner’s income detail - eg PFF2 or CYI"
+          "change-application": "Change an application - eg course or update personal details"
           "apply-dsa": "Apply for Disabled Students’ Allowances"
           "dsa-expenses": "Claim Disabled Students’ Allowances expenses"
           "apply-ccg": "Apply for Childcare Grant"
@@ -104,7 +105,7 @@ en-GB:
           "course-start-after-01092012": "No"
 
 
-      outcome_1:
+      outcome_uk_ft_1314_new:
         title: Student finance – application form
         body: |
           You should [apply online](/apply-online-for-student-finance "Apply for student finance online") for help with your tuition and living costs.
@@ -123,7 +124,7 @@ en-GB:
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_2:
+      outcome_uk_ft_1314_continuing:
         title: Student finance – application form
         body: |
           You should [apply online](/apply-online-for-student-finance "Apply for student finance online") for help with your tuition and living costs.
@@ -142,7 +143,7 @@ en-GB:
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_3:
+      outcome_uk_ft_1213_new:
         title: Student finance – application form
         body: |
           You should [apply online](/apply-online-for-student-finance "Apply for student finance online") for help with your tuition and living costs.
@@ -161,7 +162,7 @@ en-GB:
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_4:
+      outcome_uk_ft_1213_continuing:
         title: Student finance – application form
         body: |
           You should [apply online](/apply-online-for-student-finance "Apply for student finance online") for help with your tuition and living costs.
@@ -180,28 +181,28 @@ en-GB:
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_5:
+      outcome_uk_pt_1314_new:
         title: Student finance – application form 
         body: |
           You can apply for student finance from summer 2013. The forms will be available then.
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_6:
+      outcome_uk_pt_1314_continuing:
         title: Student finance – application form 
         body: |
           You can apply for student finance from summer 2013. The forms will be available then.
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_7:
+      outcome_uk_pt_1314_grant:
         title: Student finance – application form 
         body: |
           You can apply for student finance from summer 2013. The forms will be available then.
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_8:
+      outcome_uk_pt_1213_new:
         title: Student finance – application form 
         body: |
           You should [apply online](/apply-online-for-student-finance "Apply for student finance online") for a Tuition Fee Loan. If you can’t apply online, use form PTL1.
@@ -218,14 +219,14 @@ en-GB:
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_9:
+      outcome_uk_pt_1213_continuing:
         title: Student finance – application form 
         body: |
           You should [contact Student Finance England](/contact-student-finance-england "Contact Student Finance England") - you may be able to apply for either a Tuition Fee Loan or the Fee and Course Grants.
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_10:
+      outcome_uk_pt_1213_grant:
         title: Student finance – application form 
         body: |
           To apply for a Fee Grant and Course Grant use form PTGC (or PTGN if you're applying for student finance for the first time).
@@ -253,7 +254,7 @@ en-GB:
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_11:
+      outcome_parent_partner_1314:
         title: Parents and partners - forms
         body: |
           Some student finance (eg a Maintenance Grant) is based on income. 
@@ -274,7 +275,7 @@ en-GB:
 
         next_steps: |
           [How to support an application](/apply-for-student-finance/parents-and-partners "Support an application")
-      outcome_12:
+      outcome_parent_partner_1213:
         title: Parents and partners – forms
         body: |
           Some student finance (eg a Maintenance Grant) is based on income. 
@@ -295,7 +296,7 @@ en-GB:
 
         next_steps: |
           [How to support an application](/apply-for-student-finance/parents-and-partners "Support an application")
-      outcome_13:
+      outcome_proof_identity_1314:
         title: Proof of identity
         body: |
           To prove your identity, include your UK passport details in your application. If you forget, use the passport details form. If you don't have a passport  (or it has expired), send your birth or adoption certificate using the certificate form.
@@ -311,14 +312,14 @@ en-GB:
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_14:
+      outcome_proof_identity_1314_pt:
         title: Proof of identity
         body: |
           You apply for student finance from summer 2013. The forms will be available then.
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_15:
+      outcome_proof_identity_1213:
         title: Proof of identity
         body: |
           To prove your identity, include your UK passport details in your application. If you forget, use the passport details form. If you don’t have a passport  (or it has expired), send your birth or adoption certificate using the certificate form.
@@ -334,7 +335,12 @@ en-GB:
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_16:
+      outcome_uk_ft_change_application: |
+        title: change application full-time
+      outcome_uk_pt_change_application: |
+        title: change application part-time
+
+      outcome_dsa_1314:
         title: Disabled Students' Allowances
         body: |
           To apply, use one of the DSA1 forms. If you’ve applied for student finance use form 'DSA1 short'. If you’re only applying for DSAs use form 'DSA1 full'.
@@ -351,14 +357,14 @@ en-GB:
 
         next_steps: |
           [Disabled Student's Allowances](/disabled-students-allowances-dsas "Disabled Students’ Allowances")   
-      outcome_17:
+      outcome_dsa_1314_pt:
         title: Disabled Students' Allowances
         body: |
           You apply for student finance from summer 2013. The forms will be available then.
 
         next_steps: |
           [Disabled Student's Allowances](/disabled-students-allowances-dsas "Disabled Students’ Allowances") 
-      outcome_18:
+      outcome_dsa_1213:
         title: Disabled Students' Allowances
         body: |
           To apply, use one of the DSA1 forms. If you’ve applied for student finance use form 'DSA1 short'. If you’re only applying for DSAs use form 'DSA1 full'.
@@ -375,7 +381,7 @@ en-GB:
 
         next_steps: |
           [Disabled Student's Allowances](/disabled-students-allowances-dsas "Disabled Students’ Allowances")
-      outcome_19:
+      outcome_ccg_1314:
         title: Childcare Grant
         body: |
           To apply, estimate your childcare costs on form CCG1 after you've completed your main student finance application. 
@@ -388,7 +394,7 @@ en-GB:
 
         next_steps: |
           [Childcare Grant](/childcare-grant "Childcare Grant")
-      outcome_20:
+      outcome_ccg_1213:
         title: Childcare Grant 
         body: |
           To apply, estimate your childcare costs on form CCG1 after you've completed your main student finance application. 
@@ -401,7 +407,7 @@ en-GB:
 
         next_steps: |
           [Childcare Grant](/childcare-grant "Childcare Grant")
-      outcome_21:
+      outcome_dsa_expenses:
         title: Disabled Students' Allowances – expenses
         body: |
           Use the claim form for the academic year the expenses relate to. You reclaim these expenses at the end of the academic year. 
@@ -415,7 +421,7 @@ en-GB:
 
         next_steps: |
           [Disabled Student's Allowances](/disabled-students-allowances-dsas "Disabled Students’ Allowances")
-      outcome_22:
+      outcome_ccg_expenses:
         title: Childcare Grant - cost confirmation 
         body: |
           At the end of each term confirm your actual childcare costs. Use the CCG2 form for the academic year the costs relate to.
@@ -429,7 +435,7 @@ en-GB:
 
         next_steps: |
           [Childcare Grant](/childcare-grant "Childcare Grant")
-      outcome_23:
+      outcome_travel:
         title: Travel Grants
         body: |
           You [apply online](/apply-online-for-student-finance "Apply for student finance online") for a travel grant as part of your main student finance application. 
@@ -438,7 +444,7 @@ en-GB:
 
         next_steps: |
           [Travel grants](/travel-grants-medical-dental-students-england "Travel Grants")
-      outcome_24:
+      outcome_eu_ft_1314_new:
         title: EU full-time student 
         body: |
           To apply for a Tuition Fee Loan use form EU13N.
@@ -462,7 +468,7 @@ en-GB:
 
           %{form_destination}
 
-      outcome_25:
+      outcome_eu_ft_1314_continuing:
         title: EU full-time student 
         body: |
           To apply for a Tuition Fee Loan use form EUPR1A. This is automaically sent to you. To request a copy, contact [Student Finance Services European Team](/contact-student-finance-england "Contact Student Finance England"). 
@@ -481,17 +487,17 @@ en-GB:
 
           %{form_destination}
 
-      outcome_26:
+      outcome_eu_pt_1314_new:
         title: EU part-time student
         body: |
           You can apply for student finance from August 2013. The forms will be available then.
 
-      outcome_27:
+      outcome_eu_pt_1314_continuing:
         title: EU part-time student 
         body: |
           You can apply for student finance from August 2013. The forms will be available then.
 
-      outcome_28:
+      outcome_eu_ft_1213_new:
         title: EU full-time student 
         body: |
           To apply for a Tuition Fee Loan use form EU12N.
@@ -515,7 +521,7 @@ en-GB:
 
           %{form_destination}
 
-      outcome_29:
+      outcome_eu_ft_1213_continuing:
         title: EU full-time student 
         body: |
           To apply for a Tuition Fee Loan use form EUPR1A. This is automaically sent to you. To request a copy, contact [Student Finance Services European Team](/contact-student-finance-england "Contact Student Finance England"). 
@@ -534,7 +540,7 @@ en-GB:
 
           %{form_destination}
 
-      outcome_30:
+      outcome_eu_pt_1213_new:
         title: EU part-time students
         body: |
           To apply for a Tuition Fee Loan use form EUPTL1.
@@ -559,7 +565,7 @@ en-GB:
 
           %{form_destination}
 
-      outcome_31:
+      outcome_eu_pt_1213_continuing:
         title: EU part-time students
         body: |
           To apply for a Tuition Fee Grant use form EUPTG1.
