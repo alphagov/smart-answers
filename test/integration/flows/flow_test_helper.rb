@@ -17,6 +17,13 @@ module FlowTestHelper
     end
   end
 
+  def outcome_body
+    @outcome_body ||= begin
+      presenter = OutcomePresenter.new("flow.#{@flow.name}", @flow.node(current_state.current_node), current_state)
+      Nokogiri::HTML::DocumentFragment.parse(presenter.body)
+    end
+  end
+
   def assert_current_node(node_name, opts = {})
     opts[:error] ? assert_current_node_is_error : assert_not_error
     assert_equal node_name, current_state.current_node
