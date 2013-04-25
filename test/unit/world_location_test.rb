@@ -30,6 +30,22 @@ class WorldLocationTest < ActiveSupport::TestCase
       assert_equal %w(the-shire rivendel rohan gondor arnor mordor), results.map(&:slug)
     end
 
+    should "filter out any results that don't have a slug" do
+      loc1 = world_location_details_for_slug('location-1')
+      loc2 = world_location_details_for_slug('location-2')
+      loc2["details"]["slug"] = nil
+      loc3 = world_location_details_for_slug('location-3')
+      loc3["details"]["slug"] = ""
+      loc4 = world_location_details_for_slug('location-4')
+      details = {"results" => [loc1, loc2, loc3, loc4]}
+      response = GdsApi::ListResponse.new(stub(:body => details.to_json, :headers => {}), nil)
+
+      $worldwide_api.stubs(:world_locations).returns(response)
+
+      results = WorldLocation.all
+      assert_equal %w(location-1 location-4), results.map(&:slug)
+    end
+
     context "caching the results" do
       setup do
         @location_slugs = (1..30).map {|n| "location-#{n}" }

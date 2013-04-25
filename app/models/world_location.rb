@@ -14,7 +14,7 @@ class WorldLocation
   def self.all
     cache_fetch("all") do
       $worldwide_api.world_locations.with_subsequent_pages.map do |l|
-        new(l) if l.format == "World location"
+        new(l) if l.format == "World location" and l.details and l.details.slug.present?
       end.compact
     end
   end
