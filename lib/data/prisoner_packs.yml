@@ -111,18 +111,17 @@
   regions:
     north:
       link: /government/publications/cyprus-north-prisoner-pack
-      url_text: Prisoner pack for the North of Cyprus
+      url_text: Prisoner pack for the north of Cyprus
     republic:
       link: /government/publications/cyprus-prisoner-pack
-      url_text: Prisoner pack for the Republic of Cyprus
+      url_text: Prisoner pack for people who have been imprisoned at Nicosia Central Prison or held on remand at a police station in the Republic of Cyprus
     republic_police:
       link: /government/uploads/system/uploads/attachment_data/file/139596/police-station-pack-south.pdf
-      url_text: Information on the police and police procedures in the Republic of Cyprus
+      url_text: Prisoner pack for people who are detained or held on remand at a police station in the Republic of Cyprus
 
 - slug: czech-republic
   pdf: /government/publications/czech-republic-prisoner-pack
   lawyer: /government/publications/czech-republic-list-of-lawyers
-  prison: /government/uploads/system/uploads/attachment_data/file/139610/in-prison-in-the-czech-republic1.pdf
 - slug: denmark
   pdf: /government/publications/denmark-prisoner-pack
   lawyer: /government/publications/denmark-list-of-lawyers
@@ -155,16 +154,7 @@
 - slug: georgia
   pdf: /government/publications/georgia-prisoner-pack
 - slug: germany
-  regions:
-    berlin_new_lander:
-      link: /government/publications/germany-prisoner-pack
-      url_text: Prisoner pack for Berlin and New Lander
-    nordrhein:
-      link: /government/publications/germany-prisoner-pack
-      url_text: Prisoner pack for Nordrhein-Westfalen, Hessen, Rheinland-Pfalz and Saarland
-    bavaria:
-      link: /government/publications/germany-prisoner-pack
-      url_text: Prisoner pack for Baden-Wurttemberg and Bavaria
+  pdf: /government/publications/germany-prisoner-pack
 - slug: ghana
   pdf: /government/publications/ghana-prisoner-pack
   lawyer: /government/publications/ghana-list-of-lawyers
@@ -175,7 +165,7 @@
   prison: /government/uploads/system/uploads/attachment_data/file/139611/bns_in_prison.pdf
   police: /government/publications/greece-help-if-you-are-arrested-or-detained
 - slug: grenada
-  pdf: /government/publications/barbados-prisoner-pack
+  pdf: /government/publications/grenada-prisoner-pack
 - slug: guadeloupe
 - slug: guatemala
   pdf: /government/publications/guatemala-prisoner-pack
@@ -234,6 +224,7 @@
 - slug: liberia
 - slug: libya
 - slug: liechtenstein
+  pdf: /government/publications/liechtenstein-prisoner-pack
 - slug: lithuania
   pdf: /government/publications/lithuania-prisoner-pack
 - slug: luxembourg
@@ -265,6 +256,7 @@
   pdf: /government/publications/moldova-prisoner-pack
 - slug: monaco
 - slug: mongolia
+  pdf: /government/publications/mongolia-prisoner-pack
 - slug: montenegro
 - slug: montserrat
   lawyer: x
@@ -356,13 +348,13 @@
 - slug: sri-lanka
 - slug: st-helena
 - slug: st-kitts-and-nevis
-  pdf: /government/publications/barbados-prisoner-pack
+  pdf: /government/publications/st-kitts-and-nevis-prisoner-pack
 - slug: st-lucia
   pdf: /government/publications/barbados-prisoner-pack
 - slug: st-maarten
 - slug: st-pierre-and-miquelon
 - slug: st-vincent-and-the-grenadines
-  pdf: /government/publications/barbados-prisoner-pack
+  pdf: /government/publications/st-vincent-prisoner-pack
 - slug: sudan
 - slug: suriname
   pdf: /government/publications/guyana-prisoner-pack
@@ -397,6 +389,7 @@
 - slug: turks-and-caicos-islands
 - slug: tuvalu
 - slug: uganda
+  pdf: /government/publications/uganda-prisoner-pack
   lawyer: /government/publications/uganda-list-of-lawyers
 - slug: ukraine
   pdf: /government/publications/ukraine-prisoner-pack
