@@ -1,5 +1,5 @@
 en-GB:
   flow:
-    country-sample:
+    country-legacy-sample:
       ok:
         title: "Great - you live in %{country} and you were born in %{country_of_birth}!"

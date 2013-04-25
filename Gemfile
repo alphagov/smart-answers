@@ -22,7 +22,7 @@ gem 'lograge', '~> 0.1.0'
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
 else
-  gem 'gds-api-adapters', '4.1.3'
+  gem 'gds-api-adapters', '6.0.0'
 end
 gem 'htmlentities', '~> 4'
 
@@ -41,6 +41,7 @@ else
 end
 
 gem 'uk_postcode', '1.0.0'
+gem 'lrucache', '0.1.4'
 
 group :test do
   gem 'capybara', '~> 1.1.2'
