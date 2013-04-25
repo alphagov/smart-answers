@@ -1,0 +1,25 @@
+<%- if embassies.any? -%>
+<%- embassies.each do |embassy| -%>
+### <%= embassy.title %>
+
+$A
+<%= embassy.address.label.value %>
+$A
+
+
+$C
+<%- if embassy.details.email.present? -%>
+Email: <%= embassy.details.email %>
+
+<%- end -%>
+<%- embassy.contact_numbers.each do |contact| -%>
+<%# Some labels have a trailing :, some don't %>
+<%= contact.label.sub(/:\s*\z/, '') %>: <%= contact.number %>
+
+<%- end -%>
+$C
+
+<%- end -%>
+<%- else -%>
+No embassy details found
+<%- end -%>
