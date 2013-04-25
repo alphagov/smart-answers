@@ -50,7 +50,7 @@ en-GB:
         hint: "If they’re 19 or over and past their first year they don’t count as an apprentice for minimum wage purposes."
       # Q2 Past
       were_you_an_apprentice?:
-        title: "Were they an apprentice at the time?"
+        title: "Was the worker an apprentice at the time?"
         options:
           apprentice_under_19: "Apprentice under 19"
           apprentice_over_19: "Apprentice aged 19 and over and in their first year"
@@ -61,7 +61,7 @@ en-GB:
         error_message: Please enter a whole number greater than 0
       # Q3 Past
       how_old_were_you?:
-        title: How old were they at the time?
+        title: How old was the worker at the time?
         suffix_label: years old
         error_message: Please enter a whole number greater than 0
       # Q4  
