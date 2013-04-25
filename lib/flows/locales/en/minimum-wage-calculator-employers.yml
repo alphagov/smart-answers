@@ -5,7 +5,7 @@ en-GB:
       body: |
         Check if you're paying a worker the National Minimum Wage or if you owe them payments from past years.
       meta:
-        description: "Employers can check if they're paying the National Minimum Wage"
+        description: "Check if you're paying a worker the National Minimum Wage or if you owe them payments from past years."
       options:
         "yes": "Yes"
         "no": "No"
