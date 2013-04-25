@@ -677,7 +677,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         should "add 3 years credit for a person born between 1959 and 1992" do
           assert_current_node :amount_result
           assert_state_variable "missing_years", 7
-
         end
       end
 
