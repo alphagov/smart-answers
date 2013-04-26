@@ -1,10 +1,9 @@
 module SmartAnswer
   module Question
-    class CountrySelect < MultipleChoice
+    class CountrySelect < Base
       def initialize(name, options = {}, &block)
         @include_uk = options.delete(:include_uk)
         @use_legacy_data = options.delete(:use_legacy_data)
-        options = country_list
         super(name, options, &block)
       end
 
@@ -18,6 +17,11 @@ module SmartAnswer
 
       def valid_option?(option)
         options.map{|v| v.slug}.include? (option.to_s)
+      end
+
+      def parse_input(raw_input)
+        raise SmartAnswer::InvalidResponse, "Illegal option #{raw_input} for #{name}", caller unless valid_option?(raw_input)
+        super
       end
 
     private
