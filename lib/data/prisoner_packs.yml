@@ -1,8 +1,10 @@
 ---
 - slug: afghanistan
+  pdf: /government/publications/afghanistan-prisoner-pack
 - slug: albania
   doc: /government/publications/albania-prisoner-pack
 - slug: algeria
+  pdf: /government/publications/algeria-prisoner-pack
 - slug: american-samoa
 - slug: andorra
 - slug: angola
@@ -50,6 +52,7 @@
 - slug: barbados
   pdf: /government/publications/barbados-prisoner-pack
 - slug: belarus
+  pdf: /government/publications/belarus-prisoner-pack
 - slug: belgium
   pdf: /government/publications/the-british-consulate-general-brussels-how-we-can-help
   lawyer: /government/publications/belgium-list-of-lawyers
@@ -57,6 +60,7 @@
   consul: /government/publications/the-british-consulate-general-brussels-how-we-can-help
   judicial: /government/uploads/system/uploads/attachment_data/file/139597/consul-help-info.pdf /government/uploads/system/uploads/attachment_data/file/139598/belgium-detention-info.pdf
 - slug: belize
+  pdf: /government/publications/belize-prisoner-pack
 - slug: benin
 - slug: bermuda
 - slug: bhutan
@@ -64,6 +68,7 @@
   pdf: /government/publications/bolivia-prisoner-pack
 - slug: bonaire-st-eustatius-saba
 - slug: bosnia-and-herzegovina
+  pdf: /government/publications/bosnia-and-herzegovina-prisoner-pack
 - slug: botswana
   doc: /government/publications/botswana-prisoner-pack
 - slug: brazil
@@ -72,22 +77,26 @@
 - slug: british-consulate-general-cape-town
 - slug: british-indian-ocean-territory
 - slug: british-virgin-islands
+  pdf: /government/publications/british-virgin-islands-prisoner-pack
 - slug: brunei
   doc: /government/publications/brunei-prisoner-pack
 - slug: bulgaria
   pdf: /government/publications/bulgaria-prisoner-pack
 - slug: burkina-faso
 - slug: burma
+  pdf: /government/publications/burma-prisoner-pack
 - slug: burundi
 - slug: cambodia
   pdf: /government/publications/cambodia-prisoner-pack
   lawyer: /government/publications/cambodia-list-of-lawyers
 - slug: cameroon
+  pdf: /government/publications/cameroon-prisoner-pack
   lawyer: /government/publications/cameroon-list-of-lawyers
 - slug: canada
   pdf: /government/publications/canada-usa-prisoner-pack
 - slug: cape-verde
 - slug: cayman-islands
+  pdf: /government/publications/grand-cayman-prisoner-pack
 - slug: central-african-republic
 - slug: chad
 - slug: chile
@@ -99,6 +108,7 @@
 - slug: comoros
 - slug: congo
 - slug: congo-(democratic-republic)
+  pdf: /government/publications/democratic-republic-of-congo-prisoner-pack
 - slug: costa-rica
   doc: /government/publications/costa-rica-prisoner-pack
 - slug: cote-d_ivoire-(ivory-coast)
@@ -133,16 +143,19 @@
 - slug: ecuador
   pdf: /government/publications/ecuador-prisoner-pack
 - slug: egypt
+  pdf: /government/publications/egypt-prisoner-pack
   lawyer: /government/world/egypt/help-for-british-nationals/when-things-go-wrong/you-need-a-lawyer/
 - slug: el-salvador
   pdf: /government/publications/guatemala-prisoner-pack
 - slug: equatorial-guinea
 - slug: eritrea
+  pdf: /government/publications/eritrea-prisoner-pack
 - slug: estonia
   pdf: /government/publications/estonia-prisoner-pack
 - slug: ethiopia
 - slug: falkland-islands
 - slug: fiji
+  pdf: /government/publications/fiji-prisoner-pack
 - slug: finland
   doc: /government/publications/finland-prisoner-pack
 - slug: france
@@ -151,6 +164,7 @@
 - slug: french-polynesia
 - slug: gabon
 - slug: gambia
+  pdf: /government/publications/gambia-prisoner-pack
 - slug: georgia
   pdf: /government/publications/georgia-prisoner-pack
 - slug: germany
@@ -198,22 +212,27 @@
   pdf: /government/publications/italy-prisoner-pack
   lawyer: /government/world/italy/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer/
 - slug: jamaica
+  pdf: /government/publications/jamaica-prisoner-pack
   lawyer: /government/publications/jamaica-list-of-lawyers
 - slug: japan
   pdf: /government/publications/japan-prisoner-pack
 - slug: jordan
   doc: /government/publications/jordan-prisoner-pack
 - slug: kazakhstan
+  pdf: /government/publications/kazakhstan-prisoner-pack
 - slug: kenya
+  pdf: /government/publications/kenya-prisoner-pack
 - slug: kiribati
 - slug: korea
   pdf: /government/publications/south-korea-prisoner-pack
 - slug: kosovo
+  pdf: /government/publications/kosovo-prisoner-pack
 - slug: kuwait
   doc: http://ukinkuwait.fco.gov.uk/resources/en/word/803520082/Prisoner's-Pack-for-Kuwait
   lawyer: /government/publications/kuwait-list-of-lawyers
   translators: /government/uploads/system/uploads/attachment_data/file/139616/list-of-translators-may.doc
 - slug: kyrgyzstan
+  pdf: /government/publications/kyrgyzstan-prisoner-pack
 - slug: laos
 - slug: latvia
   pdf: /government/publications/latvia-prisoner-pack
@@ -223,6 +242,7 @@
 - slug: lesotho
 - slug: liberia
 - slug: libya
+  pdf: /government/publications/libya-prisoner-pack
 - slug: liechtenstein
   pdf: /government/publications/liechtenstein-prisoner-pack
 - slug: lithuania
@@ -243,6 +263,7 @@
 - slug: maldives
 - slug: mali
 - slug: malta
+  pdf: /government/publications/malta-prisoner-pack
 - slug: marshall-islands
 - slug: martinique
 - slug: mauritania
@@ -258,6 +279,7 @@
 - slug: mongolia
   pdf: /government/publications/mongolia-prisoner-pack
 - slug: montenegro
+  pdf: /government/publications/montenegro-prisoner-pack
 - slug: montserrat
   lawyer: x
 - slug: morocco
@@ -267,6 +289,7 @@
   lawyer: /government/publications/mozambique-list-of-lawyers
   translators: /government/uploads/system/uploads/attachment_data/file/139614/list-interpreters.doc
 - slug: namibia
+  pdf: /government/publications/namibia-prisoner-pack
 - slug: nauru
 - slug: nepal
   pdf: /government/publications/nepal-prisoner-pack
@@ -278,17 +301,20 @@
 - slug: nicaragua
 - slug: niger
 - slug: nigeria
+  pdf: /government/publications/nigeria-prisoner-pack
 - slug: north-korea
 - slug: norway
   pdf: /government/publications/norway-prisoner-pack
   lawyer: /government/publications/norway-list-of-lawyers
 - slug: oman
+  pdf: /government/publications/oman-prisoner-pack
 - slug: pakistan
   doc: /government/publications/pakistan-prisoner-pack
 - slug: palau
 - slug: panama
   doc: /government/publications/panama-prisoner-pack
 - slug: papua-new-guinea
+  pdf: /government/publications/papua-new-guinea-prisoner-pack
 - slug: paraguay
   benefits: /government/uploads/system/uploads/attachment_data/file/139607/benefits-paraguay-factsheet.doc
 - slug: peru
@@ -319,10 +345,12 @@
 - slug: saudi-arabia
   pdf: /government/publications/saudi-arabia-prisoner-pack
 - slug: senegal
+  pdf: /government/publications/senegal-prisoner-pack
 - slug: serbia
   doc: /government/publications/serbia-prisoner-pack
   judicial: /government/uploads/system/uploads/attachment_data/file/139599/srb-legal-sys.doc
 - slug: seychelles
+  pdf: /government/publications/seychelles-prisoner-pack
   lawyer: /government/publications/seychelles-prisoner-pack
 - slug: sierra-leone
   pdf: /government/publications/sierra-leone-prisoner-pack
@@ -346,6 +374,7 @@
   prison: /government/uploads/system/uploads/attachment_data/file/139604/spanish-prison-system.pdf
   judicial: /government/uploads/system/uploads/attachment_data/file/139600/legal-procedures-criminal-cases.pdf
 - slug: sri-lanka
+  pdf: /government/publications/sri-lanka-prisoner-pack
 - slug: st-helena
 - slug: st-kitts-and-nevis
   pdf: /government/publications/st-kitts-and-nevis-prisoner-pack
@@ -356,6 +385,7 @@
 - slug: st-vincent-and-the-grenadines
   pdf: /government/publications/st-vincent-prisoner-pack
 - slug: sudan
+  pdf: /government/publications/sudan-prisoner-pack
 - slug: suriname
   pdf: /government/publications/guyana-prisoner-pack
 - slug: swaziland
@@ -365,6 +395,7 @@
   pdf: /government/publications/switzerland-prisoner-pack
 - slug: syria
 - slug: taiwan
+  pdf: /government/publications/taiwan-prisoner-pack
 - slug: tajikistan
   lawyer: /government/publications/tajikistan-list-of-lawyers
 - slug: tanzania
@@ -381,6 +412,7 @@
   lawyer: /government/publications/trinidad-and-tobago-list-of-lawyers
 - slug: tristan-da-cunha
 - slug: tunisia
+  pdf: /government/publications/tunisia-prisoner-pack
   lawyer: /government/publications/tunisia-list-of-lawyers
 - slug: turkey
   pdf: /government/publications/turkey-prisoner-pack
@@ -411,6 +443,7 @@
 - slug: united-states
   pdf: /government/publications/canada-usa-prisoner-pack
 - slug: uruguay
+  pdf: /government/publications/uruguay-prisoner-pack
 - slug: uzbekistan
   pdf: /government/publications/uzbekistan-prisoner-pack
 - slug: vanuatu
