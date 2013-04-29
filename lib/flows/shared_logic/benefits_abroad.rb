@@ -1,4 +1,11 @@
+
 # Q1
+multiple_choice :going_or_already_abroad? do
+  option :going_abroad
+  option :already_abroad
+  next_node :have_you_paid_ni_in_the_uk?
+end
+
 multiple_choice :have_you_paid_ni_in_the_uk? do
   option :yes => :which_benefit? # Q2
   option :no => :not_paid_ni # A1
