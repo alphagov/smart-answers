@@ -7,6 +7,13 @@ en-GB:
       phrases:
         paternity_warning: |
           ^ Your employee will not be able to collect Ordinary Statutory Paternity Pay or Statutory Adoption Pay while collecting Statutory Sick Pay. ^
+        ssp_link: |
+
+
+          $D
+            [Download ‘Form SSP1, employee not entitled to SSP’ (PDF, 130KB)](http://www.dwp.gov.uk/advisers/claimforms/ssp1.pdf "Download ‘Statutory Sick Pay and an employee’s claim for benefit’ form"){:rel="external"}
+          $D
+
       body: |
         Calculate Statutory Sick Pay (SSP) for your employee.
 
@@ -130,14 +137,7 @@ en-GB:
           You must send them form SSP1 no more than 7 days after they’ve told you they’re sick. They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance "Benefits & credits: employment support allowance (ESA)").
 
 
-
-          $D
-
-            [Download ‘Form SSP1, employee not entitled to SSP’ (PDF, 130KB)](http://www.dwp.gov.uk/advisers/claimforms/ssp1.pdf "Download ‘Statutory Sick Pay and an employee’s claim for benefit’ form"){:rel="external"}
-
-          $D
-
-
+            %{employee_not_entitled_pdf}
 
 
       # Answer 4
@@ -158,9 +158,7 @@ en-GB:
           You must send them form SSP1 no more than 7 days after they’ve told you they’re sick. They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance "Benefits & credits: employment support allowance (ESA)").
 
 
-          $D
-            [Download ‘Form SSP1, employee not entitled to SSP’ (PDF, 130KB)](http://www.dwp.gov.uk/advisers/claimforms/ssp1.pdf "Download ‘Statutory Sick Pay and an employee’s claim for benefit’ form"){:rel=”external”}
-          $D
+          %{employee_not_entitled_pdf}
 
       # Answer 6
       entitled_to_sick_pay:
@@ -197,7 +195,5 @@ en-GB:
 
 
 
-          $D
-            [Download ‘Form SSP1, employee not entitled to SSP’ (PDF, 130KB)](http://www.dwp.gov.uk/advisers/claimforms/ssp1.pdf "Download ‘Statutory Sick Pay and an employee’s claim for benefit’ form"){:rel="external"}
-          $D
+          %{employee_not_entitled_pdf}
 
