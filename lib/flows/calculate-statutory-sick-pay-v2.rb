@@ -8,6 +8,10 @@ checkbox_question :is_your_employee_getting? do
   option :ordinary_statutory_paternity_pay
   option :statutory_adoption_pay
 
+  calculate :employee_not_entitled_pdf do
+    # this avoids lots of content duplication in the YML
+    PhraseList.new(:ssp_link)
+  end
   calculate :paternity_maternity_warning do
     (responses.last.split(",") & %w{ordinary_statutory_paternity_pay statutory_adoption_pay}).any?
   end

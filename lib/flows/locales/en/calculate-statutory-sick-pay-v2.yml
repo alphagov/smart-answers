@@ -7,6 +7,13 @@ en-GB:
       phrases:
         paternity_warning: |
           ^ Your employee will not be able to collect Ordinary Statutory Paternity Pay or Statutory Adoption Pay while collecting Statutory Sick Pay. ^
+        ssp_link: |
+
+
+          $D
+            [Download ‘Form SSP1, employee not entitled to SSP’ (PDF, 130KB)](http://www.dwp.gov.uk/advisers/claimforms/ssp1.pdf "Download ‘Statutory Sick Pay and an employee’s claim for benefit’ form"){:rel="external"}
+          $D
+
       body: |
         Calculate Statutory Sick Pay (SSP) for your employee.
 
@@ -129,14 +136,19 @@ en-GB:
 
           You must send them form SSP1 no more than 7 days after they’ve told you they’re sick. They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance "Benefits & credits: employment support allowance (ESA)").
 
-          $D [Download ‘Form SSP1, employee not entitled to SSP’ (PDF, 130KB)](http://www.dwp.gov.uk/advisers/claimforms/ssp1.pdf "Download ‘Statutory Sick Pay and an employee’s claim for benefit’ form"){:rel="external"} $D
+
+            %{employee_not_entitled_pdf}
+
 
       # Answer 4
       not_regular_schedule:
         body: |
           If your employee has an irregular work schedule, you’ll need to work out Statutory Sick Pay manually. See pages 1 to 6 in HMRC’s ‘Employer Helpbook for Statutory Sick Pay.’
 
-          $D ["Download 'Employer Helpbook for Statutory Sick Pay’ (PDF, 1.3MB)"]((http://www.hmrc.gov.uk/helpsheets/e14.pdf "Employer Helpbook for Statutory Sick Pay") {:rel="external"} $D
+
+          $D
+            ["Download 'Employer Helpbook for Statutory Sick Pay’ (PDF, 1.3MB)"]((http://www.hmrc.gov.uk/helpsheets/e14.pdf "Employer Helpbook for Statutory Sick Pay"){:rel="external"}
+          $D
 
       # Answer 5
       not_earned_enough:
@@ -145,7 +157,8 @@ en-GB:
 
           You must send them form SSP1 no more than 7 days after they’ve told you they’re sick. They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance "Benefits & credits: employment support allowance (ESA)").
 
-          $D [Download ‘Form SSP1, employee not entitled to SSP’ (PDF, 130KB)](http://www.dwp.gov.uk/advisers/claimforms/ssp1.pdf "Download ‘Statutory Sick Pay and an employee’s claim for benefit’ form"){:rel=”external”} $D
+
+          %{employee_not_entitled_pdf}
 
       # Answer 6
       entitled_to_sick_pay:
@@ -180,5 +193,7 @@ en-GB:
 
           You must send them form SSP1 within 7 days of them going off sick. They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance "Benefits & credits: employment support allowance (ESA)").
 
-          $D [Download ‘Form SSP1, employee not entitled to SSP’ (PDF, 130KB)](http://www.dwp.gov.uk/advisers/claimforms/ssp1.pdf "Download ‘Statutory Sick Pay and an employee’s claim for benefit’ form"){:rel="external"} $D
+
+
+          %{employee_not_entitled_pdf}
 
