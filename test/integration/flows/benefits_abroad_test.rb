@@ -14,13 +14,13 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
     assert_current_node :going_or_already_abroad?
   end
 
-  context "when currently abroad" do
+  context "when going abroad" do
     setup do
       add_response "going_abroad"
     end
     # Q2
     should "ask which benefit you want to claim" do
-      assert_current_node :which_benefit?
+      assert_current_node :which_benefit_going_abroad?
     end
     context "answer JSA" do
       setup do
@@ -28,12 +28,12 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
       end
       # Q3
       should "ask which country you are moving to" do
-        assert_current_node :which_country_jsa?
+        assert_current_node :which_country_jsa_going_abroad?
       end
       context "answer a country within the EEA" do
         should "state JSA entitlement in the EEA" do
           add_response 'austria'
-          assert_current_node :jsa_eea
+          assert_current_node :jsa_eea_going_abroad
         end
       end
       context "answer outside EEA" do
@@ -61,6 +61,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
       end
       # Q6
       should "ask which country you are moving to" do
+        assert_current_node :which_country_wfp_going_abroad?
       end
       context "answer Austria (EEA country)" do
         setup do
@@ -94,14 +95,14 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
         add_response 'maternity_benefits'
       end
       should "ask which country you are moving to" do
-        assert_current_node :which_country_maternity?
+        assert_current_node :which_country_maternity_going_abroad?
       end
       context "answer austria (EEA country)" do
         setup do
           add_response 'austria'
         end
         should "ask if you will be working for a UK employer" do
-          assert_current_node :working_for_a_uk_employer?
+          assert_current_node :working_for_a_uk_employer_going_abroad?
         end
         context "answer yes" do
           setup do
@@ -163,7 +164,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
         add_response 'child_benefits'
       end
       should "ask which country you are moving to" do
-        assert_current_node :which_country_cb?
+        assert_current_node :which_country_cb_going_abroad?
       end
       context "answer Austria (EEA country)" do
         setup do
@@ -215,7 +216,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
         add_response 'ssp'
       end
       should "ask which country you are moving to" do
-        assert_current_node :which_country_ssp?
+        assert_current_node :which_country_ssp_going_abroad?
       end
       context "answer Austria (EEA country)" do
         setup do
@@ -264,7 +265,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
       end
       # Q16
       should "ask if you are eligible for tax credits" do
-        assert_current_node :eligible_for_tax_credits?
+        assert_current_node :eligible_for_tax_credits_going_abroad?
       end
       context "answer yes" do
         setup do

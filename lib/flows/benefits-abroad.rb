@@ -1,75 +1,83 @@
 satisfies_need "392"
 status :draft
 
+situations = ['going_abroad','already_abroad']
+
 eea_countries = %w(austria belgium bulgaria cyprus czech-republic denmark estonia finland france germany gibraltar greece hungary iceland ireland italy latvia liechtenstein lithuania luxembourg malta netherlands norway poland portugal romania slovakia slovenia spain sweden switzerland)
-
-social_security_countries = %w(croatia bosnia-and-herzegovina guernsey jersey kosovo macedonia montenegro new-zealand serbia)
-
-
+former_yugoslavia = %w(croatia bosnia-and-herzegovina kosovo macedonia montenegro serbia)
+social_security_countries = former_yugoslavia + %w(guernsey jersey new-zealand)
 
 # Q1
 multiple_choice :going_or_already_abroad? do
   option :going_abroad
   option :already_abroad
   save_input_as :going_or_already_abroad
-  next_node :which_benefit?
-end
-# Q2
-multiple_choice :which_benefit? do
-  option :jsa => :which_country_jsa? # Q3
-  option :pension => :pension_outcome # A2
-  option :wfp => :which_country_wfp? # Q4
-  option :maternity_benefits => :which_country_maternity? # Q6
-  option :child_benefits => :which_country_cb? # Q10
-  option :iidb => :already_claiming_iidb? # Q22
-  option :ssp => :which_country_ssp? # Q31
-  option :esa => :how_long_are_you_abroad_for_esa? # Q23
-  #option :disability_benefits => # Q26 # Leave for now.
-  #option :bereavement_benefits => # Q32
-  option :tax_credits => :eligible_for_tax_credits? # Q16
-end
-# Q3
-country_select :which_country_jsa?, :use_legacy_data => true do
   next_node do |response|
-    if eea_countries.include?(response)
-      :jsa_eea
-    elsif social_security_countries.include?(response)
-      :jsa_social_security
-    else
-      :jsa_not_entitled
+    :"which_benefit_#{response}?"
+  end
+end
+
+situations.each do |situation|
+  # Q2
+  multiple_choice :"which_benefit_#{situation}?" do
+    option :jsa => :"which_country_jsa_#{situation}?" # Q3
+    option :pension => :pension_outcome # A2
+    option :wfp => :"which_country_wfp_#{situation}?" # Q4
+    option :maternity_benefits => :"which_country_maternity_#{situation}?" # Q6
+    option :child_benefits => :"which_country_cb_#{situation}?" # Q11
+    option :iidb => :already_claiming_iidb? # Q22
+    option :ssp => :"which_country_ssp_#{situation}?" # Q31
+    option :esa => :how_long_are_you_abroad_for_esa? # Q23
+    #option :disability_benefits => # Q26 # Leave for now.
+    #option :bereavement_benefits => # Q32
+    option :tax_credits => :"eligible_for_tax_credits_#{situation}?" # Q16
+  end
+  # Q3
+  country_select :"which_country_jsa_#{situation}?", :use_legacy_data => true do
+    next_node do |response|
+      if eea_countries.include?(response)
+        :"jsa_eea_#{situation}" # A3
+      elsif social_security_countries.include?(response)
+        :jsa_social_security # A4
+      else
+        :jsa_not_entitled # A5
+      end
+    end
+  end
+  # Q4
+  country_select :"which_country_wfp_#{situation}?", :use_legacy_data => true do
+    next_node do |response|
+      if eea_countries.include?(response)
+        :qualify_for_wfp? # Q5
+      else
+        :wfp_not_entitled # A6
+      end
     end
   end
 end
-# Q4
-country_select :which_country_wfp?, :use_legacy_data => true do
-  next_node do |response|
-    if eea_countries.include?(response)
-      :qualify_for_wfp?
-    else
-      :wfp_not_entitled
-    end
-  end
-end
+
 # Q5
 multiple_choice :qualify_for_wfp? do
   option :yes => :wfp_outcome # A7
   option :no => :wfp_not_entitled # A6
 end
-# Q6
-country_select :which_country_maternity?, :use_legacy_data => true do
-  save_input_as :maternity_country
-  next_node do |response|
-    if eea_countries.include?(response)
-      :working_for_a_uk_employer?  
-    else
-      :employer_paying_ni?
+situations.each do |situation|
+  # Q6
+  country_select :"which_country_maternity_#{situation}?", :use_legacy_data => true do
+    save_input_as :maternity_country
+    next_node do |response|
+      if eea_countries.include?(response)
+        :"working_for_a_uk_employer_#{situation}?" # Q7 
+      else
+        :employer_paying_ni? # Q9, Q10
+      end
     end
   end
-end
-# Q7
-multiple_choice :working_for_a_uk_employer? do
-  option :yes => :eligible_for_maternity_pay? # Q8
-  option :no => :smp_not_entitled # A8
+  # Q7
+  multiple_choice :"working_for_a_uk_employer_#{situation}?" do
+    option :yes => :eligible_for_maternity_pay? # Q8
+    option :no => :smp_not_entitled # A8
+  end
 end
 # Q8
 multiple_choice :eligible_for_maternity_pay? do
@@ -91,19 +99,21 @@ multiple_choice :employer_paying_ni? do
     end
   end
 end
-# Q11
-country_select :which_country_cb?, :use_legacy_data => true do
-  next_node do |response|
-    if eea_countries.include?(response)
-      :do_either_of_the_following_apply? # Q12
-    elsif %w(bosnia-and-herzegovina croatia kosovo macedonia montenegro serbia).include?(response)
-      :cb_fy_social_security_outcome # A12
-    elsif %w(barbados canada guernsey israel jersey mauritius new-zealand).include?(response)
-      :cb_social_security_outcome # A13
-    elsif %w(jamaica turkey united-states).include?(response)
-      :cb_jtu_not_entitled # A14
-    else
-      :cb_not_entitled # A16
+situations.each do |situation|
+  # Q11
+  country_select :"which_country_cb_#{situation}?", :use_legacy_data => true do
+    next_node do |response|
+      if eea_countries.include?(response)
+        :do_either_of_the_following_apply? # Q12
+      elsif former_yugoslavia.include?(response)
+        :cb_fy_social_security_outcome # A12
+      elsif %w(barbados canada guernsey israel jersey mauritius new-zealand).include?(response)
+        :cb_social_security_outcome # A13
+      elsif %w(jamaica turkey united-states).include?(response)
+        :cb_jtu_not_entitled # A14
+      else
+        :cb_not_entitled # A16
+      end
     end
   end
 end
@@ -112,13 +122,15 @@ multiple_choice :do_either_of_the_following_apply? do
   option :yes => :cb_outcome # A15
   option :no => :cb_not_entitled # A16
 end
-# Q13
-country_select :which_country_ssp?, :use_legacy_data => true do
-  next_node do |response|
-    if eea_countries.include?(response)
-      :working_for_a_uk_employer_ssp? # Q14
-    else
-      :employer_paying_ni_ssp? # Q15
+situations.each do |situation|
+  # Q13
+  country_select :"which_country_ssp_#{situation}?", :use_legacy_data => true do
+    next_node do |response|
+      if eea_countries.include?(response)
+        :working_for_a_uk_employer_ssp? # Q14
+      else
+        :employer_paying_ni_ssp? # Q15
+      end
     end
   end
 end
@@ -132,10 +144,12 @@ multiple_choice :employer_paying_ni_ssp? do
   option :yes => :ssp_outcome # A17
   option :no => :ssp_not_entitled # A18
 end
-# Q16
-multiple_choice :eligible_for_tax_credits? do
-  option :yes => :are_you_one_of_the_following? # Q17
-  option :no => :tax_credits_unlikely # A19
+situations.each do |situation|
+  # Q16
+  multiple_choice :"eligible_for_tax_credits_#{situation}?" do
+    option :yes => :are_you_one_of_the_following? # Q17
+    option :no => :tax_credits_unlikely # A19
+  end
 end
 # Q17
 multiple_choice :are_you_one_of_the_following? do
@@ -216,7 +230,8 @@ outcome :not_paid_ni
 # A2
 outcome :pension_outcome
 # A3
-outcome :jsa_eea
+outcome :jsa_eea_going_abroad
+outcome :jsa_eea_already_abroad
 # A4
 outcome :jsa_social_security
 # A5
