@@ -3,7 +3,7 @@ status :draft
 
 eea_countries = %w(austria belgium bulgaria cyprus czech-republic denmark estonia finland france germany gibraltar greece hungary iceland ireland italy latvia liechtenstein lithuania luxembourg malta netherlands norway poland portugal romania slovakia slovenia spain sweden switzerland)
 
-social_security_countries = %w(croatia bosnia-and-herzegovina croatia guernsey jersey kosovo macedonia montenegro new-zealand serbia)
+social_security_countries = %w(croatia bosnia-and-herzegovina guernsey jersey kosovo macedonia montenegro new-zealand serbia)
 
 
 
@@ -16,20 +16,20 @@ multiple_choice :going_or_already_abroad? do
 end
 # Q2
 multiple_choice :which_benefit? do
-  option :jsa => :which_country_are_you_moving_to_jsa? # Q3
+  option :jsa => :which_country_jsa? # Q3
   option :pension => :pension_outcome # A2
-  option :wfp => :which_country_are_you_moving_to_wfp? # Q4
-  option :maternity_benefits => :which_country_are_you_moving_to_maternity? # Q6
-  option :child_benefits => :which_country_are_you_moving_to_cb? # Q10
+  option :wfp => :which_country_wfp? # Q4
+  option :maternity_benefits => :which_country_maternity? # Q6
+  option :child_benefits => :which_country_cb? # Q10
   option :iidb => :already_claiming_iidb? # Q22
-  option :ssp => :which_country_are_you_moving_to_ssp? # Q31
+  option :ssp => :which_country_ssp? # Q31
   option :esa => :how_long_are_you_abroad_for_esa? # Q23
   #option :disability_benefits => # Q26 # Leave for now.
   #option :bereavement_benefits => # Q32
   option :tax_credits => :eligible_for_tax_credits? # Q16
 end
 # Q3
-country_select :which_country_are_you_moving_to_jsa?, :use_legacy_data => true do
+country_select :which_country_jsa?, :use_legacy_data => true do
   next_node do |response|
     if eea_countries.include?(response)
       :jsa_eea
@@ -41,7 +41,7 @@ country_select :which_country_are_you_moving_to_jsa?, :use_legacy_data => true d
   end
 end
 # Q4
-country_select :which_country_are_you_moving_to_wfp?, :use_legacy_data => true do
+country_select :which_country_wfp?, :use_legacy_data => true do
   next_node do |response|
     if eea_countries.include?(response)
       :qualify_for_wfp?
@@ -56,7 +56,7 @@ multiple_choice :qualify_for_wfp? do
   option :no => :wfp_not_entitled # A6
 end
 # Q6
-country_select :which_country_are_you_moving_to_maternity?, :use_legacy_data => true do
+country_select :which_country_maternity?, :use_legacy_data => true do
   save_input_as :maternity_country
   next_node do |response|
     if eea_countries.include?(response)
@@ -92,7 +92,7 @@ multiple_choice :employer_paying_ni? do
   end
 end
 # Q11
-country_select :which_country_are_you_moving_to_cb?, :use_legacy_data => true do
+country_select :which_country_cb?, :use_legacy_data => true do
   next_node do |response|
     if eea_countries.include?(response)
       :do_either_of_the_following_apply? # Q12
@@ -113,7 +113,7 @@ multiple_choice :do_either_of_the_following_apply? do
   option :no => :cb_not_entitled # A16
 end
 # Q13
-country_select :which_country_are_you_moving_to_ssp?, :use_legacy_data => true do
+country_select :which_country_ssp?, :use_legacy_data => true do
   next_node do |response|
     if eea_countries.include?(response)
       :working_for_a_uk_employer_ssp? # Q14
@@ -145,11 +145,11 @@ multiple_choice :are_you_one_of_the_following? do
 end
 # Q18
 multiple_choice :do_you_have_children? do
-  option :yes => :where_are_you_moving_to_tax_credits? # Q19
+  option :yes => :where_tax_credits? # Q19
   option :no => :tax_credits_outcome # A20
 end
 # Q19
-country_select :where_are_you_moving_to_tax_credits?, :use_legacy_data => true do
+country_select :where_tax_credits?, :use_legacy_data => true do
   next_node do |response|
     if eea_countries.include?(response)
       :currently_claiming? # Q20
@@ -178,10 +178,10 @@ end
 multiple_choice :how_long_are_you_abroad_for_esa? do
   option :less_than_a_year_medical => :esa_eligible_26_weeks # A25
   option :less_than_a_year => :esa_eligible_4_weeks # A26
-  option :more_than_a_year => :which_country_are_you_moving_to_esa? # Q24
+  option :more_than_a_year => :which_country_esa? # Q24
 end
 # Q24
-country_select :which_country_are_you_moving_to_esa?, :use_legacy_data => true do
+country_select :which_country_esa?, :use_legacy_data => true do
   next_node do |response|
     if eea_countries.include?(response)
       :esa_eligible_possible # A27
@@ -192,11 +192,11 @@ country_select :which_country_are_you_moving_to_esa?, :use_legacy_data => true d
 end
 # Q25
 multiple_choice :already_claiming_iidb? do
-  option :yes => :which_country_are_you_moving_to_iidb? # Q26
+  option :yes => :which_country_iidb? # Q26
   option :no => :iidb_possible_with_ni # A29
 end
 # Q26
-country_select :which_country_are_you_moving_to_iidb?, :use_legacy_data => true do
+country_select :which_country_iidb?, :use_legacy_data => true do
   next_node do |response|
     iidb_ss_countries = %w(barbados bermuda bosnia-and-herzegovina croatia guernsey israel 
                            jamaica jersey kosovo macedonia malta mauritius montenegro 
