@@ -21,7 +21,7 @@ multiple_choice :which_benefit? do
   option :wfp => :which_country_are_you_moving_to_wfp? # Q4
   option :maternity_benefits => :which_country_are_you_moving_to_maternity? # Q6
   option :child_benefits => :which_country_are_you_moving_to_cb? # Q10
-  #option :iidb => # Q24
+  option :iidb => :already_claiming_iidb? # Q22
   option :ssp => :which_country_are_you_moving_to_ssp? # Q31
   option :esa => :how_long_are_you_abroad_for_esa? # Q23
   #option :disability_benefits => # Q26 # Leave for now.
@@ -190,6 +190,27 @@ country_select :which_country_are_you_moving_to_esa?, :use_legacy_data => true d
     end
   end
 end
+# Q25
+multiple_choice :already_claiming_iidb? do
+  option :yes => :which_country_are_you_moving_to_iidb? # Q26
+  option :no => :iidb_possible_with_ni # A29
+end
+# Q26
+country_select :which_country_are_you_moving_to_iidb?, :use_legacy_data => true do
+  next_node do |response|
+    iidb_ss_countries = %w(barbados bermuda bosnia-and-herzegovina croatia guernsey israel 
+                           jamaica jersey kosovo macedonia malta mauritius montenegro 
+                           philippines serbia)
+
+    if eea_countries.include?(response)
+      :iidb_outcome # A30
+    elsif iidb_ss_countries.include?(response)
+      :iidb_ss_possible # A31
+    else
+      :iidb_not_entitled # A32
+    end
+  end
+end
 # A1
 outcome :not_paid_ni
 # A2
@@ -246,3 +267,11 @@ outcome :esa_eligible_4_weeks
 outcome :esa_eligible_possible
 # A28
 outcome :esa_not_entitled
+# A29
+outcome :iidb_possible_with_ni
+# A30
+outcome :iidb_outcome
+# A31
+outcome :iidb_ss_possible
+# A32
+outcome :iidb_not_entitled

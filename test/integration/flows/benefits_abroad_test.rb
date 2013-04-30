@@ -415,5 +415,45 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
         end # 'Other' country
       end # going abroad for more than a year
     end # ESA
+    context "answet IIDB" do
+      setup do
+        add_response 'iidb'
+      end
+      should "ask if you are already claiming iidb" do
+        assert_current_node :already_claiming_iidb?
+      end
+      context "answer yes" do
+        setup do
+          add_response 'yes'
+        end
+        should "ask which country you are moving to" do
+          assert_current_node :which_country_are_you_moving_to_iidb?
+        end
+        context "answer Austria" do
+          should "state iidb eligiblity" do
+            add_response 'austria'
+            assert_current_node :iidb_outcome
+          end
+        end # EEA country
+        context "answer Barbados" do
+          should "state eligiblity based on social security agreements" do
+            add_response 'barbados'
+            assert_current_node :iidb_ss_possible
+          end
+        end # SS agreement country
+        context "answer Australia" do
+          should "state you are not entitled" do
+            add_response 'australia'
+            assert_current_node :iidb_not_entitled
+          end
+        end # 'Other' country
+      end # Already claiming IIDB
+      context "answer no" do
+        should "state iidb claim conditions" do
+          add_response 'no'
+          assert_current_node :iidb_possible_with_ni
+        end
+      end
+    end # IIDB
   end
 end
