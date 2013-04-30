@@ -20,7 +20,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
     end
     # Q2
     should "ask which benefit you want to claim" do
-      assert_current_node :which_benefit_going_abroad?
+      assert_current_node :which_benefit?
     end
     context "answer JSA" do
       setup do
@@ -28,7 +28,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
       end
       # Q3
       should "ask which country you are moving to" do
-        assert_current_node :which_country_jsa_going_abroad?
+        assert_current_node :which_country_jsa?
+        assert_phrase_list :which_country_going_abroad_jsa, [:which_country_going_abroad_jsa]
       end
       context "answer a country within the EEA" do
         should "state JSA entitlement in the EEA" do
@@ -61,7 +62,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
       end
       # Q6
       should "ask which country you are moving to" do
-        assert_current_node :which_country_wfp_going_abroad?
+        assert_current_node :which_country_wfp?
+        assert_phrase_list :which_country_going_abroad_wfp, [:which_country_going_abroad_wfp]
       end
       context "answer Austria (EEA country)" do
         setup do
@@ -95,14 +97,16 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
         add_response 'maternity_benefits'
       end
       should "ask which country you are moving to" do
-        assert_current_node :which_country_maternity_going_abroad?
+        assert_current_node :which_country_maternity?
+        assert_phrase_list :which_country_going_abroad_maternity, [:which_country_going_abroad_maternity]
       end
       context "answer austria (EEA country)" do
         setup do
           add_response 'austria'
         end
         should "ask if you will be working for a UK employer" do
-          assert_current_node :working_for_a_uk_employer_going_abroad?
+          assert_current_node :working_for_a_uk_employer?
+          assert_phrase_list :uk_employer_going_abroad_maternity, [:uk_employer_going_abroad_maternity]
         end
         context "answer yes" do
           setup do
@@ -164,7 +168,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
         add_response 'child_benefits'
       end
       should "ask which country you are moving to" do
-        assert_current_node :which_country_cb_going_abroad?
+        assert_current_node :which_country_cb?
+        assert_phrase_list :which_country_going_abroad_cb, [:which_country_going_abroad_cb]
       end
       context "answer Austria (EEA country)" do
         setup do
@@ -216,7 +221,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
         add_response 'ssp'
       end
       should "ask which country you are moving to" do
-        assert_current_node :which_country_ssp_going_abroad?
+        assert_current_node :which_country_ssp?
+        assert_phrase_list :which_country_going_abroad_ssp, [:which_country_going_abroad_ssp]
       end
       context "answer Austria (EEA country)" do
         setup do
@@ -265,7 +271,8 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
       end
       # Q16
       should "ask if you are eligible for tax credits" do
-        assert_current_node :eligible_for_tax_credits_going_abroad?
+        assert_current_node :eligible_for_tax_credits?
+        assert_phrase_list :eligible_going_abroad_tax_credits, [:eligible_going_abroad_tax_credits]
       end
       context "answer yes" do
         setup do
@@ -292,6 +299,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           end
           should "ask how long you are abroad for" do
             assert_current_node :how_long_are_you_abroad_for?
+            assert_phrase_list :how_long_going_abroad_tax_credits, [:how_long_going_abroad_tax_credits]
           end
           context "answer less than a year" do
             setup do
@@ -332,6 +340,7 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
               end
               should "ask where you are moving to" do
                 assert_current_node :where_tax_credits?
+                assert_phrase_list :where_going_abroad_tax_credits, [:where_going_abroad_tax_credits]
               end
               context "answer Austria (EEA country)" do
                 setup do
