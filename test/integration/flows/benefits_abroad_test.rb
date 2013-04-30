@@ -373,7 +373,47 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           add_response 'no'
           assert_current_node :tax_credits_unlikely
         end
-      end # Not currently eligible for tax credits in UK. 
-    end
+      end # Not currently eligible for tax credits in UK.
+    end # Tax credits
+    context "answer ESA" do
+      setup do
+        add_response 'esa'
+      end
+      should "ask how long you are going abroad for" do
+        assert_current_node :how_long_are_you_abroad_for_esa?
+      end
+      context "answer less than a year for medical care" do
+        should "state 26 week eligibility" do
+          add_response 'less_than_a_year_medical'
+          assert_current_node :esa_eligible_26_weeks
+        end
+      end
+      context "answer less than a year" do
+        should "state 4 week eligibility" do
+          add_response 'less_than_a_year'
+          assert_current_node :esa_eligible_4_weeks
+        end
+      end
+      context "answer more than a year" do
+        setup do
+          add_response 'more_than_a_year'
+        end
+        should "ask which country you are going to" do
+          assert_current_node :which_country_are_you_moving_to_esa?
+        end
+        context "answer Austria" do
+          should "state ESA eligibility is possible" do
+            add_response 'austria'
+            assert_current_node :esa_eligible_possible
+          end
+        end # EEA Country
+        context "answer Australia" do
+          should "state that you are not entitled to ESA" do
+            add_response 'australia'
+            assert_current_node :esa_not_entitled
+          end
+        end # 'Other' country
+      end # going abroad for more than a year
+    end # ESA
   end
 end

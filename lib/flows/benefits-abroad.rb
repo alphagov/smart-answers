@@ -23,11 +23,10 @@ multiple_choice :which_benefit? do
   option :child_benefits => :which_country_are_you_moving_to_cb? # Q10
   #option :iidb => # Q24
   option :ssp => :which_country_are_you_moving_to_ssp? # Q31
-  #option :esa => # Q22
+  option :esa => :how_long_are_you_abroad_for_esa? # Q23
   #option :disability_benefits => # Q26 # Leave for now.
   #option :bereavement_benefits => # Q32
   option :tax_credits => :eligible_for_tax_credits? # Q16
-  save_input_as :which_benefit
 end
 # Q3
 country_select :which_country_are_you_moving_to_jsa?, :use_legacy_data => true do
@@ -175,6 +174,22 @@ multiple_choice :why_are_you_going_abroad? do
   option :medical_treatment => :tax_credits_continue_12_weeks # A24
   option :death => :tax_credits_continue_12_weeks # A24
 end
+# Q23
+multiple_choice :how_long_are_you_abroad_for_esa? do
+  option :less_than_a_year_medical => :esa_eligible_26_weeks # A25
+  option :less_than_a_year => :esa_eligible_4_weeks # A26
+  option :more_than_a_year => :which_country_are_you_moving_to_esa? # Q24
+end
+# Q24
+country_select :which_country_are_you_moving_to_esa?, :use_legacy_data => true do
+  next_node do |response|
+    if eea_countries.include?(response)
+      :esa_eligible_possible # A27
+    else
+      :esa_not_entitled # A28
+    end
+  end
+end
 # A1
 outcome :not_paid_ni
 # A2
@@ -223,3 +238,11 @@ outcome :tax_credits_possible
 outcome :tax_credits_continue_8_weeks
 # A24
 outcome :tax_credits_continue_12_weeks
+# A25
+outcome :esa_eligible_26_weeks
+# A26
+outcome :esa_eligible_4_weeks
+# A27
+outcome :esa_eligible_possible
+# A28
+outcome :esa_not_entitled
