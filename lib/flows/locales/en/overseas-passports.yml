@@ -2691,6 +2691,8 @@ en-GB:
           ## Getting your passport
           %{receiving_your_passport}
 
+          %{helpline}
+
       result:
         body: |
           ## How long it takes

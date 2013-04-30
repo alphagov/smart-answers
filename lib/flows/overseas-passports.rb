@@ -210,6 +210,9 @@ outcome :aus_nz_result do
   precalculate :receiving_your_passport do
     PhraseList.new(:"receiving_your_passport_#{application_type}")
   end
+  precalculate :helpline do
+    PhraseList.new(:helpline_fco_webchat)
+  end
 end
 
 
@@ -238,7 +241,7 @@ outcome :ips_application_result do
       PhraseList.new(:"passport_courier_costs_replacing_ips#{ips_number}",
                    :"#{child_or_adult}_passport_costs_replacing_ips#{ips_number}",
                    :"passport_costs_ips#{ips_number}")
-    elsif %w{mauritania morocco western-sahara cuba libya}.include?(current_location) # IPS 2&3 countries where payment must be made in cash
+    elsif %w{mauritania morocco western-sahara cuba libya tunisia}.include?(current_location) # IPS 2&3 countries where payment must be made in cash
       PhraseList.new(:"passport_courier_costs_ips#{ips_number}",
                    :"#{child_or_adult}_passport_costs_ips#{ips_number}",
                    :"passport_costs_ips_cash")
@@ -253,7 +256,7 @@ outcome :ips_application_result do
                    supporting_documents.to_sym)
   end
   precalculate :send_your_application do
-    if %w{cyprus greece portugal}.include?(current_location)
+    if %w{andorra cyprus greece portugal spain}.include?(current_location)
       PhraseList.new(:"send_application_ips#{ips_number}_belfast")
     else
       PhraseList.new(:"send_application_ips#{ips_number}")
@@ -301,7 +304,7 @@ outcome :fco_result do
   end
 
   precalculate :how_to_apply_supplement do
-    if %w(dublin_ireland india).include?(application_type)
+    if %w(dublin_ireland).include?(application_type)
       PhraseList.new(:"how_to_apply_#{application_type}")
     elsif general_action == 'renewing' and data_query.retain_passport?(current_location)
       PhraseList.new(:how_to_apply_retain_passport)

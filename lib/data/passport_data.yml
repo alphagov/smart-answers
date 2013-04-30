@@ -13,7 +13,7 @@ american-samoa:
   type: wellington_new_zealand
   group: ips_documents_group_1
 andorra: 
-  type: madrid_spain
+  type: ips_application_1
   group: ips_documents_group_1
 angola: 
   type: pretoria_south_africa
@@ -576,7 +576,7 @@ south-sudan:
   group: ips_documents_group_3
   helpline: pretoria_south_africa
 spain: 
-  type: madrid_spain
+  type: ips_application_1
   group: ips_documents_group_1
 sri-lanka: 
   type: hong_kong
@@ -648,7 +648,7 @@ tristan-da-cunha:
   type: pretoria_south_africa
   group: ips_documents_group_1
 tunisia: 
-  type: tunisia
+  type: ips_application_3
   group: ips_documents_group_2
 turkey: 
   type: ips_application_1

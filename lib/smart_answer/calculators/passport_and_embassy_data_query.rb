@@ -3,7 +3,7 @@ module SmartAnswer::Calculators
 
     include ActionView::Helpers::NumberHelper
 
-    FCO_APPLICATIONS_REGEXP = /^(dublin_ireland|hong_kong|india|madrid_spain|paris_france|pretoria_south_africa|washington_usa|wellington_new_zealand)$/
+    FCO_APPLICATIONS_REGEXP = /^(dublin_ireland|hong_kong|india|paris_france|pretoria_south_africa|washington_usa|wellington_new_zealand)$/
     IPS_APPLICATIONS_REGEXP = /^ips_application_\d$/
     NO_APPLICATION_REGEXP = /^(algeria|iran|syria)$/
 
@@ -22,7 +22,7 @@ module SmartAnswer::Calculators
     }
 
     RETAIN_PASSPORT_COUNTRIES = %w(afghanistan angola bangladesh brazil burma burundi china cuba
-                                   east-timor egypt eritrea georgia indonesia iraq israel laos lebanon
+                                   east-timor egypt eritrea georgia indonesia iraq india laos lebanon
                                    libya morocco nepal north-korea pakistan rwanda
                                    sri-lanka sudan thailand timor-leste tunisia uganda yemen zambia)
 
