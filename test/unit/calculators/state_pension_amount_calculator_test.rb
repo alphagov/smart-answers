@@ -150,7 +150,7 @@ module SmartAnswer::Calculators
       should "return ni_years_to_date = 3" do
         dob = Date.civil(22.years.ago.year,7,6).to_s
         @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "female", dob: dob, qualifying_years: nil)
-        assert_equal 3, @calculator.available_years
+        assert_equal 2, @calculator.available_years
       end
       should "return ni_years_to_date = 2" do
         dob = Date.civil(22.years.ago.year,1,20).to_s
@@ -199,21 +199,9 @@ module SmartAnswer::Calculators
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "male", dob: dob, qualifying_years: nil)
         end
 
-        should "avialable_years = 6" do
-          assert_equal 6, @calculator.available_years
+        should "available_years = 7" do
+          assert_equal 7, @calculator.available_years
         end
-      end
-      context "male born 26 years, no qualifying_years" do
-        setup do
-          Timecop.travel(Date.parse("2013-03-01"))
-          dob = Date.civil(26.years.ago.year,4,6).to_s
-          @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "male", dob: dob, qualifying_years: nil)
-        end
-
-        should "available_years = 6" do
-          assert_equal 6, @calculator.available_years
-        end
-
       end
 
       context "32 years old with 10 qualifying_years" do
@@ -224,9 +212,9 @@ module SmartAnswer::Calculators
             gender: "female", dob: dob, qualifying_years: 10)
         end
 
-        should "available_years = 12; available_years_sum = 2" do
-          assert_equal 12, @calculator.available_years
-          assert_equal 2, @calculator.available_years_sum
+        should "available_years = 13; available_years_sum = 3" do
+          assert_equal 13, @calculator.available_years
+          assert_equal 3, @calculator.available_years_sum
         end
 
         should "has_available_years? return true" do
@@ -388,12 +376,14 @@ module SmartAnswer::Calculators
 
       context "years_can_be_entered test" do
         should "should return 5" do
+          Timecop.travel("2013-04-20")
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
             gender: "male", dob: 49.years.ago.to_s, qualifying_years: 25)
           assert_equal 5, @calculator.available_years_sum
           assert_equal 5, @calculator.years_can_be_entered(@calculator.available_years_sum,22)
         end
         should "should return 22" do
+          Timecop.travel("2013-04-20")
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
             gender: "male", dob: 49.years.ago.to_s, qualifying_years: 5)
           assert_equal 25, @calculator.available_years_sum
