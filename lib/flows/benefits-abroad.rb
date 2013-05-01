@@ -25,7 +25,7 @@ multiple_choice :which_benefit? do
   option :ssp => :which_country_ssp? # Q31
   option :esa => :how_long_are_you_abroad_for_esa? # Q23
   #option :disability_benefits => # Q26 # Leave for now.
-  #option :bereavement_benefits => # Q32
+  option :bereavement_benefits => :which_country_bereavement? # Q32
   option :tax_credits => :eligible_for_tax_credits? # Q16
 end
 # Q3
@@ -265,6 +265,23 @@ country_select :which_country_iidb?, :use_legacy_data => true do
     end
   end
 end
+
+# Q32
+country_select :which_country_bereavement? do
+  next_node do |response|
+    bereavement_ss_countries = %w(barbados bermuda bosnia-and-herzegovina canada croatia 
+                                  guernsey israel jamaica jersey kosovo macedonia malta 
+                                  mauritius montenegro philippines serbia turkey united-states)
+    if eea_countries.include?(response)
+      :bereavement_outcome # A36
+    elsif bereavement_ss_countries.include?(response)
+      :bereavement_benefit_possible # A37
+    else
+      :bereavement_not_entitled # A38
+    end
+  end
+end
+
 # A1
 outcome :not_paid_ni
 # A2
@@ -330,3 +347,9 @@ outcome :iidb_outcome
 outcome :iidb_ss_possible
 # A32
 outcome :iidb_not_entitled
+# A36
+outcome :bereavement_outcome
+# A37
+outcome :bereavement_benefit_possible
+# A38
+outcome :bereavement_not_entitled

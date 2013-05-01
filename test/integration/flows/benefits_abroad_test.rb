@@ -470,5 +470,31 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
         end
       end
     end # IIDB
+    context "answer bereavement" do
+      setup do
+        add_response 'bereavement_benefits'
+      end
+      should "ask which country you are moving to" do
+        assert_current_node :which_country_bereavement?
+      end
+      context "answer Denmark" do
+        should "state eligbility" do
+          add_response 'denmark'
+          assert_current_node :bereavement_outcome
+        end
+      end # EEA country
+      context "answer croatia" do
+        should "state partial eligibiity" do
+          add_response 'croatia'
+          assert_current_node :bereavement_benefit_possible
+        end
+      end # Social security country
+      context "answer Vietnam" do
+        should "state no eligibility" do
+          add_response 'vietnam'
+          assert_current_node :bereavement_not_entitled
+        end
+      end # 'Other' country
+    end # Bereavement
   end
 end
