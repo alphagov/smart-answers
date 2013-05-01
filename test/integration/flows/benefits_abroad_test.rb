@@ -1,12 +1,17 @@
 # encoding: UTF-8
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
+require 'gds_api/test_helpers/worldwide'
 
 class BenefitsAbroadTest < ActiveSupport::TestCase
   include FlowTestHelper
+  include GdsApi::TestHelpers::Worldwide
 
   setup do
     setup_for_testing_flow 'benefits-abroad'
+    worldwide_api_has_locations %w(australia barbados belarus brazil brunei canada chad
+          croatia denmark eritrea france ghana iceland japan laos luxembourg malta
+          micronesia mozambique nicaragua panama portugal turkey venezuela vietnam)
   end
 
   # Q1
@@ -33,19 +38,19 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
       end
       context "answer a country within the EEA" do
         should "state JSA entitlement in the EEA" do
-          add_response 'austria'
+          add_response 'denmark'
           assert_current_node :jsa_eea_going_abroad
         end
       end
       context "answer outside EEA" do
         should "state JSA entitlement outside the EEA" do
-          add_response 'bosnia-and-herzegovina'
+          add_response 'croatia'
           assert_current_node :jsa_social_security
         end
       end
-      context "answer India" do
+      context "answer Vietnam" do
         should "state you are not entitled to JSA" do
-          add_response 'india'
+          add_response 'vietnam'
           assert_current_node :jsa_not_entitled
         end
       end
@@ -65,9 +70,9 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
         assert_current_node :which_country_wfp?
         assert_phrase_list :which_country_going_abroad_wfp, [:which_country_going_abroad_wfp]
       end
-      context "answer Austria (EEA country)" do
+      context "answer Denmark (EEA country)" do
         setup do
-          add_response 'austria'
+          add_response 'denmark'
         end
         should "ask if you already qualify for WFP" do
           assert_current_node :qualify_for_wfp?
@@ -100,9 +105,9 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
         assert_current_node :which_country_maternity?
         assert_phrase_list :which_country_going_abroad_maternity, [:which_country_going_abroad_maternity]
       end
-      context "answer austria (EEA country)" do
+      context "answer denmark (EEA country)" do
         setup do
-          add_response 'austria'
+          add_response 'denmark'
         end
         should "ask if you will be working for a UK employer" do
           assert_current_node :working_for_a_uk_employer?
@@ -155,9 +160,9 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           end
         end
       end # Social security country
-      context "answer Gambia, employer not paying NI" do
+      context "answer Vietnam, employer not paying NI" do
         should "state you are not entitled to SMP or maternity allowance" do
-          add_response 'gambia'
+          add_response 'vietnam'
           add_response 'no'
           assert_current_node :maternity_not_entitled
         end
@@ -171,9 +176,9 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
         assert_current_node :which_country_cb?
         assert_phrase_list :which_country_going_abroad_cb, [:which_country_going_abroad_cb]
       end
-      context "answer Austria (EEA country)" do
+      context "answer Denmark (EEA country)" do
         setup do
-          add_response 'austria'
+          add_response 'denmark'
         end
         should "ask if your employer pays NI or you are already on benefits" do
           assert_current_node :do_either_of_the_following_apply?
@@ -224,9 +229,9 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
         assert_current_node :which_country_ssp?
         assert_phrase_list :which_country_going_abroad_ssp, [:which_country_going_abroad_ssp]
       end
-      context "answer Austria (EEA country)" do
+      context "answer Denmark (EEA country)" do
         setup do
-          add_response 'austria'
+          add_response 'denmark'
         end
         should "ask if you are working for a UK employer" do
           assert_current_node :working_for_a_uk_employer_ssp?
@@ -244,9 +249,9 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
           end
         end
       end # EEA country
-      context "answer Yemen" do
+      context "answer Vietnam" do
         setup do
-          add_response 'yemen'
+          add_response 'vietnam'
         end
         should "ask if your employer is paying NI" do
           assert_current_node :employer_paying_ni_ssp?
@@ -342,9 +347,9 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
                 assert_current_node :where_tax_credits?
                 assert_phrase_list :where_going_abroad_tax_credits, [:where_going_abroad_tax_credits]
               end
-              context "answer Austria (EEA country)" do
+              context "answer Denmark (EEA country)" do
                 setup do
-                  add_response 'austria'
+                  add_response 'denmark'
                 end
                 should "ask whether you are currently claiming any of the following" do
                   assert_current_node :currently_claiming?
@@ -411,9 +416,9 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
         should "ask which country you are going to" do
           assert_current_node :which_country_esa?
         end
-        context "answer Austria" do
+        context "answer Denmark" do
           should "state ESA eligibility is possible" do
-            add_response 'austria'
+            add_response 'denmark'
             assert_current_node :esa_eligible_possible
           end
         end # EEA Country
@@ -439,9 +444,9 @@ class BenefitsAbroadTest < ActiveSupport::TestCase
         should "ask which country you are moving to" do
           assert_current_node :which_country_iidb?
         end
-        context "answer Austria" do
+        context "answer Denmark" do
           should "state iidb eligiblity" do
-            add_response 'austria'
+            add_response 'denmark'
             assert_current_node :iidb_outcome
           end
         end # EEA country

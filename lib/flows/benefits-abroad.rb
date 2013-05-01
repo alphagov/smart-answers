@@ -29,7 +29,7 @@ multiple_choice :which_benefit? do
   option :tax_credits => :eligible_for_tax_credits? # Q16
 end
 # Q3
-country_select :which_country_jsa?, :use_legacy_data => true do
+country_select :which_country_jsa? do
   situations.each do |situation|
     key = :"which_country_#{situation}_jsa"
     precalculate key do
@@ -47,7 +47,7 @@ country_select :which_country_jsa?, :use_legacy_data => true do
   end
 end
 # Q4
-country_select :which_country_wfp?, :use_legacy_data => true do
+country_select :which_country_wfp? do
   situations.each do |situation|
     key = :"which_country_#{situation}_wfp"
     precalculate key do
@@ -68,7 +68,7 @@ multiple_choice :qualify_for_wfp? do
   option :no => :wfp_not_entitled # A6
 end
 # Q6
-country_select :which_country_maternity?, :use_legacy_data => true do
+country_select :which_country_maternity? do
   save_input_as :maternity_country
   situations.each do |situation|
     key = :"which_country_#{situation}_maternity"
@@ -116,7 +116,7 @@ multiple_choice :employer_paying_ni? do
   end
 end
 # Q11
-country_select :which_country_cb?, :use_legacy_data => true do
+country_select :which_country_cb? do
   situations.each do |situation|
     key = :"which_country_#{situation}_cb"
     precalculate key do
@@ -143,7 +143,7 @@ multiple_choice :do_either_of_the_following_apply? do
   option :no => :cb_not_entitled # A16
 end
 # Q13
-country_select :which_country_ssp?, :use_legacy_data => true do
+country_select :which_country_ssp? do
   situations.each do |situation|
     key = :"which_country_#{situation}_ssp"
     precalculate key do
@@ -191,7 +191,7 @@ multiple_choice :do_you_have_children? do
   option :no => :tax_credits_outcome # A20
 end
 # Q19
-country_select :where_tax_credits?, :use_legacy_data => true do
+country_select :where_tax_credits? do
   situations.each do |situation|
     key = :"where_#{situation}_tax_credits"
     precalculate key do
