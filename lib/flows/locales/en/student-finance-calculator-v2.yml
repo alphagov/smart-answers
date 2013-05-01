@@ -58,14 +58,14 @@ en-GB:
         options:
           "children-under-17": "You’ve got children under 17"
           "dependant-adult": "An adult depends on you financially"
+          "has-disability": "You’ve a disability, health condition or learning difficulty -  eg dyslexia"
+          "low-income": "You’re on low income - eg you find it hard to pay for basics like food and accommodation"
           "no": "None of these"
 
 #Q6b
       do_any_of_the_following_apply_all_uk_students?:
         title: Do any of the following apply (you might get extra funding)?
         options:
-          "children-under-17": "You’ve got children under 17"
-          "dependant-adult": "An adult depends on you financially"
           "has-disability": "You’ve a disability, health condition or learning difficulty -  eg dyslexia"
           "low-income": "You’re on low income - eg you find it hard to pay for basics like food and accommodation"
           "no": "None of these"
@@ -122,7 +122,7 @@ en-GB:
 
           You could get a [bursary or scholarship](/extra-money-pay-university "Help from your university or college") from your university or college.
 
-          ^Usually, bursaries and scholarships don’t have to be paid back.^
+          ^Student loans have to be paid back - things like grants, bursaries and allowances don’t.^
 
           ##Your next steps
 
@@ -135,7 +135,7 @@ en-GB:
 
           You could get a [bursary or scholarship](/extra-money-pay-university "Help from your university or college") from your university or college including up to £1000 from the National Scholarship Programme.
 
-          ^Usually, bursaries and scholarships don’t have to be paid back.^
+          ^Student loans have to be paid back - things like grants, bursaries and allowances don’t.^
 
           ##Your next steps
 
@@ -170,8 +170,8 @@ en-GB:
 
           ##Your next steps
 
-          How to [apply](/apply-for-student-finance “How to apply”) for student finance  
-          Check if you [qualify](/student-finance/who-qualifies “Eligibility”) for student finance   
+          - How to [apply](/apply-for-student-finance “How to apply”) for student finance  
+          - Check if you [qualify](/student-finance/who-qualifies “Eligibility”) for student finance   
 
           ^Usually, you’ll only get student finance if you’re doing your first higher education qualification.^
 

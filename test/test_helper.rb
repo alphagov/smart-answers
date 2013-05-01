@@ -18,7 +18,20 @@ require 'mocha/setup'
 require 'webmock/minitest'
 
 class MiniTest::Unit::TestCase
-  def teardown
+  def teardown_with_customisations
+    teardown_without_customisations
     Timecop.return
+    WorldLocation.reset_cache
   end
+  alias_method_chain :teardown, :customisations
+end
+
+require 'gds_api/test_helpers/json_client_helper'
+
+def fixture_file(filename)
+  File.expand_path("../fixtures/#{filename}", __FILE__)
+end
+
+def read_fixture_file(filename)
+  File.read(fixture_file(filename))
 end

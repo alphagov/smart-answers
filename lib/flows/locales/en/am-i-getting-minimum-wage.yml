@@ -5,7 +5,7 @@ en-GB:
       body: |
         Check if your pay matches the National Minimum Wage or if your employer owes you payments from past years.
       meta:
-        description: "Check if your pay matches the National Minimum Wage or if you're owed payments from past years, employers can check if they're paying the National Minimum Wage"
+        description: "Check if your pay matches the National Minimum Wage or if your employer owes you payments from past years."
       options:
         "yes": "Yes"
         "no": "No"

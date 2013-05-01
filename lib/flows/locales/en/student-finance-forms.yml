@@ -15,7 +15,7 @@ en-GB:
           ##Where to send your forms 
 
           $A
-          Student Finance Services European Team
+          Student Finance Services non-UK Team
           Student Loans Company
           PO Box 89
           Darlington
@@ -24,7 +24,7 @@ en-GB:
           DL1 9AZ
           $A
       meta:
-        description: Download Student Finance England application forms and guidance notes
+        description: Download Student Finance England application forms and guidance notes - including forms PN1, PR1, PTG1, PFF2 and CYI
       title: Student finance forms
       body: |
         Download student finance forms and guidance notes for Student Finance England including:
@@ -104,7 +104,7 @@ en-GB:
           "course-start-after-01092012": "No"
 
 
-      outcome_1:
+      outcome_uk_ft_1314_new:
         title: Student finance – application form
         body: |
           You should [apply online](/apply-online-for-student-finance "Apply for student finance online") for help with your tuition and living costs.
@@ -119,11 +119,19 @@ en-GB:
 
           ^You can apply up to 9 months after the start of your course. To get your money by the start of term, apply by 31 May 2013^
 
+          ##Additional forms
+
+          You may need these additional form(s).  
+
+          Form | When to use the form 
+          - | - 
+          [Signature form (PDF, 65KB)](http://www.sfengland.slc.co.uk/media/559167/sfe_student_signature_form_1314_d.pdf "Download ‘Signature form’ (PDF, 65KB)") | You sent your application but didn’t sign it
+
           %{form_destination}
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_2:
+      outcome_uk_ft_1314_continuing:
         title: Student finance – application form
         body: |
           You should [apply online](/apply-online-for-student-finance "Apply for student finance online") for help with your tuition and living costs.
@@ -138,11 +146,19 @@ en-GB:
 
           ^You can apply up to 9 months after the start of your course. To get your money by the start of term, apply by 28 June 2013^
 
+          ##Additional forms
+
+          You may need these additional form(s).  
+
+          Form | When to use the form 
+          - | - 
+          [Signature form (PDF, 65KB)](http://www.sfengland.slc.co.uk/media/559167/sfe_student_signature_form_1314_d.pdf "Download ‘Signature form’ (PDF, 65KB)") | You sent your application but didn’t sign it
+
           %{form_destination}
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_3:
+      outcome_uk_ft_1213_new:
         title: Student finance – application form
         body: |
           You should [apply online](/apply-online-for-student-finance "Apply for student finance online") for help with your tuition and living costs.
@@ -157,11 +173,19 @@ en-GB:
 
           ^You can apply up to 9 months after the start of your course.^
 
+          ##Additional forms
+
+          You may need these additional form(s).  
+
+          Form | When to use the form 
+          - | - 
+          [Signature form (PDF, 65KB)](http://www.sfengland.slc.co.uk/media/377568/sfe_missing_signature_form_1213_v1_2_d.pdf "Download ‘Signature form’ (PDF, 65KB)") | You sent your application but didn’t sign it
+
           %{form_destination}
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_4:
+      outcome_uk_ft_1213_continuing:
         title: Student finance – application form
         body: |
           You should [apply online](/apply-online-for-student-finance "Apply for student finance online") for help with your tuition and living costs.
@@ -176,32 +200,76 @@ en-GB:
 
           ^You can apply up to 9 months after the start of your course.^
 
+          ##Additional forms
+
+          You may need these additional form(s).  
+
+          Form | When to use the form 
+          - | - 
+          [Signature form (PDF, 65KB)](http://www.sfengland.slc.co.uk/media/377568/sfe_missing_signature_form_1213_v1_2_d.pdf "Download ‘Signature form’ (PDF, 65KB)") | You sent your application but didn’t sign it
+
           %{form_destination}
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_5:
+      outcome_uk_pt_1314_new:
         title: Student finance – application form 
         body: |
-          You can apply for student finance from summer 2013. The forms will be available then.
+          You should [apply online](/apply-online-for-student-finance "Apply for student finance online") for a Tuition Fee Loan. If you can’t apply online, use form PTL1.
+
+          Academic Year | Form 
+          - | - 
+          2013 to 2014 | [Apply online](/apply-online-for-student-finance "Apply for student finance online")
+          2013 to 2014 | [PTL1 - form (PDF, 400KB)](http://www.sfengland.slc.co.uk/media/596780/sfe_ptl1_form_d.pdf "Download ‘PTL1 - form’ (PDF, 400KB)"){:rel="external"}  
+          2013 to 2014 | [PTL1 - guidance notes (PDF, 200KB)](http://www.sfengland.slc.co.uk/media/596326/sfe_ptl1_notes_1314_d.pdf "Download ‘PTL1 - guidance notes’ (PDF, 200KB)"){:rel="external"}
+
+          ^You can apply up to 9 months after the start of your course.^
+
+          ##Additional forms
+
+          You may need these additional form(s).  
+
+          Form | When to use the form 
+          - | - 
+          [Signature form (PDF, 65KB)](http://www.sfengland.slc.co.uk/media/559167/sfe_student_signature_form_1314_d.pdf "Download ‘Signature form’ (PDF, 65KB)") | You sent your application but didn’t sign it
+
+          %{form_destination}
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_6:
+      outcome_uk_pt_1314_continuing:
         title: Student finance – application form 
         body: |
-          You can apply for student finance from summer 2013. The forms will be available then.
+          You should [apply online](/apply-online-for-student-finance "Apply for student finance online") for a Tuition Fee Loan. If you can’t apply online, use form PTLC. 
+
+          Academic Year | Form 
+          - | - 
+          2013 to 2014 | [Apply online](/apply-online-for-student-finance "Apply for student finance online")
+          2013 to 2014 | [PTLC - form (PDF, 400KB)](http://www.sfengland.slc.co.uk/media/593370/sfe_ptlc_form_1314_d.pdf "Download ‘PTLC - form’ (PDF, 400KB)"){:rel="external"}  
+          2013 to 2014 | [PTLC - guidance notes (PDF, 200KB)](http://www.sfengland.slc.co.uk/media/593373/sfe_ptlc_notes_1314_d.pdf "Download ‘PTLC - guidance notes’ (PDF, 200KB)"){:rel="external"} 
+
+          ^You can apply up to 9 months after the start of your course.^
+
+          ##Additional forms
+
+          You may need these additional form(s).  
+
+          Form | When to use the form 
+          - | - 
+          [Signature form (PDF, 65KB)](http://www.sfengland.slc.co.uk/media/559167/sfe_student_signature_form_1314_d.pdf "Download ‘Signature form’ (PDF, 65KB)") | You sent your application but didn’t sign it
+
+          %{form_destination}
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_7:
+      outcome_uk_pt_1314_grant:
         title: Student finance – application form 
         body: |
-          You can apply for student finance from summer 2013. The forms will be available then.
+          You can apply for student finance from Summer 2013. The forms will be available then.
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_8:
+      outcome_uk_pt_1213_new:
         title: Student finance – application form 
         body: |
           You should [apply online](/apply-online-for-student-finance "Apply for student finance online") for a Tuition Fee Loan. If you can’t apply online, use form PTL1.
@@ -214,18 +282,26 @@ en-GB:
 
           ^You can apply up to 9 months after the start of your course.^
 
+          ##Additional forms
+
+          You may need these additional form(s).  
+
+          Form | When to use the form 
+          - | - 
+          [Signature form (PDF, 65KB)](http://www.sfengland.slc.co.uk/media/377568/sfe_missing_signature_form_1213_v1_2_d.pdf "Download ‘Signature form’ (PDF, 65KB)") | You sent your application but didn’t sign it
+
           %{form_destination}
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_9:
+      outcome_uk_pt_1213_continuing:
         title: Student finance – application form 
         body: |
           You should [contact Student Finance England](/contact-student-finance-england "Contact Student Finance England") - you may be able to apply for either a Tuition Fee Loan or the Fee and Course Grants.
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_10:
+      outcome_uk_pt_1213_grant:
         title: Student finance – application form 
         body: |
           To apply for a Fee Grant and Course Grant use form PTGC (or PTGN if you're applying for student finance for the first time).
@@ -253,7 +329,7 @@ en-GB:
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_11:
+      outcome_parent_partner_1314:
         title: Parents and partners - forms
         body: |
           Some student finance (eg a Maintenance Grant) is based on income. 
@@ -274,7 +350,7 @@ en-GB:
 
         next_steps: |
           [How to support an application](/apply-for-student-finance/parents-and-partners "Support an application")
-      outcome_12:
+      outcome_parent_partner_1213:
         title: Parents and partners – forms
         body: |
           Some student finance (eg a Maintenance Grant) is based on income. 
@@ -295,7 +371,7 @@ en-GB:
 
         next_steps: |
           [How to support an application](/apply-for-student-finance/parents-and-partners "Support an application")
-      outcome_13:
+      outcome_proof_identity_1314:
         title: Proof of identity
         body: |
           To prove your identity, include your UK passport details in your application. If you forget, use the passport details form. If you don't have a passport  (or it has expired), send your birth or adoption certificate using the certificate form.
@@ -311,22 +387,29 @@ en-GB:
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_14:
+      outcome_proof_identity_1314_pt:
         title: Proof of identity
         body: |
-          You apply for student finance from summer 2013. The forms will be available then.
+          Academic year | Form
+          - | -
+          2013 to 2014 | [UK passport details form (PDF, 150KB)](http://www.sfengland.slc.co.uk/media/559143/sfe_passport_details_form_1314_d.pdf "Download ‘UK Passport details form’ (PDF, 150KB)"){:rel="external"}
+          2013 to 2014 | [Birth or adoption certificate form (PDF, 150KB)](http://www.sfengland.slc.co.uk/media/559146/sfe_birth_adoption_cert_1314_d.pdf "Download ‘Birth or adoption certificate form’ (PDF, 150KB)"){:rel="external"}
+
+          ^Don't send your UK passport.^
+
+          %{form_destination}
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_15:
+      outcome_proof_identity_1213:
         title: Proof of identity
         body: |
           To prove your identity, include your UK passport details in your application. If you forget, use the passport details form. If you don’t have a passport  (or it has expired), send your birth or adoption certificate using the certificate form.
 
           Academic year | Form
           - | - 
-          2012 to 2013 | [UK passport details form (PDF, 150KB)](http://www.sfengland.slc.co.uk/media/417714/passport_dtls_form.pdf "Download 'UK passport details form' (PDF, 150KB)"){:rel="external"}   
-          2012 to 2013 | [Birth or adoption certificate form (PDF, 150KB)](http://www.sfengland.slc.co.uk/media/417717/birth_adoption_cert_form.pdf "Download 'Birth or adoption certificate form' (PDF, 150KB)"){:rel="external"} 
+          2012 to 2013 | [UK passport details form (PDF, 150KB)](http://www.sfengland.slc.co.uk/media/417714/passport_dtls_form.pdf "Download ‘UK passport details form’ (PDF, 150KB)"){:rel="external"}   
+          2012 to 2013 | [Birth or adoption certificate form (PDF, 150KB)](http://www.sfengland.slc.co.uk/media/417717/birth_adoption_cert_form.pdf "Download ‘Birth or adoption certificate form’ (PDF, 150KB)"){:rel="external"} 
 
           ^Don’t send your UK passport.^
 
@@ -334,7 +417,12 @@ en-GB:
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance "How to apply for student finance")
-      outcome_16:
+      outcome_uk_ft_change_application: |
+        title: change application full-time
+      outcome_uk_pt_change_application: |
+        title: change application part-time
+
+      outcome_dsa_1314:
         title: Disabled Students' Allowances
         body: |
           To apply, use one of the DSA1 forms. If you’ve applied for student finance use form 'DSA1 short'. If you’re only applying for DSAs use form 'DSA1 full'.
@@ -351,14 +439,22 @@ en-GB:
 
         next_steps: |
           [Disabled Student's Allowances](/disabled-students-allowances-dsas "Disabled Students’ Allowances")   
-      outcome_17:
+      outcome_dsa_1314_pt:
         title: Disabled Students' Allowances
         body: |
-          You apply for student finance from summer 2013. The forms will be available then.
+          Academic Year | Form
+          - | -
+          2013 to 2014 | [DSA1 - short form (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/559158/sfe_dsa_slim_1314_d.pdf "Download "DSA1 - short form’ (PDF, 100KB)"){:rel="external"}   
+          2013 to 2014 | [DSA1 - full form (PDF, 200KB)](http://www.sfengland.slc.co.uk/media/559155/sfe_dsa_1314_d.pdf "Download ‘DSA1 - full form’ (PDF, 200KB)"){:rel="external"}
+          2013 to 2014 | [DSA1 - guidance notes (PDF, 150KB)](http://www.sfengland.slc.co.uk/media/559161/sfe_dsa__notes_1314_d.pdf "Download ‘DSA notes’ (PDF, 150KB)"){:rel="external"} 
+
+          ^Open University (OU) students apply to the OU for Disabled Students' Allowances.^
+
+          %{form_destination}
 
         next_steps: |
           [Disabled Student's Allowances](/disabled-students-allowances-dsas "Disabled Students’ Allowances") 
-      outcome_18:
+      outcome_dsa_1213:
         title: Disabled Students' Allowances
         body: |
           To apply, use one of the DSA1 forms. If you’ve applied for student finance use form 'DSA1 short'. If you’re only applying for DSAs use form 'DSA1 full'.
@@ -375,7 +471,7 @@ en-GB:
 
         next_steps: |
           [Disabled Student's Allowances](/disabled-students-allowances-dsas "Disabled Students’ Allowances")
-      outcome_19:
+      outcome_ccg_1314:
         title: Childcare Grant
         body: |
           To apply, estimate your childcare costs on form CCG1 after you've completed your main student finance application. 
@@ -388,7 +484,7 @@ en-GB:
 
         next_steps: |
           [Childcare Grant](/childcare-grant "Childcare Grant")
-      outcome_20:
+      outcome_ccg_1213:
         title: Childcare Grant 
         body: |
           To apply, estimate your childcare costs on form CCG1 after you've completed your main student finance application. 
@@ -401,7 +497,7 @@ en-GB:
 
         next_steps: |
           [Childcare Grant](/childcare-grant "Childcare Grant")
-      outcome_21:
+      outcome_dsa_expenses:
         title: Disabled Students' Allowances – expenses
         body: |
           Use the claim form for the academic year the expenses relate to. You reclaim these expenses at the end of the academic year. 
@@ -415,7 +511,7 @@ en-GB:
 
         next_steps: |
           [Disabled Student's Allowances](/disabled-students-allowances-dsas "Disabled Students’ Allowances")
-      outcome_22:
+      outcome_ccg_expenses:
         title: Childcare Grant - cost confirmation 
         body: |
           At the end of each term confirm your actual childcare costs. Use the CCG2 form for the academic year the costs relate to.
@@ -429,7 +525,7 @@ en-GB:
 
         next_steps: |
           [Childcare Grant](/childcare-grant "Childcare Grant")
-      outcome_23:
+      outcome_travel:
         title: Travel Grants
         body: |
           You [apply online](/apply-online-for-student-finance "Apply for student finance online") for a travel grant as part of your main student finance application. 
@@ -438,7 +534,7 @@ en-GB:
 
         next_steps: |
           [Travel grants](/travel-grants-medical-dental-students-england "Travel Grants")
-      outcome_24:
+      outcome_eu_ft_1314_new:
         title: EU full-time student 
         body: |
           To apply for a Tuition Fee Loan use form EU13N.
@@ -462,10 +558,10 @@ en-GB:
 
           %{form_destination}
 
-      outcome_25:
+      outcome_eu_ft_1314_continuing:
         title: EU full-time student 
         body: |
-          To apply for a Tuition Fee Loan use form EUPR1A. This is automaically sent to you. To request a copy, contact [Student Finance Services European Team](/contact-student-finance-england "Contact Student Finance England"). 
+          To apply for a Tuition Fee Loan use form EUPR1A. This is automatically sent to you. To request a copy, contact [Student Finance Services European Team](/contact-student-finance-england "Contact Student Finance England"). 
 
           ##Additional information 
 
@@ -481,17 +577,61 @@ en-GB:
 
           %{form_destination}
 
-      outcome_26:
+      outcome_eu_pt_1314_new:
         title: EU part-time student
         body: |
-          You can apply for student finance from August 2013. The forms will be available then.
+          To apply for a Tuition Fee Loan use form EUPTL1. 
 
-      outcome_27:
+          Academic year | Form 
+          - | - 
+          2013 to 2014 | [EUPTL1 - form (PDF, 900KB)](http://www.slc.co.uk/media/596581/eu_ptl1_1314_d.pdf "Download ‘EUPTL1 - form’ (PDF, 900KB)"){:rel="external"}
+          2013 to 2014 | [EUPTL1 - guidance notes (PDF, 500KB0](http://www.slc.co.uk/media/596578/eu_ptl1_notes_1314_d.pdf "Download ‘EUPTL1 - guidance notes (PDF, 500KB)"){:rel="external"}
+
+          ##Additional information 
+
+          You may need to include additional information on the following forms. 
+          
+          Form | When to use the form 
+          - | - 
+          [EUTFLR - form (PDF, 200KB)](http://www.sfengland.slc.co.uk/media/560156/eu_tuitionfeelrf_1314_d.pdf "Download EUTFLR - form’ (PDF, 100KB)"){:rel="external"} | To change the amount of loan you want to apply for
+          [Evidence factsheet (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/560168/eu_evidence_factsheet_1314_d.pdf "Download ‘Evidence factsheet’ (PDF, 100KB)"){:rel="external"} | List of evidence to send with your application - eg proof of identity or income 
+          [Certifier checklist (PDF, 75KB)](http://www.sfengland.slc.co.uk/media/560159/eu_certifier_checklist_1314_d.pdf "Download ‘Certifier checklist’ (PDF, 75KB)"){:rel="external"} | Get the person who verifies your evidence to sign this form
+          [EUCO1 - form (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/560153/eu_co1_1314_d.pdf "Download ‘EUCO1 - form’ (PDF, 100KB)"){:rel="external"}  | To update your course, name and other details
+
+          ^You can apply up to 9 months after the start of your course.^
+
+          %If you started your course before 1 September 2012 you may be eligible for a grant instead of a loan - contact [Student Finance Services Non-UK Team](/contact-student-finance-england "Contact Student Finance England"). You’ll need different forms and can’t apply for the grant  until later in the year.% 
+
+          %{form_destination}
+
+      outcome_eu_pt_1314_continuing:
         title: EU part-time student 
         body: |
-          You can apply for student finance from August 2013. The forms will be available then.
+          To apply for a Tuition Fee Loan use form EUPTLC. 
 
-      outcome_28:
+          If you started your course before 1 September 2012 you may be eligible for a grant instead of a loan - contact [Student Finance Services Non-UK Team](/contact-student-finance-england "Contact Student Finance England"). You’ll need different forms and can’t apply for the grant  until later in the year. 
+
+          Academic year | Form 
+          - | - 
+          2013 to 2014 | [EUPTLC - form (PDF, 900KB)](http://www.sfengland.slc.co.uk/media/596584/eu_ptlc_form_1314_d.pdf "Download ‘EUPTLC - form’ (PDF, 900KB)"){:rel="external"}
+          2013 to 2014 | [EUPTLC - guidance notes (PDF, 500KB0](http://www.sfengland.slc.co.uk/media/596587/eu_ptlc_notes_1314_d.pdf "Download ‘EUPTLC - guidance notes (PDF, 500KB)"){:rel="external"}
+
+          ##Additional information 
+
+          You may need to include additional information on the following forms. 
+          
+          Form | When to use the form 
+          - | - 
+          [EUTFLR - form (PDF, 200KB)](http://www.sfengland.slc.co.uk/media/560156/eu_tuitionfeelrf_1314_d.pdf "Download EUTFLR - form’ (PDF, 100KB)"){:rel="external"} | To change the amount of loan you want to apply for 
+          [Evidence factsheet (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/560168/eu_evidence_factsheet_1314_d.pdf "Download ‘Evidence factsheet’ (PDF, 100KB)"){:rel="external"} | List of evidence to send with your application - eg proof of identity or income 
+          [Certifier checklist (PDF, 75KB)](http://www.sfengland.slc.co.uk/media/560159/eu_certifier_checklist_1314_d.pdf "Download ‘Certifier checklist’ (PDF, 75KB)"){:rel="external"} | Get the person who verifies your evidence to sign this form
+          [EUCO1 - form (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/560153/eu_co1_1314_d.pdf "Download ‘EUCO1 - form’ (PDF, 100KB)"){:rel="external"}  | To update your course, name and other details
+
+          ^You can apply up to 9 months after the start of your course.^
+
+          %{form_destination}
+
+      outcome_eu_ft_1213_new:
         title: EU full-time student 
         body: |
           To apply for a Tuition Fee Loan use form EU12N.
@@ -515,10 +655,10 @@ en-GB:
 
           %{form_destination}
 
-      outcome_29:
+      outcome_eu_ft_1213_continuing:
         title: EU full-time student 
         body: |
-          To apply for a Tuition Fee Loan use form EUPR1A. This is automaically sent to you. To request a copy, contact [Student Finance Services European Team](/contact-student-finance-england "Contact Student Finance England"). 
+          To apply for a Tuition Fee Loan use form EUPR1A. This is automatically sent to you. To request a copy, contact [Student Finance Services European Team](/contact-student-finance-england "Contact Student Finance England"). 
 
           ##Additional information 
 
@@ -534,7 +674,7 @@ en-GB:
 
           %{form_destination}
 
-      outcome_30:
+      outcome_eu_pt_1213_new:
         title: EU part-time students
         body: |
           To apply for a Tuition Fee Loan use form EUPTL1.
@@ -559,7 +699,7 @@ en-GB:
 
           %{form_destination}
 
-      outcome_31:
+      outcome_eu_pt_1213_continuing:
         title: EU part-time students
         body: |
           To apply for a Tuition Fee Grant use form EUPTG1.

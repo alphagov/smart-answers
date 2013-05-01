@@ -3,11 +3,13 @@ status :published
 
 i18n_prefix = "flow.register-a-death"
 data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
+embassy_data_query = SmartAnswer::Calculators::PassportAndEmbassyDataQuery.new
 exclusions = %w(afghanistan cambodia central-african-republic chad comoros 
                 dominican-republic east-timor eritrea haiti kosovo laos lesotho 
                 liberia madagascar montenegro paraguay samoa slovenia somalia 
                 swaziland taiwan tajikistan western-sahara)
 no_embassies = %w(iran syria yemen)
+different_address = %w(belgium brazil germany india indonesia)
 
 # Q1
 multiple_choice :where_did_the_death_happen? do
@@ -106,9 +108,11 @@ end
 outcome :fco_result do
   precalculate :embassy_high_commission_or_consulate do
     if data_query.has_high_commission?(current_location)
-      "High commission"
+     "British high commission"
     elsif data_query.has_consulate?(current_location)
       "British embassy or consulate"
+    elsif data_query.has_consulate_general?(current_location)
+      "British consulate-general"
     else
       "British embassy"
     end
@@ -119,14 +123,38 @@ outcome :fco_result do
 end
 
 outcome :embassy_result do
+  precalculate :documents_required_embassy_result do
+    phrases = PhraseList.new
+    if current_location == 'libya'
+      phrases << :documents_list_embassy_libya
+    elsif current_location == 'sweden'
+      phrases << :documents_list_embassy_sweden
+    else
+      phrases << :documents_list_embassy
+    end
+    phrases
+  end
+
   precalculate :embassy_high_commission_or_consulate do
     if data_query.has_high_commission?(current_location)
-      "High commission"
+     "British high commission"
     elsif data_query.has_consulate?(current_location)
       "British embassy or consulate"
+    elsif data_query.has_consulate_general?(current_location)
+      "British consulate-general"
     else
       "British embassy"
     end
+  end
+  
+  precalculate :booking_text_embassy_result do
+    phrases = PhraseList.new
+    if current_location == 'hong-kong-(sar-of-china)'
+      phrases << :booking_text_embassy_hong_kong
+    else
+      phrases << :booking_text_embassy
+    end
+    phrases
   end
 
   precalculate :clickbook do
@@ -137,11 +165,11 @@ outcome :embassy_result do
         result = I18n.translate!("#{i18n_prefix}.phrases.multiple_clickbooks_intro") << "\n"
         clickbook.each do |k,v|
           result += %Q(- #{I18n.translate!(i18n_prefix + ".phrases.clickbook_link", 
-                                           title: k, clickbook_url: v)})
+                                           title: k, clickbook_url: v, embassy_or_other: embassy_high_commission_or_consulate, city: " in #{k}")})
         end
       else
         result = I18n.translate!("#{i18n_prefix}.phrases.clickbook_link",
-                                 title: "Book an appointment online", clickbook_url: clickbook)
+                                 title: "Book an appointment online", clickbook_url: clickbook, embassy_or_other: embassy_high_commission_or_consulate, city: '')
       end
     end
 
@@ -171,13 +199,30 @@ outcome :embassy_result do
     end
   end
 
+  precalculate :fees_for_consular_services do
+    phrases = PhraseList.new
+    if current_location == 'libya'
+      phrases << :consular_service_fees_libya
+    else
+      phrases << :consular_service_fees
+    end
+    phrases
+  end
+
   precalculate :cash_only do
     data_query.cash_only?(current_location) ? PhraseList.new(:cash_only) : ''
   end
 
-  precalculate :embassy_address do
-    data = SmartAnswer::Calculators::PassportAndEmbassyDataQuery.new.find_embassy_data(current_location)
-    data.first['address'] if data
+  precalculate :embassy_details do
+    details = embassy_data_query.find_embassy_data(current_location)
+
+    if details
+      details = different_address.include?(current_location) ? details.second : details.first
+      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
+                     address: details['address'], phone: details['phone'], email: details['email'])
+    else
+      ''
+    end
   end
 
   precalculate :footnote do

@@ -1,9 +1,0 @@
-en-GB:
-  flow:
-    contact-list-and-places-sample:
-
-      done_contact_list:
-        title: "Some random embasies"
-        body: |
-          +[contact_list]
-

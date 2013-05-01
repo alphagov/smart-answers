@@ -1,11 +1,14 @@
 # encoding: UTF-8
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
+require 'gds_api/test_helpers/worldwide'
 
 class FindABritishEmbassyTest < ActiveSupport::TestCase
   include FlowTestHelper
+  include GdsApi::TestHelpers::Worldwide
   
   setup do
+    worldwide_api_has_selection_of_locations
     setup_for_testing_flow 'find-a-british-embassy'
   end
 
@@ -13,95 +16,49 @@ class FindABritishEmbassyTest < ActiveSupport::TestCase
     assert_current_node :choose_embassy_country
   end
 
-  context "details in afghanistan" do
-    setup do
-      add_response 'afghanistan'
-    end
-    should "go to outcome" do
-      assert_current_node :embassy_outcome
-      assert_state_variable :embassy_details, "\n\n\n$A\n  British Embassy\n15th Street, Roundabout Wazir Akbar Khan\nPO Box 334\nKabul\nAfghanistan,Kabul\n$A\n\n$C\n  britishembassy.kabul@fco.gov.uk\n\n  +93 (0) 700 102 000\n\n  Passport opening hours: \nMonday and Tuesday only, 8.30am to 11.30am\n\nConsular opening times: \nSunday to Thursday, 8.30am to 4.30pm  \n$C\n"
-    end
-  end
-  context "details in brazil" do
-    setup do
-      add_response 'brazil'
-    end
-    should "go to outcome" do
-      assert_current_node :embassy_outcome
-      assert_state_variable :embassy_details, "Brasilia
-
-
-$A
-  British Embassy 
-Setor de Embaixadas Sul 
-Quadra 801, Lote 8 
-CEP 70408-900 
-Brasilia - DF, Brazil
-$A
-
-$C
-  
-
-  (55) (61) 3329-2300
-
-  GMT:
-Mon-Thurs: 1130-1945 (lunch break: 1530-1630)
-Fri: 1130 - 1930 (lunch break: 1530-1630)
-
-Local Time:
-Mon-Thurs: 0830 - 1645 (lunch break: 1230-1330) 
-Friday: 0830 - 1630 (lunch break: 1230-1330)
-$C
-Rio de Janeiro
-
-
-$A
-  British Consulate-General
-Praia do Flamengo 284/2 andar
-22210-030
-Rio de Janeiro RJ
-$A
-
-$C
-  
-
-  (55) (21) 2555 9600 
-(55) (21) 2555 9640
-
-  GMT:
-Mon-Thurs: 1130-1945
-Fri: 1130-1530
-Local Time:
-Mon-Thurs: 0830-1645
-Fri: 0830-1630
-
-Opening hours (open to the public): Monday to Friday: 08:30 to 12:30
-$C
-Sao Paulo
-
-
-$A
-  British Consulate-General
-Rua Ferreira de Araujo, 741 - 2 Andar
-Pinheiros
-05428-002
-Sao Paulo-SP
-$A
-
-$C
-  
-
-  (55) (11) 3094 2700
-
-  GMT:
-Mon-Fri: 1030-1900
-
-Local Time:
-Mon-Fri: 0830-1700
-Opening hours (open to the public): Monday to Friday: 08:30 to 12:30
-$C
-"
-    end
+  should "error for a country that doesn't exist" do
+    add_response 'non-existent'
+    assert_current_node :choose_embassy_country, :error => true
   end
 
+  should "display the embassy details for a country with embassy details available" do
+    worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
+    add_response 'australia'
+    assert_current_node :embassy_outcome
+    expected_location = WorldLocation.find('australia')
+    assert_state_variable :location, expected_location
+    assert_state_variable :country_name, "Australia"
+    assert_state_variable :embassies, expected_location.fco_organisation.all_offices
+
+    expected_titles = [
+      "British High Commission Canberra",
+      "British Consulate-General Sydney",
+      "British Consulate-General Melbourne",
+      "British Consulate Perth",
+      "British Consulate Brisbane",
+    ]
+    assert_equal expected_titles, outcome_body.css('h3').map(&:text)
+  end
+
+  should "display the outcome with no embassies available" do
+    worldwide_api_has_no_organisations_for_location('nicaragua')
+    add_response 'nicaragua'
+    assert_current_node :embassy_outcome
+    expected_location = WorldLocation.find('nicaragua')
+    assert_state_variable :location, expected_location
+    assert_state_variable :country_name, "Nicaragua"
+    assert_state_variable :embassies, []
+
+    assert_equal "No embassy details found", outcome_body.at_css('p').text
+  end
+
+  should "prefix 'the' on appropriate country names" do
+    worldwide_api_has_no_organisations_for_location('bahamas')
+    add_response 'bahamas'
+
+    assert_current_node :embassy_outcome
+    expected_location = WorldLocation.find('bahamas')
+    assert_state_variable :location, expected_location
+    assert_state_variable :country_name, "the Bahamas"
+  end
 end

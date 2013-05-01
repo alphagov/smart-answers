@@ -15,6 +15,7 @@ module SmartAnswer
       @show_drafts = options[:show_drafts]
       preload_flows! if Rails.env.production?
     end
+    attr_reader :load_path
 
     def find(name)
       raise NotFound unless available?(name)
