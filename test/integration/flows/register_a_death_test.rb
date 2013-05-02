@@ -238,7 +238,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
-        assert_state_variable :clickbook, %Q([Book an appointment online](http://www.britishembassyinbsas.clickbook.net/ "Book an appointment at the British embassy"){:rel="external"}\n)
+        assert_phrase_list :clickbook, [:clickbook]
       end
     end # Answer Argentina
     context "answer China" do
@@ -251,13 +251,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy or consulate"
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
-        assert_state_variable :clickbook, %Q(You can book an appointment at the British embassy or consulate in:
-
-- [Beijing](https://www.clickbook.net/dev/bc.nsf/sub/BritEmBeijing \"Book an appointment at the British embassy or consulate in Beijing\"){:rel=\"external\"}
-- [Shanghai](https://www.clickbook.net/dev/bc.nsf/sub/BritconShanghai \"Book an appointment at the British embassy or consulate in Shanghai\"){:rel=\"external\"}
-- [Chongqing](https://www.clickbook.net/dev/bc.nsf/sub/BritConChongqing \"Book an appointment at the British embassy or consulate in Chongqing\"){:rel=\"external\"}
-- [Guangzhou](https://www.clickbook.net/dev/bc.nsf/sub/BritConGuangzhou \"Book an appointment at the British embassy or consulate in Guangzhou\"){:rel=\"external\"}
-)
+        assert_phrase_list :clickbook, [:clickbooks]
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
       end
     end # Answer China
@@ -287,7 +281,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
         assert_state_variable :embassy_high_commission_or_consulate, "British consulate-general"
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
-        assert_state_variable :clickbook, %Q([Book an appointment online](http://britishconsulate-gen.clickbook.net/ "Book an appointment at the British consulate-general"){:rel="external"}\n)
+        assert_phrase_list :clickbook, [:clickbook]
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, nil
         assert_phrase_list :postal, [:postal_intro, :postal_registration_belgium]
@@ -304,11 +298,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_state_variable :clickbook, %Q(You can book an appointment at the British embassy or consulate in:
-
-- [Rome](https://www.clickbook.net/dev/bc.nsf/sub/britishconsrome \"Book an appointment at the British embassy in Rome\"){:rel=\"external\"}
-- [Milan](https://www.clickbook.net/dev/bc.nsf/sub/britishconsmilan \"Book an appointment at the British embassy in Milan\"){:rel=\"external\"}
-)
+        assert_phrase_list :clickbook, [:clickbooks]
         assert_state_variable :postal_form_url, "/government/uploads/system/uploads/attachment_data/file/136810/credit-card-authorisation-slip.doc"
         assert_state_variable :postal_return_form_url, "/government/uploads/system/uploads/attachment_data/file/136822/return-delivery-form.doc"
         assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form, :postal_delivery_form]
@@ -343,7 +333,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
-        assert_state_variable :clickbook, %Q([Book an appointment online](http://ukinparis.clickbook.net/ "Book an appointment at the British embassy"){:rel="external"}\n)
+        assert_phrase_list :clickbook, [:clickbook]
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, "/government/uploads/system/uploads/attachment_data/file/136805/death-registration-form.doc" 
         assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form]
@@ -405,7 +395,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy_sweden]
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
-        assert_state_variable :clickbook, %Q([Book an appointment online](http://www.ukinsweden.clickbook.net/ "Book an appointment at the British embassy"){:rel="external"}\n)
+        assert_phrase_list :clickbook, [:clickbook] 
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, nil
         assert_phrase_list :postal, [:postal_intro, :postal_registration_sweden]
@@ -436,7 +426,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
         assert_state_variable :embassy_high_commission_or_consulate, "British consulate-general"
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
-        assert_state_variable :clickbook, %Q([Book an appointment online](http://www.britishconsulaterj.clickbook.net/ "Book an appointment at the British consulate-general"){:rel="external"}\n)
+        assert_phrase_list :clickbook, [:clickbook]
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, "/government/uploads/system/uploads/attachment_data/file/136799/postbr_birthregform.pdf"
         assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form]
@@ -469,7 +459,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
-        assert_state_variable :clickbook, %Q([Book an appointment online](http://www.britishembassydc.clickbook.net/ "Book an appointment at the British embassy"){:rel="external"}\n)
+        assert_phrase_list :clickbook, [:clickbook] 
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, nil
         assert_phrase_list :postal, [:postal_intro, :"postal_registration_united-states"]

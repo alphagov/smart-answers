@@ -157,23 +157,20 @@ outcome :embassy_result do
     phrases
   end
 
+  precalculate :clickbook_data do
+    data_query.clickbook(current_location)
+  end
+
   precalculate :clickbook do
-    result = ''
-    clickbook = data_query.clickbook(current_location)
-    unless clickbook.nil?
-      if clickbook.class == Hash
-        result = I18n.translate!("#{i18n_prefix}.phrases.multiple_clickbooks_intro") << "\n"
-        clickbook.each do |k,v|
-          result += %Q(- #{I18n.translate!(i18n_prefix + ".phrases.clickbook_link", 
-                                           title: k, clickbook_url: v, embassy_or_other: embassy_high_commission_or_consulate, city: " in #{k}")})
-        end
+    if clickbook_data.nil?
+      ''
+    else
+      if clickbook_data.class == Hash
+        PhraseList.new :clickbooks
       else
-        result = I18n.translate!("#{i18n_prefix}.phrases.clickbook_link",
-                                 title: "Book an appointment online", clickbook_url: clickbook, embassy_or_other: embassy_high_commission_or_consulate, city: '')
+        PhraseList.new :clickbook
       end
     end
-
-    result
   end
 
   precalculate :postal_form_url do
