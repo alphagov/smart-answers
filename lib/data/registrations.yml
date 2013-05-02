@@ -53,6 +53,7 @@ clickbook:
 registration_country:
   american-samoa: united-states
   andorra: spain
+  antigua-and-barbuda: barbados
   bahamas: jamaica
   benin: ghana
   bhutan: india
@@ -71,6 +72,7 @@ registration_country:
   french-guiana: france
   french-polynesia: france
   gabon: cameroon
+  grenada: barbados
   guadeloupe: france
   guinea-bissau: senegal
   haiti: dominican-republic
@@ -120,13 +122,12 @@ birth:
     chile: /government/uploads/system/uploads/attachment_data/file/136800/credit-card.doc
     cyprus: /government/uploads/system/uploads/attachment_data/file/136801/credit-card-authorisation.doc
     denmark: /government/uploads/system/uploads/attachment_data/file/136802/credit-card-authorisation-slip-19april2011.pdf
-    dominican-republic: /government/uploads/system/uploads/attachment_data/file/136803/credit-form.doc
     finland: /government/uploads/system/uploads/attachment_data/file/136804/credit-card-authorisation-form.pdf
     france: /government/publications/france-birth-pack
     germany: /government/uploads/system/uploads/attachment_data/file/136806/payment_authorisation_slip.pdf
     greece: /government/uploads/system/uploads/attachment_data/file/136807/ccslip.pdf
     india: /government/uploads/system/uploads/attachment_data/file/136808/credit-card-payment-authorisation-form.pdf
-    israel: http://ukinisrael-stage.fco.gov.uk/resources/en/pdf/creditdebitslip.pdf
+    israel: /government/uploads/system/uploads/attachment_data/file/136809/creditdebitslip.pdf.pdf
     italy: /government/uploads/system/uploads/attachment_data/file/136810/credit-card-authorisation-slip.doc
     jamaica: /government/uploads/system/uploads/attachment_data/file/136811/credit-debit.pdf.pdf
     japan: /government/uploads/system/uploads/attachment_data/file/136812/15609108.doc
