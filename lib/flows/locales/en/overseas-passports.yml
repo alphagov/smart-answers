@@ -227,6 +227,13 @@ en-GB:
 
           Keep your existing passport for security and ID purposes - don’t send it with your application.
 
+        how_to_apply_retain_passport_hurricane: |
+          Don’t send your passport - keep it in case you have to to evacuate in the event of a hurricane.
+
+          You’ll need to send a photocopy of your passport, and a letter to explain why you’ve not sent the original.
+
+          When you get your new passport, send your old one to the [nearest British embassy, high commission or governors office](https://www.gov.uk/government/world/organisations).
+
         supporting_documents_jordan_applying: |
           
           
@@ -697,6 +704,17 @@ en-GB:
 
             00 34 91 714 6314
           $C
+        helpline_exception_yemen: |
+          If you haven’t received your passport within the expected timescale, you can check your application’s progress by phone. You’ll be charged for the call.
+
+
+
+          $C
+          **Passport information - Yemen**
+      
+          +44 208 082 4729  
+          Monday to Friday, 24 hours a day
+          $C
         helpline_: ''
         helpline_fco_webchat: |
           ### Webchat service
@@ -1063,6 +1081,8 @@ en-GB:
 
           If you want your passport to be sent to a Post Office Box number, put the full address of the Post Office location on the application form. If you don’t, delivery of your passport could be seriously delayed.
 
+          You must provide a protective envelope, cardboard or other packaging that will protect your documents when they're posted back to you.
+
         how_to_apply_adult_australia_post: |
             [Download ‘Passport application form for adults aged 16 and over’ (489KB)](/government/uploads/system/uploads/attachment_data/file/136843/form-c1.pdf.pdf "Download ‘Passport application form for adults aged 16 and over’ (489KB)")
 
@@ -1176,6 +1196,8 @@ en-GB:
           3. Complete the [passport fees information sheet (PDF, 232KB).](/government/uploads/system/uploads/attachment_data/file/136863/nz-fee-sheet-02-12.pdf "Passport fees information sheet (PDF, 232KB)")
 
           4. Bring your application, photos, supporting documents and passport fees sheet to your [nearest New Zealand Postshop](http://www.nzpost.co.nz/apply-renew-organise/british-passports "Find a New Zealand Postshop"){:rel="external"} to make your application.
+
+          You must provide a protective envelope, cardboard or other packaging that will protect your documents when they're posted back to you.
 
         how_to_apply_adult_new_zealand: |
           [Download ‘Passport application form for adults aged 16 and over’ (489KB)](/government/uploads/system/uploads/attachment_data/file/136843/form-c1.pdf.pdf "Download ‘Passport application form for adults aged 16 and over’ (489KB)")
@@ -2447,6 +2469,22 @@ en-GB:
           [Download ‘Supporting documents you must send with your application’ (PDF, 260KB)](/government/publications/yemen-supporting-documents-for-passport-applications "Download ‘Supporting documents you must send with your application’ (PDF, 260KB)")
           $D
         making_application_yemen: |
+          ### Applying for a first passport or replacing a lost or stolen passport
+
+          You’ll need to [book an appointment.](https://www.britishembassyamman.clickbook.net){:rel=”external”}
+        making_application_additional_yemen: |
+          The British Embassy in Sana’a can help you with your application.
+
+
+          $C
+          **British Embassy in Sana’a**
+
+          +967 1 308100 or 302480-5  
+          Saturday to Wednesday, 8am to 3pm (local time)  
+
+          +44 207 008 1500 at any other time
+          $C
+
           ### Renewing a passport
 
           Send your application - preferably by one-way courier or secure post - to:
@@ -2459,12 +2497,24 @@ en-GB:
             France
           $A
 
-          ### Applying for a first passport or replacing a lost or stolen passport
-
-          You must make your application in person to the British embassy Amman, Jordan.
 
         getting_your_passport_yemen: |
-          The British embassy in Amman will contact you when your passport and supporting documents arrive using the contact details on your form. You must collect them in person.
+          The British embassy in Amman will contact you when your passport and supporting documents arrive using the contact details on your form. They will tell you whether you have to go to the embassy in Amman to collect them, or whether you can pick them up from the embassy in Sana’a (which will make the application process longer).
+
+
+          $C
+          British Embassy  
+          938 Thahr Himyar Street  
+          PO Box 1287 East Ring Road, near Mövenpick Hotel    
+          Sana'a  
+          Yemen  
+
+          Emailbritishembassysanaa@fco.gov.uk  
+          +967 1 308100 or 302480-5  
+          Saturday to Wednesday, 8am to 3pm (local time)  
+
+          +44 207 008 1500 at any other time
+          $C
 
         how_long_zambia: |
           Action | Minimum time after you apply
@@ -2638,6 +2688,8 @@ en-GB:
 
           %{how_to_apply_supplement}
 
+          %{hurricane_warning}
+
           $D
             %{fco_forms}
           $D
@@ -2746,8 +2798,9 @@ en-GB:
 
           %{making_application}
 
-
           %{embassy_details}
+
+          %{making_application_additional}
 
           ## Getting your passport
 

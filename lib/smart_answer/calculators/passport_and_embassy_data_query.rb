@@ -26,6 +26,8 @@ module SmartAnswer::Calculators
                                    libya morocco nepal north-korea pakistan rwanda
                                    sri-lanka sudan thailand timor-leste tunisia uganda yemen zambia)
 
+    RETAIN_PASSPORT_COUNTRIES_HURRICANES = %w(anguilla antigua-and-barbuda bahamas bermuda bonaire-st-eustatius-saba british-virgin-islands cayman-islands curacao dominica,-commonwealth-of dominican-republic french-guiana grenada guadeloupe guyana haiti martinique mexico montserrat st-maarten st-kitts-and-nevis st-lucia st-pierre-and-miquelon st-vincent-and-the-grenadines suriname trinidad-and-tobago turks-and-caicos-islands)
+
     PASSPORT_COSTS = {
       'Jordanian Dinars'    => [[144, 181], [174, 211], [92, 129]],
       'South African Rand'  => [[1888, 2181], [2279, 2572], [1203, 1496]],
@@ -50,6 +52,10 @@ module SmartAnswer::Calculators
 
     def retain_passport?(country_slug)
       RETAIN_PASSPORT_COUNTRIES.include?(country_slug)
+    end
+
+    def retain_passport_hurricanes?(country_slug)
+      RETAIN_PASSPORT_COUNTRIES_HURRICANES.include?(country_slug)
     end
 
     def passport_costs

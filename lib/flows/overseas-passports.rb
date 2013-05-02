@@ -266,10 +266,8 @@ outcome :ips_application_result do
     PhraseList.new(:"tracking_and_receiving_ips#{ips_number}")
   end
   precalculate :helpline do
-    if data_query.webchat_applications_countries?(current_location)
+    unless %w{madrid_spain paris_france}.include?(application_type)
       PhraseList.new(:helpline_fco_webchat)
-    else
-      ''
     end
   end
 end
@@ -315,6 +313,14 @@ outcome :fco_result do
       PhraseList.new(:"how_to_apply_#{application_type}")
     elsif general_action == 'renewing' and data_query.retain_passport?(current_location)
       PhraseList.new(:how_to_apply_retain_passport)
+    else
+      ''
+    end
+  end
+
+  precalculate :hurricane_warning do
+    if general_action == 'renewing' and data_query.retain_passport_hurricanes?(current_location)
+      PhraseList.new(:how_to_apply_retain_passport_hurricane)
     else
       ''
     end
@@ -390,6 +396,13 @@ outcome :result do
     phrase << general_action if application_type == 'cameroon'
     PhraseList.new(phrase.join('_').to_sym)
   end
+  precalculate :making_application_additional do
+    if current_location == 'yemen'
+      PhraseList.new(:making_application_additional_yemen)
+    else
+      ''
+    end
+  end
   precalculate :getting_your_passport do
     PhraseList.new(:"getting_your_passport_#{application_type}")
   end
@@ -397,6 +410,8 @@ outcome :result do
     phrases = PhraseList.new
     if %w(cuba libya morocco tunisia).include?(current_location)
       phrases << :helpline_exceptions
+    elsif current_location == 'yemen'
+      phrases << :helpline_exception_yemen
     else
       phrases << :helpline_intro << :"helpline_#{passport_data['helpline']}"
     end
