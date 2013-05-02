@@ -176,7 +176,7 @@ en-GB:
         registering_clickbooks: |
           Book an appointment online at the British embassy or consulate in:
 
-          %{clickbook}
+          +[data_partial:clickbooks:clickbook_data]
 
           Bring the registration form, supporting documents and the fee.
         clickbook_link: |
