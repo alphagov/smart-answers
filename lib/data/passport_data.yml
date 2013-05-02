@@ -249,7 +249,7 @@ ghana:
   group: ips_documents_group_3
   helpline: pretoria_south_africa
 gibraltar:
-  type: madrid_spain
+  type: ips_application_1
   group: ips_documents_group_1
 greece:
   type: ips_application_1

@@ -265,6 +265,13 @@ outcome :ips_application_result do
   precalculate :tracking_and_receiving do
     PhraseList.new(:"tracking_and_receiving_ips#{ips_number}")
   end
+  precalculate :helpline do
+    if data_query.webchat_applications_countries?(current_location)
+      PhraseList.new(:helpline_fco_webchat)
+    else
+      ''
+    end
+  end
 end
 
 ## FCO Result
@@ -392,6 +399,9 @@ outcome :result do
       phrases << :helpline_exceptions
     else
       phrases << :helpline_intro << :"helpline_#{passport_data['helpline']}"
+    end
+    unless %w{madrid_spain paris_france}.include?(application_type)
+      phrases << :helpline_fco_webchat
     end
     phrases
   end

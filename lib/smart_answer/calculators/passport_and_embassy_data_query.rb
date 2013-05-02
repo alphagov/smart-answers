@@ -27,6 +27,7 @@ module SmartAnswer::Calculators
                                    sri-lanka sudan thailand timor-leste tunisia uganda yemen zambia)
 
     PASSPORT_COSTS = {
+      'Jordanian Dinars'    => [[144, 181], [174, 211], [92, 129]],
       'South African Rand'  => [[1888, 2181], [2279, 2572], [1203, 1496]],
       'Euros'               => [[157, 182],   [190, 215],   [100, 125]]
     }
