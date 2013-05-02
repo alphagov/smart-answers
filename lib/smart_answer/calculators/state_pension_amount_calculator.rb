@@ -55,7 +55,7 @@ module SmartAnswer::Calculators
       what_you_would_get_if_not_full_raw.round(2)
     end
 
-    def what_you_would_get_if_not_full_raw      
+    def what_you_would_get_if_not_full_raw
       if (qualifying_years + years_to_pension) < years_needed
         ((qualifying_years + years_to_pension) / years_needed.to_f * current_weekly_rate).round(10)
       else
@@ -77,12 +77,12 @@ module SmartAnswer::Calculators
 
       pension_age = syear.years.since(dob)
       years = syear
-      
-      if pension_age > state_pension_date 
-        pension_age = 1.year.ago(pension_age) 
+
+      if pension_age > state_pension_date
+        pension_age = 1.year.ago(pension_age)
         years -= 1
       end
-      
+
       month_and_day = friendly_time_diff(pension_age, state_pension_date)
       month_and_day = month_and_day.empty? ? month_and_day : ", " + month_and_day
       "#{pluralize(years, 'year')}#{month_and_day}"
@@ -184,7 +184,7 @@ module SmartAnswer::Calculators
     def ni_years_to_date
       today = Date.today
       years = today.year - ni_start_date.year
-      years = ((ni_start_date.month > today.month) ? years - 1 : years)
+      years = ((ni_start_date.month > 4) ? years - 1 : years)
       # NOTE: leave this code in case we need to work out by day
       # years = ((ni_start_date.month == today.month and ni_start_date.day > today.day) ? years - 1 : years)
       years
