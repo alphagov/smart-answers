@@ -221,11 +221,13 @@ en-GB:
           - their full length British birth, naturalisation or registration certificate 
           - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
 
-        multiple_clickbooks_intro: |
+        clickbooks: |
           You can book an appointment at the British embassy or consulate in:
-  
-        clickbook_link: |
-          [%{title}](%{clickbook_url} "Book an appointment at the %{embassy_or_other}%{city}"){:rel="external"}
+
+          +[data_partial:clickbooks:clickbook_data]
+ 
+        clickbook: |
+          [Book an appointment online](%{clickbook_data}){:rel="external"}
 
         booking_text_embassy_hong_kong: |
           Register at the Consulate General.
