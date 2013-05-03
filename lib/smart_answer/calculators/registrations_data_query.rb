@@ -16,14 +16,16 @@ module SmartAnswer::Calculators
     )
     COUNTRIES_WITH_CONSULATES = %w(china colombia israel russian-federation turkey)
 
-    COUNTRIES_WITH_CONSULATE_GENERALS = %(belgium brazil germany hong-kong-(sar-of-china) indonesia)
+    COUNTRIES_WITH_CONSULATE_GENERALS = %(belgium brazil germany hong-kong-(sar-of-china) indonesia netherlands turkey)
 
-    CASH_ONLY_COUNTRIES = %w(armenia bosnia-and-herzegovina botswana brunei cambodia
-      czech-republic estonia hungary iceland kazakhstan latvia libya luxembourg poland slovenia
-      tunisia uganda)
+    CASH_ONLY_COUNTRIES = %w(armenia bosnia-and-herzegovina botswana brunei cambodia iceland kazakhstan latvia libya luxembourg poland slovenia tunisia uganda)
+
+    EASTERN_CARIBBEAN_COUNTRIES = %w(antigua-and-barbuda barbados dominica,-commonwealth-of st-kitts-and-nevis st-vincent-and-the-grenadines)
 
     NO_POSTAL_COUNTRIES = %w(barbados belgium costa-rica malaysia papua-new-guinea 
                              sweden tanzania thailand united-states)
+
+    POST_ONLY_COUNTRIES = %w(united-arab-emirates)
 
     attr_reader :data
 
@@ -49,6 +51,14 @@ module SmartAnswer::Calculators
 
     def has_consulate_general?(country_slug)
       COUNTRIES_WITH_CONSULATE_GENERALS.include?(country_slug)
+    end
+
+    def post_only_countries?(country_slug)
+      POST_ONLY_COUNTRIES.include?(country_slug)
+    end
+
+    def eastern_caribbean_countries?(country_slug)
+      EASTERN_CARIBBEAN_COUNTRIES.include?(country_slug)
     end
 
     def cash_only?(country_slug)

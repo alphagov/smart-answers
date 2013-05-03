@@ -9,7 +9,7 @@ exclusions = %w(afghanistan cambodia central-african-republic chad comoros
                 liberia madagascar montenegro paraguay samoa slovenia somalia swaziland
                 taiwan tajikistan western-sahara)
 no_embassies = %w(iran syria yemen)
-different_address = %w(belgium brazil germany india indonesia)
+different_address = %w(belgium brazil germany india indonesia turkey)
 
 # Q1
 country_select :country_of_birth?, :use_legacy_data => true do
@@ -128,7 +128,7 @@ outcome :embassy_result do
     end
   end
   precalculate :documents_you_must_provide do
-    checklist_countries = %w(bangladesh japan pakistan philippines sweden taiwan turkey)
+    checklist_countries = %w(bangladesh finland japan kuwait libya netherlands pakistan philippines sweden taiwan turkey united-arab-emirates)
     key = "documents_you_must_provide_"  
     key += (checklist_countries.include?(registration_country) ? registration_country : "all")
     PhraseList.new(key.to_sym)
@@ -151,19 +151,34 @@ outcome :embassy_result do
     end
     phrases
   end
-  precalculate :go_to_the_embassy do
-    phrases = PhraseList.new
-    if multiple_clickbooks
-      phrases << :registering_clickbooks
-    elsif clickbook_data
-      phrases << :registering_clickbook
-     elsif registration_country == 'hong-kong-(sar-of-china)'
-      phrases << :registering_hong_kong
-    else
-      phrases << :registering_all
+  precalculate :go_to_the_embassy_heading do
+    unless reg_data_query.post_only_countries?(registration_country)
+      PhraseList.new(:go_to_the_embassy_heading_text)
     end
-    phrases << (paternity_declaration ? :registering_paternity_declaration : :registering_either_parent)
-    phrases
+  end
+  precalculate :go_to_the_embassy do
+    unless reg_data_query.post_only_countries?(registration_country)
+      phrases = PhraseList.new
+      if multiple_clickbooks
+        phrases << :registering_clickbooks
+      elsif clickbook_data
+        phrases << :registering_clickbook
+      elsif registration_country == 'hong-kong-(sar-of-china)'
+        phrases << :registering_hong_kong
+      else
+        phrases << :registering_all
+      end
+      phrases << (paternity_declaration ? :registering_paternity_declaration : :registering_either_parent)
+      phrases
+    end
+  end
+
+  precalculate :post_only do
+    if reg_data_query.post_only_countries?(registration_country)
+      PhraseList.new(:"post_only_#{registration_country}")
+    else
+      ''
+    end
   end
 
   precalculate :postal_form_url do
@@ -194,11 +209,13 @@ outcome :embassy_result do
     end
   end
   precalculate :cash_only do
-    reg_data_query.cash_only?(registration_country) ? PhraseList.new(:cash_only) : ''
+    reg_data_query.cash_only?(registration_country) ? PhraseList.new(:cash_only) : PhraseList.new(:cash_and_card)
   end
   precalculate :footnote do
     if exclusions.include?(registration_country)
       PhraseList.new(:footnote_exceptions)
+    elsif country_of_birth != registration_country and reg_data_query.eastern_caribbean_countries?(registration_country) and reg_data_query.eastern_caribbean_countries?(country_of_birth)
+        PhraseList.new(:footnote_caribbean)
     elsif another_country
       PhraseList.new(:footnote_another_country)
     else

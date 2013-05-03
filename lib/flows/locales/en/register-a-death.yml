@@ -221,6 +221,17 @@ en-GB:
           - their full length British birth, naturalisation or registration certificate 
           - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
 
+        documents_list_embassy_netherlands: |
+          - an international version of the local death certificate (not a certificate issued by a doctor)
+          - the person’s passport
+          - their full UK birth, naturalisation or registration certificate
+          - their marriage certificate, if applicable
+          - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
+
+        go_to_the_embassy_heading_text: |  
+
+          ##Go to the %{embassy_high_commission_or_consulate}
+
         clickbooks: |
           You can book an appointment at the British embassy or consulate in:
 
@@ -230,7 +241,7 @@ en-GB:
           [Book an appointment online](%{clickbook_data}){:rel="external"}
 
         booking_text_embassy_hong_kong: |
-          Register at the Consulate General.
+          Register at consulate-general - bring the registration form, supporting documents and the fee.
 
         booking_text_embassy: |
           You can book an appointment at the %{embassy_high_commission_or_consulate} and bring along the registration form, supporting documents and the fee.
@@ -246,8 +257,16 @@ en-GB:
         postal_delivery_form: |
           Use the [delivery return form](%{postal_return_form_url} "Delivery return form"){:rel="external"} to get your documents delivered back to you.
 
+        post_only_united-arab-emirates: |
+          Post your application to the %{embassy_high_commission_or_consulate}.
+
+          You must use recorded delivery or a courier. You’ll need to organise the return delivery of your documents (eg by including a pre-paid envelope or through the courier).
+
         cash_only: |
           ^You can only pay by cash, which must be in local currency.^
+
+        cash_and_card: |
+          You can pay by cash or credit card, but not by personal cheque.
 
         consular_service_fees : |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees "Consular fees").
@@ -274,9 +293,9 @@ en-GB:
           Pay by bank cheque made payable to the ‘British High Commission’. Credit cards, personal or company cheques aren’t accepted. 
 
         postal_registration_sweden: |
-          Pay by bankgiro made payable to bankgiro number 887-8852.
+          Pay by bankgiro made payable to the British Embassy, bankgiro number 887-8852 in Handelsbanken. Mark your payment with the surname of the applicant.
 
-          Return postage costs 70 SEK.
+          Return postage costs 80 SEK.
 
         postal_registration_thailand: |
           Pay by postal order or bank draft, made payable to ‘The British Embassy, Bangkok’. Cash the postal order at the Nana Post Office (there’s a  THB 200 administration fee).
@@ -284,6 +303,8 @@ en-GB:
         postal_registration_united-states: |
           Pay by money order made payable to the ‘British Embassy Government Account’. Personal cheques aren’t accepted.
 
+        footnote_caribbean: |
+          ^It takes about 5 working days for the birth to be officially registered - your application will be sent to the High Commission in Barbados to be registered there.^
         footnote_another_country: |
           ^Registration can take up to 3 months - your application will be sent to %{country_name} where the death will be registered.^
         footnote_exceptions: |
@@ -311,7 +332,7 @@ en-GB:
           You don’t have to do this, but it means:
           
           - a British-style death certificate will be issued 
-          - having the death registered at the General Registry Office in the UK
+          - having the death registered at the General Register Office in the UK
 
           ##How to register
 
@@ -355,11 +376,13 @@ en-GB:
 
           You can also get copies from the [General Register Office](http://www.gro.gov.uk/ "General Register Office"){:rel="external"} from September the year after you register - they will cost less.
 
-          ##Go to the %{embassy_high_commission_or_consulate}
+          %{go_to_the_embassy_heading}
 
           %{booking_text_embassy_result}
 
           %{clickbook}
+
+          %{post_only}
 
           %{postal}
 
@@ -380,7 +403,7 @@ en-GB:
           You don’t have to do this, but it means:
 
           - a British-style death certificate will be issued
-          - the death will be recorded at the General Registry Office in the UK
+          - the death will be recorded at the General Register Office in the UK
 
           %{registration_footnote}
 
@@ -428,7 +451,7 @@ en-GB:
             
           Your original documents will be returned within 20 working days.
 
-          ^It takes up to 12 weeks for the death to be officially registered as the registration is sent to the country where the death happened.^
+          ^It takes up to 12 weeks for the death to be officially registered as the registration is sent to the local British embassy, consulate or high commission where the death happened.^
 
 
           ##Copies of the registration certificate 
