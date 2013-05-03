@@ -1081,8 +1081,6 @@ en-GB:
 
           If you want your passport to be sent to a Post Office Box number, put the full address of the Post Office location on the application form. If you don’t, delivery of your passport could be seriously delayed.
 
-          You must provide a protective envelope, cardboard or other packaging that will protect your documents when they're posted back to you.
-
         how_to_apply_adult_australia_post: |
             [Download ‘Passport application form for adults aged 16 and over’ (489KB)](/government/uploads/system/uploads/attachment_data/file/136843/form-c1.pdf.pdf "Download ‘Passport application form for adults aged 16 and over’ (489KB)")
 
@@ -2438,7 +2436,7 @@ en-GB:
 
           You must make your application in person to the British embassy Amman, Jordan and you must pay in cash. 
 
-          The courier fee covers the cost of the embassy sending your application to the Paris where your application will be processed.
+          The courier fee covers the cost of the embassy sending your application to Paris where your application will be processed.
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
@@ -2471,6 +2469,8 @@ en-GB:
         making_application_yemen: |
           ### Applying for a first passport or replacing a lost or stolen passport
 
+          You must make your application in person to the British embassy Amman, Jordan.
+
           You’ll need to [book an appointment.](https://www.britishembassyamman.clickbook.net "Book an appointment at the British Embassy in Amman"){:rel="external"}
         making_application_additional_yemen: |
           The British Embassy in Sana’a can help you with your application.
@@ -2499,10 +2499,12 @@ en-GB:
 
 
         getting_your_passport_yemen: |
-          The British embassy in Amman will contact you when your passport and supporting documents arrive using the contact details on your form. They will tell you whether you have to go to the embassy in Amman to collect them, or whether you can pick them up from the embassy in Sana’a (which will make the application process longer).
+          The British embassy in Amman will contact you when your passport and supporting documents arrive using the contact details on your form.
+
+          They will tell you whether you have to go to the embassy in Amman to collect them, or whether you can pick them up from the embassy in Sana’a (which will make the application process longer).
 
 
-          $C
+          $A
           British Embassy  
           938 Thahr Himyar Street  
           PO Box 1287 East Ring Road, near Mövenpick Hotel    
@@ -2514,7 +2516,7 @@ en-GB:
           Saturday to Wednesday, 8am to 3pm (local time)  
 
           +44 207 008 1500 at any other time
-          $C
+          $A
 
         how_long_zambia: |
           Action | Minimum time after you apply
@@ -2752,6 +2754,9 @@ en-GB:
           $D
 
           %{instructions}
+
+          ^You must provide a protective envelope, cardboard or other packaging that will protect your documents when they're posted back to you.^
+
 
           ## Getting your passport
           %{receiving_your_passport}
