@@ -270,7 +270,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
       assert_phrase_list :go_to_the_embassy, [:registering_all, :registering_either_parent]
       assert_phrase_list :cash_only, [:cash_and_card]
-      assert_phrase_list :footnote, [:footnote_caribbean]
+      assert_phrase_list :footnote, [:footnote]
     end # Not married or CP
   end # Barbados
   context "answer united arab emirates" do

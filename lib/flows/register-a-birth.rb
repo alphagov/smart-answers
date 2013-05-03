@@ -10,7 +10,6 @@ exclusions = %w(afghanistan cambodia central-african-republic chad comoros
                 taiwan tajikistan western-sahara)
 no_embassies = %w(iran syria yemen)
 different_address = %w(belgium brazil germany india indonesia turkey)
-eastern_caribbean_countries = %w(antigua-and-barbuda barbados dominica,-commonwealth-of st-kitts-and-nevis st-vincent-and-the-grenadines)
 
 # Q1
 country_select :country_of_birth?, :use_legacy_data => true do
@@ -226,7 +225,7 @@ outcome :embassy_result do
   precalculate :footnote do
     if exclusions.include?(registration_country)
       PhraseList.new(:footnote_exceptions)
-    elsif country_of_birth == registration_country and eastern_caribbean_countries.include?(registration_country)
+    elsif country_of_birth != registration_country and reg_data_query.eastern_caribbean_countries?(registration_country) and reg_data_query.eastern_caribbean_countries?(country_of_birth)
         PhraseList.new(:footnote_caribbean)
     elsif another_country
       PhraseList.new(:footnote_another_country)
