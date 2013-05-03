@@ -241,7 +241,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_current_node :embassy_result
       assert_state_variable :british_national_parent, 'father'
       assert_phrase_list :fees_for_consular_services, [:consular_service_fees_libya]
-      assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
+      assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_libya]
       assert_phrase_list :go_to_the_embassy, [:registering_all, :registering_either_parent]
     end # Not married or CP
   end # Libya
@@ -257,7 +257,36 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
       assert_phrase_list :go_to_the_embassy, [:registering_hong_kong, :registering_either_parent]
     end # Not married or CP
-  end # Libya
+  end # Hong Kong
+  context "answer barbados" do
+    should "give the embassy result" do
+      add_response "barbados"
+      add_response "father"
+      add_response "yes"
+      add_response "same_country"
+      assert_current_node :embassy_result
+      assert_state_variable :british_national_parent, 'father'
+      assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
+      assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
+      assert_phrase_list :go_to_the_embassy, [:registering_all, :registering_either_parent]
+      assert_phrase_list :cash_only, [:cash_and_card]
+      assert_phrase_list :footnote, [:footnote]
+    end # Not married or CP
+  end # Barbados
+  context "answer united arab emirates" do
+    should "give the embassy result" do
+      add_response "united-arab-emirates"
+      add_response "father"
+      add_response "yes"
+      add_response "same_country"
+      assert_current_node :embassy_result
+      assert_state_variable :british_national_parent, 'father'
+      assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
+      assert_phrase_list :documents_you_must_provide, [:"documents_you_must_provide_united-arab-emirates"]
+      assert_phrase_list :cash_only, [:cash_and_card]
+      assert_phrase_list :footnote, [:footnote]
+    end # Not married or CP
+  end # Barbados
 
   context "el-salvador, where you have to register in guatemala" do
     setup do
