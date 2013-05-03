@@ -252,6 +252,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy or consulate"
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
         assert_phrase_list :clickbook, [:clickbooks]
+        assert outcome_body.at_css("ul li a[href='https://www.clickbook.net/dev/bc.nsf/sub/BritEmBeijing']")
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
       end
     end # Answer China

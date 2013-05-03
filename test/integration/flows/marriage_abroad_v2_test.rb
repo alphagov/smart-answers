@@ -1497,5 +1497,16 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
   end
 
+  context "ceremony in china, resident in china" do
+    should "render multiple clickbooks" do
+      add_response 'china'
+      add_response 'other'
+      add_response 'china'
+      add_response 'partner_british'
+      add_response 'opposite_sex'
+      assert outcome_body.at_css("ul li a[href='https://www.clickbook.net/dev/bc.nsf/sub/BritEmBeijing']")
+    end
+  end
+
 
 end
