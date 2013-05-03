@@ -6598,6 +6598,27 @@ turkey:
     Open to public
     Mon - Fri: 0900 - 1230 / 1415 - 1545
 - address: |-
+    British Consulate General
+    Mesrutiyet Caddesi No 34
+    Tepebasi Beyoglu 34435
+    Istanbul
+  designation: British Consulate-General
+  lat: 40.9893
+  lon: 28.7043
+  location_name: Istanbul
+  phone: +90 (212) 334 6400
+  fax: (90) (212) 334 6401 (General)
+  website: /government/world/turkey
+  office_hours: |-
+    GMT
+    0630-1100 / 1145-1445
+    
+    Local Time
+    0830-1300 / 1345-1645
+    
+    Open to public
+    Mon - Fri: 0900 - 1230 / 1400 - 1530
+- address: |-
     Karum Is Merkezi, Iran Caddesi 21
     No 437 Kavaklidere 06700
     Ankara
@@ -6650,27 +6671,6 @@ turkey:
   phone: (90) (252) 614 63 02
   fax: (90) (252) 614 83 94
   website: /government/world/turkey/
-- address: |-
-    British Consulate General
-    Mesrutiyet Caddesi No 34
-    Tepebasi Beyoglu 34435
-    Istanbul
-  designation: British Consulate-General
-  lat: 40.9893
-  lon: 28.7043
-  location_name: Istanbul
-  phone: +90 (212) 334 6400
-  fax: (90) (212) 334 6401 (General)
-  website: /government/world/turkey
-  office_hours: |-
-    GMT
-    0630-1100 / 1145-1445
-    
-    Local Time
-    0830-1300 / 1345-1645
-    
-    Open to public
-    Mon - Fri: 0900 - 1230 / 1400 - 1530
 - address: |-
     1442 Sokak No 49 
     Alsancak 

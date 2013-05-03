@@ -153,6 +153,56 @@ en-GB:
           - photocopies of the data page of any British passport issued to a member of your immediate family by the British High Commission Dhaka
           - 3 identical passport-size photos
           - maternity documents
+        documents_you_must_provide_united-arab-emirates: |
+          - your child’s local birth certificate, with an English translation issued by the UAE Ministry of Health
+          - your British birth certificates (long version) showing details of your parents
+          - a naturalisation or registration certificate (if either of you were not born in the UK)
+          - your current British passports
+          - a copy of a passport or birth certificate (if one of you isn’t British)
+          - a marriage certificate (if you’re married)
+          - divorce documents (if either of you has ever been divorced)
+          - a change of name document (if either of you has ever changed your name)
+        documents_you_must_provide_kuwait: |
+          - your child’s local birth certificate
+          - your British birth certificates (long version) showing details of your parents
+          - a naturalisation or registration certificate (if either of you were not born in the UK)
+          - your current British passports
+          - a copy of a passport and birth certificate (if one of you isn’t British)
+          - a marriage certificate (if you’re married)
+          - divorce documents (if either of you has ever been divorced)
+          - a change of name document (if either of you has ever changed your name)
+        documents_you_must_provide_libya: |
+          - your child’s local birth certificate, translated into English and stamped by the Ministry of Foreign Affairs in Tripoli
+          - your British birth certificates (long version) showing details of your parents
+          - a naturalisation or registration certificate (if either of you were not born in the UK)
+          - your current British passports
+          - a copy of a passport or birth certificate (if one of you isn’t British)
+          - a marriage certificate (if you’re married) translated into English
+          - divorce documents (if either of you has ever been divorced)
+          - a change of name document (if either of you has ever changed your name)
+        documents_you_must_provide_finland: |
+          - your child’s hospital birth certificate, or a letter from the hospital or midwife with full details of the birth 
+          - an extract from the population register (‘virkatodistus’) with the child’s full names, date of birth and parents’ names
+          - your British birth certificates (long version) showing details of your parents
+          - a naturalisation or registration certificate (if either of you were not born in the UK)
+          - your current British passports
+          - a copy of a passport or birth certificate (if one of you isn’t British)
+          - a marriage certificate (if you’re married)
+          - divorce documents (if either of you has ever been divorced)
+          - a change of name document (if either of you has ever changed your name)
+        documents_you_must_provide_netherlands: |
+          - your child’s local birth certificate
+          - an international version of the birth certificate
+          - your British birth certificates (long version) showing details of your parents
+          - a naturalisation or registration certificate (if either of you were not born in the UK)
+          - your current British passports
+          - a passport or birth certificate (if one of you isn’t British)
+          - an international marriage certificate (if you’re married) - not the Dutch ‘marriage booklet’ (‘trouwboekje’) - any foreign documents may need to be translated into English
+          - divorce documents (if either of you has ever been divorced)
+          - a change of name document (if either of you has ever changed your name)
+
+
+
         documents_you_must_provide_all: |
           You and the other parent must provide:
 
@@ -168,7 +218,9 @@ en-GB:
           If one of you is Japanese, you must provide a photocopy of the family register (‘koseki tohon’). 
 
           If the child's birth is already shown on the family register, you don’t need to provide the ward office birth certificate.  However, you must send an original certified copy of the family register bearing the ward office's stamp (this needs to be original, not a copy).
+        go_to_the_embassy_heading_text: |  
 
+          ##Go to the %{embassy_high_commission_or_consulate}
         registering_all: |
           Book an appointment at the %{embassy_high_commission_or_consulate} and bring the registration form, supporting documents and the fee. 
         registering_hong_kong: |
@@ -217,20 +269,29 @@ en-GB:
         postal_info_papua-new-guinea: |
           Pay by bank cheque made payable to the ‘British High Commission’. Credit cards, personal or company cheques aren’t accepted.
         postal_info_sweden: |
-          Pay by bankgiro made payable to number 887-8852.
+          Pay by bankgiro made payable to the British Embassy, bankgiro number 887-8852 in Handelsbanken. Mark your payment with the surname of the applicant.
 
-          Return postage costs 70 SEK.
+          Return postage costs 80 SEK.
+        postal_info_tanzania: |
+          Pay by bank draft made payable to ‘British High Commission’.
         postal_info_thailand: |
           Pay by postal order or bank draft, made payable to ‘The British Embassy, Bangkok’. Cash the postal order at the Nana Post Office (there’s a THB 200 administration fee).
         postal_info_united-states: |
           Pay by money order made payable to the ‘British Embassy Government Account’. Personal cheques aren’t accepted.
+        post_only_united-arab-emirates: |
+          Post your application to the %{embassy_high_commission_or_consulate}.
+
+          You must use recorded delivery or a courier. You’ll need to organise the return delivery of your documents (eg by including a pre-paid envelope or through the courier).
         cash_only: |
           %You can only pay by cash, which must be in local currency.%
-
+        cash_and_card: |
+          You can pay by cash or credit card, but not by personal cheque.
         footnote_another_country: |
-          ^Registration can take up to 3 months - your application will be sent to the %{embassy_high_commission_or_consulate} in %{country_of_birth_name} where the birth will be registered.^
+          ^Registration can take up to 3 months - your application will be sent to the local British embassy, consulate or high commission where your child was born to be registered there.^
         footnote_exceptions: |
           ^Registration can take up to 3 months - your application will be sent to the Foreign and Commonwealth Office in London where the birth will be registered.^
+        footnote_caribbean: |
+          ^It takes about 5 working days for the birth to be officially registered - your application will be sent to the High Commission in Barbados to be registered there.^
         footnote: |
           ^It takes about 5 working days for the birth to be officially registered.^
         intro: |
@@ -262,18 +323,17 @@ en-GB:
           You can order copies of the registration certificate from the %{embassy_high_commission_or_consulate} when you register the birth.
 
           Cheaper copies will be available from the [General Register Office](http://www.gro.gov.uk/ "General Register Office"){:rel="external"} in the UK, but not until September the year after you register.
+          %{go_to_the_embassy_heading}
 
-          ##Go to the %{embassy_high_commission_or_consulate}
-          
           %{go_to_the_embassy}
+          %{post_only}
 
-          
-          
+
           %{postal}
           %{cash_only}
-          
+
           %{embassy_details}
-          
+
           %{footnote}
 
       fco_result:

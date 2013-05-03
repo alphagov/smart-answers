@@ -2,7 +2,7 @@ satisfies_need "2189"
 status :published
 
 i18n_prefix = "flow.register-a-death"
-data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
+reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
 embassy_data_query = SmartAnswer::Calculators::PassportAndEmbassyDataQuery.new
 exclusions = %w(afghanistan cambodia central-african-republic chad comoros 
                 dominican-republic east-timor eritrea haiti kosovo laos lesotho 
@@ -51,13 +51,13 @@ country_select :which_country?, :use_legacy_data => true do
     LegacyCountry.all.find { |c| c.slug == responses.last }.name
   end
   calculate :current_location do
-    data_query.registration_country_slug(responses.last) || responses.last 
+    reg_data_query.registration_country_slug(responses.last) || responses.last 
   end
   calculate :current_location_name do
     LegacyCountry.all.find { |c| c.slug == current_location }.name
   end
   next_node do |response|
-    if data_query.commonwealth_country?(response)
+    if reg_data_query.commonwealth_country?(response)
       :commonwealth_result
     elsif no_embassies.include?(response)
       :no_embassy_result
@@ -80,7 +80,7 @@ end
 country_select :which_country_are_you_in_now?, :use_legacy_data => true do
   save_input_as :current_location
   calculate :current_location_name do
-    country_slug = data_query.registration_country_slug(responses.last)
+    country_slug = reg_data_query.registration_country_slug(responses.last)
     LegacyCountry.all.find { |c| c.slug == country_slug }.name
   end
   next_node :embassy_result
@@ -107,11 +107,11 @@ end
 
 outcome :fco_result do
   precalculate :embassy_high_commission_or_consulate do
-    if data_query.has_high_commission?(current_location)
+    if reg_data_query.has_high_commission?(current_location)
      "British high commission"
-    elsif data_query.has_consulate?(current_location)
+    elsif reg_data_query.has_consulate?(current_location)
       "British embassy or consulate"
-    elsif data_query.has_consulate_general?(current_location)
+    elsif reg_data_query.has_consulate_general?(current_location)
       "British consulate-general"
     else
       "British embassy"
@@ -129,6 +129,8 @@ outcome :embassy_result do
       phrases << :documents_list_embassy_libya
     elsif current_location == 'sweden'
       phrases << :documents_list_embassy_sweden
+    elsif current_location == 'netherlands'
+      phrases << :documents_list_embassy_netherlands
     else
       phrases << :documents_list_embassy
     end
@@ -136,30 +138,37 @@ outcome :embassy_result do
   end
 
   precalculate :embassy_high_commission_or_consulate do
-    if data_query.has_high_commission?(current_location)
+    if reg_data_query.has_high_commission?(current_location)
      "British high commission"
-    elsif data_query.has_consulate?(current_location)
+    elsif reg_data_query.has_consulate?(current_location)
       "British embassy or consulate"
-    elsif data_query.has_consulate_general?(current_location)
+    elsif reg_data_query.has_consulate_general?(current_location)
       "British consulate-general"
     else
       "British embassy"
     end
   end
-  
-  precalculate :booking_text_embassy_result do
-    phrases = PhraseList.new
-    if current_location == 'hong-kong-(sar-of-china)'
-      phrases << :booking_text_embassy_hong_kong
-    else
-      phrases << :booking_text_embassy
+
+  precalculate :go_to_the_embassy_heading do
+    unless reg_data_query.post_only_countries?(current_location)
+      PhraseList.new(:go_to_the_embassy_heading_text)
     end
-    phrases
+  end
+  precalculate :booking_text_embassy_result do
+  unless reg_data_query.post_only_countries?(current_location)
+    phrases = PhraseList.new
+      if current_location == 'hong-kong-(sar-of-china)'
+        phrases << :booking_text_embassy_hong_kong
+      else
+        phrases << :booking_text_embassy
+      end
+      phrases
+    end
   end
 
   precalculate :clickbook do
     result = ''
-    clickbook = data_query.clickbook(current_location)
+    clickbook = reg_data_query.clickbook(current_location)
     unless clickbook.nil?
       if clickbook.class == Hash
         result = I18n.translate!("#{i18n_prefix}.phrases.multiple_clickbooks_intro") << "\n"
@@ -172,20 +181,25 @@ outcome :embassy_result do
                                  title: "Book an appointment online", clickbook_url: clickbook, embassy_or_other: embassy_high_commission_or_consulate, city: '')
       end
     end
-
     result
   end
 
-  precalculate :postal_form_url do
-    data_query.death_postal_form(current_location)
+  precalculate :post_only do
+    if reg_data_query.post_only_countries?(current_location)
+      PhraseList.new(:"post_only_#{current_location}")
+    else
+      ''
+    end
   end
-
+  precalculate :postal_form_url do
+    reg_data_query.death_postal_form(current_location)
+  end
   precalculate :postal_return_form_url do
-    data_query.death_postal_return_form(current_location)
+    reg_data_query.death_postal_return_form(current_location)
   end
 
   precalculate :postal do
-    if data_query.register_death_by_post?(current_location)
+    if reg_data_query.register_death_by_post?(current_location)
       phrases = PhraseList.new(:postal_intro)
       if postal_form_url
         phrases << :postal_registration_by_form
@@ -210,7 +224,7 @@ outcome :embassy_result do
   end
 
   precalculate :cash_only do
-    data_query.cash_only?(current_location) ? PhraseList.new(:cash_only) : ''
+    reg_data_query.cash_only?(current_location) ? PhraseList.new(:cash_only) : PhraseList.new(:cash_and_card)
   end
 
   precalculate :embassy_details do
@@ -228,6 +242,8 @@ outcome :embassy_result do
   precalculate :footnote do
     if exclusions.include?(country)
       PhraseList.new(:footnote_exceptions)
+    elsif country != current_location and reg_data_query.eastern_caribbean_countries?(country) and reg_data_query.eastern_caribbean_countries?(current_location)
+        PhraseList.new(:footnote_caribbean)
     elsif another_country
       PhraseList.new(:footnote_another_country)
     else
