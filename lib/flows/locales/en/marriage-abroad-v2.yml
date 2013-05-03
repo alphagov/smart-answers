@@ -25,10 +25,8 @@ en-GB:
         ceremony_type_civil_partnership: Civil partnership
         clickbook_link: |
           [Book an appointment online](%{clickbook_data} "Book an appointment online")
-        multiple_clickbook_link: |
-          [Book an appointment online in %{city}](%{url})
         clickbook_links: |
-          %{clickbooks}
+          +[data_partial:clickbooks:clickbook_data]
         embassy_address: |
           %{address}
         embassy_details: |

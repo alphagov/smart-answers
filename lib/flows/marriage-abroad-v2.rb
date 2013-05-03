@@ -131,15 +131,6 @@ country_select :country_of_ceremony?, :use_legacy_data => true do
   calculate :multiple_clickbooks do
     clickbook_data and clickbook_data.class == Hash
   end
-  calculate :clickbooks do
-    result = ''
-    if multiple_clickbooks
-      clickbook_data.each do |k,v|
-          result += I18n.translate!(i18n_prefix + ".phrases.multiple_clickbook_link", city: k, url: v) << "\n"
-      end
-    end
-    result
-  end
 
   next_node do |response|
     if response == 'ireland'
