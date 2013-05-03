@@ -481,11 +481,4 @@ outcome :amount_result do
     end
   end
 
-  precalculate :disclaimer do
-    if remaining_years >= missing_years
-      PhraseList.new :amount_disclaimer
-    else
-      ''
-    end
-  end
 end
