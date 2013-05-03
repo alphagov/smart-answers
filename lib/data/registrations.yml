@@ -72,6 +72,7 @@ registration_country:
   french-guiana: france
   french-polynesia: france
   gabon: cameroon
+  gibraltar: spain
   grenada: barbados
   guadeloupe: france
   guinea-bissau: senegal
@@ -151,20 +152,18 @@ death:
     chile: /government/uploads/system/uploads/attachment_data/file/136800/credit-card.doc
     cyprus: /government/uploads/system/uploads/attachment_data/file/136801/credit-card-authorisation.doc
     denmark: /government/uploads/system/uploads/attachment_data/file/136802/credit-card-authorisation-slip-19april2011.pdf
-    dominican-republic: /government/uploads/system/uploads/attachment_data/file/136803/credit-form.doc
     finland: /government/uploads/system/uploads/attachment_data/file/136804/credit-card-authorisation-form.pdf
     france: /government/uploads/system/uploads/attachment_data/file/136805/death-registration-form.doc
     germany: /government/uploads/system/uploads/attachment_data/file/136806/payment_authorisation_slip.pdf
     greece: /government/uploads/system/uploads/attachment_data/file/136807/ccslip.pdf
     india: /government/uploads/system/uploads/attachment_data/file/136808/credit-card-payment-authorisation-form.pdf
-    israel: http://ukinisrael-stage.fco.gov.uk/resources/en/pdf/creditdebitslip.pdf
+    israel: /government/uploads/system/uploads/attachment_data/file/136809/creditdebitslip.pdf.pdf
     italy: /government/uploads/system/uploads/attachment_data/file/136810/credit-card-authorisation-slip.doc
     jamaica: /government/uploads/system/uploads/attachment_data/file/136811/credit-debit.pdf.pdf
     japan: /government/uploads/system/uploads/attachment_data/file/136812/15609108.doc
     korea: /government/uploads/system/uploads/attachment_data/file/136813/doc-consular-devit-card.doc
     mexico: /government/uploads/system/uploads/attachment_data/file/136814/credit-debit-authorisation-form.doc
     norway: /government/uploads/system/uploads/attachment_data/file/136815/consularpaymentform.pdf
-    peru: /government/uploads/system/uploads/attachment_data/file/136816/death-registration.pdf
     portugal: /government/uploads/system/uploads/attachment_data/file/136817/credit_card_form.pdf
     spain: /government/uploads/system/uploads/attachment_data/file/136819/20090413_credit_card_form.pdf.pdf
     switzerland: /government/uploads/system/uploads/attachment_data/file/136820/credit-card-pay-form.pdf
