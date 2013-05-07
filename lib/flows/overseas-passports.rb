@@ -337,8 +337,7 @@ outcome :fco_result do
       if application_action == 'applying' or application_action == 'replacing'
         phrases << :send_application_indonesia_applying
       else
-        phrases << :send_application_fco_preamble
-        phrases << :"send_application_#{application_type}"
+        phrases << :send_application_fco_preamble << :"send_application_#{application_type}"
       end
     else
       phrases << :send_application_fco_preamble
