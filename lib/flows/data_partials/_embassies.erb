@@ -2,14 +2,9 @@
 <%- embassies.each do |embassy| -%>
 ### <%= embassy.title %>
 
-$A
-<%= embassy.address.label.value %>
-$A
-
-
 $C
 <%- if embassy.details.email.present? -%>
-Email: <%= embassy.details.email %>
+Email: <<%= embassy.details.email.strip %>>
 
 <%- end -%>
 <%- embassy.contact_numbers.each do |contact| -%>
@@ -18,6 +13,10 @@ Email: <%= embassy.details.email %>
 
 <%- end -%>
 $C
+
+$A
+<%= embassy.address.label.value %>
+$A
 
 <%- end -%>
 <%- else -%>
