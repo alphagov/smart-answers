@@ -14,7 +14,7 @@ class InputValidationTest < EngineIntegrationTest
       within '.current-question' do
         assert_page_has_content "How much do you earn?"
         within('.error') { assert_page_has_content "Please answer this question" }
-        assert page.has_field?("£", :type => :text, :with => "-123")
+        assert page.has_field?("£", :type => "text", :with => "-123")
       end
 
       fill_in "£", :with => "4000"
@@ -29,7 +29,7 @@ class InputValidationTest < EngineIntegrationTest
       within '.current-question' do
         assert_page_has_content "What size bonus do you want?"
         within('.error') { assert_page_has_content "Sorry, I couldn't understand that number. Please try again." }
-        assert page.has_field?("£", :type => :text, :with => "asdfasdf")
+        assert page.has_field?("£", :type => "text", :with => "asdfasdf")
       end
 
       fill_in "£", :with => "50000"
@@ -47,7 +47,7 @@ class InputValidationTest < EngineIntegrationTest
       within '.current-question' do
         assert_page_has_content "What size bonus do you want?"
         within('.error') { assert_page_has_content "You can't request a bonus less than your annual salary." }
-        assert page.has_field?("£", :type => :text, :with => "3000")
+        assert page.has_field?("£", :type => "text", :with => "3000")
       end
 
       fill_in "£", :with => "50000"
@@ -72,7 +72,7 @@ class InputValidationTest < EngineIntegrationTest
       within '.current-question' do
         assert_page_has_content "How many things do you own?"
         within('.error') { assert_page_has_content "Sorry, but that is not a number. Please try again." }
-        assert page.has_field?("Things", :type => :text, :with => "asdfasdf")
+        assert page.has_field?("Things", :type => "text", :with => "asdfasdf")
       end
 
     end

@@ -27,7 +27,7 @@ class ActionDispatch::IntegrationTest
   def self.with_javascript
     context "with javascript" do
       setup do
-        Capybara.current_driver = Capybara.javascript_driver
+        #Capybara.current_driver = Capybara.javascript_driver
       end
 
       yield
@@ -46,22 +46,22 @@ class ActionDispatch::IntegrationTest
       yield
     end
 
-    with_javascript do
-      yield
-    end
+    #with_javascript do
+      #yield
+    #end
   end
 end
 
-class JavascriptIntegrationTest < ActionDispatch::IntegrationTest
-  setup do
-    Capybara.current_driver = Capybara.javascript_driver
-  end
-end
+#class JavascriptIntegrationTest < ActionDispatch::IntegrationTest
+  #setup do
+    #Capybara.current_driver = Capybara.javascript_driver
+  #end
+#end
 
 Capybara.default_driver = :rack_test
 
-require 'capybara-webkit'
-Capybara.javascript_driver = :webkit
+#require 'capybara-webkit'
+#Capybara.javascript_driver = :webkit
 
 I18n.load_path += Dir[Rails.root.join(*%w{test fixtures flows locales * *.{rb,yml}})]
 
