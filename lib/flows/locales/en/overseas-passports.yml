@@ -1776,9 +1776,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | 397 Cedi | 468 Cedi from Ghana, 500 Cedi from Liberia or Guinea
-          Adult jumbo 48-page passport | 497 Cedi | 550 Cedi from Ghana, 582 Cedi from Liberia or Guinea
-          Child passport | 253 Cedi | 324 Cedi from Ghana, 356 Cedi from Liberia or Guinea
+          Adult standard 32-page passport | 410 Cedi | 484 Cedi from Ghana, 516 Cedi from Liberia or Guinea
+          Adult jumbo 48-page passport | 494 Cedi | 568 Cedi from Ghana, 600 Cedi from Liberia or Guinea
+          Child passport | 261 Cedi | 335 Cedi from Ghana, 367 Cedi from Liberia or Guinea
 
           You must pay either using:
 
@@ -2427,6 +2427,7 @@ en-GB:
 
           - you need to provide more information or documents
           - your photographs are rejected
+          - if you send your application by courier
 
 
         cost_yemen: |
@@ -2732,8 +2733,6 @@ en-GB:
           %{send_your_application}
 
           %{tracking_and_receiving}
-
-          %{helpline}
 
       aus_nz_result:
         body: |
