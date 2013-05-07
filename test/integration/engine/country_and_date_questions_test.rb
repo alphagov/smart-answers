@@ -16,6 +16,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         uk-delegation-to-organization-for-security-and-co-operation-in-europe
         united-kingdom venezuela vietnam)
       worldwide_api_has_locations(@location_slugs)
+      Timecop.travel("2013-01-01")
     end
 
     should "handle country and date questions" do

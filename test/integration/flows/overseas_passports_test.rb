@@ -605,11 +605,11 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'replacing'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_replacing_ips3, :how_long_it_takes_ips3]
-      assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :ips_documents_group_2]
-      assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips_cash]
-      assert_phrase_list :send_your_application, [:send_application_ips3]
-      assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips3]
+      assert_phrase_list :how_long_it_takes, [:how_long_replacing_ips2_morocco, :how_long_it_takes_ips2]
+      assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :ips_documents_group_2]
+      assert_phrase_list :cost, [:passport_courier_costs_ips2, :adult_passport_costs_ips2, :passport_costs_ips_cash]
+      assert_phrase_list :send_your_application, [:send_application_ips2]
+      assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips2]
       assert_match "British Embassy\nRue du Lac Windermere\nLes Berges du Lac\nTunis 1053", current_state.send(:embassy_address)
       assert_state_variable :supporting_documents, 'ips_documents_group_2'
     end

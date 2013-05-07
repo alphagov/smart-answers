@@ -3,7 +3,7 @@ module SmartAnswer::Calculators
 
     include ActionView::Helpers::NumberHelper
 
-    FCO_APPLICATIONS_REGEXP = /^(dublin_ireland|hong_kong|india|paris_france|pretoria_south_africa|washington_usa|wellington_new_zealand)$/
+    FCO_APPLICATIONS_REGEXP = /^(dublin_ireland|hong_kong|india|madrid_spain|paris_france|pretoria_south_africa|washington_usa|wellington_new_zealand)$/
     IPS_APPLICATIONS_REGEXP = /^ips_application_\d$/
     NO_APPLICATION_REGEXP = /^(algeria|iran|syria)$/
 
