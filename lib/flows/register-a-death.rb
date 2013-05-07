@@ -9,7 +9,7 @@ exclusions = %w(afghanistan cambodia central-african-republic chad comoros
                 liberia madagascar montenegro paraguay samoa slovenia somalia 
                 swaziland taiwan tajikistan western-sahara)
 no_embassies = %w(iran syria yemen)
-different_address = %w(belgium brazil germany india indonesia)
+different_address = %w(belgium brazil germany india indonesia turkey united-arab-emirates)
 
 # Q1
 multiple_choice :where_did_the_death_happen? do

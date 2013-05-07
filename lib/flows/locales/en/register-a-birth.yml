@@ -154,6 +154,8 @@ en-GB:
           - 3 identical passport-size photos
           - maternity documents
         documents_you_must_provide_united-arab-emirates: |
+          You and the other parent must provide:
+
           - your child’s local birth certificate, with an English translation issued by the UAE Ministry of Health
           - your British birth certificates (long version) showing details of your parents
           - a naturalisation or registration certificate (if either of you were not born in the UK)
@@ -163,6 +165,8 @@ en-GB:
           - divorce documents (if either of you has ever been divorced)
           - a change of name document (if either of you has ever changed your name)
         documents_you_must_provide_kuwait: |
+          You and the other parent must provide:
+
           - your child’s local birth certificate
           - your British birth certificates (long version) showing details of your parents
           - a naturalisation or registration certificate (if either of you were not born in the UK)
@@ -172,6 +176,8 @@ en-GB:
           - divorce documents (if either of you has ever been divorced)
           - a change of name document (if either of you has ever changed your name)
         documents_you_must_provide_libya: |
+          You and the other parent must provide:
+
           - your child’s local birth certificate, translated into English and stamped by the Ministry of Foreign Affairs in Tripoli
           - your British birth certificates (long version) showing details of your parents
           - a naturalisation or registration certificate (if either of you were not born in the UK)
@@ -181,6 +187,8 @@ en-GB:
           - divorce documents (if either of you has ever been divorced)
           - a change of name document (if either of you has ever changed your name)
         documents_you_must_provide_finland: |
+          You and the other parent must provide:
+
           - your child’s hospital birth certificate, or a letter from the hospital or midwife with full details of the birth 
           - an extract from the population register (‘virkatodistus’) with the child’s full names, date of birth and parents’ names
           - your British birth certificates (long version) showing details of your parents
@@ -191,6 +199,8 @@ en-GB:
           - divorce documents (if either of you has ever been divorced)
           - a change of name document (if either of you has ever changed your name)
         documents_you_must_provide_netherlands: |
+          You and the other parent must provide:
+
           - your child’s local birth certificate
           - an international version of the birth certificate
           - your British birth certificates (long version) showing details of your parents
@@ -279,9 +289,11 @@ en-GB:
         postal_info_united-states: |
           Pay by money order made payable to the ‘British Embassy Government Account’. Personal cheques aren’t accepted.
         post_only_united-arab-emirates: |
-          Post your application to the %{embassy_high_commission_or_consulate}.
+          ##Send your registration
+          
+          Post your application to the %{embassy_high_commission_or_consulate} in Dubai.
 
-          You must use recorded delivery or a courier. You’ll need to organise the return delivery of your documents (eg by including a pre-paid envelope or through the courier).
+          You must use recorded delivery or a courier, and arrange for your application to arrive between 8am and 1pm. You’ll need to organise the return delivery of your documents (eg by including a pre-paid envelope or through the courier).
         cash_only: |
           %You can only pay by cash, which must be in local currency.%
         cash_and_card: |
