@@ -333,10 +333,10 @@ outcome :fco_result do
     phrases = PhraseList.new
     if current_location =~ /^(jamaica|jordan|south-africa)$/
       phrases << :"send_application_#{current_location}"
-    elsif current_location == 'indonesia' and application_action == 'applying'
-      phrases << :send_application_indonesia_applying
-    elsif current_location == 'indonesia' and application_action == 'replacing'
-      phrases << :send_application_indonesia_applying
+    elsif current_location == 'indonesia'
+      if application_action == 'applying' or application_action == 'replacing'
+        phrases << :send_application_indonesia_applying
+      end
     else
       phrases << :send_application_fco_preamble
       phrases << :"send_application_#{application_type}"
