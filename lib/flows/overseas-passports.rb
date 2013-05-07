@@ -292,7 +292,7 @@ outcome :fco_result do
     payment_methods = :passport_costs_france_italy_switz if %w{france italy switzerland}.include?(current_location)
     payment_methods = :"passport_costs_#{current_location}" if %w{jamaica jordan}.include?(current_location)
 
-    # send_application_indonesia_applyingsend_application_indonesia_applyingian first time applications have courier and cost variations.
+    # Indonesian first time applications have courier and cost variations.
     if current_location == 'indonesia' and application_action == 'applying'
       cost_type = current_location
       payment_methods = :passport_costs_indonesia
