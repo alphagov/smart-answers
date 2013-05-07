@@ -28,7 +28,7 @@ class PrecalculationsTest < EngineIntegrationTest
           assert_page_has_content "How much wood would a woodchuck chuck if a woodchuck could chuck wood?"
         end
         within '.question-body' do
-          assert page.has_field?("Amount:", :type => :text)
+          assert page.has_field?("Amount:", :type => "text")
         end
       end
 
@@ -43,7 +43,7 @@ class PrecalculationsTest < EngineIntegrationTest
           assert_page_has_content "How many woodchucks do you have?"
         end
         within '.question-body' do
-          assert page.has_field?("Amount:", :type => :text)
+          assert page.has_field?("Amount:", :type => "text")
         end
       end
 
