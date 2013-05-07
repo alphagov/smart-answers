@@ -62,7 +62,7 @@ group :assets do
 end
 
 if ENV['RUBY_DEBUG']
-  gem 'ruby-debug19'
+  gem 'debugger', :require => "ruby-debug"
 end
 
 group :analytics do
