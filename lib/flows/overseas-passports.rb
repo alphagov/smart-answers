@@ -220,7 +220,7 @@ end
 outcome :ips_application_result do
 
   precalculate :how_long_it_takes do
-    if %w{mauritania morocco western-sahara}.include?(current_location)
+    if %w{mauritania morocco western-sahara tunisia}.include?(current_location)
       if application_action == 'renewing_new'
         PhraseList.new(:how_long_renewing_new_ips2_morocco,
                        :"how_long_it_takes_ips#{ips_number}")
@@ -264,11 +264,6 @@ outcome :ips_application_result do
   end
   precalculate :tracking_and_receiving do
     PhraseList.new(:"tracking_and_receiving_ips#{ips_number}")
-  end
-  precalculate :helpline do
-    unless %w{madrid_spain paris_france}.include?(application_type)
-      PhraseList.new(:helpline_fco_webchat)
-    end
   end
 end
 
@@ -336,8 +331,12 @@ outcome :fco_result do
 
   precalculate :send_your_application do
     phrases = PhraseList.new
-    if current_location =~ /^(indonesia|jamaica|jordan|south-africa)$/
+    if current_location =~ /^(jamaica|jordan|south-africa)$/
       phrases << :"send_application_#{current_location}"
+    elsif current_location == 'indonesia'
+      if application_action == 'applying' or application_action == 'replacing'
+        phrases << :send_application_indonesia_applying
+      end
     else
       phrases << :send_application_fco_preamble
       phrases << :"send_application_#{application_type}"
