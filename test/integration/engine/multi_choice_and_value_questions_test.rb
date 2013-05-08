@@ -161,7 +161,11 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
         end
       end
 
-      assert page.has_selector?("#content .article-container #test-report_a_problem")
+      # The report-a-problem form doesn't currently get inserted with the AJAX version
+      # because slimmer can't run against non-html responses.
+      unless Capybara.current_driver == Capybara.javascript_driver
+        assert page.has_selector?("#content .article-container #test-report_a_problem")
+      end
     end
   end # with_and_without_javascript
 
