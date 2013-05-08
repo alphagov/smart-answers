@@ -153,15 +153,18 @@ en-GB:
           * Book a [practical driving test](/book-practical-driving-test "Book a practical driving test")
 
       a7:
-        title: "You can exchange your licence if it was previously issued in a designated country. The fee is £50."
+        title: You can drive in Great Britain on a full, valid driving licence from another EU country until you’re 70, or for 3 years after becoming resident in Great Britain, whichever is longer.
         body: |
+          You don't have to exchange your licence, but follow these steps if you want to.
 
           s1. [Order form D1](https://www.dvla.gov.uk/dvla/onlineservices/order_forms.aspx?ext=dg "DVLA form ordering service"){:rel="external"} from DVLA.
-          s2. Send the form, fee and any documents you need to (including your driving licence) to the address on the form.
+          s2. Send the form, the £50 fee and any documents you need to (including your driving licence) to the address on the form.
           s3. You should get your new licence within 3 weeks.
 
+          %You can only drive in Great Britain for 12 months if you got your EU licence by exchanging your non-EU licence.%
+
           *[DVLA]: Driver and Vehicle Licensing Agency
-        
+
       a8:
         title: "You can exchange your licence if it was issued on or after 1 January 1976. There is no fee."
         body: |
