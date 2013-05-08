@@ -16,6 +16,7 @@ require 'minitest/autorun'
 require 'mocha/setup'
 
 require 'webmock/minitest'
+WebMock.disable_net_connect!(:allow_localhost => true)
 
 class MiniTest::Unit::TestCase
   def teardown_with_customisations
