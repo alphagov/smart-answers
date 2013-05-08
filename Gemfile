@@ -46,10 +46,10 @@ group :test do
   gem 'ci_reporter'
   gem 'mocha', '0.13.3', :require => false
   gem 'shoulda', '~> 2.11.3'
-  gem 'webmock', '1.8.0', :require => false
+  gem 'webmock', '1.11.0', :require => false
   gem 'simplecov', '~> 0.6.4', :require => false
   gem 'simplecov-rcov', '~> 0.2.3', :require => false
-  #gem 'capybara-webkit', '~> 0.12.1'
+  gem 'poltergeist', '1.3.0'
   gem 'timecop'
 end
 
