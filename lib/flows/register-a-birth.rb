@@ -142,17 +142,6 @@ outcome :embassy_result do
   precalculate :multiple_clickbooks do
     clickbook_data and clickbook_data.class == Hash
   end
-  precalculate :clickbook do
-    result = ''
-    unless clickbook_data.nil?
-      if clickbook_data.class == Hash
-        clickbook_data.each do |k,v|
-          result += I18n.translate!(i18n_prefix + ".phrases.clickbook_link", city: k, url: v)
-        end
-      end
-    end
-    result
-  end
   precalculate :fees_for_consular_services do
     phrases = PhraseList.new
     if registration_country == 'libya'
