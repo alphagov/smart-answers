@@ -15,7 +15,6 @@ gem 'rails-i18n'
 gem 'json'
 gem 'plek', '1.1.0'
 gem 'govuk_frontend_toolkit', '0.3.3'
-gem 'rummageable'
 gem 'aws-ses', :require => 'aws/ses' # Needed by exception_notification
 gem 'exception_notification'
 gem 'lograge', '~> 0.1.0'
