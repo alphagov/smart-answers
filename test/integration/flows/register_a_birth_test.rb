@@ -317,7 +317,14 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_state_variable :registration_country_name, "Sri Lanka"
     end
   end
-
-
-
+  context "China" do
+    should "render multiple clickbook links" do
+      add_response 'china'
+      add_response 'mother'
+      add_response 'yes'
+      add_response 'same_country'
+      assert_current_node :embassy_result
+      assert outcome_body.at_css("ul li a[href='https://www.clickbook.net/dev/bc.nsf/sub/BritEmBeijing']")
+    end
+  end
 end
