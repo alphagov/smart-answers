@@ -5,7 +5,7 @@ en-GB:
         description: Find out what you need to do if your passport has been lost or stolen and how to get a replacement
       title: Report a lost or stolen passport
       body: |
-        You must tell the Identity and Passport Service (IPS) as soon as possible if your passport has been lost or stolen. 
+        You must tell Her Majesty's Passport Office  as soon as possible if your passport has been lost or stolen. 
 
         This will reduce the risk of anyone else using your passport or your identity.
       phrases:
@@ -28,13 +28,13 @@ en-GB:
       ## A1
       complete_LS01_form:
         body: |
-          You must report your lost passport to the Identity and Passport Service (IPS).
+          You must report your lost passport to Her Majesty's Passport Office.
 
           To report your lost passport you can do any of:
 
-          - [download a copy](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download LS01"){:rel="external"} of form LS01 and post the completed form to the IPS - the address is on the form
+          - [download a copy](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download LS01"){:rel="external"} of form LS01 and post the completed form to Her Majesty's Passport Office - the address is on the form
           - get a copy of form LS01 from a Post Office that offers the [Check and Send service](http://www.postoffice.co.uk/branch-finder "Post Offices that offer the passport Check & Send service"){:rel="external"}
-          - [ask for a callback](https://contact.homeoffice.gov.uk/contact.php?survey=1&pager=4 "Ask for a callback"){:rel="external"} from the IPS 
+          - [ask for a callback](https://contact.homeoffice.gov.uk/contact.php?survey=1&pager=4 "Ask for a callback"){:rel="external"} from Her Majesty's Passport Office 
 
           %{child_advice}
 
@@ -47,8 +47,8 @@ en-GB:
 
           - must send a completed form LS01 with your application (if you’ve haven’t already reported it as lost)
           - must get your application countersigned
-          - may be interviewed by the IPS to prove your identity
-          - may be asked for original supporting documents (eg birth or marriage certificates) when the IPS gets your application
+          - may be interviewed by Her Majesty's Passport Office to prove your identity
+          - may be asked for original supporting documents (eg birth or marriage certificates) when Her Majesty's Passport Office gets your application
 
           % You can’t use the [1-day Premium service](/get-a-passport-urgently "Get a passport urgently") if you’re replacing a lost passport. % 
 
@@ -66,14 +66,14 @@ en-GB:
 
         
           - your nearest police station
-          - the Identity and Passport Service (IPS)
+          - Her Majesty's Passport Office 
 
-          To report to the IPS you can do any of:
+          To report to Her Majesty's Passport Office you can do any of:
 
 
-          - [download a copy](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download LS01"){:rel="external"} of form LS01 and post the completed form to the IPS - the address is on the form
+          - [download a copy](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download LS01"){:rel="external"} of form LS01 and post the completed form to Her Majesty's Passport Office - the address is on the form
           - get a copy of form LS01 from a Post Office that offers the [Check and Send service](http://www.postoffice.co.uk/branch-finder "Post Offices that offer the passport Check & Send service"){:rel="external"}
-          - [ask for a callback](https://contact.homeoffice.gov.uk/contact.php?survey=1&pager=4 "Ask for a callback"){:rel="external"} from the IPS 
+          - [ask for a callback](https://contact.homeoffice.gov.uk/contact.php?survey=1&pager=4 "Ask for a callback"){:rel="external"} from Her Majesty's Passport Office 
 
           %{child_advice}
 
@@ -87,8 +87,8 @@ en-GB:
 
           - must send a completed form LS01 with your application (if you’ve haven’t already reported it as stolen)
           - must get your application countersigned
-          - may be interviewed by the IPS to prove your identity
-          - may be asked for original supporting documents (eg birth or marriage certificates) when the IPS gets your application
+          - may be interviewed by Her Majesty's Passport Office to prove your identity
+          - may be asked for original supporting documents (eg birth or marriage certificates) when Her Majesty's Passport Office gets your application
 
           % You can’t use the [1-day Premium service](/get-a-passport-urgently "Get a passport urgently") if you’re replacing a stolen passport. %
       # A3
