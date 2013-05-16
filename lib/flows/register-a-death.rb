@@ -131,6 +131,8 @@ outcome :embassy_result do
       phrases << :documents_list_embassy_sweden
     elsif current_location == 'netherlands'
       phrases << :documents_list_embassy_netherlands
+    elsif current_location == 'malaysia'
+      phrases << :documents_list_embassy_malaysia
     else
       phrases << :documents_list_embassy
     end

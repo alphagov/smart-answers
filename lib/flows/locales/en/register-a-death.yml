@@ -228,6 +228,12 @@ en-GB:
           - their marriage certificate, if applicable
           - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
 
+        documents_list_embassy_malaysia: |
+          - a local death certificate (not a certificate issued by a doctor)
+          - the person’s passport 
+          - their full UK birth, naturalisation or registration certificate (if you can’t provide their passport)
+          - proof of next of kin (birth certificate or marriage certificate), or written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
+
         go_to_the_embassy_heading_text: |  
 
           ##Go to the %{embassy_high_commission_or_consulate}
