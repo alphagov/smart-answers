@@ -4,7 +4,8 @@ satisfies_need "FCO-01"
 data_query = SmartAnswer::Calculators::MarriageAbroadDataQueryV2.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
 i18n_prefix = 'flow.marriage-abroad-v2'
-different_address = %w(bosnia-and-herzegovina india indonesia)
+different_address = %w(bosnia-and-herzegovina india)
+
 
 # Q1
 country_select :country_of_ceremony?, :use_legacy_data => true do
@@ -117,7 +118,7 @@ country_select :country_of_ceremony?, :use_legacy_data => true do
   calculate :embassy_details do
     details = data_query.find_embassy_data(ceremony_country)
     if details
-      details = different_address.include?(ceremony_country) ? details.second : details.first
+      details = different_address.include?(ceremony_country) ? details.third : details.first
       I18n.translate("#{i18n_prefix}.phrases.embassy_details",
                      address: details['address'], phone: details['phone'], email: details['email'], office_hours: details['office_hours'])
     else
@@ -765,7 +766,11 @@ outcome :outcome_os_consular_cni do
         end
       end
       unless reg_data_query.clickbook(ceremony_country)
-        phrases << :consular_cni_os_no_clickbook_so_embassy_details
+        if ceremony_country == 'indonesia'
+          phrases << :consular_cni_os_indonesia_embassy_address
+        else
+          phrases << :consular_cni_os_no_clickbook_so_embassy_details
+        end
       end
     end
     if ceremony_country == 'italy'

@@ -328,6 +328,22 @@ en-GB:
           ###Applying for a CNI from the consulate
 
           You’ll normally need to have been resident in Kazakhstan for at least 21 days. You can then book an appointment at the consulate to give notice of your marriage. There’s a fee for this service (see below).
+        consular_cni_os_indonesia_embassy_address: |
+
+          $A
+          British Consulate 
+          Jl. Tirta Nadi 2 No. 20
+          Sanur
+          Bali
+          Indonesia
+          $A
+
+          $C
+          +62 361 270601  
+          Public visiting hours:  
+          Monday-Friday 08:30 to 12:00
+          $C
+
         consular_cni_os_no_clickbook_so_embassy_details: |
           %{embassy_details}
         consular_cni_os_local_resident_italy: |
