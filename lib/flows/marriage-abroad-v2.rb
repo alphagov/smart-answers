@@ -118,7 +118,7 @@ country_select :country_of_ceremony?, :use_legacy_data => true do
   calculate :embassy_details do
     details = data_query.find_embassy_data(ceremony_country)
     if details
-      details = different_address.include?(ceremony_country) ? details.third : details.first
+      details = different_address.include?(ceremony_country) ? details.second : details.first
       I18n.translate("#{i18n_prefix}.phrases.embassy_details",
                      address: details['address'], phone: details['phone'], email: details['email'], office_hours: details['office_hours'])
     else
