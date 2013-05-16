@@ -57,7 +57,6 @@ en-GB:
           ##Bus pass
           %{bus_pass_statement}
 
-          This calculation is according to the current law. The State Pension age may [change in the future.](/increase-state-pension-age "Increase in State Pension age")
         state_pension_age_was: |
 
           Your State Pension age was %{state_pension_age}.
@@ -76,7 +75,6 @@ en-GB:
           ##Bus pass
           You may also apply for an [elderly person’s bus pass](/apply-for-elderly-person-bus-pass "Elderly person’s bus pass") from %{pension_credit_date}.
 
-          This calculation is according to the current law. The State Pension age may [change in the future.](/increase-state-pension-age "Increase in State Pension age")
         ##Result 1
         too_few_qy_enough_remaining_years: |
           
