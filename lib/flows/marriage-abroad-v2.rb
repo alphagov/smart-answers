@@ -170,12 +170,10 @@ multiple_choice :residency_uk? do
         :outcome_os_iom_ci
       end
     else
-      if ceremony_country == 'france' or data_query.french_overseas_territories?(ceremony_country)
-        if ceremony_country == 'france' or ceremony_country == 'new-caledonia' or ceremony_country == 'wallis-and-futuna'
-          :marriage_or_pacs?
-        else
-          :outcome_os_france_or_fot
-        end
+      if ceremony_country == 'france' or %w(new-caledonia wallis-and-futuna).include?(ceremony_country)
+        :marriage_or_pacs?
+      elsif %w(french-guiana french-polynesia guadeloupe martinique mayotte reunion st-pierre-and-miquelon).include?(ceremony_country)
+        :outcome_os_france_or_fot
       else
         :what_is_your_partners_nationality?
       end
