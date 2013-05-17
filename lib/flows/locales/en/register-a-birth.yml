@@ -52,6 +52,9 @@ en-GB:
             %{phone}
             %{email}
           $A
+        indonesia_british_father_paternity: |
+          %You’ll need to get a court order to have the father named on the birth certificate before registering if you’re unmarried and only the father has British nationality.%
+
         documents_you_must_provide_philippines: |
           Download the following document to see what documents you’ll need to provide with your application.  
 
@@ -312,6 +315,8 @@ en-GB:
       embassy_result:
         body: |
           $!You can apply to register the birth with the %{embassy_high_commission_or_consulate} in %{registration_country_name}.$!
+
+          %{embassy_result_indonesia_british_father_paternity}
 
           Download and complete the [birth registration form](/government/publications/application-to-register-an-overseas-birth "Birth registration form").
 

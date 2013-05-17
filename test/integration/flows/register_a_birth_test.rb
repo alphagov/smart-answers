@@ -286,7 +286,23 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :cash_only, [:cash_and_card]
       assert_phrase_list :footnote, [:footnote]
     end # Not married or CP
-  end # Barbados
+  end # UAE
+  context "answer indonesia" do
+    should "give the embassy result" do
+      add_response "indonesia"
+      add_response "father"
+      add_response "no"
+      add_response "2007-06-05"
+      add_response "same_country"
+      assert_current_node :embassy_result
+      assert_state_variable :british_national_parent, 'father'
+      assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
+      assert_phrase_list :embassy_result_indonesia_british_father_paternity, [:indonesia_british_father_paternity]
+      assert_phrase_list :documents_you_must_provide, [:"documents_you_must_provide_all"]
+      assert_phrase_list :cash_only, [:cash_and_card]
+      assert_phrase_list :footnote, [:footnote]
+    end # Not married or CP
+  end # Indonesia
 
   context "el-salvador, where you have to register in guatemala" do
     setup do

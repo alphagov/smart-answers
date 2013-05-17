@@ -127,6 +127,11 @@ outcome :embassy_result do
       "British embassy"
     end
   end
+  precalculate :embassy_result_indonesia_british_father_paternity do
+    if registration_country =='indonesia' and british_national_parent == 'father' and paternity_declaration
+      PhraseList.new(:indonesia_british_father_paternity)
+    end
+  end
   precalculate :documents_you_must_provide do
     checklist_countries = %w(bangladesh finland japan kuwait libya netherlands pakistan philippines sweden taiwan turkey united-arab-emirates)
     key = "documents_you_must_provide_"  
