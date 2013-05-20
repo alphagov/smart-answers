@@ -60,7 +60,7 @@ class StudentFinanceCalculatorV2Test < ActiveSupport::TestCase
 
             context "has children under 17 and adult dependant" do
               setup do
-                add_response 'children-under-17,dependant-adult'
+                add_response 'children-under-17,dependant-adult,has-disability,low-income'
               end
               should "ask what course you are studying" do
                 assert_current_node :what_course_are_you_studying?
@@ -73,7 +73,7 @@ class StudentFinanceCalculatorV2Test < ActiveSupport::TestCase
                 assert_state_variable :maintenance_loan_amount, 2698 #4375 - (maintenance_grant_amount/2.0).floor
                 assert_state_variable :maintenance_grant_amount, 3354
                 assert_phrase_list :students_body_text, [:uk_students_body_text]
-                assert_phrase_list :uk_full_time_students, [:additional_benefits, :children_under_17, :dependant_adult, :teacher_training]
+                assert_phrase_list :uk_full_time_students, [:additional_benefits, :children_under_17, :dependant_adult, :has_disability, :low_income, :teacher_training]
                 assert_phrase_list :household_income_figure, [:uk_students_body_text_with_nsp]
               end # end should
             end # end context children

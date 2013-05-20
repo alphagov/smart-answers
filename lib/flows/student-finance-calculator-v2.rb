@@ -205,6 +205,13 @@ outcome :outcome_uk_full_time_students do
       if uk_ft_circumstances.include?('dependant-adult')
         phrases << :dependant_adult
       end
+      if uk_ft_circumstances.include?('has-disability')
+        phrases << :has_disability
+      end
+      if uk_ft_circumstances.include?('low-income')
+        phrases << :low_income
+      end
+
       if course_studied == 'teacher-training'
         phrases << :teacher_training
       elsif course_studied == 'dental-medical-healthcare'
@@ -227,12 +234,6 @@ outcome :outcome_uk_all_students do
       phrases << :no_additional_benefits
     else
       phrases << :additional_benefits
-      if all_uk_students_circumstances.include?('children-under-17')
-        phrases << :children_under_17
-      end
-      if all_uk_students_circumstances.include?('dependant-adult')
-        phrases << :dependant_adult
-      end
       if all_uk_students_circumstances.include?('has-disability')
         phrases << :has_disability
       end
