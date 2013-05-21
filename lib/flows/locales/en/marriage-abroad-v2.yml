@@ -221,7 +221,13 @@ en-GB:
         consular_cni_os_denmark: |
           ^You don’t need a CNI if you’re getting married in the main town hall in Copenhagen.^
         consular_cni_os_german_resident: |
-          ^You don’t need a CNI if you’re legally resident in Germany.^
+          You don’t need a CNI (‘Ehefähigkeitszeugnis’) if you’re a British national resident in Germany. However, you’ll need to apply for an exemption (‘Befreiung von der Beibringung des Ehefähigkeitszeugnisses’).
+
+          The local registry office (Standesamt) where you’re getting married will tell you what to do.
+        consular_cni_os_not_germany_or_uk_resident: |
+          You don’t need a CNI (‘Ehefähigkeitszeugnis’) if you’re a British national resident outside of the UK. However, you’ll need to apply for an exemption (‘Befreiung von der Beibringung des Ehefähigkeitszeugnisses’).
+
+          The local registry office (Standesamt) where you’re getting married will tell you what to do.
         consular_cni_os_china_local_resident: |
           ^If you’re a dual national, the Chinese authorities will only accept a British CNI if you travel to China on your British passport.^
         consular_cni_os_china_not_local_resident: |
@@ -305,7 +311,7 @@ en-GB:
           - ‘[legalised](/get-document-legalised)’ (certified as genuine) by the FCO
           - translated - [find a translator abroad](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers), or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046){:rel="external"}
 
-            You should also check with the local authorities to find out if you need to provide legalised and translated copies of any other documents.
+          You should also check with the local authorities to find out if you need to provide legalised and translated copies of any other documents.
         consular_cni_os_uk_resident_philippines: |
           ###Getting a Philippine version of your CNI
 
@@ -485,7 +491,7 @@ en-GB:
           - a ‘certificado de empadronamiento’ (town hall registration certificate) or Spanish police residence certificate (green document with your NIE number address) issued at least 21 days ago
 
           ^The Civil Registry will usually ask you for a certificado de empadronamiento issued in the last 3 months.^
-        consular_cni_os_not_local_resident_not_germany: |
+        consular_cni_os_not_uk_resident_ceremony_not_germany: |
           If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order)
@@ -499,7 +505,7 @@ en-GB:
           ###What happens next
 
           The consulate will check your form and documents, and if everything’s in order they’ll send you details of how to book your appointment to give official notice of your marriage. They’ll then display your notice publicly for 21 days, and if nobody has raised an objection, they’ll issue your CNI. There’s an additional fee for this.
-        consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident_two: |
+        consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany: |
           The consulate will provide you with forms for your notice of marriage, and an oath or affidavit (written statement of facts) stating that you’re free to marry. You can download and fill in (but not sign) the forms in advance.
 
 
@@ -528,7 +534,7 @@ en-GB:
           The consulate will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 21 days. They’ll then send all of your documentation to the British Embassy in Rome (as long as nobody has registered an objection).
 
           They’ll issue your Nulla Osta. There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
-        consular_cni_os_commonwealth_resident_ceremony_not_italy: |
+        consular_cni_os_commonwealth_resident_ceremony_italy: |
           ###What happens next
 
           The high commission will send a letter confirming that you’re free to marry to the local embassy or consulate where you’re planning the ceremony. They’ll need to include copies of your documents, so you should make sure they’re aware of this.
@@ -567,7 +573,7 @@ en-GB:
           ^Your partner will need to follow the same process to get their own Nulla Osta.^
         consular_cni_os_china_partner_local: |
           ^Chinese nationals can only be married in their area of 'household registration' (‘hukou’). If this is in a different consular district from where you give the notice, the CNI will be issued by the consulate-general or embassy covering that area.^
-        consular_cni_os_all_names: |
+        consular_cni_os_all_names_but_germany: |
           %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
         consular_cni_os_other_resident_ceremony_not_italy: |
           You should check if your CNI needs to be legalised (certified as genuine) by the local authorities in %{ceremony_country_name}.
@@ -726,7 +732,7 @@ en-GB:
           $A
 
           $C  
-          *Telephone:* (33) 1 44 51 31 00  
+          Telephone: (33) 1 44 51 31 00  
           GMT: Monday to Friday 8:30 to 12:00 / 13:30 to 17:00  
           Local time: Monday to Friday 9:30 to 13:00 / 14:30 to 18:00  
           $C
@@ -1112,7 +1118,7 @@ en-GB:
           s6. They’ll then send your application to the [British Embassy in Paris](/government/world/organisations/british-embassy-paris), who will issue your certificate between 1 and 3 weeks later.
           s7. The embassy will send your certificate to the address you specified on the form - it’s likely to arrive much sooner if this address is in France.
         france_fot_cp_non_uk_resident: |
-          You’ll need to get a certificate of custom law from the [British Embassy in Paris](/government/world/organisations/british-embassy-paris).
+          If you need a certificate of custom law, you can get one from the [British Embassy in Paris](/government/world/organisations/british-embassy-paris).
 
 
           $A  
@@ -1122,7 +1128,7 @@ en-GB:
           $A
 
           $C  
-          *Telephone:* (33) 1 44 51 31 00  
+          Telephone: (33) 1 44 51 31 00  
           GMT: Monday to Friday 8:30 to 12:00 / 13:30 to 17:00  
           Local time: Monday to Friday 9:30 to 13:00 / 14:30 to 18:00  
           $C
@@ -1137,7 +1143,7 @@ en-GB:
         france_fot_cp_all_two: |
           ###The certificate of celibacy
 
-          The tribunal might also ask you for a certificate of celibacy (‘certificat de célibat’) to prove you’re not already married or in a civil partnership. It’s not possible to provide this under UK law, so you’ll download the explanatory note and take this to the tribunal instead.
+          The tribunal might also ask you for a certificate of celibacy (‘certificat de célibat’) to prove you’re not already married or in a civil partnership. It’s not possible to provide this under UK law, so you’ll need to download the explanatory note and take this to the tribunal instead.
 
 
           $D
