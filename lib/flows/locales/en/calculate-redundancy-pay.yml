@@ -9,7 +9,7 @@ en-GB:
 
                 You only qualify for statutory redundancy pay if you’ve worked for your employer for at least 2 years.
 
-                ^For Northern Ireland, you can use this tool to calculate redundancy pay from 10 February 2013. ^
+                ^In Northern Ireland, you can only use this tool for redundancies made after 9 February 2013.^
             date_of_redundancy?:
                 title: What date were you made redundant?
                 hint: Use the original redundancy date even if your notice is brought forward, you’re paid in lieu of notice or made redundant after trialing a new job. 
@@ -44,19 +44,21 @@ en-GB:
                 title: |
                     Based on your answers, your statutory redundancy payment is £%{statutory_redundancy_pay}.
                 body: |
-                    ##Calculation 
+                    ##How it’s worked out 
 
                     Your entitlement is %{number_of_weeks_entitlement} weeks.
 
-                    For each year of employment you get:
+                    You get:
 
-                    + 0.5 week’s pay up to your 22nd birthday
-                    + 1 week’s pay after your 22nd birthday
-                    + 1.5 weeks’ pay after your 41st birthday
+                    + 0.5 week’s pay for each full year you were under 22
+                    + 1 week’s pay for each full year you were 22 or older, but under 41
+                    + 1.5 week’s pay for each full year you were 41 or older
 
                     Length of service is capped at 20 years and weekly pay at £%{rate}. Years of service or earnings over these amounts aren’t included in the calculation.
 
                     The maximum amount of statutory redundancy pay is £%{max_amount}.
+
+                    Redundancy pay under £30,000 is not taxable.
 
                     ^You can’t get less than the statutory amount but you may get more if you have a company redundancy scheme.^
                 next_steps: |
@@ -74,7 +76,7 @@ en-GB:
 
                 Employees only qualify if they’ve worked at least 2 full years for you.
 
-                ^For Northern Ireland, you can use this tool to calculate redundancy pay from 10 February 2013. ^
+                ^In Northern Ireland, you can only use this tool for redundancies made after 9 February 2013.^
             date_of_redundancy?:
                 title: What date was your employee made redundant?
                 hint: |
@@ -110,18 +112,20 @@ en-GB:
                 title: |
                     Statutory redundancy payment: £%{statutory_redundancy_pay}.
                 body: |
-                    ##Calculation 
+                    ##How it’s worked out
 
                     Your employee's entitlement is %{number_of_weeks_entitlement} weeks.
 
-                    For each year of employment an employee gets:
+                    They get:
 
-                    + 0.5 week’s pay up to their 22nd birthday
-                    + 1 week’s pay after their 22nd birthday
-                    + 1.5 weeks’ pay after their 41st birthday
+                    + 0.5 week’s pay for each full year they were under 22
+                    + 1 week’s pay for each full year they were 22 or older, but under 41
+                    + 1.5 week’s pay for each full year they were 41 or older
 
                     Length of service is capped at 20 years and weekly pay at £%{rate}. Years of service or earnings over these amounts are not included in the calculation. 
 
                     The maximum amount of statutory redundancy pay is £%{max_amount}.
+
+                    ^Redundancy pay under £30,000 is not taxable.^
                 next_steps: |
                     [Read the guide to Making staff redundant](https://www.gov.uk/staff-redundant)
