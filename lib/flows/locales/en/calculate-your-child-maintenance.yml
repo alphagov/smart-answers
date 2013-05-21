@@ -51,6 +51,7 @@ en-GB:
           - Armed Forces Compensation Scheme payments
           - War Disablement Pension
           - Bereavement Allowance
+          - Universal Credit with no earned income
       ##Q2a
       gets_benefits_new?:
         title: Does the parent paying child maintenance get any of these benefits?
@@ -74,6 +75,7 @@ en-GB:
           - Industrial Injuries Disablement Benefit
           - Widowed Parent’s Allowance
           - Widow’s pension
+          - Universal Credit with no earned income
         hint: "In Scotland, this also includes: Skillseekers training, War Widow’s, Widower’s or Surviving Civil Partner’s Pension"
 
       ## Q3
@@ -86,8 +88,7 @@ en-GB:
       ## Q3a
       gross_income_of_payee?:
         title: What is the weekly gross income of the parent paying child maintenance?
-        hint: |
-          This is income before tax and National Insurance but after pension contributions. Include all the paying parent’s working tax credits if their income is higher than their current partner's. Include half the working tax credits if their incomes are the same.
+        hint: This is income before tax and National Insurance but after pension contributions.
         suffix_label: per week
         error_message: Please enter a number
       ## Q4
