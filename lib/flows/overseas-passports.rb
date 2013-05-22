@@ -258,6 +258,9 @@ outcome :ips_application_result do
   precalculate :send_your_application do
     if %w{andorra cyprus greece portugal spain}.include?(current_location)
       PhraseList.new(:"send_application_ips#{ips_number}_belfast")
+    elsif %w(belgium iraq italy jordan liechtenstein luxembourg malta netherlands
+             san-marino switzerland yemen).include?(current_location)
+      PhraseList.new(:"send_application_ips#{ips_number}_durham")
     else
       PhraseList.new(:"send_application_ips#{ips_number}")
     end
