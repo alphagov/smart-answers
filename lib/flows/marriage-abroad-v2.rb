@@ -4,8 +4,8 @@ satisfies_need "FCO-01"
 data_query = SmartAnswer::Calculators::MarriageAbroadDataQueryV2.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
 i18n_prefix = 'flow.marriage-abroad-v2'
-different_address = %w(bosnia-and-herzegovina india)
-different_address_two = %w(indonesia)
+use_second_embassy_address = %w(bosnia-and-herzegovina india)
+use_third_embassy_address = %w(indonesia)
 
 # Q1
 country_select :country_of_ceremony?, :use_legacy_data => true do
@@ -117,9 +117,9 @@ country_select :country_of_ceremony?, :use_legacy_data => true do
   end
   calculate :embassy_details do
     details = data_query.find_embassy_data(ceremony_country)
-    if different_address_two.include?(ceremony_country)
+    if use_third_embassy_address.include?(ceremony_country)
       details = details.third
-    elsif different_address.include?(ceremony_country)
+    elsif use_second_embassy_address.include?(ceremony_country)
       details = details.second
     else
       details = details.first
@@ -255,9 +255,9 @@ country_select :residency_nonuk?, :use_legacy_data => true do
   end
   calculate :residency_embassy_details do
     details = data_query.find_embassy_data(residency_country)
-    if different_address_two.include?(residency_country)
+    if use_third_embassy_address.include?(residency_country)
       details = details.third
-    elsif different_address.include?(residency_country)
+    elsif use_second_embassy_address.include?(residency_country)
       details = details.second
     else
       details = details.first
