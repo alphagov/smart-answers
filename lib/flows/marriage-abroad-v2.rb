@@ -495,13 +495,18 @@ outcome :outcome_os_consular_cni do
         phrases << :gulf_states_os_consular_cni_local_resident_partner_not_irish
       end
     end
-    if ceremony_country == 'spain' and sex_of_your_partner == 'opposite_sex'
-      phrases << :spain_os_consular_cni_opposite_sex
-    elsif ceremony_country == 'spain' and sex_of_your_partner == 'same_sex'
-      phrases << :spain_os_consular_cni_same_sex
+    if ceremony_country == 'spain'
+      if sex_of_your_partner == 'opposite_sex'
+        phrases << :spain_os_consular_cni_opposite_sex
+      else
+        phrases << :spain_os_consular_cni_same_sex
+      end
     end
-    if ceremony_country == 'spain' and residency_country != ceremony_country
-      phrases << :spain_os_consular_cni_not_local_resident
+    if ceremony_country == 'spain'
+      phrases << :spain_os_consular_civil_registry
+      if ceremony_country == 'spain' and residency_country != ceremony_country
+        phrases << :spain_os_consular_cni_not_local_resident
+      end
     end
     if ceremony_country == 'italy'
       phrases << :italy_os_consular_cni_ceremony_italy
@@ -509,7 +514,8 @@ outcome :outcome_os_consular_cni do
       phrases << :italy_os_consular_cni_ceremony_not_italy
     end
     phrases << :consular_cni_all_what_you_need_to_do
-    if ceremony_country != 'italy' and ceremony_country != 'spain'
+
+    if ceremony_country != 'italy' and ceremony_country != 'spain' or (ceremony_country == 'germany' and resident_of == 'other')
       phrases << :consular_cni_os_ceremony_not_spain_or_italy
     elsif ceremony_country == 'spain'
       phrases << :spain_os_consular_cni_two
@@ -526,15 +532,23 @@ outcome :outcome_os_consular_cni do
         phrases << :italy_os_consular_cni_uk_resident_three
       end
     end
+
     if ceremony_country == 'denmark'
       phrases << :consular_cni_os_denmark
     end
-    if ceremony_country == 'germany' and residency_country == 'germany'
-      phrases << :consular_cni_os_german_resident
+    if ceremony_country == 'germany'
+      if residency_country == 'germany'
+        phrases << :consular_cni_os_german_resident
+      else
+        if resident_of == 'other'
+          phrases << :consular_cni_os_not_germany_or_uk_resident
+        end
+      end
     end
-    if ceremony_country == 'germany' and residency_country != 'germany' and resident_of == 'other'
-      phrases << :consular_cni_os_not_germany_or_uk_resident
+    if ceremony_country == 'germany' and resident_of == 'other'
+      phrases << :consular_cni_os_ceremony_germany_not_uk_resident
     end
+
     case ceremony_country
     when 'china'
       if residency_country == 'china'
@@ -871,19 +885,21 @@ outcome :outcome_os_no_cni do
     phrases << :no_cni_os_consular_facilities
     if ceremony_country != 'taiwan'
       phrases << :no_cni_os_all_nearest_embassy_not_taiwan
-    end
-    phrases << :no_cni_os_all_depositing_certificate
-    if ceremony_country == 'united-states'
-      phrases << :no_cni_os_ceremony_usa
+      phrases << :no_cni_os_all_depositing_certificate
+      if ceremony_country == 'united-states'
+        phrases << :no_cni_os_ceremony_usa
+      else
+        phrases << :no_cni_os_ceremony_not_usa
+      end
+      if resident_of == 'uk'
+        phrases << :no_cni_os_uk_resident_three
+      end
+      phrases << :no_cni_os_all_fees
+      if partner_nationality != 'partner_british'
+        phrases << :no_cni_os_naturalisation
+      end
     else
-      phrases << :no_cni_os_ceremony_not_usa
-    end
-    if resident_of == 'uk'
-      phrases << :no_cni_os_uk_resident_three
-    end
-    phrases << :no_cni_os_all_fees
-    if partner_nationality != 'partner_british'
-      phrases << :no_cni_os_naturalisation
+      ''
     end
     phrases
   end
