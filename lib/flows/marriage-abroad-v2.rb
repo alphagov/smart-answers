@@ -117,14 +117,15 @@ country_select :country_of_ceremony?, :use_legacy_data => true do
   end
   calculate :embassy_details do
     details = data_query.find_embassy_data(ceremony_country)
-    if details
-      details = different_address_two.include?(ceremony_country) ? details.third : 
-      details = different_address.include?(ceremony_country) ? details.second : details.first
-      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
-                     address: details['address'], phone: details['phone'], email: details['email'], office_hours: details['office_hours'])
+    if different_address_two.include?(ceremony_country)
+      details = details.third
+    elsif different_address.include?(ceremony_country)
+      details = details.second
     else
-      ''
+      details = details.first
     end
+      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
+                       address: details['address'], phone: details['phone'], email: details['email'], office_hours: details['office_hours'])
   end
   calculate :clickbook_data do
     reg_data_query.clickbook(ceremony_country)
@@ -254,14 +255,15 @@ country_select :residency_nonuk?, :use_legacy_data => true do
   end
   calculate :residency_embassy_details do
     details = data_query.find_embassy_data(residency_country)
-    if details
-      details = different_address_two.include?(residency_country) ? details.third : 
-      details = different_address.include?(residency_country) ? details.second : details.first
-      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
-                     address: details['address'], phone: details['phone'], email: details['email'], office_hours: details['office_hours'])
+    if different_address_two.include?(residency_country)
+      details = details.third
+    elsif different_address.include?(residency_country)
+      details = details.second
     else
-      ''
+      details = details.first
     end
+      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
+                       address: details['address'], phone: details['phone'], email: details['email'], office_hours: details['office_hours'])
   end
 
   next_node do
