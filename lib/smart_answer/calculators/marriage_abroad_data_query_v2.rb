@@ -25,6 +25,8 @@ module SmartAnswer::Calculators
 
     CP_CONSULAR_CNI_COUNTRIES = %w(bulgaria cambodia costa-rica croatia cyprus guatemala japan latvia moldova mongolia panama peru philippines turkmenistan venezuela vietnam)
 
+    COUNTRIES_WITH_DEFINITIVE_ARTICLES = %(bahamas british-virgin-islands cayman-islands czech-republic dominican-republic falkland-islands gambia maldives marshall-islands netherlands philippines russian-federation seychelles solomon-islands south-georgia-and-south-sandwich-islands turks-and-caicos-islands united-states)
+
     attr_reader :embassy_data
 
     def initialize
@@ -77,6 +79,10 @@ module SmartAnswer::Calculators
 
     def cp_consular_cni_countries?(country_slug)
       CP_CONSULAR_CNI_COUNTRIES.include?(country_slug)
+    end
+
+    def countries_with_definitive_articles?(country_slug)
+      COUNTRIES_WITH_DEFINITIVE_ARTICLES.include?(country_slug)
     end
 
     def find_embassy_data(country_slug)

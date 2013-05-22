@@ -15,56 +15,54 @@ country_select :country_of_ceremony?, :use_legacy_data => true do
     LegacyCountry.all.find { |c| c.slug == responses.last }.name
   end
   calculate :country_name_lowercase_prefix do
-    case ceremony_country
-    when 'bahamas','british-virgin-islands','cayman-islands','czech-republic','dominican-republic','falkland-islands','gambia','maldives','marshall-islands','netherlands','philippines','russian-federation','seychelles','solomon-islands','south-georgia-and-south-sandwich-islands','turks-and-caicos-islands','united-states'
+    if data_query.countries_with_definitive_articles?(ceremony_country)
       "the #{ceremony_country_name}"
-    when 'congo-(democratic-republic)'
+    elsif %w(congo-(democratic-republic)).include?(ceremony_country)
       "Democratic Republic of Congo"
-    when 'cote-d_ivoire-(ivory-coast)'
+    elsif %w(cote-d_ivoire-(ivory-coast)).include?(ceremony_country)
       "Cote d Ivoire"
-    when 'dominica,-commonwealth-of'
+    elsif %w(dominica,-commonwealth-of).include?(ceremony_country)
       "Dominica"
-    when 'hong-kong-(sar-of-china)'
+    elsif %w(hong-kong-(sar-of-china)).include?(ceremony_country)
       "Hong Kong"
-    when 'pitcairn'
+    elsif %w(pitcairn).include?(ceremony_country)
       "Pitcairn Island"
-    when "russian-federation"
+    elsif %w(russian-federation).include?(ceremony_country)
       "Russia"
-    when 'korea'
+    elsif %w(korea).include?(ceremony_country)
       "South Korea"
-    when 'st-helena'
+    elsif %w(st-helena).include?(ceremony_country)
       "St Helena"
-    when 'tristan-da-cunha'
+    elsif %w(tristan-da-cunha).include?(ceremony_country)
       "Tristan da Cunha"
-    when 'united-states'
+    elsif %w(united-states).include?(ceremony_country)
       "USA"
     else
       "#{ceremony_country_name}"
     end
   end
   calculate :country_name_uppercase_prefix do
-    case ceremony_country
-    when 'bahamas','british-virgin-islands','cayman-islands','czech-republic','dominican-republic','falkland-islands','gambia','maldives','marshall-islands','netherlands','philippines','russian-federation','seychelles','solomon-islands','south-georgia-and-south-sandwich-islands','turks-and-caicos-islands','united-states'
+    if data_query.countries_with_definitive_articles?(ceremony_country)
       "The #{ceremony_country_name}"
-    when 'congo-(democratic-republic)'
+    elsif %w(congo-(democratic-republic)).include?(ceremony_country)
       "Democratic Republic of Congo"
-    when 'cote-d_ivoire-(ivory-coast)'
+    elsif %w(cote-d_ivoire-(ivory-coast)).include?(ceremony_country)
       "Cote d Ivoire"
-    when 'dominica,-commonwealth-of'
+    elsif %w(dominica,-commonwealth-of).include?(ceremony_country)
       "Dominica"
-    when 'hong-kong-(sar-of-china)'
+    elsif %w(hong-kong-(sar-of-china)).include?(ceremony_country)
       "Hong Kong"
-    when 'pitcairn'
+    elsif %w(pitcairn).include?(ceremony_country)
       "Pitcairn Island"
-    when "russian-federation"
+    elsif %w(russian-federation).include?(ceremony_country)
       "Russia"
-    when 'korea'
+    elsif %w(korea).include?(ceremony_country)
       "South Korea"
-    when 'st-helena'
+    elsif %w(st-helena).include?(ceremony_country)
       "St Helena"
-    when 'tristan-da-cunha'
+    elsif %w(tristan-da-cunha).include?(ceremony_country)
       "Tristan da Cunha"
-    when 'united-states'
+    elsif %w(united-states).include?(ceremony_country)
       "USA"
     else
       "#{ceremony_country_name}"
@@ -141,8 +139,10 @@ country_select :country_of_ceremony?, :use_legacy_data => true do
       :legal_residency?
     end
   end
+
 end
 
+  
 # Q2
 multiple_choice :legal_residency? do
   option :uk => :residency_uk?
@@ -191,28 +191,27 @@ country_select :residency_nonuk?, :use_legacy_data => true do
     LegacyCountry.all.find { |c| c.slug == responses.last }.name
   end
   calculate :residency_country_name_lowercase_prefix do
-    case residency_country
-    when 'bahamas','british-virgin-islands','cayman-islands','czech-republic','dominican-republic','falkland-islands','gambia','maldives','marshall-islands','netherlands','philippines','russian-federation','seychelles','solomon-islands','south-georgia-and-south-sandwich-islands','turks-and-caicos-islands','united-states'
+    if data_query.countries_with_definitive_articles?(residency_country)
       "the #{ceremony_country_name}"
-    when 'congo-(democratic-republic)'
+    elsif %w(congo-(democratic-republic)).include?(residency_country)
       "Democratic Republic of Congo"
-    when 'cote-d_ivoire-(ivory-coast)'
+    elsif %w(cote-d_ivoire-(ivory-coast)).include?(residency_country)
       "Cote d Ivoire"
-    when 'dominica,-commonwealth-of'
+    elsif %w(dominica,-commonwealth-of).include?(residency_country)
       "Dominica"
-    when 'hong-kong-(sar-of-china)'
+    elsif %w(hong-kong-(sar-of-china)).include?(residency_country)
       "Hong Kong"
-    when 'pitcairn'
+    elsif %w(pitcairn).include?(residency_country)
       "Pitcairn Island"
-    when "russian-federation"
+    elsif %w(russian-federation).include?(residency_country)
       "Russia"
-    when 'korea'
+    elsif %w(korea).include?(residency_country)
       "South Korea"
-    when 'st-helena'
+    elsif %w(st-helena).include?(residency_country)
       "St Helena"
-    when 'tristan-da-cunha'
+    elsif %w(tristan-da-cunha).include?(residency_country)
       "Tristan da Cunha"
-    when 'united-states'
+    elsif %w(united-states).include?(residency_country)
       "USA"
     else
       "#{residency_country_name}"
