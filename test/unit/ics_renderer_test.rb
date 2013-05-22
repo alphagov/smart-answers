@@ -48,7 +48,7 @@ class ICSRendererTest < ActiveSupport::TestCase
       @r.expects(:uid).with(2).returns("sdaljksafd-2@gov.uk")
 
       expected =  "BEGIN:VEVENT\r\n"
-      expected << "DTEND;VALUE=DATE:20120414\r\n"
+      expected << "DTEND;VALUE=DATE:20120415\r\n"
       expected << "DTSTART;VALUE=DATE:20120414\r\n"
       expected << "SUMMARY:An Event\r\n"
       expected << "UID:sdaljksafd-2@gov.uk\r\n"
@@ -65,7 +65,7 @@ class ICSRendererTest < ActiveSupport::TestCase
       @r.expects(:uid).with(2).returns("sdaljksafd-2@gov.uk")
 
       expected =  "BEGIN:VEVENT\r\n"
-      expected << "DTEND;VALUE=DATE:20120418\r\n"
+      expected << "DTEND;VALUE=DATE:20120419\r\n"
       expected << "DTSTART;VALUE=DATE:20120414\r\n"
       expected << "SUMMARY:An Event\r\n"
       expected << "UID:sdaljksafd-2@gov.uk\r\n"

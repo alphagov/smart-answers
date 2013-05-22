@@ -18,11 +18,12 @@ class ICSRenderer
 
   def render_event(event, sequence)
     output =  "BEGIN:VEVENT\r\n"
+    # The end date is defined as non-inclusive in the RFC (2445 section 4.6.1)
     if event.date.is_a?(Range)
-      output << "DTEND;VALUE=DATE:#{ event.date.last.strftime("%Y%m%d") }\r\n"
+      output << "DTEND;VALUE=DATE:#{ (event.date.last + 1.day).strftime("%Y%m%d") }\r\n"
       output << "DTSTART;VALUE=DATE:#{ event.date.first.strftime("%Y%m%d") }\r\n"
     else
-      output << "DTEND;VALUE=DATE:#{ event.date.strftime("%Y%m%d") }\r\n"
+      output << "DTEND;VALUE=DATE:#{ (event.date + 1.day).strftime("%Y%m%d") }\r\n"
       output << "DTSTART;VALUE=DATE:#{ event.date.strftime("%Y%m%d") }\r\n"
     end
     output << "SUMMARY:#{ event.title }\r\n"
