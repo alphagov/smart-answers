@@ -627,7 +627,7 @@ en-GB:
         italy_os_consular_cni_five: |
           Check with the comune to see if they can issue a multilingual marriage certificate for you after the ceremony. If not, the certificate will have to be [translated into English](/government/publications/italy-list-of-lawyers).
         italy_os_consular_cni_six: |
-          Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in %{country_name_lowercase_prefix} and [translated into English](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) first.
+          Check with the %{embassy_or_consulate_residency_country} to find out if you need to get your certificate legalised by the local authorities in %{country_name_lowercase_prefix} and [translated into English](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) first.
         italy_os_consular_cni_seven: |
 
           $C

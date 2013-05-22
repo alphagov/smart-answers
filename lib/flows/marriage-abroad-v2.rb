@@ -131,6 +131,15 @@ country_select :country_of_ceremony?, :use_legacy_data => true do
   calculate :multiple_clickbooks do
     clickbook_data and clickbook_data.class == Hash
   end
+  calculate :embassy_or_consulate_ceremony_country do
+    if reg_data_query.has_consulate?(ceremony_country)
+      "consulate"
+    elsif reg_data_query.has_consulate_general?(ceremony_country)
+      "consulate-general"
+    else
+      "embassy"
+    end
+  end
 
   next_node do |response|
     if response == 'ireland'
@@ -245,9 +254,6 @@ country_select :residency_nonuk?, :use_legacy_data => true do
       "#{residency_country}"
     end
   end
-
-
-
   calculate :residency_embassy_address do
     data = data_query.find_embassy_data(residency_country)
     data.first['address'] if data
@@ -263,6 +269,15 @@ country_select :residency_nonuk?, :use_legacy_data => true do
     end
       I18n.translate("#{i18n_prefix}.phrases.embassy_details",
                        address: details['address'], phone: details['phone'], email: details['email'], office_hours: details['office_hours'])
+  end
+  calculate :embassy_or_consulate_residency_country do
+    if reg_data_query.has_consulate?(residency_country)
+      "consulate"
+    elsif reg_data_query.has_consulate_general?(residency_country)
+      "consulate-general"
+    else
+      "embassy"
+    end
   end
 
   next_node do
