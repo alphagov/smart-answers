@@ -4,8 +4,8 @@ satisfies_need "FCO-01"
 data_query = SmartAnswer::Calculators::MarriageAbroadDataQueryV2.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
 i18n_prefix = 'flow.marriage-abroad-v2'
-different_address = %w(bosnia-and-herzegovina india)
-
+use_second_embassy_address = %w(bosnia-and-herzegovina india)
+use_third_embassy_address = %w(indonesia)
 
 # Q1
 country_select :country_of_ceremony?, :use_legacy_data => true do
@@ -16,7 +16,7 @@ country_select :country_of_ceremony?, :use_legacy_data => true do
   end
   calculate :country_name_lowercase_prefix do
     case ceremony_country
-    when 'bahamas','british-virgin-islands','cayman-islands','czech-republic','dominican-republic','falkland-islands','gambia','maldives','marshall-islands','philippines','russian-federation','seychelles','solomon-islands','south-georgia-and-south-sandwich-islands','turks-and-caicos-islands','united-states'
+    when 'bahamas','british-virgin-islands','cayman-islands','czech-republic','dominican-republic','falkland-islands','gambia','maldives','marshall-islands','netherlands','philippines','russian-federation','seychelles','solomon-islands','south-georgia-and-south-sandwich-islands','turks-and-caicos-islands','united-states'
       "the #{ceremony_country_name}"
     when 'congo-(democratic-republic)'
       "Democratic Republic of Congo"
@@ -44,7 +44,7 @@ country_select :country_of_ceremony?, :use_legacy_data => true do
   end
   calculate :country_name_uppercase_prefix do
     case ceremony_country
-    when 'bahamas','british-virgin-islands','cayman-islands','czech-republic','dominican-republic','falkland-islands','gambia','maldives','marshall-islands','philippines','russian-federation','seychelles','solomon-islands','south-georgia-and-south-sandwich-islands','turks-and-caicos-islands','united-states'
+    when 'bahamas','british-virgin-islands','cayman-islands','czech-republic','dominican-republic','falkland-islands','gambia','maldives','marshall-islands','netherlands','philippines','russian-federation','seychelles','solomon-islands','south-georgia-and-south-sandwich-islands','turks-and-caicos-islands','united-states'
       "The #{ceremony_country_name}"
     when 'congo-(democratic-republic)'
       "Democratic Republic of Congo"
@@ -117,13 +117,15 @@ country_select :country_of_ceremony?, :use_legacy_data => true do
   end
   calculate :embassy_details do
     details = data_query.find_embassy_data(ceremony_country)
-    if details
-      details = different_address.include?(ceremony_country) ? details.second : details.first
-      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
-                     address: details['address'], phone: details['phone'], email: details['email'], office_hours: details['office_hours'])
+    if use_third_embassy_address.include?(ceremony_country)
+      details = details.third
+    elsif use_second_embassy_address.include?(ceremony_country)
+      details = details.second
     else
-      ''
+      details = details.first
     end
+      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
+                       address: details['address'], phone: details['phone'], email: details['email'], office_hours: details['office_hours'])
   end
   calculate :clickbook_data do
     reg_data_query.clickbook(ceremony_country)
@@ -190,7 +192,7 @@ country_select :residency_nonuk?, :use_legacy_data => true do
   end
   calculate :residency_country_name_lowercase_prefix do
     case residency_country
-    when 'bahamas','british-virgin-islands','cayman-islands','czech-republic','dominican-republic','falkland-islands','gambia','maldives','marshall-islands','philippines','russian-federation','seychelles','solomon-islands','south-georgia-and-south-sandwich-islands','turks-and-caicos-islands','united-states'
+    when 'bahamas','british-virgin-islands','cayman-islands','czech-republic','dominican-republic','falkland-islands','gambia','maldives','marshall-islands','netherlands','philippines','russian-federation','seychelles','solomon-islands','south-georgia-and-south-sandwich-islands','turks-and-caicos-islands','united-states'
       "the #{ceremony_country_name}"
     when 'congo-(democratic-republic)'
       "Democratic Republic of Congo"
@@ -253,13 +255,15 @@ country_select :residency_nonuk?, :use_legacy_data => true do
   end
   calculate :residency_embassy_details do
     details = data_query.find_embassy_data(residency_country)
-    if details
-      details = different_address.include?(residency_country) ? details.second : details.first
-      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
-                     address: details['address'], phone: details['phone'], email: details['email'], office_hours: details['office_hours'])
+    if use_third_embassy_address.include?(residency_country)
+      details = details.third
+    elsif use_second_embassy_address.include?(residency_country)
+      details = details.second
     else
-      ''
+      details = details.first
     end
+      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
+                       address: details['address'], phone: details['phone'], email: details['email'], office_hours: details['office_hours'])
   end
 
   next_node do
@@ -761,11 +765,7 @@ outcome :outcome_os_consular_cni do
         end
       end
       unless reg_data_query.clickbook(ceremony_country)
-        if ceremony_country == 'indonesia'
-          phrases << :consular_cni_os_indonesia_embassy_address
-        else
-          phrases << :consular_cni_os_no_clickbook_so_embassy_details
-        end
+        phrases << :consular_cni_os_no_clickbook_so_embassy_details
       end
     end
     if ceremony_country == 'italy'
@@ -869,9 +869,9 @@ outcome :outcome_os_no_cni do
         phrases << :no_cni_os_not_dutch_caribbean_other_resident
       end
     end
-    phrases << :no_cni_os_all_nearest_embassy
+    phrases << :no_cni_os_consular_facilities
     if ceremony_country != 'taiwan'
-      phrases << :no_cni_os_all_but_taiwan_embassy_details
+      phrases << :no_cni_os_all_nearest_embassy_not_taiwan
     end
     phrases << :no_cni_os_all_depositing_certificate
     if ceremony_country == 'united-states'

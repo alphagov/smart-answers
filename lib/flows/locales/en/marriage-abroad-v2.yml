@@ -334,22 +334,6 @@ en-GB:
           ###Applying for a CNI from the consulate
 
           You’ll normally need to have been resident in Kazakhstan for at least 21 days. You can then book an appointment at the consulate to give notice of your marriage. There’s a fee for this service (see below).
-        consular_cni_os_indonesia_embassy_address: |
-
-          $A
-          British Consulate 
-          Jl. Tirta Nadi 2 No. 20
-          Sanur
-          Bali
-          Indonesia
-          $A
-
-          $C
-          +62 361 270601  
-          Public visiting hours:  
-          Monday-Friday 08:30 to 12:00
-          $C
-
         consular_cni_os_no_clickbook_so_embassy_details: |
           %{embassy_details}
         consular_cni_os_local_resident_italy: |
@@ -874,13 +858,13 @@ en-GB:
           Contact your nearest embassy or consulate representing %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
 
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}).
-        no_cni_os_all_nearest_embassy: |
+        no_cni_os_consular_facilities: |
           ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
 
           There aren’t any British consular facilities to register a marriage or get legal documents to prove you’re eligible to marry in %{country_name_lowercase_prefix}.
-
+        no_cni_os_all_nearest_embassy_not_taiwan: |
           However, your nearest embassy or consulate may be able to deposit your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/){:rel="external"} (GRO) in the UK for safe-keeping. There’s a fee for this service (see below).
-        no_cni_os_all_but_taiwan_embassy_details: |
+
           %{embassy_details}
         no_cni_os_all_depositing_certificate: |
           ##Depositing your marriage certificate in the UK
