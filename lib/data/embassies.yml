@@ -4525,21 +4525,20 @@ netherlands:
     British Consulate-General
     Koningslaan 44 
     1075 AE Amsterdam 
-    (PO Box 75488, 1070 AL Amsterdam)
   designation: British Consulate-General
   lat: 52.3557
   lon: 4.86289
   location_name: Amsterdam
-  phone: (31) (20) 676 43 43
+  phone: (+31) (20) 676 43 43
   fax: |-
-    (31) (20) 676 10 69 
-    (31) (20) 675 83 81 Consular Section
+    (+31) (20) 676 10 69 
+    (+31) (20) 675 83 81 Consular Section
   website: /government/world/netherlands
   office_hours: |-
-    Local (GMT + 1):
-    Passport & Consular Services:
-    Monday, Tuesday, Thursday and Friday 09.00-13.00 
-    Telephone Enquiries: 
+    Local (GMT + 1):  
+    Consular Services:  
+    Monday, Tuesday, Thursday and Friday 09.00-12.30  
+    Telephone Enquiries:  
     Monday to Friday: 09.00-13.00 and 14.00-16.30
 new-caledonia:
 - address: |-
