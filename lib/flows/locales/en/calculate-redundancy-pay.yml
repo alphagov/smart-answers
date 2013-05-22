@@ -9,7 +9,7 @@ en-GB:
 
                 You only qualify for statutory redundancy pay if you’ve worked for your employer for at least 2 years.
 
-                ^In Northern Ireland, you can only use this tool for redundancies made after 9 February 2013.^
+                ^If you work in Northern Ireland, you can only use this tool if you were made redundant after 9 February 2013.^
             date_of_redundancy?:
                 title: What date were you made redundant?
                 hint: Use the original redundancy date even if your notice is brought forward, you’re paid in lieu of notice or made redundant after trialing a new job. 
