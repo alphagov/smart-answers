@@ -22,7 +22,7 @@ module SmartAnswer::Calculators
     }
 
     RETAIN_PASSPORT_COUNTRIES = %w(afghanistan angola bangladesh brazil burma burundi china cuba
-                                   east-timor egypt eritrea georgia indonesia iraq india laos lebanon
+                                   east-timor egypt eritrea georgia indonesia iraq laos lebanon
                                    libya morocco nepal north-korea pakistan rwanda
                                    sri-lanka sudan thailand timor-leste tunisia uganda yemen zambia)
 
