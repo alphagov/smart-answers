@@ -389,9 +389,6 @@ en-GB:
         getting_your_passport_jamaica: |
           The British High Commision in Kingston will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
-        getting_your_passport_jordan: |
-          The British Embassy in Amman will contact you when your passport arrives using the contact details on your form. You must collect it in person.
-
         getting_your_passport_nepal : |
           The British Embassy in Kathmandu will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
@@ -866,6 +863,26 @@ en-GB:
             DH97 1PA
           $A
 
+        getting_your_passport_ips1: |
+          Your passport and supporting documents will be delivered separately by courier.
+        getting_your_passport_iraq: |
+          You must collect your passport and supporting documents in person from either:
+
+          - the British Embassy in Baghdad 
+          - the British Consulate General in Erbil
+
+          You must specify where you want them delivered on the application form.
+
+          The embassy or consulate general will contact you when your passport arrives using the contact details on your form. 
+        
+        getting_your_passport_jordan: |
+          Your passport and supporting documents will be delivered to the British Embassy in Amman, Jordan - you must collect them in person. 
+
+          They will contact you when your passport arrives using the contact details on your form.
+        getting_your_passport_yemen: |
+          Your passport and supporting documents will be delivered to the British Embassy in Amman, Jordan - you must collect them in person. 
+
+          They will contact you when your passport arrives using the contact details on your form.
         tracking_and_receiving_ips1: |
           ## Getting your passport
 
@@ -1898,21 +1915,6 @@ en-GB:
 
           You must make your application in person to the British embassy Amman, Jordan.
 
-        getting_your_passport_iraq: |
-          ### Renewals or replacements of lost or stolen passports
-
-          Your passport will be returned for you to collect from either:
-
-          - the British embassy in Baghdad
-          - the British consulate general in Basra
-          - the British consulate general in Erbil
-
-          Choose where you want to collect it from by ticking the appropriate box on the credit card authorisation form you send with your application. The embassy or consulate general will contact you when your passport is ready to collect.
-
-          ### First passport applications
-
-          The British embassy in Baghdad will contact you when your passport and supporting documents arrive using the contact details on your form. You must collect them in person.
-
         how_long_lebanon: |
           Action | Minimum time after you apply
           - | -
@@ -2510,27 +2512,6 @@ en-GB:
             France
           $A
 
-
-        getting_your_passport_yemen: |
-          The British embassy in Amman will contact you when your passport and supporting documents arrive using the contact details on your form.
-
-          They will tell you whether you have to go to the embassy in Amman to collect them, or whether you can pick them up from the embassy in Sana’a (which will make the application process longer).
-
-
-          $A
-          British Embassy  
-          938 Thahr Himyar Street  
-          PO Box 1287 East Ring Road, near Mövenpick Hotel    
-          Sana'a  
-          Yemen  
-
-          Emailbritishembassysanaa@fco.gov.uk  
-          +967 1 308100 or 302480-5  
-          Saturday to Wednesday, 8am to 3pm (local time)  
-
-          +44 207 008 1500 at any other time
-          $A
-
         how_long_zambia: |
           Action | Minimum time after you apply
           - | -
@@ -2743,6 +2724,10 @@ en-GB:
           %{how_to_apply}
 
           %{send_your_application}
+          
+          ## Getting your passport
+
+          %{getting_your_passport}
 
           %{tracking_and_receiving}
 

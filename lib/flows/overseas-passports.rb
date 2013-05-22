@@ -265,6 +265,13 @@ outcome :ips_application_result do
       PhraseList.new(:"send_application_ips#{ips_number}")
     end
   end
+  precalculate :getting_your_passport do
+    if %w(iraq jordan yemen).include?(current_location)
+      PhraseList.new :"getting_your_passport_#{current_location}"
+    else
+      PhraseList.new :"getting_your_passport_ips#{ips_number}"
+    end
+  end
   precalculate :tracking_and_receiving do
     PhraseList.new(:"tracking_and_receiving_ips#{ips_number}")
   end

@@ -236,6 +236,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
             assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
             assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :ips_documents_group_3]
             assert_phrase_list :send_your_application, [:send_application_ips1_durham]
+            assert_phrase_list :getting_your_passport, [:getting_your_passport_iraq]
             assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
           end
         end
@@ -305,6 +306,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
             assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :ips_documents_group_2]
             assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
             assert_phrase_list :send_your_application, [:send_application_ips1]
+            assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
             assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
           end
         end
@@ -517,7 +519,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_current_node :ips_application_result
       assert_phrase_list :cost, [:passport_courier_costs_replacing_ips1, :adult_passport_costs_replacing_ips1, :passport_costs_ips1]
     end
-  end # Malta (FCO with custom phrases)
+  end # Malta (IPS1 with custom phrases)
   context "answer Italy, replacement, adult passport" do
     should "give the fco result with custom phrases" do
       add_response 'italy'
@@ -526,7 +528,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_current_node :ips_application_result
       assert_phrase_list :cost, [:passport_courier_costs_replacing_ips1, :adult_passport_costs_replacing_ips1, :passport_costs_ips1]
     end
-  end # Italy (FCO with custom phrases)
+  end # Italy (IPS1 with custom phrases)
   context "answer Egypt, replacement, adult passport" do
     should "give the fco result with custom phrases" do
       add_response 'egypt'
@@ -538,14 +540,15 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
   end # Egypt (FCO with custom phrases)
   context "answer Jordan, replacement, adult passport" do
-    should "give the fco result with custom phrases" do
+    should "give the ips1 result with custom phrases" do
       add_response 'jordan'
       add_response 'applying'
       add_response 'adult'
       add_response 'united-kingdom'
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_jordan]
       assert_current_node :ips_application_result
     end
-  end # Jordan (FCO with custom phrases)
+  end # Jordan (IPS1 with custom phrases)
   context "answer Iran" do
     should "give a bespoke outcome stating an application is not possible in Iran" do
       add_response 'iran'
