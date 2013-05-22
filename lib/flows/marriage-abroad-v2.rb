@@ -16,7 +16,7 @@ country_select :country_of_ceremony?, :use_legacy_data => true do
   end
   calculate :country_name_lowercase_prefix do
     case ceremony_country
-    when 'bahamas','british-virgin-islands','cayman-islands','czech-republic','dominican-republic','falkland-islands','gambia','maldives','marshall-islands','philippines','russian-federation','seychelles','solomon-islands','south-georgia-and-south-sandwich-islands','turks-and-caicos-islands','united-states'
+    when 'bahamas','british-virgin-islands','cayman-islands','czech-republic','dominican-republic','falkland-islands','gambia','maldives','marshall-islands','netherlands','philippines','russian-federation','seychelles','solomon-islands','south-georgia-and-south-sandwich-islands','turks-and-caicos-islands','united-states'
       "the #{ceremony_country_name}"
     when 'congo-(democratic-republic)'
       "Democratic Republic of Congo"
@@ -44,7 +44,7 @@ country_select :country_of_ceremony?, :use_legacy_data => true do
   end
   calculate :country_name_uppercase_prefix do
     case ceremony_country
-    when 'bahamas','british-virgin-islands','cayman-islands','czech-republic','dominican-republic','falkland-islands','gambia','maldives','marshall-islands','philippines','russian-federation','seychelles','solomon-islands','south-georgia-and-south-sandwich-islands','turks-and-caicos-islands','united-states'
+    when 'bahamas','british-virgin-islands','cayman-islands','czech-republic','dominican-republic','falkland-islands','gambia','maldives','marshall-islands','netherlands','philippines','russian-federation','seychelles','solomon-islands','south-georgia-and-south-sandwich-islands','turks-and-caicos-islands','united-states'
       "The #{ceremony_country_name}"
     when 'congo-(democratic-republic)'
       "Democratic Republic of Congo"
@@ -192,7 +192,7 @@ country_select :residency_nonuk?, :use_legacy_data => true do
   end
   calculate :residency_country_name_lowercase_prefix do
     case residency_country
-    when 'bahamas','british-virgin-islands','cayman-islands','czech-republic','dominican-republic','falkland-islands','gambia','maldives','marshall-islands','philippines','russian-federation','seychelles','solomon-islands','south-georgia-and-south-sandwich-islands','turks-and-caicos-islands','united-states'
+    when 'bahamas','british-virgin-islands','cayman-islands','czech-republic','dominican-republic','falkland-islands','gambia','maldives','marshall-islands','netherlands','philippines','russian-federation','seychelles','solomon-islands','south-georgia-and-south-sandwich-islands','turks-and-caicos-islands','united-states'
       "the #{ceremony_country_name}"
     when 'congo-(democratic-republic)'
       "Democratic Republic of Congo"
@@ -869,9 +869,9 @@ outcome :outcome_os_no_cni do
         phrases << :no_cni_os_not_dutch_caribbean_other_resident
       end
     end
-    phrases << :no_cni_os_all_nearest_embassy
+    phrases << :no_cni_os_consular_facilities
     if ceremony_country != 'taiwan'
-      phrases << :no_cni_os_all_but_taiwan_embassy_details
+      phrases << :no_cni_os_all_nearest_embassy_not_taiwan
     end
     phrases << :no_cni_os_all_depositing_certificate
     if ceremony_country == 'united-states'

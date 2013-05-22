@@ -923,7 +923,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_dutch_caribbean_islands, :no_cni_os_dutch_caribbean_islands_local_resident, :no_cni_os_all_nearest_embassy, :no_cni_os_all_but_taiwan_embassy_details, :no_cni_os_all_depositing_certificate, :no_cni_os_ceremony_not_usa, :no_cni_os_all_fees]
+      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_dutch_caribbean_islands, :no_cni_os_dutch_caribbean_islands_local_resident, :no_cni_os_consular_facilities, :no_cni_os_all_nearest_embassy_not_taiwan, :no_cni_os_all_depositing_certificate, :no_cni_os_ceremony_not_usa, :no_cni_os_all_fees]
     end
   end
 #testing for ceremony in aruba, other resident, partner irish
@@ -937,7 +937,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_dutch_caribbean_islands, :no_cni_os_dutch_caribbean_other_resident, :no_cni_os_all_nearest_embassy, :no_cni_os_all_but_taiwan_embassy_details, :no_cni_os_all_depositing_certificate, :no_cni_os_ceremony_not_usa, :no_cni_os_all_fees, :no_cni_os_naturalisation]
+      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_dutch_caribbean_islands, :no_cni_os_dutch_caribbean_other_resident,:no_cni_os_consular_facilities, :no_cni_os_all_nearest_embassy_not_taiwan, :no_cni_os_all_depositing_certificate, :no_cni_os_ceremony_not_usa, :no_cni_os_all_fees, :no_cni_os_naturalisation]
     end
   end
 #testing for non-dutch caribbean islands
@@ -966,7 +966,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_islands_local_resident, :no_cni_os_all_nearest_embassy, :no_cni_os_all_but_taiwan_embassy_details, :no_cni_os_all_depositing_certificate, :no_cni_os_ceremony_not_usa, :no_cni_os_all_fees]
+      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_islands_local_resident, :no_cni_os_consular_facilities, :no_cni_os_all_nearest_embassy_not_taiwan, :no_cni_os_all_depositing_certificate, :no_cni_os_ceremony_not_usa, :no_cni_os_all_fees]
     end
   end
 #testing for ceremony in aruba, other resident, partner irish
@@ -980,7 +980,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_other_resident, :no_cni_os_all_nearest_embassy, :no_cni_os_all_but_taiwan_embassy_details, :no_cni_os_all_depositing_certificate, :no_cni_os_ceremony_not_usa, :no_cni_os_all_fees, :no_cni_os_naturalisation]
+      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_other_resident, :no_cni_os_consular_facilities, :no_cni_os_all_nearest_embassy_not_taiwan, :no_cni_os_all_depositing_certificate, :no_cni_os_ceremony_not_usa, :no_cni_os_all_fees, :no_cni_os_naturalisation]
     end
   end
 #testing for ceremony in usa
@@ -994,7 +994,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_other_resident, :no_cni_os_all_nearest_embassy, :no_cni_os_all_but_taiwan_embassy_details, :no_cni_os_all_depositing_certificate, :no_cni_os_ceremony_usa, :no_cni_os_all_fees, :no_cni_os_naturalisation]
+      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_other_resident, :no_cni_os_consular_facilities, :no_cni_os_all_nearest_embassy_not_taiwan,:no_cni_os_all_depositing_certificate, :no_cni_os_ceremony_usa, :no_cni_os_all_fees, :no_cni_os_naturalisation]
     end
   end
 
@@ -1383,7 +1383,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_other_resident, :no_cni_os_all_nearest_embassy, :no_cni_os_all_but_taiwan_embassy_details, :no_cni_os_all_depositing_certificate, :no_cni_os_ceremony_not_usa, :no_cni_os_all_fees, :no_cni_os_naturalisation]
+      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_other_resident, :no_cni_os_consular_facilities, :no_cni_os_all_nearest_embassy_not_taiwan,:no_cni_os_all_depositing_certificate, :no_cni_os_ceremony_not_usa, :no_cni_os_all_fees, :no_cni_os_naturalisation]
     end
   end
 
