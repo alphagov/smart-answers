@@ -854,6 +854,18 @@ en-GB:
             United Kingdom
           $A
 
+        send_application_ips1_durham: |
+
+          
+          $A
+            Her Majesty's Passport Office 
+            OVS-D 
+            Millburngate House 
+            Millburngate 
+            Durham 
+            DH97 1PA
+          $A
+
         tracking_and_receiving_ips1: |
           ## Getting your passport
 
