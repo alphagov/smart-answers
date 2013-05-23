@@ -17,26 +17,8 @@ country_select :country_of_ceremony?, :use_legacy_data => true do
   calculate :country_name_lowercase_prefix do
     if data_query.countries_with_definitive_articles?(ceremony_country)
       "the #{ceremony_country_name}"
-    elsif %w(congo-(democratic-republic)).include?(ceremony_country)
-      "Democratic Republic of Congo"
-    elsif %w(cote-d_ivoire-(ivory-coast)).include?(ceremony_country)
-      "Cote d Ivoire"
-    elsif %w(dominica,-commonwealth-of).include?(ceremony_country)
-      "Dominica"
-    elsif %w(hong-kong-(sar-of-china)).include?(ceremony_country)
-      "Hong Kong"
-    elsif %w(pitcairn).include?(ceremony_country)
-      "Pitcairn Island"
-    elsif %w(russian-federation).include?(ceremony_country)
-      "Russia"
-    elsif %w(korea).include?(ceremony_country)
-      "South Korea"
-    elsif %w(st-helena).include?(ceremony_country)
-      "St Helena"
-    elsif %w(tristan-da-cunha).include?(ceremony_country)
-      "Tristan da Cunha"
-    elsif %w(united-states).include?(ceremony_country)
-      "USA"
+    elsif SmartAnswer::Calculators::MarriageAbroadDataQueryV2::COUNTRY_NAME_TRANSFORM.has_key?(ceremony_country)
+      SmartAnswer::Calculators::MarriageAbroadDataQueryV2::COUNTRY_NAME_TRANSFORM[ceremony_country]
     else
       "#{ceremony_country_name}"
     end
@@ -49,29 +31,8 @@ country_select :country_of_ceremony?, :use_legacy_data => true do
     end
   end
   calculate :country_name_for_links do
-    case ceremony_country
-    when 'ascension-island'
-      "st-helena-ascension-and-tristan-da-cunha"
-    when 'congo-(democratic-republic)'
-      "democratic-republic-of-congo"
-    when 'cote-d_ivoire-(ivory-coast)'
-      "cote-d-ivoire"
-    when 'dominica,-commonwealth-of'
-      "dominica"
-    when 'hong-kong-(sar-of-china)'
-      "hong-kong"
-    when 'pitcairn'
-      "pitcairn-island"
-    when "russian-federation"
-      "russia"
-    when 'korea'
-      "south-korea"
-    when 'st-helena'
-      "st-helena-ascension-and-tristan-da-cunha"
-    when 'tristan-da-cunha'
-      "st-helena-ascension-and-tristan-da-cunha"
-    when 'united-states'
-      "usa"
+    if SmartAnswer::Calculators::MarriageAbroadDataQueryV2::LINK_NAME_TRANSFORM.has_key?(ceremony_country)
+      SmartAnswer::Calculators::MarriageAbroadDataQueryV2::LINK_NAME_TRANSFORM[ceremony_country]
     else
       "#{ceremony_country}"
     end
@@ -180,54 +141,15 @@ country_select :residency_nonuk?, :use_legacy_data => true do
   calculate :residency_country_name_lowercase_prefix do
     if data_query.countries_with_definitive_articles?(residency_country)
       "the #{residency_country_name}"
-    elsif %w(congo-(democratic-republic)).include?(residency_country)
-      "Democratic Republic of Congo"
-    elsif %w(cote-d_ivoire-(ivory-coast)).include?(residency_country)
-      "Cote d Ivoire"
-    elsif %w(dominica,-commonwealth-of).include?(residency_country)
-      "Dominica"
-    elsif %w(hong-kong-(sar-of-china)).include?(residency_country)
-      "Hong Kong"
-    elsif %w(pitcairn).include?(residency_country)
-      "Pitcairn Island"
-    elsif %w(russian-federation).include?(residency_country)
-      "Russia"
-    elsif %w(korea).include?(residency_country)
-      "South Korea"
-    elsif %w(st-helena).include?(residency_country)
-      "St Helena"
-    elsif %w(tristan-da-cunha).include?(residency_country)
-      "Tristan da Cunha"
-    elsif %w(united-states).include?(residency_country)
-      "USA"
+    elsif SmartAnswer::Calculators::MarriageAbroadDataQueryV2::COUNTRY_NAME_TRANSFORM.has_key?(residency_country)
+      SmartAnswer::Calculators::MarriageAbroadDataQueryV2::COUNTRY_NAME_TRANSFORM[residency_country]
     else
       "#{residency_country_name}"
     end
   end
   calculate :residency_country_link_names do
-    case residency_country
-    when 'ascension-island'
-      "st-helena-ascension-and-tristan-da-cunha"
-    when 'congo-(democratic-republic)'
-      "democratic-republic-of-congo"
-    when 'cote-d_ivoire-(ivory-coast)'
-      "cote-d-ivoire"
-    when 'dominica,-commonwealth-of'
-      "dominica"
-    when 'hong-kong-(sar-of-china)'
-      "hong-kong"
-    when 'pitcairn'
-      "pitcairn-island"
-    when "russian-federation"
-      "russia"
-    when 'korea'
-      "south-korea"
-    when 'st-helena'
-      "st-helena-ascension-and-tristan-da-cunha"
-    when 'tristan-da-cunha'
-      "st-helena-ascension-and-tristan-da-cunha"
-    when 'united-states'
-      "usa"
+    if SmartAnswer::Calculators::MarriageAbroadDataQueryV2::LINK_NAME_TRANSFORM.has_key?(residency_country)
+      SmartAnswer::Calculators::MarriageAbroadDataQueryV2::LINK_NAME_TRANSFORM[residnecy_country]
     else
       "#{residency_country}"
     end

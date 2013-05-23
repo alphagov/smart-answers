@@ -765,7 +765,7 @@ en-GB:
           Issuing a certificate of custom law (certificat de coutume) | £65
           Depositing a marriage certificate | £35
 
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{ceremony_country_name}](/government/publications/%{country_name_for_links}-consular-fees).
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{country_name_for_links}-consular-fees).
 
           You can pay by cash or credit card, but not by personal cheque.
 
@@ -835,7 +835,7 @@ en-GB:
           Affirmation for freedom to marry in any other language | £70
           Depositing a marriage certificate | £35
 
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{ceremony_country_name}](/government/publications/%{country_name_for_links}-consular-fees).
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{country_name_for_links}-consular-fees).
 
           You can pay by cash or credit card, but not by personal cheque.
 
@@ -887,7 +887,7 @@ en-GB:
 
           Depositing a marriage certificate through the embassy or consulate costs £35.
 
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{ceremony_country_name}](/government/publications/%{country_name_for_links}-consular-fees).
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{country_name_for_links}-consular-fees).
 
           You can pay by cash or credit card, but not by personal cheque.
         no_cni_os_naturalisation: |
@@ -1072,7 +1072,7 @@ en-GB:
           Issuing a CNI or equivalent | £65
           Depositing a civil partnership certificate | £35
 
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{ceremony_country_name}](/government/publications/%{country_name_for_links}-consular-fees).
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{country_name_for_links}-consular-fees).
         cp_or_equivalent_cp_local_currency_countries: |
           ^You can only pay by cash in %{country_name_lowercase_prefix}. This must be in the local currency.^
         cp_or_equivalent_cp_cash_or_credit_card_countries: |
@@ -1161,7 +1161,7 @@ en-GB:
           Issuing a certificate of custom law (certificat de coutume) | £65
           Depositing a PACS certificate | £35
 
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{ceremony_country_name}](/government/publications/%{country_name_for_links}-consular-fees).
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{country_name_for_links}-consular-fees).
 
           You can pay by cash or credit card, but not by personal cheque.
 
@@ -1259,7 +1259,7 @@ en-GB:
 
           Depositing a civil partnership certificate through the embassy or consulate costs £35.
 
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{ceremony_country_name}](/government/publications/%{country_name_for_links}-consular-fees).
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{country_name_for_links}-consular-fees).
 
           You can pay by cash or credit card, but not by personal cheque.
 #CP in commonwealth countries phrases
@@ -1362,7 +1362,7 @@ en-GB:
           Registering a civil partnership | £140
           Issuing a civil partnership certificate | £65
 
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{ceremony_country_name}](/government/publications/%{country_name_for_links}-consular-fees).
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{country_name_for_links}-consular-fees).
 
 #CP in countries with consular CNI (exc australia) phrases
         consular_cni_cp_ceremony_not_czech_republic: |

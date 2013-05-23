@@ -27,6 +27,33 @@ module SmartAnswer::Calculators
 
     COUNTRIES_WITH_DEFINITIVE_ARTICLES = %(bahamas british-virgin-islands cayman-islands czech-republic dominican-republic falkland-islands gambia maldives marshall-islands netherlands philippines russian-federation seychelles solomon-islands south-georgia-and-south-sandwich-islands turks-and-caicos-islands united-states)
 
+    COUNTRY_NAME_TRANSFORM = { 
+      "congo-(democratic-republic)" => "Democratic Republic of Congo",
+      "cote-d_ivoire-(ivory-coast)" => "Cote d Ivoire",
+      "dominica,-commonwealth-of" => "Dominica",
+      "hong-kong-(sar-of-china)" => "Hong Kong",
+      "pitcairn" => "Pitcairn Island",
+      "russian-federation" => "Russia",
+      "korea" => "South Korea",
+      "st-helena" => "St Helena", 
+      "tristan-da-cunha" => "Tristan da Cunha",
+      "united-states" => "USA"
+    }
+
+    LINK_NAME_TRANSFORM = {
+      "ascension-island" => "st-helena-ascension-and-tristan-da-cunha",
+      "congo-(democratic-republic)" => "democratic-republic-of-congo",
+      "cote-d_ivoire-(ivory-coast)" => "cote-d-ivoire",
+      "dominica,-commonwealth-of" => "dominica",
+      "hong-kong-(sar-of-china)" => "hong-kong",
+      "pitcairn" => "pitcairn-island",
+      "russian-federation" => "russia",
+      "korea" => "south-korea",
+      "st-helena" => "st-helena-ascension-and-tristan-da-cunha",
+      "tristan-da-cunha" => "st-helena-ascension-and-tristan-da-cunha",
+      "united-states" => "usa"
+    }
+
     attr_reader :embassy_data
 
     def initialize
