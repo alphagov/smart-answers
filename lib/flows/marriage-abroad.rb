@@ -422,9 +422,7 @@ outcome :outcome_os_consular_cni do
     phrases << :consular_cni_all_what_you_need_to_do
 
     if ceremony_country != 'italy' and ceremony_country != 'spain'
-      if ceremony_country == 'germany' and resident_of == 'other'
-        ''
-      else
+      unless ceremony_country == 'germany' and resident_of == 'other'
         phrases << :consular_cni_os_ceremony_not_spain_or_italy
       end
     end
