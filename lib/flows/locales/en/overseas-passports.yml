@@ -28,7 +28,7 @@ en-GB:
         "child-born-outside-uk-father-citizen": "Applying for a child born outside the UK after 1 July 2006, with the father born in UK but not married to mother"
         "woman-married-to-uk-citizen-pre-1949": "You’re a woman married to a British Citizen before 1 January 1949"
       which_country_are_you_in?:
-        title: Which country are you in?
+        title: What country or territory are you in?
       renewing_replacing_applying?:
         title: Are you renewing, replacing or applying for a first passport?
         options:
