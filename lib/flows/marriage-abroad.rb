@@ -1,5 +1,5 @@
 status :published
-satisfies_need "FCO-01"
+satisfies_need "2799"
 
 data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
