@@ -62,7 +62,7 @@ belarus:
   type: ips_application_2
   group: ips_documents_group_3
 belgium: 
-  type: paris_france
+  type: ips_application_1
   group: ips_documents_group_1
 belize: 
   type: washington_usa
@@ -301,7 +301,7 @@ iran:
   type: ips_application_1
   group: ips_documents_group_3
 iraq: 
-  type: iraq
+  type: ips_application_1 
   group: ips_documents_group_3
   helpline: paris_france
 ireland: 
@@ -311,7 +311,7 @@ israel:
   type: paris_france
   group: ips_documents_group_1
 italy: 
-  type: paris_france
+  type: ips_application_1
   group: ips_documents_group_2
 jamaica: 
   type: washington_usa
@@ -320,7 +320,7 @@ japan:
   type: hong_kong
   group: ips_documents_group_1
 jordan: 
-  type: paris_france
+  type: ips_application_1 
   group: ips_documents_group_1
 kazakhstan: 
   type: ips_application_2
@@ -365,13 +365,13 @@ libya:
   type: ips_application_3
   group: ips_documents_group_3
 liechtenstein: 
-  type: paris_france
+  type: ips_application_1 
   group: ips_documents_group_1
 lithuania: 
   type: ips_application_1
   group: ips_documents_group_1
 luxembourg: 
-  type: paris_france
+  type: ips_application_1 
   group: ips_documents_group_1
 macao: 
   type: hong_kong
@@ -395,7 +395,7 @@ mali:
   type: pretoria_south_africa 
   group: ips_documents_group_3
 malta: 
-  type: paris_france
+  type: ips_application_1 
   group: ips_documents_group_1
 marshall-islands: 
   type: hong_kong
@@ -449,7 +449,7 @@ nepal:
   type: hong_kong
   group: ips_documents_group_3
 netherlands: 
-  type: paris_france
+  type: ips_application_1 
   group: ips_documents_group_1
 new-caledonia: 
   type: wellington_new_zealand
@@ -528,7 +528,7 @@ samoa:
   type: wellington_new_zealand
   group: ips_documents_group_1
 san-marino: 
-  type: paris_france
+  type: ips_application_1
   group: ips_documents_group_1
 sao-tome-and-principe: 
   type: paris_france
@@ -613,7 +613,7 @@ sweden:
   type: ips_application_1
   group: ips_documents_group_1
 switzerland: 
-  type: paris_france
+  type: ips_application_1
   group: ips_documents_group_1
 syria: 
   type: syria
@@ -700,7 +700,7 @@ western-sahara:
   type: ips_application_2
   group: ips_documents_group_3
 yemen: 
-  type: yemen
+  type: ips_application_1
   group: ips_documents_group_3
   helpline: yemen
 zambia: 

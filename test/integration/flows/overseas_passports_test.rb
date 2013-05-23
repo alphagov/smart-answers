@@ -201,7 +201,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
   end # Afghanistan
 
-  # Iraq (An example of bespoke application process with non-standard embassies). 
+  # Iraq (An example of ips 1 application with some conditional phrases). 
   context "answer Iraq" do
     setup do
       add_response 'iraq'
@@ -209,7 +209,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     should "ask if you are renewing, replacing or applying for a passport" do
       assert_current_node :renewing_replacing_applying?
       assert_state_variable :current_location, 'iraq'
-      assert_state_variable :application_type, 'iraq'
+      assert_state_variable :application_type, 'ips_application_1'
     end
     context "answer applying" do
       setup do
@@ -219,27 +219,27 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         assert_current_node :child_or_adult_passport?
       end
       context "answer adult" do
-        should "give the result and be done" do
+        setup do
           add_response 'adult'
-          assert_phrase_list :fco_forms, [:adult_fco_forms]
-          assert_phrase_list :how_long_it_takes, [:how_long_iraq]
-          assert_phrase_list :cost, [:cost_iraq]
-          assert_phrase_list :how_to_apply, [:how_to_apply_iraq]
-          assert_phrase_list :supporting_documents, [:supporting_documents_iraq_applying]
-          assert_phrase_list :making_application, [:making_application_iraq]
-          assert_phrase_list :getting_your_passport, [:getting_your_passport_iraq]
-          assert_match /British Embassy, Baghdad/, current_state.embassy_address
-          assert_match /Passport opening times: Sun - Wed: 08.30-1200/, current_state.embassy_details
-          assert_phrase_list :helpline, [:helpline_intro, :helpline_paris_france, :helpline_fco_webchat]
-          assert_current_node :result
         end
-      end
-    end
-    context "Renewing" do
-      should "tell you to retain your passport" do
-        add_response 'renewing_old'
-        add_response 'adult'
-        assert_phrase_list :how_to_apply, [:how_to_apply_iraq, :how_to_apply_retain_passport]
+        should "ask the country of birth" do
+          assert_current_node :country_of_birth?
+        end
+        context "answer UK" do
+          setup do
+            add_response 'united-kingdom'
+          end
+          should "give the result and be done" do
+            assert_current_node :ips_application_result
+            assert_phrase_list :fco_forms, [:adult_fco_forms]
+            assert_phrase_list :how_long_it_takes, [:how_long_applying_ips1, :how_long_it_takes_ips1]
+            assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
+            assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :ips_documents_group_3]
+            assert_phrase_list :send_your_application, [:send_application_ips1_durham]
+            assert_phrase_list :getting_your_passport, [:getting_your_passport_iraq]
+            assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
+          end
+        end
       end
     end
   end # Iraq 
@@ -306,6 +306,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
             assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :ips_documents_group_2]
             assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
             assert_phrase_list :send_your_application, [:send_application_ips1]
+            assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
             assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
           end
         end
@@ -378,6 +379,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
             assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :ips_documents_group_1]
             assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
             assert_phrase_list :send_your_application, [:send_application_ips1]
+            assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
             assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
             assert_state_variable :embassy_address, nil
             assert_state_variable :supporting_documents, 'ips_documents_group_1'
@@ -427,6 +429,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :ips_documents_group_3]
         assert_phrase_list :cost, [:passport_courier_costs_ips2, :adult_passport_costs_ips2, :passport_costs_ips_cash]
         assert_phrase_list :send_your_application, [:send_application_ips2]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_ips2]
         assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips2]
       end
     end # Applying
@@ -454,6 +457,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :ips_documents_group_3]
         assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :send_your_application, [:send_application_ips3]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
         assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips3]
         assert_match "45 Khagani Street", current_state.send(:embassy_address)
         assert_match "Mon-Fri: 09:00 - 17:00 Local Time", current_state.embassy_address
@@ -515,19 +519,19 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'malta'
       add_response 'replacing'
       add_response 'adult'
-      assert_current_node :fco_result
-      assert_phrase_list :cost, [:passport_courier_costs_fco_europe, :adult_passport_costs_fco_europe, :passport_costs_malta_netherlands]
+      assert_current_node :ips_application_result
+      assert_phrase_list :cost, [:passport_courier_costs_replacing_ips1, :adult_passport_costs_replacing_ips1, :passport_costs_ips1]
     end
-  end # Malta (FCO with custom phrases)
+  end # Malta (IPS1 with custom phrases)
   context "answer Italy, replacement, adult passport" do
     should "give the fco result with custom phrases" do
       add_response 'italy'
       add_response 'replacing'
       add_response 'adult'
-      assert_current_node :fco_result
-      assert_phrase_list :cost, [:passport_courier_costs_fco_europe, :adult_passport_costs_fco_europe, :passport_costs_france_italy_switz]
+      assert_current_node :ips_application_result
+      assert_phrase_list :cost, [:passport_courier_costs_replacing_ips1, :adult_passport_costs_replacing_ips1, :passport_costs_ips1]
     end
-  end # Italy (FCO with custom phrases)
+  end # Italy (IPS1 with custom phrases)
   context "answer Egypt, replacement, adult passport" do
     should "give the fco result with custom phrases" do
       add_response 'egypt'
@@ -539,14 +543,15 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
   end # Egypt (FCO with custom phrases)
   context "answer Jordan, replacement, adult passport" do
-    should "give the fco result with custom phrases" do
+    should "give the ips1 result with custom phrases" do
       add_response 'jordan'
       add_response 'applying'
       add_response 'adult'
-      assert_phrase_list :supporting_documents, [:supporting_documents_jordan_applying]
-      assert_current_node :fco_result
+      add_response 'united-kingdom'
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_jordan]
+      assert_current_node :ips_application_result
     end
-  end # Jordan (FCO with custom phrases)
+  end # Jordan (IPS1 with custom phrases)
   context "answer Iran" do
     should "give a bespoke outcome stating an application is not possible in Iran" do
       add_response 'iran'
@@ -619,13 +624,13 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'yemen'
       add_response 'applying'
       add_response 'adult'
-      assert_current_node :result
-      assert_phrase_list :how_long_it_takes, [:how_long_yemen]
-      assert_phrase_list :how_to_apply, [:how_to_apply_yemen]
-      assert_phrase_list :cost, [:cost_yemen]
-      assert_phrase_list :supporting_documents, [:supporting_documents_yemen_applying]
-      assert_phrase_list :making_application, [:making_application_yemen]
-      assert_phrase_list :making_application_additional, [:making_application_additional_yemen]
+      add_response 'united-kingdom'
+      assert_current_node :ips_application_result
+      assert_phrase_list :how_long_it_takes, [:how_long_applying_ips1, :how_long_it_takes_ips1]
+      assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :ips_documents_group_3]
+      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
+      assert_phrase_list :send_your_application, [:send_application_ips1_durham]
+      assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
     end
   end # Yemen
   context "answer Haiti, applying, adult passport" do
