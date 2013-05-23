@@ -1,11 +1,11 @@
-status :published
+status :draft
 satisfies_need "FCO-01"
 
 data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
-
-
 i18n_prefix = 'flow.marriage-abroad'
+use_second_embassy_address = %w(bosnia-and-herzegovina india)
+use_third_embassy_address = %w(indonesia)
 
 # Q1
 country_select :country_of_ceremony?, :use_legacy_data => true do
@@ -15,104 +15,56 @@ country_select :country_of_ceremony?, :use_legacy_data => true do
     LegacyCountry.all.find { |c| c.slug == responses.last }.name
   end
   calculate :country_name_lowercase_prefix do
-    case ceremony_country
-    when 'bahamas','british-virgin-islands','cayman-islands','czech-republic','dominican-republic','falkland-islands','gambia','maldives','marshall-islands','philippines','russian-federation','seychelles','solomon-islands','south-georgia-and-south-sandwich-islands','turks-and-caicos-islands','united-states'
+    if data_query.countries_with_definitive_articles?(ceremony_country)
       "the #{ceremony_country_name}"
-    when 'congo-(democratic-republic)'
-      "Democratic Republic of Congo"
-    when 'cote-d_ivoire-(ivory-coast)'
-      "Cote d Ivoire"
-    when 'dominica,-commonwealth-of'
-      "Dominica"
-    when 'hong-kong-(sar-of-china)'
-      "Hong Kong"
-    when 'pitcairn'
-      "Pitcairn Island"
-    when "russian-federation"
-      "Russia"
-    when 'korea'
-      "South Korea"
-    when 'st-helena'
-      "St Helena"
-    when 'tristan-da-cunha'
-      "Tristan da Cunha"
-    when 'united-states'
-      "USA"
+    elsif SmartAnswer::Calculators::MarriageAbroadDataQuery::COUNTRY_NAME_TRANSFORM.has_key?(ceremony_country)
+      SmartAnswer::Calculators::MarriageAbroadDataQuery::COUNTRY_NAME_TRANSFORM[ceremony_country]
     else
       "#{ceremony_country_name}"
     end
   end
   calculate :country_name_uppercase_prefix do
-    case ceremony_country
-    when 'bahamas','british-virgin-islands','cayman-islands','czech-republic','dominican-republic','falkland-islands','gambia','maldives','marshall-islands','philippines','russian-federation','seychelles','solomon-islands','south-georgia-and-south-sandwich-islands','turks-and-caicos-islands','united-states'
+    if data_query.countries_with_definitive_articles?(ceremony_country)
       "The #{ceremony_country_name}"
-    when 'congo-(democratic-republic)'
-      "Democratic Republic of Congo"
-    when 'cote-d_ivoire-(ivory-coast)'
-      "Cote d Ivoire"
-    when 'dominica,-commonwealth-of'
-      "Dominica"
-    when 'hong-kong-(sar-of-china)'
-      "Hong Kong"
-    when 'pitcairn'
-      "Pitcairn Island"
-    when "russian-federation"
-      "Russia"
-    when 'korea'
-      "South Korea"
-    when 'st-helena'
-      "St Helena"
-    when 'tristan-da-cunha'
-      "Tristan da Cunha"
-    when 'united-states'
-      "USA"
     else
-      "#{ceremony_country_name}"
+      "#{country_name_lowercase_prefix}"
     end
   end
   calculate :country_name_for_links do
-    case ceremony_country
-    when 'ascension-island'
-      "st-helena-ascension-and-tristan-da-cunha"
-    when 'congo-(democratic-republic)'
-      "democratic-republic-of-congo"
-    when 'cote-d_ivoire-(ivory-coast)'
-      "cote-d-ivoire"
-    when 'dominica,-commonwealth-of'
-      "dominica"
-    when 'hong-kong-(sar-of-china)'
-      "hong-kong"
-    when 'pitcairn'
-      "pitcairn-island"
-    when "russian-federation"
-      "russia"
-    when 'korea'
-      "south-korea"
-    when 'st-helena'
-      "st-helena-ascension-and-tristan-da-cunha"
-    when 'tristan-da-cunha'
-      "st-helena-ascension-and-tristan-da-cunha"
-    when 'united-states'
-      "usa"
+    if SmartAnswer::Calculators::MarriageAbroadDataQuery::LINK_NAME_TRANSFORM.has_key?(ceremony_country)
+      SmartAnswer::Calculators::MarriageAbroadDataQuery::LINK_NAME_TRANSFORM[ceremony_country]
     else
       "#{ceremony_country}"
     end
   end
-
-
+  calculate :country_name_partner_residence do
+    if data_query.british_overseas_territories?(ceremony_country)
+      "British (overseas territories citizen)"
+    elsif data_query.french_overseas_territories?(ceremony_country)
+      "French"
+    elsif data_query.dutch_caribbean_islands?(ceremony_country)
+      "Dutch"
+    elsif %w(hong-kong-(sar-of-china) macao).include?(ceremony_country)
+      "Chinese" 
+    else
+      "National of #{country_name_lowercase_prefix}"
+    end
+  end
   calculate :embassy_address do
     data = data_query.find_embassy_data(ceremony_country)
     data.first['address'] if data
   end
   calculate :embassy_details do
     details = data_query.find_embassy_data(ceremony_country)
-    if details
-      details = details.first
-      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
-                     address: details['address'], phone: details['phone'], email: details['email'], office_hours: details['office_hours'])
+    if use_third_embassy_address.include?(ceremony_country)
+      details = details.third
+    elsif use_second_embassy_address.include?(ceremony_country)
+      details = details.second
     else
-      ''
+      details = details.first
     end
+      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
+                       address: details['address'], phone: details['phone'], email: details['email'], office_hours: details['office_hours'])
   end
   calculate :clickbook_data do
     reg_data_query.clickbook(ceremony_country)
@@ -120,29 +72,25 @@ country_select :country_of_ceremony?, :use_legacy_data => true do
   calculate :multiple_clickbooks do
     clickbook_data and clickbook_data.class == Hash
   end
-  calculate :clickbooks do
-    result = ''
-    if multiple_clickbooks
-      clickbook_data.each do |k,v|
-          result += I18n.translate!(i18n_prefix + ".phrases.multiple_clickbook_link", city: k, url: v) << "\n"
-      end
+  calculate :embassy_or_consulate_ceremony_country do
+    if reg_data_query.has_consulate?(ceremony_country) or reg_data_query.has_consulate_general?(ceremony_country)
+      "consulate"
+    else
+      "embassy"
     end
-    result
   end
 
   next_node do |response|
     if response == 'ireland'
       :partner_opposite_or_same_sex?
-    elsif response == 'spain'
-      :outcome_spain_italy
-    elsif response == 'italy'
-      :outcome_spain_italy
     else
       :legal_residency?
     end
   end
+
 end
 
+  
 # Q2
 multiple_choice :legal_residency? do
   option :uk => :residency_uk?
@@ -162,7 +110,25 @@ multiple_choice :residency_uk? do
   option :uk_ci
 
   save_input_as :residency_uk_region
-  next_node :what_is_your_partners_nationality?
+
+  next_node do |response|
+    case response.to_s
+    when 'uk_iom','uk_ci'
+      if data_query.os_other_countries?(ceremony_country)
+        :what_is_your_partners_nationality?
+      else
+        :outcome_os_iom_ci
+      end
+    else
+      if ceremony_country == 'france' or %w(new-caledonia wallis-and-futuna).include?(ceremony_country)
+        :marriage_or_pacs?
+      elsif %w(french-guiana french-polynesia guadeloupe martinique mayotte reunion st-pierre-and-miquelon).include?(ceremony_country)
+        :outcome_os_france_or_fot
+      else
+        :what_is_your_partners_nationality?
+      end
+    end
+  end
 end
 
 # Q3b
@@ -172,8 +138,70 @@ country_select :residency_nonuk?, :use_legacy_data => true do
   calculate :residency_country_name do
     LegacyCountry.all.find { |c| c.slug == responses.last }.name
   end
+  calculate :residency_country_name_lowercase_prefix do
+    if data_query.countries_with_definitive_articles?(residency_country)
+      "the #{residency_country_name}"
+    elsif SmartAnswer::Calculators::MarriageAbroadDataQuery::COUNTRY_NAME_TRANSFORM.has_key?(residency_country)
+      SmartAnswer::Calculators::MarriageAbroadDataQuery::COUNTRY_NAME_TRANSFORM[residency_country]
+    else
+      "#{residency_country_name}"
+    end
+  end
+  calculate :residency_country_link_names do
+    if SmartAnswer::Calculators::MarriageAbroadDataQuery::LINK_NAME_TRANSFORM.has_key?(residency_country)
+      SmartAnswer::Calculators::MarriageAbroadDataQuery::LINK_NAME_TRANSFORM[residnecy_country]
+    else
+      "#{residency_country}"
+    end
+  end
+  calculate :residency_embassy_address do
+    data = data_query.find_embassy_data(residency_country)
+    data.first['address'] if data
+  end
+  calculate :residency_embassy_details do
+    details = data_query.find_embassy_data(residency_country)
+    if use_third_embassy_address.include?(residency_country)
+      details = details.third
+    elsif use_second_embassy_address.include?(residency_country)
+      details = details.second
+    else
+      details = details.first
+    end
+      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
+                       address: details['address'], phone: details['phone'], email: details['email'], office_hours: details['office_hours'])
+  end
+  calculate :embassy_or_consulate_residency_country do
+    if reg_data_query.has_consulate?(residency_country) or reg_data_query.has_consulate_general?(residency_country)
+      "consulate"
+    else
+      "embassy"
+    end
+  end
 
-  next_node :what_is_your_partners_nationality?
+  next_node do
+    if %w(france new-caledonia wallis-and-futuna).include?(ceremony_country)
+      :marriage_or_pacs?
+    elsif %w(french-guiana french-polynesia guadeloupe martinique mayotte new-caledonia reunion st-pierre-and-miquelon).include?(ceremony_country)
+      :outcome_os_france_or_fot
+    else
+      :what_is_your_partners_nationality?
+    end
+  end
+  
+end
+
+# Q3c
+multiple_choice :marriage_or_pacs? do
+  option :marriage
+  option :pacs
+
+  next_node do |response|
+    if response == 'marriage'
+      :outcome_os_france_or_fot
+    else
+      :outcome_cp_france_pacs
+    end
+  end
 end
 
 # Q4
@@ -210,13 +238,11 @@ multiple_choice :partner_opposite_or_same_sex? do
         :outcome_os_commonwealth
       elsif data_query.british_overseas_territories?(ceremony_country)
         :outcome_os_bot
-      elsif data_query.os_consular_cni_countries?(ceremony_country)
+      elsif data_query.os_consular_cni_countries?(ceremony_country) or (resident_of == 'uk' and data_query.os_no_marriage_related_consular_services?(ceremony_country))
         :outcome_os_consular_cni
-      elsif ceremony_country == 'france' or data_query.french_overseas_territories?(ceremony_country)
-        :outcome_os_france_or_fot
-      elsif ceremony_country == 'thailand' or ceremony_country == 'egypt' or ceremony_country == 'korea' or ceremony_country == 'lebanon'
+      elsif %w(thailand egypt korea lebanon).include?(ceremony_country)
         :outcome_os_affirmation
-      elsif data_query.os_no_consular_cni_countries?(ceremony_country)
+      elsif data_query.os_no_consular_cni_countries?(ceremony_country) or (resident_of == 'other' and data_query.os_no_marriage_related_consular_services?(ceremony_country))
         :outcome_os_no_cni
       elsif data_query.os_other_countries?(ceremony_country)
         :outcome_os_other_countries
@@ -224,6 +250,8 @@ multiple_choice :partner_opposite_or_same_sex? do
     else
       if ceremony_country == 'ireland'
         :outcome_ireland
+      elsif ceremony_country == 'spain'
+        :outcome_os_consular_cni
       elsif data_query.cp_equivalent_countries?(ceremony_country)
         :outcome_cp_cp_or_equivalent
       elsif ceremony_country == 'czech-republic'
@@ -232,11 +260,9 @@ multiple_choice :partner_opposite_or_same_sex? do
         else
           :outcome_cp_consular_cni
         end
-      elsif ceremony_country == 'france' or ceremony_country == 'new-caledonia' or ceremony_country == 'wallis-and-futuna'
-        :outcome_cp_france_pacs
       elsif data_query.cp_cni_not_required_countries?(ceremony_country)
         :outcome_cp_no_cni
-      elsif ceremony_country == 'australia' or ceremony_country == 'canada' or ceremony_country == 'new-zealand' or ceremony_country == 'south-africa'
+      elsif %w(australia canada new-zealand south-africa).include?(ceremony_country)
         :outcome_cp_commonwealth_countries
       elsif data_query.cp_consular_cni_countries?(ceremony_country)
         :outcome_cp_consular_cni
@@ -247,7 +273,26 @@ multiple_choice :partner_opposite_or_same_sex? do
   end
 end
 
-
+outcome :outcome_os_iom_ci do
+  precalculate :iom_ci_os_outcome do
+    phrases = PhraseList.new
+    phrases << :iom_ci_os_all
+    if ceremony_country == 'spain'
+      phrases << :iom_ci_os_spain
+    end
+    if residency_uk_region == 'uk_iom'
+      phrases << :iom_ci_os_resident_of_iom
+    else
+      phrases << :iom_ci_os_resident_of_ci
+    end
+    if ceremony_country != 'italy'
+      phrases << :iom_ci_os_ceremony_not_italy
+    else
+      phrases << :iom_ci_os_ceremony_italy
+    end
+    phrases
+  end
+end
 outcome :outcome_ireland do
   precalculate :ireland_partner_sex_variant do
     if sex_of_your_partner == 'opposite_sex'
@@ -316,6 +361,8 @@ outcome :outcome_os_bot do
     phrases = PhraseList.new
     if ceremony_country == 'british-indian-ocean-territory'
       phrases << :bot_os_ceremony_biot
+    elsif ceremony_country == 'british-virgin-islands'
+      phrases << :bot_os_ceremony_bvi
     else
       phrases << :bot_os_ceremony_non_biot
       if residency_country != ceremony_country
@@ -331,109 +378,151 @@ end
 
 outcome :outcome_os_consular_cni do
   precalculate :consular_cni_os_start do
-    phrases = PhraseList.new 
-    if resident_of == 'uk'
+    phrases = PhraseList.new
+    if ceremony_country == 'ecuador' and partner_nationality == 'partner_local' and residency_country != 'ecuador'
+      phrases << :ecuador_os_consular_cni
+    end
+    if resident_of == 'uk' and ceremony_country != 'italy' and !data_query.dutch_caribbean_islands?(ceremony_country)
       phrases << :uk_resident_os_consular_cni
-    elsif residency_country == ceremony_country
+    elsif residency_country == ceremony_country and ceremony_country != 'italy'
       phrases << :local_resident_os_consular_cni
+    elsif resident_of == 'uk' and data_query.dutch_caribbean_islands?(ceremony_country)
+      phrases << :uk_resident_os_consular_cni_dutch_caribbean_islands
     else
-      unless resident_of == 'uk' or ceremony_country == residency_country
+      unless resident_of == 'uk' or ceremony_country == residency_country or ceremony_country == 'italy'
       phrases << :other_resident_os_consular_cni
       end
     end
-    case ceremony_country
-    when 'jordan','oman','qatar','united-arab-emirates'
+
+    if %w(jordan oman qatar united-arab-emirates).include?(ceremony_country)
       phrases << :gulf_states_os_consular_cni
-    end
-    case ceremony_country
-    when 'jordan','oman','qatar','united-arab-emirates'
       if residency_country == ceremony_country and partner_nationality != 'partner_irish'
         phrases << :gulf_states_os_consular_cni_local_resident_partner_not_irish
       end
     end
+
     if ceremony_country == 'spain'
-      phrases << :spain_os_consular_cni
-    end
-    phrases << :consular_cni_all_what_you_need_to_do
-    if ceremony_country == 'italy'
-      if resident_of == 'uk' and partner_nationality == 'partner_british'
-        phrases << :consular_cni_os_italy_scenario_one
-      elsif resident_of == 'uk' and partner_nationality != 'partner_british' and partner_nationality != 'partner_irish'
-        phrases << :consular_cni_os_italy_scenario_two_a
-      elsif partner_nationality == 'partner_irish' and residency_uk_region == 'uk_scotland' or residency_uk_region == 'uk_ni'
-        phrases << :consular_cni_os_italy_scenario_two_b
-      elsif residency_country == ceremony_country and partner_nationality =='partner_british'
-        phrases << :consular_cni_os_italy_scenario_three
-      elsif residency_country == ceremony_country and partner_nationality !='partner_british'
-        phrases << :consular_cni_os_italy_scenario_four
-      elsif partner_nationality == 'partner_irish' and residency_uk_region == 'uk_england' or residency_uk_region == 'uk_wales'
-        phrases << :consular_cni_os_italy_scenario_five
-      elsif data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and partner_nationality == 'partner_british'
-        phrases << :consular_cni_os_italy_scenario_six
-      elsif data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and partner_nationality != 'partner_british'
-        phrases << :consular_cni_os_italy_scenario_seven
-      elsif data_query.commonwealth_country?(residency_country)
-        phrases << :consular_cni_os_italy_scenario_eight
-      elsif residency_country == 'ireland'
-        phrases << :consular_cni_os_italy_scenario_nine
+      if sex_of_your_partner == 'opposite_sex'
+        phrases << :spain_os_consular_cni_opposite_sex
+      else
+        phrases << :spain_os_consular_cni_same_sex
+      end
+      phrases << :spain_os_consular_civil_registry
+      if residency_country != 'spain'
+        phrases << :spain_os_consular_cni_not_local_resident
       end
     end
+
+    if ceremony_country == 'italy'
+      phrases << :italy_os_consular_cni_ceremony_italy
+    else
+      phrases << :italy_os_consular_cni_ceremony_not_italy
+    end
+
+    phrases << :consular_cni_all_what_you_need_to_do
+
+    if ceremony_country != 'italy' and ceremony_country != 'spain' or (ceremony_country == 'germany' and resident_of == 'other')
+      phrases << :consular_cni_os_ceremony_not_spain_or_italy
+    elsif ceremony_country == 'spain'
+      phrases << :spain_os_consular_cni_two
+    elsif ceremony_country == 'italy'
+      if resident_of == 'uk'
+        if partner_nationality !='partner_irish' or (residency_uk_region == 'uk_scotland' or residency_uk_region == 'uk_ni' and partner_nationality == 'partner_irish')
+          phrases << :italy_os_consular_cni_uk_resident
+        end
+      end
+      if resident_of == 'uk' and partner_nationality == 'partner_british'
+        phrases << :italy_os_consular_cni_uk_resident_two
+      end
+      if resident_of != 'uk' or (resident_of == 'uk' and partner_nationality == 'partner_irish' and residency_uk_region != 'uk_scotland' and residency_uk_region != 'uk_ni')
+        phrases << :italy_os_consular_cni_uk_resident_three
+      end
+    end
+
     if ceremony_country == 'denmark'
       phrases << :consular_cni_os_denmark
-    end
-    if ceremony_country == 'germany' and residency_country == 'germany'
-      phrases << :consular_cni_os_german_resident
-    end
-#the next calculation is written like this as partner_irish for uk_iom and uk_ci may be different. Awaiting clarifcation from FCO so until then we'll assign the same phrase. (AK)
-    if ceremony_country == 'italy'
-      case residency_uk_region
-      when 'uk_iom','uk_ci'
-        phrases << :consular_cni_os_italy_iom_ci_partner_not_irish
+    elsif ceremony_country == 'germany'
+      if residency_country == 'germany'
+        phrases << :consular_cni_os_german_resident
+      else
+        if resident_of == 'other'
+          phrases << :consular_cni_os_not_germany_or_uk_resident
+        end
+      end
+      if resident_of == 'other'
+        phrases << :consular_cni_os_ceremony_germany_not_uk_resident
+      end
+    elsif ceremony_country == 'china'
+      if residency_country == 'china'
+        phrases << :consular_cni_os_china_local_resident
+      else
+        phrases << :consular_cni_os_china_not_local_resident
+      end
+      if partner_nationality != 'partner_local'
+        phrases << :consular_cni_os_china_not_local_partner
       end
     end
-    case resident_of
-    when 'uk'
+
+    if resident_of == 'uk'
       if partner_nationality !='partner_irish'
         phrases << :uk_resident_partner_not_irish_os_consular_cni_three
-      elsif partner_nationality == 'partner_irish' and residency_uk_region == 'uk_scotland' or residency_uk_region == 'uk_ni'
+      elsif partner_nationality == 'partner_irish' and %w(uk_scotland uk_ni).include?(residency_uk_region)
         phrases << :scotland_ni_resident_partner_irish_os_consular_cni_three
       end
-    end
-    if ceremony_country == 'italy' and resident_of == 'uk'
-      case residency_uk_region
-      when 'uk_england','uk_wales'
-        if partner_nationality == 'partner_irish'
-          phrases << :consular_cni_os_england_or_wales_partner_irish_three
+      if ceremony_country == 'italy'
+        case residency_uk_region
+        when 'uk_england','uk_wales'
+          if partner_nationality == 'partner_irish'
+            phrases << :consular_cni_os_england_or_wales_partner_irish_three
+          else
+            phrases << :consular_cni_os_scotland_or_ni_partner_irish_or_partner_not_irish_three
+          end
         else
           phrases << :consular_cni_os_scotland_or_ni_partner_irish_or_partner_not_irish_three
         end
-      when 'uk_iom', 'uk_ci'
-        ''
-      else
-        phrases << :consular_cni_os_scotland_or_ni_partner_irish_or_partner_not_irish_three
       end
     end
+
     if ceremony_country != 'italy' and partner_nationality == 'partner_irish'
       if residency_uk_region == 'uk_england' or residency_uk_region == 'uk_wales'
         phrases << :consular_cni_os_england_or_wales_resident_not_italy
       end
     end
-    if ceremony_country != 'italy' and ceremony_country != 'portugal' and resident_of == 'uk'
-      phrases << :consular_cni_os_uk_resident_not_italy_two
-    end
-    if ceremony_country == 'portugal' and resident_of == 'uk'
-      phrases << :consular_cni_os_uk_resident_ceremony_portugal
-      if reg_data_query.clickbook(ceremony_country)
-        if multiple_clickbooks
-          phrases << :clickbook_links
-        else
-          phrases << :clickbook_link
+
+    if resident_of == 'uk'
+      if !%w(italy portugal philippines montenegro poland kazakhstan kyrgyzstan).include?(ceremony_country)
+        phrases << :consular_cni_os_uk_resident_legalisation
+      elsif %w(montenegro).include?(ceremony_country)
+        phrases << :consular_cni_os_uk_resident_montenegro
+      elsif %w(poland kazakhstan kyrgyzstan).include?(ceremony_country)
+        phrases << :consular_cni_os_uk_resident_poland_kazak_kyrg      
+      end
+      if !%w(italy portugal philippines).include?(ceremony_country)
+        phrases << :consular_cni_os_uk_resident_not_italy_or_portugal
+      end
+      if ceremony_country == 'philippines'
+        phrases << :consular_cni_os_uk_resident_philippines
+      end
+      if ceremony_country == 'portugal'
+        phrases << :consular_cni_os_uk_resident_ceremony_portugal
+        if reg_data_query.clickbook(ceremony_country)
+          if multiple_clickbooks
+            phrases << :clickbook_links
+          else
+            phrases << :clickbook_link
+          end
         end
       end
     end
+
     if ceremony_country == residency_country
-      if ceremony_country != 'italy' or ceremony_country != 'germany'
+      if ceremony_country != 'italy' and ceremony_country != 'germany' and ceremony_country != 'kazakhstan'
         phrases << :consular_cni_os_local_resident_not_italy_germany
+      end
+      if ceremony_country == 'kazakhstan'
+        phrases << :kazakhstan_os_local_resident
+      end
+      if ceremony_country != 'italy' and ceremony_country != 'germany' and ceremony_country != 'spain'
         if reg_data_query.clickbook(ceremony_country)
           if multiple_clickbooks
             phrases << :clickbook_links
@@ -445,82 +534,81 @@ outcome :outcome_os_consular_cni do
           phrases << :consular_cni_os_no_clickbook_so_embassy_details
         end
       end
-    end
-    if ceremony_country == residency_country
       if ceremony_country == 'italy'
         phrases << :consular_cni_os_local_resident_italy
       end
     end
-    if data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != residency_country
+
+    if data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != 'germany' and ceremony_country != residency_country
       phrases << :consular_cni_os_foreign_resident
-    elsif data_query.commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != residency_country
+    elsif data_query.commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != 'germany' and ceremony_country != residency_country
       phrases << :consular_cni_os_commonwealth_resident
     end
-    if data_query.commonwealth_country?(residency_country) and partner_nationality == 'partner_british' and ceremony_country != residency_country
+    if data_query.commonwealth_country?(residency_country) and partner_nationality == 'partner_british' and ceremony_country != residency_country and ceremony_country != 'germany'
       phrases << :consular_cni_os_commonwealth_resident_british_partner
     end
-    if data_query.commonwealth_country?(residency_country) and ceremony_country != residency_country
+    if data_query.commonwealth_country?(residency_country) and ceremony_country != residency_country and ceremony_country != 'germany'
       phrases << :consular_cni_os_commonwealth_resident_two
-    elsif residency_country == 'ireland'
+    elsif residency_country == 'ireland' and ceremony_country != 'germany'
       phrases << :consular_cni_os_ireland_resident
     end
-    if residency_country == 'ireland' and partner_nationality == 'partner_british'
+    if residency_country == 'ireland' and partner_nationality == 'partner_british' and ceremony_country != 'germany'
       phrases << :consular_cni_os_ireland_resident_british_partner
     end
-    if residency_country == 'ireland'
+    if residency_country == 'ireland' and ceremony_country != 'germany'
       phrases << :consular_cni_os_ireland_resident_two
     end
+
     case partner_nationality
     when 'partner_british'
-      if data_query.commonwealth_country?(residency_country) or residency_country == 'ireland' and ceremony_country != residency_country
+      if data_query.commonwealth_country?(residency_country) or residency_country == 'ireland' and ceremony_country != residency_country and ceremony_country != 'germany'
         phrases << :consular_cni_os_commonwealth_or_ireland_resident_british_partner
       end
     else
-      if data_query.commonwealth_country?(residency_country) or residency_country == 'ireland' and ceremony_country != residency_country
+      if data_query.commonwealth_country?(residency_country) or residency_country == 'ireland' and ceremony_country != residency_country and ceremony_country != 'germany'
         phrases << :consular_cni_os_commonwealth_or_ireland_resident_non_british_partner
       end
     end
-    if ceremony_country == residency_country
-      if residency_country != 'spain' and residency_country != 'germany'
-        phrases << :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident    
-      elsif ceremony_country == 'spain'
-        phrases << :consular_cni_variant_local_resident_spain
-      end
-    elsif data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland'
+    if ceremony_country == residency_country and residency_country != 'spain' and residency_country != 'germany' and residency_country != 'italy' or (data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != residency_country and ceremony_country != 'germany')
       phrases << :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident
     end
     if ceremony_country == residency_country
-      if residency_country != 'spain' and residency_country != 'germany'
-        phrases << :consular_cni_os_local_resident_not_germany_or_spain_or_all_other_residency
+      if ceremony_country == 'italy'
+        if partner_nationality == 'partner_local'
+          phrases << :italy_consular_cni_os_partner_local
+        elsif partner_nationality == 'partner_irish' or partner_nationality == 'partner_other'
+          phrases << :italy_consular_cni_os_partner_other_or_irish
+        elsif partner_nationality == 'partner_british'
+          phrases << :italy_consular_cni_os_partner_british
+        end
+      elsif ceremony_country == 'spain'
+        phrases << :consular_cni_variant_local_resident_spain
       end
-    elsif data_query.non_commonwealth_country?(residency_country) or data_query.commonwealth_country?(residency_country) or residency_country == 'ireland'
-      phrases << :consular_cni_os_local_resident_not_germany_or_spain_or_all_other_residency
+    end
+    if ceremony_country != 'germany' and resident_of == 'other'
+      phrases << :consular_cni_os_not_uk_resident_ceremony_not_germany
+    end
+    if ceremony_country == residency_country and ceremony_country == 'spain'
+      phrases << :spain_os_consular_cni_three
+    end
+    if data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != 'germany' or (ceremony_country == residency_country and ceremony_country != 'spain' and ceremony_country != 'germany')
+      phrases << :consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany
     end
     if ceremony_country == residency_country
-      if residency_country != 'spain' and residency_country != 'germany'
-        phrases << :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident_two    
+      if residency_country != 'germany' and residency_country != 'italy' and residency_country != 'spain'
+        phrases << :consular_cni_os_local_resident_not_germany_or_italy_or_spain
+      elsif residency_country == 'italy'
+        phrases << :consular_cni_os_local_resident_italy_two
       end
-    elsif data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland'
-      phrases << :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident_two
     end
-    if ceremony_country == residency_country
-      if residency_country != 'germany' and residency_country != 'italy'
-      phrases << :consular_cni_os_local_resident_not_germany_or_italy
-      end
-    elsif ceremony_country == residency_country and residency_country == 'italy'
-      phrases << :consular_cni_os_local_resident_italy_two
-    end
-    case ceremony_country
-    when 'italy'
-      if data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != residency_country
+    if data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != residency_country
+      if ceremony_country != 'italy' and ceremony_country != 'germany'
+        phrases << :consular_cni_os_foreign_resident_ceremony_not_italy
+      elsif ceremony_country == 'italy'
         phrases << :consular_cni_os_foreign_resident_ceremony_italy
       end
-    else      
-      if data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != residency_country
-        phrases << :consular_cni_os_foreign_resident_ceremony_not_italy
-      end
     end
-    if ceremony_country != 'italy'
+    if ceremony_country != 'italy' and ceremony_country != 'germany'
       if data_query.commonwealth_country?(residency_country) and ceremony_country != residency_country
         phrases << :consular_cni_os_commonwealth_resident_ceremony_not_italy
       elsif residency_country == 'ireland'
@@ -538,27 +626,27 @@ outcome :outcome_os_consular_cni do
     if residency_country == 'ireland' and ceremony_country == 'italy'
       phrases << :consular_cni_os_ireland_resident_ceremony_italy
     end
-    if ceremony_country == 'italy'
-      phrases << :consular_cni_os_ceremony_italy
+    if data_query.commonwealth_country?(residency_country) or residency_country == 'ireland' and ceremony_country == 'italy'
+      phrases << :italy_os_consular_cni_four
     end
-    if resident_of == 'uk' and partner_nationality == 'partner_british'
+    if resident_of == 'uk' and partner_nationality == 'partner_british' and ceremony_country != 'italy'
       phrases << :consular_cni_os_partner_british
     end
-    if residency_country == ceremony_country and partner_nationality == 'partner_british'
-      if ceremony_country != 'italy' and ceremony_country != 'germany'
-        phrases << :consular_cni_os_partner_british
-      end
+
+    if partner_nationality == 'partner_british' and ceremony_country != 'italy' and ceremony_country != 'germany'
+      phrases << :consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british
     end
-    unless ceremony_country == residency_country or resident_of == 'uk'
-      if partner_nationality == 'partner_british' and ceremony_country != 'italy'
-        phrases << :consular_cni_os_partner_british
-      end
-    end
+
     if ceremony_country != residency_country and resident_of == 'other' and partner_nationality == 'partner_british' and ceremony_country == 'italy'
       phrases << :consular_cni_os_other_resident_partner_british_ceremony_italy
     end
-    phrases << :consular_cni_os_all_names
-    if resident_of == 'other' and ceremony_country != 'italy'
+    if ceremony_country == 'china' and residency_country == 'china' and partner_nationality == 'partner_local'
+      phrases << :consular_cni_os_china_partner_local
+    end
+    if ceremony_country != 'germany' or (ceremony_country == 'germany' and resident_of == 'uk')
+      phrases << :consular_cni_os_all_names_but_germany
+    end
+    if resident_of == 'other' and ceremony_country != 'italy' and ceremony_country != 'spain' and ceremony_country != 'germany'
       phrases << :consular_cni_os_other_resident_ceremony_not_italy
     end
     if ceremony_country == 'belgium'
@@ -578,7 +666,12 @@ outcome :outcome_os_consular_cni do
       phrases << :consular_cni_os_naturalisation
     end
     phrases << :consular_cni_os_all_depositing_certificate
-    if ceremony_country != residency_country or ceremony_country == 'germany'
+    if ceremony_country == 'italy'
+      phrases << :italy_os_consular_cni_five
+    else
+      phrases << :italy_os_consular_cni_six
+    end
+    if ceremony_country != residency_country or ceremony_country == 'germany' and ceremony_country != 'italy'
       if reg_data_query.clickbook(ceremony_country)
         if multiple_clickbooks
           phrases << :clickbook_links
@@ -590,6 +683,9 @@ outcome :outcome_os_consular_cni do
         phrases << :consular_cni_os_no_clickbook_so_embassy_details
       end
     end
+    if ceremony_country == 'italy'
+      phrases << :italy_os_consular_cni_seven
+    end
     if ceremony_country == 'finland'
       phrases << :consular_cni_os_ceremony_finland
     elsif ceremony_country == 'turkey'
@@ -598,9 +694,19 @@ outcome :outcome_os_consular_cni do
     if resident_of == 'uk'
       phrases << :consular_cni_os_uk_resident
     end
-    phrases << :consular_cni_os_all_fees
-    case ceremony_country
-    when 'armenia','bosnia-and-herzegovina','cambodia','czech-republic','estonia','hungary','iceland','kazakhstan','latvia','luxembourg','poland','slovenia','tunisia'
+
+    if ceremony_country == 'italy' and resident_of == 'uk'
+      phrases << :consular_cni_os_fees_ceremony_italy_uk_resident
+    else
+      phrases << :consular_cni_os_fees_not_italy_not_uk
+      if ceremony_country == residency_country or resident_of == 'uk'
+        phrases << :consular_cni_os_fees_local_or_uk_resident
+      else
+        phrases << :consular_cni_os_fees_foreign_commonwealth_roi_resident
+      end
+    end
+
+    if %w(armenia bosnia-and-herzegovina cambodia iceland kazakhstan latvia luxembourg slovenia tunisia tajikistan).include?(ceremony_country)
       phrases << :consular_cni_os_fees_local_currency
     else
       phrases << :consular_cni_os_fees_no_cheques
@@ -611,42 +717,20 @@ end
 outcome :outcome_os_france_or_fot do
   precalculate :france_or_fot_os_outcome do
     phrases = PhraseList.new
-    if ceremony_country == 'france'
-      if resident_of == 'uk'
-        phrases << :france_fot_os_ceremony_france_uk_resident
-      elsif ceremony_country == residency_country
-        phrases << :france_fot_os_ceremony_france_local_resident
-      elsif ceremony_country != residency_country and resident_of !='uk'
-        phrases << :france_fot_os_ceremony_france_other_resident
-      end
-    else
-      if resident_of == 'uk'
-        phrases << :france_fot_os_ceremony_fot_uk_resident
-      elsif ceremony_country == residency_country
-        phrases << :france_fot_os_ceremony_fot_local_resident
-      elsif ceremony_country != residency_country and resident_of !='uk'
-        phrases << :france_fot_os_ceremony_fot_other_resident
-      end
+    if data_query.french_overseas_territories?(ceremony_country)
+      phrases << :fot_os_all
     end
-    phrases << :france_fot_os_all_what_you_need_to_do
+    phrases << :france_fot_os_all
+    if resident_of == 'uk'
+      phrases << :france_fot_os_uk_resident
+    else
+      phrases << :france_fot_os_non_uk_resident
+    end
+    phrases << :france_fot_os_all_two
     if resident_of == 'uk'
       phrases << :france_fot_os_uk_resident_two
-    else
-      phrases << :france_fot_os_not_uk_resident_two
     end
-    phrases << :france_fot_os_all_celibacy
-    if partner_nationality != 'partner_british'
-      phrases << :france_fot_os_naturalisation
-    end
-    phrases << :france_fot_os_all_depositing_certificate
-    if resident_of =='uk'
-      phrases << :france_fot_os_uk_resident_two_point_five
-    end
-    phrases << :france_fot_os_all_multilingual_extract
-    if resident_of == 'uk'
-      phrases << :france_fot_os_uk_resident_three
-    end
-    phrases << :france_fot_os_all_fees
+    phrases << :france_fot_os_all_three
     phrases
   end
 end
@@ -677,12 +761,8 @@ end
 outcome :outcome_os_no_cni do
   precalculate :no_cni_os_outcome do
     phrases = PhraseList.new
-    case ceremony_country
-    when 'aruba', 'bonaire-st-eustatius-saba','curacao','st-maarten'
+    if data_query.dutch_caribbean_islands?(ceremony_country)
       phrases << :no_cni_os_dutch_caribbean_islands
-    end
-    case ceremony_country
-    when 'aruba', 'bonaire-st-eustatius-saba','curacao','st-maarten'
       if resident_of == 'uk'
         phrases << :no_cni_os_dutch_caribbean_islands_uk_resident
       elsif ceremony_country == residency_country
@@ -699,23 +779,31 @@ outcome :outcome_os_no_cni do
         phrases << :no_cni_os_not_dutch_caribbean_other_resident
       end
     end
-    phrases << :no_cni_os_all_nearest_embassy
-    phrases << :no_cni_os_all_depositing_certificate
-    if ceremony_country == 'united-states'
-      phrases << :no_cni_os_ceremony_usa
+
+    phrases << :no_cni_os_consular_facilities
+
+    if ceremony_country != 'taiwan'
+      phrases << :no_cni_os_all_nearest_embassy_not_taiwan
+      phrases << :no_cni_os_all_depositing_certificate
+      if ceremony_country == 'united-states'
+        phrases << :no_cni_os_ceremony_usa
+      else
+        phrases << :no_cni_os_ceremony_not_usa
+      end
+      if resident_of == 'uk'
+        phrases << :no_cni_os_uk_resident_three
+      end
+      phrases << :no_cni_os_all_fees
+      if partner_nationality != 'partner_british'
+        phrases << :no_cni_os_naturalisation
+      end
     else
-      phrases << :no_cni_os_ceremony_not_usa
-    end
-    if resident_of == 'uk'
-      phrases << :no_cni_os_uk_resident_three
-    end
-    phrases << :no_cni_os_all_fees
-    if partner_nationality != 'partner_british'
-      phrases << :no_cni_os_naturalisation
+      ''
     end
     phrases
   end
 end
+
 outcome :outcome_os_other_countries do
   precalculate :other_countries_os_outcome do
     phrases = PhraseList.new
@@ -728,7 +816,7 @@ outcome :outcome_os_other_countries do
       phrases << :other_countries_os_north_korea
       if partner_nationality == 'partner_local'
         phrases << :other_countries_os_north_korea_partner_local
-      end     
+      end
     elsif ceremony_country == 'iran' or ceremony_country == 'somalia' or ceremony_country == 'syria'
       phrases << :other_countries_os_iran_somalia_syria
     elsif ceremony_country == 'yemen'
@@ -749,7 +837,7 @@ outcome :outcome_os_other_countries do
         end
         if partner_nationality != 'partner_irish'
           phrases << :other_countries_os_saudi_arabia_local_resident_partner_not_irish_two
-        end         
+        end
       end
     end
     phrases
@@ -782,7 +870,7 @@ outcome :outcome_cp_cp_or_equivalent do
     end
     phrases << :cp_or_equivalent_cp_all_fees
     case ceremony_country
-    when 'czech-republic','hungary','iceland','luxembourg','poland','slovenia'
+    when 'iceland','luxembourg','slovenia'
       phrases << :cp_or_equivalent_cp_local_currency_countries
     else
       phrases << :cp_or_equivalent_cp_cash_or_credit_card_countries
@@ -793,43 +881,20 @@ end
 outcome :outcome_cp_france_pacs do
   precalculate :france_pacs_law_cp_outcome do
     phrases = PhraseList.new
-    phrases << :france_pacs_law_cp_all_intro
-    if ceremony_country == 'france'
-      if resident_of == 'uk'
-        phrases << :france_pacs_law_cp_ceremony_france_uk_resident
-      elsif ceremony_country == residency_country
-        phrases << :france_pacs_law_cp_ceremony_france_local_resident
-      elsif ceremony_country != residency_country and resident_of !='uk'
-        phrases << :france_pacs_law_cp_ceremony_france_other_resident
-      end
+    if %w(new-caledonia wallis-and-futuna).include?(ceremony_country)
+      phrases << :fot_cp_all
+    end
+    phrases << :france_fot_cp_all
+    if resident_of == 'uk'
+      phrases << :france_fot_cp_uk_resident
     else
-      if resident_of == 'uk'
-        phrases << :france_pacs_law_cp_ceremony_nc_or_wf_cp_uk_resident
-      elsif ceremony_country == residency_country
-        phrases << :france_pacs_law_cp_ceremony_nc_or_wf_cp_local_resident
-      elsif ceremony_country != residency_country and resident_of !='uk'
-        phrases << :france_pacs_law_cp_ceremony_nc_or_wf_cp_other_resident
-      end
+      phrases << :france_fot_cp_non_uk_resident
     end
-    phrases << :france_pacs_law_cp_all_cp_what_you_need_to_do
+    phrases << :france_fot_cp_all_two
     if resident_of == 'uk'
-      phrases << :france_pacs_law_cp_uk_resident_two
-    else
-      phrases << :france_pacs_law_cp_not_uk_resident_two
+      phrases << :france_fot_cp_uk_resident_two
     end
-    phrases << :france_pacs_law_cp_all_celibacy_certificate
-    if partner_nationality != 'partner_british'
-      phrases << :france_pacs_law_cp_naturalisation
-    end
-    phrases << :france_pacs_law_cp_all_depositing_pacs_certificate
-    if resident_of == 'uk'
-      phrases << :france_pacs_law_cp_uk_resident_two_point_five
-    end
-    phrases << :france_pacs_law_all_pacs_extract
-    if resident_of == 'uk'
-      phrases << :france_pacs_law_cp_uk_resident_three
-    end
-    phrases << :france_pacs_law_cp_all_fees
+    phrases << :france_fot_cp_all_three
     phrases
   end
 end
@@ -877,7 +942,7 @@ outcome :outcome_cp_no_cni do
       phrases << :no_cni_required_cp_naturalisation
     end
     phrases << :no_cni_required_cp_all_fees
-    phrases   
+    phrases
   end
 end
 outcome :outcome_cp_commonwealth_countries do
@@ -942,8 +1007,20 @@ outcome :outcome_cp_consular_cni do
     end
     if ceremony_country == 'vietnam' and partner_nationality == 'partner_local'
       phrases << :consular_cni_cp_ceremony_vietnam_partner_local
+    elsif %w(croatia bulgaria).include?(ceremony_country) and partner_nationality == 'partner_local'
+      phrases << :consular_cni_cp_local_partner_croatia_bulgaria
     else
       phrases << :consular_cni_cp_all_contact
+      if reg_data_query.clickbook(ceremony_country)
+        if multiple_clickbooks
+          phrases << :clickbook_links
+        else
+          phrases << :clickbook_link
+        end
+      end
+      unless reg_data_query.clickbook(ceremony_country)
+        phrases << :consular_cni_cp_no_clickbook_so_embassy_details
+      end
       phrases << :consular_cni_cp_all_documents
       if partner_nationality != 'partner_british'
         phrases << :consular_cni_cp_partner_not_british
@@ -963,4 +1040,3 @@ outcome :outcome_cp_consular_cni do
   end
 end
 outcome :outcome_cp_all_other_countries
-outcome :outcome_spain_italy
