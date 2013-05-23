@@ -28,7 +28,7 @@ en-GB:
         "child-born-outside-uk-father-citizen": "Applying for a child born outside the UK after 1 July 2006, with the father born in UK but not married to mother"
         "woman-married-to-uk-citizen-pre-1949": "You’re a woman married to a British Citizen before 1 January 1949"
       which_country_are_you_in?:
-        title: Which country are you in?
+        title: Which country or territory are you in?
       renewing_replacing_applying?:
         title: Are you renewing, replacing or applying for a first passport?
         options:
@@ -160,6 +160,9 @@ en-GB:
 
         passport_costs_jamaica: |
           Locally issued debit or credit cards may not be able to carry out transactions in US dollars - you should check with your card company.
+
+        passport_costs_nepal: |
+          You can get a bankers draft in Hong Kong dollars from the Standard Chartered Bank in Lazimpat.
 
         passport_courier_costs_jordan: |
           You must pay in cash using Jordanian dinars at the British Embassy in Amman.
@@ -388,9 +391,6 @@ en-GB:
 
         getting_your_passport_jamaica: |
           The British High Commision in Kingston will contact you when your passport arrives using the contact details on your form. You must collect it in person.
-
-        getting_your_passport_jordan: |
-          The British Embassy in Amman will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
         getting_your_passport_nepal : |
           The British Embassy in Kathmandu will contact you when your passport arrives using the contact details on your form. You must collect it in person.
@@ -854,11 +854,39 @@ en-GB:
             United Kingdom
           $A
 
-        tracking_and_receiving_ips1: |
-          ## Getting your passport
+        send_application_ips1_durham: |
 
+          
+          $A
+            Her Majesty's Passport Office 
+            OVS-D 
+            Millburngate House 
+            Millburngate 
+            Durham 
+            DH97 1PA
+          $A
+
+        getting_your_passport_ips1: |
           Your passport and supporting documents will be delivered separately by courier.
+        getting_your_passport_iraq: |
+          You must collect your passport and supporting documents in person from either:
 
+          - the British Embassy in Baghdad 
+          - the British Consulate General in Erbil
+
+          You must specify where you want them delivered on the application form.
+
+          The embassy or consulate general will contact you when your passport arrives using the contact details on your form. 
+        
+        getting_your_passport_jordan: |
+          Your passport and supporting documents will be delivered to the British Embassy in Amman, Jordan - you must collect them in person. 
+
+          They will contact you when your passport arrives using the contact details on your form.
+        getting_your_passport_yemen: |
+          Your passport and supporting documents will be delivered to the British Embassy in Amman, Jordan - you must collect them in person. 
+
+          They will contact you when your passport arrives using the contact details on your form.
+        tracking_and_receiving_ips1: |
           ## Track your application
 
           Call the Passport Adviceline.
@@ -952,12 +980,12 @@ en-GB:
 
           %{embassy_address}
 
-        tracking_and_receiving_ips2: |
-          ## Getting your passport
-
+        getting_your_passport_ips2: |
           Your passport and supporting documents will be delivered to the British embassy, high commission or consulate where you applied - you must collect them in person.
 
           They will contact you - using the details on your application form - when your passport and documents are ready to collect. You must bring photo ID with you. if you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
+
+        tracking_and_receiving_ips2: |
 
           ## Track your application
 
@@ -1029,13 +1057,12 @@ en-GB:
 
           %{embassy_address}
 
-        tracking_and_receiving_ips3: |
-          ## Getting your passport
-
+        getting_your_passport_ips3: |
           Your passport and supporting documents will be delivered to the British embassy, high commission or consulate where you applied - you must collect them in person.
 
-          They will contact you - using the details on your application form - when your passport and documents are ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
-
+          They will contact you - using the details on your application form - when your passport and documents are ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID. 
+        
+        tracking_and_receiving_ips3: |
           ## Track your application
 
           Call the Passport Adviceline.
@@ -1234,7 +1261,7 @@ en-GB:
             Landline calls are charged at $4.50 per minute - mobile calls may cost more
 
             Paying for the call by credit card
-            +44 208 082 4727
+            +44 208 082 4726
             Calls charged at £0.72 per minute plus VAT
             Textphone: +44 1750 725 368
           $C
@@ -1886,21 +1913,6 @@ en-GB:
 
           You must make your application in person to the British embassy Amman, Jordan.
 
-        getting_your_passport_iraq: |
-          ### Renewals or replacements of lost or stolen passports
-
-          Your passport will be returned for you to collect from either:
-
-          - the British embassy in Baghdad
-          - the British consulate general in Basra
-          - the British consulate general in Erbil
-
-          Choose where you want to collect it from by ticking the appropriate box on the credit card authorisation form you send with your application. The embassy or consulate general will contact you when your passport is ready to collect.
-
-          ### First passport applications
-
-          The British embassy in Baghdad will contact you when your passport and supporting documents arrive using the contact details on your form. You must collect them in person.
-
         how_long_lebanon: |
           Action | Minimum time after you apply
           - | -
@@ -1925,9 +1937,12 @@ en-GB:
           Adult jumbo 48-page passport | US $254.92 | US $308.92
           Child passport | US $134.48 | US $189.48
 
+          You’ll need to pay an extra $16.76 if you want your supporting documents returned. 
+
         how_to_apply_lebanon: ''
         supporting_documents_lebanon: ''
-        making_application_lebanon: Bring your application in person to the British embassy in Beirut.
+        making_application_lebanon: |
+          Bring your application in person to the British embassy in Beirut - you must [book an appointment.](https://www.clickbook.net/dev/bc.nsf/sub/britishembassyamman?OpenDocument&cb_referer=){:rel="external"}
         getting_your_passport_lebanon: |
           The British embassy will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
@@ -2498,27 +2513,6 @@ en-GB:
             France
           $A
 
-
-        getting_your_passport_yemen: |
-          The British embassy in Amman will contact you when your passport and supporting documents arrive using the contact details on your form.
-
-          They will tell you whether you have to go to the embassy in Amman to collect them, or whether you can pick them up from the embassy in Sana’a (which will make the application process longer).
-
-
-          $A
-          British Embassy  
-          938 Thahr Himyar Street  
-          PO Box 1287 East Ring Road, near Mövenpick Hotel    
-          Sana'a  
-          Yemen  
-
-          Emailbritishembassysanaa@fco.gov.uk  
-          +967 1 308100 or 302480-5  
-          Saturday to Wednesday, 8am to 3pm (local time)  
-
-          +44 207 008 1500 at any other time
-          $A
-
         how_long_zambia: |
           Action | Minimum time after you apply
           - | -
@@ -2731,6 +2725,10 @@ en-GB:
           %{how_to_apply}
 
           %{send_your_application}
+          
+          ## Getting your passport
+
+          %{getting_your_passport}
 
           %{tracking_and_receiving}
 
