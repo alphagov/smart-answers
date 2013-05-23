@@ -1946,7 +1946,8 @@ en-GB:
 
         how_to_apply_lebanon: ''
         supporting_documents_lebanon: ''
-        making_application_lebanon: Bring your application in person to the British embassy in Beirut.
+        making_application_lebanon: |
+          Bring your application in person to the British embassy in Beirut - you must [book an appointment.](https://www.clickbook.net/dev/bc.nsf/sub/britishembassyamman?OpenDocument&cb_referer=){:rel="external"}
         getting_your_passport_lebanon: |
           The British embassy will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
