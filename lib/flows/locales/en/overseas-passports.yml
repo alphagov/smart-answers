@@ -887,10 +887,6 @@ en-GB:
 
           They will contact you when your passport arrives using the contact details on your form.
         tracking_and_receiving_ips1: |
-          ## Getting your passport
-
-          Your passport and supporting documents will be delivered separately by courier.
-
           ## Track your application
 
           Call the Passport Adviceline.
@@ -984,12 +980,12 @@ en-GB:
 
           %{embassy_address}
 
-        tracking_and_receiving_ips2: |
-          ## Getting your passport
-
+        getting_your_passport_ips2: |
           Your passport and supporting documents will be delivered to the British embassy, high commission or consulate where you applied - you must collect them in person.
 
           They will contact you - using the details on your application form - when your passport and documents are ready to collect. You must bring photo ID with you. if you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
+
+        tracking_and_receiving_ips2: |
 
           ## Track your application
 
@@ -1061,13 +1057,12 @@ en-GB:
 
           %{embassy_address}
 
-        tracking_and_receiving_ips3: |
-          ## Getting your passport
-
+        getting_your_passport_ips3: |
           Your passport and supporting documents will be delivered to the British embassy, high commission or consulate where you applied - you must collect them in person.
 
-          They will contact you - using the details on your application form - when your passport and documents are ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
-
+          They will contact you - using the details on your application form - when your passport and documents are ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID. 
+        
+        tracking_and_receiving_ips3: |
           ## Track your application
 
           Call the Passport Adviceline.

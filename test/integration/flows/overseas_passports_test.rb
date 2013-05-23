@@ -379,6 +379,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
             assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :ips_documents_group_1]
             assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
             assert_phrase_list :send_your_application, [:send_application_ips1]
+            assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
             assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
             assert_state_variable :embassy_address, nil
             assert_state_variable :supporting_documents, 'ips_documents_group_1'
@@ -428,6 +429,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :ips_documents_group_3]
         assert_phrase_list :cost, [:passport_courier_costs_ips2, :adult_passport_costs_ips2, :passport_costs_ips_cash]
         assert_phrase_list :send_your_application, [:send_application_ips2]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_ips2]
         assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips2]
       end
     end # Applying
@@ -455,6 +457,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :ips_documents_group_3]
         assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :send_your_application, [:send_application_ips3]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
         assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips3]
         assert_match "45 Khagani Street", current_state.send(:embassy_address)
         assert_match "Mon-Fri: 09:00 - 17:00 Local Time", current_state.embassy_address
