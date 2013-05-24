@@ -10,10 +10,5 @@ module SmartAnswer
     def evaluate(state)
       return CalendarState.new(state, &@block)
     end
-
-    def to_ics(calendar_state)
-      ICSRenderer.new(calendar_state.dates, calendar_state.path).render
-    end
-
   end
 end

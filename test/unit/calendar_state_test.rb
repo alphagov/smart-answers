@@ -34,5 +34,17 @@ module SmartAnswer
       calendar_state = CalendarState.new(state)
       assert_equal "example/result/question", calendar_state.path
     end
+
+    test "can create an ics renderer with a calendar state" do
+      calendar_state = CalendarState.new(@state)
+      calendar_state.stubs(:dates).returns([:date_one, :date_two])
+
+      stub_renderer = stub(:render => "calendar output")
+
+      ICSRenderer.any_instance.stubs(:dtstamp).returns("20121017T0100Z")
+      ICSRenderer.expects(:new).with([:date_one, :date_two], "example").returns(stub_renderer)
+
+      assert_equal "calendar output", calendar_state.to_ics
+    end
   end
 end

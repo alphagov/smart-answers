@@ -18,15 +18,11 @@ class OutcomePresenter < NodePresenter
   end
 
   def calendar
-    @node.defined_calendar
+    @node.evaluate_calendar(@state)
   end
 
   def has_calendar?
     calendar.present?
-  end
-
-  def calendar_as_ics
-    calendar.to_ics @node.evaluate_calendar(@state)
   end
 
   private

@@ -17,5 +17,8 @@ module SmartAnswer
       @state.path.join('/')
     end
 
+    def to_ics
+      ICSRenderer.new(self.dates, self.path).render
+    end
   end
 end

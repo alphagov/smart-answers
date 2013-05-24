@@ -12,10 +12,6 @@ module SmartAnswer
       @calendar = Calendar.new(&block)
     end
 
-    def defined_calendar
-      @calendar
-    end
-
     def evaluate_calendar(state)
       @calendar.evaluate(state) if @calendar
     end
