@@ -9,37 +9,27 @@ module SmartAnswer
       @state = State.new(:example).transition_to(:result, 'y')
     end
 
-    test "a calendar has no dates when initialized" do
-      calendar = Calendar.new
-      assert_equal [ ], calendar.evaluate(@state).dates
-    end
-
-    test "can initialize a calendar with a date" do
-      calendar = Calendar.new do
-        date :event_date, Date.parse("17 October 2012")
+    test "a calendar returns an instance of CalendarState when evaluated" do
+      calendar = Calendar.new do |response|
+        date :event_date, Date.parse("1 October 2012")
       end
+      CalendarState.stubs(:new).with(@state).returns("Calendar state")
+      calendar_state = calendar.evaluate(@state)
 
-      assert_equal [ OpenStruct.new(:title => :event_date, :date => Date.parse("17 October 2012")) ], calendar.evaluate(@state).dates
+      assert_equal "Calendar state", calendar_state
     end
 
-    test "can initialize a calendar with a range" do
-      calendar = Calendar.new do
-        date :event_range, Date.parse("20 October 2012")..Date.parse("21 October 2012")
-      end
-
-      assert_equal [ OpenStruct.new(:title => :event_range, :date => Date.parse("20 October 2012")..Date.parse("21 October 2012")) ], calendar.evaluate(@state).dates
-    end
-
-    test "can create an ics renderer with the dates and the path" do
+    test "can create an ics renderer with a calendar state" do
       calendar = Calendar.new
-      calendar.stubs(:dates).returns([:date_one, :date_two])
+      calendar_state = CalendarState.new(@state)
+      calendar_state.stubs(:dates).returns([:date_one, :date_two])
 
       stub_renderer = stub(:render => "calendar output")
 
       ICSRenderer.any_instance.stubs(:dtstamp).returns("20121017T0100Z")
       ICSRenderer.expects(:new).with([:date_one, :date_two], "example").returns(stub_renderer)
 
-      assert_equal "calendar output", calendar.evaluate(@state).to_ics
+      assert_equal "calendar output", calendar.to_ics(calendar_state)
     end
   end
 end
