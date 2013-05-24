@@ -2,9 +2,11 @@ en-GB:
   flow:
     student-finance-calculator-v2:
       meta:
-        description: Student finance calculator - get an estimate of your student loans, student grants and extra help for university
+        description: Student finance calculator - get a quick estimate of what student loans, grants, bursaries and other funding you could get - for full-time, part-time and EU students
       title: Student finance calculator
       body: |
+        This calculator is for students from England starting their course on or after **1 September 2012**.
+
         Use the student finance calculator to estimate:
 
         + student loans
@@ -15,7 +17,7 @@ en-GB:
       devolved_body: |
           ##Before you start
           
-          You can’t use the calculator if you’re from [Scotland](http://www.saas.gov.uk/ "Student Awards Agency for Scotland"){:rel="external"}, [Wales](http://www.studentfinancewales.co.uk "Student Finance Wales"){:rel="external"} or [Northern Ireland.](http://www.studentfinanceni.co.uk "Student Finance Northern Ireland"){:rel="external"}
+          You can’t use the calculator if you’re from [Scotland](http://www.saas.gov.uk/){:rel="external"}, [Wales](http://www.studentfinancewales.co.uk){:rel="external"} or [Northern Ireland.](http://www.studentfinanceni.co.uk){:rel="external"}
 #Q1
       when_does_your_course_start?:
         title: When does your course start?
@@ -91,23 +93,23 @@ en-GB:
 
 
         children_under_17: |
-          - up to £148.75 a week (1 child) or up to £255 a week (2 or more children) [Childcare Grant](/childcare-grant "Childcare Grant")
+          - up to £148.75 a week (1 child) or up to £255 a week (2 or more children) [Childcare Grant](/childcare-grant)
 
-          - up to £1,508 per year [Parents’ Learning Allowance](/parents-learning-allowance "Parents’ Learning Allowance")
+          - up to £1,508 per year [Parents’ Learning Allowance](/parents-learning-allowance)
 
-          - [Child Tax Credit](/child-tax-credit "Child Tax Credit")
+          - [Child Tax Credit](/child-tax-credit)
         dependant_adult: |
-          - up to £2,642 per year [Adult Dependant's Grant](/adult-dependants-grant "Adult Dependants Grant")
+          - up to £2,642 per year [Adult Dependant's Grant](/adult-dependants-grant)
         has_disability: |
-          - [Disabled Students' Allowances](/disabled-students-allowances-dsas "Disabled Students' Allowances")
+          - [Disabled Students' Allowances](/disabled-students-allowances-dsas)
         low_income: |
-          - [Access to Learning Fund](/access-to-learning-fund "Access to Learning Fund") (extra help with costs while studying)
+          - [Access to Learning Fund](/access-to-learning-fund) (extra help with costs while studying)
         teacher_training: |
-          - [Funding for teacher training](/teacher-training-funding "Funding for teacher training")
+          - [Funding for teacher training](/teacher-training-funding)
         dental_medical_healthcare: |
-          - [NHS Bursary](/nhs-bursaries "NHS Bursary") (NHS funding towards your fees and living costs)
+          - [NHS Bursary](/nhs-bursaries) (NHS funding towards your fees and living costs)
         social_work: |
-          - [Social Work Bursary](/social-work-bursaries "Social Work Bursary") (NHS funding towards your fees and living costs)
+          - [Social Work Bursary](/social-work-bursaries) (NHS funding towards your fees and living costs)
         uk_students_body_text: |
           $!
           Your estimated student finance is below - you must apply to find out exactly what you’ll get.
@@ -120,27 +122,27 @@ en-GB:
         uk_students_body_text_no_nsp: |
           ##Help from your university or college
 
-          You could get a [bursary or scholarship](/extra-money-pay-university "Help from your university or college") from your university or college.
+          You could get a [bursary or scholarship](/extra-money-pay-university) from your university or college.
 
           ^Student loans have to be paid back - things like grants, bursaries and allowances don’t.^
 
           ##Your next steps
 
-          - How to [apply](/apply-for-student-finance "Apply for student finance") for student finance
-          - Check if you [qualify](/student-finance/eligibility "Guide to student finance")
+          - How to [apply](/apply-for-student-finance ) for student finance
+          - Check if you [qualify](/student-finance/eligibility)
 
           ^Usually, you only get student finance if you’re doing your first higher education qualification.^
         uk_students_body_text_with_nsp: |
           ##Help from your university or college
 
-          You could get a [bursary or scholarship](/extra-money-pay-university "Help from your university or college") from your university or college including up to £1000 from the National Scholarship Programme.
+          You could get a [bursary or scholarship](/extra-money-pay-university) from your university or college including up to £1,000 from the National Scholarship Programme.
 
           ^Student loans have to be paid back - things like grants, bursaries and allowances don’t.^
 
           ##Your next steps
 
-          - How to [apply](/apply-for-student-finance "Apply for student finance") for student finance
-          - Check if you [qualify](/student-finance/eligibility "Guide to student finance")
+          - How to [apply](/apply-for-student-finance) for student finance
+          - Check if you [qualify](/student-finance/who-qualifies)
 
           ^Usually, you only get student finance if you’re doing your first higher education qualification.^
         no_additional_benefits: |
@@ -158,7 +160,7 @@ en-GB:
         eu_full_time_students: |
           ##Living costs
 
-          Most EU full-time students don't [qualify](/student-finance/who-qualifies “Eligibility”) for help with living costs (known as 'maintenance').
+          Most EU full-time students don't [qualify](/student-finance/who-qualifies) for help with living costs (known as 'maintenance').
         eu_part_time_students: |
           ##Living costs
 
@@ -166,12 +168,12 @@ en-GB:
         eu_students_body_text_two: |
           ##Extra help
 
-          You could get a [bursary or scholarship](/extra-money-pay-university "Help from your university or college") from your university or college. Usually, this doesn't have to be paid back.
+          You could get a [bursary or scholarship](/extra-money-pay-university) from your university or college. Usually, this doesn't have to be paid back.
 
           ##Your next steps
 
-          - How to [apply](/apply-for-student-finance “How to apply”) for student finance  
-          - Check if you [qualify](/student-finance/who-qualifies “Eligibility”) for student finance   
+          - How to [apply](/apply-for-student-finance) for student finance  
+          - Check if you [qualify](/student-finance/who-qualifies) for student finance   
 
           ^Usually, you’ll only get student finance if you’re doing your first higher education qualification.^
 
