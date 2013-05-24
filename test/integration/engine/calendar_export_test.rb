@@ -28,9 +28,33 @@ class CalendarExportTest < EngineIntegrationTest
     assert_equal 404, page.status_code
   end
 
+  should "not store the calendar in memory" do
+    FLOW_REGISTRY_OPTIONS[:preload_flows] = true
+    SmartAnswer::FlowRegistry.reset_instance
+
+    visit "/calendars-sample/y/2012-01-01/2012-05-01/yes.ics"
+    assert_calendar_has_event Date.parse("2012-01-01"), Date.parse("2012-05-01")
+
+    visit "/calendars-sample/y/2012-01-08/2012-05-08/yes.ics"
+    assert_calendar_has_event Date.parse("2012-01-08"), Date.parse("2012-05-08")
+    assert_calendar_has_no_event Date.parse("2012-01-01"), Date.parse("2012-05-01")
+
+    FLOW_REGISTRY_OPTIONS[:preload_flows] = false
+    SmartAnswer::FlowRegistry.reset_instance
+  end
+
   def assert_calendar_has_event(start_date, stop_date = nil)
+    assert_match build_expression_for_dates(start_date, stop_date), page.body
+  end
+
+  def assert_calendar_has_no_event(start_date, stop_date = nil)
+    assert_no_match build_expression_for_dates(start_date, stop_date), page.body
+  end
+
+  def build_expression_for_dates(start_date, stop_date)
     stop_date = start_date if stop_date.nil?
     stop_date = stop_date + 1.day
-    assert_match "DTEND;VALUE=DATE:#{stop_date.strftime('%Y%m%d')}\r\nDTSTART;VALUE=DATE:#{start_date.strftime('%Y%m%d')}", page.body
+
+    %r{DTEND;VALUE=DATE:#{stop_date.strftime('%Y%m%d')}\r\nDTSTART;VALUE=DATE:#{start_date.strftime('%Y%m%d')}}
   end
 end

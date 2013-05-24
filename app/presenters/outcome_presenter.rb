@@ -17,12 +17,12 @@ class OutcomePresenter < NodePresenter
     output
   end
 
-  def has_calendar?
-    ! @node.evaluate_calendar(@state).nil?
-  end
-
   def calendar
     @node.evaluate_calendar(@state)
+  end
+
+  def has_calendar?
+    calendar.present?
   end
 
   private
