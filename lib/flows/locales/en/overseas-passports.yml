@@ -549,12 +549,15 @@ en-GB:
             __Passport Information Helpline__
 
             Premium rate helpline
+            
             +44 900 990 202
 
             Landline calls are charged at $4.50 per minute - mobile calls may cost more
 
             Paying for the call by credit card
-            +44 208 082 4727
+
+            +44 208 082 4726
+            
             Calls charged at £0.72 per minute plus VAT
 
             Textphone: +44 1750 725 368
@@ -874,16 +877,16 @@ en-GB:
           - the British Embassy in Baghdad 
           - the British Consulate General in Erbil
 
-          You must specify where you want them delivered on the application form.
+          You must specify where you want them delivered in section 8 on the application form. You must bring photo ID with you
 
           The embassy or consulate general will contact you when your passport arrives using the contact details on your form. 
         
         getting_your_passport_jordan: |
-          Your passport and supporting documents will be delivered to the British Embassy in Amman, Jordan - you must collect them in person. 
+          Your passport and supporting documents will be delivered to the British Embassy in Amman, Jordan - you must collect them in person. You must bring photo ID with you.
 
           They will contact you when your passport arrives using the contact details on your form.
         getting_your_passport_yemen: |
-          Your passport and supporting documents will be delivered to the British Embassy in Amman, Jordan - you must collect them in person. 
+          Your passport and supporting documents will be delivered to the British Embassy in Amman, Jordan - you must collect them in person. You must bring photo ID with you.
 
           They will contact you when your passport arrives using the contact details on your form.
         tracking_and_receiving_ips1: |
@@ -1183,12 +1186,17 @@ en-GB:
             __Passport Information Helpline__
 
             Premium rate helpline
+            
             1902 241 444
+            
             Landline calls are charged at AUS $3.52 per minute - mobile calls may cost more
 
             Paying for the call by credit card
-            +44 208 082 4727
+            
+            +44 208 082 4726
+            
             Calls charged at £0.72 per minute plus VAT
+            
             Textphone: +44 1750 725 368
           $C
 
@@ -1933,8 +1941,8 @@ en-GB:
 
           Passport type	Passport fee | Total to pay | (including courier fee)
           -|-|-
-          Adult standard 32-page passport | US $211.20 | US $266.20
-          Adult jumbo 48-page passport | US $254.92 | US $308.92
+          Adult standard 32-page passport | US $211.20 | US $249.16
+          Adult jumbo 48-page passport | US $254.92 | US $292.88
           Child passport | US $134.48 | US $189.48
 
           You’ll need to pay an extra $16.76 if you want your supporting documents returned. 
@@ -1942,7 +1950,7 @@ en-GB:
         how_to_apply_lebanon: ''
         supporting_documents_lebanon: ''
         making_application_lebanon: |
-          Bring your application in person to the British embassy in Beirut - you must [book an appointment.](https://www.clickbook.net/dev/bc.nsf/sub/britishembassyamman?OpenDocument&cb_referer=){:rel="external"}
+          Bring your application in person to the British embassy in Beirut - you must [book an appointment.](http://www.britishembassybeirut.clickbook.net/){:rel="external"}
         getting_your_passport_lebanon: |
           The British embassy will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
