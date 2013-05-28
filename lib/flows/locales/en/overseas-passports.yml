@@ -877,7 +877,7 @@ en-GB:
           - the British Embassy in Baghdad 
           - the British Consulate General in Erbil
 
-          You must specify where you want them delivered in section 8 on the application form. You must bring photo ID with you 
+          You must specify where you want them delivered in section 8 on the application form. You must bring photo ID with you
 
           The embassy or consulate general will contact you when your passport arrives using the contact details on your form. 
         
@@ -1950,7 +1950,7 @@ en-GB:
         how_to_apply_lebanon: ''
         supporting_documents_lebanon: ''
         making_application_lebanon: |
-          Bring your application in person to the British embassy in Beirut - you must [book an appointment.](https://www.clickbook.net/dev/bc.nsf/sub/britishembassyamman?OpenDocument&cb_referer=){:rel="external"}
+          Bring your application in person to the British embassy in Beirut - you must [book an appointment.](http://www.britishembassybeirut.clickbook.net/){:rel="external"}
         getting_your_passport_lebanon: |
           The British embassy will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
