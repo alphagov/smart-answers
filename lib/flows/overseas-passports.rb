@@ -303,11 +303,13 @@ outcome :fco_result do
       cost_type = current_location
       payment_methods = :passport_costs_indonesia
     end
-    payment_methods = :passport_costs_nepal if current_location == 'nepal'
 
-    PhraseList.new(:"passport_courier_costs_#{cost_type}",
-                   :"#{child_or_adult}_passport_costs_#{cost_type}", 
-                   payment_methods)
+    phrases = PhraseList.new(:"passport_courier_costs_#{cost_type}",
+                             :"#{child_or_adult}_passport_costs_#{cost_type}", 
+                             payment_methods)
+
+    phrases << :passport_costs_nepal if current_location == 'nepal'
+    phrases
   end
 
   precalculate :how_to_apply_supplement do
