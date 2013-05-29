@@ -54,10 +54,10 @@ en-GB:
       type_of_student?:
         title: What type of a student are you?
         options:
-          "uk-full-time": "UK student full-time"
-          "uk-part-time": "UK student part-time"
-          "eu-full-time": "EU student full-time"
-          "eu-part-time": "EU student part-time"
+          "uk-full-time": "English student - full-time"
+          "uk-part-time": "English student - part-time"
+          "eu-full-time": "EU student - full-time"
+          "eu-part-time": "EU student - part-time"
 
       ## Q2
       form_needed_for_1?:
