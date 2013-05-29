@@ -8,7 +8,7 @@ multiple_choice :are_you_getting_dla? do
 
   # Used in later questions
   calculate :calculator do
-    Calculators::PIPDatesV2.new
+    Calculators::PIPDates.new
   end
 
   calculate :getting_dla do
