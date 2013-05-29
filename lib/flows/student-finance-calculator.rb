@@ -1,23 +1,31 @@
 satisfies_need 2175
 status :published
 
+#Q1
 multiple_choice :when_does_your_course_start? do
-  option :'2012-2013'
-  option :'2013-2014'
+  option :"2012-2013"
+  option :"2013-2014"
+
   save_input_as :start_date
-  next_node :are_you_a_full_time_or_part_time_student?
+  next_node :what_type_of_student_are_you?
 end
 
-multiple_choice :are_you_a_full_time_or_part_time_student? do
-  option :'full-time'
-  option :'part-time'
+#Q2
+multiple_choice :what_type_of_student_are_you? do
+  option :"uk-full-time"
+  option :"uk-part-time"
+  option :"eu-full-time"
+  option :"eu-part-time"
+
   save_input_as :course_type
   next_node :how_much_are_your_tuition_fees_per_year?
 end
 
+#Q3
 money_question :how_much_are_your_tuition_fees_per_year? do
+
   calculate :tuition_fee_amount do
-    if course_type == "full-time"
+    if course_type == "uk-full-time" or course_type == 'eu-full-time'
       raise SmartAnswer::InvalidResponse if responses.last > 9000
     else
       raise SmartAnswer::InvalidResponse if responses.last > 6750
@@ -30,14 +38,18 @@ money_question :how_much_are_your_tuition_fees_per_year? do
   end
 
   next_node do
-    if course_type == "full-time"
+    case course_type
+    when 'uk-full-time'
       :where_will_you_live_while_studying?
-    else
-      :part_time_do_you_want_to_check_for_additional_grants_and_allowances?
+    when 'uk-part-time'
+      :do_any_of_the_following_apply_all_uk_students?
+    when 'eu-full-time','eu-part-time'
+      :outcome_eu_students
     end
   end
-end
 
+end
+#Q4
 multiple_choice :where_will_you_live_while_studying? do
   option :'at-home'
   option :'away-outside-london'
@@ -53,10 +65,20 @@ multiple_choice :where_will_you_live_while_studying? do
     end
   end
 
+  save_input_as :where_living
   next_node :whats_your_household_income?
 end
 
+#Q5
 money_question :whats_your_household_income? do
+    
+  calculate :household_income_figure do
+    if responses.last <= 25000
+      PhraseList.new(:uk_students_body_text_with_nsp)
+    else
+      PhraseList.new(:uk_students_body_text_no_nsp)
+    end
+  end
 
   calculate :maintenance_grant_amount do
     if start_date == "2013-2014"
@@ -113,144 +135,134 @@ money_question :whats_your_household_income? do
     end
   end
 
-  next_node do |response|
-    if course_type == "full-time"
-      :full_time_do_you_want_to_check_for_additional_grants_and_allowances?
-    else
-      :part_time_do_you_want_to_check_for_additional_grants_and_allowances?
-    end
-  end
-
-end
-
-multiple_choice :full_time_do_you_want_to_check_for_additional_grants_and_allowances? do
-  option :yes => :do_you_have_any_children_under_17?
-  option :no => :done
-
-  calculate :additional_benefits do
-    if responses.last == "yes"
-      PhraseList.new(:body)
-    else
-      PhraseList.new
-    end
-  end
-
-  calculate :extra_grants do
-    if responses.last == "no"
-      PhraseList.new(:additional_grants_and_allowances)
-    else
-      PhraseList.new
-    end
-  end
-
-end
-
-multiple_choice :part_time_do_you_want_to_check_for_additional_grants_and_allowances? do
-  option :yes => :do_you_have_a_disability_or_health_condition?
-  option :no => :done
   
-  calculate :additional_benefits do
-    if responses.last == "yes"
-      PhraseList.new(:body)
+  next_node :do_any_of_the_following_apply_uk_full_time_students_only?
+end
+
+#Q6a uk full-time students
+checkbox_question :do_any_of_the_following_apply_uk_full_time_students_only? do
+  option :"children-under-17"
+  option :"dependant-adult"
+  option :"has-disability"
+  option :"low-income"
+  option :"no"
+
+  calculate :uk_ft_circumstances do
+    responses.last.split(',')
+  end
+
+  next_node :what_course_are_you_studying?
+end
+
+#Q6b uk students
+checkbox_question :do_any_of_the_following_apply_all_uk_students? do
+  option :"has-disability"
+  option :"low-income"
+  option :"no"
+
+  calculate :all_uk_students_circumstances do
+    responses.last.split(',')
+  end
+
+  next_node :what_course_are_you_studying?
+end
+
+#Q7
+multiple_choice :what_course_are_you_studying? do
+  option :"teacher-training"
+  option :"dental-medical-healthcare"
+  option :"social-work"
+  option :"none-of-the-above"
+
+  save_input_as :course_studied
+
+  next_node do
+    case course_type
+    when 'uk-full-time'
+      :outcome_uk_full_time_students
+    when 'uk-part-time'
+      :outcome_uk_all_students
     else
-      PhraseList.new
+      :outcome_eu_students
     end
   end
 
-  calculate :extra_grants do
-    if responses.last == "no"
-      PhraseList.new(:additional_grants_and_allowances)
+end
+
+outcome :outcome_uk_full_time_students do
+  precalculate :students_body_text do
+    PhraseList.new(:uk_students_body_text)
+  end
+  precalculate :uk_full_time_students do
+    phrases = PhraseList.new
+    if uk_ft_circumstances.include?('no') and course_studied == 'none-of-the-above'
+      phrases << :no_additional_benefits
     else
-      PhraseList.new
+      phrases << :additional_benefits
+      if uk_ft_circumstances.include?('children-under-17')
+        phrases << :children_under_17
+      end
+      if uk_ft_circumstances.include?('dependant-adult')
+        phrases << :dependant_adult
+      end
+      if uk_ft_circumstances.include?('has-disability')
+        phrases << :has_disability
+      end
+      if uk_ft_circumstances.include?('low-income')
+        phrases << :low_income
+      end
+
+      if course_studied == 'teacher-training'
+        phrases << :teacher_training
+      elsif course_studied == 'dental-medical-healthcare'
+        phrases << :dental_medical_healthcare
+      elsif course_studied == 'social-work'
+        phrases << :social_work
+      end
+    phrases
     end
   end
 end
 
-
-multiple_choice :do_you_have_any_children_under_17? do
-  option :yes
-  option :no
-
-  calculate :additional_benefits do
-    responses.last == "yes" ? additional_benefits + :dependent_children : additional_benefits
+outcome :outcome_uk_all_students do
+  precalculate :students_body_text do
+    PhraseList.new(:uk_students_body_text)
   end
-
-  next_node :does_another_adult_depend_on_you_financially?
-end
-
-multiple_choice :does_another_adult_depend_on_you_financially? do
-  option :yes
-  option :no
-
-  calculate :additional_benefits do
-    responses.last == "yes" ? additional_benefits + :dependent_adult : additional_benefits
-  end
-
-  next_node :do_you_have_a_disability_or_health_condition?
-end
-
-multiple_choice :do_you_have_a_disability_or_health_condition? do
-  option :yes
-  option :no
-
-  calculate :additional_benefits do
-    responses.last == "yes" ? additional_benefits + :disability : additional_benefits
-  end
-
-  next_node :are_you_in_financial_hardship?
-end
-
-multiple_choice :are_you_in_financial_hardship? do
-  option :yes
-  option :no
-  
-  calculate :additional_benefits do
-    responses.last == "yes" ? additional_benefits + :financial_hardship : additional_benefits
-  end
-
-  next_node :are_you_studying_one_of_these_courses?
-end
-
-multiple_choice :are_you_studying_one_of_these_courses? do
-  option :'teacher-training'
-  option :'dental-medical-or-healthcare'
-  option :'social-work'
-  option :'none'
-
-  calculate :additional_benefits do
-    case responses.last
-    when "teacher-training"
-      additional_benefits + :teacher_training
-    when "dental-medical-or-healthcare"
-      additional_benefits + :medical
-    when "social-work"
-      additional_benefits + :social_work
+  precalculate :uk_all_students do
+    phrases = PhraseList.new
+    if all_uk_students_circumstances.include?('no') and course_studied == 'none-of-the-above'
+      phrases << :no_additional_benefits
     else
-      additional_benefits
+      phrases << :additional_benefits
+      if all_uk_students_circumstances.include?('has-disability')
+        phrases << :has_disability
+      end
+      if all_uk_students_circumstances.include?('low-income')
+        phrases << :low_income
+      end
+      if course_studied == 'teacher-training'
+        phrases << :teacher_training
+      elsif course_studied == 'dental-medical-healthcare'
+        phrases << :dental_medical_healthcare
+      elsif course_studied == 'social-work'
+        phrases << :social_work
+      end
     end
+    phrases << :uk_students_body_text_no_nsp
+    phrases
   end
-
-  next_node :done
 end
 
-outcome :done do
-
-  precalculate :additional_benefits do
-    a = [:dependent_children, :dependent_adult, :disability, :financial_hardship, :teacher_training, :medical, :social_work]
-    if (additional_benefits.phrase_keys & a).empty?
-      PhraseList.new
+outcome :outcome_eu_students do
+  precalculate :eu_students do
+    phrases = PhraseList.new
+    phrases << :eu_students_body_text
+    if course_type == 'eu-full-time'
+      phrases << :eu_full_time_students
     else
-      additional_benefits
+      phrases << :eu_part_time_students
     end
+    phrases << :eu_students_body_text_two
+    phrases
   end
-
-  precalculate :extra_grants do
-    a = [:dependent_children, :dependent_adult, :disability, :financial_hardship, :teacher_training, :medical, :social_work]
-    if (additional_benefits.phrase_keys & a).empty?
-      PhraseList.new(:additional_grants_and_allowances)
-    else
-      extra_grants
-    end
-  end
-
 end
