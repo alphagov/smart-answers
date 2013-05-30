@@ -11,9 +11,10 @@ class WorldwideOrganisation
     @data = data
   end
 
-  def_delegators :@data, :title, :offices
+  def_delegators :@data, :title, :offices, :web_url
   def_delegator :offices, :main, :main_office
   def_delegator :offices, :other, :other_offices
+
   def all_offices
     [main_office] + other_offices
   end
