@@ -258,8 +258,8 @@ module SmartAnswer::Calculators
 
     def statutory_rate(date)
       rates = [
-        { min: uprating_threshold(2012), max: uprating_threshold(2013), amount: 135.45 },
-        { min: uprating_threshold(2013), max: uprating_threshold(2014), amount: 136.78 }
+        { min: uprating_date(2012), max: uprating_date(2013), amount: 135.45 },
+        { min: uprating_date(2013), max: uprating_date(2014), amount: 136.78 }
       ]
       rate = rates.find{ |r| r[:min] <= date and date < r[:max] } || rates.last
       rate[:amount]
@@ -289,20 +289,16 @@ module SmartAnswer::Calculators
       pay = 0.0
       (start_date..end_date).each do |day|
         # Increment the pay up until the pay end date.
-        puts "#{day} : #{rate_for(day)}"
         pay += (rate_for(day) / 7) unless pay_start_date > day or day > pay_end_date
       end
-      pay # .round(2) # TODO: Verify rounding here.
+      (pay * 10**2).ceil.to_f / 10**2
     end
 
     def rate_for(date)
       if date < 6.weeks.since(leave_start_date)
         statutory_maternity_rate_a
       else
-        # Because uprating is calculated assuming payment in arrears the
-        # rate should be calculated at the end of the week.
-        # This also supercedes statutory_maternity_rate_b (still in use by adoption calc)
-        [statutory_rate(date + (6 - date.wday)), statutory_maternity_rate_a].min
+        [statutory_rate(date), statutory_maternity_rate_a].min
       end
     end
 
@@ -310,7 +306,7 @@ module SmartAnswer::Calculators
       weekdays_for_month(Date.civil(year, month, 1), 0).first
     end
 
-    def uprating_threshold(year)
+    def uprating_date(year)
       first_sunday_in_month(4 ,year) + leave_start_date.wday
     end
 
