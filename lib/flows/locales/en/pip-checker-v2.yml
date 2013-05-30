@@ -34,11 +34,13 @@ en-GB:
         body: |
           $!The child isn't affected by Personal Independence Payment because they're under 16.$!
 
-          You can make a claim for [Disability Living Allowance](/dla-disability-living-allowance-benefit "Disability Living Allowance") for the child until they turn 16.
+          To qualify for Personal Independence Payment (PIP) the child must be 16 or over on 8 April 2013.
+
+          Instead of PIP, you can make a claim for [Disability Living Allowance](/dla-disability-living-allowance-benefit "Disability Living Allowance") for the child until they turn 16.
 
       result_2:
         body: |
-          $!You aren't affected by Personal Independence Payment because you're 65 or over.$!
+          $!You aren't affected by Personal Independence Payment because on 8 April 2013 you were aged 65 or over.$!
 
           To qualify for Personal Independence Payment you must be aged 16 to 64 on 8 April 2013.
 
@@ -49,6 +51,8 @@ en-GB:
       result_3:
         body: |
           $!You can make a claim for [Personal Independence Payment (PIP)](/pip).$!
+
+          You can no longer make a claim for Disability Living Allowance (DLA) because PIP has replaced DLA for people aged 16 to 64.
 
           *[PIP]: Personal Independence Payment
           *[DLA]: Disability Living Allowance
