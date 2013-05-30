@@ -258,8 +258,8 @@ module SmartAnswer::Calculators
 
     def statutory_rate(date)
       rates = [
-        { min: first_sunday_in_month(4, 2012), max: first_sunday_in_month(4, 2013), amount: 135.45 },
-        { min: first_sunday_in_month(4, 2013), max: first_sunday_in_month(4, 2014), amount: 136.78 }
+        { min: uprating_threshold(2012), max: uprating_threshold(2013), amount: 135.45 },
+        { min: uprating_threshold(2013), max: uprating_threshold(2014), amount: 136.78 }
       ]
       rate = rates.find{ |r| r[:min] <= date and date < r[:max] } || rates.last
       rate[:amount]
@@ -287,15 +287,12 @@ module SmartAnswer::Calculators
 
     def pay_for_period(start_date, end_date)
       pay = 0.0
-      (start_date..end_date).each_slice(7) do |week|
-        # Calculate the rate for the week
-        rate = rate_for(week.first)
-        week.each do |day|
-          # Increment the pay up until the pay end date.
-          pay += (rate / 7) unless pay_start_date > day or day > pay_end_date
-        end
+      (start_date..end_date).each do |day|
+        # Increment the pay up until the pay end date.
+        puts "#{day} : #{rate_for(day)}"
+        pay += (rate_for(day) / 7) unless pay_start_date > day or day > pay_end_date
       end
-      pay.round(2) # TODO: Verify rounding here.
+      pay # .round(2) # TODO: Verify rounding here.
     end
 
     def rate_for(date)
@@ -311,6 +308,10 @@ module SmartAnswer::Calculators
 
     def first_sunday_in_month(month, year)
       weekdays_for_month(Date.civil(year, month, 1), 0).first
+    end
+
+    def uprating_threshold(year)
+      first_sunday_in_month(4 ,year) + leave_start_date.wday
     end
 
     def weekdays_for_month(date, weekday)
