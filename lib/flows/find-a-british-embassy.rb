@@ -20,11 +20,9 @@ country_select :choose_embassy_country do
     end
   end
 
-
   calculate :organisation do
     location.fco_organisation
   end
-
 
   next_node :embassy_outcome
 end
