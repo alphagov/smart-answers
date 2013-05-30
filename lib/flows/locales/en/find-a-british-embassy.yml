@@ -32,4 +32,4 @@ en-GB:
       embassy_outcome:
         title: Embassy details for %{country_name}
         body: |
-          +[data_partial:embassies:embassies]
+          +[data_partial:embassies:organisation]

@@ -1,16 +1,19 @@
-<%- if embassies.any? -%>
-<%- embassies.each do |embassy| -%>
+<%- if organisation && organisation.all_offices.any? %>
+<%- organisation.all_offices.each do |embassy| -%>
+<%- if organisation.main_office == embassy -%>
+###[<%= organisation.main_office.title %>](<%= organisation.web_url %>)
+<%- else -%>
 ### <%= embassy.title %>
+<%- end -%>
 
 $C
 <%- if embassy.details.email.present? -%>
 Email: <<%= embassy.details.email.strip %>>
-
 <%- end -%>
+
 <%- embassy.contact_numbers.each do |contact| -%>
 <%# Some labels have a trailing :, some don't %>
 <%= contact.label.sub(/:\s*\z/, '') %>: <%= contact.number %>
-
 <%- end -%>
 $C
 

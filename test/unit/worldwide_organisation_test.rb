@@ -59,6 +59,10 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
         assert_equal 5, @organisation.all_offices.size
         assert_equal ["British High Commission Canberra", "British Consulate-General Sydney"], @organisation.all_offices.map(&:title)[0..1]
       end
+
+      should "have an accessor for the URL" do
+        assert_equal "https://www.gov.uk/government/world/organisations/british-high-commission-canberra", @organisation.web_url
+      end
     end
   end
 end
