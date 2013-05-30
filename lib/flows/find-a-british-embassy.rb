@@ -19,13 +19,12 @@ country_select :choose_embassy_country do
       location.name
     end
   end
-  calculate :embassies do
-    if org = location.fco_organisation
-      org.all_offices
-    else
-      []
-    end
+
+
+  calculate :organisation do
+    location.fco_organisation
   end
+
 
   next_node :embassy_outcome
 end
