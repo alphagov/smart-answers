@@ -28,7 +28,7 @@ class FindABritishEmbassyTest < ActiveSupport::TestCase
     expected_location = WorldLocation.find('australia')
     assert_state_variable :location, expected_location
     assert_state_variable :country_name, "Australia"
-    assert_state_variable :embassies, expected_location.fco_organisation.all_offices
+    assert_state_variable :organisation, expected_location.fco_organisation
 
     expected_titles = [
       "British High Commission Canberra",
@@ -47,7 +47,7 @@ class FindABritishEmbassyTest < ActiveSupport::TestCase
     expected_location = WorldLocation.find('nicaragua')
     assert_state_variable :location, expected_location
     assert_state_variable :country_name, "Nicaragua"
-    assert_state_variable :embassies, []
+    assert_state_variable :organisation, nil
 
     assert_equal "No embassy details found", outcome_body.at_css('p').text
   end
