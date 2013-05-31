@@ -20,7 +20,7 @@ en-GB:
         current_vehicle_cost_bullet: |
           - %{vehicle_costs} per year for cars and vans and motorcycles
         current_green_vehicle_write_off_bullet: |
-          - %{green_vehicle_write_off} per year for for cars, vans and motorcycles
+          - %{green_vehicle_write_off} per year for cars, vans and motorcycles
         current_dirty_vehicle_write_off_bullet: |
           - %{dirty_vehicle_write_off} per year for for cars, vans and motorcycles
         current_home_costs_bullet: |
@@ -121,7 +121,7 @@ en-GB:
         body: |
           Based on your answers you might be able to claim the following expenses.
 
-          ##Simplified expenses - what you can claim
+          ##Simplified expenses - what you can claim in this tax year
 
           %{simplified_bullets}
 
@@ -135,7 +135,7 @@ en-GB:
 
           Instead you just multiply the flat rates with the [miles you droves](/simpler-income-tax-simplified-expenses/vehicles-), [hours you use your home for business](/simpler-income-tax-simplified-expenses/business-use-of-your-home) or the [number of people who live on your business premises](/simpler-income-tax-simplified-expenses/private-use-of-business-premises). 
 
-          ##Calculating expenses the usual way
+          ##Calculating expenses the usual way in this tax year
 
           %{current_scheme_bullets}
 
