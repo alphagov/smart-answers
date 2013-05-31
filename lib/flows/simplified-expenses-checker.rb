@@ -94,7 +94,13 @@ end
 money_question :how_much_expect_to_claim? do
   save_input_as :vehicle_costs
 
-  next_node :drive_business_miles_car_van?
+  next_node do
+    if list_of_expenses.include?("car_or_van")
+      :drive_business_miles_car_van?
+    else
+      :drive_business_miles_motorcycle?
+    end
+  end
 end
 
 #Q6 - is vehicle green?
@@ -121,7 +127,7 @@ money_question :price_of_vehicle? do
   end
 
   calculate :dirty_vehicle_price do
-    vehicle_is_green ? nil : vehicle_price * 0.18
+    vehicle_is_green ? nil : (vehicle_price * 0.18)
   end
 
   calculate :is_over_limit do
