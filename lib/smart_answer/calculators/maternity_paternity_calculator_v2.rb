@@ -291,6 +291,7 @@ module SmartAnswer::Calculators
         # Increment the pay up until the pay end date.
         pay += (rate_for(day) / 7) unless pay_start_date > day or day > pay_end_date
       end
+      # HMRC rules stipulate rounding up at 5 decimal places.
       (pay.round(5) * 10**2).ceil.to_f / 10**2
     end
 
