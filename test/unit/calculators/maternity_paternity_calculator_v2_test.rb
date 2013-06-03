@@ -80,6 +80,7 @@ module SmartAnswer::Calculators
         context "with a weekly income of 193.00" do
           setup do
             @calculator.average_weekly_earnings = 193.00
+            @calculator.leave_start_date = Date.new(2012, 1, 1)
           end
 
           should "calculate the statutory maternity rate" do
@@ -103,11 +104,13 @@ module SmartAnswer::Calculators
 
         should "calculate the paternity rate as the standard rate" do
           @calculator.average_weekly_earnings = 500.55
+          @calculator.leave_start_date = Date.new(2012, 1, 1)
           assert_equal 135.45, @calculator.statutory_paternity_rate
         end
 
         should "calculate the paternity rate as 90 percent of weekly earnings" do
           @calculator.average_weekly_earnings = 120.55
+          @calculator.leave_start_date = Date.new(2012, 1, 1)
           assert_equal ((120.55 * 0.9).to_f).round(2), @calculator.statutory_paternity_rate
         end
 
@@ -429,7 +432,7 @@ module SmartAnswer::Calculators
         should "pay on the leave start date" do
           assert_equal '2013-03-01', @calculator.paydates_first_day_of_the_month.first.to_s
           assert_equal '2013-03-01', @calculator.paydates_and_pay.first[:date].to_s
-          assert_equal 38.57, @calculator.paydates_and_pay.first[:pay]
+          assert_equal 38.58, @calculator.paydates_and_pay.first[:pay]
           assert @calculator.paydates_and_pay.last[:date] > @calculator.pay_end_date, "Last paydate should be after SMP end date"
           assert @calculator.paydates_and_pay.last[:pay] > 0
         end
@@ -445,14 +448,9 @@ module SmartAnswer::Calculators
             assert_equal 135.45, @calculator.statutory_rate(Date.parse('6 April 2012'))
           end
         end
-        context "just before uprating should occur" do
-          should "give the correct rate for the period" do
-            assert_equal 135.45, @calculator.statutory_rate(Date.parse('6 April 2013'))
-          end
-        end
         context "when uprating should start" do
           should "give the correct rate for the period" do
-            assert_equal 136.78, @calculator.statutory_rate(Date.parse('7 April 2013'))
+            assert_equal 136.78, @calculator.statutory_rate(Date.parse('12 April 2013'))
           end
         end
         context "for 2043 rates" do
@@ -479,17 +477,17 @@ module SmartAnswer::Calculators
           assert_equal 64.29, paydates_and_pay.first[:pay]
 
           rate_a_payments = paydates_and_pay.select{ |p| p[:pay] == 225 }
-          assert_equal 6, rate_a_payments.size
+          assert_equal 5, rate_a_payments.size
 
           assert_equal '2013-01-11', rate_a_payments.first[:date].to_s
-          assert_equal '2013-02-15', rate_a_payments.last[:date].to_s
+          assert_equal '2013-02-08', rate_a_payments.last[:date].to_s
 
           rate_b_payments = paydates_and_pay.select{ |p| p[:pay] == 135.45 }
 
-          assert_equal 8, rate_b_payments.size
+          assert_equal 7, rate_b_payments.size
 
           assert_equal '2013-02-22', rate_b_payments.first[:date].to_s
-          assert_equal '2013-04-12', rate_b_payments.last[:date].to_s
+          assert_equal '2013-04-05', rate_b_payments.last[:date].to_s
           
           uprated_payments = paydates_and_pay.select{ |p| p[:pay] == 136.78 }
          
@@ -505,17 +503,16 @@ module SmartAnswer::Calculators
           
           assert_equal 21, paydates_and_pay.size
 
-          rate_a_payments = paydates_and_pay.select{ |p| p[:pay] == 450.0 }
-          
-          assert_equal 3, rate_a_payments.size
+          rate_a_payments = paydates_and_pay.select{ |p| p[:pay] == 450 }
+          assert_equal 2, rate_a_payments.size
           assert_equal '2013-01-17', rate_a_payments.first[:date].to_s
-          assert_equal '2013-02-14', rate_a_payments.last[:date].to_s
+          assert_equal '2013-01-31', rate_a_payments.last[:date].to_s
 
           rate_b_payments = paydates_and_pay.select{ |p| p[:pay] == 270.9 }
 
-          assert_equal 4, rate_b_payments.size
+          assert_equal 3, rate_b_payments.size
           assert_equal '2013-02-28', rate_b_payments.first[:date].to_s
-          assert_equal '2013-04-11', rate_b_payments.last[:date].to_s
+          assert_equal '2013-03-28', rate_b_payments.last[:date].to_s
 
           uprated_payments = paydates_and_pay.select{ |p| p[:pay] == 273.56 }
           
@@ -533,7 +530,7 @@ module SmartAnswer::Calculators
           assert_equal '2013-01-05', paydates_and_pay.first[:date].to_s
           assert_equal 96.43, paydates_and_pay.first[:pay]
           assert_equal '2013-10-05', paydates_and_pay.last[:date].to_s
-          assert_equal 527.58, paydates_and_pay.last[:pay]
+          assert_equal 527.59, paydates_and_pay.last[:pay]
         end
         should "calculate pay due on the first day of the month" do
           @calculator.pay_method = 'first_day_of_the_month'
@@ -553,7 +550,7 @@ module SmartAnswer::Calculators
           
           assert_equal 10, paydates_and_pay.size
           assert_equal '2013-01-31', paydates_and_pay.first[:date].to_s
-          assert_equal 932.14, paydates_and_pay.first[:pay]
+          assert_equal 932.15, paydates_and_pay.first[:pay]
           assert_equal '2013-10-31', paydates_and_pay.last[:date].to_s
           assert_equal 39.08, paydates_and_pay.last[:pay]
         end
@@ -570,6 +567,24 @@ module SmartAnswer::Calculators
           assert_equal 289.29, paydates_and_pay.first[:pay]
           assert_equal '2013-10-11', paydates_and_pay.last[:date].to_s
           assert_equal 371.26, paydates_and_pay.last[:pay]
+        end
+      end
+      context "HMRC test scenario for SMP Pay week offset" do
+        setup do
+          @calculator = MaternityPaternityCalculatorV2.new(Date.parse('22 February 2013'))
+          @calculator.leave_start_date = Date.parse('25 January 2013')
+          @calculator.pay_method = 'weekly'
+          @calculator.pay_date = Date.parse('25 January 2013')
+          @calculator.average_weekly_earnings = 200
+        end
+        should "calculate pay on paydates with April 2013 uprating" do
+          paydates_and_pay =  @calculator.paydates_and_pay
+          assert_equal 25.72, paydates_and_pay.first[:pay]
+          assert_equal 180, paydates_and_pay.second[:pay]
+          assert_equal 173.64, paydates_and_pay.find{ |p| p[:date].to_s == '2013-03-08' }[:pay]
+          assert_equal 135.45, paydates_and_pay.find{ |p| p[:date].to_s == '2013-04-05' }[:pay]
+          assert_equal 135.64, paydates_and_pay.find{ |p| p[:date].to_s == '2013-04-12' }[:pay] # one day of uprated pay
+          assert_equal 136.78, paydates_and_pay.find{ |p| p[:date].to_s == '2013-04-19' }[:pay]
         end
       end
     end
