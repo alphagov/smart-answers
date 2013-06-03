@@ -307,7 +307,9 @@ module SmartAnswer::Calculators
     end
 
     def uprating_date(year)
-      first_sunday_in_month(4 ,year) + leave_start_date.wday
+      date = first_sunday_in_month(4 ,year)
+      date += leave_start_date.wday if leave_start_date
+      date
     end
 
     def weekdays_for_month(date, weekday)
