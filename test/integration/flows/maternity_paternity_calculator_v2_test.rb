@@ -448,7 +448,7 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
                         should "calculate the dates and payment amounts" do
                           assert_state_variable "average_weekly_earnings", 325.20
                           assert_state_variable "smp_a", (325.20 * 0.9).round(2).to_s
-                          assert_state_variable "smp_b", "136.78" # Uses the statutory maternity rate
+                          assert_state_variable "smp_b", "135.45" # Uses the statutory maternity rate
                         end
                       end
                     end
@@ -471,7 +471,7 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
                         should "calculate the dates and payment amounts" do
                           assert_state_variable "average_weekly_earnings", 262.60
                           assert_state_variable "smp_a", "236.35"
-                          assert_state_variable "smp_b", "136.78" # Uses the statutory maternity rate
+                          assert_state_variable "smp_b", "135.45" # Uses the statutory maternity rate
                         end
                       end
                     end
@@ -492,7 +492,7 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
                         should "calculate the dates and payment amounts" do
                           assert_state_variable "average_weekly_earnings", 208.59
                           assert_state_variable "smp_a", "187.74"
-                          assert_state_variable "smp_b", "136.78" # Uses the statutory maternity rate
+                          assert_state_variable "smp_b", "135.45" # Uses the statutory maternity rate
                         end
                       end
                     end
