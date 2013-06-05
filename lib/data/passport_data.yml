@@ -279,7 +279,7 @@ haiti:
 honduras: 
   type: washington_usa
   group: ips_documents_group_2
-hong-kong-(sar-of-china):
+hong-kong:
   type: hong_kong
   group: ips_documents_group_2
 hungary: 

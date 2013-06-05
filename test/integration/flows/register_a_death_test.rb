@@ -405,7 +405,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
     end # Answer Sweden
     context "answer Hong Kong" do
       setup do
-        add_response 'hong-kong-(sar-of-china)'
+        add_response 'hong-kong'
         add_response 'same_country'
       end
       should "give the embassy result and be done" do

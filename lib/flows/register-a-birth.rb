@@ -168,7 +168,7 @@ outcome :embassy_result do
         phrases << :registering_clickbooks
       elsif clickbook_data
         phrases << :registering_clickbook
-      elsif registration_country == 'hong-kong-(sar-of-china)'
+      elsif registration_country == 'hong-kong'
         phrases << :registering_hong_kong
       else
         phrases << :registering_all

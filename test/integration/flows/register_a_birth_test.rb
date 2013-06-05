@@ -247,7 +247,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
   end # Libya
   context "answer Hong Kong" do
     should "give the embassy result" do
-      add_response "hong-kong-(sar-of-china)"
+      add_response "hong-kong"
       add_response "father"
       add_response "yes"
       add_response "same_country"
