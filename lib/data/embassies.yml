@@ -378,8 +378,6 @@ azerbaijan:
     Opening hours
     Mon-Fri: 05:00 - 13:00 GMT
     Mon-Fri: 09:00 - 17:00 Local Time
-    
-    If you need to contact the Embassy in an emergency out of hours you should telephone the number above, which will give a telephone number for the Global Response Center.
 bahamas: 
 - address: |-
     British High Commission
@@ -456,9 +454,6 @@ bangladesh:
 
     British Passport Section , Dhaka:
     Sunday - Tuesday: 0900 - 1200 (Local), 03:00 - 06:00 (GMT)
-
-    For telephone enquiries:
-    Passport Information Helpline +44 208 082 4744. The cost of a call is currently about 90 taka per minute (or GBP £0.69 per minute plus 20% VAT) and any international call or mobile phone charges, and you will need to use a credit or debit card. For more information, please click here.
 
     Consular Office, Dhaka:
     Sunday to Thursday: 09:00 - 13:00 (Local time), 03:00 - 07:00 (GMT)
@@ -3318,11 +3313,12 @@ jordan:
     Thurs: 0600-1300 GMT (0800-1500 local time)
 kazakhstan: 
 - address: |-
-    British Embassy Almaty
-    Samal Towers
-    97 Zholdasbekova Street
-    Block A2, 9 Floor Microdistrict
-    Samal 2 Almaty 050051
+    British Embassy Office Almaty
+    Rahat Palace Hotel
+    Business Centre, 7th floor
+    Satpayev Street, 29A
+    Almaty 050040
+    Kazakhstan
   designation: British Embassy
   lat: 51.1445
   lon: 71.4293
@@ -4659,6 +4655,8 @@ nigeria:
   office_hours: |-
     GMT: Mon-Thurs: 0630-1430 and Fri 0630-1130
     Local Time: Mon-Thur 0730-1530 and Fri 0730-1230
+
+    Passport applications: Monday to Thursday, 8am to 10am
 - address: |-
     British High Commission
     
