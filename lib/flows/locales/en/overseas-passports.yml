@@ -198,15 +198,18 @@ en-GB:
         passport_costs_pretoria_south_africa: |
           The fee includes the cost of returning your passport and supporting documents to you securely by courier.
 
-          You can pay using:
+          You must pay using a Visa or Mastercard. [Download a credit card authorisation form (DOC,198KB)](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/countries-auth-slip){:rel="external"} 
 
-          - a banker’s draft in South African Rand, payable to the ‘British High Commission’ - you must add an additional 155 Rand to the fees above if you pay this way
-          - Visa or Mastercard
+          You can't pay in cash.
 
-          If you’re paying by card, you must send a [card payment authorisation form (DOC,198KB)](/government/uploads/system/uploads/attachment_data/file/136854/countries-auth-slip.doc "Card authorisation form (DOC, 198KB)") with your application. You can’t pay in cash.
+        supporting_documents_south_africa_applying: |
+          Application type | Supporting documents information
+          -|-
+          First adult passport | [Download 'Supporting documents for adult first passport' (DOC, 31KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136895/Checklist-1sttime-Adult.doc)
+          First child passport | [Download 'Supporting documents for first child passport' (DOC, 30KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136896/Checklist-1sttime-child.doc)
 
         passport_courier_costs_fco_europe:
-          You’ll have to pay a fee for your passport and a courier fee of 25 Euros. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+          You’ll have to pay a fee for your passport and a courier fee of 26 Euros. The courier fee pays for your passport and supporting documents to be sent back to you securely.
 
         adult_passport_costs_fco_europe: |
           Passport type | Passport fee | Total to pay (including courier fee)
@@ -326,6 +329,14 @@ en-GB:
 
         passport_costs_india: |
           You must pay using a Visa or Mastercard - [download a credit card authorisation form (PDF, 95KB)](/government/uploads/system/uploads/attachment_data/file/136906/india-credit-card-form.pdf.pdf "Credit card authorisation form (PDF, 95KB)") and send it with your application.
+
+        supporting_documents_india_applying_renewing: |
+          Application type | Supporting documents information
+          - | -
+          Adult renewal |  [Download 'Supporting documents for adult passport renewal' (PDF, 42KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136907/india-adult-renewal.pdf.pdf)
+          Child renewal | [Download 'Supporting documents for child passport renewal' (PDF, 46KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136908/india-child-renewal.pdf.pdf)
+          First adult passport | [Download 'Supporting documents for adult first passport' (PDF, 30KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136909/india-adult-first-time-apply.pdf.pdf)
+          First child passport | [Download 'Supporting documents for first child passport' (PDF, 250KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136910/india-child-first-time-application.pdf.pdf)
 
         how_to_apply_india: |
           Application type | Supporting documents information
@@ -1486,7 +1497,7 @@ en-GB:
 
           - you need to provide more information or documents
           - your photographs are rejected
-          - further checks need to be made about your identity - in some cases, this may take up to 6 months
+          - further checks need to be made about your identity - this could take up to 6 months
 
 
         cost_lagos_nigeria: |
@@ -1494,9 +1505,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | 34,600 Naira | 40,800 Naira
-          Adult jumbo 48-page passport | 41,600 Naira | 47,800 Naria
-          Child passport | 22,000 Naira | 28,600 Naira
+          Adult standard 32-page passport | 33,280 Naira | 39,260 Naira
+          Adult jumbo 48-page passport | 40,040 Naira | 46,020 Naria
+          Child passport | 21,190 Naira | 27,170 Naira
 
         how_to_apply_lagos_nigeria: ''
         supporting_documents_lagos_nigeria: ''
