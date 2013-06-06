@@ -661,6 +661,28 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_phrase_list :helpline, [:helpline_washington_usa, :helpline_fco_webchat]
     end
   end # Haiti
-
-
+  context "answer South Africa" do
+    context "applying, adult passport" do
+      should "give the fco result with custom phrases" do
+        add_response 'south-africa'
+        add_response 'applying'
+        add_response 'adult'
+        assert_current_node :fco_result
+        assert_phrase_list :how_long_it_takes, [:how_long_applying_fco]
+        assert_phrase_list :cost, [:passport_courier_costs_pretoria_south_africa, :adult_passport_costs_pretoria_south_africa, :passport_costs_pretoria_south_africa]
+        assert_phrase_list :supporting_documents, [:supporting_documents_south_africa_applying]
+      end
+    end
+    context "renewing, adult passport" do
+      should "give the fco result with custom phrases" do
+        add_response 'south-africa'
+        add_response 'renewing_old'
+        add_response 'adult'
+        assert_current_node :fco_result
+        assert_phrase_list :how_long_it_takes, [:how_long_renewing_old_fco]
+        assert_phrase_list :cost, [:passport_courier_costs_pretoria_south_africa, :adult_passport_costs_pretoria_south_africa, :passport_costs_pretoria_south_africa]
+        assert_state_variable :supporting_documents, ''
+      end
+    end
+  end # South Africa (FCO with custom phrases)
 end
