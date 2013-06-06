@@ -477,14 +477,28 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_phrase_list :helpline, [:helpline_dublin_ireland, :helpline_fco_webchat]
     end
   end # Ireland (FCO with custom phrases)
-  context "answer India, replacement, adult passport" do
-    should "give the fco result with custom phrases" do
-      add_response 'india'
-      add_response 'applying'
-      add_response 'adult'
-      assert_current_node :fco_result
-      assert_phrase_list :how_long_it_takes, [:how_long_applying_india]
-      assert_phrase_list :cost, [:passport_courier_costs_applying_india, :adult_passport_costs_applying_india, :passport_costs_india]
+  context "answer India" do
+    context "applying, adult passport" do
+      should "give the fco result with custom phrases" do
+        add_response 'india'
+        add_response 'applying'
+        add_response 'adult'
+        assert_current_node :fco_result
+        assert_phrase_list :how_long_it_takes, [:how_long_applying_india]
+        assert_phrase_list :cost, [:passport_courier_costs_applying_india, :adult_passport_costs_applying_india, :passport_costs_india]
+        assert_phrase_list :supporting_documents, [:supporting_documents_india_applying_renewing]
+      end
+    end
+    context "replacing, adult passport" do
+      should "give the fco result with custom phrases" do
+        add_response 'india'
+        add_response 'replacing'
+        add_response 'adult'
+        assert_current_node :fco_result
+        assert_phrase_list :how_long_it_takes, [:how_long_replacing_fco]
+        assert_phrase_list :cost, [:passport_courier_costs_applying_india, :adult_passport_costs_applying_india, :passport_costs_india]
+        assert_state_variable :supporting_documents, ''
+      end
     end
   end # India (FCO with custom phrases)
   context "answer Tanzania, replacement, adult passport" do

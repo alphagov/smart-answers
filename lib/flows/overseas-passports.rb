@@ -333,6 +333,8 @@ outcome :fco_result do
   precalculate :supporting_documents do
     if application_action == 'applying' and current_location == 'jordan'
       PhraseList.new(:supporting_documents_jordan_applying)
+    elsif current_location == 'india' and %w(applying renewing).include?(general_action)
+      PhraseList.new(:supporting_documents_india_applying_renewing)
     else
       ''
     end
