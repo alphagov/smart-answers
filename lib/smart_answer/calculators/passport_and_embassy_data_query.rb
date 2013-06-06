@@ -30,8 +30,8 @@ module SmartAnswer::Calculators
 
     PASSPORT_COSTS = {
       'Jordanian Dinars'    => [[144, 181], [174, 211], [92, 129]],
-      'South African Rand'  => [[1888, 2181], [2279, 2572], [1203, 1496]],
-      'Euros'               => [[157, 182],   [190, 215],   [100, 125]]
+      'South African Rand'  => [[2016, 2329], [2433, 2746], [1284, 1597]],
+      'Euros'               => [[156, 182],   [188, 214],   [99, 125]]
     }
 
     attr_reader :embassy_data, :passport_data
