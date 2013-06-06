@@ -44,7 +44,7 @@ country_select :country_of_ceremony?, :use_legacy_data => true do
       "French"
     elsif data_query.dutch_caribbean_islands?(ceremony_country)
       "Dutch"
-    elsif %w(hong-kong-(sar-of-china) macao).include?(ceremony_country)
+    elsif %w(hong-kong macao).include?(ceremony_country)
       "Chinese" 
     else
       "National of #{country_name_lowercase_prefix}"
