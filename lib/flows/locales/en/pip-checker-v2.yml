@@ -4,7 +4,7 @@ en-GB:
       title:
         Check how Personal Independence Payment (PIP) affects you
       body: |
-        Personal Independence Payment (PIP) is replacing Disability Living Allowance (DLA) for people with a long-term health condition or disability aged 16 to 64 from 8 April 2013.
+        Personal Independence Payment (PIP) is replacing Disability Living Allowance (DLA) for people with a long-term health condition or disability aged 16 to 64.
 
         Use this tool to check:
 
@@ -34,15 +34,15 @@ en-GB:
         body: |
           $!The child isn't affected by Personal Independence Payment because they're under 16.$!
 
-          To qualify for Personal Independence Payment (PIP) the child must be 16 or over on 8 April 2013.
+          To qualify for Personal Independence Payment (PIP) the child must be 16 or over.
 
-          Instead of PIP, you can make a claim for [Disability Living Allowance](/dla-disability-living-allowance-benefit) for the child until they turn 16.
+          Instead of PIP, you can make a claim for [Disability Living Allowance](/disability-living-allowance-children) for the child until they turn 16.
 
       result_2:
         body: |
-          $!You aren't affected by Personal Independence Payment because on 8 April 2013 you were aged 65 or over.$!
+          $!You aren't affected by Personal Independence Payment because you are aged 65 or over.$!
 
-          To qualify for Personal Independence Payment you must be aged 16 to 64 on 8 April 2013.
+          To qualify for Personal Independence Payment you must be aged 16 to 64.
 
           Instead of PIP, you can make a claim for [Attendance Allowance](/attendance-allowance "Attendance Allowance") (you won't normally qualify for Disability Living Allowance because you're 65 or over).
 
@@ -93,9 +93,9 @@ en-GB:
 
       result_6:
         body: |
-          $!Nothing is changing for you.$!
+          $You aren’t affected by Personal Independence Payment (PIP).$!
 
-          Because you'll be 65 or over on 8 April 2013, you can continue to get [Disability Living Allowance](/dla-disability-living-allowance-benefit "Disability Living Allowance") for as long as you're eligible.
+          Because you were aged 65 or over on 8 April 2013 when PIP was introduced, you can continue to get [Disability Living Allowance](/dla-disability-living-allowance-benefit "Disability Living Allowance") for as long as you're eligible.
 
       result_7:
         body: |
