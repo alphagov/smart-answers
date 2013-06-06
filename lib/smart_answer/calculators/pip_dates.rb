@@ -1,37 +1,6 @@
-require 'uk_postcode'
-
 module SmartAnswer::Calculators
   class PIPDates
-    def postcode=(postcode_string)
-      @postcode = UKPostcode.new(postcode_string)
-    end
-
-    def valid_postcode?
-      @postcode.full?
-    end
-
-    def in_selected_area?
-      if %w(BL CA CW DH FY L M NE PR SR WA WN).include?(@postcode.area)
-        true
-      elsif @postcode.area == 'CH' and ! %w(1 4 5 6 7 8).include?(@postcode.district)
-        true
-      elsif @postcode.area == 'DL' and ! %w(6 7 8 9 10 11).include?(@postcode.district)
-        true
-      elsif @postcode.area == 'TS' and @postcode.district != '9'
-        true
-      elsif @postcode.area == 'LA'
-        if @postcode.district == '2' and %w(7 8).include?(@postcode.sector)
-          false
-        elsif @postcode.district == '6' and %w(2 3).include?(@postcode.sector)
-          false
-        else 
-          true
-        end
-      else
-        false
-      end
-    end
-
+    
     GROUP_65_CUTOFF = Date.parse('1948-04-08')
     MIDDLE_GROUP_CUTOFF = Date.parse('1997-04-08')
     TURNING_16_UPPER_CUTOFF = Date.parse('1997-10-07')
