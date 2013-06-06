@@ -39,7 +39,6 @@ else
   gem 'govspeak', '~> 0.8.15'
 end
 
-gem 'uk_postcode', '1.0.0'
 gem 'lrucache', '0.1.4'
 
 group :test do
