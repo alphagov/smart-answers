@@ -33,9 +33,9 @@ date_question :what_is_your_dob? do
         :result_5
       end
     else
-      if calculator.in_group_65?
+      if calculator.is_65_or_over?
         :result_2
-      elsif calculator.in_middle_group?
+      elsif calculator.is_16_to_64?
         :result_3
       else
         :result_1
