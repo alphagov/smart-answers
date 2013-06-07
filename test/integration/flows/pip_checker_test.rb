@@ -16,14 +16,15 @@ class PIPCheckerTest < ActiveSupport::TestCase
   context "not getting DLA" do
     setup do
       add_response 'no'
+      Timecop.travel('2013-06-07')
     end
 
     should "ask for your date of birth" do
       assert_current_node :what_is_your_dob?
     end
 
-    should "be result 1 if born on or after 08-04-1997" do
-      add_response '1997-04-08'
+    should "be result 1 if born on or after 08-06-1997" do
+      add_response '1997-06-08'
       assert_current_node :result_1
     end
 
@@ -41,6 +42,7 @@ class PIPCheckerTest < ActiveSupport::TestCase
   context "getting DLA" do
     setup do
       add_response 'yes'
+      Timecop.travel('2013-06-07')
     end
 
     should "ask for your date of birth" do
@@ -52,8 +54,8 @@ class PIPCheckerTest < ActiveSupport::TestCase
       assert_current_node :result_6
     end
 
-    should "be result 4 if born between 08-04-1997 and 06-10-1997" do
-      add_response '1997-04-08'
+    should "be result 4 if born between 08-06-1997 and 06-10-1997" do
+      add_response '1997-06-08'
       assert_current_node :result_4
     end
 
