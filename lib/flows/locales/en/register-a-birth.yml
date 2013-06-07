@@ -97,15 +97,17 @@ en-GB:
         documents_you_must_provide_sweden: |
           You and the other parent must provide:
 
-          - a hospital certificate ("moderskapsintyg") showing exactly which hospital your child was born at
-          - your child’s local birth certificate
+          - a certificate from the hospital (‘moderskapsintyg’) showing where you child was born
+          - a ‘family certificate’ ('familjebevis') from the the Swedish Tax Agency ([Skatteverket](http://www.skatteverket.se/){:rel="external"}), with details of the child and both parents’ full names, dates and places of birth
           - your British birth certificates (long version) showing details of your parents
           - a naturalisation or registration certificate (if either of you were not born in the UK)
-          - your current British passports
+          - copies of your current British passports
           - a copy of a passport or birth certificate (if one of you isn’t British)
           - a marriage certificate (if you’re married)
           - divorce documents (if either of you has ever been divorced)
           - a change of name document (if either of you has ever changed your name)
+        docs_footnote_sweden: |
+          You’ll also need an acknowledgement of paternity ('faderskapsbekräftelse') from the local district council ('Stadsdelsförvaltning'), or a paternity declaration from your nearest British consulate if the child was born before 1 July 2006. Contact the consulate for more details.
         documents_you_must_provide_japan: |
           You and the other parent must provide:
 

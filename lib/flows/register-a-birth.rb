@@ -42,7 +42,13 @@ multiple_choice :who_has_british_nationality? do
   option :mother_and_father => :married_couple_or_civil_partnership?
   option :neither => :no_registration_result
 
-  save_input_as :british_national_parent
+  calculate :british_national_parent do
+    if country_of_birth == 'sweden'
+      'mother_and_father'
+    else
+      responses.last
+    end
+  end
 
 end
 # Q3
@@ -139,7 +145,7 @@ outcome :embassy_result do
     PhraseList.new(key.to_sym)
   end
   precalculate :documents_footnote do
-    registration_country == 'japan' ? PhraseList.new("docs_footnote_japan") : ''
+    %w(japan sweden).include?(registration_country) ? PhraseList.new(:"docs_footnote_#{registration_country}") : ''
   end
   precalculate :clickbook_data do
     reg_data_query.clickbook(registration_country)
