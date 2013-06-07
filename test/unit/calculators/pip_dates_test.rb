@@ -56,13 +56,18 @@ module SmartAnswer::Calculators
         Timecop.travel('2013-06-07')
       end
 
-      should "be true if 15 years old and turning 16 before 7th October 2013" do
-        @calc.dob = Date.parse('1997-06-08')
+      should "be true if born on or after 8th April 1997 and turning 16 before 7th October 2013" do
+        @calc.dob = Date.parse('1997-04-08')
         assert @calc.turning_16_before_oct_2013?
-        @calc.dob = Date.parse('1997-06-09')
+        @calc.dob = Date.parse('1997-04-09')
         assert @calc.turning_16_before_oct_2013?
         @calc.dob = Date.parse('1997-10-06')
         assert @calc.turning_16_before_oct_2013?
+      end
+
+      should "be false if born before 8th April 1997" do
+        @calc.dob = Date.parse('1997-04-07')
+        refute @calc.turning_16_before_oct_2013?
       end
 
       should "be false if under 16 on 7th Oct 2013" do
