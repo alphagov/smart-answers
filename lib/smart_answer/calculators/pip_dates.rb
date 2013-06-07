@@ -3,7 +3,8 @@ module SmartAnswer::Calculators
     
     GROUP_65_CUTOFF = Date.parse('1948-04-08')
     MIDDLE_GROUP_CUTOFF = Date.parse('1997-04-08')
-    TURNING_16_CUTOFF = Date.parse('1997-10-07')
+    TURNING_16_UPPER_CUTOFF = Date.parse('1997-10-07')
+    TURNING_16_LOWER_CUTOFF = Date.parse('1997-04-08')
 
     attr_accessor :dob
 
@@ -16,7 +17,7 @@ module SmartAnswer::Calculators
     end
 
     def turning_16_before_oct_2013?
-      self.dob > 16.years.ago(Date.today) and self.dob < TURNING_16_CUTOFF
+      self.dob >= TURNING_16_LOWER_CUTOFF and self.dob < TURNING_16_UPPER_CUTOFF
     end
 
     def is_65_or_over?
