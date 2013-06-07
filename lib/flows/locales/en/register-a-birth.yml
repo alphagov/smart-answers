@@ -416,9 +416,10 @@ en-GB:
 
       commonwealth_result:
         body: |
-          %You must register the birth according to the regulations in %{registration_country_name}.%
+          ^You must register the birth according to the regulations in %{registration_country_name}.^
 
-          You can’t register the birth with the UK authorities. However, the birth certificate you are given in %{registration_country_name} will be recognised and accepted in the UK. 
+          You can’t register the birth with the UK authorities. However, the birth certificate you are given in %{registration_country_name} will be recognised and accepted in the UK, so this isn’t necessary.
+
       homeoffice_result:
         body: |
           $!You must register the birth according to the regulations in %{country_of_birth_name}.$!
