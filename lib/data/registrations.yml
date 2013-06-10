@@ -128,7 +128,7 @@ birth:
     france: /government/publications/france-birth-pack
     germany: /government/uploads/system/uploads/attachment_data/file/136806/payment_authorisation_slip.pdf
     greece: /government/uploads/system/uploads/attachment_data/file/136807/ccslip.pdf
-    india: /government/uploads/system/uploads/attachment_data/file/136808/credit-card-payment-authorisation-form.pdf
+    india: /government/publications/passport-credit-debit-card-payment-authorisation-slip-india-new-delhi
     israel: /government/uploads/system/uploads/attachment_data/file/136809/creditdebitslip.pdf.pdf
     italy: /government/uploads/system/uploads/attachment_data/file/136810/credit-card-authorisation-slip.doc
     jamaica: /government/uploads/system/uploads/attachment_data/file/136811/credit-debit.pdf.pdf
@@ -157,7 +157,7 @@ death:
     france: /government/uploads/system/uploads/attachment_data/file/136805/death-registration-form.doc
     germany: /government/uploads/system/uploads/attachment_data/file/136806/payment_authorisation_slip.pdf
     greece: /government/uploads/system/uploads/attachment_data/file/136807/ccslip.pdf
-    india: /government/uploads/system/uploads/attachment_data/file/136808/credit-card-payment-authorisation-form.pdf
+    india: /government/publications/passport-credit-debit-card-payment-authorisation-slip-india-new-delhi
     israel: /government/uploads/system/uploads/attachment_data/file/136809/creditdebitslip.pdf.pdf
     italy: /government/uploads/system/uploads/attachment_data/file/136810/credit-card-authorisation-slip.doc
     jamaica: /government/uploads/system/uploads/attachment_data/file/136811/credit-debit.pdf.pdf
