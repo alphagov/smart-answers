@@ -9,16 +9,14 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
 
       assert_current_url "/bridge-of-death"
 
-      assert page.has_xpath?("//meta[@name = 'description'][@content = 'The Gorge of Eternal Peril!!!']")
-      assert page.has_no_xpath?("//meta[@name = 'robots'][@content = 'noindex']")
+      assert page.has_xpath?("//meta[@name = 'description'][@content = 'The Gorge of Eternal Peril!!!']", :visible => :all)
+      assert page.has_no_xpath?("//meta[@name = 'robots'][@content = 'noindex']", :visible => :all)
 
       within 'h1' do
         assert_page_has_content("Quick answer")
         assert_page_has_content("The Bridge of Death")
       end
-      within 'h2' do
-        assert_page_has_content("Avoid the Gorge of Eternal Peril!!!")
-      end
+      assert page.has_selector?("h2", :text => "Avoid the Gorge of Eternal Peril!!!")
       within '.intro' do
         within('h2') { assert_page_has_content("STOP!") }
         assert_page_has_content("He who would cross the Bridge of Death Must answer me These questions three Ere the other side he see.")
@@ -39,7 +37,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
       form = page.find(:xpath, "id('content')//form")
       assert_equal "/bridge-of-death/y", form[:action]
 
-      assert page.has_xpath?("//meta[@name = 'robots'][@content = 'noindex']")
+      assert page.has_xpath?("//meta[@name = 'robots'][@content = 'noindex']", :visible => :all)
 
       within '.current-question' do
         within 'h2' do
@@ -47,7 +45,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
           assert_page_has_content "What...is your name?"
         end
         within '.question-body' do
-          assert page.has_field?("Name:", :type => :text)
+          assert page.has_field?("Name:", :type => "text")
         end
       end
 
@@ -74,9 +72,9 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
           assert_page_has_content "What...is your quest?"
         end
         within '.question-body' do
-          assert page.has_field?("To seek the Holy Grail", :type => 'radio', :value => "to_seek_the_holy_grail")
-          assert page.has_field?("To rescue the princess", :type => 'radio', :value => "to_rescue_the_princess")
-          assert page.has_field?("I dunno", :type => 'radio', :value => "dunno")
+          assert page.has_field?("To seek the Holy Grail", :type => 'radio', :with => "to_seek_the_holy_grail")
+          assert page.has_field?("To rescue the princess", :type => 'radio', :with => "to_rescue_the_princess")
+          assert page.has_field?("I dunno", :type => 'radio', :with => "dunno")
           # Assert they're in the correct order
           options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
           assert_equal ["To seek the Holy Grail", "To rescue the princess", "I dunno"], options
@@ -114,9 +112,9 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
           assert_page_has_content "What...is your favorite colour?"
         end
         within '.question-body' do
-          assert page.has_field?("Blue", :type => 'radio', :value => "blue")
-          assert page.has_field?("Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", :type => 'radio', :value => "blue_no_yellow")
-          assert page.has_field?("Red", :type => 'radio', :value => "red")
+          assert page.has_field?("Blue", :type => 'radio', :with => "blue")
+          assert page.has_field?("Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", :type => 'radio', :with => "blue_no_yellow")
+          assert page.has_field?("Red", :type => 'radio', :with => "red")
           # Assert they're in the correct order
           options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
           assert_equal ["Blue", "Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", "Red"], options
@@ -163,7 +161,11 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
         end
       end
 
-      assert page.has_selector?("#content .article-container #test-report_a_problem")
+      # The report-a-problem form doesn't currently get inserted with the AJAX version
+      # because slimmer can't run against non-html responses.
+      unless Capybara.current_driver == Capybara.javascript_driver
+        assert page.has_selector?("#content .article-container #test-report_a_problem")
+      end
     end
   end # with_and_without_javascript
 
@@ -204,7 +206,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
         assert_page_has_content "What...is the capital of Assyria?"
       end
       within '.question-body' do
-        assert page.has_field?("Answer:", :type => :text)
+        assert page.has_field?("Answer:", :type => "text")
       end
     end
 

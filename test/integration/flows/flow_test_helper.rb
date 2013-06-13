@@ -39,8 +39,13 @@ module FlowTestHelper
     assert current_state.error.nil?, "Unexpected Flow error: #{current_state.error}"
   end
 
-  def assert_state_variable(name, value)
-    assert_equal value, current_state.send(name)
+  def assert_state_variable(name, expected, options = {})
+    actual = current_state.send(name)
+    if options[:round_dp]
+      expected = sprintf("%.#{options[:round_dp]}f", expected)
+      actual = sprintf("%.#{options[:round_dp]}f", actual)
+    end
+    assert_equal expected, actual
   end
 
   def assert_phrase_list(variable_name, expected_keys)

@@ -13,7 +13,7 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
           assert_page_has_content "How much do you earn?"
         end
         within '.question-body' do
-          assert page.has_field?("£", :type => :text)
+          assert page.has_field?("£", :type => "text")
           assert page.has_select?("per", :options => %w(week month))
         end
       end
@@ -42,7 +42,7 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
           assert_page_has_content "What size bonus do you want?"
         end
         within '.question-body' do
-          assert page.has_field?("£", :type => :text)
+          assert page.has_field?("£", :type => "text")
         end
       end
 

@@ -14,14 +14,20 @@ class ChangingAnswerTest < EngineIntegrationTest
       select "Belarus", :from => "response"
       click_on "Next step"
 
+      within('.current-question') { assert_page_has_content "What date did you move there?" }
       select "5", :from => "Day"
       select "May", :from => "Month"
       select "1975", :from => "Year"
       click_on "Next step"
 
+      within('.current-question') { assert_page_has_content "Which country were you born in?" }
+
       within('ol li.done:nth-child(1)') { click_on "Change this answer" }
 
-      within('.current-question .question-body') { assert page.has_select? "response", :selected => "Belarus" }
+      within '.current-question' do
+        assert_page_has_content "Which country do you live in?"
+        assert page.has_selector? :select, "response", :selected => "Belarus"
+      end
 
       select "South Korea", :from => "response"
       click_on "Next step"
@@ -56,9 +62,11 @@ class ChangingAnswerTest < EngineIntegrationTest
       select "month", :from => "per"
       click_on "Next step"
 
+      within('.current-question') { assert_page_has_content "What size bonus do you want?" }
       fill_in "£", :with => "1000000"
       click_on "Next step"
 
+      within('.result-info') { assert_page_has_content "OK, here you go." }
       within('ol li.done:nth-child(1)') { click_on "Change this answer" }
 
       within '.current-question .question-body' do
@@ -91,12 +99,15 @@ class ChangingAnswerTest < EngineIntegrationTest
       fill_in "Name:", :with => "Lancelot"
       click_on "Next step"
 
+      within('.current-question') { assert_page_has_content "What...is your quest?" }
       choose "To seek the Holy Grail"
       click_on "Next step"
 
+      within('.current-question') { assert_page_has_content "What...is your favorite colour?" }
       choose "Blue"
       click_on "Next step"
 
+      within('.result-info') { assert_page_has_content "Right, off you go." }
       within('ol li.done:nth-child(1)') { click_on "Change this answer" }
 
       within('.current-question .question-body') { assert page.has_field? "Name:", :with => "Lancelot" }
@@ -106,12 +117,15 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       assert_current_url "/bridge-of-death/y/Bors"
 
+      within('.current-question') { assert_page_has_content "What...is your quest?" }
       choose "To seek the Holy Grail"
       click_on "Next step"
 
+      within('.current-question') { assert_page_has_content "What...is your favorite colour?" }
       choose "Blue"
       click_on "Next step"
 
+      within('.result-info') { assert_page_has_content "Right, off you go." }
       within('ol li.done:nth-child(2)') { click_on "Change this answer" }
 
       within '.current-question .question-body' do
@@ -128,6 +142,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       choose "Blue"
       click_on "Next step"
 
+      within('.result-info') { assert_page_has_content "Right, off you go." }
       within('ol li.done:nth-child(3)') { click_on "Change this answer" }
 
       within '.current-question .question-body' do

@@ -1,13 +1,17 @@
 # encoding: UTF-8
-require 'slimmer/test'
 require_relative 'test_helper'
 require 'capybara/rails'
+require 'slimmer/test'
+
+Capybara.default_driver = :rack_test
+
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
 
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
 
   teardown do
-    Capybara.reset_sessions!
     Capybara.use_default_driver
   end
 
@@ -17,10 +21,23 @@ class ActionDispatch::IntegrationTest
 
   def assert_current_url(path_with_query, options = {})
     expected = URI.parse(path_with_query)
+    wait_until { expected.path == URI.parse(current_url).path }
     current = URI.parse(current_url)
     assert_equal expected.path, current.path
     unless options[:ignore_query]
       assert_equal Rack::Utils.parse_query(expected.query), Rack::Utils.parse_query(current.query)
+    end
+  end
+
+  # Adapted from http://www.elabs.se/blog/53-why-wait_until-was-removed-from-capybara
+  def wait_until
+    if Capybara.current_driver == Capybara.javascript_driver
+      begin
+        Timeout.timeout(Capybara.default_wait_time) do
+          sleep(0.1) until yield
+        end
+      rescue TimeoutError
+      end
     end
   end
 
@@ -52,17 +69,4 @@ class ActionDispatch::IntegrationTest
   end
 end
 
-class JavascriptIntegrationTest < ActionDispatch::IntegrationTest
-  setup do
-    Capybara.current_driver = Capybara.javascript_driver
-  end
-end
-
-Capybara.default_driver = :rack_test
-
-require 'capybara-webkit'
-Capybara.javascript_driver = :webkit
-
 I18n.load_path += Dir[Rails.root.join(*%w{test fixtures flows locales * *.{rb,yml}})]
-
-WebMock.disable_net_connect!(:allow_localhost => true)
