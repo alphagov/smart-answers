@@ -168,7 +168,7 @@ class CalculateStatutorySickPayV2Test < ActiveSupport::TestCase
                               end
 
                               should "calculate the AWE" do
-                                assert_state_variable :relevant_period_awe, 11.538461538461538
+                                assert_state_variable :relevant_period_awe, 11.538461538461538, :round_dp => 6
                               end
 
                               should "take them to Answer 5 if value < LEL" do
