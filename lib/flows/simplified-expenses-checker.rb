@@ -25,15 +25,14 @@ checkbox_question :type_of_expense? do
   option :motorcycle
   option :using_home_for_business
   option :live_on_business_premises
-  option :none_of_these
 
   calculate :list_of_expenses do
-    responses.last == "none_of_these" ? [] : responses.last.split(",")
+    responses.last == "none" ? [] : responses.last.split(",")
   end
 
   next_node do |response|
     next_question = nil
-    if response == "none_of_these"
+    if response == "none"
       :you_cant_use_result
     else
       responses = response.split(",")
@@ -68,6 +67,11 @@ multiple_choice :buying_new_vehicle? do
 end
 
 #Q4 - capital allowances claimed?
+# if yes => go to Result 3 if in Q2 only [car_van] and/or [motorcylce] was selected
+# 
+# if yes and other expenses apart from cars and/or motorbikes selected in Q2 store as capital_allowance_claimed and add text to result (see result 2) and go to questions for other expenses, ie don’t go to Q5 & Q9
+# 
+# if no go to Q5
 multiple_choice :capital_allowances? do
   option :yes
   option :no
@@ -79,7 +83,13 @@ multiple_choice :capital_allowances? do
   next_node do |response|
     if response == "yes"
       if (list_of_expenses & %w(using_home_for_business live_on_business_premises)).any?
-        :how_much_expect_to_claim?
+        if list_of_expenses.include?("using_home_for_business")
+          # Q11
+          :current_claim_amount_home?
+        else
+          #Q 13
+          :deduct_from_premises?
+        end
       else
         :capital_allowance_result
       end
@@ -141,7 +151,7 @@ end
 value_question :vehicle_business_use_time? do
   # deduct percentage amount from [green_cost] or [dirty_cost] and store as [green_write_off] or [dirty_write_off]
   calculate :business_use_percent do
-    responses.last.gsub("%", "").to_f
+    responses.last.to_f
   end
   calculate :green_vehicle_write_off do
     vehicle_is_green ? Money.new(green_vehicle_price * ( business_use_percent / 100 )) : nil
@@ -151,7 +161,8 @@ value_question :vehicle_business_use_time? do
     vehicle_is_green ? nil : Money.new(dirty_vehicle_price * ( business_use_percent / 100 ))
   end
 
-  next_node do
+  next_node do |response|
+    raise InvalidResponse if response.to_i > 100
     list_of_expenses.include?("car_or_van") ?
       :drive_business_miles_car_van? : :drive_business_miles_motorcycle?
   end
@@ -286,7 +297,14 @@ outcome :you_can_use_result do
     bullets = PhraseList.new
     bullets << :simple_vehicle_costs_bullet unless capital_allowance_claimed or simple_vehicle_costs.to_f == 0.0
     bullets << :simple_motorcycle_costs_bullet unless simple_motorcycle_costs.to_f == 0.0
-    bullets << :simple_home_costs_bullet unless simple_home_costs.to_f == 0.0
+    if list_of_expenses.include?("using_home_for_business")
+      # if they ticked it but the cost is 0, it should show anyway
+      if simple_home_costs.to_f == 0.0
+        bullets << :simple_home_costs_none_bullet
+      else
+        bullets << :simple_home_costs_bullet
+      end
+    end
     bullets << :simple_business_costs_bullet unless simple_business_costs.to_f == 0.0
     bullets
   end
