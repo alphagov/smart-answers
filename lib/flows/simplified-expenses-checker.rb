@@ -3,8 +3,8 @@ satisfies_need ""
 
 #Q1 - new or existing business
 multiple_choice :claimed_expenses_for_current_business? do
-  option :no
   option :yes
+  option :no
 
   save_input_as :new_or_existing_business
 
