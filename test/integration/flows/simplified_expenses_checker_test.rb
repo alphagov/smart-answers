@@ -12,7 +12,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     context "claimed expenses before, none of these expense" do
       setup do
         add_response "yes"
-        add_response "none_of_these"
+        add_response ""
       end
 
       should "take you to result 1 - you can't use" do
@@ -25,7 +25,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     context "not claimed expenses before, none of these expenses" do
       setup do
         add_response "no"
-        add_response "none_of_these"
+        add_response ""
       end
 
       should "take you to result 1 - you can't use" do
@@ -152,6 +152,26 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       end
     end # new green vehicle
   end # end main result, existing business, car_or_van only
+
+  context "home for business costs" do
+    setup do
+      add_response "yes"
+      add_response "using_home_for_business"
+      add_response "20"
+    end
+
+    should "show the home costs bullet even though the cost is 0" do
+      add_response "0"
+      assert_current_node :you_can_use_result
+      assert_phrase_list :simplified_bullets, [:simple_home_costs_none_bullet]
+    end
+
+    should "show the costs bullet if home costs are > 0" do
+      add_response "55"
+      assert_current_node :you_can_use_result
+      assert_phrase_list :simplified_bullets, [:simple_home_costs_bullet]
+    end
+  end
 
   context "main result - not claimed expenses before, car_or_van only" do
     setup do
