@@ -311,7 +311,7 @@ en-GB:
           Your application will take **at least** 12 weeks. You may have to attend an interview.
 
         passport_courier_costs_india: |
-          You’ll have to pay a fee for your passport and a courier fee of 2,300 Rupees. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+          You’ll have to pay a fee for your passport and a courier fee. The courier fee pays for your passport and supporting documents to be sent back to you securely.
 
         passport_courier_costs_applying_india: |
           You’ll have to pay a fee for your passport and a courier fee of 2,000 Rupees. The courier fee pays for your passport and supporting documents to be sent back to you securely.
@@ -319,24 +319,24 @@ en-GB:
         adult_passport_costs_india: |
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | £128.00/HK $1,640 | £147.86/HK $1,895
-          Adult jumbo 48-page passport | £154.50/HK $1,978 | £174.36/HK $2,233
+          Adult standard 32-page passport | %{costs_indian_rupees_adult_32}
+          Adult jumbo 48-page passport | %{costs_indian_rupees_adult_48}
 
         child_passport_costs_india: |
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Child passport | £81.50/HK $1,044 | £101.36/HK $1,299
+          Child passport | %{costs_indian_rupees_child}
 
         adult_passport_costs_applying_india: |
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | 10,900 Rupees | 12,900 Rupees
-          Adult jumbo 48-page passport | 13,150 Rupees | 15,150 Rupees
+          Adult standard 32-page passport | %{costs_indian_rupees_adult_32}
+          Adult jumbo 48-page passport | %{costs_indian_rupees_adult_48}
 
         child_passport_costs_applying_india: |
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Child standard 32-page passport | 6,950 Rupees | 8,950 Rupees
+          Child standard 32-page passport | %{costs_indian_rupees_child}
 
         passport_costs_india: |
           You must pay using a Visa or Mastercard - [download a credit card authorisation form (PDF, 95KB)](/government/uploads/system/uploads/attachment_data/file/136906/india-credit-card-form.pdf.pdf "Credit card authorisation form (PDF, 95KB)") and send it with your application.
@@ -893,6 +893,16 @@ en-GB:
 
         getting_your_passport_ips1: |
           Your passport and supporting documents will be delivered separately by courier.
+        getting_your_passport_egypt: |
+          Your passport and supporting documents will be delivered to the British Embassy in Cairo - you must collect them in person. 
+
+          They will contact you when your passport arrives using the contact details on your form. 
+
+          You must bring photo ID with you.
+        getting_your_passport_cyprus: |
+          If you live in Southern Cyprus, your passport and supporting documents will be delivered separately by courier directly to you.
+
+          If you live in Northern Cyprus, your passport and supporting documents will be delivered to the British High Commission in Nicosia - you must collect them in person. They will contact you - using the details on your application form - when your passport and documents are ready to collect. You must bring photo ID with you.
         getting_your_passport_iraq: |
           You must collect your passport and supporting documents in person from either:
 
@@ -901,8 +911,7 @@ en-GB:
 
           You must specify where you want them delivered in section 8 on the application form. You must bring photo ID with you
 
-          The embassy or consulate general will contact you when your passport arrives using the contact details on your form. 
-        
+          The embassy or consulate general will contact you when your passport arrives using the contact details on your form.
         getting_your_passport_jordan: |
           Your passport and supporting documents will be delivered to the British Embassy in Amman, Jordan - you must collect them in person. You must bring photo ID with you.
 
@@ -910,7 +919,7 @@ en-GB:
         getting_your_passport_yemen: |
           Your passport and supporting documents will be delivered to the British Embassy in Amman, Jordan - you must collect them in person. You must bring photo ID with you.
 
-          They will contact you when your passport arrives using the contact details on your form.
+          They will contact you when your passport arrives using the contact details on your form.          
         tracking_and_receiving_ips1: |
           ## Track your application
 
@@ -1006,9 +1015,9 @@ en-GB:
           %{embassy_address}
 
         getting_your_passport_ips2: |
-          Your passport and supporting documents will be delivered to the British embassy, high commission or consulate where you applied - you must collect them in person.
+          Your passport will be delivered to the British embassy, high commission or consulate where you applied - you must collect them in person.
 
-          They will contact you - using the details on your application form - when your passport and documents are ready to collect. You must bring photo ID with you. if you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
+          They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. if you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
 
         tracking_and_receiving_ips2: |
 
@@ -1081,11 +1090,20 @@ en-GB:
           If you’re renewing a passport, you must bring your current passport with you when you apply. You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
           %{embassy_address}
-
+        send_application_ips3_gaza: |
+          $A
+          British Information & Services Office  
+          1st Floor, Al-Riyad Tower  
+          Jerusalem Street  
+          Al-Rimal South  
+          Gaza  
+          Email: biso@britishconsulate.org  
+          Telephone: +970 (0) 8 2837724
+          $A
         getting_your_passport_ips3: |
-          Your passport and supporting documents will be delivered to the British embassy, high commission or consulate where you applied - you must collect them in person.
+          Your passport will be delivered to the British embassy, high commission or consulate where you applied - you must collect them in person.
 
-          They will contact you - using the details on your application form - when your passport and documents are ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID. 
+          They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. if you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
         
         tracking_and_receiving_ips3: |
           ## Track your application

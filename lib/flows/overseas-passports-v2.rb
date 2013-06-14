@@ -7,21 +7,6 @@ data_query = Calculators::PassportAndEmbassyDataQueryV2.new
 country_select :which_country_are_you_in? do
   save_input_as :current_location
 
-  calculate :passport_data do
-    data_query.find_passport_data(responses.last)
-  end
-  calculate :application_type do
-    passport_data['type']
-  end
-  calculate :is_ips_application do
-    application_type =~ Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP
-  end
-  calculate :is_fco_application do
-    application_type =~ Calculators::PassportAndEmbassyDataQuery::FCO_APPLICATIONS_REGEXP
-  end
-  calculate :ips_number do
-    application_type.split("_")[2] if is_ips_application 
-  end
   calculate :embassies_data do
     data_query.find_embassy_data(current_location)
   end
@@ -55,15 +40,6 @@ country_select :which_country_are_you_in? do
     end
   end
 
-  calculate :supporting_documents do
-    passport_data['group']
-  end
-
-  data_query.passport_costs.each do |k,v|
-    calculate "costs_#{k}".to_sym do 
-      v
-    end
-  end
 
   next_node do |response|
     if Calculators::PassportAndEmbassyDataQuery::NO_APPLICATION_REGEXP.match(response)
@@ -109,6 +85,33 @@ multiple_choice :renewing_replacing_applying? do
   calculate :general_action do
     responses.last =~ /^renewing_/ ? 'renewing' : responses.last
   end
+
+  calculate :passport_data do
+    data_query.find_passport_data(current_location)
+  end
+  calculate :application_type do
+    passport_data['type']
+  end
+  calculate :is_ips_application do
+    application_type =~ Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP
+  end
+  calculate :is_fco_application do
+    application_type =~ Calculators::PassportAndEmbassyDataQuery::FCO_APPLICATIONS_REGEXP
+  end
+  calculate :ips_number do
+    application_type.split("_")[2] if is_ips_application 
+  end
+
+  calculate :supporting_documents do
+    passport_data['group']
+  end
+
+  data_query.passport_costs.each do |k,v|
+    calculate "costs_#{k}".to_sym do 
+      v
+    end
+  end
+
 
   next_node :child_or_adult_passport?
 end
@@ -264,7 +267,7 @@ outcome :ips_application_result do
       PhraseList.new(:"passport_courier_costs_replacing_ips#{ips_number}",
                    :"#{child_or_adult}_passport_costs_replacing_ips#{ips_number}",
                    :"passport_costs_ips#{ips_number}")
-    elsif %w{mauritania morocco western-sahara cuba libya tunisia}.include?(current_location) # IPS 2&3 countries where payment must be made in cash
+    elsif %w{cuba gaza lebanon libya mauritania morocco sudan tunisia western-sahara}.include?(current_location) # IPS 2&3 countries where payment must be made in cash
       PhraseList.new(:"passport_courier_costs_ips#{ips_number}",
                    :"#{child_or_adult}_passport_costs_ips#{ips_number}",
                    :"passport_costs_ips_cash")
@@ -281,15 +284,16 @@ outcome :ips_application_result do
   precalculate :send_your_application do
     if %w{andorra cyprus greece portugal spain}.include?(current_location)
       PhraseList.new(:"send_application_ips#{ips_number}_belfast")
-    elsif %w(belgium iraq italy jordan liechtenstein luxembourg malta netherlands
-             san-marino switzerland yemen).include?(current_location)
+    elsif %w(belgium egypt france iraq israel italy jerusalem-or-westbank jordan liechtenstein luxembourg malta monaco netherlands san-marino switzerland yemen).include?(current_location)
       PhraseList.new(:"send_application_ips#{ips_number}_durham")
+    elsif %w(gaza).include?(current_location)
+      PhraseList.new(:send_application_ips3_gaza)
     else
       PhraseList.new(:"send_application_ips#{ips_number}")
     end
   end
   precalculate :getting_your_passport do
-    if %w(iraq jordan yemen).include?(current_location)
+    if %w(cyprus egypt iraq jordan yemen).include?(current_location)
       PhraseList.new :"getting_your_passport_#{current_location}"
     else
       PhraseList.new :"getting_your_passport_ips#{ips_number}"
