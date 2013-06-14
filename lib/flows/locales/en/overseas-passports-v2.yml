@@ -38,7 +38,7 @@ en-GB:
         title: Where are you?
         options:
           st_helena: "St Helena"
-          ascension: "Ascension"
+          ascension-island: "Ascension Island"
           tristan_da_cunha: "Tristan da Cunha"
       renewing_replacing_applying?:
         title: Are you renewing, replacing or applying for a first passport?
@@ -429,7 +429,7 @@ en-GB:
         send_application_jamaica: |
           You must make your application in person to the British High Commission, Kingston
 
-          %{embassy_address}
+          +[data_partial:embassies:organisation]
 
         send_application_indonesia: |
           Send your application - preferably by one-way courier or secure post - to
@@ -1012,7 +1012,7 @@ en-GB:
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
 
 
-          %{embassy_address}
+          +[data_partial:embassies:organisation]
 
         getting_your_passport_ips2: |
           Your passport will be delivered to the British embassy, high commission or consulate where you applied - you must collect them in person.
@@ -1089,7 +1089,7 @@ en-GB:
 
           If you’re renewing a passport, you must bring your current passport with you when you apply. You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
-          %{embassy_address}
+          +[data_partial:embassies:organisation]
         send_application_ips3_gaza: |
           $A
           British Information & Services Office  
@@ -2648,7 +2648,7 @@ en-GB:
           [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)")
           $D
 
-          %{embassy_address}
+          +[data_partial:embassies:organisation]
 
           ## Cost
 
@@ -2670,7 +2670,7 @@ en-GB:
 
           4. Take your application in person to the British embassy in Algiers.
 
-          %{embassy_address}
+          +[data_partial:embassies:organisation]
 
           ## Getting your passport
 

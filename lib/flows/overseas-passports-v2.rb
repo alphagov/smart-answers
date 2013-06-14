@@ -7,39 +7,14 @@ data_query = Calculators::PassportAndEmbassyDataQueryV2.new
 country_select :which_country_are_you_in? do
   save_input_as :current_location
 
-  calculate :embassies_data do
-    data_query.find_embassy_data(current_location)
+  calculate :location do
+    loc = WorldLocation.find(current_location)
+    raise InvalidResponse unless loc
+    loc
   end
-  calculate :embassy_addresses do
-    addresses = [] 
-    unless ips_number.to_i ==  1 or embassies_data.nil?
-      embassies_data.each do |e|
-        addresses << I18n.translate!("#{i18n_prefix}.phrases.embassy_address",
-                                      address: e['address'], office_hours: e['office_hours'])
-      end
-    end
-    addresses
+  calculate :organisation do
+    location.fco_organisation
   end
-  calculate :embassy_address do
-    if embassy_addresses
-      responses.last =~ /^(russia|pakistan)$/ ? embassy_addresses.join : embassy_addresses.first
-    end
-  end
-  calculate :embassies_details do
-    details = []
-    embassies_data.each do |e|
-      details << I18n.translate!("#{i18n_prefix}.phrases.embassy_details",
-                                address: e['address'], phone: e['phone'],
-                                email: e['email'], office_hours: e['office_hours'])
-    end if embassies_data
-    details
-  end
-  calculate :embassy_details do
-    if embassies_details
-      responses.last == 'russia' ? embassies_details.join : embassies_details.first
-    end
-  end
-
 
   next_node do |response|
     if Calculators::PassportAndEmbassyDataQuery::NO_APPLICATION_REGEXP.match(response)
@@ -66,7 +41,7 @@ end
 # Q1b
 multiple_choice :which_bot? do
   option :st_helena
-  option :ascension
+  option :"ascension-island"
   option :tristan_da_cunha
 
   save_input_as :current_location

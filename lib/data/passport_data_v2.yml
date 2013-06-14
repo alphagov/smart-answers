@@ -33,6 +33,9 @@ armenia:
 aruba: 
   type: washington_usa
   group: ips_documents_group_1
+ascension-island:
+  type: pretoria_south_africa
+  group: ips_documents_group_1
 australia: 
   type: australia_post
   group: ips_documents_group_1
@@ -582,9 +585,12 @@ spain:
 sri-lanka: 
   type: hong_kong
   group: ips_documents_group_3
-st-helena-ascension-and-tristan-da-cunha: 
-  type: washington_usa
+st-helena:
+  type: pretoria_south_africa
   group: ips_documents_group_1
+st-helena-ascension-and-tristan-da-cunha: 
+  type:
+  group:
 st-kitts-and-nevis: 
   type: washington_usa
   group: ips_documents_group_2
@@ -647,6 +653,9 @@ tonga:
 trinidad-and-tobago: 
   type: washington_usa
   group: ips_documents_group_3
+tristan-da-cunha: 
+  type: pretoria_south_africa
+  group: ips_documents_group_1
 tunisia: 
   type: ips_application_2
   group: ips_documents_group_2
