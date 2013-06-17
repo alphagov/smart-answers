@@ -3,7 +3,7 @@ en-GB:
     simplified-expenses-checker:
       title: Simplified expenses checker
       meta:
-        description: Check if using flat rate simplified expenses suits your business
+        description: Check if using flat rate simplified expenses suits your business.
       phrases:
         simple_vehicle_costs_bullet: |
           - %{simple_vehicle_costs} for cars and vans
@@ -38,7 +38,7 @@ en-GB:
       body: |
         Check if using flat rate simplified expenses suits your business
 
-        What you need to know:
+        ## What you need to know:
 
         - you’ll be asked to make estimates about some of your business expenses 
         - you have to be sole trader or business partnership to use simplified expenses
@@ -54,12 +54,12 @@ en-GB:
 #Q2
       type_of_expense?:
         title: Do you have any of these expenses as part of your business?
+        hint: "If you don't have any of these expenses go to 'Next step'."
         options:
           car_or_van: Car or van (business use)
           motorcycle: Motorcycle (business use)
           using_home_for_business: Using home for business (you work from home all or some of the time)
           live_on_business_premises: Living on your business premises (eg guesthouses or B&Bs)
-          none_of_these: "None of these"
 #Q3
       buying_new_vehicle?:
         title: Are you buying a new vehicle this tax year that you expect to use for your business?
@@ -77,7 +77,7 @@ en-GB:
         title: Is the vehicle you're buying green, ie a low emission vehicle?
 #Q7
       price_of_vehicle?:
-        title: How much is the vehicle you’re buying (only vans, cars, motorcycles)?
+        title: How much is the vehicle you’re buying?
         hint: Only vans, cars, motorcycles. Include VAT unless your business is VAT registered.
 #Q8
       vehicle_business_use_time?:
@@ -139,7 +139,7 @@ en-GB:
 
           Instead you just multiply the flat rates with the [miles you droves](/simpler-income-tax-simplified-expenses/vehicles-), [hours you use your home for business](/simpler-income-tax-simplified-expenses/business-use-of-your-home) or the [number of people who live on your business premises](/simpler-income-tax-simplified-expenses/private-use-of-business-premises). 
 
-          ##Calculating expenses the usual way estimate for this tax year
+          ##Calculating expenses the usual way - estimate for this tax year
 
           %{current_scheme_bullets}
 
