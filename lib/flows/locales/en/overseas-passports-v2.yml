@@ -59,24 +59,6 @@ en-GB:
       which_best_describes_you_child?:
         title: Which of the following best describes you?
       phrases:
-        embassy_address: |
-
-
-          $A
-            %{address}
-            %{office_hours}
-          $A
-
-        embassy_details: |
-
-
-          $A
-            %{address}
-            %{phone}
-            %{email}
-            %{office_hours}
-          $A
-
         how_long_applying_fco:
           Your application will take **at least** 6 weeks. You may have to attend an interview.
         how_long_renewing_old_fco:
@@ -424,7 +406,7 @@ en-GB:
 
           You must make your application in person.
 
-          %{embassy_details}
+          +[data_partial:embassies:organisation]
 
         send_application_jamaica: |
           You must make your application in person to the British High Commission, Kingston
@@ -2848,7 +2830,8 @@ en-GB:
 
           %{making_application}
 
-          %{embassy_details}
+
+          +[data_partial:embassies:organisation]
 
           %{making_application_additional}
 

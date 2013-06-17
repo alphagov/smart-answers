@@ -1,9 +1,16 @@
 # encoding: UTF-8
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
+require 'gds_api/test_helpers/worldwide'
+
 
 class OverseasPassportsTest < ActiveSupport::TestCase
   include FlowTestHelper
+  include GdsApi::TestHelpers::Worldwide
+
+  def setup
+    stub_request(:get, "http://whitehall-admin.dev.gov.uk/api/world-locations").with(:headers => {'Accept'=>'application/json', 'Accept-Encoding'=>'gzip, deflate', 'Content-Type'=>'application/json', 'User-Agent'=>'GDS Api Client v. 6.0.0'}).to_return(:status => 200, :body => "", :headers => {})
+  end
 
   setup do
     setup_for_testing_flow 'overseas-passports-v2'

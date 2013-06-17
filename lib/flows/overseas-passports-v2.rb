@@ -4,7 +4,7 @@ i18n_prefix = "flow.overseas-passports-v2"
 data_query = Calculators::PassportAndEmbassyDataQueryV2.new 
 
 # Q1
-country_select :which_country_are_you_in? do
+country_select :which_country_are_you_in?, exclude_holysee_britishantarticterritory: true do
   save_input_as :current_location
 
   calculate :location do
@@ -87,7 +87,6 @@ multiple_choice :renewing_replacing_applying? do
     end
   end
 
-
   next_node :child_or_adult_passport?
 end
 
@@ -117,7 +116,7 @@ multiple_choice :child_or_adult_passport? do
 end
 
 # Q4
-country_select :country_of_birth?, include_uk: true, :use_legacy_data => true do
+country_select :country_of_birth?, exclude_holysee_britishantarticterritory: true do
   save_input_as :birth_location
 
   calculate :application_group do
