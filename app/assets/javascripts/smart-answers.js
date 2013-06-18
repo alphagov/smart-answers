@@ -97,7 +97,7 @@ $(document).ready(function() {
     $('.smart_answer section').html(fragment);
     $.event.trigger('smartanswerAnswer');
     if ($(".outcome").length !== 0) {
-      $.event.trigger('smartanswerAnswer');
+      $.event.trigger('smartanswerOutcome');
     }
   }
 
