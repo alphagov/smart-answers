@@ -12,9 +12,12 @@ country_select :which_country_are_you_in?, exclude_holysee_britishantarticterrit
     raise InvalidResponse unless loc
     loc
   end
+
   calculate :organisation do
     location.fco_organisation
   end
+
+
 
   next_node do |response|
     if Calculators::PassportAndEmbassyDataQuery::NO_APPLICATION_REGEXP.match(response)
@@ -40,9 +43,9 @@ end
 
 # Q1b
 multiple_choice :which_bot? do
-  option :st_helena
+  option :"st-helena"
   option :"ascension-island"
-  option :tristan_da_cunha
+  option :"tristan-da-cunha"
 
   save_input_as :current_location
   next_node :renewing_replacing_applying?

@@ -1,0 +1,18 @@
+###[<%= organisation.main_office.title %>](<%= organisation.web_url %>)
+
+
+$C
+<%- if organisation.main_office.details.email.present? -%>
+Email: <<%= organisation.main_office.details.email %>>
+<%- end -%>
+
+<%- organisation.main_office.contact_numbers.each do |contact| -%>
+<%# Some labels have a trailing :, some don't %>
+<%= contact.label.sub(/:\s*\z/, '') %>: <%= contact.number %>
+<%- end -%>
+$C
+
+
+$A
+<%= organisation.main_office.address.label.value %><br>
+$A
