@@ -9,8 +9,9 @@ $A
 <%= contact.label.sub(/:\s*\z/, '') %>: <%= contact.number %>
 <%- end -%>
 <%= organisation.main_office.details.email %>
+<%= organisation.main_office.details.description %>
 $A
 
 <%- else -%>
-No embassy details found
+<% # We don't want any text to show if there is no data %>
 <%- end -%>

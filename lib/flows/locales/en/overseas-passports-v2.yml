@@ -862,6 +862,9 @@ en-GB:
           $A
 
         send_application_ips1_durham: |
+          ## Send your application
+
+          Her Majesty's Passport Office recommends you send your application using a secure delivery service or courier.
 
           
           $A
