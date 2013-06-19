@@ -1,3 +1,4 @@
+<%- if organisation && organisation.all_offices.any? %>
 
 
 $C
@@ -16,3 +17,8 @@ $C
 $A
 <%= organisation.main_office.address.label.value %><br>
 $A
+
+
+<%- else -%>
+No embassy details found
+<%- end -%>
