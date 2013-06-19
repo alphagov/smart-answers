@@ -1,24 +1,17 @@
 <%- if organisation && organisation.all_offices.any? %>
 
 
-$C
-[<%= organisation.main_office.title %>](<%= organisation.web_url %>)<br>
 
-<%- if organisation.main_office.details.email.present? -%>
-Email: <<%= organisation.main_office.details.email.strip %>>
-<%- end -%>
-
-
+$A
+<%= organisation.main_office.address.label.value %><br>
 <%- organisation.main_office.contact_numbers.each do |contact| -%>
 <%# Some labels have a trailing :, some don't %>
 <%= contact.label.sub(/:\s*\z/, '') %>: <%= contact.number %>
 <%- end -%>
-$C
+<%= organisation.main_office.details.email %>
+<%= organisation.main_office.details.description %>
 $A
-<%= organisation.main_office.address.label.value %><br>
-$A
-
 
 <%- else -%>
-No embassy details found
+<% # We don't want any text to show if there is no data %>
 <%- end -%>
