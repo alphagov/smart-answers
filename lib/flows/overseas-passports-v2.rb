@@ -378,15 +378,6 @@ end
 
 ## Generic country outcome.
 outcome :result do
-  precalculate :embassy_address do
-    if application_type == 'iraq'
-      e = data_query.find_embassy_data('iraq', false).first
-      I18n.translate!("#{i18n_prefix}.phrases.embassy_address",
-                      address: e['address'], office_hours: e['office_hours'])
-    else
-      embassy_address
-    end
-  end
   precalculate :how_long_it_takes do
     phrase = ['how_long', application_type]
     phrase << general_action if application_type == 'nairobi_kenya'
