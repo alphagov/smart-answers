@@ -147,7 +147,7 @@ country_select :residency_nonuk?, :use_legacy_data => true do
   end
   calculate :residency_country_link_names do
     if SmartAnswer::Calculators::MarriageAbroadDataQuery::LINK_NAME_TRANSFORM.has_key?(residency_country)
-      SmartAnswer::Calculators::MarriageAbroadDataQuery::LINK_NAME_TRANSFORM[residnecy_country]
+      SmartAnswer::Calculators::MarriageAbroadDataQuery::LINK_NAME_TRANSFORM[residency_country]
     else
       residency_country
     end
@@ -596,9 +596,16 @@ outcome :outcome_os_consular_cni do
     if ceremony_country == residency_country and ceremony_country == 'spain'
       phrases << :spain_os_consular_cni_three
     end
-    if data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != 'germany' or (ceremony_country == residency_country and %w(spain germany japan).exclude?(ceremony_country))
-      phrases << :consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany
+    if ceremony_country == residency_country
+      if %w(spain germany japan).exclude?(ceremony_country)
+        phrases << :consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany
+      end
+    else
+      if data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != 'germany'
+        phrases << :consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany
+      end
     end
+    
     if ceremony_country == residency_country
       if %w(germany italy spain).exclude?(residency_country)
         phrases << :consular_cni_os_local_resident_not_germany_or_italy_or_spain
@@ -1007,23 +1014,23 @@ outcome :outcome_cp_consular_cni do
           phrases << :clickbook_link
         end
       end
-      unless reg_data_query.clickbook(ceremony_country)
-        phrases << :consular_cni_cp_no_clickbook_so_embassy_details
-      end
-      phrases << :consular_cni_cp_all_documents
-      if partner_nationality != 'partner_british'
-        phrases << :consular_cni_cp_partner_not_british
-      end
-      phrases << :consular_cni_cp_all_what_you_need_to_do
-      if partner_nationality != 'partner_british'
-        phrases << :consular_cni_cp_naturalisation
-      end
-      phrases << :consular_cni_cp_all_fees
-      if ceremony_country == 'cambodia' or ceremony_country == 'latvia'
-        phrases << :consular_cni_cp_local_currency
-      else
-        phrases << :consular_cni_cp_cheque
-      end
+    end
+    unless reg_data_query.clickbook(ceremony_country)
+      phrases << :consular_cni_cp_no_clickbook_so_embassy_details
+    end
+    phrases << :consular_cni_cp_all_documents
+    if partner_nationality != 'partner_british'
+      phrases << :consular_cni_cp_partner_not_british
+    end
+    phrases << :consular_cni_cp_all_what_you_need_to_do
+    if partner_nationality != 'partner_british'
+      phrases << :consular_cni_cp_naturalisation
+    end
+    phrases << :consular_cni_cp_all_fees
+    if ceremony_country == 'cambodia' or ceremony_country == 'latvia'
+      phrases << :consular_cni_cp_local_currency
+    else
+      phrases << :consular_cni_cp_cheque
     end
     phrases
   end

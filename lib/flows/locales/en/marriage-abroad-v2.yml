@@ -549,6 +549,12 @@ en-GB:
           The high commission will send a letter confirming that you’re free to marry to the local embassy or consulate where you’re planning the ceremony. They’ll need to include copies of your documents, so you should make sure they’re aware of this.
 
           The embassy or consulate in %{ceremony_country_name} will then issue your CNI. They’ll contact you to arrange collection or delivery, and payment - see below for fees.
+        consular_cni_os_commonwealth_resident_ceremony_not_italy: |
+          ###What happens next
+
+          The high commission will send a letter confirming that you’re free to marry to the local embassy or consulate where you’re planning the ceremony. They’ll need to include copies of your documents, so you should make sure they’re aware of this.
+
+          The embassy or consulate in %{ceremony_country_name} will then issue your CNI. They’ll contact you to arrange collection or delivery, and payment - see below for fees.
         consular_cni_os_ireland_resident_ceremony_not_italy: |
           ###What happens next
 
@@ -677,11 +683,11 @@ en-GB:
         consular_cni_os_ceremony_turkey: |
           ^You’ll need to specifically request a ‘Formül B’ from the local ‘nüfus müdürlüğü’ (register office) if you want to deposit your certificate in the UK.^
         consular_cni_os_ceremony_japan: |
-          ^You’ll need to special certificate (‘sho-jo’ type), also called a ‘Certificate of Acceptance of Notification of Marriage’ (‘kon-in-todoke-juri-shomeisho’), if you want to deposit your certificate in the UK. This comes in 2 sizes - make sure it’s the large version.^
+          ^You’ll need a special certificate (‘sho-jo’ type), also called a ‘Certificate of Acceptance of Notification of Marriage’ (‘kon-in-todoke-juri-shomeisho’), if you want to deposit your certificate in the UK. This comes in 2 sizes - make sure it’s the large version.^
 
           Send this to the [embassy or consulate-general](https://www.gov.uk/government/world/organisations/british-embassy-tokyo#contact-us), along with:
 
-          - a completed application form and translation template
+          - a completed [application form and translation template](/government/publications/deposit-marriage-form-japan)
           - the fee depositing a marriage certificate (see below)
           - a completed [payment authorisation slip](/government/publications/passport-credit-debit-card-payment-authorisation-slip-japan) if you’re paying by Visa or MasterCard - or if you’re paying by cash, use cash registered mail (‘Genkin Kakitome’).
           - a photocopy of your passport (the page with your photo)
@@ -1443,7 +1449,7 @@ en-GB:
 
           You can deposit your certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/){:rel="external"} (GRO) in the UK for safe-keeping after your wedding.
 
-          You’ll need to get a multilingual extract of the marriage register (‘formule plurilingue d’extrait de l’acte de mariage’) from the mairie. Take or send this, along with a photocopy of your passport and the fee (see below), to the [nearest consulate](/government/world/organisations/british-embassy-paris#contact-us) where the marriage took place.
+          You’ll need to get a multilingual extract of the marriage register (‘formule plurilingue d’extrait de l’acte de mariage’) from the mairie. Take or send this, along with a photocopy of your passport and the  [fee](/government/publications/france-consular-fees) to the [nearest consulate](/government/world/organisations/british-embassy-paris#contact-us) where the marriage took place.
 
           This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate) in English at any time from GRO.
 
@@ -1504,7 +1510,7 @@ en-GB:
 
           ###Applying for a certificate of custom law from the British Embassy
 
-          s1. [Download ‘Certificate of custom law for PACS application form’](/government/uploads/system/uploads/attachment_data/file/136839/cc-pacs.pdf).
+          s1. [Download ‘Certificate of custom law for PACS application form’ (PDF 68KB)](/government/uploads/system/uploads/attachment_data/file/136839/cc-pacs.pdf).
           s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
           s3. You’ll need to include a pre-paid self-addressed envelope and a registered letter slip (‘récépissé d’un envoi recommandé sans avis de réception’) with your name and address, or a €6.55 postage fee, if you want your documents to be returned.
           s4. Send your completed form to the British Embassy with your supporting documents and the correct fee. You’ll have to pay in Euros, as instructed on the payment slip attached to the form. See [consular fees for France](/government/publications/france-consular-fees) for the current fee.
@@ -1528,7 +1534,7 @@ en-GB:
 
           You can deposit your certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/){:rel="external"} (GRO) in the UK for safe-keeping after your wedding.
 
-          You’ll need to get a extract of the PACS register from the tribunal. Take or send this, along with a full English translation, a photocopy of your passport and the fee (see below), to the [nearest consulate](/government/world/organisations/british-embassy-paris#contact-us) where the marriage took place.
+          You’ll need to get a extract of the PACS register from the tribunal. Take or send this, along with a full English translation, a photocopy of your passport and the [fee](/government/publications/france-consular-fees) to the [nearest consulate](/government/world/organisations/british-embassy-paris#contact-us) where the marriage took place.
 
           This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate) in English at any time from GRO.
 
