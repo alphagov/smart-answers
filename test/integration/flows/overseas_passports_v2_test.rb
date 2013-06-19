@@ -824,7 +824,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       add_response 'adult'
       assert_current_node :fco_result
       assert_phrase_list :how_long_it_takes, [:how_long_renewing_old_fco]
-      assert_phrase_list :cost, [:passport_courier_costs_pretoria_south_africa, :adult_passport_costs_pretoria_south_africa, :passport_costs_pretoria_south_africa]
+      assert_phrase_list :cost, [:passport_courier_costs_washington_usa, :adult_passport_costs_washington_usa, :passport_costs_washington_usa]
       assert_match /^[\d,]+ South African Rand \| [\d,]+ South African Rand$/, current_state.costs_south_african_rand_adult_32
       assert_state_variable :supporting_documents, ''
       expected_location = WorldLocation.find('st-helena-ascension-and-tristan-da-cunha')
