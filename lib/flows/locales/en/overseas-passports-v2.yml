@@ -733,7 +733,7 @@ en-GB:
         ips_documents_group_1: |
 
           $D
-            [Download ‘British passport - overseas application form’ (PDF, 355KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Form.pdf "Download ‘British passport overseas application form’ (PDF, 355KB)")
+            [Download ‘British passport - overseas application form’ (PDF, 355KB)](/government/uploads/system/uploads/attachment_data/file/207390/OS_Form_04-13.pdf "Download ‘British passport overseas application form’ (PDF, 355KB)")
 
             [Download ‘Applying for a passport if you’re outside the UK’ (PDF, 214KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Guidance_Notes.pdf "Download ‘Applying for a passport if you’re outside the UK’ (PDF, 214KB)")
 
@@ -743,7 +743,7 @@ en-GB:
         ips_documents_group_2: |
 
           $D
-            [Download ‘British passport - overseas application form’ (PDF, 355KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Form.pdf "Download ‘British passport overseas application form’ (PDF, 355KB)")
+            [Download ‘British passport - overseas application form’ (PDF, 355KB)](/government/uploads/system/uploads/attachment_data/file/207390/OS_Form_04-13.pdf "Download ‘British passport overseas application form’ (PDF, 355KB)")
 
             [Download ‘Applying for a passport if you’re outside the UK’ (PDF, 214KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Guidance_Notes.pdf "Download ‘Applying for a passport if you’re outside the UK’ (PDF, 214KB)")
 
@@ -753,7 +753,7 @@ en-GB:
         ips_documents_group_3: |
 
           $D
-            [Download ‘British passport - overseas application form’ (PDF, 355KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Form.pdf "Download ‘British passport overseas application form’ (PDF, 355KB)")
+            [Download ‘British passport - overseas application form’ (PDF, 355KB)](/government/uploads/system/uploads/attachment_data/file/207390/OS_Form_04-13.pdf "Download ‘British passport overseas application form’ (PDF, 355KB)")
 
             [Download ‘Applying for a passport if you’re outside the UK’ (PDF, 214KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Guidance_Notes.pdf "Download ‘Applying for a passport if you’re outside the UK’ (PDF, 214KB)")
 
@@ -1126,9 +1126,9 @@ en-GB:
         cost_australia_post: |
           | Passport type | Passport fee |
           |---------------|--------------|
-          | Adult standard 32-page passport | AUS $268.84 |
-          | Adult jumbo 48-page passport | AUS $309.84 |
-          | Child passport | AUS $196.84 |
+          | Adult standard 32-page passport | %{costs_australian_dollars_adult_32} |
+          | Adult jumbo 48-page passport | %{costs_australian_dollars_adult_48} |
+          | Child passport | %{costs_australian_dollars_child} |
 
         how_to_apply_australia_post: |
           Book an interview at an [Australia Post office.](http://auspost.com.au/passports-id/british-passports.html "Book an appointment at an Australia Post office"){:rel="external"} - you must bring cash or a Visa or Mastercard to pay the fee at the interview.
