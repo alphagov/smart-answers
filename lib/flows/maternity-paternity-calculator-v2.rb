@@ -323,7 +323,7 @@ outcome :maternity_leave_and_pay_result do
     rows = []
     unless not_entitled_to_pay_reason.present?
       calculator.paydates_and_pay.each do |date_and_pay|
-        rows << %Q(#{date_and_pay[:date].strftime("%e %B %Y")}|£#{date_and_pay[:pay]})
+        rows << %Q(#{date_and_pay[:date].strftime("%e %B %Y")}|£#{sprintf("%.2f", date_and_pay[:pay])})
       end
     end
     rows.join("\n")
