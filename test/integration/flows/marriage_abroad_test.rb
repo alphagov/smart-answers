@@ -623,7 +623,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_consular_cni
-      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :spain_os_consular_cni_opposite_sex, :spain_os_consular_civil_registry, :italy_os_consular_cni_ceremony_not_italy, :consular_cni_all_what_you_need_to_do, :spain_os_consular_cni_two, :consular_cni_os_local_resident_not_italy_germany, :consular_cni_variant_local_resident_spain, :consular_cni_os_not_uk_resident_ceremony_not_germany, :spain_os_consular_cni_three, :consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany]
+      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :spain_os_consular_cni_opposite_sex, :spain_os_consular_civil_registry, :italy_os_consular_cni_ceremony_not_italy, :consular_cni_all_what_you_need_to_do, :spain_os_consular_cni_two, :consular_cni_os_local_resident_not_italy_germany, :consular_cni_variant_local_resident_spain, :consular_cni_os_not_uk_resident_ceremony_not_germany, :spain_os_consular_cni_three]
       assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_ceremony_spain, :consular_cni_os_ceremony_spain_two, :consular_cni_os_naturalisation, :consular_cni_os_all_depositing_certificate, :italy_os_consular_cni_six, :consular_cni_os_fees_not_italy_not_uk, :consular_cni_os_fees_local_or_uk_resident, :consular_cni_os_fees_no_cheques]
     end
   end
@@ -826,29 +826,24 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   end
 
 #France or french overseas territories outcome
-#testing for ceremony in french overseas territories, uk resident
-  context "ceremony in fot, resident in scotland" do
+#testing for ceremony in french overseas territories
+  context "ceremony in fot" do
     setup do
       add_response 'mayotte'
-      add_response 'uk'
-      add_response 'uk_scotland'
     end
     should "go to marriage in france or fot outcome" do
       assert_current_node :outcome_os_france_or_fot
-      assert_phrase_list :france_or_fot_os_outcome, [:fot_os_all, :france_fot_os_all, :france_fot_os_uk_resident, :france_fot_os_all_two, :france_fot_os_uk_resident_two, :france_fot_os_all_three]
+      assert_phrase_list :france_or_fot_os_outcome, [:fot_os_all]
     end
   end
-#testing for ceremony in france, local resident
-  context "ceremony in france, resident other" do
+#testing for ceremony in france
+  context "ceremony in france" do
     setup do
       add_response 'france'
-      add_response 'other'
-      add_response 'austria'
       add_response 'marriage'
     end
     should "go to france or fot marriage outcome" do
       assert_current_node :outcome_os_france_or_fot
-      assert_phrase_list :france_or_fot_os_outcome, [:france_fot_os_all, :france_fot_os_non_uk_resident, :france_fot_os_all_two, :france_fot_os_all_three]
     end
   end
 
@@ -1170,30 +1165,25 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 #testing for civil partnership in France, or french overseas territories with PACS law
-#testing for ceremony in france, england resident, other partner
-  context "ceremony in france, resident in england, partner same sex" do
+#testing for ceremony in france, pacs
+  context "ceremony in france, " do
     setup do
       add_response 'france'
-      add_response 'uk'
-      add_response 'uk_england'
       add_response 'pacs'
     end
     should "go to fran ce ot fot PACS outcome" do
       assert_current_node :outcome_cp_france_pacs
-      assert_phrase_list :france_pacs_law_cp_outcome, [:france_fot_cp_all, :france_fot_cp_uk_resident, :france_fot_cp_all_two, :france_fot_cp_uk_resident_two, :france_fot_cp_all_three]
     end
   end
-#testing for ceremony in france, other resident, local partner
-  context "ceremony in wallis and futuna, resident other, pacs" do
+#testing for ceremony in wallis and futuna, pacs
+  context "ceremony in wallis and futuna, pacs" do
     setup do
       add_response 'wallis-and-futuna'
-      add_response 'other'
-      add_response 'poland'
       add_response 'pacs'
     end
     should "go to france or fot pacs outcome" do
       assert_current_node :outcome_cp_france_pacs
-      assert_phrase_list :france_pacs_law_cp_outcome, [:fot_cp_all, :france_fot_cp_all, :france_fot_cp_non_uk_resident, :france_fot_cp_all_two, :france_fot_cp_all_three]
+      assert_phrase_list :france_pacs_law_cp_outcome, [:fot_cp_all]
     end
   end
 
@@ -1339,7 +1329,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni cp countries outcome" do
       assert_current_node :outcome_cp_consular_cni
-      assert_phrase_list :consular_cni_cp_outcome, [:consular_cni_cp_ceremony_not_czech_republic, :consular_cni_cp_ceremony_vietnam_partner_local]
+      assert_phrase_list :consular_cni_cp_outcome, [:consular_cni_cp_ceremony_not_czech_republic, :consular_cni_cp_ceremony_vietnam_partner_local, :consular_cni_cp_all_documents, :consular_cni_cp_partner_not_british, :consular_cni_cp_all_what_you_need_to_do, :consular_cni_cp_naturalisation, :consular_cni_cp_all_fees, :consular_cni_cp_cheque]
     end
   end
 # testing for latvia, other resident, british partner
@@ -1410,15 +1400,31 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :iom_ci_os_outcome, [:iom_ci_os_all, :iom_ci_os_resident_of_ci, :iom_ci_os_ceremony_italy]
     end
   end
-
+#testing for china
   context "ceremony in china, resident in china" do
     should "render multiple clickbooks" do
       add_response 'china'
       add_response 'other'
       add_response 'china'
-      add_response 'partner_british'
+      add_response 'partner_local'
       add_response 'opposite_sex'
       assert outcome_body.at_css("ul li a[href='https://www.clickbook.net/dev/bc.nsf/sub/BritEmBeijing']")
+      assert_current_node :outcome_os_consular_cni
+      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ceremony_not_spain_or_italy, :consular_cni_os_china_local_resident, :consular_cni_os_local_resident_not_italy_germany, :clickbook_links, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany, :consular_cni_os_local_resident_not_germany_or_italy_or_spain]
+      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_china_partner_local, :consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_naturalisation, :consular_cni_os_all_depositing_certificate, :italy_os_consular_cni_six, :consular_cni_os_fees_not_italy_not_uk, :consular_cni_os_fees_local_or_uk_resident, :consular_cni_os_fees_no_cheques]
+    end
+  end
+#testing for japan
+  context "ceremony in japan, resident in japan" do
+    should "give os outcome with japan variants" do
+      add_response 'japan'
+      add_response 'other'
+      add_response 'japan'
+      add_response 'partner_local'
+      add_response 'opposite_sex'
+      assert_current_node :outcome_os_consular_cni
+      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ceremony_not_spain_or_italy, :consular_cni_os_local_resident_not_italy_germany, :japan_consular_cni_os_local_resident, :japan_consular_cni_os_local_resident_partner_local, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_local_resident_not_germany_or_italy_or_spain]
+      assert_phrase_list :consular_cni_os_remainder, [:japan_consular_cni_os_local_resident_two, :consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_naturalisation, :consular_cni_os_all_depositing_certificate, :italy_os_consular_cni_six, :consular_cni_os_ceremony_japan, :consular_cni_os_fees_not_italy_not_uk, :consular_cni_os_fees_local_or_uk_resident, :consular_cni_os_fees_no_cheques]
     end
   end
 
