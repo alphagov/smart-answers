@@ -326,6 +326,16 @@ en-GB:
           ###Getting a Portuguese version of your CNI
 
           Once you have your UK-issued CNI, the British Consulate can issue a Portuguese version. You can arrange this by booking an appointment online.
+        consular_cni_os_uk_resident_ceremony_china: |
+          ###Getting a Chinese version of your CNI
+
+          Once you have your UK-issued CNI, you’ll need to get a Chinese version that will be recognised by the local authorities.
+
+          You can do this by getting your CNI ‘[legalised](/get-document-legalised)’ (certified as genuine) by the FCO, and then by your nearest [Chinese embassy or consulate.](http://www.chinese-embassy.org.uk/eng/lsfw/legalization/){:rel="external"} Check with the marriage bureau in China to see if it also needs to be [translated.](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046){:rel="external"}
+
+          Alternatively, take your CNI to the nearest British embassy or consulate-general where you’re getting married so they can issue a CNI in Mandarin.
+        consular_cni_os_uk_resident_ceremony_china_local_partner: |
+          ^Your partner will need to provide their name and household registration details in Chinese characters.^
         consular_cni_os_local_resident_not_italy_germany: |
           If you need a CNI, you’ll first need to give notice of your intended marriage at your nearest British %{embassy_or_consulate_residency_country}.
 
@@ -449,6 +459,17 @@ en-GB:
           - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
           - proof of residence, such as a residence certificate - check with the consulate to find out what you need
           - equivalent documents for your partner
+        japan_consular_cni_os_local_resident: |
+          To book an appointment, complete the [marriage questionnaire](/government/publications/marriage-questionnaire-japan). Send it by email, fax or post following the instructions on the form, along with copies of the requested documents.
+
+          The consulate will contact you to arrange an appointment to make an oath or affidavit (written statement of facts) stating that you’re free to marry once they’ve received your application. You’ll need to bring the following supporting documents:
+
+          - your passport, showing that you’ve been in Japan for at least 21 days (if you’ve been outside of Japan for a short period and recently returned, a residence visa is normally acceptable)
+          - your [full birth certificate](/order-copy-birth-death-marriage-certificate) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+          - evidence of parental consent if you’re below the age you can legally get married without consent in the country you’re from (eg 18 in England and Wales)
+          - equivalent documents for your partner
+        japan_consular_cni_os_local_resident_partner_local: |
+          Your partner can provide a recently certified copy of the family register (‘koseki-tohon’) as evidence that they’re free to marry.
         italy_consular_cni_os_partner_local: |
           You’ll need to provide supporting documents, including:
  
@@ -528,6 +549,12 @@ en-GB:
           The high commission will send a letter confirming that you’re free to marry to the local embassy or consulate where you’re planning the ceremony. They’ll need to include copies of your documents, so you should make sure they’re aware of this.
 
           The embassy or consulate in %{ceremony_country_name} will then issue your CNI. They’ll contact you to arrange collection or delivery, and payment - see below for fees.
+        consular_cni_os_commonwealth_resident_ceremony_not_italy: |
+          ###What happens next
+
+          The high commission will send a letter confirming that you’re free to marry to the local embassy or consulate where you’re planning the ceremony. They’ll need to include copies of your documents, so you should make sure they’re aware of this.
+
+          The embassy or consulate in %{ceremony_country_name} will then issue your CNI. They’ll contact you to arrange collection or delivery, and payment - see below for fees.
         consular_cni_os_ireland_resident_ceremony_not_italy: |
           ###What happens next
 
@@ -542,6 +569,17 @@ en-GB:
           ###What happens next
 
           The British Embassy will send a letter confirming that you’re free to marry to the British Embassy in Rome. They’ll need to include copies of your documents, so you should make sure they’re aware of this.
+        japan_consular_cni_os_local_resident_two: |
+          ###Getting your CNI
+
+          If you want the consulate to send your CNI in the post when it’s ready, take ¥700 worth of stamps to your appointment to give notice of marriage, or include payment for postage with your fee.
+
+          You can also pay the fee for your CNI in advance at your appointment, or send it in the post. Complete the [payment authorisation slip](/government/publications/passport-credit-debit-card-payment-authorisation-slip-japan) if you’re paying by Visa or MasterCard. If you’re paying by cash, use cash registered mail (‘Genkin Kakitome’).
+
+          Otherwise, you can make an appointment to collect your CNI in person:
+
+          - [Tokyo](http://www.britishembassytokyo.clickbook.net/){:rel="external"} (if you live in Eastern Japan)
+          - [Osaka](http://www.britishconsulateosak.clickbook.net/){:rel="external"} (if you live in Western Japan)
         italy_os_consular_cni_four: |
           You’ll then have to email the embassy with completed [credit card authorisation](/government/publications/credit-card-authorisation-form), [couple information](/government/publications/couple-information-form) and [request for consular services](/government/publications/request-for-consular-services) forms to arrange payment so they can issue your Nulla Osta.
 
@@ -644,6 +682,17 @@ en-GB:
           ^You’ll need to specifically request a 'Vihkimisilmoitus' from the local ‘Maistraatti’ (register office) where the marriage is registered if you want to deposit your certificate in the UK.^
         consular_cni_os_ceremony_turkey: |
           ^You’ll need to specifically request a ‘Formül B’ from the local ‘nüfus müdürlüğü’ (register office) if you want to deposit your certificate in the UK.^
+        consular_cni_os_ceremony_japan: |
+          ^You’ll need a special certificate (‘sho-jo’ type), also called a ‘Certificate of Acceptance of Notification of Marriage’ (‘kon-in-todoke-juri-shomeisho’), if you want to deposit your certificate in the UK. This comes in 2 sizes - make sure it’s the large version.^
+
+          Send this to the [embassy or consulate-general](https://www.gov.uk/government/world/organisations/british-embassy-tokyo#contact-us), along with:
+
+          - a completed [application form and translation template](/government/publications/deposit-marriage-form-japan)
+          - the fee depositing a marriage certificate (see below)
+          - a completed [payment authorisation slip](/government/publications/passport-credit-debit-card-payment-authorisation-slip-japan) if you’re paying by Visa or MasterCard - or if you’re paying by cash, use cash registered mail (‘Genkin Kakitome’).
+          - a photocopy of your passport (the page with your photo)
+
+          If your nationality isn’t shown as British on the marriage certificate, you’ll need to send the original of your passport with ¥700 of stamps for return postage.
         consular_cni_os_uk_resident: |
           ###Depositing your certificate when you’re back home
 
@@ -683,92 +732,6 @@ en-GB:
 # France phrases
         fot_os_all: |
           %{country_name_uppercase_prefix} is an overseas department or territory of France. The rules and requirements for getting married there are similar to France.
-        france_fot_os_all: |
-          Contact the local town hall (‘mairie’) where you’re getting married to find out about local laws, including what documents you’ll need.
-
-          The [French Embassy in the UK](http://ambafrance-uk.org/){:rel="external"} may also be able to give you advice, or put you in touch with the relevant local authorities if you don’t know who to contact.
-
-          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
-
-          ##What you need to do
-
-          You may be asked to provide a certificate of custom law (‘certificat de coutume’) if you’re getting married in %{country_name_lowercase_prefix}.
-
-          You should check with the mairie in the town where you’re getting married to find out if you need one. Either you or your partner will need to have been legally resident there for at least 40 days before the ceremony.
-
-          ^You’ll need to have a civil ceremony first if you’re getting married in a religious ceremony.^
-        france_fot_os_uk_resident: |
-          If you need a certificate of custom law, you can get one from the Foreign & Commonwealth Office (FCO) in London.
-
-          ###Applying for a certificate of custom law from the FCO
-
-          s1. [Download ‘Certificate of custom law application form’ (DOT, 49KB)](/government/uploads/system/uploads/attachment_data/file/136836/cert-of-custom.doc).
-          s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
-          s3. You’ll also need to include a pre-paid, self-addressed special delivery envelope, or a £10 postage fee, so the FCO can return your documents.
-          s4. Send your completed form to the FCO with your supporting documents and payment. [You can pay by credit card online](/pay-foreign-marriage-certificates/start), or send a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. Personal cheques aren’t accepted. The address is on the form.
-          s5. The FCO will confirm that they’ve received your application and return your documents within 4 weeks.
-          s6. They’ll then send your application to the [British Embassy in Paris](/government/world/organisations/british-embassy-paris), who will issue your certificate between 1 and 3 weeks later.
-          s7. The embassy will send your certificate to the address you specified on the form - it’s likely to arrive much sooner if this address is in France.
-        france_fot_os_non_uk_resident: |
-          If you need a certificate of custom law, you can get one from the [British Embassy in Paris](/government/world/organisations/british-embassy-paris).
-
-
-          $A  
-          British Embassy (Certificate of Custom)  
-          BP 111-08  
-          75363 Paris Cedex 08 Paris  
-          $A
-
-          $C  
-          Telephone: (33) 1 44 51 31 00  
-          GMT: Monday to Friday 8:30 to 12:00 / 13:30 to 17:00  
-          Local time: Monday to Friday 9:30 to 13:00 / 14:30 to 18:00  
-          $C
-
-          ###Applying for a certificate of custom law from the British Embassy
-
-          s1. [Download ‘Certificate of custom law application form’ (PDF, 112KB)](/government/uploads/system/uploads/attachment_data/file/136837/cc-marriage.pdf).
-          s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
-          s3. You’ll need to include a pre-paid self-addressed envelope and a registered letter slip (‘récépissé d’un envoi recommandé sans avis de réception’) with your name and address, or a €6.55 postage fee, if you want your documents to be returned.
-          s4. Send your completed form to the British Embassy with your supporting documents, and a postal order (‘mandat-cash’) or guaranteed banker's cheque for €79 made payable to 'British Embassy Paris'. You can also pay by credit card by filling in the authorisation on the form. Personal cheques aren’t accepted.
-          s5. The embassy will send your certificate and return your documents between 5 and 7 days after receiving your application.
-        france_fot_os_all_two: |
-          ###The certificate of celibacy
-
-          The mairie might also ask you for a certificate of celibacy (‘certificat de célibat’) to prove you’re not married or in a civil partnership. There’s no equivalent to this document in British law, so you’ll need to download the official note which explains this and take it to the mairie instead.
-
-
-          $D
-          [Download ‘Explanatory note in lieu of a certificate of celibacy’ (PDF, 326KB)](/government/uploads/system/uploads/attachment_data/file/136840/certificat-celibat.pdf)
-          $D
-
-          ##Naturalisation of your foreign partner if they move to the UK
-
-          If your partner isn’t British, they can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
-
-          ##Depositing your certificate in the UK
-
-          You can deposit your certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/){:rel="external"} (GRO) in the UK for safe-keeping after your wedding.
-
-          You’ll need to get a multilingual extract of the marriage register (‘formule plurilingue d’extrait de l’acte de mariage’) from the mairie. Take or send this, along with a photocopy of your passport and the fee (see below), to the [nearest consulate](/government/world/organisations/british-embassy-paris#contact-us) where the marriage took place.
-
-          This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate) in English at any time from GRO.
-        france_fot_os_uk_resident_two: |
-          ###Depositing your certificate when you’re back home
-
-          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage) through the FCO.
-        france_fot_os_all_three: |
-          ##Fees
-
-          Service | Fee
-          -|-
-          Issuing a certificate of custom law (certificat de coutume) | £65
-          Depositing a marriage certificate | £35
-
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{country_name_for_links}-consular-fees).
-
-          You can pay by cash or credit card, but not by personal cheque.
-
 #Affirmation to marry phrases
         affirmation_os_uk_resident: |
           Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local marriage laws, including what documents you’ll need.
@@ -1081,89 +1044,6 @@ en-GB:
 #PACS in France or French overseas territories with PACS law
         fot_cp_all: |
           %{country_name_lowercase_prefix} is an overseas department or territory of France. The rules and requirements for PACS there are similar to France.
-        france_fot_cp_all: |
-          Contact the 'tribunal d’instance' in the town where you’re entering into a PACS to find out about local laws, including what documents you’ll need.
-
-          The [French Embassy in the UK](http://ambafrance-uk.org/){:rel="external"} may also be able to give you advice, or put you in touch with the relevant local authorities if you don’t know who to contact.
-
-          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
-
-          ##What you need to do
-
-          You may be asked to provide a certificate of custom law (‘certificat de coutume’) if you’re entering into a PACS in %{country_name_lowercase_prefix}.
-
-          You should check with the tribunal d’instance to find out if you need one.
-        france_fot_cp_uk_resident: |
-          If you need a certificate of custom law, you can get one from the Foreign & Commonwealth Office (FCO) in London.
-
-          ###Applying for a certificate of custom law from the FCO
-
-          s1. [Download ‘Certificate of custom law for PACS application form’](/government/uploads/system/uploads/attachment_data/file/136838/pacs-form.doc).
-          s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
-          s3. You’ll also need to include a pre-paid, self-addressed special delivery envelope, or a £10 postage fee, so the FCO can return your documents.
-          s4. Send your completed form to the FCO with your supporting documents and payment. [You can pay by credit card online](/pay-foreign-marriage-certificates/start), or send a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. Personal cheques aren’t accepted. The address is on the form.
-          s5. The FCO will confirm that they’ve received your application and return your documents within 4 weeks.
-          s6. They’ll then send your application to the [British Embassy in Paris](/government/world/organisations/british-embassy-paris), who will issue your certificate between 1 and 3 weeks later.
-          s7. The embassy will send your certificate to the address you specified on the form - it’s likely to arrive much sooner if this address is in France.
-        france_fot_cp_non_uk_resident: |
-          If you need a certificate of custom law, you can get one from the [British Embassy in Paris](/government/world/organisations/british-embassy-paris).
-
-
-          $A  
-          British Embassy (Certificate of Custom)  
-          BP 111-08  
-          75363 Paris Cedex 08 Paris  
-          $A
-
-          $C  
-          Telephone: (33) 1 44 51 31 00  
-          GMT: Monday to Friday 8:30 to 12:00 / 13:30 to 17:00  
-          Local time: Monday to Friday 9:30 to 13:00 / 14:30 to 18:00  
-          $C
-
-          ###Applying for a certificate of custom law from the British Embassy
-
-          s1. [Download ‘Certificate of custom law for PACS application form’](/government/uploads/system/uploads/attachment_data/file/136839/cc-pacs.pdf).
-          s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
-          s3. You’ll need to include a pre-paid self-addressed envelope and a registered letter slip (‘récépissé d’un envoi recommandé sans avis de réception’) with your name and address, or a €6.55 postage fee, if you want your documents to be returned.
-          s4. Send your completed form to the British Embassy with your supporting documents, and a postal order (‘mandat-cash’) or guaranteed banker's cheque for €79 made payable to 'British Embassy Paris'. You can also pay by credit card by filling in the authorisation on the form. Personal cheques aren’t accepted.
-          s5. The embassy will send your certificate and return your documents between 5 and 7 days after receiving your application.
-        france_fot_cp_all_two: |
-          ###The certificate of celibacy
-
-          The tribunal might also ask you for a certificate of celibacy (‘certificat de célibat’) to prove you’re not already married or in a civil partnership. It’s not possible to provide this under UK law, so you’ll need to download the explanatory note and take this to the tribunal instead.
-
-
-          $D
-          [Download ‘Explanatory note in lieu of a certificate of celibacy’ (PDF, 326KB)](/government/uploads/system/uploads/attachment_data/file/136840/certificat-celibat.pdf)
-          $D
-
-          ##Naturalisation of your foreign partner if they move to the UK
-
-          If your partner isn’t British, they can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
-
-          ##Depositing your certificate in the UK
-
-          You can deposit your certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/){:rel="external"} (GRO) in the UK for safe-keeping after your wedding.
-
-          You’ll need to get a extract of the PACS register from the tribunal. Take or send this, along with a full English translation, a photocopy of your passport and the fee (see below), to the [nearest consulate](/government/world/organisations/british-embassy-paris#contact-us) where the marriage took place.
-
-          This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate) in English at any time from GRO.
-        france_fot_cp_uk_resident_two: |
-          ###Depositing your certificate when you’re back home
-
-          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage) through the FCO.
-        france_fot_cp_all_three: |
-          ##Fees
-
-          Service | Fee
-          -|-
-          Issuing a certificate of custom law (certificat de coutume) | £65
-          Depositing a PACS certificate | £35
-
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{country_name_for_links}-consular-fees).
-
-          You can pay by cash or credit card, but not by personal cheque.
 
 #CP in countries where no CNI is required phrases
         no_cni_required_cp_united-states: |
@@ -1373,6 +1253,11 @@ en-GB:
           %However, you can’t enter into a civil partnership with a Vietnamese national.%
         consular_cni_cp_local_partner_croatia_bulgaria: |
           %However, they can’t register a civil partnership between a British national and a national of %{country_name_lowercase_prefix}.%
+        consular_cni_cp_japan: |
+          Contact them to make an appointment:
+
+          - [Tokyo](http://www.britishembassytokyo.clickbook.net/){:rel="external"} (if you live in Eastern Japan)
+          - [Osaka](http://www.britishconsulateosak.clickbook.net/){:rel="external"} (if you live in Western Japan)
         consular_cni_cp_all_contact: |
           Contact them to make an appointment:
         consular_cni_cp_no_clickbook_so_embassy_details: |
@@ -1521,6 +1406,55 @@ en-GB:
         body: |
           %{france_or_fot_os_outcome}
 
+          Contact the local town hall (‘mairie’) where you’re getting married to find out about local laws, including what documents you’ll need.
+
+          If you’re not in France, [your closest French embassy](http://www.mfe.org/index.php/Annuaires/Ambassades-et-consulats-francais-a-l-etranger){:rel="external"} may also be able to give you advice, or put you in touch with the relevant local authorities if you don’t know who to contact.
+
+          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
+
+          ##What you need to do
+
+          You may be asked to provide a certificate of custom law (‘certificat de coutume’) if you’re getting married in %{country_name_lowercase_prefix}.
+
+          You should check with the mairie in the town where you’re getting married to find out if you need one. Either you or your partner will need to have been legally resident there for at least 40 days before the ceremony.
+
+          ^You’ll need to have a civil ceremony first if you’re getting married in a religious ceremony.^
+
+          If you need a certificate of custom law, you can get one from the [British Embassy in Paris](/government/world/organisations/british-embassy-paris).
+
+          ###Applying for a certificate of custom law from the British Embassy
+
+          s1. [Download ‘Certificate of custom law application form’ (PDF, 112KB)](/government/uploads/system/uploads/attachment_data/file/136837/cc-marriage.pdf).
+          s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
+          s3. You’ll need to include a pre-paid self-addressed envelope and a registered letter slip (‘récépissé d’un envoi recommandé sans avis de réception’) with your name and address, or a €6.55 postage fee, if you want your documents to be returned.
+          s4. Send your completed form to the British Embassy with your supporting documents and the correct fee. You’ll have to pay in Euros, as instructed on the payment slip attached to the form. See [consular fees for France](/government/publications/france-consular-fees) for the current fee.
+          s5. The embassy will send your certificate and return your documents between 5 and 7 days after receiving your application.
+
+
+          ###The certificate of celibacy
+
+          The mairie might also ask you for a certificate of celibacy (‘certificat de célibat’) to prove you’re not married or in a civil partnership. There’s no equivalent to this document in British law, so you’ll need to download the official note which explains this and take it to the mairie instead.
+
+
+
+          $D
+          [Download ‘Explanatory note in lieu of a certificate of celibacy’ (PDF, 326KB)](/government/uploads/system/uploads/attachment_data/file/136840/certificat-celibat.pdf)
+          $D
+
+          ##Naturalisation of your foreign partner if they move to the UK
+
+          If your partner isn’t British, they can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
+
+          ##Depositing your certificate in the UK
+
+          You can deposit your certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/){:rel="external"} (GRO) in the UK for safe-keeping after your wedding.
+
+          You’ll need to get a multilingual extract of the marriage register (‘formule plurilingue d’extrait de l’acte de mariage’) from the mairie. Take or send this, along with a photocopy of your passport and the  [fee](/government/publications/france-consular-fees) to the [nearest consulate](/government/world/organisations/british-embassy-paris#contact-us) where the marriage took place.
+
+          This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate) in English at any time from GRO.
+
+          You can deposit your certificate through the British Embassy in Paris, or [through the Foreign & Commonwealth Office](/deposit-foreign-marriage) (FCO) in the UK.
+
           *[GRO]:General Register Office
           *[FCO]:Foreign &amp; Commonwealth Office
 #outcome country with affirmation for frredom to marry
@@ -1558,6 +1492,54 @@ en-GB:
         title: PACS in %{country_name_lowercase_prefix}
         body: |
           %{france_pacs_law_cp_outcome}
+
+          Contact the 'tribunal d’instance' in the town where you’re entering into a PACS to find out about local laws, including what documents you’ll need.
+
+          If you’re not in France, [your closest French embassy](http://www.mfe.org/index.php/Annuaires/Ambassades-et-consulats-francais-a-l-etranger){:rel="external"} may also be able to give you advice, or put you in touch with the relevant local authorities if you don’t know who to contact.
+
+          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
+
+          ##What you need to do
+
+          You may be asked to provide a certificate of custom law (‘certificat de coutume’) if you’re entering into a PACS in %{country_name_lowercase_prefix}.
+
+          You should check with the tribunal d’instance to find out if you need one.
+
+          If you need a certificate of custom law, you can get one from the [British Embassy in Paris](/government/world/organisations/british-embassy-paris).
+
+
+          ###Applying for a certificate of custom law from the British Embassy
+
+          s1. [Download ‘Certificate of custom law for PACS application form’ (PDF, 68KB)](/government/uploads/system/uploads/attachment_data/file/136839/cc-pacs.pdf).
+          s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
+          s3. You’ll need to include a pre-paid self-addressed envelope and a registered letter slip (‘récépissé d’un envoi recommandé sans avis de réception’) with your name and address, or a €6.55 postage fee, if you want your documents to be returned.
+          s4. Send your completed form to the British Embassy with your supporting documents and the correct fee. You’ll have to pay in Euros, as instructed on the payment slip attached to the form. See [consular fees for France](/government/publications/france-consular-fees) for the current fee.
+          s5. The embassy will send your certificate and return your documents between 5 and 7 days after receiving your application.
+
+
+          ###The certificate of celibacy
+
+          The tribunal might also ask you for a certificate of celibacy (‘certificat de célibat’) to prove you’re not already married or in a civil partnership. It’s not possible to provide this under UK law, so you’ll need to download the explanatory note and take this to the tribunal instead.
+
+
+          $D
+          [Download ‘Explanatory note in lieu of a certificate of celibacy’ (PDF, 326KB)](/government/uploads/system/uploads/attachment_data/file/136840/certificat-celibat.pdf)
+          $D
+
+          ##Naturalisation of your foreign partner if they move to the UK
+
+          If your partner isn’t British, they can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
+
+          ##Depositing your certificate in the UK
+
+          You can deposit your certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/){:rel="external"} (GRO) in the UK for safe-keeping after your wedding.
+
+          You’ll need to get a extract of the PACS register from the tribunal. Take or send this, along with a full English translation, a photocopy of your passport and the [fee](/government/publications/france-consular-fees) to the [nearest consulate](/government/world/organisations/british-embassy-paris#contact-us) where the marriage took place.
+
+          This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate) in English at any time from GRO.
+
+          You can deposit your certificate through the British Embassy in Paris, or [through the Foreign & Commonwealth Office](/deposit-foreign-marriage) (FCO) in the UK.
+
 
           *[GRO]:General Register Office
           *[FCO]:Foreign &amp; Commonwealth Office
