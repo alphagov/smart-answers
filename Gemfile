@@ -3,13 +3,7 @@ source 'https://BnrJb6FZyzspBboNJzYZ@gem.fury.io/govuk/'
 
 gem 'unicorn', '4.3.1'
 
-# Keeping Rails at 3.2.12 due to a regression involving PUT requests
-# over HTTPS that have a body size larger than 16K.
-#
-# The security patches from 3.2.13 have been applied directly and can
-# be found in config/initializers/3-2-*-patch.rb. Please remove these
-# patches when incrementing the Rails version.
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 
 gem 'rails-i18n'
 gem 'json'
