@@ -35,7 +35,7 @@ aruba:
   group: ips_documents_group_1
 ascension-island:
   type: pretoria_south_africa
-  group: ips_documents_group_2
+  group: ips_documents_group_1
 australia: 
   type: australia_post
   group: ips_documents_group_1
@@ -151,13 +151,13 @@ comoros:
 congo: 
   type: pretoria_south_africa
   group: ips_documents_group_3
-congo-(democratic-republic): 
+democratic-republic-of-congo: 
   type: pretoria_south_africa
   group: ips_documents_group_3
 costa-rica: 
   type: washington_usa
   group: ips_documents_group_1
-cote-d_ivoire-(ivory-coast): 
+cote-d-ivoire: 
   type: ghana
   group: ips_documents_group_2
   helpline: pretoria_south_africa
@@ -183,7 +183,7 @@ djibouti:
   type: nairobi_kenya
   group: ips_documents_group_3
   helpline: pretoria_south_africa
-dominica,-commonwealth-of: 
+dominica: 
   type: washington_usa
   group: ips_documents_group_2
 dominican-republic: 
@@ -193,7 +193,7 @@ ecuador:
   type: washington_usa
   group: ips_documents_group_3
 egypt: 
-  type: paris_france
+  type: ips_application_1
   group: ips_documents_group_3
 el-salvador: 
   type: washington_usa
@@ -222,7 +222,7 @@ finland:
   type: ips_application_1
   group: ips_documents_group_1
 france: 
-  type: paris_france
+  type: ips_application_1
   group: ips_documents_group_1
 french-guiana: 
   type: washington_usa
@@ -237,6 +237,9 @@ gambia:
   type: gambia
   group: ips_documents_group_3
   helpline: pretoria_south_africa
+gaza:
+  type: ips_application_3
+  group: ips_documents_group_1
 georgia: 
   type: ips_application_2
   group: ips_documents_group_2
@@ -303,12 +306,11 @@ iran:
 iraq: 
   type: ips_application_1 
   group: ips_documents_group_3
-  helpline: paris_france
 ireland: 
   type: dublin_ireland
   group: ips_documents_group_1
 israel: 
-  type: paris_france
+  type: ips_application_1
   group: ips_documents_group_1
 italy: 
   type: ips_application_1
@@ -318,6 +320,9 @@ jamaica:
   group: ips_documents_group_3
 japan: 
   type: hong_kong
+  group: ips_documents_group_1
+jerusalem-or-westbank:
+  type: ips_application_1
   group: ips_documents_group_1
 jordan: 
   type: ips_application_1 
@@ -351,9 +356,8 @@ latvia:
   type: ips_application_1
   group: ips_documents_group_1
 lebanon: 
-  type: lebanon
+  type: ips_application_3
   group: ips_documents_group_3
-  helpline: paris_france
 lesotho: 
   type: pretoria_south_africa
   group: ips_documents_group_2
@@ -422,7 +426,7 @@ moldova:
   type: ips_application_1
   group: ips_documents_group_3
 monaco: 
-  type: paris_france
+  type: ips_application_1
   group: ips_documents_group_1
 mongolia: 
   type: hong_kong
@@ -500,7 +504,7 @@ philippines:
   type: philippines
   group: ips_documents_group_3
   helpline: hong_kong
-pitcairn: 
+pitcairn-island: 
   type: wellington_new_zealand
   group: ips_documents_group_1
 poland: 
@@ -518,7 +522,7 @@ reunion:
 romania: 
   type: ips_application_1
   group: ips_documents_group_2
-russian-federation: 
+russia: 
   type: ips_application_2
   group: ips_documents_group_3
 rwanda: 
@@ -581,9 +585,12 @@ spain:
 sri-lanka: 
   type: hong_kong
   group: ips_documents_group_3
-st-helena: 
+st-helena:
   type: washington_usa
   group: ips_documents_group_1
+st-helena-ascension-and-tristan-da-cunha: 
+  type:
+  group:
 st-kitts-and-nevis: 
   type: washington_usa
   group: ips_documents_group_2
@@ -600,9 +607,8 @@ st-vincent-and-the-grenadines:
   type: washington_usa
   group: ips_documents_group_2
 sudan: 
-  type: sudan
+  type: ips_application_3
   group: ips_documents_group_3
-  helpline: paris_france
 suriname: 
   type: washington_usa
   group: ips_documents_group_2
@@ -631,6 +637,9 @@ thailand:
   type: thailand
   group: ips_documents_group_2
   helpline: hong_kong
+the-occupied-palestinian-territories:
+  type:
+  group:
 timor-leste:
   type: hong_kong
   group: ips_documents_group_1
@@ -674,7 +683,7 @@ united-arab-emirates:
 united-kingdom:
   type:
   group: ips_documents_group_1
-united-states: 
+usa: 
   type: washington_usa
   group: ips_documents_group_1
 uruguay: 
