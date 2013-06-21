@@ -72,8 +72,7 @@ module SmartAnswer::Calculators
     # Rounds up at 2 decimal places.
     #
     def statutory_maternity_rate
-      rate = average_weekly_earnings.to_f * 0.9
-      (rate * 10**2).ceil.to_f / 10**2
+      average_weekly_earnings.to_f * 0.9
     end
 
     def statutory_maternity_rate_a
@@ -288,13 +287,17 @@ module SmartAnswer::Calculators
     def pay_for_period(start_date, end_date)
       pay = 0.0
       (start_date..end_date).each do |day|
-        # Increment the pay up until the pay end date.
-        pay += (rate_for(day) / 7) unless pay_start_date > day or day > pay_end_date
+        # From http://www.hmrc.gov.uk/manuals/spmmanual/spm21020.htm for rounding rules...
+        # "multiply the appropriate weekly rate by a multiple of a seventh eg 5/7 then round up any part pence, 
+        # or divide the appropriate weekly rate by 7, truncating the result to 5 places of decimals 
+        # then multiply by the number of days in the part-week, rounding up any part pence."
+        pay += sprintf("%.5f", (rate_for(day) / 7)).to_f unless pay_start_date > day or day > pay_end_date
       end
-      # HMRC rules stipulate rounding up at 5 decimal places.
-      (pay.round(5) * 10**2).ceil.to_f / 10**2
+      # HMRC rules stipulate rounding up at 2 decimal places.
+      BigDecimal.new(pay.to_s).round(2, BigDecimal::ROUND_UP).to_f
     end
 
+    # Gives the weekly rate for a date.
     def rate_for(date)
       if date < 6.weeks.since(leave_start_date)
         statutory_maternity_rate_a
