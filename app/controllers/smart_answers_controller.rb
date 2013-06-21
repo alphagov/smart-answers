@@ -2,10 +2,11 @@ class SmartAnswersController < ApplicationController
   before_filter :find_smart_answer
   before_filter :redirect_response_to_canonical_url, only: %w{show}
 
-  rescue_from SmartAnswer::FlowRegistry::NotFound, with: :render_404
-  rescue_from SmartAnswer::InvalidNode, with: :render_404
+  rescue_from SmartAnswer::FlowRegistry::NotFound, with: :error_404
+  rescue_from SmartAnswer::InvalidNode, with: :error_404
 
   def show
+    set_slimmer_artefact(@presenter.artefact)
     respond_to do |format|
       format.html { render }
       format.json {
@@ -23,13 +24,12 @@ class SmartAnswersController < ApplicationController
           response.headers['Content-Disposition'] = "attachment; filename=\"#{@name.to_s}.ics\""
           render :text => @presenter.current_node.calendar.to_ics, :layout => false
         else
-          render_404
+          error_404
         end
       }
     end
 
     set_expiry
-    set_slimmer_artefact(@presenter.artefact)
   end
 
 private
@@ -64,9 +64,5 @@ private
         responses: @presenter.current_state.responses,
         protocol: (request.ssl? || Rails.env.production?) ? 'https' : 'http'
     end
-  end
-
-  def render_404
-    render file: 'public/404', formats: [:html], status: 404
   end
 end

@@ -112,6 +112,13 @@ class SmartAnswersControllerTest < ActionController::TestCase
       get :show, id: 'sample'
     end
 
+    should "503 if content_api times out" do
+      SmartAnswerPresenter.any_instance.stubs(:artefact).raises(GdsApi::TimedOutException)
+
+      get :show, id: 'sample'
+      assert_equal 503, response.status
+    end
+
     should "send slimmer analytics headers" do
       get :show, id: 'sample'
       assert_equal "smart_answer", @response.headers["X-Slimmer-Format"]
