@@ -163,6 +163,13 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
     end
   end # with_and_without_javascript
 
+  should "return a 503 if the worldwide API errors" do
+    stub_request(:get, %r{\A#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}}).to_timeout
+
+    visit "/country-and-date-sample/y"
+    assert_equal 503, page.status_code
+  end
+
   should "handle country selects using the legacy data including and omitting the UK option" do
     visit "/country-legacy-sample/y"
 

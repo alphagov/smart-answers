@@ -53,7 +53,7 @@ GEM
     crack (0.3.2)
     erubis (2.7.0)
     eventmachine (1.0.3)
-    exception_notification (2.5.2)
+    exception_notification (2.6.1)
       actionmailer (>= 3.0.4)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -212,7 +212,7 @@ DEPENDENCIES
   aws-ses
   capybara (= 2.1.0)
   ci_reporter
-  exception_notification
+  exception_notification (= 2.6.1)
   extlib (= 0.9.16)
   gds-api-adapters (= 6.0.0)
   google-api-client
