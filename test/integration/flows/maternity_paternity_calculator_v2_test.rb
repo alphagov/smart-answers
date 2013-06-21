@@ -186,9 +186,9 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
                               assert_state_variable "pay_start_date", leave_start
                               assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
                               assert_state_variable "average_weekly_earnings", 135.4
-                              assert_state_variable "smp_a", "121.87"
-                              assert_state_variable "smp_b", "121.87"
-                              assert_state_variable "total_smp", "4752.94"
+                              assert_state_variable "smp_a", "121.86"
+                              assert_state_variable "smp_b", "121.86"
+                              assert_state_variable "total_smp", "4752.55"
                               assert_phrase_list :maternity_pay_info, [:maternity_pay_table, :paydates_table]
                             end
                           end
@@ -418,9 +418,9 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
                           assert_state_variable "notice_of_leave_deadline", next_saturday(15.weeks.ago(start_of_week))
                           assert_state_variable "pay_start_date", leave_start
                           assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
-                          assert_state_variable "smp_a", "121.87"
-                          assert_state_variable "smp_b", "121.87"
-                          assert_state_variable "total_smp", "4752.93"
+                          assert_state_variable "smp_a", "121.86"
+                          assert_state_variable "smp_b", "121.86"
+                          assert_state_variable "total_smp", "4752.54"
                           assert_phrase_list :maternity_pay_info, [:maternity_pay_table, :paydates_table]
                         end
 
@@ -470,7 +470,7 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
 
                         should "calculate the dates and payment amounts" do
                           assert_state_variable "average_weekly_earnings", 262.60
-                          assert_state_variable "smp_a", "236.35"
+                          assert_state_variable "smp_a", "236.34"
                           assert_state_variable "smp_b", "135.45" # Uses the statutory maternity rate
                         end
                       end
@@ -491,7 +491,7 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
 
                         should "calculate the dates and payment amounts" do
                           assert_state_variable "average_weekly_earnings", 208.59
-                          assert_state_variable "smp_a", "187.74"
+                          assert_state_variable "smp_a", "187.73"
                           assert_state_variable "smp_b", "135.45" # Uses the statutory maternity rate
                         end
                       end
