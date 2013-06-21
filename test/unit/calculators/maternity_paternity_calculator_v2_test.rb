@@ -84,11 +84,11 @@ module SmartAnswer::Calculators
           end
 
           should "calculate the statutory maternity rate" do
-            assert_equal (193.00 * 0.9).round(2), @calculator.statutory_maternity_rate
+            assert_equal (193.00 * 0.9).round(2), @calculator.statutory_maternity_rate.round(2)
           end
 
           should "calculate the maternity pay at rate A" do
-            assert_equal (193.00 * 0.9).round(2), @calculator.statutory_maternity_rate_a
+            assert_equal (193.00 * 0.9).round(2), @calculator.statutory_maternity_rate_a.round(2)
           end
 
           should "calculate the maternity pay at rate B using the base rate" do
@@ -97,7 +97,7 @@ module SmartAnswer::Calculators
 
           should "calculate the maternity pay at rate B using the percentage of weekly income" do
             @calculator.average_weekly_earnings = 135.40
-            assert_equal 121.87, @calculator.statutory_maternity_rate_b
+            assert_equal 121.86, @calculator.statutory_maternity_rate_b.round(2)
           end
 
         end
@@ -476,7 +476,7 @@ module SmartAnswer::Calculators
 
           assert_equal 64.29, paydates_and_pay.first[:pay]
 
-          rate_a_payments = paydates_and_pay.select{ |p| p[:pay] == 225 }
+          rate_a_payments = paydates_and_pay.select{ |p| p[:pay] == 225.01 }
           assert_equal 5, rate_a_payments.size
 
           assert_equal '2013-01-11', rate_a_payments.first[:date].to_s
@@ -502,8 +502,8 @@ module SmartAnswer::Calculators
           paydates_and_pay = @calculator.paydates_and_pay
           
           assert_equal 21, paydates_and_pay.size
-
-          rate_a_payments = paydates_and_pay.select{ |p| p[:pay] == 450 }
+    
+          rate_a_payments = paydates_and_pay.select{ |p| p[:pay] == 450.01 }
           assert_equal 2, rate_a_payments.size
           assert_equal '2013-01-17', rate_a_payments.first[:date].to_s
           assert_equal '2013-01-31', rate_a_payments.last[:date].to_s
@@ -566,7 +566,7 @@ module SmartAnswer::Calculators
           assert_equal '2013-01-11', paydates_and_pay.first[:date].to_s
           assert_equal 289.29, paydates_and_pay.first[:pay]
           assert_equal '2013-10-11', paydates_and_pay.last[:date].to_s
-          assert_equal 371.26, paydates_and_pay.last[:pay]
+          assert_equal 371.27, paydates_and_pay.last[:pay]
         end
       end
       context "HMRC test scenario for SMP Pay week offset" do
@@ -580,11 +580,27 @@ module SmartAnswer::Calculators
         should "calculate pay on paydates with April 2013 uprating" do
           paydates_and_pay =  @calculator.paydates_and_pay
           assert_equal 25.72, paydates_and_pay.first[:pay]
-          assert_equal 180, paydates_and_pay.second[:pay]
+          assert_equal 180.01, paydates_and_pay.second[:pay]
           assert_equal 173.64, paydates_and_pay.find{ |p| p[:date].to_s == '2013-03-08' }[:pay]
           assert_equal 135.45, paydates_and_pay.find{ |p| p[:date].to_s == '2013-04-05' }[:pay]
           assert_equal 135.64, paydates_and_pay.find{ |p| p[:date].to_s == '2013-04-12' }[:pay] # one day of uprated pay
           assert_equal 136.78, paydates_and_pay.find{ |p| p[:date].to_s == '2013-04-19' }[:pay]
+        end
+      end
+      context "HMRC test scenario for SMP paid last day of the month" do
+        setup do
+          @calculator = MaternityPaternityCalculatorV2.new(Date.parse('22 February 2013'))
+          @calculator.leave_start_date = Date.parse('25 January 2013')
+          @calculator.pay_method = 'a_certain_week_day_each_month'
+          @calculator.pay_day_in_week = 5
+          @calculator.pay_week_in_month = 'last' 
+          @calculator.average_weekly_earnings = 144.32 
+        end
+        should "calculate pay on paydates with April 2013 uprating" do
+          paydates_and_pay =  @calculator.paydates_and_pay
+          assert_equal({ :date => Date.parse('25 January 2013'), :pay => 18.56 }, paydates_and_pay.first)
+          assert_equal({ :date => Date.parse('29 March 2013'), :pay => 649.45 }, paydates_and_pay.third)
+          assert_equal({ :date => Date.parse('31 May 2013'), :pay => 649.45 }, paydates_and_pay[4])
         end
       end
     end
