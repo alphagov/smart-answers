@@ -29,6 +29,17 @@ en-GB:
         "woman-married-to-uk-citizen-pre-1949": "You’re a woman married to a British Citizen before 1 January 1949"
       which_country_are_you_in?:
         title: Which country or territory are you in?
+      which_opt?:
+        title: Where are you?
+        options:
+          gaza: "Gaza"
+          jerusalem-or-westbank: "Jerusalem and the West Bank"
+      which_bot?:
+        title: Where are you?
+        options:
+          st-helena: "St Helena"
+          ascension-island: "Ascension Island"
+          tristan-da-cunha: "Tristan da Cunha"
       renewing_replacing_applying?:
         title: Are you renewing, replacing or applying for a first passport?
         options:
@@ -48,24 +59,6 @@ en-GB:
       which_best_describes_you_child?:
         title: Which of the following best describes you?
       phrases:
-        embassy_address: |
-
-
-          $A
-            %{address}
-            %{office_hours}
-          $A
-
-        embassy_details: |
-
-
-          $A
-            %{address}
-            %{phone}
-            %{email}
-            %{office_hours}
-          $A
-
         how_long_applying_fco:
           Your application will take **at least** 6 weeks. You may have to attend an interview.
         how_long_renewing_old_fco:
@@ -300,7 +293,7 @@ en-GB:
           Your application will take **at least** 12 weeks. You may have to attend an interview.
 
         passport_courier_costs_india: |
-          You’ll have to pay a fee for your passport and a courier fee of 2,300 Rupees. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+          You’ll have to pay a fee for your passport and a courier fee. The courier fee pays for your passport and supporting documents to be sent back to you securely.
 
         passport_courier_costs_applying_india: |
           You’ll have to pay a fee for your passport and a courier fee of 2,000 Rupees. The courier fee pays for your passport and supporting documents to be sent back to you securely.
@@ -308,24 +301,24 @@ en-GB:
         adult_passport_costs_india: |
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | £128.00/HK $1,640 | £147.86/HK $1,895
-          Adult jumbo 48-page passport | £154.50/HK $1,978 | £174.36/HK $2,233
+          Adult standard 32-page passport | %{costs_indian_rupees_adult_32}
+          Adult jumbo 48-page passport | %{costs_indian_rupees_adult_48}
 
         child_passport_costs_india: |
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Child passport | £81.50/HK $1,044 | £101.36/HK $1,299
+          Child passport | %{costs_indian_rupees_child}
 
         adult_passport_costs_applying_india: |
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | 10,900 Rupees | 12,900 Rupees
-          Adult jumbo 48-page passport | 13,150 Rupees | 15,150 Rupees
+          Adult standard 32-page passport | %{costs_indian_rupees_adult_32}
+          Adult jumbo 48-page passport | %{costs_indian_rupees_adult_48}
 
         child_passport_costs_applying_india: |
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Child standard 32-page passport | 6,950 Rupees | 8,950 Rupees
+          Child standard 32-page passport | %{costs_indian_rupees_child}
 
         passport_costs_india: |
           You must pay using a Visa or Mastercard - [download a credit card authorisation form (PDF, 95KB)](/government/uploads/system/uploads/attachment_data/file/136906/india-credit-card-form.pdf.pdf "Credit card authorisation form (PDF, 95KB)") and send it with your application.
@@ -413,12 +406,12 @@ en-GB:
 
           You must make your application in person.
 
-          %{embassy_details}
+          +[data_partial:passports_embassies:organisation]
 
         send_application_jamaica: |
           You must make your application in person to the British High Commission, Kingston
 
-          %{embassy_address}
+          +[data_partial:passports_embassies:organisation]
 
         send_application_indonesia: |
           Send your application - preferably by one-way courier or secure post - to
@@ -740,7 +733,7 @@ en-GB:
         ips_documents_group_1: |
 
           $D
-            [Download ‘British passport - overseas application form’ (PDF, 355KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Form.pdf "Download ‘British passport overseas application form’ (PDF, 355KB)")
+            [Download ‘British passport - overseas application form’ (PDF, 355KB)](/government/uploads/system/uploads/attachment_data/file/207390/OS_Form_04-13.pdf "Download ‘British passport overseas application form’ (PDF, 355KB)")
 
             [Download ‘Applying for a passport if you’re outside the UK’ (PDF, 214KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Guidance_Notes.pdf "Download ‘Applying for a passport if you’re outside the UK’ (PDF, 214KB)")
 
@@ -750,7 +743,7 @@ en-GB:
         ips_documents_group_2: |
 
           $D
-            [Download ‘British passport - overseas application form’ (PDF, 355KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Form.pdf "Download ‘British passport overseas application form’ (PDF, 355KB)")
+            [Download ‘British passport - overseas application form’ (PDF, 355KB)](/government/uploads/system/uploads/attachment_data/file/207390/OS_Form_04-13.pdf "Download ‘British passport overseas application form’ (PDF, 355KB)")
 
             [Download ‘Applying for a passport if you’re outside the UK’ (PDF, 214KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Guidance_Notes.pdf "Download ‘Applying for a passport if you’re outside the UK’ (PDF, 214KB)")
 
@@ -760,7 +753,7 @@ en-GB:
         ips_documents_group_3: |
 
           $D
-            [Download ‘British passport - overseas application form’ (PDF, 355KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Form.pdf "Download ‘British passport overseas application form’ (PDF, 355KB)")
+            [Download ‘British passport - overseas application form’ (PDF, 355KB)](/government/uploads/system/uploads/attachment_data/file/207390/OS_Form_04-13.pdf "Download ‘British passport overseas application form’ (PDF, 355KB)")
 
             [Download ‘Applying for a passport if you’re outside the UK’ (PDF, 214KB)](https://assets.digital.cabinet-office.gov.uk/static/overseas-passport/OS_Guidance_Notes.pdf "Download ‘Applying for a passport if you’re outside the UK’ (PDF, 214KB)")
 
@@ -869,6 +862,9 @@ en-GB:
           $A
 
         send_application_ips1_durham: |
+          ## Send your application
+
+          Her Majesty's Passport Office recommends you send your application using a secure delivery service or courier.
 
           
           $A
@@ -882,6 +878,16 @@ en-GB:
 
         getting_your_passport_ips1: |
           Your passport and supporting documents will be delivered separately by courier.
+        getting_your_passport_egypt: |
+          Your passport and supporting documents will be delivered to the British Embassy in Cairo - you must collect them in person. 
+
+          They will contact you when your passport arrives using the contact details on your form. 
+
+          You must bring photo ID with you.
+        getting_your_passport_cyprus: |
+          If you live in Southern Cyprus, your passport and supporting documents will be delivered separately by courier directly to you.
+
+          If you live in Northern Cyprus, your passport and supporting documents will be delivered to the British High Commission in Nicosia - you must collect them in person. They will contact you - using the details on your application form - when your passport and documents are ready to collect. You must bring photo ID with you.
         getting_your_passport_iraq: |
           You must collect your passport and supporting documents in person from either:
 
@@ -890,8 +896,7 @@ en-GB:
 
           You must specify where you want them delivered in section 8 on the application form. You must bring photo ID with you
 
-          The embassy or consulate general will contact you when your passport arrives using the contact details on your form. 
-        
+          The embassy or consulate general will contact you when your passport arrives using the contact details on your form.
         getting_your_passport_jordan: |
           Your passport and supporting documents will be delivered to the British Embassy in Amman, Jordan - you must collect them in person. You must bring photo ID with you.
 
@@ -899,7 +904,7 @@ en-GB:
         getting_your_passport_yemen: |
           Your passport and supporting documents will be delivered to the British Embassy in Amman, Jordan - you must collect them in person. You must bring photo ID with you.
 
-          They will contact you when your passport arrives using the contact details on your form.
+          They will contact you when your passport arrives using the contact details on your form.          
         tracking_and_receiving_ips1: |
           ## Track your application
 
@@ -956,7 +961,7 @@ en-GB:
           $D
 
         passport_courier_costs_ips2: |
-          You’ll have to pay a fee for your passport and a courier fee of £24.72. The courier fee pays for your passport and supporting documents to be sent securely to your nearest embassy, high commission or consulate for you to collect.
+          You’ll have to pay a fee for your passport and a courier fee of £24.72. The courier fee pays for your passport to be sent securely to the British embassy, high commission or consulate where you applied for you to collect.
 
         adult_passport_costs_ips2: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
@@ -991,14 +996,12 @@ en-GB:
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
 
-
-          %{embassy_address}
+          +[data_partial:passports_embassies:organisation]
 
         getting_your_passport_ips2: |
-          Your passport and supporting documents will be delivered to the British embassy, high commission or consulate where you applied - you must collect them in person.
+          Your passport will be delivered to the British embassy, high commission or consulate where you applied  - you must collect it in person. 
 
-          They will contact you - using the details on your application form - when your passport and documents are ready to collect. You must bring photo ID with you. if you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
-
+          They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
         tracking_and_receiving_ips2: |
 
           ## Track your application
@@ -1039,7 +1042,7 @@ en-GB:
           Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document "Get an emergency travel document")
 
         passport_courier_costs_ips3: |
-          You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport and supporting documents to be sent securely to your nearest embassy, high commission or consulate for you to collect.
+          You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the British embassy, high commission or consulate where you applied for you to collect.
 
         adult_passport_costs_ips3: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
@@ -1067,14 +1070,32 @@ en-GB:
           ## Making your application
           You must apply in person.
 
+          You must bring photo ID with you.
+
           If you’re renewing a passport, you must bring your current passport with you when you apply. You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
-          %{embassy_address}
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+          +[data_partial:passports_embassies:organisation]
+        send_application_ips3_gaza: |
+          ## Making your application
+          You must apply in person.
 
+          If you’re renewing a passport, you must bring your current passport with you when you apply. You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+
+
+          $A
+          British Information & Services Office  
+          1st Floor, Al-Riyad Tower  
+          Jerusalem Street  
+          Al-Rimal South  
+          Gaza  
+          Email: biso@britishconsulate.org  
+          Telephone: +970 (0) 8 2837724
+          $A
         getting_your_passport_ips3: |
-          Your passport and supporting documents will be delivered to the British embassy, high commission or consulate where you applied - you must collect them in person.
+          Your passport will be delivered to the British embassy, high commission or consulate where you applied - you must collect them in person.
 
-          They will contact you - using the details on your application form - when your passport and documents are ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID. 
+          They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. if you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
         
         tracking_and_receiving_ips3: |
           ## Track your application
@@ -1111,9 +1132,9 @@ en-GB:
         cost_australia_post: |
           | Passport type | Passport fee |
           |---------------|--------------|
-          | Adult standard 32-page passport | AUS $268.84 |
-          | Adult jumbo 48-page passport | AUS $309.84 |
-          | Child passport | AUS $196.84 |
+          | Adult standard 32-page passport | %{costs_australian_dollars_adult_32} |
+          | Adult jumbo 48-page passport | %{costs_australian_dollars_adult_48} |
+          | Child passport | %{costs_australian_dollars_child} |
 
         how_to_apply_australia_post: |
           Book an interview at an [Australia Post office.](http://auspost.com.au/passports-id/british-passports.html "Book an appointment at an Australia Post office"){:rel="external"} - you must bring cash or a Visa or Mastercard to pay the fee at the interview.
@@ -2619,7 +2640,7 @@ en-GB:
           [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)")
           $D
 
-          %{embassy_address}
+          +[data_partial:passports_embassies:organisation]
 
           ## Cost
 
@@ -2641,7 +2662,7 @@ en-GB:
 
           4. Take your application in person to the British embassy in Algiers.
 
-          %{embassy_address}
+          +[data_partial:passports_embassies:organisation]
 
           ## Getting your passport
 
@@ -2819,7 +2840,8 @@ en-GB:
 
           %{making_application}
 
-          %{embassy_details}
+
+          +[data_partial:passports_embassies:organisation]
 
           %{making_application_additional}
 
