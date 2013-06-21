@@ -242,6 +242,7 @@ multiple_choice :what_particular_day_of_the_month_is_the_employee_paid? do
 
   calculate :pay_day_in_week do
     calculator.pay_day_in_week = days_of_the_week.index(responses.last)
+    responses.last
   end
   next_node :which_week_in_month_is_the_employee_paid?
 end
