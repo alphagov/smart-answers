@@ -1,77 +1,55 @@
 status :published
+satisfies_need 2820
 
 i18n_prefix = "flow.overseas-passports"
 data_query = Calculators::PassportAndEmbassyDataQuery.new 
 
 # Q1
-country_select :which_country_are_you_in?, :use_legacy_data => true do
+country_select :which_country_are_you_in?, exclude_holysee_britishantarticterritory: true do
   save_input_as :current_location
 
-  calculate :passport_data do
-    data_query.find_passport_data(responses.last)
-  end
-  calculate :application_type do
-    passport_data['type']
-  end
-  calculate :is_ips_application do
-    application_type =~ Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP
-  end
-  calculate :is_fco_application do
-    application_type =~ Calculators::PassportAndEmbassyDataQuery::FCO_APPLICATIONS_REGEXP
-  end
-  calculate :ips_number do
-    application_type.split("_")[2] if is_ips_application 
-  end
-  calculate :embassies_data do
-    data_query.find_embassy_data(current_location)
-  end
-  calculate :embassy_addresses do
-    addresses = [] 
-    unless ips_number.to_i ==  1 or embassies_data.nil?
-      embassies_data.each do |e|
-        addresses << I18n.translate!("#{i18n_prefix}.phrases.embassy_address",
-                                      address: e['address'], office_hours: e['office_hours'])
-      end
-    end
-    addresses
-  end
-  calculate :embassy_address do
-    if embassy_addresses
-      responses.last =~ /^(russian-federation|pakistan)$/ ? embassy_addresses.join : embassy_addresses.first
-    end
-  end
-  calculate :embassies_details do
-    details = []
-    embassies_data.each do |e|
-      details << I18n.translate!("#{i18n_prefix}.phrases.embassy_details",
-                                address: e['address'], phone: e['phone'],
-                                email: e['email'], office_hours: e['office_hours'])
-    end if embassies_data
-    details
-  end
-  calculate :embassy_details do
-    if embassies_details
-      responses.last == 'russian-federation' ? embassies_details.join : embassies_details.first
-    end
+  calculate :location do
+    loc = WorldLocation.find(current_location)
+    raise InvalidResponse unless loc
+    loc
   end
 
-  calculate :supporting_documents do
-    passport_data['group']
+  calculate :organisation do
+    location.fco_organisation
   end
 
-  data_query.passport_costs.each do |k,v|
-    calculate "costs_#{k}".to_sym do 
-      v
-    end
-  end
+
 
   next_node do |response|
     if Calculators::PassportAndEmbassyDataQuery::NO_APPLICATION_REGEXP.match(response)
       :cannot_apply
+    elsif %w(the-occupied-palestinian-territories).include?(response)
+      :which_opt?
+    elsif %w(st-helena-ascension-and-tristan-da-cunha).include?(response)
+      :which_bot?
     else
       :renewing_replacing_applying?
     end
   end
+end
+
+# Q1a
+multiple_choice :which_opt? do
+  option :gaza
+  option :"jerusalem-or-westbank"
+
+  save_input_as :current_location
+  next_node :renewing_replacing_applying?
+end
+
+# Q1b
+multiple_choice :which_bot? do
+  option :"st-helena"
+  option :"ascension-island"
+  option :"tristan-da-cunha"
+
+  save_input_as :current_location
+  next_node :renewing_replacing_applying?
 end
 
 # Q2
@@ -85,6 +63,32 @@ multiple_choice :renewing_replacing_applying? do
 
   calculate :general_action do
     responses.last =~ /^renewing_/ ? 'renewing' : responses.last
+  end
+
+  calculate :passport_data do
+    data_query.find_passport_data(current_location)
+  end
+  calculate :application_type do
+    passport_data['type']
+  end
+  calculate :is_ips_application do
+    application_type =~ Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP
+  end
+  calculate :is_fco_application do
+    application_type =~ Calculators::PassportAndEmbassyDataQuery::FCO_APPLICATIONS_REGEXP
+  end
+  calculate :ips_number do
+    application_type.split("_")[2] if is_ips_application 
+  end
+
+  calculate :supporting_documents do
+    passport_data['group']
+  end
+
+  data_query.passport_costs.each do |k,v|
+    calculate "costs_#{k}".to_sym do 
+      v
+    end
   end
 
   next_node :child_or_adult_passport?
@@ -116,7 +120,7 @@ multiple_choice :child_or_adult_passport? do
 end
 
 # Q4
-country_select :country_of_birth?, include_uk: true, :use_legacy_data => true do
+country_select :country_of_birth?, exclude_holysee_britishantarticterritory: true do
   save_input_as :birth_location
 
   calculate :application_group do
@@ -241,7 +245,7 @@ outcome :ips_application_result do
       PhraseList.new(:"passport_courier_costs_replacing_ips#{ips_number}",
                    :"#{child_or_adult}_passport_costs_replacing_ips#{ips_number}",
                    :"passport_costs_ips#{ips_number}")
-    elsif %w{mauritania morocco western-sahara cuba libya tunisia}.include?(current_location) # IPS 2&3 countries where payment must be made in cash
+    elsif %w{cuba gaza libya mauritania morocco sudan tunisia western-sahara}.include?(current_location) # IPS 2&3 countries where payment must be made in cash
       PhraseList.new(:"passport_courier_costs_ips#{ips_number}",
                    :"#{child_or_adult}_passport_costs_ips#{ips_number}",
                    :"passport_costs_ips_cash")
@@ -258,15 +262,16 @@ outcome :ips_application_result do
   precalculate :send_your_application do
     if %w{andorra cyprus greece portugal spain}.include?(current_location)
       PhraseList.new(:"send_application_ips#{ips_number}_belfast")
-    elsif %w(belgium iraq italy jordan liechtenstein luxembourg malta netherlands
-             san-marino switzerland yemen).include?(current_location)
+    elsif %w(belgium egypt france iraq israel italy jerusalem-or-westbank jordan liechtenstein luxembourg malta monaco netherlands san-marino switzerland yemen).include?(current_location)
       PhraseList.new(:"send_application_ips#{ips_number}_durham")
+    elsif %w(gaza).include?(current_location)
+      PhraseList.new(:send_application_ips3_gaza)
     else
       PhraseList.new(:"send_application_ips#{ips_number}")
     end
   end
   precalculate :getting_your_passport do
-    if %w(iraq jordan yemen).include?(current_location)
+    if %w(cyprus egypt iraq jordan yemen).include?(current_location)
       PhraseList.new :"getting_your_passport_#{current_location}"
     else
       PhraseList.new :"getting_your_passport_ips#{ips_number}"
@@ -374,15 +379,6 @@ end
 
 ## Generic country outcome.
 outcome :result do
-  precalculate :embassy_address do
-    if application_type == 'iraq'
-      e = data_query.find_embassy_data('iraq', false).first
-      I18n.translate!("#{i18n_prefix}.phrases.embassy_address",
-                      address: e['address'], office_hours: e['office_hours'])
-    else
-      embassy_address
-    end
-  end
   precalculate :how_long_it_takes do
     phrase = ['how_long', application_type]
     phrase << general_action if application_type == 'nairobi_kenya'
