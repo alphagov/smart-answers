@@ -33,7 +33,7 @@ en-GB:
         title: Where are you?
         options:
           gaza: "Gaza"
-          jerusalem-or-westbank: "Jerusalem or the West Bank"
+          jerusalem-or-westbank: "Jerusalem and the West Bank"
       which_bot?:
         title: Where are you?
         options:
@@ -961,7 +961,7 @@ en-GB:
           $D
 
         passport_courier_costs_ips2: |
-          You’ll have to pay a fee for your passport and a courier fee of £24.72. The courier fee pays for your passport and supporting documents to be sent securely to your nearest embassy, high commission or consulate for you to collect.
+          You’ll have to pay a fee for your passport and a courier fee of £24.72. The courier fee pays for your passport to be sent securely to the British embassy, high commission or consulate where you applied for you to collect.
 
         adult_passport_costs_ips2: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
@@ -999,10 +999,9 @@ en-GB:
           +[data_partial:passports_embassies:organisation]
 
         getting_your_passport_ips2: |
-          Your passport will be delivered to the British embassy, high commission or consulate where you applied - you must collect them in person.
+          Your passport will be delivered to the British embassy, high commission or consulate where you applied  - you must collect it in person. 
 
-          They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. if you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
-
+          They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
         tracking_and_receiving_ips2: |
 
           ## Track your application
@@ -1043,7 +1042,7 @@ en-GB:
           Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document "Get an emergency travel document")
 
         passport_courier_costs_ips3: |
-          You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport and supporting documents to be sent securely to your nearest embassy, high commission or consulate for you to collect.
+          You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the British embassy, high commission or consulate where you applied for you to collect.
 
         adult_passport_costs_ips3: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
@@ -1071,7 +1070,11 @@ en-GB:
           ## Making your application
           You must apply in person.
 
+          You must bring photo ID with you.
+
           If you’re renewing a passport, you must bring your current passport with you when you apply. You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
           +[data_partial:passports_embassies:organisation]
         send_application_ips3_gaza: |
           ## Making your application
