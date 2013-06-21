@@ -6,6 +6,7 @@ class SmartAnswersController < ApplicationController
   rescue_from SmartAnswer::InvalidNode, with: :render_404
 
   def show
+    set_slimmer_artefact(@presenter.artefact)
     respond_to do |format|
       format.html { render }
       format.json {
@@ -29,7 +30,6 @@ class SmartAnswersController < ApplicationController
     end
 
     set_expiry
-    set_slimmer_artefact(@presenter.artefact)
   end
 
 private
