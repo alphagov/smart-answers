@@ -84,11 +84,11 @@ module SmartAnswer::Calculators
           end
 
           should "calculate the statutory maternity rate" do
-            assert_equal (193.00 * 0.9).round(2), @calculator.statutory_maternity_rate
+            assert_equal (193.00 * 0.9).round(2), @calculator.statutory_maternity_rate.round(2)
           end
 
           should "calculate the maternity pay at rate A" do
-            assert_equal (193.00 * 0.9).round(2), @calculator.statutory_maternity_rate_a
+            assert_equal (193.00 * 0.9).round(2), @calculator.statutory_maternity_rate_a.round(2)
           end
 
           should "calculate the maternity pay at rate B using the base rate" do
@@ -97,7 +97,7 @@ module SmartAnswer::Calculators
 
           should "calculate the maternity pay at rate B using the percentage of weekly income" do
             @calculator.average_weekly_earnings = 135.40
-            assert_equal 121.87, @calculator.statutory_maternity_rate_b
+            assert_equal 121.86, @calculator.statutory_maternity_rate_b.round(2)
           end
 
         end
@@ -320,7 +320,7 @@ module SmartAnswer::Calculators
 
         should "be statutory leave times statutory higher rate A and statutory rate B" do
           @calculator.average_weekly_earnings = 235.40
-          assert_equal 5741.07, @calculator.total_statutory_pay.round(2)
+          assert_equal 5741.01, @calculator.total_statutory_pay.round(2)
         end
       end
 
@@ -476,7 +476,7 @@ module SmartAnswer::Calculators
 
           assert_equal 64.29, paydates_and_pay.first[:pay]
 
-          rate_a_payments = paydates_and_pay.select{ |p| p[:pay] == 225 }
+          rate_a_payments = paydates_and_pay.select{ |p| p[:pay] == 225.01 }
           assert_equal 5, rate_a_payments.size
 
           assert_equal '2013-01-11', rate_a_payments.first[:date].to_s
