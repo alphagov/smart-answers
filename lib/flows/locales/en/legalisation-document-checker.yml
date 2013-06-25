@@ -178,12 +178,13 @@ en-GB:
 
           - a solicitor or notary public in the UK
           - an official of the British Council (only original certificates)
-          - an official from a [British embassy or consulate](/government/world "Find a British embassy abroad")
+
+          You may able to get your document certified at a British embassy. [Check if this service is offered](https://www.gov.uk/government/organisations/foreign-commonwealth-office/series/notarial-services) in the country you’re in.
 
           ^A photocopy of your document can be legalised, but it must be certified.^
         education_document: |
           ##%{document_heading}
-          Your %{document_type} must be accredited by one of the following organisations:
+          Your %{document_type} must be issued by an institution that is accredited by either:
 
           - UK Border Agency
           - Scottish Qualifications Authority  
@@ -196,8 +197,9 @@ en-GB:
 
           - a solicitor or notary public in the UK
           - an official of the British Council (only original certificates)
-          - an official from a [British embassy or consulate](/government/world "Find a British embassy abroad")
 
+          You may able to get your document certified at a British embassy. [Check if this service is offered](https://www.gov.uk/government/organisations/foreign-commonwealth-office/series/notarial-services) in the country you’re in.
+          
           ^A photocopy of your document can be legalised, but it must be certified.^
         medical_reports: |
           ##%{document_heading}
