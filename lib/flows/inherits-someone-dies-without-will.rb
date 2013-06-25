@@ -241,11 +241,11 @@ multiple_choice :siblings_same_parents_sc? do
       if living_parents == "yes"
         :outcome_18
       else
-        :outcome_19
+        :outcome_20
       end
     else
       if living_parents =="yes"
-        :outcome_20
+        :outcome_19
       else
         :aunts_or_uncles_sc?
       end
