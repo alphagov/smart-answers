@@ -590,7 +590,7 @@ st-helena:
   group: ips_documents_group_1
 st-helena-ascension-and-tristan-da-cunha: 
   type:
-  group:
+  group: ips_documents_group_1
 st-kitts-and-nevis: 
   type: washington_usa
   group: ips_documents_group_2
@@ -639,7 +639,7 @@ thailand:
   helpline: hong_kong
 the-occupied-palestinian-territories:
   type:
-  group:
+  group: ips_documents_group_1
 timor-leste:
   type: hong_kong
   group: ips_documents_group_1
