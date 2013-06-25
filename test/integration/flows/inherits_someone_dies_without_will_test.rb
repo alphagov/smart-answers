@@ -216,7 +216,7 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
           add_response "no"
           add_response "no"
           add_response "yes"
-          assert_current_node :outcome_19
+          assert_current_node :outcome_20
           assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
         end
       end
@@ -226,7 +226,7 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
           add_response "no"
           add_response "yes"
           add_response "no"
-          assert_current_node :outcome_20
+          assert_current_node :outcome_19
           assert_phrase_list :next_step_links, [:wills_and_inheritance_links]
         end
       end
