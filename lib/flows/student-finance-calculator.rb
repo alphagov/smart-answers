@@ -108,7 +108,7 @@ money_question :whats_your_household_income? do
       # 2014-15:max of £3,387 for income up to £25,000 then, 
       # £1 less than max for each whole £5.28 above £25000 up to £42,611
       # min grant is £50 for income = £42,620
-      # no grant for  income above £42,620  decreases from max by £1 for each complete £5.50 of income above £25k
+      # no grant for  income above £42,620
       if responses.last <= 25000
         Money.new('3387')
       else
