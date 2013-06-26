@@ -238,7 +238,7 @@ outcome :ips_application_result do
     else
       if %w{kazakhstan kyrgyzstan}.include?(current_location)
         PhraseList.new(:"how_long_#{current_location}")
-        else
+      else
         PhraseList.new(:"how_long_#{application_action}_ips#{ips_number}",
                      :"how_long_it_takes_ips#{ips_number}")
       end
