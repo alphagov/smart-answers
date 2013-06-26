@@ -1,10 +1,23 @@
 satisfies_need 2175
 status :published
 
+max_maintainence_loan_amounts = {
+  "2013-2014" => {
+    "at-home" => 4375,
+    "away-outside-london" => 5500,
+    "away-in-london" => 7675
+  },
+  "2014-2015" => {
+    "at-home" => 4418,
+    "away-outside-london" => 5555,
+    "away-in-london" => 7751
+  }
+}
+
 #Q1
 multiple_choice :when_does_your_course_start? do
-  option :"2012-2013"
   option :"2013-2014"
+  option :"2014-2015"
 
   save_input_as :start_date
   next_node :what_type_of_student_are_you?
@@ -56,11 +69,9 @@ multiple_choice :where_will_you_live_while_studying? do
   option :'away-in-london'
 
   calculate :max_maintenance_loan_amount do
-    case responses.last
-    when "at-home" then Money.new("4375")
-    when "away-outside-london" then Money.new("5500")
-    when "away-in-london" then Money.new("7675")
-    else
+    begin
+      Money.new(max_maintainence_loan_amounts[start_date][responses.last].to_s) 
+    rescue
       raise SmartAnswer::InvalidResponse
     end
   end
@@ -94,15 +105,17 @@ money_question :whats_your_household_income? do
         end
       end
     else
-      # 2012-13: decreases from max by £1 for each complete £5.50 of income above £25k
-      # min of £50 at 42600
+      # 2014-15:max of £3,387 for income up to £25,000 then, 
+      # £1 less than max for each whole £5.28 above £25000 up to £42,611
+      # min grant is £50 for income = £42,620
+      # no grant for  income above £42,620
       if responses.last <= 25000
-        Money.new('3250')
+        Money.new('3387')
       else
-        if responses.last > 42600
+        if responses.last > 42620
           Money.new('0')
         else
-          Money.new( 3250 - ((responses.last - 25000)/5.5).floor )
+          Money.new( 3387 - ((responses.last - 25000)/5.28).floor )
         end
       end
     end
@@ -200,10 +213,10 @@ outcome :outcome_uk_full_time_students do
     else
       phrases << :additional_benefits
       if uk_ft_circumstances.include?('children-under-17')
-        phrases << :children_under_17
+        phrases << :"children_under_17_#{start_date}"
       end
       if uk_ft_circumstances.include?('dependant-adult')
-        phrases << :dependant_adult
+        phrases << :"dependant_adult_#{start_date}"
       end
       if uk_ft_circumstances.include?('has-disability')
         phrases << :has_disability

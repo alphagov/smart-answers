@@ -22,8 +22,9 @@ en-GB:
       when_does_your_course_start?:
         title: When does your course start?
         options:
-          "2012-2013": "Between September 2012 and August 2013"
           "2013-2014": "Between September 2013 and August 2014"
+          "2014-2015": "Between September 2014 and August 2015"
+          
 
 #Q2
       what_type_of_student_are_you?:
@@ -92,14 +93,18 @@ en-GB:
           You could get extra grants and allowances:
 
 
-        children_under_17: |
+        children_under_17_2013-2014: |
           - up to £148.75 a week (1 child) or up to £255 a week (2 or more children) [Childcare Grant](/childcare-grant)
-
           - up to £1,508 per year [Parents’ Learning Allowance](/parents-learning-allowance)
-
           - [Child Tax Credit](/child-tax-credit)
-        dependant_adult: |
+        children_under_17_2014-2015: |
+          - up to £150.23 a week (1 child) or up to £257.55 a week (2 or more children) [Childcare Grant](/childcare-grant)
+          - up to £1,523 per year [Parents’ Learning Allowance](/parents-learning-allowance)
+          - [Child Tax Credit](/child-tax-credit)
+        dependant_adult_2013-2014: |
           - up to £2,642 per year [Adult Dependant's Grant](/adult-dependants-grant)
+        dependant_adult_2014-2015: |
+          - up to £2,668 per year [Adult Dependant's Grant](/adult-dependants-grant)
         has_disability: |
           - [Disabled Students' Allowances](/disabled-students-allowances-dsas)
         low_income: |
