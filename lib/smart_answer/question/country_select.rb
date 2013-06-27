@@ -2,8 +2,8 @@ module SmartAnswer
   module Question
     class CountrySelect < Base
       def initialize(name, options = {}, &block)
+        @exclude_countries = options.delete(:exclude_countries)
         @include_uk = options.delete(:include_uk)
-        @exclude_holysee_britishantarticterritory = options.delete(:exclude_holysee_britishantarticterritory)
         @use_legacy_data = options.delete(:use_legacy_data)
         super(name, options, &block)
       end
@@ -29,13 +29,13 @@ module SmartAnswer
 
       def load_countries
         countries = @use_legacy_data ? LegacyCountry.all : WorldLocation.all
-        if @exclude_holysee_britishantarticterritory
-          countries.reject {|c| %w(british-antarctic-territory holy-see).include?(c.slug)}
-        elsif @include_uk
-          countries
-        else
-          countries.reject {|c| c.slug == 'united-kingdom' }
+        unless @include_uk
+          countries = countries.reject { |c| c.slug == 'united-kingdom' }
         end
+        if @exclude_countries
+          countries = countries.reject {|c| @exclude_countries.include?(c.slug) }
+        end
+        countries
       end
     end
   end

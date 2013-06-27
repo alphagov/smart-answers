@@ -31,7 +31,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       within '.question-body' do
         assert page.has_select?("response")
         # Options above missing delegations and uk
-        expected = %w(afghanistan angola aruba bangladesh belarus brazil brunei
+        expected = %w(angola aruba bangladesh belarus brazil brunei
           cambodia chad croatia denmark eritrea france ghana iceland
           japan laos luxembourg malta micronesia mozambique nicaragua
           panama portugal sao-tome-and-principe singapore south-korea

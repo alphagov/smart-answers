@@ -33,12 +33,11 @@ module SmartAnswer
       end
 
       should "exclude Holy See and British Antartic Territory when requested" do
-        @question = Question::CountrySelect.new(:example, :exclude_holysee_britishantarticterritory => true)
-        assert_equal %w(afghanistan denmark united-kingdom vietnam), @question.options.map(&:slug)
+        @question = Question::CountrySelect.new(:example, :exclude_countries=> %w(holy-see british-antarctic-territory))
+        assert_equal %w(afghanistan denmark vietnam), @question.options.map(&:slug)
         assert ! @question.valid_option?('holy-see')
         assert ! @question.valid_option?('british-antarctic-territory')
-        end
-
+      end
     end
 
     context "using the legacy data" do
