@@ -33,8 +33,8 @@ en-GB:
         You can’t use the calculator for:
 
         + births 15 weeks before the due date
-        + [Additional paternity Leave or Pay](/additional-paternity-leave-pay-employees “Additional paternity leave or pay”)
-        + paternity leave or pay for [overseas adoptions](/paternity-leave-pay-employees “Paternity leave for adoptions”)
+        + [Additional paternity Leave or Pay](/additional-paternity-leave-pay-employees)
+        + paternity leave or pay for [overseas adoptions](/paternity-leave-pay-employees)
       phrases:
         not_worked_long_enough: + they must have started working for you on or before %{employment_start}
         must_be_on_payroll: + you must be liable for their secondary Class 1 National Insurance contributions - ie you will be if they’re on your payroll
