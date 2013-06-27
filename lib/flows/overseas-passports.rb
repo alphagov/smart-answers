@@ -121,7 +121,7 @@ multiple_choice :child_or_adult_passport? do
 end
 
 # Q4
-country_select :country_of_birth?, :include_uk => true,  :exclude_countries => exclude_countries do
+country_select :country_of_birth?, :include_uk => true, :exclude_countries => exclude_countries do
   save_input_as :birth_location
 
   calculate :application_group do
