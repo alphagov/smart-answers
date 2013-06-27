@@ -2473,19 +2473,6 @@ greece:
   fax: (30) 281 0243935
   website: /government/world/greece/
 - address: |-
-    British Consulate 
-    43 Tsimiski Street
-    4th Floor
-    546 23 
-    Thessaloniki
-  designation: British Consulate
-  lat: 40.6334
-  lon: 22.9425
-  location_name: Thessalonika
-  phone: (30) (2310) 278006
-  fax: (30) (2310) 283868
-  website: http://ukingreece.fco.gov.uk
-- address: |-
     British Honorary Consulate 
     29 Gr. Lambraki Street
     851 00 Rhodes
@@ -3113,37 +3100,6 @@ israel:
     Mon-Thurs: 0700 -1300; Fri: 0700-1230 (phone enquiries)
     Local Time
     Mon-Thurs: 0800 -1600; Fri: 0800-1330 (phone enquiries)
-- address: |-
-    British Consulate
-    Migdalor Building (6th Floor)
-    1 Ben Yehuda Street
-    Tel Aviv 63801,
-  designation: British Consulate
-  lat: 32.073
-  lon: 34.7685
-  location_name: Tel Aviv
-  phone: (972) (3) (7251222)
-  fax: (972) (03) 5101167
-  website: /government/world/israel
-  office_hours: |-
-    GMT:
-    Visa Section: Mon-Fri: 0630-1030
-    Passport/Consular Section:
-    Mon-Fri: 0630-1030
-    
-    Local Time:
-    Visa Section: Mon-Fri: 0830-1230
-    Passport/Consular Section: 
-    Mon-Friday: 0830-1230
-- address: |-
-    c/o Aqua Sport
-    Coral Beach
-    PO Box 300
-    Eilat 88102
-  phone: (972) (8) 634 0810 
-  fax: (972) (8) 634 0810
-  email: dafna.budden-honcon@fconet.fco.gov.uk
-  website: /government/world/israel
 italy: 
 - address: |-
     British Embassy
