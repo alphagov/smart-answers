@@ -32,9 +32,13 @@ module SmartAnswer::Calculators
       'Australian Dollars'  => [[282.21], [325.81], [205.81]],
       'Indian Rupees'       => [[11550, 13650], [13950, 16050], [7350, 9450]],
       'Jordanian Dinars'    => [[144, 181], [174, 211], [92, 129]],
-      'South African Rand'  => [[2016, 2329], [2433, 2746], [1284, 1597]],
+      'South African Rand'  => [[2112, 2440], [2549, 2877], [1345, 1673]],
       'Euros'               => [[156, 182],   [188, 214],   [99, 125]]
     }
+
+    BELFAST_APPLICATION_ADDRESS = %w(andorra cyprus greece portugal spain)
+
+    DURHAM_APPLICATION_ADDRESS = %w(belgium egypt france iraq israel italy jerusalem-or-westbank jordan liechtenstein luxembourg malta monaco netherlands san-marino switzerland yemen)
 
     attr_reader :embassy_data, :passport_data
 
@@ -58,6 +62,14 @@ module SmartAnswer::Calculators
 
     def retain_passport_hurricanes?(country_slug)
       RETAIN_PASSPORT_COUNTRIES_HURRICANES.include?(country_slug)
+    end
+
+    def belfast_application_address?(country_slug)
+      BELFAST_APPLICATION_ADDRESS.include?(country_slug)
+    end
+
+    def durham_application_address?(country_slug)
+      DURHAM_APPLICATION_ADDRESS.include?(country_slug)
     end
 
     def passport_costs

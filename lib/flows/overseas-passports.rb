@@ -2,8 +2,9 @@ status :published
 satisfies_need 2820
 
 i18n_prefix = "flow.overseas-passports"
-data_query = Calculators::PassportAndEmbassyDataQuery.new
+data_query = Calculators::PassportAndEmbassyDataQuery.new 
 exclude_countries = %w(holy-see british-antarctic-territory)
+
 
 # Q1
 country_select :which_country_are_you_in?, :exclude_countries => exclude_countries do
@@ -237,8 +238,12 @@ outcome :ips_application_result do
                        :"how_long_it_takes_ips#{ips_number}")
       end
     else
-      PhraseList.new(:"how_long_#{application_action}_ips#{ips_number}",
+      if %w{kazakhstan kyrgyzstan}.include?(current_location)
+        PhraseList.new(:"how_long_#{current_location}")
+      else
+        PhraseList.new(:"how_long_#{application_action}_ips#{ips_number}",
                      :"how_long_it_takes_ips#{ips_number}")
+      end
     end
   end
   precalculate :cost do
@@ -261,9 +266,9 @@ outcome :ips_application_result do
                    supporting_documents.to_sym)
   end
   precalculate :send_your_application do
-    if %w{andorra cyprus greece portugal spain}.include?(current_location)
+    if data_query.belfast_application_address?(current_location)
       PhraseList.new(:"send_application_ips#{ips_number}_belfast")
-    elsif %w(belgium egypt france iraq israel italy jerusalem-or-westbank jordan liechtenstein luxembourg malta monaco netherlands san-marino switzerland yemen).include?(current_location)
+    elsif data_query.durham_application_address?(current_location)
       PhraseList.new(:"send_application_ips#{ips_number}_durham")
     elsif %w(gaza).include?(current_location)
       PhraseList.new(:send_application_ips3_gaza)
