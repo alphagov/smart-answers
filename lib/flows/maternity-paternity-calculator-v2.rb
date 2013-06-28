@@ -231,6 +231,7 @@ checkbox_question :what_days_does_the_employee_work? do
   (0...days_of_the_week.size).each { |i| option i.to_s.to_sym }
   
   calculate :last_day_in_week_worked do
+    calculator.work_days = responses.last.split(",").map(&:to_i)
     calculator.pay_day_in_week = responses.last.split(",").sort.last.to_i
   end
   next_node :maternity_leave_and_pay_result

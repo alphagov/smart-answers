@@ -188,7 +188,7 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
                               assert_state_variable "average_weekly_earnings", 135.4
                               assert_state_variable "smp_a", "121.86"
                               assert_state_variable "smp_b", "121.86"
-                              assert_state_variable "total_smp", "4752.55"
+                              assert_state_variable "total_smp", "4752.93"
                               assert_phrase_list :maternity_pay_info, [:maternity_pay_table, :paydates_table]
                             end
                           end
@@ -420,7 +420,7 @@ class MaternityPaternityCalculatorV2Test < ActiveSupport::TestCase
                           assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
                           assert_state_variable "smp_a", "121.86"
                           assert_state_variable "smp_b", "121.86"
-                          assert_state_variable "total_smp", "4752.54"
+                          assert_state_variable "total_smp", "4752.93"
                           assert_phrase_list :maternity_pay_info, [:maternity_pay_table, :paydates_table]
                         end
 
