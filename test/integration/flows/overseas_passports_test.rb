@@ -9,7 +9,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(australia afghanistan iraq benin austria albania morocco azerbaijan ireland india tanzania indonesia jamaica malta italy jordan iran syria cameroon kenya andorra tunisia yemen haiti south-africa united-kingdom greece spain the-occupied-palestinian-territories st-helena-ascension-and-tristan-da-cunha)
+    @location_slugs = %w(australia afghanistan iraq benin austria albania morocco azerbaijan ireland india tanzania indonesia jamaica malta italy jordan iran syria cameroon kenya andorra tunisia yemen haiti south-africa united-kingdom greece spain the-occupied-palestinian-territories st-helena-ascension-and-tristan-da-cunha kazakhstan kyrgyzstan)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports'
   end
@@ -752,8 +752,8 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
   end # Yemen
 
-  context "answer Haiti, applying, adult passport" do
-    should "give the IPS application result with custom phrases" do
+  context "answer Haiti, renewing-new, adult passport" do
+    should "give the fco result with custom phrases" do
       worldwide_api_has_organisations_for_location('haiti', read_fixture_file('worldwide/haiti_organisations.json'))
       add_response 'haiti'
       add_response 'renewing_new'
@@ -840,5 +840,43 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_state_variable :organisation, expected_location.fco_organisation
     end
   end # St Helena (FCO with custom phrases)
+
+  context "answer Kazakhstan, applying, child passport" do
+    should "give the IPS application result with custom phrases" do
+      worldwide_api_has_organisations_for_location('kazakhstan', read_fixture_file('worldwide/kazakhstan_organisations.json'))
+      add_response 'kazakhstan'
+      add_response 'applying'
+      add_response 'child'
+      add_response 'united-kingdom'
+      assert_current_node :ips_application_result
+      assert_phrase_list :how_long_it_takes, [:how_long_kazakhstan]
+      assert_phrase_list :cost, [:passport_courier_costs_ips3, :child_passport_costs_ips3, :passport_costs_ips3]
+      assert_phrase_list :send_your_application, [:send_application_ips3]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
+      expected_location = WorldLocation.find('kazakhstan')
+      assert_state_variable :location, expected_location
+      assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /62, Kosmonavtov Street/, outcome_body
+    end
+  end # Kazakhstan
+
+  context "answer Kyrgyzstan, renewing_old, adult passport" do
+    should "give the IPS application result with custom phrases" do
+      worldwide_api_has_organisations_for_location('kyrgyzstan', read_fixture_file('worldwide/kyrgyzstan_organisations.json'))
+      add_response 'kyrgyzstan'
+      add_response 'renewing_old'
+      add_response 'adult'
+      add_response 'united-kingdom'
+      assert_current_node :ips_application_result
+      assert_phrase_list :how_long_it_takes, [:how_long_kyrgyzstan]
+      assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
+      assert_phrase_list :send_your_application, [:send_application_ips3]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
+      expected_location = WorldLocation.find('kyrgyzstan')
+      assert_state_variable :location, expected_location
+      assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /21 Erkindik Boulevard, Office 404/, outcome_body
+    end
+  end # Kyrgyzstan
 
 end
