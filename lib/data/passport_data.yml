@@ -328,7 +328,7 @@ jordan:
   type: ips_application_1 
   group: ips_documents_group_1
 kazakhstan: 
-  type: ips_application_2
+  type: ips_application_3
   group: ips_documents_group_3
 kenya: 
   type: nairobi_kenya
@@ -344,7 +344,7 @@ kuwait:
   type: ips_application_1
   group: ips_documents_group_1
 kyrgyzstan:
-  type: ips_application_2
+  type: ips_application_3
   group: ips_documents_group_3
 laos: 
   type: hong_kong

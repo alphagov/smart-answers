@@ -1014,6 +1014,10 @@ en-GB:
           +44 (0) 300 222 0000
           $C
 
+        how_long_kazakhstan: |
+          Your application will take **at least** 8 weeks.
+        how_long_kyrgyzstan: |
+          Your application will take **at least** 8 weeks.
         how_long_applying_ips3: |
           Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
 
@@ -2040,10 +2044,7 @@ en-GB:
         cost_pakistan: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
 
-          You can pay using:
-
-          - a Bank Draft payable to the ‘British High Commission Islamabad’ and endorsed ‘payable at any branch’
-          - in cash - but only if you apply in person
+          You must pay using a Bank Draft payable to the ‘British High Commission Islamabad’ and endorsed ‘payable at any branch’.
 
           Passports and courier fees are priced in sterling - the amount you pay in local currency depends on the exchange rate when you apply.
 
@@ -2071,8 +2072,6 @@ en-GB:
 
         getting_your_passport_pakistan: |
           The British High Commission will contact you when your passport arrives using the contact details on your form. You must collect it in person.
-
-          The passport counter at the High Commission in Islamabad is open from 2pm to 3pm on Mondays, Tuesdays and Thursdays only.
 
         how_long_philippines: |
           Action | Minimum time after you apply
