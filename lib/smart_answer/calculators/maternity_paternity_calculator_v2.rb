@@ -10,7 +10,7 @@ module SmartAnswer::Calculators
 
     attr_accessor :employment_contract, :leave_start_date, :average_weekly_earnings, :a_notice_leave,
       :last_payday, :pre_offset_payday, :pay_date, :pay_day_in_month, :pay_day_in_week, 
-      :pay_method, :pay_week_in_month
+      :pay_method, :pay_week_in_month, :work_days
 
     LEAVE_TYPE_BIRTH = "birth"
     LEAVE_TYPE_ADOPTION = "adoption"
@@ -152,7 +152,7 @@ module SmartAnswer::Calculators
     end
 
     def calculate_average_weekly_pay(pay_pattern, pay)
-      @average_weekly_earnings = (
+      @average_weekly_earnings = sprintf("%.5f", (
         case pay_pattern
         when "irregularly"
           pay.to_f / pay_period_in_days * 7
@@ -161,7 +161,7 @@ module SmartAnswer::Calculators
         else
           pay.to_f / 8
         end
-      ).round(5) # HMRC rounding to 5 places.
+      )).to_f # HMRC truncation at 5 places.
     end
 
     def total_statutory_pay
@@ -208,7 +208,7 @@ module SmartAnswer::Calculators
         end 
       end
     end
-
+    
     def paydates_last_working_day_of_the_month
       end_date = Date.civil(pay_end_date.year, pay_end_date.month, -1)
 
@@ -284,14 +284,38 @@ module SmartAnswer::Calculators
       end
     end
 
+    def working_day?(day)
+      work_days.nil? or work_days.include?(day.wday)
+    end
+
+    def within_pay_date_range?(day)
+      pay_start_date <= day and day <= pay_end_date
+    end
+
+    def is_pay_day?(day)
+      within_pay_date_range?(day) and working_day?(day)
+    end
+
+    def rate_changes?(week)
+      rate_for(week.first) != rate_for(week.last)
+    end
+
     def pay_for_period(start_date, end_date)
       pay = 0.0
-      (start_date..end_date).each do |day|
-        # From http://www.hmrc.gov.uk/manuals/spmmanual/spm21020.htm for rounding rules...
-        # "multiply the appropriate weekly rate by a multiple of a seventh eg 5/7 then round up any part pence, 
-        # or divide the appropriate weekly rate by 7, truncating the result to 5 places of decimals 
-        # then multiply by the number of days in the part-week, rounding up any part pence."
-        pay += sprintf("%.5f", (rate_for(day) / 7)).to_f unless pay_start_date > day or day > pay_end_date
+      (start_date..end_date).each_slice(7) do |week|
+        if week.size < 7 or !within_pay_date_range?(week.last) or rate_changes?(week)
+          # When calculating a partial SMP pay week divide the weekly rate by 7
+          # truncating the result at 5 decimal places and increment the total pay
+          # for each day of the partial week
+          week.each do |day|
+            if is_pay_day?(day)
+              pay += sprintf("%.5f", (rate_for(day) / 7)).to_f
+            end
+          end
+        else
+          # When calculating a full SMP pay week round up the weekly rate at the second decimal place
+          pay += BigDecimal.new(rate_for(week.first).to_s).round(2, BigDecimal::ROUND_UP).to_f
+        end
       end
       # HMRC rules stipulate rounding up at 2 decimal places.
       BigDecimal.new(pay.to_s).round(2, BigDecimal::ROUND_UP).to_f
@@ -326,12 +350,13 @@ module SmartAnswer::Calculators
     # for the last working day.
     def last_working_day_of_the_month_offset(date)
       ldm = Date.new(date.year, date.month, -1) # Last day of the month.
-      if ldm.wday == pay_day_in_week
-        -1
-      else
-        pay_day_in_week - ldm.wday - (ldm.wday > pay_day_in_week ? 1 : 8)
+      ldm_index = ldm.wday
+      offset = -1
+      while !work_days.include?(ldm_index)
+        ldm_index > 0 ? ldm_index -= 1 : ldm_index = 6
+        offset -= 1
       end
+      offset
     end
-    
   end
 end
