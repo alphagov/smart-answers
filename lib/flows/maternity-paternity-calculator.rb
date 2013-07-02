@@ -1,4 +1,4 @@
-status :draft
+status :published
 satisfies_need "B1012"
 
 days_of_the_week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
