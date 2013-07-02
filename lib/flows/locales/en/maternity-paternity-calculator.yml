@@ -1,6 +1,6 @@
 en-GB:
   flow:
-    maternity-paternity-calculator:
+    maternity-paternity-calculator-v2:
       meta:
         description: Calculate an employee’s maternity pay (SMP), paternity or adoption pay, qualifying week, relevant period and average weekly earnings
       title:
@@ -33,8 +33,8 @@ en-GB:
         You can’t use the calculator for:
 
         + births 15 weeks before the due date
-        + [Additional paternity Leave or Pay](/additional-paternity-leave-pay-employees “Additional paternity leave or pay”)
-        + paternity leave or pay for [overseas adoptions](/paternity-leave-pay-employees “Paternity leave for adoptions”)
+        + [Additional paternity Leave or Pay](/additional-paternity-leave-pay-employees)
+        + paternity leave or pay for [overseas adoptions](/paternity-leave-pay-employees)
       phrases:
         not_worked_long_enough: + they must have started working for you on or before %{employment_start}
         must_be_on_payroll: + you must be liable for their secondary Class 1 National Insurance contributions - ie you will be if they’re on your payroll
@@ -66,18 +66,20 @@ en-GB:
 
           The employee is entitled to up to 39 weeks Statutory Maternity Pay (SMP) if they [claim SMP in time](/maternity-leave-pay-employees/notice-period "Notice period") and give [proof of the pregnancy](/maternity-leave-pay-employees/eligibility "Proof of pregnancy").
 
-          |Pay                                            | Key facts                   |
-          |-----------------------------------------------|-----------------------------|
-          |Average weekly earnings                        | £%{average_weekly_earnings} (don't round this up or down) |
-          |Weekly rate - first 6 weeks                    | £%{smp_a}                   |
-          |Weekly rate - for remaining 33 weeks           | £%{smp_b}                   |
-          |Total SMP                                      | £%{total_smp}               |
-          |Start date                                     | %{pay_start_date}           |
-          |End date                                       | %{pay_end_date}             |
-          |Latest date to claim SMP                       | %{notice_request_pay}       |
-          |Proof of pregnancy                             | Usually within 21 days of the SMP start date (or as soon as possible if baby born early) |
-          |SMP start date due to pregnancy related illness| %{ssp_stop}           |
+          Pay | Key facts
+          -|-
+          Average weekly earnings | £%{average_weekly_earnings} (don't round this up or down)
+          Latest date to claim SMP | %{notice_request_pay}
+          SMP start date due to pregnancy related illness| %{ssp_stop}
+          Proof of pregnancy | Usually within 21 days of the SMP start date (or as soon as possible if baby born early)
 
+        paydates_table: |
+          ## SMP calculation
+
+          Date | SMP amount
+          -|-
+          %{pay_dates_and_pay}
+           | **Total SMP: £%{total_smp}**
 
         not_entitled_to_smp_intro: |
           ##Statutory maternity pay
@@ -256,20 +258,58 @@ en-GB:
       ## QM5.4
       pay_frequency?:
         title: How often do you pay the employee?
+        hint: If they’re paid irregularly choose ‘weekly’. 
         options:
           "every_2_weeks": "every 2 weeks"
           "every_4_weeks": "every 4 weeks"
-          "none_of_the_above": "none of the above"
       ## QM5.5
       earnings_for_pay_period?:
         title: What were the employee’s total earnings between %{relevant_period}?
-        hint: This is their earnings before tax or any other deductions - eg child maintenance.
-      ## QM6
-      employees_average_weekly_earnings?:
-        title: What were the employee’s average weekly earnings between %{relevant_period}?
-        hint: Enter the average weekly amount. The dates are the 8 week 'relevant period'.
-        suffix_label: per week
-        error_message: Please enter a number greater than 0
+        hint: This is their earnings before deductions like PAYE, pension or National Insurance contributions.
+      ## QM7
+      how_do_you_want_the_smp_calculated?:
+        title: How do you want the SMP calculated?
+        options:
+          "weekly_starting": "weekly starting %{leave_start_date}"
+          "usual_paydates": "based on their usual paydates"
+      ## QM8
+      when_is_your_employees_next_pay_day?:
+        title: When is your employee’s next pay day on or after %{pay_start_date}?
+      ## QM9
+      when_in_the_month_is_the_employee_paid?:
+        options:
+          "first_day_of_the_month": First day of the month
+          "last_day_of_the_month": Last day of the month
+          "specific_date_each_month": Specific date each month
+          "last_working_day_of_the_month": Last working day of the month
+          "a_certain_week_day_each_month": A certain week day each month
+      ## QM10
+      what_specific_date_each_month_is_the_employee_paid?:
+        title: What specific date each month is the employee paid?
+        hint: If they’re paid on the 25th enter "25"
+      ## QM11
+      what_days_does_the_employee_work?:
+        title: What days does the employee work?
+        options:
+          "0": "Sunday"
+          "1": "Monday"
+          "2": "Tuesday"
+          "3": "Wednesday"
+          "4": "Thursday"
+          "5": "Friday"
+          "6": "Saturday"
+      ## QM12
+      what_particular_day_of_the_month_is_the_employee_paid?:
+        title: What particular day of the month is the employee paid?
+      ## QM13
+      which_week_in_month_is_the_employee_paid?:
+        title: Is the employee paid on the 1st, 2nd, 3rd, 4th or last %{pay_day_in_week}?
+        options:
+          "first": "1st"
+          "second": "2nd"
+          "third": "3rd"
+          "fourth": "4th"
+          "last": "last"
       ## Combined result for maternity leave and pay.
       maternity_leave_and_pay_result:
         next_steps: |
