@@ -284,16 +284,8 @@ module SmartAnswer::Calculators
       end
     end
 
-    def working_day?(day)
-      work_days.nil? or work_days.include?(day.wday)
-    end
-
     def within_pay_date_range?(day)
       pay_start_date <= day and day <= pay_end_date
-    end
-
-    def is_pay_day?(day)
-      within_pay_date_range?(day) and working_day?(day)
     end
 
     def rate_changes?(week)
@@ -308,7 +300,7 @@ module SmartAnswer::Calculators
           # truncating the result at 5 decimal places and increment the total pay
           # for each day of the partial week
           week.each do |day|
-            if is_pay_day?(day)
+            if within_pay_date_range?(day)
               pay += sprintf("%.5f", (rate_for(day) / 7)).to_f
             end
           end
