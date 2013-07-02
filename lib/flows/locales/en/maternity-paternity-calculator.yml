@@ -1,6 +1,6 @@
 en-GB:
   flow:
-    maternity-paternity-calculator-v2:
+    maternity-paternity-calculator:
       meta:
         description: Calculate an employee’s maternity pay (SMP), paternity or adoption pay, qualifying week, relevant period and average weekly earnings
       title:
