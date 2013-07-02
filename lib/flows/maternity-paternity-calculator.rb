@@ -1,6 +1,8 @@
 status :published
 satisfies_need "B1012"
 
+days_of_the_week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
 ## Q1
 multiple_choice :what_type_of_leave? do
   save_input_as :leave_type
@@ -15,7 +17,7 @@ date_question :baby_due_date_maternity? do
   to { 2.years.since(Date.today) }
 
   calculate :calculator do
-    Calculators::MaternityPaternityCalculator.new(Date.parse(responses.last))
+    Calculators::MaternityPaternityCalculatorV2.new(Date.parse(responses.last))
   end
   next_node :employment_contract?
 end
@@ -157,8 +159,6 @@ multiple_choice :pay_frequency? do
   option :every_2_weeks => :earnings_for_pay_period? ## QM5.5
   option :every_4_weeks => :earnings_for_pay_period? ## QM5.5
   option :monthly => :earnings_for_pay_period? ## QM5.5
-  option :irregularly => :earnings_for_pay_period? ## QM5.5
-  option :none_of_the_above => :employees_average_weekly_earnings? ## QM6
 end
 
 ## QM5.5
@@ -172,20 +172,110 @@ money_question :earnings_for_pay_period? do
     calculator.average_weekly_earnings
   end
 
+  next_node :how_do_you_want_the_smp_calculated?
+end
+
+## QM7
+multiple_choice :how_do_you_want_the_smp_calculated? do
+  option :weekly_starting
+  option :usual_paydates
+
+  save_input_as :smp_calculation_method
+
+  next_node do |response|
+    if response == "usual_paydates"
+      if pay_pattern == "monthly"
+        :when_in_the_month_is_the_employee_paid?
+      else
+        :when_is_your_employees_next_pay_day?
+      end
+    else
+      :maternity_leave_and_pay_result
+    end
+  end
+end
+
+## QM8
+date_question :when_is_your_employees_next_pay_day? do
+  calculate :next_pay_day do
+    calculator.pay_date = Date.parse(responses.last)
+    calculator.pay_date
+  end
+
   next_node :maternity_leave_and_pay_result
 end
 
-## QM6
-money_question :employees_average_weekly_earnings? do
-  calculate :average_weekly_earnings do
-    raise SmartAnswer::InvalidNode if responses.last < 1
-    calculator.average_weekly_earnings = responses.last.to_f
+## QM9
+multiple_choice :when_in_the_month_is_the_employee_paid? do
+  option :first_day_of_the_month => :maternity_leave_and_pay_result
+  option :last_day_of_the_month => :maternity_leave_and_pay_result
+  option :specific_date_each_month => :what_specific_date_each_month_is_the_employee_paid?
+  option :last_working_day_of_the_month => :what_days_does_the_employee_work?
+  option :a_certain_week_day_each_month => :what_particular_day_of_the_month_is_the_employee_paid?
+  
+  save_input_as :monthly_pay_method
+end
+
+## QM10
+value_question :what_specific_date_each_month_is_the_employee_paid? do
+  calculate :pay_day_in_month do
+    raise InvalidResponse unless responses.last.to_i > 0
+    calculator.pay_day_in_month = responses.last.to_i
+  end
+
+  next_node :maternity_leave_and_pay_result
+end
+
+## QM11
+checkbox_question :what_days_does_the_employee_work? do
+  (0...days_of_the_week.size).each { |i| option i.to_s.to_sym }
+  
+  calculate :last_day_in_week_worked do
+    calculator.work_days = responses.last.split(",").map(&:to_i)
+    calculator.pay_day_in_week = responses.last.split(",").sort.last.to_i
+  end
+  next_node :maternity_leave_and_pay_result
+end
+
+## QM12
+multiple_choice :what_particular_day_of_the_month_is_the_employee_paid? do
+  days_of_the_week.each { |d| option d.to_sym }
+
+  calculate :pay_day_in_week do
+    calculator.pay_day_in_week = days_of_the_week.index(responses.last)
+    responses.last
+  end
+  next_node :which_week_in_month_is_the_employee_paid?
+end
+
+## QM13
+multiple_choice :which_week_in_month_is_the_employee_paid? do
+  option :"first"
+  option :"second"
+  option :"third"
+  option :"fourth"
+  option :"last"
+  
+  calculate :pay_week_in_month do
+    calculator.pay_week_in_month = responses.last
   end
   next_node :maternity_leave_and_pay_result
 end
 
 ## Maternity outcomes
 outcome :maternity_leave_and_pay_result do
+
+  precalculate :pay_method do
+    calculator.pay_method = (
+      if monthly_pay_method
+        monthly_pay_method
+      elsif smp_calculation_method == 'weekly_starting'
+        smp_calculation_method
+      elsif pay_pattern
+        pay_pattern
+      end
+    )
+  end
   precalculate :smp_a do
     sprintf("%.2f", calculator.statutory_maternity_rate_a)
   end
@@ -195,9 +285,7 @@ outcome :maternity_leave_and_pay_result do
   precalculate :lower_earning_limit do
     sprintf("%.2f", calculator.lower_earning_limit)
   end
-  precalculate :total_smp do
-    sprintf("%.2f", calculator.total_statutory_pay)
-  end
+
   precalculate :notice_request_pay do
     calculator.notice_request_pay
   end
@@ -214,6 +302,12 @@ outcome :maternity_leave_and_pay_result do
       not_entitled_to_pay_reason
     end
   end
+  
+  precalculate :total_smp do
+    unless not_entitled_to_pay_reason.present?
+      sprintf("%.2f", calculator.total_statutory_pay)
+    end
+  end
 
   precalculate :maternity_pay_info do
     if not_entitled_to_pay_reason.present?
@@ -222,16 +316,21 @@ outcome :maternity_leave_and_pay_result do
       pay_info << not_entitled_to_pay_reason
       pay_info << :not_entitled_to_smp_outro
     else
-      pay_info = PhraseList.new(:maternity_pay_table)
+      pay_info = PhraseList.new(:maternity_pay_table, :paydates_table)
     end
     pay_info
   end
 
-  calendar do |responses|
-    date "Statutory Maternity Leave", responses.leave_start_date..responses.leave_end_date
-    date "Latest date to give notice", responses.notice_of_leave_deadline
-    date "Earliest date maternity leave can start", responses.leave_earliest_start_date
+  precalculate :pay_dates_and_pay do
+    rows = []
+    unless not_entitled_to_pay_reason.present?
+      calculator.paydates_and_pay.each do |date_and_pay|
+        rows << %Q(#{date_and_pay[:date].strftime("%e %B %Y")}|£#{sprintf("%.2f", date_and_pay[:pay])})
+      end
+    end
+    rows.join("\n")
   end
+
 end
 
 
@@ -249,7 +348,7 @@ date_question :baby_due_date_paternity? do
     Date.parse(responses.last)
   end
   calculate :calculator do
-    Calculators::MaternityPaternityCalculator.new(due_date)
+    Calculators::MaternityPaternityCalculatorV2.new(due_date)
   end
 	next_node :employee_responsible_for_upbringing?
 end
@@ -368,7 +467,7 @@ date_question :employee_date_matched_paternity_adoption? do
     Date.parse(responses.last)
   end
   calculate :calculator do
-    Calculators::MaternityPaternityCalculator.new(matched_date, Calculators::MaternityPaternityCalculator::LEAVE_TYPE_ADOPTION)
+    Calculators::MaternityPaternityCalculatorV2.new(matched_date, Calculators::MaternityPaternityCalculatorV2::LEAVE_TYPE_ADOPTION)
   end
   next_node :padoption_date_of_adoption_placement?
 end
@@ -523,7 +622,7 @@ date_question :date_of_adoption_match? do
     Date.parse(responses.last)
   end
   calculate :calculator do
-    Calculators::MaternityPaternityCalculator.new(match_date, Calculators::MaternityPaternityCalculator::LEAVE_TYPE_ADOPTION)
+    Calculators::MaternityPaternityCalculatorV2.new(match_date, Calculators::MaternityPaternityCalculatorV2::LEAVE_TYPE_ADOPTION)
   end
   next_node :date_of_adoption_placement?
 end
