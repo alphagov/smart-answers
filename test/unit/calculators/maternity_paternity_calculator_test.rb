@@ -11,6 +11,7 @@ module SmartAnswer::Calculators
           @due_date = 4.months.since(Date.today)
           @start_of_week_in_four_months = @due_date - @due_date.wday
           @calculator = MaternityPaternityCalculator.new(@due_date)
+          Timecop.travel('25 March 2013')
         end
 
         should "calculate expected birth week" do
@@ -79,14 +80,15 @@ module SmartAnswer::Calculators
         context "with a weekly income of 193.00" do
           setup do
             @calculator.average_weekly_earnings = 193.00
+            @calculator.leave_start_date = Date.new(2012, 1, 1)
           end
 
           should "calculate the statutory maternity rate" do
-            assert_equal (193.00 * 0.9).round(2), @calculator.statutory_maternity_rate
+            assert_equal (193.00 * 0.9).round(2), @calculator.statutory_maternity_rate.round(2)
           end
 
           should "calculate the maternity pay at rate A" do
-            assert_equal (193.00 * 0.9).round(2), @calculator.statutory_maternity_rate_a
+            assert_equal (193.00 * 0.9).round(2), @calculator.statutory_maternity_rate_a.round(2)
           end
 
           should "calculate the maternity pay at rate B using the base rate" do
@@ -95,18 +97,20 @@ module SmartAnswer::Calculators
 
           should "calculate the maternity pay at rate B using the percentage of weekly income" do
             @calculator.average_weekly_earnings = 135.40
-            assert_equal 121.87, @calculator.statutory_maternity_rate_b
+            assert_equal 121.86, @calculator.statutory_maternity_rate_b.round(2)
           end
 
         end
 
         should "calculate the paternity rate as the standard rate" do
           @calculator.average_weekly_earnings = 500.55
+          @calculator.leave_start_date = Date.new(2012, 1, 1)
           assert_equal 135.45, @calculator.statutory_paternity_rate
         end
 
         should "calculate the paternity rate as 90 percent of weekly earnings" do
           @calculator.average_weekly_earnings = 120.55
+          @calculator.leave_start_date = Date.new(2012, 1, 1)
           assert_equal ((120.55 * 0.9).to_f).round(2), @calculator.statutory_paternity_rate
         end
 
@@ -304,7 +308,9 @@ module SmartAnswer::Calculators
 
       context "total_statutory_pay" do
         setup do
-          @calculator = MaternityPaternityCalculator.new(4.months.since(Date.today))
+          @calculator = MaternityPaternityCalculator.new(Date.parse('3 August 2012'))
+          @calculator.leave_start_date = Date.parse('12 July 2012')
+          @calculator.pay_method = 'weekly_starting'
         end
 
         should "be statutory leave times statutory rates A and B" do
@@ -314,7 +320,280 @@ module SmartAnswer::Calculators
 
         should "be statutory leave times statutory higher rate A and statutory rate B" do
           @calculator.average_weekly_earnings = 235.40
-          assert_equal 5741.01, @calculator.total_statutory_pay
+          assert_equal 5741.01, @calculator.total_statutory_pay.round(2)
+        end
+      end
+
+      context "pay dates for pay method from 12 August 2012" do
+        setup do
+          @calculator = MaternityPaternityCalculator.new(Date.parse('12 August 2012'))
+          @calculator.leave_start_date = Date.parse('12 July 2012')
+          # The maternity pay period runs from Thursday 12 July 2012 until 11th April 2013
+        end
+        should "calculate SMP weekly pay dates" do
+          @calculator.pay_method = 'weekly_starting'
+          paydates = @calculator.paydates_weekly_starting
+
+          assert_equal '2012-07-18', paydates.first.to_s
+          assert_equal '2012-07-25', paydates.second.to_s
+          assert_equal '2012-08-01', paydates.third.to_s
+          assert_equal '2012-08-08', paydates.fourth.to_s
+          assert_equal '2013-04-10', paydates.last.to_s
+        end
+        should "calculate usual weekly pay dates" do
+          @calculator.pay_method = 'weekly'
+          @calculator.pay_date = Date.parse('12 July 2012')
+          paydates = @calculator.paydates_weekly
+          assert_equal 40, paydates.size
+          assert_equal '2012-07-12', paydates.first.to_s
+          assert_equal '2012-07-19', paydates.second.to_s
+          assert_equal '2013-04-11', paydates.last.to_s
+        end
+        should "calculate bi-weekly pay dates" do
+          @calculator.pay_method = 'every_2_weeks'
+          @calculator.pay_date = Date.parse('11 July 2012')
+          paydates = @calculator.paydates_every_2_weeks
+          assert_equal '2012-07-11', paydates.first.to_s
+          assert_equal '2012-07-25', paydates.second.to_s
+          assert_equal '2012-08-08', paydates.third.to_s
+        end
+        should "calculate bi-fortnightly pay dates" do
+          @calculator.pay_method = 'every_4_weeks'
+          @calculator.pay_date = Date.parse('11 July 2012')
+          paydates = @calculator.paydates_every_4_weeks
+          assert_equal '2012-07-11', paydates.first.to_s
+          assert_equal '2012-08-08', paydates.second.to_s
+          assert_equal '2012-09-05', paydates.third.to_s
+        end
+        should "calculate monthly pay dates" do
+          @calculator.pay_method = 'monthly'
+          @calculator.pay_day_in_month = 25
+          paydates = @calculator.paydates_monthly
+          assert_equal '2012-07-25', paydates.first.to_s
+          assert_equal '2012-08-25', paydates.second.to_s
+          assert_equal '2013-04-25', paydates.last.to_s
+        end
+        should "calculate first day of the month pay dates" do
+          @calculator.pay_method = 'first_day_of_the_month'
+          paydates = @calculator.paydates_first_day_of_the_month
+
+          assert_equal '2012-08-01', paydates.first.to_s
+          assert_equal '2012-09-01', paydates.second.to_s
+          assert_equal '2013-05-01', paydates.last.to_s
+        end
+        should "calculate last day of the month pay dates" do
+          @calculator.pay_method = 'last_day_of_the_month'
+          paydates = @calculator.paydates_last_day_of_the_month
+
+          assert_equal '2012-07-31', paydates.first.to_s
+          assert_equal '2012-08-31', paydates.second.to_s
+          assert_equal '2013-04-30', paydates.last.to_s
+        end
+        should "calculate specific monthly pay dates" do
+          @calculator.pay_method = 'specific_date_each_month'
+          @calculator.pay_day_in_month = 5
+          paydates = @calculator.paydates_specific_date_each_month
+          assert_equal '2012-08-05', paydates.first.to_s
+          assert_equal '2012-09-05', paydates.second.to_s
+          assert_equal '2013-04-05', paydates.last.to_s
+        end
+        should "calculate last working day of the month pay dates" do
+          @calculator.pay_method = 'last_working_day_of_the_month'
+          @calculator.pay_day_in_week = 3 # Paid last Wednesday in the month
+          @calculator.work_days = [1,3,4]
+          paydates = @calculator.paydates_last_working_day_of_the_month
+
+          assert_equal '2012-07-30', paydates.first.to_s
+          assert @calculator.work_days.include?(paydates.first.wday)
+          assert_equal '2012-08-30', paydates.second.to_s
+          assert_equal '2012-09-27', paydates.third.to_s
+          assert_equal '2013-04-29', paydates.last.to_s
+        end
+        should "calculate the particular weekday of the month pay dates" do
+          @calculator.pay_method = 'a_certain_week_day_each_month'
+          @calculator.pay_week_in_month = "third"
+          @calculator.pay_day_in_week = 3
+          # Wednesday 3rd week in the month
+          paydates = @calculator.paydates_a_certain_week_day_each_month.map(&:to_s)
+
+          assert_equal '2012-07-18', paydates.first.to_s
+          assert_equal '2012-08-15', paydates.second.to_s
+          assert_equal '2012-09-19', paydates.third.to_s
+          assert_equal '2012-10-17', paydates.fourth.to_s
+          assert_equal '2013-04-17', paydates.last
+        end
+      end
+      context "pay date on leave start date" do
+        setup do
+          @calculator = MaternityPaternityCalculator.new(Date.parse('21 March 2013'))
+          @calculator.leave_start_date = Date.parse('1 March 2013')
+          @calculator.pay_method = 'first_day_of_the_month'
+          @calculator.average_weekly_earnings = 300.0
+
+        end
+        should "pay on the leave start date" do
+          assert_equal '2013-03-01', @calculator.paydates_first_day_of_the_month.first.to_s
+          assert_equal '2013-03-01', @calculator.paydates_and_pay.first[:date].to_s
+          assert_equal 38.58, @calculator.paydates_and_pay.first[:pay]
+          assert @calculator.paydates_and_pay.last[:date] > @calculator.pay_end_date, "Last paydate should be after SMP end date"
+          assert @calculator.paydates_and_pay.last[:pay] > 0
+        end
+      end
+      context "variable statutory pay rate" do
+        setup do
+          @calculator = MaternityPaternityCalculator.new(Date.parse('21 April 2013'))
+          @calculator.leave_start_date = Date.parse('29 March 2013')
+
+        end
+        context "for 2012 rates" do
+          should "give the correct rate for the period" do
+            assert_equal 135.45, @calculator.statutory_rate(Date.parse('6 April 2012'))
+          end
+        end
+        context "when uprating should start" do
+          should "give the correct rate for the period" do
+            assert_equal 136.78, @calculator.statutory_rate(Date.parse('12 April 2013'))
+          end
+        end
+        context "for 2043 rates" do
+          should "give a default rate for a date in the future" do
+            assert_equal 136.78, @calculator.statutory_rate(Date.parse('6 April 2043'))
+          end
+        end
+      end
+      context "paydates and pay" do
+        setup do
+          @calculator = MaternityPaternityCalculator.new(Date.parse('21 January 2013'))
+          @calculator.leave_start_date = Date.parse('03 January 2013')
+        end
+        should "calculate pay due for each pay date on a weekly cycle" do
+          @calculator.pay_date = Date.parse('28 December 2012') # Friday before maternity leave/pay starts.
+          @calculator.pay_method = 'weekly'
+          @calculator.calculate_average_weekly_pay('weekly', 2000)
+
+          paydates_and_pay = @calculator.paydates_and_pay
+          assert_equal 40, paydates_and_pay.size
+
+          assert paydates_and_pay.first[:date].friday?, "Paydates should all be fridays"
+
+          assert_equal 64.29, paydates_and_pay.first[:pay]
+          assert_equal '2013-01-04', paydates_and_pay.first[:date].to_s
+
+          assert_equal 225, paydates_and_pay.second[:pay]
+          assert_equal '2013-01-11', paydates_and_pay.second[:date].to_s
+
+          assert_equal 97.7, paydates_and_pay.last[:pay]
+          assert_equal '2013-10-04', paydates_and_pay.last[:date].to_s
+        end
+        should "calculate pay due for each pay date on a bi-weekly cycle" do
+          @calculator.pay_date = Date.parse('03 January 2013')
+          @calculator.pay_method = 'every_2_weeks'
+          @calculator.calculate_average_weekly_pay('weekly', 2000)
+
+          paydates_and_pay = @calculator.paydates_and_pay
+
+          assert_equal ["2013-01-03","2013-01-17","2013-01-31","2013-02-14","2013-02-28",
+                        "2013-03-14","2013-03-28","2013-04-11","2013-04-25","2013-05-09",
+                        "2013-05-23","2013-06-06","2013-06-20","2013-07-04","2013-07-18",
+                        "2013-08-01","2013-08-15","2013-08-29","2013-09-12","2013-09-26",
+                        "2013-10-10"], paydates_and_pay.map{ |p| p[:date].to_s }
+          assert_equal 32.15, paydates_and_pay.first[:pay]
+          assert_equal 450, paydates_and_pay.second[:pay]
+          assert_equal 270.9, paydates_and_pay[4][:pay]
+          assert_equal 117.24, paydates_and_pay.last[:pay]
+        end
+        should "calculate pay due for each pay date on a monthly cycle" do
+          @calculator.pay_day_in_month = 5
+          @calculator.pay_method = 'specific_date_each_month'
+          @calculator.average_weekly_earnings = 250.0
+          paydates_and_pay = @calculator.paydates_and_pay
+
+          assert_equal 10, paydates_and_pay.size
+
+          assert_equal '2013-01-05', paydates_and_pay.first[:date].to_s
+          assert_equal 96.43, paydates_and_pay.first[:pay]
+          assert_equal '2013-10-05', paydates_and_pay.last[:date].to_s
+          assert_equal 527.59, paydates_and_pay.last[:pay]
+        end
+        should "calculate pay due on the first day of the month" do
+          @calculator.pay_method = 'first_day_of_the_month'
+          @calculator.average_weekly_earnings = 250.0
+          paydates_and_pay = @calculator.paydates_and_pay
+
+          assert_equal 10, paydates_and_pay.size
+          assert_equal '2013-02-01', paydates_and_pay.first[:date].to_s
+          assert_equal 964.29, paydates_and_pay.first[:pay]
+          assert_equal '2013-11-01', paydates_and_pay.last[:date].to_s
+          assert_equal 19.54, paydates_and_pay.last[:pay]
+        end
+        should "calculate pay due on the last day of the month" do
+          @calculator.pay_method = 'last_day_of_the_month'
+          @calculator.average_weekly_earnings = 250.0
+          paydates_and_pay = @calculator.paydates_and_pay
+
+          assert_equal 10, paydates_and_pay.size
+          assert_equal '2013-01-31', paydates_and_pay.first[:date].to_s
+          assert_equal 932.15, paydates_and_pay.first[:pay]
+          assert_equal '2013-10-31', paydates_and_pay.last[:date].to_s
+          assert_equal 39.08, paydates_and_pay.last[:pay]
+        end
+        should "calculate pay due for a certain weekday each month" do
+          @calculator.pay_method = 'a_certain_week_day_each_month'
+          @calculator.pay_day_in_week = 5
+          @calculator.pay_week_in_month = "second" # 2nd Friday of the month
+          @calculator.average_weekly_earnings = 250.0
+
+          paydates_and_pay = @calculator.paydates_and_pay
+
+          assert_equal 10, paydates_and_pay.size
+          assert_equal '2013-01-11', paydates_and_pay.first[:date].to_s
+          assert_equal 289.29, paydates_and_pay.first[:pay]
+          assert_equal '2013-10-11', paydates_and_pay.last[:date].to_s
+          assert_equal 371.27, paydates_and_pay.last[:pay]
+        end
+        should "calculate pay due for the last working day of the month" do
+          @calculator.pay_method = 'last_working_day_of_the_month'
+          @calculator.pay_day_in_week = 5
+          @calculator.work_days = [1,2,4]
+          @calculator.average_weekly_earnings = 250.0
+
+          paydates_and_pay = @calculator.paydates_and_pay
+        end
+      end
+      context "HMRC test scenario for SMP Pay week offset" do
+        setup do
+          @calculator = MaternityPaternityCalculator.new(Date.parse('22 February 2013'))
+          @calculator.leave_start_date = Date.parse('25 January 2013')
+          @calculator.pay_method = 'weekly'
+          @calculator.pay_date = Date.parse('25 January 2013')
+          @calculator.average_weekly_earnings = 200
+        end
+        should "calculate pay on paydates with April 2013 uprating" do
+          paydates_and_pay =  @calculator.paydates_and_pay
+
+          assert_equal 25.72, paydates_and_pay.first[:pay]
+          assert_equal 180.0, paydates_and_pay.second[:pay]
+          assert_equal 173.64, paydates_and_pay[6][:pay]
+          assert_equal 173.64, paydates_and_pay.find{ |p| p[:date].to_s == '2013-03-08' }[:pay]
+          assert_equal 135.45, paydates_and_pay.find{ |p| p[:date].to_s == '2013-04-05' }[:pay]
+          assert_equal 135.64, paydates_and_pay.find{ |p| p[:date].to_s == '2013-04-12' }[:pay]
+          assert_equal 136.78, paydates_and_pay.find{ |p| p[:date].to_s == '2013-04-19' }[:pay]
+        end
+      end
+      context "HMRC test scenario for SMP paid a certain day of the month" do
+        setup do
+          @calculator = MaternityPaternityCalculator.new(Date.parse('22 February 2013'))
+          @calculator.leave_start_date = Date.parse('25 January 2013')
+          @calculator.pay_method = 'a_certain_week_day_each_month'
+          @calculator.pay_day_in_week = 5
+          @calculator.pay_week_in_month = 'last'
+          @calculator.average_weekly_earnings = 144.32
+        end
+        should "calculate pay on paydates with April 2013 uprating" do
+          paydates_and_pay =  @calculator.paydates_and_pay
+          assert_equal({ :date => Date.parse('25 January 2013'), :pay => 18.56 }, paydates_and_pay.first)
+          assert_equal({ :date => Date.parse('29 March 2013'), :pay => 649.45 }, paydates_and_pay.third)
+          assert_equal({ :date => Date.parse('31 May 2013'), :pay => 649.45 }, paydates_and_pay[4])
         end
       end
     end
