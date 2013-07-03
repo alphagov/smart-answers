@@ -175,7 +175,8 @@ module SmartAnswer::Calculators
         paydates.each_with_index do |paydate, index|
           # Pay period includes the date of payment hence the range starts the day after.
           last_paydate = index == 0 ? pay_start_date : paydates[index - 1] + 1
-          ary << { date: paydate, pay: pay_for_period(last_paydate, paydate) }
+          pay = pay_for_period(last_paydate, paydate)
+          ary << { date: paydate, pay: pay } if pay > 0
         end
       end
     end
@@ -252,6 +253,10 @@ module SmartAnswer::Calculators
       [].tap do |ary|
         months_between_dates(pay_start_date, pay_end_date).each do |date|
           weekdays = weekdays_for_month(date, pay_day_in_week)
+          ary << weekdays.send(pay_week_in_month)
+        end
+        if ary.last and ary.last < pay_end_date
+          weekdays = weekdays_for_month(1.month.since(pay_end_date), pay_day_in_week)
           ary << weekdays.send(pay_week_in_month)
         end
       end
