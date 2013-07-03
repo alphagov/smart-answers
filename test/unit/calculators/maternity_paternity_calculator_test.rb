@@ -367,11 +367,10 @@ module SmartAnswer::Calculators
         end
         should "calculate monthly pay dates" do
           @calculator.pay_method = 'monthly'
-          @calculator.pay_day_in_month = 25
+          @calculator.pay_day_in_month = 9 
           paydates = @calculator.paydates_monthly
-          assert_equal '2012-07-25', paydates.first.to_s
-          assert_equal '2012-08-25', paydates.second.to_s
-          assert_equal '2013-04-25', paydates.last.to_s
+          assert_equal '2012-08-09', paydates.first.to_s
+          assert_equal '2013-05-09', paydates.last.to_s
         end
         should "calculate first day of the month pay dates" do
           @calculator.pay_method = 'first_day_of_the_month'
@@ -394,8 +393,7 @@ module SmartAnswer::Calculators
           @calculator.pay_day_in_month = 5
           paydates = @calculator.paydates_specific_date_each_month
           assert_equal '2012-08-05', paydates.first.to_s
-          assert_equal '2012-09-05', paydates.second.to_s
-          assert_equal '2013-04-05', paydates.last.to_s
+          assert_equal '2013-05-05', paydates.last.to_s
         end
         should "calculate last working day of the month pay dates" do
           @calculator.pay_method = 'last_working_day_of_the_month'
@@ -411,16 +409,16 @@ module SmartAnswer::Calculators
         end
         should "calculate the particular weekday of the month pay dates" do
           @calculator.pay_method = 'a_certain_week_day_each_month'
-          @calculator.pay_week_in_month = "third"
-          @calculator.pay_day_in_week = 3
-          # Wednesday 3rd week in the month
+          @calculator.pay_week_in_month = "second"
+          @calculator.pay_day_in_week = 1 
+          # Monday 2nd week in the month
           paydates = @calculator.paydates_a_certain_week_day_each_month.map(&:to_s)
 
-          assert_equal '2012-07-18', paydates.first.to_s
-          assert_equal '2012-08-15', paydates.second.to_s
-          assert_equal '2012-09-19', paydates.third.to_s
-          assert_equal '2012-10-17', paydates.fourth.to_s
-          assert_equal '2013-04-17', paydates.last
+          assert_equal '2012-07-09', paydates.first.to_s
+          assert_equal '2012-08-13', paydates.second.to_s
+          assert_equal '2012-09-10', paydates.third.to_s
+          assert_equal '2012-10-08', paydates.fourth.to_s
+          assert_equal '2013-05-13', paydates.last
         end
       end
       context "pay date on leave start date" do
