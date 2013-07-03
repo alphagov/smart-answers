@@ -1,6 +1,6 @@
 en-GB:
   flow:
-    marriage-abroad:
+    marriage-abroad-v2:
       title: Getting married abroad
       meta:
         description: Requirements, paperwork and processes for weddings and civil partnerships overseas - registration, restrictions, fees
@@ -206,7 +206,7 @@ en-GB:
           %There are certain legal restrictions if neither of you is resident in Spain. If you both live outside Spain, you should check with the civil registry where you’re planning to getting married to find out if this is allowed.%
         italy_os_consular_cni_ceremony_italy: |
           Contact the local comune (town hall) before making any plans to find out about local marriage laws, including what documents you’ll need.
-        italy_os_consular_cni_ceremony_not_italy: |
+        italy_os_consular_cni_ceremony_not_italy_or_spain: |
           ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
         consular_cni_all_what_you_need_to_do: |
           ##What you need to do
@@ -214,6 +214,8 @@ en-GB:
           You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to marry.
         spain_os_consular_cni_two: |
           You may be asked to provide a certificate of no impediment (CNI), marital status certificate or both to prove you're allowed to marry.
+
+          ^You may also need to get a marital status certificate if you’re living with your partner and want to get a ‘[pareja de hecho](/notarial-and-documentary-services-guide-for-spain#marital-status-certificate-for-pareja-de-hecho)’ (cohabitation registration).^
         italy_os_consular_cni_uk_resident: |
           You’ll need to get a certificate of no impediment (CNI) from the authorities in the UK to prove you’re allowed to marry.
         italy_os_consular_cni_uk_resident_two: |
@@ -358,9 +360,11 @@ en-GB:
           You’ll need to have been resident in Italy for at least 21 days. You can then book an appointment at the British Embassy in Rome.
 
           [Book an appointment online in Rome.](https://www.clickbook.net/dev/bc.nsf/sub/britishconsrome)
-        consular_cni_os_foreign_resident: |
-          If you need a certificate to prove you’re allowed to marry, you’ll have to give notice of your intended marriage in the country where you live.
-
+        consular_cni_os_foreign_resident_ceremony_not_germany_italy: |
+          If you need a CNI, you’ll have to give notice of your intended marriage in the country where you live.
+        consular_cni_os_foreign_resident_ceremony_country_italy: |
+          You’ll have to give notice of your intended marriage in the country where you live.
+        consular_cni_os_foreign_resident_ceremony_country_not_germany: |
           Check with your nearest British embassy or consulate to find out if they can do this for you.
 
           %{residency_embassy_details}
@@ -506,7 +510,7 @@ en-GB:
           - a [decree absolute or final order](/copy-decree-absolute-final-order)
           - a civil partnership dissolution or annulment certificate
           - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/) 
-
+        consular_cni_os_other_resident_ceremony_not_germany_or_spain: |
           ^You’ll also need to provide evidence of nationality or residence if a divorce or dissolution took place if outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.^
         spain_os_consular_cni_three: |
           Send your completed appointment request form and copies of the supporting documents to your [nearest British consulate](/notarial-and-documentary-services-guide-for-spain#where-to-send-your-request). You can send them as scanned attachments to an email or by fax. You’ll need to bring the original documents to your appointment.
@@ -534,7 +538,7 @@ en-GB:
         consular_cni_os_foreign_resident_ceremony_not_italy: |
           ###What happens next
 
-          The consulate will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 21 days. They’ll then send all of your documentation to the British embassy or consulate in %{ceremony_country_name}, who will issue your CNI (as long as nobody has registered an objection).
+          The consulate will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 21 days. They’ll then send all of your documentation to the nearest British embassy or consulate in %{country_name_lowercase_prefix} to where you’re getting married, who will issue your CNI (as long as nobody has registered an objection).
 
           There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
         consular_cni_os_foreign_resident_ceremony_italy: |
@@ -634,24 +638,20 @@ en-GB:
           [Download ‘Declaración de estado civil instrucciones en Español’ (PDF, 236KB)](/government/uploads/system/uploads/attachment_data/file/136833/marital-status-declaration-instruction-sp.pdf)
           $D
 
-          You’ll also need to provide supporting documents, which are the same as the ones you need for a CNI, as well as a completed marital status certificate application form.
+          You’ll also need a completed marital status certificate application form, as well as the supporting documents and the fee (see below). These are the same as the ones you need for a CNI.
 
 
           $D
           [Download 'Marital status certificate appointment request form' (DOC, 53KB)](/government/uploads/system/uploads/attachment_data/file/182249/Appointment_request_form_marital_status_marriage.doc)
           $D
-
-          Once you’ve paid the fees shown below and made the declaration, the consulate will in front of the consular officer, they’ll give you your certificate.
         consular_cni_os_ceremony_spain_partner_british: |
-          ^Your partner will also need to get a marital status certificate from the consulate and pay the fees if the civil registry have told you that they need one.^
+          Your partner will also need to get a marital status certificate from the consulate and pay the fees if the civil registry have told you that they need one.
         consular_cni_os_ceremony_spain_two: |
           ###Other requirements for Spain
 
-          There are 3 other documents the consulate can provide that the civil registrar may ask for. You don’t always need these, so check with the registrar first.  Follow the links below to find out how to apply and what fees you need to pay:
+          The civil registrar may also ask for confirmation of your addresses for the past 2 years (‘confirmación de domicilio para casarse en España’).
 
-          - [a consular letter confirming your addresses for the past 2 years](/notarial-and-documentary-services-guide-for-spain#proof-of-transfer-of-address) (‘confirmación de domicilio para casarse en España’)
-          - [a consular letter confirming your registration at the consulate](/notarial-and-documentary-services-guide-for-spain#registration-at-the-consulate) (‘carta consular que confirma la inscripción consular’)
-          - [a consular certificate of Home Office registration or naturalisation](/notarial-and-documentary-services-guide-for-spain#confirmation-that-british-birth-certificate-is-not-available) ('certificado consular que confirma que al obtener la nacionalidad británica no se obtiene una partida de nacimiento británico')
+          You can get a [consular letter with proof of address for marriage](/notarial-and-documentary-services-guide-for-spain#consular-letter-proof-of-address-for-marriage) from the consulate if you need to provide this.
         consular_cni_os_naturalisation: |
           ##Naturalisation of your partner if they move to the UK
 
@@ -1631,4 +1631,4 @@ en-GB:
           - Uruguay
           - Wallis and Futuna
 
-          [Start again](/marriage-abroad) to find out what to do in one of these countries.
+          [Start again](/marriage-abroad-v2) to find out what to do in one of these countries.
