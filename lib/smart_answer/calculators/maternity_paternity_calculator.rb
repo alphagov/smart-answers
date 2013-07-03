@@ -223,7 +223,6 @@ module SmartAnswer::Calculators
     def paydates_monthly
       end_date = Date.civil(pay_end_date.year, pay_end_date.month, pay_day_in_month)
       end_date = 1.month.since(end_date) if pay_end_date.day > pay_day_in_month
-      pay_end_date.day > pay_day_in_month
       [].tap do |ary|
         pay_start_date.step(end_date) do |d|
           ary << d if d.day == pay_day_in_month
