@@ -64,7 +64,7 @@ GEM
       rack (~> 1.1)
     faye-websocket (0.4.7)
       eventmachine (>= 0.12.0)
-    gds-api-adapters (6.0.0)
+    gds-api-adapters (7.2.0)
       link_header
       lrucache (~> 0.1.1)
       null_logger
@@ -98,7 +98,7 @@ GEM
     launchy (2.1.0)
       addressable (~> 2.2.6)
     libv8 (3.3.10.4)
-    link_header (0.0.6)
+    link_header (0.0.7)
     lograge (0.1.2)
       actionpack
       activesupport
@@ -214,7 +214,7 @@ DEPENDENCIES
   ci_reporter
   exception_notification (= 2.6.1)
   extlib (= 0.9.16)
-  gds-api-adapters (= 6.0.0)
+  gds-api-adapters (= 7.2.0)
   google-api-client
   govspeak (~> 0.8.15)
   govuk_frontend_toolkit (= 0.3.3)
