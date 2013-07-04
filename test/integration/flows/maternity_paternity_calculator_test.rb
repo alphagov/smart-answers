@@ -516,7 +516,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
           add_response "3000"
           add_response "usual_paydates"
           add_response "specific_date_each_month"
-          add_response "29"
+          add_response "32"
         end
         should "be invalid" do
           assert_current_node_is_error

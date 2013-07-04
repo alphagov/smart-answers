@@ -220,7 +220,7 @@ end
 value_question :what_specific_date_each_month_is_the_employee_paid? do
   calculate :pay_day_in_month do
     day = responses.last.to_i
-    raise InvalidResponse unless day > 0 and day < 29 
+    raise InvalidResponse unless day > 0 and day < 32
     calculator.pay_day_in_month = day
   end
 
