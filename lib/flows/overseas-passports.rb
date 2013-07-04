@@ -16,12 +16,6 @@ country_select :which_country_are_you_in?, :exclude_countries => exclude_countri
     loc
   end
 
-  calculate :organisation do
-    location.fco_organisation
-  end
-
-
-
   next_node do |response|
     if Calculators::PassportAndEmbassyDataQuery::NO_APPLICATION_REGEXP.match(response)
       :cannot_apply
@@ -62,7 +56,11 @@ multiple_choice :renewing_replacing_applying? do
   option :replacing
 
   save_input_as :application_action
-
+  
+  precalculate :organisation do
+    location.fco_organisation
+  end
+  
   calculate :general_action do
     responses.last =~ /^renewing_/ ? 'renewing' : responses.last
   end
