@@ -1,6 +1,7 @@
 # coding:utf-8
 
 require_relative '../test_helper'
+
 require 'ostruct'
 
 module SmartAnswer
@@ -177,5 +178,16 @@ module SmartAnswer
       refute presenter.has_title?
     end
 
+    test "Facts are interpolated when govspeak is processed" do
+      stub_fact = stub("vat rate fact")
+      stub_fact.stubs(:details).returns(OpenStruct.new(value: "20%"))
+      GdsApi::FactCave.any_instance.stubs(:fact).returns(stub_fact)
+
+      outcome = Outcome.new(:outcome_with_embedded_fact)
+      state = State.new(outcome.name)
+      presenter = NodePresenter.new("flow.test", outcome, state)
+
+      assert_equal "<p>The current VAT rate is:</p>\n\n<p>20%</p>\n", presenter.body
+    end
   end
 end
