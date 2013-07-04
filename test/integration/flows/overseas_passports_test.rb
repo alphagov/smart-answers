@@ -9,7 +9,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(australia afghanistan iraq benin austria albania morocco azerbaijan ireland india tanzania indonesia jamaica malta italy jordan iran syria cameroon kenya andorra tunisia yemen haiti south-africa united-kingdom greece spain the-occupied-palestinian-territories st-helena-ascension-and-tristan-da-cunha kazakhstan kyrgyzstan)
+    @location_slugs = %w(australia afghanistan iraq benin austria albania morocco azerbaijan ireland india tanzania indonesia jamaica malta italy jordan iran syria cameroon kenya andorra tunisia yemen haiti south-africa united-kingdom greece spain the-occupied-palestinian-territories st-helena-ascension-and-tristan-da-cunha kazakhstan kyrgyzstan egypt)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports'
   end
@@ -636,25 +636,28 @@ class OverseasPassportsTest < ActiveSupport::TestCase
 
   context "answer Iran" do
     should "give a bespoke outcome stating an application is not possible in Iran" do
-      worldwide_api_has_organisations_for_location('iran', read_fixture_file('worldwide/iran_organisations.json'))
       add_response 'iran'
       assert_current_node :cannot_apply
       assert_phrase_list :body_text, [:body_iran]
       expected_location = WorldLocation.find('iran')
       assert_state_variable :location, expected_location
-      assert_state_variable :organisation, expected_location.fco_organisation
     end
   end # Iran - no application outcome
-
+  
+  context "answer Egypt" do
+    should "give a bespoke outcome stating an application is not possible in Egypt" do
+      add_response 'egypt'
+      assert_current_node :cannot_apply
+      assert_phrase_list :body_text, [:body_egypt]
+    end
+  end
   context "answer Syria" do
     should "give a bespoke outcome stating an application is not possible in Syria" do
-      worldwide_api_has_organisations_for_location('syria', read_fixture_file('worldwide/syria_organisations.json'))
       add_response 'syria'
       assert_current_node :cannot_apply
       assert_phrase_list :body_text, [:body_syria]
       expected_location = WorldLocation.find('syria')
       assert_state_variable :location, expected_location
-      assert_state_variable :organisation, expected_location.fco_organisation
     end
   end # Syria - no application outcome
 
