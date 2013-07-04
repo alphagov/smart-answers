@@ -219,8 +219,9 @@ end
 ## QM10
 value_question :what_specific_date_each_month_is_the_employee_paid? do
   calculate :pay_day_in_month do
-    raise InvalidResponse unless responses.last.to_i > 0
-    calculator.pay_day_in_month = responses.last.to_i
+    day = responses.last.to_i
+    raise InvalidResponse unless day > 0 and day < 29 
+    calculator.pay_day_in_month = day
   end
 
   next_node :maternity_leave_and_pay_result
