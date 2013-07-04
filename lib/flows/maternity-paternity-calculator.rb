@@ -269,7 +269,11 @@ outcome :maternity_leave_and_pay_result do
   precalculate :pay_method do
     calculator.pay_method = (
       if monthly_pay_method
-        monthly_pay_method
+        if monthly_pay_method == 'specific_date_each_month' and pay_day_in_month > 28
+          'last_day_of_the_month'
+        else
+          monthly_pay_method
+        end
       elsif smp_calculation_method == 'weekly_starting'
         smp_calculation_method
       elsif pay_pattern
