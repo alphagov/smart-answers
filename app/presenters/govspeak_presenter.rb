@@ -15,7 +15,7 @@ class GovspeakPresenter
   private
 
   def interpolate_fact_values(string)
-    return string if !string.match(EMBEDDED_FACT_REGEXP)
+    return string unless string.match(EMBEDDED_FACT_REGEXP)
 
     string.gsub(EMBEDDED_FACT_REGEXP) do |match|
       if fact = $fact_cave.fact($1)
