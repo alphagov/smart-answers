@@ -28,17 +28,25 @@ module SmartAnswer
 
   private
     def find_by_name(name)
-      absolute_path = @load_path.join("#{name}.rb").to_s
-      flow = preloaded(name) || Flow.new {
-        eval(File.read(absolute_path), binding, absolute_path)
-        name(name)
-      }
+      flow = @preloaded ? preloaded(name) : build_flow(name)
       return nil if flow && flow.draft? && !@show_drafts
       flow
     end
 
     def available?(name)
-      available_flows.include?(name)
+      if @preloaded
+        @preloaded.has_key?(name)
+      else
+        available_flows.include?(name)
+      end
+    end
+
+    def build_flow(name)
+      absolute_path = @load_path.join("#{name}.rb").to_s
+      Flow.new do
+        eval(File.read(absolute_path), binding, absolute_path)
+        name(name)
+      end
     end
 
     def available_flows
@@ -50,7 +58,7 @@ module SmartAnswer
     def preload_flows!
       @preloaded = {}
       available_flows.each do |flow_name|
-        @preloaded[flow_name] = find_by_name(flow_name)
+        @preloaded[flow_name] = build_flow(flow_name)
       end
     end
 
