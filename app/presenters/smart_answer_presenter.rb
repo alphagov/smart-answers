@@ -32,7 +32,7 @@ class SmartAnswerPresenter
 
   def markdown_for(key)
     markdown = lookup_translation(key)
-    markdown && Govspeak::Document.new(markdown).to_html.html_safe
+    markdown && GovspeakPresenter.new(markdown).html
   end
 
   def title

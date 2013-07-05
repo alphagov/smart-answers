@@ -27,3 +27,9 @@ en-GB:
       outcome_with_no_title:
         body: |
           This is the outcome
+      outcome_with_embedded_fact:
+        title: "VAT Rate"
+        body: |
+          The current VAT rate is:
+
+          [fact:vat-rate]

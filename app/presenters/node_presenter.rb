@@ -15,7 +15,7 @@ class NodePresenter
 
   def translate_and_render(subkey)
     markup = translate!(subkey)
-    markup && Govspeak::Document.new(markup).to_html.html_safe
+    markup && GovspeakPresenter.new(markup).html
   end
 
   def state_for_interpolation( nested = false )
