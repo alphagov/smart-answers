@@ -8,8 +8,8 @@ class GovspeakPresenter
   end
 
   def html
-    markdown_with_facts = interpolate_fact_values(@markup)
-    Govspeak::Document.new(markdown_with_facts).to_html.html_safe
+    html = Govspeak::Document.new(@markup).to_html.html_safe
+    interpolate_fact_values(html)
   end
 
   private
