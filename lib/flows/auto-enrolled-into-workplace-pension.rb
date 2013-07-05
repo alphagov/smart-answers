@@ -77,6 +77,7 @@ multiple_choice :one_of_the_following? do
   option :contract => :enrolled_contract
   option :office_holder => :not_enrolled_office
   option :carer => :not_enrolled_carer
+  option :foreign_national => :enrolled_foreign_national
   option :none => :enrolled
 end
 
@@ -93,3 +94,4 @@ outcome :enrolled_contract #A11
 outcome :not_enrolled_office #A12
 outcome :enrolled #A13
 outcome :not_enrolled_carer #A14 
+outcome :enrolled_foreign_national #A15
