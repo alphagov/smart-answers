@@ -38,5 +38,41 @@ module SmartAnswer
       assert_kind_of Flow, flows.first
       assert_equal "flow_sample", flows.first.name
     end
+
+    context "without preloaded flows" do
+      setup do
+        @r = registry
+      end
+
+      should "build a new flow instance each time" do
+        first_call = registry.find('flow_sample')
+        second_call = registry.find('flow_sample')
+
+        assert_equal first_call.name, second_call.name
+        refute_equal first_call.object_id, second_call.object_id
+      end
+    end
+
+    context "with preloaded flows" do
+      setup do
+        @r = registry(:preload_flows => true)
+      end
+
+      should "not hit the filesystem when finding a flow" do
+        Dir.expects(:[]).never
+        File.expects(:read).never
+
+        assert @r.find('flow_sample').is_a?(Flow)
+      end
+
+      should "not hit the filesystem when finding a non-existent flow" do
+        Dir.expects(:[]).never
+        File.expects(:read).never
+
+        assert_raises FlowRegistry::NotFound do
+          @r.find('non_existent')
+        end
+      end
+    end
   end
 end
