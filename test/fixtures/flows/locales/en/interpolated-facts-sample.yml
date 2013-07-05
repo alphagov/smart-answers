@@ -1,0 +1,15 @@
+en-GB:
+  flow:
+    interpolated-facts-sample:
+      title: "Interpolating facts"
+      body: |
+        The current year is: [fact:current-year]
+      options:
+        "no": "No"
+        "yes": "Yes"
+
+      ready:
+        title: "Definitely ready"
+
+      not_ready:
+        title: "Not ready"
