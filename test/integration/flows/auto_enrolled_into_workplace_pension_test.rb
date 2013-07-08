@@ -214,10 +214,17 @@ class AutoEnrolledIntoWorkplacePensionTest < ActiveSupport::TestCase
               end
             end
 
-            context "office holder" do
+            context "carer" do
               should "not be enrolled" do
                 add_response :carer
                 assert_current_node :not_enrolled_carer
+              end
+            end
+
+            context "foreign national" do
+              should "be enrolled" do
+                add_response :foreign_national
+                assert_current_node :enrolled_foreign_national
               end
             end
 

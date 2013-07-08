@@ -64,6 +64,7 @@ en-GB:
           contract: A short-term contract worker
           office_holder: An office holder (eg executive director of a company, member of the clergy)
           carer: A carer
+          foreign_national: A foreign national working in the UK for a few months only
           none: None of the above
 #A1
       not_enrolled:
@@ -149,7 +150,7 @@ en-GB:
 
           If you ask to join the pension scheme in the meantime, they must let you join.
 
-          If you have more than 1 workplace pension scheme, you may be able to combine them - talk to your scheme provider.
+          If you work for more than 1 employer who uses the pension provider NEST for their workplace pension, you will have only one NEST pension pot. Contributions from each employer will go into the same pot for you.
 
           %{small_company}
 
@@ -208,3 +209,16 @@ en-GB:
           You won’t be enrolled until 2015 at the earliest. Your employer can choose to delay your enrolment for up to three months but must let you know in writing.
 
           If you ask to join the pension scheme in the meantime, they must let you join.
+
+#A15
+      enrolled_foreign_national:
+        body: |
+          You’ll be automatically enrolled into a [workplace pension](/workplace-pensions) by your employer.
+
+          They won’t have to do this until %{enrollment_date}. But they can choose to do it earlier.
+
+          You might be able to save a small amount by the time you go home but it could be difficult to transfer the pension pot to your country.
+
+          You can opt out of the UK workplace pension. This means you won’t get the contribution from your employer or tax relief from the UK government.
+
+          If you plan to come back to the UK to work long term, you might want to leave your pension pot here.
