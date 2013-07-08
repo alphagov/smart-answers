@@ -106,7 +106,7 @@ multiple_choice :are_there_living_parents? do
       :are_there_any_brothers_or_sisters_living?    
     else
       case region
-        when "england-and-wales" then :outcome_3
+        when "england-and-wales" then :outcome_5
         when "scotland" then :are_there_any_brothers_or_sisters_living?
         when "northern-ireland" then :outcome_28
       end
@@ -148,7 +148,7 @@ multiple_choice :are_there_any_brothers_or_sisters_living? do
     else
       case region
         when "england-and-wales"
-          :outcome_5
+          :outcome_3
         when "northern-ireland"
           :outcome_30
         when "scotland"
