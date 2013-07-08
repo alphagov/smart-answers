@@ -19,10 +19,10 @@ module SmartAnswer::Calculators
 
       context "find_embassy_data" do
         should "find embassy data by country slug" do
-          assert_equal 'Baghdad.consularenquiries@fco.gov.uk', @query.find_embassy_data('iraq', false).first['email']
+          assert_equal 'ukin.kyrgyzrepublic@fco.gov.uk', @query.find_embassy_data('kyrgyzstan', false).first['email']
         end
         should "find alternative embassy data by slug" do
-          assert_equal 'Amman.enquiries@fco.gov.uk', @query.find_embassy_data('iraq').first['email']
+          assert_equal 'ukinkz@fco.gov.uk', @query.find_embassy_data('kyrgyzstan').first['email']
         end
       end
 
