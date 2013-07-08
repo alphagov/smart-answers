@@ -11,7 +11,6 @@ module SmartAnswer::Calculators
       'benin' =>  'nigeria',
       'djibouti' => 'kenya',
       'guinea' => 'ghana',
-      'iraq'  =>  'jordan',
       'ivory-coast' => 'ghana',
       'kyrgyzstan' => 'kazakhstan',
       'liberia' => 'ghana',
