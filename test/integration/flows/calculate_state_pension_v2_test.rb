@@ -54,7 +54,7 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
         end
 
         should "state that the user is near to state pension age" do
-          add_response Date.parse("12 Feb 1948")
+          add_response Date.parse("09 Feb 1948")
           assert_current_node :near_state_pension_age
         end
       end
@@ -82,7 +82,7 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
         add_response Date.parse("4th August 1951")
       end
 
-      should "tell them they are within four months and four days of state pension age" do
+      should "tell them they are within four months and one day of state pension age" do
         assert_current_node :near_state_pension_age
         assert_state_variable "formatted_state_pension_date", " 6 November 2012"
       end
@@ -114,10 +114,10 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
         end
       end
 
-      context "within four months and four days of state pension age test" do
+      context "within four months and one day of state pension age test" do
         setup do
           Timecop.travel('2012-10-08')
-          add_response Date.parse('1948-02-12')
+          add_response Date.parse('1948-02-09')
         end
 
         should "display near state pension age response" do
