@@ -48,6 +48,17 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         end
       end
 
+      context "age is between 4 months and 1 day from SP age" do
+        setup do
+          Timecop.travel('2012-10-08')
+        end
+
+        should "state that the user is near to state pension age" do
+          add_response Date.parse("12 Feb 1948")
+          assert_current_node :near_state_pension_age
+        end
+      end
+
       context "born on 6th April 1945" do
         setup do
           add_response Date.parse("6th April 1945")
