@@ -4,14 +4,14 @@ require_relative 'flow_test_helper'
 require 'gds_api/test_helpers/worldwide'
 
 
-class OverseasPassportsTest < ActiveSupport::TestCase
+class OverseasPassportsV2Test < ActiveSupport::TestCase
   include FlowTestHelper
   include GdsApi::TestHelpers::Worldwide
 
   setup do
     @location_slugs = %w(australia afghanistan iraq benin austria albania morocco azerbaijan ireland india tanzania indonesia jamaica malta italy jordan iran syria cameroon kenya andorra tunisia yemen haiti south-africa united-kingdom greece spain the-occupied-palestinian-territories st-helena-ascension-and-tristan-da-cunha kazakhstan kyrgyzstan egypt)
     worldwide_api_has_locations(@location_slugs)
-    setup_for_testing_flow 'overseas-passports'
+    setup_for_testing_flow 'overseas-passports-v2'
   end
 
   ## Q1
@@ -852,7 +852,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'child'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_kazakhstan]
+      assert_phrase_list :how_long_it_takes, [:how_long_kazakhstan, :how_long_it_takes_ips3]
       assert_phrase_list :cost, [:passport_courier_costs_ips3, :child_passport_costs_ips3, :passport_costs_ips3]
       assert_phrase_list :send_your_application, [:send_application_ips3]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
@@ -871,7 +871,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_kyrgyzstan]
+      assert_phrase_list :how_long_it_takes, [:how_long_kyrgyzstan, :how_long_it_takes_ips3]
       assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
       assert_phrase_list :send_your_application, [:send_application_ips3]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]

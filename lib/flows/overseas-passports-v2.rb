@@ -1,7 +1,7 @@
-status :published
+status :draft
 satisfies_need 2820
 
-i18n_prefix = "flow.overseas-passports"
+i18n_prefix = "flow.overseas-passports-v2"
 data_query = Calculators::PassportAndEmbassyDataQuery.new 
 exclude_countries = %w(holy-see british-antarctic-territory)
 
@@ -237,7 +237,8 @@ outcome :ips_application_result do
       end
     else
       if %w{kazakhstan kyrgyzstan}.include?(current_location)
-        PhraseList.new(:"how_long_#{current_location}")
+        PhraseList.new(:"how_long_#{current_location}",
+                      :"how_long_it_takes_ips#{ips_number}")
       else
         PhraseList.new(:"how_long_#{application_action}_ips#{ips_number}",
                      :"how_long_it_takes_ips#{ips_number}")
