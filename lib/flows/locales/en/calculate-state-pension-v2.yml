@@ -250,13 +250,13 @@ en-GB:
 
           You’ll reach State Pension age on %{formatted_state_pension_date}
 
-          How much State Pension you get depends on how many years of National Insurance contributions you have.
+          How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance/overview) contributions you have.
 
           You’ll need 30 years to get a full basic State Pension which is currently worth £%{weekly_rate} a week.
 
           More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
 
-          [National Insurance](/national-insurance/overview)
+          This calculation is according to the current law. The State Pension age may [change in the future](/increase-state-pension-age “Increase in State Pension age”).
 
       ## RESULT 5
       reached_state_pension_age:
@@ -289,11 +289,18 @@ en-GB:
 
           Once you claim your State Pension, the Pension Service will work out how much you get.
 
+          ##Pension Credit
+          If you're on a low income, you might be eligible to claim [Pension Credit](/pension-credit “Pension Credit”).
+
+          ##Claiming later
           You don’t have to stop working or claim your State Pension when you reach State Pension age. You can put off claiming your State Pension when you reach State Pension age. You can also choose to stop claiming it after having claimed it for a period. [Defer your State Pension](/deferring-state-pension "Deferring your State Pension").
 
+          ##Voluntary contributions
           If you don’t get the full basic State Pension you might still be able to [pay voluntary National Insurance contributions](/voluntary-national-insurance-contributions).
 
           More information on the [basic State Pension and how to increase it](/state-pension) and the [additional State Pension](/additional-state-pension)
+
+          This calculation is according to the current law. The State Pension may [change in the future](/changes-state-pension “Changes to the State Pension”).
 
       ## AMOUNT RESULT (results 1, 2 and 3)
       amount_result:
@@ -314,4 +321,3 @@ en-GB:
           %{state_pension_age_statement}
 
           This calculation is according to the current law. The State Pension may [change in the future](/changes-state-pension "Changes to the State Pension").
-
