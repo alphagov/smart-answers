@@ -503,7 +503,44 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
           end
         end # no to QM2 employee has contract?
       end
-
+      context "calculate maternity with unfeasible pay dates" do
+        setup do
+          add_response Date.parse("2013-02-22")
+          add_response :yes
+          add_response Date.parse("2013-01-25")
+          add_response :yes
+          add_response :yes
+          add_response Date.parse("2012-11-09")
+          add_response Date.parse("2012-09-14")
+          add_response :monthly
+          add_response "3000"
+          add_response "usual_paydates"
+          add_response "specific_date_each_month"
+          add_response "32"
+        end
+        should "be invalid" do
+          assert_current_node_is_error
+        end
+      end
+      context "calculate maternity with monthly pay date after 28th" do
+        setup do
+          add_response Date.parse("2013-02-22")
+          add_response :yes
+          add_response Date.parse("2013-01-25")
+          add_response :yes
+          add_response :yes
+          add_response Date.parse("2012-11-09")
+          add_response Date.parse("2012-09-14")
+          add_response :monthly
+          add_response "3000"
+          add_response "usual_paydates"
+          add_response "specific_date_each_month"
+          add_response "29"
+        end
+        should "assume values over 28 as the last day of the month" do
+          assert_state_variable :pay_method, 'last_day_of_the_month'
+        end
+      end
       context "calculate maternity with £4000 earnings" do
         setup do
           add_response Date.parse("2013-02-22")
@@ -535,6 +572,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
           assert_state_variable "notice_request_pay", Date.parse("2012-12-28")
         end
       end
+
     end # April 9th
   end # Maternity
 

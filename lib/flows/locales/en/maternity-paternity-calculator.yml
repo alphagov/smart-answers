@@ -277,6 +277,7 @@ en-GB:
         title: When is your employee’s next pay day on or after %{pay_start_date}?
       ## QM9
       when_in_the_month_is_the_employee_paid?:
+        hint: If the pay date is the 29th, 30th or 31st choose 'Last working day of the month'.
         options:
           "first_day_of_the_month": First day of the month
           "last_day_of_the_month": Last day of the month
@@ -286,7 +287,8 @@ en-GB:
       ## QM10
       what_specific_date_each_month_is_the_employee_paid?:
         title: What specific date each month is the employee paid?
-        hint: If they’re paid on the 25th enter "25"
+        hint: If they’re paid on the 25th enter "25". The calculator will treat an employee as paid on the last day of the month if you enter 29, 30 or 31. 
+        error_message: Enter a date between 1 and 31.
       ## QM11
       what_days_does_the_employee_work?:
         title: What days does the employee work?
