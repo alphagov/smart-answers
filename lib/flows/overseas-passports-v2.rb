@@ -102,7 +102,11 @@ multiple_choice :child_or_adult_passport? do
   save_input_as :child_or_adult
 
   calculate :fco_forms do
-    PhraseList.new(:"#{responses.last}_fco_forms")
+    if %w(nigeria).include?(current_location)
+      PhraseList.new(:"#{responses.last}_fco_forms_nigeria")
+    else
+      PhraseList.new(:"#{responses.last}_fco_forms")
+    end
   end
 
   next_node do |response|
