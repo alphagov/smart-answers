@@ -90,12 +90,6 @@ en-GB:
           How much per week you may get | £%{pension_amount}
           Difference to the full basic State Pension of £%{weekly_rate} | £%{pension_loss}
 
-
-          $C
-          You can [apply for a State Pension statement](/state-pension-statement "get a State Pension statement") to get a detailed estimate of your full State Pension.
-          $C
-
-
           How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance "National Insurance") you have.
 
           National Insurance | Your results
@@ -104,7 +98,17 @@ en-GB:
           Years of contributions you still need for a full basic State Pension | %{missing_years}
           Years you still have to make these contributions | %{remaining_years}
 
-          You may still have enough years to make contributions to get a full basic State Pension.
+          ##Get a pension statement
+          You can [apply for a State Pension statement](/state-pension-statement "get a State Pension forecast or statement") to get an estimate of your full State Pension.
+
+          ##More about the State Pension
+          Read about:
+
+          - [the basic State Pension or how to top it up](/state-pension)
+          - the [additional State Pension](/additional-state-pension)
+          - [voluntary contributions](/voluntary-national-insurance-contributions “voluntary National Insurance contributions”)
+          - [increasing your State Pension with your partner National Insurance contributions](/state-pension/eligibility "Increase your basic State Pension")
+          - [State Pension if you retire abroad](/state-pension-if-you-retire-abroad “State Pension if you retire abroad”)
 
           More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
 
@@ -134,15 +138,17 @@ en-GB:
           Years of contributions you already have | %{qualifying_years_total}
           Years you have left for contributions until you reach State Pension age | %{remaining_years}
 
-          $C
-          You can [apply for a State Pension statement](/state-pension-statement "get a State Pension statement") to get a detailed estimate of your State Pension.
-          $C
+          ##Get a pension statement
+          You can [apply for a State Pension statement](/state-pension-statement "get a State Pension forecast or statement") to get an estimate of your full State Pension.
 
-          You may be able to pay [voluntary contributions](/voluntary-national-insurance-contributions/why-pay-voluntary-contributions) to increase your basic State Pension.
+          ##More about the State Pension
+          Read about:
 
-          Use your partner's or late or former partner's National Insurance to increase your [basic State Pension](/state-pension/eligibility "Increase your basic State Pension")
-
-          More information on the [basic State Pension or how to top it up](/state-pension) and the [additional State Pension](/additional-state-pension)
+          - [the basic State Pension or how to top it up](/state-pension)
+          - the [additional State Pension](/additional-state-pension)
+          - [voluntary contributions](/voluntary-national-insurance-contributions “voluntary National Insurance contributions”)
+          - [increasing your State Pension with your partner National Insurance contributions](/state-pension/eligibility "Increase your basic State Pension")
+          - [State Pension if you retire abroad](/state-pension-if-you-retire-abroad “State Pension if you retire abroad”)
 
         ## Result 3
         you_get_full_state_pension: |
@@ -156,14 +162,20 @@ en-GB:
 
           You’ll reach State Pension age on %{formatted_state_pension_date}
 
+          [Contact the Future Pension Centre](/future-pension-centre) if you need to check how many qualifying years you have.
 
           $C
           You can [apply for a State Pension statement](/state-pension-statement "get a State Pension statement") to get an estimate of your full State Pension.
           $C
 
-          How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance "National Insurance") you have.
+          ##More about the State Pension
 
-          More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
+          Read about:
+
+          - [the basic State Pension or how to top it up](/state-pension)
+          - the [additional State Pension](/additional-state-pension)
+          - State Pension if you retire abroad](/state-pension-if-you-retire-abroad)
+          - [National Insurance contributions](/national-insurance “National Insurance”)
 
       ## Q1
       which_calculation?:
@@ -269,14 +281,18 @@ en-GB:
 
 
           $C
-          *Pension Service claim line:* 0800 731 7898
+          **Pension Service claim line:** 0800 731 7898
           $C
 
-          You can put off claiming your State Pension when you reach State Pension age. You can also choose to stop claiming it after having claimed it for a period. [Defer your State Pension](/deferring-state-pension "Deferring your State Pension").
+          ##Claiming later
+          You can [put off claiming your State Pension](/deferring-state-pension "Deferring your State Pension") when you reach State Pension age or take breaks from claiming it.
 
+          ##Voluntary contributions
           If you don’t get the full basic State Pension you might still be able to [pay voluntary National Insurance contributions](/voluntary-national-insurance-contributions).
 
           More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
+
+          This calculation is according to the current law. The State Pension may [change in the future](/changes-state-pension“Changes to the State Pension”).
 
       ## RESULT 6
       near_state_pension_age:
