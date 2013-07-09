@@ -170,8 +170,8 @@ en-GB:
       which_calculation?:
         title: What would you like to calculate?
         options:
-          age: Age (State Pension and Pension Credit)
-          amount: Amount of basic State Pension (also gives State Pension age)
+          age: Age - State Pension, Pension Credit, bus pass
+          amount: Amount - estimate of basic State Pension (includes State Pension age)
       ## Q2
       gender?:
         title: What is your gender?
