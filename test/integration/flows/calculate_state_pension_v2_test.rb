@@ -1,11 +1,11 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
-class CalculateStatePensionTest < ActiveSupport::TestCase
+class CalculateStatePensionTestV2 < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'calculate-state-pension'
+    setup_for_testing_flow 'calculate-state-pension-v2'
   end
 
   should "ask which calculation to perform" do
