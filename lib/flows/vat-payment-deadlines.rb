@@ -17,16 +17,29 @@ multiple_choice :how_do_you_want_to_pay? do
   option :'bank-giro' => :result_bank_giro
   option :'chaps' => :result_chaps
   option :'cheque' => :result_cheque
-end
 
-outcome :result_direct_debit
-outcome :result_online_telephone_banking do
-  precalculate :last_payment_date do
-    (period_end_date + 1.month + 7.days).strftime("%e %B %Y")
+  calculate :calculator do
+    Calculators::VatPaymentDeadlines.new(period_end_date, responses.last)
+  end
+
+  calculate :last_payment_date do
+    calculator.last_payment_date.strftime("%e %B %Y").strip
+  end
+  calculate :funds_received_by do
+    calculator.funds_received_by.strftime("%e %B %Y").strip
   end
 end
+
+outcome :result_direct_debit do
+  precalculate(:last_dd_setup_date) { last_payment_date }
+  precalculate(:funds_taken) { funds_received_by }
+end
+outcome :result_online_telephone_banking
 outcome :result_online_debit_credit_card
 outcome :result_bacs_direct_credit
 outcome :result_bank_giro
 outcome :result_chaps
-outcome :result_cheque
+outcome :result_cheque do
+  precalculate(:last_posting_date) { last_payment_date }
+  precalculate(:funds_cleared_by) { funds_received_by }
+end
