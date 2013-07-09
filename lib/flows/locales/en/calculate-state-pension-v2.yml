@@ -127,17 +127,16 @@ en-GB:
           How much per week you may get | £%{pension_amount}
           How much you may get if you make contributions or get credits for the years you have left until State Pension age | £%{what_if_not_full}
 
-
-          $C
-          You can [apply for a State Pension statement](/state-pension-statement "get a State Pension statement") to get a detailed estimate of your State Pension.
-          $C
-
           How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance "National Insurance") you have.
 
           National Insurance | Your results
           - | -
           Years of contributions you already have | %{qualifying_years_total}
           Years you have left for contributions until you reach State Pension age | %{remaining_years}
+
+          $C
+          You can [apply for a State Pension statement](/state-pension-statement "get a State Pension statement") to get a detailed estimate of your State Pension.
+          $C
 
           You may be able to pay [voluntary contributions](/voluntary-national-insurance-contributions/why-pay-voluntary-contributions) to increase your basic State Pension.
 
