@@ -108,6 +108,8 @@ date_question :dob_age? do
       gender: gender, dob: response)
     if (calc.before_state_pension_date? and calc.within_four_months_four_days_from_state_pension?)
       :near_state_pension_age
+    elsif calc.before_state_pension_date? and responses.include?(:amount)
+      :years_paid_ni?
     else
       :age_result
     end

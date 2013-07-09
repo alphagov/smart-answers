@@ -136,6 +136,17 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         end
       end
 
+      context "older than 20 years from state pension date" do
+        setup do
+          Timecop.travel('2012-10-08')
+          add_response Date.parse('1968-02-13')
+        end
+
+        should "ask for years paid ni" do
+          assert_current_node :years_paid_ni?
+        end
+      end
+
       context "born before 6/10/1953" do
         setup do
           Timecop.travel('2013-10-08')
