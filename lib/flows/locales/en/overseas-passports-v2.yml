@@ -995,8 +995,9 @@ en-GB:
           If you’re renewing a passport, you must bring your current passport with you when you apply. You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
-
+                    
           +[data_partial:passports_embassies:organisation]
+
 
         getting_your_passport_ips2: |
           Your passport will be delivered to the British embassy, high commission or consulate where you applied  - you must collect it in person. 
@@ -1079,7 +1080,9 @@ en-GB:
           If you’re renewing a passport, you must bring your current passport with you when you apply. You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+
           +[data_partial:passports_embassies:organisation]
+
         send_application_ips3_gaza: |
           ## Making your application
           You must apply in person.
@@ -1093,11 +1096,34 @@ en-GB:
           Jerusalem Street  
           Al-Rimal South  
           Gaza
-          
+
           Email: dljerusalemconsularprotect@fco.gov.uk  
           Telephone: +972 (8) 2641456
           Fax: +972 (8) 2641457
           $A
+
+        send_application_ips3_kazakhstan_kyrgyzstan: |
+          ## Making your application
+          You must apply in person.
+
+          You must bring photo ID with you.
+
+          If you’re renewing a passport, you must bring your current passport with you when you apply. You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+
+
+          $A
+          British Embassy Office, Almaty
+          Rahat Palace Hotel Business Centre 
+          29/6 Satpaev Street, 7th floor
+          Almaty 050000 
+          Kazakhstan
+
+          Telephone: +7 (7272) 506191
+          Fax: +7 (7272) 507962
+          $A
+
         getting_your_passport_ips3: |
           Your passport will be delivered to the British embassy, high commission or consulate where you applied - you must collect it in person.
 

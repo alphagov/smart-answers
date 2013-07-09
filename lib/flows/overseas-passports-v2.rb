@@ -271,6 +271,8 @@ outcome :ips_application_result do
       PhraseList.new(:"send_application_ips#{ips_number}_durham")
     elsif %w(gaza).include?(current_location)
       PhraseList.new(:send_application_ips3_gaza)
+    elsif %w(kazakhstan kyrgyzstan).include?(current_location)
+      PhraseList.new(:send_application_ips3_kazakhstan_kyrgyzstan)
     else
       PhraseList.new(:"send_application_ips#{ips_number}")
     end

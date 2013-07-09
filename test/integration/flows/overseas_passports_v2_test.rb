@@ -854,12 +854,11 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       assert_current_node :ips_application_result
       assert_phrase_list :how_long_it_takes, [:how_long_kazakhstan, :how_long_it_takes_ips3]
       assert_phrase_list :cost, [:passport_courier_costs_ips3, :child_passport_costs_ips3, :passport_costs_ips3]
-      assert_phrase_list :send_your_application, [:send_application_ips3]
+      assert_phrase_list :send_your_application, [:send_application_ips3_kazakhstan_kyrgyzstan]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
       expected_location = WorldLocation.find('kazakhstan')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
-      assert_match /62, Kosmonavtov Street/, outcome_body
     end
   end # Kazakhstan
 
@@ -873,12 +872,11 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       assert_current_node :ips_application_result
       assert_phrase_list :how_long_it_takes, [:how_long_kyrgyzstan, :how_long_it_takes_ips3]
       assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
-      assert_phrase_list :send_your_application, [:send_application_ips3]
+      assert_phrase_list :send_your_application, [:send_application_ips3_kazakhstan_kyrgyzstan]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
       expected_location = WorldLocation.find('kyrgyzstan')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
-      assert_match /21 Erkindik Boulevard, Office 404/, outcome_body
     end
   end # Kyrgyzstan
 
