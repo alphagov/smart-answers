@@ -298,13 +298,7 @@ en-GB:
           Check which countries are in the [EEA.](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
 
           *[EEA]: European Economic Area
-      answer_1: 
-        body: |
-          $!You should contact your local [Jobcentre Plus](http://los.direct.gov.uk/default.aspx?type=2&lang=en "Jobcentre Plus"){:rel="external"} to let them know.$!
-
-          Any benefits that you’re currently receiving may be affected.
-
-          You should also tell HMRC if you’re [moving or retiring abroad.](/moving-or-retiring-abroad "Moving or retiring abroad")
+      # answer_1 removed as part of 11/07/13 updates.
       answer_2:
         body: |
           $!If you haven’t paid National Insurance contributions in the UK you may not be able to claim UK-based benefits abroad.$!

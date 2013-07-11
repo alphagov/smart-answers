@@ -1,12 +1,6 @@
 satisfies_need "392"
 status :published
 
-# Q1
-multiple_choice :have_you_told_jobcentre_plus do
-  option :yes => :have_you_paid_ni_in_the_uk
-  option :no => :answer_1
-end
-
 # Q2
 multiple_choice :have_you_paid_ni_in_the_uk do
   option :yes => :certain_countries_or_specific_benefits
@@ -237,7 +231,7 @@ multiple_choice :are_you_moving_to_q36 do
   option :none => :answer_38
 end
 
-outcome :answer_1
+
 outcome :answer_2
 outcome :answer_3
 outcome :answer_4
