@@ -668,7 +668,7 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
               context "no to 'Do you or a family member pay UK NICs?'" do
                 should "be answer 34" do
                   add_response :no
-                  assert_current_node :answer_34
+                  assert_current_node :answer_35b
                 end
               end
               context "yes to 'Do you or a family member pay UK NICs?'" do
@@ -694,7 +694,7 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
                   context "yes to 'Getting SSP, IIB, ESA or bereavment?'" do
                     should "be answer 35b" do
                       add_response :yes
-                      assert_current_node :answer_35b
+                      assert_current_node :answer_35c
                     end
                   end
                   

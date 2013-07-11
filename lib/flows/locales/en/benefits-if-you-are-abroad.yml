@@ -722,6 +722,31 @@ en-GB:
           $C
       answer_35b:
         body: |
+          You can't claim these benefits when you move abroad.
+
+          There are exceptions if you or a family member are getting State Pension, Industrial Injuries Benefit, contributory Employment Support Allowance (ESA) or bereavement benefits.
+
+          Contact the Exportability Team to check if you qualify.
+
+
+          $C 
+          **Exportability Team**  
+          <exportability.team@dwp.gsi.gov.uk> 
+          $C
+
+          $A
+          Exportability Team
+          Room C216  
+          Pension, Disability and Carers Service  
+          Warbreck House  
+          Warbreck Hill Road  
+          Blackpool 
+          FY2 0YE
+          $A
+
+          You may be able to get benefits from the country where you’re moving to if you have been paying into that country’s social security insurance scheme.
+      answer_35c:
+        body: |
           $!You can carry on claiming Attendance Allowance, Carer’s Allowance or the care component of Disability Living Allowance as appropriate.$!
 
           You should contact the Exportability Team at the Pension, Disability and Carers Service to let them know that you’re moving abroad.

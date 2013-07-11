@@ -204,18 +204,18 @@ end
 # Q32
 multiple_choice :do_you_or_family_pay_uk_nic do
   option :yes => :enough_to_claim_sickness_benefit
-  option :no => :answer_34
+  option :no => :answer_35b
 end
 
 # Q33
 multiple_choice :enough_to_claim_sickness_benefit do
   option :yes => :getting_ssp_iib_esa_or_bereavment
-  option :no => :answer_34
+  option :no => :answer_35b
 end
 
 # Q34
 multiple_choice :getting_ssp_iib_esa_or_bereavment do
-  option :yes => :answer_35b
+  option :yes => :answer_35c
   option :no => :answer_34
 end
 
@@ -269,6 +269,7 @@ outcome :answer_33
 outcome :answer_34
 outcome :answer_35
 outcome :answer_35b
+outcome :answer_35c
 outcome :answer_36
 outcome :answer_37
 outcome :answer_38
