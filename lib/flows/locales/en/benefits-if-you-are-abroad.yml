@@ -6,6 +6,36 @@ en-GB:
       title: Benefits if you’re abroad
       body: | 
         Find out what benefits you might be able to get while abroad and how to claim them.
+
+        Tell the office that deals with your pension or benefit that you'll be away before you go - either the International Pension Centre if you’re getting a pension or the Exportability Team if you’re getting a benefit.
+
+
+        $C
+        **International Pension Centre**  
+        [Email the International Pension Centre](https://www2.dwp.gov.uk/tps-directgov/en/contact-tps/ipc.asp)  
+        Telephone: +44 (0)191 218 7777  
+        Textphone: +44 (0)191 218 7280  
+        Monday to Friday, 8am to 8pm  
+        [Find out about call charges](/call-charges)
+        $C
+
+
+        $C 
+        **Exportability Team**  
+        <exportability.team@dwp.gsi.gov.uk> 
+        $C
+
+        $A
+        Exportability Team
+        Room C216  
+        Pension, Disability and Carers Service  
+        Warbreck House  
+        Warbreck Hill Road  
+        Blackpool 
+        FY2 0YE
+        $A
+
+        You must also tell [your local Jobcentre Plus](http://los.direct.gov.uk/default.aspx?type=2&lang=en) if you're currently claiming benefits and planning to move abroad.
       options:
         "yes": "Yes"
         "no": "No"
@@ -298,13 +328,7 @@ en-GB:
           Check which countries are in the [EEA.](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
 
           *[EEA]: European Economic Area
-      answer_1: 
-        body: |
-          $!You should contact your local [Jobcentre Plus](http://los.direct.gov.uk/default.aspx?type=2&lang=en "Jobcentre Plus"){:rel="external"} to let them know.$!
-
-          Any benefits that you’re currently receiving may be affected.
-
-          You should also tell HMRC if you’re [moving or retiring abroad.](/moving-or-retiring-abroad "Moving or retiring abroad")
+      # answer_1 removed as part of 11/07/13 updates.
       answer_2:
         body: |
           $!If you haven’t paid National Insurance contributions in the UK you may not be able to claim UK-based benefits abroad.$!
@@ -697,6 +721,31 @@ en-GB:
           Monday to Friday, 8:30am to 6:30pm
           $C
       answer_35b:
+        body: |
+          You can't claim these benefits when you move abroad.
+
+          There are exceptions if you or a family member are getting State Pension, Industrial Injuries Benefit, contributory Employment Support Allowance (ESA) or bereavement benefits.
+
+          Contact the Exportability Team to check if you qualify.
+
+
+          $C 
+          **Exportability Team**  
+          <exportability.team@dwp.gsi.gov.uk> 
+          $C
+
+          $A
+          Exportability Team
+          Room C216  
+          Pension, Disability and Carers Service  
+          Warbreck House  
+          Warbreck Hill Road  
+          Blackpool 
+          FY2 0YE
+          $A
+
+          You may be able to get benefits from the country where you’re moving to if you have been paying into that country’s social security insurance scheme.
+      answer_35c:
         body: |
           $!You can carry on claiming Attendance Allowance, Carer’s Allowance or the care component of Disability Living Allowance as appropriate.$!
 
