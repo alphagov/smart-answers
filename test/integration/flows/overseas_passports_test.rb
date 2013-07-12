@@ -4,14 +4,14 @@ require_relative 'flow_test_helper'
 require 'gds_api/test_helpers/worldwide'
 
 
-class OverseasPassportsV2Test < ActiveSupport::TestCase
+class OverseasPassportsTest < ActiveSupport::TestCase
   include FlowTestHelper
   include GdsApi::TestHelpers::Worldwide
 
   setup do
     @location_slugs = %w(australia afghanistan iraq benin austria albania morocco azerbaijan ireland india tanzania indonesia jamaica malta italy jordan iran syria cameroon kenya andorra tunisia yemen haiti south-africa united-kingdom greece spain the-occupied-palestinian-territories st-helena-ascension-and-tristan-da-cunha kazakhstan kyrgyzstan egypt nigeria)
     worldwide_api_has_locations(@location_slugs)
-    setup_for_testing_flow 'overseas-passports-v2'
+    setup_for_testing_flow 'overseas-passports'
   end
 
   ## Q1

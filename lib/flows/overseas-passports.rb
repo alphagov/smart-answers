@@ -1,7 +1,7 @@
 status :draft
 satisfies_need 2820
 
-i18n_prefix = "flow.overseas-passports-v2"
+i18n_prefix = "flow.overseas-passports"
 data_query = Calculators::PassportAndEmbassyDataQuery.new 
 exclude_countries = %w(holy-see british-antarctic-territory)
 
