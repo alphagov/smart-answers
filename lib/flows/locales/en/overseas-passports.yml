@@ -1,6 +1,6 @@
 en-GB:
   flow:
-    overseas-passports:
+    overseas-passports-v2:
       title: Apply for, renew or replace a British passport if you’re outside the UK
       meta:
         description: Renew, replace or apply for an adult or child British passport if you’re living abroad or working overseas - forms, prices, how long it takes
@@ -363,6 +363,24 @@ en-GB:
 
           __Guidance notes__
             [Download ‘Guidance notes for child applications (PDF, 2MB)’](/government/uploads/system/uploads/attachment_data/file/136846/form-c2-notes.pdf.pdf "‘Guidance notes for adult applications (PDF, 2MB)")
+
+        adult_fco_forms_nigeria: |
+          __Blank application form__ (print this form, fill in on paper and sign)
+
+          [Download ‘Passport application form for adults aged 16 and over’ (489KB)](/government/uploads/system/uploads/attachment_data/file/136843/form-c1.pdf.pdf "Download ‘Passport application form for adults aged 16 and over’ (489KB)")
+
+          __Guidance notes__
+
+          [Download ‘Guidance notes for adult applications (PDF, 2.2MB)’](/government/uploads/system/uploads/attachment_data/file/136844/form-c1-notes.pdf.pdf "‘Guidance notes for adult applications (PDF, 2.2MB)")
+
+        child_fco_forms_nigeria: |
+          __Blank application form__ (print, fill in on paper and sign)
+
+            [Download ‘Passport application form for children aged 15 or under’ (505KB)](/government/uploads/system/uploads/attachment_data/file/136845/form-c2.pdf.pdf "Download ‘Passport application form for children aged 15 and under’ (505KB)")
+
+          __Guidance notes__
+            [Download ‘Guidance notes for child applications (PDF, 2MB)’](/government/uploads/system/uploads/attachment_data/file/136846/form-c2-notes.pdf.pdf "‘Guidance notes for adult applications (PDF, 2MB)")
+
 
         getting_your_passport_fco: |
           Your passport and supporting documents will be delivered separately by courier.
@@ -995,8 +1013,9 @@ en-GB:
           If you’re renewing a passport, you must bring your current passport with you when you apply. You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
-
+                    
           +[data_partial:passports_embassies:organisation]
+
 
         getting_your_passport_ips2: |
           Your passport will be delivered to the British embassy, high commission or consulate where you applied  - you must collect it in person. 
@@ -1079,12 +1098,18 @@ en-GB:
           If you’re renewing a passport, you must bring your current passport with you when you apply. You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+
           +[data_partial:passports_embassies:organisation]
+
         send_application_ips3_gaza: |
           ## Making your application
           You must apply in person.
 
+          You must bring photo ID with you.
+
           If you’re renewing a passport, you must bring your current passport with you when you apply. You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
 
 
           $A
@@ -1092,10 +1117,35 @@ en-GB:
           1st Floor, Al-Riyad Tower  
           Jerusalem Street  
           Al-Rimal South  
-          Gaza  
-          Email: biso@britishconsulate.org  
-          Telephone: +970 (0) 8 2837724
+          Gaza
+
+          Email: dljerusalemconsularprotect@fco.gov.uk  
+          Telephone: +972 (8) 2641456
+          Fax: +972 (8) 2641457
           $A
+
+        send_application_ips3_kazakhstan_kyrgyzstan: |
+          ## Making your application
+          You must apply in person.
+
+          You must bring photo ID with you.
+
+          If you’re renewing a passport, you must bring your current passport with you when you apply. You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+
+
+          $A
+          British Embassy Office, Almaty
+          Rahat Palace Hotel Business Centre 
+          29/6 Satpaev Street, 7th floor
+          Almaty 050000 
+          Kazakhstan
+
+          Telephone: +7 (7272) 506191
+          Fax: +7 (7272) 507962
+          $A
+
         getting_your_passport_ips3: |
           Your passport will be delivered to the British embassy, high commission or consulate where you applied - you must collect it in person.
 
@@ -2365,9 +2415,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | £128/ 5,888 THB | £151.01/ 7,039 THB
-          Adult jumbo 48-page passport | £154.50/ 7,107 THB | £177.51/ 8,258 THB
-          Child passport | £81.50/ 3,749 THB | £104.51/ 4,900 THB
+          Adult standard 32-page passport | £128/ 6,144 THB | £151.01/ 7,295 THB
+          Adult jumbo 48-page passport | £154.50/ 7,416 THB | £177.51/ 8,567 THB
+          Child passport | £81.50/ 3,912 THB | £104.51/ 5,063 THB
 
           ###Renewing a passport
 

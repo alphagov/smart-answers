@@ -4,14 +4,14 @@ require_relative 'flow_test_helper'
 require 'gds_api/test_helpers/worldwide'
 
 
-class OverseasPassportsTest < ActiveSupport::TestCase
+class OverseasPassportsV2Test < ActiveSupport::TestCase
   include FlowTestHelper
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(australia afghanistan iraq benin austria albania morocco azerbaijan ireland india tanzania indonesia jamaica malta italy jordan iran syria cameroon kenya andorra tunisia yemen haiti south-africa united-kingdom greece spain the-occupied-palestinian-territories st-helena-ascension-and-tristan-da-cunha kazakhstan kyrgyzstan egypt)
+    @location_slugs = %w(australia afghanistan iraq benin austria albania morocco azerbaijan ireland india tanzania indonesia jamaica malta italy jordan iran syria cameroon kenya andorra tunisia yemen haiti south-africa united-kingdom greece spain the-occupied-palestinian-territories st-helena-ascension-and-tristan-da-cunha kazakhstan kyrgyzstan egypt nigeria)
     worldwide_api_has_locations(@location_slugs)
-    setup_for_testing_flow 'overseas-passports'
+    setup_for_testing_flow 'overseas-passports-v2'
   end
 
   ## Q1
@@ -852,14 +852,13 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'child'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_kazakhstan]
+      assert_phrase_list :how_long_it_takes, [:how_long_kazakhstan, :how_long_it_takes_ips3]
       assert_phrase_list :cost, [:passport_courier_costs_ips3, :child_passport_costs_ips3, :passport_costs_ips3]
-      assert_phrase_list :send_your_application, [:send_application_ips3]
+      assert_phrase_list :send_your_application, [:send_application_ips3_kazakhstan_kyrgyzstan]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
       expected_location = WorldLocation.find('kazakhstan')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
-      assert_match /62, Kosmonavtov Street/, outcome_body
     end
   end # Kazakhstan
 
@@ -871,15 +870,35 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_kyrgyzstan]
+      assert_phrase_list :how_long_it_takes, [:how_long_kyrgyzstan, :how_long_it_takes_ips3]
       assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
-      assert_phrase_list :send_your_application, [:send_application_ips3]
+      assert_phrase_list :send_your_application, [:send_application_ips3_kazakhstan_kyrgyzstan]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
       expected_location = WorldLocation.find('kyrgyzstan')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
-      assert_match /21 Erkindik Boulevard, Office 404/, outcome_body
     end
   end # Kyrgyzstan
+
+  context "answer Nigeria, applying, adult passport" do
+    should "give the result with custom phrases" do
+      worldwide_api_has_organisations_for_location('nigeria', read_fixture_file('worldwide/nigeria_organisations.json'))
+      add_response 'nigeria'
+      add_response 'applying'
+      add_response 'adult'
+      assert_current_node :result
+      assert_phrase_list :fco_forms, [:adult_fco_forms_nigeria]
+      assert_phrase_list :how_long_it_takes, [:how_long_lagos_nigeria]
+      assert_phrase_list :cost, [:cost_lagos_nigeria]
+      assert_phrase_list :how_to_apply, [:how_to_apply_lagos_nigeria]
+      assert_phrase_list :making_application, [:making_application_lagos_nigeria]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_lagos_nigeria]
+      assert_phrase_list :helpline, [:helpline_intro, :helpline_pretoria_south_africa, :helpline_fco_webchat]
+      expected_location = WorldLocation.find('nigeria')
+      assert_state_variable :location, expected_location
+      assert_state_variable :organisation, expected_location.fco_organisation
+    end
+  end # Kyrgyzstan
+
 
 end
