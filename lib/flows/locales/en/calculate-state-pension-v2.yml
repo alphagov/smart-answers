@@ -1,6 +1,6 @@
 en-GB:
   flow:
-    calculate-state-pension-2:
+    calculate-state-pension-v2:
       title: State Pension calculator
       meta:
         description: "Work out your State Pension age and Pension Credit qualifying age or estimate how much basic State Pension you may get"
