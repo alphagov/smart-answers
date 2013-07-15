@@ -2745,18 +2745,6 @@ en-GB:
 
             Telephone: (+44) 207 008 1500
           $C
-        
-        body_egypt: |
-          Call the Passport Adviceline for information about renewing or applying for a passport. 
-
-
-          $C
-          **Passport Adviceline**  
-
-          +44 (0) 300 222 0000
-          $C
-
-          ^Check the latest [travel advice for Egypt](/foreign-travel-advice/egypt) if you're planning to travel.^
 
       fco_result:
         body: |
