@@ -1,4 +1,4 @@
-status :draft
+status :published
 satisfies_need 2820
 
 i18n_prefix = "flow.overseas-passports"
