@@ -376,7 +376,7 @@ outcome :fco_result do
   end
   precalculate :getting_your_passport do
     location = 'fco'
-    location = current_location if %(egypt jamaica nepal india).include?(current_location)
+    location = current_location if %(jamaica nepal india).include?(current_location)
     PhraseList.new(:"getting_your_passport_#{location}")
   end
   precalculate :helpline do
