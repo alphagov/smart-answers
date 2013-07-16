@@ -106,7 +106,7 @@ module SmartAnswer::Calculators
     end
     
     def number_of_qualifying_children
-      @number_of_children > 3 ? 3 : @number_of_children
+      @number_of_children > 1 ? 3 : @number_of_children
     end
     
     def number_of_qualifying_children_index

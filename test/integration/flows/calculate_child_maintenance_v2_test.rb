@@ -2,7 +2,7 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
-class CalculateChildMaintentanceTest < ActiveSupport::TestCase
+class CalculateChildMaintentanceTestV2 < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
@@ -22,9 +22,9 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
   end
   
   ## Old scheme
-  context "answer 3" do
+  context "answer 1" do
     setup do
-      add_response '3_children'
+      add_response '1_child'
     end
     should "ask if person paying child benefit receives benefits" do
       assert_current_node :gets_benefits_old?
@@ -115,9 +115,9 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
   end # Old scheme
   
   # New scheme
-  context "answer 4 children (with 1 other parent)" do
+  context "answer 2+ children" do
     setup do
-      add_response '4_children'
+      add_response '2_children'
     end
 
     should "ask about benefits" do
