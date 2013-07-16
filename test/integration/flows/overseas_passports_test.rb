@@ -644,13 +644,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
   end # Iran - no application outcome
   
-  context "answer Egypt" do
-    should "give a bespoke outcome stating an application is not possible in Egypt" do
-      add_response 'egypt'
-      assert_current_node :cannot_apply
-      assert_phrase_list :body_text, [:body_egypt]
-    end
-  end
   context "answer Syria" do
     should "give a bespoke outcome stating an application is not possible in Syria" do
       add_response 'syria'
@@ -695,6 +688,28 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_match /Upper Hill Road/, outcome_body
     end
   end # Kenya (custom phrases)
+
+  context "answer Egypt, renewing, adult passport" do
+    should "give the IPS application result with custom phrases" do
+      worldwide_api_has_organisations_for_location('egypt', read_fixture_file('worldwide/egypt_organisations.json'))
+      add_response 'egypt'
+      add_response 'applying'
+      add_response 'adult'
+      add_response 'united-kingdom'
+      assert_current_node :ips_application_result
+      assert_phrase_list :how_long_it_takes, [:how_long_applying_ips1, :how_long_it_takes_ips1]
+      assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :ips_documents_group_3]
+      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
+      assert_phrase_list :send_your_application, [:send_application_ips1_durham]
+      assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
+      assert_state_variable :embassy_address, nil
+      assert_state_variable :supporting_documents, 'ips_documents_group_3'
+      expected_location = WorldLocation.find('egypt')
+      assert_state_variable :location, expected_location
+      assert_state_variable :organisation, expected_location.fco_organisation
+    end
+  end # Egypt
+
 
   context "answer Andorra, renewing, adult passport" do
     should "give the IPS application result with custom phrases" do
