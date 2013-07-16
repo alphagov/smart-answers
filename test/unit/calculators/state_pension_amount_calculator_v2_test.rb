@@ -634,14 +634,14 @@ module SmartAnswer::Calculators
         calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
           gender: "male", dob: "16 July 1948", qualifying_years: nil)
 
-        assert calculator.dob_within_four_months_one_day_from_state_pension_date
+        assert calculator.dob_within_four_months_one_day_from_state_pension_date?
       end
 
       should "born 15 November 1948" do
         calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
           gender: "male", dob: "15 November 1948", qualifying_years: nil)
 
-        assert calculator.dob_within_four_months_one_day_from_state_pension_date
+        assert calculator.dob_within_four_months_one_day_from_state_pension_date?
       end
     end
   end
