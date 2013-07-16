@@ -116,6 +116,13 @@ module SmartAnswer::Calculators
       Date.today.advance(:months => 4, :days => 1) >= state_pension_date
     end
 
+    def dob_within_four_months_one_day_from_state_pension_date?
+      years_since = state_pension_date.year - dob.year
+      lower = Date.today.advance(:years => -years_since)
+      upper = Date.today.advance(:years => -years_since, :months => 4, :days => 1)
+      (lower..upper).cover?(dob)
+    end
+
     def under_20_years_old?
       dob > 20.years.ago
     end
