@@ -48,6 +48,14 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
         end
       end
 
+      context "age is less than 20 years" do
+        should "user is too young to get more information" do
+          add_response Date.today.advance(:years => -15)
+
+          assert_current_node :too_young
+        end
+      end
+
       context "age is between 4 months and 1 day from SP age" do
         setup do
           Timecop.travel("2013-07-15")
