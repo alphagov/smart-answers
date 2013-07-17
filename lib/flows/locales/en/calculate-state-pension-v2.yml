@@ -104,15 +104,11 @@ en-GB:
           ##More about the State Pension
           Read about:
 
-          - [the basic State Pension or how to top it up](/state-pension)
-          - the [additional State Pension](/additional-state-pension)
+          - [basic State Pension or how to top it up](/state-pension)
+          - [additional State Pension](/additional-state-pension)
           - [voluntary contributions](/voluntary-national-insurance-contributions “voluntary National Insurance contributions”)
           - [increasing your State Pension with your partner National Insurance contributions](/state-pension/eligibility "Increase your basic State Pension")
           - [State Pension if you retire abroad](/state-pension-if-you-retire-abroad “State Pension if you retire abroad”)
-
-          More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
-
-          You can also read about [voluntary contributions.](/voluntary-national-insurance-contributions "voluntary National Insurance contributions")
 
           Use your partner's or late or former partner's National Insurance to increase your [basic State Pension](/state-pension/eligibility "Increase your basic State Pension")
 
@@ -144,8 +140,8 @@ en-GB:
           ##More about the State Pension
           Read about:
 
-          - [the basic State Pension or how to top it up](/state-pension)
-          - the [additional State Pension](/additional-state-pension)
+          - [basic State Pension or how to top it up](/state-pension)
+          - [additional State Pension](/additional-state-pension)
           - [voluntary contributions](/voluntary-national-insurance-contributions “voluntary National Insurance contributions”)
           - [increasing your State Pension with your partner National Insurance contributions](/state-pension/eligibility "Increase your basic State Pension")
           - [State Pension if you retire abroad](/state-pension-if-you-retire-abroad “State Pension if you retire abroad”)
@@ -172,8 +168,8 @@ en-GB:
 
           Read about:
 
-          - [the basic State Pension or how to top it up](/state-pension)
-          - the [additional State Pension](/additional-state-pension)
+          - [basic State Pension or how to top it up](/state-pension)
+          - [additional State Pension](/additional-state-pension)
           - State Pension if you retire abroad](/state-pension-if-you-retire-abroad)
           - [National Insurance contributions](/national-insurance “National Insurance”)
 
@@ -260,7 +256,7 @@ en-GB:
           Your State Pension age is %{state_pension_age}.
 
           You’ll reach State Pension age on %{formatted_state_pension_date}
-
+          
           How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance/overview) contributions you have.
 
           You’ll need 30 years to get a full basic State Pension which is currently worth £%{weekly_rate} a week.
@@ -307,8 +303,12 @@ en-GB:
           ##Pension Credit
           If you're on a low income, you might be eligible to claim [Pension Credit](/pension-credit “Pension Credit”).
 
+          You may be entitled to receive Pension Credit from %{pension_credit_date}.
+
           ##Claiming later
-          You don’t have to stop working or claim your State Pension when you reach State Pension age. You can put off claiming your State Pension when you reach State Pension age. You can also choose to stop claiming it after having claimed it for a period. [Defer your State Pension](/deferring-state-pension "Deferring your State Pension").
+          You don’t have to stop working or claim your State Pension when you reach State Pension age.
+
+          You can [put off claiming your State Pension](/deferring-state-pension "Deferring your State Pension") when you reach State Pension age or take breaks from claiming it.
 
           ##Voluntary contributions
           If you don’t get the full basic State Pension you might still be able to [pay voluntary National Insurance contributions](/voluntary-national-insurance-contributions).
@@ -323,7 +323,6 @@ en-GB:
           %{result_text}
 
           %{automatic_credits}
-          [State Pension if you retire abroad](/state-pension-if-you-retire-abroad "State Pension if you retire abroad")
 
           This calculation is according to the current law. The State Pension may [change in the future](/changes-state-pension "Changes to the State Pension").
 
