@@ -421,12 +421,12 @@ en-GB:
 
           You must make your application in person.
 
-          +[data_partial:passports_embassies:organisation]
+          +[data_partial:overseas_passports_embassies:organisation]
 
         send_application_jamaica: |
           You must make your application in person to the British High Commission, Kingston
 
-          +[data_partial:passports_embassies:organisation]
+          +[data_partial:overseas_passports_embassies:organisation]
 
         send_application_indonesia: |
           Send your application - preferably by one-way courier or secure post - to
@@ -1011,7 +1011,7 @@ en-GB:
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
                     
-          +[data_partial:passports_embassies:organisation]
+          +[data_partial:overseas_passports_embassies:organisation]
 
 
         getting_your_passport_ips2: |
@@ -1096,7 +1096,7 @@ en-GB:
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
 
-          +[data_partial:passports_embassies:organisation]
+          +[data_partial:overseas_passports_embassies:organisation]
 
         send_application_ips3_gaza: |
           ## Making your application
@@ -2686,7 +2686,7 @@ en-GB:
           [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)")
           $D
 
-          +[data_partial:passports_embassies:organisation]
+          +[data_partial:overseas_passports_embassies:organisation]
 
           ## Cost
 
@@ -2708,7 +2708,7 @@ en-GB:
 
           4. Take your application in person to the British embassy in Algiers.
 
-          +[data_partial:passports_embassies:organisation]
+          +[data_partial:overseas_passports_embassies:organisation]
 
           ## Getting your passport
 
@@ -2887,7 +2887,7 @@ en-GB:
           %{making_application}
 
 
-          +[data_partial:passports_embassies:organisation]
+          +[data_partial:overseas_passports_embassies:organisation]
 
           %{making_application_additional}
 

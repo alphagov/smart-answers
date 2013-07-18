@@ -1,0 +1,50 @@
+<%- 
+if organisation && organisation.all_offices.any? 
+  offices_with_doc_service = organisation.all_offices.select do |o| 
+  	o.services.any? { |s| s.title.include?('Overseas Passports Service') }
+  end
+  if offices_with_doc_service.empty?
+%>
+
+
+$A
+<%= organisation.main_office.address.label.value %>
+<%- organisation.main_office.contact_numbers.each do |contact| -%>
+<%# Some labels have a trailing :, some don't %>
+<%= contact.label.sub(/:\s*\z/, '') %>: <%= contact.number %>
+<%- end -%>
+Email: <%= organisation.main_office.details.email %>
+$A
+
+<%= raw organisation.main_office.details.access_and_opening_times %>
+<%- 
+  else 
+  	offices_with_doc_service.each do |place|
+%>
+
+
+$A
+<%= place.address.label.value %>
+<%- place.contact_numbers.each do |contact| -%>
+<%# Some labels have a trailing :, some don't %>
+<%= contact.label.sub(/:\s*\z/, '') %>: <%= contact.number %>
+<%- 
+		if place.details.email.present?
+-%>
+Email: <%= place.details.email.strip %>
+<%- 
+		end
+	  end
+-%>
+$A
+
+<%= raw place.details.access_and_opening_times %>
+<%- 
+  	end
+  end
+else  
+-%>
+No embassy details found
+<%- 
+end 
+-%>

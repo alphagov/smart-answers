@@ -9,7 +9,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(australia afghanistan iraq benin austria albania morocco azerbaijan ireland india tanzania indonesia jamaica malta italy jordan iran syria cameroon kenya andorra tunisia yemen haiti south-africa united-kingdom greece spain the-occupied-palestinian-territories st-helena-ascension-and-tristan-da-cunha kazakhstan kyrgyzstan egypt nigeria)
+    @location_slugs = %w(australia afghanistan iraq benin austria albania morocco azerbaijan ireland india tanzania indonesia jamaica malta italy jordan iran syria cameroon kenya andorra tunisia yemen haiti south-africa united-kingdom greece spain the-occupied-palestinian-territories st-helena-ascension-and-tristan-da-cunha kazakhstan kyrgyzstan egypt nigeria russia)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports-v2'
   end
@@ -914,6 +914,25 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       assert_state_variable :organisation, expected_location.fco_organisation
     end
   end # Kyrgyzstan
+
+  context "answer Russia, applying, child passport" do
+    should "give the IPS application result with custom phrases" do
+      worldwide_api_has_organisations_for_location('russia', read_fixture_file('worldwide/russia_organisations.json'))
+      add_response 'russia'
+      add_response 'applying'
+      add_response 'child'
+      add_response 'united-kingdom'
+      assert_current_node :ips_application_result
+      assert_phrase_list :how_long_it_takes, [:how_long_applying_ips2, :how_long_it_takes_ips2]
+      assert_phrase_list :cost, [:passport_courier_costs_ips2, :child_passport_costs_ips2, :passport_costs_ips2]
+      assert_phrase_list :send_your_application, [:send_application_ips2]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_ips2]
+      expected_location = WorldLocation.find('russia')
+      assert_state_variable :location, expected_location
+      assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /191124 St Petersburg Pl. Proletarskoy Diktatury, 5/, outcome_body
+    end
+  end # Kazakhstan
 
 
 end
