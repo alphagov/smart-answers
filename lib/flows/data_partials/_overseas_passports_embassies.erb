@@ -13,7 +13,13 @@ $A
 <%# Some labels have a trailing :, some don't %>
 <%= contact.label.sub(/:\s*\z/, '') %>: <%= contact.number %>
 <%- end -%>
-Email: <%= organisation.main_office.details.email %>
+<%- 
+    if organisation.main_office.details.email.present?
+-%>
+    Email: <%= organisation.main_office.details.email %>
+<%- 
+    end
+-%>
 $A
 
 <%= raw organisation.main_office.details.access_and_opening_times %>
@@ -31,7 +37,7 @@ $A
 <%- 
 		if place.details.email.present?
 -%>
-Email: <%= place.details.email.strip %>
+    Email: <%= place.details.email.strip %>
 <%- 
 		end
 	  end
