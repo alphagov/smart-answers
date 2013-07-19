@@ -154,7 +154,7 @@ class CalculateChildMaintentanceTestV2 < ActiveSupport::TestCase
           add_response 0
           add_response 0
           assert_current_node :reduced_and_basic_rates_result
-          assert_state_variable "child_maintenance_payment", "482"
+          assert_state_variable "child_maintenance_payment", "392"
         end
       end
     end
