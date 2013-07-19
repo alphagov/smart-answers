@@ -6,7 +6,8 @@ satisfies_need "2548"
 multiple_choice :how_many_children_paid_for? do
   option "1_child"
   option "2_children"
-  
+  option "3_children"
+
   calculate :number_of_children do
     ## to_i will look for the first integer in the string
     responses.last.to_i
