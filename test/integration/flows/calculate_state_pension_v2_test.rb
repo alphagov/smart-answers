@@ -424,6 +424,18 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
           assert_phrase_list :automatic_credits, [:automatic_credits]
         end
       end
+
+      context "is state pension age" do
+        setup do
+          Timecop.travel("2013-07-18")
+          add_response Date.parse("1948-07-18")
+        end
+
+        should "should show the result and have the state pension age assigned and" do
+          assert_state_variable :state_pension_age, "65 years"
+          assert_current_node :amount_result
+        end
+      end
     end # male
 
     context "female" do

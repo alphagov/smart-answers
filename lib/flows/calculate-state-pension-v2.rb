@@ -92,7 +92,6 @@ date_question :dob_age? do
     calculator.state_pension_age
   end
 
-
   calculate :state_pension_age_statement do
     if state_pension_date > Date.today
       PhraseList.new(:state_pension_age_is)
@@ -425,7 +424,7 @@ outcome :amount_result do
     calculator.state_pension_date.strftime("%e %B %Y")
   end
 
-  calculate :state_pension_date do
+  precalculate :state_pension_date do
     calculator.state_pension_date
   end
 
