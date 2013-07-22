@@ -10,15 +10,15 @@ module SmartAnswer::Calculators
     def last_payment_date
       case @payment_method
       when 'direct-debit'
-        5.working_days.after(@period_end_date + 1.month)
+        2.working_days.before(@period_end_date + 1.month + 7.days)
       when 'online-telephone-banking'
         @period_end_date + 1.month + 7.days
       when 'online-debit-credit-card', 'bacs-direct-credit', 'bank-giro'
-        4.working_days.after(@period_end_date + 1.month)
+        3.working_days.before(@period_end_date + 1.month + 7.days)
       when 'chaps'
         7.working_days.after(@period_end_date + 1.month)
       when 'cheque'
-        3.working_days.before(@period_end_date - 3.days)
+        6.working_days.before(@period_end_date)
       else
         raise ArgumentError.new("Invalid payment method")
       end
@@ -33,7 +33,8 @@ module SmartAnswer::Calculators
         # to always return a date.
         self.last_payment_date
       when 'online-debit-credit-card', 'bacs-direct-credit', 'bank-giro'
-        @period_end_date + 1.month + 7.days
+        # Select previous working day if not a work_day
+        0.working_days.before(@period_end_date + 1.month + 7.days)
       when 'chaps'
         7.working_days.after(@period_end_date + 1.month)
       when 'cheque'
