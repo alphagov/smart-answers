@@ -431,7 +431,7 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
           add_response Date.parse("1948-07-18")
         end
 
-        should "should show the result and have the state pension age assigned and" do
+        should "should show the result and have the state pension age assigned" do
           assert_state_variable :state_pension_age, "65 years"
           assert_current_node :amount_result
         end
