@@ -92,6 +92,9 @@ date_question :dob_age? do
     calculator.state_pension_age
   end
 
+  calculate :available_ni_years do
+    calculator.ni_years_to_date
+  end
 
   calculate :state_pension_age_statement do
     if state_pension_date > Date.today
@@ -146,7 +149,6 @@ date_question :dob_amount? do
     calculator.years_to_pension
   end
 
-
   calculate :available_ni_years do
     calculator.available_years
   end
@@ -158,7 +160,13 @@ date_question :dob_amount? do
     calc = Calculators::StatePensionAmountCalculatorV2.new(
       gender: gender, dob: response)
     if calc.before_state_pension_date?
-      (calc.under_20_years_old? ? :too_young : (calc.within_four_months_one_day_from_state_pension? ? :near_state_pension_age : :years_paid_ni?) )
+      if calc.under_20_years_old?
+        :too_young
+      elsif calc.within_four_months_one_day_from_state_pension?
+        :near_state_pension_age
+      else
+        :years_paid_ni?
+      end
     else
       :reached_state_pension_age
     end
@@ -193,7 +201,7 @@ value_question :years_paid_ni? do
 
 
   calculate :available_ni_years do
-    calculator.available_years_sum(qualifying_years)
+    calculator.available_years_sum(Integer(responses.last))
   end
 
   next_node do |response|
@@ -425,7 +433,7 @@ outcome :amount_result do
     calculator.state_pension_date.strftime("%e %B %Y")
   end
 
-  calculate :state_pension_date do
+  precalculate :state_pension_date do
     calculator.state_pension_date
   end
 

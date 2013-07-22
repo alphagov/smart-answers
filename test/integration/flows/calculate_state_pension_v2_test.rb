@@ -86,6 +86,19 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
           assert_state_variable "formatted_pension_pack_date", "December 2009"
         end
       end # born on 6th of April
+
+      context "born on 5th November 1948" do
+        setup do
+          Timecop.travel("2013-07-22")
+          add_response Date.parse("1948-11-05")
+          add_response 45
+        end
+
+        should "show the amount result" do
+          assert_state_variable :available_ni_years, 0
+          assert_current_node :amount_result
+        end
+      end
     end # male
 
     context "female, born on 4 August 1951" do
@@ -145,6 +158,7 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
         end
 
         should "ask for years paid ni" do
+          assert_state_variable :available_ni_years, 45
           assert_current_node :years_paid_ni?
         end
       end
@@ -156,6 +170,7 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
         end
 
         should "ask for years paid ni" do
+          assert_state_variable :available_ni_years, 25
           assert_current_node :years_paid_ni?
         end
       end
@@ -422,6 +437,18 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
           assert_state_variable :qualifying_years_total, 30
           assert_current_node :amount_result
           assert_phrase_list :automatic_credits, [:automatic_credits]
+        end
+      end
+
+      context "is state pension age" do
+        setup do
+          Timecop.travel("2013-07-18")
+          add_response Date.parse("1948-07-18")
+        end
+
+        should "should show the result and have the state pension age assigned" do
+          assert_state_variable :state_pension_age, "65 years"
+          assert_current_node :reached_state_pension_age
         end
       end
     end # male
