@@ -6,12 +6,12 @@
   <% end %>
 
   <header class="page-header group">
-    <hgroup>
+    <div>
       <h1>
         <span>Quick answer </span>
         <%= @presenter.title %>
       </h1>
-    </hgroup>
+    </div>
   </header>
   <div class="done-questions">
     <% if @presenter.current_question_number > 1 %><div class="start-again"><%= link_to "Start again", smart_answer_path(params[:id]) %></div><% end %>

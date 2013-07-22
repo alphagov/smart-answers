@@ -5,7 +5,7 @@
 <% end %>
 
 <header class="page-header group">
-  <hgroup>
+  <div>
     <h1>
       <span>Quick answer </span>
       <%= @presenter.title %>
@@ -13,7 +13,7 @@
     <% if @presenter.has_subtitle? %>
       <h2><%= @presenter.subtitle %></h2>
     <% end %>
-  </hgroup>
+  </div>
   <nav class="skip-to-related">
     <a href="#related">Not what you're looking for? ↓</a>
   </nav>
