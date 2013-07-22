@@ -157,7 +157,13 @@ date_question :dob_amount? do
     calc = Calculators::StatePensionAmountCalculatorV2.new(
       gender: gender, dob: response)
     if calc.before_state_pension_date?
-      (calc.under_20_years_old? ? :too_young : (calc.within_four_months_one_day_from_state_pension? ? :near_state_pension_age : :years_paid_ni?) )
+      if calc.under_20_years_old?
+        :too_young
+      elsif calc.within_four_months_one_day_from_state_pension?
+        :near_state_pension_age
+      else
+        :years_paid_ni?
+      end
     else
       :reached_state_pension_age
     end
