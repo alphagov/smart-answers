@@ -12,9 +12,9 @@ module SmartAnswer::Calculators
         @method = 'direct-debit'
       end
 
-      should "calculate last_payment_date as end_date + 1 month + 5 working days" do
+      should "calculate last_payment_date as end_date + 1 month + 7 calendar days - 2 working days" do
         calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), @method)
-        assert_equal Date.parse('2013-06-06'), calc.last_payment_date
+        assert_equal Date.parse('2013-06-04'), calc.last_payment_date
       end
 
       should "calculate funds_received_by as end_date + 1 month + 7 days + 3 working days" do
@@ -48,14 +48,19 @@ module SmartAnswer::Calculators
 
     ['online-debit-credit-card', 'bacs-direct-credit', 'bank-giro'].each do |method|
       context "dates for #{method}" do
-        should "calculate last_payment_date as end_date + 1 month + 4 working days" do
+        should "calculate last_payment_date as end_date + 1 month + 7 calendar days - 3 working days" do
           calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), method)
-          assert_equal Date.parse('2013-06-05'), calc.last_payment_date
+          assert_equal Date.parse('2013-06-03'), calc.last_payment_date
         end
 
-        should "calculate funds_received_by as end_date + 1 month + 7 days" do
+        should "calculate funds_received_by as end_date + 1 month + 7 days if that's a work day" do
           calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), method)
           assert_equal Date.parse('2013-06-06'), calc.funds_received_by
+        end
+
+        should "calculate funds_received_by as last working day before end_date + 1 month + 7 days if that's a non-work day" do
+          calc = VatPaymentDeadlines.new(Date.parse('2013-05-31'), method)
+          assert_equal Date.parse('2013-07-05'), calc.funds_received_by
         end
       end
     end
@@ -81,9 +86,9 @@ module SmartAnswer::Calculators
         @method = 'cheque'
       end
 
-      should "calculate last_payment_date as end_date - 3 days - 3 working days" do
+      should "calculate last_payment_date as end_date - 6 working days" do
         calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), @method)
-        assert_equal Date.parse('2013-04-23'), calc.last_payment_date
+        assert_equal Date.parse('2013-04-22'), calc.last_payment_date
       end
 
       should "calculate funds_received_by as last working day before end_date" do
