@@ -648,13 +648,16 @@ module SmartAnswer::Calculators
     context "born on 05-11-1948" do
       setup do
         Timecop.travel("2013-07-22")
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
+          gender: "male", dob: "5 November 1948", qualifying_years: nil)
       end
 
       should "have zero available years left" do
-        calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
-          gender: "male", dob: "5 November 1948", qualifying_years: nil)
+        assert_equal 0, @calculator.available_years_sum(45)
+      end
 
-        assert_equal 0, calculator.available_years_sum(45)
+      should "should have 45 available years" do
+        assert_equal 45, @calculator.available_years
       end
     end
   end
