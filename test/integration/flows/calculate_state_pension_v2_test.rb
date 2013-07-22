@@ -145,6 +145,7 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
         end
 
         should "ask for years paid ni" do
+          assert_state_variable :available_ni_years, 45
           assert_current_node :years_paid_ni?
         end
       end
@@ -156,6 +157,7 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
         end
 
         should "ask for years paid ni" do
+          assert_state_variable :available_ni_years, 25
           assert_current_node :years_paid_ni?
         end
       end
