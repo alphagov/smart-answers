@@ -433,7 +433,7 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
 
         should "should show the result and have the state pension age assigned" do
           assert_state_variable :state_pension_age, "65 years"
-          assert_current_node :amount_result
+          assert_current_node :reached_state_pension_age
         end
       end
     end # male
