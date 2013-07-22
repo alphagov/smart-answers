@@ -86,6 +86,19 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
           assert_state_variable "formatted_pension_pack_date", "December 2009"
         end
       end # born on 6th of April
+
+      context "born on 5th November 1948" do
+        setup do
+          Timecop.travel("2013-07-22")
+          add_response Date.parse("1948-11-05")
+          add_response 45
+        end
+
+        should "show the amount result" do
+          assert_state_variable :available_ni_years, 0
+          assert_current_node :amount_result
+        end
+      end
     end # male
 
     context "female, born on 4 August 1951" do

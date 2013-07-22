@@ -92,6 +92,10 @@ date_question :dob_age? do
     calculator.state_pension_age
   end
 
+  calculate :available_ni_years do
+    calculator.ni_years_to_date
+  end
+
   calculate :state_pension_age_statement do
     if state_pension_date > Date.today
       PhraseList.new(:state_pension_age_is)
@@ -145,7 +149,6 @@ date_question :dob_amount? do
     calculator.years_to_pension
   end
 
-
   calculate :available_ni_years do
     calculator.available_years
   end
@@ -198,7 +201,7 @@ value_question :years_paid_ni? do
 
 
   calculate :available_ni_years do
-    calculator.available_years_sum(qualifying_years)
+    calculator.available_years_sum(Integer(responses.last))
   end
 
   next_node do |response|
