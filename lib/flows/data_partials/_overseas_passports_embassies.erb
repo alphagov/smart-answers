@@ -1,0 +1,31 @@
+<%- 
+if overseas_passports_embassies.any? 
+  overseas_passports_embassies.each do |embassy|
+-%>
+
+
+$A
+<%= embassy.address.label.value %>
+<%- embassy.contact_numbers.each do |contact| -%>
+<%# Some labels have a trailing :, some don't %>
+<%= contact.label.sub(/:\s*\z/, '') %>: <%= contact.number %>
+<%- end -%>
+<%- if embassy.details.email.present? -%>
+Email: <%= embassy.details.email %>
+<%- end -%>
+$A
+
+<%= raw embassy.details.access_and_opening_times %>
+<%- 
+  end 
+-%>
+<%- else -%>
+
+No embassy details found
+
+<%- end -%>
+
+
+
+
+
