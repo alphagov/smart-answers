@@ -1,56 +1,31 @@
 <%- 
-if organisation && organisation.all_offices.any? 
-  offices_with_doc_service = organisation.all_offices.select do |o| 
-  	o.services.any? { |s| s.title.include?('Overseas Passports Service') }
-  end
-  if offices_with_doc_service.empty?
-%>
+if overseas_passports_embassies.any? 
+  overseas_passports_embassies.each do |embassy|
+-%>
 
 
 $A
-<%= organisation.main_office.address.label.value %>
-<%- organisation.main_office.contact_numbers.each do |contact| -%>
+<%= embassy.address.label.value %>
+<%- embassy.contact_numbers.each do |contact| -%>
 <%# Some labels have a trailing :, some don't %>
 <%= contact.label.sub(/:\s*\z/, '') %>: <%= contact.number %>
 <%- end -%>
-<%- 
-    if organisation.main_office.details.email.present?
--%>
-    Email: <%= organisation.main_office.details.email %>
-<%- 
-    end
--%>
+<%- if embassy.details.email.present? -%>
+Email: <%= embassy.details.email %>
+<%- end -%>
 $A
 
-<%= raw organisation.main_office.details.access_and_opening_times %>
+<%= raw embassy.details.access_and_opening_times %>
 <%- 
-  else 
-  	offices_with_doc_service.each do |place|
-%>
-
-
-$A
-<%= place.address.label.value %>
-<%- place.contact_numbers.each do |contact| -%>
-<%# Some labels have a trailing :, some don't %>
-<%= contact.label.sub(/:\s*\z/, '') %>: <%= contact.number %>
-<%- 
-		if place.details.email.present?
+  end 
 -%>
-    Email: <%= place.details.email.strip %>
-<%- 
-		end
-	  end
--%>
-$A
+<%- else -%>
 
-<%= raw place.details.access_and_opening_times %>
-<%- 
-  	end
-  end
-else  
--%>
 No embassy details found
-<%- 
-end 
--%>
+
+<%- end -%>
+
+
+
+
+

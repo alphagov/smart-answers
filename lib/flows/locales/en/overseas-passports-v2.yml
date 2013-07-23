@@ -421,12 +421,12 @@ en-GB:
 
           You must make your application in person.
 
-          +[data_partial:overseas_passports_embassies:organisation]
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
         send_application_jamaica: |
           You must make your application in person to the British High Commission, Kingston
 
-          +[data_partial:overseas_passports_embassies:organisation]
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
         send_application_indonesia: |
           Send your application - preferably by one-way courier or secure post - to
@@ -1000,7 +1000,6 @@ en-GB:
           3. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports "Passport photo requirements") or your application may be delayed.
           4. Check which supporting documents you must include with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
 
-
         send_application_ips2: |
           ## Making your application
           You must apply in person.
@@ -1011,8 +1010,7 @@ en-GB:
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
                     
-          +[data_partial:overseas_passports_embassies:organisation]
-
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
         getting_your_passport_ips2: |
           Your passport will be delivered to the British embassy, high commission or consulate where you applied  - you must collect it in person. 
@@ -1096,7 +1094,7 @@ en-GB:
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
 
-          +[data_partial:overseas_passports_embassies:organisation]
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
         send_application_ips3_gaza: |
           ## Making your application
@@ -2676,8 +2674,6 @@ en-GB:
           [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)")
           $D
 
-          +[data_partial:overseas_passports_embassies:organisation]
-
           ## Cost
 
           You must pay in cash using Algerian Dinars at the British embassy in Algiers.
@@ -2698,7 +2694,19 @@ en-GB:
 
           4. Take your application in person to the British embassy in Algiers.
 
-          +[data_partial:overseas_passports_embassies:organisation]
+
+          $A
+          British Embassy Algiers
+          Ambassade Britannique, 
+          3 Chemin Capitaine Hocine Slimane (ex Chemin des Glycines),
+          Hydra
+          Algiers
+          Algeria
+          
+          Email: BritishEmbassy.Algiers@fco.gov.uk
+          Telephone +213 (0) 770 085 000
+          Fax number +213 (0) 770 08 50 99
+          $A
 
           ## Getting your passport
 
@@ -2877,7 +2885,7 @@ en-GB:
           %{making_application}
 
 
-          +[data_partial:overseas_passports_embassies:organisation]
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
           %{making_application_additional}
 
