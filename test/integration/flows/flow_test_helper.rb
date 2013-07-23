@@ -25,9 +25,9 @@ module FlowTestHelper
   end
 
   def assert_current_node(node_name, opts = {})
-    opts[:error] ? assert_current_node_is_error : assert_not_error
     assert_equal node_name, current_state.current_node
     assert @flow.node_exists?(node_name), "Node #{node_name} does not exist."
+    opts[:error] ? assert_current_node_is_error : assert_not_error
   end
 
   def assert_current_node_is_error(message = nil)
