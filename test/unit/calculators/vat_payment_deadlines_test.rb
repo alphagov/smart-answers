@@ -12,14 +12,14 @@ module SmartAnswer::Calculators
         @method = 'direct-debit'
       end
 
-      should "calculate last_payment_date as end_date + 1 month + 7 calendar days - 2 working days" do
+      should "calculate last_payment_date as end_of_month_after(end_date) + 7 calendar days - 2 working days" do
         calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), @method)
-        assert_equal Date.parse('2013-06-04'), calc.last_payment_date
+        assert_equal Date.parse('2013-06-05'), calc.last_payment_date
       end
 
-      should "calculate funds_received_by as end_date + 1 month + 7 days + 3 working days" do
+      should "calculate funds_received_by as end_of_month_after(end_date) + 7 calendar days + 3 working days" do
         calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), @method)
-        assert_equal Date.parse('2013-06-11'), calc.funds_received_by
+        assert_equal Date.parse('2013-06-12'), calc.funds_received_by
       end
     end
 
@@ -28,9 +28,9 @@ module SmartAnswer::Calculators
         @method = 'online-telephone-banking'
       end
 
-      should "calculate last_payment_date as end_date + 1 month + 7 days" do
+      should "calculate last_payment_date as end_of_month_after(end_date) + 7 days" do
         calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), @method)
-        assert_equal Date.parse('2013-06-06'), calc.last_payment_date
+        assert_equal Date.parse('2013-06-07'), calc.last_payment_date
       end
 
       should "handle different month lengths correctly" do
@@ -48,17 +48,17 @@ module SmartAnswer::Calculators
 
     ['online-debit-credit-card', 'bacs-direct-credit', 'bank-giro'].each do |method|
       context "dates for #{method}" do
-        should "calculate last_payment_date as end_date + 1 month + 7 calendar days - 3 working days" do
+        should "calculate last_payment_date as end_of_month_after(end_date) + 7 calendar days - 3 working days" do
           calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), method)
-          assert_equal Date.parse('2013-06-03'), calc.last_payment_date
+          assert_equal Date.parse('2013-06-04'), calc.last_payment_date
         end
 
-        should "calculate funds_received_by as end_date + 1 month + 7 days if that's a work day" do
+        should "calculate funds_received_by as end_of_month_after(end_date) + 7 days if that's a work day" do
           calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), method)
-          assert_equal Date.parse('2013-06-06'), calc.funds_received_by
+          assert_equal Date.parse('2013-06-07'), calc.funds_received_by
         end
 
-        should "calculate funds_received_by as last working day before end_date + 1 month + 7 days if that's a non-work day" do
+        should "calculate funds_received_by as last working day before end_of_month_after(end_date) + 7 days if that's a non-work day" do
           calc = VatPaymentDeadlines.new(Date.parse('2013-05-31'), method)
           assert_equal Date.parse('2013-07-05'), calc.funds_received_by
         end
@@ -70,14 +70,14 @@ module SmartAnswer::Calculators
         @method = 'chaps'
       end
 
-      should "calculate last_payment_date as end_date + 1 month + 7 working days" do
+      should "calculate last_payment_date as end_of_month_after(end_date) + 7 working days" do
         calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), @method)
-        assert_equal Date.parse('2013-06-10'), calc.last_payment_date
+        assert_equal Date.parse('2013-06-11'), calc.last_payment_date
       end
 
-      should "calculate funds_received_by as end_date + 1 month + 7 working days" do
+      should "calculate funds_received_by as end_of_month_after(end_date) + 7 working days" do
         calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), @method)
-        assert_equal Date.parse('2013-06-10'), calc.funds_received_by
+        assert_equal Date.parse('2013-06-11'), calc.funds_received_by
       end
     end
 
@@ -101,7 +101,6 @@ module SmartAnswer::Calculators
     end
 
     context "with an invalid payment method" do
-
       should "raise an ArgumentError for last_payment_date" do
         assert_raise ArgumentError do
           VatPaymentDeadlines.new(Date.parse('2013-04-30'), 'fooey').last_payment_date

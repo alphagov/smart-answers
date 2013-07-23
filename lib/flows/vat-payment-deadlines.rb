@@ -5,7 +5,9 @@ date_question :when_does_your_vat_accounting_period_end? do
   next_node :how_do_you_want_to_pay?
 
   calculate :period_end_date do
-    Date.parse(responses.last)
+    date = Date.parse(responses.last)
+    raise InvalidResponse unless date == date.end_of_month
+    date
   end
 end
 
