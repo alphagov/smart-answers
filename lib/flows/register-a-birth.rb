@@ -1,6 +1,7 @@
 status :published
 satisfies_need "2759"
 
+data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
 embassy_data_query = SmartAnswer::Calculators::PassportAndEmbassyDataQuery.new
 i18n_prefix = 'flow.register-a-birth'
@@ -10,6 +11,7 @@ exclusions = %w(afghanistan cambodia central-african-republic chad comoros
                 taiwan tajikistan western-sahara)
 no_embassies = %w(iran syria yemen)
 different_address = %w(belgium brazil germany india indonesia turkey united-arab-emirates)
+
 
 # Q1
 country_select :country_of_birth?, :use_legacy_data => true do
@@ -21,10 +23,25 @@ country_select :country_of_birth?, :use_legacy_data => true do
   calculate :country_of_birth_name do
     LegacyCountry.all.find { |c| c.slug == responses.last }.name
   end
+  calculate :country_name_lowercase_prefix do
+    if data_query.countries_with_definitive_articles?(country_of_birth)
+      "the #{country_of_birth_name}"
+    else
+      country_of_birth_name
+    end
+  end
   calculate :registration_country_name do
     LegacyCountry.all.find { |c| c.slug == registration_country }.name
   end
-  
+  calculate :registration_country_name_lowercase_prefix do
+    if data_query.countries_with_definitive_articles?(registration_country)
+      "the #{registration_country_name}"
+    else
+      registration_country_name
+    end
+  end
+
+
   next_node do |response|
     if no_embassies.include?(response)
       :no_embassy_result
@@ -110,6 +127,13 @@ country_select :which_country?, :use_legacy_data => true do
   end
   calculate :registration_country_name do
     LegacyCountry.all.find { |c| c.slug == registration_country }.name
+  end
+  calculate :registration_country_name_lowercase_prefix do
+    if data_query.countries_with_definitive_articles?(registration_country)
+      "the #{registration_country_name}"
+    else
+      registration_country_name
+    end
   end
 
   next_node do |response| 

@@ -1,6 +1,7 @@
 satisfies_need "2189"
 status :published
 
+data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
 i18n_prefix = "flow.register-a-death"
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
 embassy_data_query = SmartAnswer::Calculators::PassportAndEmbassyDataQuery.new
@@ -47,15 +48,33 @@ end
 # Q4
 country_select :which_country?, :use_legacy_data => true do
   save_input_as :country
+
   calculate :country_name do
     LegacyCountry.all.find { |c| c.slug == responses.last }.name
   end
+  calculate :country_name_lowercase_prefix do
+    if data_query.countries_with_definitive_articles?(country)
+      "the #{country_name}"
+    else
+      country_name
+    end
+  end
+
+
   calculate :current_location do
     reg_data_query.registration_country_slug(responses.last) || responses.last 
   end
   calculate :current_location_name do
     LegacyCountry.all.find { |c| c.slug == current_location }.name
   end
+  calculate :current_location_name_lowercase_prefix do
+    if data_query.countries_with_definitive_articles?(country)
+      "the #{current_location_name}"
+    else
+      current_location_name
+    end
+  end
+
   next_node do |response|
     if reg_data_query.commonwealth_country?(response)
       :commonwealth_result
@@ -83,6 +102,16 @@ country_select :which_country_are_you_in_now?, :use_legacy_data => true do
     country_slug = reg_data_query.registration_country_slug(responses.last)
     LegacyCountry.all.find { |c| c.slug == country_slug }.name
   end
+  calculate :current_location_name_lowercase_prefix do
+    if data_query.countries_with_definitive_articles?(current_location)
+      "the #{current_location_name}"
+    else
+      current_location_name
+    end
+  end
+
+
+
   next_node :embassy_result
 end
 
