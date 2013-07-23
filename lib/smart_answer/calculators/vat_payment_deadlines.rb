@@ -10,13 +10,13 @@ module SmartAnswer::Calculators
     def last_payment_date
       case @payment_method
       when 'direct-debit'
-        2.working_days.before(@period_end_date + 1.month + 7.days)
+        2.working_days.before(end_of_month_after(@period_end_date) + 7.days)
       when 'online-telephone-banking'
-        @period_end_date + 1.month + 7.days
+        end_of_month_after(@period_end_date) + 7.days
       when 'online-debit-credit-card', 'bacs-direct-credit', 'bank-giro'
-        3.working_days.before(@period_end_date + 1.month + 7.days)
+        3.working_days.before(end_of_month_after(@period_end_date) + 7.days)
       when 'chaps'
-        7.working_days.after(@period_end_date + 1.month)
+        7.working_days.after(end_of_month_after(@period_end_date))
       when 'cheque'
         6.working_days.before(@period_end_date)
       else
@@ -27,22 +27,28 @@ module SmartAnswer::Calculators
     def funds_received_by
       case @payment_method
       when 'direct-debit'
-        3.working_days.after(@period_end_date + 1.month + 7.days)
+        3.working_days.after(end_of_month_after(@period_end_date) + 7.days)
       when 'online-telephone-banking'
         # This doesn't really apply to online banking, but the flow expects this
         # to always return a date.
         self.last_payment_date
       when 'online-debit-credit-card', 'bacs-direct-credit', 'bank-giro'
         # Select previous working day if not a work_day
-        0.working_days.before(@period_end_date + 1.month + 7.days)
+        0.working_days.before(end_of_month_after(@period_end_date) + 7.days)
       when 'chaps'
-        7.working_days.after(@period_end_date + 1.month)
+        7.working_days.after(end_of_month_after(@period_end_date))
       when 'cheque'
         # Select previous working day if not a work_day
         0.working_days.before(@period_end_date)
       else
         raise ArgumentError.new("Invalid payment method")
       end
+    end
+
+    private
+
+    def end_of_month_after(date)
+      (date + 1.month).end_of_month
     end
   end
 end
