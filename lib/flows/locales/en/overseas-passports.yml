@@ -421,12 +421,12 @@ en-GB:
 
           You must make your application in person.
 
-          +[data_partial:passports_embassies:organisation]
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
         send_application_jamaica: |
           You must make your application in person to the British High Commission, Kingston
 
-          +[data_partial:passports_embassies:organisation]
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
         send_application_indonesia: |
           Send your application - preferably by one-way courier or secure post - to
@@ -1000,7 +1000,6 @@ en-GB:
           3. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports "Passport photo requirements") or your application may be delayed.
           4. Check which supporting documents you must include with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
 
-
         send_application_ips2: |
           ## Making your application
           You must apply in person.
@@ -1011,8 +1010,7 @@ en-GB:
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
                     
-          +[data_partial:passports_embassies:organisation]
-
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
         getting_your_passport_ips2: |
           Your passport will be delivered to the British embassy, high commission or consulate where you applied  - you must collect it in person. 
@@ -1096,7 +1094,7 @@ en-GB:
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
 
-          +[data_partial:passports_embassies:organisation]
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
         send_application_ips3_gaza: |
           ## Making your application
@@ -1119,28 +1117,6 @@ en-GB:
           Email: dljerusalemconsularprotect@fco.gov.uk  
           Telephone: +972 (8) 2641456
           Fax: +972 (8) 2641457
-          $A
-
-        send_application_ips3_kazakhstan_kyrgyzstan: |
-          ## Making your application
-          You must apply in person.
-
-          You must bring photo ID with you.
-
-          If you’re renewing a passport, you must bring your current passport with you when you apply. You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
-
-          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
-
-
-          $A
-          British Embassy Office, Almaty
-          Rahat Palace Hotel Business Centre 
-          29/6 Satpaev Street, 7th floor
-          Almaty 050000 
-          Kazakhstan
-
-          Telephone: +7 (7272) 506191
-          Fax: +7 (7272) 507962
           $A
 
         getting_your_passport_ips3: |
@@ -1921,12 +1897,15 @@ en-GB:
           For renewals, don’t send your existing passport with your application - you may need it for ID purposes.
 
         supporting_documents_ghana: |
+
+
+          $D
           [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc "Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)")
 
           [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc "Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)")
 
           [Download ‘Supporting documents for lost and stolen passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc "Download ‘Supporting documents for lost or stolen passport applications’ (DOC, 30KB)")
-
+          $D
         making_application_ghana: |
           ### First applications, renewing a black or blue passport or replacing a lost or stolen passport
 
@@ -2268,12 +2247,15 @@ en-GB:
           For renewals, you must send the passport you’re replacing and a registration/naturalisation certificate (if relevant).
 
         supporting_documents_somalia: |
+
+
+          $D
           [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc "Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)")
 
           [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc "Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)")
 
           [Download ‘Supporting documents for lost and stolen passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc "Download ‘Supporting documents for lost or stolen passport applications’ (DOC, 30KB)")
-
+          $D
         making_application_somalia: |
           You can:
 
@@ -2312,12 +2294,15 @@ en-GB:
           For renewals, don’t send your existing passport with your application - you may need it for ID purposes.
 
         supporting_documents_south-sudan: |
+
+
+          $D
           [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc "Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)")
 
           [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc "Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)")
 
           [Download ‘Supporting documents for lost and stolen passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc "Download ‘Supporting documents for lost or stolen passport applications’ (DOC, 30KB)")
-
+          $D
         making_application_south-sudan: |
           You must download [covering letter](/government/uploads/system/uploads/attachment_data/file/136888/covering-letter.doc "Covering letter") and include it with your application.
 
@@ -2378,12 +2363,15 @@ en-GB:
           For renewals, don’t send your existing passport with your application - you may need it for ID purposes.
 
         supporting_documents_sudan: |
+
+
+          $D
           [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc "Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)")
 
           [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc "Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)")
 
           [Download ‘Supporting documents for lost and stolen passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc "Download ‘Supporting documents for lost or stolen passport applications’ (DOC, 30KB)")
-
+          $D
         making_application_sudan: |
           Bring your application in person to the British Embassy in Khartoum.
 
@@ -2686,8 +2674,6 @@ en-GB:
           [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)")
           $D
 
-          +[data_partial:passports_embassies:organisation]
-
           ## Cost
 
           You must pay in cash using Algerian Dinars at the British embassy in Algiers.
@@ -2708,7 +2694,19 @@ en-GB:
 
           4. Take your application in person to the British embassy in Algiers.
 
-          +[data_partial:passports_embassies:organisation]
+
+          $A
+          British Embassy Algiers
+          Ambassade Britannique, 
+          3 Chemin Capitaine Hocine Slimane (ex Chemin des Glycines),
+          Hydra
+          Algiers
+          Algeria
+          
+          Email: BritishEmbassy.Algiers@fco.gov.uk
+          Telephone +213 (0) 770 085 000
+          Fax number +213 (0) 770 08 50 99
+          $A
 
           ## Getting your passport
 
@@ -2887,7 +2885,7 @@ en-GB:
           %{making_application}
 
 
-          +[data_partial:passports_embassies:organisation]
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
           %{making_application_additional}
 

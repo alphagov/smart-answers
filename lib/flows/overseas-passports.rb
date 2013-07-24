@@ -61,6 +61,18 @@ multiple_choice :renewing_replacing_applying? do
     location.fco_organisation
   end
   
+  calculate :overseas_passports_embassies do
+    if organisation && organisation.all_offices.any?
+      embassies = organisation.all_offices.select do |o| 
+        o.services.any? { |s| s.title.include?('Overseas Passports Service') }
+      end
+      embassies << organisation.main_office if embassies.empty?
+      embassies
+    else
+      []
+    end
+  end
+
   calculate :general_action do
     responses.last =~ /^renewing_/ ? 'renewing' : responses.last
   end
@@ -275,8 +287,6 @@ outcome :ips_application_result do
       PhraseList.new(:"send_application_ips#{ips_number}_durham")
     elsif %w(gaza).include?(current_location)
       PhraseList.new(:send_application_ips3_gaza)
-    elsif %w(kazakhstan kyrgyzstan).include?(current_location)
-      PhraseList.new(:send_application_ips3_kazakhstan_kyrgyzstan)
     else
       PhraseList.new(:"send_application_ips#{ips_number}")
     end
