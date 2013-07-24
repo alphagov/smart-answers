@@ -9,7 +9,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(australia afghanistan iraq benin austria albania morocco azerbaijan ireland india tanzania indonesia jamaica malta italy jordan iran syria cameroon kenya andorra tunisia yemen haiti south-africa united-kingdom greece spain the-occupied-palestinian-territories st-helena-ascension-and-tristan-da-cunha kazakhstan kyrgyzstan egypt nigeria)
+    @location_slugs = %w(australia afghanistan iraq benin austria albania morocco azerbaijan ireland india tanzania indonesia jamaica malta italy jordan iran syria cameroon kenya andorra tunisia yemen haiti south-africa united-kingdom greece spain the-occupied-palestinian-territories st-helena-ascension-and-tristan-da-cunha kazakhstan kyrgyzstan egypt nigeria russia)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports'
   end
@@ -204,6 +204,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           expected_location = WorldLocation.find('afghanistan')
           assert_state_variable :location, expected_location
           assert_state_variable :organisation, expected_location.fco_organisation
+          assert_match /15th Street, Roundabout Wazir Akbar Khan/, outcome_body
         end
       end
     end
@@ -250,6 +251,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
             expected_location = WorldLocation.find('iraq')
             assert_state_variable :location, expected_location
             assert_state_variable :organisation, expected_location.fco_organisation
+            assert_match /Millburngate House/, outcome_body
           end
         end
       end
@@ -275,6 +277,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       expected_location = WorldLocation.find('benin')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /Gamel Abdul Nasser Avenue/, outcome_body
     end
   end
 
@@ -326,6 +329,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
             expected_location = WorldLocation.find('austria')
             assert_state_variable :location, expected_location
             assert_state_variable :organisation, expected_location.fco_organisation
+            assert_match /101 Old Hall Street/, outcome_body
           end
         end
       end
@@ -359,6 +363,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           assert_phrase_list :send_your_application, [:send_application_ips1]
           assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
           assert_state_variable :embassy_address, nil
+          assert_match /101 Old Hall Street/, outcome_body
         end
       end
     end # Replacing
@@ -405,7 +410,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
             expected_location = WorldLocation.find('albania')
             assert_state_variable :location, expected_location
             assert_state_variable :organisation, expected_location.fco_organisation
-
+            assert_match /101 Old Hall Street/, outcome_body
           end
         end
         context "answer UK" do
@@ -422,6 +427,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
             expected_location = WorldLocation.find('albania')
             assert_state_variable :location, expected_location
             assert_state_variable :organisation, expected_location.fco_organisation
+            assert_match /101 Old Hall Street/, outcome_body
           end
         end
       end
@@ -512,6 +518,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       expected_location = WorldLocation.find('ireland')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /29 Merrion Road/, outcome_body
     end
   end # Ireland (FCO with custom phrases)
 
@@ -558,6 +565,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       expected_location = WorldLocation.find('tanzania')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /South Africa/, outcome_body
     end
   end # Tanzania (FCO with custom phrases)
 
@@ -572,6 +580,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       expected_location = WorldLocation.find('indonesia')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /Jl Imam Bonjol 80/, outcome_body
     end
   end # Indonesia (FCO with custom phrases)
 
@@ -601,6 +610,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       expected_location = WorldLocation.find('malta')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /Millburngate House/, outcome_body
     end
   end # Malta (IPS1 with custom phrases)
 
@@ -615,6 +625,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       expected_location = WorldLocation.find('italy')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /Millburngate House/, outcome_body
     end
   end # Italy (IPS1 with custom phrases)
 
@@ -631,11 +642,13 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       expected_location = WorldLocation.find('jordan')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /Millburngate House/, outcome_body
     end
   end # Jordan (IPS1 with custom phrases)
 
   context "answer Iran" do
     should "give a bespoke outcome stating an application is not possible in Iran" do
+      worldwide_api_has_organisations_for_location('iran', read_fixture_file('worldwide/iran_organisations.json'))
       add_response 'iran'
       assert_current_node :cannot_apply
       assert_phrase_list :body_text, [:body_iran]
@@ -646,6 +659,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
   
   context "answer Syria" do
     should "give a bespoke outcome stating an application is not possible in Syria" do
+      worldwide_api_has_organisations_for_location('syria', read_fixture_file('worldwide/syria_organisations.json'))
       add_response 'syria'
       assert_current_node :cannot_apply
       assert_phrase_list :body_text, [:body_syria]
@@ -707,9 +721,9 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       expected_location = WorldLocation.find('egypt')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /Millburngate House/, outcome_body
     end
   end # Egypt
-
 
   context "answer Andorra, renewing, adult passport" do
     should "give the IPS application result with custom phrases" do
@@ -728,6 +742,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       expected_location = WorldLocation.find('andorra')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /90-106 Victoria Street/, outcome_body
     end
   end # Andorra
 
@@ -767,6 +782,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       expected_location = WorldLocation.find('yemen')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /Millburngate House/, outcome_body
     end
   end # Yemen
 
@@ -804,6 +820,8 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         expected_location = WorldLocation.find('south-africa')
         assert_state_variable :location, expected_location
         assert_state_variable :organisation, expected_location.fco_organisation
+        assert_match /Pretoria 0028/, outcome_body
+        assert_match /Pretoria 0083/, outcome_body
       end
     end
     context "renewing, adult passport" do
@@ -869,11 +887,12 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_current_node :ips_application_result
       assert_phrase_list :how_long_it_takes, [:how_long_kazakhstan, :how_long_it_takes_ips3]
       assert_phrase_list :cost, [:passport_courier_costs_ips3, :child_passport_costs_ips3, :passport_costs_ips3]
-      assert_phrase_list :send_your_application, [:send_application_ips3_kazakhstan_kyrgyzstan]
+      assert_phrase_list :send_your_application, [:send_application_ips3]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
       expected_location = WorldLocation.find('kazakhstan')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /Astana 010000/, outcome_body
     end
   end # Kazakhstan
 
@@ -887,11 +906,12 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_current_node :ips_application_result
       assert_phrase_list :how_long_it_takes, [:how_long_kyrgyzstan, :how_long_it_takes_ips3]
       assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
-      assert_phrase_list :send_your_application, [:send_application_ips3_kazakhstan_kyrgyzstan]
+      assert_phrase_list :send_your_application, [:send_application_ips3]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
       expected_location = WorldLocation.find('kyrgyzstan')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /Bishkek, 720040/, outcome_body
     end
   end # Kyrgyzstan
 
@@ -912,8 +932,28 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       expected_location = WorldLocation.find('nigeria')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /11 Walter Carrington Crescent/, outcome_body
     end
   end # Kyrgyzstan
+
+  context "answer Russia, applying, child passport" do
+    should "give the IPS application result with custom phrases" do
+      worldwide_api_has_organisations_for_location('russia', read_fixture_file('worldwide/russia_organisations.json'))
+      add_response 'russia'
+      add_response 'applying'
+      add_response 'child'
+      add_response 'united-kingdom'
+      assert_current_node :ips_application_result
+      assert_phrase_list :how_long_it_takes, [:how_long_applying_ips2, :how_long_it_takes_ips2]
+      assert_phrase_list :cost, [:passport_courier_costs_ips2, :child_passport_costs_ips2, :passport_costs_ips2]
+      assert_phrase_list :send_your_application, [:send_application_ips2]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_ips2]
+      expected_location = WorldLocation.find('russia')
+      assert_state_variable :location, expected_location
+      assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /191124 St Petersburg Pl. Proletarskoy Diktatury, 5/, outcome_body
+    end
+  end # Kazakhstan
 
 
 end
