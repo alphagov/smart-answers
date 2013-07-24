@@ -318,7 +318,7 @@ en-GB:
         footnote: |
           ^It takes about 5 working days for the death to be officially registered.^
         reg_footnote: |
-         Your application will be sent to the %{embassy_high_commission_or_consulate} in %{current_location_name} to be registered there.  
+         Your application will be sent to the %{embassy_high_commission_or_consulate} in %{current_location_name_lowercase_prefix} to be registered there.  
 
 # Outcomes
 #
@@ -327,13 +327,13 @@ en-GB:
           %{content_sections}
       embassy_result:
         body: |
-          $!You must register the death according to the regulations in %{country_name}. You will be given a local death certificate.$!
+          $!You must register the death according to the regulations in %{country_name_lowercase_prefix}. You will be given a local death certificate.$!
          
           This local death certificate will be accepted in the UK (it may need to be a [certified translation](/certifying-a-document "Certifying a document") of the document if it’s not in English). 
           
           ##Register the death with the UK authorities
           
-          You can also apply to register the death with the %{embassy_high_commission_or_consulate} in %{current_location_name}.
+          You can also apply to register the death with the %{embassy_high_commission_or_consulate} in %{current_location_name_lowercase_prefix}.
 
           You don’t have to do this, but it means:
           
@@ -399,7 +399,7 @@ en-GB:
           %{embassy_details}
       fco_result:
         body: |
-          $!You must register the death according to the regulations in %{country_name}. You will be given a local death certificate.$!
+          $!You must register the death according to the regulations in %{country_name_lowercase_prefix}. You will be given a local death certificate.$!
 
           This local death certificate will be accepted in the UK (it may need to be a [certified translation](/certifying-a-document "Certifying a document") of the document if it’s not in English).
 
@@ -468,15 +468,15 @@ en-GB:
 
       no_embassy_result:
         body: |
-          $!You must register the death according to the regulations in %{country_name}. You will be given a local death certificate.$!
+          $!You must register the death according to the regulations in %{country_name_lowercase_prefix}. You will be given a local death certificate.$!
 
           You can’t currently register the death with the UK authorities.
 
-          The local death certificate, with a [certified translation](/certifying-a-document "Certifying a document"), should be acceptable for all purposes in the UK. You can apply for registration at any time in the future - check [travel advice](/foreign-travel-advice) to find out if consular services have reopened in %{country_name}.
+          The local death certificate, with a [certified translation](/certifying-a-document "Certifying a document"), should be acceptable for all purposes in the UK. You can apply for registration at any time in the future - check [travel advice](/foreign-travel-advice) to find out if consular services have reopened in %{country_name_lowercase_prefix}.
 
       commonwealth_result:
         body: |
-          $!You must register the death according to the regulations in %{country_name}. You will be given a local death certificate.$!
+          $!You must register the death according to the regulations in %{country_name_lowercase_prefix}. You will be given a local death certificate.$!
 
-          You can't register the death with the UK authorities. The death certificate you are given in %{country_name} will be accepted and recognised in the UK.
+          You can't register the death with the UK authorities. The death certificate you are given in %{country_name_lowercase_prefix} will be accepted and recognised in the UK.
 

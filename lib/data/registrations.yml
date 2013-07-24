@@ -21,9 +21,7 @@ clickbook:
   greece: https://www.clickbook.net/dev/bc.nsf/sub/BRITISHEMBASSYATHENS
   guatemala: http://www.britishembassyinguat.clickbook.net/
   hungary: http://www.britishembassyconsul.clickbook.net/
-  italy:
-    Rome: https://www.clickbook.net/dev/bc.nsf/sub/britishconsrome
-    Milan: https://www.clickbook.net/dev/bc.nsf/sub/britishconsmilan
+  italy: https://www.clickbook.net/dev/bc.nsf/sub/britishconsrome
   japan:
     Tokyo: http://www.britishembassytokyo.clickbook.net/
     Osaka: http://www.britishconsulateosak.clickbook.net/

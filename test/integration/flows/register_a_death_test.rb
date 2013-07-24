@@ -300,7 +300,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_phrase_list :clickbook, [:clickbooks]
+        assert_phrase_list :clickbook, [:clickbook]
         assert_state_variable :postal_form_url, "/government/uploads/system/uploads/attachment_data/file/136810/credit-card-authorisation-slip.doc"
         assert_state_variable :postal_return_form_url, "/government/uploads/system/uploads/attachment_data/file/136822/return-delivery-form.doc"
         assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form, :postal_delivery_form]
