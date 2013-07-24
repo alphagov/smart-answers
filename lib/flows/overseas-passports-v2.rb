@@ -56,11 +56,11 @@ multiple_choice :renewing_replacing_applying? do
   option :replacing
 
   save_input_as :application_action
-  
+
   precalculate :organisation do
     location.fco_organisation
   end
-  
+
   calculate :overseas_passports_embassies do
     if organisation && organisation.all_offices.any?
       embassies = organisation.all_offices.select do |o| 
@@ -72,7 +72,7 @@ multiple_choice :renewing_replacing_applying? do
       []
     end
   end
-
+  
   calculate :general_action do
     responses.last =~ /^renewing_/ ? 'renewing' : responses.last
   end
@@ -455,6 +455,22 @@ end
 
 ## No-op outcome.
 outcome :cannot_apply do
+  precalculate :organisation do
+    location.fco_organisation
+  end
+
+  precalculate :overseas_passports_embassies do
+    if organisation && organisation.all_offices.any?
+      embassies = organisation.all_offices.select do |o| 
+        o.services.any? { |s| s.title.include?('Overseas Passports Service') }
+      end
+      embassies << organisation.main_office if embassies.empty?
+      embassies
+    else
+      []
+    end
+  end
+
   precalculate :body_text do
     PhraseList.new(:"body_#{current_location}")
   end

@@ -648,6 +648,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
 
   context "answer Iran" do
     should "give a bespoke outcome stating an application is not possible in Iran" do
+      worldwide_api_has_organisations_for_location('iran', read_fixture_file('worldwide/iran_organisations.json'))
       add_response 'iran'
       assert_current_node :cannot_apply
       assert_phrase_list :body_text, [:body_iran]
@@ -658,6 +659,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
   
   context "answer Syria" do
     should "give a bespoke outcome stating an application is not possible in Syria" do
+      worldwide_api_has_organisations_for_location('syria', read_fixture_file('worldwide/syria_organisations.json'))
       add_response 'syria'
       assert_current_node :cannot_apply
       assert_phrase_list :body_text, [:body_syria]

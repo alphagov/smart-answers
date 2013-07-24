@@ -2694,19 +2694,7 @@ en-GB:
 
           4. Take your application in person to the British embassy in Algiers.
 
-
-          $A
-          British Embassy Algiers
-          Ambassade Britannique, 
-          3 Chemin Capitaine Hocine Slimane (ex Chemin des Glycines),
-          Hydra
-          Algiers
-          Algeria
-          
-          Email: BritishEmbassy.Algiers@fco.gov.uk
-          Telephone +213 (0) 770 085 000
-          Fax number +213 (0) 770 08 50 99
-          $A
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
           ## Getting your passport
 
