@@ -61,14 +61,14 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
           Timecop.travel("2013-07-15")
         end
 
-        should "ask for national insurance contributions when born on 16th July 1948" do
+        should "state that user is near state pension age when born on 16th July 1948" do
           add_response Date.parse("16 July 1948")
-          assert_current_node :years_paid_ni?
+          assert_current_node :near_state_pension_age
         end
 
-        should "ask for national insurance contributions when born on 16th July 1948" do
+        should "state that user is near state pension age when born on 16th July 1948" do
           add_response Date.parse("15 November 1948")
-          assert_current_node :years_paid_ni?
+          assert_current_node :near_state_pension_age
         end
       end
 
@@ -78,7 +78,7 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
         end
 
         should "give an answer" do
-          assert_current_node :age_result
+          assert_current_node :near_state_pension_age
           assert_phrase_list :tense_specific_title, [:have_reached_pension_age]
           assert_phrase_list :state_pension_age_statement, [:state_pension_age_was]
           assert_state_variable "state_pension_age", "65 years"
@@ -91,12 +91,22 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
         setup do
           Timecop.travel("2013-07-22")
           add_response Date.parse("1948-11-05")
-          add_response 45
         end
 
-        should "show the amount result" do
-          assert_state_variable :available_ni_years, 0
-          assert_current_node :amount_result
+        should "be near to the state pension age" do
+          assert_state_variable :available_ni_years, 45
+          assert_current_node :near_state_pension_age
+        end
+      end
+
+      context "two days ahead of date in July 2013" do
+        setup do
+          Timecop.travel("2013-07-24")
+          add_response Date.parse("1948-07-26")
+        end
+
+        should "tell the user that they're near state pension age" do
+          assert_current_node :near_state_pension_age
         end
       end
     end # male
