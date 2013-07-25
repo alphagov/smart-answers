@@ -156,8 +156,19 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
           add_response Date.parse('1948-02-09')
         end
 
-        should "display near state pension age response" do
-          assert_current_node :near_state_pension_age
+        should "ask for how many years National Insurance has been paid" do
+          assert_current_node :years_paid_ni?
+        end
+      end
+
+      context "born 28th July 2013 and running on 25th July 2013" do
+        setup do
+          Timecop.travel("2013-07-25")
+          add_response Date.parse("1948-07-28")
+        end
+
+        should "ask for how many years National Insurance has been paid" do
+          assert_current_node :years_paid_ni?
         end
       end
 
