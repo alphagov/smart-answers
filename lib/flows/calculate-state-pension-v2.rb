@@ -168,8 +168,6 @@ date_question :dob_amount? do
     if calc.before_state_pension_date?
       if calc.under_20_years_old?
         :too_young
-      elsif calc.within_four_months_one_day_from_state_pension?
-        :near_state_pension_age
       else
         :years_paid_ni?
       end
