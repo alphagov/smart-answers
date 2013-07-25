@@ -696,7 +696,7 @@ vanuatu:
   type: wellington_new_zealand
   group: ips_documents_group_2
 venezuela: 
-  type: venezuela
+  type: ips_application_3
   group: ips_documents_group_3
   helpline: washington_usa
 vietnam: 
