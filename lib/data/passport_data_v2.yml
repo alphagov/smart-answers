@@ -20,19 +20,19 @@ angola:
   group: ips_documents_group_3
 anguilla: 
   type: ips_application_1
-  group: ips_documents_group_2
+  group: ips_documents_group_5
 antigua-and-barbuda: 
   type: ips_application_1
-  group: ips_documents_group_2
+  group: ips_documents_group_5
 argentina: 
   type: ips_application_1
-  group: ips_documents_group_1
+  group: ips_documents_group_4
 armenia: 
   type: ips_application_1
   group: ips_documents_group_2
 aruba: 
   type: ips_application_1
-  group: ips_documents_group_1
+  group: ips_documents_group_4
 ascension-island:
   type: pretoria_south_africa
   group: ips_documents_group_1
@@ -47,7 +47,7 @@ azerbaijan:
   group: ips_documents_group_3
 bahamas: 
   type: ips_application_1
-  group: ips_documents_group_2
+  group: ips_documents_group_5
 bahrain: 
   type: ips_application_1
   group: ips_documents_group_1
@@ -57,7 +57,7 @@ bangladesh:
   helpline: pretoria_south_africa 
 barbados: 
   type: ips_application_1
-  group: ips_documents_group_2
+  group: ips_documents_group_5
 belarus: 
   type: ips_application_2
   group: ips_documents_group_3
@@ -73,16 +73,16 @@ benin:
   helpline: pretoria_south_africa
 bermuda: 
   type: ips_application_1
-  group: ips_documents_group_2
+  group: ips_documents_group_5
 bhutan: 
   type: hong_kong
   group: ips_documents_group_1
 bolivia: 
   type: ips_application_1
-  group: ips_documents_group_3
+  group: ips_documents_group_6
 bonaire-st-eustatius-saba: 
   type: ips_application_1
-  group: ips_documents_group_1
+  group: ips_documents_group_4
 bosnia-and-herzegovina: 
   type: ips_application_1
   group: ips_documents_group_2
@@ -91,13 +91,13 @@ botswana:
   group: ips_documents_group_2
 brazil: 
   type: ips_application_1
-  group: ips_documents_group_2
+  group: ips_documents_group_5
 british-indian-ocean-territory:
   type: ips_application_1
   group: ips_documents_group_1
 british-virgin-islands: 
   type: ips_application_1
-  group: ips_documents_group_2
+  group: ips_documents_group_5
 brunei: 
   type: hong_kong
   group: ips_documents_group_1
@@ -123,13 +123,13 @@ cameroon:
   helpline: pretoria_south_africa
 canada: 
   type: ips_application_1
-  group: ips_documents_group_1
+  group: ips_documents_group_4
 cape-verde: 
   type: pretoria_south_africa
   group: ips_documents_group_2
 cayman-islands: 
   type: ips_application_1
-  group: ips_documents_group_2
+  group: ips_documents_group_5
 central-african-republic: 
   type: pretoria_south_africa
   group: ips_documents_group_3
@@ -138,13 +138,13 @@ chad:
   group: ips_documents_group_3
 chile: 
   type: ips_application_1
-  group: ips_documents_group_1
+  group: ips_documents_group_4
 china: 
   type: hong_kong
   group: ips_documents_group_2
 colombia: 
   type: ips_application_1
-  group: ips_documents_group_2
+  group: ips_documents_group_5
 comoros: 
   type: pretoria_south_africa
   group: ips_documents_group_2
@@ -169,7 +169,7 @@ cuba:
   group: ips_documents_group_2
 curacao: 
   type: ips_application_1
-  group: ips_documents_group_1
+  group: ips_documents_group_4
 cyprus:
   type: ips_application_1
   group: ips_documents_group_1
@@ -185,13 +185,13 @@ djibouti:
   helpline: pretoria_south_africa
 dominica: 
   type: ips_application_1
-  group: ips_documents_group_2
+  group: ips_documents_group_5
 dominican-republic: 
   type: ips_application_1
-  group: ips_documents_group_3
+  group: ips_documents_group_6
 ecuador: 
   type: ips_application_1
-  group: ips_documents_group_3
+  group: ips_documents_group_6
 egypt: 
   type: ips_application_1
   group: ips_documents_group_3
@@ -226,7 +226,7 @@ france:
   group: ips_documents_group_1
 french-guiana: 
   type: ips_application_1
-  group: ips_documents_group_1
+  group: ips_documents_group_4
 french-polynesia: 
   type: wellington_new_zealand
   group: ips_documents_group_1
@@ -259,10 +259,10 @@ greece:
   group: ips_documents_group_2
 grenada: 
   type: ips_application_1
-  group: ips_documents_group_2
+  group: ips_documents_group_5
 guadeloupe: 
   type: ips_application_1
-  group: ips_documents_group_1
+  group: ips_documents_group_4
 guatemala: 
   type: washington_usa
   group: ips_documents_group_2
@@ -275,10 +275,10 @@ guinea-bissau:
   group: ips_documents_group_3
 guyana: 
   type: ips_application_1
-  group: ips_documents_group_3
+  group: ips_documents_group_6
 haiti: 
   type: ips_application_1
-  group: ips_documents_group_3
+  group: ips_documents_group_6
 honduras: 
   type: washington_usa
   group: ips_documents_group_2
@@ -317,7 +317,7 @@ italy:
   group: ips_documents_group_2
 jamaica: 
   type: ips_application_1
-  group: ips_documents_group_3
+  group: ips_documents_group_6
 japan: 
   type: hong_kong
   group: ips_documents_group_1
@@ -403,7 +403,7 @@ marshall-islands:
   group: ips_documents_group_1
 martinique: 
   type: ips_application_1
-  group: ips_documents_group_1
+  group: ips_documents_group_4
 mauritania:
   type: ips_application_2
   group: ips_documents_group_3
@@ -433,7 +433,7 @@ montenegro:
   group: ips_documents_group_2
 montserrat: 
   type: ips_application_1
-  group: ips_documents_group_2
+  group: ips_documents_group_5
 morocco:
   type: ips_application_2
   group: ips_documents_group_3
@@ -493,10 +493,10 @@ papua-new-guinea:
   group: ips_documents_group_2
 paraguay: 
   type: ips_application_1
-  group: ips_documents_group_3
+  group: ips_documents_group_6
 peru: 
   type: ips_application_1
-  group: ips_documents_group_2
+  group: ips_documents_group_5
 philippines: 
   type: philippines
   group: ips_documents_group_3
@@ -593,25 +593,25 @@ st-helena-ascension-and-tristan-da-cunha:
   group: ips_documents_group_1
 st-kitts-and-nevis: 
   type: ips_application_1
-  group: ips_documents_group_2
+  group: ips_documents_group_5
 st-lucia: 
   type: ips_application_1
-  group: ips_documents_group_2
+  group: ips_documents_group_5
 st-maarten:
   type: ips_application_1
-  group: ips_documents_group_1
+  group: ips_documents_group_4
 st-pierre-and-miquelon: 
   type: ips_application_1
-  group: ips_documents_group_1
+  group: ips_documents_group_4
 st-vincent-and-the-grenadines: 
   type: ips_application_1
-  group: ips_documents_group_2
+  group: ips_documents_group_5
 sudan: 
   type: ips_application_3
   group: ips_documents_group_3
 suriname: 
   type: ips_application_1
-  group: ips_documents_group_2
+  group: ips_documents_group_5
 swaziland: 
   type: pretoria_south_africa
   group: ips_documents_group_2
@@ -652,7 +652,7 @@ tonga:
   group: ips_documents_group_1
 trinidad-and-tobago: 
   type: ips_application_1
-  group: ips_documents_group_3
+  group: ips_documents_group_6
 tristan-da-cunha: 
   type: pretoria_south_africa
   group: ips_documents_group_1
@@ -667,7 +667,7 @@ turkmenistan:
   group: ips_documents_group_3
 turks-and-caicos-islands: 
   type: ips_application_1
-  group: ips_documents_group_2
+  group: ips_documents_group_5
 tuvalu: 
   type: wellington_new_zealand
   group: ips_documents_group_1
@@ -688,7 +688,7 @@ usa:
   group: ips_documents_group_1
 uruguay: 
   type: ips_application_1
-  group: ips_documents_group_1
+  group: ips_documents_group_4
 uzbekistan: 
   type: ips_application_2
   group: ips_documents_group_3
@@ -698,7 +698,7 @@ vanuatu:
 venezuela: 
   type: venezuela
   group: ips_documents_group_3
-  helpline: ips_application_3
+  helpline: washington_usa
 vietnam: 
   type: hong_kong
   group: ips_documents_group_3
