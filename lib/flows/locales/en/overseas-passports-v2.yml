@@ -1265,9 +1265,9 @@ en-GB:
         cost_new_zealand: |
           | Passport type | Passport fee |
           |---------------|--------------|
-          | Adult standard 32-page passport | NZ $341.37 |
-          | Adult jumbo 48-page passport | NZ $397.37 |
-          | Child passport | NZ $244.37 |
+          | Adult standard 32-page passport | %{costs_new_zealand_dollars_adult_32} |
+          | Adult jumbo 48-page passport | %{costs_new_zealand_dollars_adult_48} |
+          | Child passport | %{costs_new_zealand_dollars_child} |
 
         how_to_apply_new_zealand: |
           1. Download the application form and guidance notes. Bring the application form to your interview.
