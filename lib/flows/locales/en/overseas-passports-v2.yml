@@ -95,9 +95,6 @@ en-GB:
         passport_courier_costs_washington_usa: |
           You’ll have to pay a fee for your passport and a courier fee of US $33. The courier fee pays for your passport and supporting documents to be sent back to you securely.
 
-        passport_courier_costs_jamaica: |
-          You’ll have to pay a fee for your passport and a courier fee of US $38. The courier fee pays for your passport and supporting documents to be sent back to you securely.
-
         passport_courier_costs_indonesia: |
           You’ll have to pay a fee for your passport and a courier fee of 350,000 Indonesian Rupiah. The courier fee pays for your passport and supporting documents to be sent back to you securely.
 
@@ -113,17 +110,6 @@ en-GB:
           | Passport type |	Passport fee |	Total to pay (including courier fee) |
           |---------------|--------------|---------------------------------------|
           | Child passport |	US $134 |	US $167 |
-
-        adult_passport_costs_jamaica: |
-          | Passport type |	Passport fee |	Total to pay (including courier fee) |
-          |---------------|--------------|---------------------------------------|
-          | Adult standard 32-page passport |	US $211 |	US $249 |
-          | Adult jumbo 48-page passport | US $255 | US $293 |
-
-        child_passport_costs_jamaica: |
-          | Passport type |	Passport fee |	Total to pay (including courier fee) |
-          |---------------|--------------|---------------------------------------|
-          | Child passport |	US $134 |	US $172 |
 
         adult_passport_costs_indonesia: |
           Passport type | Passport fee | Total to pay (including courier fee)
@@ -150,9 +136,6 @@ en-GB:
 
         passport_costs_washington_usa:
           You must pay using a Visa or Mastercard. [Download a credit card authorisation form (PDF, 64KB)](/government/uploads/system/uploads/attachment_data/file/136853/credit-card-form.pdf.pdf "Credit card authorisation form (PDF, 64KB)") and send it with your application.
-
-        passport_costs_jamaica: |
-          Locally issued debit or credit cards may not be able to carry out transactions in US dollars - you should check with your card company.
 
         passport_costs_nepal: |
           You can get a bankers draft in Hong Kong dollars from the Standard Chartered Bank in Lazimpat.
@@ -409,7 +392,11 @@ en-GB:
           If the error was made by the passport processing office, you’ll get a replacement free of charge. If the error was yours, you’ll have to pay for a replacement passport.
 
         getting_your_passport_jamaica: |
-          The British High Commision in Kingston will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+          Your passport and supporting documents will be delivered to the British High Commission in Kingston - you must collect them in person. 
+
+          They will contact you when your passport arrives using the contact details on your form.
+
+          You must bring photo ID with you.
 
         getting_your_passport_nepal : |
           The British Embassy in Kathmandu will contact you when your passport arrives using the contact details on your form. You must collect it in person.
@@ -420,11 +407,6 @@ en-GB:
         send_application_jordan: |
 
           You must make your application in person.
-
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-
-        send_application_jamaica: |
-          You must make your application in person to the British High Commission, Kingston
 
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
