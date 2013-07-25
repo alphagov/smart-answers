@@ -179,10 +179,10 @@ en-GB:
           You can't pay in cash.
 
         supporting_documents_south_africa_applying: |
-          Application type | Supporting documents information
-          -|-
-          First adult passport | [Download 'Supporting documents for adult first passport' (DOC, 31KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136895/Checklist-1sttime-Adult.doc)
-          First child passport | [Download 'Supporting documents for first child passport' (DOC, 30KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136896/Checklist-1sttime-child.doc)
+          ^[Supporting documents for adults born in the UK](/government/publications/british-passport-adult-supporting-documentation)^
+          ^[Supporting documents for adults born overseas](/government/publications/british-passport-adult-supporting-documentation-overseas)^
+          ^[Supporting documents for children born in the UK](/government/publications/british-passport-child-supporting-documentation)^
+          ^[Supporting documents for children born overseas](/government/publications/british-passport-child-supporting-documentation-overseas)^
 
         passport_courier_costs_fco_europe:
           You’ll have to pay a fee for your passport and a courier fee of 26 Euros. The courier fee pays for your passport and supporting documents to be sent back to you securely.
