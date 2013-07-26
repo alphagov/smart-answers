@@ -606,6 +606,32 @@ module SmartAnswer::Calculators
           assert_equal({ :date => Date.parse('31 May 2013'), :pay => 649.45 }, paydates_and_pay[4])
         end
       end
+
+      context "pay date starting month is December" do
+        setup do
+          Timecop.travel("26 Jul 2013")
+
+          @calculator = MaternityPaternityCalculator.new(Date.parse("14 January 2014"))
+          @calculator.leave_start_date = Date.parse("12 December 2013")
+          @calculator.pay_method = "monthly"
+          @calculator.pay_date = Date.parse("1 December 2013")
+          @calculator.average_weekly_earnings = 200
+        end
+
+        should "produce a list of the paydates adjust one month forward" do
+          assert_equal [Date.parse("Wed, 01 Jan 2014"),
+                        Date.parse("Sat, 01 Feb 2014"),
+                        Date.parse("Sat, 01 Mar 2014"),
+                        Date.parse("Tue, 01 Apr 2014"),
+                        Date.parse("Thu, 01 May 2014"),
+                        Date.parse("Sun, 01 Jun 2014"),
+                        Date.parse("Tue, 01 Jul 2014"),
+                        Date.parse("Fri, 01 Aug 2014"),
+                        Date.parse("Mon, 01 Sep 2014"),
+                        Date.parse("Wed, 01 Oct 2014")],
+                       @calculator.paydates_first_day_of_the_month
+        end
+      end
     end
   end
 end
