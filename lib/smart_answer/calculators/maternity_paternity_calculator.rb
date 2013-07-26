@@ -191,7 +191,11 @@ module SmartAnswer::Calculators
     end
 
     def paydates_first_day_of_the_month
-      month = pay_start_date.day == 1 ? pay_start_date.month : pay_start_date.month + 1
+      month = pay_start_date.month
+      if pay_start_date.day != 1 and month < 12
+        month = month + 1
+      end
+
       start_date = Date.civil(pay_start_date.year, month, 1)
       end_date = Date.civil(pay_end_date.year, pay_end_date.month, 1) >> 1
       [].tap do |ary|
