@@ -618,18 +618,17 @@ module SmartAnswer::Calculators
           @calculator.average_weekly_earnings = 200
         end
 
-        should "produce a list of the paydates" do
-          assert_equal [Date.parse("01 Dec 2013"),
-                        Date.parse("01 Jan 2014"),
-                        Date.parse("01 Feb 2014"),
-                        Date.parse("01 Mar 2014"),
-                        Date.parse("01 Apr 2014"),
-                        Date.parse("01 May 2014"),
-                        Date.parse("01 Jun 2014"),
-                        Date.parse("01 Jul 2014"),
-                        Date.parse("01 Aug 2014"),
-                        Date.parse("01 Sep 2014"),
-                        Date.parse("01 Oct 2014")],
+        should "produce a list of the paydates adjust one month forward" do
+          assert_equal [Date.parse("Wed, 01 Jan 2014"),
+                        Date.parse("Sat, 01 Feb 2014"),
+                        Date.parse("Sat, 01 Mar 2014"),
+                        Date.parse("Tue, 01 Apr 2014"),
+                        Date.parse("Thu, 01 May 2014"),
+                        Date.parse("Sun, 01 Jun 2014"),
+                        Date.parse("Tue, 01 Jul 2014"),
+                        Date.parse("Fri, 01 Aug 2014"),
+                        Date.parse("Mon, 01 Sep 2014"),
+                        Date.parse("Wed, 01 Oct 2014")],
                        @calculator.paydates_first_day_of_the_month
         end
       end
