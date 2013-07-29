@@ -780,12 +780,12 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       assert_current_node :ips_application_result
       assert_phrase_list :how_long_it_takes, [:how_long_renewing_new_ips1, :how_long_it_takes_ips1]
       assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-      assert_phrase_list :send_your_application, [:send_application_ips1]
+      assert_phrase_list :send_your_application, [:send_application_ips1_durham]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
       expected_location = WorldLocation.find('haiti')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
-      assert_match /101 Old Hall Street/, outcome_body
+      assert_match /Millburngate House/, outcome_body
     end
   end # Haiti
 
@@ -953,7 +953,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       expected_location = WorldLocation.find('jamaica')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
-      assert_match /101 Old Hall Street/, outcome_body
+      assert_match /Millburngate House/, outcome_body
     end
   end # Jamaica
 

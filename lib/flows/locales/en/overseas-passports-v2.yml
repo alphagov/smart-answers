@@ -728,23 +728,17 @@ en-GB:
           [Use the webchat service](https://www.synthetix.info/fco/ "Use the webchat service to chat to an advisor"){:rel="external"} 
 
         ips_documents_group_1: |
-          $D
-          [Application form - applying for a British passport overseas](/government/uploads/system/uploads/attachment_data/file/207390/OS_Form_04-13.pdf)
-          $D
+          ^[Application form - applying for a British passport overseas](/government/publications/applying-for-a-passport-from-outside-the-uk-application-form)^
           ^[Guidance notes - applying for a passport if you’re outside the UK](/government/publications/overseas-passports-guidance)^
           ^[Supporting documents you must send with your application](/government/publications/overseas-passport-applications-supporting-documents-guidance)^
 
         ips_documents_group_2: |
-          $D
-          [Application form - applying for a British passport overseas](/government/uploads/system/uploads/attachment_data/file/207390/OS_Form_04-13.pdf)
-          $D
+          ^[Application form - applying for a British passport overseas](/government/publications/applying-for-a-passport-from-outside-the-uk-application-form)^
           ^[Guidance notes - applying for a passport if you’re outside the UK](/government/publications/overseas-passports-guidance)^
           ^[Supporting documents you must send with your application](/government/publications/overseas-passport-supporting-documents-group-2)^
 
         ips_documents_group_3: |
-          $D
-          [Application form - applying for a British passport overseas](/government/uploads/system/uploads/attachment_data/file/207390/OS_Form_04-13.pdf)
-          $D
+          ^[Application form - applying for a British passport overseas](/government/publications/applying-for-a-passport-from-outside-the-uk-application-form)^
           ^[Guidance notes - applying for a passport if you’re outside the UK](/government/publications/overseas-passports-guidance)^
           ^[Supporting documents you must send with your application](/government/publications/overseas-passport-supporting-documents-group-3)^
 
@@ -865,6 +859,21 @@ en-GB:
           $A
 
         send_application_ips1_durham: |
+          ## Send your application
+
+          Her Majesty's Passport Office recommends you send your application using a secure delivery service or courier.
+
+          
+          $A
+            Her Majesty's Passport Office 
+            OVS-D 
+            Millburngate House 
+            Millburngate 
+            Durham 
+            DH97 1PA
+          $A
+
+        send_application_ips3_durham: |
           ## Send your application
 
           Her Majesty's Passport Office recommends you send your application using a secure delivery service or courier.
@@ -1264,8 +1273,8 @@ en-GB:
           $D
 
         cost_new_zealand: |
-          | Passport type | Passport fee |
-          |---------------|--------------|
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
           | Adult standard 32-page passport | %{costs_new_zealand_dollars_adult_32} |
           | Adult jumbo 48-page passport | %{costs_new_zealand_dollars_adult_48} |
           | Child passport | %{costs_new_zealand_dollars_child} |
