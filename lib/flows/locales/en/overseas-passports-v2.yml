@@ -728,23 +728,17 @@ en-GB:
           [Use the webchat service](https://www.synthetix.info/fco/ "Use the webchat service to chat to an advisor"){:rel="external"} 
 
         ips_documents_group_1: |
-          $D
-          [Download ‘Application form - applying for a British passport overseas’ (PDF, 529KB)](/government/uploads/system/uploads/attachment_data/file/207390/OS_Form_04-13.pdf)
-          $D
+          ^[Application form - applying for a British passport overseas](/government/publications/applying-for-a-passport-from-outside-the-uk-application-form)^
           ^[Guidance notes - applying for a passport if you’re outside the UK](/government/publications/overseas-passports-guidance)^
           ^[Supporting documents you must send with your application](/government/publications/overseas-passport-applications-supporting-documents-guidance)^
 
         ips_documents_group_2: |
-          $D
-          [Download ‘Application form - applying for a British passport overseas’ (PDF, 529KB)](/government/uploads/system/uploads/attachment_data/file/207390/OS_Form_04-13.pdf)
-          $D
+          ^[Application form - applying for a British passport overseas](/government/publications/applying-for-a-passport-from-outside-the-uk-application-form)^
           ^[Guidance notes - applying for a passport if you’re outside the UK](/government/publications/overseas-passports-guidance)^
           ^[Supporting documents you must send with your application](/government/publications/overseas-passport-supporting-documents-group-2)^
 
         ips_documents_group_3: |
-          $D
-          [Download ‘Application form - applying for a British passport overseas’ (PDF, 529KB)](/government/uploads/system/uploads/attachment_data/file/207390/OS_Form_04-13.pdf)
-          $D
+          ^[Application form - applying for a British passport overseas](/government/publications/applying-for-a-passport-from-outside-the-uk-application-form)^
           ^[Guidance notes - applying for a passport if you’re outside the UK](/government/publications/overseas-passports-guidance)^
           ^[Supporting documents you must send with your application](/government/publications/overseas-passport-supporting-documents-group-3)^
 
