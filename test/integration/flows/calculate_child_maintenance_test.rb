@@ -22,9 +22,9 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
   end
   
   ## Old scheme
-  context "answer 3" do
+  context "answer 1" do
     setup do
-      add_response '3_children'
+      add_response '1_child'
     end
     should "ask if person paying child benefit receives benefits" do
       assert_current_node :gets_benefits_old?
@@ -115,9 +115,9 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
   end # Old scheme
   
   # New scheme
-  context "answer 4 children (with 1 other parent)" do
+  context "answer 2+ children" do
     setup do
-      add_response '4_children'
+      add_response '2_children'
     end
 
     should "ask about benefits" do
@@ -154,7 +154,7 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
           add_response 0
           add_response 0
           assert_current_node :reduced_and_basic_rates_result
-          assert_state_variable "child_maintenance_payment", "482"
+          assert_state_variable "child_maintenance_payment", "392"
         end
       end
     end

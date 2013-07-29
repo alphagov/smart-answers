@@ -7,8 +7,7 @@ multiple_choice :how_many_children_paid_for? do
   option "1_child"
   option "2_children"
   option "3_children"
-  option "4_children"
-  
+
   calculate :number_of_children do
     ## to_i will look for the first integer in the string
     responses.last.to_i
@@ -17,11 +16,11 @@ multiple_choice :how_many_children_paid_for? do
   ## initial filtering: 4+ children -> 2012 scheme
   ## everyone else -> 2003 scheme
   calculate :maintenance_scheme do
-    responses.last == '4_children' ? :new : :old
+    responses.last == '1_child' ? :old : :new
   end
 
   next_node do |response|
-    maintenance_scheme = response.to_i > 3 ? :new : :old
+    maintenance_scheme = response.to_i > 1 ? :new : :old
     "gets_benefits_#{maintenance_scheme.to_s}?".to_sym
   end
 end
