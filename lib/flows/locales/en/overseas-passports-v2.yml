@@ -729,37 +729,37 @@ en-GB:
 
         ips_documents_group_1: |
           $D
-          [Application form - applying for a British passport overseas](/government/uploads/system/uploads/attachment_data/file/207390/OS_Form_04-13.pdf)
+          [Download ‘Application form - applying for a British passport overseas’](/government/uploads/system/uploads/attachment_data/file/207390/OS_Form_04-13.pdf)
           $D
           ^[Guidance notes - applying for a passport if you’re outside the UK](/government/publications/overseas-passports-guidance)^
           ^[Supporting documents you must send with your application](/government/publications/overseas-passport-applications-supporting-documents-guidance)^
 
         ips_documents_group_2: |
           $D
-          [Application form - applying for a British passport overseas](/government/uploads/system/uploads/attachment_data/file/207390/OS_Form_04-13.pdf)
+          [Download ‘Application form - applying for a British passport overseas’](/government/uploads/system/uploads/attachment_data/file/207390/OS_Form_04-13.pdf)
           $D
           ^[Guidance notes - applying for a passport if you’re outside the UK](/government/publications/overseas-passports-guidance)^
           ^[Supporting documents you must send with your application](/government/publications/overseas-passport-supporting-documents-group-2)^
 
         ips_documents_group_3: |
           $D
-          [Application form - applying for a British passport overseas](/government/uploads/system/uploads/attachment_data/file/207390/OS_Form_04-13.pdf)
+          [Download ‘Application form - applying for a British passport overseas’](/government/uploads/system/uploads/attachment_data/file/207390/OS_Form_04-13.pdf)
           $D
           ^[Guidance notes - applying for a passport if you’re outside the UK](/government/publications/overseas-passports-guidance)^
           ^[Supporting documents you must send with your application](/government/publications/overseas-passport-supporting-documents-group-3)^
 
         ips_documents_group_4: |
-          ^[Application form - applying for a British passport overseas](/government/publications/overseas-passport-application-form)^
+          ^[Download ‘Application form - applying for a British passport overseas’](/government/publications/overseas-passport-application-form)^
           ^[Guidance notes - applying for a passport if you’re outside the UK](/government/publications/overseas-passports-guidance)^
           ^[Supporting documents you must send with your application](/government/publications/overseas-passport-applications-supporting-documents-guidance)^
 
         ips_documents_group_5: |
-          ^[Application form - applying for a British passport overseas](/government/publications/overseas-passport-application-form)^
+          ^[Download ‘Application form - applying for a British passport overseas’](/government/publications/overseas-passport-application-form)^
           ^[Guidance notes - applying for a passport if you’re outside the UK](/government/publications/overseas-passports-guidance)^
           ^[Supporting documents you must send with your application](/government/publications/overseas-passport-supporting-documents-group-2)^
 
         ips_documents_group_6: |
-          ^[Application form - applying for a British passport overseas](/government/publications/overseas-passport-application-form)^
+          ^[Download ‘Application form - applying for a British passport overseas’](/government/publications/overseas-passport-application-form)^
           ^[Guidance notes - applying for a passport if you’re outside the UK](/government/publications/overseas-passports-guidance)^
           ^[Supporting documents you must send with your application](/government/publications/overseas-passport-supporting-documents-group-3)^
 
@@ -865,6 +865,21 @@ en-GB:
           $A
 
         send_application_ips1_durham: |
+          ## Send your application
+
+          Her Majesty's Passport Office recommends you send your application using a secure delivery service or courier.
+
+          
+          $A
+            Her Majesty's Passport Office 
+            OVS-D 
+            Millburngate House 
+            Millburngate 
+            Durham 
+            DH97 1PA
+          $A
+
+        send_application_ips3_durham: |
           ## Send your application
 
           Her Majesty's Passport Office recommends you send your application using a secure delivery service or courier.
