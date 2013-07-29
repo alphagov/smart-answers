@@ -697,7 +697,7 @@ vanuatu:
   group: ips_documents_group_2
 venezuela: 
   type: ips_application_3
-  group: ips_documents_group_3
+  group: ips_documents_group_6
   helpline: washington_usa
 vietnam: 
   type: hong_kong
