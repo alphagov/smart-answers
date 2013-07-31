@@ -10,7 +10,7 @@ exclusions = %w(afghanistan cambodia central-african-republic chad comoros
                 liberia madagascar montenegro paraguay samoa slovenia somalia swaziland
                 taiwan tajikistan western-sahara)
 no_embassies = %w(iran syria yemen)
-different_address = %w(belgium brazil germany india indonesia turkey united-arab-emirates)
+different_address = %w(belgium brazil germany india turkey united-arab-emirates)
 
 
 # Q1

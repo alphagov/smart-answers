@@ -314,6 +314,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :documents_you_must_provide, [:"documents_you_must_provide_all"]
       assert_phrase_list :cash_only, [:cash_and_card]
       assert_phrase_list :footnote, [:footnote]
+      assert_match /British Embassy Jakarta/, outcome_body
     end # Not married or CP
   end # Indonesia
 
