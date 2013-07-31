@@ -53,10 +53,11 @@ en-GB:
 
           ^Registering the death will take about 30 minutes - you might need to make an appointment.^
         intro_scotland: |
-          You should [register the death](http://www.gro-scotland.gov.uk/regscot/registering-a-death.html "how to register a death in Scotland"){:rel="external"} locally in Scotland.
+          You should [register the death](http://www.gro-scotland.gov.uk/regscot/registering-a-death.html “how to register a death in Scotland”){:rel=“external”} locally in Scotland.
 
-          If the body’s being brought back to England or Wales to be buried or cremated, the person bringing the body back must report this to the local registrar. They will issue a ‘Certificate of No Liability to Register’.
+          If the body’s being brought back to England or Wales to be buried or cremated, the person bringing the body back must report this to the local registrar. You must provide a certified extract from the Scottish death register - contact the register office where the death was registered to get this.
 
+          The local registrar will then issue a ‘Certificate of No Liability to Register’.
         intro_northern_ireland: |
           You should [register the death](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/death-and-bereavement/death-and-bereavement-what-to-do-when-someone-dies/registering-a-death.htm "how to register a death in Northern Ireland"){:rel="external"} locally in Northern Ireland.
 
@@ -101,14 +102,14 @@ en-GB:
 
           If the cause of death is unknown, sudden or unexplained it may be reported to the coroner.
 
-          You won’t have the medical certificate, but the coroner will give you the documents you need or send them direct to the registrar. The table below shows the documents needed.
+          The coroner will give you the documents you need, or they’ll send them direct to the registrar. The table below shows the documents needed.
 
           Cause of death | Documents issued by coroner
           - | -
-          Natural causes | Pink Form B - form 100B so the death can be registered - this is sent direct to the registrar, but sometimes given to you
-          Unnatural causes/not enough evidence of natural causes | Order for Burial (form 101) or Certificate for Cremation (form 6) so the funeral can take place - given to you; Certificate After Inquest (form 99 (rev)) - this states the cause of death and is sent to the registrar (the death is registered by the registrar with no-one present)
-
-          ###If form 100B is issued (ie there is no inquest)
+          Natural causes | Form 100A, or Pink Form 100B if there's a post-mortem - these forms are sent to the  registrar, but sometimes given to you
+          Unnatural causes/not enough evidence of natural causes | Order for Burial (form 101) or Certificate for Cremation (form 6) so the funeral can take place – will be given to you; Certificate After Inquest (form 99 (rev)) - this states the cause of death and is sent to the registrar (the death is registered by the registrar with no-one present)
+          
+          ###If form 100A or 100B is issued (ie there is no inquest)
 
           If available (but don't worry if not), also take the person’s:
 
