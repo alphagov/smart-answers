@@ -2900,13 +2900,12 @@ india:
     Tel. : +91 (0)22 6650 2222
 indonesia: 
 - address: |-
-    British Embassy
-    Jl. M.H. Thamrin No 75
-    Jakarta 10310
+    British Embassy Jakarta 
+    Jl Patra Kuningan Raya Blok L5-6 
+    Jakarta
+    12950
     Indonesia
   designation: British Embassy
-  lat: -6.19242
-  lon: 106.823
   location_name: Jakarta
   phone: (62) (21) 2356 5200
   fax: (62) (21) 2356 5351
@@ -6804,6 +6803,7 @@ united-arab-emirates:
     Consular, Passport & Notarial Services are available to British Passport Holders at the Embassy: Sun-Thu 0800 - 1100
     Access to other Embassy Sections: By appointment only
 - address: |-
+    British Embassy Dubai
     Al Seef Road 
     PO Box 65 
     Dubai
@@ -6820,7 +6820,7 @@ united-arab-emirates:
     Commercial Section Fax: (971) (4) 309 4404 / 4302
     Chancery Fax: (971) (4) 309 4225
     Consular Section Fax: (971) (4) 309 4257
-  email: information.dubai@fco.gov.uk
+  email: consular.uae@fco.gov.uk
   website: http://UKinUAE.fco.gov.uk
   office_hours: |-
     GMT:
