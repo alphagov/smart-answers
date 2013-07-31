@@ -93,6 +93,10 @@ multiple_choice :renewing_replacing_applying? do
     application_type.split("_")[2] if is_ips_application 
   end
 
+  calculate :application_form do
+    passport_data['app_form']
+  end
+
   calculate :supporting_documents do
     passport_data['group']
   end
@@ -278,6 +282,7 @@ outcome :ips_application_result do
   end
   precalculate :how_to_apply do
     PhraseList.new(:"how_to_apply_ips#{ips_number}",
+                   application_form.to_sym,
                    supporting_documents.to_sym)
   end
   precalculate :send_your_application do
