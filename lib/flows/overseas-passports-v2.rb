@@ -93,6 +93,10 @@ multiple_choice :renewing_replacing_applying? do
     application_type.split("_")[2] if is_ips_application 
   end
 
+  calculate :application_form do
+    passport_data['app_form']
+  end
+
   calculate :supporting_documents do
     passport_data['group']
   end
@@ -141,6 +145,14 @@ country_select :country_of_birth?, :include_uk => true, :exclude_countries => ex
 
   calculate :application_group do
     data_query.find_passport_data(responses.last)['group']
+  end
+
+  calculate :application_form_birth_location do
+    data_query.find_passport_data(responses.last)['app_form']
+  end
+
+  calculate :application_form do
+    data_query.hmpo_1_countries?(current_location) ? application_form : application_form_birth_location
   end
 
   calculate :supporting_documents do
@@ -278,6 +290,7 @@ outcome :ips_application_result do
   end
   precalculate :how_to_apply do
     PhraseList.new(:"how_to_apply_ips#{ips_number}",
+                   application_form.to_sym,
                    supporting_documents.to_sym)
   end
   precalculate :send_your_application do

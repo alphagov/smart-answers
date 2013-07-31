@@ -27,6 +27,8 @@ module SmartAnswer::Calculators
 
     RETAIN_PASSPORT_COUNTRIES_HURRICANES = %w(anguilla antigua-and-barbuda bahamas bermuda bonaire-st-eustatius-saba british-virgin-islands cayman-islands curacao dominica dominican-republic french-guiana grenada guadeloupe guyana haiti martinique mexico montserrat st-maarten st-kitts-and-nevis st-lucia st-pierre-and-miquelon st-vincent-and-the-grenadines suriname trinidad-and-tobago turks-and-caicos-islands)
 
+    HMPO_1_COUNTRIES = %w(anguilla antigua-and-barbuda argentina aruba bahamas barbados bermuda bolivia bonaire-st-eustatius-saba brazil british-virgin-islands canada cayman-islands chile colombia curacao dominica dominican-republic ecuador french-guiana grenada guadeloupe guyana haiti jamaica martinique montserrat paraguay peru st-kitts-and-nevis st-lucia st-maarten st-pierre-and-miquelon st-vincent-and-the-grenadines suriname trinidad-and-tobago turks-and-caicos-islands uruguay venezuela)
+
     PASSPORT_COSTS = {
       'New Zealand Dollars'  => [["317.80", 337.69], ["371.80", 391.69], ["222.80", 242.69]],
       'Australian Dollars'  => [[282.21], [325.81], [205.81]],
@@ -62,6 +64,10 @@ module SmartAnswer::Calculators
 
     def retain_passport_hurricanes?(country_slug)
       RETAIN_PASSPORT_COUNTRIES_HURRICANES.include?(country_slug)
+    end
+
+    def hmpo_1_countries?(country_slug)
+      HMPO_1_COUNTRIES.include?(country_slug)
     end
 
     def belfast_application_address?(country_slug)
