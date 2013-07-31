@@ -147,14 +147,6 @@ country_select :country_of_birth?, :include_uk => true, :exclude_countries => ex
     data_query.find_passport_data(responses.last)['group']
   end
 
-  calculate :application_form_birth_location do
-    data_query.find_passport_data(responses.last)['app_form']
-  end
-
-  calculate :application_form do
-    data_query.hmpo_1_countries?(current_location) ? application_form : application_form_birth_location
-  end
-
   calculate :supporting_documents do
     responses.last == 'united-kingdom' ? supporting_documents : application_group
   end
