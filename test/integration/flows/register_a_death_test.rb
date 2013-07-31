@@ -518,7 +518,25 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_phrase_list :cash_only, [:cash_and_card]
         assert_phrase_list :footnote, [:footnote]
       end
-    end # Answer Thailand
+    end # Answer Malaysia
+    context "answer death in indonesia, user in smae country" do
+      setup do
+        add_response 'malaysia'
+        add_response 'same_country'
+      end
+      should "give the embassy result and be done" do
+        assert_current_node :embassy_result
+        assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy_malaysia]
+        assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
+        assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
+        assert_state_variable :clickbook, ''
+        assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
+        assert_state_variable :postal_form_url, nil
+        assert_phrase_list :cash_only, [:cash_and_card]
+        assert_phrase_list :footnote, [:footnote]
+        assert_match /British Embassy Jakarta/, outcome_body
+      end
+    end # Answer Indonesia
 
 
 
