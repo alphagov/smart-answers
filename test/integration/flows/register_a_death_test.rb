@@ -521,12 +521,12 @@ class RegisterADeathTest < ActiveSupport::TestCase
     end # Answer Malaysia
     context "answer death in indonesia, user in smae country" do
       setup do
-        add_response 'malaysia'
+        add_response 'indonesia'
         add_response 'same_country'
       end
       should "give the embassy result and be done" do
         assert_current_node :embassy_result
-        assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy_malaysia]
+        assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
         assert_state_variable :clickbook, ''
