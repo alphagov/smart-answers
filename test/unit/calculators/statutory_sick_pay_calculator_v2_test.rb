@@ -107,7 +107,9 @@ module SmartAnswer::Calculators
     end
 
     context "waiting days if prev_sick_days is 2" do
-      setup {@calculator = StatutorySickPayCalculatorV2.new(2, Date.parse("6 April 2012"), Date.parse("6 May 2012"), ['1','2','3'])}
+      setup do
+        @calculator = StatutorySickPayCalculatorV2.new(2, Date.parse("6 April 2012"), Date.parse("6 May 2012"), ['1','2','3'])
+      end
 
       should "return waiting_days of 1" do
         assert_equal @calculator.waiting_days, 1
@@ -115,7 +117,9 @@ module SmartAnswer::Calculators
     end
 
     context "waiting days if prev_sick_days is 1" do
-      setup {@calculator = StatutorySickPayCalculatorV2.new(1, Date.parse("6 April 2012"), Date.parse("17 April 2012"), ['1','2','3'])}
+      setup do
+        @calculator = StatutorySickPayCalculatorV2.new(1, Date.parse("6 April 2012"), Date.parse("17 April 2012"), ['1','2','3'])
+      end
 
       should "return waiting_days of 2" do
         assert_equal @calculator.waiting_days, 2
@@ -126,7 +130,9 @@ module SmartAnswer::Calculators
     end
 
     context "waiting days if prev_sick_days is 0" do
-      setup {@calculator = StatutorySickPayCalculatorV2.new(0, Date.parse("6 April 2012"), Date.parse("12 April 2012"), ['1','2','3'])}
+      setup do
+        @calculator = StatutorySickPayCalculatorV2.new(0, Date.parse("6 April 2012"), Date.parse("12 April 2012"), ['1','2','3'])
+      end
 
       should "return waiting_days of 3, ssp payment of 0" do
         assert_equal @calculator.waiting_days, 3
@@ -137,7 +143,9 @@ module SmartAnswer::Calculators
     end
 
     context "maximum days payable for 5 days a week" do
-      setup {@calculator = StatutorySickPayCalculatorV2.new(0, Date.parse("6 April 2012"), Date.parse("6 December 2012"), ['1','2','3','4','5'])}
+      setup do
+        @calculator = StatutorySickPayCalculatorV2.new(0, Date.parse("6 April 2012"), Date.parse("6 December 2012"), ['1','2','3','4','5'])
+      end
 
       should "have a max of 140 days payable" do
         assert_equal @calculator.days_to_pay, 140
@@ -147,7 +155,9 @@ module SmartAnswer::Calculators
     end
 
     context "maximum days payable for 3 days a week" do
-      setup {@calculator = StatutorySickPayCalculatorV2.new(0, Date.parse("6 April 2012"), Date.parse("6 December 2012"), ['2','3','4'])}
+      setup do
+        @calculator = StatutorySickPayCalculatorV2.new(0, Date.parse("6 April 2012"), Date.parse("6 December 2012"), ['2','3','4'])
+      end
 
       should "have a max of 84 days payable" do
         assert_equal @calculator.days_to_pay, 84
