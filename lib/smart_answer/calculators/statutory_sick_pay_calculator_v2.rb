@@ -46,7 +46,7 @@ module SmartAnswer::Calculators
         pay / monthly_pattern_payments * 12.0 / 52
       when "irregularly"
         relevant_period_to, relevant_period_from = args.values_at(:relevant_period_to, :relevant_period_from)
-        pay / (relevant_period_to - relevant_period_from).to_i * 7
+        pay / (Date.parse(relevant_period_to) - Date.parse(relevant_period_from)).to_i * 7
       end
     end
 
