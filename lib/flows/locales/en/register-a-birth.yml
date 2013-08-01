@@ -158,7 +158,7 @@ en-GB:
         documents_you_must_provide_united-arab-emirates: |
           You and the other parent must provide:
 
-          - your child’s local birth certificate, with an English translation issued by the UAE Ministry of Health
+          - your child’s local birth certificate in Arabic, with an English translation issued by the UAE Ministry of Health
           - your British birth certificates (long version) showing details of your parents
           - a naturalisation or registration certificate (if either of you were not born in the UK)
           - your current British passports
@@ -263,13 +263,13 @@ en-GB:
         postal_form: |
           ##Send your registration
 
-          You can also post your application to the %{embassy_high_commission_or_consulate}.
+          You can also post your registration form, supporting documents and the fee to the %{embassy_high_commission_or_consulate}.
 
           Pay by credit or debit card - fill in the [credit card authorisation slip](%{postal_form_url} "Credit card authorisation slip") and post it with your registration form.
         postal_info: |
           ##Send your registration
 
-          You can also post your application to the %{embassy_high_commission_or_consulate}.
+          You can also post your registration form, supporting documents and the fee to the %{embassy_high_commission_or_consulate}.
         postal_info_barbados: |
           Pay by bank draft made payable to ‘British High Commission’.
         postal_info_belgium: |
@@ -293,7 +293,7 @@ en-GB:
         post_only_united-arab-emirates: |
           ##Send your registration
           
-          Post your application to the %{embassy_high_commission_or_consulate} in Dubai.
+          Post your registration form, supporting documents and the fee to the %{embassy_high_commission_or_consulate} in Dubai.
 
           You must use recorded delivery or a courier, and arrange for your application to arrive between 8am and 1pm. You’ll need to organise the return delivery of your documents (eg by including a pre-paid envelope or through the courier).
         cash_only: |
