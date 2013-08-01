@@ -122,7 +122,7 @@ multiple_choice :how_often_pay_employee? do
   calculate :monthly_pattern_payments do
     start_date = Date.parse(relevant_period_from)
     end_date = Date.parse(relevant_period_to)
-    Calculators::StatutorySickPayCalculator.months_between(start_date, end_date)
+    Calculators::StatutorySickPayCalculatorV2.months_between(start_date, end_date)
   end
 
   next_node :on_start_date_8_weeks_paid?
@@ -138,18 +138,18 @@ end
 money_question :total_employee_earnings? do
   save_input_as :relevant_period_pay
   calculate :relevant_period_awe do
-    Calculators::StatutorySickPayCalculator.average_weekly_earnings(
+    Calculators::StatutorySickPayCalculatorV2.average_weekly_earnings(
       pay: relevant_period_pay, pay_pattern: pay_pattern, monthly_pattern_payments: monthly_pattern_payments,
       relevant_period_to: relevant_period_to, relevant_period_from: relevant_period_from)
   end
 
   next_node do |response|
     relevant_period_pay = Money.new(response)
-    relevant_pay_awe = Calculators::StatutorySickPayCalculator.average_weekly_earnings(
+    relevant_pay_awe = Calculators::StatutorySickPayCalculatorV2.average_weekly_earnings(
       pay: relevant_period_pay, pay_pattern: pay_pattern, monthly_pattern_payments: monthly_pattern_payments,
       relevant_period_to: relevant_period_to, relevant_period_from: relevant_period_from)
 
-    if relevant_pay_awe < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(Date.parse(sick_start_date))
+    if relevant_pay_awe < Calculators::StatutorySickPayCalculatorV2.lower_earning_limit_on(Date.parse(sick_start_date))
       # Answer 5
       :not_earned_enough
     else
@@ -163,7 +163,7 @@ end
 # Question 10
 money_question :employee_average_earnings? do
   next_node do |response|
-    if response < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(Date.parse(sick_start_date))
+    if response < Calculators::StatutorySickPayCalculatorV2.lower_earning_limit_on(Date.parse(sick_start_date))
        # Answer 5
       :not_earned_enough
     else
@@ -194,7 +194,7 @@ checkbox_question :usual_work_days? do
   %w{1 2 3 4 5 6 0}.each { |n| option n.to_s }
 
   calculate :calculator do
-    calculator = Calculators::StatutorySickPayCalculator.new(prior_sick_days.to_i, Date.parse(sick_start_date), Date.parse(sick_end_date), responses.last.split(","))
+    calculator = Calculators::StatutorySickPayCalculatorV2.new(prior_sick_days.to_i, Date.parse(sick_start_date), Date.parse(sick_end_date), responses.last.split(","))
   end
 
   calculate :ssp_payment do
@@ -202,7 +202,7 @@ checkbox_question :usual_work_days? do
   end
 
   next_node do |response|
-    calculator = Calculators::StatutorySickPayCalculator.new(prior_sick_days.to_i, Date.parse(sick_start_date), Date.parse(sick_end_date), response.split(","))
+    calculator = Calculators::StatutorySickPayCalculatorV2.new(prior_sick_days.to_i, Date.parse(sick_start_date), Date.parse(sick_end_date), response.split(","))
 
     days_worked = response.split(',').size
 
