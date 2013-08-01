@@ -16,7 +16,7 @@ checkbox_question :is_your_employee_getting? do
     (responses.last.split(",") & %w{ordinary_statutory_paternity_pay statutory_adoption_pay}).any?
   end
   next_node do |response|
-    if (response.split(",") & %w{ordinary_statutory_paternity_pay statutory_adoption_pay}).any?
+    if (response.split(",") & %w{ordinary_statutory_paternity_pay statutory_adoption_pay none}).any?
       # Question 2
       :employee_tell_within_limit?
     else
