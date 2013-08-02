@@ -93,6 +93,10 @@ multiple_choice :renewing_replacing_applying? do
     application_type.split("_")[2] if is_ips_application 
   end
 
+  calculate :application_form do
+    passport_data['app_form']
+  end
+
   calculate :supporting_documents do
     passport_data['group']
   end
@@ -266,7 +270,7 @@ outcome :ips_application_result do
       PhraseList.new(:"passport_courier_costs_replacing_ips#{ips_number}",
                    :"#{child_or_adult}_passport_costs_replacing_ips#{ips_number}",
                    :"passport_costs_ips#{ips_number}")
-    elsif %w{cuba gaza libya mauritania morocco sudan tunisia western-sahara}.include?(current_location) # IPS 2&3 countries where payment must be made in cash
+    elsif %w{cuba gaza libya mauritania morocco sudan tunisia venezuela western-sahara}.include?(current_location) # IPS 2&3 countries where payment must be made in cash
       PhraseList.new(:"passport_courier_costs_ips#{ips_number}",
                    :"#{child_or_adult}_passport_costs_ips#{ips_number}",
                    :"passport_costs_ips_cash")
@@ -278,6 +282,7 @@ outcome :ips_application_result do
   end
   precalculate :how_to_apply do
     PhraseList.new(:"how_to_apply_ips#{ips_number}",
+                   application_form.to_sym,
                    supporting_documents.to_sym)
   end
   precalculate :send_your_application do
@@ -292,7 +297,7 @@ outcome :ips_application_result do
     end
   end
   precalculate :getting_your_passport do
-    if %w(cyprus egypt iraq jordan yemen).include?(current_location)
+    if %w(cyprus egypt iraq jordan yemen jamaica).include?(current_location)
       PhraseList.new :"getting_your_passport_#{current_location}"
     else
       PhraseList.new :"getting_your_passport_ips#{ips_number}"
@@ -317,12 +322,9 @@ outcome :fco_result do
     cost_type = application_type
     # All european FCO applications cost the same
     cost_type = 'fco_europe' if application_type =~ /^(dublin_ireland|madrid_spain|paris_france)$/
-    # Jamaican courier costs vary from the USA FCO office standard.
-    cost_type = current_location if current_location == 'jamaica'
     cost_type = "applying_#{current_location}" if current_location == 'india' and general_action != 'renewing'
    
     payment_methods = :"passport_costs_#{application_type}"
-    payment_methods = :"passport_costs_#{current_location}" if current_location == 'jamaica'
 
     # Indonesian first time applications have courier and cost variations.
     if current_location == 'indonesia' and application_action == 'applying'
@@ -370,7 +372,7 @@ outcome :fco_result do
 
   precalculate :send_your_application do
     phrases = PhraseList.new
-    if %(jamaica south-africa).include?(current_location)
+    if %(south-africa).include?(current_location)
       phrases << :"send_application_#{current_location}"
     elsif current_location == 'indonesia'
       if application_action == 'applying' or application_action == 'replacing'
@@ -386,7 +388,7 @@ outcome :fco_result do
   end
   precalculate :getting_your_passport do
     location = 'fco'
-    location = current_location if %(jamaica nepal india).include?(current_location)
+    location = current_location if %(nepal india).include?(current_location)
     PhraseList.new(:"getting_your_passport_#{location}")
   end
   precalculate :helpline do
