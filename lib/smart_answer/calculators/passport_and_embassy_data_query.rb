@@ -28,6 +28,7 @@ module SmartAnswer::Calculators
     RETAIN_PASSPORT_COUNTRIES_HURRICANES = %w(anguilla antigua-and-barbuda bahamas bermuda bonaire-st-eustatius-saba british-virgin-islands cayman-islands curacao dominica dominican-republic french-guiana grenada guadeloupe guyana haiti martinique mexico montserrat st-maarten st-kitts-and-nevis st-lucia st-pierre-and-miquelon st-vincent-and-the-grenadines suriname trinidad-and-tobago turks-and-caicos-islands)
 
     PASSPORT_COSTS = {
+      'New Zealand Dollars'  => [["317.80", 337.69], ["371.80", 391.69], ["222.80", 242.69]],
       'Australian Dollars'  => [[282.21], [325.81], [205.81]],
       'Indian Rupees'       => [[11550, 13650], [13950, 16050], [7350, 9450]],
       'Jordanian Dinars'    => [[144, 181], [174, 211], [92, 129]],
@@ -37,7 +38,7 @@ module SmartAnswer::Calculators
 
     BELFAST_APPLICATION_ADDRESS = %w(andorra cyprus greece portugal spain)
 
-    DURHAM_APPLICATION_ADDRESS = %w(belgium egypt france iraq israel italy jerusalem-or-westbank jordan liechtenstein luxembourg malta monaco netherlands san-marino switzerland yemen)
+    DURHAM_APPLICATION_ADDRESS = %w(anguilla antigua-and-barbuda argentina aruba bahamas barbados belgium bermuda bolivia bonaire-st-eustatius-saba brazil british-virgin-islands canada cayman-islands chile colombia curacao dominica dominican-republic ecuador egypt france french-guiana grenada guadeloupe guyana haiti iraq israel italy jamaica jerusalem-or-westbank jordan liechtenstein luxembourg malta martinique monaco montserrat netherlands paraguay peru san-marino st-kitts-and-nevis st-lucia st-maarten st-pierre-and-miquelon st-vincent-and-the-grenadines suriname switzerland trinidad-and-tobago turks-and-caicos-islands uruguay yemen)
 
     attr_reader :embassy_data, :passport_data
 
