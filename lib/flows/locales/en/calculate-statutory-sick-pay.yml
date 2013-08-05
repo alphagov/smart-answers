@@ -42,7 +42,7 @@ en-GB:
         monthly: monthly - eg last day or friday of a month
 
       # Q1
-      getting_maternity_pay?:
+      is_your_employee_getting?:
         title: Is your employee getting any of the following?
         hint: If none apply just click ‘Next step’
 
