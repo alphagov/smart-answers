@@ -1,4 +1,4 @@
 <% content_for :title do %><%= @presenter.title %><% end %>
-<section id="content"<% if @presenter.started? %> class="smart-answer-questions group"<% end %>>
+<main id="content" role="main" <% if @presenter.started? %> class="smart-answer-questions group"<% end %>>
   <%= render partial: "content" %>
-</section>
+</main>

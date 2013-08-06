@@ -85,7 +85,7 @@ $(document).ready(function() {
 
   // add an indicator of loading
   function addLoading(fragment){
-    $('section .step.current')
+    $('#content .step.current')
       .addClass('loading')
       .find('form .next-question')
       .append(fragment);
@@ -94,7 +94,7 @@ $(document).ready(function() {
 
   // update the content (i.e. plonk in the html fragment)
   function updateContent(fragment){
-    $('.smart_answer section').html(fragment);
+    $('.smart_answer #content').html(fragment);
     $.event.trigger('smartanswerAnswer');
     if ($(".outcome").length !== 0) {
       $.event.trigger('smartanswerOutcome');
@@ -107,7 +107,7 @@ $(document).ready(function() {
     }
 
     data = {
-      html_fragment: $('.smart_answer section').html(),
+      html_fragment: $('.smart_answer #content').html(),
       title: "Question",
       url: window.location.toString()
     };
