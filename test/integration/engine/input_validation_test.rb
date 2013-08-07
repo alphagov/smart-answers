@@ -77,4 +77,9 @@ class InputValidationTest < EngineIntegrationTest
 
     end
   end # with_and_without_javascript
+
+  should "404 when given invalid UTF-8 in responses" do
+    get "/custom-errors-sample/y/age/female/%bf'%bf%22-01-02"
+    assert_equal 404, response.status
+  end
 end
