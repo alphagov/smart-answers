@@ -78,7 +78,7 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
         end
 
         should "give an answer" do
-          assert_current_node :near_state_pension_age
+          assert_current_node :reached_state_pension_age
           assert_phrase_list :tense_specific_title, [:have_reached_pension_age]
           assert_phrase_list :state_pension_age_statement, [:state_pension_age_was]
           assert_state_variable "state_pension_age", "65 years"
@@ -859,5 +859,41 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
         assert_current_node :amount_result
       end
     end
+
+    context "within 4 months and 1 day of SPA, has enough qualifying years" do
+      setup do
+        Timecop.travel('2013-06-26')
+        add_response 'male'
+        add_response Date.parse('1948-08-09')
+        add_response 30
+      end
+      should "display close to SPA outcome" do
+        assert_current_node :amount_result
+        assert_state_variable :qualifying_years_total, 30
+        assert_state_variable "state_pension_age", "65 years"
+        assert_state_variable "formatted_state_pension_date", " 9 August 2013"
+        assert_phrase_list :result_text, [:within_4_months_enough_qy_years, :automatic_years_phrase]
+      end
+    end
+
+    context "within 4 months and 1 day of SPA, doesn't have enough qualifying years" do
+      setup do
+        Timecop.travel('2013-06-26')
+        add_response 'male'
+        add_response Date.parse('1948-08-09')
+        add_response 20
+        add_response 3
+        add_response 'no'
+        add_response 0
+      end
+      should "display close to SPA outcome" do
+        assert_current_node :amount_result
+        assert_state_variable :qualifying_years_total, 23
+        assert_state_variable "state_pension_age", "65 years"
+        assert_state_variable "formatted_state_pension_date", " 9 August 2013"
+        assert_phrase_list :result_text, [:within_4_months_not_enough_qy_years, :automatic_years_phrase]
+      end
+    end
+
   end #amount calculation
 end #ask which calculation
