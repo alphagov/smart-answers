@@ -52,7 +52,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
     get :show, params.merge(other_params)
   end
 
-  context "GET /" do
+  context "GET /<slug>" do
     should "respond with 404 if not found" do
       @registry = stub("Flow registry")
       @registry.stubs(:find).raises(SmartAnswer::FlowRegistry::NotFound)
@@ -95,7 +95,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
     end
 
     should "show outcome when smart answer is complete so that 'smartanswerOutcome' JS event is fired" do
-      get :show, id: 'sample', started: 'y', responses: ['yes']
+      get :show, id: 'sample', started: 'y', responses: 'yes'
       assert_select ".outcome"
     end
 
@@ -208,7 +208,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
 
       should "display collapsed question, and format number" do
-        get :show, id: 'sample', started: 'y', responses: ["2011-01-01"]
+        get :show, id: 'sample', started: 'y', responses: "2011-01-01"
         assert_select ".done", /1\s*When\?\s+1 January 2011/
       end
     end
@@ -238,7 +238,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
 
       should "display collapsed question, and format number" do
-        get :show, id: 'sample', started: 'y', responses: ["12345"]
+        get :show, id: 'sample', started: 'y', responses: "12345"
         assert_select ".done", /1\s*How many green bottles\?\s+12,345/
       end
 
@@ -357,7 +357,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
 
       context "a response has been accepted" do
-        setup { get :show, id: 'sample', started: 'y', responses: ["1.0-month"] }
+        setup { get :show, id: 'sample', started: 'y', responses: "1.0-month" }
 
         should "show response summary" do
           assert_select ".done", /1\s*How much\?\s+£1 per month/
@@ -399,7 +399,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
     end
 
     context "a response has been accepted" do
-      setup { get :show, id: 'sample', started: 'y', responses: ["no"] }
+      setup { get :show, id: 'sample', started: 'y', responses: "no" }
 
       should "show response summary" do
         assert_select ".done", /1\s*Do you like chocolate\?\s+no/
@@ -418,7 +418,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     context "format=json" do
       should "render content without layout" do
-        get :show, id: 'sample', started: 'y', responses: ["no"], format: "json"
+        get :show, id: 'sample', started: 'y', responses: "no", format: "json"
         data = JSON.parse(response.body)
         assert_equal '/sample/y/no', data['url']
         doc = Nokogiri::HTML(data['html_fragment'])
