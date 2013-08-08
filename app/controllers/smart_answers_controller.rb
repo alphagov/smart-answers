@@ -1,4 +1,5 @@
 class SmartAnswersController < ApplicationController
+  before_filter :reject_invalid_utf8
   before_filter :find_smart_answer
   before_filter :redirect_response_to_canonical_url, only: %w{show}
 
@@ -64,5 +65,9 @@ private
         responses: @presenter.current_state.responses,
         protocol: (request.ssl? || Rails.env.production?) ? 'https' : 'http'
     end
+  end
+
+  def reject_invalid_utf8
+    error_404 unless params[:responses].nil? or params[:responses].valid_encoding?
   end
 end
