@@ -12,6 +12,9 @@ country_select :which_country_are_you_in?, :exclude_countries => exclude_countri
 
   calculate :location do
     loc = WorldLocation.find(current_location)
+    if Calculators::PassportAndEmbassyDataQueryV2::ALT_EMBASSIES.has_key?(current_location)
+      loc = WorldLocation.find(Calculators::PassportAndEmbassyDataQueryV2::ALT_EMBASSIES[current_location])
+    end
     raise InvalidResponse unless loc
     loc
   end

@@ -260,7 +260,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
 
   context "answer Benin, renewing old passport" do
     setup do
-      worldwide_api_has_organisations_for_location('benin', read_fixture_file('worldwide/benin_organisations.json'))
+      worldwide_api_has_organisations_for_location('nigeria', read_fixture_file('worldwide/nigeria_organisations.json'))
       add_response 'benin'
       add_response 'renewing_old'
       add_response 'adult'
@@ -274,10 +274,10 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       assert_phrase_list :getting_your_passport, [:getting_your_passport_lagos_nigeria]
       assert_phrase_list :helpline, [:helpline_intro, :helpline_pretoria_south_africa, :helpline_fco_webchat]
       assert_current_node :result
-      expected_location = WorldLocation.find('benin')
+      expected_location = WorldLocation.find('nigeria')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
-      assert_match /Gamel Abdul Nasser Avenue/, outcome_body
+      assert_match /British Deputy High Commission Lagos/, outcome_body
     end
   end
 
@@ -881,7 +881,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
 
   context "answer Kyrgyzstan, renewing_old, adult passport" do
     should "give the IPS application result with custom phrases" do
-      worldwide_api_has_organisations_for_location('kyrgyzstan', read_fixture_file('worldwide/kyrgyzstan_organisations.json'))
+      worldwide_api_has_organisations_for_location('kazakhstan', read_fixture_file('worldwide/kazakhstan_organisations.json'))
       add_response 'kyrgyzstan'
       add_response 'renewing_old'
       add_response 'adult'
@@ -891,10 +891,10 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
       assert_phrase_list :send_your_application, [:send_application_ips3]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
-      expected_location = WorldLocation.find('kyrgyzstan')
+      expected_location = WorldLocation.find('kazakhstan')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
-      assert_match /Bishkek, 720040/, outcome_body
+      assert_match /British Embassy Astana/, outcome_body
     end
   end # Kyrgyzstan
 

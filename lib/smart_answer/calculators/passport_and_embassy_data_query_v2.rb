@@ -1,5 +1,5 @@
 module SmartAnswer::Calculators
-  class PassportAndEmbassyDataQuery
+  class PassportAndEmbassyDataQueryV2
 
     include ActionView::Helpers::NumberHelper
 
@@ -11,13 +11,9 @@ module SmartAnswer::Calculators
       'benin' =>  'nigeria',
       'djibouti' => 'kenya',
       'guinea' => 'ghana',
-      'ivory-coast' => 'ghana',
+      'cote-d-ivoire' => 'ghana',
       'kyrgyzstan' => 'kazakhstan',
-      'liberia' => 'ghana',
-      'mauritania' => 'morocco',
-      'togo' => 'ghana',
-      'western-sahara' => 'morocco',
-      'yemen' =>  'jordan'
+      'liberia' => 'ghana'
     }
 
     RETAIN_PASSPORT_COUNTRIES = %w(afghanistan angola bangladesh brazil burma burundi china cuba
