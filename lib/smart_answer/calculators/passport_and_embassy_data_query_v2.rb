@@ -36,6 +36,10 @@ module SmartAnswer::Calculators
 
     DURHAM_APPLICATION_ADDRESS = %w(anguilla antigua-and-barbuda argentina aruba bahamas barbados belgium bermuda bolivia bonaire-st-eustatius-saba brazil british-virgin-islands canada cayman-islands chile colombia curacao dominica dominican-republic ecuador egypt france french-guiana grenada guadeloupe guyana haiti iraq israel italy jamaica jerusalem-or-westbank jordan liechtenstein luxembourg malta martinique monaco montserrat netherlands paraguay peru san-marino st-kitts-and-nevis st-lucia st-maarten st-pierre-and-miquelon st-vincent-and-the-grenadines suriname switzerland trinidad-and-tobago turks-and-caicos-islands uruguay yemen)
 
+    CASH_ONLY_COUNTRIES = %w(cuba gaza libya mauritania morocco sudan tunisia venezuela western-sahara)
+
+    RENEWING_COUNTRIES = %w(azerbaijan belarus cuba georgia kazakhstan kyrgyzstan lebanon libya mauritania morocco russia sudan tajikistan tunisia turkmenistan ukraine uzbekistan western-sahara venezuela)
+
     attr_reader :embassy_data, :passport_data
 
     def initialize
@@ -66,6 +70,14 @@ module SmartAnswer::Calculators
 
     def durham_application_address?(country_slug)
       DURHAM_APPLICATION_ADDRESS.include?(country_slug)
+    end
+
+    def cash_only_countries?(country_slug)
+      CASH_ONLY_COUNTRIES.include?(country_slug)
+    end
+
+    def renewing_countries?(country_slug)
+      RENEWING_COUNTRIES.include?(country_slug)
     end
 
     def passport_costs
