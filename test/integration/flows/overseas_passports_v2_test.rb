@@ -596,7 +596,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       expected_location = WorldLocation.find('indonesia')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
-      assert_match /Jl Imam Bonjol 80/, outcome_body
+      assert_match /British Embassy Jakarta/, outcome_body
     end
   end # Indonesia (FCO with custom phrases)
 

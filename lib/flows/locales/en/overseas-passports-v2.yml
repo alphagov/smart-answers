@@ -125,14 +125,7 @@ en-GB:
         send_application_indonesia_applying: |
           You must make your application in person.
 
-
-          $A
-            British Consulate-General
-            Deutsche Bank Building 19th Floor
-            Jl Imam Bonjol 80
-            Jakarta 10310
-            Indonesia
-          $A
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
         passport_costs_washington_usa:
           You must pay using a Visa or Mastercard. [Download a credit card authorisation form (PDF, 64KB)](/government/uploads/system/uploads/attachment_data/file/136853/credit-card-form.pdf.pdf "Credit card authorisation form (PDF, 64KB)") and send it with your application.
@@ -409,18 +402,6 @@ en-GB:
           You must make your application in person.
 
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-
-        send_application_indonesia: |
-          Send your application - preferably by one-way courier or secure post - to
-          
-          
-          $A
-            British Consulate-General
-            Deutsche Bank Building 19th Floor
-            Jl Imam Bonjol 80
-            Jakarta 10310
-            Indonesia 
-          $A
 
         send_application_wellington_new_zealand: |
 
