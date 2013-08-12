@@ -44,7 +44,6 @@ module SmartAnswer::Calculators
     attr_reader :embassy_data, :passport_data
 
     def initialize
-      @embassy_data = self.class.embassy_data
       @passport_data = self.class.passport_data
     end
 
@@ -94,10 +93,6 @@ module SmartAnswer::Calculators
 
     def self.passport_data
       @passport_data ||= YAML.load_file(Rails.root.join("lib", "data", "passport_data_v2.yml"))
-    end
-
-    def self.embassy_data
-      @embassy_data ||= YAML.load_file(Rails.root.join("lib", "data", "embassies.yml"))
     end
   end
 end
