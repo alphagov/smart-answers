@@ -24,12 +24,13 @@ module SmartAnswer::Calculators
     RETAIN_PASSPORT_COUNTRIES_HURRICANES = %w(anguilla antigua-and-barbuda bahamas bermuda bonaire-st-eustatius-saba british-virgin-islands cayman-islands curacao dominica dominican-republic french-guiana grenada guadeloupe guyana haiti martinique mexico montserrat st-maarten st-kitts-and-nevis st-lucia st-pierre-and-miquelon st-vincent-and-the-grenadines suriname trinidad-and-tobago turks-and-caicos-islands)
 
     PASSPORT_COSTS = {
-      'New Zealand Dollars'  => [["317.80", 337.69], ["371.80", 391.69], ["222.80", 242.69]],
       'Australian Dollars'  => [[282.21], [325.81], [205.81]],
+      'Euros'               => [[156, 182],   [188, 214],   [99, 125]],
       'Indian Rupees'       => [[11550, 13650], [13950, 16050], [7350, 9450]],
       'Jordanian Dinars'    => [[144, 181], [174, 211], [92, 129]],
-      'South African Rand'  => [[2112, 2440], [2549, 2877], [1345, 1673]],
-      'Euros'               => [[156, 182],   [188, 214],   [99, 125]]
+      'New Zealand Dollars' => [["317.80", 337.69], ["371.80", 391.69], ["222.80", 242.69]],
+      'Pakistani Rupees'    => [["20,480", "24,490"], ["24,720", "28,730"], ["13,040", "17,050"]],
+      'South African Rand'  => [[2112, 2440], [2549, 2877], [1345, 1673]]
     }
 
     BELFAST_APPLICATION_ADDRESS = %w(andorra cyprus greece portugal spain)

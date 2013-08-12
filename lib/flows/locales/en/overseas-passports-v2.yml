@@ -2042,13 +2042,11 @@ en-GB:
 
           You must pay using a Bank Draft payable to the ‘British High Commission Islamabad’ and endorsed ‘payable at any branch’.
 
-          Passports and courier fees are priced in sterling - the amount you pay in local currency depends on the exchange rate when you apply.
-
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | £128 | £153.07
-          Adult jumbo 48-page passport | £154.50 | £179.57
-          Child passport | £81.50 | £106.57
+          Adult standard 32-page passport | %{costs_pakistani_rupees_adult_32} 
+          Adult jumbo 48-page passport | %{costs_pakistani_rupees_adult_48}
+          Child passport | %{costs_pakistani_rupees_child}
 
         how_to_apply_pakistan: ''
         supporting_documents_pakistan: |
