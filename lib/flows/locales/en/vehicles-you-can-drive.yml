@@ -181,7 +181,7 @@ en-GB:
 
           [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence "Apply for your first provisional driving licence") 
 
-            [Disability Living Allowance (DLA)](/dla-disability-living-allowance-benefit, "Disability Living Allowance (DLA)")
+          [Disability Living Allowance (DLA)](/dla-disability-living-allowance-benefit "Disability Living Allowance (DLA)")
       ## A4
       entitled_for_provisional_licence:
         body: |
@@ -189,7 +189,7 @@ en-GB:
 
           ^If you take your driving test in an automatic car you can only drive automatic cars.^
         next_steps: |
-            [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence "Apply for your first provisional driving licence") 
+          [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence "Apply for your first provisional driving licence") 
       ## A5
       mb_not_old_enough:
         body: |
@@ -198,7 +198,7 @@ en-GB:
           You can apply for a provisional licence to ride a **moped** when you’re 16. 
 
         next_steps: |
-          [Riding a motorcycle or moped](https://www.gov.uk/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
+          [Riding a motorcycle or moped](https://www.gov.uk/ride-motorcycle-moped "Riding a motorcycle or moped")
       
       ## A6
       mb_apply_provisional:
@@ -261,7 +261,7 @@ en-GB:
           These are bikes unlimited in size and power, with or without a sidecar.
 
         next_steps: |
-          [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
+          [Riding a motorcycle or moped](/ride-motorcycle-moped "Riding a motorcycle or moped")
 
           [Book a practical driving test](/book-practical-driving-test "Book a practical driving test")
 
@@ -317,7 +317,7 @@ en-GB:
 
  
         next_steps: |
-          [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
+          [Riding a motorcycle or moped](/ride-motorcycle-moped "Riding a motorcycle or moped")
           
           [Book a practical driving test](/book-practical-driving-test "Book a practical driving test")
 
@@ -358,7 +358,7 @@ en-GB:
         next_steps: |          
           [Book a practical driving test](/book-practical-driving-test "Book a practical driving test")
 
-          [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
+          [Riding a motorcycle or moped](/ride-motorcycle-moped "Riding a motorcycle or moped")
 
           You can ride the size of motorbike you passed your test on - this will be shown on your licence.
           
@@ -374,7 +374,7 @@ en-GB:
           *[CBT]: Compulsory basic training
 
         next_steps: |
-          [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
+          [Riding a motorcycle or moped](/ride-motorcycle-moped "Riding a motorcycle or moped")
       ## A14
       moped_entitlement_licence_post_2001:
         body: |
@@ -385,9 +385,9 @@ en-GB:
           *[CBT]: Compulsory basic training
 
         next_steps: |
-          [Compulsory basic training (CBT)](/cbt-compulsory-basic-training/overview "Compulsory basic training (CBT)")
+          [Compulsory basic training (CBT)](/cbt-compulsory-basic-training "Compulsory basic training (CBT)")
           
-          [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
+          [Riding a motorcycle or moped](/ride-motorcycle-moped "Riding a motorcycle or moped")
       ## A15       
       moped_not_old_enough:
         body: |
@@ -397,7 +397,7 @@ en-GB:
 
           *[CBT]: Compulsory basic training
         next_steps: |
-          [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
+          [Riding a motorcycle or moped](/ride-motorcycle-moped "Riding a motorcycle or moped")
       ## A16
       moped_apply_for_provisional:
         body: |
@@ -412,11 +412,11 @@ en-GB:
           *[CBT]: Compulsory basic training
 
         next_steps: |
-          [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence, "Apply for your first provisional driving licence")
+          [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence "Apply for your first provisional driving licence")
           
-          [Compulsory basic training (CBT)](/cbt-compulsory-basic-training/overview "Compulsory basic training (CBT)")
+          [Compulsory basic training (CBT)](/cbt-compulsory-basic-training "Compulsory basic training (CBT)")
           
-          [Riding a motorcycle or moped](/ride-motorcycle-moped/overview "Riding a motorcycle or moped")
+          [Riding a motorcycle or moped](/ride-motorcycle-moped "Riding a motorcycle or moped")
       ## A17
       entitled_for_msv:
         body: |
@@ -478,7 +478,7 @@ en-GB:
         next_steps: |
           [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
 
-          [Become a lorry or bus driver](/become-lorry-bus-driver/overview "Become a lorry or bus driver")
+          [Become a lorry or bus driver](/become-lorry-bus-driver "Become a lorry or bus driver")
 
           [Driver CPC](/driver-certificate-of-professional-competence-cpc "Driver certificate of professional competence")
 
@@ -584,7 +584,7 @@ en-GB:
           You can learn to drive a bus. You’ll need to apply for provisional bus entitlement (category D) then take a category D test.
 
         next_steps: |
-          [Become a lorry or bus driver](/become-lorry-bus-driver/overview "Become a lorry or bus driver")
+          [Become a lorry or bus driver](/become-lorry-bus-driver "Become a lorry or bus driver")
 
           [Driving licence categories](/driving-licence-categories "Driving licence categories")
       ## A33
@@ -597,7 +597,7 @@ en-GB:
         next_steps: |
           [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence "Apply for your first provisional driving licence")
 
-          [Become a lorry or bus driver](/become-lorry-bus-driver/overview "Become a lorry or bus driver") 
+          [Become a lorry or bus driver](/become-lorry-bus-driver "Become a lorry or bus driver") 
 
           [Driving licence categories](/driving-licence-categories "Driving licence categories")
       ## A34
