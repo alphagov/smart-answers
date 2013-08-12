@@ -9,7 +9,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(australia afghanistan iraq benin austria albania morocco azerbaijan ireland india tanzania indonesia jamaica malta italy jordan iran syria cameroon kenya andorra tunisia yemen haiti south-africa united-kingdom greece spain the-occupied-palestinian-territories st-helena-ascension-and-tristan-da-cunha kazakhstan kyrgyzstan egypt nigeria russia)
+    @location_slugs = %w(australia afghanistan iraq benin austria albania morocco azerbaijan ireland india tanzania indonesia jamaica malta italy jordan iran syria cameroon kenya andorra tunisia yemen haiti south-africa united-kingdom greece spain the-occupied-palestinian-territories st-helena-ascension-and-tristan-da-cunha kazakhstan kyrgyzstan egypt nigeria russia congo)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports-v2'
   end
@@ -563,6 +563,22 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       assert_current_node :fco_result
       assert_phrase_list :how_long_it_takes, [:how_long_applying_tanzania]
       expected_location = WorldLocation.find('tanzania')
+      assert_state_variable :location, expected_location
+      assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /South Africa/, outcome_body
+    end
+  end # Tanzania (FCO with custom phrases)
+
+  context "answer Congo, replacement, adult passport" do
+    should "give the fco result with custom phrases" do
+      worldwide_api_has_organisations_for_location('congo', read_fixture_file('worldwide/congo_organisations.json'))
+      add_response 'congo'
+      add_response 'applying'
+      add_response 'adult'
+      assert_current_node :fco_result
+      assert_phrase_list :how_long_it_takes, [:how_long_applying_fco]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_congo]
+      expected_location = WorldLocation.find('congo')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
       assert_match /South Africa/, outcome_body
