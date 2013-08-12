@@ -773,7 +773,7 @@ en-GB:
           - Her Majesty's Passport Office needs to ask you for more information or documents
           - the photographs you send are rejected.
 
-          Don’t book travel until you have a valid passport. If you need to travel more urgently, apply for an [Emergency Travel Document.](/emergency-travel-document "Get an emergency travel document")
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, apply for an [Emergency Travel Document.](/emergency-travel-document)
 
         passport_courier_costs_ips1: |
           You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent back to you securely.
@@ -939,7 +939,7 @@ en-GB:
           - Her Majesty's Passport Office needs to ask you for more information or documents
           - the photographs you send are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document "Get an emergency travel document")
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document)
 
         how_long_replacing_ips2: |
           Your application will take at least **8 weeks.**
@@ -1047,7 +1047,7 @@ en-GB:
           - Her Majesty's Passport Office needs to ask you for more information or documents
           - the photographs you send are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document "Get an emergency travel document")
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document)
 
         passport_courier_costs_ips3: |
           You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the British embassy, high commission or consulate where you applied for you to collect.
@@ -1131,7 +1131,7 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
           
-          Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [emergency travel document](/emergency-travel-document "Get an emergency travel document").
+          Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [emergency travel document](/emergency-travel-document).
 
           If your passport has been lost or stolen and you haven’t reported it yet, include ‘Form LS01’ with your application.
 
@@ -1248,7 +1248,7 @@ en-GB:
 
           For first-time applications or replacement of lost or stolen passports, it usually takes **6 weeks.**
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [emergency travel document](/emergency-travel-document “Get an emergency travel document”).
+          Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [emergency travel document](/emergency-travel-document).
 
           If your passport has been lost or stolen and you haven’t reported it yet, include 'Form LS01' with your application.
 
@@ -2649,7 +2649,7 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [emergency travel document](/emergency-travel-document "Get an emergency travel document").
+          Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [emergency travel document](/emergency-travel-document).
 
           If your passport has been lost or stolen and you haven’t reported it yet, include ‘Form LS01’ with your application.
 
@@ -2726,7 +2726,7 @@ en-GB:
           - you don’t send the right supporting documents or payment
           - the photographs you send are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document "Get an emergency travel document")
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document)
 
           ## Cost
           %{cost}
@@ -2822,7 +2822,7 @@ en-GB:
 
           %{how_long_it_takes}
 
-          Don't book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [emergency travel document](/emergency-travel-document "Get an emergency travel document").
+          Don't book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [emergency travel document](/emergency-travel-document).
 
           If your passport has been lost or stolen and you haven't reported it yet, include 'Form LS01' with your application.
 
