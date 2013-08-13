@@ -1,9 +1,9 @@
 status :draft
 satisfies_need "2759"
 
-data_query = SmartAnswer::Calculators::MarriageAbroadDataQueryV2.new
+data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQueryV2.new
-embassy_data_query = SmartAnswer::Calculators::PassportAndEmbassyDataQueryV2.new
+embassy_data_query = SmartAnswer::Calculators::PassportAndEmbassyDataQuery.new
 i18n_prefix = 'flow.register-a-birth-v2'
 exclusions = %w(afghanistan cambodia central-african-republic chad comoros
                 dominican-republic east-timor eritrea haiti kosovo laos lesotho
@@ -11,17 +11,18 @@ exclusions = %w(afghanistan cambodia central-african-republic chad comoros
                 taiwan tajikistan western-sahara)
 no_embassies = %w(iran syria yemen)
 different_address = %w(belgium brazil germany india turkey united-arab-emirates)
+exclude_countries = %w(holy-see british-antarctic-territory)
 
 
 # Q1
-country_select :country_of_birth?, :use_legacy_data => true do
+country_select :country_of_birth?, :exclude_countries => exclude_countries do
   save_input_as :country_of_birth
 
   calculate :registration_country do
     reg_data_query.registration_country_slug(responses.last)
   end
   calculate :country_of_birth_name do
-    LegacyCountry.all.find { |c| c.slug == responses.last }.name
+    WorldLocation.all.find { |c| c.slug == responses.last }.name
   end
   calculate :country_name_lowercase_prefix do
     if data_query.countries_with_definitive_articles?(country_of_birth)
@@ -31,7 +32,7 @@ country_select :country_of_birth?, :use_legacy_data => true do
     end
   end
   calculate :registration_country_name do
-    LegacyCountry.all.find { |c| c.slug == registration_country }.name
+    WorldLocation.all.find { |c| c.slug == registration_country }.name
   end
   calculate :registration_country_name_lowercase_prefix do
     if data_query.countries_with_definitive_articles?(registration_country)
@@ -121,12 +122,12 @@ multiple_choice :where_are_you_now? do
   end
 end
 # Q6
-country_select :which_country?, :use_legacy_data => true do
+country_select :which_country?, :exclude_countries => exclude_countries do
   calculate :registration_country do
     reg_data_query.registration_country_slug(responses.last)
   end
   calculate :registration_country_name do
-    LegacyCountry.all.find { |c| c.slug == registration_country }.name
+    WorldLocation.all.find { |c| c.slug == registration_country }.name
   end
   calculate :registration_country_name_lowercase_prefix do
     if data_query.countries_with_definitive_articles?(registration_country)

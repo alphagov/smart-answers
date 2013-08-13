@@ -288,7 +288,7 @@ en-GB:
           Pay by bank draft made payable to ‘British High Commission’.
         postal_info_thailand: |
           Pay by postal order or bank draft, made payable to ‘The British Embassy, Bangkok’. Cash the postal order at the Nana Post Office (there’s a THB 200 administration fee).
-        postal_info_united-states: |
+        postal_info_usa: |
           Pay by money order made payable to the ‘British Embassy Government Account’. Personal cheques aren’t accepted.
         post_only_united-arab-emirates: |
           ##Send your registration

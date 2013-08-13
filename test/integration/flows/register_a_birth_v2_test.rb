@@ -1,9 +1,17 @@
 # encoding: UTF-8
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
+require 'gds_api/test_helpers/worldwide'
 
-class RegisterABirthTestV2 < ActiveSupport::TestCase
+class RegisterABirthV2Test < ActiveSupport::TestCase
   include FlowTestHelper
+  include GdsApi::TestHelpers::Worldwide
+
+  setup do
+    @location_slugs = %w(turkey australia andorra iran spain ireland yemen afghanistan pakistan sweden taiwan central-african-republic belize libya hong-kong barbados united-arab-emirates indonesia guatemala thailand sri-lanka china maldives laos el-salvador usa cameroon)
+    worldwide_api_has_locations(@location_slugs)
+    setup_for_testing_flow 'register-a-birth-v2'
+  end
 
   setup do
     setup_for_testing_flow 'register-a-birth-v2'
@@ -134,18 +142,17 @@ class RegisterABirthTestV2 < ActiveSupport::TestCase
               assert_current_node :embassy_result
             end # now in Ireland
             should "USA and get the embassy outcome" do
-              add_response 'united-states'
-              assert_current_node :embassy_result
+              add_response 'usa'
               assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-              assert_state_variable :registration_country_name, "United States"
+              assert_state_variable :registration_country, "usa"
               assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
               assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
               assert_phrase_list :go_to_the_embassy, [:registering_clickbook, :registering_either_parent]
               assert_state_variable :clickbook_data, 'http://www.britishembassydc.clickbook.net/'
               assert_state_variable :postal_form_url, nil
-              assert_phrase_list :postal, [:postal_info, :"postal_info_united-states"]
-              assert_match /3100 Massachusetts Ave, NW/, current_state.embassy_details
+              assert_phrase_list :postal, [:postal_info, :"postal_info_usa"]
               assert_phrase_list :footnote, [:footnote_another_country]
+              assert_current_node :embassy_result
             end # now in USA
             should "answer Yemen and get the no embassy outcome" do
               add_response 'yemen'
