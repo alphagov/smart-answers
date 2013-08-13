@@ -76,7 +76,7 @@ module SmartAnswer::Calculators
     end
 
     def self.registration_data
-      @embassy_data ||= YAML.load_file(Rails.root.join("lib", "data", "registrations.yml"))
+      @embassy_data ||= YAML.load_file(Rails.root.join("lib", "data", "registrations-v2.yml"))
     end
   end
 end

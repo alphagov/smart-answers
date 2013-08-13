@@ -44,13 +44,13 @@ clickbook:
   slovakia: http://www.ukinslovakia.clickbook.net/
   sweden: http://www.ukinsweden.clickbook.net/
   switzerland: http://britishconsulatebern.clickbook.net/
-  united-states: http://www.britishembassydc.clickbook.net/
+  usa: http://www.britishembassydc.clickbook.net/
   uruguay: http://britishembassyinmvd.clickbook.net/
   vietnam: 
     Hanoi: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyhanoi?OpenDocument&cb_referer=http%3A%2F%2Fukinvietnam.fco.gov.uk%2Fen%2Fhelp-for-british-nationals%2Fliving-in-vietnam%2Fbirth-registration
     Ho Chi Min City: http://www.bcghochiminh.clickbook.net/
 registration_country:
-  american-samoa: united-states
+  american-samoa: usa
   andorra: spain
   antigua-and-barbuda: barbados
   bahamas: jamaica
@@ -62,10 +62,10 @@ registration_country:
   central-african-republic: cameroon
   chad: cameroon
   comoros: mauritius
-  cote-d_ivoire-(ivory-coast): ghana
+  cote-d-ivoire: ghana
   curacao: barbados
   djibouti: ethiopia
-  dominica,-commonwealth-of: barbados
+  dominica: barbados
   el-salvador: guatemala
   equatorial-guinea: cameroon
   french-guiana: france
@@ -142,7 +142,7 @@ death:
     brazil: /government/publications/brazil-death-registration-form
     france: /government/publications/france-birth-pack
     spain: /government/publications/spain-death-registration-form
-    united-states: /government/publications/usa-birth-registration-application
+    usa: /government/publications/usa-birth-registration-application
 
   postal_form:
     austria: /government/uploads/system/uploads/attachment_data/file/136797/credit-card-form.pdf
@@ -175,7 +175,7 @@ death:
   - sweden
   - tanzania
   - thailand
-  - united-states
+  - usa
   postal_return:
     italy: /government/uploads/system/uploads/attachment_data/file/136822/return-delivery-form.doc
     spain: /government/uploads/system/uploads/attachment_data/file/136821/reg-post-return-delivery-form.pdf
