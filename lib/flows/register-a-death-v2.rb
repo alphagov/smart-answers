@@ -2,15 +2,12 @@ satisfies_need "2189"
 status :draft
 
 data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
-i18n_prefix = "flow.register-a-death-v2"
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQueryV2.new
-embassy_data_query = SmartAnswer::Calculators::PassportAndEmbassyDataQuery.new
 exclusions = %w(afghanistan cambodia central-african-republic chad comoros 
                 dominican-republic east-timor eritrea haiti kosovo laos lesotho 
                 liberia madagascar montenegro paraguay samoa slovenia somalia 
                 swaziland taiwan tajikistan western-sahara)
 no_embassies = %w(iran syria yemen)
-different_address = %w(belgium brazil germany india turkey united-arab-emirates)
 exclude_countries = %w(holy-see british-antarctic-territory)
 
 # Q1
@@ -50,18 +47,6 @@ end
 country_select :which_country?, :exclude_countries => exclude_countries do
   save_input_as :country
 
-  calculate :country_name do
-    WorldLocation.all.find { |c| c.slug == responses.last }.name
-  end
-  calculate :country_name_lowercase_prefix do
-    if data_query.countries_with_definitive_articles?(country)
-      "the #{country_name}"
-    else
-      country_name
-    end
-  end
-
-
   calculate :current_location do
     reg_data_query.registration_country_slug(responses.last) || responses.last 
   end
@@ -98,11 +83,11 @@ multiple_choice :where_are_you_now? do
 end
 # Q6
 country_select :which_country_are_you_in_now?, :exclude_countries => exclude_countries do
-  save_input_as :current_location
-
+  calculate :current_location do
+    reg_data_query.registration_country_slug(responses.last) || responses.last 
+  end
   calculate :current_location_name do
-    country_slug = reg_data_query.registration_country_slug(responses.last)
-    WorldLocation.all.find { |c| c.slug == country_slug }.name
+    WorldLocation.all.find { |c| c.slug == current_location }.name
   end
   calculate :current_location_name_lowercase_prefix do
     if data_query.countries_with_definitive_articles?(current_location)
@@ -258,15 +243,23 @@ outcome :embassy_result do
     reg_data_query.cash_only?(current_location) ? PhraseList.new(:cash_only) : PhraseList.new(:cash_and_card)
   end
 
-  precalculate :embassy_details do
-    details = embassy_data_query.find_embassy_data(current_location)
-
-    if details
-      details = different_address.include?(current_location) ? details.second : details.first
-      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
-                     address: details['address'], phone: details['phone'], email: details['email'])
+  precalculate :location do
+    loc = WorldLocation.find(current_location)
+    raise InvalidResponse unless loc
+    loc
+  end
+  precalculate :organisation do
+    location.fco_organisation
+  end
+  precalculate :overseas_passports_embassies do
+    if organisation && organisation.all_offices.any?
+      embassies = organisation.all_offices.select do |o| 
+        o.services.any? { |s| s.title.include?('Births and Deaths registration service') }
+      end
+      embassies << organisation.main_office if embassies.empty?
+      embassies
     else
-      ''
+      []
     end
   end
 
