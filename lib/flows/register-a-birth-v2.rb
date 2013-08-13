@@ -42,7 +42,6 @@ country_select :country_of_birth?, :exclude_countries => exclude_countries do
     end
   end
 
-
   next_node do |response|
     if no_embassies.include?(response)
       :no_embassy_result
@@ -230,18 +229,23 @@ outcome :embassy_result do
     end
   end
 
-  precalculate :embassy_details do
-    details = embassy_data_query.find_embassy_data(registration_country)
-    if details and !different_address.include?(registration_country)
-      details = details.first
-      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
-                     address: details['address'], phone: details['phone'], email: details['email'])
-    elsif details and different_address.include?(registration_country)
-      details = details.second
-      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
-                     address: details['address'], phone: details['phone'], email: details['email'])
+  precalculate :location do
+    loc = WorldLocation.find(registration_country)
+    raise InvalidResponse unless loc
+    loc
+  end
+  precalculate :organisation do
+    location.fco_organisation
+  end
+  precalculate :overseas_passports_embassies do
+    if organisation && organisation.all_offices.any?
+      embassies = organisation.all_offices.select do |o| 
+        o.services.any? { |s| s.title.include?('Births and Deaths registration service') }
+      end
+      embassies << organisation.main_office if embassies.empty?
+      embassies
     else
-      ''
+      []
     end
   end
   precalculate :cash_only do

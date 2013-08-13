@@ -44,14 +44,6 @@ en-GB:
       which_country?:
         title: Which country?
       phrases:
-        embassy_details: |
-          
-
-          $A
-            %{address}
-            %{phone}
-            %{email}
-          $A
         indonesia_british_father_paternity: |
           %You’ll need to get a court order to have the father named on the birth certificate before registering if you’re unmarried and only the father has British nationality.%
 
@@ -348,7 +340,8 @@ en-GB:
           %{postal}
           %{cash_only}
 
-          %{embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
+
 
           %{footnote}
 
