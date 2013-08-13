@@ -3,14 +3,11 @@ satisfies_need "2759"
 
 data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQueryV2.new
-embassy_data_query = SmartAnswer::Calculators::PassportAndEmbassyDataQuery.new
-i18n_prefix = 'flow.register-a-birth-v2'
 exclusions = %w(afghanistan cambodia central-african-republic chad comoros
                 dominican-republic east-timor eritrea haiti kosovo laos lesotho
                 liberia madagascar montenegro paraguay samoa slovenia somalia swaziland
                 taiwan tajikistan western-sahara)
 no_embassies = %w(iran syria yemen)
-different_address = %w(belgium brazil germany india turkey united-arab-emirates)
 exclude_countries = %w(holy-see british-antarctic-territory)
 
 
