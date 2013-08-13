@@ -1,11 +1,15 @@
 # encoding: UTF-8
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
+require 'gds_api/test_helpers/worldwide'
 
-class RegisterADeathTestV2 < ActiveSupport::TestCase
+class RegisterADeathV2Test < ActiveSupport::TestCase
   include FlowTestHelper
+  include GdsApi::TestHelpers::Worldwide
 
   setup do
+    @location_slugs = %w(afghanistan andorra argentina australia austria barbados belgium brazil china dominica france germany hong-kong indonesia italy libya malaysia morocco netherlands spain st-kitts-and-nevis sweden usa)
+    worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-death-v2'
   end
 
@@ -453,7 +457,7 @@ class RegisterADeathTestV2 < ActiveSupport::TestCase
     end # Answer Germany
     context "answer USA" do
       setup do
-        add_response 'united-states'
+        add_response 'usa'
         add_response 'same_country'
       end
       should "give the embassy result and be done" do
@@ -464,8 +468,7 @@ class RegisterADeathTestV2 < ActiveSupport::TestCase
         assert_phrase_list :clickbook, [:clickbook] 
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, nil
-        assert_phrase_list :postal, [:postal_intro, :"postal_registration_united-states"]
-        assert_match /3100 Massachusetts Ave, NW/, current_state.embassy_details
+        assert_phrase_list :postal, [:postal_intro, :"postal_registration_usa"]
       end
     end # Answer USA
     context "answer Netherlands" do
@@ -486,7 +489,7 @@ class RegisterADeathTestV2 < ActiveSupport::TestCase
     end # Answer Netherlands
     context "answer death in dominica, user in st kitts" do
       setup do
-        add_response 'dominica,-commonwealth-of'
+        add_response 'dominica'
         add_response 'another_country'
         add_response 'st-kitts-and-nevis'
       end
