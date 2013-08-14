@@ -444,7 +444,11 @@ outcome :result do
     end
   end
   precalculate :getting_your_passport do
-    PhraseList.new(:"getting_your_passport_#{application_type}")
+    if %w(djibouti).include?(current_location)
+      PhraseList.new(:getting_your_passport_djibouti)
+    else
+      PhraseList.new(:"getting_your_passport_#{application_type}")
+    end
   end
   precalculate :helpline do
     phrases = PhraseList.new

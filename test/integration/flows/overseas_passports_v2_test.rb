@@ -9,7 +9,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(australia afghanistan iraq benin austria albania morocco azerbaijan ireland india tanzania indonesia jamaica malta italy jordan iran syria cameroon kenya andorra tunisia yemen haiti south-africa united-kingdom greece spain the-occupied-palestinian-territories st-helena-ascension-and-tristan-da-cunha kazakhstan kyrgyzstan egypt nigeria russia congo)
+    @location_slugs = %w(australia afghanistan iraq benin austria albania morocco azerbaijan ireland india tanzania indonesia jamaica malta italy jordan iran syria cameroon kenya andorra tunisia yemen haiti south-africa united-kingdom greece spain the-occupied-palestinian-territories st-helena-ascension-and-tristan-da-cunha kazakhstan kyrgyzstan egypt nigeria russia congo djibouti)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports-v2'
   end
@@ -973,6 +973,24 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
     end
   end # Jamaica
 
-
+  context "answer Djibouti, applying, adult passport" do
+    should "give the generic result with custom phrases" do
+      worldwide_api_has_organisations_for_location('kenya', read_fixture_file('worldwide/kenya_organisations.json'))
+      add_response 'djibouti'
+      add_response 'applying'
+      add_response 'adult'
+      assert_current_node :result
+      assert_phrase_list :how_long_it_takes, [:how_long_nairobi_kenya_applying]
+      assert_phrase_list :cost, [:cost_nairobi_kenya_applying]
+      assert_phrase_list :supporting_documents, [:supporting_documents_nairobi_kenya_applying]
+      assert_phrase_list :making_application, [:making_application_nairobi_kenya]
+      assert_phrase_list :helpline, [:helpline_intro, :helpline_pretoria_south_africa, :helpline_fco_webchat]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_djibouti]
+      expected_location = WorldLocation.find('kenya')
+      assert_state_variable :location, expected_location
+      assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /Upper Hill Road/, outcome_body
+    end
+  end # Djibouti
 
 end
