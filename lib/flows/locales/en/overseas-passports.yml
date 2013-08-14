@@ -125,14 +125,7 @@ en-GB:
         send_application_indonesia_applying: |
           You must make your application in person.
 
-
-          $A
-            British Consulate-General
-            Deutsche Bank Building 19th Floor
-            Jl Imam Bonjol 80
-            Jakarta 10310
-            Indonesia
-          $A
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
         passport_costs_washington_usa:
           You must pay using a Visa or Mastercard. [Download a credit card authorisation form (PDF, 64KB)](/government/uploads/system/uploads/attachment_data/file/136853/credit-card-form.pdf.pdf "Credit card authorisation form (PDF, 64KB)") and send it with your application.
@@ -410,18 +403,6 @@ en-GB:
 
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
-        send_application_indonesia: |
-          Send your application - preferably by one-way courier or secure post - to
-          
-          
-          $A
-            British Consulate-General
-            Deutsche Bank Building 19th Floor
-            Jl Imam Bonjol 80
-            Jakarta 10310
-            Indonesia 
-          $A
-
         send_application_wellington_new_zealand: |
 
           $A
@@ -494,6 +475,8 @@ en-GB:
           $A
 
         send_application_south-africa: |
+          Send your application, photographs and supporting documents, ideally by courier.
+
 
           $A
             Postal address:
@@ -773,7 +756,7 @@ en-GB:
           - Her Majesty's Passport Office needs to ask you for more information or documents
           - the photographs you send are rejected.
 
-          Don’t book travel until you have a valid passport. If you need to travel more urgently, apply for an [Emergency Travel Document.](/emergency-travel-document "Get an emergency travel document")
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, apply for an [Emergency Travel Document.](/emergency-travel-document)
 
         passport_courier_costs_ips1: |
           You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent back to you securely.
@@ -939,7 +922,7 @@ en-GB:
           - Her Majesty's Passport Office needs to ask you for more information or documents
           - the photographs you send are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document "Get an emergency travel document")
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document)
 
         how_long_replacing_ips2: |
           Your application will take at least **8 weeks.**
@@ -986,17 +969,21 @@ en-GB:
           3. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports "Passport photo requirements") or your application may be delayed.
           4. Check which supporting documents you must include with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
 
+        renewing_new_renewing_old: |
+          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (apart from any blank pages).
+
+          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+
+        send_application_embassy_address: |
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
+
         send_application_ips2: |
           ## Making your application
           You must apply in person.
 
           You must bring photo ID with you.
 
-          If you’re renewing a passport, you must bring your current passport with you when you apply. You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
-
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
-                    
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
         getting_your_passport_ips2: |
           Your passport will be delivered to the British embassy, high commission or consulate where you applied  - you must collect it in person. 
@@ -1043,7 +1030,7 @@ en-GB:
           - Her Majesty's Passport Office needs to ask you for more information or documents
           - the photographs you send are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document "Get an emergency travel document")
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document)
 
         passport_courier_costs_ips3: |
           You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the British embassy, high commission or consulate where you applied for you to collect.
@@ -1076,19 +1063,13 @@ en-GB:
 
           You must bring photo ID with you.
 
-          If you’re renewing a passport, you must bring your current passport with you when you apply. You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
-
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
-
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
         send_application_ips3_gaza: |
           ## Making your application
           You must apply in person.
 
           You must bring photo ID with you.
-
-          If you’re renewing a passport, you must bring your current passport with you when you apply. You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
 
@@ -1133,7 +1114,7 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
           
-          Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [emergency travel document](/emergency-travel-document "Get an emergency travel document").
+          Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [emergency travel document](/emergency-travel-document).
 
           If your passport has been lost or stolen and you haven’t reported it yet, include ‘Form LS01’ with your application.
 
@@ -1250,7 +1231,7 @@ en-GB:
 
           For first-time applications or replacement of lost or stolen passports, it usually takes **6 weeks.**
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [emergency travel document](/emergency-travel-document "Get an emergency travel document").
+          Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [emergency travel document](/emergency-travel-document).
 
           If your passport has been lost or stolen and you haven’t reported it yet, include 'Form LS01' with your application.
 
@@ -1676,6 +1657,9 @@ en-GB:
         getting_your_passport_cameroon: |
           The British High Commission will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
+        getting_your_passport_congo: |
+          The Honorary Consul in Brazzaville will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+
         how_long_eritrea: |
           Action | Minimum time after you apply
           - | -
@@ -2058,13 +2042,11 @@ en-GB:
 
           You must pay using a Bank Draft payable to the ‘British High Commission Islamabad’ and endorsed ‘payable at any branch’.
 
-          Passports and courier fees are priced in sterling - the amount you pay in local currency depends on the exchange rate when you apply.
-
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | £128 | £153.07
-          Adult jumbo 48-page passport | £154.50 | £179.57
-          Child passport | £81.50 | £106.57
+          Adult standard 32-page passport | %{costs_pakistani_rupees_adult_32} 
+          Adult jumbo 48-page passport | %{costs_pakistani_rupees_adult_48}
+          Child passport | %{costs_pakistani_rupees_child}
 
         how_to_apply_pakistan: ''
         supporting_documents_pakistan: |
@@ -2651,7 +2633,7 @@ en-GB:
           - you need to provide more information or documents
           - your photographs are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [emergency travel document](/emergency-travel-document "Get an emergency travel document").
+          Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [emergency travel document](/emergency-travel-document).
 
           If your passport has been lost or stolen and you haven’t reported it yet, include ‘Form LS01’ with your application.
 
@@ -2728,7 +2710,7 @@ en-GB:
           - you don’t send the right supporting documents or payment
           - the photographs you send are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document "Get an emergency travel document")
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document)
 
           ## Cost
           %{cost}
@@ -2783,7 +2765,7 @@ en-GB:
           %{how_to_apply}
 
           %{send_your_application}
-          
+
           ## Getting your passport
 
           %{getting_your_passport}
@@ -2824,7 +2806,7 @@ en-GB:
 
           %{how_long_it_takes}
 
-          Don't book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [emergency travel document](/emergency-travel-document "Get an emergency travel document").
+          Don't book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [emergency travel document](/emergency-travel-document).
 
           If your passport has been lost or stolen and you haven't reported it yet, include 'Form LS01' with your application.
 
