@@ -96,7 +96,7 @@ benin:
   app_form: hmpo_1_application_form
 bermuda: 
   type: ips_application_1
-  group: ips_documents_group_5
+  group: ips_documents_group_2
   app_form: hmpo_2_application_form
 bhutan: 
   type: hong_kong
@@ -345,7 +345,7 @@ grenada:
   app_form: hmpo_2_application_form
 guadeloupe: 
   type: ips_application_1
-  group: ips_documents_group_4
+  group: ips_documents_group_1
   app_form: hmpo_2_application_form
 guatemala: 
   type: washington_usa
@@ -699,7 +699,7 @@ san-marino:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
 sao-tome-and-principe: 
-  type: paris_france
+  type: pretoria_south_africa
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
 saudi-arabia: 
