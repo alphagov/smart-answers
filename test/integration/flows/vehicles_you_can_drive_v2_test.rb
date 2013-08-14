@@ -243,54 +243,47 @@ class VehiclesYouCanDriveV2Test < ActiveSupport::TestCase
     setup do
       add_response :minibus
     end
-    ## Q18
-    should "ask if you have a cat B licence" do
-      assert_current_node :full_cat_b_car_licence_psv?
+    should "ask when your licence was issued" do # Q18
+      assert_current_node :when_was_licence_issued_psv?
     end
-    context "answer yes" do
+    context "answer before jan 1997" do
       setup do
-        add_response :yes
+        add_response "before-jan-1997"
       end
-      ## Q19
-      should "ask when the licence was issued" do
-        assert_current_node :when_was_licence_issued_psv?
+      should "ask has your licence been replaced with a short period licence" do # Q19
+        assert_current_node :has_licence_been_replaced_psv?
       end
-      context "answer before-jan-1997" do
-        ## A26
-        should "state that you are entitled" do
-          add_response "before-jan-1997"
-          assert_current_node :psv_entitled # A26
+      context "yes" do
+        should "go to renew entitlement outcome" do # A50
+          add_response 'yes'
+          assert_current_node :psv_renew_entitlement
         end
       end
-      context "answer from-jan-1997" do
-        setup do
-          add_response "from-jan-1997"
-        end
-        ## Q20
-        should "ask how old you are" do
-          assert_current_node :how_old_are_you_psv?
-        end
-        context "answer under 21" do
-          ## A27
-          should "state conditional entitlement" do
-            add_response "under-21"
-            assert_current_node :psv_conditional_entitlement # A27
-          end
-        end
-        context "answer 21 or over" do
-          ## A28
-          should "state limited entitlement" do
-            add_response "21-or-over"
-            assert_current_node :psv_limited_entitlement # A28
-          end
+      context "no" do
+        should "go to already entitled outcome" do # A26
+          add_response 'no'
+          assert_current_node :psv_entitled
         end
       end
     end
-    context "answer no" do
-      ## A27
-      should "tell you about conditional entitlement" do
-        add_response :no
-        assert_current_node :psv_conditional_entitlement #A 27
+    context "answer from jan 1997" do # Q19
+      setup do
+        add_response "from-jan-1997"
+      end
+      should "ask if licence shows category D1" do # Q20
+        assert_current_node :does_licence_show_d1_psv?
+      end
+      context "yes" do
+        should "go to already entitled outcome" do # A26
+          add_response 'yes'
+          assert_current_node :psv_entitled
+        end
+      end
+      context "no" do
+        should "go to can drive with cat B licence" do # A51
+          add_response 'no'
+          assert_current_node :psv_entitled_cat_b
+        end
       end
     end
   end ## Minibus / PSV

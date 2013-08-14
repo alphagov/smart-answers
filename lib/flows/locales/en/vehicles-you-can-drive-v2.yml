@@ -96,20 +96,19 @@ en-GB:
       do_you_have_a_full_cat_b_car_licence?:
         title: Do you have a full car driving licence?
       ## Q18
-      full_cat_b_car_licence_psv?:
-        title: Do you have a full car driving licence?
-      ## Q19
       when_was_licence_issued_psv?:
         title: When was your licence issued?
+        hint: You must pass a car driving test before you can drive a minibus.
         options:
           before-jan-1997: "Before 1 January 1997"
           from-jan-1997: "From 1 January 1997"
+      ## Q19
+      has_licence_been_replaced_psv?:
+        title: |
+          Has your licence been replaced with a short period licence (1, 2 or 3 years) for medical reasons, or have you turned 70 since you passed your car driving test?
       ## Q20
-      how_old_are_you_psv?:
-        title: How old are you?
-        options:
-          under-21: "Under 21"
-          21-or-over: "21 and over"
+      does_licence_show_d1_psv?:
+        title: Does your licence show category D1?
       ## Q21
       full_cat_b_licence_bus?:
         title: Do you have a full car driving licence?
@@ -530,38 +529,7 @@ en-GB:
 
           You have the D1+E towing entitlement, which means you can drive minibuses with trailers over 750 kg.           
         next_steps: |
-          [Driving a minibus](/driving-a-minibus "Driving a minibus")  
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
-      ## A27
-      psv_conditional_entitlement:
-        body: |
-          You normally need to be 21 to drive a minibus and have held a full car licence for at least 2 years.
-
-          ##Driving a minibus at 18
-
-          You can drive a minibus at 18 if you’re learning to drive or taking a passenger carrying vehicle (PCV) test or Driver CPC initial qualification or have already passed these qualifications. In this case you can drive on a route in the UK.
-
-          *[PCV]: Passenger carrying vehicle
-          *[CPC]: Certificate of professional competence
-        next_steps: |
-          [Driving a minibus](/driving-a-minibus "Driving a minibus")
-
-          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
-          
-          [Driver Certificate of Professional Competence (Driver CPC)](/driver-certificate-of-professional-competence-cpc "Driver Certificate of Professional Competence (Driver CPC)")   
-      ## A28
-      psv_limited_entitlement:
-        body: |
-          If you’ve held your car licence for at least 2 years you can drive a minibus carrying up to 16 passengers as long as you’re not driving it for ‘hire or reward’.
-
-          The minibus must not be larger than 3,500 kg or 4,250 kg including any specialist equipment for transporting disabled passengers.
-
-          %Some rental companies insist that you have the full minibus entitlement (category D1) on your licence before hiring a minibus - check with the company to find out their rules.%
-        next_steps: |
-          [Driving a minibus](/driving-a-minibus "Driving a minibus")
-
-          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
-
+          [Driving a minibus](/driving-a-minibus)  
           [Driving licence categories](/driving-licence-categories "Driving licence categories")
       ## A29
       bus_exceptions_under_24:
@@ -766,3 +734,37 @@ en-GB:
 
         next_steps: |
           [Driving licence categories](/driving-licence-categories "Driving licence categories") 
+
+      ## A50
+      psv_renew_entitlement:
+        body: |
+          You can’t drive a minibus until you renew your entitlement. 
+
+          You must fill in a [D2 application form](/dvlaforms).
+
+          You must also ask a doctor and/or optician to fill in a [D4 medical report](/government/publications/d4-medical-examination-report-vision-assessment--2).
+
+        next_steps: |
+          [Driving a minibus](/driving-a-minibus)  
+          [Driving licence categories](/driving-licence-categories "Driving licence categories")
+
+      ## A51
+      psv_entitled_cat_b:
+        body: |
+          You can drive a minibus in the UK with your car licence (category B), so long as:
+
+          + you’re 21 or older
+          + you’re not using the minibus ‘for hire or reward’ (you may see ‘code 101’ written on your licence)
+          + you’ve had your driving licence for 2 years or more
+          + the minibus is 3.5 tonnes or less (or 4.25 tonnes including specialist equipment for disabled passengers - eg a wheelchair ramp)
+          + you’re not towing a trailer
+
+          ##Add category D1 to your licence
+
+          Fill in a [D2 application form](/dvlaforms) if you don’t meet the conditions and you want to drive a minibus. 
+
+          You must also ask a doctor and/or optician to fill in a [D4 medical report](/government/publications/d4-medical-examination-report-vision-assessment--2).
+
+        next_steps: |
+          [Driving a minibus](/driving-a-minibus)  
+          [Driving licence categories](/driving-licence-categories "Driving licence categories")

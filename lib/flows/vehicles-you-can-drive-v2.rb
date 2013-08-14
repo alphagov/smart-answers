@@ -8,7 +8,7 @@ multiple_choice :what_type_of_vehicle? do
   option :moped => :do_you_have_a_full_driving_licence? #Q9
   option "medium-sized-vehicle" => :do_you_have_a_full_cat_b_driving_licence? #Q12
   option "large-vehicle-or-lorry" => :how_old_are_you_lorry? #Q15
-  option :minibus => :full_cat_b_car_licence_psv? #Q18
+  option :minibus => :when_was_licence_issued_psv? #Q18
   option :bus => :full_cat_b_licence_bus? #Q21
   option :tractor => :full_cat_b_licence_tractor? #Q23
   option "specialist-vehicle" => :full_cat_b_licence_sv? #Q25
@@ -96,21 +96,21 @@ end
 ## Minibus PSV
 ##
 ## Q18
-multiple_choice :full_cat_b_car_licence_psv? do
-  option :yes => :when_was_licence_issued_psv? # Q19
-  option :no => :psv_conditional_entitlement # A27
+multiple_choice :when_was_licence_issued_psv? do
+  option "before-jan-1997" => :has_licence_been_replaced_psv? # Q19
+  option "from-jan-1997" => :does_licence_show_d1_psv? # Q20
 end
 
 ## Q19
-multiple_choice :when_was_licence_issued_psv? do
-  option "before-jan-1997" => :psv_entitled # A26
-  option "from-jan-1997" => :how_old_are_you_psv? # Q20
+multiple_choice :has_licence_been_replaced_psv? do
+  option :yes => :psv_renew_entitlement # A50
+  option :no => :psv_entitled # A26
 end
 
 ## Q20
-multiple_choice :how_old_are_you_psv? do
-  option "under-21" => :psv_conditional_entitlement # A27
-  option "21-or-over" => :psv_limited_entitlement # A28
+multiple_choice :does_licence_show_d1_psv? do
+  option :yes => :psv_entitled # A26
+  option :no => :psv_entitled_cat_b # A51
 end
 
 ## Bus
@@ -207,8 +207,6 @@ outcome :limited_entitlement_lorry # A22
 outcome :apply_for_provisional_cat_c_entitlement # A23
 outcome :cat_b_driving_licence_required # A25
 outcome :psv_entitled # A26
-outcome :psv_conditional_entitlement # A27
-outcome :psv_limited_entitlement # A28
 outcome :bus_exceptions_under_24 # A29
 outcome :bus_apply_for_cat_d # A32
 outcome :bus_apply_for_cat_b # A33
@@ -228,3 +226,5 @@ outcome :quad_disability_conditional_entitlement # A46
 outcome :quad_apply_for_provisional_entitlement # A47
 outcome :trike_entitled # A48
 outcome :trike_conditional_entitlement # A49
+outcome :psv_renew_entitlement # A50
+outcome :psv_entitled_cat_b # A51
