@@ -24,8 +24,6 @@ country_select :which_country_are_you_in?, :exclude_countries => exclude_countri
       :cannot_apply
     elsif %w(the-occupied-palestinian-territories).include?(response)
       :which_opt?
-    elsif %w(st-helena-ascension-and-tristan-da-cunha).include?(response)
-      :which_bot?
     else
       :renewing_replacing_applying?
     end
@@ -36,16 +34,6 @@ end
 multiple_choice :which_opt? do
   option :gaza
   option :"jerusalem-or-westbank"
-
-  save_input_as :current_location
-  next_node :renewing_replacing_applying?
-end
-
-# Q1b
-multiple_choice :which_bot? do
-  option :"st-helena"
-  option :"ascension-island"
-  option :"tristan-da-cunha"
 
   save_input_as :current_location
   next_node :renewing_replacing_applying?

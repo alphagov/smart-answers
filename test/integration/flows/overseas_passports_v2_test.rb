@@ -858,16 +858,15 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
     end
   end # Tunisia
 
-  context "answer St Helena, renewing old, adult passport" do
+  context "answer St Helena etc, renewing old, adult passport" do
     should "give the fco result with custom phrases" do
       worldwide_api_has_no_organisations_for_location('st-helena-ascension-and-tristan-da-cunha')
       add_response 'st-helena-ascension-and-tristan-da-cunha'
-      add_response "st-helena"
       add_response 'renewing_old'
       add_response 'adult'
       assert_current_node :fco_result
       assert_phrase_list :how_long_it_takes, [:how_long_renewing_old_fco]
-      assert_phrase_list :cost, [:passport_courier_costs_washington_usa, :adult_passport_costs_washington_usa, :passport_costs_washington_usa]
+      assert_phrase_list :cost, [:passport_courier_costs_pretoria_south_africa, :adult_passport_costs_pretoria_south_africa, :passport_costs_pretoria_south_africa]
       assert_match /^[\d,]+ South African Rand \| [\d,]+ South African Rand$/, current_state.costs_south_african_rand_adult_32
       assert_state_variable :supporting_documents, ''
       expected_location = WorldLocation.find('st-helena-ascension-and-tristan-da-cunha')
