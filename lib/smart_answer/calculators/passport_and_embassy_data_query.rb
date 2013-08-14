@@ -11,13 +11,9 @@ module SmartAnswer::Calculators
       'benin' =>  'nigeria',
       'djibouti' => 'kenya',
       'guinea' => 'ghana',
-      'ivory-coast' => 'ghana',
+      'cote-d-ivoire' => 'ghana',
       'kyrgyzstan' => 'kazakhstan',
-      'liberia' => 'ghana',
-      'mauritania' => 'morocco',
-      'togo' => 'ghana',
-      'western-sahara' => 'morocco',
-      'yemen' =>  'jordan'
+      'liberia' => 'ghana'
     }
 
     RETAIN_PASSPORT_COUNTRIES = %w(afghanistan angola bangladesh brazil burma burundi china cuba
@@ -28,17 +24,22 @@ module SmartAnswer::Calculators
     RETAIN_PASSPORT_COUNTRIES_HURRICANES = %w(anguilla antigua-and-barbuda bahamas bermuda bonaire-st-eustatius-saba british-virgin-islands cayman-islands curacao dominica dominican-republic french-guiana grenada guadeloupe guyana haiti martinique mexico montserrat st-maarten st-kitts-and-nevis st-lucia st-pierre-and-miquelon st-vincent-and-the-grenadines suriname trinidad-and-tobago turks-and-caicos-islands)
 
     PASSPORT_COSTS = {
-      'New Zealand Dollars'  => [["317.80", 337.69], ["371.80", 391.69], ["222.80", 242.69]],
       'Australian Dollars'  => [[282.21], [325.81], [205.81]],
+      'Euros'               => [[156, 182],   [188, 214],   [99, 125]],
       'Indian Rupees'       => [[11550, 13650], [13950, 16050], [7350, 9450]],
       'Jordanian Dinars'    => [[144, 181], [174, 211], [92, 129]],
-      'South African Rand'  => [[2112, 2440], [2549, 2877], [1345, 1673]],
-      'Euros'               => [[156, 182],   [188, 214],   [99, 125]]
+      'New Zealand Dollars' => [["317.80", 337.69], ["371.80", 391.69], ["222.80", 242.69]],
+      'Pakistani Rupees'    => [["20,480", "24,490"], ["24,720", "28,730"], ["13,040", "17,050"]],
+      'South African Rand'  => [[2112, 2440], [2549, 2877], [1345, 1673]]
     }
 
     BELFAST_APPLICATION_ADDRESS = %w(andorra cyprus greece portugal spain)
 
     DURHAM_APPLICATION_ADDRESS = %w(anguilla antigua-and-barbuda argentina aruba bahamas barbados belgium bermuda bolivia bonaire-st-eustatius-saba brazil british-virgin-islands canada cayman-islands chile colombia curacao dominica dominican-republic ecuador egypt france french-guiana grenada guadeloupe guyana haiti iraq israel italy jamaica jerusalem-or-westbank jordan liechtenstein luxembourg malta martinique monaco montserrat netherlands paraguay peru san-marino st-kitts-and-nevis st-lucia st-maarten st-pierre-and-miquelon st-vincent-and-the-grenadines suriname switzerland trinidad-and-tobago turks-and-caicos-islands uruguay yemen)
+
+    CASH_ONLY_COUNTRIES = %w(cuba gaza libya mauritania morocco sudan tunisia venezuela western-sahara)
+
+    RENEWING_COUNTRIES = %w(azerbaijan belarus cuba georgia kazakhstan kyrgyzstan lebanon libya mauritania morocco russia sudan tajikistan tunisia turkmenistan ukraine uzbekistan western-sahara venezuela)
 
     attr_reader :embassy_data, :passport_data
 
@@ -72,6 +73,14 @@ module SmartAnswer::Calculators
       DURHAM_APPLICATION_ADDRESS.include?(country_slug)
     end
 
+    def cash_only_countries?(country_slug)
+      CASH_ONLY_COUNTRIES.include?(country_slug)
+    end
+
+    def renewing_countries?(country_slug)
+      RENEWING_COUNTRIES.include?(country_slug)
+    end
+
     def passport_costs
       {}.tap do |costs|
         PASSPORT_COSTS.each do |k,v|
@@ -82,13 +91,11 @@ module SmartAnswer::Calculators
         end
       end
     end
-
-    def self.passport_data
-      @passport_data ||= YAML.load_file(Rails.root.join("lib", "data", "passport_data.yml"))
-    end
-
     def self.embassy_data
       @embassy_data ||= YAML.load_file(Rails.root.join("lib", "data", "embassies.yml"))
+    end
+    def self.passport_data
+      @passport_data ||= YAML.load_file(Rails.root.join("lib", "data", "passport_data.yml"))
     end
   end
 end
