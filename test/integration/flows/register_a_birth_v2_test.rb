@@ -8,7 +8,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan andorra australia barbados belize cameroon central-african-republic china el-salvador guatemala hong-kong indonesia ireland iran laos libya maldives pakistan spain sri-lanka sweden taiwan thailand turkey united-arab-emirates usa yemen)
+    @location_slugs = %w(afghanistan andorra australia barbados belize cameroon central-african-republic china el-salvador guatemala grenada hong-kong indonesia ireland iran laos libya maldives pakistan spain sri-lanka st-kitts-and-nevis sweden taiwan thailand turkey united-arab-emirates usa yemen)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-birth-v2'
   end
@@ -451,4 +451,19 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_state_variable :organisation, expected_location.fco_organisation
     end
   end
+  context "child born in grenada, parent in St kitts" do
+    should "calculate the registration country as barbados" do
+      worldwide_api_has_organisations_for_location('barbados', read_fixture_file('worldwide/barbados_organisations.json'))
+      add_response 'grenada'
+      add_response 'mother'
+      add_response 'yes'
+      add_response 'another_country'
+      add_response 'st-kitts-and-nevis'
+      assert_current_node :embassy_result
+      expected_location = WorldLocation.find('barbados')
+      assert_state_variable :location, expected_location
+      assert_state_variable :organisation, expected_location.fco_organisation
+    end
+  end
+
 end
