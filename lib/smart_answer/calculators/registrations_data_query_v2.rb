@@ -17,6 +17,15 @@ module SmartAnswer::Calculators
 
     POST_ONLY_COUNTRIES = %w(united-arab-emirates)
 
+    CARIBBEAN_ALT_EMBASSIES = { 
+      "antigua-and-barbuda" => "barbados",
+      "st-kitts-and-nevis" => "barbados",
+      "grenada" => "barbados",
+      "dominica" => "barbados",
+      "st-vincent-and-the-grenadines" => "barbados"
+    }
+
+
     attr_reader :data
 
     def initialize
@@ -53,6 +62,10 @@ module SmartAnswer::Calculators
 
     def cash_only?(country_slug)
       CASH_ONLY_COUNTRIES.include?(country_slug)
+    end
+
+    def caribbean_alt_embassies?(country_slug)
+      CARIBBEAN_ALT_EMBASSIES.include?(country_slug)
     end
 
     def death_postal_form(country_slug)

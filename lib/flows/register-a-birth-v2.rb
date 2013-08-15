@@ -16,18 +16,13 @@ country_select :country_of_birth?, :exclude_countries => exclude_countries do
   save_input_as :country_of_birth
 
   calculate :registration_country do
-    reg_data_query.registration_country_slug(responses.last)
-  end
-  calculate :country_of_birth_name do
-    WorldLocation.all.find { |c| c.slug == responses.last }.name
-  end
-  calculate :country_name_lowercase_prefix do
-    if data_query.countries_with_definitive_articles?(country_of_birth)
-      "the #{country_of_birth_name}"
+    if Calculators::RegistrationsDataQueryV2::CARIBBEAN_ALT_EMBASSIES.has_key?(responses.last)
+      Calculators::RegistrationsDataQueryV2::CARIBBEAN_ALT_EMBASSIES[responses.last]
     else
-      country_of_birth_name
+      reg_data_query.registration_country_slug(responses.last)
     end
   end
+
   calculate :registration_country_name do
     WorldLocation.all.find { |c| c.slug == registration_country }.name
   end
@@ -120,7 +115,11 @@ end
 # Q6
 country_select :which_country?, :exclude_countries => exclude_countries do
   calculate :registration_country do
+    if Calculators::RegistrationsDataQueryV2::CARIBBEAN_ALT_EMBASSIES.has_key?(responses.last)
+      Calculators::RegistrationsDataQueryV2::CARIBBEAN_ALT_EMBASSIES[responses.last]
+    else
     reg_data_query.registration_country_slug(responses.last)
+    end
   end
   calculate :registration_country_name do
     WorldLocation.all.find { |c| c.slug == registration_country }.name
