@@ -17,15 +17,6 @@ module SmartAnswer::Calculators
 
     POST_ONLY_COUNTRIES = %w(united-arab-emirates)
 
-    CARIBBEAN_ALT_EMBASSIES = { 
-      "antigua-and-barbuda" => "barbados",
-      "st-kitts-and-nevis" => "barbados",
-      "grenada" => "barbados",
-      "dominica" => "barbados",
-      "st-vincent-and-the-grenadines" => "barbados"
-    }
-
-
     attr_reader :data
 
     def initialize
