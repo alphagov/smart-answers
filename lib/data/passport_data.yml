@@ -44,10 +44,6 @@ aruba:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
-ascension-island:
-  type: pretoria_south_africa
-  group: ips_documents_group_1
-  app_form: hmpo_1_application_form
 australia: 
   type: australia_post
   group: ips_documents_group_1
@@ -769,12 +765,8 @@ sri-lanka:
   type: hong_kong
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-st-helena:
-  type: washington_usa
-  group: ips_documents_group_1
-  app_form: hmpo_1_application_form
 st-helena-ascension-and-tristan-da-cunha: 
-  type:
+  type: pretoria_south_africa
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
 st-kitts-and-nevis: 
@@ -859,10 +851,6 @@ trinidad-and-tobago:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_2_application_form
-tristan-da-cunha: 
-  type: pretoria_south_africa
-  group: ips_documents_group_1
-  app_form: hmpo_1_application_form
 tunisia: 
   type: ips_application_2
   group: ips_documents_group_2
