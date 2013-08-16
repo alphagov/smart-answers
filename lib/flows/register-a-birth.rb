@@ -3,35 +3,28 @@ satisfies_need "2759"
 
 data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
-embassy_data_query = SmartAnswer::Calculators::PassportAndEmbassyDataQuery.new
-i18n_prefix = 'flow.register-a-birth'
 exclusions = %w(afghanistan cambodia central-african-republic chad comoros
                 dominican-republic east-timor eritrea haiti kosovo laos lesotho
                 liberia madagascar montenegro paraguay samoa slovenia somalia swaziland
                 taiwan tajikistan western-sahara)
 no_embassies = %w(iran syria yemen)
-different_address = %w(belgium brazil germany india turkey united-arab-emirates)
+exclude_countries = %w(holy-see british-antarctic-territory)
 
 
 # Q1
-country_select :country_of_birth?, :use_legacy_data => true do
+country_select :country_of_birth?, :exclude_countries => exclude_countries do
   save_input_as :country_of_birth
 
   calculate :registration_country do
-    reg_data_query.registration_country_slug(responses.last)
-  end
-  calculate :country_of_birth_name do
-    LegacyCountry.all.find { |c| c.slug == responses.last }.name
-  end
-  calculate :country_name_lowercase_prefix do
-    if data_query.countries_with_definitive_articles?(country_of_birth)
-      "the #{country_of_birth_name}"
+    if Calculators::RegistrationsDataQuery::CARIBBEAN_ALT_EMBASSIES.has_key?(responses.last)
+      Calculators::RegistrationsDataQuery::CARIBBEAN_ALT_EMBASSIES[responses.last]
     else
-      country_of_birth_name
+      reg_data_query.registration_country_slug(responses.last)
     end
   end
+
   calculate :registration_country_name do
-    LegacyCountry.all.find { |c| c.slug == registration_country }.name
+    WorldLocation.all.find { |c| c.slug == registration_country }.name
   end
   calculate :registration_country_name_lowercase_prefix do
     if data_query.countries_with_definitive_articles?(registration_country)
@@ -40,7 +33,6 @@ country_select :country_of_birth?, :use_legacy_data => true do
       registration_country_name
     end
   end
-
 
   next_node do |response|
     if no_embassies.include?(response)
@@ -121,12 +113,16 @@ multiple_choice :where_are_you_now? do
   end
 end
 # Q6
-country_select :which_country?, :use_legacy_data => true do
+country_select :which_country?, :exclude_countries => exclude_countries do
   calculate :registration_country do
+    if Calculators::RegistrationsDataQuery::CARIBBEAN_ALT_EMBASSIES.has_key?(responses.last)
+      Calculators::RegistrationsDataQuery::CARIBBEAN_ALT_EMBASSIES[responses.last]
+    else
     reg_data_query.registration_country_slug(responses.last)
+    end
   end
   calculate :registration_country_name do
-    LegacyCountry.all.find { |c| c.slug == registration_country }.name
+    WorldLocation.all.find { |c| c.slug == registration_country }.name
   end
   calculate :registration_country_name_lowercase_prefix do
     if data_query.countries_with_definitive_articles?(registration_country)
@@ -229,18 +225,23 @@ outcome :embassy_result do
     end
   end
 
-  precalculate :embassy_details do
-    details = embassy_data_query.find_embassy_data(registration_country)
-    if details and !different_address.include?(registration_country)
-      details = details.first
-      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
-                     address: details['address'], phone: details['phone'], email: details['email'])
-    elsif details and different_address.include?(registration_country)
-      details = details.second
-      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
-                     address: details['address'], phone: details['phone'], email: details['email'])
+  precalculate :location do
+    loc = WorldLocation.find(registration_country)
+    raise InvalidResponse unless loc
+    loc
+  end
+  precalculate :organisation do
+    location.fco_organisation
+  end
+  precalculate :overseas_passports_embassies do
+    if organisation && organisation.all_offices.any?
+      embassies = organisation.all_offices.select do |o| 
+        o.services.any? { |s| s.title.include?('Births and Deaths registration service') }
+      end
+      embassies << organisation.main_office if embassies.empty?
+      embassies
     else
-      ''
+      []
     end
   end
   precalculate :cash_only do
