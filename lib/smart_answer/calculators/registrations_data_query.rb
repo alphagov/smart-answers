@@ -1,29 +1,19 @@
 module SmartAnswer::Calculators
   class RegistrationsDataQuery
 
-    COMMONWEALTH_COUNTRIES = %w(anguilla ascension-island australia
-      bermuda british-indian-ocean-territory british-virgin-islands cayman-islands
-      canada falkland-islands gibraltar ireland montserrat new-zealand pitcairn
-      south-africa south-georgia-and-south-sandwich-islands st-helena tristan-da-cunha
-      turks-and-caicos-islands)
+    COMMONWEALTH_COUNTRIES = %w(anguilla australia bermuda british-indian-ocean-territory british-virgin-islands cayman-islands canada falkland-islands gibraltar ireland montserrat new-zealand pitcairn south-africa south-georgia-and-south-sandwich-islands st-helena-ascension-and-tristan-da-cunha turks-and-caicos-islands)
 
-    COUNTRIES_WITH_HIGH_COMMISSIONS = %w(
-      antigua-and-barbuda bangladesh barbados belize botswana brunei cameroon cyprus
-      dominica,-commonwealth-of fiji gambia ghana grenada guyana india jamaica kenya
-      malawi malaysia maldives malta mauritius mozambique namibia nigeria pakistan
-      papua-new-guinea seychelles sierra-leone singapore solomon-islands sri-lanka
-      tanzania trinidad-and-tobago uganda
-    )
-    COUNTRIES_WITH_CONSULATES = %w(china colombia israel russian-federation turkey)
+    COUNTRIES_WITH_HIGH_COMMISSIONS = %w(antigua-and-barbuda bangladesh barbados belize botswana brunei cameroon cyprus dominica fiji gambia ghana grenada guyana india jamaica kenya malawi malaysia maldives malta mauritius mozambique namibia nigeria pakistan papua-new-guinea seychelles sierra-leone singapore solomon-islands sri-lanka tanzania trinidad-and-tobago uganda)
+
+    COUNTRIES_WITH_CONSULATES = %w(china colombia israel russia turkey)
 
     COUNTRIES_WITH_CONSULATE_GENERALS = %(belgium brazil germany hong-kong netherlands turkey)
 
     CASH_ONLY_COUNTRIES = %w(armenia bosnia-and-herzegovina botswana brunei cambodia iceland kazakhstan latvia libya luxembourg slovenia tunisia uganda)
 
-    EASTERN_CARIBBEAN_COUNTRIES = %w(antigua-and-barbuda barbados dominica,-commonwealth-of st-kitts-and-nevis st-vincent-and-the-grenadines)
+    EASTERN_CARIBBEAN_COUNTRIES = %w(antigua-and-barbuda barbados dominica st-kitts-and-nevis st-vincent-and-the-grenadines)
 
-    NO_POSTAL_COUNTRIES = %w(barbados belgium costa-rica malaysia papua-new-guinea 
-                             sweden tanzania thailand united-states)
+    NO_POSTAL_COUNTRIES = %w(barbados belgium costa-rica malaysia papua-new-guinea sweden tanzania thailand usa)
 
     POST_ONLY_COUNTRIES = %w(united-arab-emirates)
 
@@ -63,6 +53,10 @@ module SmartAnswer::Calculators
 
     def cash_only?(country_slug)
       CASH_ONLY_COUNTRIES.include?(country_slug)
+    end
+
+    def caribbean_alt_embassies?(country_slug)
+      CARIBBEAN_ALT_EMBASSIES.include?(country_slug)
     end
 
     def death_postal_form(country_slug)
