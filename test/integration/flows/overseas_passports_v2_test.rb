@@ -323,7 +323,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
             assert_phrase_list :how_long_it_takes, [:how_long_applying_ips1, :how_long_it_takes_ips1]
             assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_2]
             assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-            assert_phrase_list :send_your_application, [:send_application_ips1, :send_application_embassy_address]
+            assert_phrase_list :send_your_application, [:send_application_ips1]
             assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
             assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
             expected_location = WorldLocation.find('austria')
@@ -360,7 +360,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
           assert_phrase_list :how_long_it_takes, [:how_long_replacing_ips1, :how_long_it_takes_ips1]
           assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_1]
           assert_phrase_list :cost, [:passport_courier_costs_replacing_ips1, :adult_passport_costs_replacing_ips1, :passport_costs_ips1]
-          assert_phrase_list :send_your_application, [:send_application_ips1, :send_application_embassy_address]
+          assert_phrase_list :send_your_application, [:send_application_ips1]
           assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
           assert_state_variable :embassy_address, nil
           assert_match /101 Old Hall Street/, outcome_body
@@ -402,7 +402,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
             assert_phrase_list :how_long_it_takes, [:how_long_applying_ips1, :how_long_it_takes_ips1]
             assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_1]
             assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-            assert_phrase_list :send_your_application, [:send_application_ips1, :send_application_embassy_address]
+            assert_phrase_list :send_your_application, [:send_application_ips1]
             assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
             assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
             assert_state_variable :embassy_address, nil
@@ -420,7 +420,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
             assert_phrase_list :how_long_it_takes, [:how_long_applying_ips1, :how_long_it_takes_ips1]
             assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_3]
             assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-            assert_phrase_list :send_your_application, [:send_application_ips1, :send_application_embassy_address]
+            assert_phrase_list :send_your_application, [:send_application_ips1]
             assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
             assert_state_variable :embassy_address, nil 
             assert_state_variable :supporting_documents, 'ips_documents_group_3'
