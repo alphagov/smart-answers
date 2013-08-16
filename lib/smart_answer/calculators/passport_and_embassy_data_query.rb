@@ -25,12 +25,12 @@ module SmartAnswer::Calculators
 
     PASSPORT_COSTS = {
       'Australian Dollars'  => [[282.21], [325.81], [205.81]],
-      'Euros'               => [[156, 182],   [188, 214],   [99, 125]],
-      'Indian Rupees'       => [[11550, 13650], [13950, 16050], [7350, 9450]],
+      'Euros'               => [[154, 178],   [185, 209],   [98, 122]],
+      'Indian Rupees'       => [[12200, 14450], [14700, 16950], [7750, 10000]],
       'Jordanian Dinars'    => [[144, 181], [174, 211], [92, 129]],
       'New Zealand Dollars' => [["317.80", 337.69], ["371.80", 391.69], ["222.80", 242.69]],
-      'Pakistani Rupees'    => [["20,480", "24,490"], ["24,720", "28,730"], ["13,040", "17,050"]],
-      'South African Rand'  => [[2112, 2440], [2549, 2877], [1345, 1673]]
+      'Pakistani Rupees'    => [[20480, 24490], [24720, 28730], [13040, 17,050]],
+      'South African Rand'  => [[2048, 2366], [2472, 2790], [1304, 1622]]
     }
 
     BELFAST_APPLICATION_ADDRESS = %w(andorra cyprus greece portugal spain)
