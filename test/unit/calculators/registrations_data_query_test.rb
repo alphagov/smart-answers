@@ -37,7 +37,7 @@ module SmartAnswer::Calculators
       end
       context "has_consulate?" do
         should "be true for countries with a consulate" do
-          assert @query.has_consulate?('russian-federation')
+          assert @query.has_consulate?('russia')
           refute @query.has_consulate?('uganda')
         end
       end
@@ -56,7 +56,7 @@ module SmartAnswer::Calculators
       context "death_postal_form" do
         should "give the form url if it exists" do
           assert_equal "/government/uploads/system/uploads/attachment_data/file/136797/credit-card-form.pdf", @query.death_postal_form('austria')
-          refute @query.death_postal_form('united-states')
+          refute @query.death_postal_form('usa')
         end
       end
       context "death_postal_return_form" do
