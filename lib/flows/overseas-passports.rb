@@ -1,8 +1,8 @@
 status :published
 satisfies_need 2820
 
-i18n_prefix = "flow.overseas-passports"
-data_query = Calculators::PassportAndEmbassyDataQuery.new 
+
+data_query = Calculators::PassportAndEmbassyDataQuery.new
 exclude_countries = %w(holy-see british-antarctic-territory)
 
 
@@ -24,8 +24,6 @@ country_select :which_country_are_you_in?, :exclude_countries => exclude_countri
       :cannot_apply
     elsif %w(the-occupied-palestinian-territories).include?(response)
       :which_opt?
-    elsif %w(st-helena-ascension-and-tristan-da-cunha).include?(response)
-      :which_bot?
     else
       :renewing_replacing_applying?
     end
@@ -36,16 +34,6 @@ end
 multiple_choice :which_opt? do
   option :gaza
   option :"jerusalem-or-westbank"
-
-  save_input_as :current_location
-  next_node :renewing_replacing_applying?
-end
-
-# Q1b
-multiple_choice :which_bot? do
-  option :"st-helena"
-  option :"ascension-island"
-  option :"tristan-da-cunha"
 
   save_input_as :current_location
   next_node :renewing_replacing_applying?
@@ -297,6 +285,8 @@ outcome :ips_application_result do
       PhraseList.new(:send_application_ips3_gaza)
     elsif general_action == 'renewing' and data_query.renewing_countries?(current_location)
       PhraseList.new(:"send_application_ips#{ips_number}", :renewing_new_renewing_old, :send_application_embassy_address)
+    elsif ips_number == '1'
+      PhraseList.new(:"send_application_ips#{ips_number}")
     else
       PhraseList.new(:"send_application_ips#{ips_number}", :send_application_embassy_address)
     end
@@ -444,7 +434,11 @@ outcome :result do
     end
   end
   precalculate :getting_your_passport do
-    PhraseList.new(:"getting_your_passport_#{application_type}")
+    if %w(djibouti).include?(current_location)
+      PhraseList.new(:getting_your_passport_djibouti)
+    else
+      PhraseList.new(:"getting_your_passport_#{application_type}")
+    end
   end
   precalculate :helpline do
     phrases = PhraseList.new
