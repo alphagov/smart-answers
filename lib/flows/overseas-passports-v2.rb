@@ -285,6 +285,8 @@ outcome :ips_application_result do
       PhraseList.new(:send_application_ips3_gaza)
     elsif general_action == 'renewing' and data_query.renewing_countries?(current_location)
       PhraseList.new(:"send_application_ips#{ips_number}", :renewing_new_renewing_old, :send_application_embassy_address)
+    elsif ips_number == '1'
+      PhraseList.new(:"send_application_ips#{ips_number}")
     else
       PhraseList.new(:"send_application_ips#{ips_number}", :send_application_embassy_address)
     end
