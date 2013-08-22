@@ -243,9 +243,8 @@ outcome :entitled_to_sick_pay do
   precalculate :days_paid do calculator.days_paid end
   precalculate :normal_workdays_out do calculator.normal_workdays end
   precalculate :pattern_days do calculator.pattern_days end
-  precalculate :pattern_days_total do
-    calculator.pattern_days * 28
-  end
+  precalculate :pattern_days_total do calculator.pattern_days * 28 end
+  precalculate :formatted_sick_pay_weekly_dates_and_rates do calculator.formatted_sick_pay_weekly_dates_and_rates end
 
   precalculate :paternity_adoption_warning do
     if paternity_maternity_warning

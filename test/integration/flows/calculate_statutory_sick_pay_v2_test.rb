@@ -296,6 +296,24 @@ class CalculateStatutorySickPayV2Test < ActiveSupport::TestCase
       add_response "3,6"
 
       assert_current_node :entitled_to_sick_pay
+      assert_state_variable :formatted_sick_pay_weekly_dates_and_rates,
+                            [" 7 January 2013|£85.85",
+                             "14 January 2013|£85.85",
+                             "21 January 2013|£85.85",
+                             "28 January 2013|£85.85",
+                             " 4 February 2013|£85.85",
+                             "11 February 2013|£85.85",
+                             "18 February 2013|£85.85",
+                             "25 February 2013|£85.85",
+                             " 4 March 2013|£85.85",
+                             "11 March 2013|£85.85",
+                             "18 March 2013|£85.85",
+                             "25 March 2013|£85.85",
+                             " 1 April 2013|£85.85",
+                             " 8 April 2013|£86.70",
+                             "15 April 2013|£86.70",
+                             "22 April 2013|£86.70",
+                             "29 April 2013|£86.70"].join("\n")
     end
   end
 end
