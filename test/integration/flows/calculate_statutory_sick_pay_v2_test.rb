@@ -15,7 +15,6 @@ class CalculateStatutorySickPayV2Test < ActiveSupport::TestCase
         add_response "statutory_maternity_pay"
         assert_current_node :already_getting_maternity
       end
-
     end
 
     context "Getting maternity allowance" do
@@ -24,6 +23,7 @@ class CalculateStatutorySickPayV2Test < ActiveSupport::TestCase
         assert_current_node :already_getting_maternity
       end
     end
+
     context "Not getting maternity allowance" do
       setup do
         add_response "ordinary_statutory_paternity_pay,statutory_adoption_pay"
@@ -278,6 +278,24 @@ class CalculateStatutorySickPayV2Test < ActiveSupport::TestCase
           end
         end
       end
+    end
+
+    should "produce the tabular output for an SSP calculation" do
+      add_response :ordinary_statutory_paternity_pay
+      add_response :yes
+      add_response :no
+      add_response Date.parse("2013-01-07")
+      add_response Date.parse("2013-05-03")
+      add_response Date.parse("2012-12-31")
+      add_response Date.parse("2012-10-31")
+      add_response :monthly
+      add_response :yes
+      add_response 1600.0
+      add_response :yes
+      add_response 8
+      add_response "3,6"
+
+      assert_current_node :entitled_to_sick_pay
     end
   end
 end
