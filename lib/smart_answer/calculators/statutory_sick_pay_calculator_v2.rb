@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 module SmartAnswer::Calculators
   class StatutorySickPayCalculatorV2
     attr_reader :waiting_days, :normal_workdays, :pattern_days
@@ -158,6 +159,12 @@ module SmartAnswer::Calculators
 
     def sick_pay_weekly_dates_and_rates
       sick_pay_weekly_dates.map { |date| [date, weekly_rate_on(date)] }
+    end
+
+    def formatted_sick_pay_weekly_dates_and_rates
+      sick_pay_weekly_dates_and_rates.map { |week|
+        [week.first.strftime("%e %B %Y"), sprintf("£%.2f", week.second.round(2))].join("|")
+      }.join("\n")
     end
 
     private

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
@@ -412,6 +413,32 @@ module SmartAnswer::Calculators
                       [Date.parse("22 Apr 2013"), 86.7],
                       [Date.parse("29 Apr 2013"), 86.7]],
                      @calculator.sick_pay_weekly_dates_and_rates
+      end
+    end
+
+    context "formatted_sick_pay_weekly_dates_and_rates" do
+      should "produce a markdown (value) formatted string of weekly SSP dates and pay rates" do
+        @calculator = StatutorySickPayCalculatorV2.new(
+           42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2','3','4'])
+
+        assert_equal [" 7 January 2013|£85.85",
+                      "14 January 2013|£85.85",
+                      "21 January 2013|£85.85",
+                      "28 January 2013|£85.85",
+                      " 4 February 2013|£85.85",
+                      "11 February 2013|£85.85",
+                      "18 February 2013|£85.85",
+                      "25 February 2013|£85.85",
+                      " 4 March 2013|£85.85",
+                      "11 March 2013|£85.85",
+                      "18 March 2013|£85.85",
+                      "25 March 2013|£85.85",
+                      " 1 April 2013|£85.85",
+                      " 8 April 2013|£86.70",
+                      "15 April 2013|£86.70",
+                      "22 April 2013|£86.70",
+                      "29 April 2013|£86.70"].join("\n"),
+                     @calculator.formatted_sick_pay_weekly_dates_and_rates
       end
     end
   end # SSP calculator
