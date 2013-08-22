@@ -152,6 +152,14 @@ module SmartAnswer::Calculators
       (weekly_subtotal + daily_subtotal).round(2)
     end
 
+    def sick_pay_weekly_dates
+      (@sick_start_date..@sick_end_date).select { |day| day.wday == 1 }
+    end
+
+    def sick_pay_weekly_dates_and_rates
+      sick_pay_weekly_dates.map { |date| [date, weekly_rate_on(date)] }
+    end
+
     private
     def init_normal_workdays_missed(days_of_the_week_worked)
       dates = @sick_start_date..@sick_end_date
