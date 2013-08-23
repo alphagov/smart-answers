@@ -1,6 +1,6 @@
 en-GB:
   flow:
-    calculate-statutory-sick-pay:
+    calculate-statutory-sick-pay-v2:
       meta:
         description: Statutory Sick Pay (SSP) calculator -  calculate SSP for an employee
       title: Calculate your employee's statutory sick pay
@@ -171,7 +171,7 @@ en-GB:
           - %{ssp_payment} in total
           - for %{days_paid} out of %{normal_workdays_out} taken off sick between %{sick_start_date} and %{sick_end_date}
 
-            The first 3 days of any period of illness (or any linked periods of illness separated by less than 8 weeks) won’t be paid. The payment amount will reflect this.
+          The first 3 days of any period of illness (or any linked periods of illness separated by less than 8 weeks) won’t be paid. The payment amount will reflect this.
 
           Week ending | SSP amount
           -|-
@@ -181,7 +181,7 @@ en-GB:
 
           There are also [records you must keep](/sick-leave-pay-employees/entitlement "Sick pay for your employees: Entitlement") and rules on [proof of illness](/sick-leave-pay-employees/notice-and-fit-notes "Sick pay for your employee’s: notice and fit notes") you can ask for.
 
-            You may be able to [recover the statutory payments](http://www.hmrc.gov.uk/paye/employees/statutory-pay/ssp-calc.htm "How to calculate and recover Statutory Sick Pay") you’ve paid from HM Revenue & Customs (HMRC). Your payroll software or [HMRC’s basic PAYE tools](http://www.hmrc.gov.uk/paye/tools/basic-paye-tools.htm "Using HMRC's Basic PAYE Tools") can tell you how much you’ll get back.
+          You may be able to [recover the statutory payments](http://www.hmrc.gov.uk/paye/employees/statutory-pay/ssp-calc.htm "How to calculate and recover Statutory Sick Pay") you’ve paid from HM Revenue & Customs (HMRC). Your payroll software or [HMRC’s basic PAYE tools](http://www.hmrc.gov.uk/paye/tools/basic-paye-tools.htm "Using HMRC's Basic PAYE Tools") can tell you how much you’ll get back.
 
       # Answer 7
       not_entitled_3_days_not_paid:
