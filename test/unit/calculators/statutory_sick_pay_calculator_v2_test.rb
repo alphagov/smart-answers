@@ -365,53 +365,51 @@ module SmartAnswer::Calculators
     end
 
     context "sick_pay_weekly_dates" do
-      should "produce a list of Mondays for the provided sick period" do
+      should "produce a list of Saturdays for the provided sick period" do
         @calculator = StatutorySickPayCalculatorV2.new(
            42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2','3','4'])
 
-        assert_equal [Date.parse("07 Jan 2013"),
-                      Date.parse("14 Jan 2013"),
-                      Date.parse("21 Jan 2013"),
-                      Date.parse("28 Jan 2013"),
-                      Date.parse("04 Feb 2013"),
-                      Date.parse("11 Feb 2013"),
-                      Date.parse("18 Feb 2013"),
-                      Date.parse("25 Feb 2013"),
-                      Date.parse("04 Mar 2013"),
-                      Date.parse("11 Mar 2013"),
-                      Date.parse("18 Mar 2013"),
-                      Date.parse("25 Mar 2013"),
-                      Date.parse("01 Apr 2013"),
-                      Date.parse("08 Apr 2013"),
-                      Date.parse("15 Apr 2013"),
-                      Date.parse("22 Apr 2013"),
-                      Date.parse("29 Apr 2013")],
+        assert_equal [Date.parse("12 Jan 2013"),
+                      Date.parse("19 Jan 2013"),
+                      Date.parse("26 Jan 2013"),
+                      Date.parse("02 Feb 2013"),
+                      Date.parse("09 Feb 2013"),
+                      Date.parse("16 Feb 2013"),
+                      Date.parse("23 Feb 2013"),
+                      Date.parse("02 Mar 2013"),
+                      Date.parse("09 Mar 2013"),
+                      Date.parse("16 Mar 2013"),
+                      Date.parse("23 Mar 2013"),
+                      Date.parse("30 Mar 2013"),
+                      Date.parse("06 Apr 2013"),
+                      Date.parse("13 Apr 2013"),
+                      Date.parse("20 Apr 2013"),
+                      Date.parse("27 Apr 2013")],
                      @calculator.sick_pay_weekly_dates
       end
     end
 
     context "sick_pay_weekly_dates_and_rates" do
-      should "produce an array of pairs which have the week start dates and pay rates" do
+      should "produce an array of pairs which have the week end dates and pay rates" do
         @calculator = StatutorySickPayCalculatorV2.new(
            42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2','3','4'])
 
-        assert_equal [[Date.parse("07 Jan 2013"), 85.85],
-                      [Date.parse("14 Jan 2013"), 85.85],
-                      [Date.parse("21 Jan 2013"), 85.85],
-                      [Date.parse("28 Jan 2013"), 85.85],
-                      [Date.parse("04 Feb 2013"), 85.85],
-                      [Date.parse("11 Feb 2013"), 85.85],
-                      [Date.parse("18 Feb 2013"), 85.85],
-                      [Date.parse("25 Feb 2013"), 85.85],
-                      [Date.parse("04 Mar 2013"), 85.85],
-                      [Date.parse("11 Mar 2013"), 85.85],
-                      [Date.parse("18 Mar 2013"), 85.85],
-                      [Date.parse("25 Mar 2013"), 85.85],
-                      [Date.parse("01 Apr 2013"), 85.85],
-                      [Date.parse("08 Apr 2013"), 86.7],
-                      [Date.parse("15 Apr 2013"), 86.7],
-                      [Date.parse("22 Apr 2013"), 86.7],
-                      [Date.parse("29 Apr 2013"), 86.7]],
+        assert_equal [[Date.parse("12 Jan 2013"), 85.85],
+                      [Date.parse("19 Jan 2013"), 85.85],
+                      [Date.parse("26 Jan 2013"), 85.85],
+                      [Date.parse("02 Feb 2013"), 85.85],
+                      [Date.parse("09 Feb 2013"), 85.85],
+                      [Date.parse("16 Feb 2013"), 85.85],
+                      [Date.parse("23 Feb 2013"), 85.85],
+                      [Date.parse("02 Mar 2013"), 85.85],
+                      [Date.parse("09 Mar 2013"), 85.85],
+                      [Date.parse("16 Mar 2013"), 85.85],
+                      [Date.parse("23 Mar 2013"), 85.85],
+                      [Date.parse("30 Mar 2013"), 85.85],
+                      [Date.parse("06 Apr 2013"), 86.7],
+                      [Date.parse("13 Apr 2013"), 86.7],
+                      [Date.parse("20 Apr 2013"), 86.7],
+                      [Date.parse("27 Apr 2013"), 86.7]],
                      @calculator.sick_pay_weekly_dates_and_rates
       end
     end
@@ -421,23 +419,22 @@ module SmartAnswer::Calculators
         @calculator = StatutorySickPayCalculatorV2.new(
            42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2','3','4'])
 
-        assert_equal [" 7 January 2013|£85.85",
-                      "14 January 2013|£85.85",
-                      "21 January 2013|£85.85",
-                      "28 January 2013|£85.85",
-                      " 4 February 2013|£85.85",
-                      "11 February 2013|£85.85",
-                      "18 February 2013|£85.85",
-                      "25 February 2013|£85.85",
-                      " 4 March 2013|£85.85",
-                      "11 March 2013|£85.85",
-                      "18 March 2013|£85.85",
-                      "25 March 2013|£85.85",
-                      " 1 April 2013|£85.85",
-                      " 8 April 2013|£86.70",
-                      "15 April 2013|£86.70",
-                      "22 April 2013|£86.70",
-                      "29 April 2013|£86.70"].join("\n"),
+        assert_equal ["12 January 2013|£85.85",
+                      "19 January 2013|£85.85",
+                      "26 January 2013|£85.85",
+                      " 2 February 2013|£85.85",
+                      " 9 February 2013|£85.85",
+                      "16 February 2013|£85.85",
+                      "23 February 2013|£85.85",
+                      " 2 March 2013|£85.85",
+                      " 9 March 2013|£85.85",
+                      "16 March 2013|£85.85",
+                      "23 March 2013|£85.85",
+                      "30 March 2013|£85.85",
+                      " 6 April 2013|£86.70",
+                      "13 April 2013|£86.70",
+                      "20 April 2013|£86.70",
+                      "27 April 2013|£86.70"].join("\n"),
                      @calculator.formatted_sick_pay_weekly_dates_and_rates
       end
     end

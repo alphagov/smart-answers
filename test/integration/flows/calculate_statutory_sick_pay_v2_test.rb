@@ -297,23 +297,22 @@ class CalculateStatutorySickPayV2Test < ActiveSupport::TestCase
 
       assert_current_node :entitled_to_sick_pay
       assert_state_variable :formatted_sick_pay_weekly_dates_and_rates,
-                            [" 7 January 2013|£85.85",
-                             "14 January 2013|£85.85",
-                             "21 January 2013|£85.85",
-                             "28 January 2013|£85.85",
-                             " 4 February 2013|£85.85",
-                             "11 February 2013|£85.85",
-                             "18 February 2013|£85.85",
-                             "25 February 2013|£85.85",
-                             " 4 March 2013|£85.85",
-                             "11 March 2013|£85.85",
-                             "18 March 2013|£85.85",
-                             "25 March 2013|£85.85",
-                             " 1 April 2013|£85.85",
-                             " 8 April 2013|£86.70",
-                             "15 April 2013|£86.70",
-                             "22 April 2013|£86.70",
-                             "29 April 2013|£86.70"].join("\n")
+                            ["12 January 2013|£85.85",
+                             "19 January 2013|£85.85",
+                             "26 January 2013|£85.85",
+                             " 2 February 2013|£85.85",
+                             " 9 February 2013|£85.85",
+                             "16 February 2013|£85.85",
+                             "23 February 2013|£85.85",
+                             " 2 March 2013|£85.85",
+                             " 9 March 2013|£85.85",
+                             "16 March 2013|£85.85",
+                             "23 March 2013|£85.85",
+                             "30 March 2013|£85.85",
+                             " 6 April 2013|£86.70",
+                             "13 April 2013|£86.70",
+                             "20 April 2013|£86.70",
+                             "27 April 2013|£86.70"].join("\n")
     end
   end
 end

@@ -154,7 +154,7 @@ module SmartAnswer::Calculators
     end
 
     def sick_pay_weekly_dates
-      (@sick_start_date..@sick_end_date).select { |day| day.wday == 1 }
+      (@sick_start_date..@sick_end_date).select { |day| day.wday == 6 }
     end
 
     def sick_pay_weekly_dates_and_rates
