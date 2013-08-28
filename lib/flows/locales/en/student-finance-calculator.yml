@@ -5,7 +5,7 @@ en-GB:
         description: Student finance calculator - get a quick estimate of what student loans, grants, bursaries and other funding you could get - for full-time, part-time and EU students
       title: Student finance calculator
       body: |
-        This calculator is for students from England starting their course on or after **1 September 2012**.
+        This calculator is for students from England starting their course on or after **1 September 2013**.
 
         Use the student finance calculator to estimate:
 
@@ -17,7 +17,7 @@ en-GB:
       devolved_body: |
           ##Before you start
           
-          You can’t use the calculator if you’re from [Scotland](http://www.saas.gov.uk/){:rel="external"}, [Wales](http://www.studentfinancewales.co.uk){:rel="external"} or [Northern Ireland.](http://www.studentfinanceni.co.uk){:rel="external"}
+          You can’t use the calculator if you’re from [Scotland](http://www.saas.gov.uk/), [Wales](http://www.studentfinancewales.co.uk) or [Northern Ireland.](http://www.studentfinanceni.co.uk)
 #Q1
       when_does_your_course_start?:
         title: When does your course start?
