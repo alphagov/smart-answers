@@ -84,7 +84,7 @@ belgium:
 belize: 
   type: ips_application_1
   group: ips_documents_group_2
-  app_form: hmpo_1_application_form
+  app_form: hmpo_2_application_form
 benin: 
   type: lagos_nigeria
   group: ips_documents_group_3
@@ -203,7 +203,7 @@ democratic-republic-of-congo:
 costa-rica: 
   type: ips_application_1
   group: ips_documents_group_1
-  app_form: hmpo_1_application_form
+  app_form: hmpo_2_application_form
 cote-d-ivoire: 
   type: ghana
   group: ips_documents_group_2
@@ -257,7 +257,7 @@ egypt:
 el-salvador: 
   type: ips_application_1
   group: ips_documents_group_2
-  app_form: hmpo_1_application_form
+  app_form: hmpo_2_application_form
 equatorial-guinea: 
   type: pretoria_south_africa
   group: ips_documents_group_3
@@ -346,7 +346,7 @@ guadeloupe:
 guatemala: 
   type: ips_application_1
   group: ips_documents_group_2
-  app_form: hmpo_1_application_form
+  app_form: hmpo_2_application_form
 guinea: 
   type: ghana
   group: ips_documents_group_3
@@ -367,7 +367,7 @@ haiti:
 honduras: 
   type: ips_application_1
   group: ips_documents_group_2
-  app_form: hmpo_1_application_form
+  app_form: hmpo_2_application_form
 hong-kong:
   type: hong_kong
   group: ips_documents_group_2
@@ -541,7 +541,7 @@ mayotte:
 mexico: 
   type: ips_application_1
   group: ips_documents_group_2
-  app_form: hmpo_1_application_form
+  app_form: hmpo_2_application_form
 micronesia: 
   type: hong_kong
   group: ips_documents_group_1
@@ -601,7 +601,7 @@ new-zealand:
 nicaragua: 
   type: ips_application_1
   group: ips_documents_group_2
-  app_form: hmpo_1_application_form
+  app_form: hmpo_2_application_form
 niger: 
   type: pretoria_south_africa
   group: ips_documents_group_3
@@ -636,7 +636,7 @@ palau:
 panama: 
   type: ips_application_1
   group: ips_documents_group_2
-  app_form: hmpo_1_application_form
+  app_form: hmpo_2_application_form
 papua-new-guinea: 
   type: wellington_new_zealand
   group: ips_documents_group_2
@@ -890,7 +890,7 @@ united-kingdom:
 usa: 
   type: ips_application_1
   group: ips_documents_group_1
-  app_form: hmpo_1_application_form
+  app_form: hmpo_2_application_form
 uruguay: 
   type: ips_application_1
   group: ips_documents_group_1
