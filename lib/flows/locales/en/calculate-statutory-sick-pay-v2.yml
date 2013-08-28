@@ -175,7 +175,7 @@ en-GB:
 
           Week ending | SSP amount
           -|-
-          %{formatted_sick_pay_weekly_dates_and_rates}
+          %{formatted_sick_pay_weekly_amounts}
 
           SSP can be paid for up to 28 weeks of an employee’s normal workdays. For this employee that equals a total of %{pattern_days_total} days. After that you must give them form SSP1 within 7 days of SSP ending. They may be able to get [Employment Support Allowance (ESA).](/employment-support-allowance "Benefits & credits: employment support allowance (ESA)")
 

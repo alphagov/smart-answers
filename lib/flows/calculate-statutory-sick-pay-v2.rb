@@ -201,11 +201,11 @@ checkbox_question :usual_work_days? do
     Money.new(calculator.ssp_payment)
   end
 
-  calculate :formatted_sick_pay_weekly_dates_and_rates do
+  calculate :formatted_sick_pay_weekly_amounts do
     calculator = Calculators::StatutorySickPayCalculatorV2.new(prior_sick_days.to_i, Date.parse(sick_start_date), Date.parse(sick_end_date), responses.last.split(","))
 
     if calculator.ssp_payment > 0
-      calculator.formatted_sick_pay_weekly_dates_and_rates
+      calculator.formatted_sick_pay_weekly_amounts
     else
       ""
     end
