@@ -132,7 +132,7 @@ country_select :which_country?, :exclude_countries => exclude_countries do
     end
   end
 
-  next_node do |response| 
+  next_node do |response|
     if no_embassies.include?(response)
       :no_embassy_result
     else
@@ -160,7 +160,7 @@ outcome :embassy_result do
   end
   precalculate :documents_you_must_provide do
     checklist_countries = %w(bangladesh finland japan kuwait libya netherlands pakistan philippines sweden taiwan turkey united-arab-emirates)
-    key = "documents_you_must_provide_"  
+    key = "documents_you_must_provide_"
     key += (checklist_countries.include?(registration_country) ? registration_country : "all")
     PhraseList.new(key.to_sym)
   end
@@ -218,7 +218,7 @@ outcome :embassy_result do
   precalculate :postal do
     if postal_form_url
       PhraseList.new(:"postal_form")
-    elsif reg_data_query.class::NO_POSTAL_COUNTRIES.include?(registration_country) 
+    elsif reg_data_query.class::NO_POSTAL_COUNTRIES.include?(registration_country)
       PhraseList.new(:postal_info, :"postal_info_#{registration_country}")
     else
       ''
