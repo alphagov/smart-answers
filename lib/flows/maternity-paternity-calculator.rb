@@ -164,7 +164,6 @@ end
 ## QM5.5
 money_question :earnings_for_pay_period? do
   calculate :calculator do
-    raise SmartAnswer::InvalidNode if responses.last < 1
     calculator.calculate_average_weekly_pay(pay_pattern, responses.last)
     calculator
   end
