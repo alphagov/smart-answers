@@ -154,7 +154,8 @@ module SmartAnswer::Calculators
     end
 
     def sick_pay_weekly_dates
-      (@sick_start_date..@sick_end_date).select { |day| day.wday == 6 }
+      last_saturday = @sick_end_date.end_of_week - 1
+      (@sick_start_date..last_saturday).select { |day| day.wday == 6 }
     end
 
     def sick_pay_weekly_dates_and_rates
@@ -167,7 +168,7 @@ module SmartAnswer::Calculators
       sick_pay_weekly_dates_and_rates.map do |week|
         rate = week.second
 
-        if total > rate
+        if total >= rate
           total -= rate
           [week.first, rate]
         else

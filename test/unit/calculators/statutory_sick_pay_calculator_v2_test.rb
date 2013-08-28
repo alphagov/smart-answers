@@ -384,7 +384,8 @@ module SmartAnswer::Calculators
                       Date.parse("06 Apr 2013"),
                       Date.parse("13 Apr 2013"),
                       Date.parse("20 Apr 2013"),
-                      Date.parse("27 Apr 2013")],
+                      Date.parse("27 Apr 2013"),
+                      Date.parse("04 May 2013")],
                      calculator.sick_pay_weekly_dates
       end
     end
@@ -409,7 +410,8 @@ module SmartAnswer::Calculators
                       [Date.parse("06 Apr 2013"), 86.7],
                       [Date.parse("13 Apr 2013"), 86.7],
                       [Date.parse("20 Apr 2013"), 86.7],
-                      [Date.parse("27 Apr 2013"), 86.7]],
+                      [Date.parse("27 Apr 2013"), 86.7],
+                      [Date.parse("04 May 2013"), 86.7]],
                      calculator.sick_pay_weekly_dates_and_rates
       end
     end
