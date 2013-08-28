@@ -141,6 +141,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
             add_response 'in_the_uk'
             assert_state_variable :registration_country, 'spain'
             assert_current_node :fco_result
+            assert_phrase_list :birth_registration_form, [:birth_registration_form]
             assert_phrase_list :intro, [:intro]
             assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
           end
@@ -155,6 +156,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
               add_response 'ireland'
               assert_state_variable :another_country, true
               assert_state_variable :registration_country, 'ireland'
+              assert_phrase_list :birth_registration_form, [:birth_registration_form]
               assert_current_node :embassy_result
               expected_location = WorldLocation.find('ireland')
               assert_state_variable :location, expected_location
@@ -460,7 +462,22 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'another_country'
       add_response 'st-kitts-and-nevis'
       assert_current_node :embassy_result
+      assert_phrase_list :birth_registration_form, [:birth_registration_form]
       expected_location = WorldLocation.find('barbados')
+      assert_state_variable :location, expected_location
+      assert_state_variable :organisation, expected_location.fco_organisation
+    end
+  end
+  context "child born in usa, parent in usa" do
+    should "give the embassy result with usa birth reg form" do
+      worldwide_api_has_organisations_for_location('usa', read_fixture_file('worldwide/usa_organisations.json'))
+      add_response 'usa'
+      add_response 'father'
+      add_response 'yes'
+      add_response 'same_country'
+      assert_current_node :embassy_result
+      assert_phrase_list :birth_registration_form, [:birth_registration_form_usa]
+      expected_location = WorldLocation.find('usa')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
     end
