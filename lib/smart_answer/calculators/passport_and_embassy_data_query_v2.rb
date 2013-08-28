@@ -35,7 +35,7 @@ module SmartAnswer::Calculators
 
     BELFAST_APPLICATION_ADDRESS = %w(andorra cyprus greece portugal spain)
 
-    DURHAM_APPLICATION_ADDRESS = %w(anguilla antigua-and-barbuda argentina aruba bahamas barbados belgium bermuda bolivia bonaire-st-eustatius-saba brazil british-virgin-islands canada cayman-islands chile colombia curacao dominica dominican-republic ecuador egypt france french-guiana grenada guadeloupe guyana haiti iraq israel italy jamaica jerusalem-or-westbank jordan liechtenstein luxembourg malta martinique monaco montserrat netherlands paraguay peru san-marino st-kitts-and-nevis st-lucia st-maarten st-pierre-and-miquelon st-vincent-and-the-grenadines suriname switzerland trinidad-and-tobago turks-and-caicos-islands uruguay yemen)
+    DURHAM_APPLICATION_ADDRESS = %w(anguilla antigua-and-barbuda argentina aruba bahamas barbados belgium belize bermuda bolivia bonaire-st-eustatius-saba brazil british-virgin-islands canada cayman-islands chile colombia costa-rica curacao dominica dominican-republic ecuador egypt el-salvador france french-guiana grenada guadeloupe guatemala guyana haiti honduras iraq israel italy jamaica jerusalem-or-westbank jordan liechtenstein luxembourg malta martinique mexico monaco montserrat netherlands nicaragua panama paraguay peru san-marino st-kitts-and-nevis st-lucia st-maarten st-pierre-and-miquelon st-vincent-and-the-grenadines suriname switzerland trinidad-and-tobago turks-and-caicos-islands uruguay usa yemen)
 
     CASH_ONLY_COUNTRIES = %w(cuba gaza libya mauritania morocco sudan tunisia venezuela western-sahara)
 
