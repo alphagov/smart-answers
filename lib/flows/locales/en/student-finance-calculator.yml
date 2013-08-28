@@ -125,6 +125,8 @@ en-GB:
           You could get per year:
 
         uk_students_body_text_no_nsp: |
+          ^Your result is an estimate. Usually, you only get student finance if you’re doing your first higher education qualification - check if you [qualify](/student-finance/who-qualifies).^
+
           ##Help from your university or college
 
           You could get a [bursary or scholarship](/extra-money-pay-university) from your university or college.
@@ -136,8 +138,9 @@ en-GB:
           - How to [apply](/apply-for-student-finance ) for student finance
           - Check if you [qualify](/student-finance/eligibility)
 
-          ^Usually, you only get student finance if you’re doing your first higher education qualification.^
         uk_students_body_text_with_nsp: |
+          ^Your result is an estimate. Usually, you only get student finance if you’re doing your first higher education qualification - check if you [qualify](/student-finance/who-qualifies).^
+
           ##Help from your university or college
 
           You could get a [bursary or scholarship](/extra-money-pay-university) from your university or college including up to £1,000 from the National Scholarship Programme.
@@ -149,7 +152,6 @@ en-GB:
           - How to [apply](/apply-for-student-finance) for student finance
           - Check if you [qualify](/student-finance/who-qualifies)
 
-          ^Usually, you only get student finance if you’re doing your first higher education qualification.^
         no_additional_benefits: |
           You don’t qualify for extra grants and allowances.
         eu_students_body_text: |
