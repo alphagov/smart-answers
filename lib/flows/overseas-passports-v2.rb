@@ -92,6 +92,10 @@ multiple_choice :renewing_replacing_applying? do
     passport_data['group']
   end
 
+  calculate :ips_docs_number do
+    supporting_documents.split("_")[3] if is_ips_application 
+  end
+
   data_query.passport_costs.each do |k,v|
     calculate "costs_#{k}".to_sym do 
       v
@@ -258,9 +262,15 @@ outcome :ips_application_result do
   end
   precalculate :cost do
     if application_action == 'replacing' && ips_number == '1'
-      PhraseList.new(:"passport_courier_costs_replacing_ips#{ips_number}",
+      if ips_docs_number == '1' # countries with documents_group_1 have different costs
+        PhraseList.new(:"passport_courier_costs_replacing_ips#{ips_number}",
                    :"#{child_or_adult}_passport_costs_replacing_ips#{ips_number}",
                    :"passport_costs_ips#{ips_number}")
+      else
+        PhraseList.new(:"passport_courier_costs_ips#{ips_number}",
+                   :"#{child_or_adult}_passport_costs_ips#{ips_number}",
+                   :"passport_costs_ips#{ips_number}")
+      end
     elsif data_query.cash_only_countries?(current_location) # IPS 2&3 countries where payment must be made in cash
       PhraseList.new(:"passport_courier_costs_ips#{ips_number}",
                    :"#{child_or_adult}_passport_costs_ips#{ips_number}",
