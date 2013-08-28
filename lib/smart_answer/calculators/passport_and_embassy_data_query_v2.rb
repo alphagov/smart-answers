@@ -44,7 +44,6 @@ module SmartAnswer::Calculators
     attr_reader :passport_data
 
     def initialize
-      @embassy_data = self.class.embassy_data
       @passport_data = self.class.passport_data
     end
 
