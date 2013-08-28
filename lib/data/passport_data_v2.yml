@@ -82,7 +82,7 @@ belgium:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
 belize: 
-  type: washington_usa
+  type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
 benin: 
@@ -201,7 +201,7 @@ democratic-republic-of-congo:
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
 costa-rica: 
-  type: washington_usa
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
 cote-d-ivoire: 
@@ -255,7 +255,7 @@ egypt:
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
 el-salvador: 
-  type: washington_usa
+  type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
 equatorial-guinea: 
@@ -344,7 +344,7 @@ guadeloupe:
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
 guatemala: 
-  type: washington_usa
+  type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
 guinea: 
@@ -365,7 +365,7 @@ haiti:
   group: ips_documents_group_3
   app_form: hmpo_2_application_form
 honduras: 
-  type: washington_usa
+  type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
 hong-kong:
@@ -539,7 +539,7 @@ mayotte:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
 mexico: 
-  type: washington_usa
+  type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
 micronesia: 
@@ -599,7 +599,7 @@ new-zealand:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
 nicaragua: 
-  type: washington_usa
+  type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
 niger: 
@@ -634,7 +634,7 @@ palau:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
 panama: 
-  type: washington_usa
+  type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
 papua-new-guinea: 
@@ -888,7 +888,7 @@ united-kingdom:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
 usa: 
-  type: washington_usa
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
 uruguay: 
