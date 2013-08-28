@@ -4,20 +4,14 @@ en-GB:
       meta:
         title: Plan your adoption leave
         description: |
-          Work out your Statutory Adoption Leave dates - 
-          Ordinary and Additional Adoption Leave period, 
-          notice period and earliest start date
+          Work out your Statutory Adoption Leave dates - Ordinary and Additional Adoption Leave period, notice period and earliest start date
       title: Plan your adoption leave
       body: |
-        Work out your Statutory Adoption Leave notice period, 
-        earliest start date and Ordinary and Additional Adoption Leave 
-        periods based on the match and placement dates for the child. 
+        Work out your Statutory Adoption Leave notice period, earliest start date and Ordinary and Additional Adoption Leave periods based on the match and placement dates for the child. 
 
         ##What you need to know 
 
-        You can’t use this tool if you’re 
-        [adopting from abroad](/adoption-leave "Adopting leave") or taking 
-        [paternity leave for an adoption](/paternityleave "Paternity leave").
+        You can’t use this tool if you’re [adopting from abroad](/adoption-leave) or taking [paternity leave for an adoption](/paternityleave).
       # Questions
       child_match_date?:
         title: When were you matched with the child?
@@ -33,11 +27,11 @@ en-GB:
       adoption_leave_details:
         title: Your Adoption Leave dates
         next_steps: |
-          Read our guides to adoption [leave](/adoption-leave "Adopting leave") or [pay](/statutory-adoption-pay "Statutory Adoption Pay") 
+          Read our guide to adoption [pay and leave](/adoption-pay-leave) 
         body: |
-          You can take up to 52 weeks Statutory Adoption Leave. 
-          The dates below are based on this and the date the child starts to 
-          live with you: %{arrival_date_formatted}.
+          You can take up to 52 weeks Statutory Adoption Leave.
+
+          The dates below are based on this and the date the child starts to live with you: %{arrival_date_formatted}.
 
           Leave | Key dates
           - | -
