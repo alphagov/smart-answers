@@ -161,8 +161,27 @@ module SmartAnswer::Calculators
       sick_pay_weekly_dates.map { |date| [date, weekly_rate_on(date)] }
     end
 
-    def formatted_sick_pay_weekly_dates_and_rates
-      sick_pay_weekly_dates_and_rates.map { |week|
+    def sick_pay_weekly_amounts
+      total = ssp_payment
+
+      sick_pay_weekly_dates_and_rates.map do |week|
+        rate = week.second
+
+        if total > rate
+          total -= rate
+          [week.first, rate]
+        else
+          amount = total
+          total = 0
+          [week.first, amount.round(2)]
+        end
+      end.select do |week|
+        week.second != 0
+      end
+    end
+
+    def formatted_sick_pay_weekly_amounts
+      sick_pay_weekly_amounts.map { |week|
         [week.first.strftime("%e %B %Y"), sprintf("£%.2f", week.second.round(2))].join("|")
       }.join("\n")
     end

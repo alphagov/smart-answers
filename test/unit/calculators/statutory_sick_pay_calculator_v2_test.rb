@@ -414,7 +414,38 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "formatted_sick_pay_weekly_dates_and_rates" do
+    context "sick_pay_weekly_amounts" do
+      setup do
+        @calculator = StatutorySickPayCalculatorV2.new(
+           42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2','3','4'])
+      end
+
+      should "return the payable weeks by taking into account the final SSP payment" do
+        assert_equal [[Date.parse("12 Jan 2013"), 85.85],
+                      [Date.parse("19 Jan 2013"), 85.85],
+                      [Date.parse("26 Jan 2013"), 85.85],
+                      [Date.parse("02 Feb 2013"), 85.85],
+                      [Date.parse("09 Feb 2013"), 85.85],
+                      [Date.parse("16 Feb 2013"), 85.85],
+                      [Date.parse("23 Feb 2013"), 85.85],
+                      [Date.parse("02 Mar 2013"), 85.85],
+                      [Date.parse("09 Mar 2013"), 85.85],
+                      [Date.parse("16 Mar 2013"), 85.85],
+                      [Date.parse("23 Mar 2013"), 85.85],
+                      [Date.parse("30 Mar 2013"), 85.85],
+                      [Date.parse("06 Apr 2013"), 86.7],
+                      [Date.parse("13 Apr 2013"), 86.7],
+                      [Date.parse("20 Apr 2013"), 85.85]],
+                     @calculator.sick_pay_weekly_amounts
+      end
+
+      should "have the same reduced value as the ssp_payment value" do
+        assert_equal @calculator.ssp_payment,
+                     @calculator.sick_pay_weekly_amounts.map(&:second).inject(:+)
+      end
+    end
+
+    context "formatted_sick_pay_weekly_amounts" do
       should "produce a markdown (value) formatted string of weekly SSP dates and pay rates" do
         @calculator = StatutorySickPayCalculatorV2.new(
            42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2','3','4'])
@@ -433,10 +464,13 @@ module SmartAnswer::Calculators
                       "30 March 2013|£85.85",
                       " 6 April 2013|£86.70",
                       "13 April 2013|£86.70",
-                      "20 April 2013|£86.70",
-                      "27 April 2013|£86.70"].join("\n"),
-                     @calculator.formatted_sick_pay_weekly_dates_and_rates
+                      "20 April 2013|£85.85"].join("\n"),
+                     @calculator.formatted_sick_pay_weekly_amounts
       end
     end
   end # SSP calculator
 end
+
+# TODO:
+# - Weekly rates are wrong
+# - See spreadsheet which has all of the example input
