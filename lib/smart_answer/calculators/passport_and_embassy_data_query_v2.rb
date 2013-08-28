@@ -41,7 +41,7 @@ module SmartAnswer::Calculators
 
     RENEWING_COUNTRIES = %w(azerbaijan belarus cuba georgia kazakhstan kyrgyzstan lebanon libya mauritania morocco russia sudan tajikistan tunisia turkmenistan ukraine uzbekistan western-sahara venezuela)
 
-    attr_reader :embassy_data, :passport_data
+    attr_reader :passport_data
 
     def initialize
       @embassy_data = self.class.embassy_data
@@ -50,11 +50,6 @@ module SmartAnswer::Calculators
 
     def find_passport_data(country_slug)
       passport_data[country_slug]
-    end
-
-    def find_embassy_data(country_slug, alt=true)
-      country_slug = ALT_EMBASSIES[country_slug] if alt and ALT_EMBASSIES.has_key?(country_slug)
-      embassy_data[country_slug]
     end
 
     def retain_passport?(country_slug)
@@ -90,9 +85,6 @@ module SmartAnswer::Calculators
           end
         end
       end
-    end
-    def self.embassy_data
-      @embassy_data ||= YAML.load_file(Rails.root.join("lib", "data", "embassies.yml"))
     end
     def self.passport_data
       @passport_data ||= YAML.load_file(Rails.root.join("lib", "data", "passport_data_v2.yml"))
