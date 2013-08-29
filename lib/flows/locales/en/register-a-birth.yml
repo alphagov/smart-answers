@@ -16,7 +16,7 @@ en-GB:
         - the birth will be recorded with the General Register Office in the UK
 
         ^A locally-issued birth certificate should be accepted in the UK for all purposes, eg applying for a passport, registering with a school or doctor etc. It might need to be translated and [certified](/certifying-a-document "Certify a document") if it's not in English.^
-      
+
       options:
         "yes": "Yes"
         "no": "No"
@@ -67,7 +67,7 @@ en-GB:
 
 
           $D
-          [Download ‘Mother and father paternity declaration’ (DOC, 13KB)](/government/uploads/system/uploads/attachment_data/file/153761/pat_mat_form-2.docx "Download ‘Mother and father paternity declaration’ (DOC, 13KB)")
+          [Download ‘Mother and father paternity declaration’ (DOC, 13KB)](/government/uploads/system/uploads/attachment_data/file/153761/pat_mat_form-2.docx)
           $D
 
 
@@ -87,7 +87,7 @@ en-GB:
           You and the other parent must provide:
 
           - a certificate from the hospital (‘moderskapsintyg’) showing where you child was born
-          - a ‘family certificate’ ('familjebevis') from the the Swedish Tax Agency ([Skatteverket](http://www.skatteverket.se/){:rel="external"}), with details of the child and both parents’ full names, dates and places of birth
+          - a ‘family certificate’ ('familjebevis') from the the Swedish Tax Agency ([Skatteverket](http://www.skatteverket.se/)), with details of the child and both parents’ full names, dates and places of birth
           - your British birth certificates (long version) showing details of your parents
           - a naturalisation or registration certificate (if either of you were not born in the UK)
           - copies of your current British passports
@@ -236,15 +236,15 @@ en-GB:
 
           Bring the registration form, supporting documents and the fee.
         clickbook_link: |
-          - [%{city}](%{url} "Book an appointment in %{city}"){:rel="external"}
+          - [%{city}](%{url})
         registering_clickbook: |
-          [Book an appointment online](%{clickbook_data} "Book an appointment at the %{embassy_high_commission_or_consulate}") at the %{embassy_high_commission_or_consulate}.
+          [Book an appointment online](%{clickbook_data}) at the %{embassy_high_commission_or_consulate}.
 
           Bring the registration form, supporting documents and the fee.
         consular_service_fees: |
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees "Consular fees").
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees).
         consular_service_fees_libya: |
-          You can only pay fees for consular services in cash in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees "Consular fees").
+          You can only pay fees for consular services in cash in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees).
         registering_either_parent: |
           Either parent can register the birth.
         registering_paternity_declaration: |
@@ -257,7 +257,7 @@ en-GB:
 
           You can also post your registration form, supporting documents and the fee to the %{embassy_high_commission_or_consulate}.
 
-          Pay by credit or debit card - fill in the [credit card authorisation slip](%{postal_form_url} "Credit card authorisation slip") and post it with your registration form.
+          Pay by credit or debit card - fill in the [credit card authorisation slip](%{postal_form_url}) and post it with your registration form.
         postal_info: |
           ##Send your registration
 
@@ -302,6 +302,10 @@ en-GB:
           ^It takes about 5 working days for the birth to be officially registered.^
         intro: |
           Your application will be sent to the %{embassy_high_commission_or_consulate} in %{registration_country_name_lowercase_prefix} to be registered there.
+        birth_registration_form: |
+          Download and complete the [birth registration form](/government/publications/application-to-register-an-overseas-birth).
+        birth_registration_form_usa: |
+          Download and complete the [birth registration form](/government/publications/usa-birth-registration-application).
 
       embassy_result:
         body: |
@@ -309,7 +313,7 @@ en-GB:
 
           %{embassy_result_indonesia_british_father_paternity}
 
-          Download and complete the [birth registration form](/government/publications/application-to-register-an-overseas-birth "Birth registration form").
+          %{birth_registration_form}
 
           ##Documents
 
@@ -330,7 +334,7 @@ en-GB:
 
           You can order copies of the registration certificate from the %{embassy_high_commission_or_consulate} when you register the birth.
 
-          Cheaper copies will be available from the [General Register Office](http://www.gro.gov.uk/ "General Register Office"){:rel="external"} in the UK, but not until September the year after you register.
+          Cheaper copies will be available from the [General Register Office](http://www.gro.gov.uk) in the UK, but not until September the year after you register.
           %{go_to_the_embassy_heading}
 
           %{go_to_the_embassy}
@@ -342,16 +346,15 @@ en-GB:
 
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
-
           %{footnote}
 
       fco_result:
         body: |
-          $!You can apply to register the birth with the Foreign and Commonwealth Office (FCO) in the UK.$! 
+          $!You can apply to register the birth with the Foreign and Commonwealth Office (FCO) in the UK.$!
 
           %{intro}
 
-          Download and complete the [birth registration form](/government/publications/application-to-register-an-overseas-birth "Birth registration form").
+          %{birth_registration_form}
 
           ##Documents
 
@@ -402,7 +405,7 @@ en-GB:
 
           You can order copies of the registration certificate from the FCO when you register the birth.
 
-          Cheaper copies will be available from the [General Register Office](http://www.gro.gov.uk/ "General Register Office"){:rel="external"} in the UK, but not until September the year after you register.
+          Cheaper copies will be available from the [General Register Office](http://www.gro.gov.uk) in the UK, but not until September the year after you register.
 
       commonwealth_result:
         body: |
@@ -416,9 +419,9 @@ en-GB:
 
           You can’t register your child’s birth with the UK authorities abroad. This is because unmarried fathers can’t pass on British nationality to a child born before 1 July 2006.
 
-          You may still be able to apply for [British citizenship](http://www.ukba.homeoffice.gov.uk/britishcitizenship/ "Find out how to register your child as a British citizen"){:rel="external"} for the child.
+          You may still be able to apply for [British citizenship](http://www.ukba.homeoffice.gov.uk/britishcitizenship "Find out how to register your child as a British citizen") for the child.
 
-          You may also be able to register the birth if you’ve married the other parent since the child was born. [Contact your local British embassy](/government/world "Find a British embassy") to find out.
+          You may also be able to register the birth if you’ve married the other parent since the child was born. [Contact your local British embassy](/government/world) to find out.
       no_registration_result:
         body: |
           You can’t register your child’s birth with the UK authorities. Your child must have an automatic claim to British nationality at birth to be eligible.

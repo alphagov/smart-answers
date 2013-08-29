@@ -30,6 +30,14 @@ country_select :country_of_birth?, :exclude_countries => exclude_countries do
     end
   end
 
+  calculate :birth_registration_form do
+    if %w(usa).include?(country_of_birth)
+      PhraseList.new(:"birth_registration_form_#{country_of_birth}")
+    else
+      PhraseList.new(:birth_registration_form)
+    end
+  end
+
   next_node do |response|
     if no_embassies.include?(response)
       :no_embassy_result
