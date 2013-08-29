@@ -4,13 +4,10 @@ en-GB:
       meta:
         title: Plan your paternity leave
         description: |
-          Work out your Statutory Paternity Leave dates - 
-          Ordinary and Additional Paternity Leave period, 
-          notice period and earliest start date
+          Work out your Statutory Paternity Leave dates - Ordinary and Additional Paternity Leave period, notice period and earliest start date
       title: Plan your paternity leave
       body: |
-        Work out the dates for your Statutory Paternity Leave (births and adoptions) 
-        including notice period, earliest start date and when you can take Additional Paternity Leave.
+        Work out the dates for your Statutory Paternity Leave (births and adoptions) including notice period, earliest start date and when you can take Additional Paternity Leave.
 
         You’ll need the baby’s due date (or date of placement for an adoption).
       # Questions
@@ -27,12 +24,10 @@ en-GB:
         title: When do you want your leave to start?
         # hint: Your maternity leave can't start before %{earliest_start}
         hint: |
-          You must start and finish your 
-          chosen amount of leave within following dates:
+          You must start and finish your chosen amount of leave within following dates:
           %{potential_leave}
         error_message: |
-          Enter a date that allows you to start and finish your chosen amount of leave 
-          within 56 days of the due date (or date of placement).
+          Enter a date that allows you to start and finish your chosen amount of leave within 56 days of the due date (or date of placement).
       # Outcomes
       paternity_leave_details:
         title: Your Statutory Paternity Leave
@@ -52,11 +47,7 @@ en-GB:
             ##Extra leave
             You could get more time off if your employer has a company paternity scheme.
 
-            If your partner returns to work, you may be able to take 
-            [Additional Paternity Leave](/paternity-pay-leave)
-            during this period:  %{period_of_additional_leave}.
+            If your partner returns to work, you may be able to take [Additional Paternity Leave](/paternity-pay-leave) during this period:  %{period_of_additional_leave}.
 
             ##Paternity pay 
-            While on leave, you might qualify for 
-            [Statutory Paternity Pay](/paternity-pay-leave)
-            - up to £136.78 a week (before tax).
+            While on leave, you might get [Statutory Paternity Pay](/paternity-pay-leave).
