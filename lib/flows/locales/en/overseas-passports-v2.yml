@@ -1,0 +1,2859 @@
+en-GB:
+  flow:
+    overseas-passports-v2:
+      title: Apply for, renew or replace a British passport if you’re outside the UK
+      meta:
+        description: Renew, replace or apply for an adult or child British passport if you’re living abroad or working overseas - forms, prices, how long it takes
+      body: |
+        Get the forms, prices and application details you need if you're a British national and you want to renew or apply for a British passport from overseas.
+
+        % If you were born in or had a connection with Hong Kong and registered as a British National Overseas before 1997, [you must apply a different way.](/bno-passports "Passport applications for British National Overseas from Hong Kong") %
+
+        ^If you’re in the UK, there’s a different way to apply for your [first adult passport](/apply-first-adult-passport "apply for your first adult passport from within the UK"), a [passport for your child](/get-a-child-passport "apply for a passport for your child from within the UK") or to [renew or replace your adult passport](/renew-adult-passport "renew or replace your adult passport from within the UK").^
+
+      options:
+        "born-in-uk-pre-1983": "Born in the UK before 1 January 1983"
+        "born-in-uk-post-1982-uk-father": "Born in the UK after 31 December 1982 with father born in UK"
+        "born-in-uk-post-1982-uk-mother": "Born in the UK after 31 December 1982 with mother born in UK"
+        "born-outside-uk-parents-married": "Born outside the UK, with father born in UK and married to mother at time of birth"
+        "born-outside-uk-mother-born-in-uk": "Born outside the UK after 31 December 1982 with mother born in UK"
+        "born-in-uk-post-1982-father-uk-citizen": "Born in the UK after 31 December 1982 with father registered or naturalised as a British Citizen"
+        "born-in-uk-post-1982-mother-uk-citizen": "Born in the UK after 31 December 1982 with mother registered or naturalised as a British Citizen"
+        "born-outside-uk-father-registered-uk-citizen": "Born outside the UK after 31 December 1982 and your father was registered or naturalised as a British Citizen"
+        "born-outside-uk-mother-registered-uk-citizen": "Born outside the UK after 31 December 1982 and your mother registered or naturalised as a British Citizen"
+        "born-in-uk-post-1982-father-uk-service": "Born after 31 December 1982 and your father was born overseas while he was in British Crown Service after being recruited in the UK"
+        "born-in-uk-post-1982-mother-uk-service": "Born after 31 December 1982 and your mother was born overseas while her father was in British Crown Service and was recruited in the UK"
+        "married-to-uk-citizen-pre-1983-reg-pre-1988": "You’re a woman married to a British Citizen before 1 January 1983 and registered as a British Citizen before 1 January 1988"
+        "registered-uk-citizen": "Registered or naturalised as a British Citizen"
+        "child-born-outside-uk-father-citizen": "Applying for a child born outside the UK after 1 July 2006, with the father born in UK but not married to mother"
+        "woman-married-to-uk-citizen-pre-1949": "You’re a woman married to a British Citizen before 1 January 1949"
+      which_country_are_you_in?:
+        title: Which country or territory are you in?
+      which_opt?:
+        title: Where are you?
+        options:
+          gaza: "Gaza"
+          jerusalem-or-westbank: "Jerusalem and the West Bank"
+      which_bot?:
+        title: Where are you?
+        options:
+          st-helena: "St Helena"
+          ascension-island: "Ascension Island"
+          tristan-da-cunha: "Tristan da Cunha"
+      renewing_replacing_applying?:
+        title: Are you renewing, replacing or applying for a first passport?
+        options:
+          renewing_new: "Renewing a red passport"
+          renewing_old: "Renewing an old black or blue passport"
+          applying: "Applying for a first passport"
+          replacing: "Replacing a lost or stolen passport"
+      child_or_adult_passport?:
+        title: Do you need an adult or child passport?
+        options:
+          adult: "Adult (aged 16 and over)"
+          child: "Child (aged 15 or under)"
+      country_of_birth?:
+        title: Which country were you born in?
+      which_best_describes_you_adult?:
+        title: Which of the following best describes you?
+      which_best_describes_you_child?:
+        title: Which of the following best describes you?
+      phrases:
+        how_long_applying_fco:
+          Your application will take **at least** 6 weeks. You may have to attend an interview.
+        how_long_renewing_old_fco:
+          Your application will take **at least** 6 weeks. You may have to attend an interview.
+        how_long_renewing_new_fco:
+          Renewing a British passport takes **at least** 4 weeks.
+        how_long_replacing_fco: |
+          Your application will take **at least** 6 weeks.
+
+          If you haven't already reported the loss or theft, you must include form LS01 with your passport application.
+
+
+          $D
+          [Download 'Form LS01 - Lost or stolen passport notification' (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf)
+          $D
+
+        passport_courier_costs_wellington_new_zealand: |
+
+        adult_passport_costs_wellington_new_zealand: |
+          An adult 32-page passport costs NZ $323.72.
+          An adult 48-page passport costs NZ $375.72.
+
+        child_passport_costs_wellington_new_zealand:
+          A child passport costs NZ $232.72.
+
+        passport_costs_wellington_new_zealand: |
+          You can pay using:
+
+          - a banker’s draft in New Zealand Dollars, payable to the ‘British High Commission’
+          - Visa or Mastercard
+
+          If you're paying by card you must send a [card payment authorisation form (PDF, 198KB)](/government/uploads/system/uploads/attachment_data/file/136856/credit-card-form-12-2011.pdf) with your application. You can't pay in cash.
+
+        passport_courier_costs_washington_usa: |
+          You’ll have to pay a fee for your passport and a courier fee of US $33. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+
+        passport_courier_costs_indonesia: |
+          You’ll have to pay a fee for your passport and a courier fee of 350,000 Indonesian Rupiah. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+
+          You must pay in cash when you apply.
+
+        adult_passport_costs_washington_usa: |
+          | Passport type |	Passport fee |	Total to pay (including courier fee) |
+          |---------------|--------------|---------------------------------------|
+          | Adult standard 32-page passport |	US $211 |	US $244 |
+          | Adult jumbo 48-page passport | US $255 | US $288 |
+
+        child_passport_costs_washington_usa: |
+          | Passport type |	Passport fee |	Total to pay (including courier fee) |
+          |---------------|--------------|---------------------------------------|
+          | Child passport |	US $134 |	US $167 |
+
+        adult_passport_costs_indonesia: |
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 1,920,000 Indonesian Rupiah | 2,270,000 Indonesian Rupiah
+          Adult jumbo 48-page passport | 2,318,000 Indonesian Rupiah | 2,668,000 Indonesian Rupiah
+
+        child_passport_costs_indonesia: |
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Child standard 32-page passport | 1,223,000 Indonesian Rupiah | 1,573,000 Indonesian Rupiah
+
+        send_application_indonesia_applying: |
+          You must make your application in person.
+
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
+
+        passport_costs_washington_usa:
+          You must pay using a Visa or Mastercard. [Download a credit card authorisation form (PDF, 64KB)](/government/uploads/system/uploads/attachment_data/file/136853/credit-card-form.pdf.pdf) and send it with your application.
+
+        passport_costs_nepal: |
+          You can get a bankers draft in Hong Kong dollars from the Standard Chartered Bank in Lazimpat.
+
+        passport_courier_costs_jordan: |
+          You must pay in cash using Jordanian dinars at the British Embassy in Amman.
+
+          You’ll have to pay a fee for your passport and a courier fee of 37 Jordanian dinars. The courier fee pays for your passport and supporting documents to be sent back to the British Embassy in Amman.
+
+        adult_passport_costs_jordan: |
+          | Passport type | Passport fee |  Total to pay (including courier fee) |
+          |---------------|--------------|---------------------------------------|
+          | Adult standard 32-page passport | %{costs_jordanian_dinars_adult_32}
+          | Adult jumbo 48-page passport | %{costs_jordanian_dinars_adult_48}
+
+        child_passport_costs_jordan: |
+          | Passport type | Passport fee |  Total to pay (including courier fee) |
+          |---------------|--------------|---------------------------------------|
+          | Child passport | %{costs_jordanian_dinars_child}
+
+        passport_costs_jordan: |
+
+        passport_courier_costs_pretoria_south_africa: ''
+
+        adult_passport_costs_pretoria_south_africa: |
+          Passport type | Passport fee |  Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | %{costs_south_african_rand_adult_32}
+          Adult jumbo 48-page passport | %{costs_south_african_rand_adult_48}
+
+        child_passport_costs_pretoria_south_africa: |
+          Passport type | Passport fee |  Total to pay (including courier fee)
+          -|-|-
+          Child passport | %{costs_south_african_rand_child}
+
+        passport_costs_pretoria_south_africa: |
+          The fee includes the cost of returning your passport and supporting documents to you securely by courier.
+
+          You must pay using a Visa or Mastercard. [Download a credit card authorisation form (DOC,198KB)](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/countries-auth-slip)
+
+          You can't pay in cash.
+
+        supporting_documents_south_africa_applying: |
+          ^[Supporting documents for adults born in the UK](/government/publications/british-passport-adult-supporting-documentation)^
+          ^[Supporting documents for adults born overseas](/government/publications/british-passport-adult-supporting-documentation-overseas)^
+          ^[Supporting documents for children born in the UK](/government/publications/british-passport-child-supporting-documentation)^
+          ^[Supporting documents for children born overseas](/government/publications/british-passport-child-supporting-documentation-overseas)^
+
+        passport_courier_costs_fco_europe:
+          You’ll have to pay a fee for your passport and a courier fee of 24 Euros. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+
+        adult_passport_costs_fco_europe: |
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | %{costs_euros_adult_32}
+          Adult jumbo 48-page passport | %{costs_euros_adult_48}
+
+        child_passport_costs_fco_europe: |
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Child passport | %{costs_euros_child}
+
+        passport_costs_dublin_ireland: |
+          You must pay using Visa or Mastercard. Download a [card payment authorisation form (PDF,198KB)](/government/uploads/system/uploads/attachment_data/file/168042/card-payment-form.pdf) and send it with your application.
+
+        how_to_apply_dublin_ireland: |
+          If you were born in Ireland before 1 January 1949, you must also send a [completed Form E](/government/uploads/system/uploads/attachment_data/file/181057/postie_passport_forme.pdf "Form E for British subjects born before 1 January 1949") with your application.
+
+        how_to_apply_retain_passport: |
+          Send a photocopy of the pages of your existing passport that show your personal details, photograph and residence permit or visa.
+
+          Keep your existing passport for security and ID purposes - don’t send it with your application.
+
+        how_to_apply_retain_passport_hurricane: |
+          Don’t send your passport - keep it in case you have to to evacuate in the event of a hurricane.
+
+          You’ll need to send a photocopy of your passport, and a letter to explain why you’ve not sent the original.
+
+          When you get your new passport, send your old one to the [nearest British embassy, high commission or governors office](/government/world/organisations).
+
+        supporting_documents_jordan_applying: |
+          
+          
+          $D
+          **Supporting documents**
+
+          [Download ‘Supporting documents you must send with your application’ (PDF, 260KB)](/government/publications/jordan-supporting-documents-for-passport-applications)
+          $D 
+
+        passport_costs_paris_france: |
+          You must pay using either:
+
+          - a Visa or Mastercard - [download a credit card authorisation form (PDF, 170KB)](/government/uploads/system/uploads/attachment_data/file/136852/credit-card-form-march-12.pdf) and send it with your application
+
+          - an International Postal order, mandate-cheque or mandate-cash payable to ‘British Embassy Paris’ - your application may take longer if you pay this way
+        passport_costs_malta_netherlands: |
+           You must pay using a Visa or Mastercard. [Download a credit card authorisation form (PDF, 170KB)](/government/uploads/system/uploads/attachment_data/file/136852/credit-card-form-march-12.pdf) and send it with your application.
+
+        passport_costs_france_italy_switz:
+          You must pay using a Visa or Mastercard. [Download a credit card authorisation form (PDF, 170KB)](http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/credit-card-form-march-12) and send it with your application.
+
+        passport_courier_costs_madrid_spain:
+          You’ll have to pay a fee for your passport and a courier fee of 25 Euros. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+
+        passport_costs_madrid_spain: |
+          You must pay using a Visa or Mastercard.
+
+          [Download a credit card authorisation form (PDF, 51KB)](/government/uploads/system/uploads/attachment_data/file/136851/credit-card-authorisation-slip.pdf) and send it with your application.
+
+        passport_courier_costs_hong_kong: |
+          You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent securely to you.
+
+        adult_passport_costs_hong_kong: |
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | £128.00/HK $1,574 | £147.86/HK $1,818
+          Adult jumbo 48-page passport | £154.50/HK $1,900 | £174.36/HK $2,144
+
+        child_passport_costs_hong_kong: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Child passport | £81.50/HK $1,002 | £101.36/HK $1,246 |
+
+        passport_costs_hong_kong: |
+          You must pay using either:
+
+          - an International Banker’s Draft, payable in Hong Kong Dollars to ‘British Consulate-General Hong Kong’
+          - a Visa or Mastercard - [download a credit card authorisation form (PDF, 95KB)](/government/uploads/system/uploads/attachment_data/file/136855/credit-card-authorisation.pdf.pdf) and send it with your application
+
+          If you pay by card, you’ll be charged the sterling amount in Hong Kong dollars using the exchange rate on the day your application is processed.
+
+        passport_costs_indonesia: ''
+
+        how_long_applying_india: |
+          Your application will take **at least** 16 weeks. You may have to attend an interview.
+
+        how_long_applying_tanzania: |
+          Your application will take **at least** 12 weeks. You may have to attend an interview.
+
+        passport_courier_costs_india: |
+          You’ll have to pay a fee for your passport and a courier fee. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+
+        passport_courier_costs_applying_india: |
+          You’ll have to pay a fee for your passport and a courier fee of 2,000 Rupees. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+
+        adult_passport_costs_india: |
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | %{costs_indian_rupees_adult_32}
+          Adult jumbo 48-page passport | %{costs_indian_rupees_adult_48}
+
+        child_passport_costs_india: |
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Child passport | %{costs_indian_rupees_child}
+
+        adult_passport_costs_applying_india: |
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | %{costs_indian_rupees_adult_32}
+          Adult jumbo 48-page passport | %{costs_indian_rupees_adult_48}
+
+        child_passport_costs_applying_india: |
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Child standard 32-page passport | %{costs_indian_rupees_child}
+
+        passport_costs_india: |
+          You must pay using a Visa or Mastercard - [download a credit card authorisation form (PDF, 95KB)](/government/uploads/system/uploads/attachment_data/file/136906/india-credit-card-form.pdf.pdf) and send it with your application.
+
+        supporting_documents_india_applying_renewing: |
+          Application type | Supporting documents information
+          - | -
+          Adult renewal |  [Download 'Supporting documents for adult passport renewal' (PDF, 42KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136907/india-adult-renewal.pdf.pdf)
+          Child renewal | [Download 'Supporting documents for child passport renewal' (PDF, 46KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136908/india-child-renewal.pdf.pdf)
+          First adult passport | [Download 'Supporting documents for adult first passport' (PDF, 30KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136909/india-adult-first-time-apply.pdf.pdf)
+          First child passport | [Download 'Supporting documents for first child passport' (PDF, 250KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136910/india-child-first-time-application.pdf.pdf)
+
+        how_to_apply_india: |
+          Application type | Supporting documents information
+          - | -
+          Adult renewal | [Download ‘Supporting documents for adult passport renewal’ (PDF, 24KB)](/government/uploads/system/uploads/attachment_data/file/136907/india-adult-renewal.pdf.pdf)
+          Child renewal | [Download ‘Supporting documents for child passport renewal’ (PDF, 24KB)](/government/uploads/system/uploads/attachment_data/file/136908/india-child-renewal.pdf.pdf)
+          First adult passport | [Download ‘Supporting documents for adult first passport, (PDF, 41KB)](/government/uploads/system/uploads/attachment_data/file/136909/india-adult-first-time-apply.pdf.pdf)
+          First child passport | [Download ‘Supporting documents for first child passport (PDF, 39KB)](/government/uploads/system/uploads/attachment_data/file/136910/india-child-first-time-application.pdf.pdf)
+
+        adult_fco_forms: |
+          __Smart application form__ (fill in on screen, print and sign)
+
+          [Download ‘Smart application form’ (PDF, 188KB)](/government/uploads/system/uploads/attachment_data/file/136841/smart-form.pdf.pdf)
+
+          __Blank application form__ (if you can't use the smart form above, print this form, fill in on paper and sign)
+
+          [Download ‘Passport application form for adults aged 16 and over’ (489KB)](/government/uploads/system/uploads/attachment_data/file/136843/form-c1.pdf.pdf)
+
+          __Guidance notes__
+
+          [Download ‘Guidance notes for adult applications (PDF, 2.2MB)’](/government/uploads/system/uploads/attachment_data/file/136844/form-c1-notes.pdf.pdf)
+
+        child_fco_forms: |
+          __Smart application form__ (fill in on screen, print and sign)
+
+            [Download ‘Smart application form’ (PDF, 188KB)](/government/uploads/system/uploads/attachment_data/file/136841/smart-form.pdf.pdf)
+
+          __Blank application form__ (print, fill in on paper and sign)
+
+            [Download ‘Passport application form for children aged 15 or under’ (505KB)](/government/uploads/system/uploads/attachment_data/file/136845/form-c2.pdf.pdf)
+
+          __Guidance notes__
+            [Download ‘Guidance notes for child applications (PDF, 2MB)’](/government/uploads/system/uploads/attachment_data/file/136846/form-c2-notes.pdf.pdf)
+
+        adult_fco_forms_nigeria: |
+          __Blank application form__ (print this form, fill in on paper and sign)
+
+          [Download ‘Passport application form for adults aged 16 and over’ (489KB)](/government/uploads/system/uploads/attachment_data/file/136843/form-c1.pdf.pdf)
+
+          __Guidance notes__
+
+          [Download ‘Guidance notes for adult applications (PDF, 2.2MB)’](/government/uploads/system/uploads/attachment_data/file/136844/form-c1-notes.pdf.pdf)
+
+        child_fco_forms_nigeria: |
+          __Blank application form__ (print, fill in on paper and sign)
+
+            [Download ‘Passport application form for children aged 15 or under’ (505KB)](/government/uploads/system/uploads/attachment_data/file/136845/form-c2.pdf.pdf)
+
+          __Guidance notes__
+            [Download ‘Guidance notes for child applications (PDF, 2MB)’](/government/uploads/system/uploads/attachment_data/file/136846/form-c2-notes.pdf.pdf)
+
+
+        getting_your_passport_fco: |
+          Your passport and supporting documents will be delivered separately by courier.
+
+          When you get your passport, check your name, date of birth and other personal details are correct.
+
+          If they’re not, send the passport back to the address above with a covering letter and evidence of what needs to be corrected (eg if your name is spelled incorrectly, provide evidence of how your name should be spelled).
+
+          If the error was made by the passport processing office, you’ll get a replacement free of charge. If the error was yours, you’ll have to pay for a replacement passport.
+
+        getting_your_passport_india: |
+          Your passport and supporting documents will be sent to you by registered post.
+
+          You can also choose to collect your passport and supporting documents in person - you’ll need to state this in the ‘Other Information’ section of the application form.
+
+          The British High Commision in New Delhi will contact you when your passport arrives using the contact details on your form. You’ll need to bring photographic ID.
+
+          You can also get someone else to collect your passport on your behalf. Send a signed letter with your application with the name of the person and their contact details. They’ll need to bring photographic ID when they collect it.
+
+          ### Mistakes on your passport
+
+          When you get your passport, check your name, date of birth and other personal details are correct.
+
+          If they’re not, send the passport back to the address above with a covering letter and evidence of what needs to be corrected (eg if your name is spelled incorrectly, provide evidence of how your name should be spelled).
+
+          If the error was made by the passport processing office, you’ll get a replacement free of charge. If the error was yours, you’ll have to pay for a replacement passport.
+
+        getting_your_passport_jamaica: |
+          Your passport and supporting documents will be delivered to the British High Commission in Kingston - you must collect them in person. 
+
+          They will contact you when your passport arrives using the contact details on your form.
+
+          You must bring photo ID with you.
+
+        getting_your_passport_djibouti: |
+          Your passport and supporting documents will be delivered to you by courier.
+
+        getting_your_passport_nepal : |
+          The British Embassy in Kathmandu will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+
+        send_application_fco_preamble: |
+          Send your application, photographs and supporting documents, ideally by courier.
+
+        send_application_jordan: |
+
+          You must make your application in person.
+
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
+
+        send_application_wellington_new_zealand: |
+
+          $A
+            British High Commission, Wellington
+            44 Hill Street
+            Wellington 6011
+
+            Mailing Address:
+            PO Box 1812
+            Wellington 6140
+          $A
+
+        send_application_paris_france: |
+
+          $A
+            Regional Passport Processing Centre
+            35 rue du Faubourg St Honoré
+            75383 Paris Cedex 08
+            France
+          $A
+
+        send_application_hong_kong: |
+
+          $A
+            British Consulate-General
+            RPPC - 5th Floor
+            1 Supreme Court Road
+            Admiralty
+            Hong Kong
+          $A
+
+        send_application_dublin_ireland: |
+
+          $A
+            Passport Office
+            British Embassy
+            29 Merrion Road
+            Ballsbridge
+            Dublin 4
+          $A
+
+        send_application_india: |
+
+          $A
+            PPT Applications
+            British High Commission
+            Shantipath, Chanakyapuri
+            New Delhi, 110021
+          $A
+
+        send_application_pretoria_south_africa: |
+
+          $A
+            Postal address:
+
+            British Passport Section
+            British Consulate
+            PO Box 13611
+            Hatfield, Pretoria 0028
+            South Africa
+
+            Courier address:
+
+            British Passport Section
+            British Consulate
+            256 Glyn Street
+            Hatfield
+            Pretoria 0083
+            South Africa
+          $A
+
+        send_application_south-africa: |
+          Send your application, photographs and supporting documents, ideally by courier.
+
+
+          $A
+            Postal address:
+
+            British Passport Section
+            British Consulate
+            PO Box 13611
+            Hatfield, Pretoria 0028
+            South Africa
+
+            Courier address:
+
+            British Passport Section
+            British Consulate
+            256 Glyn Street
+            Hatfield
+            Pretoria 0083
+            South Africa
+          $A
+
+          If you’re applying from Port Elizabeth or Durban, you can also apply through the 1820 Settlers Association of South Africa.
+
+
+          $C
+            **1820 Settlers Association of South Africa**
+
+            Telephone: 041 585 3416 (Port Elizabeth)
+            031 202 6174 (Durban)
+
+          $C
+
+        send_application_washington_usa: |
+
+          $A
+            Regional Passport Processing Centre
+            British Embassy
+            19 Observatory Circle N.W.
+            Washington DC 20008
+          $A
+
+        send_application_madrid_spain: |
+
+          $A
+            UK Regional Passport Processing Centre
+            British Consulate-General Madrid
+            Torre Espacio
+            Paseo de la Castellana 259D
+            28046 Madrid, Spain
+          $A
+
+        helpline_wellington_new_zealand: |
+
+          $C
+            __Passport Information Helpline__
+
+            Premium rate helpline
+            
+            +44 900 990 202
+
+            Landline calls are charged at $4.50 per minute - mobile calls may cost more
+
+            Paying for the call by credit card
+
+            +44 208 082 4726
+            
+            Calls charged at £0.72 per minute plus VAT
+
+            Textphone: +44 1750 725 368
+          $C
+
+        helpline_paris_france: |
+
+          $C
+            __Passport Information Helpline__
+
+            +44 208 082 4729
+
+            Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
+
+            Textphone: +44 1750 725 368
+          $C
+
+        helpline_hong_kong: |
+
+          $C
+            __Passport Information Helpline__
+
+            +44 208 082 4744
+
+            Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
+
+            Textphone: +44 1750 725 368
+          $C
+
+        helpline_pretoria_south_africa: |
+
+          $C
+            __Passport Information Helpline__
+
+            +44 208 082 4743
+
+            Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
+
+            Textphone: +44 1750 725 368
+          $C
+
+        helpline_washington_usa: |
+
+          $C
+            __Passport Information Helpline__
+
+            +44 208 082 4721
+
+            Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
+
+            Textphone: +44 1750 725 368
+          $C
+
+        helpline_madrid_spain: |
+
+          $C
+            __Passport Information Helpline__
+
+            Paying for the call by credit card
+
+            +44 208 082 4734
+
+            Calls charged at £0.72 per minute plus VAT
+
+            Textphone: +44 1750 725 368
+
+            Premium rate helpline (from within Spain only)
+
+            807 444 946
+
+            Landline calls are charged at 1.21 Euro per minute - mobile calls may cost more
+          $C
+
+        helpline_dublin_ireland: |
+
+
+          $C
+            **Passport Information Helpline**
+
+            Premium rate helpline  
+            1570 999 331  
+            Landline calls are charged at 1.78 Euro per minute - mobile calls may cost more  
+  
+            Paying for the call by credit card  
+            +44 208 082 4737  
+            Calls charged at £0.72 per minute plus VAT  
+
+            Textphone: +44 1750 725 368
+          $C
+
+        helpline_india: |
+
+          $C
+            **Passport Information Helpline**
+
+            +44 208 082 4744
+            Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
+          $C
+
+        helpline_afghanistan: |
+
+
+          $C
+            **Passport Information Helpline**
+
+            +44 208 082 4744
+
+            Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
+
+          $C
+
+          You can also call the British Embassy in Kabul.
+
+
+          $C
+
+            **British Embassy, Kabul**
+
+            +93 (0) 700 102 000
+
+          $C
+        helpline_yemen: |
+
+
+          $C
+            **Passport information - Yemen**
+
+            967 1308 114
+            8am to-3pm local time, Sunday to Thursday
+
+             +44 207 008 1500 at any other time
+
+          $C
+        helpline_intro: |
+          If you haven’t received your passport within the expected timescale, you can check your application’s progress by phone. You will be charged for the call.
+
+          Don’t use this service any earlier - information won’t be available but you will still be charged for the call.
+        helpline_exceptions: |
+          If you haven’t received your passport within the expected timescales, or need to change your travel plans urgently (eg a close relative has died), you can leave a message with the passport processing centre in Madrid.
+
+          They will only call you back if your passport has been delayed or you have a genuine emergency.
+
+
+          $C
+
+            **Passport processing centre, Madrid**
+
+            00 34 91 714 6314
+          $C
+        helpline_exception_yemen: |
+          If you haven’t received your passport within the expected timescale, you can check your application’s progress by phone. You’ll be charged for the call.
+
+
+
+          $C
+          **Passport information - Yemen**
+      
+          +44 208 082 4729  
+          Monday to Friday, 24 hours a day
+          $C
+        helpline_: ''
+        helpline_fco_webchat: |
+          ### Webchat service
+
+          A webchat service is available. It costs a flat rate of £4 - you must pay by credit card before you start. Once you’ve paid, you’ll be given a reference number to launch your webchat. You’ll receive an email transcript of your conversation when you finish.
+
+          [Use the webchat service](https://www.synthetix.info/fco/ "Use the webchat service to chat to an advisor") 
+
+        hmpo_1_application_form: |
+          ^[Application form - applying for a British passport overseas](/government/publications/applying-for-a-passport-from-outside-the-uk-application-form)^
+
+        hmpo_2_application_form: |
+          ^[Application form - applying for a British passport overseas](/government/publications/overseas-passport-application-form)^
+
+        ips_documents_group_1: |
+          ^[Guidance notes - applying for a passport if you’re outside the UK](/government/publications/overseas-passports-guidance)^
+          ^[Supporting documents you must send with your application](/government/publications/overseas-passport-applications-supporting-documents-guidance)^
+
+        ips_documents_group_2: |
+          ^[Guidance notes - applying for a passport if you’re outside the UK](/government/publications/overseas-passports-guidance)^
+          ^[Supporting documents you must send with your application](/government/publications/overseas-passport-supporting-documents-group-2)^
+
+        ips_documents_group_3: |
+          ^[Guidance notes - applying for a passport if you’re outside the UK](/government/publications/overseas-passports-guidance)^
+          ^[Supporting documents you must send with your application](/government/publications/overseas-passport-supporting-documents-group-3)^
+
+        passport_costs_ips_cash: |
+          You must pay in cash using local currency - the prices above will be converted according to the exchange rate when you apply.
+
+        how_long_applying_ips1: |
+          Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
+
+        how_long_renewing_old_ips1: |
+          Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
+
+        how_long_renewing_new_ips1: |
+          Your application will take **at least** 4 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+
+        how_long_replacing_ips1: |
+          Your application will take **at least** 6 weeks from when your application is received by Her Majesty's Passport Office in the UK.
+
+          If you haven’t already reported the loss or theft, you must include form LS01 with your passport application.
+
+
+          $D
+          [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf)
+          $D
+
+        how_long_it_takes_ips1: |
+          Applications may take longer if:
+
+          - Her Majesty's Passport Office needs to ask you for more information or documents
+          - the photographs you send are rejected.
+
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, apply for an [Emergency Travel Document.](/emergency-travel-document)
+
+        passport_courier_costs_ips1: |
+          You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+
+        adult_passport_costs_ips1: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Adult standard 32-page passport | £128.00 | £147.86 |
+          | Adult jumbo 48-page passport | £154.50 | £174.36 |
+
+        child_passport_costs_ips1: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Child passport | £81.50 | £101.36 |
+
+        passport_courier_costs_replacing_ips1: |
+          You’ll have to pay a fee for your passport and a courier fee of £9.70. The courier fee pays for your passport to be sent back to you securely.
+
+        adult_passport_costs_replacing_ips1: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Adult standard 32-page passport | £128.00 | £137.70 |
+          | Adult jumbo 48-page passport | £154.50 | £164.20 |
+
+        child_passport_costs_replacing_ips1: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Child passport | £81.50 | £91.20 |
+
+        passport_costs_ips1: |
+          Fill in a [‘Paying by credit card or debit card’ form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
+
+          You can use Mastercard, Visa, Electron, Diners Club and JCB.
+
+        how_to_apply_ips1: |
+          1. Download the application form.
+          2. Use the ‘Applying for a passport if you’re outside the UK’ guidance notes to help you fill in the application form.
+          3. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports) or your application may be delayed.
+          4. Check the guidance notes to find out which supporting documents you must send with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
+
+        send_application_ips1: |
+          ## Send your application
+
+          Her Majesty's Passport Office recommends you send your application using a secure delivery service or courier.
+
+
+          $A
+            Her Majesty's Passport Office
+            OVS-L
+            101 Old Hall Street
+            Liverpool
+            L3 9BP
+            United Kingdom
+          $A
+
+        send_application_ips1_belfast: |
+          ## Send your application
+
+          Her Majesty's Passport Office recommends you send your application using a secure delivery service or courier.
+
+
+          $A
+            Her Majesty's Passport Office  
+            OVS-B  
+            Ground Floor  
+            Law Society House  
+            90-106 Victoria Street  
+            Belfast  
+            BT1 3GN  
+            United Kingdom
+          $A
+
+        send_application_ips1_durham: |
+          ## Send your application
+
+          Her Majesty's Passport Office recommends you send your application using a secure delivery service or courier.
+
+          
+          $A
+            Her Majesty's Passport Office 
+            OVS-D 
+            Millburngate House 
+            Millburngate 
+            Durham 
+            DH97 1PA
+          $A
+
+        send_application_ips3_durham: |
+          ## Send your application
+
+          Her Majesty's Passport Office recommends you send your application using a secure delivery service or courier.
+
+          
+          $A
+            Her Majesty's Passport Office 
+            OVS-D 
+            Millburngate House 
+            Millburngate 
+            Durham 
+            DH97 1PA
+          $A
+
+        getting_your_passport_ips1: |
+          Your passport and supporting documents will be delivered separately by courier.
+
+        getting_your_passport_egypt: |
+          Your passport and supporting documents will be delivered to the British Embassy in Cairo - you must collect them in person. 
+
+          They will contact you when your passport arrives using the contact details on your form.
+
+          You must bring photo ID with you.
+        getting_your_passport_iraq: |
+          You must collect your passport and supporting documents in person from either:
+
+          - the British Embassy in Baghdad 
+          - the British Consulate General in Erbil
+
+          You must specify where you want them delivered in section 8 on the application form. You must bring photo ID with you
+
+          The embassy or consulate general will contact you when your passport arrives using the contact details on your form.
+        getting_your_passport_jordan: |
+          Your passport and supporting documents will be delivered to the British Embassy in Amman, Jordan - you must collect them in person. You must bring photo ID with you.
+
+          They will contact you when your passport arrives using the contact details on your form.
+        getting_your_passport_yemen: |
+          Your passport and supporting documents will be delivered to the British Embassy in Amman, Jordan - you must collect them in person. You must bring photo ID with you.
+
+          They will contact you when your passport arrives using the contact details on your form.
+        tracking_and_receiving_ips1: |
+          ## Track your application
+
+          Call the Passport Adviceline.
+
+
+          $C
+          **Passport Adviceline**
+          +44 (0) 300 222 0000
+          $C
+
+        how_long_applying_ips2: |
+          Your application will take at least **8 weeks.**
+
+        how_long_renewing_old_ips2: |
+          Your application will take at least **8 weeks.**
+
+        how_long_renewing_new_ips2: |
+          Your application will take at least **8 weeks.**
+
+        how_long_renewing_new_ips2_morocco: |
+          Your application will take **at least** 4 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+
+        how_long_other_ips2_morocco: |
+          Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+
+
+        how_long_it_takes_ips2: |
+          Applications may take longer if:
+
+          - Her Majesty's Passport Office needs to ask you for more information or documents
+          - the photographs you send are rejected
+
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document)
+
+        how_long_replacing_ips2: |
+          Your application will take at least **8 weeks.**
+
+          If you haven’t already reported the loss or theft, you must include form LS01 with your passport application.
+
+
+          $D
+          [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf)
+          $D
+
+        how_long_replacing_ips2_morocco: |
+          Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+
+          If you haven’t already reported the loss or theft, you must include form LS01 with your passport application.
+
+
+          $D
+          [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf)
+          $D
+
+        passport_courier_costs_ips2: |
+          You’ll have to pay a fee for your passport and a courier fee of £24.72. The courier fee pays for your passport to be sent securely to the British embassy, high commission or consulate where you applied for you to collect.
+
+        adult_passport_costs_ips2: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Adult standard 32-page passport | £128.00 | £152.72 |
+          | Adult jumbo 48-page passport | £154.50 | £179.22 |
+
+        child_passport_costs_ips2: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Child passport | £81.50 | £106.22 |
+
+        passport_costs_ips2: |
+          Fill in a [‘Paying by credit card or debit card’ form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
+
+          You can use Mastercard, Visa, Electron, Diners Club and JCB.
+
+        how_to_apply_ips2: |
+          1. Download the application form.
+          2. Use the ‘Applying for a passport if you’re outside the UK’ guidance notes to help you fill in the application form.
+          3. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports) or your application may be delayed.
+          4. Check which supporting documents you must include with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
+
+        renewing_new_renewing_old: |
+          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (apart from any blank pages).
+
+          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+
+        send_application_embassy_address: |
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
+
+        send_application_ips2: |
+          ## Making your application
+          You must apply in person.
+
+          You must bring photo ID with you.
+
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+
+        getting_your_passport_ips2: |
+          Your passport will be delivered to the British embassy, high commission or consulate where you applied  - you must collect it in person. 
+
+          They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
+        tracking_and_receiving_ips2: |
+
+          ## Track your application
+
+          Call the Passport Adviceline.
+
+
+          $C
+          **Passport Adviceline**
+          +44 (0) 300 222 0000
+          $C
+
+        how_long_kazakhstan: |
+          Your application will take **at least** 8 weeks.
+        how_long_kyrgyzstan: |
+          Your application will take **at least** 8 weeks.
+        how_long_applying_ips3: |
+          Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
+
+        how_long_replacing_ips3: |
+          Your application will take **at least** 6 weeks from when it's received by Her Majesty's Passport Office in the UK.
+
+          If you haven’t already reported the loss or theft, you must include form LS01 with your passport application.
+
+
+          $D
+          [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf)
+          $D
+
+        how_long_renewing_old_ips3: |
+          Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
+
+        how_long_renewing_new_ips3: |
+          Your application will take **at least** 4 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+
+        how_long_it_takes_ips3: |
+          Applications may take longer if:
+
+          - Her Majesty's Passport Office needs to ask you for more information or documents
+          - the photographs you send are rejected
+
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document)
+
+        passport_courier_costs_ips3: |
+          You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the British embassy, high commission or consulate where you applied for you to collect.
+
+        adult_passport_costs_ips3: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Adult standard 32-page passport | £128.00 | £151.01 |
+          | Adult jumbo 48-page passport | £154.50 | £177.51 |
+
+        child_passport_costs_ips3: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Child passport | £81.50 | £104.51 |
+
+        passport_costs_ips3: |
+          Fill in a [‘Paying by credit card or debit card’ form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
+
+          You can use Mastercard, Visa, Electron, Diners Club and JCB.
+
+        how_to_apply_ips3: |
+          1. Download the application form.
+          2. Use the ‘Applying for a passport if you’re outside the UK’ guidance notes to help you fill in the application form.
+          3. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports) or your application may be delayed.
+          4. Check which supporting documents you must submit with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
+
+        send_application_ips3: |
+          ## Making your application
+          You must apply in person.
+
+          You must bring photo ID with you.
+
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+
+        send_application_ips3_gaza: |
+          ## Making your application
+          You must apply in person.
+
+          You must bring photo ID with you.
+
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+
+
+          $A
+          British Information & Services Office  
+          1st Floor, Al-Riyad Tower  
+          Jerusalem Street  
+          Al-Rimal South  
+          Gaza
+
+          Email: dljerusalemconsularprotect@fco.gov.uk  
+          Telephone: +972 (8) 2641456
+          Fax: +972 (8) 2641457
+          $A
+
+        getting_your_passport_ips3: |
+          Your passport will be delivered to the British embassy, high commission or consulate where you applied - you must collect it in person.
+
+          They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
+        
+        tracking_and_receiving_ips3: |
+          ## Track your application
+
+          Call the Passport Adviceline.
+
+
+          $C
+          **Passport Adviceline**
+          +44 (0) 300 222 0000
+          $C
+
+        how_long_australia_post: |
+          You must [book an interview at an Australia Post office.](http://auspost.com.au/passports-id/british-passports.html)
+
+          Passport renewals take at least **4 weeks** from when your application is received.
+
+          First-time applications or replacement of lost or stolen passports usually take at least **6 weeks.**
+
+          Applications can take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+          
+          Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [Emergency Travel Document](/emergency-travel-document).
+
+          If your passport has been lost or stolen and you haven’t reported it yet, include ‘Form LS01’ with your application.
+
+
+          $D
+          [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf)
+          $D
+
+        cost_australia_post: |
+          | Passport type | Passport fee |
+          |---------------|--------------|
+          | Adult standard 32-page passport | %{costs_australian_dollars_adult_32} |
+          | Adult jumbo 48-page passport | %{costs_australian_dollars_adult_48} |
+          | Child passport | %{costs_australian_dollars_child} |
+
+        how_to_apply_australia_post: |
+          [Book an interview at an Australia Post office.](http://auspost.com.au/passports-id/british-passports.html) - you must bring cash or a Visa or Mastercard to pay the fee at the interview.
+
+          Download the application form and guidance notes. Bring the application form to your interview.
+
+          If you want your passport to be sent to a Post Office Box number, put the full address of the Post Office location on the application form. If you don’t, delivery of your passport could be seriously delayed.
+
+        how_to_apply_adult_australia_post: |
+            [Download ‘Passport application form for adults aged 16 and over’ (489KB)](/government/uploads/system/uploads/attachment_data/file/136843/form-c1.pdf.pdf)
+
+            [Download ‘Guidance notes for adult applications’ (PDF, 2.2MB)](/government/uploads/system/uploads/attachment_data/file/136844/form-c1-notes.pdf.pdf)
+
+        how_to_apply_child_australia_post: |
+            [Download ‘Passport application form for children aged 15 and under’ (505KB)](/government/uploads/system/uploads/attachment_data/file/136845/form-c2.pdf.pdf)
+
+            [Download ‘Guidance notes for child applications’ (PDF, 2MB)](/government/uploads/system/uploads/attachment_data/file/136846/form-c2-notes.pdf.pdf)
+
+        aus_nz_replacing: |
+            [Download ‘Application checklist’ (PDF 142KB)](/government/uploads/system/uploads/attachment_data/file/136865/Checklist2-LostandStolen.pdf)
+
+        aus_nz_renewing: |
+            [Download ‘Application checklist’ (PDF 140KB)](/government/uploads/system/uploads/attachment_data/file/136864/Checklist1-RenewingPassport.pdf)
+
+        aus_nz_born-in-uk-pre-1983: |
+            [Download ‘Supporting documents checklist’ (PDF 145KB)](/government/uploads/system/uploads/attachment_data/file/136867/Checklist4-ApplicantbornUKbeforeJan1983.pdf)
+
+        aus_nz_born-in-uk-post-1982-uk-father: |
+            [Download ‘Supporting documents checklist’ (PDF 149KB)](/government/publications/checklist-5-applicant-born-in-uk-after-31-december-1982-and-father-born-uk-new-zealand)
+
+        aus_nz_born-in-uk-post-1982-uk-mother: |
+            [Download ‘Supporting documents checklist’ (PDF 147KB)](/government/uploads/system/uploads/attachment_data/file/136869/Checklist6-ApplicantbornUKafterJan1983motherbornUK.pdf)
+
+        aus_nz_born-outside-uk-parents-married: |
+            [Download ‘Supporting documents checklist’ (PDF 149KB)](/government/uploads/system/uploads/attachment_data/file/136870/Checklist7-ApplicantbornoutsideUKandfatherbornUK.pdf)
+
+        aus_nz_born-outside-uk-mother-born-in-uk : |
+            [Download ‘Supporting documents checklist’ (PDF 214KB)](/government/uploads/system/uploads/attachment_data/file/136871/Checklist8-ApplicantbornoutsideUKafterJan1983MotherbornUK.pdf)
+
+        aus_nz_born-in-uk-post-1982-father-uk-citizen: |
+            [Download ‘Supporting documents checklist’ (PDF 214KB)](/government/uploads/system/uploads/attachment_data/file/136872/Checklist9-ApplicantbornUKafter01January1983andfatherregornatasaBC.pdf)
+
+        aus_nz_born-in-uk-post-1982-mother-uk-citizen: |
+            [Download ‘Supporting documents checklist’ (PDF 214KB)](/government/uploads/system/uploads/attachment_data/file/136873/Checklist10-ApplicantbornUKafter01Jan1983andmotherregornatasaBC.pdf)
+
+        aus_nz_born-outside-uk-father-registered-uk-citizen: |
+            [Download ‘Supporting documents checklist’ (PDF 217KB)](/government/uploads/system/uploads/attachment_data/file/136874/Checklist11-ApplicantbornoutsidetheUK-FatherregornatasBritishCitizen.pdf)
+
+        aus_nz_born-outside-uk-mother-registered-uk-citizen: |
+            [Download ‘Supporting documents checklist’ (PDF 214KB)](/government/uploads/system/uploads/attachment_data/file/153754/Checklist12-ApplicantbornoutsidetheUK-MotherregornatasBritishCitizen.pdf)
+
+        aus_nz_born-in-uk-post-1982-father-uk-service: |
+            [Download ‘Supporting documents checklist’ (PDF 221KB)](/government/uploads/system/uploads/attachment_data/file/153755/Checklist13-Applicantbornafter01Jan1983-Fatherbornwhilehisfatherwasincrownservice.pdf)
+
+        aus_nz_born-in-uk-post-1982-mother-uk-service: |
+            [Download ‘Supporting documents checklist’ (PDF 216KB)](/government/uploads/system/uploads/attachment_data/file/136877/Checklist14-Applicantbornafter01Jan1983-MotherbornoverseaswhilefatherwasinBCSandrecruitedinUK.pdf)
+
+        aus_nz_married-to-uk-citizen-pre-1983-reg-pre-1988: |
+            [Download ‘Supporting documents checklist’ (PDF 213KB)](/government/uploads/system/uploads/attachment_data/file/153758/Checklist15-Womanmarriedtoabritishcitizenbefore01January1983andregasBCbefore01Jan1988.pdf)
+
+        aus_nz_registered-uk-citizen: |
+            [Download ‘Supporting documents checklist’ (PDF 211KB)](/government/uploads/system/uploads/attachment_data/file/136879/Checklist16-ApplicantregornatasaBC.pdf)
+
+        aus_nz_child-born-outside-uk-father-citizen: |
+            [Download ‘Supporting documents checklist’ (PDF 211KB)](/government/uploads/system/uploads/attachment_data/file/136880/Checklist17-ChildbornoutsidetheUKafter01July2006-FatherbornUKbutnotmarriedtomother.pdf)
+
+        aus_nz_woman-married-to-uk-citizen-pre-1949: |
+            [Download ‘Supporting documents checklist’ (PDF 210KB)](/government/uploads/system/uploads/attachment_data/file/136881/Checklist18-WomanmarriedtoaBCbefore01Jan1949.pdf)
+
+        receiving_your_passport_australia_post: |
+          Your passport and supporting documents will be returned to you separately by courier.
+
+          ##If your passport hasn’t arrived
+
+          If you haven’t received your passport within the expected timescale, you can check your application’s progress by phone. You will be charged for the call.
+
+          Don’t use this service any earlier - information won’t be available but you will still be charged for the call.
+
+
+          $C
+            __Passport Information Helpline__
+
+            Premium rate helpline
+
+            1902 241 444
+
+            Landline calls are charged at AUS $3.52 per minute - mobile calls may cost more
+
+            Paying for the call by credit card
+
+            +44 208 082 4726
+
+            Calls charged at £0.72 per minute plus VAT
+
+            Textphone: +44 1750 725 368
+          $C
+
+        how_long_new_zealand: |
+          Passport renewals take at least **4 weeks** from when your application is received.
+
+          For first-time applications or replacement of lost or stolen passports, it usually takes **6 weeks.**
+
+          Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [Emergency Travel Document](/emergency-travel-document).
+
+          If your passport has been lost or stolen and you haven’t reported it yet, include 'Form LS01' with your application.
+
+
+
+          $D
+            [Download 'Form LS01 - Lost or stolen passport notification' (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf)
+          $D
+
+        cost_new_zealand: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Adult standard 32-page passport | %{costs_new_zealand_dollars_adult_32} |
+          | Adult jumbo 48-page passport | %{costs_new_zealand_dollars_adult_48} |
+          | Child passport | %{costs_new_zealand_dollars_child} |
+
+        how_to_apply_new_zealand: |
+          1. Download the application form and guidance notes. Bring the application form to your interview.
+          2. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports "Passport photo requirements") or your application may be delayed.
+
+          3. Complete the [passport fees information sheet (PDF, 232KB).](/government/uploads/system/uploads/attachment_data/file/136863/nz-fee-sheet-02-12.pdf)
+
+          4. Bring your application, photos, supporting documents and passport fees sheet to your [nearest New Zealand Postshop](http://www.nzpost.co.nz/apply-renew-organise/british-passports "Find a New Zealand Postshop") to make your application.
+
+          You must provide a protective envelope, cardboard or other packaging that will protect your documents when they're posted back to you.
+
+        how_to_apply_adult_new_zealand: |
+          [Download ‘Passport application form for adults aged 16 and over’ (489KB)](/government/uploads/system/uploads/attachment_data/file/136843/form-c1.pdf.pdf)
+
+          [Download ‘Guidance notes for adult applications (PDF, 2.2MB)’](/government/uploads/system/uploads/attachment_data/file/136844/form-c1-notes.pdf.pdf)
+
+        how_to_apply_child_new_zealand: |
+          [Download ‘Passport application form for children aged 16 and under’ (505KB)](/government/uploads/system/uploads/attachment_data/file/136845/form-c2.pdf.pdf)
+
+          [Download ‘Guidance notes for child applications (PDF, 2MB)’](/government/uploads/system/uploads/attachment_data/file/136846/form-c2-notes.pdf.pdf)
+
+        instructions_australia_post: |
+          Bring 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports) or your application may be delayed.
+
+          Complete the [passport fees information sheet (PDF, 232KB)](/government/uploads/system/uploads/attachment_data/file/136862/australia-passport-fee-sheet.pdf) and bring it to your interview.
+
+          Bring the supporting documents and signed checklist you need to your interview. You must get supporting documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
+
+        instructions_new_zealand: ''
+
+        receiving_your_passport_new_zealand: |
+          Your passport and supporting documents will be returned to you separately by courier.
+
+          ##If your passport hasn’t arrived
+
+          If you haven’t received your passport within the expected timescale, you can check your application’s progress by phone. You will be charged for the call.
+
+          Don’t use this service any earlier - information won’t be available but you will still be charged for the call.
+
+
+          $C
+            __Passport Information Helpline__
+
+            Premium rate helpline
+            0900 990 202
+            Landline calls are charged at $4.50 per minute - mobile calls may cost more
+
+            Paying for the call by credit card
+            +44 208 082 4726
+            Calls charged at £0.72 per minute plus VAT
+            Textphone: +44 1750 725 368
+          $C
+
+
+        how_long_afghanistan: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks
+          First adult or child passports | 6 months
+          Replace a lost or stolen passport | 6 weeks
+          Change your name in a passport | 6 weeks
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+          The Foreign and Commonwealth Office may ask to interview you at the British embassy in Islamabad, Pakistan.
+
+
+        cost_afghanistan: |
+          You must pay in cash using US Dollars at the British embassy in Kabul. You’ll pay a fee for your passport plus a courier fee of US $55. The courier fee pays for your passport and supporting documents to be returned.
+
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Adult standard 32-page passport | US $211 | US $266 |
+          | Adult jumbo 48-page passport | US $255 |US $310 |
+          | Child passport | US $134 | US $189 |
+
+        how_to_apply_afghanistan: ''
+
+        supporting_documents_afghanistan: |
+          Application type | Supporting documents information
+          - | -
+          Adult renewal | [Download ‘Supporting documents for adult passport renewal’ (PDF, 24KB)](/government/uploads/system/uploads/attachment_data/file/136858/afghanistan-adult-renewal.pdf.pdf)
+          Child renewal | [Download ‘Supporting documents for child passport renewal’ (PDF, 24KB)](/government/uploads/system/uploads/attachment_data/file/136859/afghanistan-child-renewal.pdf.pdf)
+          First adult passport | [Download ‘Supporting documents for adult first passport, (PDF, 41KB)](/government/uploads/system/uploads/attachment_data/file/136860/afghanistan-adult-first-time-application.pdf.pdf)
+          First child passport | [Download ‘Supporting documents for first child passport (PDF, 39KB)](/government/uploads/system/uploads/attachment_data/file/136861/afghanistan-child-first-time-application.pdf.pdf)
+
+        making_application_afghanistan: |
+          You must apply in person at the British embassy in Kabul.
+
+        getting_your_passport_afghanistan: |
+          The British embassy in Kabul will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+
+        how_long_bangladesh: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks
+          First adult or child passports | 16 weeks
+          Replace a lost or stolen passport | 16 weeks
+          Change your name in a passport | 16 weeks
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+          - you need to be interviewed to confirm your identity
+
+
+
+        cost_bangladesh: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          You can pay using:
+
+          - a Visa or Mastercard
+          - a banker’s draft in Bangladeshi Taka, payable to the British High Commission
+          - cash, if you apply in person at the British High Commission in Dhaka
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | £128/ 16,000 Taka | £151.01/ 18,800 Taka
+          Adult jumbo 48-page passport | £154.50/ 19,300 Taka | £177.51/ 22,100 Taka
+          Child passport | £81.50/ 10,100 Taka | £104.51/ 12,900 Taka
+
+        how_to_apply_bangladesh: |
+          4. Fill in a card payment authorisation form if you’re paying with a credit or debit card.
+
+          Download a [card payment authorisation form](/government/publications/passport-credit-debit-card-payment-authorisation-slip-bangladesh).
+
+        supporting_documents_bangladesh: |
+          Application type | Supporting documents information
+          - | -
+          Adult renewal | [Download ‘Supporting documents for adult passport renewal’ (PDF, 26KB)](/government/uploads/system/uploads/attachment_data/file/136884/bangladesh-adult-renewal.pdf.pdf)
+          Child renewal | [Download ‘Supporting documents for child passport renewal’ (PDF, 23KB)](/government/uploads/system/uploads/attachment_data/file/136885/bangladesh-child-renewal.pdf.pdf)
+          First adult passport | [Download ‘Supporting documents for adult first passport, (PDF, 42KB)](/government/uploads/system/uploads/attachment_data/file/136886/bangladesh-adult-first-time-apply.pdf.pdf)
+          First child passport | [Download ‘Supporting documents for first child passport (PDF, 36KB)](/government/uploads/system/uploads/attachment_data/file/136887/bangladesh-child-first-time-apply.pdf.pdf)
+
+        making_application_bangladesh: |
+          Send your application - or deliver your application in person - to the British High Commission in Dhaka.
+
+        getting_your_passport_bangladesh: |
+          The British High Commission in Dhaka will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+
+        how_long_nairobi_kenya_applying: |
+          Your application will take at least 12 weeks. You will be asked to attend an interview.
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+
+        how_long_nairobi_kenya_replacing: |
+          Your application will take at least 6 weeks. You may be asked to attend an interview.
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document at the British High Commission/Honorary Consulate. You will have to pay for the document.
+
+
+        how_long_nairobi_kenya_renewing: |
+          Your application will take at least 4 weeks. You may be asked to attend an interview.
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+          Don’t book travel until you have a valid passport. If you need to travel urgently, apply for an Emergency Travel Document at the British High Commission/Honorary Consulate. You will have to pay for the document.
+
+        cost_nairobi_kenya_renewing: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          You must pay using a guaranteed banker’s draft in Kenya Shillings, payable to the ‘British High Commission’.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 17,950 Kenya Shillings | 22,650 Kenya Shillings
+          Adult jumbo 48-page passport | 21,700 Kenya Shillings | 26,400 Kenya Shillings
+          Child passport | 11,500 Kenya Shillings | 16,200 Kenya Shillings
+
+        cost_nairobi_kenya_applying: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          You must pay using a guaranteed banker’s draft in Kenya Shillings, payable to the ‘British High Commission’.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 17,950 Kenya Shillings | 21,250 Kenya Shillings
+          Adult jumbo 48-page passport | 21,700 Kenya Shillings | 25,000 Kenya Shillings
+          Child passport | 11,500 Kenya Shillings | 14,800 Kenya Shillings
+
+        cost_nairobi_kenya_replacing: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          You must pay using a guaranteed banker’s draft in Kenya Shillings, payable to the ‘British High Commission’.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 17,950 Kenya Shillings | 21,250 Kenya Shillings
+          Adult jumbo 48-page passport | 21,700 Kenya Shillings | 25,000 Kenya Shillings
+          Child passport | 11,500 Kenya Shillings | 14,800 Kenya Shillings
+
+        how_to_apply_nairobi_kenya: ''
+        supporting_documents_nairobi_kenya_applying: |
+
+
+          $D
+            [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc)
+            [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc)
+          $D
+
+        supporting_documents_nairobi_kenya_renewing: |
+          You must send the passport you’re placing and registration/naturalisation certificate (if relevant) as your supporting documents.
+
+        supporting_documents_nairobi_kenya_replacing: |
+
+
+          $D
+            [Download ‘Supporting documents for lost and stolen passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc)
+          $D
+
+        supporting_documents_iraq_applying: |
+         
+
+          $D
+          **Supporting documents**
+
+          [Download 'Supporting documents you must send with your application' (PDF, 264KB)](/government/publications/iraq-supporting-documents-for-passport-applications)
+          $D 
+        
+        supporting_documents_yemen_applying: |
+
+
+          $D
+          **Supporting documents**
+
+          [Download 'Supporting documents you must send with your application' (PDF, 260KB)](/government/publications/yemen-supporting-documents-for-passport-applications)
+          $D
+
+        supporting_documents_iraq_renewing: ''
+        supporting_documents_iraq_replacing: ''
+        supporting_documents_yemen_renewing: ''
+        supporting_documents_yemen_replacing: ''
+
+        making_application_nairobi_kenya: |
+          Send your application by post or courier to the British High Commission in Nairobi, Kenya.
+
+        getting_your_passport_nairobi_kenya: |
+          The British High Commission will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+
+        how_long_lagos_nigeria: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks
+          First adult or child passports | 6 weeks
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+          - further checks need to be made about your identity - this could take up to 6 months
+
+
+        cost_lagos_nigeria: |
+          You must pay - in cash - a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 33,280 Naira | 39,260 Naira
+          Adult jumbo 48-page passport | 40,040 Naira | 46,020 Naria
+          Child passport | 21,190 Naira | 27,170 Naira
+
+        how_to_apply_lagos_nigeria: ''
+        supporting_documents_lagos_nigeria: ''
+        making_application_lagos_nigeria: |
+          Bring your application in person to the British Deputy High Commission in **Lagos, Nigeria.**
+
+        getting_your_passport_lagos_nigeria: |
+          The British Deputy High Commission in Lagos will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+
+        how_long_burundi: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks
+          First adult or child passports | 6 weeks
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+
+        cost_burundi: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          You must pay in cash, using either:
+
+          - Burundian francs (BIF)
+          - US dollars ($US)
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | BIF256,000/$US211 | BIF322,340/$US266
+          Adult jumbo 48-page passport | BIF309,000BIF/$US255 | BIF375,340/$US2310
+          Child passport | BIF163,000/$US134 | BIF229,340/$US188
+
+        how_to_apply_burundi: |
+          4. If you’re renewing a passport, photocopy the pages showing your personal details, photographs and residence visa and send it with your application. Keep your original passport.
+
+        supporting_documents_burundi: ''
+        making_application_burundi: |
+          Bring your application in person to the British embassy liaison office in Bujumbura.
+
+        getting_your_passport_burundi: |
+          The British embassy liaison office will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+
+        how_long_cameroon: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks
+          First adult or child passports | 12 weeks
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+
+        cost_cameroon_renewing: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          ###Cost if you send your application to Pretoria, South Africa
+
+          You must pay using a Visa or Mastercard and include a [card payment authorisation form (DOC,198KB)](/government/uploads/system/uploads/attachment_data/file/136854/countries-auth-slip.doc) with your application. You can’t pay in cash.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | %{costs_south_african_rand_adult_32}
+          Adult standard 48-page passport | %{costs_south_african_rand_adult_48}
+          Child passport | %{costs_south_african_rand_child}
+
+          ###Cost if you apply in person
+
+          If you make your application in person to the British High Commission in Yaounde, you must pay in cash.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 108,800 CFA | 137,000 CFA
+          Adult jumbo 48-page passport | 131,300 CFA | 159,500 CFA
+          Child passport | 69,300 CFA | 97,500 CFA
+
+        cost_cameroon_applying: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. You must pay in cash.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 108,800 CFA | 137,000 CFA
+          Adult jumbo 48-page passport | 131,300 CFA | 159,500 CFA
+          Child passport | 69,300 CFA | 97,500 CFA
+
+        cost_cameroon_replacing: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. You must pay in cash.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 108,800 CFA | 137,000 CFA
+          Adult jumbo 48-page passport | 131,300 CFA | 159,500 CFA
+          Child passport | 69,300 CFA | 97,500 CFA
+
+        how_to_apply_cameroon: ''
+        supporting_documents_cameroon: |
+
+
+          $D
+            [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc)
+
+            [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc)
+          $D
+        making_application_cameroon_renewing: |
+          You can either:
+
+          - apply in person at the British High Commission in Yaounde
+          - send your application to the passport processing centre in Pretoria, South Africa, preferably by a one-way courier service
+
+
+          $A
+            British Passport Section
+            British Consulate
+            256 Glyn Street
+            Hatfield
+            Pretoria 0083
+            South Africa
+          $A
+
+        making_application_cameroon_applying: |
+          You must bring your application in person to the British High Commission in Yaounde.
+
+        making_application_cameroon_replacing: |
+          You must bring your application in person to the British High Commission in Yaounde.
+
+        getting_your_passport_cameroon: |
+          The British High Commission will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+
+        getting_your_passport_congo: |
+          The Honorary Consul in Brazzaville will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+
+        how_long_eritrea: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks
+          First adult or child passports | 12 weeks
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+          If you’re applying for a first passport, you will be asked to attend an interview.
+
+          If you’re renewing a passport, you may be asked to attend an interview.
+
+
+        cost_eritrea: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          You must pay in cash using Eritrean Nakfa.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 3,072 Nakfa | 3,868.08 Nakfa
+          Adult jumbo 48-page passport | 3,708 Nakfa | 4,504.08 Nakfa
+          Child passport | 1,956 Nakfa | 2,752.08 Nakfa
+
+        how_to_apply_eritrea: ''
+        supporting_documents_eritrea: |
+
+
+          $D
+            [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc)
+
+            [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc)
+          $D
+        making_application_eritrea: |
+          You must make your application in person at the British embassy in Asmara.
+
+          If you’re renewing a passport, you must bring your most recent passport with you.
+
+        getting_your_passport_eritrea: |
+          The British embassy will contact you when your passport and supporting documents arrive using the contact details on your form. You must collect them in person.
+
+        how_long_ethiopia: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a red passport | 4 weeks
+          First adult or child passports or renewing a blue or black passport | 12 weeks
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+          If you’re applying for a first passport, you will be asked to attend an interview.
+
+          If you’re renewing a passport, you may be asked to attend an interview.
+
+
+        cost_ethiopia: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 3,968 Birr | 4,996 Birr
+          Adult jumbo 48-page passport | 4,790 Birr | 5,818 Birr
+          Child passport | 2,527 Birr | 3,555 Birr
+
+          You can pay:
+
+          - using cash in Ethiopian Birr if you apply at the British embassy
+          - by Banker’s Draft in South African Rand (you must add a processing fee of 155 Rand)
+          - using Visa or Mastercard - enclose a [card authorisation form (DOC, 334KB](/government/uploads/system/uploads/attachment_data/file/136854/countries-auth-slip.doc) with your application
+
+
+          $I
+            If you’re applying for a first passport, renewing a black or blue passport or replacing a lost or stolen one, you must pay in cash using Ethiopian Birr.
+          $I
+        how_to_apply_ethiopia: ''
+        supporting_documents_ethiopia: |
+
+
+          $D
+            [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc)
+
+            [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc)
+          $D
+        making_application_ethiopia: |
+          ### First applications, renewing a black or blue passport or replacing a lost or stolen passport
+
+          You must make your application in person at the British embassy in Addis Ababa.
+
+          ### Renewing a red passport
+
+          You can either:
+
+          - send your application by one-way courier to the passport processing centre in Pretoria, South Africa
+          - apply in person at the British embassy in Addis Ababa.
+
+
+          $A
+            Postal address:
+
+            British Passport Section
+            British Consulate
+            PO Box 13611
+            Hatfield, Pretoria 0028
+            South Africa
+          $A
+
+
+          $A
+            Courier address:
+
+            British Passport Section
+            British Consulate
+            256 Glyn Street
+            Hatfield
+            Pretoria 0083
+            South Africa
+          $A
+
+        getting_your_passport_ethiopia: |
+          The British embassy will contact you when your passport and supporting documents arrive using the contact details on your form. You must collect them in person.
+
+        how_long_gambia: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks
+          First adult or child passports | 6 weeks
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+
+        cost_gambia: |
+          You must pay in cash at the British High Commission in Banjul (using 100 Dalasi notes)
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Renewal of adult standard 32-page passport | 7,100 Dalasi | 8,200 Dalasi
+          First adult passport or replacement of lost or stolen adult passport | 7,100 Dalasi | 9,000 Dalasi
+          48-page adult passport | 8,500 Dalasi | 9,600 Dalasi
+          Renewal of child passport | 4,500 Dalasi | 6,400 Dalasi
+          First child passport | 4,500 Dalasi | 5,600 Dalasi
+
+        how_to_apply_gambia: |
+          4. Return your application form in person to the British High Commission in Banjul.
+
+        supporting_documents_gambia: ''
+        making_application_gambia: ''
+        getting_your_passport_gambia: |
+          The British High Commission in Banjul will contact you when your passport arrives, using the contact details on your form. You must collect it in person from the High Commission.
+
+        how_long_ghana: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a red passport | 4 weeks
+          First adult or child passports or renewing a blue or black passport | 6 weeks
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+
+        cost_ghana: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          ### First applications, renewing a black or blue passport or replacing a lost or stolen passport
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 422 Cedi | 498 Cedi from Ghana, 531 Cedi from Liberia or Guinea
+          Adult jumbo 48-page passport | 510 Cedi | 586 Cedi from Ghana, 619 Cedi from Liberia or Guinea
+          Child passport | 269 Cedi | 345 Cedi from Ghana, 378 Cedi from Liberia or Guinea
+
+          You must pay either using:
+
+          - cash
+          - a credit card
+
+          ### Renewing a red passport
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | %{costs_south_african_rand_adult_32}
+          Adult standard 48-page passport | %{costs_south_african_rand_adult_48}
+          Child passport | %{costs_south_african_rand_child}
+          
+          You can pay:
+
+          - using Visa or Mastercard - enclose a [card authorisation form (DOC, 334KB)](/government/uploads/system/uploads/attachment_data/file/136854/countries-auth-slip.doc) with your application
+          - by Bank Draft (add a 155 South African Rand processing fee if you pay this way)
+
+        how_to_apply_ghana: |
+
+          For renewals, don’t send your existing passport with your application - you may need it for ID purposes.
+
+        supporting_documents_ghana: |
+
+
+          $D
+          [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc)
+
+          [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc)
+
+          [Download ‘Supporting documents for lost and stolen passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc)
+          $D
+        making_application_ghana: |
+          ### First applications, renewing a black or blue passport or replacing a lost or stolen passport
+
+          You must send or make your application in person to the British High Commission in Accra.
+
+          ### Renewing a red passport
+
+          You can either:
+
+          - apply to the British High Commission in Accra
+          - send your application by one-way courier or registered post to the passport processing centre in Pretoria, South Africa
+
+        getting_your_passport_ghana: |
+          The British embassy will contact you when your passport and supporting documents arrive using the contact details on your form. You must collect them in person.
+
+        how_long_iraq: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks
+          First adult or child passports | 6 weeks
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+
+        cost_iraq: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          ### Applying for a new passport or replacing a lost or stolen passport
+
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. You must pay in cash in person at the British embassy in Amman, Jordan.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | %{costs_jordanian_dinars_adult_32}
+          Adult jumbo 48-page passport | %{costs_jordanian_dinars_adult_48}
+          Child passport | %{costs_jordanian_dinars_child}
+
+
+          ### Renewing a passport
+
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          You must pay using Visa or Mastercard - enclose a [card authorisation form (DOC, 334KB](/government/uploads/system/uploads/attachment_data/file/136852/credit-card-form-march-12.pdf) with your application.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | %{costs_euros_adult_32} 
+          Adult jumbo 48-page passport | %{costs_euros_adult_48}
+          Child passport | %{costs_euros_child}
+
+        how_to_apply_iraq: ''
+        supporting_documents_iraq: ''
+
+        iraq_first_passport_documents: |
+
+
+        making_application_iraq: |
+          ### Renewals or replacements of lost or stolen passports
+
+          Send your application - preferably by one-way courier or secure post - to
+
+
+          $A
+            Regional Passport Processing Centre Paris
+            16 rue d’Anjou
+            75008 Paris
+            France
+          $A
+
+          ### First passport applications
+
+          You must make your application in person to the British embassy Amman, Jordan.
+
+        how_long_lebanon: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks
+          First adult or child passports | 6 weeks
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+
+        cost_lebanon: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          You must pay using a Visa or Mastercard - download a [card payment authorisation form](/government/uploads/system/uploads/attachment_data/file/136915/cc-author-form-beirut.doc) and include it with your application.
+
+          Passport type	Passport fee | Total to pay | (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | US $211.20 | US $249.16
+          Adult jumbo 48-page passport | US $254.92 | US $292.88
+          Child passport | US $134.48 | US $189.48
+
+          You’ll need to pay an extra $16.76 if you want your supporting documents returned. 
+
+        how_to_apply_lebanon: ''
+        supporting_documents_lebanon: ''
+        making_application_lebanon: |
+          Bring your application in person to the British embassy in Beirut - you must [book an appointment.](http://www.britishembassybeirut.clickbook.net/)
+        getting_your_passport_lebanon: |
+          The British embassy will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+
+        how_long_north_korea: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 6 weeks
+          First adult or child passports | 8 weeks
+          Replace a lost or stolen passport | 8 weeks
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+
+        cost_north_korea: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          You must pay in cash using Euros.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | %{costs_euros_adult_32} 
+          Adult jumbo 48-page passport | %{costs_euros_adult_48}
+          Child passport | %{costs_euros_child}
+
+        how_to_apply_north_korea: |
+          4. Photocopy the pages of your existing passport that show your personal details and picture and send these with your application. You must keep your existing passport for ID purposes.
+
+        supporting_documents_north_korea: ''
+        making_application_north_korea: Bring your application in person to the British embassy in Pyongyang.
+        getting_your_passport_north_korea: |
+          The British embassy will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+
+        how_long_pakistan: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks
+          First adult or child passports | 6 months
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+          If you’re applying for a first passport, you’ll usually be asked to attend an interview at the British High Commission in Islamabad. They will contact you to arrange the interview.
+
+          If you’re renewing or replacing a lost or stolen passport, you may be asked to attend an interview after your documents have been checked. The High Commission will contact you when they decide if they want to interview you.
+
+          For child passport applications, both parents or guardians must come with their child to the passport interview. If only one parent or guardian is in Pakistan, the parent, child and a close relative must come to the interview (eg aunt, uncle or grandparent - but not the child’s brother or sister).
+
+
+        cost_pakistan: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          You must pay using a Bank Draft payable to the ‘British High Commission Islamabad’ and endorsed ‘payable at any branch’.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | %{costs_pakistani_rupees_adult_32} 
+          Adult jumbo 48-page passport | %{costs_pakistani_rupees_adult_48}
+          Child passport | %{costs_pakistani_rupees_child}
+
+        how_to_apply_pakistan: ''
+        supporting_documents_pakistan: |
+
+          $D
+            [Download ‘Adult passport renewal supporting documents guidance notes’ (PDF, 32KB)](/government/uploads/system/uploads/attachment_data/file/136919/pakistan-adult-renewal.pdf.pdf)
+
+            [Download ‘Child passport renewal supporting documents guidance notes’ (PDF, 37KB)](/government/uploads/system/uploads/attachment_data/file/136920/pakistan-child-renewal.pdf.pdf)
+
+            [Download ‘Adult first passport supporting documents guidance notes’ (PDF, 37KB)](/government/uploads/system/uploads/attachment_data/file/136921/pakistan-adult-first-time-apply.pdf.pdf)
+
+            [Download ‘Child first passport supporting documents guidance notes’ (PDF, 40KB)](/government/uploads/system/uploads/attachment_data/file/136922/pakistan-child-first-time-apply.pdf.pdf)
+          $D
+
+        making_application_pakistan: |
+          You can send your application British High Commission in Islamabad, preferably by secure post or courier. You must pay using a Banker’s Draft if you send your application this way.
+
+        getting_your_passport_pakistan: |
+          The British High Commission will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+
+        how_long_philippines: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks
+          First adult or child passports | 6 weeks
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+
+        cost_philippines: ''
+        how_to_apply_philippines: |
+          4. If you’re applying for a first British passport, check the [supporting documents](/government/uploads/system/uploads/attachment_data/file/136923/philippines-first-time-application.pdf.pdf "Supporting documents for first-time passport applications") you must send with your application. Supporting documents must be in English or translated into English by a professional translator.
+
+        supporting_documents_philippines: ''
+        making_application_philippines: |
+          ### Renewing a passport
+
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          You can pay:
+
+          - using a Visa or Mastercard - download a [card payment authorisation form](/government/uploads/system/uploads/attachment_data/file/136855/credit-card-authorisation.pdf.pdf) and include it with your application
+          - International Banker’s Draft (in Hong Kong dollars), payable to ‘British Consulate-General Hong Kong’
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | %{costs_phillipine_peso_adult_32}
+          Adult jumbo 48-page passport | %{costs_phillipine_peso_adult_48}
+          Child passport | %{costs_phillipine_peso_child}
+
+          Send your application to the passport processing centre in Hong Kong, preferably by a one-way courier service.
+
+
+          $A
+            British Consulate-General
+            RPPC - 5th Floor
+            1 Supreme Court Road
+            Hong Kong
+          $A
+
+          ### First-time passport applications
+
+          If you’re applying for a first adult or child passport, you must bring your application in person to the British embassy.
+
+
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          You can pay:
+
+          - in cash
+          - by cheque, payable to ‘British embassy Manila’
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 8,320 Philippine peso | 9,815 Philippine peso
+          Adult jumbo 48-page passport | 10,043 Philippine peso | 11,538 Philippine peso
+          Child passport | 5,298 Philippine peso | 6,793 Philippine peso
+
+        getting_your_passport_philippines: |
+          The British embassy will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+
+        how_long_sierra-leone: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks
+          First adult or child passports | 6 weeks
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+          If you’re applying for a first passport, you’ll usually be asked to attend an interview at the High Commission.
+
+          If you’re renewing or replacing a lost or stolen passport, you may be asked to attend an interview.
+
+
+        cost_sierra-leone: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          You must pay in Sierra Leone Leones, in cash, using SL 5,000 or 10,000 notes
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport	| 875,000 SLL | 1,110,000 SLL
+          Adult jumbo 48-page passport | 1,055,000 SLL | 1,280,000 SLL
+          Child passport | 555,000 SLL | 780,000 SLL
+
+        how_to_apply_sierra-leone: ''
+        supporting_documents_sierra-leone: ''
+        making_application_sierra-leone: You must make your application in person at British High Commission.
+        getting_your_passport_sierra-leone: |
+          The British High Commission will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+
+        how_long_somalia: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks
+          First adult or child passports | 12 weeks
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+          If you’re applying for a first passport, you will be asked to attend an interview.
+
+          If you’re renewing a passport, you may be asked to attend an interview.
+
+
+        cost_somalia: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          ### Applying by post to Kenya
+
+          You must pay using a guaranteed banker’s draft in Kenya Shillings, payable to the ‘British High Commission’.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 17,950 Kenya Shillings | 22,650 Kenya Shillings
+          Adult jumbo 48-page passport | 21,700 Kenya Shillings | 26,400 Kenya Shillings
+          Child passport | 11,500 Kenya Shillings | 16,200 Kenya Shillings
+
+          ### Applying in person in Ethiopia
+
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          Adult standard 32-page passport | 3,968 Birr | 4,996 Birr
+          Adult jumbo 48-page passport | 4,790 Birr | 5,818 Birr
+          Child passport | 2,527 Birr | 3,555 Birr
+
+          ### Payment
+
+          - using cash in Ethiopian Birr if you apply at the British embassy
+          - by Banker’s Draft in South African Rand (you must add a processing fee of 155 Rand)
+
+        how_to_apply_somalia: |
+
+          For renewals, you must send the passport you’re replacing and a registration/naturalisation certificate (if relevant).
+
+        supporting_documents_somalia: |
+
+
+          $D
+          [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc)
+
+          [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc)
+
+          [Download ‘Supporting documents for lost and stolen passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc)
+          $D
+        making_application_somalia: |
+          You can:
+
+          - send your application by post or courier to the British High Commission in Nairobi, Kenya
+          - apply in person at the British embassy in Addis Ababa, Ethiopia
+
+        getting_your_passport_somalia: |
+          Your passport and supporting documents will be returned separately to the embassy or High Commission you applied to. They will contact you when they arrive - you must collect them in person.
+
+        how_long_south-sudan: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks
+          First adult or child passports | 6 weeks
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+
+        cost_south-sudan: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | %{costs_south_african_rand_adult_32}
+          Adult standard 48-page passport | %{costs_south_african_rand_adult_48}
+          Child passport | %{costs_south_african_rand_child}
+
+          You must pay using Visa or Mastercard - enclose a [card authorisation form (DOC, 334KB](/government/uploads/system/uploads/attachment_data/file/136854/countries-auth-slip.doc) with your application.
+
+        how_to_apply_south-sudan: |
+
+          For renewals, don’t send your existing passport with your application - you may need it for ID purposes.
+
+        supporting_documents_south-sudan: |
+
+
+          $D
+          [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc)
+
+          [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc)
+
+          [Download ‘Supporting documents for lost and stolen passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc)
+          $D
+        making_application_south-sudan: |
+          You must download a [covering letter](/government/uploads/system/uploads/attachment_data/file/136888/covering-letter.doc) and include it with your application.
+
+          Bring your application to your courier office and send your application to the passport processing centre in Pretoria, South Africa.
+
+
+          $A
+            British High Commission
+            Consular Section, Block B
+            1st Floor, Liberty Place Building
+            256 Glyn Street
+            Hatfield
+            Pretoria, 0083
+            South Africa
+          $A
+
+          Keep your waybill and reference number as proof as dispatch.
+
+        getting_your_passport_south-sudan: |
+          You must pick up your passport and supporting documents from the DHL office in Juba.
+
+
+          $A
+            DHL Worldwide Express
+            Khair Alseed bldg.
+            Hai Malakal
+            P. O. Box 8041
+            East Alzahra square
+            JUBA
+          $A
+
+        how_long_sudan: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks
+          First adult or child passports | 6 weeks
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+
+        cost_sudan: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          Passport type |	Passport fee | Total cost for renewals (including courier fee) | Total cost for first passport applications (including courier fee)
+          -|-|-|-
+          Adult standard 32-page passport | 1,150 Sudanese pounds | 1,355 Sudanese pounds | 1,450 Sudanese pounds
+          Adult jumbo 48-page passport | 1,390 Sudanese pounds | 1,595 Sudanese pounds | 1,690 Sudanese pounds
+          Child passport | 735 Sudanese pounds | 940 Sudanese pounds | 1,035 Sudanese pounds
+
+          You must pay in cash.
+
+        how_to_apply_sudan: |
+
+          For renewals, don’t send your existing passport with your application - you may need it for ID purposes.
+
+        supporting_documents_sudan: |
+
+
+          $D
+          [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc)
+
+          [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc)
+
+          [Download ‘Supporting documents for lost and stolen passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc)
+          $D
+        making_application_sudan: |
+          Bring your application in person to the British Embassy in Khartoum.
+
+        getting_your_passport_sudan: |
+          Your passport and supporting documents will be delivered to the British Embassy. They will call you, using the details on your application form when they arrive. You must pick them up in person.
+
+        how_long_thailand: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks
+          First adult or child passports | 6 weeks
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+
+        cost_thailand: |
+          ###Applying for a first passport
+
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          You can pay using Visa, Mastercard or cash.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | £128/ 6,144 THB | £151.01/ 7,295 THB
+          Adult jumbo 48-page passport | £154.50/ 7,416 THB | £177.51/ 8,567 THB
+          Child passport | £81.50/ 3,912 THB | £104.51/ 5,063 THB
+
+          ###Renewing a passport
+
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          You can pay using:
+
+          - Visa or Mastercard - enclose a [card authorisation form (PDF, 334KB](/government/uploads/system/uploads/attachment_data/file/136855/credit-card-authorisation.pdf.pdf) with your application.
+
+          - bankers’ draft in Hong Kong dollars, payable to ‘British Consulate-General Hong Kong’
+
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | £128.00/HK $1,574 | £147.86/HK $1,818
+          Adult jumbo 48-page passport | £154.50/HK $1,900 | £174.36/HK $2,144
+          Child passport | £81.50/HK $1,002 | £101.36/HK $1,246
+
+
+        how_to_apply_thailand: ''
+        supporting_documents_thailand: ''
+        making_application_thailand: |
+          ###Renewals
+
+          Send your application - preferably by one-way courier or secure post - to
+
+
+          $A
+            British Consulate-General
+            RPPC - 5th Floor
+            1 Supreme Court Road
+            Hong Kong
+          $A
+
+          ###First passport applications
+
+          You must make your application in person to the British embassy in Bangkok.
+
+        getting_your_passport_thailand: |
+          Your passport and supporting documents will be returned to you by courier.
+
+        how_long_tunisia: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks
+          First adult or child passports | 6 weeks
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+
+        cost_tunisia: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 339 Tunisian Dinars | 431 Tunisian Dinars
+          Adult jumbo 48-page passport | 409 Tunisian Dinars | 501 Tunisian Dinars
+          Child passport | 216 Tunisian Dinars | 308 Tunisian Dinars
+
+        how_to_apply_tunisia: ''
+        supporting_documents_tunisia: ''
+        making_application_tunisia: Bring your application in person to the British embassy in Tunis
+        getting_your_passport_tunisia: |
+          The British embassy will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+
+        how_long_venezuela: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks
+          First adult or child passports | 6 weeks
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+
+        cost_venezuela: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          You can pay using:
+
+          - a Visa or Mastercard
+          - in cash, using Venezuelan Bolivares
+
+          | Passport type | Passport fee |  Total to pay (including courier fee) |
+          |---------------|--------------|---------------------------------------|
+          | Adult standard 32-page passport | 1,329 Venezuelan Bolivares | 1,674 Venezuelan Bolivares |
+          | Adult jumbo 48-page passport | 1,607 Venezuelan Bolivares | 1,952 Venezuelan Bolivares |
+          | Child passport | 832 Venezuelan Bolivares | 1,177 Venezuelan Bolivares |
+
+        how_to_apply_venezuela: ''
+        supporting_documents_venezuela: ''
+        making_application_venezuela: Bring your application in person to the British embassy in Caracas.
+        getting_your_passport_venezuela: |
+          Your passport and supporting documents will be delivered to you separately by courier.
+
+        how_long_yemen: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks
+          First adult or child passports | 6 weeks
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+          - if you send your application by courier
+
+
+        cost_yemen: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          ### Applying for a first passport or replacing a lost or stolen passport
+
+          You must make your application in person to the British embassy Amman, Jordan and you must pay in cash. 
+
+          The courier fee covers the cost of the embassy sending your application to Paris where your application will be processed.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | %{costs_jordanian_dinars_adult_32}
+          Adult jumbo 48-page passport | %{costs_jordanian_dinars_adult_48}
+          Child passport | %{costs_jordanian_dinars_child}
+
+          ### Renewing a passport
+
+          You must pay using Visa or Mastercard - enclose a [card authorisation form (DOC, 334KB](/government/uploads/system/uploads/attachment_data/file/136852/credit-card-form-march-12.pdf) with your application.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | %{costs_euros_adult_32} 
+          Adult jumbo 48-page passport | %{costs_euros_adult_48}
+          Child passport | %{costs_euros_child}
+
+        how_to_apply_yemen: ''
+        yemen_first_passport_documents: |
+        supporting_documents_yemen: ''
+        supporting_documents_yemen_applying: |
+
+
+
+          $D
+          Supporting documents
+
+          [Download ‘Supporting documents you must send with your application’ (PDF, 260KB)](/government/publications/yemen-supporting-documents-for-passport-applications)
+          $D
+        making_application_yemen: |
+          ### Applying for a first passport or replacing a lost or stolen passport
+
+          You must make your application in person to the British embassy Amman, Jordan.
+
+          You’ll need to [book an appointment.](https://www.britishembassyamman.clickbook.net)
+        making_application_additional_yemen: |
+          The British Embassy in Sana’a can help you with your application.
+
+
+          $C
+          **British Embassy in Sana’a**
+
+          +967 1 308100 or 302480-5  
+          Saturday to Wednesday, 8am to 3pm (local time)  
+
+          +44 207 008 1500 at any other time
+          $C
+
+          ### Renewing a passport
+
+          Send your application - preferably by one-way courier or secure post - to:
+
+
+          $A
+            Regional Passport Processing Centre Paris
+            16 rue d’Anjou
+            75008 Paris
+            France
+          $A
+
+        how_long_zambia: |
+          Action | Minimum time after you apply
+          - | -
+          Renew a passport | 4 weeks
+          First adult or child passports | 6 weeks
+          Replace a lost or stolen passport | 6 weeks
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+
+        cost_zambia: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | 1,100 Kwacha | 1,390 Kwacha
+          Adult jumbo 48-page passport | 1,320 Kwacha | 1,610 Kwacha
+          Child passport | 700 Kwacha | 990 Kwacha
+
+          You must pay in cash when you apply in person at the British high commission in Lusaka.
+
+        how_to_apply_zambia: ''
+        supporting_documents_zambia: ''
+        supporting_documents_zambia_applying: |
+          
+          
+          $D
+          **Supporting documents**
+
+          [Download ‘Supporting documents you must send with your application’ (PDF, 114KB)](/government/uploads/system/uploads/attachment_data/file/186951/Zambia_passport_documents.pdf)
+          $D
+
+        making_application_zambia: Bring your application in person to the British High Commission in Lusaka. You can use old Kwacha notes to pay until 30 June 2013.
+        getting_your_passport_zambia: |
+          The British High Commission will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+
+        how_long_zimbabwe: |
+          Action | Time after you apply
+          - | -
+          Renew a passport | 4 weeks
+          First adult or child passports | Up to 6 months
+          Replace a lost or stolen passport | Up to 6 months
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+
+        cost_zimbabwe: |
+          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
+
+          Passport type | Passport fee | Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | US $211 | US $249
+          Adult jumbo 48-page passport | US $255 | US $293
+          Child passport | US $134 | US $172
+
+          You must pay in US dollars, in cash, when you apply in person at the British embassy in Harare.
+
+        how_to_apply_zimbabwe: ''
+        supporting_documents_zimbabwe: ''
+        making_application_zimbabwe: Bring your application in person to the British embassy in Harare.
+        getting_your_passport_zimbabwe: |
+          The British embassy will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+
+        body_algeria: |
+          ## How long it takes
+          It usually takes between **6 and 12 weeks** to get your passport.
+
+          Applications may take longer if:
+
+          - you need to provide more information or documents
+          - your photographs are rejected
+
+          Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [Emergency Travel Document](/emergency-travel-document).
+
+          If your passport has been lost or stolen and you haven’t reported it yet, include ‘Form LS01’ with your application.
+
+
+          $D
+          [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf)
+          $D
+
+          ## Cost
+
+          You must pay in cash using Algerian Dinars at the British embassy in Algiers.
+
+          Passport type | Passport fee
+          -|-
+          Adult standard 32-page passport | DZD16,700
+          Adult jumbo 48-page passport | DZD20,100
+          Child passport | DZD10,600
+
+          ## How to apply
+
+          1. You must usually pick up an application form in person from the British embassy in Algiers. Contact the embassy for advice if this isn’t possible.
+
+          2. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports) or your application may be delayed.
+
+          3. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
+
+          4. Take your application in person to the British embassy in Algiers.
+
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
+
+          ## Getting your passport
+
+          The British embassy in Algiers will contact you when your passport arrives using the contact details on your form. You must collect it in person from the embassy.
+
+        body_iran: |
+          You can’t apply for a British passport from Iran at this time.
+
+          You should apply in a neighbouring country of your choice.
+
+          If you need an emergency travel document to leave Iran, contact the Foreign and Commonwealth Office for further information.
+
+
+          $C
+            Foreign and Commonwealth Office
+
+            Email: consularenquiries.tehran@fco.gov.uk
+
+            Telephone: (+44) 207 008 1500
+          $C
+
+        body_syria: |
+          You can’t apply for a British passport from Syria at this time.
+
+          You should apply in a neighbouring country of your choice.
+
+          If you need an emergency travel document to leave Syria, contact the Foreign and Commonwealth Office for further information.
+
+
+          $C
+            Foreign and Commonwealth Office
+
+            Email: consularenquiries.damascus@fco.gov.uk
+
+            Telephone: (+44) 207 008 1500
+          $C
+
+      fco_result:
+        body: |
+          ## How long it takes
+          %{how_long_it_takes}
+
+          Your application may take longer if:
+
+          - you don’t send the right supporting documents or payment
+          - the photographs you send are rejected
+
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document)
+
+          ## Cost
+          %{cost}
+
+          ## How to apply
+
+          1. Download the application form and guidance notes that help you fill it in.
+
+          2. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports "Passport photo requirements") or your application may be delayed.
+
+          3. Check the guidance notes to find out which supporting documents you must send with your application. You must get documents that aren’t in English fully translated by a professional translator.
+
+          %{how_to_apply_supplement}
+
+          %{hurricane_warning}
+
+          $D
+            %{fco_forms}
+          $D
+
+          %{supporting_documents}
+
+          ## Submit your application
+
+          %{send_your_application}
+
+          ## Getting your passport
+
+          %{getting_your_passport}
+
+
+          ## If your passport hasn't arrived
+
+          If you haven’t received your passport within the expected timescale, you can check your application’s progress by phone. You will be charged for the call.
+
+          Don’t use this service any earlier - information won’t be available but you will still be charged for the call.
+
+          %{helpline}
+
+      ips_application_result:
+        body: |
+          ## How long it takes
+
+          %{how_long_it_takes}
+
+          ## Cost
+
+          %{cost}
+
+          ## How to apply
+
+          %{how_to_apply}
+
+          %{send_your_application}
+
+          ## Getting your passport
+
+          %{getting_your_passport}
+
+          %{tracking_and_receiving}
+
+      aus_nz_result:
+        body: |
+          ## How long it takes
+
+          %{how_long_it_takes}
+
+          ## Cost
+
+          %{cost}
+
+          ## How to apply
+          %{how_to_apply}
+
+
+          $D
+            %{how_to_apply_documents}
+          $D
+
+          %{instructions}
+
+          ^You must provide a protective envelope, cardboard or other packaging that will protect your documents when they're posted back to you.^
+
+
+          ## Getting your passport
+          %{receiving_your_passport}
+
+          %{helpline}
+
+      result:
+        body: |
+          ## How long it takes
+
+          %{how_long_it_takes}
+
+          Don't book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [Emergency Travel Document](/emergency-travel-document).
+
+          If your passport has been lost or stolen and you haven't reported it yet, include 'Form LS01' with your application.
+
+
+
+          $D
+            [Download 'Form LS01 - Lost or stolen passport notification' (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf)
+          $D
+
+          ## Cost
+
+          %{cost}
+
+          ## How to apply
+
+          1. Download the application form and guidance notes that help you fill it in.
+
+          2. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports) or your application may be delayed.
+
+          3. Check the supporting documents you must send with your application. Non-English supporting documents must be translated into English by a professional translator.
+          %{how_to_apply}
+
+
+          $D
+            %{fco_forms}
+          $D
+
+          %{supporting_documents}
+
+          ## Making your application
+
+          %{making_application}
+
+
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
+
+          %{making_application_additional}
+
+          ## Getting your passport
+
+          %{getting_your_passport}
+
+          ## If your passport hasn’t arrived
+
+          %{helpline}
+
+      cannot_apply:
+        body: |
+          %{body_text}

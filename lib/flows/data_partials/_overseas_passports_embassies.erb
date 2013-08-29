@@ -12,7 +12,7 @@ $A
 $C
 <%- embassy.contact_numbers.each do |contact| -%>
 <%# Some labels have a trailing :, some don't %>
-<%= contact.label.sub(/:\s*\z/, '') %>: <%= contact.number %>
+<%= contact.label.sub(/:\s*\z/, '') %>: <%= contact.number %>  
 <%- end -%>
 
 <%- if embassy.details.email.present? -%>
