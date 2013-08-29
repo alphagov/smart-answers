@@ -2102,9 +2102,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | £128 | £147.86
-          Adult jumbo 48-page passport | £154.50 | £174.36
-          Child passport | £81.50 | £101.36
+          Adult standard 32-page passport | %{costs_phillipine_peso_adult_32}
+          Adult jumbo 48-page passport | %{costs_phillipine_peso_adult_48}
+          Child passport | %{costs_phillipine_peso_child}
 
           Send your application to the passport processing centre in Hong Kong, preferably by a one-way courier service.
 
