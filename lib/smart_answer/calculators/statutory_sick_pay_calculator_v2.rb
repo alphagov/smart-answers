@@ -70,7 +70,6 @@ module SmartAnswer::Calculators
       ]
     end
 
-
     def weekly_rate_on(date)
       rate = ssp_rates.find { |c| c[:min] <= date and c[:max] >= date }
       rate ? rate[:ssp_weekly_rate] : SSP_WEEKLY_RATE
