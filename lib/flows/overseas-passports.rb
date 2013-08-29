@@ -53,17 +53,13 @@ multiple_choice :renewing_replacing_applying? do
   end
 
   calculate :overseas_passports_embassies do
-    if organisation && organisation.all_offices.any?
-      embassies = organisation.all_offices.select do |o| 
-        o.services.any? { |s| s.title.include?('Overseas Passports Service') }
-      end
-      embassies << organisation.main_office if embassies.empty?
-      embassies
+    if organisation
+      organisation.offices_with_service 'Overseas Passports Service'
     else
       []
     end
   end
-  
+
   calculate :general_action do
     responses.last =~ /^renewing_/ ? 'renewing' : responses.last
   end
@@ -81,7 +77,7 @@ multiple_choice :renewing_replacing_applying? do
     application_type =~ Calculators::PassportAndEmbassyDataQuery::FCO_APPLICATIONS_REGEXP
   end
   calculate :ips_number do
-    application_type.split("_")[2] if is_ips_application 
+    application_type.split("_")[2] if is_ips_application
   end
 
   calculate :application_form do
@@ -93,7 +89,7 @@ multiple_choice :renewing_replacing_applying? do
   end
 
   data_query.passport_costs.each do |k,v|
-    calculate "costs_#{k}".to_sym do 
+    calculate "costs_#{k}".to_sym do
       v
     end
   end
@@ -121,7 +117,7 @@ multiple_choice :child_or_adult_passport? do
     when 'australia_post', 'new_zealand'
       :"which_best_describes_you_#{response}?"
     when Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP
-      %Q(applying renewing_old).include?(application_action) ? :country_of_birth? : :ips_application_result 
+      %Q(applying renewing_old).include?(application_action) ? :country_of_birth? : :ips_application_result
     when Calculators::PassportAndEmbassyDataQuery::FCO_APPLICATIONS_REGEXP
       :fco_result
     else
@@ -146,8 +142,8 @@ country_select :country_of_birth?, :include_uk => true, :exclude_countries => ex
     case application_type
     when 'australia_post', 'new_zealand'
       :aus_nz_result
-    when Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP 
-      :ips_application_result 
+    when Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP
+      :ips_application_result
     when Calculators::PassportAndEmbassyDataQuery::FCO_APPLICATIONS_REGEXP
       :fco_result
     else
@@ -209,7 +205,7 @@ outcome :aus_nz_result do
   precalculate :how_to_apply_documents do
     phrases = PhraseList.new(:"how_to_apply_#{child_or_adult}_#{application_type}")
 
-    if application_action == 'replacing' 
+    if application_action == 'replacing'
       phrases << :"aus_nz_replacing"
     end
     if application_action =~ /^renewing_/
@@ -231,7 +227,7 @@ outcome :aus_nz_result do
 end
 
 
-## IPS Application Result 
+## IPS Application Result
 outcome :ips_application_result do
 
   precalculate :how_long_it_takes do
@@ -320,7 +316,7 @@ outcome :fco_result do
     # All european FCO applications cost the same
     cost_type = 'fco_europe' if application_type =~ /^(dublin_ireland|madrid_spain|paris_france)$/
     cost_type = "applying_#{current_location}" if current_location == 'india' and general_action != 'renewing'
-   
+
     payment_methods = :"passport_costs_#{application_type}"
 
     # Indonesian first time applications have courier and cost variations.
@@ -330,7 +326,7 @@ outcome :fco_result do
     end
 
     phrases = PhraseList.new(:"passport_courier_costs_#{cost_type}",
-                             :"#{child_or_adult}_passport_costs_#{cost_type}", 
+                             :"#{child_or_adult}_passport_costs_#{cost_type}",
                              payment_methods)
 
     phrases << :passport_costs_nepal if current_location == 'nepal'
@@ -412,7 +408,7 @@ outcome :result do
   precalculate :how_to_apply do
     phrases = PhraseList.new(:"how_to_apply_#{application_type}")
     if general_action == 'renewing' and data_query.retain_passport?(current_location)
-      phrases << :how_to_apply_retain_passport 
+      phrases << :how_to_apply_retain_passport
     end
     phrases
   end
@@ -463,12 +459,8 @@ outcome :cannot_apply do
   end
 
   precalculate :overseas_passports_embassies do
-    if organisation && organisation.all_offices.any?
-      embassies = organisation.all_offices.select do |o| 
-        o.services.any? { |s| s.title.include?('Overseas Passports Service') }
-      end
-      embassies << organisation.main_office if embassies.empty?
-      embassies
+    if organisation
+      organisation.offices_with_service 'Overseas Passports Service'
     else
       []
     end

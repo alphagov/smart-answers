@@ -3,9 +3,9 @@ status :published
 
 data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
-exclusions = %w(afghanistan cambodia central-african-republic chad comoros 
-                dominican-republic east-timor eritrea haiti kosovo laos lesotho 
-                liberia madagascar montenegro paraguay samoa slovenia somalia 
+exclusions = %w(afghanistan cambodia central-african-republic chad comoros
+                dominican-republic east-timor eritrea haiti kosovo laos lesotho
+                liberia madagascar montenegro paraguay samoa slovenia somalia
                 swaziland taiwan tajikistan western-sahara)
 no_embassies = %w(iran syria yemen)
 exclude_countries = %w(holy-see british-antarctic-territory)
@@ -31,7 +31,7 @@ end
 multiple_choice :was_death_expected? do
   option :yes
   option :no
-  
+
   calculate :death_expected do
     responses.last == 'yes'
   end
@@ -48,7 +48,7 @@ country_select :which_country?, :exclude_countries => exclude_countries do
   save_input_as :country
 
   calculate :current_location do
-    reg_data_query.registration_country_slug(responses.last) || responses.last 
+    reg_data_query.registration_country_slug(responses.last) || responses.last
   end
   calculate :current_location_name do
     WorldLocation.all.find { |c| c.slug == current_location }.name
@@ -84,7 +84,7 @@ end
 # Q6
 country_select :which_country_are_you_in_now?, :exclude_countries => exclude_countries do
   calculate :current_location do
-    reg_data_query.registration_country_slug(responses.last) || responses.last 
+    reg_data_query.registration_country_slug(responses.last) || responses.last
   end
   calculate :current_location_name do
     WorldLocation.all.find { |c| c.slug == current_location }.name
@@ -252,12 +252,8 @@ outcome :embassy_result do
     location.fco_organisation
   end
   precalculate :overseas_passports_embassies do
-    if organisation && organisation.all_offices.any?
-      embassies = organisation.all_offices.select do |o| 
-        o.services.any? { |s| s.title.include?('Births and Deaths registration service') }
-      end
-      embassies << organisation.main_office if embassies.empty?
-      embassies
+    if organisation
+      organisation.offices_with_service 'Births and Deaths registration service'
     else
       []
     end
