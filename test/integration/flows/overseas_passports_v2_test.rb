@@ -992,4 +992,19 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
     end
   end # Djibouti
 
+  context "answer Spain, renewing_new, child passport" do
+    should "give the spain apply online trial phrase" do
+      worldwide_api_has_organisations_for_location('spain', read_fixture_file('worldwide/spain_organisations.json'))
+      add_response 'spain'
+      add_response 'renewing_new'
+      add_response 'child'
+      assert_current_node :ips_application_result
+      assert_phrase_list :apply_online_spain_trial, [:spain_pay_online_trial]
+      expected_location = WorldLocation.find('spain')
+      assert_state_variable :location, expected_location
+      assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /Law Society House/, outcome_body
+    end
+  end # Spain
+
 end
