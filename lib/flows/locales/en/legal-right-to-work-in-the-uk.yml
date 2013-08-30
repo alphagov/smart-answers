@@ -14,9 +14,11 @@ en-GB:
         "no": "No"
         "yes": "Yes"
 
+      # Q1
       have_uk_passport?:
         title: Does the worker have a UK passport?
 
+      # Q2
       is_british_citizen?:
         title: Is the worker a British citizen?
         body: |
@@ -28,12 +30,14 @@ en-GB:
           * British Overseas Territories citizens
           * British Overseas citizens (eg from Malaysia, Kenya)
 
+      # Q3
       has_right_of_abode?:
         title: Is the worker's passport up to date and does it contain a Certificate of Entitlement to the Right of Abode in the UK?
         options:
           "yes": It is up to date with certificate
           "no": It is not up to date or without certificate
 
+      # Q4
       where_from?:
         title: "Is the worker:"
         options:
@@ -42,12 +46,15 @@ en-GB:
           from_eu_eea_switzerland: from EU, EEA or Switzerland?
           from_somewhere_else: from somewhere else?
 
+      # Q5
       has_eu_passport_or_id?:
         title: Does the worker have an EU, EEA or Swiss passport or ID card?
 
+      # Q6
       has_named_person?:
         title: Is the worker a parent or child of someone whose passport says the worker is entitled to work in the UK?
 
+      # Q7
       has_other_permit?:
         title: Does the worker have a permit or visa showing their ongoing right to work in the UK?
         body:
@@ -62,6 +69,7 @@ en-GB:
 
           - they have a Certificate of Entitlement to Right of Abode (in a current, valid passport)"
 
+      # Q8
       has_nic_and_other_doc?:
         title: Does the worker have documents entitling them to work in the UK?
         body:
@@ -72,6 +80,7 @@ en-GB:
 
           - either an 'immigration status document' or a letter from the Home Office saying that they have a right to permanent residence"
 
+      # Q9
       has_visa_or_other_doc?:
         title: Does the worker have a visa, biometric permit or residence document?
         body: |
@@ -83,11 +92,13 @@ en-GB:
 
           *[EEA]: European Economic Area
 
+      # OK1
       is_eligible1:
         title: The person is entitled to work in the UK.
         body: |
           Employers should take a copy of the [relevant parts of their passport or documents](/check-an-employees-right-to-work-documents "Check an employee's right to work documents").
 
+      # OK2
       is_eligible2:
         title: The worker needs to show proof of their permission to work in the UK.
         body: |
@@ -98,6 +109,7 @@ en-GB:
 
           Employers should [take a copy](/check-an-employees-right-to-work-documents "Check an employee's right to work documents") of the relevant documents.
 
+      # OK3
       is_eligible3:
         title: The person is entitled to work in the UK.
         body: |
