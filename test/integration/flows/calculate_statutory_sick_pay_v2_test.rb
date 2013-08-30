@@ -280,39 +280,112 @@ class CalculateStatutorySickPayV2Test < ActiveSupport::TestCase
       end
     end
 
-    should "produce the tabular output for an SSP calculation" do
-      add_response :ordinary_statutory_paternity_pay
-      add_response :yes
-      add_response :no
-      add_response Date.parse("2013-01-07")
-      add_response Date.parse("2013-05-03")
-      add_response Date.parse("2012-12-31")
-      add_response Date.parse("2012-10-31")
-      add_response :monthly
-      add_response :yes
-      add_response 1600.0
-      add_response :yes
-      add_response 8
-      add_response "3,6"
+    context "tabular output for final SSP calculation" do
+      should "have the adjusted rates in place for the week crossing through 6th April" do
+        add_response :ordinary_statutory_paternity_pay
+        add_response :yes
+        add_response :no
+        add_response Date.parse("2013-01-07")
+        add_response Date.parse("2013-05-03")
+        add_response Date.parse("2012-12-31")
+        add_response Date.parse("2012-10-31")
+        add_response :monthly
+        add_response :yes
+        add_response 1600.0
+        add_response :yes
+        add_response 8
+        add_response "3,6"
 
-      assert_current_node :entitled_to_sick_pay
-      assert_state_variable :formatted_sick_pay_weekly_amounts,
-                            ["12 January 2013|£85.85",
-                             "19 January 2013|£85.85",
-                             "26 January 2013|£85.85",
-                             " 2 February 2013|£85.85",
-                             " 9 February 2013|£85.85",
-                             "16 February 2013|£85.85",
-                             "23 February 2013|£85.85",
-                             " 2 March 2013|£85.85",
-                             " 9 March 2013|£85.85",
-                             "16 March 2013|£85.85",
-                             "23 March 2013|£85.85",
-                             "30 March 2013|£85.85",
-                             " 6 April 2013|£86.70",
-                             "13 April 2013|£86.70",
-                             "20 April 2013|£86.70",
-                             "27 April 2013|£86.70"].join("\n")
+        assert_current_node :entitled_to_sick_pay
+        assert_state_variable :formatted_sick_pay_weekly_amounts,
+                              ["12 January 2013|£85.85",
+                               "19 January 2013|£85.85",
+                               "26 January 2013|£85.85",
+                               " 2 February 2013|£85.85",
+                               " 9 February 2013|£85.85",
+                               "16 February 2013|£85.85",
+                               "23 February 2013|£85.85",
+                               " 2 March 2013|£85.85",
+                               " 9 March 2013|£85.85",
+                               "16 March 2013|£85.85",
+                               "23 March 2013|£85.85",
+                               "30 March 2013|£85.85",
+                               " 6 April 2013|£86.70",
+                               "13 April 2013|£86.70",
+                               "20 April 2013|£86.70",
+                               "27 April 2013|£86.70",
+                               " 4 May 2013|£43.35"].join("\n")
+      end
+
+      should "have consistent rates for all weekly rates that are produced" do
+        add_response :ordinary_statutory_paternity_pay
+        add_response :yes
+        add_response :no
+        add_response Date.parse("2013-01-07")
+        add_response Date.parse("2013-05-03")
+        add_response Date.parse("2012-12-28")
+        add_response Date.parse("2012-10-26")
+        add_response :monthly
+        add_response :yes
+        add_response 1250.75
+        add_response :yes
+        add_response 42
+        add_response "2,3,4"
+
+        assert_current_node :entitled_to_sick_pay
+        assert_state_variable :formatted_sick_pay_weekly_amounts,
+                              ["12 January 2013|£85.85",
+                               "19 January 2013|£85.85",
+                               "26 January 2013|£85.85",
+                               " 2 February 2013|£85.85",
+                               " 9 February 2013|£85.85",
+                               "16 February 2013|£85.85",
+                               "23 February 2013|£85.85",
+                               " 2 March 2013|£85.85",
+                               " 9 March 2013|£85.85",
+                               "16 March 2013|£85.85",
+                               "23 March 2013|£85.85",
+                               "30 March 2013|£85.85",
+                               " 6 April 2013|£85.85",
+                               "13 April 2013|£86.70",
+                               "20 April 2013|£86.70"].join("\n")
+      end
+
+      should "show formatted weekly payment amounts with adjusted 3 days start amount" do
+        add_response :ordinary_statutory_paternity_pay
+        add_response :yes
+        add_response :no
+        add_response Date.parse("2013-01-07")
+        add_response Date.parse("2013-05-03")
+        add_response Date.parse("2012-12-31")
+        add_response Date.parse("2012-09-24")
+        add_response :irregularly
+        add_response :yes
+        add_response 3000.0
+        add_response :no
+        add_response "1,2,3,4"
+
+        assert_current_node :entitled_to_sick_pay
+        assert_state_variable :formatted_sick_pay_weekly_amounts,
+                              ["12 January 2013|£21.47",
+                               "19 January 2013|£85.85",
+                               "26 January 2013|£85.85",
+                               " 2 February 2013|£85.85",
+                               " 9 February 2013|£85.85",
+                               "16 February 2013|£85.85",
+                               "23 February 2013|£85.85",
+                               " 2 March 2013|£85.85",
+                               " 9 March 2013|£85.85",
+                               "16 March 2013|£85.85",
+                               "23 March 2013|£85.85",
+                               "30 March 2013|£85.85",
+                               " 6 April 2013|£85.85",
+                               "13 April 2013|£86.70",
+                               "20 April 2013|£86.70",
+                               "27 April 2013|£86.70",
+                               " 4 May 2013|£86.70"].join("\n")
+
+      end
     end
   end
 end
