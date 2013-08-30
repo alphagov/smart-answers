@@ -282,7 +282,7 @@ outcome :ips_application_result do
     end
   end
 
-   precalculate :apply_online_spain_trial do
+  precalculate :apply_online_spain_trial do
     if %w(spain).include?(current_location)
       if child_or_adult == 'adult' and general_action == 'applying' or application_action == 'renewing_new'
         PhraseList.new(:spain_pay_online_trial)
@@ -290,7 +290,7 @@ outcome :ips_application_result do
     end
   end
 
- precalculate :how_to_apply do
+  precalculate :how_to_apply do
     PhraseList.new(:"how_to_apply_ips#{ips_number}",
                    application_form.to_sym,
                    supporting_documents.to_sym)
