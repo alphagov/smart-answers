@@ -17,15 +17,6 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "find_embassy_data" do
-        should "find embassy data by country slug" do
-          assert_equal 'ukin.kyrgyzrepublic@fco.gov.uk', @query.find_embassy_data('kyrgyzstan', false).first['email']
-        end
-        should "find alternative embassy data by slug" do
-          assert_equal 'ukinkz@fco.gov.uk', @query.find_embassy_data('kyrgyzstan').first['email']
-        end
-      end
-
       context "retain_passport?" do
         should "indicate whether to retain your passport when applying from the given country" do
           assert @query.retain_passport?('afghanistan')
