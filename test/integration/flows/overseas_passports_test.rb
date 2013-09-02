@@ -622,7 +622,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'replacing'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_phrase_list :cost, [:passport_courier_costs_replacing_ips1, :adult_passport_costs_replacing_ips1, :passport_costs_ips1]
+      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
       expected_location = WorldLocation.find('italy')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
@@ -964,7 +964,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_current_node :ips_application_result
       assert_phrase_list :how_long_it_takes, [:how_long_replacing_ips1, :how_long_it_takes_ips1]
       assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_2_application_form, :ips_documents_group_3]
-      assert_phrase_list :cost, [:passport_courier_costs_replacing_ips1, :adult_passport_costs_replacing_ips1, :passport_costs_ips1]
+      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
       expected_location = WorldLocation.find('jamaica')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
@@ -991,5 +991,20 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_match /Upper Hill Road/, outcome_body
     end
   end # Djibouti
+
+  context "answer Spain, renewing_new, child passport" do
+    should "give the spain apply online trial phrase" do
+      worldwide_api_has_organisations_for_location('spain', read_fixture_file('worldwide/spain_organisations.json'))
+      add_response 'spain'
+      add_response 'renewing_new'
+      add_response 'child'
+      assert_current_node :ips_application_result
+      assert_phrase_list :apply_online_spain_trial, [:spain_pay_online_trial]
+      expected_location = WorldLocation.find('spain')
+      assert_state_variable :location, expected_location
+      assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /Law Society House/, outcome_body
+    end
+  end # Spain
 
 end
