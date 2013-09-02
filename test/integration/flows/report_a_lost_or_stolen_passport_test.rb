@@ -3,13 +3,8 @@ require_relative "flow_test_helper"
 
 class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
   include FlowTestHelper
-  include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(azerbaijan)
-    worldwide_api_has_locations(@location_slugs)
-    json = read_fixture_file('worldwide/azerbaijan_organisations.json')
-    worldwide_api_has_organisations_for_location('azerbaijan', json)
     setup_for_testing_flow "report-a-lost-or-stolen-passport"
   end
 
@@ -65,7 +60,8 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
             assert_current_node :contact_the_embassy
             assert_phrase_list :child_advice, []
             assert_state_variable :lost_or_stolen, 'lost'
-            assert_match /British Embassy Baku/, outcome_body
+            assert_state_variable :country_name, 'Azerbaijan'
+            assert_equal "British Embassy\n45 Khagani Street\nBaku\nAZ1010", current_state.embassies[0]["address"]
           end
         end
       end
@@ -208,7 +204,6 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
             assert_current_node :contact_the_embassy
             assert_phrase_list :child_advice, [:child_forms]
             assert_state_variable :lost_or_stolen, 'stolen'
-            assert_match /British Embassy Baku/, outcome_body
           end
         end
       end

@@ -234,8 +234,12 @@ outcome :embassy_result do
     location.fco_organisation
   end
   precalculate :overseas_passports_embassies do
-    if organisation
-      organisation.offices_with_service 'Births and Deaths registration service'
+    if organisation && organisation.all_offices.any?
+      embassies = organisation.all_offices.select do |o| 
+        o.services.any? { |s| s.title.include?('Births and Deaths registration service') }
+      end
+      embassies << organisation.main_office if embassies.empty?
+      embassies
     else
       []
     end

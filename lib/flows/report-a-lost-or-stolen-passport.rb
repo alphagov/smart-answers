@@ -1,8 +1,6 @@
 status :published
 satisfies_need 388
 
-exclude_countries = %w(holy-see british-antarctic-territory)
-
 multiple_choice :has_your_passport_been_lost_or_stolen? do
   option :lost
   option :stolen
@@ -44,17 +42,18 @@ multiple_choice :where_was_the_passport_lost? do
   save_input_as :location
 end
 
-country_select :which_country?, :exclude_countries => exclude_countries do
+country_select :which_country?, :use_legacy_data => true do
   save_input_as :country
 
-  calculate :overseas_passports_embassies do
-    location = WorldLocation.find(country)
-    raise InvalidResponse unless location
-    if location.fco_organisation
-      location.fco_organisation.offices_with_service 'Lost or Stolen Passports'
-    else
-      []
-    end
+  calculate :country_name do
+    country_list = LegacyCountry.all
+    country_list.select {|c| c.slug == country }.first.name
+  end
+
+  calculate :embassies do
+    embassies = YAML.load_file(Rails.root.join('lib','data','embassies.yml'))
+    raise SmartAnswer::InvalidResponse.new unless embassies[country]
+    embassies[country]
   end
 
   next_node :contact_the_embassy
