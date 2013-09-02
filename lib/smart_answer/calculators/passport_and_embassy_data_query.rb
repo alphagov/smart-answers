@@ -26,35 +26,30 @@ module SmartAnswer::Calculators
     PASSPORT_COSTS = {
       'Australian Dollars'  => [[282.21], [325.81], [205.81]],
       'Euros'               => [[154, 178],   [185, 209],   [98, 122]],
-      'Indian Rupees'       => [[12200, 14450], [14700, 16950], [7750, 10000]],
+      'Indian Rupees'       => [[13450, 15900], [16250, 18700], [8600, 11050]],
       'Jordanian Dinars'    => [[144, 181], [174, 211], [92, 129]],
       'New Zealand Dollars' => [["317.80", 337.69], ["371.80", 391.69], ["222.80", 242.69]],
-      'Pakistani Rupees'    => [[20480, 24490], [24720, 28730], [13040, 17,050]],
+      'Pakistani Rupees'    => [[21120, 25260], [25490, 29630], [13450, 17590]],
+      'Phillipine peso'     => [[8704, 10268], [10506, 12070], [5542, 7106]],
       'South African Rand'  => [[2048, 2366], [2472, 2790], [1304, 1622]]
     }
 
     BELFAST_APPLICATION_ADDRESS = %w(andorra cyprus greece portugal spain)
 
-    DURHAM_APPLICATION_ADDRESS = %w(anguilla antigua-and-barbuda argentina aruba bahamas barbados belgium bermuda bolivia bonaire-st-eustatius-saba brazil british-virgin-islands canada cayman-islands chile colombia curacao dominica dominican-republic ecuador egypt france french-guiana grenada guadeloupe guyana haiti iraq israel italy jamaica jerusalem-or-westbank jordan liechtenstein luxembourg malta martinique monaco montserrat netherlands paraguay peru san-marino st-kitts-and-nevis st-lucia st-maarten st-pierre-and-miquelon st-vincent-and-the-grenadines suriname switzerland trinidad-and-tobago turks-and-caicos-islands uruguay yemen)
+    DURHAM_APPLICATION_ADDRESS = %w(anguilla antigua-and-barbuda argentina aruba bahamas barbados belgium belize bermuda bolivia bonaire-st-eustatius-saba brazil british-virgin-islands canada cayman-islands chile colombia costa-rica curacao dominica dominican-republic ecuador egypt el-salvador france french-guiana grenada guadeloupe guatemala guyana haiti honduras iraq israel italy jamaica jerusalem-or-westbank jordan liechtenstein luxembourg malta martinique mexico monaco montserrat netherlands nicaragua panama paraguay peru san-marino st-kitts-and-nevis st-lucia st-maarten st-pierre-and-miquelon st-vincent-and-the-grenadines suriname switzerland trinidad-and-tobago turks-and-caicos-islands uruguay usa yemen)
 
     CASH_ONLY_COUNTRIES = %w(cuba gaza libya mauritania morocco sudan tunisia venezuela western-sahara)
 
     RENEWING_COUNTRIES = %w(azerbaijan belarus cuba georgia kazakhstan kyrgyzstan lebanon libya mauritania morocco russia sudan tajikistan tunisia turkmenistan ukraine uzbekistan western-sahara venezuela)
 
-    attr_reader :embassy_data, :passport_data
+    attr_reader :passport_data
 
     def initialize
-      @embassy_data = self.class.embassy_data
       @passport_data = self.class.passport_data
     end
 
     def find_passport_data(country_slug)
       passport_data[country_slug]
-    end
-
-    def find_embassy_data(country_slug, alt=true)
-      country_slug = ALT_EMBASSIES[country_slug] if alt and ALT_EMBASSIES.has_key?(country_slug)
-      embassy_data[country_slug]
     end
 
     def retain_passport?(country_slug)
@@ -90,9 +85,6 @@ module SmartAnswer::Calculators
           end
         end
       end
-    end
-    def self.embassy_data
-      @embassy_data ||= YAML.load_file(Rails.root.join("lib", "data", "embassies.yml"))
     end
     def self.passport_data
       @passport_data ||= YAML.load_file(Rails.root.join("lib", "data", "passport_data.yml"))
