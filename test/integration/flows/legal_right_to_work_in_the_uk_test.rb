@@ -134,7 +134,7 @@ class LegalRightToWorkInTheUKTest < ActiveSupport::TestCase
           setup do
             add_response 'no'
           end
-          
+
           should "ask if has visa or other documents" do
             assert_current_node :has_visa_or_other_doc?
           end
