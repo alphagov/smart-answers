@@ -79,6 +79,7 @@ module SmartAnswer::Calculators
       # we need to calculate the daily rate by truncating to four decimal places to match unrounded daily rates used by HMRC
       # doing .round(6) after multiplication to avoid float precision issues
       # Simply using .round(4) on ssp_weekly_rate/@pattern_days will be off by 0.0001 for 3 and 7 pattern days and lead to 1p difference in some statutory amount calculations
+      
       pattern_days > 0 ? ((((weekly_rate / pattern_days) * 10000).round(6).floor)/10000.0) : 0.0000
     end
 
@@ -106,85 +107,19 @@ module SmartAnswer::Calculators
       @payable_days.length
     end
 
-    def ssp_payment
-      if days_to_pay > 0
-        weekly_rate_at_start = weekly_rate_on(@payable_days.first)
-        if days_to_pay > 1
-          weekly_rate_at_end = weekly_rate_on(@payable_days.last)
-          if weekly_rate_at_end == weekly_rate_at_start
-            ## simple case - not spanning tax years
-            calculate_ssp(days_to_pay, @pattern_days, weekly_rate_at_start)
-          else
-            days_before_6_april = 0
-            days_on_or_after_6_april = 0
-            # 6th of april after the start_date
-            higher_rate_date = find_6th_april_after(@sick_start_date)
-            ## 2. from @payable_days, count how many are before 6 April, how many after
-            @payable_days.each do |date|
-              if date < higher_rate_date
-                days_before_6_april += 1
-              else
-                days_on_or_after_6_april +=1
-              end
-            end
-            ## 3. multiply before and after by appropriate rate and add the two subtotals up
-            ## split into full weeks and days to match HMRC calculations
-            ssp_subtotal1 = calculate_ssp(days_before_6_april, @pattern_days, weekly_rate_at_start)
-            ssp_subtotal2 = calculate_ssp(days_on_or_after_6_april, @pattern_days, weekly_rate_at_end)
-            (ssp_subtotal1 + ssp_subtotal2).round(2)
-          end
-        else
-          daily_rate_from_weekly(weekly_rate_at_start, @pattern_days).round(2)
-        end
-      else
-        0.0
-      end
-    end
-
-    # break down the calculation based on HMRC rules
-    # full weeks * weekly rate + [odd_days * daily rate, rounded up to nearest pound]
-    # round(10) protects against float precision issues
-    def calculate_ssp(total_days, pattern_days, weekly_rate)
-      weeks_days = total_days.divmod(pattern_days)
-      daily_rate = daily_rate_from_weekly(weekly_rate, pattern_days)
-      weekly_subtotal = (weeks_days.first * weekly_rate).round(10)
-      daily_subtotal = (((weeks_days.last * daily_rate).round(10) * 100).round(10).ceil)/100.0
-      (weekly_subtotal + daily_subtotal).round(2)
-    end
-
     def sick_pay_weekly_dates
       last_saturday = @sick_end_date.end_of_week - 1
       (@sick_start_date..last_saturday).select { |day| day.wday == 6 }
     end
 
-    def sick_pay_weekly_dates_and_rates
-      sick_pay_weekly_dates.map { |date| [date, weekly_rate_on(date)] }
-    end
-
-    def sick_pay_weekly_amounts
-      total = ssp_payment
-
-      sick_pay_weekly_dates_and_rates.map do |week|
-        rate = week.second
-
-        if total >= rate
-          total -= rate
-          [week.first, rate]
-        else
-          amount = total
-          total = 0
-          [week.first, amount.round(2)]
-        end
-      end.select do |week|
-        week.second != 0
-      end
-    end
-
     def formatted_sick_pay_weekly_amounts
       weekly_payments.map { |week|
-        [week.first.strftime("%e %B %Y"), 
-          sprintf("£%.2f", BigDecimal.new(week.second.to_s).round(2, BigDecimal::ROUND_UP))].join("|")
+        [week.first.strftime("%e %B %Y"), sprintf("£%.2f", week.second)].join("|")
       }.join("\n")
+    end
+
+    def ssp_payment
+      weekly_payments.map { |payment| payment.last}.sum
     end
 
     def weekly_payments
@@ -196,7 +131,7 @@ module SmartAnswer::Calculators
       ((week_start_date - 6)..week_start_date).each do |date|
         pay += daily_rate_from_weekly(weekly_rate_on(date), @pattern_days) if @payable_days.include?(date)
       end
-      pay
+      BigDecimal.new(pay.to_s).round(2, BigDecimal::ROUND_UP)
     end
 
     private
