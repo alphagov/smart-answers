@@ -181,9 +181,22 @@ module SmartAnswer::Calculators
     end
 
     def formatted_sick_pay_weekly_amounts
-      sick_pay_weekly_amounts.map { |week|
-        [week.first.strftime("%e %B %Y"), sprintf("£%.2f", week.second.round(2))].join("|")
+      weekly_payments.map { |week|
+        [week.first.strftime("%e %B %Y"), 
+          sprintf("£%.2f", BigDecimal.new(week.second.to_s).round(2, BigDecimal::ROUND_UP))].join("|")
       }.join("\n")
+    end
+
+    def weekly_payments
+      sick_pay_weekly_dates.map { |date| [date, weekly_payment(date)] }.select { |pair| pair.last > 0 }
+    end
+
+    def weekly_payment(week_start_date)
+      pay = 0.0
+      ((week_start_date - 6)..week_start_date).each do |date|
+        pay += daily_rate_from_weekly(weekly_rate_on(date), @pattern_days) if @payable_days.include?(date)
+      end
+      pay
     end
 
     private

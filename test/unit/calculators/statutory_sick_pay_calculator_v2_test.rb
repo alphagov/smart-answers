@@ -465,9 +465,9 @@ module SmartAnswer::Calculators
                       "16 March 2013|£85.85",
                       "23 March 2013|£85.85",
                       "30 March 2013|£85.85",
-                      " 6 April 2013|£86.70",
+                      " 6 April 2013|£85.85",
                       "13 April 2013|£86.70",
-                      "20 April 2013|£85.85"].join("\n"),
+                      "20 April 2013|£86.70"].join("\n"),
                      calculator.formatted_sick_pay_weekly_amounts
       end
     end

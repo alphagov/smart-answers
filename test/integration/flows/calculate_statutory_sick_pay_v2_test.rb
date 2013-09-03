@@ -310,7 +310,7 @@ class CalculateStatutorySickPayV2Test < ActiveSupport::TestCase
                                "16 March 2013|£85.85",
                                "23 March 2013|£85.85",
                                "30 March 2013|£85.85",
-                               " 6 April 2013|£86.70",
+                               " 6 April 2013|£86.28",
                                "13 April 2013|£86.70",
                                "20 April 2013|£86.70",
                                "27 April 2013|£86.70",
