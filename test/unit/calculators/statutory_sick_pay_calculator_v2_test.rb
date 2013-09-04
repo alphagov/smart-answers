@@ -58,7 +58,7 @@ module SmartAnswer::Calculators
       end
 
       should "return correct ssp_payment" do
-        assert_equal @calculator.ssp_payment, 85.85
+        assert_equal 85.85, @calculator.ssp_payment
       end
     end
 
@@ -214,9 +214,9 @@ module SmartAnswer::Calculators
         @calculator = StatutorySickPayCalculatorV2.new(24, Date.parse("25 July 2012"), Date.parse("4 September 2012"), ['1', '3', '5'])
       end
 
-      should "give correct ssp calculation" do # 18 days with no waiting days, all at 2012-13 daily rate
+      should "give correct ssp calculation" do
         assert_equal @calculator.days_to_pay, 18
-        assert_equal @calculator.ssp_payment, 515.10
+        assert_equal @calculator.ssp_payment, 515.11
       end
     end
 
@@ -407,12 +407,10 @@ module SmartAnswer::Calculators
                       [Date.parse("16 Mar 2013"), 85.85],
                       [Date.parse("23 Mar 2013"), 85.85],
                       [Date.parse("30 Mar 2013"), 85.85],
-                      [Date.parse("06 Apr 2013"), 86.7],
+                      [Date.parse("06 Apr 2013"), 85.85],
                       [Date.parse("13 Apr 2013"), 86.7],
-                      [Date.parse("20 Apr 2013"), 86.7],
-                      [Date.parse("27 Apr 2013"), 86.7],
-                      [Date.parse("04 May 2013"), 86.7]],
-                     calculator.sick_pay_weekly_dates_and_rates
+                      [Date.parse("20 Apr 2013"), 86.7]],
+                    calculator.weekly_payments
       end
     end
 
@@ -433,10 +431,10 @@ module SmartAnswer::Calculators
                       [Date.parse("16 Mar 2013"), 85.85],
                       [Date.parse("23 Mar 2013"), 85.85],
                       [Date.parse("30 Mar 2013"), 85.85],
-                      [Date.parse("06 Apr 2013"), 86.7],
+                      [Date.parse("06 Apr 2013"), 85.85],
                       [Date.parse("13 Apr 2013"), 86.7],
-                      [Date.parse("20 Apr 2013"), 85.85]],
-                     calculator.sick_pay_weekly_amounts
+                      [Date.parse("20 Apr 2013"), 86.7]],
+                    calculator.weekly_payments
       end
 
       should "have the same reduced value as the ssp_payment value" do
@@ -444,7 +442,7 @@ module SmartAnswer::Calculators
            42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2','3','4'])
 
         assert_equal calculator.ssp_payment,
-                     calculator.sick_pay_weekly_amounts.map(&:second).inject(:+)
+                     calculator.weekly_payments.map(&:second).sum
       end
     end
 

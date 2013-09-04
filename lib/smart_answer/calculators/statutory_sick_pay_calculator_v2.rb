@@ -79,7 +79,6 @@ module SmartAnswer::Calculators
       # we need to calculate the daily rate by truncating to four decimal places to match unrounded daily rates used by HMRC
       # doing .round(6) after multiplication to avoid float precision issues
       # Simply using .round(4) on ssp_weekly_rate/@pattern_days will be off by 0.0001 for 3 and 7 pattern days and lead to 1p difference in some statutory amount calculations
-      
       pattern_days > 0 ? ((((weekly_rate / pattern_days) * 10000).round(6).floor)/10000.0) : 0.0000
     end
 
@@ -119,7 +118,7 @@ module SmartAnswer::Calculators
     end
 
     def ssp_payment
-      weekly_payments.map { |payment| payment.last}.sum
+      BigDecimal.new(weekly_payments.map(&:last).sum.round(10).to_s).round(2, BigDecimal::ROUND_UP).to_f
     end
 
     def weekly_payments
@@ -131,7 +130,7 @@ module SmartAnswer::Calculators
       ((week_start_date - 6)..week_start_date).each do |date|
         pay += daily_rate_from_weekly(weekly_rate_on(date), @pattern_days) if @payable_days.include?(date)
       end
-      BigDecimal.new(pay.to_s).round(2, BigDecimal::ROUND_UP)
+      BigDecimal.new(pay.round(10).to_s).round(2, BigDecimal::ROUND_UP).to_f
     end
 
     private
