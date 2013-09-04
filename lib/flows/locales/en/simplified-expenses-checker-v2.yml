@@ -6,15 +6,15 @@ en-GB:
         description: Check if using flat rate simplified expenses suits your business.
       phrases:
         simple_vehicle_costs_bullet: |
-          - %{simple_vehicle_costs} for cars and vans
+          - %{simple_vehicle_costs} to claim for cars and vans
         simple_motorcycle_costs_bullet: |
-          - %{simple_motorcycle_costs} for motorcycles
+          - %{simple_motorcycle_costs} to claim for motorcycles
         simple_home_costs_bullet: |
-          - %{simple_home_costs} for working from home
+          - %{simple_home_costs} to claim for working from home
         simple_home_costs_none_bullet: |
           - you have to work at least 25 hours per month from home to use simplified expenses
         simple_business_costs_bullet: |
-          - %{simple_business_costs} as a deduction from your business premises costs
+          - %{simple_business_costs} to deduct from your total business costs - you then claim the balance
         cap_allow_text: |
           You can’t use simplified expenses for your vehicle because you’ve already claimed Capital Allowances for it.
 
@@ -28,7 +28,7 @@ en-GB:
         current_home_costs_bullet: |
           - %{home_costs} for working from home
         current_business_costs_bullet: |
-          - %{business_premises_cost} as a deduction from your business premises costs
+          - %{business_premises_cost} for business premises costs
         over_van_limit: |
           The upper limit for Capital Allowance write offs for vans is £250,000.
       options:
@@ -58,8 +58,8 @@ en-GB:
         options:
           car_or_van: Car or van (business use)
           motorcycle: Motorcycle (business use)
-          using_home_for_business: Using home for business (you work from home all or some of the time)
-          live_on_business_premises: Living on your business premises (eg guesthouses or B&Bs)
+          using_home_for_business: Working from home (sometimes or all the time)
+          live_on_business_premises: The main purpose of the building is your business, eg a guesthouse)
 #Q3
       buying_new_vehicle?:
         title: Are you buying a new vehicle this tax year that you expect to use for your business?
@@ -94,7 +94,7 @@ en-GB:
 #Q11
       current_claim_amount_home?:
         title: How much of your home costs do you expect to claim as business expenses this tax year?
-        hint: For example, a proportion of your utility bills, or mortgage.
+        hint: For example, a proportion of your utility bills.
 #Q12
       hours_work_home?:
         title: On average, how many hours a month do you work or expect to work from home?
@@ -123,13 +123,13 @@ en-GB:
           [Records you need to keep when self-employed](/self-employed-records)
       you_can_use_result:
         body: |
-          Based on your answers you might be able to claim the following expenses.
+          Based on your answers you get the following expenses estimate for this tax year.
 
-          ##Simplified expenses - estimate for this tax year
+          ##Simplified expenses
 
           %{simplified_bullets}
 
-          **Total:** %{simple_total}
+          **Total to claim per year:** %{simple_total}
 
           %{simplified_more_bullets}
 
@@ -141,7 +141,7 @@ en-GB:
 
           Instead you just multiply the flat rates with the [miles you drove](/simpler-income-tax-simplified-expenses/vehicles-), [hours you use your home for business](/simpler-income-tax-simplified-expenses/business-use-of-your-home) or the [number of people who live on your business premises](/simpler-income-tax-simplified-expenses/private-use-of-business-premises).
 
-          ##Calculating expenses the usual way - estimate for this tax year
+          ##Calculating expenses the usual way
 
           %{current_scheme_bullets}
 
