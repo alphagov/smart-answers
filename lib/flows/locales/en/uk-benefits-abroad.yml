@@ -1,0 +1,186 @@
+en-GB:
+  flow:
+    uk-benefits-abroad:
+      meta:
+        description: Find out what benefits you might be able to receive while you’re abroad and how to export them from the UK or claim them while abroad
+      title: UK benefits if you’re going abroad
+      body: | 
+        Find out which UK benefits you might be able to get while you’re abroad and how to claim them.
+
+        The UK has social security agreements with some countries that:
+        - allow you to claim UK contribution-based benefits while you’re there
+        - mean that your National Insurance contributions can count towards your eligibility for that country’s benefits
+
+        It’s easier to organise benefits before you leave.
+
+        ^You must meet the benefit’s eligibility criteria to get it.^
+
+      options: 
+        "yes": "Yes"
+        "no": "No"
+
+      phrases:
+        going_abroad_country_question_title: Which country are you moving to?
+        already_abroad_country_question_title: Where are you living?
+        ci_going_abroad_question_title: Are you moving?
+        ci_already_abroad_question_title: Are you living?
+        ci_country_name: Guernsey or Jersey
+        ci_going_abroad_prefix: "to "
+        ci_already_abroad_prefix: "in "
+        already_abroad_text: "while you're abroad "
+# Q1
+      going_or_already_abroad?:
+        title: "Are you currently:"
+        options:
+          going_abroad: "in the UK and planning to move abroad"
+          already_abroad: "someone who has lived and worked in the UK who is now living abroad"
+
+# Q2
+      which_benefit?:
+        title: Which benefit are you interested in?
+        options:
+          jsa: "Jobseeker’s Allowance (JSA)"
+          pension: "State Pension"
+          winter_fuel_payment: "Winter Fuel Payment"
+          maternity_benefits: "Maternity benefits"
+          child_benefits: "Child benefits"
+          iidb: "Industrial Injuries Disablement Benefit"
+          ssp: "Statutory Sick Pay (SSP)"
+          esa: "Employment and Support Allowance (ESA)"
+          disability_benefits: "Benefits for carers and people with disabilities "
+          bereavement_benefits: "Bereavement benefits"
+          tax_credits: "Tax credits"
+          income_support: "Income Support"
+
+# Q3a
+      jsa_how_long_abroad?:
+        title: If you’re claiming JSA, how long are you going abroad for?
+        body: |
+          *[JSA]: Jobseeker’s Allowance
+        options:
+          less_than_a_year_medical: "Less than 1 year, to get medical treatment for yourself or your child "
+          less_than_a_year_other: "Less than 1 year, for a different reason"
+          more_than_a_year: "More than 1 year"
+
+# Q3b
+      jsa_channel_islands?:
+        title: %{channel_islands_question_titles}
+        options:
+          guernsey_jersey: "%{channel_islands_prefix} Guernsey or Jersey"
+          abroad: "Abroad"
+
+# Q3c
+      which_country_jsa?:
+        title: %{question_titles}
+
+# Q4
+      which_country_wfp?:
+        title: %{question_titles}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# A1
+      jsa_less_than_a_year_medical_outcome:
+        body: |
+          You can carry on getting income-related or contribution-based JSA for up to 26 weeks.
+
+          Tell your local [Jobcentre Plus](/contact-jobcentre-plus) before you go.
+
+          *[JSA]: Jobseeker’s Allowance
+# A2
+      jsa_less_than_a_year_other_outcome:
+        body: |
+          You can carry on getting income-related or contribution-based JSA for up to 4 weeks.
+
+          Tell your local [Jobcentre Plus](/contact-jobcentre-plus) before you go.
+
+          *[JSA]: Jobseeker’s Allowance
+# A3
+      jsa_eea_going_abroad_outcome:
+        body: |
+          You can get contribution-based JSA for up to 3 months if you are going abroad to look for work and you:
+
+          - are entitled to it on the day you go abroad
+          - register as a jobseeker at least 4 weeks before you leave
+          - are looking for work in the UK up to the day you leave
+          - register at the equivalent of a Jobcentre in the country you're going to
+          - follow the other country's rules on registering and looking for work
+
+          Tell your local [Jobcentre Plus](/contact-jobcentre-plus) that you want to move and get JSA while you’re abroad. They’ll give you form U2, which will allow you to register with the unemployment services in %{country_name}.
+
+          *[JSA]: Jobseeker’s Allowance
+# A4
+      jsa_eea_already_abroad_outcome:
+        body: |
+          You can’t get JSA while you’re abroad. You may qualify for unemployment benefits in %{country_name} because of the agreements between [EEA countries](/claiming-benefits-move-travel-abroad/where-you-can-claim-benefits) and Switzerland. 
+
+          Ask the authorities in %{country_name} about any benefits you might be entitled to.
+
+          *[JSA]: Jobseeker’s Allowance
+# A5
+      jsa_social_security_going_abroad_outcome:
+        body: |
+          You can’t get JSA while you’re abroad. Your UK National Insurance contributions may help you qualify for unemployment benefits because of the UK’s social security agreements with %{country_name}.
+
+          Ask the authorities in %{country_name} about any benefits you might be entitled to.
+
+          *[JSA]: Jobseeker’s Allowance
+# A6
+      jsa_social_security_already_abroad_outcome:
+        body: |
+          You can’t get JSA abroad. You may qualify for unemployment benefits because of the agreements between the [EEA countries](/claiming-benefits-move-travel-abroad/where-you-can-claim-benefits) and Switzerland. 
+
+          Ask the authorities in %{country_name} about any benefits you might be entitled to.
+
+          *[JSA]: Jobseeker’s Allowance
+# A7
+      jsa_not_entitled_outcome:
+        body: |
+          You can’t get JSA abroad.
+
+          Ask the authorities in %{country_name} about any benefits you might be entitled to.
+
+          *[JSA]: Jobseeker’s Allowance
+# A8
+      pension_going_abroad_outcome:
+        body: |
+          You can carry on getting your [State Pension while you’re abroad](/state-pension-if-you-retire-abroad). Contact the [International Pension Centre](/international-pension-centre) to find out how moving abroad will affect your pension.
+# A9
+      pension_already_abroad_outcome:
+        body: |
+          You can get your [State Pension while you’re abroad](/state-pension-if-you-retire-abroad/how-to-claim).
+
+# A10
+      wfp_eea_eligible_outcome:
+        body: |
+          You can get Winter Fuel Payments %{already_abroad_text} if you have a genuine link with the UK, eg if you’ve lived and worked in the UK for most of your life.   
+
+          You must be living in an [EEA country](/claiming-benefits-move-travel-abroad/where-you-can-claim-benefits) or Switzerland during the 3rd week of September immediately before the winter you’re claiming the Winter Fuel Payment for.
+
+          Contact the [International Pension Centre](/international-pension-centre) to transfer your claim abroad.
+
+# A11
+      wfp_not_eligible_outcome:
+        body: |
+          You can’t get Winter Fuel Payments while you’re abroad.
+
+          You must be living in an [EEA country](/claiming-benefits-move-travel-abroad/where-you-can-claim-benefits) or Switzerland during the 3rd week of September immediately before the winter you’re claiming the Winter Fuel Payment for.
+
+
+
+      income_support_already_abroad_outcome:
+        body: |
+          You can’t apply for Income Support while you’re abroad.
+
+          Ask the authorities in the country you live in about any benefits you might be entitled to.

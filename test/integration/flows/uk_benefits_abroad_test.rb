@@ -1,0 +1,247 @@
+# encoding: UTF-8
+require_relative '../../test_helper'
+require_relative 'flow_test_helper'
+require 'gds_api/test_helpers/worldwide'
+
+class UKBenefitsAbroadTest < ActiveSupport::TestCase
+  include FlowTestHelper
+  include GdsApi::TestHelpers::Worldwide
+
+  setup do
+    setup_for_testing_flow 'uk-benefits-abroad'
+    worldwide_api_has_locations %w(albania austria kosovo)
+  end
+
+# Q1
+  should "ask if you are going abroad or are already abroad" do
+    assert_current_node :going_or_already_abroad?
+  end
+
+# Going abroad
+  context "when going abroad" do
+    setup do
+      add_response "going_abroad"
+    end
+    
+    should "ask which benefit you're interested in" do
+      assert_current_node :which_benefit?
+    end
+    # answer JSA
+    context "answer JSA" do
+      setup do
+        add_response 'jsa'
+      end
+      should "ask how long you're going abroad for" do
+        assert_current_node :jsa_how_long_abroad?
+      end
+
+      context "answer less than a year for medical treatment" do
+        setup do
+          add_response 'less_than_a_year_medical'
+        end
+        should "take you to the 'less than a year for medical reasons' outcome" do
+          assert_current_node :jsa_less_than_a_year_medical_outcome
+        end
+      end
+      context "answer less than a year for other reasons" do
+        setup do
+          add_response 'less_than_a_year_other'
+        end
+        should "take you to the 'less than a year other' outcome" do
+          assert_current_node :jsa_less_than_a_year_other_outcome
+        end
+      end
+      context "answers more than a year" do
+        setup do
+          add_response 'more_than_a_year'
+        end
+        should "ask you the channel islands question" do
+          assert_phrase_list :channel_islands_question_titles, [:ci_going_abroad_question_title]
+          assert_current_node :jsa_channel_islands?
+        end
+
+        context "answer Guernsey" do
+          setup do
+            add_response 'guernsey_jersey'
+          end
+          should "take you to JSA SS outcome" do
+            assert_phrase_list :channel_islands_question_titles, [:ci_going_abroad_question_title]
+            assert_phrase_list :channel_islands_prefix, [:ci_going_abroad_prefix]
+            assert_current_node :jsa_social_security_going_abroad_outcome
+          end
+        end
+        context "answer abroad" do
+          setup do
+            add_response "abroad"
+          end
+          should "take you to which country JSA question" do
+            assert_current_node :which_country_jsa?
+          end
+
+          context "answer EEA country" do
+            setup do
+              add_response 'austria'
+            end
+            should "go to the JSA EEA outcome" do
+              assert_current_node :jsa_eea_going_abroad_outcome
+            end
+          end
+          context "answer SS country" do
+            setup do
+              add_response 'kosovo'
+            end
+            should "go to the JSA SS outcome" do
+              assert_current_node :jsa_social_security_going_abroad_outcome
+            end
+          end
+          context "answer 'other' country" do
+            setup do
+              add_response 'albania'
+            end
+            should "take you to JSA not entitled outcome" do
+              assert_current_node :jsa_not_entitled_outcome
+            end
+          end
+        end
+      end
+    end
+
+    # answer State Pension
+    context "answer State Pension" do
+      setup do
+        add_response 'pension'
+      end
+      should "take you to the pension going abroad outcome" do
+        assert_current_node :pension_going_abroad_outcome
+      end
+    end
+
+    # answer Winter Fuel Payment
+    context "answer WFP" do
+      setup do
+        add_response 'winter_fuel_payment'
+      end
+      should "ask you which country you are moving to" do
+        assert_current_node :which_country_wfp?
+      end
+      context "answer EEA country" do
+        setup do
+          add_response 'austria'
+        end
+        should "take you to eligible outcome" do
+          assert_current_node :wfp_eea_eligible_outcome
+        end
+      end
+      context "answer other country" do
+        setup do
+          add_response 'albania'
+        end
+        should "take you to not eligible outcome" do
+          assert_current_node :wfp_not_eligible_outcome
+        end
+      end
+    end
+  end
+# end Going Abroad
+
+# Already abroad
+  context "already abroad" do
+    setup do
+      add_response "already_abroad"
+    end
+    
+    should "ask which benefit you're interested in" do
+      assert_current_node :which_benefit?
+    end
+    # answer JSA
+    context "answer JSA" do
+      setup do
+        add_response 'jsa'
+      end
+      should "ask ask you the channel islands question" do
+        assert_phrase_list :channel_islands_question_titles, [:ci_already_abroad_question_title]
+        assert_current_node :jsa_channel_islands?
+      end
+      context "answer Guernsey" do
+        setup do
+          add_response 'guernsey_jersey'
+        end
+        should "take you to JSA SS outcome" do
+          assert_phrase_list :channel_islands_question_titles, [:ci_already_abroad_question_title]
+          assert_phrase_list :channel_islands_prefix, [:ci_already_abroad_prefix]
+          assert_current_node :jsa_social_security_already_abroad_outcome
+        end
+      end
+      context "answer abroad" do
+        setup do
+          add_response "abroad"
+        end
+        should "take you to which country? JSA question" do
+          assert_current_node :which_country_jsa?
+        end
+
+        context "answer EEA country" do
+          setup do
+            add_response 'austria'
+          end
+          should "take you to JSA EEA outcome" do
+            assert_current_node :jsa_eea_already_abroad_outcome
+          end
+        end
+        context "answer SS country" do
+          setup do
+            add_response 'kosovo'
+          end
+          should "take you to JSA SS outcome" do
+            assert_current_node :jsa_social_security_already_abroad_outcome
+          end
+        end
+        context "answer other country" do
+          setup do
+            add_response 'albania'
+          end
+          should "take you to JSA not entitled outcome" do
+            assert_current_node :jsa_not_entitled_outcome
+          end
+        end
+      end
+    end
+
+    # answer State Pension
+    context "answer State Pension" do
+      setup do
+        add_response 'pension'
+      end
+      should "take you to the pension already abroad outcome" do
+        assert_current_node :pension_already_abroad_outcome
+      end
+    end
+
+    # answer Winter Fuel Payment
+    context "answer WFP" do
+      setup do
+        add_response 'winter_fuel_payment'
+      end
+      should "ask you which country you are moving to" do
+        assert_current_node :which_country_wfp?
+      end
+      context "answer EEA country" do
+        setup do
+          add_response 'austria'
+        end
+        should "take you to eligible outcome" do
+          assert_current_node :wfp_eea_eligible_outcome
+        end
+      end
+      context "answer other country" do
+        setup do
+          add_response 'albania'
+        end
+        should "take you to not eligible outcome" do
+          assert_current_node :wfp_not_eligible_outcome
+        end
+      end
+    end
+
+  end # end Already Abroad
+end
