@@ -69,6 +69,8 @@ en-GB:
 #outcomes
       sorry:
         title: You don't qualify for Married Couple's Allowance.
+        body: |
+          You or your partner had to be born before 6 April 1935 to be [eligible for Married Couple's Allowance](/married-couples-allowance/eligibility).
 
       highest_earner_done:
         title: The highest earner qualifies for Married Couple's Allowance - they'll get %{allowance} off their tax bill.
@@ -85,7 +87,7 @@ en-GB:
 
           %This result is an estimate based on your answers.%
         next_steps: |
-          Read the guide to [Married Couple's Allowance](/married-couples-allowance "Married Couple's Allowance") to:
+          Read the guide to [Married Couple's Allowance](/married-couples-allowance) to:
 
           - learn more about what you'll get and how to claim
           - find out how to transfer your Married Couple's Allowance to your  partner
@@ -106,7 +108,7 @@ en-GB:
           %This result is an estimate based on your answers.%
 
         next_steps: |
-          Read the guide to [Married Couple's Allowance](/married-couples-allowance "Married Couple's Allowance") to:
+          Read the guide to [Married Couple's Allowance](/married-couples-allowance) to:
 
           - learn more about what you'll get and how to claim
           - find out how to transfer your Married Couple's Allowance to your  partner
