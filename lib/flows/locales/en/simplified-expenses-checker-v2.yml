@@ -129,7 +129,7 @@ en-GB:
 
           %{simplified_bullets}
 
-          **Total:** %{simple_costs}
+          **Total:** %{simple_total}
 
           %{capital_allowances_claimed_message}
 

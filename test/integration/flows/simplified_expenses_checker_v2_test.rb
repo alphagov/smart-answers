@@ -96,7 +96,7 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
         assert_state_variable :vehicle_costs, 1000
         assert_state_variable :simple_vehicle_costs, 900
         assert_state_variable :current_scheme_costs, 1000
-        assert_state_variable :simple_costs, 900
+        assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
         assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet]
         assert_phrase_list :current_scheme_bullets, [:current_vehicle_cost_bullet]
@@ -120,7 +120,7 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
         assert_state_variable :green_vehicle_write_off, 8000
         assert_state_variable :simple_vehicle_costs, 900
         assert_state_variable :current_scheme_costs, 8000
-        assert_state_variable :simple_costs, 900
+        assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
         assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet]
         assert_phrase_list :current_scheme_bullets, [:current_green_vehicle_write_off_bullet]
@@ -144,7 +144,7 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
         assert_state_variable :dirty_vehicle_write_off, 1440
         assert_state_variable :simple_vehicle_costs, 900
         assert_state_variable :current_scheme_costs, 1440
-        assert_state_variable :simple_costs, 900
+        assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
         assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet]
         assert_phrase_list :current_scheme_bullets, [:current_dirty_vehicle_write_off_bullet]
@@ -190,7 +190,7 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
         assert_state_variable :vehicle_costs, 1000
         assert_state_variable :simple_vehicle_costs, 900
         assert_state_variable :current_scheme_costs, 1000
-        assert_state_variable :simple_costs, 900
+        assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
         assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet]
         assert_phrase_list :current_scheme_bullets, [:current_vehicle_cost_bullet]
@@ -213,7 +213,7 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
         assert_state_variable :green_vehicle_write_off, 8000
         assert_state_variable :simple_vehicle_costs, 900
         assert_state_variable :current_scheme_costs, 8000
-        assert_state_variable :simple_costs, 900
+        assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
         assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet]
         assert_phrase_list :current_scheme_bullets, [:current_green_vehicle_write_off_bullet]
@@ -236,7 +236,7 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
         assert_state_variable :dirty_vehicle_write_off, 1440
         assert_state_variable :simple_vehicle_costs, 5000
         assert_state_variable :current_scheme_costs, 1440
-        assert_state_variable :simple_costs, 5000
+        assert_state_variable :simple_total, 5000
         assert_state_variable :can_use_simple, true
         assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet]
         assert_phrase_list :current_scheme_bullets, [:current_dirty_vehicle_write_off_bullet]
@@ -259,7 +259,7 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
         assert_state_variable :green_vehicle_write_off, 260000
         assert_state_variable :simple_vehicle_costs, 900
         assert_state_variable :current_scheme_costs, 260000
-        assert_state_variable :simple_costs, 900
+        assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
         assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet]
         assert_phrase_list :current_scheme_bullets, [:current_green_vehicle_write_off_bullet]
@@ -287,7 +287,7 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
         assert_state_variable :vehicle_costs, 1000
         assert_state_variable :simple_motorcycle_costs, 480
         assert_state_variable :current_scheme_costs, 1000
-        assert_state_variable :simple_costs, 480
+        assert_state_variable :simple_total, 480
         assert_state_variable :can_use_simple, false
         assert_phrase_list :simplified_bullets, [:simple_motorcycle_costs_bullet]
         assert_phrase_list :current_scheme_bullets, [:current_vehicle_cost_bullet]
@@ -310,7 +310,7 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
         assert_state_variable :green_vehicle_write_off, 8000
         assert_state_variable :simple_motorcycle_costs, 480
         assert_state_variable :current_scheme_costs, 8000
-        assert_state_variable :simple_costs, 480
+        assert_state_variable :simple_total, 480
         assert_state_variable :can_use_simple, false
         assert_phrase_list :simplified_bullets, [:simple_motorcycle_costs_bullet]
         assert_phrase_list :current_scheme_bullets, [:current_green_vehicle_write_off_bullet]
@@ -332,7 +332,7 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
         assert_state_variable :dirty_vehicle_write_off, 1440
         assert_state_variable :simple_motorcycle_costs, 480
         assert_state_variable :current_scheme_costs, 1440
-        assert_state_variable :simple_costs, 480
+        assert_state_variable :simple_total, 480
         assert_state_variable :can_use_simple, false
         assert_phrase_list :simplified_bullets, [:simple_motorcycle_costs_bullet]
         assert_phrase_list :current_scheme_bullets, [:current_dirty_vehicle_write_off_bullet]
@@ -352,7 +352,7 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
       assert_current_node :you_can_use_result
       assert_state_variable :home_costs, 1000
       assert_state_variable :simple_home_costs, 312
-      assert_state_variable :simple_costs, 312
+      assert_state_variable :simple_total, 312
       assert_state_variable :current_scheme_costs, 1000
       assert_phrase_list :simplified_bullets, [:simple_home_costs_bullet]
       assert_phrase_list :current_scheme_bullets, [:current_home_costs_bullet]
@@ -371,7 +371,7 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
       assert_current_node :you_can_use_result
       assert_state_variable :business_premises_cost, 1000
       assert_state_variable :simple_business_costs, 7800
-      assert_state_variable :simple_costs, 7800
+      assert_state_variable :simple_total, 7800
       assert_phrase_list :simplified_bullets, [:simple_business_costs_bullet]
       assert_phrase_list :current_scheme_bullets, [:current_business_costs_bullet]
     end
@@ -398,7 +398,7 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
       assert_state_variable :simple_vehicle_costs, 900
       assert_state_variable :home_costs, 1000
       assert_state_variable :simple_home_costs, 312
-      assert_state_variable :simple_costs, 1212
+      assert_state_variable :simple_total, 1212
       assert_state_variable :current_scheme_costs, 9000
       assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet, :simple_home_costs_bullet]
       assert_phrase_list :current_scheme_bullets, [:current_green_vehicle_write_off_bullet, :current_home_costs_bullet]
@@ -424,7 +424,7 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
       assert_state_variable :simple_motorcycle_costs, 240
       assert_state_variable :business_premises_cost, 2000
       assert_state_variable :simple_business_costs, 6000
-      assert_state_variable :simple_costs, 6240
+      assert_state_variable :simple_total, 6240
       assert_state_variable :current_scheme_costs, 3000
       assert_phrase_list :simplified_bullets, [:simple_motorcycle_costs_bullet, :simple_business_costs_bullet]
       assert_phrase_list :current_scheme_bullets, [:current_vehicle_cost_bullet, :current_business_costs_bullet]
@@ -453,7 +453,7 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
       assert_state_variable :simple_home_costs, 312
       assert_state_variable :business_premises_cost, 2000
       assert_state_variable :simple_business_costs, 6000
-      assert_state_variable :simple_costs, 6552
+      assert_state_variable :simple_total, 6552
       assert_state_variable :current_scheme_costs, 4000
       assert_phrase_list :simplified_bullets, [:simple_motorcycle_costs_bullet, :simple_home_costs_bullet, :simple_business_costs_bullet]
       assert_phrase_list :current_scheme_bullets, [:current_vehicle_cost_bullet, :current_home_costs_bullet, :current_business_costs_bullet]
@@ -485,7 +485,7 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
       assert_state_variable :simple_home_costs, 312
       assert_state_variable :business_premises_cost, 2000
       assert_state_variable :simple_business_costs, 6000
-      assert_state_variable :simple_costs, 6552
+      assert_state_variable :simple_total, 6552
       assert_state_variable :current_scheme_costs, 11000
       assert_phrase_list :simplified_bullets, [:simple_motorcycle_costs_bullet, :simple_home_costs_bullet, :simple_business_costs_bullet]
       assert_phrase_list :current_scheme_bullets, [:current_green_vehicle_write_off_bullet, :current_home_costs_bullet, :current_business_costs_bullet]

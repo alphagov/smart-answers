@@ -270,7 +270,7 @@ end
 
 outcome :you_cant_use_result
 outcome :you_can_use_result do
-  precalculate :simple_costs do
+  precalculate :simple_total do
 
     vehicle = simple_vehicle_costs.to_f || 0
     motorcycle = simple_motorcycle_costs.to_f || 0
@@ -290,7 +290,7 @@ outcome :you_can_use_result do
   end
 
   precalculate :can_use_simple do
-    simple_costs > current_scheme_costs
+    simple_total > current_scheme_costs
   end
 
   precalculate :simplified_bullets do
