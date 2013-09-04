@@ -22,12 +22,12 @@ en-GB:
       phrases:
         going_abroad_country_question_title: Which country are you moving to?
         already_abroad_country_question_title: Where are you living?
-        ci_going_abroad_question_title: Are you moving?
-        ci_already_abroad_question_title: Are you living?
+        ci_going_abroad_question_title: Where are you moving?
+        ci_already_abroad_question_title: Where are you living?
         ci_country_name: Guernsey or Jersey
         ci_going_abroad_prefix: "to "
         ci_already_abroad_prefix: "in "
-        already_abroad_text: "while you're abroad "
+        already_abroad_text: " while you're abroad "
 # Q1
       going_or_already_abroad?:
         title: "Are you currently:"
@@ -77,14 +77,27 @@ en-GB:
       which_country_wfp?:
         title: %{question_titles}
 
+# Q5
+      which_country_maternity_benefits?:
+        title: %{question_titles}
 
+# Q6
+      working_for_a_uk_employer?:
+        title: |
+          Are you working for a UK employer and paying Class 1 National Insurance Contributions?
+        body: |
+          If you're unsure you can read our [National Insurance Guide](/national-insurance/how-much-national-insurance-you-pay).
 
+# Q7
+      eligible_for_smp?:
+        title: Are you eligible for Statutory Maternity Pay?
+        body: |
+          If you're unsure you can read our [Maternity pay and leave guide](/statutory-maternity-pay#eligibility)
 
-
-
-
-
-
+# Q8 
+      employer_paying_ni?:
+        title: |
+          Is your employer paying National Insurance contributions for you?
 
 
 
@@ -177,7 +190,43 @@ en-GB:
 
           You must be living in an [EEA country](/claiming-benefits-move-travel-abroad/where-you-can-claim-benefits) or Switzerland during the 3rd week of September immediately before the winter you’re claiming the Winter Fuel Payment for.
 
+# A12
+      maternity_benefits_maternity_allowance_outcome:
+        body: |
+          You can’t get Statutory Maternity Pay%{already_abroad_text}.
 
+          You may be able to get [Maternity Allowance](/maternity-allowance).
+
+          Contact the [International Pension Centre](/international-pension-centre) with any questions about how to start or continue claiming while abroad.
+
+# A13
+      maternity_benefits_eea_entitled_outcome:
+        body: |
+          You can [get Statutory Maternity Pay](/statutory-maternity-pay#how-to-claim).
+
+          Contact the [International Pension Centre](/international-pension-centre) to claim Statutory Maternity Pay from abroad.
+
+# A14
+      maternity_benefits_social_security_going_abroad_outcome:
+        body: |
+          You can’t get Statutory Maternity Pay if you go abroad.
+
+          You may be able to get [Maternity Allowance](/maternity-allowance).
+
+          Contact the [International Pension Centre](/international-pension-centre) to find out if you qualify. 
+# A15
+      maternity_benefits_social_security_already_abroad_outcome:
+        body: |
+          You can’t get Statutory Maternity Pay while you’re abroad.
+
+          You may be able to get [Maternity Allowance](/maternity-allowance).
+
+          Contact the [International Pension Centre](/international-pension-centre) to find out if you qualify. 
+
+# A16
+      maternity_benefits_not_entitled_outcome:
+        body: |
+          You can’t get UK Statutory Maternity Pay or Maternity Allowance.
 
       income_support_already_abroad_outcome:
         body: |

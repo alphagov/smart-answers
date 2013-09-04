@@ -5,11 +5,11 @@ exclude_countries = %w(holy-see british-antarctic-territory)
 situations = ['going_abroad','already_abroad']
 eea_countries = %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia finland france germany gibraltar greece hungary iceland ireland italy latvia liechtenstein lithuania luxembourg malta netherlands norway poland portugal romania slovakia slovenia spain sweden switzerland)
 former_yugoslavia = %w(bosnia-and-herzegovina kosovo macedonia montenegro serbia)
-social_security_countries_jsa = former_yugoslavia + %w(new-zealand)
-social_security_countries_mat = former_yugoslavia + %w(barbados israel turkey)
-social_security_countries_child_benefit = former_yugoslavia + %w(barbados canada israel mauritius new-zealand)
-social_security_countries_iidb = former_yugoslavia + %w(barbados bermuda israel jamaica mauritius philippines turkey)
-social_security_countries_bereavement_benefits = former_yugoslavia + %w(barbados bermuda canada israel jamaica mauritius new-zealand philippines turkey usa)
+social_security_countries_jsa = former_yugoslavia + %w(guernsey_jersey new-zealand)
+social_security_countries_mat = former_yugoslavia + %w(barbados guernsey_jersey israel turkey)
+social_security_countries_child_benefit = former_yugoslavia + %w(barbados canada guernsey_jersey israel mauritius new-zealand)
+social_security_countries_iidb = former_yugoslavia + %w(barbados bermuda guernsey_jersey israel jamaica mauritius philippines turkey)
+social_security_countries_bereavement_benefits = former_yugoslavia + %w(barbados bermuda canada guernsey_jersey israel jamaica mauritius new-zealand philippines turkey usa)
 
 # Q1
 multiple_choice :going_or_already_abroad? do
@@ -137,7 +137,13 @@ multiple_choice :jsa_channel_islands? do
     if response == 'abroad'
       :"which_country_#{benefit}?"
     else
-      :"#{benefit}_social_security_#{going_or_already_abroad}_outcome"
+      if benefit == 'jsa'
+        :"#{benefit}_social_security_#{going_or_already_abroad}_outcome"
+      elsif benefit == 'maternity_benefits'
+        :employer_paying_ni?
+      else
+        ''
+      end
     end
   end
 end
@@ -187,8 +193,8 @@ country_select :which_country_wfp?, :exclude_countries => exclude_countries do
 end
 
 # Q5
-country_select :which_country_maternity?, :exclude_countries => exclude_countries do
-  save_input_as :maternity_country
+country_select :which_country_maternity_benefits?, :exclude_countries => exclude_countries do
+  save_input_as :country
   situations.each do |situation|
     key = :"which_country_#{situation}_maternity"
     precalculate key do
@@ -207,11 +213,33 @@ end
 
 # Q6
 multiple_choice :working_for_a_uk_employer? do
+  option :yes => :eligible_for_smp?
+  option :no => :maternity_benefits_maternity_allowance_outcome # A12
+end
+
+# Q7
+multiple_choice :eligible_for_smp? do
+  option :yes => :maternity_benefits_eea_entitled_outcome # A13
+  option :no => :maternity_benefits_maternity_allowance_outcome # A12
+end
+
+# Q8
+multiple_choice :employer_paying_ni? do
   option :yes
   option :no
 
+  next_node do |response|
+    if response == 'yes'
+      :eligible_for_smp?
+    else
+      if social_security_countries_mat.include?(country)
+        :"maternity_benefits_social_security_#{going_or_already_abroad}_outcome" # A14 or A15
+      else
+        :maternity_benefits_not_entitled_outcome # A17
+      end
+    end
+  end
 end
-
 
 outcome :jsa_less_than_a_year_medical_outcome # A1
 outcome :jsa_less_than_a_year_other_outcome # A2
@@ -224,4 +252,8 @@ outcome :pension_going_abroad_outcome # A8
 outcome :pension_already_abroad_outcome # A9
 outcome :wfp_eea_eligible_outcome # A10
 outcome :wfp_not_eligible_outcome # A11
-
+outcome :maternity_benefits_maternity_allowance_outcome # A12
+outcome :maternity_benefits_eea_entitled_outcome # A13
+outcome :maternity_benefits_social_security_going_abroad_outcome # A14
+outcome :maternity_benefits_social_security_already_abroad_outcome # A15
+outcome :maternity_benefits_not_entitled_outcome # A16
