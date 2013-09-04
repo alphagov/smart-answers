@@ -172,7 +172,7 @@ en-GB:
           Week ending | SSP amount
           -|-
           %{formatted_sick_pay_weekly_amounts}
-           |%{ssp_payment}
+           | **Total SSP: %{ssp_payment}**
 
           
           ##What you need to know
