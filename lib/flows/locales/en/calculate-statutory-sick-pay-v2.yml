@@ -11,7 +11,7 @@ en-GB:
 
 
           $D
-            [Download ‘Form SSP1, employee not entitled to SSP’ (PDF, 130KB)](http://www.dwp.gov.uk/advisers/claimforms/ssp1.pdf "Download ‘Statutory Sick Pay and an employee’s claim for benefit’ form"){:rel="external"}
+            [Download ‘Form SSP1, employee not entitled to SSP’ (PDF, 130KB)](http://www.dwp.gov.uk/advisers/claimforms/ssp1.pdf)
           $D
 
       body: |
@@ -88,7 +88,7 @@ en-GB:
       total_employee_earnings?:
         title: Enter the total amount (before deductions like Income Tax and National Insurance) of your employee’s earnings on paydays between %{relevant_period_from} and %{relevant_period_to}.
         body: |
-          Different rules apply for directors of limited companies incorporated before 1 October 2009 - see page 28 of the [Employer Helpbook for Statutory Sick Pay](http://www.hmrc.gov.uk/helpsheets/e14.pdf "Employer Helpbook for Statutory Sick Pay"){:rel="external"}
+          Different rules apply for directors of limited companies incorporated before 1 October 2009 - see page 28 of the [Employer Helpbook for Statutory Sick Pay](http://www.hmrc.gov.uk/helpsheets/e14.pdf)
         error_message: Please enter a number greater than 0
 
       # Question 10
@@ -100,7 +100,7 @@ en-GB:
       off_sick_4_days?:
         title: Was your employee off sick within the past 8 weeks for 4 or more days (including non-working days, weekends and holidays)?
         body: |
-          These are called ‘linked Periods of Incapacity for Work (PIW)’. To check if an employee’s PIW links to a previous one, see pages 35 to 38 of the [Employer Helpbook for Statutory Sick Pay](http://www.hmrc.gov.uk/helpsheets/e14.pdf "Employer Helpbook for Statutory Sick Pay"){:rel="external"}
+          These are called ‘linked Periods of Incapacity for Work (PIW)’. To check if an employee’s PIW links to a previous one, see pages 35 to 38 of the [Employer Helpbook for Statutory Sick Pay](http://www.hmrc.gov.uk/helpsheets/e14.pdf)
 
       # Question 12
       how_many_days_sick?:
@@ -135,7 +135,7 @@ en-GB:
         body: |
           Your employee isn’t entitled to statutory sick pay because they didn’t tell you they were sick soon enough.
 
-          You must send them form SSP1 no more than 7 days after they’ve told you they’re sick. They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance "Benefits & credits: employment support allowance (ESA)").
+          You must send them [form SSP1](/employers-sick-pay/eligibility-and-form-ssp1) no more than 7 days after they’ve told you they’re sick. They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance).
 
 
             %{employee_not_entitled_pdf}
@@ -148,7 +148,7 @@ en-GB:
 
 
           $D
-            [Download 'Employer Helpbook for Statutory Sick Pay' (PDF, 1.3MB)](http://www.hmrc.gov.uk/helpsheets/e14.pdf "Employer Helpbook for Statutory Sick Pay"){:rel="external"}
+            [Download 'Employer Helpbook for Statutory Sick Pay' (PDF, 1.3MB)](http://www.hmrc.gov.uk/helpsheets/e14.pdf)
           $D
 
       # Answer 5
@@ -156,7 +156,7 @@ en-GB:
         body: |
           Your employee isn’t entitled to statutory sick pay because they haven’t earned enough to qualify.
 
-          You must send them form SSP1 no more than 7 days after they’ve told you they’re sick. They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance "Benefits & credits: employment support allowance (ESA)").
+          You must send them [form SSP1](/employers-sick-pay/eligibility-and-form-ssp1) no more than 7 days after they’ve told you they’re sick. They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance).
 
 
           %{employee_not_entitled_pdf}
@@ -177,11 +177,11 @@ en-GB:
           -|-
           %{formatted_sick_pay_weekly_amounts}
 
-          SSP can be paid for up to 28 weeks of an employee’s normal workdays. For this employee that equals a total of %{pattern_days_total} days. After that you must give them form SSP1 within 7 days of SSP ending. They may be able to get [Employment Support Allowance (ESA).](/employment-support-allowance "Benefits & credits: employment support allowance (ESA)")
+          SSP can be paid for up to 28 weeks of an employee’s normal workdays. For this employee that equals a total of %{pattern_days_total} days. After that you must give them [form SSP1](/employers-sick-pay/eligibility-and-form-ssp1) within 7 days of SSP ending. They may be able to get [Employment Support Allowance (ESA).](/employment-support-allowance)
 
-          There are also [records you must keep](/sick-leave-pay-employees/entitlement "Sick pay for your employees: Entitlement") and rules on [proof of illness](/sick-leave-pay-employees/notice-and-fit-notes "Sick pay for your employee’s: notice and fit notes") you can ask for.
+          There are also [records you must keep](/sick-leave-pay-employees/entitlement) and rules on [proof of illness](/sick-leave-pay-employees/notice-and-fit-notes) you can ask for.
 
-          You may be able to [recover the statutory payments](http://www.hmrc.gov.uk/paye/employees/statutory-pay/ssp-calc.htm "How to calculate and recover Statutory Sick Pay") you’ve paid from HM Revenue & Customs (HMRC). Your payroll software or [HMRC’s basic PAYE tools](http://www.hmrc.gov.uk/paye/tools/basic-paye-tools.htm "Using HMRC's Basic PAYE Tools") can tell you how much you’ll get back.
+          You may be able to [recover the statutory payments](http://www.hmrc.gov.uk/paye/employees/statutory-pay/ssp-calc.htm) you’ve paid from HM Revenue & Customs (HMRC). Your payroll software or [HMRC’s basic PAYE tools](http://www.hmrc.gov.uk/paye/tools/basic-paye-tools.htm) can tell you how much you’ll get back.
 
       # Answer 7
       not_entitled_3_days_not_paid:
@@ -195,7 +195,7 @@ en-GB:
         body: |
           Your employee isn’t entitled to Statutory Sick Pay because they’ve already received the maximum amount of SSP (28 weeks). 
 
-          You must send them form SSP1 within 7 days of them going off sick. They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance "Benefits & credits: employment support allowance (ESA)").
+          You must send them form SSP1 within 7 days of them going off sick. They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance).
 
 
 
