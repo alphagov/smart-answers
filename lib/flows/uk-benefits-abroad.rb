@@ -7,7 +7,6 @@ eea_countries = %w(austria belgium bulgaria croatia cyprus czech-republic denmar
 former_yugoslavia = %w(bosnia-and-herzegovina kosovo macedonia montenegro serbia)
 social_security_countries_jsa = former_yugoslavia + %w(guernsey_jersey new-zealand)
 social_security_countries_mat = former_yugoslavia + %w(barbados guernsey_jersey israel turkey)
-social_security_countries_child_benefit = former_yugoslavia + %w(barbados canada guernsey_jersey israel mauritius new-zealand)
 social_security_countries_iidb = former_yugoslavia + %w(barbados bermuda guernsey_jersey israel jamaica mauritius philippines turkey)
 social_security_countries_bereavement_benefits = former_yugoslavia + %w(barbados bermuda canada guernsey_jersey israel jamaica mauritius new-zealand philippines turkey usa)
 
@@ -141,6 +140,8 @@ multiple_choice :jsa_channel_islands? do
         :"#{benefit}_social_security_#{going_or_already_abroad}_outcome"
       elsif benefit == 'maternity_benefits'
         :employer_paying_ni?
+      elsif benefit == 'child_benefits'
+        :child_benefits_ss_outcome
       else
         ''
       end
@@ -241,6 +242,43 @@ multiple_choice :employer_paying_ni? do
   end
 end
 
+# Q9
+country_select :which_country_child_benefits?, :exclude_countries => exclude_countries do
+  save_input_as :country
+  situations.each do |situation|
+    key = :"which_country_#{situation}_child"
+    precalculate key do
+      PhraseList.new key
+    end
+  end
+
+  save_input_as :country
+
+  calculate :country_name do
+    WorldLocation.all.find { |c| c.slug == country }.name
+  end
+
+  next_node do |response|
+    if eea_countries.include?(response)
+      :do_either_of_the_following_apply? # Q10
+    elsif former_yugoslavia.include?(response)
+      :"child_benefits_fy_#{going_or_already_abroad}_outcome" # A17 or A18
+    elsif %w(barbados canada israel mauritius new-zealand).include?(response)
+      :child_benefits_ss_outcome # A19
+    elsif %w(jamaica turkey usa).include?(response)
+      :child_benefits_jtu_outcome # A20
+    else
+      :child_benefits_not_entitled_outcome # A22
+    end
+  end
+end
+
+# Q10
+multiple_choice :do_either_of_the_following_apply? do
+  option :yes => :child_benefits_entitled_outcome # A21
+  option :no => :child_benefits_not_entitled_outcome # A22
+end
+
 outcome :jsa_less_than_a_year_medical_outcome # A1
 outcome :jsa_less_than_a_year_other_outcome # A2
 outcome :jsa_eea_going_abroad_outcome # A3
@@ -257,3 +295,9 @@ outcome :maternity_benefits_eea_entitled_outcome # A13
 outcome :maternity_benefits_social_security_going_abroad_outcome # A14
 outcome :maternity_benefits_social_security_already_abroad_outcome # A15
 outcome :maternity_benefits_not_entitled_outcome # A16
+outcome :child_benefits_fy_going_abroad_outcome # A17
+outcome :child_benefits_fy_already_abroad_outcome # A18
+outcome :child_benefits_ss_outcome # A19
+outcome :child_benefits_jtu_outcome # A20
+outcome :child_benefits_entitled_outcome # A21
+outcome :child_benefits_not_entitled_outcome # A22

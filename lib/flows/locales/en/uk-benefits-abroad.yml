@@ -99,6 +99,17 @@ en-GB:
         title: |
           Is your employer paying National Insurance contributions for you?
 
+# Q9
+      which_country_child_benefits?:
+        title: %{question_titles}
+
+# Q10
+      do_either_of_the_following_apply?:
+        title: Do either of the following apply to you?
+        body: |
+          * you’re paying National Insurance contributions in the UK
+          * you’re currently receiving at least one of the following UK benefits (Jobseeker's Allowance, Incapacity Benefit, Employment and Support Allowance, State Pension, Widows/Bereavement Benefit or Industrial Injuries Disablement Benefit)
+
 
 
 
@@ -227,6 +238,55 @@ en-GB:
       maternity_benefits_not_entitled_outcome:
         body: |
           You can’t get UK Statutory Maternity Pay or Maternity Allowance.
+
+# A17
+      child_benefits_fy_going_abroad_outcome:
+        body: |
+          There is a social security agreement between the UK and %{country_name}. You may be able to get Child Benefit abroad if you (or your spouse if you go with them): 
+
+          - go to work in %{country_name}
+          - continue to pay National Insurance contributions
+
+          The UK and %{country_name} can count time you spend living or working in the other country when deciding if you qualify for benefits there.
+
+          Contact the [International Pension Centre](/international-pension-centre) to find out how to claim abroad.
+
+# A18
+      child_benefits_fy_already_abroad_outcome:
+        body: |
+          There is a social security agreement between the UK and %{country_name}. You may be able to get Child Benefit abroad.
+
+          Contact the [International Pension Centre](/international-pension-centre) to find out how to claim abroad.
+
+# A19
+      child_benefits_ss_outcome:
+        body: |
+          There is a social security agreement between the UK and %{country_name}. You may be able to get [Child Benefit](/child-benefit/) abroad.
+
+          Contact the [International Pension Centre](/international-pension-centre) to find out if you can get Child Benefit in %{country_name}.
+
+          If you’re responsible for a child whose parents have died, and you’re getting Child Benefit for them, you may also be able to claim [Guardian’s Allowance](/guardians-allowance).
+
+# A20
+      child_benefits_jtu_outcome:
+        body: |
+          You can’t get Child Benefit in %{country_name}. If you’re responsible for a child whose parents have died, you may be able to claim UK [Guardian’s Allowance](/guardians-allowance) there.
+
+          Contact the [International Pension Centre](/international-pension-centre) to check if you’re eligible.
+
+# A21
+      child_benefits_entitled_outcome:
+        body: |
+          You should be able to get Child Benefit for a child or children living with you.
+
+          If you’re looking after a child whose parents have died and you’re getting Child Benefit for them, you may also be able to claim [Guardian’s Allowance](/guardians-allowance).
+
+          Contact the [International Pension Centre](/international-pension-centre) to get Child Benefit or Guardian’s Allowance%{already_abroad_text}.
+
+# A22
+      child_benefits_not_entitled_outcome:
+        body: |
+          You can’t get Child Benefit unless your circumstances change.
 
       income_support_already_abroad_outcome:
         body: |
