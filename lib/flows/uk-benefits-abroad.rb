@@ -72,7 +72,7 @@ multiple_choice :which_benefit? do
       if going_or_already_abroad == 'going_abroad'
         :jsa_how_long_abroad?
       else
-        :jsa_channel_islands?
+        :channel_islands?
       end
     when 'pension'
       if going_or_already_abroad == 'going_abroad'
@@ -83,11 +83,11 @@ multiple_choice :which_benefit? do
     when 'winter_fuel_payment'
       :which_country_wfp?
     when 'maternity_benefits'
-      :jsa_channel_islands?
+      :channel_islands?
     when 'child_benefits'
-      :jsa_channel_islands?
+      :channel_islands?
     when 'iidb'
-      :jsa_channel_islands?
+      :channel_islands?
     when 'ssp'
       :which_country_ssp?
     when 'esa'
@@ -99,7 +99,7 @@ multiple_choice :which_benefit? do
     when 'disability_benefits'
       :db_how_long_abroad?
     when 'bereavement_benefits'
-      :jsa_channel_islands?
+      :channel_islands?
     when 'tax_credits'
       :eligible_for_tax_credits?
     when 'income_support'
@@ -116,11 +116,11 @@ end
 multiple_choice :jsa_how_long_abroad? do
   option :less_than_a_year_medical => :jsa_less_than_a_year_medical_outcome # A1
   option :less_than_a_year_other => :jsa_less_than_a_year_other_outcome # A2
-  option :more_than_a_year => :jsa_channel_islands? # Q3b
+  option :more_than_a_year => :channel_islands? # Q3b
 end
 
 # Q3b
-multiple_choice :jsa_channel_islands? do
+multiple_choice :channel_islands? do
   option :guernsey_jersey
   option :abroad
 
