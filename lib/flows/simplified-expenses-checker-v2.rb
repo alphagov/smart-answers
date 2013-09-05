@@ -68,9 +68,9 @@ end
 
 #Q4 - capital allowances claimed?
 # if yes => go to Result 3 if in Q2 only [car_van] and/or [motorcylce] was selected
-# 
+#
 # if yes and other expenses apart from cars and/or motorbikes selected in Q2 store as capital_allowance_claimed and add text to result (see result 2) and go to questions for other expenses, ie don’t go to Q5 & Q9
-# 
+#
 # if no go to Q5
 multiple_choice :capital_allowances? do
   option :yes

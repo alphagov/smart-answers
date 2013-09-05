@@ -82,7 +82,7 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
       add_response "yes"
       add_response "car_or_van"
     end
-    
+
     context "not buying new vehicle, not claimed CA before, expect to claim 1000 pounds, expect to drive 2000 miles, (Q3, Q4, Q5, Q9, result 2)" do
       setup do
         add_response "no"
@@ -441,7 +441,7 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
       add_response "1000" #vehicle_costs
       add_response "1000" #simple_motorcycle_costs
       add_response "1000" #home_costs
-      add_response "120" #simple_home_costs      
+      add_response "120" #simple_home_costs
       add_response "2000" #business_premises_cost
       add_response "2" #simple_business_costs
     end
@@ -471,7 +471,7 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
       add_response "80" #green_write_off
       add_response "1000" #simple_motorcycle_costs
       add_response "1000" #home_costs
-      add_response "120" #simple_home_costs      
+      add_response "120" #simple_home_costs
       add_response "2000" #business_premises_cost
       add_response "2" #simple_business_costs
     end
