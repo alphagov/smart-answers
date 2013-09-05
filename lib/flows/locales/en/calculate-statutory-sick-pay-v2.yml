@@ -37,9 +37,11 @@ en-GB:
         maternity_allowance: Maternity Allowance
         ordinary_statutory_paternity_pay: Ordinary Statutory Paternity Pay
         statutory_adoption_pay: Statutory Adoption Pay
-        fortnightly: every 2 weeks
-        every_4_weeks: every 4 weeks
-        monthly: monthly - eg last day or friday of a month
+        weekly: Weekly
+        fortnightly: Every 2 weeks
+        every_4_weeks: Every 4 weeks
+        monthly: Monthly - eg last day or friday of a month
+        irregularly: Irregularly
 
       # Q1
       is_your_employee_getting?:
@@ -57,7 +59,7 @@ en-GB:
       # Question 4
       first_sick_day?:
         title: During their most recent period of sickness, when did your employee first become sick?
-        hint: This includes non-working days and bank holidays. This is the first day of their ‘Period of Incapacity for Work (PIW)’
+        hint: This includes non-working days and bank holidays. This is the first day of their ‘Period of Incapacity for Work’ (PIW)
 
       # Question 5
       last_sick_day?:
@@ -137,10 +139,6 @@ en-GB:
 
           You must send them [form SSP1](/employers-sick-pay/eligibility-and-form-ssp1) no more than 7 days after they’ve told you they’re sick. They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance).
 
-
-            %{employee_not_entitled_pdf}
-
-
       # Answer 4
       not_regular_schedule:
         body: |
@@ -158,8 +156,6 @@ en-GB:
 
           You must send them [form SSP1](/employers-sick-pay/eligibility-and-form-ssp1) no more than 7 days after they’ve told you they’re sick. They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance).
 
-
-          %{employee_not_entitled_pdf}
 
       # Answer 6
       entitled_to_sick_pay:
@@ -183,7 +179,7 @@ en-GB:
 
           There are also [records you must keep](/sick-leave-pay-employees/entitlement) and rules on [proof of illness](/sick-leave-pay-employees/notice-and-fit-notes) you can ask for.
 
-          You may be able to [recover the statutory payments](http://www.hmrc.gov.uk/paye/employees/statutory-pay/ssp-calc.htm) you’ve paid from HM Revenue & Customs (HMRC). Your payroll software or [HMRC’s basic PAYE tools](http://www.hmrc.gov.uk/paye/tools/basic-paye-tools.htm) can tell you how much you’ll get back.
+          You may be able to [recover the statutory payments](http://www.hmrc.gov.uk/payerti/employee/statutory-pay/ssp-calc.htm) you’ve paid from HM Revenue & Customs (HMRC). Your payroll software or [HMRC’s basic PAYE tools](http://www.hmrc.gov.uk/payerti/payroll/bpt/index.htm) can tell you how much you’ll get back.
 
       # Answer 7
       not_entitled_3_days_not_paid:
@@ -197,9 +193,7 @@ en-GB:
         body: |
           Your employee isn’t entitled to Statutory Sick Pay because they’ve already received the maximum amount of SSP (28 weeks). 
 
-          You must send them form SSP1 within 7 days of them going off sick. They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance).
+          You must send them [form SSP1](/employers-sick-pay/eligibility-and-form-ssp1) within 7 days of them going off sick. They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance).
 
 
-
-          %{employee_not_entitled_pdf}
 
