@@ -53,17 +53,13 @@ multiple_choice :renewing_replacing_applying? do
   end
 
   calculate :overseas_passports_embassies do
-    if organisation && organisation.all_offices.any?
-      embassies = organisation.all_offices.select do |o| 
-        o.services.any? { |s| s.title.include?('Overseas Passports Service') }
-      end
-      embassies << organisation.main_office if embassies.empty?
-      embassies
+    if organisation
+      organisation.offices_with_service 'Overseas Passports Service'
     else
       []
     end
   end
-  
+
   calculate :general_action do
     responses.last =~ /^renewing_/ ? 'renewing' : responses.last
   end
@@ -482,12 +478,8 @@ outcome :cannot_apply do
   end
 
   precalculate :overseas_passports_embassies do
-    if organisation && organisation.all_offices.any?
-      embassies = organisation.all_offices.select do |o| 
-        o.services.any? { |s| s.title.include?('Overseas Passports Service') }
-      end
-      embassies << organisation.main_office if embassies.empty?
-      embassies
+    if organisation
+      organisation.offices_with_service 'Overseas Passports Service'
     else
       []
     end
