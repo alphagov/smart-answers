@@ -6,10 +6,7 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
 
   context "finding organisations in a location" do
     should "return organisations for the location" do
-      json = read_fixture_file('worldwide/australia_organisations.json')
-      worldwide_api_has_organisations_for_location('australia', json)
-
-      results = WorldwideOrganisation.for_location('australia')
+      results = load_fixture('australia')
       assert results[0].is_a?(WorldwideOrganisation)
       assert_equal ["UK Trade & Investment Australia", "British High Commission Canberra"], results.map(&:title)
     end
@@ -17,9 +14,7 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
 
   context "fco_sponsored?" do
     setup do
-      json = read_fixture_file('worldwide/australia_organisations.json')
-      worldwide_api_has_organisations_for_location('australia', json)
-      @orgs = WorldwideOrganisation.for_location('australia')
+      @orgs = load_fixture('australia')
     end
 
     should "return true for an organisation sponsored by the FCO" do
@@ -31,11 +26,32 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
     end
   end
 
+  context "offices with services" do
+    should "find offices with service" do
+      organisation = load_fixture('argentina').first
+      matches = organisation.offices_with_service('Births and Deaths registration service')
+      assert_equal 2, matches.length, "Wrong number of offices matched"
+      assert_equal 'British Embassy Buenos Aires', matches[0].title
+      assert_equal 'Consular', matches[1].title
+    end
+
+    should "fallback to main office" do
+      organisation = load_fixture('andorra').first
+      matches = organisation.offices_with_service('Obscure service')
+      assert_equal 1, matches.length, "Wrong number of offices matched"
+      assert_equal 'British Embassy', matches[0].title
+    end
+
+    should "return empty array if no offices" do
+      organisation = load_fixture('brazil')[2]
+      matches = organisation.offices_with_service('desired service')
+      assert_equal [], matches
+    end
+  end
+
   context "attribute accessors" do
     setup do
-      json = read_fixture_file('worldwide/australia_organisations.json')
-      worldwide_api_has_organisations_for_location('australia', json)
-      @organisation = WorldwideOrganisation.for_location('australia')[1]
+      @organisation = load_fixture('australia')[1]
     end
 
     should "allow accessing required top-level attributes" do
@@ -64,5 +80,11 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
         assert_equal "https://www.gov.uk/government/world/organisations/british-high-commission-canberra", @organisation.web_url
       end
     end
+  end
+
+  def load_fixture(country)
+    json = read_fixture_file("worldwide/#{country}_organisations.json")
+    worldwide_api_has_organisations_for_location(country, json)
+    WorldwideOrganisation.for_location(country)
   end
 end
