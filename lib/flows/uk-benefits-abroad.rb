@@ -279,6 +279,60 @@ multiple_choice :do_either_of_the_following_apply? do
   option :no => :child_benefits_not_entitled_outcome # A22
 end
 
+# Q11
+country_select :which_country_ssp?, :exclude_countries => exclude_countries do
+  save_input_as :country
+  situations.each do |situation|
+    key = :"which_country_#{situation}_ssp"
+    precalculate key do
+      PhraseList.new key
+    end
+  end
+
+  save_input_as :country
+
+  calculate :country_name do
+    WorldLocation.all.find { |c| c.slug == country }.name
+  end
+
+  next_node do |response|
+    if eea_countries.include?(response)
+      :working_for_uk_employer_ssp?
+    else
+      :employer_paying_ni_ssp?
+    end
+  end
+end
+
+# Q12
+multiple_choice :working_for_uk_employer_ssp? do
+  option :yes
+  option :no
+
+  next_node do |response|
+    if response == 'yes'
+      :"ssp_#{going_or_already_abroad}_entitled_outcome" # A23 or A24
+    else
+      :"ssp_#{going_or_already_abroad}_not_entitled_outcome" # A25 or A26
+    end
+  end
+end
+
+# Q12
+multiple_choice :employer_paying_ni_ssp? do
+  option :yes
+  option :no
+
+  next_node do |response|
+    if response == 'yes'
+      :"ssp_#{going_or_already_abroad}_entitled_outcome" # A23 or A24
+    else
+      :"ssp_#{going_or_already_abroad}_not_entitled_outcome" # A25 or A26
+    end
+  end
+end
+
+
 outcome :jsa_less_than_a_year_medical_outcome # A1
 outcome :jsa_less_than_a_year_other_outcome # A2
 outcome :jsa_eea_going_abroad_outcome # A3
@@ -301,3 +355,7 @@ outcome :child_benefits_ss_outcome # A19
 outcome :child_benefits_jtu_outcome # A20
 outcome :child_benefits_entitled_outcome # A21
 outcome :child_benefits_not_entitled_outcome # A22
+outcome :ssp_going_abroad_entitled_outcome # A23
+outcome :ssp_already_abroad_entitled_outcome # A24
+outcome :ssp_going_abroad_not_entitled_outcome # A25
+outcome :ssp_already_abroad_not_entitled_outcome # A26

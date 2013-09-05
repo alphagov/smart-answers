@@ -415,6 +415,66 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
+    # answer SSP
+    context "answer statutory sick pay (SSP)" do
+      setup do
+        add_response 'ssp'
+      end
+      should "ask which country are you moving to" do
+        assert_current_node :which_country_ssp?
+      end
+
+      context "answer EEA country" do
+        setup do
+          add_response 'austria'
+        end
+        should "ask you are you working for a UK employer" do
+          assert_current_node :working_for_uk_employer_ssp?
+        end
+        context "answer yes" do
+          setup do
+            add_response 'yes'
+          end
+          should "take you to the entitled outcome" do
+            assert_current_node :ssp_going_abroad_entitled_outcome
+          end
+        end
+        context "answer no" do
+          setup do
+            add_response 'no'
+          end
+          should "take you to not entitled outcome" do
+            assert_current_node :ssp_going_abroad_not_entitled_outcome
+          end
+        end
+      end
+
+      context "answer other country" do
+        setup do
+          add_response 'albania'
+        end
+        should "ask is your employer paying NI contributions for you" do
+          assert_current_node :employer_paying_ni_ssp?
+        end
+        context "answer yes" do
+          setup do
+            add_response 'yes'
+          end
+          should "take you to the entitled outcome" do
+            assert_current_node :ssp_going_abroad_entitled_outcome
+          end
+        end
+        context "answer no" do
+          setup do
+            add_response 'no'
+          end
+          should "take you to not entitled outcome" do
+            assert_current_node :ssp_going_abroad_not_entitled_outcome
+          end
+        end
+      end
+    end
+
   end
 # end Going Abroad
 
@@ -700,6 +760,48 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
       should "take you to JTU outcome" do
         assert_current_node :child_benefits_jtu_outcome
+      end
+    end
+
+    # answer Statutory Sick Pay (SSP)
+    context "answer EEA country, working for a UK employer" do
+      setup do
+        add_response 'ssp'
+        add_response 'austria'
+        add_response 'yes'
+      end
+      should "take you to entitled outcome" do
+        assert_current_node :ssp_already_abroad_entitled_outcome
+      end
+    end
+    context "answer EEA country, not working for a UK employer" do
+      setup do
+        add_response 'ssp'
+        add_response 'austria'
+        add_response 'no'
+      end
+      should "take you to entitled outcome" do
+        assert_current_node :ssp_already_abroad_not_entitled_outcome
+      end
+    end
+    context "answer other country, employer paying NI" do
+      setup do
+        add_response 'ssp'
+        add_response 'albania'
+        add_response 'yes'
+      end
+      should "take you to entitled outcome" do
+        assert_current_node :ssp_already_abroad_entitled_outcome
+      end
+    end
+    context "answer other country, employer not paying NI" do
+      setup do
+        add_response 'ssp'
+        add_response 'albania'
+        add_response 'no'
+      end
+      should "take you to entitled outcome" do
+        assert_current_node :ssp_already_abroad_not_entitled_outcome
       end
     end
 

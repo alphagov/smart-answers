@@ -110,8 +110,17 @@ en-GB:
           * you’re paying National Insurance contributions in the UK
           * you’re currently receiving at least one of the following UK benefits (Jobseeker's Allowance, Incapacity Benefit, Employment and Support Allowance, State Pension, Widows/Bereavement Benefit or Industrial Injuries Disablement Benefit)
 
+# Q11
+      which_country_ssp?:
+        title: %{question_titles}
 
+# Q12
+      working_for_uk_employer_ssp?:
+        title: Are you working for a UK employer?
 
+# Q13
+      employer_paying_ni_ssp?:
+        title: Is your employer paying National Insurance contributions for you?
 
 
 # A1
@@ -293,3 +302,29 @@ en-GB:
           You can’t apply for Income Support while you’re abroad.
 
           Ask the authorities in the country you live in about any benefits you might be entitled to.
+
+# A23
+      ssp_going_abroad_entitled_outcome:
+        body: |
+          You can export your Statutory Sick Pay. [Claim Statutory Sick Pay](/statutory-sick-pay-ssp/how-to-claim) the usual way, or talk to your employer about exporting it.
+
+# A24
+      ssp_already_abroad_entitled_outcome:
+        body: |
+          You can [claim Statutory Sick Pay](/statutory-sick-pay-ssp#how-to-claim).
+
+# A25
+      ssp_going_abroad_not_entitled_outcome:
+        body: |
+          You can’t get Statutory Sick Pay while you’re abroad. 
+
+          You may be able to get benefits from %{country_name} if you’ve paid into a social security insurance scheme there.
+
+# A26
+      ssp_already_abroad_not_entitled_outcome:
+        body: |
+          You can’t claim Statutory Sick Pay.
+
+          You may be able to get benefits from %{country_name} if you’ve paid into a social security insurance scheme there.
+
+
