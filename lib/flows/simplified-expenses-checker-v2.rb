@@ -275,9 +275,8 @@ outcome :you_can_use_result do
     vehicle = simple_vehicle_costs.to_f || 0
     motorcycle = simple_motorcycle_costs.to_f || 0
     home = simple_home_costs.to_f || 0
-    business = simple_business_costs.to_f || 0
 
-    Money.new(vehicle + motorcycle + home + business)
+    Money.new(vehicle + motorcycle + home)
   end
 
   precalculate :current_scheme_costs do
@@ -305,6 +304,11 @@ outcome :you_can_use_result do
         bullets << :simple_home_costs_bullet
       end
     end
+    bullets
+  end
+
+  precalculate :simplified_more_bullets do
+    bullets = PhraseList.new
     bullets << :simple_business_costs_bullet unless simple_business_costs.to_f == 0.0
     bullets
   end

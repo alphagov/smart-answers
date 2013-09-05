@@ -131,6 +131,8 @@ en-GB:
 
           **Total:** %{simple_total}
 
+          %{simplified_more_bullets}
+
           %{capital_allowances_claimed_message}
 
           ###What to do for your tax return
