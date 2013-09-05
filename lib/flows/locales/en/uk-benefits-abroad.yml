@@ -28,6 +28,71 @@ en-GB:
         ci_going_abroad_prefix: "to "
         ci_already_abroad_prefix: "in "
         already_abroad_text: " while you're abroad "
+        tax_credits_cross_border_going_abroad: |
+          You may be able to get tax credits while you’re abroad.
+
+          ##Working Tax Credit
+
+          You could get this if you either:
+
+          - live in Switzerland or an EEA country and travel to the UK to work
+          - travel abroad to work, but are ‘ordinarily resident’ in the UK
+
+          ^Ordinarily resident means you normally live in the UK, and plan to stay here for the time being.^
+        tax_credits_cross_border_already_abroad: |
+          You may be able to claim tax credits while you’re abroad.
+
+          ##Working Tax Credit
+
+          You could get Working Tax Credit if you either:
+
+          - live in Switzerland or an EEA country and travel to the UK to work
+          - travel abroad to work, but are ‘ordinarily resident’ in the UK
+
+          ^Ordinarily resident means you normally live in the UK, and plan to stay for the time being.^
+        tax_credits_cross_border: |
+          ##Child Tax Credit 
+
+          You could get Child Tax Credit if:
+
+          - you work in the UK and pay National Insurance contributions here
+          - your child lives in an EEA country or in Switzerland and depends on you to support them
+
+          Contact the Tax Credits Helpline to claim.
+        tax_credits_holiday_going_abroad: |
+          You can carry on getting tax credits for up to 8 weeks.
+        tax_credits_holiday_already_abroad: |
+          You can carry on getting tax credits for up to 8 weeks after leaving the UK if you were already receiving them before you left.
+        tax_credits_holiday: |
+          You must let the Tax Credit Office know within 1 month of the date you find out if you need to stay abroad for longer than 8 weeks.
+
+          You can receive tax credits for longer in some circumstances. You can be fined £300 if you receive credits you shouldn’t have.
+        tax_credits_medical_death_going_abroad: |
+          You can carry on getting tax credits for up to 12 weeks.
+        tax_credits_medical_death_already_abroad: |
+          You can carry on getting tax credits for up to 12 weeks after leaving the UK if you were already receiving them before you left.
+        tax_credits_medical_death: |
+          You must let the Tax Credit Office know within 1 month of the date you find out if you need to stay abroad for longer than 12 weeks.
+
+          You can receive tax credits for longer in some circumstances. You can be fined £300 if you receive credits you shouldn’t have.
+        tax_credits_going_abroad_helpline: |
+
+
+          $C
+          **Tax Credits Helpline**  
+          Telephone: 0345 300 3900  
+          Textphone: 0345 300 3909
+
+          Find out about [call charges](/call-charges). 
+          $C
+        tax_credits_already_abroad_helpline: |
+
+
+          $C
+          **Tax Credits Helpline**  
+          From outside the UK: +44 2890 538 192
+          $C
+
 # Q1
       going_or_already_abroad?:
         title: "Are you currently:"
@@ -122,6 +187,52 @@ en-GB:
       employer_paying_ni_ssp?:
         title: Is your employer paying National Insurance contributions for you?
 
+# Q14
+      eligible_for_tax_credits?:
+        title: Are you or your partner one of the following?
+        options:
+          crown_servant: A Crown servant
+          cross_border_worker: A cross-border worker
+          none_of_the_above: None of the above
+        hint: |
+          A Crown servant is someone who works for the UK government.
+
+          A cross-border worker is someone who regularly travels to or from another country to work.
+
+# Q15
+      tax_credits_how_long_abroad?:
+        title: How long are you going abroad for?
+        options:
+          tax_credits_up_to_a_year: Up to 1 year
+          tax_credits_more_than_a_year: More than 1 year
+
+# Q16
+      tax_credits_children?:
+        title: Do you have any children?
+
+# Q17
+      which_country_tax_credits?:
+        title: %{question_titles}
+
+# Q18
+      tax_credits_currently_claiming?:
+        title: Are you currently claiming any of the following?
+        body: |
+          - State Pension
+          - Incapacity Benefit
+          - Widow’s Benefit
+          - Bereavement Benefit
+          - Industrial Injuries Disablement Benefit
+          - contribution-based Employment and Support Allowance
+          - Severe Disablement Allowance
+
+# Q19
+      tax_credits_why_going_abroad?:
+        title: Why are you going abroad?
+        options:
+          tax_credits_holiday: A holiday or business trip
+          tax_credits_medical_treatment: For medical treatment for yourself, your partner or your child
+          tax_credits_death: Because of the death of your partner, child or close family member
 
 # A1
       jsa_less_than_a_year_medical_outcome:
@@ -327,4 +438,50 @@ en-GB:
 
           You may be able to get benefits from %{country_name} if you’ve paid into a social security insurance scheme there.
 
+# A27
+      tax_credits_crown_servant_outcome:
+        body: |
+          You may be able to get tax credits while you’re abroad.
+
+          Contact the Tax Credits Helpline to claim.
+
+          %{tax_credits_crown_servant}
+
+# A28
+      tax_credits_cross_border_worker_outcome:
+        body: |
+          %{tax_credits_cross_border_worker}
+
+          *[EEA]: European Economic Area
+
+# A29
+      tax_credits_unlikely_outcome:
+        body: |
+          You’re unlikely to get tax credits unless your circumstances change. 
+
+          Find out if you’re [eligible to claim tax credits](/claim-tax-credits#eligibility).
+
+# A30
+      tax_credits_eea_entitled_outcome:
+        body: |
+          You may qualify for Child Tax Credit.
+
+          Contact the Tax Credits Helpline to claim.
+
+          $C
+          **Tax Credits Helpline**  
+          Telephone: 0345 300 3900  
+          Textphone: 0345 300 3909
+
+          Find out about [call charges](/call-charges).
+          $C
+
+# A31
+      tax_credits_holiday_outcome:
+        body: |
+          %{tax_credits_holiday}
+# A32
+      tax_credits_medical_death_outcome:
+        body: |
+          %{tax_credits_medical_death}
 

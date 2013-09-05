@@ -297,9 +297,9 @@ country_select :which_country_ssp?, :exclude_countries => exclude_countries do
 
   next_node do |response|
     if eea_countries.include?(response)
-      :working_for_uk_employer_ssp?
+      :working_for_uk_employer_ssp? # Q12
     else
-      :employer_paying_ni_ssp?
+      :employer_paying_ni_ssp? # Q13
     end
   end
 end
@@ -318,7 +318,7 @@ multiple_choice :working_for_uk_employer_ssp? do
   end
 end
 
-# Q12
+# Q13
 multiple_choice :employer_paying_ni_ssp? do
   option :yes
   option :no
@@ -331,6 +331,77 @@ multiple_choice :employer_paying_ni_ssp? do
     end
   end
 end
+
+# Q14
+multiple_choice :eligible_for_tax_credits? do
+  option :crown_servant
+  option :cross_border_worker
+  option :none_of_the_above
+
+  next_node do |response|
+    if response == 'crown_servant'
+      :tax_credits_crown_servant_outcome # A27
+    elsif response == 'cross_border_worker'
+      :tax_credits_cross_border_worker_outcome # A28
+    else
+      :tax_credits_how_long_abroad?
+    end
+  end
+end
+
+# Q15
+multiple_choice :tax_credits_how_long_abroad? do
+  option :tax_credits_up_to_a_year => :tax_credits_why_going_abroad? # Q19
+  option :tax_credits_more_than_a_year => :tax_credits_children? # Q16
+end
+
+# Q16
+multiple_choice :tax_credits_children? do
+  option :yes => :which_country_tax_credits? # Q17
+  option :no => :tax_credits_unlikely_outcome # A29
+end
+
+# Q17
+country_select :which_country_tax_credits?, :exclude_countries => exclude_countries do
+  save_input_as :country
+  situations.each do |situation|
+    key = :"which_country_#{situation}_tax_credits"
+    precalculate key do
+      PhraseList.new key
+    end
+  end
+
+  save_input_as :country
+
+  calculate :country_name do
+    WorldLocation.all.find { |c| c.slug == country }.name
+  end
+
+  next_node do |response|
+    if eea_countries.include?(response)
+      :tax_credits_currently_claiming? # Q18
+    else
+      :tax_credits_unlikely_outcome # A29
+    end
+  end
+end
+
+# Q18
+multiple_choice :tax_credits_currently_claiming? do
+  option :yes => :tax_credits_eea_entitled_outcome # A30
+  option :no => :tax_credits_unlikely_outcome # A29
+end
+
+# Q19
+multiple_choice :tax_credits_why_going_abroad? do
+  option :tax_credits_holiday => :tax_credits_holiday_outcome # A31
+  option :tax_credits_medical_treatment => :tax_credits_medical_death_outcome #A32
+  option :tax_credits_death => :tax_credits_medical_death_outcome #A32
+end
+
+
+# Q20
+
 
 
 outcome :jsa_less_than_a_year_medical_outcome # A1
@@ -359,3 +430,47 @@ outcome :ssp_going_abroad_entitled_outcome # A23
 outcome :ssp_already_abroad_entitled_outcome # A24
 outcome :ssp_going_abroad_not_entitled_outcome # A25
 outcome :ssp_already_abroad_not_entitled_outcome # A26
+
+outcome :tax_credits_crown_servant_outcome do # A27
+  precalculate :tax_credits_crown_servant do
+    if going_or_already_abroad == 'going_abroad'
+      PhraseList.new(:tax_credits_going_abroad_helpline)
+    else
+      PhraseList.new(:tax_credits_already_abroad_helpline)
+    end
+  end
+end
+
+outcome :tax_credits_cross_border_worker_outcome do # A28
+  precalculate :tax_credits_cross_border_worker do
+    if going_or_already_abroad == 'going_abroad'
+      PhraseList.new(:tax_credits_cross_border_going_abroad, :tax_credits_cross_border, :tax_credits_going_abroad_helpline)
+    else
+      PhraseList.new(:tax_credits_cross_border_already_abroad, :tax_credits_cross_border, :tax_credits_already_abroad_helpline)
+    end  
+  end
+end
+
+outcome :tax_credits_unlikely_outcome #A29
+outcome :tax_credits_eea_entitled_outcome # A30
+outcome :tax_credits_holiday_outcome do # A31
+  precalculate :tax_credits_holiday do
+    if going_or_already_abroad == 'going_abroad'
+      PhraseList.new(:tax_credits_holiday_going_abroad, :tax_credits_holiday, :tax_credits_going_abroad_helpline)
+    else
+      PhraseList.new(:tax_credits_holiday_already_abroad, :tax_credits_holiday, :tax_credits_already_abroad_helpline)
+    end
+  end
+end
+
+outcome :tax_credits_medical_death_outcome do # A32
+  precalculate :tax_credits_medical_death do
+    if going_or_already_abroad == 'going_abroad'
+      PhraseList.new(:tax_credits_medical_death_going_abroad, :tax_credits_medical_death, :tax_credits_going_abroad_helpline)
+    else
+      PhraseList.new(:tax_credits_medical_death_already_abroad, :tax_credits_medical_death, :tax_credits_already_abroad_helpline)
+    end
+  end
+end
+
+
