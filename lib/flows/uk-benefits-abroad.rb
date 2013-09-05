@@ -24,6 +24,14 @@ multiple_choice :going_or_already_abroad? do
     end
   end
 
+  calculate :how_long_question_titles do
+    if responses.last == 'going_abroad'
+      PhraseList.new(:going_abroad_how_long_question_title)
+    else
+      PhraseList.new(:already_abroad_how_long_question_title)
+    end
+  end
+
   calculate :channel_islands_question_titles do
     if responses.last == 'going_abroad'
       PhraseList.new(:ci_going_abroad_question_title)
@@ -46,6 +54,11 @@ multiple_choice :going_or_already_abroad? do
     end
   end
 
+  calculate :already_abroad_text_two do
+    if responses.last == 'already_abroad'
+      PhraseList.new(:already_abroad_text_two)
+    end
+  end
   next_node :which_benefit?
 end
 
@@ -91,11 +104,7 @@ multiple_choice :which_benefit? do
     when 'ssp'
       :which_country_ssp?
     when 'esa'
-      if going_or_already_abroad == 'already_abroad'
-        :esa_how_long_abroad?
-      else
-        :which_country_esa?
-      end
+      :esa_how_long_abroad?
     when 'disability_benefits'
       :db_how_long_abroad?
     when 'bereavement_benefits'
@@ -401,8 +410,47 @@ end
 
 
 # Q20
+multiple_choice :esa_how_long_abroad? do
+  option :esa_under_a_year_medical
+  option :esa_under_a_year_other
+  option :esa_more_than_a_year
 
+  next_node do |response|
+    case response
+    when 'esa_under_a_year_medical'
+      :"esa_#{going_or_already_abroad}_under_a_year_medical_outcome"
+    when 'esa_under_a_year_other'
+      :"esa_#{going_or_already_abroad}_under_a_year_other_outcome"
+    else
+      :which_country_esa?
+    end
+  end
+end
 
+# Q21
+country_select :which_country_esa?, :exclude_countries => exclude_countries do
+  save_input_as :country
+  situations.each do |situation|
+    key = :"which_country_#{situation}_esa"
+    precalculate key do
+      PhraseList.new key
+    end
+  end
+
+  save_input_as :country
+
+  calculate :country_name do
+    WorldLocation.all.find { |c| c.slug == country }.name
+  end
+
+  next_node do |response|
+    if eea_countries.include?(response)
+      :"esa_#{going_or_already_abroad}_eea_outcome" # A37 or # A38
+    else
+      :"esa_#{going_or_already_abroad}_other_outcome" # A39 or A40
+    end
+  end
+end
 
 outcome :jsa_less_than_a_year_medical_outcome # A1
 outcome :jsa_less_than_a_year_other_outcome # A2
@@ -472,5 +520,11 @@ outcome :tax_credits_medical_death_outcome do # A32
     end
   end
 end
-
-
+outcome :esa_going_abroad_under_a_year_medical_outcome # A33
+outcome :esa_already_abroad_under_a_year_medical_outcome # A34
+outcome :esa_going_abroad_under_a_year_other_outcome # A35
+outcome :esa_already_abroad_under_a_year_other_outcome # A36
+outcome :esa_going_abroad_eea_outcome # A37
+outcome :esa_already_abroad_eea_outcome # A38
+outcome :esa_going_abroad_other_outcome # A39
+outcome :esa_already_abroad_other_outcome # A40
