@@ -716,4 +716,51 @@ en-GB:
 
           *[PIP]: Personal Independence Payment
 
+# A54
+      bb_going_abroad_eea_outcome:
+        body: |
+          You can usually export bereavement benefits to %{country_name}.
 
+          Claim [Bereavement Allowance](/bereavement-allowance#how-to-claim), [Bereavement Payment](/bereavement-payment#how-to-claim) or [Widowed Parent’s Allowance](/widowed-parents-allowance#how-to-claim) as appropriate before you leave the UK.
+
+          Once you have claimed bereavement benefits, [contact the International Pension Centre](/international-pension-centre) to export them.
+
+# A54
+      bb_already_abroad_eea_outcome:
+        body: |
+          You can get Bereavement Allowance, Bereavement Payment or Widowed Parent’s Allowance as appropriate.
+
+          Find out how to claim:
+
+          - [Bereavement Allowance](/bereavement-allowance#how-to-claim)
+          - [Bereavement Payment](/bereavement-payment#how-to-claim)
+          - [Widowed Parent’s Allowance](/widowed-parents-allowance#how-to-claim)
+
+# A56
+      bb_going_abroad_ss_outcome:
+        body: |
+          You may be able to export bereavement benefits to %{country_name}.
+
+          Claim [Bereavement Allowance](/bereavement-allowance#how-to-claim), [Bereavement Payment](/bereavement-payment#how-to-claim) or [Widowed Parent’s Allowance](/widowed-parents-allowance#how-to-claim) as appropriate before leaving the UK.
+
+          Once you have claimed bereavement benefits, [contact the International Pension Centre](/international-pension-centre) to find out if you can export them.
+
+# A57
+      bb_already_abroad_ss_outcome:
+        body: |
+          You can claim Bereavement Allowance, Bereavement Payment or Widowed Parent’s Allowance as appropriate.
+
+          Find out how to claim:
+
+          - [Bereavement Allowance](/bereavement-allowance#how-to-claim)
+          - [Bereavement Payment](/bereavement-payment#how-to-claim)
+          - [Widowed Parent’s Allowance](/widowed-parents-allowance#how-to-claim)
+
+# A58
+      bb_going_abroad_other_outcome:
+        body: |
+          You can’t export your bereavement benefits to %{country_name}.
+# A59
+      bb_already_abroad_other_outcome:
+        body: |
+          You can’t claim bereavement benefits while you’re abroad.

@@ -161,8 +161,8 @@ multiple_choice :channel_islands? do
         :child_benefits_ss_outcome
       elsif benefit == 'iidb'
         :"iidb_#{going_or_already_abroad}_ss_outcome"
-      else
-        ''
+      elsif benefit == 'bereavement_benefits'
+        :"bb_#{going_or_already_abroad}_ss_outcome"
       end
     end
   end
@@ -504,13 +504,13 @@ multiple_choice :db_how_long_abroad? do
     if response == 'temporary'
       :"db_#{going_or_already_abroad}_temporary_outcome" # A48 or A49
     else
-      :which_country_disability? #Q25
+      :which_country_disability_benefits? #Q25
     end
   end
 end
 
 # Q25
-country_select :which_country_disability?, :exclude_countries => exclude_countries do
+country_select :which_country_disability_benefits?, :exclude_countries => exclude_countries do
   save_input_as :country
   situations.each do |situation|
     key = :"which_country_#{situation}_disability"
@@ -546,9 +546,35 @@ multiple_choice :db_claiming_benefits? do
       :"db_#{going_or_already_abroad}_other_outcome" # A50 or A51      
     end
   end
-
-
 end
+
+# Q27
+country_select :which_country_bereavement_benefits?, :exclude_countries => exclude_countries do
+  save_input_as :country
+  situations.each do |situation|
+    key = :"which_country_#{situation}_bereavement"
+    precalculate key do
+      PhraseList.new key
+    end
+  end
+
+  save_input_as :country
+
+  calculate :country_name do
+    WorldLocation.all.find { |c| c.slug == country }.name
+  end
+
+  next_node do |response|
+    if eea_countries.include?(response)
+      :"bb_#{going_or_already_abroad}_eea_outcome" # A54 or A55
+    elsif social_security_countries_bereavement_benefits.include?(response)
+      :"bb_#{going_or_already_abroad}_ss_outcome" # A56 or A57
+    else
+      :"bb_#{going_or_already_abroad}_other_outcome" # A58 or A59
+    end
+  end
+end
+
 
 outcome :jsa_less_than_a_year_medical_outcome # A1
 outcome :jsa_less_than_a_year_other_outcome # A2
@@ -639,4 +665,9 @@ outcome :db_going_abroad_other_outcome # A50
 outcome :db_already_abroad_other_outcome # A51
 outcome :db_going_abroad_eea_outcome # A52
 outcome :db_already_abroad_eea_outcome # A53
-
+outcome :bb_going_abroad_eea_outcome # A54
+outcome :bb_already_abroad_eea_outcome # A55
+outcome :bb_going_abroad_ss_outcome # A56
+outcome :bb_already_abroad_ss_outcome # A57
+outcome :bb_going_abroad_other_outcome # A58
+outcome :bb_already_abroad_other_outcome # A59
