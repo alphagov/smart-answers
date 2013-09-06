@@ -70,7 +70,7 @@ multiple_choice :where_will_you_live_while_studying? do
 
   calculate :max_maintenance_loan_amount do
     begin
-      Money.new(max_maintainence_loan_amounts[start_date][responses.last].to_s) 
+      Money.new(max_maintainence_loan_amounts[start_date][responses.last].to_s)
     rescue
       raise SmartAnswer::InvalidResponse
     end
@@ -82,7 +82,7 @@ end
 
 #Q5
 money_question :whats_your_household_income? do
-    
+
   calculate :household_income_figure do
     if responses.last <= 25000
       PhraseList.new(:uk_students_body_text_with_nsp)
@@ -105,7 +105,7 @@ money_question :whats_your_household_income? do
         end
       end
     else
-      # 2014-15:max of £3,387 for income up to £25,000 then, 
+      # 2014-15:max of £3,387 for income up to £25,000 then,
       # £1 less than max for each whole £5.28 above £25000 up to £42,611
       # min grant is £50 for income = £42,620
       # no grant for  income above £42,620
@@ -135,7 +135,7 @@ money_question :whats_your_household_income? do
       else
         Money.new (min_loan_amount)
       end
-    end 
+    end
   end
 
   calculate :eligible_finance do
@@ -148,7 +148,7 @@ money_question :whats_your_household_income? do
     end
   end
 
-  
+
   next_node :do_any_of_the_following_apply_uk_full_time_students_only?
 end
 

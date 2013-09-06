@@ -16,7 +16,7 @@ en-GB:
         Your result will be more accurate if you know your annual household income (your parents’ or partner’s income plus your own).
       devolved_body: |
           ##Before you start
-          
+
           You can’t use the calculator if you’re from [Scotland](http://www.saas.gov.uk/), [Wales](http://www.studentfinancewales.co.uk) or [Northern Ireland.](http://www.studentfinanceni.co.uk)
 #Q1
       when_does_your_course_start?:
@@ -24,7 +24,7 @@ en-GB:
         options:
           "2013-2014": "Between September 2013 and August 2014"
           "2014-2015": "Between September 2014 and August 2015"
-          
+
 
 #Q2
       what_type_of_student_are_you?:
@@ -43,7 +43,7 @@ en-GB:
 
 #Q4
       where_will_you_live_while_studying?:
-        title: Where will you live while studying? 
+        title: Where will you live while studying?
         options:
           "at-home": "Living with parents"
           "away-outside-london": "Not living with parents and studying outside of London"
@@ -161,7 +161,7 @@ en-GB:
 
           ##Tuition costs
 
-          You could get a Tuition Fee Loan - %{tuition_fee_amount} a year.  
+          You could get a Tuition Fee Loan - %{tuition_fee_amount} a year.
 
           The loan pays for the cost of your course and must be paid back.
         eu_full_time_students: |
@@ -179,8 +179,8 @@ en-GB:
 
           ##Your next steps
 
-          - How to [apply](/apply-for-student-finance) for student finance  
-          - Check if you [qualify](/student-finance/who-qualifies) for student finance   
+          - How to [apply](/apply-for-student-finance) for student finance
+          - Check if you [qualify](/student-finance/who-qualifies) for student finance
 
           ^Usually, you’ll only get student finance if you’re doing your first higher education qualification.^
 
