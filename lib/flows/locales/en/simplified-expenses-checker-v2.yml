@@ -59,7 +59,7 @@ en-GB:
           car_or_van: Car or van (business use)
           motorcycle: Motorcycle (business use)
           using_home_for_business: Working from home (sometimes or all the time)
-          live_on_business_premises: The main purpose of the building is your business, eg a guesthouse)
+          live_on_business_premises: The main purpose of the building is your business, eg a guesthouse
 #Q3
       buying_new_vehicle?:
         title: Are you buying a new vehicle this tax year that you expect to use for your business?
