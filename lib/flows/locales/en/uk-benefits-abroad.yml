@@ -96,6 +96,8 @@ en-GB:
           From outside the UK: +44 2890 538 192
           $C
 
+        iidb_maybe_text: "continued to"
+
 # Q1
       going_or_already_abroad?:
         title: "Are you currently:"
@@ -131,7 +133,7 @@ en-GB:
           more_than_a_year: "More than 1 year"
 
 # Q3b
-      jsa_channel_islands?:
+      channel_islands?:
         title: %{channel_islands_question_titles}
         options:
           guernsey_jersey: "%{channel_islands_prefix} Guernsey or Jersey"
@@ -247,6 +249,14 @@ en-GB:
 
 # Q21
       which_country_esa?:
+        title: %{question_titles}
+
+# Q22
+      iidb_already_claiming?:
+        title: Are you already claiming Industrial Injuries Disablement Benefit?
+
+# Q23
+      which_country_iidb?:
         title: %{question_titles}
 
 # A1
@@ -579,3 +589,65 @@ en-GB:
           You can’t claim ESA. If you were receiving [Incapacity Benefit](/incapacity-benefit) while living in %{country_name}, you may be asked to transition from Incapacity Benefit to ESA (contributory).  
 
           You may also be able to get benefits from %{country_name} if you’ve paid into a local social security insurance scheme. Contact the local authorities to find out more.
+
+# A41
+      iidb_maybe_outcome:
+        body: |
+          You may be able to get Industrial Injuries Disablement Benefit if you %{iidb_maybe} pay UK National Insurance while working in an [EEA country](/claiming-benefits-move-travel-abroad/where-you-can-claim-benefits).
+
+          This benefit is also covered by social security agreements. Your UK social security payments may help you qualify for benefits in:
+
+          - Barbados  
+          - Bermuda  
+          - Israel  
+          - Jamaica  
+          - Jersey and Guernsey  
+          - Mauritius  
+          - The Philippines  
+          - the republics of the former Yugoslavia  
+          - Turkey
+
+          Contact the [International Pension Centre](/international-pension-centre) to claim and for the records you need to qualify for another country’s benefits.
+# A42
+      iidb_going_abroad_eea_outcome:
+        body: |
+          You can carry on getting Industrial Injuries Disablement Benefit. 
+
+          Tell the office that deals with your benefit that you’re planning to move abroad.
+
+# A43
+      iidb_already_abroad_eea_outcome:
+        body: |
+          You can carry on getting Industrial Injuries Disablement Benefit.
+
+          Contact the [International Pension Centre](/international-pension-centre) with any questions about receiving Industrial Injuries Disablement Benefit while you’re abroad.
+
+# A44 
+      iidb_going_abroad_ss_outcome:
+        body: |
+          The UK and %{country_name} have a social security agreement. You may be able to carry on getting Industrial Injuries Disablement Benefit.
+
+          Tell the office that deals with your benefit that you’re planning to move abroad.
+
+# A45
+      iidb_already_abroad_ss_outcome:
+        body: |
+          You may be able to carry on getting Industrial Injuries Disablement Benefit.
+
+          Contact the [International Pension Centre](/international-pension-centre) for more information about claiming from abroad.
+
+# A46
+      iidb_going_abroad_other_outcome:
+        body: |
+          You can’t get Industrial Injuries Disablement Benefit while you’re abroad. 
+
+          Tell the office that deals with your benefit that you’re planning to move abroad.
+
+# A47
+      iidb_already_abroad_other_outcome:
+        body: |
+          You can’t get Industrial Injuries Disablement Benefit abroad. 
+
+          Tell the office that dealt with your benefit that you’ve moved abroad.
+
+

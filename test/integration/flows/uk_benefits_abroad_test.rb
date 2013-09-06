@@ -142,7 +142,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
-    # maternity benefits
+    # Maternity benefits
     context "answer maternity benefits" do
       setup do
         add_response 'maternity_benefits'
@@ -654,6 +654,72 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
+    # IIDB
+    context "answer IIDB" do
+      setup do
+        add_response 'iidb'
+      end
+      should "ask are you already claiming IIDB" do
+        assert_current_node :iidb_already_claiming?
+      end
+
+      context "answer no" do
+        setup do
+          add_response 'no'
+        end
+        should "take you to maybe outcome" do
+          assert_current_node :iidb_maybe_outcome
+        end
+      end
+      context "answer yes" do
+        setup do
+          add_response 'yes'
+        end
+        should "take you to channel islands question" do
+          assert_current_node :channel_islands?
+        end
+        context "answer Guernsey/Jersey" do
+          setup do
+            add_response 'guernsey_jersey'
+          end
+          should "take you to SS outcome" do
+            assert_current_node :iidb_going_abroad_ss_outcome 
+          end
+        end
+        context "answer abroad" do
+          setup do
+            add_response 'abroad'
+          end
+          should "ask you which country you're moving to" do
+            assert_current_node :which_country_iidb?
+          end
+          context "answer EEA country" do
+            setup do
+              add_response 'austria'
+            end
+            should "take you to EEA outcome" do
+              assert_current_node :iidb_going_abroad_eea_outcome
+            end
+          end
+          context "answer SS country" do
+            setup do
+              add_response 'kosovo'
+            end
+            should "take you to SS outcome" do
+              assert_current_node :iidb_going_abroad_ss_outcome
+            end
+          end
+          context "answer other country" do
+            setup do
+              add_response 'albania'
+            end
+            should "take you to other country outcome" do
+              assert_current_node :iidb_going_abroad_other_outcome
+            end
+          end
+        end
+      end
+    end
   end
 # end Going Abroad
 
@@ -1128,6 +1194,60 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
       should "take you to other country outcome" do
         assert_current_node :esa_already_abroad_other_outcome
+      end
+    end
+
+    # IIDB
+    context "answer not claiming IIDB" do
+      setup do
+        add_response 'iidb'
+        add_response 'no'
+      end
+      should "take you to maybe outcome" do
+        assert_current_node :iidb_maybe_outcome
+      end
+    end
+    context "answer already claiming, Guernsey" do
+      setup do
+        add_response 'iidb'
+        add_response 'yes'
+        add_response 'guernsey_jersey'
+      end
+      should "take you to SS outcome" do
+        assert_current_node :iidb_already_abroad_ss_outcome
+      end
+    end
+    context "answer already claiming, Austria" do
+      setup do
+        add_response 'iidb'
+        add_response 'yes'
+        add_response 'abroad'
+        add_response 'austria'
+      end
+      should "take you to EEA outcome" do
+        assert_current_node :iidb_already_abroad_eea_outcome
+      end
+    end
+    context "answer already claiming, Kosovo" do
+      setup do
+        add_response 'iidb'
+        add_response 'yes'
+        add_response 'abroad'
+        add_response 'kosovo'
+      end
+      should "take you to SS outcome" do
+        assert_current_node :iidb_already_abroad_ss_outcome
+      end
+    end
+    context "answer already claiming, Albania" do
+      setup do
+        add_response 'iidb'
+        add_response 'yes'
+        add_response 'abroad'
+        add_response 'albania'
+      end
+      should "take you to other outcome" do
+        assert_current_node :iidb_already_abroad_other_outcome
       end
     end
 

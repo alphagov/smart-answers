@@ -59,6 +59,14 @@ multiple_choice :going_or_already_abroad? do
       PhraseList.new(:already_abroad_text_two)
     end
   end
+
+
+  calculate :iidb_maybe do
+    if responses.last == 'already_abroad'
+      PhraseList.new(:iidb_maybe_text)
+    end
+  end
+
   next_node :which_benefit?
 end
 
@@ -100,7 +108,7 @@ multiple_choice :which_benefit? do
     when 'child_benefits'
       :channel_islands?
     when 'iidb'
-      :channel_islands?
+      :iidb_already_claiming?
     when 'ssp'
       :which_country_ssp?
     when 'esa'
@@ -146,11 +154,13 @@ multiple_choice :channel_islands? do
       :"which_country_#{benefit}?"
     else
       if benefit == 'jsa'
-        :"#{benefit}_social_security_#{going_or_already_abroad}_outcome"
+        :"jsa_social_security_#{going_or_already_abroad}_outcome"
       elsif benefit == 'maternity_benefits'
         :employer_paying_ni?
       elsif benefit == 'child_benefits'
         :child_benefits_ss_outcome
+      elsif benefit == 'iidb'
+        :"iidb_#{going_or_already_abroad}_ss_outcome"
       else
         ''
       end
@@ -452,6 +462,40 @@ country_select :which_country_esa?, :exclude_countries => exclude_countries do
   end
 end
 
+# Q22
+multiple_choice :iidb_already_claiming? do
+  option :yes => :channel_islands? # Q3b
+  option :no => :iidb_maybe_outcome # A41
+end
+
+# Q23
+country_select :which_country_iidb?, :exclude_countries => exclude_countries do
+  save_input_as :country
+  situations.each do |situation|
+    key = :"which_country_#{situation}_esa"
+    precalculate key do
+      PhraseList.new key
+    end
+  end
+
+  save_input_as :country
+
+  calculate :country_name do
+    WorldLocation.all.find { |c| c.slug == country }.name
+  end
+
+  next_node do |response|
+    if eea_countries.include?(response)
+      :"iidb_#{going_or_already_abroad}_eea_outcome" # A42 or A43
+    elsif social_security_countries_iidb.include?(response)
+      :"iidb_#{going_or_already_abroad}_ss_outcome" # A44 or A45
+    else
+      :"iidb_#{going_or_already_abroad}_other_outcome" # A46 or A47
+    end
+  end
+end
+
+
 outcome :jsa_less_than_a_year_medical_outcome # A1
 outcome :jsa_less_than_a_year_other_outcome # A2
 outcome :jsa_eea_going_abroad_outcome # A3
@@ -478,7 +522,6 @@ outcome :ssp_going_abroad_entitled_outcome # A23
 outcome :ssp_already_abroad_entitled_outcome # A24
 outcome :ssp_going_abroad_not_entitled_outcome # A25
 outcome :ssp_already_abroad_not_entitled_outcome # A26
-
 outcome :tax_credits_crown_servant_outcome do # A27
   precalculate :tax_credits_crown_servant do
     if going_or_already_abroad == 'going_abroad'
@@ -520,6 +563,7 @@ outcome :tax_credits_medical_death_outcome do # A32
     end
   end
 end
+
 outcome :esa_going_abroad_under_a_year_medical_outcome # A33
 outcome :esa_already_abroad_under_a_year_medical_outcome # A34
 outcome :esa_going_abroad_under_a_year_other_outcome # A35
@@ -528,3 +572,10 @@ outcome :esa_going_abroad_eea_outcome # A37
 outcome :esa_already_abroad_eea_outcome # A38
 outcome :esa_going_abroad_other_outcome # A39
 outcome :esa_already_abroad_other_outcome # A40
+outcome :iidb_maybe_outcome # A41
+outcome :iidb_going_abroad_eea_outcome # A42
+outcome :iidb_already_abroad_eea_outcome # A43
+outcome :iidb_going_abroad_ss_outcome # A44 
+outcome :iidb_already_abroad_ss_outcome # A45
+outcome :iidb_going_abroad_other_outcome # A46
+outcome :iidb_already_abroad_other_outcome # A47
