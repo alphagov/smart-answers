@@ -54,7 +54,7 @@ country_select :which_country?, :exclude_countries => exclude_countries do
       location.fco_organisation.offices_with_service 'Lost or Stolen Passports'
     else
       []
-  end
+    end
   end
 
   next_node :contact_the_embassy
