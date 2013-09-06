@@ -259,6 +259,22 @@ en-GB:
       which_country_iidb?:
         title: %{question_titles}
 
+# Q24
+      db_how_long_abroad?:
+        title: %{how_long_question_titles}
+        options:
+          temporary: Temporarily, eg for a holiday
+          permanent: Permanently
+
+# Q25
+      which_country_disability?:
+        title: %{question_titles}
+
+# Q26
+      db_claiming_benefits?:
+        title: |
+          Are you or a family member getting State Pension, Industrial Injuries Benefit, ESA (contributory) or bereavement benefits?
+
 # A1
       jsa_less_than_a_year_medical_outcome:
         body: |
@@ -649,5 +665,55 @@ en-GB:
           You can’t get Industrial Injuries Disablement Benefit abroad. 
 
           Tell the office that dealt with your benefit that you’ve moved abroad.
+
+# A48
+      db_going_abroad_temporary_outcome:
+        body: |
+          You can carry on getting Attendance Allowance, Disability Living Allowance or Personal Independence Payment for up to 13 weeks - possibly longer if you’re going abroad for medical treatment. You can get Carer’s Allowance if you take up to 4 weeks holiday out of a 26-week period.
+
+          Tell the [Exportability Team](/exportability-team) at the Pension, Disability and Carers Service that you’re going abroad.
+# A49
+      db_already_abroad_temporary_outcome:
+        body: |
+          You can continue getting Attendance Allowance, Disability Living Allowance or Personal Independence Payment for up to 13 weeks - possibly longer if you’re abroad for medical treatment. You can claim Carer’s Allowance if you take up to 4 weeks holiday out of a 26-week period.  
+
+          You must have told the [Exportability Team](/exportability-team) at the Pension, Disability and Carers Service before you left.
+
+# A50
+      db_going_abroad_other_outcome:
+        body: |
+          You can’t get these benefits abroad.
+
+          You may be able to get benefits from the country you’re moving to if you’ve paid into that country’s social security insurance scheme.
+# A51
+      db_already_abroad_other_outcome:
+        body: |
+          You can’t get these benefits abroad:
+
+          * Attendance Allowance
+          * Carer’s Allowance
+          * Disability Living Allowance
+          * Personal Independence Payment
+
+          You may be able to get benefits from %{country_name} if you’ve been paying into a local insurance scheme.  Contact the local authorities to find out if you qualify.
+# A52
+      db_going_abroad_eea_outcome:
+        body: |
+          You can carry on getting Attendance Allowance, Carer’s Allowance, PIP (daily living component) or Disability Living Allowance (care component) as appropriate if you have a genuine link to the UK.
+
+          The mobility portion of PIP and DLA are not exportable.
+
+          Tell the [Exportability Team](/exportability-team) at the Pension, Disability and Carers Service that you’re moving abroad.
+
+          *[PIP]: Personal Independence Payment
+
+# A53
+      db_already_abroad_eea_outcome:
+        body: |
+          You may get Attendance Allowance, Carer’s Allowance, PIP (daily living component) or the care component of Disability Living Allowance as appropriate if you have a genuine link to the UK.
+
+          [Contact the Exportability Team](/exportability-team) at the Department for Work and Pensions to claim these.
+
+          *[PIP]: Personal Independence Payment
 
 
