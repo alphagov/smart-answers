@@ -26,7 +26,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     should "ask which benefit you're interested in" do
       assert_current_node :which_benefit?
     end
-    # answer JSA
+    # JSA
     context "answer JSA" do
       setup do
         add_response 'jsa'
@@ -106,7 +106,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
-    # answer State Pension
+    # State Pension
     context "answer State Pension" do
       setup do
         add_response 'pension'
@@ -116,7 +116,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
-    # answer Winter Fuel Payment
+    # Winter Fuel Payment
     context "answer WFP" do
       setup do
         add_response 'winter_fuel_payment'
@@ -142,7 +142,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
-    # answer maternity benefits
+    # maternity benefits
     context "answer maternity benefits" do
       setup do
         add_response 'maternity_benefits'
@@ -330,7 +330,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
-    # answer Child benefits
+    # Child benefits
     context "answer child benefits" do
       setup do
         add_response 'child_benefits'
@@ -415,7 +415,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
-    # answer SSP
+    # SSP
     context "answer statutory sick pay (SSP)" do
       setup do
         add_response 'ssp'
@@ -475,7 +475,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
-    # answer Tax Credis
+    # Tax Credis
     context "answer tax credits" do
       setup do
         add_response 'tax_credits'
@@ -604,6 +604,56 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
+    # ESA
+    context "answer ESA" do
+      setup do
+        add_response 'esa'
+      end
+      should "ask how long you're going abroad" do
+        assert_current_node :esa_how_long_abroad?
+      end
+      context "answer less than a year for medical treatment" do
+        setup do
+          add_response 'esa_under_a_year_medical'
+        end
+        should "take you to medical treatment outcome" do
+          assert_current_node :esa_going_abroad_under_a_year_medical_outcome
+        end
+      end
+      context "answer less than a year for different reason" do
+        setup do
+          add_response 'esa_under_a_year_other'
+        end
+        should "take you to different reason outcome" do
+          assert_current_node :esa_going_abroad_under_a_year_other_outcome
+        end
+      end
+      context "answers more than a year" do
+        setup do
+          add_response 'esa_more_than_a_year'
+        end
+        should "ask which country are you moving to" do
+          assert_current_node :which_country_esa?
+        end
+        context "answer EEA country" do
+          setup do
+            add_response 'austria'
+          end
+          should "take you to EEA outcome" do
+            assert_current_node :esa_going_abroad_eea_outcome 
+          end
+        end
+        context "answer other country" do
+          setup do
+            add_response 'albania'
+          end
+          should "take you to other outcome" do
+            assert_current_node :esa_going_abroad_other_outcome
+          end
+        end
+      end
+    end
+
   end
 # end Going Abroad
 
@@ -616,7 +666,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     should "ask which benefit you're interested in" do
       assert_current_node :which_benefit?
     end
-    # answer JSA
+    # JSA
     context "answer JSA, Guernsey (SS)" do
       setup do
         add_response 'jsa'
@@ -659,7 +709,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
-    # answer State Pension
+    # State Pension
     context "answer State Pension" do
       setup do
         add_response 'pension'
@@ -669,7 +719,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
-    # answer Winter Fuel Payment
+    # Winter Fuel Payment
     context "answer WFP EEA country" do
       setup do
         add_response 'winter_fuel_payment'
@@ -689,7 +739,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
-    # answer Maternity benefits
+    # Maternity benefits
     context "answer Guernsey/Jersey, employer paying NI, eligible for SMP" do
       setup do
         add_response 'maternity_benefits'
@@ -829,7 +879,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
-    # answer Child benefits
+    # Child benefits
     context "answer Guernsey/Jersey" do
       setup do
         add_response 'child_benefits'
@@ -892,7 +942,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
-    # answer Statutory Sick Pay (SSP)
+    # Statutory Sick Pay (SSP)
     context "answer EEA country, working for a UK employer" do
       setup do
         add_response 'ssp'
@@ -934,7 +984,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
-    # answer Tax Credits
+    # Tax Credits
     context "answer crown servant" do
       setup do
         add_response 'tax_credits'
@@ -1040,6 +1090,47 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         assert_current_node :tax_credits_unlikely_outcome
       end
     end
+
+    # ESA
+    context "living abroad for less than a year medical reasons" do
+      setup do
+        add_response 'esa'
+        add_response 'esa_under_a_year_medical'
+      end
+      should "take you to less than a year medical outcome" do
+        assert_current_node :esa_already_abroad_under_a_year_medical_outcome
+      end
+    end
+    context "living abroad for less than a year other reasons" do
+      setup do
+        add_response 'esa'
+        add_response 'esa_under_a_year_other'
+      end
+      should "take you to less than a year medical outcome" do
+        assert_current_node :esa_already_abroad_under_a_year_other_outcome
+      end
+    end
+    context "living abroad for more than a year, EEA country" do
+      setup do
+        add_response 'esa'
+        add_response 'esa_more_than_a_year'
+        add_response 'austria'
+      end
+      should "take you to EEA country outcome" do
+        assert_current_node :esa_already_abroad_eea_outcome
+      end
+    end
+    context "living abroad for more than a year, other country" do
+      setup do
+        add_response 'esa'
+        add_response 'esa_more_than_a_year'
+        add_response 'albania'
+      end
+      should "take you to other country outcome" do
+        assert_current_node :esa_already_abroad_other_outcome
+      end
+    end
+
 
   end # end Already Abroad
 end
