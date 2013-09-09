@@ -5,7 +5,7 @@ en-GB:
         description: Student finance calculator - get a quick estimate of what student loans, grants, bursaries and other funding you could get - for full-time, part-time and EU students
       title: Student finance calculator
       body: |
-        This calculator is for students from England starting their course on or after **1 September 2013**.
+        This calculator is for students from England starting their course on or after **1 September 2012**.
 
         Use the student finance calculator to estimate:
 
@@ -16,15 +16,16 @@ en-GB:
         Your result will be more accurate if you know your annual household income (your parents’ or partner’s income plus your own).
       devolved_body: |
           ##Before you start
-          
+
           You can’t use the calculator if you’re from [Scotland](http://www.saas.gov.uk/), [Wales](http://www.studentfinancewales.co.uk) or [Northern Ireland.](http://www.studentfinanceni.co.uk)
 #Q1
       when_does_your_course_start?:
         title: When does your course start?
         options:
+          "2012-2013": "Between September 2012 and August 2013"
           "2013-2014": "Between September 2013 and August 2014"
           "2014-2015": "Between September 2014 and August 2015"
-          
+
 
 #Q2
       what_type_of_student_are_you?:
@@ -43,7 +44,7 @@ en-GB:
 
 #Q4
       where_will_you_live_while_studying?:
-        title: Where will you live while studying? 
+        title: Where will you live while studying?
         options:
           "at-home": "Living with parents"
           "away-outside-london": "Not living with parents and studying outside of London"
@@ -93,6 +94,10 @@ en-GB:
           You could get extra grants and allowances:
 
 
+        children_under_17_2012-2013: |
+          - up to £148.75 a week (1 child) or up to £255 a week (2 or more children) [Childcare Grant](/childcare-grant)
+          - up to £1,508 per year [Parents’ Learning Allowance](/parents-learning-allowance)
+          - [Child Tax Credit](/child-tax-credit)
         children_under_17_2013-2014: |
           - up to £148.75 a week (1 child) or up to £255 a week (2 or more children) [Childcare Grant](/childcare-grant)
           - up to £1,508 per year [Parents’ Learning Allowance](/parents-learning-allowance)
@@ -101,6 +106,8 @@ en-GB:
           - up to £150.23 a week (1 child) or up to £257.55 a week (2 or more children) [Childcare Grant](/childcare-grant)
           - up to £1,523 per year [Parents’ Learning Allowance](/parents-learning-allowance)
           - [Child Tax Credit](/child-tax-credit)
+        dependant_adult_2012-2013: |
+          - up to £2,642 per year [Adult Dependant's Grant](/adult-dependants-grant)
         dependant_adult_2013-2014: |
           - up to £2,642 per year [Adult Dependant's Grant](/adult-dependants-grant)
         dependant_adult_2014-2015: |
@@ -161,7 +168,7 @@ en-GB:
 
           ##Tuition costs
 
-          You could get a Tuition Fee Loan - %{tuition_fee_amount} a year.  
+          You could get a Tuition Fee Loan - %{tuition_fee_amount} a year.
 
           The loan pays for the cost of your course and must be paid back.
         eu_full_time_students: |
@@ -179,8 +186,8 @@ en-GB:
 
           ##Your next steps
 
-          - How to [apply](/apply-for-student-finance) for student finance  
-          - Check if you [qualify](/student-finance/who-qualifies) for student finance   
+          - How to [apply](/apply-for-student-finance) for student finance
+          - Check if you [qualify](/student-finance/who-qualifies) for student finance
 
           ^Usually, you’ll only get student finance if you’re doing your first higher education qualification.^
 
