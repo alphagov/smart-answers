@@ -2,6 +2,11 @@ satisfies_need 2175
 status :published
 
 max_maintainence_loan_amounts = {
+  "2012-2013" => {
+    "at-home" => 4375,
+    "away-outside-london" => 5500,
+    "away-in-london" => 7675
+  },
   "2013-2014" => {
     "at-home" => 4375,
     "away-outside-london" => 5500,
@@ -16,6 +21,7 @@ max_maintainence_loan_amounts = {
 
 #Q1
 multiple_choice :when_does_your_course_start? do
+  option :"2012-2013"
   option :"2013-2014"
   option :"2014-2015"
 
@@ -70,7 +76,7 @@ multiple_choice :where_will_you_live_while_studying? do
 
   calculate :max_maintenance_loan_amount do
     begin
-      Money.new(max_maintainence_loan_amounts[start_date][responses.last].to_s) 
+      Money.new(max_maintainence_loan_amounts[start_date][responses.last].to_s)
     rescue
       raise SmartAnswer::InvalidResponse
     end
@@ -82,7 +88,7 @@ end
 
 #Q5
 money_question :whats_your_household_income? do
-    
+
   calculate :household_income_figure do
     if responses.last <= 25000
       PhraseList.new(:uk_students_body_text_with_nsp)
@@ -92,30 +98,46 @@ money_question :whats_your_household_income? do
   end
 
   calculate :maintenance_grant_amount do
-    if start_date == "2013-2014"
-      # decreases from max by £1 for each complete £5.33 of income above £25k
-      # min of £50 at £42611
-      if responses.last <= 25000
-        Money.new('3354')
+    household_income = responses.last
+    case start_date
+    when "2012-2013"
+      # "Max of £3250 for household income up to 25,000
+      #  Then, £1 less than max for each whole £5.50 above £25k
+      #  min grant is £50 for income = £42600
+      #  no grant for income above £42,600"
+      if household_income <= 25000
+        Money.new('3250')
       else
-        if responses.last > 42611
+        if household_income > 42600
           Money.new ('0')
         else
-          Money.new( 3354 - ((responses.last - 25000)/5.33).floor )
+          Money.new( 3250 - ((household_income - 25000)/5.50).floor )
+        end
+      end
+    when "2013-2014"
+      # decreases from max by £1 for each complete £5.33 of income above £25k
+      # min of £50 at £42611
+      if household_income <= 25000
+        Money.new('3354')
+      else
+        if household_income > 42611
+          Money.new ('0')
+        else
+          Money.new( 3354 - ((household_income - 25000)/5.33).floor )
         end
       end
     else
-      # 2014-15:max of £3,387 for income up to £25,000 then, 
+      # 2014-15:max of £3,387 for income up to £25,000 then,
       # £1 less than max for each whole £5.28 above £25000 up to £42,611
       # min grant is £50 for income = £42,620
       # no grant for  income above £42,620
-      if responses.last <= 25000
+      if household_income <= 25000
         Money.new('3387')
       else
-        if responses.last > 42620
+        if household_income > 42620
           Money.new('0')
         else
-          Money.new( 3387 - ((responses.last - 25000)/5.28).floor )
+          Money.new( 3387 - ((household_income - 25000)/5.28).floor )
         end
       end
     end
@@ -135,7 +157,7 @@ money_question :whats_your_household_income? do
       else
         Money.new (min_loan_amount)
       end
-    end 
+    end
   end
 
   calculate :eligible_finance do
@@ -148,7 +170,7 @@ money_question :whats_your_household_income? do
     end
   end
 
-  
+
   next_node :do_any_of_the_following_apply_uk_full_time_students_only?
 end
 
