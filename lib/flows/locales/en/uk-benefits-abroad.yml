@@ -275,6 +275,60 @@ en-GB:
         title: |
           Are you or a family member getting State Pension, Industrial Injuries Benefit, ESA (contributory) or bereavement benefits?
 
+# Q27
+      which_country_bereavement_benefits?:
+        title: %{question_titles}
+
+# Q28
+      is_how_long_abroad?:
+        title: How long are you going abroad for?
+        options:
+          is_under_a_year_medical: Less than 1 year, to get medical treatment for you or your child 
+          is_under_a_year_other: Less than 1 year, for a different reason
+          is_more_than_a_year: More than 1 year
+        hint: You can’t apply for Income Support from abroad.
+
+# Q29
+      is_claiming_benefits?:
+        title: | 
+          Are you travelling abroad with a partner who is getting Income Support with one of the following premiums:
+        body: |
+          - the [Pensioner premium](/income-support/what-youll-get)
+          - the [Higher Pensioner premium](/income-support/what-youll-get)
+          - the [Disability premium](/disability-premiums-income-support/eligibility)
+          - the [Severe Disability premium](/disability-premiums-income-support/eligibility)
+        hint: | 
+          Your partner must be getting the premium, not you.
+
+# Q30
+      is_either_of_the_following?:
+        title: "Are you getting Income Support while either:"
+        body: |
+          - getting [Statutory Sick Pay](/statutory-sick-pay/)
+          - incapable of work, but being treated as capable of work because you are temporarily disqualified from receiving Income Support
+
+# Q31
+      is_abroad_for_treatment?:
+        title: | 
+          Are you going abroad to get medical treatment for the illness or disability that prevents you from working?
+
+# Q32
+      is_work_or_sick_pay?:
+        title: |
+          Have you been unable to work or received Statutory Sick Pay for one of the following:
+        body: |
+          - 364 days
+          - 196 days if you’re terminally ill, or getting the highest rate of Disability Living Allowance (care component) or the enhanced rate of Personal Independence Payment (daily living component)
+
+# Q33
+      is_any_of_the_following_apply?:
+        title: "Are you one of the following:"
+        body: |
+          - affected by a trades dispute (eg on strike)
+          -  age 16 to 19 and in full-time secondary education
+          - appealing against a decision about your ability to work
+
+
 # A1
       jsa_less_than_a_year_medical_outcome:
         body: |
@@ -764,3 +818,45 @@ en-GB:
       bb_already_abroad_other_outcome:
         body: |
           You can’t claim bereavement benefits while you’re abroad.
+
+# A60
+      is_under_a_year_medical_outcome:
+        body: |
+          You may be able to carry on getting Income Support for up to 8 weeks if your child is receiving medical treatment.
+
+          You can’t get Income Support while you’re abroad if you’re going for treatment for yourself.
+
+          There is no 8 week limit for NHS-funded treatment abroad for either you or your child.
+
+          Tell your local [Jobcentre Plus](/contact-jobcentre-plus) before you go.
+
+# A61
+      is_more_than_a_year_outcome:
+        body: |
+          You can’t get Income Support abroad if you’re moving abroad for more than 1 year. 
+
+# A62
+      is_claiming_benefits_outcome:
+        body: |
+          You can carry on getting Income Support for the first 4 weeks that you’re abroad.
+
+          Tell your local [Jobcentre Plus](/contact-jobcentre-plus) before you go.
+
+# A63
+      is_abroad_for_treatment_outcome:
+        body: |
+          You can carry on getting Income Support for up to 4 weeks while you’re abroad.
+
+          Tell your local [Jobcentre Plus](/contact-jobcentre-plus) before you go.
+
+# A64
+      is_not_eligible_outcome:
+        body: |
+          You can’t get Income Support while you’re abroad.
+
+# A65
+      is_already_abroad_outcome:
+        body: |
+          You can’t apply for Income Support while you’re abroad.
+
+          Ask the authorities in the country you live in about any benefits you might be entitled to.

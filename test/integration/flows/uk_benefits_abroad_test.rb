@@ -828,7 +828,121 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         end
       end
     end
-  
+
+    # answer Income Support
+    context "answer income support" do
+      setup do
+        add_response 'income_support'
+      end
+      should "ask how long you are going abroad for" do
+        assert_current_node :is_how_long_abroad?
+      end
+      context "answer longer than a year" do
+        setup do
+          add_response 'is_more_than_a_year'
+        end
+        should "take you to more than a year outcome" do
+          assert_current_node :is_more_than_a_year_outcome
+        end
+      end
+      context "answer less than a year for medical reasons" do
+        setup do
+          add_response 'is_under_a_year_medical'
+        end
+        should "take you to under a year medical reasons outcome" do
+          assert_current_node :is_under_a_year_medical_outcome
+        end
+      end
+      context "answers less than a year for other reasons" do
+        setup do
+          add_response 'is_under_a_year_other'
+        end
+        should "ask you if you'd traveliing with a partner getting IS" do
+          assert_current_node :is_claiming_benefits?
+        end
+        context "answer yes" do
+          setup do
+            add_response 'yes'
+          end
+          should "take you to the carry on claiming 4 weeks outcome" do
+            assert_current_node :is_claiming_benefits_outcome
+          end
+        end
+        context "answer no" do
+          setup do
+            add_response 'no'
+          end
+          should "ask if you're getting IS with SSP or are incapable of work" do
+            assert_current_node :is_either_of_the_following?
+          end
+
+          context "answer yes" do
+            setup do
+              add_response 'yes'
+            end
+            should "ask if you're going for medical treatment" do
+              assert_current_node :is_abroad_for_treatment?
+            end
+            context "answer yes" do
+              setup do
+                add_response 'yes'
+              end
+              should "take you to carry on claiming for 4 weeks outcome" do
+                assert_current_node :is_abroad_for_treatment_outcome
+              end
+            end
+            context "answer no" do
+              setup do
+                add_response 'no'
+              end
+              should "ask if you've been unable to work or received SSP" do
+                assert_current_node :is_work_or_sick_pay?
+              end
+              context "answer yes" do
+                setup do
+                  add_response 'yes'
+                end
+                should "take you to carry on claiming for 4 weeks outcome" do
+                  assert_current_node :is_abroad_for_treatment_outcome
+                end
+              end
+              context "answer no" do
+                setup do
+                  add_response 'no'
+                end
+                should "take you to not eligible outcome" do
+                  assert_current_node :is_not_eligible_outcome
+                end
+              end
+            end
+          end
+          context "answer no" do
+            setup do
+              add_response 'no'
+            end
+            should "ask are you one of the following" do
+              assert_current_node :is_any_of_the_following_apply?
+            end
+            context "answer yes" do
+              setup do
+                add_response 'yes'
+              end
+              should "take you to not eligible outcome" do
+                assert_current_node :is_not_eligible_outcome
+              end
+            end
+            context "answer no" do
+              setup do
+                add_response 'no'
+              end
+              should "take you to carry on claiming for 4 weeks outcome" do
+                assert_current_node :is_abroad_for_treatment_outcome
+              end
+            end
+          end
+        end
+      end
+    end
   end
 # end Going Abroad
 
@@ -1444,6 +1558,14 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
-
+    # Income support
+    context "answer income support" do
+      setup do
+        add_response 'income_support'
+      end
+      should "take you to already abroad outcome" do
+        assert_current_node :is_already_abroad_outcome
+      end
+    end
   end # end Already Abroad
 end

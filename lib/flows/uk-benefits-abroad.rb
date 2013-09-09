@@ -91,9 +91,9 @@ multiple_choice :which_benefit? do
     case response
     when 'jsa'
       if going_or_already_abroad == 'going_abroad'
-        :jsa_how_long_abroad?
+        :jsa_how_long_abroad? # Q3a
       else
-        :channel_islands?
+        :channel_islands? # Q3b
       end
     when 'pension'
       if going_or_already_abroad == 'going_abroad'
@@ -102,28 +102,28 @@ multiple_choice :which_benefit? do
         :pension_already_abroad_outcome # A9
       end
     when 'winter_fuel_payment'
-      :which_country_wfp?
+      :which_country_wfp? # Q4
     when 'maternity_benefits'
-      :channel_islands?
+      :channel_islands? # Q3b
     when 'child_benefits'
-      :channel_islands?
+      :channel_islands? # Q3b
     when 'iidb'
-      :iidb_already_claiming?
+      :iidb_already_claiming? # Q22
     when 'ssp'
-      :which_country_ssp?
+      :which_country_ssp? # Q11
     when 'esa'
-      :esa_how_long_abroad?
+      :esa_how_long_abroad? # Q20
     when 'disability_benefits'
-      :db_how_long_abroad?
+      :db_how_long_abroad? # Q24
     when 'bereavement_benefits'
-      :channel_islands?
+      :channel_islands? # Q3b
     when 'tax_credits'
-      :eligible_for_tax_credits?
+      :eligible_for_tax_credits? # Q14
     when 'income_support'
       if going_or_already_abroad == 'going_abroad'
         :is_how_long_abroad?
       else
-        :income_support_already_abroad_outcome
+        :is_already_abroad_outcome 
       end
     end
   end
@@ -575,6 +575,43 @@ country_select :which_country_bereavement_benefits?, :exclude_countries => exclu
   end
 end
 
+# Q28
+multiple_choice :is_how_long_abroad? do
+  option :is_under_a_year_medical => :is_under_a_year_medical_outcome # A60
+  option :is_under_a_year_other => :is_claiming_benefits? # Q29
+  option :is_more_than_a_year => :is_more_than_a_year_outcome # A61
+end
+
+# Q29
+multiple_choice :is_claiming_benefits? do
+  option :yes => :is_claiming_benefits_outcome # A62
+  option :no => :is_either_of_the_following? # Q30
+end
+
+# Q30
+multiple_choice :is_either_of_the_following? do
+  option :yes => :is_abroad_for_treatment? # Q31
+  option :no => :is_any_of_the_following_apply? # Q33
+end
+
+# Q31
+multiple_choice :is_abroad_for_treatment? do
+  option :yes => :is_abroad_for_treatment_outcome # A63
+  option :no => :is_work_or_sick_pay? # Q32
+end
+
+# Q32
+multiple_choice :is_work_or_sick_pay? do
+  option :yes => :is_abroad_for_treatment_outcome # A63
+  option :no => :is_not_eligible_outcome # A64
+end
+
+# Q33
+multiple_choice :is_any_of_the_following_apply? do
+  option :yes => :is_not_eligible_outcome # A64
+  option :no => :is_abroad_for_treatment_outcome # A63
+end
+
 
 outcome :jsa_less_than_a_year_medical_outcome # A1
 outcome :jsa_less_than_a_year_other_outcome # A2
@@ -611,7 +648,6 @@ outcome :tax_credits_crown_servant_outcome do # A27
     end
   end
 end
-
 outcome :tax_credits_cross_border_worker_outcome do # A28
   precalculate :tax_credits_cross_border_worker do
     if going_or_already_abroad == 'going_abroad'
@@ -621,7 +657,6 @@ outcome :tax_credits_cross_border_worker_outcome do # A28
     end  
   end
 end
-
 outcome :tax_credits_unlikely_outcome #A29
 outcome :tax_credits_eea_entitled_outcome # A30
 outcome :tax_credits_holiday_outcome do # A31
@@ -633,7 +668,6 @@ outcome :tax_credits_holiday_outcome do # A31
     end
   end
 end
-
 outcome :tax_credits_medical_death_outcome do # A32
   precalculate :tax_credits_medical_death do
     if going_or_already_abroad == 'going_abroad'
@@ -643,7 +677,6 @@ outcome :tax_credits_medical_death_outcome do # A32
     end
   end
 end
-
 outcome :esa_going_abroad_under_a_year_medical_outcome # A33
 outcome :esa_already_abroad_under_a_year_medical_outcome # A34
 outcome :esa_going_abroad_under_a_year_other_outcome # A35
@@ -671,3 +704,9 @@ outcome :bb_going_abroad_ss_outcome # A56
 outcome :bb_already_abroad_ss_outcome # A57
 outcome :bb_going_abroad_other_outcome # A58
 outcome :bb_already_abroad_other_outcome # A59
+outcome :is_under_a_year_medical_outcome # A60
+outcome :is_more_than_a_year_outcome # A61
+outcome :is_claiming_benefits_outcome # A62
+outcome :is_abroad_for_treatment_outcome # A63
+outcome :is_not_eligible_outcome # A64
+outcome :is_already_abroad_outcome # A65
