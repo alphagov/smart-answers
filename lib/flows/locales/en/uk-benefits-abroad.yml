@@ -1,0 +1,862 @@
+en-GB:
+  flow:
+    uk-benefits-abroad:
+      meta:
+        description: Find out what benefits you might be able to receive while you’re abroad and how to export them from the UK or claim them while abroad
+      title: UK benefits if you’re going abroad
+      body: | 
+        Find out which UK benefits you might be able to get while you’re abroad and how to claim them.
+
+        The UK has social security agreements with some countries that:
+        - allow you to claim UK contribution-based benefits while you’re there
+        - mean that your National Insurance contributions can count towards your eligibility for that country’s benefits
+
+        It’s easier to organise benefits before you leave.
+
+        ^You must meet the benefit’s eligibility criteria to get it.^
+
+      options: 
+        "yes": "Yes"
+        "no": "No"
+
+      phrases:
+        going_abroad_country_question_title: Which country are you moving to?
+        already_abroad_country_question_title: Where are you living?
+        going_abroad_how_long_question_title: How long are you going abroad for?
+        already_abroad_how_long_question_title: How long will you be living abroad for?
+        ci_going_abroad_question_title: Where are you moving?
+        ci_already_abroad_question_title: Where are you living?
+        ci_country_name: Guernsey or Jersey
+        ci_going_abroad_prefix: "to "
+        ci_already_abroad_prefix: "in "
+        already_abroad_text: " while you're abroad "
+        already_abroad_text_two: " or permanently"
+        tax_credits_cross_border_going_abroad: |
+          You may be able to get tax credits while you’re abroad.
+
+          ##Working Tax Credit
+
+          You could get this if you either:
+
+          - live in Switzerland or an EEA country and travel to the UK to work
+          - travel abroad to work, but are ‘ordinarily resident’ in the UK
+
+          ^Ordinarily resident means you normally live in the UK, and plan to stay here for the time being.^
+        tax_credits_cross_border_already_abroad: |
+          You may be able to claim tax credits while you’re abroad.
+
+          ##Working Tax Credit
+
+          You could get Working Tax Credit if you either:
+
+          - live in Switzerland or an EEA country and travel to the UK to work
+          - travel abroad to work, but are ‘ordinarily resident’ in the UK
+
+          ^Ordinarily resident means you normally live in the UK, and plan to stay for the time being.^
+        tax_credits_cross_border: |
+          ##Child Tax Credit 
+
+          You could get Child Tax Credit if:
+
+          - you work in the UK and pay National Insurance contributions here
+          - your child lives in an EEA country or in Switzerland and depends on you to support them
+
+          Contact the Tax Credits Helpline to claim.
+        tax_credits_holiday_going_abroad: |
+          You can carry on getting tax credits for up to 8 weeks.
+        tax_credits_holiday_already_abroad: |
+          You can carry on getting tax credits for up to 8 weeks after leaving the UK if you were already receiving them before you left.
+        tax_credits_holiday: |
+          You must let the Tax Credit Office know within 1 month of the date you find out if you need to stay abroad for longer than 8 weeks.
+
+          You can receive tax credits for longer in some circumstances. You can be fined £300 if you receive credits you shouldn’t have.
+        tax_credits_medical_death_going_abroad: |
+          You can carry on getting tax credits for up to 12 weeks.
+        tax_credits_medical_death_already_abroad: |
+          You can carry on getting tax credits for up to 12 weeks after leaving the UK if you were already receiving them before you left.
+        tax_credits_medical_death: |
+          You must let the Tax Credit Office know within 1 month of the date you find out if you need to stay abroad for longer than 12 weeks.
+
+          You can receive tax credits for longer in some circumstances. You can be fined £300 if you receive credits you shouldn’t have.
+        tax_credits_going_abroad_helpline: |
+
+
+          $C
+          **Tax Credits Helpline**  
+          Telephone: 0345 300 3900  
+          Textphone: 0345 300 3909
+
+          Find out about [call charges](/call-charges). 
+          $C
+        tax_credits_already_abroad_helpline: |
+
+
+          $C
+          **Tax Credits Helpline**  
+          From outside the UK: +44 2890 538 192
+          $C
+
+        iidb_maybe_text: "continued to"
+
+# Q1
+      going_or_already_abroad?:
+        title: "Are you currently:"
+        options:
+          going_abroad: "in the UK and planning to move abroad"
+          already_abroad: "someone who has lived and worked in the UK who is now living abroad"
+
+# Q2
+      which_benefit?:
+        title: Which benefit are you interested in?
+        options:
+          jsa: "Jobseeker’s Allowance (JSA)"
+          pension: "State Pension"
+          winter_fuel_payment: "Winter Fuel Payment"
+          maternity_benefits: "Maternity benefits"
+          child_benefits: "Child benefits"
+          iidb: "Industrial Injuries Disablement Benefit"
+          ssp: "Statutory Sick Pay (SSP)"
+          esa: "Employment and Support Allowance (ESA)"
+          disability_benefits: "Benefits for carers and people with disabilities "
+          bereavement_benefits: "Bereavement benefits"
+          tax_credits: "Tax credits"
+          income_support: "Income Support"
+
+# Q3a
+      jsa_how_long_abroad?:
+        title: If you’re claiming JSA, how long are you going abroad for?
+        body: |
+          *[JSA]: Jobseeker’s Allowance
+        options:
+          less_than_a_year_medical: "Less than 1 year, to get medical treatment for yourself or your child "
+          less_than_a_year_other: "Less than 1 year, for a different reason"
+          more_than_a_year: "More than 1 year"
+
+# Q3b
+      channel_islands?:
+        title: %{channel_islands_question_titles}
+        options:
+          guernsey_jersey: "%{channel_islands_prefix} Guernsey or Jersey"
+          abroad: "Abroad"
+
+# Q3c
+      which_country_jsa?:
+        title: %{question_titles}
+
+# Q4
+      which_country_wfp?:
+        title: %{question_titles}
+
+# Q5
+      which_country_maternity_benefits?:
+        title: %{question_titles}
+
+# Q6
+      working_for_a_uk_employer?:
+        title: |
+          Are you working for a UK employer and paying Class 1 National Insurance Contributions?
+        body: |
+          If you're unsure you can read our [National Insurance Guide](/national-insurance/how-much-national-insurance-you-pay).
+
+# Q7
+      eligible_for_smp?:
+        title: Are you eligible for Statutory Maternity Pay?
+        body: |
+          If you're unsure you can read our [Maternity pay and leave guide](/statutory-maternity-pay#eligibility)
+
+# Q8 
+      employer_paying_ni?:
+        title: |
+          Is your employer paying National Insurance contributions for you?
+
+# Q9
+      which_country_child_benefits?:
+        title: %{question_titles}
+
+# Q10
+      do_either_of_the_following_apply?:
+        title: Do either of the following apply to you?
+        body: |
+          * you’re paying National Insurance contributions in the UK
+          * you’re currently receiving at least one of the following UK benefits (Jobseeker's Allowance, Incapacity Benefit, Employment and Support Allowance, State Pension, Widows/Bereavement Benefit or Industrial Injuries Disablement Benefit)
+
+# Q11
+      which_country_ssp?:
+        title: %{question_titles}
+
+# Q12
+      working_for_uk_employer_ssp?:
+        title: Are you working for a UK employer?
+
+# Q13
+      employer_paying_ni_ssp?:
+        title: Is your employer paying National Insurance contributions for you?
+
+# Q14
+      eligible_for_tax_credits?:
+        title: Are you or your partner one of the following?
+        options:
+          crown_servant: A Crown servant
+          cross_border_worker: A cross-border worker
+          none_of_the_above: None of the above
+        hint: |
+          A Crown servant is someone who works for the UK government.
+
+          A cross-border worker is someone who regularly travels to or from another country to work.
+
+# Q15
+      tax_credits_how_long_abroad?:
+        title: %{how_long_question_titles}
+        options:
+          tax_credits_up_to_a_year: Up to 1 year
+          tax_credits_more_than_a_year: More than 1 year
+
+# Q16
+      tax_credits_children?:
+        title: Do you have any children?
+
+# Q17
+      which_country_tax_credits?:
+        title: %{question_titles}
+
+# Q18
+      tax_credits_currently_claiming?:
+        title: Are you currently claiming any of the following?
+        body: |
+          - State Pension
+          - Incapacity Benefit
+          - Widow’s Benefit
+          - Bereavement Benefit
+          - Industrial Injuries Disablement Benefit
+          - contribution-based Employment and Support Allowance
+          - Severe Disablement Allowance
+
+# Q19
+      tax_credits_why_going_abroad?:
+        title: Why are you going abroad?
+        options:
+          tax_credits_holiday: A holiday or business trip
+          tax_credits_medical_treatment: For medical treatment for yourself, your partner or your child
+          tax_credits_death: Because of the death of your partner, child or close family member
+
+# Q20
+      esa_how_long_abroad?:
+        title: %{how_long_question_titles}
+        options:
+          esa_under_a_year_medical: Less than 1 year, to get medical treatment for yourself or your child
+          esa_under_a_year_other: Less than 1 year, for a different reason
+          esa_more_than_a_year: More than 1 year%{already_abroad_text_two}
+
+# Q21
+      which_country_esa?:
+        title: %{question_titles}
+
+# Q22
+      iidb_already_claiming?:
+        title: Are you already claiming Industrial Injuries Disablement Benefit?
+
+# Q23
+      which_country_iidb?:
+        title: %{question_titles}
+
+# Q24
+      db_how_long_abroad?:
+        title: %{how_long_question_titles}
+        options:
+          temporary: Temporarily, eg for a holiday
+          permanent: Permanently
+
+# Q25
+      which_country_disability?:
+        title: %{question_titles}
+
+# Q26
+      db_claiming_benefits?:
+        title: |
+          Are you or a family member getting State Pension, Industrial Injuries Benefit, ESA (contributory) or bereavement benefits?
+
+# Q27
+      which_country_bereavement_benefits?:
+        title: %{question_titles}
+
+# Q28
+      is_how_long_abroad?:
+        title: How long are you going abroad for?
+        options:
+          is_under_a_year_medical: Less than 1 year, to get medical treatment for you or your child 
+          is_under_a_year_other: Less than 1 year, for a different reason
+          is_more_than_a_year: More than 1 year
+        hint: You can’t apply for Income Support from abroad.
+
+# Q29
+      is_claiming_benefits?:
+        title: | 
+          Are you travelling abroad with a partner who is getting Income Support with one of the following premiums:
+        body: |
+          - the [Pensioner premium](/income-support/what-youll-get)
+          - the [Higher Pensioner premium](/income-support/what-youll-get)
+          - the [Disability premium](/disability-premiums-income-support/eligibility)
+          - the [Severe Disability premium](/disability-premiums-income-support/eligibility)
+        hint: | 
+          Your partner must be getting the premium, not you.
+
+# Q30
+      is_either_of_the_following?:
+        title: "Are you getting Income Support while either:"
+        body: |
+          - getting [Statutory Sick Pay](/statutory-sick-pay/)
+          - incapable of work, but being treated as capable of work because you are temporarily disqualified from receiving Income Support
+
+# Q31
+      is_abroad_for_treatment?:
+        title: | 
+          Are you going abroad to get medical treatment for the illness or disability that prevents you from working?
+
+# Q32
+      is_work_or_sick_pay?:
+        title: |
+          Have you been unable to work or received Statutory Sick Pay for one of the following:
+        body: |
+          - 364 days
+          - 196 days if you’re terminally ill, or getting the highest rate of Disability Living Allowance (care component) or the enhanced rate of Personal Independence Payment (daily living component)
+
+# Q33
+      is_any_of_the_following_apply?:
+        title: "Are you one of the following:"
+        body: |
+          - affected by a trades dispute (eg on strike)
+          -  age 16 to 19 and in full-time secondary education
+          - appealing against a decision about your ability to work
+
+
+# A1
+      jsa_less_than_a_year_medical_outcome:
+        body: |
+          You can carry on getting income-related or contribution-based JSA for up to 26 weeks.
+
+          Tell your local [Jobcentre Plus](/contact-jobcentre-plus) before you go.
+
+          *[JSA]: Jobseeker’s Allowance
+# A2
+      jsa_less_than_a_year_other_outcome:
+        body: |
+          You can carry on getting income-related or contribution-based JSA for up to 4 weeks.
+
+          Tell your local [Jobcentre Plus](/contact-jobcentre-plus) before you go.
+
+          *[JSA]: Jobseeker’s Allowance
+# A3
+      jsa_eea_going_abroad_outcome:
+        body: |
+          You can get contribution-based JSA for up to 3 months if you are going abroad to look for work and you:
+
+          - are entitled to it on the day you go abroad
+          - register as a jobseeker at least 4 weeks before you leave
+          - are looking for work in the UK up to the day you leave
+          - register at the equivalent of a Jobcentre in the country you're going to
+          - follow the other country's rules on registering and looking for work
+
+          Tell your local [Jobcentre Plus](/contact-jobcentre-plus) that you want to move and get JSA while you’re abroad. They’ll give you form U2, which will allow you to register with the unemployment services in %{country_name}.
+
+          *[JSA]: Jobseeker’s Allowance
+# A4
+      jsa_eea_already_abroad_outcome:
+        body: |
+          You can’t get JSA while you’re abroad. You may qualify for unemployment benefits in %{country_name} because of the agreements between [EEA countries](/claiming-benefits-move-travel-abroad/where-you-can-claim-benefits) and Switzerland. 
+
+          Ask the authorities in %{country_name} about any benefits you might be entitled to.
+
+          *[JSA]: Jobseeker’s Allowance
+# A5
+      jsa_social_security_going_abroad_outcome:
+        body: |
+          You can’t get JSA while you’re abroad. Your UK National Insurance contributions may help you qualify for unemployment benefits because of the UK’s social security agreements with %{country_name}.
+
+          Ask the authorities in %{country_name} about any benefits you might be entitled to.
+
+          *[JSA]: Jobseeker’s Allowance
+# A6
+      jsa_social_security_already_abroad_outcome:
+        body: |
+          You can’t get JSA abroad. You may qualify for unemployment benefits because of the agreements between the [EEA countries](/claiming-benefits-move-travel-abroad/where-you-can-claim-benefits) and Switzerland. 
+
+          Ask the authorities in %{country_name} about any benefits you might be entitled to.
+
+          *[JSA]: Jobseeker’s Allowance
+# A7
+      jsa_not_entitled_outcome:
+        body: |
+          You can’t get JSA abroad.
+
+          Ask the authorities in %{country_name} about any benefits you might be entitled to.
+
+          *[JSA]: Jobseeker’s Allowance
+# A8
+      pension_going_abroad_outcome:
+        body: |
+          You can carry on getting your [State Pension while you’re abroad](/state-pension-if-you-retire-abroad). Contact the [International Pension Centre](/international-pension-centre) to find out how moving abroad will affect your pension.
+# A9
+      pension_already_abroad_outcome:
+        body: |
+          You can get your [State Pension while you’re abroad](/state-pension-if-you-retire-abroad/how-to-claim).
+
+# A10
+      wfp_eea_eligible_outcome:
+        body: |
+          You can get Winter Fuel Payments %{already_abroad_text} if you have a genuine link with the UK, eg if you’ve lived and worked in the UK for most of your life.   
+
+          You must be living in an [EEA country](/claiming-benefits-move-travel-abroad/where-you-can-claim-benefits) or Switzerland during the 3rd week of September immediately before the winter you’re claiming the Winter Fuel Payment for.
+
+          Contact the [International Pension Centre](/international-pension-centre) to transfer your claim abroad.
+
+# A11
+      wfp_not_eligible_outcome:
+        body: |
+          You can’t get Winter Fuel Payments while you’re abroad.
+
+          You must be living in an [EEA country](/claiming-benefits-move-travel-abroad/where-you-can-claim-benefits) or Switzerland during the 3rd week of September immediately before the winter you’re claiming the Winter Fuel Payment for.
+
+# A12
+      maternity_benefits_maternity_allowance_outcome:
+        body: |
+          You can’t get Statutory Maternity Pay%{already_abroad_text}.
+
+          You may be able to get [Maternity Allowance](/maternity-allowance).
+
+          Contact the [International Pension Centre](/international-pension-centre) with any questions about how to start or continue claiming while abroad.
+
+# A13
+      maternity_benefits_eea_entitled_outcome:
+        body: |
+          You can [get Statutory Maternity Pay](/statutory-maternity-pay#how-to-claim).
+
+          Contact the [International Pension Centre](/international-pension-centre) to claim Statutory Maternity Pay from abroad.
+
+# A14
+      maternity_benefits_social_security_going_abroad_outcome:
+        body: |
+          You can’t get Statutory Maternity Pay if you go abroad.
+
+          You may be able to get [Maternity Allowance](/maternity-allowance).
+
+          Contact the [International Pension Centre](/international-pension-centre) to find out if you qualify. 
+# A15
+      maternity_benefits_social_security_already_abroad_outcome:
+        body: |
+          You can’t get Statutory Maternity Pay while you’re abroad.
+
+          You may be able to get [Maternity Allowance](/maternity-allowance).
+
+          Contact the [International Pension Centre](/international-pension-centre) to find out if you qualify. 
+
+# A16
+      maternity_benefits_not_entitled_outcome:
+        body: |
+          You can’t get UK Statutory Maternity Pay or Maternity Allowance.
+
+# A17
+      child_benefits_fy_going_abroad_outcome:
+        body: |
+          There is a social security agreement between the UK and %{country_name}. You may be able to get Child Benefit abroad if you (or your spouse if you go with them): 
+
+          - go to work in %{country_name}
+          - continue to pay National Insurance contributions
+
+          The UK and %{country_name} can count time you spend living or working in the other country when deciding if you qualify for benefits there.
+
+          Contact the [International Pension Centre](/international-pension-centre) to find out how to claim abroad.
+
+# A18
+      child_benefits_fy_already_abroad_outcome:
+        body: |
+          There is a social security agreement between the UK and %{country_name}. You may be able to get Child Benefit abroad.
+
+          Contact the [International Pension Centre](/international-pension-centre) to find out how to claim abroad.
+
+# A19
+      child_benefits_ss_outcome:
+        body: |
+          There is a social security agreement between the UK and %{country_name}. You may be able to get [Child Benefit](/child-benefit/) abroad.
+
+          Contact the [International Pension Centre](/international-pension-centre) to find out if you can get Child Benefit in %{country_name}.
+
+          If you’re responsible for a child whose parents have died, and you’re getting Child Benefit for them, you may also be able to claim [Guardian’s Allowance](/guardians-allowance).
+
+# A20
+      child_benefits_jtu_outcome:
+        body: |
+          You can’t get Child Benefit in %{country_name}. If you’re responsible for a child whose parents have died, you may be able to claim UK [Guardian’s Allowance](/guardians-allowance) there.
+
+          Contact the [International Pension Centre](/international-pension-centre) to check if you’re eligible.
+
+# A21
+      child_benefits_entitled_outcome:
+        body: |
+          You should be able to get Child Benefit for a child or children living with you.
+
+          If you’re looking after a child whose parents have died and you’re getting Child Benefit for them, you may also be able to claim [Guardian’s Allowance](/guardians-allowance).
+
+          Contact the [International Pension Centre](/international-pension-centre) to get Child Benefit or Guardian’s Allowance%{already_abroad_text}.
+
+# A22
+      child_benefits_not_entitled_outcome:
+        body: |
+          You can’t get Child Benefit unless your circumstances change.
+
+      income_support_already_abroad_outcome:
+        body: |
+          You can’t apply for Income Support while you’re abroad.
+
+          Ask the authorities in the country you live in about any benefits you might be entitled to.
+
+# A23
+      ssp_going_abroad_entitled_outcome:
+        body: |
+          You can export your Statutory Sick Pay. [Claim Statutory Sick Pay](/statutory-sick-pay-ssp/how-to-claim) the usual way, or talk to your employer about exporting it.
+
+# A24
+      ssp_already_abroad_entitled_outcome:
+        body: |
+          You can [claim Statutory Sick Pay](/statutory-sick-pay-ssp#how-to-claim).
+
+# A25
+      ssp_going_abroad_not_entitled_outcome:
+        body: |
+          You can’t get Statutory Sick Pay while you’re abroad. 
+
+          You may be able to get benefits from %{country_name} if you’ve paid into a social security insurance scheme there.
+
+# A26
+      ssp_already_abroad_not_entitled_outcome:
+        body: |
+          You can’t claim Statutory Sick Pay.
+
+          You may be able to get benefits from %{country_name} if you’ve paid into a social security insurance scheme there.
+
+# A27
+      tax_credits_crown_servant_outcome:
+        body: |
+          You may be able to get tax credits while you’re abroad.
+
+          Contact the Tax Credits Helpline to claim.
+
+          %{tax_credits_crown_servant}
+
+# A28
+      tax_credits_cross_border_worker_outcome:
+        body: |
+          %{tax_credits_cross_border_worker}
+
+          *[EEA]: European Economic Area
+
+# A29
+      tax_credits_unlikely_outcome:
+        body: |
+          You’re unlikely to get tax credits unless your circumstances change. 
+
+          Find out if you’re [eligible to claim tax credits](/claim-tax-credits#eligibility).
+
+# A30
+      tax_credits_eea_entitled_outcome:
+        body: |
+          You may qualify for Child Tax Credit.
+
+          Contact the Tax Credits Helpline to claim.
+
+          $C
+          **Tax Credits Helpline**  
+          Telephone: 0345 300 3900  
+          Textphone: 0345 300 3909
+
+          Find out about [call charges](/call-charges).
+          $C
+
+# A31
+      tax_credits_holiday_outcome:
+        body: |
+          %{tax_credits_holiday}
+# A32
+      tax_credits_medical_death_outcome:
+        body: |
+          %{tax_credits_medical_death}
+
+# A33
+      esa_going_abroad_under_a_year_medical_outcome:
+        body: |
+          You may be able to carry on getting income-related or contribution-based ESA for up to 26 weeks if the medical treatment is for the disease or disability for which you’re getting ESA.
+
+          There is no 26 week limit for NHS-funded treatment abroad.
+
+          Tell your local [Jobcentre Plus](/contact-jobcentre-plus) before you go.
+
+          *[ESA]: Employment and Support Allowance
+
+# A34
+      esa_already_abroad_under_a_year_medical_outcome:
+        body: |
+          You can carry on getting  ESA for up to 4 weeks.
+
+          You may able to get ESA for a longer temporary absence if you’re the family member of a Crown servant - someone who works for the UK government abroad.
+
+          Tell your local [Jobcentre Plus](/contact-jobcentre-plus) before you go.
+
+# A35
+      esa_going_abroad_under_a_year_other_outcome:
+        body: |
+          You can’t start getting ESA while temporarily abroad.
+
+          You can carry on getting income-related or contribution-based ESA for up to 26 weeks after leaving the UK if you were already receiving it before you left and the medical treatment is for the disease or disability for which you’re getting ESA.
+
+          You must have told your local [Jobcentre Plus](/contact-jobcentre-plus) before you left.
+
+          There is no 26 week limit for NHS-funded treatment abroad.
+
+          You may be able to get benefits from the country you are living in if you’ve been paying into a local security insurance scheme. Contact the local authorities to find out more.
+
+          *[ESA]: Employment and Support Allowance
+# A36
+      esa_already_abroad_under_a_year_other_outcome:
+        body: |
+          You can’t start getting ESA while temporarily abroad.
+
+          You can carry on getting income-related or contribution-based ESA for up to 4 weeks after you leave the UK if you were already receiving it before you left.
+
+          You may able to get ESA for a longer temporary absence if you’re the family member of a Crown servant - someone who works for the UK government abroad.
+
+          Tell your local [Jobcentre Plus](/contact-jobcentre-plus) before you go.
+
+          *[ESA]: Employment Support Allowance
+
+# A37
+      esa_going_abroad_eea_outcome:
+        body: |
+          You may be able to continue getting contribution-based ESA abroad if you’ve paid enough National Insurance contributions.  
+
+          Contact your local [Jobcentre Plus](/contact-jobcentre-plus) to check your contribution levels.
+
+          *[ESA]: Employment Support Allowance
+
+# A38
+      esa_already_abroad_eea_outcome:
+        body: |
+          You may be able to get ESA while abroad.  
+
+          Contact the [International Pension Centre](/international-pension-centre) to get ESA.
+
+          You may be able to get benefits from %{country_name} if you’ve been paying into a local social security insurance scheme.  Contact the local authorities to find out more.
+
+# A39
+      esa_going_abroad_other_outcome:
+        body: |
+          You can’t claim ESA. 
+
+          You may be able to get benefits from %{country_name} if you’ve paid into a local social security insurance scheme.
+
+          *[ESA]: Employment Support Allowance
+# A40
+      esa_already_abroad_other_outcome:
+        body: |
+          You can’t claim ESA. If you were receiving [Incapacity Benefit](/incapacity-benefit) while living in %{country_name}, you may be asked to transition from Incapacity Benefit to ESA (contributory).  
+
+          You may also be able to get benefits from %{country_name} if you’ve paid into a local social security insurance scheme. Contact the local authorities to find out more.
+
+# A41
+      iidb_maybe_outcome:
+        body: |
+          You may be able to get Industrial Injuries Disablement Benefit if you %{iidb_maybe} pay UK National Insurance while working in an [EEA country](/claiming-benefits-move-travel-abroad/where-you-can-claim-benefits).
+
+          This benefit is also covered by social security agreements. Your UK social security payments may help you qualify for benefits in:
+
+          - Barbados  
+          - Bermuda  
+          - Israel  
+          - Jamaica  
+          - Jersey and Guernsey  
+          - Mauritius  
+          - The Philippines  
+          - the republics of the former Yugoslavia  
+          - Turkey
+
+          Contact the [International Pension Centre](/international-pension-centre) to claim and for the records you need to qualify for another country’s benefits.
+# A42
+      iidb_going_abroad_eea_outcome:
+        body: |
+          You can carry on getting Industrial Injuries Disablement Benefit. 
+
+          Tell the office that deals with your benefit that you’re planning to move abroad.
+
+# A43
+      iidb_already_abroad_eea_outcome:
+        body: |
+          You can carry on getting Industrial Injuries Disablement Benefit.
+
+          Contact the [International Pension Centre](/international-pension-centre) with any questions about receiving Industrial Injuries Disablement Benefit while you’re abroad.
+
+# A44 
+      iidb_going_abroad_ss_outcome:
+        body: |
+          The UK and %{country_name} have a social security agreement. You may be able to carry on getting Industrial Injuries Disablement Benefit.
+
+          Tell the office that deals with your benefit that you’re planning to move abroad.
+
+# A45
+      iidb_already_abroad_ss_outcome:
+        body: |
+          You may be able to carry on getting Industrial Injuries Disablement Benefit.
+
+          Contact the [International Pension Centre](/international-pension-centre) for more information about claiming from abroad.
+
+# A46
+      iidb_going_abroad_other_outcome:
+        body: |
+          You can’t get Industrial Injuries Disablement Benefit while you’re abroad. 
+
+          Tell the office that deals with your benefit that you’re planning to move abroad.
+
+# A47
+      iidb_already_abroad_other_outcome:
+        body: |
+          You can’t get Industrial Injuries Disablement Benefit abroad. 
+
+          Tell the office that dealt with your benefit that you’ve moved abroad.
+
+# A48
+      db_going_abroad_temporary_outcome:
+        body: |
+          You can carry on getting Attendance Allowance, Disability Living Allowance or Personal Independence Payment for up to 13 weeks - possibly longer if you’re going abroad for medical treatment. You can get Carer’s Allowance if you take up to 4 weeks holiday out of a 26-week period.
+
+          Tell the [Exportability Team](/exportability-team) at the Pension, Disability and Carers Service that you’re going abroad.
+# A49
+      db_already_abroad_temporary_outcome:
+        body: |
+          You can continue getting Attendance Allowance, Disability Living Allowance or Personal Independence Payment for up to 13 weeks - possibly longer if you’re abroad for medical treatment. You can claim Carer’s Allowance if you take up to 4 weeks holiday out of a 26-week period.  
+
+          You must have told the [Exportability Team](/exportability-team) at the Pension, Disability and Carers Service before you left.
+
+# A50
+      db_going_abroad_other_outcome:
+        body: |
+          You can’t get these benefits abroad.
+
+          You may be able to get benefits from the country you’re moving to if you’ve paid into that country’s social security insurance scheme.
+# A51
+      db_already_abroad_other_outcome:
+        body: |
+          You can’t get these benefits abroad:
+
+          * Attendance Allowance
+          * Carer’s Allowance
+          * Disability Living Allowance
+          * Personal Independence Payment
+
+          You may be able to get benefits from %{country_name} if you’ve been paying into a local insurance scheme.  Contact the local authorities to find out if you qualify.
+# A52
+      db_going_abroad_eea_outcome:
+        body: |
+          You can carry on getting Attendance Allowance, Carer’s Allowance, PIP (daily living component) or Disability Living Allowance (care component) as appropriate if you have a genuine link to the UK.
+
+          The mobility portion of PIP and DLA are not exportable.
+
+          Tell the [Exportability Team](/exportability-team) at the Pension, Disability and Carers Service that you’re moving abroad.
+
+          *[PIP]: Personal Independence Payment
+
+# A53
+      db_already_abroad_eea_outcome:
+        body: |
+          You may get Attendance Allowance, Carer’s Allowance, PIP (daily living component) or the care component of Disability Living Allowance as appropriate if you have a genuine link to the UK.
+
+          [Contact the Exportability Team](/exportability-team) at the Department for Work and Pensions to claim these.
+
+          *[PIP]: Personal Independence Payment
+
+# A54
+      bb_going_abroad_eea_outcome:
+        body: |
+          You can usually export bereavement benefits to %{country_name}.
+
+          Claim [Bereavement Allowance](/bereavement-allowance#how-to-claim), [Bereavement Payment](/bereavement-payment#how-to-claim) or [Widowed Parent’s Allowance](/widowed-parents-allowance#how-to-claim) as appropriate before you leave the UK.
+
+          Once you have claimed bereavement benefits, [contact the International Pension Centre](/international-pension-centre) to export them.
+
+# A54
+      bb_already_abroad_eea_outcome:
+        body: |
+          You can get Bereavement Allowance, Bereavement Payment or Widowed Parent’s Allowance as appropriate.
+
+          Find out how to claim:
+
+          - [Bereavement Allowance](/bereavement-allowance#how-to-claim)
+          - [Bereavement Payment](/bereavement-payment#how-to-claim)
+          - [Widowed Parent’s Allowance](/widowed-parents-allowance#how-to-claim)
+
+# A56
+      bb_going_abroad_ss_outcome:
+        body: |
+          You may be able to export bereavement benefits to %{country_name}.
+
+          Claim [Bereavement Allowance](/bereavement-allowance#how-to-claim), [Bereavement Payment](/bereavement-payment#how-to-claim) or [Widowed Parent’s Allowance](/widowed-parents-allowance#how-to-claim) as appropriate before leaving the UK.
+
+          Once you have claimed bereavement benefits, [contact the International Pension Centre](/international-pension-centre) to find out if you can export them.
+
+# A57
+      bb_already_abroad_ss_outcome:
+        body: |
+          You can claim Bereavement Allowance, Bereavement Payment or Widowed Parent’s Allowance as appropriate.
+
+          Find out how to claim:
+
+          - [Bereavement Allowance](/bereavement-allowance#how-to-claim)
+          - [Bereavement Payment](/bereavement-payment#how-to-claim)
+          - [Widowed Parent’s Allowance](/widowed-parents-allowance#how-to-claim)
+
+# A58
+      bb_going_abroad_other_outcome:
+        body: |
+          You can’t export your bereavement benefits to %{country_name}.
+# A59
+      bb_already_abroad_other_outcome:
+        body: |
+          You can’t claim bereavement benefits while you’re abroad.
+
+# A60
+      is_under_a_year_medical_outcome:
+        body: |
+          You may be able to carry on getting Income Support for up to 8 weeks if your child is receiving medical treatment.
+
+          You can’t get Income Support while you’re abroad if you’re going for treatment for yourself.
+
+          There is no 8 week limit for NHS-funded treatment abroad for either you or your child.
+
+          Tell your local [Jobcentre Plus](/contact-jobcentre-plus) before you go.
+
+# A61
+      is_more_than_a_year_outcome:
+        body: |
+          You can’t get Income Support abroad if you’re moving abroad for more than 1 year. 
+
+# A62
+      is_claiming_benefits_outcome:
+        body: |
+          You can carry on getting Income Support for the first 4 weeks that you’re abroad.
+
+          Tell your local [Jobcentre Plus](/contact-jobcentre-plus) before you go.
+
+# A63
+      is_abroad_for_treatment_outcome:
+        body: |
+          You can carry on getting Income Support for up to 4 weeks while you’re abroad.
+
+          Tell your local [Jobcentre Plus](/contact-jobcentre-plus) before you go.
+
+# A64
+      is_not_eligible_outcome:
+        body: |
+          You can’t get Income Support while you’re abroad.
+
+# A65
+      is_already_abroad_outcome:
+        body: |
+          You can’t apply for Income Support while you’re abroad.
+
+          Ask the authorities in the country you live in about any benefits you might be entitled to.
