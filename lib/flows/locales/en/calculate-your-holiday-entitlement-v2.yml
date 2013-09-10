@@ -61,13 +61,16 @@ en-GB:
       
       # Q1
       basis_of_calculation?:
-        title: "Do you want to work out holiday based on:"
+        title: "Is the holiday entitlement based on:"
+        hint: |
+          Check the employment contract if you’re not sure about the holiday entitlement.
       # Q2
       calculation_period?:
         title: "Do you want to work out holiday:"
       # Q3
       how_many_days_per_week?:
         title: Number of days worked per week?
+        hint: If you work half-days enter .5 for a half, eg 3.5
       # Q4
       what_is_your_starting_date?:
         title: What was the employment start date?
@@ -77,9 +80,9 @@ en-GB:
 
       how_many_hours_per_week?:
         title: Number of hours worked per week?
-      
+      # Q13
       compressed_hours_how_many_hours_per_week?:
-        title: How many hours per week will be worked?
+        title: How many hours are worked per week?
         label: Hours per week
         error_message: There are only 168 hours in a week. Please check and enter a correct value.
 
@@ -87,9 +90,9 @@ en-GB:
         title: Number of days per week worked?
         label: Days per week
         error_message: There are only 7 days in a week. Please check and enter a correct value.
-
+      # Q11
       casual_or_irregular_hours?:
-        title: How many hours have been worked?
+        title: How many hours have been worked in this leave year?
         hint: The holiday entitlement may be calculated as the leave builds up ('accrues') for each hour worked.
         label: Hours worked
         error_message: You need to enter a number greater than 0
@@ -113,9 +116,10 @@ en-GB:
         title: How many shifts will be worked per shift pattern?
         label: Shifts per pattern
         error_message: You need to enter a number greater than 0
-
+      # Q20
       shift_worker_days_per_shift_pattern?:
-        title: How many days per shift pattern?
+        title: How many days in the shift pattern?
+        hint: The shift pattern includes non-working days.
         label: Days per pattern
         error_message: You need to enter a number greater than or equal to the number of shifts you work
 
