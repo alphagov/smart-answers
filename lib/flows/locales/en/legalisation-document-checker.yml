@@ -82,7 +82,7 @@ en-GB:
 
           - an official certified copy of the certificate issued by the General Register Office (GRO) with the original seal
 
-          - an original certificate (or original certified copy) issued by a church, religious establishment or local register office, with the original signature of the official who issued the certificate  
+          - an original certificate (or original certified copy) issued by a church, religious establishment or local register office, with the original signature of the official who issued the certificate
 
           It can take longer to legalise a signature on an original certificate, especially if it was issued before 1991.
 
@@ -187,7 +187,7 @@ en-GB:
           Your %{document_type} must be issued by an institution that is accredited by either:
 
           - UK Border Agency
-          - Scottish Qualifications Authority  
+          - Scottish Qualifications Authority
           - OfQual
           - British Accreditation Council
           - Open and Distance Learning Quality Council
@@ -199,11 +199,11 @@ en-GB:
           - an official of the British Council (only original certificates)
 
           You may able to get your document certified at a British embassy. [Check if this service is offered](https://www.gov.uk/government/organisations/foreign-commonwealth-office/series/notarial-services) in the country you’re in.
-          
+
           ^A photocopy of your document can be legalised, but it must be certified.^
         medical_reports: |
           ##%{document_heading}
-          Your %{document_type} must be signed by a doctor registered with the [General Medical Council.](http://www.gmc-uk.org/doctors/register/LRMP.asp "Check if a doctor is registered with the General Medical Council"){:rel="external"} 
+          Your %{document_type} must be signed by a doctor registered with the [General Medical Council.](http://www.gmc-uk.org/doctors/register/LRMP.asp "Check if a doctor is registered with the General Medical Council"){:rel="external"}
 
           ^Your document can’t be legalised if it has been signed on behalf of your doctor by another doctor or member of staff.^
 
@@ -227,11 +227,11 @@ en-GB:
 
           - [solicitors in England and Wales](http://www.lawsociety.org.uk/home.law "solicitors in England and Wales"){:rel="external"}
 
-          - [notaries public in England and Wales](http://www.facultyoffice.org.uk/Notaries1.html "notaries Public in England and Wales"){:rel="external"} 
+          - [notaries public in England and Wales](http://www.facultyoffice.org.uk/Notaries1.html "notaries Public in England and Wales"){:rel="external"}
 
-          - [solicitors and notaries public in Scotland](http://www.lawscot.org.uk/ "solicitors and Notaries Public in Scotland"){:rel="external"} 
+          - [solicitors and notaries public in Scotland](http://www.lawscot.org.uk/ "solicitors and Notaries Public in Scotland"){:rel="external"}
 
-          - [solicitors and notaries public in Northern Ireland](http://www.lawsoc-ni.org/ "solicitors and notaries public in Northern Ireland"){:rel="external"} 
+          - [solicitors and notaries public in Northern Ireland](http://www.lawsoc-ni.org/ "solicitors and notaries public in Northern Ireland"){:rel="external"}
 
 
 
