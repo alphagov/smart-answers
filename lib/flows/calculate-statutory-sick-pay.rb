@@ -56,15 +56,15 @@ date_question :last_sick_day? do
 
   next_node do |response|
     start_date = Date.parse(sick_start_date)
-    end_date = Date.parse(response)
-    days = (end_date - start_date).to_i
+    last_day_sick = Date.parse(response)
+    days_sick = (last_day_sick - start_date).to_i
 
-    if days < 1
+    if days_sick < 1
       # invalid
       raise SmartAnswer::InvalidResponse
     end
 
-    days > 3 ? :last_payday_before_sickness? : :must_be_sick_for_4_days
+    days_sick > 3 ? :last_payday_before_sickness? : :must_be_sick_for_4_days
   end
 
 end
