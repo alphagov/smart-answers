@@ -57,7 +57,7 @@ date_question :last_sick_day? do
   next_node do |response|
     start_date = Date.parse(sick_start_date)
     last_day_sick = Date.parse(response)
-    days_sick = (last_day_sick - start_date).to_i
+    days_sick = (last_day_sick - start_date).to_i + 1
 
     if days_sick < 1
       # invalid
