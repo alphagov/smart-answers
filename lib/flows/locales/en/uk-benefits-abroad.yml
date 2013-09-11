@@ -58,7 +58,7 @@ en-GB:
 
           You could get Child Tax Credit if:
 
-          - you work in the UK and pay National Insurance contributions here
+          - you work in the UK and pay [National Insurance contributions](/national-insurance) here
           - your child lives in an EEA country or in Switzerland and depends on you to support them
 
           Contact the Tax Credits Helpline to claim.
@@ -588,7 +588,7 @@ en-GB:
 # A33
       esa_going_abroad_under_a_year_medical_outcome:
         body: |
-          You may be able to carry on getting income-related or contribution-based ESA for up to 26 weeks if the medical treatment is for the disease or disability for which you’re getting ESA.
+          You may be able to carry on getting [income-related or contribution-based ESA](/employment-support-allowance) for up to 26 weeks if the medical treatment is for the disease or disability for which you’re getting ESA.
 
           There is no 26 week limit for NHS-funded treatment abroad.
 
@@ -610,7 +610,7 @@ en-GB:
         body: |
           You can’t start getting ESA while temporarily abroad.
 
-          You can carry on getting income-related or contribution-based ESA for up to 26 weeks after leaving the UK if you were already receiving it before you left and the medical treatment is for the disease or disability for which you’re getting ESA.
+          You can carry on getting [income-related or contribution-based ESA](/employment-support-allowance) for up to 26 weeks after leaving the UK if you were already receiving it before you left and the medical treatment is for the disease or disability for which you’re getting ESA.
 
           You must have told your local [Jobcentre Plus](/contact-jobcentre-plus) before you left.
 
@@ -624,7 +624,7 @@ en-GB:
         body: |
           You can’t start getting ESA while temporarily abroad.
 
-          You can carry on getting income-related or contribution-based ESA for up to 4 weeks after you leave the UK if you were already receiving it before you left.
+          You can carry on getting [income-related or contribution-based ESA](/employment-support-allowance) for up to 4 weeks after you leave the UK if you were already receiving it before you left.
 
           You may able to get ESA for a longer temporary absence if you’re the family member of a Crown servant - someone who works for the UK government abroad.
 
@@ -635,7 +635,7 @@ en-GB:
 # A37
       esa_going_abroad_eea_outcome:
         body: |
-          You may be able to continue getting contribution-based ESA abroad if you’ve paid enough National Insurance contributions.  
+          You may be able to continue getting [contribution-based ESA](/employment-support-allowance) abroad if you’ve paid enough [National Insurance contributions](/national-insurance).  
 
           Contact your local [Jobcentre Plus](/contact-jobcentre-plus) to check your contribution levels.
 
@@ -668,7 +668,7 @@ en-GB:
 # A41
       iidb_maybe_outcome:
         body: |
-          You may be able to get Industrial Injuries Disablement Benefit if you %{iidb_maybe} pay UK National Insurance while working in an [EEA country](/claiming-benefits-move-travel-abroad/where-you-can-claim-benefits).
+          You may be able to get [Industrial Injuries Disablement Benefit](/industrial-injuries-disablement-benefit) if you %{iidb_maybe} pay UK National Insurance while working in an [EEA country](/claiming-benefits-move-travel-abroad/where-you-can-claim-benefits).
 
           This benefit is also covered by social security agreements. Your UK social security payments may help you qualify for benefits in:
 
@@ -686,28 +686,91 @@ en-GB:
 # A42
       iidb_going_abroad_eea_outcome:
         body: |
-          You can carry on getting Industrial Injuries Disablement Benefit. 
+          You can carry on getting [Industrial Injuries Disablement Benefit](/industrial-injuries-disablement-benefit). 
 
           Tell the office that deals with your benefit that you’re planning to move abroad.
+
+          ##Industrial Injuries Disablement Benefit centres
+
+          ###Scotland, North West England, East of England, South East England and London
+
+          Telephone: 0845 603 1358  
+          Textphone: 0845 608 8551
+
+
+
+          $A
+          Jobcentre Plus Barrow IIDB Centre 
+          Pittman Way 
+          Preston 
+          PR11 2AB 
+          $A
+
+          ###Yorkshire and the Humber, North East England, East and West Midlands, South West England and Wales
+
+          Telephone: 0845 758 5433  
+          Textphone: 0845 608 8551
+
+
+
+          $A
+          Jobcentre Plus Barnsley IIDB Centre 
+          Brightside Lane 
+          Sheffield 
+          S99 1AB 
+          $A
+
+          Find out about [call charges](/call-charges).
 
 # A43
       iidb_already_abroad_eea_outcome:
         body: |
-          You can carry on getting Industrial Injuries Disablement Benefit.
+          You can carry on getting [Industrial Injuries Disablement Benefit](/industrial-injuries-disablement-benefit).
 
           Contact the [International Pension Centre](/international-pension-centre) with any questions about receiving Industrial Injuries Disablement Benefit while you’re abroad.
 
 # A44 
       iidb_going_abroad_ss_outcome:
         body: |
-          The UK and %{country_name} have a social security agreement. You may be able to carry on getting Industrial Injuries Disablement Benefit.
+          The UK and %{country_name} have a social security agreement. You may be able to carry on getting [Industrial Injuries Disablement Benefit](/industrial-injuries-disablement-benefit).
 
           Tell the office that deals with your benefit that you’re planning to move abroad.
 
+          ##Industrial Injuries Disablement Benefit centres
+
+          ###Scotland, North West England, East of England, South East England and London
+
+          Telephone: 0845 603 1358  
+          Textphone: 0845 608 8551
+
+
+
+          $A
+          Jobcentre Plus Barrow IIDB Centre 
+          Pittman Way 
+          Preston 
+          PR11 2AB 
+          $A
+
+          ###Yorkshire and the Humber, North East England, East and West Midlands, South West England and Wales
+
+          Telephone: 0845 758 5433  
+          Textphone: 0845 608 8551
+
+
+
+          $A
+          Jobcentre Plus Barnsley IIDB Centre 
+          Brightside Lane 
+          Sheffield 
+          S99 1AB 
+          $A
+
+          Find out about [call charges](/call-charges).
 # A45
       iidb_already_abroad_ss_outcome:
         body: |
-          You may be able to carry on getting Industrial Injuries Disablement Benefit.
+          You may be able to carry on getting [Industrial Injuries Disablement Benefit](/industrial-injuries-disablement-benefit).
 
           Contact the [International Pension Centre](/international-pension-centre) for more information about claiming from abroad.
 
@@ -718,12 +781,77 @@ en-GB:
 
           Tell the office that deals with your benefit that you’re planning to move abroad.
 
+          ##Industrial Injuries Disablement Benefit centres
+
+          ###Scotland, North West England, East of England, South East England and London
+
+          Telephone: 0845 603 1358  
+          Textphone: 0845 608 8551
+
+
+
+          $A
+          Jobcentre Plus Barrow IIDB Centre 
+          Pittman Way 
+          Preston 
+          PR11 2AB 
+          $A
+
+          ###Yorkshire and the Humber, North East England, East and West Midlands, South West England and Wales
+
+          Telephone: 0845 758 5433  
+          Textphone: 0845 608 8551
+
+
+
+          $A
+          Jobcentre Plus Barnsley IIDB Centre 
+          Brightside Lane 
+          Sheffield 
+          S99 1AB 
+          $A
+
+          Find out about [call charges](/call-charges).
+
+
 # A47
       iidb_already_abroad_other_outcome:
         body: |
           You can’t get Industrial Injuries Disablement Benefit abroad. 
 
           Tell the office that dealt with your benefit that you’ve moved abroad.
+
+          ##Industrial Injuries Disablement Benefit centres
+
+          ###Scotland, North West England, East of England, South East England and London
+
+          Telephone: 0845 603 1358  
+          Textphone: 0845 608 8551
+
+
+
+          $A
+          Jobcentre Plus Barrow IIDB Centre 
+          Pittman Way 
+          Preston 
+          PR11 2AB 
+          $A
+
+          ###Yorkshire and the Humber, North East England, East and West Midlands, South West England and Wales
+
+          Telephone: 0845 758 5433  
+          Textphone: 0845 608 8551
+
+
+
+          $A
+          Jobcentre Plus Barnsley IIDB Centre 
+          Brightside Lane 
+          Sheffield 
+          S99 1AB 
+          $A
+
+          Find out about [call charges](/call-charges).
 
 # A48
       db_going_abroad_temporary_outcome:
