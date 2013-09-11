@@ -36,9 +36,9 @@ en-GB:
 
           ##Working Tax Credit
 
-          You could get this if you either:
+          You could get [Working Tax Credit](/working-tax-credit) if you either:
 
-          - live in Switzerland or an EEA country and travel to the UK to work
+          - live in Switzerland or an [European Economic Area](http://www.companieshouse.gov.uk/about/miscellaneous/listeeaCountries.shtml) (EEA) country and travel to the UK to work
           - travel abroad to work, but are ‘ordinarily resident’ in the UK
 
           ^Ordinarily resident means you normally live in the UK, and plan to stay here for the time being.^
@@ -49,7 +49,7 @@ en-GB:
 
           You could get Working Tax Credit if you either:
 
-          - live in Switzerland or an EEA country and travel to the UK to work
+          - live in Switzerland or an [European Economic Area](http://www.companieshouse.gov.uk/about/miscellaneous/listeeaCountries.shtml) (EEA) country and travel to the UK to work
           - travel abroad to work, but are ‘ordinarily resident’ in the UK
 
           ^Ordinarily resident means you normally live in the UK, and plan to stay for the time being.^
@@ -84,9 +84,11 @@ en-GB:
           $C
           **Tax Credits Helpline**  
           Telephone: 0345 300 3900  
-          Textphone: 0345 300 3909
-
-          Find out about [call charges](/call-charges). 
+          Textphone: 0345 300 3909  
+          Outside the UK call +44 2890 538 192  
+          Monday to Friday, 8am to 8pm  
+          Saturday, 8am to 4pm  
+          Find out about [call charges](/call-charges)
           $C
         tax_credits_already_abroad_helpline: |
 
@@ -94,6 +96,8 @@ en-GB:
           $C
           **Tax Credits Helpline**  
           From outside the UK: +44 2890 538 192
+          Monday to Friday, 8am to 8pm  
+          Saturday, 8am to 4pm  
           $C
 
         iidb_maybe_text: "continued to"
@@ -113,7 +117,7 @@ en-GB:
           pension: "State Pension"
           winter_fuel_payment: "Winter Fuel Payment"
           maternity_benefits: "Maternity benefits"
-          child_benefits: "Child benefits"
+          child_benefit: "Child benefit"
           iidb: "Industrial Injuries Disablement Benefit"
           ssp: "Statutory Sick Pay (SSP)"
           esa: "Employment and Support Allowance (ESA)"
@@ -124,7 +128,8 @@ en-GB:
 
 # Q3a
       jsa_how_long_abroad?:
-        title: If you’re claiming JSA, how long are you going abroad for?
+        title: |
+          If you’re claiming JSA, how long are you going abroad for?
         body: |
           *[JSA]: Jobseeker’s Allowance
         options:
@@ -332,7 +337,7 @@ en-GB:
 # A1
       jsa_less_than_a_year_medical_outcome:
         body: |
-          You can carry on getting income-related or contribution-based JSA for up to 26 weeks.
+          You can carry on getting [income-related or contribution-based JSA](/jobseekers-allowance) for up to 26 weeks.
 
           Tell your local [Jobcentre Plus](/contact-jobcentre-plus) before you go.
 
@@ -340,7 +345,7 @@ en-GB:
 # A2
       jsa_less_than_a_year_other_outcome:
         body: |
-          You can carry on getting income-related or contribution-based JSA for up to 4 weeks.
+          You can carry on getting [income-related or contribution-based JSA](/jobseekers-allowance) for up to 4 weeks.
 
           Tell your local [Jobcentre Plus](/contact-jobcentre-plus) before you go.
 
@@ -348,7 +353,7 @@ en-GB:
 # A3
       jsa_eea_going_abroad_outcome:
         body: |
-          You can get contribution-based JSA for up to 3 months if you are going abroad to look for work and you:
+          You can get [contribution-based JSA](/jobseekers-allowance) for up to 3 months if you're going abroad to look for work and you:
 
           - are entitled to it on the day you go abroad
           - register as a jobseeker at least 4 weeks before you leave
@@ -362,7 +367,7 @@ en-GB:
 # A4
       jsa_eea_already_abroad_outcome:
         body: |
-          You can’t get JSA while you’re abroad. You may qualify for unemployment benefits in %{country_name} because of the agreements between [EEA countries](/claiming-benefits-move-travel-abroad/where-you-can-claim-benefits) and Switzerland. 
+          You can’t get JSA while you’re abroad. You may qualify for unemployment benefits in %{country_name} because of the agreements between [EEA countries](http://www.companieshouse.gov.uk/about/miscellaneous/listeeaCountries.shtml) and Switzerland. 
 
           Ask the authorities in %{country_name} about any benefits you might be entitled to.
 
@@ -370,7 +375,7 @@ en-GB:
 # A5
       jsa_social_security_going_abroad_outcome:
         body: |
-          You can’t get JSA while you’re abroad. Your UK National Insurance contributions may help you qualify for unemployment benefits because of the UK’s social security agreements with %{country_name}.
+          You can’t get JSA while you’re abroad. Your [UK National Insurance contributions](/national-insurance) may help you qualify for unemployment benefits because of the UK’s social security agreements with %{country_name}.
 
           Ask the authorities in %{country_name} about any benefits you might be entitled to.
 
@@ -378,7 +383,7 @@ en-GB:
 # A6
       jsa_social_security_already_abroad_outcome:
         body: |
-          You can’t get JSA abroad. You may qualify for unemployment benefits because of the agreements between the [EEA countries](/claiming-benefits-move-travel-abroad/where-you-can-claim-benefits) and Switzerland. 
+          You can’t get JSA abroad. You may qualify for unemployment benefits because of the agreements between the [EEA countries](http://www.companieshouse.gov.uk/about/miscellaneous/listeeaCountries.shtml) and Switzerland. 
 
           Ask the authorities in %{country_name} about any benefits you might be entitled to.
 
@@ -405,7 +410,7 @@ en-GB:
         body: |
           You can get Winter Fuel Payments %{already_abroad_text} if you have a genuine link with the UK, eg if you’ve lived and worked in the UK for most of your life.   
 
-          You must be living in an [EEA country](/claiming-benefits-move-travel-abroad/where-you-can-claim-benefits) or Switzerland during the 3rd week of September immediately before the winter you’re claiming the Winter Fuel Payment for.
+          You must be living in an [EEA country](http://www.companieshouse.gov.uk/about/miscellaneous/listeeaCountries.shtml) or Switzerland during the 3rd week of September immediately before the winter you’re claiming the Winter Fuel Payment for.
 
           Contact the [International Pension Centre](/international-pension-centre) to transfer your claim abroad.
 
@@ -414,7 +419,7 @@ en-GB:
         body: |
           You can’t get Winter Fuel Payments while you’re abroad.
 
-          You must be living in an [EEA country](/claiming-benefits-move-travel-abroad/where-you-can-claim-benefits) or Switzerland during the 3rd week of September immediately before the winter you’re claiming the Winter Fuel Payment for.
+          You must be living in an [EEA country](http://www.companieshouse.gov.uk/about/miscellaneous/listeeaCountries.shtml) or Switzerland during the 3rd week of September immediately before the winter you’re claiming the Winter Fuel Payment for.
 
 # A12
       maternity_benefits_maternity_allowance_outcome:
@@ -455,7 +460,7 @@ en-GB:
           You can’t get UK Statutory Maternity Pay or Maternity Allowance.
 
 # A17
-      child_benefits_fy_going_abroad_outcome:
+      child_benefit_fy_going_abroad_outcome:
         body: |
           There is a social security agreement between the UK and %{country_name}. You may be able to get Child Benefit abroad if you (or your spouse if you go with them): 
 
@@ -467,39 +472,39 @@ en-GB:
           Contact the [International Pension Centre](/international-pension-centre) to find out how to claim abroad.
 
 # A18
-      child_benefits_fy_already_abroad_outcome:
+      child_benefit_fy_already_abroad_outcome:
         body: |
           There is a social security agreement between the UK and %{country_name}. You may be able to get Child Benefit abroad.
 
           Contact the [International Pension Centre](/international-pension-centre) to find out how to claim abroad.
 
 # A19
-      child_benefits_ss_outcome:
+      child_benefit_ss_outcome:
         body: |
           There is a social security agreement between the UK and %{country_name}. You may be able to get [Child Benefit](/child-benefit/) abroad.
 
           Contact the [International Pension Centre](/international-pension-centre) to find out if you can get Child Benefit in %{country_name}.
 
-          If you’re responsible for a child whose parents have died, and you’re getting Child Benefit for them, you may also be able to claim [Guardian’s Allowance](/guardians-allowance).
+          You may also be able to claim [Guardian’s Allowance](/guardians-allowance), if you’re responsible for a [child whose parents have died](/child-benefit-child-parent-dies/if-one-or-both-parents-die) and you’re getting Child Benefit for them.
 
 # A20
-      child_benefits_jtu_outcome:
+      child_benefit_jtu_outcome:
         body: |
           You can’t get Child Benefit in %{country_name}. If you’re responsible for a child whose parents have died, you may be able to claim UK [Guardian’s Allowance](/guardians-allowance) there.
 
           Contact the [International Pension Centre](/international-pension-centre) to check if you’re eligible.
 
 # A21
-      child_benefits_entitled_outcome:
+      child_benefit_entitled_outcome:
         body: |
           You should be able to get Child Benefit for a child or children living with you.
 
-          If you’re looking after a child whose parents have died and you’re getting Child Benefit for them, you may also be able to claim [Guardian’s Allowance](/guardians-allowance).
+          You may also be able to claim [Guardian’s Allowance](/guardians-allowance), if you’re looking after  a [child whose parents have died](/child-benefit-child-parent-dies/if-one-or-both-parents-die) and you’re getting Child Benefit for them.
 
           Contact the [International Pension Centre](/international-pension-centre) to get Child Benefit or Guardian’s Allowance%{already_abroad_text}.
 
 # A22
-      child_benefits_not_entitled_outcome:
+      child_benefit_not_entitled_outcome:
         body: |
           You can’t get Child Benefit unless your circumstances change.
 
