@@ -21,7 +21,7 @@ en-GB:
 
       phrases:
         going_abroad_country_question_title: Which country are you moving to?
-        already_abroad_country_question_title: Where are you living?
+        already_abroad_country_question_title: Which country are you living in?
         going_abroad_how_long_question_title: How long are you going abroad for?
         already_abroad_how_long_question_title: How long will you be living abroad for?
         ci_going_abroad_question_title: Where are you moving?
@@ -33,7 +33,10 @@ en-GB:
         already_abroad_text_two: " or permanently"
         tax_credits_cross_border_going_abroad: |
           You may be able to get tax credits while you’re abroad.
+        tax_credits_cross_border_already_abroad: |
+          You may be able to claim tax credits while you’re abroad.
 
+        tax_credits_cross_border: |
           ##Working Tax Credit
 
           You could get [Working Tax Credit](/working-tax-credit) if you either:
@@ -41,19 +44,8 @@ en-GB:
           - live in Switzerland or an [European Economic Area](http://www.companieshouse.gov.uk/about/miscellaneous/listeeaCountries.shtml) (EEA) country and travel to the UK to work
           - travel abroad to work, but are ‘ordinarily resident’ in the UK
 
-          ^Ordinarily resident means you normally live in the UK, and plan to stay here for the time being.^
-        tax_credits_cross_border_already_abroad: |
-          You may be able to claim tax credits while you’re abroad.
-
-          ##Working Tax Credit
-
-          You could get Working Tax Credit if you either:
-
-          - live in Switzerland or an [European Economic Area](http://www.companieshouse.gov.uk/about/miscellaneous/listeeaCountries.shtml) (EEA) country and travel to the UK to work
-          - travel abroad to work, but are ‘ordinarily resident’ in the UK
-
           ^Ordinarily resident means you normally live in the UK, and plan to stay for the time being.^
-        tax_credits_cross_border: |
+
           ##Child Tax Credit 
 
           You could get Child Tax Credit if:
@@ -95,7 +87,7 @@ en-GB:
 
           $C
           **Tax Credits Helpline**  
-          From outside the UK: +44 2890 538 192
+          From outside the UK: +44 2890 538 192  
           Monday to Friday, 8am to 8pm  
           Saturday, 8am to 4pm  
           $C

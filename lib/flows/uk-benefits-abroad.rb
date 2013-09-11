@@ -17,39 +17,23 @@ multiple_choice :going_or_already_abroad? do
   save_input_as :going_or_already_abroad
 
   calculate :question_titles do
-    if responses.last == 'going_abroad'
-      PhraseList.new(:going_abroad_country_question_title)
-    else
-      PhraseList.new(:already_abroad_country_question_title)
-    end
+    PhraseList.new(:"#{going_or_already_abroad}_country_question_title")
   end
 
   calculate :how_long_question_titles do
-    if responses.last == 'going_abroad'
-      PhraseList.new(:going_abroad_how_long_question_title)
-    else
-      PhraseList.new(:already_abroad_how_long_question_title)
-    end
+    PhraseList.new(:"#{going_or_already_abroad}_how_long_question_title")
   end
 
   calculate :channel_islands_question_titles do
-    if responses.last == 'going_abroad'
-      PhraseList.new(:ci_going_abroad_question_title)
-    else
-      PhraseList.new(:ci_already_abroad_question_title)
-    end
+    PhraseList.new(:"ci_#{going_or_already_abroad}_question_title")
   end
 
   calculate :channel_islands_prefix do
-    if responses.last == 'going_abroad'
-      PhraseList.new(:ci_going_abroad_prefix)
-    else
-      PhraseList.new(:ci_already_abroad_prefix)
-    end
+    PhraseList.new(:"ci_#{going_or_already_abroad}_prefix")
   end
 
   calculate :already_abroad_text do
-    if responses.last == 'already_abroad'
+  if responses.last == 'already_abroad'
       PhraseList.new(:already_abroad_text)
     end
   end
@@ -59,7 +43,6 @@ multiple_choice :going_or_already_abroad? do
       PhraseList.new(:already_abroad_text_two)
     end
   end
-
 
   calculate :iidb_maybe do
     if responses.last == 'already_abroad'
@@ -96,11 +79,7 @@ multiple_choice :which_benefit? do
         :channel_islands? # Q3b
       end
     when 'pension'
-      if going_or_already_abroad == 'going_abroad'
-        :pension_going_abroad_outcome # A8
-      else
-        :pension_already_abroad_outcome # A9
-      end
+      :"pension_#{going_or_already_abroad}_outcome" # A8
     when 'winter_fuel_payment'
       :which_country_wfp? # Q4
     when 'maternity_benefits'
@@ -641,40 +620,24 @@ outcome :ssp_going_abroad_not_entitled_outcome # A25
 outcome :ssp_already_abroad_not_entitled_outcome # A26
 outcome :tax_credits_crown_servant_outcome do # A27
   precalculate :tax_credits_crown_servant do
-    if going_or_already_abroad == 'going_abroad'
-      PhraseList.new(:tax_credits_going_abroad_helpline)
-    else
-      PhraseList.new(:tax_credits_already_abroad_helpline)
-    end
+    PhraseList.new(:"tax_credits_#{going_or_already_abroad}_helpline")
   end
 end
 outcome :tax_credits_cross_border_worker_outcome do # A28
   precalculate :tax_credits_cross_border_worker do
-    if going_or_already_abroad == 'going_abroad'
-      PhraseList.new(:tax_credits_cross_border_going_abroad, :tax_credits_cross_border, :tax_credits_going_abroad_helpline)
-    else
-      PhraseList.new(:tax_credits_cross_border_already_abroad, :tax_credits_cross_border, :tax_credits_already_abroad_helpline)
-    end  
+    PhraseList.new(:"tax_credits_cross_border_#{going_or_already_abroad}", :tax_credits_cross_border, :"tax_credits_#{going_or_already_abroad}_helpline")
   end
 end
 outcome :tax_credits_unlikely_outcome #A29
 outcome :tax_credits_eea_entitled_outcome # A30
 outcome :tax_credits_holiday_outcome do # A31
   precalculate :tax_credits_holiday do
-    if going_or_already_abroad == 'going_abroad'
-      PhraseList.new(:tax_credits_holiday_going_abroad, :tax_credits_holiday, :tax_credits_going_abroad_helpline)
-    else
-      PhraseList.new(:tax_credits_holiday_already_abroad, :tax_credits_holiday, :tax_credits_already_abroad_helpline)
-    end
+    PhraseList.new(:"tax_credits_holiday_#{going_or_already_abroad}", :tax_credits_holiday, :"tax_credits_#{going_or_already_abroad}_helpline")
   end
 end
 outcome :tax_credits_medical_death_outcome do # A32
   precalculate :tax_credits_medical_death do
-    if going_or_already_abroad == 'going_abroad'
-      PhraseList.new(:tax_credits_medical_death_going_abroad, :tax_credits_medical_death, :tax_credits_going_abroad_helpline)
-    else
-      PhraseList.new(:tax_credits_medical_death_already_abroad, :tax_credits_medical_death, :tax_credits_already_abroad_helpline)
-    end
+    PhraseList.new(:"tax_credits_medical_death_#{going_or_already_abroad}", :tax_credits_medical_death, :"tax_credits_#{going_or_already_abroad}_helpline")
   end
 end
 outcome :esa_going_abroad_under_a_year_medical_outcome # A33
