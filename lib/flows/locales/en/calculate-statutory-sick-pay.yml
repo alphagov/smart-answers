@@ -61,7 +61,7 @@ en-GB:
 
       # Question 5
       last_sick_day?:
-        title: When did your employee's most recent period of sickness end?
+        title: Enter the last day of sickness
         hint: This can include non-working days and bank holidays
         error_message:  End date should be on or after start date
 
