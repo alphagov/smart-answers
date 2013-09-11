@@ -115,10 +115,10 @@ module SmartAnswer::Calculators
       # when it is not set.
       days_divide = feb29th_in_range(leave_year_start, leave_year_end) ? 366 : 365
       
-      if self.start_date
-        (leave_year_end - date_calc + 1) / days_divide
+      if start_date and leaving_date
+        (Date.parse(leaving_date) - Date.parse(start_date) + 1) / days_divide
       else
-        (date_calc - leave_year_start + 1) / days_divide
+        (leave_year_end - Date.parse(start_date) + 1) / days_divide
       end
     end
 

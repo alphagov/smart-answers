@@ -14,15 +14,15 @@ end
 
 # Q2
 multiple_choice :calculation_period? do
-  option "full-year" => :how_many_days_per_week?
-  option "starting" => :what_is_your_starting_date?
-  option "leaving" => :what_is_your_leaving_date?
+  option "full-year"
+  option "starting"
+  option "starting-and-leaving"
+  save_input_as :holiday_period
+
   next_node do |response|
     case response
-    when "starting"
-      :what_is_your_starting_date?
-    when "leaving"
-      :what_is_your_leaving_date?
+    when "starting", "starting-and-leaving"
+      :what_is_your_starting_date?      
     else
       calculation_basis == "days-worked-per-week" ? :how_many_days_per_week? : :how_many_hours_per_week?
     end
@@ -66,7 +66,13 @@ date_question :what_is_your_starting_date? do
   from { Date.civil(1.year.ago.year, 1, 1) }
   to { Date.civil(1.year.since(Date.today).year, 12, 31) }
   save_input_as :start_date
-  next_node :when_does_your_leave_year_start?
+  next_node do
+    if holiday_period == "starting-and-leaving"
+      :what_is_your_leaving_date?
+    else
+      :when_does_your_leave_year_start?
+    end
+  end
 end
 
 # Q5
@@ -74,7 +80,21 @@ date_question :what_is_your_leaving_date? do
   from { Date.civil(1.year.ago.year, 1, 1) }
   to { Date.civil(1.year.since(Date.today).year, 12, 31) }
   save_input_as :leaving_date
-  next_node :when_does_your_leave_year_start?
+
+  next_node do |response|
+    if holiday_period == "starting-and-leaving"
+      case calculation_basis
+      when "days-worked-per-week"
+        :how_many_days_per_week?
+      when "hours-worked-per-week"
+        :how_many_hours_per_week?
+      when "shift-worker"
+        :shift_worker_hours_per_shift?
+      end
+    else
+      :when_does_your_leave_year_start?
+    end
+  end
 end
 
 # Q21
@@ -206,7 +226,8 @@ end
 multiple_choice :shift_worker_basis? do
   option "full-year" => :shift_worker_hours_per_shift?
   option "starting" => :what_is_your_starting_date?
-  option "leaving" => :what_is_your_leaving_date?
+  option "starting-and-leaving" => :what_is_your_starting_date?
+  save_input_as :holiday_period
 end
 
 value_question :shift_worker_hours_per_shift? do
