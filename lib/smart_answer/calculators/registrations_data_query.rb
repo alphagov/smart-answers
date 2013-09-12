@@ -67,8 +67,8 @@ module SmartAnswer::Calculators
       data['birth']['postal_form'][country_slug]
     end
 
-    def death_postal_return_form(country_slug)
-      data['death']['postal_return'][country_slug]
+    def postal_return_form(country_slug)
+      data['postal_return'][country_slug]
     end
 
     def register_death_by_post?(country_slug)

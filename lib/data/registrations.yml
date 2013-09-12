@@ -114,6 +114,9 @@ registration_country:
   vanuatu: fiji
   wallis-and-futuna: france
   western-sahara: morocco
+postal_return:
+  italy: /government/publications/registered-post-return-delivery-form-italy
+  spain: /government/publications/registered-post-return-delivery-form-spain
 birth:
   postal_form:
     austria: /government/publications/passport-credit-debit-card-payment-authorisation-slip-austria
@@ -176,6 +179,3 @@ death:
   - tanzania
   - thailand
   - usa
-  postal_return:
-    italy: /government/uploads/system/uploads/attachment_data/file/136822/return-delivery-form.doc
-    spain: /government/uploads/system/uploads/attachment_data/file/136821/reg-post-return-delivery-form.pdf

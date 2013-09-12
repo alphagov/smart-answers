@@ -225,6 +225,16 @@ outcome :embassy_result do
     end
   end
 
+  precalculate :postal_return_form_url do
+    reg_data_query.postal_return_form(registration_country)
+  end
+  precalculate :postal_return do
+    if postal_return_form_url
+      PhraseList.new(:postal_form_return)
+    end
+  end
+
+
   precalculate :location do
     loc = WorldLocation.find(registration_country)
     raise InvalidResponse unless loc

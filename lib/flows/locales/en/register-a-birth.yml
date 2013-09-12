@@ -253,6 +253,9 @@ en-GB:
           You can also post your registration form, supporting documents and the fee to the %{embassy_high_commission_or_consulate}.
 
           Pay by credit or debit card - fill in the [credit card authorisation slip](%{postal_form_url}) and post it with your registration form.
+        postal_form_return: |
+          Use the [delivery return form](%{postal_return_form_url}) to get your documents delivered back to you.
+
         postal_info: |
           ##Send your registration
 
@@ -337,6 +340,7 @@ en-GB:
 
 
           %{postal}
+          %{postal_return}
           %{cash_only}
 
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
