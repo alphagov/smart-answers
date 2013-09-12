@@ -70,7 +70,7 @@ en-GB:
       # Q3
       how_many_days_per_week?:
         title: Number of days worked per week?
-        hint: If you work half-days enter .5 for a half, eg 3.5
+        hint: If you work half-days enter .5 for a half, eg 3.5 for three and a half days.
       # Q4
       what_is_your_starting_date?:
         title: What was the employment start date?
@@ -80,6 +80,7 @@ en-GB:
 
       how_many_hours_per_week?:
         title: Number of hours worked per week?
+        hint: If you work half-hours enter .5 for a half, eg 40.5.
       # Q13
       compressed_hours_how_many_hours_per_week?:
         title: How many hours are worked per week?
