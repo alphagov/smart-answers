@@ -116,27 +116,27 @@ registration_country:
   western-sahara: morocco
 birth:
   postal_form:
-    austria: /government/uploads/system/uploads/attachment_data/file/136797/credit-card-form.pdf
-    bangladesh: /government/uploads/system/uploads/attachment_data/file/136798/credit-card-form.doc
-    brazil: /government/uploads/system/uploads/attachment_data/file/136799/postbr_birthregform.pdf
-    chile: /government/uploads/system/uploads/attachment_data/file/136800/credit-card.doc
-    cyprus: /government/uploads/system/uploads/attachment_data/file/136801/credit-card-authorisation.doc
-    denmark: /government/uploads/system/uploads/attachment_data/file/136802/credit-card-authorisation-slip-19april2011.pdf
-    finland: /government/uploads/system/uploads/attachment_data/file/136804/credit-card-authorisation-form.pdf
-    france: /government/publications/france-birth-pack
-    germany: /government/uploads/system/uploads/attachment_data/file/136806/payment_authorisation_slip.pdf
-    greece: /government/uploads/system/uploads/attachment_data/file/136807/ccslip.pdf
-    india: /government/publications/passport-credit-debit-card-payment-authorisation-slip-india-new-delhi
-    israel: /government/uploads/system/uploads/attachment_data/file/136809/creditdebitslip.pdf.pdf
-    italy: /government/uploads/system/uploads/attachment_data/file/136810/credit-card-authorisation-slip.doc
-    jamaica: /government/uploads/system/uploads/attachment_data/file/136811/credit-debit.pdf.pdf
-    japan: /government/uploads/system/uploads/attachment_data/file/136812/15609108.doc
-    korea: /government/uploads/system/uploads/attachment_data/file/136813/doc-consular-devit-card.doc
-    mexico: /government/uploads/system/uploads/attachment_data/file/136814/credit-debit-authorisation-form.doc
-    norway: /government/uploads/system/uploads/attachment_data/file/136815/consularpaymentform.pdf
-    portugal: /government/uploads/system/uploads/attachment_data/file/136817/credit_card_form.pdf
-    spain: /government/uploads/system/uploads/attachment_data/file/136819/20090413_credit_card_form.pdf.pdf
-    switzerland: /government/uploads/system/uploads/attachment_data/file/136820/credit-card-pay-form.pdf
+    austria: /government/publications/passport-credit-debit-card-payment-authorisation-slip-austria
+    bangladesh: /government/publications/passport-credit-debit-card-payment-authorisation-slip-bangladesh
+    brazil: /government/publications/credit-card-authorization-form
+    chile: /government/publications/passport-credit-debit-card-payment-authorisation-slip-chile
+    cyprus: /government/publications/passport-credit-debit-card-payment-authorisation-slip-cyprus
+    denmark: /government/publications/passport-credit-debit-card-payment-authorisation-slip-denmark
+    finland: /government/publications/passport-credit-debit-card-payment-authorisation-slip-finland
+    france: /government/publications/passport-credit-debit-card-payment-authorisation-slip-france
+    germany: /government/publications/passport-credit-debit-card-payment-authorisation-slip-germany
+    greece: /government/publications/passport-credit-debit-card-payment-authorisation-slip-greece
+    india: /government/publications/passport-credit-debit-card-payment-authorisation-slip-india
+    israel: /government/publications/passport-credit-debit-card-payment-authorisation-slip-israel
+    italy: /government/publications/passport-credit-debit-card-payment-authorisation-slip-italy
+    jamaica: /government/publications/passport-credit-debit-card-payment-authorisation-slip-jamaica
+    japan: /government/publications/passport-credit-debit-card-payment-authorisation-slip-japan
+    korea: /government/publications/passport-credit-debit-card-payment-authorisation-slip-korea
+    mexico: /government/publications/passport-credit-debit-card-payment-authorisation-slip-mexico
+    norway: /government/publications/passport-credit-debit-card-payment-authorisation-slip-norway
+    portugal: /government/publications/passport-credit-debit-card-payment-authorisation-slip-portugal
+    spain: /government/publications/passport-credit-debit-card-payment-authorisation-slip-spain
+    switzerland: /government/publications/passport-credit-debit-card-payment-authorisation-slip-switzerland
 death:
   registration_forms:
     brazil: /government/publications/brazil-death-registration-form
