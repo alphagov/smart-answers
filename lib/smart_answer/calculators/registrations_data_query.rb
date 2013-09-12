@@ -59,20 +59,16 @@ module SmartAnswer::Calculators
       CARIBBEAN_ALT_EMBASSIES.include?(country_slug)
     end
 
-    def death_postal_form(country_slug)
-      data['death']['postal_form'][country_slug]
+    def postal_form(country_slug)
+      data['postal_form'][country_slug]
     end
 
-    def birth_postal_form(country_slug)
-      data['birth']['postal_form'][country_slug]
-    end
-
-    def death_postal_return_form(country_slug)
-      data['death']['postal_return'][country_slug]
+    def postal_return_form(country_slug)
+      data['postal_return'][country_slug]
     end
 
     def register_death_by_post?(country_slug)
-      death_postal_form(country_slug) or NO_POSTAL_COUNTRIES.include?(country_slug)
+      postal_form(country_slug) or NO_POSTAL_COUNTRIES.include?(country_slug)
     end
 
     def registration_country_slug(country_slug)

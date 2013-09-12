@@ -482,5 +482,21 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_state_variable :organisation, expected_location.fco_organisation
     end
   end
+  # testing for delivery return form in Spain
+  context "child born in italy, parents in spain" do
+    should "give the embassy result with italy delivery return form form" do
+      worldwide_api_has_organisations_for_location('spain', read_fixture_file('worldwide/spain_organisations.json'))
+      add_response 'spain'
+      add_response 'mother_and_father'
+      add_response 'yes'
+      add_response 'same_country'
+      assert_current_node :embassy_result
+      assert_phrase_list :postal_return, [:postal_form_return]
+      assert_phrase_list :birth_registration_form, [:birth_registration_form]
+      expected_location = WorldLocation.find('spain')
+      assert_state_variable :location, expected_location
+      assert_state_variable :organisation, expected_location.fco_organisation
+    end
+  end
 
 end

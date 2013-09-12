@@ -286,7 +286,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_state_variable :clickbook, '' 
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_state_variable :postal_form_url, "/government/uploads/system/uploads/attachment_data/file/136797/credit-card-form.pdf"
+        assert_state_variable :postal_form_url, "/government/publications/passport-credit-debit-card-payment-authorisation-slip-austria"
         assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form]
         expected_location = WorldLocation.find('austria')
         assert_state_variable :location, expected_location
@@ -326,8 +326,8 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_phrase_list :clickbook, [:clickbook]
-        assert_state_variable :postal_form_url, "/government/uploads/system/uploads/attachment_data/file/136810/credit-card-authorisation-slip.doc"
-        assert_state_variable :postal_return_form_url, "/government/uploads/system/uploads/attachment_data/file/136822/return-delivery-form.doc"
+        assert_state_variable :postal_form_url, "/government/publications/passport-credit-debit-card-payment-authorisation-slip-italy"
+        assert_state_variable :postal_return_form_url, "/government/publications/registered-post-return-delivery-form-italy"
         assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form, :postal_delivery_form]
         expected_location = WorldLocation.find('italy')
         assert_state_variable :location, expected_location
@@ -347,7 +347,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
         assert_state_variable :clickbook, '' 
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_state_variable :postal_form_url, "/government/uploads/system/uploads/attachment_data/file/136819/20090413_credit_card_form.pdf.pdf" 
+        assert_state_variable :postal_form_url, "/government/publications/passport-credit-debit-card-payment-authorisation-slip-spain" 
         assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form, :postal_delivery_form]
         assert_state_variable :current_location, "spain"
         expected_location = WorldLocation.find('spain')
@@ -369,7 +369,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
         assert_phrase_list :clickbook, [:clickbook]
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_state_variable :postal_form_url, "/government/uploads/system/uploads/attachment_data/file/136805/death-registration-form.doc" 
+        assert_state_variable :postal_form_url, "/government/publications/passport-credit-debit-card-payment-authorisation-slip-france" 
         assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form]
         assert_state_variable :current_location_name, "France"
         assert_phrase_list :footnote, [:footnote_another_country]
@@ -486,7 +486,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
         assert_phrase_list :clickbook, [:clickbook]
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_state_variable :postal_form_url, "/government/uploads/system/uploads/attachment_data/file/136799/postbr_birthregform.pdf"
+        assert_state_variable :postal_form_url, "/government/publications/credit-card-authorization-form"
         assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form]
         expected_location = WorldLocation.find('brazil')
         assert_state_variable :location, expected_location
@@ -506,7 +506,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
         assert_state_variable :clickbook, ''
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_state_variable :postal_form_url, "/government/uploads/system/uploads/attachment_data/file/136806/payment_authorisation_slip.pdf"
+        assert_state_variable :postal_form_url, "/government/publications/passport-credit-debit-card-payment-authorisation-slip-germany"
         assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form]
         expected_location = WorldLocation.find('germany')
         assert_state_variable :location, expected_location
