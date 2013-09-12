@@ -53,16 +53,16 @@ module SmartAnswer::Calculators
           refute @query.register_death_by_post?('afghanistan')
         end
       end
-      context "death_postal_form" do
+      context "postal_form" do
         should "give the form url if it exists" do
-          assert_equal "/government/uploads/system/uploads/attachment_data/file/136797/credit-card-form.pdf", @query.death_postal_form('austria')
-          refute @query.death_postal_form('usa')
+          assert_equal "/government/publications/passport-credit-debit-card-payment-authorisation-slip-austria", @query.postal_form('austria')
+          refute @query.postal_form('usa')
         end
       end
-      context "death_postal_return_form" do
+      context "postal_return_form" do
         should "give the form url if it exists" do
-          assert_equal "/government/uploads/system/uploads/attachment_data/file/136822/return-delivery-form.doc", @query.death_postal_return_form('italy')
-          refute @query.death_postal_return_form('belgium')
+          assert_equal "/government/publications/registered-post-return-delivery-form-italy", @query.postal_return_form('italy')
+          refute @query.postal_return_form('belgium')
         end
       end
       context "registration_country_slug" do
