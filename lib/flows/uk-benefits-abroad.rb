@@ -17,39 +17,23 @@ multiple_choice :going_or_already_abroad? do
   save_input_as :going_or_already_abroad
 
   calculate :question_titles do
-    if responses.last == 'going_abroad'
-      PhraseList.new(:going_abroad_country_question_title)
-    else
-      PhraseList.new(:already_abroad_country_question_title)
-    end
+    PhraseList.new(:"#{going_or_already_abroad}_country_question_title")
   end
 
   calculate :how_long_question_titles do
-    if responses.last == 'going_abroad'
-      PhraseList.new(:going_abroad_how_long_question_title)
-    else
-      PhraseList.new(:already_abroad_how_long_question_title)
-    end
+    PhraseList.new(:"#{going_or_already_abroad}_how_long_question_title")
   end
 
   calculate :channel_islands_question_titles do
-    if responses.last == 'going_abroad'
-      PhraseList.new(:ci_going_abroad_question_title)
-    else
-      PhraseList.new(:ci_already_abroad_question_title)
-    end
+    PhraseList.new(:"ci_#{going_or_already_abroad}_question_title")
   end
 
   calculate :channel_islands_prefix do
-    if responses.last == 'going_abroad'
-      PhraseList.new(:ci_going_abroad_prefix)
-    else
-      PhraseList.new(:ci_already_abroad_prefix)
-    end
+    PhraseList.new(:"ci_#{going_or_already_abroad}_prefix")
   end
 
   calculate :already_abroad_text do
-    if responses.last == 'already_abroad'
+  if responses.last == 'already_abroad'
       PhraseList.new(:already_abroad_text)
     end
   end
@@ -59,7 +43,6 @@ multiple_choice :going_or_already_abroad? do
       PhraseList.new(:already_abroad_text_two)
     end
   end
-
 
   calculate :iidb_maybe do
     if responses.last == 'already_abroad'
@@ -76,7 +59,7 @@ multiple_choice :which_benefit? do
   option :pension
   option :winter_fuel_payment
   option :maternity_benefits
-  option :child_benefits
+  option :child_benefit
   option :iidb
   option :ssp
   option :esa
@@ -96,16 +79,12 @@ multiple_choice :which_benefit? do
         :channel_islands? # Q3b
       end
     when 'pension'
-      if going_or_already_abroad == 'going_abroad'
-        :pension_going_abroad_outcome # A8
-      else
-        :pension_already_abroad_outcome # A9
-      end
+      :"pension_#{going_or_already_abroad}_outcome" # A8
     when 'winter_fuel_payment'
       :which_country_wfp? # Q4
     when 'maternity_benefits'
       :channel_islands? # Q3b
-    when 'child_benefits'
+    when 'child_benefit'
       :channel_islands? # Q3b
     when 'iidb'
       :iidb_already_claiming? # Q22
@@ -157,8 +136,8 @@ multiple_choice :channel_islands? do
         :"jsa_social_security_#{going_or_already_abroad}_outcome"
       elsif benefit == 'maternity_benefits'
         :employer_paying_ni?
-      elsif benefit == 'child_benefits'
-        :child_benefits_ss_outcome
+      elsif benefit == 'child_benefit'
+        :child_benefit_ss_outcome
       elsif benefit == 'iidb'
         :"iidb_#{going_or_already_abroad}_ss_outcome"
       elsif benefit == 'bereavement_benefits'
@@ -262,7 +241,7 @@ multiple_choice :employer_paying_ni? do
 end
 
 # Q9
-country_select :which_country_child_benefits?, :exclude_countries => exclude_countries do
+country_select :which_country_child_benefit?, :exclude_countries => exclude_countries do
   save_input_as :country
   situations.each do |situation|
     key = :"which_country_#{situation}_child"
@@ -281,21 +260,21 @@ country_select :which_country_child_benefits?, :exclude_countries => exclude_cou
     if eea_countries.include?(response)
       :do_either_of_the_following_apply? # Q10
     elsif former_yugoslavia.include?(response)
-      :"child_benefits_fy_#{going_or_already_abroad}_outcome" # A17 or A18
+      :"child_benefit_fy_#{going_or_already_abroad}_outcome" # A17 or A18
     elsif %w(barbados canada israel mauritius new-zealand).include?(response)
-      :child_benefits_ss_outcome # A19
+      :child_benefit_ss_outcome # A19
     elsif %w(jamaica turkey usa).include?(response)
-      :child_benefits_jtu_outcome # A20
+      :child_benefit_jtu_outcome # A20
     else
-      :child_benefits_not_entitled_outcome # A22
+      :child_benefit_not_entitled_outcome # A22
     end
   end
 end
 
 # Q10
 multiple_choice :do_either_of_the_following_apply? do
-  option :yes => :child_benefits_entitled_outcome # A21
-  option :no => :child_benefits_not_entitled_outcome # A22
+  option :yes => :child_benefit_entitled_outcome # A21
+  option :no => :child_benefit_not_entitled_outcome # A22
 end
 
 # Q11
@@ -629,52 +608,36 @@ outcome :maternity_benefits_eea_entitled_outcome # A13
 outcome :maternity_benefits_social_security_going_abroad_outcome # A14
 outcome :maternity_benefits_social_security_already_abroad_outcome # A15
 outcome :maternity_benefits_not_entitled_outcome # A16
-outcome :child_benefits_fy_going_abroad_outcome # A17
-outcome :child_benefits_fy_already_abroad_outcome # A18
-outcome :child_benefits_ss_outcome # A19
-outcome :child_benefits_jtu_outcome # A20
-outcome :child_benefits_entitled_outcome # A21
-outcome :child_benefits_not_entitled_outcome # A22
+outcome :child_benefit_fy_going_abroad_outcome # A17
+outcome :child_benefit_fy_already_abroad_outcome # A18
+outcome :child_benefit_ss_outcome # A19
+outcome :child_benefit_jtu_outcome # A20
+outcome :child_benefit_entitled_outcome # A21
+outcome :child_benefit_not_entitled_outcome # A22
 outcome :ssp_going_abroad_entitled_outcome # A23
 outcome :ssp_already_abroad_entitled_outcome # A24
 outcome :ssp_going_abroad_not_entitled_outcome # A25
 outcome :ssp_already_abroad_not_entitled_outcome # A26
 outcome :tax_credits_crown_servant_outcome do # A27
   precalculate :tax_credits_crown_servant do
-    if going_or_already_abroad == 'going_abroad'
-      PhraseList.new(:tax_credits_going_abroad_helpline)
-    else
-      PhraseList.new(:tax_credits_already_abroad_helpline)
-    end
+    PhraseList.new(:"tax_credits_#{going_or_already_abroad}_helpline")
   end
 end
 outcome :tax_credits_cross_border_worker_outcome do # A28
   precalculate :tax_credits_cross_border_worker do
-    if going_or_already_abroad == 'going_abroad'
-      PhraseList.new(:tax_credits_cross_border_going_abroad, :tax_credits_cross_border, :tax_credits_going_abroad_helpline)
-    else
-      PhraseList.new(:tax_credits_cross_border_already_abroad, :tax_credits_cross_border, :tax_credits_already_abroad_helpline)
-    end  
+    PhraseList.new(:"tax_credits_cross_border_#{going_or_already_abroad}", :tax_credits_cross_border, :"tax_credits_#{going_or_already_abroad}_helpline")
   end
 end
 outcome :tax_credits_unlikely_outcome #A29
 outcome :tax_credits_eea_entitled_outcome # A30
 outcome :tax_credits_holiday_outcome do # A31
   precalculate :tax_credits_holiday do
-    if going_or_already_abroad == 'going_abroad'
-      PhraseList.new(:tax_credits_holiday_going_abroad, :tax_credits_holiday, :tax_credits_going_abroad_helpline)
-    else
-      PhraseList.new(:tax_credits_holiday_already_abroad, :tax_credits_holiday, :tax_credits_already_abroad_helpline)
-    end
+    PhraseList.new(:"tax_credits_holiday_#{going_or_already_abroad}", :tax_credits_holiday, :"tax_credits_#{going_or_already_abroad}_helpline")
   end
 end
 outcome :tax_credits_medical_death_outcome do # A32
   precalculate :tax_credits_medical_death do
-    if going_or_already_abroad == 'going_abroad'
-      PhraseList.new(:tax_credits_medical_death_going_abroad, :tax_credits_medical_death, :tax_credits_going_abroad_helpline)
-    else
-      PhraseList.new(:tax_credits_medical_death_already_abroad, :tax_credits_medical_death, :tax_credits_already_abroad_helpline)
-    end
+    PhraseList.new(:"tax_credits_medical_death_#{going_or_already_abroad}", :tax_credits_medical_death, :"tax_credits_#{going_or_already_abroad}_helpline")
   end
 end
 outcome :esa_going_abroad_under_a_year_medical_outcome # A33
