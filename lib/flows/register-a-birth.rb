@@ -213,7 +213,7 @@ outcome :embassy_result do
   end
 
   precalculate :postal_form_url do
-    reg_data_query.birth_postal_form(registration_country)
+    reg_data_query.postal_form(registration_country)
   end
   precalculate :postal do
     if postal_form_url
