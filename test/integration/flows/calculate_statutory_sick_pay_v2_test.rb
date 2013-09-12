@@ -256,7 +256,7 @@ class CalculateStatutorySickPayV2Test < ActiveSupport::TestCase
 
               context "last sick day is <3 days after first" do
                 should "take user to A2" do
-                  add_response "03/04/2012"
+                  add_response "04/04/2012"
                   assert_current_node :must_be_sick_for_4_days
                 end
               end
