@@ -333,7 +333,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     # Child benefits
     context "answer child benefits" do
       setup do
-        add_response 'child_benefits'
+        add_response 'child_benefit'
       end
       should "ask you the Channel islands question" do
         assert_phrase_list :channel_islands_question_titles, [:ci_going_abroad_question_title]
@@ -345,7 +345,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           add_response 'guernsey_jersey'
         end
         should "take you to SS outcome" do
-          assert_current_node :child_benefits_ss_outcome
+          assert_current_node :child_benefit_ss_outcome
         end
       end
       context "answer abroad" do
@@ -353,7 +353,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           add_response 'abroad'
         end
         should "take you to which country question" do
-          assert_current_node :which_country_child_benefits?
+          assert_current_node :which_country_child_benefit?
         end
 
         context "answer EEA country" do
@@ -368,7 +368,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               add_response 'yes'
             end
             should "take you to the entitled outcome" do
-              assert_current_node :child_benefits_entitled_outcome
+              assert_current_node :child_benefit_entitled_outcome
             end
           end
           context "answer no" do
@@ -376,7 +376,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               add_response 'no'
             end
             should "take you to not entitled outcome" do
-              assert_current_node :child_benefits_not_entitled_outcome
+              assert_current_node :child_benefit_not_entitled_outcome
             end
           end
         end
@@ -385,7 +385,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             add_response 'kosovo'
           end
           should "take you to FY going abroad outcome" do
-            assert_current_node :child_benefits_fy_going_abroad_outcome
+            assert_current_node :child_benefit_fy_going_abroad_outcome
           end
         end
         context "answer SS country" do
@@ -393,7 +393,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             add_response 'canada'
           end
           should "take you to SS outcome" do
-            assert_current_node :child_benefits_ss_outcome
+            assert_current_node :child_benefit_ss_outcome
           end
         end
         context "answer JTU country" do
@@ -401,7 +401,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             add_response 'jamaica'
           end
           should "take you to JTU outcome" do
-            assert_current_node :child_benefits_jtu_outcome
+            assert_current_node :child_benefit_jtu_outcome
           end
         end
         context "answer other country" do
@@ -409,7 +409,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             add_response 'albania'
           end
           should "take you to not entitled outcome" do
-            assert_current_node :child_benefits_not_entitled_outcome
+            assert_current_node :child_benefit_not_entitled_outcome
           end
         end
       end
@@ -1171,63 +1171,63 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     # Child benefits
     context "answer Guernsey/Jersey" do
       setup do
-        add_response 'child_benefits'
+        add_response 'child_benefit'
         add_response 'guernsey_jersey'
       end
       should "take you to SS outcome" do
-        assert_current_node :child_benefits_ss_outcome
+        assert_current_node :child_benefit_ss_outcome
       end
     end
     context "answer EEA country, paying NI in the UK" do
       setup do
-        add_response 'child_benefits'
+        add_response 'child_benefit'
         add_response 'abroad'
         add_response 'austria'
         add_response 'yes'
       end
       should "take you to entitled outcome" do
-        assert_current_node :child_benefits_entitled_outcome
+        assert_current_node :child_benefit_entitled_outcome
       end
     end
     context "answer EEA country, not paying NI in the UK, not receiving benefits" do
       setup do
-        add_response 'child_benefits'
+        add_response 'child_benefit'
         add_response 'abroad'
         add_response 'austria'
         add_response 'no'
       end
       should "take you to not entitled outcome" do
-        assert_current_node :child_benefits_not_entitled_outcome
+        assert_current_node :child_benefit_not_entitled_outcome
       end
     end
     context "answer FY country" do
       setup do
-        add_response 'child_benefits'
+        add_response 'child_benefit'
         add_response 'abroad'
         add_response 'kosovo'
       end
       should "take you to FY already abroad outcome" do
-        assert_current_node :child_benefits_fy_already_abroad_outcome
+        assert_current_node :child_benefit_fy_already_abroad_outcome
       end
     end
     context "answer SS country" do
       setup do
-        add_response 'child_benefits'
+        add_response 'child_benefit'
         add_response 'abroad'
         add_response 'canada'
       end
       should "take you to SS outcome" do
-        assert_current_node :child_benefits_ss_outcome
+        assert_current_node :child_benefit_ss_outcome
       end
     end
     context "answer JTU country" do
       setup do
-        add_response 'child_benefits'
+        add_response 'child_benefit'
         add_response 'abroad'
         add_response 'jamaica'
       end
       should "take you to JTU outcome" do
-        assert_current_node :child_benefits_jtu_outcome
+        assert_current_node :child_benefit_jtu_outcome
       end
     end
 
