@@ -211,7 +211,7 @@ outcome :embassy_result do
     reg_data_query.death_postal_form(current_location)
   end
   precalculate :postal_return_form_url do
-    reg_data_query.death_postal_return_form(current_location)
+    reg_data_query.postal_return_form(current_location)
   end
 
   precalculate :postal do
