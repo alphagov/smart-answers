@@ -15,7 +15,7 @@ en-GB:
         - you’ll have proof that the child is a British citizen
         - the birth will be recorded with the General Register Office in the UK
 
-        ^A locally-issued birth certificate should be accepted in the UK for all purposes, eg applying for a passport, registering with a school or doctor etc. It might need to be translated and [certified](/certifying-a-document "Certify a document") if it's not in English.^
+        ^A locally-issued birth certificate should be accepted in the UK for all purposes, eg applying for a passport, registering with a school or doctor etc. It might need to be [translated and certified](/certifying-a-document) if it's not in English.^
 
       options:
         "yes": "Yes"
@@ -55,7 +55,7 @@ en-GB:
         documents_you_must_provide_taiwan: |
           You and the other parent must provide:
 
-          - both Chinese and English versions of your child’s birth certificate (most hospitals in Taipei issue English versions, otherwise the Chinese version must be [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers "Find a translator abroad") and certified)
+          - both Chinese and English versions of your child’s birth certificate (most hospitals in Taipei issue English versions, otherwise the Chinese version must be [translated and certified](/certifying-a-document))
           - your child’s local birth certificate
           - your British birth certificates (long version) showing details of your parents
           - a naturalisation or registration certificate (if either of you were not born in the UK)
@@ -125,7 +125,7 @@ en-GB:
           - your school leaving certificates
           - family photographs
 
-          [Translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers "Find a translator abroad") versions of Urdu documents should also be provided.
+          [Translated versions of Urdu documents](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers "Find a translator abroad") should also be provided.
         documents_you_must_provide_bangladesh: |
           You and the other parent must provide:
 
@@ -377,7 +377,7 @@ en-GB:
           Register a birth | £105
           Copy of a birth registration certificate | £65
 
-          [Pay online](/pay-register-birth-abroad "Pay for registration and for copies of the certificate") for the registration and copies of the certificate.
+          [Pay online](/pay-register-birth-abroad) for the registration and copies of the certificate.
 
           Alternatively, Pay by postal order or bank draft made payable to ‘FCO’. Personal cheques aren’t accepted.  
 
@@ -418,7 +418,7 @@ en-GB:
 
           You can’t register your child’s birth with the UK authorities abroad. This is because unmarried fathers can’t pass on British nationality to a child born before 1 July 2006.
 
-          You may still be able to apply for [British citizenship](http://www.ukba.homeoffice.gov.uk/britishcitizenship "Find out how to register your child as a British citizen") for the child.
+          You may still be able to [apply for [British citizenship for the child](http://www.ukba.homeoffice.gov.uk/britishcitizenship).
 
           You may also be able to register the birth if you’ve married the other parent since the child was born. [Contact your local British embassy](/government/world) to find out.
       no_registration_result:
@@ -431,4 +431,4 @@ en-GB:
 
           You can’t currently register the birth with the UK authorities.
 
-          The local birth certificate, with a [certified translation](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers "Find a translator abroad"), should be acceptable for all purposes in the UK. You can apply for registration at any time in the future - check [travel advice](/foreign-travel-advice) to find out if consular services have reopened in %{registration_country_name_lowercase_prefix}.  
+          The local birth certificate, with a [certified translation](/certifying-a-document), should be acceptable for all purposes in the UK. You can apply for registration at any time in the future - check [travel advice](/foreign-travel-advice) to find out if consular services have reopened in %{registration_country_name_lowercase_prefix}.  
