@@ -213,7 +213,7 @@ outcome :embassy_result do
   end
 
   precalculate :postal_form_url do
-    reg_data_query.birth_postal_form(registration_country)
+    reg_data_query.postal_form(registration_country)
   end
   precalculate :postal do
     if postal_form_url
@@ -224,6 +224,16 @@ outcome :embassy_result do
       ''
     end
   end
+
+  precalculate :postal_return_form_url do
+    reg_data_query.postal_return_form(registration_country)
+  end
+  precalculate :postal_return do
+    if postal_return_form_url
+      PhraseList.new(:postal_form_return)
+    end
+  end
+
 
   precalculate :location do
     loc = WorldLocation.find(registration_country)
