@@ -201,6 +201,16 @@ checkbox_question :usual_work_days? do
     Money.new(calculator.ssp_payment)
   end
 
+  calculate :formatted_sick_pay_weekly_amounts do
+    calculator = Calculators::StatutorySickPayCalculator.new(prior_sick_days.to_i, Date.parse(sick_start_date), Date.parse(sick_end_date), responses.last.split(","))
+
+    if calculator.ssp_payment > 0
+      calculator.formatted_sick_pay_weekly_amounts
+    else
+      ""
+    end
+  end
+
   next_node do |response|
     calculator = Calculators::StatutorySickPayCalculator.new(prior_sick_days.to_i, Date.parse(sick_start_date), Date.parse(sick_end_date), response.split(","))
 
@@ -243,9 +253,7 @@ outcome :entitled_to_sick_pay do
   precalculate :days_paid do calculator.days_paid end
   precalculate :normal_workdays_out do calculator.normal_workdays end
   precalculate :pattern_days do calculator.pattern_days end
-  precalculate :pattern_days_total do
-    calculator.pattern_days * 28
-  end
+  precalculate :pattern_days_total do calculator.pattern_days * 28 end
 
   precalculate :paternity_adoption_warning do
     if paternity_maternity_warning

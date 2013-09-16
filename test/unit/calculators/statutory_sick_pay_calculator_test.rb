@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
@@ -58,7 +58,7 @@ module SmartAnswer::Calculators
       end
 
       should "return correct ssp_payment" do
-        assert_equal @calculator.ssp_payment, 85.85
+        assert_equal 85.85, @calculator.ssp_payment
       end
     end
 
@@ -214,9 +214,9 @@ module SmartAnswer::Calculators
         @calculator = StatutorySickPayCalculator.new(24, Date.parse("25 July 2012"), Date.parse("4 September 2012"), ['1', '3', '5'])
       end
 
-      should "give correct ssp calculation" do # 18 days with no waiting days, all at 2012-13 daily rate
+      should "give correct ssp calculation" do
         assert_equal @calculator.days_to_pay, 18
-        assert_equal @calculator.ssp_payment, 515.10
+        assert_equal @calculator.ssp_payment, 515.11
       end
     end
 
@@ -361,6 +361,112 @@ module SmartAnswer::Calculators
 
       should "give correct LEL for date" do
         assert_equal @lel, 109.00
+      end
+    end
+
+    context "sick_pay_weekly_dates" do
+      should "produce a list of Saturdays for the provided sick period" do
+        calculator = StatutorySickPayCalculator.new(
+           42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2','3','4'])
+
+        assert_equal [Date.parse("12 Jan 2013"),
+                      Date.parse("19 Jan 2013"),
+                      Date.parse("26 Jan 2013"),
+                      Date.parse("02 Feb 2013"),
+                      Date.parse("09 Feb 2013"),
+                      Date.parse("16 Feb 2013"),
+                      Date.parse("23 Feb 2013"),
+                      Date.parse("02 Mar 2013"),
+                      Date.parse("09 Mar 2013"),
+                      Date.parse("16 Mar 2013"),
+                      Date.parse("23 Mar 2013"),
+                      Date.parse("30 Mar 2013"),
+                      Date.parse("06 Apr 2013"),
+                      Date.parse("13 Apr 2013"),
+                      Date.parse("20 Apr 2013"),
+                      Date.parse("27 Apr 2013"),
+                      Date.parse("04 May 2013")],
+                     calculator.sick_pay_weekly_dates
+      end
+    end
+
+    context "sick_pay_weekly_dates_and_rates" do
+      should "produce an array of pairs which have the week end dates and pay rates" do
+        calculator = StatutorySickPayCalculator.new(
+           42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2','3','4'])
+
+        assert_equal [[Date.parse("12 Jan 2013"), 85.85],
+                      [Date.parse("19 Jan 2013"), 85.85],
+                      [Date.parse("26 Jan 2013"), 85.85],
+                      [Date.parse("02 Feb 2013"), 85.85],
+                      [Date.parse("09 Feb 2013"), 85.85],
+                      [Date.parse("16 Feb 2013"), 85.85],
+                      [Date.parse("23 Feb 2013"), 85.85],
+                      [Date.parse("02 Mar 2013"), 85.85],
+                      [Date.parse("09 Mar 2013"), 85.85],
+                      [Date.parse("16 Mar 2013"), 85.85],
+                      [Date.parse("23 Mar 2013"), 85.85],
+                      [Date.parse("30 Mar 2013"), 85.85],
+                      [Date.parse("06 Apr 2013"), 85.85],
+                      [Date.parse("13 Apr 2013"), 86.7],
+                      [Date.parse("20 Apr 2013"), 86.7]],
+                    calculator.weekly_payments
+      end
+    end
+
+    context "sick_pay_weekly_amounts" do
+      should "return the payable weeks by taking into account the final SSP payment" do
+        calculator = StatutorySickPayCalculator.new(
+           42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2','3','4'])
+
+        assert_equal [[Date.parse("12 Jan 2013"), 85.85],
+                      [Date.parse("19 Jan 2013"), 85.85],
+                      [Date.parse("26 Jan 2013"), 85.85],
+                      [Date.parse("02 Feb 2013"), 85.85],
+                      [Date.parse("09 Feb 2013"), 85.85],
+                      [Date.parse("16 Feb 2013"), 85.85],
+                      [Date.parse("23 Feb 2013"), 85.85],
+                      [Date.parse("02 Mar 2013"), 85.85],
+                      [Date.parse("09 Mar 2013"), 85.85],
+                      [Date.parse("16 Mar 2013"), 85.85],
+                      [Date.parse("23 Mar 2013"), 85.85],
+                      [Date.parse("30 Mar 2013"), 85.85],
+                      [Date.parse("06 Apr 2013"), 85.85],
+                      [Date.parse("13 Apr 2013"), 86.7],
+                      [Date.parse("20 Apr 2013"), 86.7]],
+                    calculator.weekly_payments
+      end
+
+      should "have the same reduced value as the ssp_payment value" do
+        calculator = StatutorySickPayCalculator.new(
+           42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2','3','4'])
+
+        assert_equal calculator.ssp_payment,
+                     calculator.weekly_payments.map(&:second).sum
+      end
+    end
+
+    context "formatted_sick_pay_weekly_amounts" do
+      should "produce a markdown (value) formatted string of weekly SSP dates and pay rates" do
+        calculator = StatutorySickPayCalculator.new(
+           42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2','3','4'])
+
+        assert_equal ["12 January 2013|£85.85",
+                      "19 January 2013|£85.85",
+                      "26 January 2013|£85.85",
+                      " 2 February 2013|£85.85",
+                      " 9 February 2013|£85.85",
+                      "16 February 2013|£85.85",
+                      "23 February 2013|£85.85",
+                      " 2 March 2013|£85.85",
+                      " 9 March 2013|£85.85",
+                      "16 March 2013|£85.85",
+                      "23 March 2013|£85.85",
+                      "30 March 2013|£85.85",
+                      " 6 April 2013|£85.85",
+                      "13 April 2013|£86.70",
+                      "20 April 2013|£86.70"].join("\n"),
+                     calculator.formatted_sick_pay_weekly_amounts
       end
     end
   end # SSP calculator
