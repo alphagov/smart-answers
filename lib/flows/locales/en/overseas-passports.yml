@@ -74,16 +74,6 @@ en-GB:
           $D
           [Download 'Form LS01 - Lost or stolen passport notification' (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf)
           $D
-        spain_pay_online_trial: |
-
-          ###Apply online
-
-          From 9 September 2013, you can [apply and pay for a passport online](https://www.smartsurvey.co.uk/s/applicationtrial) for a limited period of time.
-
-          This is while a new service is being trialled, making it easier to apply.
-
-          ###Apply by post
-
         passport_courier_costs_wellington_new_zealand: |
 
         adult_passport_costs_wellington_new_zealand: |
@@ -2771,8 +2761,6 @@ en-GB:
           %{cost}
 
           ## How to apply
-
-          %{apply_online_spain_trial}
 
           %{how_to_apply}
 
