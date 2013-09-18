@@ -1110,7 +1110,6 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
   end
 
-#testing for civil partnership in countries with CP or equivalent
 #testing for ceremony in spain, england resident, british partner
   context "ceremony in spain, resident in england, partner british" do
     setup do
@@ -1126,6 +1125,25 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_partner_british, :consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british, :consular_cni_os_all_names_but_germany, :consular_cni_os_ceremony_spain, :consular_cni_os_ceremony_spain_partner_british, :consular_cni_os_ceremony_spain_two, :consular_cni_os_all_depositing_certificate, :italy_os_consular_cni_six, :consular_cni_os_no_clickbook_so_embassy_details, :consular_cni_os_uk_resident, :consular_cni_os_fees_not_italy_not_uk, :consular_cni_os_fees_local_or_uk_resident, :consular_cni_os_fees_no_cheques]
     end
   end
+
+#testing for CNI variant for russian-federation
+  context "ceremony in russian-federation, resident in russian-federation, partner british" do
+    setup do
+      add_response 'russian-federation'
+      add_response 'other'
+      add_response 'russian-federation'
+      add_response 'partner_local'
+      add_response 'opposite_sex'
+    end
+    should "go to cp or equivalent outcome" do
+      assert_current_node :outcome_os_consular_cni
+      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ceremony_not_spain_or_italy, :consular_cni_os_local_resident_not_italy_germany, :"russian-federation_os_local_resident", :consular_cni_os_no_clickbook_so_embassy_details, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany, :consular_cni_os_local_resident_not_germany_or_italy_or_spain]
+    end
+  end
+
+
+
+#testing for civil partnership in countries with CP or equivalent
   context "ceremony in denmark, resident in england, partner other" do
     setup do
       add_response 'denmark'

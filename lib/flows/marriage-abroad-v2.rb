@@ -520,6 +520,8 @@ outcome :outcome_os_consular_cni do
       end
       if ceremony_country == 'kazakhstan'
         phrases << :kazakhstan_os_local_resident
+      elsif ceremony_country == 'russian-federation'
+        phrases << :"russian-federation_os_local_resident"
       end
       if %w(germany italy japan spain).exclude?(ceremony_country)
         if reg_data_query.clickbook(ceremony_country)
