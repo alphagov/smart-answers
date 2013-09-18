@@ -515,7 +515,7 @@ outcome :outcome_os_consular_cni do
     end
 
     if ceremony_country == residency_country
-      if %w(germany italy kazakhstan).exclude?(ceremony_country)
+      if %w(germany italy kazakhstan russian-federation).exclude?(ceremony_country)
         phrases << :consular_cni_os_local_resident_not_italy_germany
       end
       if ceremony_country == 'kazakhstan'
