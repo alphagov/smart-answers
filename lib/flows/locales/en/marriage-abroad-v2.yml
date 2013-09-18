@@ -9,7 +9,7 @@ en-GB:
 
         Your marriage or civil partnership should be recognised in the UK if you follow the correct process according to local law.
 
-        You might be asked to get certain documents from the UK government if you’re a [British national.](http://www.ukba.homeoffice.gov.uk/britishcitizenship/aboutcitizenship/){:rel="external"} Use this tool to find out:
+        You might be asked to get certain documents from the UK government if you’re a [British national](http://www.ukba.homeoffice.gov.uk/britishcitizenship/aboutcitizenship/). Use this tool to find out:
 
         - which documents you can get
         - how to apply for them
@@ -59,13 +59,13 @@ en-GB:
         iom_ci_os_all: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
         iom_ci_os_spain: |
-          %There are certain legal restrictions if neither of you is resident in Spain. You should check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC){:rel="external"} where you’re planning to get married to find out if this is allowed.%
+          %There are certain legal restrictions if neither of you is resident in Spain. You should check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re planning to get married to find out if this is allowed.%
         iom_ci_os_resident_of_iom: |
-          You may be asked for a certificate of no impediment (CNI) or similar document. Check with the authorities in the [Isle of Man](http://www.gov.im/registries/general/civilregistry/){:rel="external"} to find out what they can provide, then contact the authorities in %{country_name_lowercase_prefix} to confirm if this is acceptable.
+          You may be asked for a certificate of no impediment (CNI) or similar document. Check with the authorities in the [Isle of Man](http://www.gov.im/registries/general/civilregistry/) to find out what they can provide, then contact the authorities in %{country_name_lowercase_prefix} to confirm if this is acceptable.
 
           The local British embassy or consulate may be able to advise if you have any problems getting the documents you need from the Manx authorities.
         iom_ci_os_resident_of_ci: |
-          You may be asked for a certificate of no impediment (CNI) or similar document. Check with the authorities in [Jersey](http://www.gov.je/pages/contacts.aspx?contactId=71){:rel="external"} or [Guernsey](http://www.guernseyroyalcourt.gg/article/1663/Contact-Us){:rel="external"} to find out what they can provide, then contact the authorities in %{country_name_lowercase_prefix} to confirm if this is acceptable.
+          You may be asked for a certificate of no impediment (CNI) or similar document. Check with the authorities in [Jersey](http://www.gov.je/pages/contacts.aspx?contactId=71) or [Guernsey](http://www.guernseyroyalcourt.gg/article/1663/Contact-Us) to find out what they can provide, then contact the authorities in %{country_name_lowercase_prefix} to confirm if this is acceptable.
 
           The local British embassy or consulate may be able to advise if you have any problems getting the documents you need from the authorities in Jersey or Guernsey.
         iom_ci_os_ceremony_not_italy: |
@@ -78,18 +78,18 @@ en-GB:
 
 #Marriage in Ireland outcome phrases
         outcome_ireland_opposite_sex: |
-          The General Register Office of Ireland's website explains what you need to do if you want to [get married in Ireland.](http://www.groireland.ie/getting_married.htm){:rel="external"}.
+          The General Register Office of Ireland's website explains what you need to do if you want to [get married in Ireland.](http://www.groireland.ie/getting_married.htm).
         outcome_ireland_same_sex: |
-          The General Register Office of Ireland's website explains what you need to do if you want to [enter into a civil partnership in Ireland.](http://www.groireland.ie/civil_partnership.htm){:rel="external"}.
+          The General Register Office of Ireland's website explains what you need to do if you want to [enter into a civil partnership in Ireland.](http://www.groireland.ie/civil_partnership.htm).
 #Marriage in commonwealth countries phrases
         commonwealth_os_all_intro: |
           %{country_name_uppercase_prefix} is a member of the Commonwealth.
 
-          ^You can’t deposit a copy of your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/){:rel="external"} (GRO) in the UK if you get married in a Commonwealth country.^
+          ^You can’t deposit a copy of your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK if you get married in a Commonwealth country.^
 
           ##What you need to do
         commonwealth_os_zimbabwe_intro: |
-          ^You can’t deposit a copy of your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/){:rel="external"} (GRO) in the UK if you get married in Zimbabwe.^
+          ^You can’t deposit a copy of your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK if you get married in Zimbabwe.^
         uk_resident_os_ceremony_not_zimbabwe: |
           Contact the [High Commission of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) to find out about local marriage laws, including what documents you’ll need.
 
@@ -103,7 +103,7 @@ en-GB:
 
           ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}) before making any plans.^
         uk_resident_os_ceremony_zimbabwe: |
-          Contact the [Zimbabwean Embassy in the UK](http://www.zimlondon.gov.zw/index.php/contact-us){:rel="external"} to find out about local marriage laws, including what documents you’ll need.
+          Contact the [Zimbabwean Embassy in the UK](http://www.zimlondon.gov.zw/index.php/contact-us) to find out about local marriage laws, including what documents you’ll need.
 
           ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}) before making any plans.^
         local_resident_os_ceremony_zimbabwe: |
@@ -134,15 +134,15 @@ en-GB:
 
           ^You must get married through an Islamic ceremony in Malaysia if you or your partner is a Muslim. Otherwise, you’ll need to have a civil marriage.^
         commonwealth_os_other_countries_singapore: |
-          However, you can swear an affidavit (written statement of facts) that you’re free to marry in front of a local [notary public or commissioner of oaths.](http://www.conp.sg/co-np-directory-listing){:rel="external"}
+          However, you can swear an affidavit (written statement of facts) that you’re free to marry in front of a local [notary public or commissioner of oaths](http://www.conp.sg/co-np-directory-listing).
         commonwealth_os_other_countries_brunei: |
           ^You must get married through an Islamic ceremony in Brunei if you or your partner is a Muslim. Otherwise, you’ll need to have a civil marriage.^
         commonwealth_os_other_countries_cyprus: |
           ###Other requirements for Cyprus
 
-          You must provide evidence that you’re allowed to marry if you’re resident in Cyprus but you’ve been there for less than 3 years. However, the [General Register Office](http://www.gro.gov.uk/gro/content/){:rel="external"} (GRO) in the UK can only provide letters covering a specified 3-year period, not including the most recent 18 months.
+          You must provide evidence that you’re allowed to marry if you’re resident in Cyprus but you’ve been there for less than 3 years. However, the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK can only provide letters covering a specified 3-year period, not including the most recent 18 months.
 
-          You should [contact the municipality](http://www.ucm.org.cy/Account_List.aspx){:rel="external"} in the area of Cyprus where you’d like to marry to check if they’ll accept this.
+          You should [contact the municipality](http://www.ucm.org.cy/Account_List.aspx) in the area of Cyprus where you’d like to marry to check if they’ll accept this.
         commonwealth_os_naturalisation: |
           ##Naturalisation of your partner if they move to the UK
 
@@ -156,7 +156,7 @@ en-GB:
         bot_os_ceremony_bvi: |
           The British Virgin Islands is a British overseas territory.
 
-          Contact the [Civil Registry](http://www.bvi.gov.vg/department/civil-registry-and-passport-office){:rel="external"} to find out about getting married there, including what documents you’ll need.
+          Contact the [Civil Registry](http://www.bvi.gov.vg/department/civil-registry-and-passport-office) to find out about getting married there, including what documents you’ll need.
 
           You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.
         bot_os_ceremony_non_biot: |
@@ -183,7 +183,7 @@ en-GB:
         uk_resident_os_consular_cni_dutch_caribbean_islands: |
           %{country_name_uppercase_prefix} is one of the Dutch Caribbean islands.
 
-          Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121){:rel="external"} before making any plans to find out about local marriage laws, including what documents you’ll need.
+          Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local marriage laws, including what documents you’ll need.
 
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}]).
         other_resident_os_consular_cni: |
@@ -201,7 +201,7 @@ en-GB:
         spain_os_consular_cni_same_sex: |
           The process for same-sex marriages in Spain is the same as for opposite-sex civil marriages. Your marriage will be recognised as a civil partnership under British law.
         spain_os_consular_civil_registry: |
-          Check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC){:rel="external"} where you’re getting married.
+          Check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re getting married.
         spain_os_consular_cni_not_local_resident: |
           %There are certain legal restrictions if neither of you is resident in Spain. If you both live outside Spain, you should check with the civil registry where you’re planning to getting married to find out if this is allowed.%
         italy_os_consular_cni_ceremony_italy: |
@@ -241,13 +241,13 @@ en-GB:
         consular_cni_os_china_not_local_partner: |
           ^Two foreigners can only get married in China if one of you has a valid Chinese residence permit.^
         uk_resident_partner_not_irish_os_consular_cni_three: |
-          You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf){:rel="external"} or [Northern Ireland.](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm){:rel="external"}
+          You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf) or [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm).
 
           ^A CNI issued in England, Wales or Northern Ireland is valid for 6 months. A CNI issued in Scotland is valid for 3 months.^
 
           They’ll post your notice, and as long as nobody has registered an objection after a specified number of days (normally 15 or 21), they’ll  issue your CNI.
         scotland_ni_resident_partner_irish_os_consular_cni_three: |
-          You can normally get a CNI by giving a notice of marriage at local registrar if you live in [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf){:rel="external"} or [Northern Ireland.](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm){:rel="external"}
+          You can normally get a CNI by giving a notice of marriage at local registrar if you live in [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf) or [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm).
 
           ^A CNI issued in Northern Ireland is valid for 6 months. A CNI issued in Scotland is valid for 3 months.^
 
@@ -255,7 +255,7 @@ en-GB:
         consular_cni_os_scotland_or_ni_partner_irish_or_partner_not_irish_three: |
           ###Getting a statutory declaration
 
-          While you’re waiting for your CNI, you and your partner will need to make a statutory declaration before a [solicitor or public notary](http://www.lawsociety.org.uk/find-a-solicitor/){:rel="external"}. The Italian authorities will need this in addition to your CNI. There’s a standard template in English and Italian that you can download and use.
+          While you’re waiting for your CNI, you and your partner will need to make a statutory declaration before a [solicitor or public notary](http://www.lawsociety.org.uk/find-a-solicitor/). The Italian authorities will need this in addition to your CNI. There’s a standard template in English and Italian that you can download and use.
 
 
           $D
@@ -274,9 +274,9 @@ en-GB:
 
           ###Applying for a Nulla Osta from the FCO
 
-          s1. [Download ‘Nulla Osta application form’ (DOT, 61KB)](/government/uploads/system/uploads/attachment_data/file/136828/nulla-osta-form.doc ).
+          s1. [Download ‘Nulla Osta application form’ (DOT, 61KB)](/government/uploads/system/uploads/attachment_data/file/136828/nulla-osta-form.doc).
           s2. Place a public announcement of your marriage in your local newspaper for at least 1 week, as described on the form.
-          s3. Swear an affidavit (written statement of facts) in front of a [solicitor](http://www.lawsociety.org.uk/find-a-solicitor/){:rel="external"} - there’s an example on the form.
+          s3. Swear an affidavit (written statement of facts) in front of a [solicitor](http://www.lawsociety.org.uk/find-a-solicitor/) - there’s an example on the form.
           s4. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
           s5. You’ll also need to include a pre-paid, self-addressed special delivery envelope, or a £10 postage fee, so the FCO can return your documents.
           s6. Send your completed form to the FCO with your supporting documents and payment. [You can pay by credit card online](/pay-foreign-marriage-certificates), or send a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. Personal cheques aren’t accepted. The address is on the form.
@@ -291,7 +291,7 @@ en-GB:
 
           s1. [Download ‘Certificate of no impediment application form’ (DOT, 60KB)](/government/uploads/system/uploads/attachment_data/file/136828/nulla-osta-form.doc).
           s2. Place a public announcement of your marriage in your local newspaper for at least 1 week, as described on the form.
-          s3. Swear an affidavit (written statement of facts) in front of a [solicitor](http://www.lawsociety.org.uk/find-a-solicitor/){:rel="external"} - there’s an example on the form.
+          s3. Swear an affidavit (written statement of facts) in front of a [solicitor](http://www.lawsociety.org.uk/find-a-solicitor/) - there’s an example on the form.
           s4. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
           s5. You’ll also need to include a pre-paid, self-addressed special delivery envelope, or a £10 postage fee, so the FCO can return your documents.
           s6. Send your completed form to the FCO with your supporting documents and payment. [You can pay by credit card online](/pay-foreign-marriage-certificates), or send a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. Personal cheques aren’t accepted. The address is on the form.
@@ -315,7 +315,7 @@ en-GB:
           You should also check if it needs to be:
         consular_cni_os_uk_resident_not_italy_or_portugal: |
           - ‘[legalised](/get-document-legalised)’ (certified as genuine) by the FCO
-          - translated - [find a translator abroad](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers), or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046){:rel="external"}
+          - translated - [find a translator abroad](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers), or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046)
 
           You should also check with the local authorities to find out if you need to provide legalised and translated copies of any other documents.
         consular_cni_os_uk_resident_philippines: |
@@ -323,7 +323,7 @@ en-GB:
 
           Once you have your UK-issued CNI, the British Embassy in Manila can issue a Philippine version that will be recognised by the local authorities. You can arrange this by booking an appointment online at least 2 weeks before your visit.
 
-          [Book an appointment online.](http://britishembassymanila.clickbook.net/){:rel="external"}
+          [Book an appointment online](http://britishembassymanila.clickbook.net/).
         consular_cni_os_uk_resident_ceremony_portugal: |
           ###Getting a Portuguese version of your CNI
 
@@ -333,7 +333,7 @@ en-GB:
 
           Once you have your UK-issued CNI, you’ll need to get a Chinese version that will be recognised by the local authorities.
 
-          You can do this by getting your CNI ‘[legalised](/get-document-legalised)’ (certified as genuine) by the FCO, and then by your nearest [Chinese embassy or consulate.](http://www.chinese-embassy.org.uk/eng/lsfw/legalization/){:rel="external"} Check with the marriage bureau in China to see if it also needs to be [translated.](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046){:rel="external"}
+          You can do this by getting your CNI ‘[legalised](/get-document-legalised)’ (certified as genuine) by the FCO, and then by your nearest [Chinese embassy or consulate](http://www.chinese-embassy.org.uk/eng/lsfw/legalization/). Check with the marriage bureau in China to see if it also needs to be [translated](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046).
 
           Alternatively, take your CNI to the nearest British embassy or consulate-general where you’re getting married so they can issue a CNI in Mandarin.
         consular_cni_os_uk_resident_ceremony_china_local_partner: |
@@ -355,7 +355,7 @@ en-GB:
 
           ###Applying for a CNI from the consulate
 
-          You’ll need to have been resident in the Russian Federation for at least 21 days. You can then book an appointment at the consulate in the district you're resident in, to give notice of your marriage.
+          You’ll need to have been resident in the Russian Federation for at least 21 days. You can then book an appointment at the consulate in the district you’re resident in, to give notice of your marriage.
 
           Email <RussiaConsular@fco.gov.uk> to find your local consulate.
         consular_cni_os_no_clickbook_so_embassy_details: |
@@ -487,7 +487,7 @@ en-GB:
  
           - your passport
           - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
-          - a copy of your partner's ID card and Certificato di Stato Libero from the comune
+          - a copy of your partner’s ID card and Certificato di Stato Libero from the comune
           - a copy of your partner’s Nulla Osta, if possible
         italy_consular_cni_os_partner_other_or_irish: |
           You’ll need to provide supporting documents, including:
@@ -501,7 +501,7 @@ en-GB:
           To request an appointment, fill in the CNI appointment request form and make sure you’ve got all of the necessary supporting documents.
 
 
-          $D  
+          $D
           [Download 'CNI appointment request form' (DOC, 54KB)](/government/uploads/system/uploads/attachment_data/file/182250/_Appointment_request_form_for_CNI_6_.doc)
           $D
 
@@ -590,15 +590,15 @@ en-GB:
 
           Otherwise, you can make an appointment to collect your CNI in person:
 
-          - [Tokyo](http://www.britishembassytokyo.clickbook.net/){:rel="external"} (if you live in Eastern Japan)
-          - [Osaka](http://www.britishconsulateosak.clickbook.net/){:rel="external"} (if you live in Western Japan)
+          - [Tokyo](http://www.britishembassytokyo.clickbook.net/) (if you live in Eastern Japan)
+          - [Osaka](http://www.britishconsulateosak.clickbook.net/) (if you live in Western Japan)
         italy_os_consular_cni_four: |
           You’ll then have to email the embassy with completed [credit card authorisation](/government/publications/credit-card-authorisation-form), [couple information](/government/publications/couple-information-form) and [request for consular services](/government/publications/request-for-consular-services) forms to arrange payment so they can issue your Nulla Osta.
 
 
           $C
           **British Embassy in Rome - marriages**  
-          <rome.marriages@fco.gov.uk>  
+          <rome.marriages@fco.gov.uk>
           $C
 
           They’ll contact you to arrange collection or delivery, and will normally aim to to issue the Nulla Osta within 20 days.
@@ -626,13 +626,13 @@ en-GB:
 
           Check with the town hall to find out if you need any of these documents. You’ll need to make an appointment at the embassy to get them. Bring any supporting documents they ask for, and pay a fee (see below).
         consular_cni_os_belgium_clickbook: |
-          [Book an appointment online.](http://britishconsulate-gen.clickbook.net/){:rel="external"}
+          [Book an appointment online](http://britishconsulate-gen.clickbook.net/).
         consular_cni_os_ceremony_spain: |
           ###Getting a marital status certificate
 
           In some parts of Spain you may need to to get a ‘marital status certificate’ (‘certificado de estado civil’) instead of, or as well as, a CNI ('certificado de no impedimento').
 
-          Check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC){:rel="external"} where you’re getting married. If you need one, ask a [solicitor](/government/publications/spain-list-of-lawyers) (‘abogado’) to draw up a declaration for you printed on their headed paper.
+          Check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re getting married. If you need one, ask a [solicitor](/government/publications/spain-list-of-lawyers) (‘abogado’) to draw up a declaration for you printed on their headed paper.
 
           ^If it’s on blank, non-headed paper, they’ll need to give you a separate letter including their contact details, confirming that they’ve drawn up the declaration.^
 
@@ -667,7 +667,7 @@ en-GB:
         consular_cni_os_all_depositing_certificate: |
           ##Depositing your marriage certificate in the UK
 
-          You can deposit your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/){:rel="external"} (GRO) in the UK for safe-keeping after your wedding. There’s a fee for this service (see below).
+          You can deposit your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK for safe-keeping after your wedding. There’s a fee for this service (see below).
 
           This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate/) in English at any time from GRO.
         italy_os_consular_cni_five: |
@@ -678,7 +678,7 @@ en-GB:
 
           $C
           **British Embassy in Rome - marriages**  
-          <rome.marriages@fco.gov.uk>  
+          <rome.marriages@fco.gov.uk>
           $C
 
         consular_cni_os_ceremony_finland: |
@@ -748,7 +748,7 @@ en-GB:
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}).
 
         affirmation_os_uk_resident_two: |
-          ^You should [get legal advice](http://www.lawsociety.org.uk/find-a-solicitor/){:rel="external"} before making any plans.^
+          ^You should [get legal advice](http://www.lawsociety.org.uk/find-a-solicitor/) before making any plans.^
         affirmation_os_not_uk_resident: |
           ^You should get legal advice before making any plans.^
         affirmation_os_all_what_you_need_to_do: |
@@ -756,7 +756,7 @@ en-GB:
 
           ##What you need to do
 
-          You may be asked to provide an 'affirmation of freedom to marry' document to prove you're allowed to marry.
+          You may be asked to provide an 'affirmation of freedom to marry' document to prove you’re allowed to marry.
 
           Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
 
@@ -783,7 +783,7 @@ en-GB:
         affirmation_os_all_depositing_certificate: |
           ##Depositing your marriage certificate in the UK
 
-          You can deposit your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/){:rel="external"} (GRO) in the UK for safe-keeping after your wedding. There’s a fee for this service (see below).
+          You can deposit your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK for safe-keeping after your wedding. There’s a fee for this service (see below).
 
           This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate/) in English at any time from GRO.
 
@@ -809,7 +809,7 @@ en-GB:
         no_cni_os_dutch_caribbean_islands: |
           %{country_name_uppercase_prefix} is one of the Dutch Caribbean islands.
         no_cni_os_dutch_caribbean_islands_uk_resident: |
-          Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121){:rel="external"} before making any plans to find out about local marriage laws, including what documents you’ll need.
+          Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local marriage laws, including what documents you’ll need.
 
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}).
         no_cni_os_dutch_caribbean_islands_local_resident: |
@@ -833,7 +833,7 @@ en-GB:
 
           There aren’t any British consular facilities to register a marriage or get legal documents to prove you’re eligible to marry in %{country_name_lowercase_prefix}.
         no_cni_os_all_nearest_embassy_not_taiwan: |
-          However, your nearest embassy or consulate may be able to deposit your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/){:rel="external"} (GRO) in the UK for safe-keeping. There’s a fee for this service (see below).
+          However, your nearest embassy or consulate may be able to deposit your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK for safe-keeping. There’s a fee for this service (see below).
 
           %{embassy_details}
         no_cni_os_all_depositing_certificate: |
@@ -881,19 +881,19 @@ en-GB:
         other_countries_os_ceremony_saudia_arabia_not_local_resident: |
           ^One of you must be a Muslim to get married under local laws in Saudi Arabia. You can only get married at the British Embassy if you’re resident in the country.^
 
-          Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/){:rel="external"} to find out about local marriage laws.
+          Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/) to find out about local marriage laws.
 
           The British Embassy in Saudi Arabia may also be able to give you advice.
           %{embassy_details}
         other_countries_os_saudi_arabia_local_resident_partner_irish: |
           ^One of you must be a Muslim to get married under local laws in Saudi Arabia. You can’t get married at the British Embassy in Saudi Arabia if one of you is an Irish national, as the Irish authorities do not recognise consular marriages.^
 
-          Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/){:rel="external"} to find out about local marriage laws.
+          Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/) to find out about local marriage laws.
 
           The British Embassy in Saudi Arabia may also be able to give you advice.
           %{embassy_details}
         other_countries_os_saudi_arabia_local_resident_partner_not_irish: |
-          One of you must be a Muslim to get married under local laws in Saudi Arabia. Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/){:rel="external"} to find out about local marriage laws.
+          One of you must be a Muslim to get married under local laws in Saudi Arabia. Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/) to find out about local marriage laws.
 
           ##Getting married at the British Embassy
 
@@ -1017,11 +1017,11 @@ en-GB:
         cp_or_equivalent_cp_naturalisation: |
           ##Naturalisation of your partner if they move to the UK
 
-          Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
+          Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
         cp_or_equivalent_all_depositing_certificate: |
           ##Depositing your civil partnership certificate in the UK
 
-          You can deposit your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/){:rel="external"} (GRO) in the UK for safe-keeping after your wedding.  There’s a fee for this service (see below).
+          You can deposit your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK for safe-keeping after your wedding.  There’s a fee for this service (see below).
 
           This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate/) in English at any time from GRO.
 
@@ -1097,7 +1097,7 @@ en-GB:
         no_cni_required_cp_dutch_islands: |
           %{country_name_lowercase_prefix} is one of the Dutch Caribbean islands.
         no_cni_required_cp_dutch_islands_uk_resident: |
-          Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121){:rel="external"} before making any plans to find out about local laws, including what documents you’ll need.
+          Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local laws, including what documents you’ll need.
 
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}).
         no_cni_required_cp_dutch_islands_local_resident: |
@@ -1119,7 +1119,7 @@ en-GB:
         no_cni_required_cp_all_consular_facilities: |
           There aren’t any British consular facilities to register a same-sex relationship, or get legal documents to prove you’re eligible enter into a same-sex relationship, in %{country_name_lowercase_prefix}.
 
-          However, your nearest embassy or consulate may be able to deposit your certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/){:rel="external"} (GRO) in the UK for safe-keeping after the ceremony. There’s a fee for this service (see below).
+          However, your nearest embassy or consulate may be able to deposit your certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK for safe-keeping after the ceremony. There’s a fee for this service (see below).
           %{embassy_details}
         no_cni_required_cp_all_depositing_certifictate: |
           ##Depositing your certificate in the UK
@@ -1136,7 +1136,7 @@ en-GB:
         no_cni_required_cp_naturalisation: |
           ##Naturalisation of your partner if they move to the UK
 
-          Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
+          Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
         no_cni_required_cp_all_fees: |
           ##Fees
 
@@ -1221,7 +1221,7 @@ en-GB:
         commonwealth_countries_cp_all_depositing_cp_certificate: |
           ##Depositing your civil partnership certificate in the UK
 
-          You can deposit your certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/){:rel="external"} (GRO) in the UK for safe-keeping after your wedding.  There’s a fee for this service (see below).
+          You can deposit your certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK for safe-keeping after your wedding.  There’s a fee for this service (see below).
 
           This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate/) in English at any time from GRO.
 
@@ -1259,8 +1259,8 @@ en-GB:
         consular_cni_cp_japan: |
           Contact them to make an appointment:
 
-          - [Tokyo](http://www.britishembassytokyo.clickbook.net/){:rel="external"} (if you live in Eastern Japan)
-          - [Osaka](http://www.britishconsulateosak.clickbook.net/){:rel="external"} (if you live in Western Japan)
+          - [Tokyo](http://www.britishembassytokyo.clickbook.net/) (if you live in Eastern Japan)
+          - [Osaka](http://www.britishconsulateosak.clickbook.net/) (if you live in Western Japan)
         consular_cni_cp_all_contact: |
           Contact them to make an appointment:
         consular_cni_cp_no_clickbook_so_embassy_details: |
@@ -1411,7 +1411,7 @@ en-GB:
 
           Contact the local town hall (‘mairie’) where you’re getting married to find out about local laws, including what documents you’ll need.
 
-          If you’re not in France, [your closest French embassy](http://www.mfe.org/index.php/Annuaires/Ambassades-et-consulats-francais-a-l-etranger){:rel="external"} may also be able to give you advice, or put you in touch with the relevant local authorities if you don’t know who to contact.
+          If you’re not in France, [your closest French embassy](http://www.mfe.org/index.php/Annuaires/Ambassades-et-consulats-francais-a-l-etranger) may also be able to give you advice, or put you in touch with the relevant local authorities if you don’t know who to contact.
 
           ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
 
@@ -1450,7 +1450,7 @@ en-GB:
 
           ##Depositing your certificate in the UK
 
-          You can deposit your certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/){:rel="external"} (GRO) in the UK for safe-keeping after your wedding.
+          You can deposit your certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK for safe-keeping after your wedding.
 
           You’ll need to get a multilingual extract of the marriage register (‘formule plurilingue d’extrait de l’acte de mariage’) from the mairie. Take or send this, along with a photocopy of your passport and the  [fee](/government/publications/france-consular-fees) to the [nearest consulate](/government/world/organisations/british-embassy-paris#contact-us) where the marriage took place.
 
@@ -1498,7 +1498,7 @@ en-GB:
 
           Contact the 'tribunal d’instance' in the town where you’re entering into a PACS to find out about local laws, including what documents you’ll need.
 
-          If you’re not in France, [your closest French embassy](http://www.mfe.org/index.php/Annuaires/Ambassades-et-consulats-francais-a-l-etranger){:rel="external"} may also be able to give you advice, or put you in touch with the relevant local authorities if you don’t know who to contact.
+          If you’re not in France, [your closest French embassy](http://www.mfe.org/index.php/Annuaires/Ambassades-et-consulats-francais-a-l-etranger) may also be able to give you advice, or put you in touch with the relevant local authorities if you don’t know who to contact.
 
           ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
 
@@ -1535,7 +1535,7 @@ en-GB:
 
           ##Depositing your certificate in the UK
 
-          You can deposit your certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/){:rel="external"} (GRO) in the UK for safe-keeping after your wedding.
+          You can deposit your certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK for safe-keeping after your wedding.
 
           You’ll need to get a extract of the PACS register from the tribunal. Take or send this, along with a full English translation, a photocopy of your passport and the [fee](/government/publications/france-consular-fees) to the [nearest consulate](/government/world/organisations/british-embassy-paris#contact-us) where the marriage took place.
 
