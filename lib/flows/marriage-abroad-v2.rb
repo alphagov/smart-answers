@@ -1,11 +1,8 @@
 status :draft
 satisfies_need "2799"
 
-data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
+data_query = SmartAnswer::Calculators::MarriageAbroadDataQueryV2.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
-i18n_prefix = 'flow.marriage-abroad-v2'
-use_second_embassy_address = %w(bosnia-and-herzegovina india)
-use_third_embassy_address = %w(indonesia)
 exclude_countries = %w(holy-see british-antarctic-territory)
 
 # Q1
@@ -24,8 +21,8 @@ country_select :country_of_ceremony?, :exclude_countries => exclude_countries do
   calculate :country_name_lowercase_prefix do
     if data_query.countries_with_definitive_articles?(ceremony_country)
       "the #{ceremony_country_name}"
-    elsif SmartAnswer::Calculators::MarriageAbroadDataQuery::COUNTRY_NAME_TRANSFORM.has_key?(ceremony_country)
-      SmartAnswer::Calculators::MarriageAbroadDataQuery::COUNTRY_NAME_TRANSFORM[ceremony_country]
+    elsif SmartAnswer::Calculators::MarriageAbroadDataQueryV2::COUNTRY_NAME_TRANSFORM.has_key?(ceremony_country)
+      SmartAnswer::Calculators::MarriageAbroadDataQueryV2::COUNTRY_NAME_TRANSFORM[ceremony_country]
     else
       ceremony_country_name
     end
@@ -37,13 +34,7 @@ country_select :country_of_ceremony?, :exclude_countries => exclude_countries do
       country_name_lowercase_prefix
     end
   end
-  calculate :country_name_for_links do
-    if SmartAnswer::Calculators::MarriageAbroadDataQuery::LINK_NAME_TRANSFORM.has_key?(ceremony_country)
-      SmartAnswer::Calculators::MarriageAbroadDataQuery::LINK_NAME_TRANSFORM[ceremony_country]
-    else
-      ceremony_country
-    end
-  end
+
   calculate :country_name_partner_residence do
     if data_query.british_overseas_territories?(ceremony_country)
       "British (overseas territories citizen)"
@@ -56,22 +47,6 @@ country_select :country_of_ceremony?, :exclude_countries => exclude_countries do
     else
       "National of #{country_name_lowercase_prefix}"
     end
-  end
-  calculate :embassy_address do
-    data = data_query.find_embassy_data(ceremony_country)
-    data.first['address'] if data
-  end
-  calculate :embassy_details do
-    details = data_query.find_embassy_data(ceremony_country)
-    if use_third_embassy_address.include?(ceremony_country)
-      details = details.third
-    elsif use_second_embassy_address.include?(ceremony_country)
-      details = details.second
-    else
-      details = details.first
-    end
-      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
-                       address: details['address'], phone: details['phone'], email: details['email'], office_hours: details['office_hours'])
   end
   calculate :clickbook_data do
     reg_data_query.clickbook(ceremony_country)
@@ -152,35 +127,13 @@ country_select :residency_nonuk?, :exclude_countries => exclude_countries do
   calculate :residency_country_name_lowercase_prefix do
     if data_query.countries_with_definitive_articles?(residency_country)
       "the #{residency_country_name}"
-    elsif SmartAnswer::Calculators::MarriageAbroadDataQuery::COUNTRY_NAME_TRANSFORM.has_key?(residency_country)
-      SmartAnswer::Calculators::MarriageAbroadDataQuery::COUNTRY_NAME_TRANSFORM[residency_country]
+    elsif SmartAnswer::Calculators::MarriageAbroadDataQueryV2::COUNTRY_NAME_TRANSFORM.has_key?(residency_country)
+      SmartAnswer::Calculators::MarriageAbroadDataQueryV2::COUNTRY_NAME_TRANSFORM[residency_country]
     else
       residency_country_name
     end
   end
-  calculate :residency_country_link_names do
-    if SmartAnswer::Calculators::MarriageAbroadDataQuery::LINK_NAME_TRANSFORM.has_key?(residency_country)
-      SmartAnswer::Calculators::MarriageAbroadDataQuery::LINK_NAME_TRANSFORM[residency_country]
-    else
-      residency_country
-    end
-  end
-  calculate :residency_embassy_address do
-    data = data_query.find_embassy_data(residency_country)
-    data.first['address'] if data
-  end
-  calculate :residency_embassy_details do
-    details = data_query.find_embassy_data(residency_country)
-    if use_third_embassy_address.include?(residency_country)
-      details = details.third
-    elsif use_second_embassy_address.include?(residency_country)
-      details = details.second
-    else
-      details = details.first
-    end
-      I18n.translate("#{i18n_prefix}.phrases.embassy_details",
-                       address: details['address'], phone: details['phone'], email: details['email'], office_hours: details['office_hours'])
-  end
+
   calculate :embassy_or_consulate_residency_country do
     if reg_data_query.has_consulate?(residency_country) or reg_data_query.has_consulate_general?(residency_country)
       "consulate"
@@ -242,7 +195,7 @@ multiple_choice :partner_opposite_or_same_sex? do
         :outcome_os_bot
       elsif data_query.os_consular_cni_countries?(ceremony_country) or (resident_of == 'uk' and data_query.os_no_marriage_related_consular_services?(ceremony_country))
         :outcome_os_consular_cni
-      elsif %w(thailand egypt korea lebanon).include?(ceremony_country)
+      elsif %w(thailand egypt south-korea lebanon).include?(ceremony_country)
         :outcome_os_affirmation
       elsif data_query.os_no_consular_cni_countries?(ceremony_country) or (resident_of == 'other' and data_query.os_no_marriage_related_consular_services?(ceremony_country))
         :outcome_os_no_cni
@@ -528,13 +481,13 @@ outcome :outcome_os_consular_cni do
     end
 
     if ceremony_country == residency_country
-      if %w(germany italy kazakhstan russian-federation).exclude?(ceremony_country)
+      if %w(germany italy kazakhstan russia).exclude?(ceremony_country)
         phrases << :consular_cni_os_local_resident_not_italy_germany
       end
       if ceremony_country == 'kazakhstan'
         phrases << :kazakhstan_os_local_resident
-      elsif ceremony_country == 'russian-federation'
-        phrases << :"russian-federation_os_local_resident"
+      elsif ceremony_country == 'russia'
+        phrases << :"russia_os_local_resident"
       end
       if %w(germany italy japan spain).exclude?(ceremony_country)
         if reg_data_query.clickbook(ceremony_country)
@@ -820,7 +773,7 @@ outcome :outcome_os_no_cni do
     if ceremony_country != 'taiwan'
       phrases << :no_cni_os_all_nearest_embassy_not_taiwan
       phrases << :no_cni_os_all_depositing_certificate
-      if ceremony_country == 'united-states'
+      if ceremony_country == 'usa'
         phrases << :no_cni_os_ceremony_usa
       else
         phrases << :no_cni_os_ceremony_not_usa
@@ -929,7 +882,7 @@ outcome :outcome_cp_no_cni do
       phrases << :"no_cni_required_cp_#{ceremony_country}"
     end
     phrases << :no_cni_required_all_legal_advice
-    if ceremony_country == 'united-states'
+    if ceremony_country == 'usa'
       phrases << :no_cni_required_cp_ceremony_us
     end
     phrases << :no_cni_required_all_what_you_need_to_do
@@ -954,7 +907,7 @@ outcome :outcome_cp_no_cni do
     end
     phrases << :no_cni_required_cp_all_consular_facilities
     phrases << :no_cni_required_cp_all_depositing_certifictate
-    if ceremony_country == 'united-states'
+    if ceremony_country == 'usa'
       phrases << :no_cni_required_cp_ceremony_us_two
     else
       phrases << :no_cni_required_cp_ceremony_not_us
