@@ -15,6 +15,17 @@ country_select :country_of_ceremony?, :exclude_countries => exclude_countries do
     loc
   end
 
+  calculate :organisation do
+    location.fco_organisation
+  end
+  calculate :overseas_passports_embassies do
+    if organisation
+      organisation.offices_with_service 'Marriages or Civil Partnership service'
+    else
+      []
+    end
+  end
+
   calculate :ceremony_country_name do
     WorldLocation.all.find { |c| c.slug == responses.last }.name
   end
@@ -119,6 +130,17 @@ country_select :residency_nonuk?, :exclude_countries => exclude_countries do
     loc = WorldLocation.find(residency_country)
     raise InvalidResponse unless loc
     loc
+  end
+
+  calculate :organisation do
+    location.fco_organisation
+  end
+  calculate :overseas_passports_embassies do
+    if organisation
+      organisation.offices_with_service 'Marriages or Civil Partnership service'
+    else
+      []
+    end
   end
 
   calculate :residency_country_name do

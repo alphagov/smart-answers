@@ -970,6 +970,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   context "ceremony in lebanon, resident in poland, partner irish" do
     setup do
       worldwide_api_has_organisations_for_location('lebanon', read_fixture_file('worldwide/lebanon_organisations.json'))
+      worldwide_api_has_organisations_for_location('poland', read_fixture_file('worldwide/poland_organisations.json'))
       add_response 'lebanon'
       add_response 'other'
       add_response 'poland'
@@ -1018,6 +1019,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   context "ceremony in aruba, resident in poland, partner irish" do
     setup do
       worldwide_api_has_organisations_for_location('aruba', read_fixture_file('worldwide/aruba_organisations.json'))
+      worldwide_api_has_organisations_for_location('poland', read_fixture_file('worldwide/poland_organisations.json'))
       add_response 'aruba'
       add_response 'other'
       add_response 'poland'
@@ -1064,6 +1066,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   context "ceremony in monaco, resident in poland, partner irish" do
     setup do
       worldwide_api_has_organisations_for_location('monaco', read_fixture_file('worldwide/monaco_organisations.json'))
+      worldwide_api_has_organisations_for_location('poland', read_fixture_file('worldwide/poland_organisations.json'))
       add_response 'monaco'
       add_response 'other'
       add_response 'poland'
@@ -1268,6 +1271,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   context "ceremony in czech republic, resident in poland, partner local" do
     setup do
       worldwide_api_has_organisations_for_location('czech-republic', read_fixture_file('worldwide/czech-republic_organisations.json'))
+      worldwide_api_has_organisations_for_location('poland', read_fixture_file('worldwide/poland_organisations.json'))
       add_response 'czech-republic'
       add_response 'other'
       add_response 'poland'
@@ -1417,6 +1421,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   context "ceremony in australia, other resident, partner local" do
     setup do
       worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
+      worldwide_api_has_organisations_for_location('canada', read_fixture_file('worldwide/canada_organisations.json'))
       add_response 'australia'
       add_response 'other'
       add_response 'canada'

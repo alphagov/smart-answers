@@ -38,12 +38,6 @@ module SmartAnswer::Calculators
       "usa" => "USA"
     }
 
-    attr_reader
-
-    def initialize
-      @embassy_data = self.class.registration_data
-    end
-
     def commonwealth_country?(country_slug)
       COMMONWEALTH_COUNTRIES.include?(country_slug)
     end
