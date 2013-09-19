@@ -6,13 +6,20 @@ reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
 i18n_prefix = 'flow.marriage-abroad-v2'
 use_second_embassy_address = %w(bosnia-and-herzegovina india)
 use_third_embassy_address = %w(indonesia)
+exclude_countries = %w(holy-see british-antarctic-territory)
 
 # Q1
-country_select :country_of_ceremony?, :use_legacy_data => true do
+country_select :country_of_ceremony?, :exclude_countries => exclude_countries do
   save_input_as :ceremony_country
 
+  calculate :location do
+    loc = WorldLocation.find(ceremony_country)
+    raise InvalidResponse unless loc
+    loc
+  end
+
   calculate :ceremony_country_name do
-    LegacyCountry.all.find { |c| c.slug == responses.last }.name
+    WorldLocation.all.find { |c| c.slug == responses.last }.name
   end
   calculate :country_name_lowercase_prefix do
     if data_query.countries_with_definitive_articles?(ceremony_country)
@@ -130,11 +137,17 @@ multiple_choice :residency_uk? do
 end
 
 # Q3b
-country_select :residency_nonuk?, :use_legacy_data => true do
+country_select :residency_nonuk?, :exclude_countries => exclude_countries do
   save_input_as :residency_country
 
+  calculate :location do
+    loc = WorldLocation.find(residency_country)
+    raise InvalidResponse unless loc
+    loc
+  end
+
   calculate :residency_country_name do
-    LegacyCountry.all.find { |c| c.slug == responses.last }.name
+    WorldLocation.all.find { |c| c.slug == responses.last }.name
   end
   calculate :residency_country_name_lowercase_prefix do
     if data_query.countries_with_definitive_articles?(residency_country)

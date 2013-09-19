@@ -1,11 +1,15 @@
 # encoding: UTF-8
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
+require 'gds_api/test_helpers/worldwide'
 
 class MarriageAbroadV2Test < ActiveSupport::TestCase
   include FlowTestHelper
+  include GdsApi::TestHelpers::Worldwide
 
   setup do
+    @location_slugs = %w(anguilla armenia aruba australia austria bahamas belgium bonaire-st-eustatius-saba british-indian-ocean-territory burma canada china cyprus czech-republic denmark egypt estonia finland france germany iran ireland italy japan jordan latvia lebanon mayotte mexico monaco nicaragua north-korea peru poland portugal russia saudi-arabia serbia south-africa spain sweden switzerland thailand turkey usa vietnam wallis-and-futuna yemen zimbabwe)
+    worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'marriage-abroad-v2'
   end
 
@@ -14,6 +18,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   end
   context "ceremony in ireland" do
     setup do
+      worldwide_api_has_organisations_for_location('ireland', read_fixture_file('worldwide/ireland_organisations.json'))
       add_response 'ireland'
     end
     should "go to partner's sex question" do
@@ -35,6 +40,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       should "give outcome ireland ss" do
         assert_current_node :outcome_ireland
         assert_phrase_list :ireland_partner_sex_variant, [:outcome_ireland_same_sex]
+        expected_location = WorldLocation.find('ireland')
+        assert_state_variable :location, expected_location
       end
     end
   end
@@ -42,6 +49,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 
   context "ceremony is outside ireland" do
     setup do
+      worldwide_api_has_organisations_for_location('bahamas', read_fixture_file('worldwide/bahamas_organisations.json'))
       add_response 'bahamas'
     end
     should "ask your country of residence" do
@@ -88,6 +96,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
             should "give outcome opposite sex commonwealth" do
               assert_current_node :outcome_os_commonwealth
               assert_phrase_list :commonwealth_os_outcome, [:commonwealth_os_all_intro, :uk_resident_os_ceremony_not_zimbabwe, :commonwealth_os_all_cni]
+              expected_location = WorldLocation.find('bahamas')
+              assert_state_variable :location, expected_location
             end
           end
           context "same sex partner" do
@@ -114,6 +124,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 
       context "resident in australia" do
         setup do
+          worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
           add_response 'australia'
         end
         should "go to partner's nationality question" do
@@ -139,6 +150,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
             should "give outcome opposite sex commonwealth" do
               assert_current_node :outcome_os_commonwealth
               assert_phrase_list :commonwealth_os_outcome, [:commonwealth_os_all_intro, :other_resident_os_ceremony_not_zimbabwe, :commonwealth_os_all_cni, :commonwealth_os_naturalisation]
+              expected_location = WorldLocation.find('australia')
+              assert_state_variable :location, expected_location
             end
           end
           context "same sex partner" do
@@ -158,6 +171,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 # testing for zimbabwe variants
   context "local resident but ceremony not in zimbabwe" do
     setup do
+      worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
       add_response 'australia'
       add_response 'other'
       add_response 'australia'
@@ -167,10 +181,13 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     should "go to commonwealth os outcome" do
       assert_current_node :outcome_os_commonwealth
       assert_phrase_list :commonwealth_os_outcome, [:commonwealth_os_all_intro, :local_resident_os_ceremony_not_zimbabwe, :commonwealth_os_all_cni]
+      expected_location = WorldLocation.find('australia')
+      assert_state_variable :location, expected_location
     end
   end
   context "uk resident but ceremony not in zimbabwe" do
     setup do
+      worldwide_api_has_organisations_for_location('bahamas', read_fixture_file('worldwide/bahamas_organisations.json'))
       add_response 'bahamas'
       add_response 'uk'
       add_response 'uk_england'
@@ -180,10 +197,14 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     should "go to commonwealth os outcome" do
       assert_current_node :outcome_os_commonwealth
       assert_phrase_list :commonwealth_os_outcome, [:commonwealth_os_all_intro, :uk_resident_os_ceremony_not_zimbabwe, :commonwealth_os_all_cni]
+      expected_location = WorldLocation.find('bahamas')
+      assert_state_variable :location, expected_location
     end
   end
   context "other resident but ceremony not in zimbabwe" do
     setup do
+      worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
+      worldwide_api_has_organisations_for_location('canada', read_fixture_file('worldwide/canada_organisations.json'))
       add_response 'australia'
       add_response 'other'
       add_response 'canada'
@@ -197,6 +218,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   end
   context "uk resident ceremony in zimbabwe" do
     setup do
+      worldwide_api_has_organisations_for_location('zimbabwe', read_fixture_file('worldwide/zimbabwe_organisations.json'))
       add_response 'zimbabwe'
       add_response 'uk'
       add_response 'uk_wales'
@@ -211,6 +233,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 # testing for other commonwealth countries
   context "uk resident ceremony in south-africa" do
     setup do
+      worldwide_api_has_organisations_for_location('south-africa', read_fixture_file('worldwide/south-africa_organisations.json'))
       add_response 'south-africa'
       add_response 'uk'
       add_response 'uk_wales'
@@ -224,6 +247,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   end
   context "resident in cyprus, ceremony in cyprus" do
     setup do
+      worldwide_api_has_organisations_for_location('cyprus', read_fixture_file('worldwide/cyprus_organisations.json'))
       add_response 'cyprus'
       add_response 'other'
       add_response 'cyprus'
@@ -238,6 +262,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 # testing for british overseas territories
   context "uk resident ceremony in british indian ocean territory" do
     setup do
+      worldwide_api_has_organisations_for_location('british-indian-ocean-territory', read_fixture_file('worldwide/british-indian-ocean-territory_organisations.json'))
       add_response 'british-indian-ocean-territory'
       add_response 'uk'
       add_response 'uk_wales'
@@ -251,6 +276,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   end
   context "resident in anguilla, ceremony in anguilla" do
     setup do
+      worldwide_api_has_organisations_for_location('anguilla', read_fixture_file('worldwide/anguilla_organisations.json'))
       add_response 'anguilla'
       add_response 'other'
       add_response 'anguilla'
@@ -265,6 +291,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 # testing for consular cni countries
   context "uk resident, ceremony in estonia, partner british" do
     setup do
+      worldwide_api_has_organisations_for_location('estonia', read_fixture_file('worldwide/estonia_organisations.json'))
       add_response 'estonia'
       add_response 'uk'
       add_response 'uk_wales'
@@ -279,6 +306,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   end
   context "resident in estonia, ceremony in estonia" do
     setup do
+      worldwide_api_has_organisations_for_location('estonia', read_fixture_file('worldwide/estonia_organisations.json'))
       add_response 'estonia'
       add_response 'other'
       add_response 'estonia'
@@ -293,6 +321,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   end
   context "resident in canada, ceremony in estonia" do
     setup do
+      worldwide_api_has_organisations_for_location('estonia', read_fixture_file('worldwide/estonia_organisations.json'))
+      worldwide_api_has_organisations_for_location('canada', read_fixture_file('worldwide/canada_organisations.json'))
       add_response 'estonia'
       add_response 'other'
       add_response 'canada'
@@ -307,6 +337,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   end
   context "local resident, ceremony in jordan, partner british" do
     setup do
+      worldwide_api_has_organisations_for_location('jordan', read_fixture_file('worldwide/jordan_organisations.json'))
       add_response 'jordan'
       add_response 'other'
       add_response 'jordan'
@@ -322,6 +353,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 # variants for italy
   context "ceremony in italy, resident in england, partner british" do
     setup do
+      worldwide_api_has_organisations_for_location('italy', read_fixture_file('worldwide/italy_organisations.json'))
       add_response 'italy'
       add_response 'uk'
       add_response 'uk_england'
@@ -336,6 +368,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   end
   context "ceremony in italy, resident in italy, partner local" do
     setup do
+      worldwide_api_has_organisations_for_location('italy', read_fixture_file('worldwide/italy_organisations.json'))
       add_response 'italy'
       add_response 'other'
       add_response 'italy'
@@ -350,6 +383,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   end
   context "ceremony in italy, resident in austria, partner other" do
     setup do
+      worldwide_api_has_organisations_for_location('italy', read_fixture_file('worldwide/italy_organisations.json'))
+      worldwide_api_has_organisations_for_location('austria', read_fixture_file('worldwide/austria_organisations.json'))
       add_response 'italy'
       add_response 'other'
       add_response 'austria'
@@ -365,6 +400,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #variants for denmark
   context "ceremony in denmark, resident in canada, partner irish" do
     setup do
+      worldwide_api_has_organisations_for_location('denmark', read_fixture_file('worldwide/denmark_organisations.json'))
+      worldwide_api_has_organisations_for_location('canada', read_fixture_file('worldwide/canada_organisations.json'))
       add_response 'denmark'
       add_response 'other'
       add_response 'canada'
@@ -380,6 +417,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #variants for germany
   context "ceremony in germany, resident in germany, partner irish" do
     setup do
+      worldwide_api_has_organisations_for_location('germany', read_fixture_file('worldwide/germany_organisations.json'))
       add_response 'germany'
       add_response 'other'
       add_response 'germany'
@@ -395,6 +433,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #variants for uk residency (again)
   context "ceremony in turkey, resident in scotland, partner non-irish" do
     setup do
+      worldwide_api_has_organisations_for_location('turkey', read_fixture_file('worldwide/turkey_organisations.json'))
       add_response 'turkey'
       add_response 'uk'
       add_response 'uk_scotland'
@@ -409,6 +448,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   end
   context "ceremony in turkey, resident in northern ireland, partner irish" do
     setup do
+      worldwide_api_has_organisations_for_location('turkey', read_fixture_file('worldwide/turkey_organisations.json'))
       add_response 'turkey'
       add_response 'uk'
       add_response 'uk_ni'
@@ -424,6 +464,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #variant for england and wales, irish partner - ceremony not italy
   context "ceremony in peru, resident in wales, partner irish" do
     setup do
+      worldwide_api_has_organisations_for_location('peru', read_fixture_file('worldwide/peru_organisations.json'))
       add_response 'peru'
       add_response 'uk'
       add_response 'uk_wales'
@@ -439,6 +480,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #variant for uk resident, ceremony not in italy
   context "ceremony in peru, resident in wales, partner other" do
     setup do
+      worldwide_api_has_organisations_for_location('peru', read_fixture_file('worldwide/peru_organisations.json'))
       add_response 'peru'
       add_response 'uk'
       add_response 'uk_wales'
@@ -454,6 +496,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #variant for local resident, ceremony not in italy or germany
   context "ceremony in turkey, resident in turkey, partner other" do
     setup do
+      worldwide_api_has_organisations_for_location('turkey', read_fixture_file('worldwide/turkey_organisations.json'))
       add_response 'turkey'
       add_response 'other'
       add_response 'turkey'
@@ -468,6 +511,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   end
   context "ceremony in portugal, resident in portugal, partner other" do
     setup do
+      worldwide_api_has_organisations_for_location('portugal', read_fixture_file('worldwide/portugal_organisations.json'))
       add_response 'portugal'
       add_response 'other'
       add_response 'portugal'
@@ -484,6 +528,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #variants for commonwealth or ireland resident
   context "ceremony in switzerland, resident in canada, partner british" do
     setup do
+      worldwide_api_has_organisations_for_location('switzerland', read_fixture_file('worldwide/switzerland_organisations.json'))
+      worldwide_api_has_organisations_for_location('canada', read_fixture_file('worldwide/canada_organisations.json'))
       add_response 'switzerland'
       add_response 'other'
       add_response 'canada'
@@ -498,6 +544,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   end
   context "ceremony in switzerland, resident in ireland, partner british" do
     setup do
+      worldwide_api_has_organisations_for_location('switzerland', read_fixture_file('worldwide/switzerland_organisations.json'))
+      worldwide_api_has_organisations_for_location('ireland', read_fixture_file('worldwide/ireland_organisations.json'))
       add_response 'switzerland'
       add_response 'other'
       add_response 'ireland'
@@ -513,6 +561,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #variants for ireland residents
   context "ceremony in switzerland, resident in ireland, partner british" do
     setup do
+      worldwide_api_has_organisations_for_location('switzerland', read_fixture_file('worldwide/switzerland_organisations.json'))
+      worldwide_api_has_organisations_for_location('ireland', read_fixture_file('worldwide/ireland_organisations.json'))
       add_response 'switzerland'
       add_response 'other'
       add_response 'ireland'
@@ -527,6 +577,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   end
   context "ceremony in switzerland, resident in ireland, partner other" do
     setup do
+      worldwide_api_has_organisations_for_location('switzerland', read_fixture_file('worldwide/switzerland_organisations.json'))
+      worldwide_api_has_organisations_for_location('ireland', read_fixture_file('worldwide/ireland_organisations.json'))
       add_response 'switzerland'
       add_response 'other'
       add_response 'ireland'
@@ -542,6 +594,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #variants for commonwealth or ireland residents
   context "ceremony in switzerland, resident in australia, partner british" do
     setup do
+      worldwide_api_has_organisations_for_location('switzerland', read_fixture_file('worldwide/switzerland_organisations.json'))
+      worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
       add_response 'switzerland'
       add_response 'other'
       add_response 'australia'
@@ -556,6 +610,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   end
   context "ceremony in switzerland, resident in australia, partner other" do
     setup do
+      worldwide_api_has_organisations_for_location('switzerland', read_fixture_file('worldwide/switzerland_organisations.json'))
+      worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
       add_response 'switzerland'
       add_response 'other'
       add_response 'australia'
@@ -571,6 +627,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #variant for local residents (not germany or spain)
   context "ceremony in switzerland, resident in switzerland, partner other" do
     setup do
+      worldwide_api_has_organisations_for_location('switzerland', read_fixture_file('worldwide/switzerland_organisations.json'))
       add_response 'switzerland'
       add_response 'other'
       add_response 'switzerland'
@@ -586,6 +643,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #variant for foreign resident
   context "ceremony in turkey, resident in switzerland, partner other" do
     setup do
+      worldwide_api_has_organisations_for_location('turkey', read_fixture_file('worldwide/turkey_organisations.json'))
+      worldwide_api_has_organisations_for_location('switzerland', read_fixture_file('worldwide/switzerland_organisations.json'))
       add_response 'turkey'
       add_response 'other'
       add_response 'switzerland'
@@ -601,6 +660,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for spain variants
   context "ceremony in spain, resident in uk, partner british" do
     setup do
+      worldwide_api_has_organisations_for_location('spain', read_fixture_file('worldwide/spain_organisations.json'))
       add_response 'spain'
       add_response 'uk'
       add_response 'uk_england'
@@ -615,6 +675,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   end
   context "ceremony in spain, resident in spain, partner local" do
     setup do
+      worldwide_api_has_organisations_for_location('spain', read_fixture_file('worldwide/spain_organisations.json'))
       add_response 'spain'
       add_response 'other'
       add_response 'spain'
@@ -629,6 +690,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   end
   context "ceremony in spain, resident in poland, partner other" do
     setup do
+      worldwide_api_has_organisations_for_location('spain', read_fixture_file('worldwide/spain_organisations.json'))
+      worldwide_api_has_organisations_for_location('poland', read_fixture_file('worldwide/poland_organisations.json'))
       add_response 'spain'
       add_response 'other'
       add_response 'poland'
@@ -647,6 +710,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #variant for local residents (not germany or spain) again
   context "ceremony in poland, resident in poland, partner local" do
     setup do
+      worldwide_api_has_organisations_for_location('poland', read_fixture_file('worldwide/poland_organisations.json'))
       add_response 'poland'
       add_response 'other'
       add_response 'poland'
@@ -662,6 +726,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #variant for local resident (not germany or spain) or foreign residents
   context "ceremony in turkey, resident in switzerland, partner local" do
     setup do
+      worldwide_api_has_organisations_for_location('turkey', read_fixture_file('worldwide/turkey_organisations.json'))
+      worldwide_api_has_organisations_for_location('switzerland', read_fixture_file('worldwide/switzerland_organisations.json'))
       add_response 'turkey'
       add_response 'other'
       add_response 'switzerland'
@@ -676,6 +742,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   end
   context "ceremony in turkey, resident in turkey, partner local" do
     setup do
+      worldwide_api_has_organisations_for_location('turkey', read_fixture_file('worldwide/turkey_organisations.json'))
       add_response 'turkey'
       add_response 'other'
       add_response 'turkey'
@@ -691,6 +758,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #variant for foreign resident, ceremony not in italy 
   context "ceremony in turkey, resident in poland, partner local" do
     setup do
+      worldwide_api_has_organisations_for_location('turkey', read_fixture_file('worldwide/turkey_organisations.json'))
+      worldwide_api_has_organisations_for_location('poland', read_fixture_file('worldwide/poland_organisations.json'))
       add_response 'turkey'
       add_response 'other'
       add_response 'poland'
@@ -706,6 +775,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #variant for commonwealth resident, ceremony not in italy 
   context "ceremony in turkey, resident in canada, partner local" do
     setup do
+      worldwide_api_has_organisations_for_location('turkey', read_fixture_file('worldwide/turkey_organisations.json'))
+      worldwide_api_has_organisations_for_location('canada', read_fixture_file('worldwide/canada_organisations.json'))
       add_response 'turkey'
       add_response 'other'
       add_response 'canada'
@@ -720,6 +791,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   end
   context "ceremony in turkey, resident in ireland, partner local" do
     setup do
+      worldwide_api_has_organisations_for_location('turkey', read_fixture_file('worldwide/turkey_organisations.json'))
+      worldwide_api_has_organisations_for_location('ireland', read_fixture_file('worldwide/ireland_organisations.json'))
       add_response 'turkey'
       add_response 'other'
       add_response 'ireland'
@@ -737,6 +810,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for ceremony in poland, british partner
   context "ceremony in poland, resident in ireland, partner british" do
     setup do
+      worldwide_api_has_organisations_for_location('poland', read_fixture_file('worldwide/poland_organisations.json'))
+      worldwide_api_has_organisations_for_location('ireland', read_fixture_file('worldwide/ireland_organisations.json'))
       add_response 'poland'
       add_response 'other'
       add_response 'ireland'
@@ -755,6 +830,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for belgium variant
   context "ceremony in belgium, resident in ireland, partner british" do
     setup do
+      worldwide_api_has_organisations_for_location('belgium', read_fixture_file('worldwide/belgium_organisations.json'))
+      worldwide_api_has_organisations_for_location('ireland', read_fixture_file('worldwide/ireland_organisations.json'))
       add_response 'belgium'
       add_response 'other'
       add_response 'ireland'
@@ -770,6 +847,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for finland variant
   context "ceremony in finland, resident in ireland, partner other" do
     setup do
+      worldwide_api_has_organisations_for_location('finland', read_fixture_file('worldwide/finland_organisations.json'))
+      worldwide_api_has_organisations_for_location('ireland', read_fixture_file('worldwide/ireland_organisations.json'))
       add_response 'finland'
       add_response 'other'
       add_response 'ireland'
@@ -785,6 +864,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for turkey variant
   context "ceremony in turkey, resident in ireland, partner other" do
     setup do
+      worldwide_api_has_organisations_for_location('turkey', read_fixture_file('worldwide/turkey_organisations.json'))
+      worldwide_api_has_organisations_for_location('ireland', read_fixture_file('worldwide/ireland_organisations.json'))
       add_response 'turkey'
       add_response 'other'
       add_response 'ireland'
@@ -800,6 +881,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for uk resident variant
   context "ceremony in turkey, resident in scotland, partner other" do
     setup do
+      worldwide_api_has_organisations_for_location('turkey', read_fixture_file('worldwide/turkey_organisations.json'))
       add_response 'turkey'
       add_response 'uk'
       add_response 'uk_scotland'
@@ -815,6 +897,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for fee variant
   context "ceremony in armenia, resident in scotland, partner other" do
     setup do
+      worldwide_api_has_organisations_for_location('armenia', read_fixture_file('worldwide/armenia_organisations.json'))
       add_response 'armenia'
       add_response 'uk'
       add_response 'uk_scotland'
@@ -832,6 +915,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for ceremony in french overseas territories
   context "ceremony in fot" do
     setup do
+      worldwide_api_has_organisations_for_location('mayotte', read_fixture_file('worldwide/mayotte_organisations.json'))
       add_response 'mayotte'
     end
     should "go to marriage in france or fot outcome" do
@@ -842,6 +926,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for ceremony in france
   context "ceremony in france" do
     setup do
+      worldwide_api_has_organisations_for_location('france', read_fixture_file('worldwide/france_organisations.json'))
       add_response 'france'
       add_response 'marriage'
     end
@@ -854,6 +939,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for ceremony in thailand, uk resident, partner other
   context "ceremony in thailand, resident in scotland, partner other" do
     setup do
+      worldwide_api_has_organisations_for_location('thailand', read_fixture_file('worldwide/thailand_organisations.json'))
       add_response 'thailand'
       add_response 'uk'
       add_response 'uk_scotland'
@@ -868,6 +954,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for ceremony in egypt, local resident, partner british
   context "ceremony in egypt, resident in egypt, partner british" do
     setup do
+      worldwide_api_has_organisations_for_location('egypt', read_fixture_file('worldwide/egypt_organisations.json'))
       add_response 'egypt'
       add_response 'other'
       add_response 'egypt'
@@ -882,6 +969,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for ceremony in korea, other resident, partner irish
   context "ceremony in lebanon, resident in poland, partner irish" do
     setup do
+      worldwide_api_has_organisations_for_location('lebanon', read_fixture_file('worldwide/lebanon_organisations.json'))
       add_response 'lebanon'
       add_response 'other'
       add_response 'poland'
@@ -898,6 +986,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for dutch caribbean islands
   context "ceremony in aruba, resident in scotland, partner other" do
     setup do
+      worldwide_api_has_organisations_for_location('aruba', read_fixture_file('worldwide/aruba_organisations.json'))
       add_response 'aruba'
       add_response 'uk'
       add_response 'uk_scotland'
@@ -913,6 +1002,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for ceremony in aruba, local resident, partner british
   context "ceremony in aruba, resident in aruba, partner british" do
     setup do
+      worldwide_api_has_organisations_for_location('aruba', read_fixture_file('worldwide/aruba_organisations.json'))
       add_response 'aruba'
       add_response 'other'
       add_response 'aruba'
@@ -927,6 +1017,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for ceremony in aruba, other resident, partner irish
   context "ceremony in aruba, resident in poland, partner irish" do
     setup do
+      worldwide_api_has_organisations_for_location('aruba', read_fixture_file('worldwide/aruba_organisations.json'))
       add_response 'aruba'
       add_response 'other'
       add_response 'poland'
@@ -941,6 +1032,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for non-dutch caribbean islands
   context "ceremony in monaco, resident in scotland, partner other" do
     setup do
+      worldwide_api_has_organisations_for_location('monaco', read_fixture_file('worldwide/monaco_organisations.json'))
       add_response 'monaco'
       add_response 'uk'
       add_response 'uk_scotland'
@@ -956,6 +1048,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for ceremony in monaco, local resident, partner british
   context "ceremony in monaco, resident in monaco, partner british" do
     setup do
+      worldwide_api_has_organisations_for_location('monaco', read_fixture_file('worldwide/monaco_organisations.json'))
       add_response 'monaco'
       add_response 'other'
       add_response 'monaco'
@@ -970,6 +1063,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for ceremony in aruba, other resident, partner irish
   context "ceremony in monaco, resident in poland, partner irish" do
     setup do
+      worldwide_api_has_organisations_for_location('monaco', read_fixture_file('worldwide/monaco_organisations.json'))
       add_response 'monaco'
       add_response 'other'
       add_response 'poland'
@@ -984,7 +1078,9 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for ceremony in usa
   context "ceremony in usa, resident in poland, partner irish" do
     setup do
-      add_response 'united-states'
+      worldwide_api_has_organisations_for_location('usa', read_fixture_file('worldwide/usa_organisations.json'))
+      worldwide_api_has_organisations_for_location('poland', read_fixture_file('worldwide/poland_organisations.json'))
+      add_response 'usa'
       add_response 'other'
       add_response 'poland'
       add_response 'partner_irish'
@@ -1000,6 +1096,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for burma
   context "ceremony in burma, resident in scotland, partner local" do
     setup do
+      worldwide_api_has_organisations_for_location('burma', read_fixture_file('worldwide/burma_organisations.json'))
       add_response 'burma'
       add_response 'uk'
       add_response 'uk_scotland'
@@ -1014,6 +1111,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for north korea
   context "ceremony in north korea, resident in scotland, partner local" do
     setup do
+      worldwide_api_has_organisations_for_location('north-korea', read_fixture_file('worldwide/north-korea_organisations.json'))
       add_response 'north-korea'
       add_response 'uk'
       add_response 'uk_scotland'
@@ -1028,6 +1126,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for iran
   context "ceremony in iran, resident in scotland, partner local" do
     setup do
+      worldwide_api_has_organisations_for_location('iran', read_fixture_file('worldwide/iran_organisations.json'))
       add_response 'iran'
       add_response 'uk'
       add_response 'uk_scotland'
@@ -1042,6 +1141,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for yemen
   context "ceremony in yemen, resident in scotland, partner local" do
     setup do
+      worldwide_api_has_organisations_for_location('yemen', read_fixture_file('worldwide/yemen_organisations.json'))
       add_response 'yemen'
       add_response 'uk'
       add_response 'uk_scotland'
@@ -1056,6 +1156,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for saudi arabia, not local resident
   context "ceremony in saudi arabia, resident in scotland, partner other" do
     setup do
+      worldwide_api_has_organisations_for_location('saudi-arabia', read_fixture_file('worldwide/saudi-arabia_organisations.json'))
       add_response 'saudi-arabia'
       add_response 'uk'
       add_response 'uk_scotland'
@@ -1070,6 +1171,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for saudi arabia, local resident, partner irish
   context "ceremony in saudi arabia, resident in saudi arabia, partner irish" do
     setup do
+      worldwide_api_has_organisations_for_location('saudi-arabia', read_fixture_file('worldwide/saudi-arabia_organisations.json'))
       add_response 'saudi-arabia'
       add_response 'other'
       add_response 'saudi-arabia'
@@ -1084,6 +1186,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for saudi arabia, local resident, partner british
   context "ceremony in saudi arabia, resident in saudi arabia, partner british" do
     setup do
+      worldwide_api_has_organisations_for_location('saudi-arabia', read_fixture_file('worldwide/saudi-arabia_organisations.json'))
       add_response 'saudi-arabia'
       add_response 'other'
       add_response 'saudi-arabia'
@@ -1098,6 +1201,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for saudi arabia, local resident, partner other
   context "ceremony in saudi arabia, resident in saudi arabia, partner other" do
     setup do
+      worldwide_api_has_organisations_for_location('saudi-arabia', read_fixture_file('worldwide/saudi-arabia_organisations.json'))
       add_response 'saudi-arabia'
       add_response 'other'
       add_response 'saudi-arabia'
@@ -1113,6 +1217,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for ceremony in spain, england resident, british partner
   context "ceremony in spain, resident in england, partner british" do
     setup do
+      worldwide_api_has_organisations_for_location('spain', read_fixture_file('worldwide/spain_organisations.json'))
       add_response 'spain'
       add_response 'uk'
       add_response 'uk_england'
@@ -1127,11 +1232,12 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   end
 
 #testing for CNI variant for russian-federation
-  context "ceremony in russian-federation, resident in russian-federation, partner british" do
+  context "ceremony in russia, resident in russia, partner british" do
     setup do
-      add_response 'russian-federation'
+      worldwide_api_has_organisations_for_location('russia', read_fixture_file('worldwide/russia_organisations.json'))
+      add_response 'russia'
       add_response 'other'
-      add_response 'russian-federation'
+      add_response 'russia'
       add_response 'partner_local'
       add_response 'opposite_sex'
     end
@@ -1146,6 +1252,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for civil partnership in countries with CP or equivalent
   context "ceremony in denmark, resident in england, partner other" do
     setup do
+      worldwide_api_has_organisations_for_location('denmark', read_fixture_file('worldwide/denmark_organisations.json'))
       add_response 'denmark'
       add_response 'uk'
       add_response 'uk_england'
@@ -1160,6 +1267,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for ceremony in czech republic, other resident, local partner
   context "ceremony in czech republic, resident in poland, partner local" do
     setup do
+      worldwide_api_has_organisations_for_location('czech-republic', read_fixture_file('worldwide/czech-republic_organisations.json'))
       add_response 'czech-republic'
       add_response 'other'
       add_response 'poland'
@@ -1174,6 +1282,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for ceremony in sweden, sweden resident, irish partner
   context "ceremony in sweden, resident in sweden, partner irish" do
     setup do
+      worldwide_api_has_organisations_for_location('sweden', read_fixture_file('worldwide/sweden_organisations.json'))
       add_response 'sweden'
       add_response 'other'
       add_response 'sweden'
@@ -1189,6 +1298,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for ceremony in france, pacs
   context "ceremony in france, " do
     setup do
+      worldwide_api_has_organisations_for_location('france', read_fixture_file('worldwide/france_organisations.json'))
       add_response 'france'
       add_response 'pacs'
     end
@@ -1199,6 +1309,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for ceremony in wallis and futuna, pacs
   context "ceremony in wallis and futuna, pacs" do
     setup do
+      worldwide_api_has_organisations_for_location('wallis-and-futuna', read_fixture_file('worldwide/wallis-and-futuna_organisations.json'))
       add_response 'wallis-and-futuna'
       add_response 'pacs'
     end
@@ -1212,7 +1323,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for ceremony in united states, england resident, local partner
   context "ceremony in US, resident in ni, partner local" do
     setup do
-      add_response 'united-states'
+      worldwide_api_has_organisations_for_location('usa', read_fixture_file('worldwide/usa_organisations.json'))
+      add_response 'usa'
       add_response 'uk'
       add_response 'uk_ni'
       add_response 'partner_local'
@@ -1226,6 +1338,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for ceremony in bonaire, england resident, other partner
   context "ceremony in bonaire, resident in scotland, partner other" do
     setup do
+      worldwide_api_has_organisations_for_location('bonaire-st-eustatius-saba', read_fixture_file('worldwide/bonaire-st-eustatius-saba_organisations.json'))
       add_response 'bonaire-st-eustatius-saba'
       add_response 'uk'
       add_response 'uk_scotland'
@@ -1240,6 +1353,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for ceremony in bonaire, bonaire resident, british partner
   context "ceremony in bonaire, resident in bonaire, partner british" do
     setup do
+      worldwide_api_has_organisations_for_location('bonaire-st-eustatius-saba', read_fixture_file('worldwide/bonaire-st-eustatius-saba_organisations.json'))
       add_response 'bonaire-st-eustatius-saba'
       add_response 'other'
       add_response 'bonaire-st-eustatius-saba'
@@ -1252,8 +1366,10 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
   end
 #testing for ceremony in bonaire, other resident, irish partner
-  context "ceremony in US, resident in mexico, partner other" do
+  context "ceremony in bonaire, resident in mexico, partner other" do
     setup do
+      worldwide_api_has_organisations_for_location('bonaire-st-eustatius-saba', read_fixture_file('worldwide/bonaire-st-eustatius-saba_organisations.json'))
+      worldwide_api_has_organisations_for_location('mexico', read_fixture_file('worldwide/mexico_organisations.json'))
       add_response 'bonaire-st-eustatius-saba'
       add_response 'other'
       add_response 'mexico'
@@ -1270,6 +1386,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for ceremony in australia, uk resident, irish partner
   context "ceremony in australia, resident in wales, partner irish" do
     setup do
+      worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
       add_response 'australia'
       add_response 'uk'
       add_response 'uk_wales'
@@ -1284,6 +1401,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for ceremony in australia, australia resident, british partner
   context "ceremony in australia, resident in australia, partner british" do
     setup do
+      worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
       add_response 'australia'
       add_response 'other'
       add_response 'australia'
@@ -1298,6 +1416,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for ceremony in australia, other resident, local partner
   context "ceremony in australia, other resident, partner local" do
     setup do
+      worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
       add_response 'australia'
       add_response 'other'
       add_response 'canada'
@@ -1312,6 +1431,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for ceremony in canada, uk resident, other partner
   context "ceremony in canada, uk resident, partner other" do
     setup do
+      worldwide_api_has_organisations_for_location('canada', read_fixture_file('worldwide/canada_organisations.json'))
       add_response 'canada'
       add_response 'uk'
       add_response 'uk_ni'
@@ -1328,6 +1448,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 # testing for czech republic with non-local partner
   context "ceremony in czech-republic, uk resident, partner other" do
     setup do
+      worldwide_api_has_organisations_for_location('czech-republic', read_fixture_file('worldwide/czech-republic_organisations.json'))
       add_response 'czech-republic'
       add_response 'uk'
       add_response 'uk_wales'
@@ -1342,6 +1463,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 # testing for vietnam with local partner
   context "ceremony in vietnam, uk resident, partner local" do
     setup do
+      worldwide_api_has_organisations_for_location('vietnam', read_fixture_file('worldwide/vietnam_organisations.json'))
       add_response 'vietnam'
       add_response 'uk'
       add_response 'uk_england'
@@ -1356,6 +1478,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 # testing for latvia, other resident, british partner
   context "ceremony in latvia, cyprus resident, partner british" do
     setup do
+      worldwide_api_has_organisations_for_location('latvia', read_fixture_file('worldwide/latvia_organisations.json'))
+      worldwide_api_has_organisations_for_location('cyprus', read_fixture_file('worldwide/cyprus_organisations.json'))
       add_response 'latvia'
       add_response 'other'
       add_response 'cyprus'
@@ -1372,6 +1496,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 # testing for serbia, other resident, british partner
   context "ceremony in serbia, cyprus resident, partner british" do
     setup do
+      worldwide_api_has_organisations_for_location('serbia', read_fixture_file('worldwide/serbia_organisations.json'))
+      worldwide_api_has_organisations_for_location('cyprus', read_fixture_file('worldwide/cyprus_organisations.json'))
       add_response 'serbia'
       add_response 'other'
       add_response 'cyprus'
@@ -1386,6 +1512,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for nicaragua
   context "ceremony in nicaragua, resident in poland, partner irish" do
     setup do
+      worldwide_api_has_organisations_for_location('nicaragua', read_fixture_file('worldwide/nicaragua_organisations.json'))
+      worldwide_api_has_organisations_for_location('poland', read_fixture_file('worldwide/poland_organisations.json'))
       add_response 'nicaragua'
       add_response 'other'
       add_response 'poland'
@@ -1401,6 +1529,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for Iom and Ci residents
   context "ceremony in australia, resident in isle of man" do
     setup do
+      worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
       add_response 'australia'
       add_response 'uk'
       add_response 'uk_iom'
@@ -1412,6 +1541,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   end
   context "ceremony in italy, resident in channel islands" do
     setup do
+      worldwide_api_has_organisations_for_location('italy', read_fixture_file('worldwide/italy_organisations.json'))
       add_response 'italy'
       add_response 'uk'
       add_response 'uk_ci'
@@ -1424,6 +1554,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for china
   context "ceremony in china, resident in china" do
     should "render multiple clickbooks" do
+      worldwide_api_has_organisations_for_location('china', read_fixture_file('worldwide/china_organisations.json'))
       add_response 'china'
       add_response 'other'
       add_response 'china'
@@ -1438,6 +1569,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 #testing for japan
   context "ceremony in japan, resident in japan" do
     should "give os outcome with japan variants" do
+      worldwide_api_has_organisations_for_location('japan', read_fixture_file('worldwide/japan_organisations.json'))
       add_response 'japan'
       add_response 'other'
       add_response 'japan'
