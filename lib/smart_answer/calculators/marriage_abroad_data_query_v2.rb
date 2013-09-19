@@ -38,7 +38,7 @@ module SmartAnswer::Calculators
       "usa" => "USA"
     }
 
-    attr_reader :embassy_data
+    attr_reader
 
     def initialize
       @embassy_data = self.class.registration_data
@@ -96,12 +96,5 @@ module SmartAnswer::Calculators
       COUNTRIES_WITH_DEFINITIVE_ARTICLES.include?(country_slug)
     end
 
-    def find_embassy_data(country_slug)
-      embassy_data[country_slug]
-    end
-
-    def self.registration_data
-      @embassy_data ||= YAML.load_file(Rails.root.join("lib", "data", "embassies.yml"))
-    end
   end
 end
