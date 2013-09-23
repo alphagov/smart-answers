@@ -56,6 +56,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       assert_current_node :legal_residency?
       assert_state_variable :ceremony_country, 'bahamas'
       assert_state_variable :ceremony_country_name, 'Bahamas'
+      assert_state_variable :country_name_lowercase_prefix, "the Bahamas"
     end
 
     context "resident in UK" do
@@ -66,6 +67,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
         assert_current_node :residency_uk?
         assert_state_variable :ceremony_country, 'bahamas'
         assert_state_variable :ceremony_country_name, 'Bahamas'
+        assert_state_variable :country_name_lowercase_prefix, "the Bahamas"
         assert_state_variable :resident_of, 'uk'
       end
 
@@ -77,6 +79,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
           assert_current_node :what_is_your_partners_nationality?
           assert_state_variable :ceremony_country, 'bahamas'
           assert_state_variable :ceremony_country_name, 'Bahamas'
+          assert_state_variable :country_name_lowercase_prefix, "the Bahamas"
           assert_state_variable :resident_of, 'uk'
           assert_state_variable :residency_uk_region, 'uk_england'
         end
@@ -1280,6 +1283,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
     should "go to cp or equivalent outcome" do
       assert_current_node :outcome_cp_cp_or_equivalent
+      assert_state_variable :country_name_lowercase_prefix, 'the Czech Republic'
       assert_phrase_list :cp_or_equivalent_cp_outcome, [:cp_or_equivalent_cp_czech_republic_partner_local, :cp_or_equivalent_cp_other_resident, :cp_or_equivalent_cp_all_what_you_need_to_do, :cp_or_equivalent_cp_naturalisation, :cp_or_equivalent_all_depositing_certificate, :cp_or_equivalent_cp_all_fees, :cp_or_equivalent_cp_cash_or_credit_card_countries]
     end
   end
@@ -1336,6 +1340,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
     should "go to cp no cni required outcome" do
       assert_current_node :outcome_cp_no_cni
+      assert_state_variable :country_name_lowercase_prefix, 'the USA'
       assert_phrase_list :no_cni_required_cp_outcome, [:"no_cni_required_cp_usa", :no_cni_required_all_legal_advice, :no_cni_required_cp_ceremony_us, :no_cni_required_all_what_you_need_to_do, :no_cni_required_cp_not_dutch_islands_uk_resident, :no_cni_required_cp_all_consular_facilities, :no_cni_required_cp_all_depositing_certifictate, :no_cni_required_cp_ceremony_us_two, :no_cni_required_cp_uk_resident_three, :no_cni_required_cp_naturalisation, :no_cni_required_cp_all_fees]
     end
   end
