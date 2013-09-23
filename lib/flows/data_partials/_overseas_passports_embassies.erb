@@ -18,9 +18,13 @@ $C
 <%- if embassy.details.email.present? -%>
 Email: <<%= embassy.details.email.strip %>>
 <%- end -%>
+
+<%- if embassy.web_url.present? -%>
+[<%= embassy.title %> - opening hours](<%= embassy.web_url %>)
+<%- end -%>
 $C
 
-<%= raw embassy.details.access_and_opening_times %>
+
 <%- 
   end 
 -%>

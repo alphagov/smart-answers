@@ -277,7 +277,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       expected_location = WorldLocation.find('nigeria')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
-      assert_match /British Deputy High Commission Lagos/, outcome_body
     end
   end
 
@@ -930,7 +929,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       expected_location = WorldLocation.find('nigeria')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
-      assert_match /11 Walter Carrington Crescent/, outcome_body
     end
   end # Kyrgyzstan
 
@@ -951,7 +949,9 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_state_variable :organisation, expected_location.fco_organisation
       assert_match /British Consulate-General St Petersburg/, outcome_body
       assert_match /15A, Gogol Street/, outcome_body
-      
+      assert outcome_body.at_css("div.contact p a[href='https://www.gov.uk/government/world/organisations/british-embassy-moscow/office/british-consulate-general-st-petersburg']")
+      assert outcome_body.at_css("div.contact p a[href='https://www.gov.uk/government/world/organisations/british-embassy-moscow/office/ekaterinburg-consulate-general']")
+
     end
   end # Kazakhstan
 
