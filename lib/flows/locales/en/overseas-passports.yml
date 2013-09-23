@@ -1,15 +1,13 @@
 en-GB:
   flow:
     overseas-passports:
-      title: Apply for, renew or replace a British passport if you’re outside the UK
+      title: Overseas British passport applications
       meta:
         description: Renew, replace or apply for an adult or child British passport if you’re living abroad or working overseas - forms, prices, how long it takes
       body: |
         Get the forms, prices and application details you need if you're a British national and you want to renew or apply for a British passport from overseas.
 
         % If you were born in or had a connection with Hong Kong and registered as a British National Overseas before 1997, [you must apply a different way.](/bno-passports "Passport applications for British National Overseas from Hong Kong") %
-
-        ^If you’re in the UK, there’s a different way to apply for your [first adult passport](/apply-first-adult-passport "apply for your first adult passport from within the UK"), a [passport for your child](/get-a-child-passport "apply for a passport for your child from within the UK") or to [renew or replace your adult passport](/renew-adult-passport "renew or replace your adult passport from within the UK").^
 
       options:
         "born-in-uk-pre-1983": "Born in the UK before 1 January 1983"
@@ -220,11 +218,11 @@ en-GB:
         passport_costs_paris_france: |
           You must pay using either:
 
-          - a Visa or Mastercard - [download a credit card authorisation form (PDF, 170KB)](/government/uploads/system/uploads/attachment_data/file/136852/credit-card-form-march-12.pdf) and send it with your application
+          - a Visa or Mastercard - [download a credit card authorisation form](/government/publications/passport-credit-debit-card-payment-authorisation-slip-france) and send it with your application
 
           - an International Postal order, mandate-cheque or mandate-cash payable to ‘British Embassy Paris’ - your application may take longer if you pay this way
         passport_costs_malta_netherlands: |
-           You must pay using a Visa or Mastercard. [Download a credit card authorisation form (PDF, 170KB)](/government/uploads/system/uploads/attachment_data/file/136852/credit-card-form-march-12.pdf) and send it with your application.
+           You must pay using a Visa or Mastercard. [Download a credit card authorisation form](/government/publications/passport-credit-debit-card-payment-authorisation-slip-france) and send it with your application.
 
         passport_costs_france_italy_switz:
           You must pay using a Visa or Mastercard. [Download a credit card authorisation form (PDF, 170KB)](http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/credit-card-form-march-12) and send it with your application.
@@ -255,7 +253,7 @@ en-GB:
           You must pay using either:
 
           - an International Banker’s Draft, payable in Hong Kong Dollars to ‘British Consulate-General Hong Kong’
-          - a Visa or Mastercard - [download a credit card authorisation form (PDF, 95KB)](/government/uploads/system/uploads/attachment_data/file/136855/credit-card-authorisation.pdf.pdf) and send it with your application
+          - a Visa or Mastercard - [download a credit card authorisation form](/government/publications/passport-credit-debit-card-payment-authorisation-slip-hong-kong) and send it with your application
 
           If you pay by card, you’ll be charged the sterling amount in Hong Kong dollars using the exchange rate on the day your application is processed.
 
@@ -296,7 +294,7 @@ en-GB:
           Child standard 32-page passport | %{costs_indian_rupees_child}
 
         passport_costs_india: |
-          You must pay using a Visa or Mastercard - [download a credit card authorisation form (PDF, 95KB)](/government/uploads/system/uploads/attachment_data/file/136906/india-credit-card-form.pdf.pdf) and send it with your application.
+          You must pay using a Visa or Mastercard - [download a credit card authorisation form](/government/publications/passport-credit-debit-card-payment-authorisation-slip-india-new-delhi) and send it with your application.
 
         supporting_documents_india_applying_renewing: |
           Application type | Supporting documents information
@@ -968,7 +966,7 @@ en-GB:
           4. Check which supporting documents you must include with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
 
         renewing_new_renewing_old: |
-          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (apart from any blank pages).
+          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
 
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
@@ -1343,8 +1341,8 @@ en-GB:
         how_long_bangladesh: |
           Action | Minimum time after you apply
           - | -
-          Renew a passport | 4 weeks
-          First adult or child passports | 16 weeks
+          Renew a passport | 6 weeks
+          First adult or child passports | 6 months
           Replace a lost or stolen passport | 16 weeks
           Change your name in a passport | 16 weeks
 
@@ -2097,9 +2095,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | %{costs_phillipine_peso_adult_32}
-          Adult jumbo 48-page passport | %{costs_phillipine_peso_adult_48}
-          Child passport | %{costs_phillipine_peso_child}
+          Adult standard 32-page passport | £128.00/HK $1,574 | £147.86/HK $1,818
+          Adult jumbo 48-page passport | £154.50/HK $1,900 | £174.36/HK $2,144
+          Child passport | £81.50/HK $1,002 | £101.36/HK $1,246
 
           Send your application to the passport processing centre in Hong Kong, preferably by a one-way courier service.
 
@@ -2125,9 +2123,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | 8,320 Philippine peso | 9,815 Philippine peso
-          Adult jumbo 48-page passport | 10,043 Philippine peso | 11,538 Philippine peso
-          Child passport | 5,298 Philippine peso | 6,793 Philippine peso
+          Adult standard 32-page passport | %{costs_philipine_peso_adult_32}
+          Adult jumbo 48-page passport | %{costs_philipine_peso_adult_48}
+          Child passport | %{costs_philipine_peso_child}
 
         getting_your_passport_philippines: |
           The British embassy will contact you when your passport arrives using the contact details on your form. You must collect it in person.
