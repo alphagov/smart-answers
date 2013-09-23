@@ -27,34 +27,7 @@ en-GB:
           [Book an appointment online](%{clickbook_data})
         clickbook_links: |
           +[data_partial:clickbooks:clickbook_data]
-        embassy_address: |
-          %{address}
-        embassy_details: |
 
-
-
-          $A
-            %{address}
-          $A
-
-          $C
-            %{phone}
-            %{email}
-            %{office_hours}
-          $C
-        residency_embassy_details: |
-
-
-
-          $A
-            %{address}
-          $A
-
-          $C
-            %{phone}
-            %{email}
-            %{office_hours}
-          $C
 #Marriage if resident of Isle of Man or Channel Islands
         iom_ci_os_all: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
@@ -69,7 +42,7 @@ en-GB:
 
           The local British embassy or consulate may be able to advise if you have any problems getting the documents you need from the authorities in Jersey or Guernsey.
         iom_ci_os_ceremony_not_italy: |
-          %{embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         iom_ci_os_ceremony_italy: |
           $C  
           **British Embassy in Rome - marriages**  
@@ -78,9 +51,9 @@ en-GB:
 
 #Marriage in Ireland outcome phrases
         outcome_ireland_opposite_sex: |
-          The General Register Office of Ireland's website explains what you need to do if you want to [get married in Ireland.](http://www.groireland.ie/getting_married.htm).
+          The General Register Office of Ireland's website explains what you need to do if you want to [get married in Ireland](http://www.groireland.ie/getting_married.htm).
         outcome_ireland_same_sex: |
-          The General Register Office of Ireland's website explains what you need to do if you want to [enter into a civil partnership in Ireland.](http://www.groireland.ie/civil_partnership.htm).
+          The General Register Office of Ireland's website explains what you need to do if you want to [enter into a civil partnership in Ireland](http://www.groireland.ie/civil_partnership.htm).
 #Marriage in commonwealth countries phrases
         commonwealth_os_all_intro: |
           %{country_name_uppercase_prefix} is a member of the Commonwealth.
@@ -93,7 +66,7 @@ en-GB:
         uk_resident_os_ceremony_not_zimbabwe: |
           Contact the [High Commission of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) to find out about local marriage laws, including what documents you’ll need.
 
-          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}) before making any plans.^
+          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
         local_resident_os_ceremony_not_zimbabwe: |
           Contact the relevant local authorities to find out about local marriage laws, including what documents you’ll need.
 
@@ -101,11 +74,11 @@ en-GB:
         other_resident_os_ceremony_not_zimbabwe: |
           Contact your nearest embassy, high commission or consulate of %{country_name_lowercase_prefix} before making any plans to find out about local marriage laws, including what documents you’ll need.
 
-          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}) before making any plans.^
+          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
         uk_resident_os_ceremony_zimbabwe: |
           Contact the [Zimbabwean Embassy in the UK](http://www.zimlondon.gov.zw/index.php/contact-us) to find out about local marriage laws, including what documents you’ll need.
 
-          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}) before making any plans.^
+          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
         local_resident_os_ceremony_zimbabwe: |
           Contact the relevant local authorities to find out about local marriage laws, including what documents you’ll need.
 
@@ -113,7 +86,7 @@ en-GB:
         other_resident_os_ceremony_zimbabwe: |
           Contact your nearest embassy or consulate of %{country_name_lowercase_prefix} before making any plans to find out about local marriage laws, including what documents you’ll need.
 
-          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}) before making any plans.^
+          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
         commonwealth_os_all_cni: |
           The UK doesn’t issue certificates of no impediment (CNI) for marriages in Commonwealth countries. You’ll need to explain this if you’re asked to provide a CNI or a similar document to prove you’re allowed to marry.
         commonwealth_os_all_cni_zimbabwe: |
@@ -122,10 +95,10 @@ en-GB:
           %You’ll probably be asked for a CNI if you want to marry a South African citizen in South Africa. You’ll need to ask if there are any other documents the authorities will accept instead.%
         commonwealth_os_other_countries_india: |
           The British High Commission in India can provide you with a letter explaining this position for a charge - see [consular fees for India](/government/publications/india-consular-fees).
-          %{embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         commonwealth_os_other_countries_malaysia: |
           The British High Commission in Malaysia can provide you with a letter explaining this position for a charge - see [consular fees for Malaysia](/government/publications/malaysia-consular-fees).
-          %{embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
           You’ll need to provide the following documents:
 
           - a statutory declaration made at the local High Court or at the office of a notary public in the UK or Malaysia
@@ -152,7 +125,7 @@ en-GB:
           Access to the British Indian Ocean Territory is restricted, and it’s unlikely that marriage would be allowed there.
 
           Contact the British Indian Ocean Territory Administration for further details.
-          %{embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         bot_os_ceremony_bvi: |
           The British Virgin Islands is a British overseas territory.
 
@@ -163,10 +136,10 @@ en-GB:
           %{country_name_uppercase_prefix} is a British overseas territory.
 
           Contact the %{ceremony_country_name} Government to find out about getting married there, including what documents you’ll need.
-          %{embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
           You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.
         bot_os_not_local_resident: |
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}).
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         bot_os_naturalisation: |
           ##Naturalisation of your partner if they move to the UK
 
@@ -177,7 +150,7 @@ en-GB:
         uk_resident_os_consular_cni: |
           Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local marriage laws, including what documents you’ll need.
 
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}).
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         local_resident_os_consular_cni: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
         uk_resident_os_consular_cni_dutch_caribbean_islands: |
@@ -185,11 +158,11 @@ en-GB:
 
           Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local marriage laws, including what documents you’ll need.
 
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}]).
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         other_resident_os_consular_cni: |
           Contact your nearest embassy or consulate of %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
 
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}) before making any plans.
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.
         gulf_states_os_consular_cni: |
           ^There are no civil marriages in %{country_name_lowercase_prefix}, but you can get married through a religious ceremony at a church or Sharia court.^
         gulf_states_os_consular_cni_local_resident_partner_not_irish: |
@@ -350,7 +323,7 @@ en-GB:
           ###Applying for a CNI from the consulate
 
           You’ll normally need to have been resident in Kazakhstan for at least 21 days. You can then book an appointment at the consulate to give notice of your marriage. There’s a fee for this service (see below).
-        russian-federation_os_local_resident: |
+        russia_os_local_resident: |
           If you need a CNI, you’ll first need to give notice of your intended marriage at your nearest British %{embassy_or_consulate_residency_country}.
 
           ###Applying for a CNI from the consulate
@@ -359,7 +332,7 @@ en-GB:
 
           Email <RussiaConsular@fco.gov.uk> to find your local consulate.
         consular_cni_os_no_clickbook_so_embassy_details: |
-          %{embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         consular_cni_os_local_resident_italy: |
           To get a Nulla Osta, you’ll first need to give notice of your intended marriage at the British Embassy in Rome.
 
@@ -367,7 +340,7 @@ en-GB:
 
           You’ll need to have been resident in Italy for at least 21 days. You can then book an appointment at the British Embassy in Rome.
 
-          [Book an appointment online in Rome.](https://www.clickbook.net/dev/bc.nsf/sub/britishconsrome)
+          [Book an appointment online in Rome](https://www.clickbook.net/dev/bc.nsf/sub/britishconsrome).
         consular_cni_os_foreign_resident_ceremony_not_germany_italy: |
           If you need a CNI, you’ll have to give notice of your intended marriage in the country where you live.
         consular_cni_os_foreign_resident_ceremony_country_italy: |
@@ -375,7 +348,7 @@ en-GB:
         consular_cni_os_foreign_resident_ceremony_country_not_germany: |
           Check with your nearest British embassy or consulate to find out if they can do this for you.
 
-          %{residency_embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
           ^Not all consulates are able to do this, but they may still be able to give you advice on other ways you can get a CNI.^
 
@@ -387,7 +360,7 @@ en-GB:
 
           Check with your nearest British high commission to find out if they can help you with this.
 
-          %{residency_embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
           ^Not all high commissions are able to do this - if they can’t, they may be able to give you advice on other ways you can get a certificate.^
 
@@ -423,7 +396,7 @@ en-GB:
           Once you’ve done this, you should then send or take the following documents and the relevant fee (see below) to the high commission:
         consular_cni_os_ireland_resident: |
           You need to give notice of your intended marriage in the country where you live. In Ireland, you can do this through the British Embassy in Dublin.
-          %{residency_embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
           ###Giving notice of marriage
 
           You’ll need to place a public announcement of your marriage in a local newspaper where you live for 1 week. It’s easier to do this in a weekly newspaper, as otherwise the announcement needs to appear for 7 consecutive days.
@@ -721,10 +694,10 @@ en-GB:
           Administering an oath or making a declaration | £55
 
         consular_cni_os_fees_local_or_uk_resident: |
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{country_name_for_links}-consular-fees).
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
 
         consular_cni_os_fees_foreign_commonwealth_roi_resident: |
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{residency_country_name_lowercase_prefix}](/government/publications/%{residency_country_link_names}-consular-fees) and [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{country_name_for_links}-consular-fees).
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{residency_country_name_lowercase_prefix}](/government/publications/%{residency_country}-consular-fees) and [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
 
         consular_cni_os_fees_local_currency: |
           ^You can only pay by cash in %{ceremony_country_name}. This must be in the local currency.^
@@ -739,13 +712,13 @@ en-GB:
         affirmation_os_uk_resident: |
           Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local marriage laws, including what documents you’ll need.
 
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}).
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         affirmation_os_local_resident: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
         affirmation_os_other_resident: |
           Contact your nearest embassy or consulate of %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
 
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}).
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
 
         affirmation_os_uk_resident_two: |
           ^You should [get legal advice](http://www.lawsociety.org.uk/find-a-solicitor/) before making any plans.^
@@ -760,7 +733,7 @@ en-GB:
 
           Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
 
-          %{embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
           ^You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.^
 
@@ -801,7 +774,7 @@ en-GB:
           Affirmation for freedom to marry in any other language | £70
           Depositing a marriage certificate | £35
 
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{country_name_for_links}-consular-fees).
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
 
           You can pay by cash or credit card, but not by personal cheque.
 
@@ -811,23 +784,23 @@ en-GB:
         no_cni_os_dutch_caribbean_islands_uk_resident: |
           Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local marriage laws, including what documents you’ll need.
 
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}).
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         no_cni_os_dutch_caribbean_islands_local_resident: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
         no_cni_os_dutch_caribbean_other_resident: |
           Contact your nearest Dutch embassy or consulate before making any plans to find out about local marriage laws, including what documents you’ll need.
 
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}).
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         no_cni_os_not_dutch_caribbean_islands_uk_resident: |
           Contact your [nearest embassy or consulate](/government/publications/foreign-embassies-in-the-uk) representing %{country_name_lowercase_prefix} before making any plans to find out about local marriage laws, including what documents you’ll need.
 
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}).
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         no_cni_os_not_dutch_caribbean_islands_local_resident: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
         no_cni_os_not_dutch_caribbean_other_resident: |
           Contact your nearest embassy or consulate representing %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
 
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}).
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         no_cni_os_consular_facilities: |
           ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
 
@@ -835,7 +808,7 @@ en-GB:
         no_cni_os_all_nearest_embassy_not_taiwan: |
           However, your nearest embassy or consulate may be able to deposit your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK for safe-keeping. There’s a fee for this service (see below).
 
-          %{embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         no_cni_os_all_depositing_certificate: |
           ##Depositing your marriage certificate in the UK
 
@@ -853,7 +826,7 @@ en-GB:
 
           Depositing a marriage certificate through the embassy or consulate costs £35.
 
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{country_name_for_links}-consular-fees).
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
 
           You can pay by cash or credit card, but not by personal cheque.
         no_cni_os_naturalisation: |
@@ -864,41 +837,41 @@ en-GB:
 #Other countries outcome phrases
         other_countries_os_burma: |
           The British Embassy in Rangoon doesn’t register marriages of British citizens in Burma. Contact the embassy if you need further advice.
-          %{embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         other_countries_os_burma_partner_local: |
           %Marriage between a Burmese citizen and a foreign national is not allowed under local law.%
         other_countries_os_north_korea: |
           It’s very unlikely that foreign nationals would be allowed to marry in North Korea. Contact the British Embassy in Pyongyang if you need further advice.
-          %{embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         other_countries_os_north_korea_partner_local: |
           %Marriage between a citizen of North Korea and a foreign national is not allowed under local law.%
         other_countries_os_iran_somalia_syria: |
           There are currently no British consular services available in %{country_name_lowercase_prefix}. See below if you need further advice.
-          %{embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         other_countries_os_yemen: |
           There are only limited British consular services available in %{country_name_lowercase_prefix}. See below if you need further advice.
-          %{embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         other_countries_os_ceremony_saudia_arabia_not_local_resident: |
           ^One of you must be a Muslim to get married under local laws in Saudi Arabia. You can only get married at the British Embassy if you’re resident in the country.^
 
           Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/) to find out about local marriage laws.
 
           The British Embassy in Saudi Arabia may also be able to give you advice.
-          %{embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         other_countries_os_saudi_arabia_local_resident_partner_irish: |
           ^One of you must be a Muslim to get married under local laws in Saudi Arabia. You can’t get married at the British Embassy in Saudi Arabia if one of you is an Irish national, as the Irish authorities do not recognise consular marriages.^
 
           Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/) to find out about local marriage laws.
 
           The British Embassy in Saudi Arabia may also be able to give you advice.
-          %{embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         other_countries_os_saudi_arabia_local_resident_partner_not_irish: |
           One of you must be a Muslim to get married under local laws in Saudi Arabia. Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/) to find out about local marriage laws.
 
           ##Getting married at the British Embassy
 
           You can apply to get married at the British Embassy in Riyadh if you’re resident in Saudi Arabia and neither of you is a Muslim. Contact them to make an appointment.
-          %{embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
           You’ll need to provide:
 
           - proof that you’ve been resident in the area covered by the embassy for at least 7 days, eg an employer’s letter or a bank statement
@@ -931,7 +904,7 @@ en-GB:
           Performing a marriage ceremony| £140
           Issuing a marriage certificate | £65
 
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{ceremony_country_name}](/government/publications/%{country_name_for_links}-consular-fees).
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{ceremony_country_name}](/government/publications/%{ceremony_country}-consular-fees).
 
           You can pay by cash or credit card, but not by personal cheque.
 
@@ -1002,7 +975,7 @@ en-GB:
         cp_or_equivalent_cp_uk_resident: |
           Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local laws, including what documents you’ll need.
 
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}).
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         cp_or_equivalent_cp_local_resident: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
         cp_or_equivalent_cp_other_resident: |
@@ -1013,7 +986,7 @@ en-GB:
           You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to enter into a civil partnership or equivalent in %{country_name_lowercase_prefix}.
 
           Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.
-          %{embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         cp_or_equivalent_cp_naturalisation: |
           ##Naturalisation of your partner if they move to the UK
 
@@ -1038,7 +1011,7 @@ en-GB:
           Issuing a CNI or equivalent | £65
           Depositing a civil partnership certificate | £35
 
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{country_name_for_links}-consular-fees).
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
         cp_or_equivalent_cp_local_currency_countries: |
           ^You can only pay by cash in %{country_name_lowercase_prefix}. This must be in the local currency.^
         cp_or_equivalent_cp_cash_or_credit_card_countries: |
@@ -1099,28 +1072,28 @@ en-GB:
         no_cni_required_cp_dutch_islands_uk_resident: |
           Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local laws, including what documents you’ll need.
 
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}).
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         no_cni_required_cp_dutch_islands_local_resident: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
         no_cni_required_cp_dutch_islands_other_resident: |
           Contact your nearest Dutch embassy or consulate before making any plans to find out about local laws, including what documents you’ll need.
 
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}).
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         no_cni_required_cp_not_dutch_islands_uk_resident: |
           Contact your [nearest embassy or consulate](/government/publications/foreign-embassies-in-the-uk) representing %{country_name_lowercase_prefix} before making any plans to find out about local laws, including what documents you’ll need.
 
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}).
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         no_cni_required_cp_not_dutch_islands_local_resident: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
         no_cni_required_cp_not_dutch_islands_other_resident: |
           Contact your nearest embassy or consulate representing %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
 
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}).
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         no_cni_required_cp_all_consular_facilities: |
           There aren’t any British consular facilities to register a same-sex relationship, or get legal documents to prove you’re eligible enter into a same-sex relationship, in %{country_name_lowercase_prefix}.
 
           However, your nearest embassy or consulate may be able to deposit your certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK for safe-keeping after the ceremony. There’s a fee for this service (see below).
-          %{embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         no_cni_required_cp_all_depositing_certifictate: |
           ##Depositing your certificate in the UK
 
@@ -1142,7 +1115,7 @@ en-GB:
 
           Depositing a civil partnership certificate through the embassy or consulate costs £35.
 
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{country_name_for_links}-consular-fees).
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
 
           You can pay by cash or credit card, but not by personal cheque.
 #CP in commonwealth countries phrases
@@ -1173,7 +1146,7 @@ en-GB:
         commonwealth_countries_cp_uk_resident_two: |
           Contact the [High Commission of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) to find out about local laws, including what documents you’ll need.
 
-          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}) before making any plans.^
+          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
         commonwealth_countries_cp_local_resident: |
           Contact the relevant local authorities to find out about local laws, including what documents you’ll need.
 
@@ -1181,14 +1154,14 @@ en-GB:
         commonwealth_countries_cp_other_resident: |
           Contact your nearest high commission, embassy or consulate of %{country_name_lowercase_prefix} before making any plans to find out about local laws, including what documents you’ll need.
 
-          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{country_name_for_links}) before making any plans.^
+          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
         commonwealth_countries_cp_australia_three: |
           ##Registering a civil partnership at the British consulate
 
           You may be able to register a civil partnership at your nearest British high commission or consulate if you can’t get legal recognition for your relationship under local law.
 
           Contact your nearest British high commission or consulate to make an appointment.
-          %{embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         commonwealth_countries_cp_australia_four: |
           ###What documents you’ll need
 
@@ -1227,7 +1200,7 @@ en-GB:
 
           Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in %{ceremony_country_name} and [translated into English](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) first.
         commonwealth_countries_cp_ceremony_not_australia: |
-          %{embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         commonwealth_countries_cp_uk_resident_three: |
           ###Depositing your certificate when you’re back home
 
@@ -1245,7 +1218,7 @@ en-GB:
           Registering a civil partnership | £140
           Issuing a civil partnership certificate | £65
 
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{country_name_for_links}-consular-fees).
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
 
 #CP in countries with consular CNI (exc australia) phrases
         consular_cni_cp_ceremony_not_czech_republic: |
@@ -1264,7 +1237,7 @@ en-GB:
         consular_cni_cp_all_contact: |
           Contact them to make an appointment:
         consular_cni_cp_no_clickbook_so_embassy_details: |
-          %{embassy_details}
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         consular_cni_cp_all_documents: |
           ###What documents you’ll need
 
