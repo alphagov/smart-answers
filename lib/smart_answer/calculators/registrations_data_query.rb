@@ -7,7 +7,7 @@ module SmartAnswer::Calculators
 
     COUNTRIES_WITH_CONSULATES = %w(china colombia israel russia turkey)
 
-    COUNTRIES_WITH_CONSULATE_GENERALS = %(belgium brazil germany hong-kong netherlands turkey)
+    COUNTRIES_WITH_CONSULATE_GENERALS = %(belgium brazil germany hong-kong netherlands spain turkey)
 
     CASH_ONLY_COUNTRIES = %w(armenia bosnia-and-herzegovina botswana brunei cambodia iceland kazakhstan latvia libya luxembourg slovenia tunisia uganda)
 
