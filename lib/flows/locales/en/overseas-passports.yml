@@ -2095,9 +2095,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | %{costs_phillipine_peso_adult_32}
-          Adult jumbo 48-page passport | %{costs_phillipine_peso_adult_48}
-          Child passport | %{costs_phillipine_peso_child}
+          Adult standard 32-page passport | £128.00/HK $1,574 | £147.86/HK $1,818
+          Adult jumbo 48-page passport | £154.50/HK $1,900 | £174.36/HK $2,144
+          Child passport | £81.50/HK $1,002 | £101.36/HK $1,246
 
           Send your application to the passport processing centre in Hong Kong, preferably by a one-way courier service.
 
@@ -2123,9 +2123,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | 8,320 Philippine peso | 9,815 Philippine peso
-          Adult jumbo 48-page passport | 10,043 Philippine peso | 11,538 Philippine peso
-          Child passport | 5,298 Philippine peso | 6,793 Philippine peso
+          Adult standard 32-page passport | %{costs_philipine_peso_adult_32}
+          Adult jumbo 48-page passport | %{costs_philipine_peso_adult_48}
+          Child passport | %{costs_philipine_peso_child}
 
         getting_your_passport_philippines: |
           The British embassy will contact you when your passport arrives using the contact details on your form. You must collect it in person.
