@@ -218,11 +218,11 @@ en-GB:
         passport_costs_paris_france: |
           You must pay using either:
 
-          - a Visa or Mastercard - [download a credit card authorisation form (PDF, 170KB)](/government/uploads/system/uploads/attachment_data/file/136852/credit-card-form-march-12.pdf) and send it with your application
+          - a Visa or Mastercard - [download a credit card authorisation form](/government/publications/passport-credit-debit-card-payment-authorisation-slip-france) and send it with your application
 
           - an International Postal order, mandate-cheque or mandate-cash payable to ‘British Embassy Paris’ - your application may take longer if you pay this way
         passport_costs_malta_netherlands: |
-           You must pay using a Visa or Mastercard. [Download a credit card authorisation form (PDF, 170KB)](/government/uploads/system/uploads/attachment_data/file/136852/credit-card-form-march-12.pdf) and send it with your application.
+           You must pay using a Visa or Mastercard. [Download a credit card authorisation form](/government/publications/passport-credit-debit-card-payment-authorisation-slip-france) and send it with your application.
 
         passport_costs_france_italy_switz:
           You must pay using a Visa or Mastercard. [Download a credit card authorisation form (PDF, 170KB)](http://ukinfrance.fco.gov.uk/resources/en/pdf/consular/2012/credit-card-form-march-12) and send it with your application.
@@ -253,7 +253,7 @@ en-GB:
           You must pay using either:
 
           - an International Banker’s Draft, payable in Hong Kong Dollars to ‘British Consulate-General Hong Kong’
-          - a Visa or Mastercard - [download a credit card authorisation form (PDF, 95KB)](/government/uploads/system/uploads/attachment_data/file/136855/credit-card-authorisation.pdf.pdf) and send it with your application
+          - a Visa or Mastercard - [download a credit card authorisation form](/government/publications/passport-credit-debit-card-payment-authorisation-slip-hong-kong) and send it with your application
 
           If you pay by card, you’ll be charged the sterling amount in Hong Kong dollars using the exchange rate on the day your application is processed.
 
@@ -294,7 +294,7 @@ en-GB:
           Child standard 32-page passport | %{costs_indian_rupees_child}
 
         passport_costs_india: |
-          You must pay using a Visa or Mastercard - [download a credit card authorisation form (PDF, 95KB)](/government/uploads/system/uploads/attachment_data/file/136906/india-credit-card-form.pdf.pdf) and send it with your application.
+          You must pay using a Visa or Mastercard - [download a credit card authorisation form](/government/publications/passport-credit-debit-card-payment-authorisation-slip-india-new-delhi) and send it with your application.
 
         supporting_documents_india_applying_renewing: |
           Application type | Supporting documents information
