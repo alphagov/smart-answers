@@ -212,7 +212,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         end
         should "give the fco result and be done" do
           assert_current_node :fco_result
-          assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
+          assert_state_variable :embassy_high_commission_or_consulate, "British consulate-general"
           assert_phrase_list :registration_footnote, [:reg_footnote]
         end
       end # Answer fco 
@@ -343,7 +343,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
       should "give the embassy result and be done" do
         assert_current_node :embassy_result
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
-        assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
+        assert_state_variable :embassy_high_commission_or_consulate, "British consulate-general"
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
         assert_state_variable :clickbook, '' 
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
