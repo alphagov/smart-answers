@@ -143,7 +143,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
             assert_current_node :fco_result
             assert_phrase_list :birth_registration_form, [:birth_registration_form]
             assert_phrase_list :intro, [:intro]
-            assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
+            assert_state_variable :embassy_high_commission_or_consulate, "British consulate-general"
           end
         end
         context "answer in another country" do
