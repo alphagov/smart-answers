@@ -15,7 +15,7 @@ module SmartAnswer::Calculators
 
     NO_POSTAL_COUNTRIES = %w(barbados belgium costa-rica malaysia papua-new-guinea sweden tanzania thailand usa)
 
-    POST_ONLY_COUNTRIES = %w(united-arab-emirates)
+    POST_ONLY_COUNTRIES = %w(france french-guiana french-polynesia guadeloupe martinique mayotte monaco new-caledonia reunion st-pierre-and-miquelon wallis-and-futuna united-arab-emirates)
 
     attr_reader :data
 

@@ -366,11 +366,10 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_current_node :embassy_result
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-        assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
         assert_phrase_list :clickbook, [:clickbook]
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, "/government/publications/passport-credit-debit-card-payment-authorisation-slip-france" 
-        assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form]
+        assert_phrase_list :postal, [:post_only_france]
         assert_state_variable :current_location_name, "France"
         assert_phrase_list :footnote, [:footnote_another_country]
         expected_location = WorldLocation.find('france')
