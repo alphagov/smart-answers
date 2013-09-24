@@ -280,6 +280,13 @@ en-GB:
           Pay by postal order or bank draft, made payable to ‘The British Embassy, Bangkok’. Cash the postal order at the Nana Post Office (there’s a THB 200 administration fee).
         postal_info_usa: |
           Pay by money order made payable to the ‘British Embassy Government Account’. Personal cheques aren’t accepted.
+        post_only_france: |
+          ##Send your registration
+
+          Post your registration form, supporting documents and the fee to the British embassy.
+
+          Pay by credit or debit card - fill in the [credit card authorisation slip](%{postal_form_url}) and post it with your registration form.
+          
         post_only_united-arab-emirates: |
           ##Send your registration
           
@@ -336,7 +343,6 @@ en-GB:
           %{go_to_the_embassy_heading}
 
           %{go_to_the_embassy}
-          %{post_only}
 
 
           %{postal}
