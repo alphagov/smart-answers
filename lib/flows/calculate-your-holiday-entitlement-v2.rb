@@ -162,7 +162,7 @@ end
 
 value_question :annualised_hours? do
   calculate :total_hours do
-    hours = Floar(responses.last)
+    hours = Float(responses.last)
     raise InvalidResponse if hours <= 0
     hours
   end
