@@ -12,6 +12,10 @@ multiple_choice :region? do
 
   save_input_as :region
 
+  calculate :next_step_links do
+    PhraseList.new(:wills_link, :inheritance_link)
+  end
+
   next_node :partner?
 end
 
@@ -40,7 +44,11 @@ multiple_choice :estate_over_250000? do
   save_input_as :estate_over_250000
 
   calculate :next_step_links do
-    PhraseList.new(:wills_link)
+    if estate_over_250000 == "yes"
+      next_step_links
+    else
+      PhraseList.new(:wills_link)
+    end
   end
 
   next_node do |response|
@@ -59,10 +67,6 @@ multiple_choice :children? do
   option :"no"
 
   save_input_as :children
-
-  calculate :next_step_links do
-    PhraseList.new(:wills_link, :inheritance_link)
-  end
 
   next_node do |response|
     case region
@@ -95,10 +99,6 @@ multiple_choice :parents? do
 
   save_input_as :parents
 
-  calculate :next_step_links do
-    PhraseList.new(:wills_link, :inheritance_link)
-  end
-
   next_node do |response|
     case region
     when "england-and-wales"
@@ -125,10 +125,6 @@ multiple_choice :siblings? do
   option :"no"
 
   save_input_as :siblings
-
-  calculate :next_step_links do
-    PhraseList.new(:wills_link, :inheritance_link)
-  end
 
   next_node do |response|
     case region
@@ -169,14 +165,6 @@ multiple_choice :grandparents? do
 
   save_input_as :grandparents
 
-  calculate :next_step_links do
-    if region == "northern-ireland" && grandparents == "no"
-      PhraseList.new(:ownerless_link)
-    else
-      PhraseList.new(:wills_link, :inheritance_link)
-    end
-  end
-
   next_node do |response|
     case region
     when "england-and-wales"
@@ -195,10 +183,6 @@ multiple_choice :aunts_or_uncles? do
   option :"no"
 
   save_input_as :aunts_or_uncles
-
-  calculate :next_step_links do
-    PhraseList.new(:wills_link, :inheritance_link)
-  end
 
   next_node do |response|
     case region
@@ -219,10 +203,6 @@ multiple_choice :half_siblings? do
 
   save_input_as :half_siblings
 
-  calculate :next_step_links do
-    PhraseList.new(:wills_link, :inheritance_link)
-  end
-
   next_node do |response|
     response == "yes" ? :outcome_23 : :grandparents?
   end
@@ -234,14 +214,6 @@ multiple_choice :half_aunts_or_uncles? do
   option :"no"
 
   save_input_as :half_aunts_or_uncles
-
-  calculate :next_step_links do
-    if half_aunts_or_uncles == "yes"
-      PhraseList.new(:wills_link, :inheritance_link)
-    else
-      PhraseList.new(:ownerless_link)
-    end
-  end
 
   next_node do |response|
     response == "yes" ? :outcome_24 : :outcome_25
@@ -255,14 +227,6 @@ multiple_choice :great_aunts_or_uncles? do
 
   save_input_as :great_aunts_or_uncles
 
-  calculate :next_step_links do |state|
-    if great_aunts_or_uncles == "yes"
-      PhraseList.new(:wills_link, :inheritance_link)
-    else
-      PhraseList.new(:ownerless_link)
-    end
-  end
-
   next_node do |response|
     response == "yes" ? :outcome_45 : :outcome_46
   end
@@ -274,10 +238,6 @@ multiple_choice :more_than_one_child? do
   option :"no"
 
   save_input_as :more_than_one_child
-
-  calculate :next_step_links do
-    PhraseList.new(:wills_link, :inheritance_link)
-  end
 
   next_node do |response|
     response == "yes" ? :outcome_61 : :outcome_62
@@ -296,7 +256,12 @@ outcome :outcome_21
 outcome :outcome_22
 outcome :outcome_23
 outcome :outcome_24
-outcome :outcome_25
+
+outcome :outcome_25 do
+  precalculate :next_step_links do
+    PhraseList.new(:ownerless_link)
+  end
+end
 
 outcome :outcome_40
 outcome :outcome_41
@@ -304,7 +269,12 @@ outcome :outcome_42
 outcome :outcome_43
 outcome :outcome_44
 outcome :outcome_45
-outcome :outcome_46
+
+outcome :outcome_46 do
+  precalculate :next_step_links do
+    PhraseList.new(:ownerless_link)
+  end
+end
 
 outcome :outcome_60
 outcome :outcome_61
@@ -313,4 +283,9 @@ outcome :outcome_63
 outcome :outcome_64
 outcome :outcome_65
 outcome :outcome_66
-outcome :outcome_67
+
+outcome :outcome_67 do
+  precalculate :next_step_links do
+    PhraseList.new(:ownerless_link)
+  end
+end
