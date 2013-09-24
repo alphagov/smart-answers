@@ -118,7 +118,7 @@ end
 value_question :how_many_hours_per_week? do
   calculate :calculator do
     Calculators::HolidayEntitlementV2.new(
-      :hours_per_week => responses.last.to_f,
+      :hours_per_week => Float(responses.last),
       :start_date => start_date,
       :leaving_date => leaving_date,
       :leave_year_start_date => leave_year_start_date
@@ -141,7 +141,7 @@ end
 
 value_question :casual_or_irregular_hours? do
   calculate :total_hours do
-    hours = responses.last.to_f
+    hours = Float(responses.last)
     raise InvalidResponse if hours <= 0
     hours
   end
@@ -162,7 +162,7 @@ end
 
 value_question :annualised_hours? do
   calculate :total_hours do
-    hours = responses.last.to_f
+    hours = Floar(responses.last)
     raise InvalidResponse if hours <= 0
     hours
   end
