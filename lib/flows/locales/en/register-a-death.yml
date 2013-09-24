@@ -256,6 +256,13 @@ en-GB:
         postal_delivery_form: |
           Use the [delivery return form](%{postal_return_form_url}) to get your documents delivered back to you.
 
+        post_only_france: |
+          ##Send your registration
+
+          Post your application to the British embassy.
+
+          Pay by credit or debit card - fill in the [credit card authorisation slip](%{postal_form_url}) and post it with your registration form.
+
         post_only_united-arab-emirates: |
           Post your application to the %{embassy_high_commission_or_consulate}.
 
@@ -365,8 +372,6 @@ en-GB:
           %{booking_text_embassy_result}
 
           %{clickbook}
-
-          %{post_only}
 
           %{postal}
 
