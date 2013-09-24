@@ -215,7 +215,9 @@ outcome :embassy_result do
   end
 
   precalculate :postal do
-    if reg_data_query.register_death_by_post?(current_location)
+    if reg_data_query.post_only_countries?(current_location)
+      PhraseList.new(:"post_only_#{current_location}")
+    elsif reg_data_query.register_death_by_post?(current_location)
       phrases = PhraseList.new(:postal_intro)
       if postal_form_url
         phrases << :postal_registration_by_form

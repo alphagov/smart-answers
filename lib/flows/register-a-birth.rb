@@ -204,20 +204,15 @@ outcome :embassy_result do
     end
   end
 
-  precalculate :post_only do
-    if reg_data_query.post_only_countries?(registration_country)
-      PhraseList.new(:"post_only_#{registration_country}")
-    else
-      ''
-    end
-  end
-
   precalculate :postal_form_url do
     reg_data_query.postal_form(registration_country)
   end
+
   precalculate :postal do
-    if postal_form_url
-      PhraseList.new(:"postal_form")
+    if reg_data_query.post_only_countries?(registration_country)
+      PhraseList.new(:"post_only_#{registration_country}")
+    elsif postal_form_url
+      PhraseList.new(:postal_form)
     elsif reg_data_query.class::NO_POSTAL_COUNTRIES.include?(registration_country)
       PhraseList.new(:postal_info, :"postal_info_#{registration_country}")
     else
