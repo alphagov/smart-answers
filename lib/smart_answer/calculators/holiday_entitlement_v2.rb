@@ -118,7 +118,7 @@ module SmartAnswer::Calculators
       if start_date and leaving_date
         (Date.parse(leaving_date) - Date.parse(start_date) + 1) / days_divide
       elsif leaving_date
-        (date_calc - leave_year_start + 1) / days_divide
+        (Date.parse(leaving_date) - leave_year_start + 1) / days_divide
       else
         (leave_year_end - Date.parse(start_date) + 1) / days_divide
       end
