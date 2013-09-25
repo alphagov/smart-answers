@@ -98,13 +98,13 @@ en-GB:
         title: How many hours have been worked in this leave year?
         hint: The holiday entitlement may be calculated as the leave builds up ('accrues') for each hour worked.
         label: Hours worked
-        error_message: You need to enter a number greater than 0
+        error_message: You need to enter a number greater than 0. If you work half-hours, enter .5 for half. eg 340.5
 
       annualised_hours?:
         title: How many hours will be worked a year?
         hint: This is calculated by excluding statutory entitlement. This calculation isn't suitable for term-time workers.
         label: Hours per year
-        error_message: You need to enter a number greater than 0
+        error_message: You need to enter a number greater than 0.  If you work half-hours, enter .5 for half. eg 340.5
       # Q15
       shift_worker_basis?:
         title: "Do you want to calculate the holiday:"
@@ -122,7 +122,7 @@ en-GB:
         title: How many days in the shift pattern?
         hint: The shift pattern includes non-working days.
         label: Days per pattern
-        error_message: You need to enter a number greater than or equal to the number of shifts you work
+        error_message: You need to enter a number greater than or equal to the number of shifts you work.  If you work half-days, enter .5 for half. eg 4.5
 
       when_does_your_leave_year_start?:
         title: When does the leave year start?

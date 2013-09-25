@@ -69,7 +69,7 @@ en-GB:
         title: "Do you want to work out holiday:"
       # Q3
       how_many_days_per_week?:
-        title: Number of days worked per week?
+        title: Number of days worked per week? If you work half-days, enter .5 for half. eg 4.5
       # Q4
       what_is_your_starting_date?:
         title: What was the employment start date?
@@ -89,19 +89,19 @@ en-GB:
       compressed_hours_how_many_days_per_week?:
         title: Number of days per week worked?
         label: Days per week
-        error_message: There are only 7 days in a week. Please check and enter a correct value.
+        error_message: There are only 7 days in a week. Please check and enter a correct value. If you work half-days, enter .5 for half. eg 4.5
 
       casual_or_irregular_hours?:
         title: How many hours have been worked?
         hint: The holiday entitlement may be calculated as the leave builds up ('accrues') for each hour worked.
         label: Hours worked
-        error_message: You need to enter a number greater than 0
+        error_message: You need to enter a number greater than 0. If you work half-hours, enter .5 for half. eg 40.5
 
       annualised_hours?:
         title: How many hours will be worked a year?
         hint: This is calculated by excluding statutory entitlement. This calculation isn't suitable for term-time workers.
         label: Hours per year
-        error_message: You need to enter a number greater than 0
+        error_message: You need to enter a number greater than 0. If you work half-hours, enter .5 for half. eg 340.5
 
       shift_worker_basis?:
         title: How long will be worked in shifts?
@@ -120,7 +120,7 @@ en-GB:
       shift_worker_days_per_shift_pattern?:
         title: How many days per shift pattern?
         label: Days per pattern
-        error_message: You need to enter a number greater than or equal to the number of shifts you work
+        error_message: You need to enter a number greater than or equal to the number of shifts you work. If you work half-days, enter .5 for half. eg 4.5
 
       when_does_your_leave_year_start?:
         title: When does the leave year start?
