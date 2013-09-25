@@ -81,11 +81,13 @@ en-GB:
       how_many_hours_per_week?:
         title: Number of hours worked per week?
         hint: If you work half-hours enter .5 for a half, eg 40.5.
+        error_message: You can enter a maximum of 168 hours per week, if you work half-hours, enter .5 for half. eg 40.5
+
       # Q13
       compressed_hours_how_many_hours_per_week?:
         title: How many hours are worked per week?
         label: Hours per week
-        error_message: There are only 168 hours in a week. Please check and enter a correct value.
+        error_message: You can enter a maximum of 168 hours per week, if you work half-hours, enter .5 for half. eg 40.5
 
       compressed_hours_how_many_days_per_week?:
         title: Number of days per week worked?
@@ -109,7 +111,7 @@ en-GB:
       shift_worker_hours_per_shift?:
         title: How many hours in each shift?
         label: Hours per shift
-        error_message: You need to enter a number greater than 0
+        error_message: You need to enter a number greater than 0. If you work half-hours, enter .5 for half. eg 4.5 
 
       shift_worker_shifts_per_shift_pattern?:
         title: How many shifts will be worked per shift pattern?
