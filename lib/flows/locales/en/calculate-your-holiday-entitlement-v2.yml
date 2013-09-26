@@ -71,6 +71,7 @@ en-GB:
       how_many_days_per_week?:
         title: Number of days worked per week?
         hint: If you work half-days enter .5 for a half, eg 3.5 for three and a half days.
+        error_message: Please check and enter a correct value. If you work half-days, enter .5 for half. eg 4.5
       # Q4
       what_is_your_starting_date?:
         title: What was the employment start date?
@@ -81,11 +82,13 @@ en-GB:
       how_many_hours_per_week?:
         title: Number of hours worked per week?
         hint: If you work half-hours enter .5 for a half, eg 40.5.
+        error_message: You can enter a maximum of 168 hours per week, if you work half-hours, enter .5 for half. eg 40.5
+
       # Q13
       compressed_hours_how_many_hours_per_week?:
         title: How many hours are worked per week?
         label: Hours per week
-        error_message: There are only 168 hours in a week. Please check and enter a correct value.
+        error_message: You can enter a maximum of 168 hours per week, if you work half-hours, enter .5 for half. eg 40.5
 
       compressed_hours_how_many_days_per_week?:
         title: Number of days per week worked?
@@ -96,20 +99,20 @@ en-GB:
         title: How many hours have been worked in this leave year?
         hint: The holiday entitlement may be calculated as the leave builds up ('accrues') for each hour worked.
         label: Hours worked
-        error_message: You need to enter a number greater than 0
+        error_message: You need to enter a number greater than 0. If you work half-hours, enter .5 for half. eg 340.5
 
       annualised_hours?:
         title: How many hours will be worked a year?
         hint: This is calculated by excluding statutory entitlement. This calculation isn't suitable for term-time workers.
         label: Hours per year
-        error_message: You need to enter a number greater than 0
+        error_message: You need to enter a number greater than 0.  If you work half-hours, enter .5 for half. eg 340.5
       # Q15
       shift_worker_basis?:
         title: "Do you want to calculate the holiday:"
       shift_worker_hours_per_shift?:
         title: How many hours in each shift?
         label: Hours per shift
-        error_message: You need to enter a number greater than 0
+        error_message: You need to enter a number greater than 0. If you work half-hours, enter .5 for half. eg 4.5 
 
       shift_worker_shifts_per_shift_pattern?:
         title: How many shifts will be worked per shift pattern?
@@ -120,7 +123,7 @@ en-GB:
         title: How many days in the shift pattern?
         hint: The shift pattern includes non-working days.
         label: Days per pattern
-        error_message: You need to enter a number greater than or equal to the number of shifts you work
+        error_message: You need to enter a number greater than or equal to the number of shifts you work.  If you work half-days, enter .5 for half. eg 4.5
 
       when_does_your_leave_year_start?:
         title: When does the leave year start?
