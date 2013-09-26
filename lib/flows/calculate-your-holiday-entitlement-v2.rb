@@ -33,7 +33,7 @@ end
 value_question :how_many_days_per_week? do
   calculate :days_per_week do
     days_per_week = Float(responses.last)
-    raise InvalidResponse if days_per_week < 1 or days_per_week > 7
+    raise InvalidResponse if days_per_week <= 0 or days_per_week > 7
     days_per_week
   end
   calculate :days_per_week_calculated do
@@ -250,7 +250,7 @@ end
 
 value_question :shift_worker_days_per_shift_pattern? do
   calculate :days_per_shift_pattern do
-    days = Integer(responses.last)
+    days = Float(responses.last)
     raise InvalidResponse if days < shifts_per_shift_pattern
     days
   end
