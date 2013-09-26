@@ -32,7 +32,7 @@ end
 # Q3
 value_question :how_many_days_per_week? do
   calculate :days_per_week do
-    days_per_week = responses.last.to_f
+    days_per_week = Float(responses.last)
     raise InvalidResponse if days_per_week < 1 or days_per_week > 7
     days_per_week
   end
@@ -175,7 +175,7 @@ end
 
 value_question :compressed_hours_how_many_days_per_week? do
   calculate :days_per_week do
-    days = responses.last.to_i
+    days = Integer(responses.last)
     raise InvalidResponse if days <= 0 or days > 7
     days
   end
@@ -220,7 +220,7 @@ end
 
 value_question :shift_worker_shifts_per_shift_pattern? do
   calculate :shifts_per_shift_pattern do
-    shifts = responses.last.to_i
+    shifts = Integer(responses.last)
     raise InvalidResponse if shifts <=0
     shifts
   end
@@ -229,7 +229,7 @@ end
 
 value_question :shift_worker_days_per_shift_pattern? do
   calculate :days_per_shift_pattern do
-    days = responses.last.to_i
+    days = Integer(responses.last)
     raise InvalidResponse if days < shifts_per_shift_pattern
     days
   end
