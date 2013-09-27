@@ -16,13 +16,16 @@ end
 multiple_choice :calculation_period? do
   option "full-year"
   option "starting"
+  option "leaving"
   option "starting-and-leaving"
   save_input_as :holiday_period
 
   next_node do |response|
     case response
     when "starting", "starting-and-leaving"
-      :what_is_your_starting_date?      
+      :what_is_your_starting_date?
+    when "leaving"
+      :what_is_your_leaving_date?
     else
       calculation_basis == "days-worked-per-week" ? :how_many_days_per_week? : :how_many_hours_per_week?
     end
@@ -226,6 +229,7 @@ end
 multiple_choice :shift_worker_basis? do
   option "full-year" => :shift_worker_hours_per_shift?
   option "starting" => :what_is_your_starting_date?
+  option "leaving" => :what_is_your_leaving_date?
   option "starting-and-leaving" => :what_is_your_starting_date?
   save_input_as :holiday_period
 end
@@ -241,7 +245,7 @@ end
 
 value_question :shift_worker_shifts_per_shift_pattern? do
   calculate :shifts_per_shift_pattern do
-    shifts = responses.last.to_i
+    shifts = Integer(responses.last)
     raise InvalidResponse if shifts <=0
     shifts
   end
