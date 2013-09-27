@@ -127,13 +127,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
             assert_current_node :aus_nz_result
           end
         end
-        context "answer child born outside UK after 1 July 2006 with UK father" do
-          should "give the australian result" do
-            add_response 'child-born-outside-uk-father-citizen'
-            assert_state_variable :aus_nz_checklist_variant, 'child-born-outside-uk-father-citizen'
-            assert_current_node :aus_nz_result
-          end
-        end
         context "answer woman married to a UK citizen before 1949" do
           should "give the australian result" do
             add_response 'woman-married-to-uk-citizen-pre-1949'
@@ -151,6 +144,11 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         end
         should "proceed to the aus nz result" do
           add_response 'registered-uk-citizen'
+          assert_current_node :aus_nz_result
+        end
+        should "store the correct variant" do
+          add_response 'child-born-outside-uk-father-citizen'
+          assert_state_variable :aus_nz_checklist_variant, 'child-born-outside-uk-father-citizen'
           assert_current_node :aus_nz_result
         end
       end # Child
