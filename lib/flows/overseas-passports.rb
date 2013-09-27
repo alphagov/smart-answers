@@ -171,7 +171,6 @@ multiple_choice :which_best_describes_you_adult? do
   option "born-in-uk-post-1982-mother-uk-service" # 14
   option "married-to-uk-citizen-pre-1983-reg-pre-1988" # 15
   option "registered-uk-citizen" # 16
-  option "child-born-outside-uk-father-citizen" # 17
   option "woman-married-to-uk-citizen-pre-1949" # 18
 
   save_input_as :aus_nz_checklist_variant
@@ -189,7 +188,8 @@ multiple_choice :which_best_describes_you_child? do
   option "born-in-uk-post-1982-father-uk-service" # 13
   option "born-in-uk-post-1982-mother-uk-service" # 14
   option "registered-uk-citizen" # 16
-
+  option "child-born-outside-uk-father-citizen" # 17
+  
   save_input_as :aus_nz_checklist_variant
 
   next_node :aus_nz_result
