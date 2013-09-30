@@ -48,7 +48,6 @@ clickbook:
   uruguay: http://britishembassyinmvd.clickbook.net/
   vietnam: 
     Hanoi: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyhanoi?OpenDocument&cb_referer=http%3A%2F%2Fukinvietnam.fco.gov.uk%2Fen%2Fhelp-for-british-nationals%2Fliving-in-vietnam%2Fbirth-registration
-    Ho Chi Min City: http://www.bcghochiminh.clickbook.net/
 registration_country:
   american-samoa: usa
   andorra: spain
@@ -135,7 +134,7 @@ postal_form:
   japan: /government/publications/passport-credit-debit-card-payment-authorisation-slip-japan
   korea: /government/publications/passport-credit-debit-card-payment-authorisation-slip-korea
   mexico: /government/publications/passport-credit-debit-card-payment-authorisation-slip-mexico
-  norway: /government/publications/passport-credit-debit-card-payment-authorisation-slip-norway
+  norway: /government/publications/creditdebit-card-payment-authorisation-slip-norway
   portugal: /government/publications/passport-credit-debit-card-payment-authorisation-slip-portugal
   russia: /government/publications/passport-credit-debit-card-payment-authorisation-slip-russia
   spain: /government/publications/passport-credit-debit-card-payment-authorisation-slip-spain
