@@ -348,7 +348,9 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
                                "30 March 2013|£85.85",
                                " 6 April 2013|£85.85",
                                "13 April 2013|£86.70",
-                               "20 April 2013|£86.70"].join("\n")
+                               "20 April 2013|£86.70",
+                               "27 April 2013|£0.00",
+                               " 4 May 2013|£0.00"].join("\n")
       end
 
       should "show formatted weekly payment amounts with adjusted 3 days start amount" do
