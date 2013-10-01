@@ -17,6 +17,8 @@ module SmartAnswer::Calculators
 
     POST_ONLY_COUNTRIES = %w(france french-guiana french-polynesia guadeloupe martinique mayotte monaco new-caledonia reunion st-pierre-and-miquelon wallis-and-futuna united-arab-emirates)
 
+    COUNTRIES_WITH_TRADE_CULTURAL_OFFICES = %w(taiwan)
+
     attr_reader :data
 
     def initialize
@@ -41,6 +43,10 @@ module SmartAnswer::Calculators
 
     def has_consulate_general?(country_slug)
       COUNTRIES_WITH_CONSULATE_GENERALS.include?(country_slug)
+    end
+    
+    def has_trade_and_cultural_office?(country_slug)
+      COUNTRIES_WITH_TRADE_CULTURAL_OFFICES.include?(country_slug)
     end
 
     def post_only_countries?(country_slug)

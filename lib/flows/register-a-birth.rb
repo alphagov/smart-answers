@@ -147,6 +147,8 @@ outcome :embassy_result do
      "British high commission"
     elsif reg_data_query.has_consulate?(registration_country)
       "British consulate"
+    elsif reg_data_query.has_trade_and_cultural_office?(registration_country)
+      "British Trade & Cultural Office"
     elsif reg_data_query.has_consulate_general?(registration_country)
       "British consulate-general"
     else
@@ -266,6 +268,8 @@ outcome :fco_result do
      "British high commission"
     elsif reg_data_query.has_consulate?(registration_country)
       "British consulate"
+    elsif reg_data_query.has_trade_and_cultural_office?(registration_country)
+      "British Trade & Cultural Office"
     elsif reg_data_query.has_consulate_general?(registration_country)
       "British consulate-general"
     else
