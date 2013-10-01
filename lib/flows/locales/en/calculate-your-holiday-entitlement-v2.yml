@@ -72,7 +72,7 @@ en-GB:
       how_many_days_per_week?:
         title: Number of days worked per week?
         hint: If you work half-days enter .5 for a half, eg 3.5 for three and a half days.
-        error_message: Please check and enter a correct value. If you work half-days, enter .5 for half. eg 4.5
+        error_message: Please check and enter a correct value. Don't enter fractions. If you work half-days, enter .5 for half. eg 4.5
       # Q4
       what_is_your_starting_date?:
         title: What was the employment start date?
