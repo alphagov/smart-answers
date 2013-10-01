@@ -631,7 +631,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_state_variable :clickbook, ''
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, nil
-        assert_phrase_list :cash_only, [:cash_and_card]
+        assert_phrase_list :cash_only, [:cheque_only]
         assert_phrase_list :footnote, [:footnote_exceptions]
         expected_location = WorldLocation.find('taiwan')
         assert_state_variable :location, expected_location

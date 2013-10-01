@@ -271,6 +271,9 @@ en-GB:
         cash_only: |
           ^You can only pay by cash, which must be in local currency.^
 
+        cheque_only: |
+          You must pay by personal cheque.
+
         cash_and_card: |
           You can pay by cash or credit card, but not by personal cheque.
 
