@@ -298,6 +298,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
   #
   context "when checking past pay" do
     setup do
+      Timecop.travel('30 Sep 2013')
       add_response :past_payment
     end
     
