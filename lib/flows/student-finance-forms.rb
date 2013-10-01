@@ -54,7 +54,7 @@ multiple_choice :form_needed_for_1? do
       when 'dsa-expenses'
         :outcome_dsa_expenses
       else
-        :what_year?      
+        :what_year?
     end
   end
 end
@@ -82,7 +82,7 @@ end
 ## Q3
 multiple_choice :what_year? do
   option :"year-1314"
-  option :"year-1213"
+  option :"year-1415"
 
   save_input_as :year_required
 
@@ -98,13 +98,13 @@ multiple_choice :what_year? do
             :outcome_proof_identity_1314_pt
           end
         else 
-          :outcome_proof_identity_1213
+          :outcome_proof_identity_1415
         end
       elsif form_required == 'income-details' 
         if response == 'year-1314' 
           :outcome_parent_partner_1314
         else
-          :outcome_parent_partner_1213
+          :outcome_parent_partner_1415
         end
       elsif form_required == 'apply-dsa' 
         if response == 'year-1314'
@@ -114,13 +114,13 @@ multiple_choice :what_year? do
             :outcome_dsa_1314_pt
           end
         else
-          :outcome_dsa_1213
+          :outcome_dsa_1415
         end
       elsif form_required == 'apply-ccg' 
         if response == 'year-1314' 
           :outcome_ccg_1314
         else
-          :outcome_ccg_1213
+          :outcome_ccg_1415
         end
       end
     else
@@ -146,11 +146,11 @@ multiple_choice :continuing_student? do
           else 
             :outcome_uk_ft_1314_new
           end
-        elsif year_required == 'year-1213' 
+        elsif year_required == 'year-1415' 
           if response == 'continuing-student' 
-            :outcome_uk_ft_1213_continuing
+            :outcome_uk_ft_1415_continuing
           else 
-            :outcome_uk_ft_1213_new
+            :outcome_uk_ft_1415_new
           end
         end
       end
@@ -167,11 +167,11 @@ multiple_choice :continuing_student? do
         else 
           :outcome_eu_ft_1314_new
         end
-      elsif year_required == "year-1213"
+      elsif year_required == "year-1415"
         if response =='continuing-student'
-          :outcome_eu_ft_1213_continuing
+          :outcome_eu_ft_1415_continuing
         else
-          :outcome_eu_ft_1213_new
+          :outcome_eu_ft_1415_new
         end
       end
     
@@ -182,11 +182,11 @@ multiple_choice :continuing_student? do
         else
           :outcome_eu_pt_1314_new
         end
-      elsif year_required == 'year-1213'
+      elsif year_required == 'year-1415'
         if response =='continuing-student'
-          :outcome_eu_pt_1213_continuing
+          :outcome_eu_pt_1415_continuing
         else
-          :outcome_eu_pt_1213_new
+          :outcome_eu_pt_1415_new
         end
       end
     end
@@ -217,18 +217,18 @@ multiple_choice :pt_course_start? do
               :outcome_uk_pt_1314_new
             end
           end
-        elsif year_required == 'year-1213'
+        elsif year_required == 'year-1415'
           if continuing_student_state == 'continuing-student'
             if response == 'course-start-before-01092012'
-              :outcome_uk_pt_1213_grant
+              :outcome_uk_pt_1415_grant
             else
-              :outcome_uk_pt_1213_continuing
+              :outcome_uk_pt_1415_continuing
             end
           elsif continuing_student_state == 'new-student'
             if response == 'course-start-before-01092012'
-              :outcome_uk_pt_1213_grant
+              :outcome_uk_pt_1415_grant
             else
-              :outcome_uk_pt_1213_new
+              :outcome_uk_pt_1415_new
             end
           end
         end
@@ -240,24 +240,24 @@ end
 
 outcome :outcome_uk_ft_1314_new
 outcome :outcome_uk_ft_1314_continuing
-outcome :outcome_uk_ft_1213_new
-outcome :outcome_uk_ft_1213_continuing
+outcome :outcome_uk_ft_1415_new
+outcome :outcome_uk_ft_1415_continuing
 outcome :outcome_uk_pt_1314_new
 outcome :outcome_uk_pt_1314_continuing
 outcome :outcome_uk_pt_1314_grant
-outcome :outcome_uk_pt_1213_new
-outcome :outcome_uk_pt_1213_continuing
-outcome :outcome_uk_pt_1213_grant
+outcome :outcome_uk_pt_1415_new
+outcome :outcome_uk_pt_1415_continuing
+outcome :outcome_uk_pt_1415_grant
 outcome :outcome_parent_partner_1314
-outcome :outcome_parent_partner_1213
+outcome :outcome_parent_partner_1415
 outcome :outcome_proof_identity_1314
 outcome :outcome_proof_identity_1314_pt
-outcome :outcome_proof_identity_1213
+outcome :outcome_proof_identity_1415
 outcome :outcome_dsa_1314
 outcome :outcome_dsa_1314_pt
-outcome :outcome_dsa_1213
+outcome :outcome_dsa_1415
 outcome :outcome_ccg_1314
-outcome :outcome_ccg_1213
+outcome :outcome_ccg_1415
 outcome :outcome_dsa_expenses
 outcome :outcome_ccg_expenses
 outcome :outcome_travel
@@ -265,7 +265,7 @@ outcome :outcome_eu_ft_1314_new
 outcome :outcome_eu_ft_1314_continuing
 outcome :outcome_eu_pt_1314_new
 outcome :outcome_eu_pt_1314_continuing
-outcome :outcome_eu_ft_1213_new
-outcome :outcome_eu_ft_1213_continuing
-outcome :outcome_eu_pt_1213_new
-outcome :outcome_eu_pt_1213_continuing
+outcome :outcome_eu_ft_1415_new
+outcome :outcome_eu_ft_1415_continuing
+outcome :outcome_eu_pt_1415_new
+outcome :outcome_eu_pt_1415_continuing
