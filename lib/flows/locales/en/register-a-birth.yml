@@ -295,6 +295,8 @@ en-GB:
           You must use recorded delivery or a courier, and arrange for your application to arrive between 8am and 1pm. You’ll need to organise the return delivery of your documents (eg by including a pre-paid envelope or through the courier).
         cash_only: |
           %You can only pay by cash, which must be in local currency.%
+        cheque_only: |
+          You must pay by personal cheque.
         cash_and_card: |
           You can pay by cash or credit card, but not by personal cheque.
         footnote_another_country: |
