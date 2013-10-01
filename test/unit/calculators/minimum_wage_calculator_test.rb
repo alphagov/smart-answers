@@ -488,6 +488,7 @@ module SmartAnswer::Calculators
       # Scenario 12
       context "17 y/o 2008-09 with high accommodation charge variations." do
         setup do
+          Timecop.travel('30 Sep 2013') 
           @calculator = MinimumWageCalculator.new(
             age: 17, date: Date.parse('2009-01-10'), pay_frequency: 30, basic_pay: 840, basic_hours: 210)
           @calculator.overtime_hours = 0
@@ -522,6 +523,9 @@ module SmartAnswer::Calculators
     end
     # Test URL: /am-i-getting-minimum-wage/y/past_payment/2010-10-01/apprentice_under_19/7/35/78.0/0/no
     context "Historical adjustment for apprentices (hours:35, pay:78)" do
+      setup do
+        Timecop.travel(Date.parse('30 Sep 2013'))
+      end
       should "equal 10.07 historical adjustment" do
         @calculator = MinimumWageCalculator.new(
           age: 0,
