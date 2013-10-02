@@ -130,7 +130,7 @@ outcome :fco_result do
     elsif reg_data_query.has_trade_and_cultural_office?(current_location)
       "British Trade & Cultural Office"
     elsif reg_data_query.has_consulate_general?(current_location)
-      "British consulate-general"
+      "British consulate general"
     else
       "British embassy"
     end
@@ -165,7 +165,7 @@ outcome :embassy_result do
     elsif reg_data_query.has_trade_and_cultural_office?(current_location)
       "British Trade & Cultural Office"
     elsif reg_data_query.has_consulate_general?(current_location)
-      "British consulate-general"
+      "British consulate general"
     else
       "British embassy"
     end
