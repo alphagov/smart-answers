@@ -1,5 +1,6 @@
 require_relative "../../test_helper"
 require_relative "flow_test_helper"
+require 'gds_api/test_helpers/worldwide'
 
 class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
   include FlowTestHelper
