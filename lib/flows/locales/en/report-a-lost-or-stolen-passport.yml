@@ -32,9 +32,9 @@ en-GB:
 
           To report your lost passport you can do any of:
 
-          - [download a copy](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download LS01"){:rel="external"} of form LS01 and post the completed form to Her Majesty's Passport Office - the address is on the form
-          - get a copy of form LS01 from a Post Office that offers the [Check and Send service](http://www.postoffice.co.uk/branch-finder "Post Offices that offer the passport Check & Send service"){:rel="external"}
-          - [ask for a callback](https://contact.homeoffice.gov.uk/contact.php?survey=1&pager=4 "Ask for a callback"){:rel="external"} from Her Majesty's Passport Office 
+          - [download a copy of form LS01](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf) and post the completed form to Her Majesty's Passport Office - the address is on the form
+          - get a copy of form LS01 from a Post Office that offers the [Check and Send service](http://www.postoffice.co.uk/branch-finder)
+          - [ask for a callback](https://contact.homeoffice.gov.uk/contact.php?survey=1&pager=4) from Her Majesty's Passport Office 
 
           %{child_advice}
 
@@ -42,7 +42,7 @@ en-GB:
 
           You can apply for a replacement at the same time if you’re a British national and in the UK.
 
-          Follow the same process as [renewing a passport](/renew-adult-passport "Renew your adult passport"), but you:
+          Follow the same process as [renewing a passport](/renew-adult-passport), but you:
 
 
           - must send a completed form LS01 with your application (if you’ve haven’t already reported it as lost)
@@ -50,7 +50,7 @@ en-GB:
           - may be interviewed by Her Majesty's Passport Office to prove your identity
           - may be asked for original supporting documents (eg birth or marriage certificates) when Her Majesty's Passport Office gets your application
 
-          % You can’t use the [1-day Premium service](/get-a-passport-urgently "Get a passport urgently") if you’re replacing a lost passport. % 
+          % You can’t use the [1-day Premium service](/get-a-passport-urgently) if you’re replacing a lost passport. % 
 
           ##If you find your passport
 
@@ -71,9 +71,9 @@ en-GB:
           To report to Her Majesty's Passport Office you can do any of:
 
 
-          - [download a copy](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download LS01"){:rel="external"} of form LS01 and post the completed form to Her Majesty's Passport Office - the address is on the form
-          - get a copy of form LS01 from a Post Office that offers the [Check and Send service](http://www.postoffice.co.uk/branch-finder "Post Offices that offer the passport Check & Send service"){:rel="external"}
-          - [ask for a callback](https://contact.homeoffice.gov.uk/contact.php?survey=1&pager=4 "Ask for a callback"){:rel="external"} from Her Majesty's Passport Office 
+          - [download a copy of form LS01](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf) and post the completed form to Her Majesty's Passport Office - the address is on the form
+          - get a copy of form LS01 from a Post Office that offers the [Check and Send service](http://www.postoffice.co.uk/branch-finder)
+          - [ask for a callback](https://contact.homeoffice.gov.uk/contact.php?survey=1&pager=4) from Her Majesty's Passport Office 
 
           %{child_advice}
 
@@ -82,7 +82,7 @@ en-GB:
 
           You can replace your passport if you’re a British national and in the UK.
 
-          Follow the same process as [renewing a passport](/renew-adult-passport "Renew your adult passport"), but you:
+          Follow the same process as [renewing a passport](/renew-adult-passport), but you:
 
 
           - must send a completed form LS01 with your application (if you’ve haven’t already reported it as stolen)
@@ -90,24 +90,25 @@ en-GB:
           - may be interviewed by Her Majesty's Passport Office to prove your identity
           - may be asked for original supporting documents (eg birth or marriage certificates) when Her Majesty's Passport Office gets your application
 
-          % You can’t use the [1-day Premium service](/get-a-passport-urgently "Get a passport urgently") if you’re replacing a stolen passport. %
+          % You can’t use the [1-day Premium service](/get-a-passport-urgently) if you’re replacing a stolen passport. %
       # A3
       contact_the_embassy:
         title: You must report your lost or stolen passport
         body: |
-          [Download form LS01 - 'Lost or stolen passport notification'](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf "Download LS01- ‘Lost or stolen passport notification’"){:rel="external"} 
+          [Download form LS01 - 'Lost or stolen passport notification'](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf) 
       
           Fill in form LS01 and take it to your nearest British embassy, high commission or consulate. Check if you need to make an appointment first.
 
           %{child_advice}
 
-          +[data_partial:legacy_embassies:embassies]
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
           ##Get a replacement passport
 
-          If you don’t need to travel urgently, you can apply for a replacement passport [from the country you’re in.](/apply-renew-passport-abroad "Apply for a replacement passport if you’re outside the UK")
+          If you don’t need to travel urgently, you can [apply for a replacement passport from the country you’re in.](/apply-renew-passport-abroad)
 
           ##Emergency travel documents
 
-          If you need to travel urgently, you can get an [emergency travel document](/emergency-travel-document "Emergency travel documents") to return to the UK from the Embassy, High Commission or Consulate.
+          If you need to travel urgently, you can get an [emergency travel document to return to the UK](/emergency-travel-document) from the Embassy, High Commission or Consulate.
+          
           You will have to pay a fee.
