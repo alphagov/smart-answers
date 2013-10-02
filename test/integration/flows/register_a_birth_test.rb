@@ -250,6 +250,8 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "same_country"
       assert_current_node :embassy_result
       assert_state_variable :british_national_parent, 'mother_and_father'
+      assert_state_variable :embassy_high_commission_or_consulate, 'British Trade & Cultural Office'
+      assert_phrase_list :cash_only, [:cheque_only]
       assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
       assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_taiwan]
       expected_location = WorldLocation.find('taiwan')
