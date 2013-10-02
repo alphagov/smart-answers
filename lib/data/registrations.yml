@@ -46,8 +46,7 @@ clickbook:
   switzerland: http://britishconsulatebern.clickbook.net/
   usa: http://www.britishembassydc.clickbook.net/
   uruguay: http://britishembassyinmvd.clickbook.net/
-  vietnam: 
-    Hanoi: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyhanoi?OpenDocument&cb_referer=http%3A%2F%2Fukinvietnam.fco.gov.uk%2Fen%2Fhelp-for-british-nationals%2Fliving-in-vietnam%2Fbirth-registration
+  vietnam: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyhanoi?OpenDocument&cb_referer=http%3A%2F%2Fukinvietnam.fco.gov.uk%2Fen%2Fhelp-for-british-nationals%2Fliving-in-vietnam%2Fbirth-registration
 registration_country:
   american-samoa: usa
   andorra: spain
