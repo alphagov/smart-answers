@@ -409,9 +409,7 @@ module SmartAnswer::Calculators
                       [Date.parse("30 Mar 2013"), 85.85],
                       [Date.parse("06 Apr 2013"), 85.85],
                       [Date.parse("13 Apr 2013"), 86.7],
-                      [Date.parse("20 Apr 2013"), 86.7],
-                      [Date.parse("27 Apr 2013"), 0],
-                      [Date.parse("04 May 2013"), 0]],
+                      [Date.parse("20 Apr 2013"), 86.7]],
                     calculator.weekly_payments
       end
 
@@ -443,9 +441,7 @@ module SmartAnswer::Calculators
                       "30 March 2013|£85.85",
                       " 6 April 2013|£85.85",
                       "13 April 2013|£86.70",
-                      "20 April 2013|£86.70",
-                      "27 April 2013|£0.00",
-                      " 4 May 2013|£0.00"].join("\n"),
+                      "20 April 2013|£86.70"].join("\n"),
                      calculator.formatted_sick_pay_weekly_amounts
       end
     end
