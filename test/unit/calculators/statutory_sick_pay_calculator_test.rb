@@ -390,30 +390,6 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "sick_pay_weekly_dates_and_rates" do
-      should "produce an array of pairs which have the week end dates and pay rates" do
-        calculator = StatutorySickPayCalculator.new(
-           42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2','3','4'])
-
-        assert_equal [[Date.parse("12 Jan 2013"), 85.85],
-                      [Date.parse("19 Jan 2013"), 85.85],
-                      [Date.parse("26 Jan 2013"), 85.85],
-                      [Date.parse("02 Feb 2013"), 85.85],
-                      [Date.parse("09 Feb 2013"), 85.85],
-                      [Date.parse("16 Feb 2013"), 85.85],
-                      [Date.parse("23 Feb 2013"), 85.85],
-                      [Date.parse("02 Mar 2013"), 85.85],
-                      [Date.parse("09 Mar 2013"), 85.85],
-                      [Date.parse("16 Mar 2013"), 85.85],
-                      [Date.parse("23 Mar 2013"), 85.85],
-                      [Date.parse("30 Mar 2013"), 85.85],
-                      [Date.parse("06 Apr 2013"), 85.85],
-                      [Date.parse("13 Apr 2013"), 86.7],
-                      [Date.parse("20 Apr 2013"), 86.7]],
-                    calculator.weekly_payments
-      end
-    end
-
     context "sick_pay_weekly_amounts" do
       should "return the payable weeks by taking into account the final SSP payment" do
         calculator = StatutorySickPayCalculator.new(
