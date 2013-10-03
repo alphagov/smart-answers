@@ -133,10 +133,14 @@ $(document).ready(function() {
       }
     },
     init: function() {
-      var self = this; 
-      $(document).bind('smartanswerAnswer', function() { self.correctOffscreen() });
+      var self = this;
+      $(document).bind('smartanswerAnswer', function() { 
+        self.correctOffscreen();
+        $('.report-a-problem-toggle').hide();
+      });
       $(document).bind('smartanswerOutcome', function() {
-        $(".report-a-problem-container form #url").val(window.location.href);
+        $('.report-a-problem-container form #url').val(window.location.href);
+        $('.report-a-problem-toggle').show();
       });
     }
   }
