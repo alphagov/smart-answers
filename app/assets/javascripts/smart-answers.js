@@ -135,6 +135,9 @@ $(document).ready(function() {
     init: function() {
       var self = this; 
       $(document).bind('smartanswerAnswer', function() { self.correctOffscreen() });
+      $(document).bind('smartanswerOutcome', function() {
+        $(".report-a-problem-container form #url").val(window.location.href);
+      });
     }
   }
 
