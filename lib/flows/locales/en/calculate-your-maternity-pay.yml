@@ -25,9 +25,13 @@ en-GB:
         "no": "No"
         "yes": "Yes"
       body: |
-
-        Estimate your Statutory Maternity Pay or Maternity Allowance and other help you can get from the government if you’re having a baby.
-
+        
+          Use this tool to: 
+          
+          + estimate your Statutory Maternity Pay (SMP) and work out your qualifying week   
+          + estimate your Maternity Allowance if you don’t qualify for SMP  
+          + check what other help and benefits you might get when you have a baby   
+        
       when_is_your_baby_due?:
         title: What is your baby’s due date?
         error_message: Use the arrows to choose the date from the drop-downs
