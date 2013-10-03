@@ -123,7 +123,8 @@ module SmartAnswer::Calculators
 
     def weekly_payments
       payments = sick_pay_weekly_dates.map { |date| [date, weekly_payment(date)] }
-      payments.select { |p| p == payments.first or p.last > 0 }
+      payments.pop while payments.any? and payments.last.last == 0
+      payments
     end
 
     def weekly_payment(week_start_date)
