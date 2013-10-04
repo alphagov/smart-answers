@@ -239,24 +239,24 @@ end
 outcome :ips_application_result do
 
   precalculate :how_long_it_takes do
-    if %w{mauritania morocco western-sahara tunisia}.include?(current_location)
-      
-      if application_action =~ /renewing_new|replacing/
-        PhraseList.new(:"how_long_#{application_action}_ips2_morocco",
-                       :"how_long_it_takes_ips#{ips_number}")
-      else
-        PhraseList.new(:how_long_other_ips2_morocco,
-                       :"how_long_it_takes_ips#{ips_number}")
-      end
+    eight_week_application_countries = %w(mauritania morocco western-sahara tunisia)
+    twelve_week_application_countries = %w(cameroon chad djibouti eritrea ethiopia kenya somalia tanzania uganda)
+
+    phrases = PhraseList.new
+    if eight_week_application_countries.include?(current_location)
+      number_of_weeks = application_action =~ /renewing_new|replacing/ ? 4 : 8
+      phrases << :"how_long_#{number_of_weeks}_weeks"
+    elsif twelve_week_application_countries.include?(current_location) and application_action == 'applying'
+      phrases << :"how_long_applying_12_weeks"
     else
       if %w{kazakhstan kyrgyzstan}.include?(current_location)
-        PhraseList.new(:"how_long_#{current_location}",
-                      :"how_long_it_takes_ips#{ips_number}")
+        phrases << :"how_long_#{current_location}"
       else
-        PhraseList.new(:"how_long_#{application_action}_ips#{ips_number}",
-                     :"how_long_it_takes_ips#{ips_number}")
+        phrases << :"how_long_#{application_action}_ips#{ips_number}"
       end
     end
+    phrases << :"how_long_it_takes_ips#{ips_number}"
+    phrases
   end
   precalculate :cost do
     if application_action == 'replacing' && ips_number == '1'

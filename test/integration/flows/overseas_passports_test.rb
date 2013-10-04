@@ -455,7 +455,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         assert_state_variable :supporting_documents, 'ips_documents_group_3'
         assert_current_node :ips_application_result
         assert_phrase_list :fco_forms, [:adult_fco_forms]
-        assert_phrase_list :how_long_it_takes, [:how_long_replacing_ips2_morocco, :how_long_it_takes_ips2]
+        assert_phrase_list :how_long_it_takes, [:how_long_4_weeks, :how_long_it_takes_ips2]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :hmpo_1_application_form, :ips_documents_group_3]
         assert_phrase_list :cost, [:passport_courier_costs_ips2, :adult_passport_costs_ips2, :passport_costs_ips_cash]
         assert_phrase_list :send_your_application, [:send_application_ips2, :send_application_embassy_address]
@@ -559,7 +559,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_applying_ips1, :how_long_it_takes_ips1]
+      assert_phrase_list :how_long_it_takes, [:how_long_applying_12_weeks, :how_long_it_takes_ips1]
       expected_location = WorldLocation.find('tanzania')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
@@ -691,7 +691,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_applying_ips1, :how_long_it_takes_ips1]
+      assert_phrase_list :how_long_it_takes, [:how_long_applying_12_weeks, :how_long_it_takes_ips1]
       assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
       expected_location = WorldLocation.find('kenya')
       assert_state_variable :location, expected_location
@@ -751,7 +751,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'replacing'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_replacing_ips2_morocco, :how_long_it_takes_ips2]
+      assert_phrase_list :how_long_it_takes, [:how_long_4_weeks, :how_long_it_takes_ips2]
       assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :hmpo_1_application_form, :ips_documents_group_2]
       assert_phrase_list :cost, [:passport_courier_costs_ips2, :adult_passport_costs_ips2, :passport_costs_ips_cash]
       assert_phrase_list :send_your_application, [:send_application_ips2, :send_application_embassy_address]
@@ -978,7 +978,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_applying_ips1, :how_long_it_takes_ips1]
+      assert_phrase_list :how_long_it_takes, [:how_long_applying_12_weeks, :how_long_it_takes_ips1]
       assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
       expected_location = WorldLocation.find('kenya')
