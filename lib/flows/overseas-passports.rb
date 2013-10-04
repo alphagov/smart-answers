@@ -315,7 +315,7 @@ end
 ## FCO Result
 outcome :fco_result do
   precalculate :how_long_it_takes do
-    if application_action == 'applying' and %w(india tanzania).include?(current_location)
+    if application_action == 'applying' and current_location == 'india'
       PhraseList.new(:"how_long_applying_#{current_location}")
     else
       PhraseList.new(:"how_long_#{application_action}_fco")
@@ -407,14 +407,10 @@ end
 ## Generic country outcome.
 outcome :result do
   precalculate :how_long_it_takes do
-    phrase = ['how_long', application_type]
-    phrase << general_action if application_type == 'nairobi_kenya'
-    PhraseList.new(phrase.join('_').to_sym)
+    PhraseList.new(:"how_long_#{application_type}")
   end
   precalculate :cost do
-    phrase = ['cost', application_type]
-    phrase << general_action if %w(cameroon nairobi_kenya).include?(application_type)
-    PhraseList.new(phrase.join('_').to_sym)
+    PhraseList.new(:"cost_#{application_type}")
   end
   precalculate :how_to_apply do
     phrases = PhraseList.new(:"how_to_apply_#{application_type}")
@@ -425,13 +421,11 @@ outcome :result do
   end
   precalculate :supporting_documents do
     phrase = ['supporting_documents', application_type]
-    phrase << general_action if %w(iraq nairobi_kenya yemen zambia).include?(application_type)
+    phrase << general_action if %w(iraq yemen zambia).include?(application_type)
     PhraseList.new(phrase.join('_').to_sym)
   end
   precalculate :making_application do
-    phrase = ['making_application', application_type]
-    phrase << general_action if application_type == 'cameroon'
-    PhraseList.new(phrase.join('_').to_sym)
+    PhraseList.new(:"making_application_#{application_type}")
   end
   precalculate :making_application_additional do
     if current_location == 'yemen'
@@ -441,11 +435,7 @@ outcome :result do
     end
   end
   precalculate :getting_your_passport do
-    if %w(djibouti).include?(current_location)
-      PhraseList.new(:getting_your_passport_djibouti)
-    else
-      PhraseList.new(:"getting_your_passport_#{application_type}")
-    end
+    PhraseList.new(:"getting_your_passport_#{application_type}")
   end
   precalculate :helpline do
     phrases = PhraseList.new
