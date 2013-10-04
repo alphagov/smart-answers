@@ -455,7 +455,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         assert_state_variable :supporting_documents, 'ips_documents_group_3'
         assert_current_node :ips_application_result
         assert_phrase_list :fco_forms, [:adult_fco_forms]
-        assert_phrase_list :how_long_it_takes, [:how_long_replacing_ips2_morocco, :how_long_it_takes_ips2]
+        assert_phrase_list :how_long_it_takes, [:how_long_4_weeks, :how_long_it_takes_ips2]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :hmpo_1_application_form, :ips_documents_group_3]
         assert_phrase_list :cost, [:passport_courier_costs_ips2, :adult_passport_costs_ips2, :passport_costs_ips_cash]
         assert_phrase_list :send_your_application, [:send_application_ips2, :send_application_embassy_address]
@@ -557,12 +557,14 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'tanzania'
       add_response 'applying'
       add_response 'adult'
-      assert_current_node :fco_result
-      assert_phrase_list :how_long_it_takes, [:how_long_applying_tanzania]
+      add_response 'united-kingdom'
+      assert_current_node :ips_application_result
+      assert_phrase_list :how_long_it_takes, [:how_long_applying_12_weeks, :how_long_it_takes_ips1]
       expected_location = WorldLocation.find('tanzania')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
-      assert_match /South Africa/, outcome_body
+      assert_state_variable :application_address, 'durham'
+      assert_match /Millburngate House/, outcome_body
     end
   end # Tanzania (FCO with custom phrases)
 
@@ -672,13 +674,13 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'cameroon'
       add_response 'renewing_new'
       add_response 'adult'
-      assert_current_node :result
-      assert_phrase_list :cost, [:cost_cameroon_renewing]
-      assert_phrase_list :making_application, [:making_application_cameroon_renewing]
+      assert_current_node :ips_application_result
+      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_cameroon]
       expected_location = WorldLocation.find('cameroon')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
-      assert_match /Avenue Winston Churchill/, outcome_body
+      assert_match /Millburngate House/, outcome_body
     end
   end # Cameroon (custom phrases)
 
@@ -688,16 +690,16 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'kenya'
       add_response 'applying'
       add_response 'adult'
-      assert_current_node :result
-      assert_phrase_list :how_long_it_takes, [:how_long_nairobi_kenya_applying]
-      assert_phrase_list :cost, [:cost_nairobi_kenya_applying]
-      assert_phrase_list :supporting_documents, [:supporting_documents_nairobi_kenya_applying]
-      assert_phrase_list :making_application, [:making_application_nairobi_kenya]
-      assert_phrase_list :helpline, [:helpline_intro, :helpline_pretoria_south_africa, :helpline_fco_webchat]
+      add_response 'united-kingdom'
+      assert_current_node :ips_application_result
+      assert_phrase_list :how_long_it_takes, [:how_long_applying_12_weeks, :how_long_it_takes_ips1]
+      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_kenya]
       expected_location = WorldLocation.find('kenya')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
-      assert_match /Upper Hill Road/, outcome_body
+      assert_state_variable :application_address, 'durham'
+      assert_match /Millburngate House/, outcome_body
     end
   end # Kenya (custom phrases)
 
@@ -751,7 +753,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'replacing'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_replacing_ips2_morocco, :how_long_it_takes_ips2]
+      assert_phrase_list :how_long_it_takes, [:how_long_4_weeks, :how_long_it_takes_ips2]
       assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :hmpo_1_application_form, :ips_documents_group_2]
       assert_phrase_list :cost, [:passport_courier_costs_ips2, :adult_passport_costs_ips2, :passport_costs_ips_cash]
       assert_phrase_list :send_your_application, [:send_application_ips2, :send_application_embassy_address]
@@ -976,17 +978,16 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'djibouti'
       add_response 'applying'
       add_response 'adult'
-      assert_current_node :result
-      assert_phrase_list :how_long_it_takes, [:how_long_nairobi_kenya_applying]
-      assert_phrase_list :cost, [:cost_nairobi_kenya_applying]
-      assert_phrase_list :supporting_documents, [:supporting_documents_nairobi_kenya_applying]
-      assert_phrase_list :making_application, [:making_application_nairobi_kenya]
-      assert_phrase_list :helpline, [:helpline_intro, :helpline_pretoria_south_africa, :helpline_fco_webchat]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_djibouti]
+      add_response 'united-kingdom'
+      assert_current_node :ips_application_result
+      assert_phrase_list :how_long_it_takes, [:how_long_applying_12_weeks, :how_long_it_takes_ips1]
+      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
       expected_location = WorldLocation.find('kenya')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
-      assert_match /Upper Hill Road/, outcome_body
+      assert_state_variable :application_address, 'durham'
+      assert_match /Millburngate House/, outcome_body
     end
   end # Djibouti
 
