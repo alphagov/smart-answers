@@ -676,6 +676,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       assert_current_node :ips_application_result
       assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_cameroon]
       expected_location = WorldLocation.find('cameroon')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
@@ -693,6 +694,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_current_node :ips_application_result
       assert_phrase_list :how_long_it_takes, [:how_long_applying_12_weeks, :how_long_it_takes_ips1]
       assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_kenya]
       expected_location = WorldLocation.find('kenya')
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation

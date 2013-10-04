@@ -301,7 +301,7 @@ outcome :ips_application_result do
   end
 
   precalculate :getting_your_passport do
-    if %w(egypt iraq jordan yemen jamaica).include?(current_location)
+    if %w(cameroon chad egypt eritrea ethiopia iraq jamaica jordan kenya somalia uganda yemen).include?(current_location)
       PhraseList.new :"getting_your_passport_#{current_location}"
     else
       PhraseList.new :"getting_your_passport_ips#{ips_number}"
