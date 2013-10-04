@@ -37,6 +37,48 @@ module SmartAnswer
         end
       end
 
+      def default_day(default_day = nil, &block)
+        if block_given?
+          @default_day_func = block
+        elsif default_day
+          @default_day_func = lambda { default_day }
+        else
+          @default_day_func && @default_day_func.call
+        end
+      end
+
+      def defaulted_day?
+        instance_variable_defined?(:@default_day_func)
+      end
+
+      def default_month(default_month = nil, &block)
+        if block_given?
+          @default_month_func = block
+        elsif default_month
+          @default_month_func = lambda { default_month }
+        else
+          @default_month_func && @default_month_func.call
+        end
+      end
+
+      def defaulted_month?
+        instance_variable_defined?(:@default_month_func)
+      end
+
+      def default_year(default_year = nil, &block)
+        if block_given?
+          @default_year_func = block
+        elsif default_year
+          @default_year_func = lambda { default_year }
+        else
+          @default_year_func && @default_year_func.call
+        end
+      end
+
+      def defaulted_year?
+        instance_variable_defined?(:@default_year_func)
+      end
+
       def range
         @range ||= @from_func.present? and @to_func.present? ? @from_func.call..@to_func.call : false
       end
@@ -45,10 +87,17 @@ module SmartAnswer
         date = case input
         when Hash, ActiveSupport::HashWithIndifferentAccess
           input = input.symbolize_keys
-          [:year, :month, :day].each do |k| 
+          expected_keys = []
+          expected_keys << :day unless defaulted_day?
+          expected_keys << :month unless defaulted_month?
+          expected_keys << :year unless defaulted_year?
+          expected_keys.each do |k|
             raise InvalidResponse, "Please enter a complete date", caller unless input[k].present?
           end
-          ::Date.parse("#{input[:year]}-#{input[:month]}-#{input[:day]}")
+          day = (default_day || input[:day]).to_i
+          month = (default_month || input[:month]).to_i
+          year = (default_year || input[:year]).to_i
+          ::Date.new(year, month, day)
         when String
           ::Date.parse(input)
         when ::Date
