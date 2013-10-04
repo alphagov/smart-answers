@@ -68,6 +68,10 @@ module SmartAnswer::Calculators
       DURHAM_APPLICATION_ADDRESS.include?(country_slug)
     end
 
+    def application_address(country_slug)
+      passport_data[country_slug][:address]
+    end
+
     def cash_only_countries?(country_slug)
       CASH_ONLY_COUNTRIES.include?(country_slug)
     end

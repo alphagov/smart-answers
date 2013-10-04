@@ -88,6 +88,10 @@ multiple_choice :renewing_replacing_applying? do
     passport_data['group']
   end
 
+  calculate :application_address do
+    passport_data['address']
+  end
+
   calculate :ips_docs_number do
     supporting_documents.split("_")[3] if is_ips_application 
   end
@@ -236,11 +240,9 @@ outcome :ips_application_result do
 
   precalculate :how_long_it_takes do
     if %w{mauritania morocco western-sahara tunisia}.include?(current_location)
-      if application_action == 'renewing_new'
-        PhraseList.new(:how_long_renewing_new_ips2_morocco,
-                       :"how_long_it_takes_ips#{ips_number}")
-      elsif application_action == 'replacing'
-        PhraseList.new(:how_long_replacing_ips2_morocco,
+      
+      if application_action =~ /renewing_new|replacing/
+        PhraseList.new(:"how_long_#{application_action}_ips2_morocco",
                        :"how_long_it_takes_ips#{ips_number}")
       else
         PhraseList.new(:how_long_other_ips2_morocco,
@@ -284,21 +286,19 @@ outcome :ips_application_result do
                    supporting_documents.to_sym)
   end
   precalculate :send_your_application do
-    if data_query.belfast_application_address?(current_location)
-      PhraseList.new(:"send_application_ips#{ips_number}_belfast")
-    elsif data_query.durham_application_address?(current_location)
-      PhraseList.new(:"send_application_ips#{ips_number}_durham")
+    phrases = PhraseList.new
+    if application_address 
+      phrases << :"send_application_ips#{ips_number}_#{application_address}"
     elsif %w(gaza).include?(current_location)
-      PhraseList.new(:send_application_ips3_gaza)
+      phrases << :send_application_ips3_gaza
     elsif general_action == 'renewing' and data_query.renewing_countries?(current_location)
-      PhraseList.new(:"send_application_ips#{ips_number}", :renewing_new_renewing_old, :send_application_embassy_address)
-    elsif ips_number == '1'
-      PhraseList.new(:"send_application_ips#{ips_number}")
+      phrases << :"send_application_ips#{ips_number}" << :renewing_new_renewing_old << :send_application_embassy_address
     else
-      PhraseList.new(:"send_application_ips#{ips_number}", :send_application_embassy_address)
+      phrases << :"send_application_ips#{ips_number}"
+      phrases << :send_application_embassy_address if ips_number.to_i > 1
     end
+    phrases
   end
-
 
   precalculate :getting_your_passport do
     if %w(egypt iraq jordan yemen jamaica).include?(current_location)
