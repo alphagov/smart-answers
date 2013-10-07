@@ -68,7 +68,7 @@ $(document).ready(function() {
       data: params,
       timeout: 5000,
       error: function(jqXHR, textStatus, errorStr) {
-        var paramStr = encodeURI($.param(params));
+        var paramStr = $.param(params);
         redirectToNonAjax(url.replace('.json', '?' + paramStr));
       },
       success: function(data, textStatus, jqXHR) {
