@@ -88,6 +88,10 @@ multiple_choice :renewing_replacing_applying? do
     passport_data['group']
   end
 
+  calculate :application_address do
+    passport_data['address']
+  end
+
   calculate :ips_docs_number do
     supporting_documents.split("_")[3] if is_ips_application 
   end
@@ -235,26 +239,24 @@ end
 outcome :ips_application_result do
 
   precalculate :how_long_it_takes do
-    if %w{mauritania morocco western-sahara tunisia}.include?(current_location)
-      if application_action == 'renewing_new'
-        PhraseList.new(:how_long_renewing_new_ips2_morocco,
-                       :"how_long_it_takes_ips#{ips_number}")
-      elsif application_action == 'replacing'
-        PhraseList.new(:how_long_replacing_ips2_morocco,
-                       :"how_long_it_takes_ips#{ips_number}")
-      else
-        PhraseList.new(:how_long_other_ips2_morocco,
-                       :"how_long_it_takes_ips#{ips_number}")
-      end
+    eight_week_application_countries = %w(mauritania morocco western-sahara tunisia)
+    twelve_week_application_countries = %w(cameroon chad djibouti eritrea ethiopia kenya somalia tanzania uganda)
+
+    phrases = PhraseList.new
+    if eight_week_application_countries.include?(current_location)
+      number_of_weeks = application_action =~ /renewing_new|replacing/ ? 4 : 8
+      phrases << :"how_long_#{number_of_weeks}_weeks"
+    elsif twelve_week_application_countries.include?(current_location) and application_action == 'applying'
+      phrases << :"how_long_applying_12_weeks"
     else
       if %w{kazakhstan kyrgyzstan}.include?(current_location)
-        PhraseList.new(:"how_long_#{current_location}",
-                      :"how_long_it_takes_ips#{ips_number}")
+        phrases << :"how_long_#{current_location}"
       else
-        PhraseList.new(:"how_long_#{application_action}_ips#{ips_number}",
-                     :"how_long_it_takes_ips#{ips_number}")
+        phrases << :"how_long_#{application_action}_ips#{ips_number}"
       end
     end
+    phrases << :"how_long_it_takes_ips#{ips_number}"
+    phrases
   end
   precalculate :cost do
     if application_action == 'replacing' && ips_number == '1'
@@ -284,24 +286,22 @@ outcome :ips_application_result do
                    supporting_documents.to_sym)
   end
   precalculate :send_your_application do
-    if data_query.belfast_application_address?(current_location)
-      PhraseList.new(:"send_application_ips#{ips_number}_belfast")
-    elsif data_query.durham_application_address?(current_location)
-      PhraseList.new(:"send_application_ips#{ips_number}_durham")
+    phrases = PhraseList.new
+    if application_address 
+      phrases << :"send_application_ips#{ips_number}_#{application_address}"
     elsif %w(gaza).include?(current_location)
-      PhraseList.new(:send_application_ips3_gaza)
+      phrases << :send_application_ips3_gaza
     elsif general_action == 'renewing' and data_query.renewing_countries?(current_location)
-      PhraseList.new(:"send_application_ips#{ips_number}", :renewing_new_renewing_old, :send_application_embassy_address)
-    elsif ips_number == '1'
-      PhraseList.new(:"send_application_ips#{ips_number}")
+      phrases << :"send_application_ips#{ips_number}" << :renewing_new_renewing_old << :send_application_embassy_address
     else
-      PhraseList.new(:"send_application_ips#{ips_number}", :send_application_embassy_address)
+      phrases << :"send_application_ips#{ips_number}"
+      phrases << :send_application_embassy_address if ips_number.to_i > 1
     end
+    phrases
   end
 
-
   precalculate :getting_your_passport do
-    if %w(egypt iraq jordan yemen jamaica).include?(current_location)
+    if %w(cameroon chad egypt eritrea ethiopia iraq jamaica jordan kenya somalia uganda yemen).include?(current_location)
       PhraseList.new :"getting_your_passport_#{current_location}"
     else
       PhraseList.new :"getting_your_passport_ips#{ips_number}"
@@ -315,7 +315,7 @@ end
 ## FCO Result
 outcome :fco_result do
   precalculate :how_long_it_takes do
-    if application_action == 'applying' and %w(india tanzania).include?(current_location)
+    if application_action == 'applying' and current_location == 'india'
       PhraseList.new(:"how_long_applying_#{current_location}")
     else
       PhraseList.new(:"how_long_#{application_action}_fco")
@@ -407,14 +407,10 @@ end
 ## Generic country outcome.
 outcome :result do
   precalculate :how_long_it_takes do
-    phrase = ['how_long', application_type]
-    phrase << general_action if application_type == 'nairobi_kenya'
-    PhraseList.new(phrase.join('_').to_sym)
+    PhraseList.new(:"how_long_#{application_type}")
   end
   precalculate :cost do
-    phrase = ['cost', application_type]
-    phrase << general_action if %w(cameroon nairobi_kenya).include?(application_type)
-    PhraseList.new(phrase.join('_').to_sym)
+    PhraseList.new(:"cost_#{application_type}")
   end
   precalculate :how_to_apply do
     phrases = PhraseList.new(:"how_to_apply_#{application_type}")
@@ -425,13 +421,11 @@ outcome :result do
   end
   precalculate :supporting_documents do
     phrase = ['supporting_documents', application_type]
-    phrase << general_action if %w(iraq nairobi_kenya yemen zambia).include?(application_type)
+    phrase << general_action if %w(iraq yemen zambia).include?(application_type)
     PhraseList.new(phrase.join('_').to_sym)
   end
   precalculate :making_application do
-    phrase = ['making_application', application_type]
-    phrase << general_action if application_type == 'cameroon'
-    PhraseList.new(phrase.join('_').to_sym)
+    PhraseList.new(:"making_application_#{application_type}")
   end
   precalculate :making_application_additional do
     if current_location == 'yemen'
@@ -441,11 +435,7 @@ outcome :result do
     end
   end
   precalculate :getting_your_passport do
-    if %w(djibouti).include?(current_location)
-      PhraseList.new(:getting_your_passport_djibouti)
-    else
-      PhraseList.new(:"getting_your_passport_#{application_type}")
-    end
+    PhraseList.new(:"getting_your_passport_#{application_type}")
   end
   precalculate :helpline do
     phrases = PhraseList.new
