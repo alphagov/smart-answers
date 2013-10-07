@@ -34,10 +34,6 @@ module SmartAnswer::Calculators
       'South African Rand'  => [[2112, 2440], [2549, 2877], [1345, 1673]]
     }
 
-    BELFAST_APPLICATION_ADDRESS = %w(andorra cyprus greece portugal spain)
-
-    DURHAM_APPLICATION_ADDRESS = %w(anguilla antigua-and-barbuda argentina aruba bahamas barbados belgium belize bermuda bolivia bonaire-st-eustatius-saba brazil british-virgin-islands canada cayman-islands chile colombia costa-rica curacao dominica dominican-republic ecuador egypt el-salvador france french-guiana grenada guadeloupe guatemala guyana haiti honduras iraq israel italy jamaica jerusalem-or-westbank jordan liechtenstein luxembourg malta martinique mexico monaco montserrat netherlands nicaragua panama paraguay peru san-marino st-kitts-and-nevis st-lucia st-maarten st-pierre-and-miquelon st-vincent-and-the-grenadines suriname switzerland trinidad-and-tobago turks-and-caicos-islands uruguay usa yemen)
-
     CASH_ONLY_COUNTRIES = %w(cuba gaza libya mauritania morocco sudan tunisia venezuela western-sahara)
 
     RENEWING_COUNTRIES = %w(azerbaijan belarus cuba georgia kazakhstan kyrgyzstan lebanon libya mauritania morocco russia sudan tajikistan tunisia turkmenistan ukraine uzbekistan western-sahara venezuela)
@@ -58,14 +54,6 @@ module SmartAnswer::Calculators
 
     def retain_passport_hurricanes?(country_slug)
       RETAIN_PASSPORT_COUNTRIES_HURRICANES.include?(country_slug)
-    end
-
-    def belfast_application_address?(country_slug)
-      BELFAST_APPLICATION_ADDRESS.include?(country_slug)
-    end
-
-    def durham_application_address?(country_slug)
-      DURHAM_APPLICATION_ADDRESS.include?(country_slug)
     end
 
     def cash_only_countries?(country_slug)
