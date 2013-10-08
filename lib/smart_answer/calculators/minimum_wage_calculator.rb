@@ -71,8 +71,8 @@ module SmartAnswer::Calculators
     end
 
     def total_underpayment
-      tu = total_entitlement - total_pay
-      (tu < 1 ? 0.0 : tu).round(2)
+      underpayment = total_entitlement - total_pay
+      underpayment > 0 ? (underpayment).round(2) : 0.0
     end
 
     def historical_entitlement
