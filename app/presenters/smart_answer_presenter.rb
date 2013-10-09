@@ -17,7 +17,11 @@ class SmartAnswerPresenter
   end
 
   def artefact
-    @artefact ||= content_api.artefact(@flow.name.to_s)
+    begin
+      @artefact ||= content_api.artefact(@flow.name.to_s)
+    rescue GdsApi::HTTPErrorResponse
+      nil
+    end
   end
 
   def i18n_prefix
