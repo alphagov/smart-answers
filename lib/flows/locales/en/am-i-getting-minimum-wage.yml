@@ -197,7 +197,9 @@ en-GB:
 
           The National Minimum Wage per hour for your age | Your actual pay | For each pay period your employer owes you
           - | - | -
-          £%{minimum_hourly_rate} | £%{total_hourly_rate} | £%{total_underpayment}
+          £%{minimum_hourly_rate} | £%{total_hourly_rate} * | £%{total_underpayment}
+
+          \* This figure has been rounded to the nearest whole pence.
 
           If you work overtime or your employer provides you with [accommodation](/national-minimum-wage-accommodation "National minimum wage: accommodation"), this has been added to the calculation.
 
@@ -245,8 +247,9 @@ en-GB:
 
           The National Minimum Wage per hour at the time | Your actual pay | For each pay period your employer owes you
           - | -
-          £%{minimum_hourly_rate} | £%{total_hourly_rate} | £%{total_underpayment}
+          £%{minimum_hourly_rate} | £%{total_hourly_rate} * | £%{total_underpayment}
 
+          \* This figure has been rounded to the nearest whole pence.
 
           This calculation includes an additional amount you’re entitled to by law for past payments. If you worked overtime or your employer provided you with [accommodation](/national-minimum-wage-accommodation "National minimum wage: accommodation"), this has been added to the calculation.
 
