@@ -39,8 +39,8 @@ end
 
 def check_locales_file(contents)
   links_to_check = []
-  contents.gsub(/\[(.+)\]\((.+) "(.+)"\)/) { |match|
-    link = prefix_link($2)
+  contents.gsub(/\[(.+)\]\((.+)\)/) { |match|
+    link = prefix_link($2.gsub(/ "(.+)"$/,''))
     links_to_check << link
   }
   links_to_check
