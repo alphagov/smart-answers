@@ -325,7 +325,7 @@ en-GB:
 
           __Guidance notes__
 
-          [Guidance notes for adult applications](/government/publications/application-for-united-kingdom-passport-for-applicants-16-and-over-notes)
+          - [Guidance notes for adult applications](/government/publications/application-for-united-kingdom-passport-for-applicants-16-and-over-notes)
 
         child_fco_forms: |
           __Smart application form__ (fill in on screen, print and sign)
@@ -338,7 +338,7 @@ en-GB:
 
           __Guidance notes__
 
-            [Guidance notes for child applications](/government/publications/application-for-united-kingdom-passport-for-applicants-under-16-notes)
+            - [Guidance notes for child applications](/government/publications/application-for-united-kingdom-passport-for-applicants-under-16-notes)
 
         adult_fco_forms_nigeria: |
           __Blank application form__
@@ -347,7 +347,7 @@ en-GB:
 
           __Guidance notes__
 
-          [Guidance notes for adult applications](/government/publications/application-for-united-kingdom-passport-for-applicants-16-and-over-notes)
+          - [Guidance notes for adult applications](/government/publications/application-for-united-kingdom-passport-for-applicants-16-and-over-notes)
 
         child_fco_forms_nigeria: |
           __Blank application form__
@@ -356,7 +356,7 @@ en-GB:
 
           __Guidance notes__
 
-            [Guidance notes for child applications](/government/publications/application-for-united-kingdom-passport-for-applicants-under-16-notes)
+          - [Guidance notes for child applications](/government/publications/application-for-united-kingdom-passport-for-applicants-under-16-notes)
 
 
         getting_your_passport_fco: |
@@ -1433,10 +1433,10 @@ en-GB:
         supporting_documents_bangladesh: |
           __Supporting documents information__
 
-          [Supporting documents for adult passport renewal](/government/publications/passport-renewal-adult-bangladesh)  
-          [Supporting documents for child passport renewal](/government/publications/passport-application-first-time-child-bangladesh)  
-          [Supporting documents for adult first passport](/government/publications/passport-application-first-time-adult-bangladesh)  
-          [Supporting documents for first child passport](/government/publications/passport-application-first-time-child-bangladesh)
+          - [Adult passport renewal](/government/publications/passport-renewal-adult-bangladesh)
+          - [Child passport renewal](/government/publications/passport-application-first-time-child-bangladesh)
+          - [Adult first passport](/government/publications/passport-application-first-time-adult-bangladesh)
+          - [First child passport](/government/publications/passport-application-first-time-child-bangladesh)
 
         making_application_bangladesh: |
           Send your application - or deliver your application in person - to the British High Commission in Dhaka.
@@ -1910,15 +1910,12 @@ en-GB:
           For renewals, don’t send your existing passport with your application - you may need it for ID purposes.
 
         supporting_documents_ghana: |
+          __Supporting documents information__
 
+          - [First time adult passport applications](/government/publications/passport-application-supporting-documentation-required-for-first-time-adult-applicants-ghana)
 
-          $D
-          [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/publications/passport-application-supporting-documentation-required-for-first-time-adult-applicants-ghana)
+          - [First time child passport applications](/government/publications/passport-application-supporting-documentation-needed-by-first-time-child-applicants-ghana)
 
-          [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/publications/passport-application-supporting-documentation-needed-by-first-time-child-applicants-ghana)
-
-          [Download ‘Supporting documents for lost and stolen passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc)
-          $D
         making_application_ghana: |
           ### First applications, renewing a black or blue passport or replacing a lost or stolen passport
 
