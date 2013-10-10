@@ -315,44 +315,48 @@ en-GB:
         adult_fco_forms: |
           __Smart application form__ (fill in on screen, print and sign)
 
+          $D
           [Download ‘Smart application form’ (PDF, 188KB)](/government/uploads/system/uploads/attachment_data/file/136841/smart-form.pdf.pdf)
+          $D
 
-          __Blank application form__ (if you can't use the smart form above, print this form, fill in on paper and sign)
+          __Blank application form__
 
-          [Download ‘Passport application form for adults aged 16 and over’ (489KB)](/government/uploads/system/uploads/attachment_data/file/136843/form-c1.pdf.pdf)
+           If you can’t use the smart form above, print this [blank application form](/government/publications/application-for-united-kingdom-passport-for-applicants-aged-16-or-over), fill in on paper and sign
 
           __Guidance notes__
 
-          [Download ‘Guidance notes for adult applications (PDF, 2.2MB)’](/government/uploads/system/uploads/attachment_data/file/136844/form-c1-notes.pdf.pdf)
+          [Guidance notes for adult applications](/government/publications/application-for-united-kingdom-passport-for-applicants-16-and-over-notes)
 
         child_fco_forms: |
           __Smart application form__ (fill in on screen, print and sign)
 
             [Download ‘Smart application form’ (PDF, 188KB)](/government/uploads/system/uploads/attachment_data/file/136841/smart-form.pdf.pdf)
 
-          __Blank application form__ (print, fill in on paper and sign)
+          __Blank application form__
 
-            [Download ‘Passport application form for children aged 15 or under’ (505KB)](/government/uploads/system/uploads/attachment_data/file/136845/form-c2.pdf.pdf)
+           If you can’t use the smart form above, print this [blank application form](/government/publications/application-for-united-kingdom-passport-for-applicants-under-16), fill in on paper and sign
 
           __Guidance notes__
-            [Download ‘Guidance notes for child applications (PDF, 2MB)’](/government/uploads/system/uploads/attachment_data/file/136846/form-c2-notes.pdf.pdf)
+
+            [Guidance notes for child applications](/government/publications/application-for-united-kingdom-passport-for-applicants-under-16-notes)
 
         adult_fco_forms_nigeria: |
-          __Blank application form__ (print this form, fill in on paper and sign)
+          __Blank application form__
 
-          [Download ‘Passport application form for adults aged 16 and over’ (489KB)](/government/uploads/system/uploads/attachment_data/file/136843/form-c1.pdf.pdf)
+           If you can’t use the smart form above, print this [blank application form](/government/publications/application-for-united-kingdom-passport-for-applicants-aged-16-or-over), fill in on paper and sign
 
           __Guidance notes__
 
-          [Download ‘Guidance notes for adult applications (PDF, 2.2MB)’](/government/uploads/system/uploads/attachment_data/file/136844/form-c1-notes.pdf.pdf)
+          [Guidance notes for adult applications](/government/publications/application-for-united-kingdom-passport-for-applicants-16-and-over-notes)
 
         child_fco_forms_nigeria: |
-          __Blank application form__ (print, fill in on paper and sign)
+          __Blank application form__
 
-            [Download ‘Passport application form for children aged 15 or under’ (505KB)](/government/uploads/system/uploads/attachment_data/file/136845/form-c2.pdf.pdf)
+           If you can’t use the smart form above, print this [blank application form](/government/publications/application-for-united-kingdom-passport-for-applicants-under-16), fill in on paper and sign
 
           __Guidance notes__
-            [Download ‘Guidance notes for child applications (PDF, 2MB)’](/government/uploads/system/uploads/attachment_data/file/136846/form-c2-notes.pdf.pdf)
+
+            [Guidance notes for child applications](/government/publications/application-for-united-kingdom-passport-for-applicants-under-16-notes)
 
 
         getting_your_passport_fco: |
@@ -1909,9 +1913,9 @@ en-GB:
 
 
           $D
-          [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc)
+          [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/publications/passport-application-supporting-documentation-required-for-first-time-adult-applicants-ghana)
 
-          [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc)
+          [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/publications/passport-application-supporting-documentation-needed-by-first-time-child-applicants-ghana)
 
           [Download ‘Supporting documents for lost and stolen passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc)
           $D
@@ -2763,9 +2767,7 @@ en-GB:
 
           %{hurricane_warning}
 
-          $D
             %{fco_forms}
-          $D
 
           %{supporting_documents}
 
@@ -2866,9 +2868,7 @@ en-GB:
           %{how_to_apply}
 
 
-          $D
             %{fco_forms}
-          $D
 
           %{supporting_documents}
 
