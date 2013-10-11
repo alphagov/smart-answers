@@ -10,7 +10,7 @@ module SmartAnswer::Calculators
     def last_payment_date
       case @payment_method
       when 'direct-debit'
-        2.working_days.before(end_of_month_after(@period_end_date) + 7.days)
+        3.working_days.before(end_of_month_after(@period_end_date) + 7.days)
       when 'online-telephone-banking'
         end_of_month_after(@period_end_date) + 7.days
       when 'online-debit-credit-card', 'bacs-direct-credit', 'bank-giro'

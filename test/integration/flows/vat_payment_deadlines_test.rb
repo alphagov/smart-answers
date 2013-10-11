@@ -39,7 +39,7 @@ class VatPaymentDeadlinesTest < ActiveSupport::TestCase
     should "give result for Direct debit" do
       add_response 'direct-debit'
       assert_current_node :result_direct_debit
-      assert_state_variable :last_dd_setup_date, "5 June 2013"
+      assert_state_variable :last_dd_setup_date, "4 June 2013"
       assert_state_variable :funds_taken, "12 June 2013"
     end
 

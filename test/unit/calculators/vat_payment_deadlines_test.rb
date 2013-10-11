@@ -12,9 +12,9 @@ module SmartAnswer::Calculators
         @method = 'direct-debit'
       end
 
-      should "calculate last_payment_date as end_of_month_after(end_date) + 7 calendar days - 2 working days" do
+      should "calculate last_payment_date as end_of_month_after(end_date) + 7 calendar days - 3 working days" do
         calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), @method)
-        assert_equal Date.parse('2013-06-05'), calc.last_payment_date
+        assert_equal Date.parse('2013-06-04'), calc.last_payment_date
       end
 
       should "calculate funds_received_by as end_of_month_after(end_date) + 7 calendar days + 3 working days where end_of_month_after(end_date) is a work day" do
