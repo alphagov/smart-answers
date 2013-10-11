@@ -12,8 +12,8 @@ class WorkingDays
   def after(date)
     days = @days
     while days > 0 or ! workday?(date)
-      days -= 1 if workday?(date)
       date += 1.day
+      days -= 1 if workday?(date)
     end
     date
   end
@@ -21,8 +21,8 @@ class WorkingDays
   def before(date)
     days = @days
     while days > 0 or ! workday?(date)
-      days -= 1 if workday?(date)
       date -= 1.day
+      days -= 1 if workday?(date)
     end
     date
   end
