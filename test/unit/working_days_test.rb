@@ -12,7 +12,7 @@ class WorkingDaysTest < ActiveSupport::TestCase
       assert_equal Date.parse('2013-04-11'), 3.working_days.after(Date.parse('2013-04-08'))
     end
 
-    should "not inlcude weekends" do
+    should "not include weekends" do
       assert_equal Date.parse('2013-04-16'), 3.working_days.after(Date.parse('2013-04-11'))
     end
 
@@ -22,11 +22,11 @@ class WorkingDaysTest < ActiveSupport::TestCase
 
     should "handle starting on a weekend or bank holiday" do
       # Saturday
-      assert_equal Date.parse('2013-04-11'), 3.working_days.after(Date.parse('2013-04-06'))
+      assert_equal Date.parse('2013-04-10'), 3.working_days.after(Date.parse('2013-04-06'))
       # Sunday
-      assert_equal Date.parse('2013-04-11'), 3.working_days.after(Date.parse('2013-04-07'))
+      assert_equal Date.parse('2013-04-10'), 3.working_days.after(Date.parse('2013-04-07'))
       # Bank holiday
-      assert_equal Date.parse('2013-04-05'), 3.working_days.after(Date.parse('2013-04-01'))
+      assert_equal Date.parse('2013-04-04'), 3.working_days.after(Date.parse('2013-04-01'))
     end
 
     should "handle ending on a weekend or bank holiday" do
@@ -52,11 +52,11 @@ class WorkingDaysTest < ActiveSupport::TestCase
 
     should "handle starting on a weekend or bank holiday" do
       # Saturday
-      assert_equal Date.parse('2013-04-02'), 3.working_days.before(Date.parse('2013-04-06'))
+      assert_equal Date.parse('2013-04-03'), 3.working_days.before(Date.parse('2013-04-06'))
       # Sunday
-      assert_equal Date.parse('2013-04-02'), 3.working_days.before(Date.parse('2013-04-07'))
+      assert_equal Date.parse('2013-04-03'), 3.working_days.before(Date.parse('2013-04-07'))
       # Bank holiday
-      assert_equal Date.parse('2013-03-25'), 3.working_days.before(Date.parse('2013-03-29'))
+      assert_equal Date.parse('2013-03-26'), 3.working_days.before(Date.parse('2013-03-29'))
     end
 
     should "handle ending on a weekend or bank holiday" do
