@@ -16,7 +16,7 @@ module SmartAnswer::Calculators
       when 'online-debit-credit-card', 'bacs-direct-credit', 'bank-giro'
         3.working_days.before(end_of_month_after(@period_end_date) + 7.days)
       when 'chaps'
-        7.working_days.after(end_of_month_after(@period_end_date))
+        5.working_days.after(end_of_month_after(@period_end_date))
       when 'cheque'
         6.working_days.before(0.working_days.before(end_of_month_after(@period_end_date)))
       else
@@ -36,7 +36,7 @@ module SmartAnswer::Calculators
         # Select previous working day if not a work_day
         0.working_days.before(end_of_month_after(@period_end_date) + 7.days)
       when 'chaps'
-        7.working_days.after(end_of_month_after(@period_end_date))
+        5.working_days.after(end_of_month_after(@period_end_date))
       when 'cheque'
         # Select previous working day if not a work_day
         0.working_days.before(end_of_month_after(@period_end_date))

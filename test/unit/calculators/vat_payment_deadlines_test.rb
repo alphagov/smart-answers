@@ -75,14 +75,14 @@ module SmartAnswer::Calculators
         @method = 'chaps'
       end
 
-      should "calculate last_payment_date as end_of_month_after(end_date) + 7 working days" do
+      should "calculate last_payment_date as end_of_month_after(end_date) + 5 working days" do
         calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), @method)
-        assert_equal Date.parse('2013-06-11'), calc.last_payment_date
+        assert_equal Date.parse('2013-06-07'), calc.last_payment_date
       end
 
-      should "calculate funds_received_by as end_of_month_after(end_date) + 7 working days" do
+      should "calculate funds_received_by as end_of_month_after(end_date) + 5 working days" do
         calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), @method)
-        assert_equal Date.parse('2013-06-11'), calc.funds_received_by
+        assert_equal Date.parse('2013-06-07'), calc.funds_received_by
       end
     end
 
