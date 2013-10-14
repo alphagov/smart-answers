@@ -199,7 +199,7 @@ en-GB:
           - | - | -
           £%{minimum_hourly_rate} | £%{total_hourly_rate} * | £%{total_underpayment}
 
-          \* This figure has been rounded to the nearest whole pence.
+          \* This figure has been rounded to the nearest penny.
 
           If the worker works overtime or you provide [accommodation](/national-minimum-wage-accommodation "National minimum wage: accommodation"), this has been added to the calculation.
 
@@ -251,7 +251,7 @@ en-GB:
           - | -
           £%{minimum_hourly_rate} | £%{total_hourly_rate} * | £%{total_underpayment}
 
-          \* This figure has been rounded to the nearest whole pence.
+          \* This figure has been rounded to the nearest penny.
 
           This calculation includes an additional amount the worker is entitled to by law for past payments. If the worker worked overtime or you provided [accommodation](/national-minimum-wage-accommodation "National minimum wage: accommodation"), this has been added to the calculation.
 
