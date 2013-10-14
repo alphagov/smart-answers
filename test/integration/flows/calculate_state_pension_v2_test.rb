@@ -872,7 +872,7 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
         assert_state_variable :qualifying_years_total, 30
         assert_state_variable "state_pension_age", "65 years"
         assert_state_variable "formatted_state_pension_date", " 9 August 2013"
-        assert_phrase_list :result_text, [:within_4_months_enough_qy_years, :automatic_years_phrase]
+        assert_phrase_list :result_text, [:within_4_months_enough_qy_years]
       end
     end
 

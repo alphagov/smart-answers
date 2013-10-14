@@ -468,37 +468,23 @@ outcome :amount_result do
   end
 
   precalculate :result_text do
+    phrases = PhraseList.new
+
+    enough_qualifying_years = qualifying_years_total >= 30
+    enough_remaining_years = remaining_years >= missing_years
+    auto_years_entitlement = (Date.parse(dob) < Date.parse("6th October 1953") and (gender == "male"))
+
     if calc.dob_within_four_months_one_day_from_state_pension_date?
-      if qualifying_years_total < 30
-        text = PhraseList.new :within_4_months_not_enough_qy_years
-        if (Date.parse(dob) < Date.parse("6th October 1953") and (gender == "male"))
-          text << :automatic_years_phrase
-        end
-        text
-      else
-        text = PhraseList.new :within_4_months_enough_qy_years
-        if (Date.parse(dob) < Date.parse("6th October 1953") and (gender == "male"))
-          text << :automatic_years_phrase
-        end
-        text
-      end      
-    elsif qualifying_years_total < 30
-      if remaining_years >= missing_years
-        text = PhraseList.new :too_few_qy_enough_remaining_years
-        if (Date.parse(dob) < Date.parse("6th October 1953") and (gender == "male"))
-          text << :automatic_years_phrase
-        end
-        text
-      else
-        text = PhraseList.new :too_few_qy_not_enough_remaining_years
-        if (Date.parse(dob) < Date.parse("6th October 1953") and (gender == "male"))
-          text << :automatic_years_phrase
-        end
-        text
-      end
+      phrases << (enough_qualifying_years ? :within_4_months_enough_qy_years : :within_4_months_not_enough_qy_years)
+      phrases << :automatic_years_phrase if auto_years_entitlement and !enough_qualifying_years
+    elsif !enough_qualifying_years
+      phrases << (enough_remaining_years ? :too_few_qy_enough_remaining_years : :too_few_qy_not_enough_remaining_years)
+      phrases << :automatic_years_phrase if auto_years_entitlement
     else
-      PhraseList.new :you_get_full_state_pension
+      phrases << :you_get_full_state_pension
     end
+
+    phrases
   end
 
   precalculate :automatic_credits do
