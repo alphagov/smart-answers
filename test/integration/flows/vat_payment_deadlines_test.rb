@@ -39,7 +39,7 @@ class VatPaymentDeadlinesTest < ActiveSupport::TestCase
     should "give result for Direct debit" do
       add_response 'direct-debit'
       assert_current_node :result_direct_debit
-      assert_state_variable :last_dd_setup_date, "5 June 2013"
+      assert_state_variable :last_dd_setup_date, "4 June 2013"
       assert_state_variable :funds_taken, "12 June 2013"
     end
 
@@ -73,15 +73,15 @@ class VatPaymentDeadlinesTest < ActiveSupport::TestCase
     should "give result for CHAPS" do
       add_response 'chaps'
       assert_current_node :result_chaps
-      assert_state_variable :last_payment_date, "11 June 2013"
-      assert_state_variable :funds_received_by, "11 June 2013"
+      assert_state_variable :last_payment_date, "7 June 2013"
+      assert_state_variable :funds_received_by, "7 June 2013"
     end
 
     should "give result for Cheque" do
       add_response 'cheque'
       assert_current_node :result_cheque
-      assert_state_variable :last_posting_date, "22 April 2013"
-      assert_state_variable :funds_cleared_by, "30 April 2013"
+      assert_state_variable :last_posting_date, "22 May 2013"
+      assert_state_variable :funds_cleared_by, "31 May 2013"
     end
   end
 end
