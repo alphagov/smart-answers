@@ -691,10 +691,14 @@ outcome :outcome_os_consular_cni do
     end
     if ceremony_country != residency_country or %w(germany).include?(ceremony_country) and %w(italy).exclude?(ceremony_country)
       if reg_data_query.clickbook(ceremony_country)
-        if multiple_clickbooks
-          phrases << :clickbook_links
+        if %w(vietnam).include?(ceremony_country)
+          phrases << :consular_cni_os_vietnam_clickbook
         else
-          phrases << :clickbook_link
+          if multiple_clickbooks
+            phrases << :clickbook_links
+          else
+            phrases << :clickbook_link
+          end
         end
       end
       unless reg_data_query.clickbook(ceremony_country)
@@ -1005,8 +1009,11 @@ outcome :outcome_cp_consular_cni do
     else
       phrases << :consular_cni_cp_ceremony_not_czech_republic
     end
-    if %w(vietnam).include?(ceremony_country) and %w(partner_local).include?(partner_nationality)
-      phrases << :consular_cni_cp_ceremony_vietnam_partner_local
+    if %w(vietnam).include?(ceremony_country)
+      if %w(partner_local).include?(partner_nationality)
+        phrases << :consular_cni_cp_ceremony_vietnam_partner_local
+      end
+      phrases << :consular_cni_cp_vietnam
     elsif %w(croatia bulgaria).include?(ceremony_country) and %w(partner_local).include?(partner_nationality)
       phrases << :consular_cni_cp_local_partner_croatia_bulgaria
     elsif %w(japan).include?(ceremony_country)

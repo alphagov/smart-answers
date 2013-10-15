@@ -647,6 +647,9 @@ en-GB:
           Check with the comune to see if they can issue a multilingual marriage certificate for you after the ceremony. If not, the certificate will have to be [translated into English](/government/publications/italy-list-of-lawyers).
         italy_os_consular_cni_six: |
           Check with the %{embassy_or_consulate_ceremony_country} to find out if you need to get your certificate legalised by the local authorities in %{country_name_lowercase_prefix} and [translated into English](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) first.
+
+        consular_cni_os_vietnam_clickbook: |
+          [Book an appointment online](http://www.bcghochiminh.clickbook.net).
         italy_os_consular_cni_seven: |
 
           $C
@@ -1240,6 +1243,8 @@ en-GB:
 
           - [Tokyo](http://www.britishembassytokyo.clickbook.net/) (if you live in Eastern Japan)
           - [Osaka](http://www.britishconsulateosak.clickbook.net/) (if you live in Western Japan)
+        consular_cni_cp_vietnam: |
+          [Book an appointment online](https://www.clickbook.net/dev/bc.nsf/sub/britishembassyhanoi).
         consular_cni_cp_all_contact: |
           Contact them to make an appointment:
         consular_cni_cp_no_clickbook_so_embassy_details: |
