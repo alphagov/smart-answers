@@ -895,5 +895,35 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
       end
     end
 
+    context "people one day away from state pension with different birthdays" do
+      # The following tests use values from factchecks around 5/9/13
+      setup do
+        Timecop.travel('5 Sep 2013')
+        add_response 'female'
+      end
+      should "should show the correct result" do
+        add_response Date.parse('4 Jan 1952')
+        add_response 25
+        add_response 5
+        
+        assert_state_variable "formatted_state_pension_date", " 6 September 2013"
+        assert_current_node :amount_result
+        assert_phrase_list :result_text, [:within_4_months_enough_qy_years]
+      end
+
+      should "should show the correct result" do
+        add_response Date.parse('6 Dec 1951')
+        add_response 10
+        add_response 15
+        add_response 'yes'
+        add_response 2
+        add_response 3
+        
+        assert_state_variable "formatted_state_pension_date", " 6 September 2013"
+        assert_current_node :amount_result
+        assert_phrase_list :result_text, [:within_4_months_enough_qy_years]
+      end
+    end
+
   end #amount calculation
 end #ask which calculation
