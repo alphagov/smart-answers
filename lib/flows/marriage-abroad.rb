@@ -373,7 +373,7 @@ outcome :outcome_os_consular_cni do
       end
     end
 
-    if %w(jordan oman qatar united-arab-emirates).include?(ceremony_country)
+    if %w(jordan oman qatar).include?(ceremony_country)
       phrases << :gulf_states_os_consular_cni
       if residency_country == ceremony_country and %w(partner_irish).exclude?(partner_nationality)
         phrases << :gulf_states_os_consular_cni_local_resident_partner_not_irish
