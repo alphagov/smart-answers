@@ -726,7 +726,13 @@ en-GB:
           ^You should get legal advice before making any plans.^
         affirmation_os_all_what_you_need_to_do: |
           ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
+        affirmation_os_uae: |
+          ^There are no civil marriages in the United Arab Emirates, but you can get married through a religious ceremony at a church or Sharia court.^
 
+          You may be able to get married at the British Embassy if you're both resident in the United Arab Emirates and can prove that there are no other suitable facilities.
+
+          Contact the British Embassy in the United Arab Emirates for more information.
+        affirmation_os_all_what_you_need_to_do_two: |
           ##What you need to do
 
           You may be asked to provide an 'affirmation of freedom to marry' document to prove you’re allowed to marry.
