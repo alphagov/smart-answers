@@ -625,7 +625,7 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "dob_within_four_months_one_day_from_state_pension_date" do
+    context "within_four_months_one_day_from_state_pension" do
       setup do
         Timecop.travel("2013-07-15")
       end
@@ -634,14 +634,14 @@ module SmartAnswer::Calculators
         calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
           gender: "male", dob: "16 July 1948", qualifying_years: nil)
 
-        assert calculator.dob_within_four_months_one_day_from_state_pension_date?
+        assert calculator.within_four_months_one_day_from_state_pension?
       end
 
       should "born 15 November 1948" do
         calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
           gender: "male", dob: "15 November 1948", qualifying_years: nil)
 
-        assert calculator.dob_within_four_months_one_day_from_state_pension_date?
+        assert calculator.within_four_months_one_day_from_state_pension?
       end
     end
 
