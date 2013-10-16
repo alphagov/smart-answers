@@ -216,7 +216,7 @@ multiple_choice :partner_opposite_or_same_sex? do
         :outcome_os_bot
       elsif data_query.os_consular_cni_countries?(ceremony_country) or (%w(uk).include?(resident_of) and data_query.os_no_marriage_related_consular_services?(ceremony_country))
         :outcome_os_consular_cni
-      elsif %w(thailand egypt south-korea lebanon).include?(ceremony_country)
+      elsif %w(thailand egypt south-korea lebanon united-arab-emirates).include?(ceremony_country)
         :outcome_os_affirmation
       elsif data_query.os_no_consular_cni_countries?(ceremony_country) or (%w(other).include?(resident_of) and data_query.os_no_marriage_related_consular_services?(ceremony_country))
         :outcome_os_no_cni
@@ -373,7 +373,7 @@ outcome :outcome_os_consular_cni do
       end
     end
 
-    if %w(jordan oman qatar united-arab-emirates).include?(ceremony_country)
+    if %w(jordan oman qatar).include?(ceremony_country)
       phrases << :gulf_states_os_consular_cni
       if residency_country == ceremony_country and %w(partner_irish).exclude?(partner_nationality)
         phrases << :gulf_states_os_consular_cni_local_resident_partner_not_irish
@@ -691,10 +691,14 @@ outcome :outcome_os_consular_cni do
     end
     if ceremony_country != residency_country or %w(germany).include?(ceremony_country) and %w(italy).exclude?(ceremony_country)
       if reg_data_query.clickbook(ceremony_country)
-        if multiple_clickbooks
-          phrases << :clickbook_links
+        if %w(vietnam).include?(ceremony_country)
+          phrases << :consular_cni_os_vietnam_clickbook
         else
-          phrases << :clickbook_link
+          if multiple_clickbooks
+            phrases << :clickbook_links
+          else
+            phrases << :clickbook_link
+          end
         end
       end
       unless reg_data_query.clickbook(ceremony_country)
@@ -753,6 +757,10 @@ outcome :outcome_os_affirmation do
       phrases << :affirmation_os_other_resident
     end
     phrases << :affirmation_os_all_what_you_need_to_do
+    if %w(united-arab-emirates).include?(ceremony_country)
+      phrases << :affirmation_os_uae
+    end
+    phrases << :affirmation_os_all_what_you_need_to_do_two
     if %w(partner_british).include?(partner_nationality)
       phrases << :affirmation_os_partner_british
     else
@@ -1001,8 +1009,11 @@ outcome :outcome_cp_consular_cni do
     else
       phrases << :consular_cni_cp_ceremony_not_czech_republic
     end
-    if %w(vietnam).include?(ceremony_country) and %w(partner_local).include?(partner_nationality)
-      phrases << :consular_cni_cp_ceremony_vietnam_partner_local
+    if %w(vietnam).include?(ceremony_country)
+      if %w(partner_local).include?(partner_nationality)
+        phrases << :consular_cni_cp_ceremony_vietnam_partner_local
+      end
+      phrases << :consular_cni_cp_vietnam
     elsif %w(croatia bulgaria).include?(ceremony_country) and %w(partner_local).include?(partner_nationality)
       phrases << :consular_cni_cp_local_partner_croatia_bulgaria
     elsif %w(japan).include?(ceremony_country)
