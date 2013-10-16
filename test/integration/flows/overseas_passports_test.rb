@@ -703,6 +703,26 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
   end # Kenya (custom phrases)
 
+  context "answer Kenya, renewing_old, adult passport" do
+    should "give the generic result with custom phrases" do
+      worldwide_api_has_organisations_for_location('kenya', read_fixture_file('worldwide/kenya_organisations.json'))
+      add_response 'kenya'
+      add_response 'renewing_old'
+      add_response 'adult'
+      add_response 'united-kingdom'
+      assert_current_node :ips_application_result
+      assert_phrase_list :how_long_it_takes, [:how_long_applying_12_weeks, :how_long_it_takes_ips1]
+      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_kenya]
+      expected_location = WorldLocation.find('kenya')
+      assert_state_variable :location, expected_location
+      assert_state_variable :organisation, expected_location.fco_organisation
+      assert_state_variable :application_address, 'durham'
+      assert_match /Millburngate House/, outcome_body
+    end
+  end # Kenya (custom phrases)
+
+
   context "answer Egypt, renewing, adult passport" do
     should "give the IPS application result with custom phrases" do
       worldwide_api_has_organisations_for_location('egypt', read_fixture_file('worldwide/egypt_organisations.json'))
