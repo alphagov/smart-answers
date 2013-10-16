@@ -241,13 +241,13 @@ en-GB:
         adult_passport_costs_hong_kong: |
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | £128.00/HK $1,574 | £147.86/HK $1,818
-          Adult jumbo 48-page passport | £154.50/HK $1,900 | £174.36/HK $2,144
+          Adult standard 32-page passport | £128.00/HK $1,640 | £147.86/HK $1,895
+          Adult jumbo 48-page passport | £154.50/HK $1,978 | £174.36/HK $2,233
 
         child_passport_costs_hong_kong: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Child passport | £81.50/HK $1,002 | £101.36/HK $1,246 |
+          | Child passport | £81.50/HK $1,044 | £101.36/HK $1,299 |
 
         passport_costs_hong_kong: |
           You must pay using either:
@@ -297,20 +297,12 @@ en-GB:
           You must pay using a Visa or Mastercard - [download a credit card authorisation form](/government/publications/passport-credit-debit-card-payment-authorisation-slip-india-new-delhi) and send it with your application.
 
         supporting_documents_india_applying_renewing: |
-          Application type | Supporting documents information
-          - | -
-          Adult renewal |  [Download 'Supporting documents for adult passport renewal' (PDF, 42KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136907/india-adult-renewal.pdf.pdf)
-          Child renewal | [Download 'Supporting documents for child passport renewal' (PDF, 46KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136908/india-child-renewal.pdf.pdf)
-          First adult passport | [Download 'Supporting documents for adult first passport' (PDF, 30KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136909/india-adult-first-time-apply.pdf.pdf)
-          First child passport | [Download 'Supporting documents for first child passport' (PDF, 250KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/136910/india-child-first-time-application.pdf.pdf)
+          __Supporting documents information__
 
-        how_to_apply_india: |
-          Application type | Supporting documents information
-          - | -
-          Adult renewal | [Download ‘Supporting documents for adult passport renewal’ (PDF, 24KB)](/government/uploads/system/uploads/attachment_data/file/136907/india-adult-renewal.pdf.pdf)
-          Child renewal | [Download ‘Supporting documents for child passport renewal’ (PDF, 24KB)](/government/uploads/system/uploads/attachment_data/file/136908/india-child-renewal.pdf.pdf)
-          First adult passport | [Download ‘Supporting documents for adult first passport, (PDF, 41KB)](/government/uploads/system/uploads/attachment_data/file/136909/india-adult-first-time-apply.pdf.pdf)
-          First child passport | [Download ‘Supporting documents for first child passport (PDF, 39KB)](/government/uploads/system/uploads/attachment_data/file/136910/india-child-first-time-application.pdf.pdf)
+          - [Adult passport renewal](/government/publications/passport-renewal-adult-india)  
+          - [Child passport renewal](/government/publications/passport-renewal-child-india)  
+          - [Adult first passport](/government/publications/passport-application-first-time-adult-india)  
+          - [Child first passport](/government/publications/passport-application-first-time-child-india)
 
         adult_fco_forms: |
           __Smart application form__ (fill in on screen, print and sign)
@@ -869,14 +861,14 @@ en-GB:
           Your passport and supporting documents will be delivered separately by courier.
 
         getting_your_passport_cameroon: |
-          Your passport and supporting documents will be delivered to the British Embassy in Yaounde, Cameroon - you must collect them in person. 
+          Your passport and supporting documents will be delivered to the British High Commission in Yaounde, Cameroon - you must collect them in person. 
 
           They will contact you when your passport arrives using the contact details on your form.
 
           You must bring photo ID with you.
 
         getting_your_passport_chad: |
-          Your passport and supporting documents will be delivered to the British Embassy in Yaounde, Cameroon - you must collect them in person. 
+          Your passport and supporting documents will be delivered to the British High Commission in Yaounde, Cameroon - you must collect them in person. 
 
           They will contact you when your passport arrives using the contact details on your form.
 
@@ -1423,9 +1415,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | £128/ 16,000 Taka | £151.01/ 18,800 Taka
-          Adult jumbo 48-page passport | £154.50/ 19,300 Taka | £177.51/ 22,100 Taka
-          Child passport | £81.50/ 10,100 Taka | £104.51/ 12,900 Taka
+          Adult standard 32-page passport | £128/ 16,650 Taka | £151.01/ 19,650 Taka
+          Adult jumbo 48-page passport | £154.50/ 20,100 Taka | £177.51/ 23,100 Taka
+          Child passport | £81.50/ 10,600 Taka | £104.51/ 13,600 Taka
 
         how_to_apply_bangladesh: |
           4. Fill in a card payment authorisation form if you’re paying with a credit or debit card.
@@ -1587,6 +1579,9 @@ en-GB:
 
         getting_your_passport_lagos_nigeria: |
           The British Deputy High Commission in Lagos will contact you when your passport arrives using the contact details on your form. You must collect it in person.
+
+        getting_your_passport_burma : |
+          The British embassy will contact you when your passport and supporting documents arrive using the contact details on your form. You must collect them in person.
 
         how_long_burundi: |
           Action | Minimum time after you apply
@@ -1885,9 +1880,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | 422 Cedi | 498 Cedi from Ghana, 531 Cedi from Liberia or Guinea
-          Adult jumbo 48-page passport | 510 Cedi | 586 Cedi from Ghana, 619 Cedi from Liberia or Guinea
-          Child passport | 269 Cedi | 345 Cedi from Ghana, 378 Cedi from Liberia or Guinea
+          Adult standard 32-page passport | 474 Cedi | 559 Cedi from Ghana, 597 Cedi from Liberia or Guinea
+          Adult jumbo 48-page passport | 572 Cedi | 657 Cedi from Ghana, 695 Cedi from Liberia or Guinea
+          Child passport | 302 Cedi | 387 Cedi from Ghana, 425 Cedi from Liberia or Guinea
 
           You must pay either using:
 
@@ -2139,9 +2134,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | £128.00/HK $1,574 | £147.86/HK $1,818
-          Adult jumbo 48-page passport | £154.50/HK $1,900 | £174.36/HK $2,144
-          Child passport | £81.50/HK $1,002 | £101.36/HK $1,246
+          Adult standard 32-page passport | £128.00/HK $1,640 | £147.86/HK $1,895
+          Adult jumbo 48-page passport | £154.50/HK $1,978 | £174.36/HK $2,233
+          Child passport | £81.50/HK $1,044 | £101.36/HK $1,299
 
           Send your application to the passport processing centre in Hong Kong, preferably by a one-way courier service.
 
@@ -2198,9 +2193,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport	| 875,000 SLL | 1,110,000 SLL
-          Adult jumbo 48-page passport | 1,055,000 SLL | 1,280,000 SLL
-          Child passport | 555,000 SLL | 780,000 SLL
+          Adult standard 32-page passport	| %{costs_sll_adult_32}
+          Adult jumbo 48-page passport | %{costs_sll_adult_48}
+          Child passport | %{costs_sll_child}
 
         how_to_apply_sierra-leone: ''
         supporting_documents_sierra-leone: ''
@@ -2424,9 +2419,9 @@ en-GB:
 
           Passport type | Passport fee | Total to pay (including courier fee)
           -|-|-
-          Adult standard 32-page passport | £128.00/HK $1,574 | £147.86/HK $1,818
-          Adult jumbo 48-page passport | £154.50/HK $1,900 | £174.36/HK $2,144
-          Child passport | £81.50/HK $1,002 | £101.36/HK $1,246
+          Adult standard 32-page passport | £128.00/HK $1,640 | £147.86/HK $1,895
+          Adult jumbo 48-page passport | £154.50/HK $1,978 | £174.36/HK $2,233
+          Child passport | £81.50/HK $1,044 | £101.36/HK $1,299
 
 
         how_to_apply_thailand: ''
