@@ -392,7 +392,7 @@ outcome :fco_result do
   end
   precalculate :getting_your_passport do
     location = 'fco'
-    location = current_location if %(congo india nepal).include?(current_location)
+    location = current_location if %(burma congo india nepal).include?(current_location)
     PhraseList.new(:"getting_your_passport_#{location}")
   end
   precalculate :helpline do
