@@ -246,7 +246,7 @@ outcome :ips_application_result do
     if eight_week_application_countries.include?(current_location)
       number_of_weeks = application_action =~ /renewing_new|replacing/ ? 4 : 8
       phrases << :"how_long_#{number_of_weeks}_weeks"
-    elsif twelve_week_application_countries.include?(current_location) and application_action == 'applying'
+    elsif twelve_week_application_countries.include?(current_location) and %w(applying renewing_old).include?(application_action)
       phrases << :"how_long_applying_12_weeks"
     else
       if %w{kazakhstan kyrgyzstan}.include?(current_location)
