@@ -130,24 +130,6 @@ en-GB:
         passport_costs_nepal: |
           You can get a bankers draft in Hong Kong dollars from the Standard Chartered Bank in Lazimpat.
 
-        passport_courier_costs_jordan: |
-          You must pay in cash using Jordanian dinars at the British Embassy in Amman.
-
-          You’ll have to pay a fee for your passport and a courier fee of 37 Jordanian dinars. The courier fee pays for your passport and supporting documents to be sent back to the British Embassy in Amman.
-
-        adult_passport_costs_jordan: |
-          | Passport type | Passport fee |  Total to pay (including courier fee) |
-          |---------------|--------------|---------------------------------------|
-          | Adult standard 32-page passport | %{costs_jordanian_dinars_adult_32}
-          | Adult jumbo 48-page passport | %{costs_jordanian_dinars_adult_48}
-
-        child_passport_costs_jordan: |
-          | Passport type | Passport fee |  Total to pay (including courier fee) |
-          |---------------|--------------|---------------------------------------|
-          | Child passport | %{costs_jordanian_dinars_child}
-
-        passport_costs_jordan: |
-
         passport_courier_costs_pretoria_south_africa: ''
 
         adult_passport_costs_pretoria_south_africa: |
@@ -205,15 +187,6 @@ en-GB:
           You’ll need to send a photocopy of your passport, and a letter to explain why you’ve not sent the original.
 
           When you get your new passport, send your old one to the [nearest British embassy, high commission or governors office](/government/world/organisations).
-
-        supporting_documents_jordan_applying: |
-          
-          
-          $D
-          **Supporting documents**
-
-          [Download ‘Supporting documents you must send with your application’ (PDF, 260KB)](/government/publications/jordan-supporting-documents-for-passport-applications)
-          $D 
 
         passport_costs_paris_france: |
           You must pay using either:
@@ -334,25 +307,6 @@ en-GB:
 
             - [Guidance notes for child applications](/government/publications/application-for-united-kingdom-passport-for-applicants-under-16-notes)
 
-        adult_fco_forms_nigeria: |
-          __Blank application form__
-
-           If you can’t use the smart form above, print this [blank application form](/government/publications/application-for-united-kingdom-passport-for-applicants-aged-16-or-over), fill in on paper and sign
-
-          __Guidance notes__
-
-          - [Guidance notes for adult applications](/government/publications/application-for-united-kingdom-passport-for-applicants-16-and-over-notes)
-
-        child_fco_forms_nigeria: |
-          __Blank application form__
-
-           If you can’t use the smart form above, print this [blank application form](/government/publications/application-for-united-kingdom-passport-for-applicants-under-16), fill in on paper and sign
-
-          __Guidance notes__
-
-          - [Guidance notes for child applications](/government/publications/application-for-united-kingdom-passport-for-applicants-under-16-notes)
-
-
         getting_your_passport_fco: |
           Your passport and supporting documents will be delivered separately by courier.
 
@@ -394,12 +348,6 @@ en-GB:
 
         send_application_fco_preamble: |
           Send your application, photographs and supporting documents, ideally by courier.
-
-        send_application_jordan: |
-
-          You must make your application in person.
-
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
         send_application_wellington_new_zealand: |
 
@@ -859,62 +807,50 @@ en-GB:
 
         getting_your_passport_ips1: |
           Your passport and supporting documents will be delivered separately by courier.
+        getting_your_passport_contact_and_id: |
+          They will contact you when your passport arrives using the contact details on your form.
 
+          You must bring photo ID with you.
+        getting_your_passport_angola: |
+          Your passport and supporting documents will be delivered to the British Embassy in Luanda, Angola - you must collect them in person.
+        getting_your_passport_benin: |
+          Your passport and supporting documents will be delivered to the British Deputy High Commission in Lagos, Nigeria - you must collect them in person.
+        getting_your_passport_burundi: |
+          Your passport and supporting documents will be delivered to the British Embassy Liaison Office in Bujumbura, Burundi - you must collect them in person.
         getting_your_passport_cameroon: |
           Your passport and supporting documents will be delivered to the British High Commission in Yaounde, Cameroon - you must collect them in person. 
-
-          They will contact you when your passport arrives using the contact details on your form.
-
-          You must bring photo ID with you.
-
         getting_your_passport_chad: |
-          Your passport and supporting documents will be delivered to the British High Commission in Yaounde, Cameroon - you must collect them in person. 
-
-          They will contact you when your passport arrives using the contact details on your form.
-
-          You must bring photo ID with you.
-
-        getting_your_passport_ethiopia: |
-          Your passport and supporting documents will be delivered to the British Embassy in Addis Ababa, Ethiopia - you must collect them in person. 
-
-          They will contact you when your passport arrives using the contact details on your form.
-
-          You must bring photo ID with you.
-
-        getting_your_passport_eritrea: |
-          Your passport and supporting documents will be delivered to the British Embassy in Asmara, Eritrea - you must collect them in person. 
-
-          They will contact you when your passport arrives using the contact details on your form.
-
-          You must bring photo ID with you.
-
-        getting_your_passport_kenya: |
-          Your passport and supporting documents will be delivered to the British High Commission Nairobi, Kenya - you must collect them in person. 
-
-          They will contact you when your passport arrives using the contact details on your form.
-
-          You must bring photo ID with you.
-
-        getting_your_passport_somalia: |
-          Your passport and supporting documents will be delivered to the British Embassy in Addis Ababa, Ethiopia - you must collect them in person. 
-
-          They will contact you when your passport arrives using the contact details on your form.
-
-          You must bring photo ID with you.
-
-        getting_your_passport_uganda: |
-          Your passport and supporting documents will be delivered to the British High Commission Kampala, Uganda - you must collect them in person. 
-
-          They will contact you when your passport arrives using the contact details on your form.
-
-          You must bring photo ID with you.
-
+          Your passport and supporting documents will be delivered to the British High Commission in Yaounde, Cameroon - you must collect them in person.
+        getting_your_passport_congo: |
+          Your passport and supporting documents will be delivered to the Honorary Consul in Brazzaville, Congo - you must collect them in person.
         getting_your_passport_egypt: |
           Your passport and supporting documents will be delivered to the British Embassy in Cairo - you must collect them in person. 
-
-          They will contact you when your passport arrives using the contact details on your form.
-
-          You must bring photo ID with you.
+        getting_your_passport_ethiopia: |
+          Your passport and supporting documents will be delivered to the British Embassy in Addis Ababa, Ethiopia - you must collect them in person. 
+        getting_your_passport_eritrea: |
+          Your passport and supporting documents will be delivered to the British Embassy in Asmara, Eritrea - you must collect them in person.
+        getting_your_passport_gambia: |
+          Your passport and supporting documents will be delivered to the British High Commission in Banjul, Gambia - you must collect them in person.
+        getting_your_passport_ghana: |
+          Your passport and supporting documents will be delivered to the British High Commission in Accra, Ghana - you must collect them in person.
+        getting_your_passport_guinea: |
+          Your passport and supporting documents will be delivered to the British Embassy in Conakry, Guinea - you must collect them in person.
+        getting_your_passport_kenya: |
+          Your passport and supporting documents will be delivered to the British High Commission Nairobi, Kenya - you must collect them in person.
+        getting_your_passport_nigeria: |
+          Your passport and supporting documents will be delivered to the British Deputy High Commission in Lagos, Nigeria - you must collect them in person.
+        getting_your_passport_rwanda: |
+          Your passport and supporting documents will be delivered to the British High Commission in Kigali, Rwanda - you must collect them in person.
+        getting_your_passport_sierra-leone: |
+          Your passport and supporting documents will be delivered to the British High Commission in Freetown, Sierra Leone - you must collect them in person.
+        getting_your_passport_somalia: |
+          Your passport and supporting documents will be delivered to the British Embassy in Addis Ababa, Ethiopia - you must collect them in person. 
+        getting_your_passport_south-sudan: |
+          Your passport and supporting documents will be delivered to the DHL Office in Juba, South Sudan - you must collect them in person.
+        getting_your_passport_uganda: |
+          Your passport and supporting documents will be delivered to the British High Commission Kampala, Uganda - you must collect them in person.
+        getting_your_passport_zambia: |
+          Your passport and supporting documents will be delivered to the British High Commission in Lusaka, Zambia - you must collect them in person.
         getting_your_passport_iraq: |
           You must collect your passport and supporting documents in person from either:
 
@@ -1520,105 +1456,14 @@ en-GB:
             [Download ‘Supporting documents for lost and stolen passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc)
           $D
 
-        supporting_documents_iraq_applying: |
-         
-
-          $D
-          **Supporting documents**
-
-          [Download 'Supporting documents you must send with your application' (PDF, 264KB)](/government/publications/iraq-supporting-documents-for-passport-applications)
-          $D 
-        
-        supporting_documents_yemen_applying: |
-
-
-          $D
-          **Supporting documents**
-
-          [Download 'Supporting documents you must send with your application' (PDF, 260KB)](/government/publications/yemen-supporting-documents-for-passport-applications)
-          $D
-
-        supporting_documents_iraq_renewing: ''
-        supporting_documents_iraq_replacing: ''
-        supporting_documents_yemen_renewing: ''
-        supporting_documents_yemen_replacing: ''
-
         making_application_nairobi_kenya: |
           Send your application by post or courier to the British High Commission in Nairobi, Kenya.
 
         getting_your_passport_nairobi_kenya: |
           The British High Commission will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
-        how_long_lagos_nigeria: |
-          Action | Minimum time after you apply
-          - | -
-          Renew a passport | 4 weeks
-          First adult or child passports | 6 weeks
-          Replace a lost or stolen passport | 6 weeks
-
-          Applications may take longer if:
-
-          - you need to provide more information or documents
-          - your photographs are rejected
-          - further checks need to be made about your identity - this could take up to 6 months
-
-
-        cost_lagos_nigeria: |
-          You must pay - in cash - a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | 33,280 Naira | 39,260 Naira
-          Adult jumbo 48-page passport | 40,040 Naira | 46,020 Naria
-          Child passport | 21,190 Naira | 27,170 Naira
-
-        how_to_apply_lagos_nigeria: ''
-        supporting_documents_lagos_nigeria: ''
-        making_application_lagos_nigeria: |
-          Bring your application in person to the British Deputy High Commission in **Lagos, Nigeria.**
-
-        getting_your_passport_lagos_nigeria: |
-          The British Deputy High Commission in Lagos will contact you when your passport arrives using the contact details on your form. You must collect it in person.
-
         getting_your_passport_burma : |
           The British embassy will contact you when your passport and supporting documents arrive using the contact details on your form. You must collect them in person.
-
-        how_long_burundi: |
-          Action | Minimum time after you apply
-          - | -
-          Renew a passport | 4 weeks
-          First adult or child passports | 6 weeks
-          Replace a lost or stolen passport | 6 weeks
-
-          Applications may take longer if:
-
-          - you need to provide more information or documents
-          - your photographs are rejected
-
-
-        cost_burundi: |
-          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
-
-          You must pay in cash, using either:
-
-          - Burundian francs (BIF)
-          - US dollars ($US)
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | BIF256,000/$US211 | BIF322,340/$US266
-          Adult jumbo 48-page passport | BIF309,000BIF/$US255 | BIF375,340/$US2310
-          Child passport | BIF163,000/$US134 | BIF229,340/$US188
-
-        how_to_apply_burundi: |
-          4. If you’re renewing a passport, photocopy the pages showing your personal details, photographs and residence visa and send it with your application. Keep your original passport.
-
-        supporting_documents_burundi: ''
-        making_application_burundi: |
-          Bring your application in person to the British embassy liaison office in Bujumbura.
-
-        getting_your_passport_burundi: |
-          The British embassy liaison office will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
         how_long_cameroon: |
           Action | Minimum time after you apply
@@ -1704,9 +1549,6 @@ en-GB:
 
         making_application_cameroon_replacing: |
           You must bring your application in person to the British High Commission in Yaounde.
-
-        getting_your_passport_congo: |
-          The Honorary Consul in Brazzaville will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
         how_long_eritrea: |
           Action | Minimum time after you apply
@@ -1829,166 +1671,6 @@ en-GB:
             Pretoria 0083
             South Africa
           $A
-
-        how_long_gambia: |
-          Action | Minimum time after you apply
-          - | -
-          Renew a passport | 4 weeks
-          First adult or child passports | 6 weeks
-          Replace a lost or stolen passport | 6 weeks
-
-          Applications may take longer if:
-
-          - you need to provide more information or documents
-          - your photographs are rejected
-
-
-        cost_gambia: |
-          You must pay in cash at the British High Commission in Banjul (using 100 Dalasi notes)
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Renewal of adult standard 32-page passport | 7,100 Dalasi | 8,200 Dalasi
-          First adult passport or replacement of lost or stolen adult passport | 7,100 Dalasi | 9,000 Dalasi
-          48-page adult passport | 8,500 Dalasi | 9,600 Dalasi
-          Renewal of child passport | 4,500 Dalasi | 6,400 Dalasi
-          First child passport | 4,500 Dalasi | 5,600 Dalasi
-
-        how_to_apply_gambia: |
-          4. Return your application form in person to the British High Commission in Banjul.
-
-        supporting_documents_gambia: ''
-        making_application_gambia: ''
-
-        how_long_ghana: |
-          Action | Minimum time after you apply
-          - | -
-          Renew a red passport | 4 weeks
-          First adult or child passports or renewing a blue or black passport | 6 weeks
-          Replace a lost or stolen passport | 6 weeks
-
-          Applications may take longer if:
-
-          - you need to provide more information or documents
-          - your photographs are rejected
-
-
-        cost_ghana: |
-          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
-
-          ### First applications, renewing a black or blue passport or replacing a lost or stolen passport
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | 474 Cedi | 559 Cedi from Ghana, 597 Cedi from Liberia or Guinea
-          Adult jumbo 48-page passport | 572 Cedi | 657 Cedi from Ghana, 695 Cedi from Liberia or Guinea
-          Child passport | 302 Cedi | 387 Cedi from Ghana, 425 Cedi from Liberia or Guinea
-
-          You must pay either using:
-
-          - cash
-          - a credit card
-
-          ### Renewing a red passport
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | %{costs_south_african_rand_adult_32}
-          Adult standard 48-page passport | %{costs_south_african_rand_adult_48}
-          Child passport | %{costs_south_african_rand_child}
-          
-          You can pay:
-
-          - using Visa or Mastercard - enclose a [card authorisation form (DOC, 334KB)](/government/uploads/system/uploads/attachment_data/file/136854/countries-auth-slip.doc) with your application
-          - by Bank Draft (add a 155 South African Rand processing fee if you pay this way)
-
-        how_to_apply_ghana: |
-
-          For renewals, don’t send your existing passport with your application - you may need it for ID purposes.
-
-        supporting_documents_ghana: |
-          __Supporting documents information__
-
-          - [First time adult passport applications](/government/publications/passport-application-supporting-documentation-required-for-first-time-adult-applicants-ghana)
-
-          - [First time child passport applications](/government/publications/passport-application-supporting-documentation-needed-by-first-time-child-applicants-ghana)
-
-        making_application_ghana: |
-          ### First applications, renewing a black or blue passport or replacing a lost or stolen passport
-
-          You must send or make your application in person to the British High Commission in Accra.
-
-          ### Renewing a red passport
-
-          You can either:
-
-          - apply to the British High Commission in Accra
-          - send your application by one-way courier or registered post to the passport processing centre in Pretoria, South Africa
-
-        getting_your_passport_ghana: |
-          The British embassy will contact you when your passport and supporting documents arrive using the contact details on your form. You must collect them in person.
-
-        how_long_iraq: |
-          Action | Minimum time after you apply
-          - | -
-          Renew a passport | 4 weeks
-          First adult or child passports | 6 weeks
-          Replace a lost or stolen passport | 6 weeks
-
-          Applications may take longer if:
-
-          - you need to provide more information or documents
-          - your photographs are rejected
-
-
-        cost_iraq: |
-          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
-
-          ### Applying for a new passport or replacing a lost or stolen passport
-
-          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned. You must pay in cash in person at the British embassy in Amman, Jordan.
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | %{costs_jordanian_dinars_adult_32}
-          Adult jumbo 48-page passport | %{costs_jordanian_dinars_adult_48}
-          Child passport | %{costs_jordanian_dinars_child}
-
-
-          ### Renewing a passport
-
-          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
-
-          You must pay using Visa or Mastercard - enclose a [card authorisation form (DOC, 334KB](/government/uploads/system/uploads/attachment_data/file/136852/credit-card-form-march-12.pdf) with your application.
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | %{costs_euros_adult_32} 
-          Adult jumbo 48-page passport | %{costs_euros_adult_48}
-          Child passport | %{costs_euros_child}
-
-        how_to_apply_iraq: ''
-        supporting_documents_iraq: ''
-
-        iraq_first_passport_documents: |
-
-
-        making_application_iraq: |
-          ### Renewals or replacements of lost or stolen passports
-
-          Send your application - preferably by one-way courier or secure post - to
-
-
-          $A
-            Regional Passport Processing Centre Paris
-            16 rue d’Anjou
-            75008 Paris
-            France
-          $A
-
-          ### First passport applications
-
-          You must make your application in person to the British embassy Amman, Jordan.
 
         how_long_lebanon: |
           Action | Minimum time after you apply
@@ -2169,40 +1851,6 @@ en-GB:
         getting_your_passport_philippines: |
           The British embassy will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
-        how_long_sierra-leone: |
-          Action | Minimum time after you apply
-          - | -
-          Renew a passport | 4 weeks
-          First adult or child passports | 6 weeks
-          Replace a lost or stolen passport | 6 weeks
-
-          Applications may take longer if:
-
-          - you need to provide more information or documents
-          - your photographs are rejected
-
-          If you’re applying for a first passport, you’ll usually be asked to attend an interview at the High Commission.
-
-          If you’re renewing or replacing a lost or stolen passport, you may be asked to attend an interview.
-
-
-        cost_sierra-leone: |
-          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
-
-          You must pay in Sierra Leone Leones, in cash, using SL 5,000 or 10,000 notes
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport	| %{costs_sll_adult_32}
-          Adult jumbo 48-page passport | %{costs_sll_adult_48}
-          Child passport | %{costs_sll_child}
-
-        how_to_apply_sierra-leone: ''
-        supporting_documents_sierra-leone: ''
-        making_application_sierra-leone: You must make your application in person at British High Commission.
-        getting_your_passport_sierra-leone: |
-          The British High Commission will contact you when your passport arrives using the contact details on your form. You must collect it in person.
-
         how_long_somalia: |
           Action | Minimum time after you apply
           - | -
@@ -2266,75 +1914,6 @@ en-GB:
 
           - send your application by post or courier to the British High Commission in Nairobi, Kenya
           - apply in person at the British embassy in Addis Ababa, Ethiopia
-
-        how_long_south-sudan: |
-          Action | Minimum time after you apply
-          - | -
-          Renew a passport | 4 weeks
-          First adult or child passports | 6 weeks
-          Replace a lost or stolen passport | 6 weeks
-
-          Applications may take longer if:
-
-          - you need to provide more information or documents
-          - your photographs are rejected
-
-
-        cost_south-sudan: |
-          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | %{costs_south_african_rand_adult_32}
-          Adult standard 48-page passport | %{costs_south_african_rand_adult_48}
-          Child passport | %{costs_south_african_rand_child}
-
-          You must pay using Visa or Mastercard - enclose a [card authorisation form (DOC, 334KB](/government/uploads/system/uploads/attachment_data/file/136854/countries-auth-slip.doc) with your application.
-
-        how_to_apply_south-sudan: |
-
-          For renewals, don’t send your existing passport with your application - you may need it for ID purposes.
-
-        supporting_documents_south-sudan: |
-
-
-          $D
-          [Download ‘Supporting documents for first time adult passport applications’ (DOC, 31KB)](/government/uploads/system/uploads/attachment_data/file/136895/checklist-1sttime-adult.doc)
-
-          [Download ‘Supporting documents for first time child passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136896/checklist-1sttime-child.doc)
-
-          [Download ‘Supporting documents for lost and stolen passport applications’ (DOC, 30KB)](/government/uploads/system/uploads/attachment_data/file/136897/lost-stole-appl-checklist.doc)
-          $D
-        making_application_south-sudan: |
-          You must download a [covering letter](/government/uploads/system/uploads/attachment_data/file/136888/covering-letter.doc) and include it with your application.
-
-          Bring your application to your courier office and send your application to the passport processing centre in Pretoria, South Africa.
-
-
-          $A
-            British High Commission
-            Consular Section, Block B
-            1st Floor, Liberty Place Building
-            256 Glyn Street
-            Hatfield
-            Pretoria, 0083
-            South Africa
-          $A
-
-          Keep your waybill and reference number as proof as dispatch.
-
-        getting_your_passport_south-sudan: |
-          You must pick up your passport and supporting documents from the DHL office in Juba.
-
-
-          $A
-            DHL Worldwide Express
-            Khair Alseed bldg.
-            Hai Malakal
-            P. O. Box 8041
-            East Alzahra square
-            JUBA
-          $A
 
         how_long_sudan: |
           Action | Minimum time after you apply
@@ -2506,127 +2085,6 @@ en-GB:
         making_application_venezuela: Bring your application in person to the British embassy in Caracas.
         getting_your_passport_venezuela: |
           Your passport and supporting documents will be delivered to you separately by courier.
-
-        how_long_yemen: |
-          Action | Minimum time after you apply
-          - | -
-          Renew a passport | 4 weeks
-          First adult or child passports | 6 weeks
-          Replace a lost or stolen passport | 6 weeks
-
-          Applications may take longer if:
-
-          - you need to provide more information or documents
-          - your photographs are rejected
-          - if you send your application by courier
-
-
-        cost_yemen: |
-          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
-
-          ### Applying for a first passport or replacing a lost or stolen passport
-
-          You must make your application in person to the British embassy Amman, Jordan and you must pay in cash. 
-
-          The courier fee covers the cost of the embassy sending your application to Paris where your application will be processed.
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | %{costs_jordanian_dinars_adult_32}
-          Adult jumbo 48-page passport | %{costs_jordanian_dinars_adult_48}
-          Child passport | %{costs_jordanian_dinars_child}
-
-          ### Renewing a passport
-
-          You must pay using Visa or Mastercard - enclose a [card authorisation form (DOC, 334KB](/government/uploads/system/uploads/attachment_data/file/136852/credit-card-form-march-12.pdf) with your application.
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | %{costs_euros_adult_32} 
-          Adult jumbo 48-page passport | %{costs_euros_adult_48}
-          Child passport | %{costs_euros_child}
-
-        how_to_apply_yemen: ''
-        yemen_first_passport_documents: |
-        supporting_documents_yemen: ''
-        supporting_documents_yemen_applying: |
-
-
-
-          $D
-          Supporting documents
-
-          [Download ‘Supporting documents you must send with your application’ (PDF, 260KB)](/government/publications/yemen-supporting-documents-for-passport-applications)
-          $D
-        making_application_yemen: |
-          ### Applying for a first passport or replacing a lost or stolen passport
-
-          You must make your application in person to the British embassy Amman, Jordan.
-
-          You’ll need to [book an appointment.](https://www.britishembassyamman.clickbook.net)
-        making_application_additional_yemen: |
-          The British Embassy in Sana’a can help you with your application.
-
-
-          $C
-          **British Embassy in Sana’a**
-
-          +967 1 308100 or 302480-5  
-          Saturday to Wednesday, 8am to 3pm (local time)  
-
-          +44 207 008 1500 at any other time
-          $C
-
-          ### Renewing a passport
-
-          Send your application - preferably by one-way courier or secure post - to:
-
-
-          $A
-            Regional Passport Processing Centre Paris
-            16 rue d’Anjou
-            75008 Paris
-            France
-          $A
-
-        how_long_zambia: |
-          Action | Minimum time after you apply
-          - | -
-          Renew a passport | 4 weeks
-          First adult or child passports | 6 weeks
-          Replace a lost or stolen passport | 6 weeks
-
-          Applications may take longer if:
-
-          - you need to provide more information or documents
-          - your photographs are rejected
-
-
-        cost_zambia: |
-          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | 1,100 Kwacha | 1,390 Kwacha
-          Adult jumbo 48-page passport | 1,320 Kwacha | 1,610 Kwacha
-          Child passport | 700 Kwacha | 990 Kwacha
-
-          You must pay in cash when you apply in person at the British high commission in Lusaka.
-
-        how_to_apply_zambia: ''
-        supporting_documents_zambia: ''
-        supporting_documents_zambia_applying: |
-          
-          
-          $D
-          **Supporting documents**
-
-          [Download ‘Supporting documents you must send with your application’ (PDF, 114KB)](/government/uploads/system/uploads/attachment_data/file/186951/Zambia_passport_documents.pdf)
-          $D
-
-        making_application_zambia: Bring your application in person to the British High Commission in Lusaka. You can use old Kwacha notes to pay until 30 June 2013.
-        getting_your_passport_zambia: |
-          The British High Commission will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
         how_long_zimbabwe: |
           Action | Time after you apply

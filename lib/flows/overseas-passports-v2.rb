@@ -301,10 +301,16 @@ outcome :ips_application_result do
   end
 
   precalculate :getting_your_passport do
-    if %w(cameroon chad egypt eritrea ethiopia iraq jamaica jordan kenya somalia uganda yemen).include?(current_location)
-      PhraseList.new :"getting_your_passport_#{current_location}"
+    collect_in_person_countries = %w(angola benin burundi cameroon chad congo egypt eritrea ethiopia gambia ghana guinea jamaica kenya nigeria rwanda sierra-leone somalia south-sudan uganda zambia)
+    collect_in_person_variant_countries = %w(iraq jordan yemen)
+
+    phrases = PhraseList.new
+    if collect_in_person_countries.include?(current_location)
+      phrases << :"getting_your_passport_#{current_location}" << :getting_your_passport_contact_and_id
+    elsif collect_in_person_variant_countries.include?(current_location)
+      phrases << :"getting_your_passport_#{current_location}"
     else
-      PhraseList.new :"getting_your_passport_ips#{ips_number}"
+      phrases << :"getting_your_passport_ips#{ips_number}"
     end
   end
   precalculate :tracking_and_receiving do
@@ -426,13 +432,6 @@ outcome :result do
   end
   precalculate :making_application do
     PhraseList.new(:"making_application_#{application_type}")
-  end
-  precalculate :making_application_additional do
-    if current_location == 'yemen'
-      PhraseList.new(:making_application_additional_yemen)
-    else
-      ''
-    end
   end
   precalculate :getting_your_passport do
     PhraseList.new(:"getting_your_passport_#{application_type}")
