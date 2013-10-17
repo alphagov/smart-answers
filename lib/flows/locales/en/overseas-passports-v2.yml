@@ -1366,7 +1366,7 @@ en-GB:
           __Supporting documents information__
 
           - [Adult passport renewal](/government/publications/passport-renewal-adult-bangladesh)
-          - [Child passport renewal](/government/publications/passport-application-first-time-child-bangladesh)
+          - [Child passport renewal](/government/publications/passport-renewal-child-bangladesh)
           - [Adult first passport](/government/publications/passport-application-first-time-adult-bangladesh)
           - [First child passport](/government/publications/passport-application-first-time-child-bangladesh)
 
@@ -2191,7 +2191,7 @@ en-GB:
 
           %{hurricane_warning}
 
-            %{fco_forms}
+          %{fco_forms}
 
           %{supporting_documents}
 

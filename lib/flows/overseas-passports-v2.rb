@@ -427,6 +427,13 @@ outcome :result do
     end
     phrases
   end
+  precalculate :making_application_additional do
+    if current_location == 'yemen'
+      PhraseList.new(:making_application_additional_yemen)
+    else
+      ''
+    end
+  end
   precalculate :supporting_documents do
     phrase = ['supporting_documents', application_type]
     phrase << general_action if %w(iraq yemen zambia).include?(application_type)
