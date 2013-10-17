@@ -987,6 +987,8 @@ en-GB:
           Your application will take **at least** 8 weeks.
         how_long_kyrgyzstan: |
           Your application will take **at least** 8 weeks.
+        how_long_zimbabwe_apply_renewing_new_replacing: |
+          Your application will take **up to** 6 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
         how_long_applying_ips3: |
           Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
 
@@ -2085,36 +2087,6 @@ en-GB:
         making_application_venezuela: Bring your application in person to the British embassy in Caracas.
         getting_your_passport_venezuela: |
           Your passport and supporting documents will be delivered to you separately by courier.
-
-        how_long_zimbabwe: |
-          Action | Time after you apply
-          - | -
-          Renew a passport | 4 weeks
-          First adult or child passports | Up to 6 months
-          Replace a lost or stolen passport | Up to 6 months
-
-          Applications may take longer if:
-
-          - you need to provide more information or documents
-          - your photographs are rejected
-
-
-        cost_zimbabwe: |
-          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | US $211 | US $249
-          Adult jumbo 48-page passport | US $255 | US $293
-          Child passport | US $134 | US $172
-
-          You must pay in US dollars, in cash, when you apply in person at the British embassy in Harare.
-
-        how_to_apply_zimbabwe: ''
-        supporting_documents_zimbabwe: ''
-        making_application_zimbabwe: Bring your application in person to the British embassy in Harare.
-        getting_your_passport_zimbabwe: |
-          The British embassy will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
         body_algeria: |
           ## How long it takes

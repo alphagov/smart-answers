@@ -1046,7 +1046,7 @@ zambia:
   app_form: hmpo_1_application_form
   address: durham
 zimbabwe: 
-  type: zimbabwe
+  type: ips_application_3
   group: ips_documents_group_3
   helpline: pretoria_south_africa
   app_form: hmpo_1_application_form

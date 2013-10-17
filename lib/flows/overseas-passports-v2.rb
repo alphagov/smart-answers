@@ -251,6 +251,8 @@ outcome :ips_application_result do
     else
       if %w{kazakhstan kyrgyzstan}.include?(current_location)
         phrases << :"how_long_#{current_location}"
+      elsif %w(zimbabwe).include?(current_location) and %w(renewing_new).exclude?(application_action)
+        phrases << :how_long_zimbabwe_apply_renewing_new_replacing
       else
         phrases << :"how_long_#{application_action}_ips#{ips_number}"
       end

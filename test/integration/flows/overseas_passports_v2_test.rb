@@ -9,7 +9,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(australia afghanistan iraq benin austria albania morocco azerbaijan ireland india tanzania indonesia jamaica malta italy jordan iran syria cameroon kenya andorra tunisia yemen haiti south-africa united-kingdom greece spain the-occupied-palestinian-territories st-helena-ascension-and-tristan-da-cunha kazakhstan kyrgyzstan egypt nigeria russia congo djibouti)
+    @location_slugs = %w(albania afghanistan andorra australia austria azerbaijan benin cameroon congo djibouti egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nigeria russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania the-occupied-palestinian-territories tunisia united-kingdom yemen zimbabwe)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports-v2'
   end
@@ -811,7 +811,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
     end
   end # Yemen
 
-  context "answer Haiti, renewing-new, adult passport" do
+  context "answer Haiti, renewing new, adult passport" do
     should "give the ips result" do
       worldwide_api_has_organisations_for_location('haiti', read_fixture_file('worldwide/haiti_organisations.json'))
       add_response 'haiti'
@@ -1015,5 +1015,37 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       assert_match /Millburngate House/, outcome_body
     end
   end # Djibouti
+
+  context "answer Zimbabwe, applying, adult passport" do
+    should "give the generic result with custom phrases" do
+      worldwide_api_has_organisations_for_location('zimbabwe', read_fixture_file('worldwide/zimbabwe_organisations.json'))
+      add_response 'zimbabwe'
+      add_response 'applying'
+      add_response 'adult'
+      add_response 'united-kingdom'
+      assert_current_node :ips_application_result
+      assert_phrase_list :how_long_it_takes, [:how_long_zimbabwe_apply_renewing_new_replacing, :how_long_it_takes_ips3]
+      assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
+      expected_location = WorldLocation.find('zimbabwe')
+      assert_state_variable :location, expected_location
+      assert_state_variable :organisation, expected_location.fco_organisation
+    end
+  end # Zimbabwe
+  context "answer Zimbabwe, renwing new, adult passport" do
+    should "give the generic result with custom phrases" do
+      worldwide_api_has_organisations_for_location('zimbabwe', read_fixture_file('worldwide/zimbabwe_organisations.json'))
+      add_response 'zimbabwe'
+      add_response 'renewing_new'
+      add_response 'adult'
+      assert_current_node :ips_application_result
+      assert_phrase_list :how_long_it_takes, [:how_long_renewing_new_ips3, :how_long_it_takes_ips3]
+      assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
+      expected_location = WorldLocation.find('zimbabwe')
+      assert_state_variable :location, expected_location
+      assert_state_variable :organisation, expected_location.fco_organisation
+    end
+  end # Zimbabwe
 
 end
