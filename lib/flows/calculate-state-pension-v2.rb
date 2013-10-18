@@ -93,9 +93,9 @@ date_question :dob_age? do
 
   calculate :state_pension_age_statement do
     if state_pension_date > Date.today
-      PhraseList.new :state_pension_age_is
+      PhraseList.new(:state_pension_age_is)
     else
-      PhraseList.new:state_pension_age_was
+      PhraseList.new(:state_pension_age_was)
     end
   end
 
