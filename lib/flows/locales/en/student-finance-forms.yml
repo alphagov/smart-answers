@@ -484,13 +484,24 @@ en-GB:
           %{form_destination}
 
       outcome_eu_ft_1415_new:
-        title: Applications aren't open yet. Forms will be available April 2014.
+        title: Applications aren't open yet.
+        body: |
+          Forms will be available April 2014.
 
       outcome_eu_ft_1415_continuing:
-        title: Applications aren't open yet. Forms will be available March 2014.
+        title: Applications aren't open yet.
+        body: |
+          Forms will be available March 2014.
 
       outcome_eu_pt_1415_new:
-        title: Applications aren't open yet. Forms will be available April 2014. 
+        title: Applications aren't open yet. 
+        body: |
+          Forms will be available April 2014.
 
       outcome_eu_pt_1415_continuing:
-        title: Applications aren't open yet. Forms will be available Summer 2014.
+        title: Applications aren't open yet.
+        body: |
+          Forms will be available:
+
+          - April 2014 if you started your course **on or after** 1st September 2012
+          - Summer 2014 if you started your course **before** 1st September 2012
