@@ -87,10 +87,6 @@ date_question :dob_age? do
     calculator.ni_years_to_date
   end
 
-  calculate :bus_pass_statement do
-    PhraseList.new :bus_pass_statement
-  end
-
   calculate :state_pension_age_statement do
     if state_pension_date > Date.today
       PhraseList.new(:state_pension_age_is)

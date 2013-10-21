@@ -40,13 +40,6 @@ en-GB:
 
         automatic_credits: |
           Your estimate may include up to 3 years of automatic credits for the years containing your 16th, 17th and 18th birthdays
-        bus_pass_statement: |
-          The date you qualify for a bus pass depends on if you live in:
-
-          + England - %{pension_credit_date} 
-          + Scotland, Wales or Northern Ireland - it's usually when you turn 60
-
-          [Check with your council](/find-your-local-council) as the date may be sooner.
 
         state_pension_age_is: |
 
@@ -62,7 +55,12 @@ en-GB:
           %{pension_credit_statement}
 
           ##Bus pass
-          %{bus_pass_statement}
+          The date you qualify for a bus pass depends on if you live in:
+
+          + England - %{pension_credit_date} 
+          + Scotland, Wales or Northern Ireland - it's usually when you turn 60
+
+          [Check with your council](/find-your-local-council) as the date may be sooner.
 
         state_pension_age_was: |
 
@@ -80,7 +78,10 @@ en-GB:
           If you’re on a low income, you might be eligible to claim [Pension Credit](/pension-credit).
 
           ##Bus pass
-          %{bus_pass_statement}
+          The date you qualify for a bus pass depends on if you live in:
+
+          + England - %{pension_credit_date} 
+          + Scotland, Wales or Northern Ireland - it's usually when you turn 60
 
           [Check with your council](/find-your-local-council) as the date may be sooner.
 
