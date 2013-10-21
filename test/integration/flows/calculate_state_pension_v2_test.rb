@@ -78,7 +78,7 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
         end
 
         should "give an answer" do
-          assert_current_node :reached_state_pension_age
+          assert_current_node :age_result
           assert_phrase_list :tense_specific_title, [:have_reached_pension_age]
           assert_phrase_list :state_pension_age_statement, [:state_pension_age_was]
           assert_state_variable "state_pension_age", "65 years"

@@ -63,15 +63,6 @@ date_question :dob_age? do
     end
   end
 
-  #TODO: refactor this so text lives in .yml file
-  calculate :bus_pass_statement do
-    if calculator.state_pension_date(:female) > Date.today
-      "You may qualify for an [elderly person’s bus pass](/apply-for-elderly-person-bus-pass) from " + pension_credit_date + "."
-    else
-      "You may have qualified for an [elderly person’s bus pass](/apply-for-elderly-person-bus-pass) from" + pension_credit_date + "."
-    end
-  end
-
   calculate :formatted_state_pension_date do
     state_pension_date.strftime("%e %B %Y")
   end
@@ -110,13 +101,13 @@ date_question :dob_age? do
     calc = Calculators::StatePensionAmountCalculatorV2.new(
       gender: gender, dob: response)
 
-    if responses.include?(:amount)
-      :years_paid_ni?
-    elsif !calc.before_state_pension_date?
-      :reached_state_pension_age
-    elsif calc.under_20_years_old?
+
+    near_pension_date = (calc.before_state_pension_date? and
+                         calc.within_four_months_one_day_from_state_pension?)
+    
+    if calc.under_20_years_old?
       :too_young
-    elsif calc.within_four_months_one_day_from_state_pension?
+    elsif near_pension_date 
       :near_state_pension_age
     else
       :age_result
