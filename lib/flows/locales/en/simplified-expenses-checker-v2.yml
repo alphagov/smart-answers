@@ -59,8 +59,9 @@ en-GB:
         options:
           car_or_van: Car or van (business use)
           motorcycle: Motorcycle (business use)
-          using_home_for_business: Working from home (sometimes or all the time)
-          live_on_business_premises: The main purpose of the building is your business, eg a guesthouse
+          using_home_for_business: Working from home – the main purpose of the building is your home
+          live_on_business_premises: Living on your business premises - the main purpose of the building where you live is your business, eg a B&B, and you're likely to pay business rates instead of council tax
+        error_message: You can’t choose both ‘working from home’ or ‘living on your business premises’ Please choose one.
 #Q3
       buying_new_vehicle?:
         title: Are you buying a new vehicle this tax year that you expect to use for your business?
