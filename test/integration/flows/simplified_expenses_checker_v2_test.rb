@@ -167,17 +167,18 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
     setup do
       add_response "yes"
       add_response "using_home_for_business"
-      add_response "20"
     end
 
     should "show the home costs bullet even though the cost is 0" do
       add_response "0"
+      add_response "20"
       assert_current_node :you_can_use_result
       assert_phrase_list :simplified_bullets, [:simple_home_costs_none_bullet]
     end
 
     should "show the costs bullet if home costs are > 0" do
       add_response "55"
+      add_response "20"
       assert_current_node :you_can_use_result
       assert_phrase_list :simplified_bullets, [:simple_home_costs_bullet]
     end
@@ -354,8 +355,8 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
     setup do
       add_response "yes"
       add_response "using_home_for_business"
-      add_response "1000" #home_costs
       add_response "120" #simple_home_costs
+      add_response "1000" #home_costs
     end
 
     should "take you to the results" do
@@ -397,8 +398,8 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
       add_response "10000" #green_vehicle_price
       add_response "80" #green_write_off
       add_response "2000" #simple_vehicle_costs
-      add_response "1000" #home_costs
       add_response "120" #simple_home_costs
+      add_response "1000" #home_costs
     end
 
     should "take you to the results" do
