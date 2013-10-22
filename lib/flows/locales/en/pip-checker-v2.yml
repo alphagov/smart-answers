@@ -1,0 +1,112 @@
+en-GB:
+  flow:
+    pip-checker-v2:
+      title:
+        Check how Personal Independence Payment (PIP) affects you
+      body: |
+        Personal Independence Payment (PIP) is replacing Disability Living Allowance (DLA) for people with a long-term health condition or disability aged 16 to 64.
+
+        Use this tool to check:
+
+        * if PIP affects you
+        * when your Disability Living Allowance may be affected
+        * when you can make a new claim for PIP
+
+        *[PIP]: Personal Independence Payment
+        *[DLA]: Disability Living Allowance
+      meta:
+        description:
+          Personal Independence Payment (PIP) - if you get Disability Living Allowance or want to make a new claim for PIP
+      options:
+        "no": "No"
+        "yes": "Yes"
+
+      ## Q1
+      are_you_getting_dla?:
+        title: "Are you getting Disability Living Allowance?"
+
+      ## Q2
+      what_is_your_dob?:
+        title: "What's your date of birth?"
+        hint: "If you’re checking for someone else, enter their date of birth."
+
+      result_1:
+        body: |
+          $!The child isn't affected by Personal Independence Payment because they're under 16.$!
+
+          To qualify for Personal Independence Payment (PIP) the child must be 16 or over.
+
+          Instead of PIP, you can make a claim for [Disability Living Allowance](/disability-living-allowance-children) for the child until they turn 16.
+
+      result_2:
+        body: |
+          $!You aren't affected by Personal Independence Payment because you are aged 65 or over.$!
+
+          To qualify for Personal Independence Payment you must be aged 16 to 64.
+
+          Instead of PIP, you can make a claim for [Attendance Allowance](/attendance-allowance "Attendance Allowance") (you won't normally qualify for Disability Living Allowance because you're 65 or over).
+
+          *[PIP]: Personal Independence Payment
+
+      result_3:
+        body: |
+          $!You can make a claim for [Personal Independence Payment (PIP)](/pip).$!
+
+          You can no longer make a claim for Disability Living Allowance (DLA) because PIP has replaced DLA for people aged 16 to 64.
+
+          *[PIP]: Personal Independence Payment
+          *[DLA]: Disability Living Allowance
+
+      result_4:
+        body: |
+          $!You shouldn't be affected by Personal Independence Payment (PIP) until 2015 or later, but there are some exceptions.$!
+
+          You don't need to do anything now - you'll get a letter in 2015 or later explaining:
+
+          + what will happen to your Disability Living Allowance (DLA)
+          + how you can claim PIP
+
+          ##Exceptions
+
+          You'll be asked to make a claim for PIP if after 28 October 2013 you live in Wales, East Midlands, West Midlands or East Anglia and one of the following happen:
+
+          + there’s a change in how your condition affects you
+          + your DLA is due to end and you haven't received a renewal letter
+
+          *[PIP]: Personal Independence Payment
+          *[DLA]: Disability Living Allowance
+
+      result_5:
+        body: |
+          $!You can continue to claim Disability Living Allowance (DLA) for the child for now – but there are some exceptions.$!
+ 
+          ##Exceptions
+ 
+          If they live in Wales, East Midlands, West Midlands or East Anglia they will be invited to claim Personal Independence Payment on or shortly after they turn 16.
+
+          *[DLA]: Disability Living Allowance
+
+      result_6:
+        body: |
+          $!You aren’t affected by Personal Independence Payment (PIP).$!
+
+          Because you were aged 65 or over on 8 April 2013 when PIP was introduced, you can continue to get [Disability Living Allowance](/dla-disability-living-allowance-benefit "Disability Living Allowance") for as long as you're eligible.
+
+      result_7:
+        body: |
+          $!You shouldn't be affected by Personal Independence Payment (PIP) until 2015 or later, but there are some exceptions.$!
+
+          You don't need to do anything now - you'll get a letter in 2015 or later explaining:
+
+          + what will happen to your Disability Living Allowance (DLA)
+          + how you can claim PIP
+
+          ##Exceptions
+
+          You'll be asked to make a claim for PIP if after 28 October 2013 you live in Wales, East Midlands, West Midlands or East Anglia and one of the following happen:  
+
+          + there’s a change in how your condition affects you
+          + your DLA is due to end and you haven't received a renewal letter
+
+          *[PIP]: Personal Independence Payment
+          *[DLA]: Disability Living Allowance
