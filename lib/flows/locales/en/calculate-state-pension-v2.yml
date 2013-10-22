@@ -39,7 +39,7 @@ en-GB:
         amount_disclaimer: |
 
         automatic_credits: |
-          Your estimate may include up to 3 years of automatic credits for the years containing your 16th, 17th and 18th birthdays
+          Your estimate may include up to 3 years of automatic credits for the years containing your 16th, 17th and 18th birthdays.
 
         state_pension_age_is: |
 
@@ -120,7 +120,7 @@ en-GB:
           - [increasing your basic State Pension with your partner’s (or late or former partner’s) National Insurance contributions](/state-pension/eligibility)
           - [State Pension if you retire abroad](/state-pension-if-you-retire-abroad)
 
-          Use your partner’s or late or former partner’s National Insurance to increase your [basic State Pension](/state-pension/eligibility)
+          Use your partner’s or late or former partner’s National Insurance to increase your [basic State Pension](/state-pension/eligibility).
 
         ## Result 2
         too_few_qy_not_enough_remaining_years: |
@@ -182,10 +182,10 @@ en-GB:
 
           - [basic State Pension or how to top it up](/state-pension)
           - [additional State Pension](/additional-state-pension)
-          - State Pension if you retire abroad](/state-pension-if-you-retire-abroad)
+          - [State Pension if you retire abroad](/state-pension-if-you-retire-abroad)
           - [National Insurance contributions](/national-insurance)
 
-        ## Result 5
+  
         within_4_months_not_enough_qy_years: |
           You’re close to State Pension age. You’ll reach it on %{formatted_state_pension_date}.
 
@@ -354,7 +354,7 @@ en-GB:
           ##Voluntary contributions
           If you don’t get the full basic State Pension you might still be able to [pay voluntary National Insurance contributions](/voluntary-national-insurance-contributions).
 
-          More information on the [basic State Pension and how to increase it](/state-pension) and the [additional State Pension](/additional-state-pension)
+          More information on the [basic State Pension and how to increase it](/state-pension) and the [additional State Pension](/additional-state-pension).
 
           This information reflects the current law. The State Pension may [change in the future](/changes-state-pension).
 
@@ -371,10 +371,39 @@ en-GB:
 
           You’ll need 30 years to get a full basic State Pension which is currently worth £%{weekly_rate} a week.
 
-          More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension)
+          More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension).
 
           This information reflects the current law. The State Pension age may [change in the future](/increase-state-pension-age).
 
+      ## Estimate result 4
+      reached_state_pension_age:
+        title: You reached State Pension age on %{formatted_state_pension_date}.
+        body: |
+          Your State Pension age was %{state_pension_age}.
+
+          You can [claim your State Pension](/state-pension#how-to-claim "Claim your state pension") if you haven’t done so already. You need a Government Gateway account to claim online.
+
+          Once you claim your State Pension, the Pension Service will work out how much you get.
+
+
+          $C
+          **Pension Service claim line:** 0800 731 7898
+          $C
+
+          ##Claiming later
+          You can [put off claiming your State Pension](/deferring-state-pension "Deferring your State Pension") when you reach State Pension age or take breaks from claiming it.
+
+          ##Pension Credit
+          If you're on a low income, you might be eligible to claim [Pension Credit](/pension-credit).
+
+          ##Voluntary contributions
+          If you don’t get the full basic State Pension you might still be able to [pay voluntary National Insurance contributions](/voluntary-national-insurance-contributions).
+
+          More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension).
+
+          This information reflects the current law. The State Pension age may [change in the future](/increase-state-pension-age).
+
+      ## Result 5
       amount_result:
         body: |
           %{result_text}

@@ -923,7 +923,14 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
         assert_current_node :amount_result
         assert_phrase_list :result_text, [:within_4_months_enough_qy_years]
       end
+ 
+      context "for someone who has reached state pension age" do
+        should "display the correct result" do
+          add_response Date.parse('15 July 1945')
+          
+          assert_current_node :reached_state_pension_age
+        end
+      end
     end
-
   end #amount calculation
 end #ask which calculation
