@@ -283,10 +283,17 @@ outcome :ips_application_result do
   end
 
   precalculate :how_to_apply do
-    PhraseList.new(:"how_to_apply_ips#{ips_number}",
-                   application_form.to_sym,
-                   supporting_documents.to_sym)
+    if passport_data['online_application'] 
+      PhraseList.new(:how_to_apply_online,
+                     :"how_to_apply_online_prerequisites_#{general_action}", 
+                     :how_to_apply_online_guidance)
+    else
+      PhraseList.new(:"how_to_apply_ips#{ips_number}",
+                     application_form.to_sym,
+                     supporting_documents.to_sym)
+    end
   end
+
   precalculate :send_your_application do
     phrases = PhraseList.new
     if application_address 

@@ -743,6 +743,35 @@ en-GB:
           3. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports) or your application may be delayed.
           4. Check the guidance notes to find out which supporting documents you must send with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
 
+        how_to_apply_online: |
+          You must apply and pay for your passport online.
+
+        how_to_apply_online_prerequisites_applying: |
+          Before you start you need:
+
+          - the passport numbers of both parents and their dates and place of birth, and in some cases the same details of grandparents
+          - 2 identical new photos of you (or your child, if it’s a child passport application)
+          - any other current passports issued by other countries
+          - a MasterCard, Visa, Visa Electron, Visa Debit or Maestro (UK Domestic) card - Maestro (International) cards aren’t accepted
+
+        how_to_apply_online_prerequisites_renewing: |
+          Before you start you need:
+           
+          - your current passport
+          - 2 identical new photos of you (or your child, if it’s a child passport application)
+          - any other current passports issued by other countries
+          - a MasterCard, Visa, Visa Electron, Visa Debit or Maestro (UK Domestic) card - Maestro (International) cards aren’t accepted
+
+        how_to_apply_online_prerequisites_replacing: |
+          Before you start you need:
+           
+          - 2 identical new photos of you (or your child, if it’s a child passport application)
+          - any other current passports issued by other countries
+          - a MasterCard, Visa, Visa Electron, Visa Debit or Maestro (UK Domestic) card - Maestro (International) cards aren’t accepted
+
+        how_to_apply_online_guidance: |
+          Read the [guidance notes](/government/publications/overseas-passports-guidance) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-applications-supporting-documents-guidance) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
+
         send_application_ips1: |
           ## Send your application
 

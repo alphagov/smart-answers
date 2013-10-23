@@ -859,6 +859,7 @@ spain:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   address: belfast
+  online_application: true
 sri-lanka: 
   type: hong_kong
   group: ips_documents_group_3
