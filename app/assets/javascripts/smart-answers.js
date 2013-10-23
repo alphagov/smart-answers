@@ -5,19 +5,27 @@ function browserSupportsHtml5HistoryApi() {
 $(document).ready(function() {
   //_gaq.push(['_trackEvent', 'Citizen-Format-Smartanswer', 'Load']);
   if(browserSupportsHtml5HistoryApi()) {
-    var formSelector = ".current form";
+    var formSelector = ".current form",
+        $form = $(formSelector);
+
     initializeHistory();
 
-    // events
-    // get new questions on submit
-    $(formSelector).live('submit', function(event) {
-      $('input[type=submit]', this).attr('disabled', 'disabled');
-      var form = $(this);
-      var postData = form.serializeArray();
-      reloadQuestions(form.attr('action'), postData);
-      event.preventDefault();
-      return false;
-    });
+    // Don't show feedback form in questions.
+    if ($form.length) {
+      $('.report-a-problem-toggle').hide();
+      $('.meta-data').hide();
+
+      // events
+      // get new questions on submit
+      $form.live('submit', function(event) {
+        $('input[type=submit]', this).attr('disabled', 'disabled');
+        var form = $(this);
+        var postData = form.serializeArray();
+        reloadQuestions(form.attr('action'), postData);
+        event.preventDefault();
+        return false;
+      });
+    }
 
     // we want to start over with whatever gets provided if someone clicks to change the answer
     $(".undo a").live('click', function() {
@@ -136,11 +144,12 @@ $(document).ready(function() {
       var self = this;
       $(document).bind('smartanswerAnswer', function() { 
         self.correctOffscreen();
-        $('.report-a-problem-toggle').hide();
       });
+      // Show feedback form in outcomes
       $(document).bind('smartanswerOutcome', function() {
         $('.report-a-problem-container form #url').val(window.location.href);
         $('.report-a-problem-toggle').show();
+        $('.meta-data').show();
       });
     }
   }
