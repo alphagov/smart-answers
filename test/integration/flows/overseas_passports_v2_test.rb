@@ -1024,7 +1024,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_zimbabwe_apply_renewing_new_replacing, :how_long_it_takes_ips3]
+      assert_phrase_list :how_long_it_takes, [:how_long_applying_ips3, :how_long_it_takes_ips3]
       assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
       expected_location = WorldLocation.find('zimbabwe')
@@ -1041,6 +1041,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       assert_current_node :ips_application_result
       assert_phrase_list :how_long_it_takes, [:how_long_renewing_new_ips3, :how_long_it_takes_ips3]
       assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
+      assert_phrase_list :send_your_application, [:send_application_ips3, :renewing_new_renewing_old, :send_application_embassy_address]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
       expected_location = WorldLocation.find('zimbabwe')
       assert_state_variable :location, expected_location
