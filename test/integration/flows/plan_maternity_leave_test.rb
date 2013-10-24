@@ -16,6 +16,7 @@ class PlanMaternityLeaveTest < ActiveSupport::TestCase
 
   	should "no error on over 9 months" do
   		add_response 1.years.since
+      assert_state_variable :baby_due_date, 1.years.since.to_date
       assert_current_node :leave_start?
     end
 

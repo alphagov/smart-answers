@@ -4,6 +4,10 @@ satisfies_need "855"
 date_question :baby_due_date? do 
 	save_input_as :due_date
 
+  calculate :baby_due_date do
+    Date.parse(due_date)  
+  end
+
   calculate :calculator do
     Calculators::PlanMaternityLeave.new(due_date: due_date)
   end
