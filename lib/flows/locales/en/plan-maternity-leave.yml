@@ -20,6 +20,7 @@ en-GB:
         title: What is the baby's due date?
       leave_start?:
         title: When do you want your leave to start?
+        hint: Choose a date between %{earliest_start} and %{baby_due_date}. 
         error_message: Enter a date on or at least 11 weeks before the due date
       # Outcomes
       maternity_leave_details:
