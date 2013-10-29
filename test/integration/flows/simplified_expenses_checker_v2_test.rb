@@ -77,7 +77,7 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
     context "claimed expenses before, using_home_for_business and live_on_business_premises" do
       setup do
         add_response "yes"
-        add_response "using_home_for_business,live_on_business_premises"
+        add_response "live_on_business_premises,motorcycle,using_home_for_business"
       end
 
       should "raise invalid error" do

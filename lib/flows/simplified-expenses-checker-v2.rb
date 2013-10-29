@@ -36,7 +36,7 @@ checkbox_question :type_of_expense? do
       :you_cant_use_result
     else
       responses = response.split(",")
-      raise InvalidResponse if (responses & ["live_on_business_premises"]).any? and (responses & ["using_home_for_business"]).any?
+      raise InvalidResponse if response =~ /live_on_business_premises.*?using_home_for_business/
       if (responses & ["car_or_van", "motorcycle"]).any?
         :buying_new_vehicle?
       elsif responses.include?("using_home_for_business")
