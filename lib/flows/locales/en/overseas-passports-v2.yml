@@ -700,7 +700,7 @@ en-GB:
           Applications may take longer if:
 
           - Her Majesty's Passport Office needs to ask you for more information or documents
-          - the photographs you send are rejected.
+          - the photographs you send are rejected
 
           Don’t book travel until you have a valid passport. If you need to travel more urgently, apply for an [Emergency Travel Document.](/emergency-travel-document)
 
@@ -771,6 +771,9 @@ en-GB:
 
         how_to_apply_online_guidance: |
           Read the [guidance notes](/government/publications/overseas-passports-guidance) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-applications-supporting-documents-guidance) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
+
+
+          [Start your application on Her Majesty’s Passport Office website](https://passportapplication.direct.gov.uk/) 
 
         send_application_ips1: |
           ## Send your application
@@ -907,7 +910,8 @@ en-GB:
           **Passport Adviceline**
           +44 (0) 300 222 0000
           $C
-
+        
+ 
         how_long_applying_ips2: |
           Your application will take at least **8 weeks.**
 
