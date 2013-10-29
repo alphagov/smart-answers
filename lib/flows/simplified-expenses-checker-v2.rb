@@ -36,10 +36,11 @@ checkbox_question :type_of_expense? do
       :you_cant_use_result
     else
       responses = response.split(",")
+      raise InvalidResponse if response =~ /live_on_business_premises.*?using_home_for_business/
       if (responses & ["car_or_van", "motorcycle"]).any?
         :buying_new_vehicle?
       elsif responses.include?("using_home_for_business")
-        :current_claim_amount_home?
+        :hours_work_home?
       elsif responses.include?("live_on_business_premises")
         :deduct_from_premises?
       end
@@ -85,9 +86,9 @@ multiple_choice :capital_allowances? do
       if (list_of_expenses & %w(using_home_for_business live_on_business_premises)).any?
         if list_of_expenses.include?("using_home_for_business")
           # Q11
-          :current_claim_amount_home?
+          :hours_work_home?
         else
-          #Q 13
+          # Q13
           :deduct_from_premises?
         end
       else
@@ -186,7 +187,7 @@ value_question :drive_business_miles_car_van? do
     if list_of_expenses.include?("motorcycle")
       :drive_business_miles_motorcycle?
     elsif list_of_expenses.include?("using_home_for_business")
-      :current_claim_amount_home?
+      :hours_work_home?
     elsif list_of_expenses.include?("live_on_business_premises")
       :deduct_from_premises?
     else
@@ -202,7 +203,7 @@ value_question :drive_business_miles_motorcycle? do
   end
   next_node do
     if list_of_expenses.include?("using_home_for_business")
-      :current_claim_amount_home?
+      :hours_work_home?
     elsif list_of_expenses.include?("live_on_business_premises")
       :deduct_from_premises?
     else
@@ -211,15 +212,7 @@ value_question :drive_business_miles_motorcycle? do
   end
 end
 
-#Q11 - how much do you claim?
-money_question :current_claim_amount_home? do
-  save_input_as :home_costs
-
-  next_node :hours_work_home?
-
-end
-
-#Q12 - hours for home work
+#Q11 - hours for home work
 value_question :hours_work_home? do
   calculate :hours_worked_home do
     responses.last.gsub(",","").to_f
@@ -235,10 +228,19 @@ value_question :hours_work_home? do
     Money.new(amount)
   end
 
+  next_node :current_claim_amount_home?
+end
+
+#Q12 - how much do you claim?
+money_question :current_claim_amount_home? do
+  save_input_as :home_costs
+
   next_node do
     list_of_expenses.include?("live_on_business_premises") ? :deduct_from_premises? : :you_can_use_result
   end
+
 end
+
 
 #Q13 = how much do you deduct from premises for private use?
 money_question :deduct_from_premises? do
