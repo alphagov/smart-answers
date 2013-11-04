@@ -127,7 +127,7 @@ en-GB:
 
 
           $C
-          You currently don’t have the 30 qualifying years to get a full basic State Pension of £%{weekly_rate}. You don’t have enough years before your State Pension age to get the further years needed.
+          You currently don’t have the 30 qualifying years needed to get a full basic State Pension of £%{weekly_rate}. You don’t have enough years before your State Pension age to get the further years needed.
           $C
 
           State Pension | Your results
@@ -197,7 +197,7 @@ en-GB:
 
           ##Your State Pension estimate
 
-          You currently don’t have the 30 qualifying years to get a full basic State Pension of £110.15 per week.
+          You currently don’t have the 30 qualifying years needed to get a full basic State Pension of £110.15 per week.
 
           State Pension | Your results
           - | -
@@ -349,7 +349,7 @@ en-GB:
           ##Claiming later
           You don’t have to stop working or claim your State Pension when you reach State Pension age.
 
-          You can [put off claiming your State Pension](/deferring-state-pension "Deferring your State Pension") when you reach State Pension age or take breaks from claiming it.
+          You can [put off claiming your State Pension](/deferring-state-pension "Deferring your State Pension") when you reach State Pension age or take a break from claiming it.
 
           ##Voluntary contributions
           If you don’t get the full basic State Pension you might still be able to [pay voluntary National Insurance contributions](/voluntary-national-insurance-contributions).
@@ -373,7 +373,7 @@ en-GB:
 
           More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension).
 
-          This information reflects the current law. The State Pension age may [change in the future](/increase-state-pension-age).
+          This information reflects the current law. The State Pension may [change in the future](/increase-state-pension-age).
 
       ## Estimate result 4
       reached_state_pension_age:
@@ -391,7 +391,7 @@ en-GB:
           $C
 
           ##Claiming later
-          You can [put off claiming your State Pension](/deferring-state-pension "Deferring your State Pension") when you reach State Pension age or take breaks from claiming it.
+          You can [put off claiming your State Pension](/deferring-state-pension "Deferring your State Pension") when you reach State Pension age or take a break from claiming it.
 
           ##Pension Credit
           If you're on a low income, you might be eligible to claim [Pension Credit](/pension-credit).
@@ -401,7 +401,7 @@ en-GB:
 
           More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension).
 
-          This information reflects the current law. The State Pension age may [change in the future](/increase-state-pension-age).
+          This information reflects the current law. The State Pension may [change in the future](/increase-state-pension-age).
 
       ## Result 5
       amount_result:
