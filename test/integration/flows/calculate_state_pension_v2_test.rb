@@ -62,12 +62,12 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
         end
 
         should "state that user is near state pension age when born on 16th July 1948" do
-          add_response Date.parse("16 July 1948")
+          add_response Date.parse("16 July 1948") # retires 16 July 2013
           assert_current_node :near_state_pension_age
         end
 
-        should "state that user is near state pension age when born on 16th July 1948" do
-          add_response Date.parse("15 November 1948")
+        should "state that user is near state pension age when born on 14th November 1948" do
+          add_response Date.parse("14 November 1948") # retires 14 Nov 2013
           assert_current_node :near_state_pension_age
         end
       end
@@ -905,7 +905,7 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
         add_response Date.parse('4 Jan 1952')
         add_response 25
         add_response 5
-        
+
         assert_state_variable "formatted_state_pension_date", " 6 September 2013"
         assert_current_node :amount_result
         assert_phrase_list :result_text, [:within_4_months_enough_qy_years]
@@ -918,16 +918,16 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
         add_response 'yes'
         add_response 2
         add_response 3
-        
+
         assert_state_variable "formatted_state_pension_date", " 6 September 2013"
         assert_current_node :amount_result
         assert_phrase_list :result_text, [:within_4_months_enough_qy_years]
       end
- 
+
       context "for someone who has reached state pension age" do
         should "display the correct result" do
           add_response Date.parse('15 July 1945')
-          
+
           assert_current_node :reached_state_pension_age
         end
       end
