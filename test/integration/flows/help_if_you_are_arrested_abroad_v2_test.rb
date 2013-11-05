@@ -1,10 +1,14 @@
 require_relative "../../test_helper"
 require_relative "flow_test_helper"
+require 'gds_api/test_helpers/worldwide'
 
 class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
   include FlowTestHelper
+  include GdsApi::TestHelpers::Worldwide
 
   setup do
+    @location_slugs = %w(aruba belgium greece iran syria)
+    worldwide_api_has_locations(@location_slugs)    
     setup_for_testing_flow "help-if-you-are-arrested-abroad-v2"
   end
 
@@ -16,9 +20,10 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
 
     context "Answering with a country without any specific downloads / information" do
 
-      context "Answering Andorra" do
+      context "Answering Aruba" do
         setup do
-          add_response :andorra
+        worldwide_api_has_organisations_for_location('aruba', read_fixture_file('worldwide/aruba_organisations.json'))
+          add_response :aruba
         end
 
         should "take the user to the generic answer" do
@@ -26,8 +31,8 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
         end
 
         should "correctly calculate and store the country variables" do
-          assert_state_variable :country, "andorra"
-          assert_state_variable :country_name, "Andorra"
+          assert_state_variable :country, "aruba"
+          assert_state_variable :country_name, "Aruba"
         end
 
         should "correctly set up phrase lists" do
@@ -46,6 +51,7 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
 
       context "Answering Belgium" do
         setup do
+        worldwide_api_has_organisations_for_location('belgium', read_fixture_file('worldwide/belgium_organisations.json'))
           add_response :belgium
         end
 
@@ -67,6 +73,7 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
 
       context "Answering Greece" do
         setup do
+        worldwide_api_has_organisations_for_location('greece', read_fixture_file('worldwide/greece_organisations.json'))
           add_response :greece
         end
 
@@ -85,6 +92,7 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
 
   context "In Iran" do
     setup do
+      worldwide_api_has_organisations_for_location('iran', read_fixture_file('worldwide/iran_organisations.json'))
       add_response :iran
     end
 
@@ -98,6 +106,7 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
 
   context "In Syria" do
     setup do
+      worldwide_api_has_organisations_for_location('syria', read_fixture_file('worldwide/syria_organisations.json'))
       add_response :syria
     end
 
