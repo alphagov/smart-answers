@@ -109,11 +109,11 @@
   doc: /government/publications/colombia-prisoner-pack
 - slug: comoros
 - slug: congo
-- slug: congo-(democratic-republic)
+- slug: democratic-republic-of-congo
   pdf: /government/publications/democratic-republic-of-congo-prisoner-pack
 - slug: costa-rica
   doc: /government/publications/costa-rica-prisoner-pack
-- slug: cote-d_ivoire-(ivory-coast)
+- slug: cote-d-ivoire
 - slug: croatia
   doc: /government/publications/croatia-prisoner-pack
 - slug: cuba
@@ -138,7 +138,7 @@
   pdf: /government/publications/denmark-prisoner-pack
   lawyer: /government/publications/denmark-list-of-lawyers
 - slug: djibouti
-- slug: dominica,-commonwealth-of
+- slug: dominica
   pdf: /government/publications/dominica-prisoner-pack
 - slug: dominican-republic
   doc: /government/publications/dominican-republic-prisoner-pack
@@ -225,7 +225,7 @@
 - slug: kenya
   pdf: /government/publications/kenya-prisoner-pack
 - slug: kiribati
-- slug: korea
+- slug: south-korea
   pdf: /government/publications/south-korea-prisoner-pack
 - slug: kosovo
   pdf: /government/publications/kosovo-prisoner-pack
@@ -324,7 +324,7 @@
 - slug: philippines
   pdf: /government/publications/philippines-prisoner-pack
   lawyer: /government/publications/philippines-list-of-lawyers
-- slug: pitcairn
+- slug: pitcairn-island
 - slug: poland
   doc: /government/publications/poland-prisoner-pack
   judicial: /government/publications/poland-prisoner-pack
@@ -337,7 +337,7 @@
 - slug: reunion
 - slug: romania
   pdf: /government/publications/romania-prisoner-pack
-- slug: russian-federation
+- slug: russia
   pdf: /government/publications/russia-prisoner-pack
 - slug: rwanda
   doc: /government/publications/rwanda-prisoner-pack
@@ -441,7 +441,7 @@
       url_text: Additional Prison Information in Dubai and The Northern Emirates
       link: /government/publications/united-arab-emirates-prisoner-pack
 
-- slug: united-states
+- slug: usa
   pdf: /government/publications/canada-usa-prisoner-pack
 - slug: uruguay
   pdf: /government/publications/uruguay-prisoner-pack
