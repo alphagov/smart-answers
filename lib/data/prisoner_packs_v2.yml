@@ -14,7 +14,7 @@
 - slug: argentina
   pdf: /government/publications/argentina-prisoner-pack
   lawyer: /government/publications/argentina-list-of-lawyers
-  benefits: /government/uploads/system/uploads/attachment_data/file/139609/benefits-arg-factsheet.doc
+  benefits: /government/publications/british-embassy-buenos-aires-benefits-factsheet-for-prisoners
 - slug: armenia
   pdf: /government/publications/armenia-prisoner-pack
 - slug: aruba
@@ -39,9 +39,9 @@
       url_text: "Prisoner pack for Western Australia"
 - slug: austria
   pdf: /government/publications/austria-prisoner-pack
-  benefits: /government/uploads/system/uploads/attachment_data/file/139608/legal_aid_austria.pdf
+  benefits: /government/publications/austria-prison-pack-legal-aid-in-austria
   prison: /government/publications/austria-prison-rules
-  consul: /government/uploads/system/uploads/attachment_data/file/139601/how_consul_can_help.pdf
+  consul: /government/publications/austria-prisoner-pack-how-the-consul-can-help-you
 - slug: azerbaijan
   doc: /government/publications/azerbaijan-prisoner-pack
 - slug: bahamas
@@ -54,11 +54,9 @@
 - slug: belarus
   pdf: /government/publications/belarus-prisoner-pack
 - slug: belgium
-  pdf: /government/publications/the-british-consulate-general-brussels-how-we-can-help
+  pdf: /government/publications/belgium-prisoner-pack
   lawyer: /government/publications/belgium-list-of-lawyers
   translators: /government/publications/belgium-list-of-lawyers
-  consul: /government/publications/the-british-consulate-general-brussels-how-we-can-help
-  judicial: /government/uploads/system/uploads/attachment_data/file/139597/consul-help-info.pdf /government/uploads/system/uploads/attachment_data/file/139598/belgium-detention-info.pdf
 - slug: belize
   pdf: /government/publications/belize-prisoner-pack
 - slug: benin
@@ -66,9 +64,13 @@
 - slug: bhutan
 - slug: bolivia
   pdf: /government/publications/bolivia-prisoner-pack
+  lawyer: /government/publications/bolivia-list-of-lawyers
+  translators: /government/publications/bolivia-list-of-lawyers
 - slug: bonaire-st-eustatius-saba
 - slug: bosnia-and-herzegovina
   pdf: /government/publications/bosnia-and-herzegovina-prisoner-pack
+  lawyer: /government/publications/bosnia-and-herzegovina-list-of-lawyers
+  translators: /government/publications/bosnia-and-herzegovina-list-of-lawyers
 - slug: botswana
   doc: /government/publications/botswana-prisoner-pack
 - slug: brazil
@@ -126,7 +128,7 @@
       link: /government/publications/cyprus-prisoner-pack
       url_text: Prisoner pack for people who have been imprisoned at Nicosia Central Prison or held on remand at a police station in the Republic of Cyprus
     republic_police:
-      link: /government/uploads/system/uploads/attachment_data/file/139596/police-station-pack-south.pdf
+      link: /government/publications/british-high-commission-cyprus-prisoner-pack
       url_text: Prisoner pack for people who are detained or held on remand at a police station in the Republic of Cyprus
 
 - slug: czech-republic
@@ -176,7 +178,7 @@
 - slug: greece
   pdf: /government/publications/greece-prisoner-pack
   lawyer: /government/publications/greece-list-of-lawyers
-  prison: /government/uploads/system/uploads/attachment_data/file/139611/bns_in_prison.pdf
+  prison: /government/publications/british-embassy-athens-prisoners-pack
   police: /government/publications/greece-help-if-you-are-arrested-or-detained
 - slug: grenada
   pdf: /government/publications/grenada-prisoner-pack
@@ -230,7 +232,7 @@
 - slug: kuwait
   doc: http://ukinkuwait.fco.gov.uk/resources/en/word/803520082/Prisoner's-Pack-for-Kuwait
   lawyer: /government/publications/kuwait-list-of-lawyers
-  translators: /government/uploads/system/uploads/attachment_data/file/139616/list-of-translators-may.doc
+  translators: /government/publications/british-embassy-kuwait-translators-list
 - slug: kyrgyzstan
   pdf: /government/publications/kyrgyzstan-prisoner-pack
 - slug: laos
@@ -250,8 +252,8 @@
 - slug: luxembourg
   doc: /government/publications/luxembourg-prisoner-pack
   lawyer: /government/publications/luxembourg-list-of-lawyers
-  translators: /government/uploads/system/uploads/attachment_data/file/139615/translators.doc
-  prison: /government/uploads/system/uploads/attachment_data/file/139603/prison-info.doc
+  translators: /government/publications/british-embassy-luxembourg-translators
+  prison: /government/publications/british-embassy-luxembourg-prisoner-pack
 - slug: macao
 - slug: macedonia
   pdf: /government/publications/macedonia-prisoner-pack
@@ -287,7 +289,7 @@
 - slug: mozambique
   doc: /government/publications/mozambique-prisoner-pack
   lawyer: /government/publications/mozambique-list-of-lawyers
-  translators: /government/uploads/system/uploads/attachment_data/file/139614/list-interpreters.doc
+  translators: /government/publications/mozambique-list-of-lawyers
 - slug: namibia
   pdf: /government/publications/namibia-prisoner-pack
 - slug: nauru
@@ -316,7 +318,7 @@
 - slug: papua-new-guinea
   pdf: /government/publications/papua-new-guinea-prisoner-pack
 - slug: paraguay
-  benefits: /government/uploads/system/uploads/attachment_data/file/139607/benefits-paraguay-factsheet.doc
+  benefits: /government/publications/british-embassy-argentina-paraguay-parole
 - slug: peru
   pdf: /government/publications/peru-prisoner-pack
 - slug: philippines
@@ -348,7 +350,7 @@
   pdf: /government/publications/senegal-prisoner-pack
 - slug: serbia
   doc: /government/publications/serbia-prisoner-pack
-  judicial: /government/uploads/system/uploads/attachment_data/file/139599/srb-legal-sys.doc
+  judicial: /government/publications/british-embassy-belgrade-criminal-procedure-in-serbia
 - slug: seychelles
   pdf: /government/publications/seychelles-prisoner-pack
   lawyer: /government/publications/seychelles-prisoner-pack
@@ -369,10 +371,10 @@
 - slug: south-georgia-and-south-sandwich-islands
 - slug: south-sudan
 - slug: spain
+  pdf: /government/publications/spain-prisoner-pack
   lawyer: /government/publications/spain-list-of-lawyers
-  benefits: /government/uploads/system/uploads/attachment_data/file/139606/legal-aid-in-spain.pdf
-  prison: /government/uploads/system/uploads/attachment_data/file/139604/spanish-prison-system.pdf
-  judicial: /government/uploads/system/uploads/attachment_data/file/139600/legal-procedures-criminal-cases.pdf
+  benefits: /government/publications/british-embassy-madrid-legal-aid-in-spain-factsheet
+  judicial: /government/publications/british-consulate-general-madrid-legal-procedures-in-criminal-cases
 - slug: sri-lanka
   pdf: /government/publications/sri-lanka-prisoner-pack
 - slug: st-helena
@@ -401,9 +403,8 @@
 - slug: tanzania
   pdf: /government/publications/tanzania-prisoner-pack
 - slug: thailand
-  pdf: /government/publications/british-embassy-bangkok-prisoner-pack
-  lawyer: /government/world/thailand/help-for-british-nationals/when-things-go-wrong/if-you-need-eng-lawyer/
-  prison: /government/uploads/system/uploads/attachment_data/file/139605/guidance-for-british-detainees.pdf
+  pdf: /government/publications/thailand-prisoner-pack
+  lawyer: /government/publications/thailand-list-of-lawyers
 - slug: timor-leste
 - slug: togo
 - slug: tonga
