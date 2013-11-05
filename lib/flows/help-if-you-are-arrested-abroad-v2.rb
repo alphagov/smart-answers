@@ -85,7 +85,14 @@ outcome :answer_one_generic do
   end
 
   precalculate :generic_downloads do
-    PhraseList.new(:common_downloads)
+    transfers_back_to_uk_treaty_change_countries = %(austria belgium croatia denmark finland hungary italy latvia luxembourg malta netherlands slovakia)
+
+    phrases = PhraseList.new
+    phrases << :common_downloads
+    if transfers_back_to_uk_treaty_change_countries.exclude?(country)
+      phrases << :transfers_back_to_the_uk_download
+    end
+    phrases
   end
 
   precalculate :country_downloads do

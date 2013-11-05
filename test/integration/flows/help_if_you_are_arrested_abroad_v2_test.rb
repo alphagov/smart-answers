@@ -37,7 +37,7 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
 
         should "correctly set up phrase lists" do
           assert_phrase_list :intro, [:common_intro]
-          assert_phrase_list :generic_downloads, [:common_downloads]
+          assert_phrase_list :generic_downloads, [:common_downloads, :transfers_back_to_the_uk_download]
           assert_phrase_list :after_downloads, [:fco_cant_do, :dual_nationals_other_help, :further_links]
           assert_state_variable :has_extra_downloads, false
           assert_phrase_list :country_downloads, []
