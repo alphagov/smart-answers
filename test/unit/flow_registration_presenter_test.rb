@@ -42,14 +42,14 @@ class FlowRegistraionPresenterTest < ActiveSupport::TestCase
   end
 
   context "paths" do
-    should "generate flow.name and flow.name.json" do
-      assert_equal ["flow-sample", "flow-sample.json"], @presenter.paths
+    should "generate and /flow.name.json" do
+      assert_equal ["/flow-sample.json"], @presenter.paths
     end
   end
 
   context "prefixes" do
-    should "generate flow.name" do
-      assert_equal ["flow-sample"], @presenter.prefixes
+    should "generate /flow.name" do
+      assert_equal ["/flow-sample"], @presenter.prefixes
     end
   end
 
