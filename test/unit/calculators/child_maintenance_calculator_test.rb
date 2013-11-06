@@ -245,6 +245,13 @@ module SmartAnswer::Calculators
         assert_equal 5, @calculator.calculate_maintenance_payment
       end
 
+      should "make shared care reductions for the basic plus scheme" do
+        @calculator = ChildMaintenanceCalculator.new(3, :new, 'no')
+        @calculator.income = 925
+        @calculator.number_of_other_children = 0
+        @calculator.number_of_shared_care_nights = 4
+        assert_equal 64.38, @calculator.calculate_maintenance_payment
+      end
     end
   end
 end
