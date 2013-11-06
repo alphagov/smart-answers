@@ -872,7 +872,23 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
         assert_state_variable :qualifying_years_total, 30
         assert_state_variable "state_pension_age", "65 years"
         assert_state_variable "formatted_state_pension_date", " 9 August 2013"
-        assert_phrase_list :result_text, [:within_4_months_enough_qy_years]
+        assert_phrase_list :result_text, [:within_4_months_enough_qy_years, :pension_statement, :within_4_months_enough_qy_years_more]
+      end
+    end
+
+    context "within 35 days of SPA, has enough qualifying years" do
+      setup do
+        Timecop.travel('2013-07-05')
+        add_response 'male'
+        add_response Date.parse('1948-08-09')
+        add_response 30
+      end
+      should "display close to SPA outcome without pension statement" do
+        assert_current_node :amount_result
+        assert_state_variable :qualifying_years_total, 30
+        assert_state_variable "state_pension_age", "65 years"
+        assert_state_variable "formatted_state_pension_date", " 9 August 2013"
+        assert_phrase_list :result_text, [:within_4_months_enough_qy_years, :within_4_months_enough_qy_years_more]
       end
     end
 
@@ -891,7 +907,26 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
         assert_state_variable :qualifying_years_total, 23
         assert_state_variable "state_pension_age", "65 years"
         assert_state_variable "formatted_state_pension_date", " 9 August 2013"
-        assert_phrase_list :result_text, [:within_4_months_not_enough_qy_years, :automatic_years_phrase]
+        assert_phrase_list :result_text, [:within_4_months_not_enough_qy_years, :pension_statement, :within_4_months_not_enough_qy_years_more, :automatic_years_phrase]
+      end
+    end
+
+    context "within 35 days of SPA, doesn't have enough qualifying years" do
+      setup do
+        Timecop.travel('2013-07-05')
+        add_response 'male'
+        add_response Date.parse('1948-08-09')
+        add_response 20
+        add_response 3
+        add_response 'no'
+        add_response 0
+      end
+      should "display close to SPA outcome without pension statement" do
+        assert_current_node :amount_result
+        assert_state_variable :qualifying_years_total, 23
+        assert_state_variable "state_pension_age", "65 years"
+        assert_state_variable "formatted_state_pension_date", " 9 August 2013"
+        assert_phrase_list :result_text, [:within_4_months_not_enough_qy_years, :within_4_months_not_enough_qy_years_more, :automatic_years_phrase]
       end
     end
 
@@ -921,7 +956,7 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
 
         assert_state_variable "formatted_state_pension_date", " 6 September 2013"
         assert_current_node :amount_result
-        assert_phrase_list :result_text, [:within_4_months_enough_qy_years]
+        assert_phrase_list :result_text, [:within_4_months_enough_qy_years, :within_4_months_enough_qy_years_more]
       end
 
       context "for someone who has reached state pension age" do

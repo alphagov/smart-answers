@@ -85,6 +85,12 @@ en-GB:
 
           [Check with your council](/find-your-local-council) as the date may be sooner.
 
+        pension_statement: |
+
+          ##Get a pension statement
+
+          If you’re more than 30 days away from your State Pension age you can [apply for a State Pension statement](/state-pension-statement) to get an estimate of your full State Pension.
+
         ##Result 1
         too_few_qy_enough_remaining_years: |
 
@@ -211,10 +217,7 @@ en-GB:
           Years of contributions you already have | %{qualifying_years_total}
           Years of contributions you still need for a full basic State Pension | %{missing_years}
 
-          ##Get a pension statement
-
-          If you’re more than 30 days away from your State Pension age you can [apply for a State Pension statement](/state-pension-statement) to get an estimate of your full State Pension.
-
+        within_4_months_not_enough_qy_years_more: |
           ## More about the State Pension
 
           Read about: 
@@ -242,10 +245,7 @@ en-GB:
 
           How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance) you have.
 
-          ##Get a pension statement
-
-          If you’re more than 30 days away from your State Pension age you can [apply for a State Pension statement](/state-pension-statement) to get an estimate of your full State Pension.
-
+        within_4_months_enough_qy_years_more: |
           ## More about the State Pension
 
           Read about:
