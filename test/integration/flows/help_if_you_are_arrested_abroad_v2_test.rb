@@ -2,7 +2,7 @@ require_relative "../../test_helper"
 require_relative "flow_test_helper"
 require 'gds_api/test_helpers/worldwide'
 
-class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
+class HelpIfYouAreArrestedAbroadV2 < ActiveSupport::TestCase
   include FlowTestHelper
   include GdsApi::TestHelpers::Worldwide
 
