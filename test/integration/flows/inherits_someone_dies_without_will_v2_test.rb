@@ -382,23 +382,23 @@ class InheritsSomeoneDiesWithoutWillV2Test < ActiveSupport::TestCase
         context "no-children" do
           setup { add_response "no" }
 
-          context "no-parents" do
-            setup { add_response "no" }
+          context "parents" do
+            setup { add_response "yes" }
 
             should "give outcome 63" do
-              assert_current_node :outcome_63 # T64
+              assert_current_node :outcome_63 # T63
               assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
             end
           end
 
-          context "parents" do
-            setup { add_response "yes" }
+          context "no-parents" do
+            setup { add_response "no" }
 
             context "siblings" do
               setup { add_response "yes" }
 
               should "give outcome 64" do
-                assert_current_node :outcome_64 # T65
+                assert_current_node :outcome_64 # T64
                 assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
               end
             end
@@ -407,7 +407,7 @@ class InheritsSomeoneDiesWithoutWillV2Test < ActiveSupport::TestCase
               setup { add_response "no" }
 
               should "give outcome 65" do
-                assert_current_node :outcome_65 # T63
+                assert_current_node :outcome_65 # T65
                 assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
               end
             end

@@ -111,7 +111,7 @@ multiple_choice :parents? do
       :siblings?
     when "northern-ireland"
       if partner == "yes"
-        response == "yes" ? :siblings? : :outcome_63
+        response == "yes" ? :outcome_63 : :siblings?
       else
         response == "yes" ? :outcome_3 : :siblings?
       end
