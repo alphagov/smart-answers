@@ -625,19 +625,19 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "within_four_months_one_day_from_state_pension" do
+    context "within_four_months_one_day_from_state_pension?" do
       setup do
-        Timecop.travel("2013-07-15")
+        Timecop.travel("2013-07-16")
       end
 
-      should "born 16 July 1948" do
+      should "be within four months of pension if born 16 July 1948" do
         calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
           gender: "male", dob: "16 July 1948", qualifying_years: nil)
 
         assert calculator.within_four_months_one_day_from_state_pension?
       end
 
-      should "born 15 November 1948" do
+      should "be within four months of pension if born 15 November 1948" do
         calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
           gender: "male", dob: "15 November 1948", qualifying_years: nil)
 
@@ -658,6 +658,24 @@ module SmartAnswer::Calculators
 
       should "should have 45 available years" do
         assert_equal 45, @calculator.available_years
+      end
+    end
+
+    context "within_four_months_one_day_from_state_pension?" do
+      # test edge cases
+      setup do
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
+          gender: "female", dob: "1 Feb 1952", qualifying_years: nil) # retires 2013-11-06
+      end
+
+      should "not be true for someone exactly four months from state pension date" do
+        Timecop.travel("2013-07-06")
+        refute @calculator.within_four_months_one_day_from_state_pension?
+      end
+
+      should "be true for someone under four months from state pension date" do
+        Timecop.travel("2013-07-07")
+        assert @calculator.within_four_months_one_day_from_state_pension?
       end
     end
   end
