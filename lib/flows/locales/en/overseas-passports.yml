@@ -1003,6 +1003,9 @@ en-GB:
         how_long_renewing_old_ips3: |
           Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
 
+        how_long_renewing_new_ips2: |
+          Your application will take **at least** 4 weeks.
+
         how_long_renewing_new_ips3: |
           Your application will take **at least** 4 weeks from when it’s received by Her Majesty's Passport Office in the UK.
 
