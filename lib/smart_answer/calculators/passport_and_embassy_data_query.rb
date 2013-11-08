@@ -16,9 +16,9 @@ module SmartAnswer::Calculators
       'liberia' => 'ghana'
     }
 
-    RETAIN_PASSPORT_COUNTRIES = %w(afghanistan angola bangladesh brazil burma burundi china cuba
+    RETAIN_PASSPORT_COUNTRIES = %w(afghanistan angola brazil burma burundi china cuba
                                    east-timor egypt eritrea georgia indonesia iraq laos lebanon
-                                   libya morocco nepal north-korea pakistan rwanda
+                                   libya morocco nepal north-korea rwanda
                                    sri-lanka sudan thailand timor-leste tunisia uganda yemen zambia)
 
     RETAIN_PASSPORT_COUNTRIES_HURRICANES = %w(anguilla antigua-and-barbuda bahamas bermuda bonaire-st-eustatius-saba british-virgin-islands cayman-islands curacao dominica dominican-republic french-guiana grenada guadeloupe guyana haiti martinique mexico montserrat st-maarten st-kitts-and-nevis st-lucia st-pierre-and-miquelon st-vincent-and-the-grenadines suriname trinidad-and-tobago turks-and-caicos-islands)
