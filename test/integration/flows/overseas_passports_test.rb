@@ -221,7 +221,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           assert_phrase_list :fco_forms, [:adult_fco_forms]
           assert_phrase_list :how_long_it_takes, [:how_long_afghanistan]
           assert_phrase_list :cost, [:cost_afghanistan]
-          assert_phrase_list :how_to_apply, [:how_to_apply_afghanistan, :how_to_apply_retain_passport]
+          assert_phrase_list :how_to_apply, [:how_to_apply_afghanistan, :how_to_apply_retain_passport_exception]
           assert_phrase_list :making_application, [:making_application_afghanistan]
           assert_phrase_list :getting_your_passport, [:getting_your_passport_afghanistan]
           assert_phrase_list :helpline, [:helpline_intro, :helpline_afghanistan, :helpline_fco_webchat]

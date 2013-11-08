@@ -355,6 +355,8 @@ outcome :fco_result do
       PhraseList.new(:"how_to_apply_#{application_type}")
     elsif general_action == 'renewing' and data_query.retain_passport?(current_location)
       PhraseList.new(:how_to_apply_retain_passport)
+    elsif general_action == 'renewing' and data_query.retain_passport_exception?(current_location)
+      PhraseList.new(:how_to_apply_retain_passport_exception)
     else
       ''
     end
@@ -422,6 +424,8 @@ outcome :result do
     phrases = PhraseList.new(:"how_to_apply_#{application_type}")
     if general_action == 'renewing' and data_query.retain_passport?(current_location)
       phrases << :how_to_apply_retain_passport
+    elsif general_action == 'renewing' and data_query.retain_passport_exception?(current_location)
+      phrases << :how_to_apply_retain_passport_exception
     end
     phrases
   end

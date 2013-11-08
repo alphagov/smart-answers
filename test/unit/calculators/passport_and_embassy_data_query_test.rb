@@ -19,7 +19,7 @@ module SmartAnswer::Calculators
 
       context "retain_passport?" do
         should "indicate whether to retain your passport when applying from the given country" do
-          assert @query.retain_passport?('afghanistan')
+          assert @query.retain_passport?('angola')
           refute @query.retain_passport?('france')
         end
       end

@@ -16,10 +16,12 @@ module SmartAnswer::Calculators
       'liberia' => 'ghana'
     }
 
-    RETAIN_PASSPORT_COUNTRIES = %w(afghanistan angola brazil burma burundi china cuba
-                                   east-timor egypt eritrea georgia indonesia iraq laos lebanon
-                                   libya morocco nepal north-korea rwanda
-                                   sri-lanka sudan thailand timor-leste tunisia uganda yemen zambia)
+    RETAIN_PASSPORT_COUNTRIES = %w(angola brazil burundi cuba
+                                   egypt eritrea georgia iraq lebanon
+                                   libya morocco rwanda
+                                   sri-lanka sudan timor-leste tunisia uganda yemen zambia)
+
+    RETAIN_PASSPORT_COUNTRIES_EXCEPTION = %w(burma laos china thailand east-timor indonesia afghanistan nepal north-korea)
 
     RETAIN_PASSPORT_COUNTRIES_HURRICANES = %w(anguilla antigua-and-barbuda bahamas bermuda bonaire-st-eustatius-saba british-virgin-islands cayman-islands curacao dominica dominican-republic french-guiana grenada guadeloupe guyana haiti martinique mexico montserrat st-maarten st-kitts-and-nevis st-lucia st-pierre-and-miquelon st-vincent-and-the-grenadines suriname trinidad-and-tobago turks-and-caicos-islands)
 
@@ -50,6 +52,10 @@ module SmartAnswer::Calculators
 
     def retain_passport?(country_slug)
       RETAIN_PASSPORT_COUNTRIES.include?(country_slug)
+    end
+
+    def retain_passport_exception?(country_slug)
+      RETAIN_PASSPORT_COUNTRIES_EXCEPTION.include?(country_slug)
     end
 
     def retain_passport_hurricanes?(country_slug)
