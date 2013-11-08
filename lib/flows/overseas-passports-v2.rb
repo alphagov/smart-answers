@@ -77,7 +77,7 @@ multiple_choice :renewing_replacing_applying? do
     application_type =~ Calculators::PassportAndEmbassyDataQueryV2::FCO_APPLICATIONS_REGEXP
   end
   calculate :ips_number do
-    application_type.split("_")[2] if is_ips_application 
+    application_type.split("_")[2] if is_ips_application
   end
 
   calculate :application_form do
@@ -93,11 +93,11 @@ multiple_choice :renewing_replacing_applying? do
   end
 
   calculate :ips_docs_number do
-    supporting_documents.split("_")[3] if is_ips_application 
+    supporting_documents.split("_")[3] if is_ips_application
   end
 
   data_query.passport_costs.each do |k,v|
-    calculate "costs_#{k}".to_sym do 
+    calculate "costs_#{k}".to_sym do
       v
     end
   end
@@ -125,7 +125,7 @@ multiple_choice :child_or_adult_passport? do
     when 'australia_post', 'new_zealand'
       :"which_best_describes_you_#{response}?"
     when Calculators::PassportAndEmbassyDataQueryV2::IPS_APPLICATIONS_REGEXP
-      %Q(applying renewing_old).include?(application_action) ? :country_of_birth? : :ips_application_result 
+      %Q(applying renewing_old).include?(application_action) ? :country_of_birth? : :ips_application_result
     when Calculators::PassportAndEmbassyDataQueryV2::FCO_APPLICATIONS_REGEXP
       :fco_result
     else
@@ -150,8 +150,8 @@ country_select :country_of_birth?, :include_uk => true, :exclude_countries => ex
     case application_type
     when 'australia_post', 'new_zealand'
       :aus_nz_result
-    when Calculators::PassportAndEmbassyDataQueryV2::IPS_APPLICATIONS_REGEXP 
-      :ips_application_result 
+    when Calculators::PassportAndEmbassyDataQueryV2::IPS_APPLICATIONS_REGEXP
+      :ips_application_result
     when Calculators::PassportAndEmbassyDataQueryV2::FCO_APPLICATIONS_REGEXP
       :fco_result
     else
@@ -193,7 +193,7 @@ multiple_choice :which_best_describes_you_child? do
   option "born-in-uk-post-1982-mother-uk-service" # 14
   option "registered-uk-citizen" # 16
   option "child-born-outside-uk-father-citizen" # 17
-  
+
   save_input_as :aus_nz_checklist_variant
 
   next_node :aus_nz_result
@@ -213,7 +213,7 @@ outcome :aus_nz_result do
   precalculate :how_to_apply_documents do
     phrases = PhraseList.new(:"how_to_apply_#{child_or_adult}_#{application_type}")
 
-    if application_action == 'replacing' 
+    if application_action == 'replacing'
       phrases << :"aus_nz_replacing"
     end
     if application_action =~ /^renewing_/
@@ -235,7 +235,7 @@ outcome :aus_nz_result do
 end
 
 
-## IPS Application Result 
+## IPS Application Result
 outcome :ips_application_result do
 
   precalculate :how_long_it_takes do
@@ -339,7 +339,7 @@ outcome :fco_result do
     # All european FCO applications cost the same
     cost_type = 'fco_europe' if application_type =~ /^(dublin_ireland|madrid_spain|paris_france)$/
     cost_type = "applying_#{current_location}" if current_location == 'india' and general_action != 'renewing'
-   
+
     payment_methods = :"passport_costs_#{application_type}"
 
     # Indonesian first time applications have courier and cost variations.
@@ -349,7 +349,7 @@ outcome :fco_result do
     end
 
     phrases = PhraseList.new(:"passport_courier_costs_#{cost_type}",
-                             :"#{child_or_adult}_passport_costs_#{cost_type}", 
+                             :"#{child_or_adult}_passport_costs_#{cost_type}",
                              payment_methods)
 
     phrases << :passport_costs_nepal if current_location == 'nepal'
@@ -361,6 +361,8 @@ outcome :fco_result do
       PhraseList.new(:"how_to_apply_#{application_type}")
     elsif general_action == 'renewing' and data_query.retain_passport?(current_location)
       PhraseList.new(:how_to_apply_retain_passport)
+    elsif general_action == 'renewing' and data_query.retain_passport_exception?(current_location)
+      PhraseList.new(:how_to_apply_retain_passport_exception)
     else
       ''
     end
@@ -404,7 +406,7 @@ outcome :fco_result do
   end
   precalculate :getting_your_passport do
     location = 'fco'
-    location = current_location if %(burma congo india nepal).include?(current_location)
+    location = current_location if %(burma cambodia congo india nepal).include?(current_location)
     PhraseList.new(:"getting_your_passport_#{location}")
   end
   precalculate :helpline do
@@ -427,7 +429,9 @@ outcome :result do
   precalculate :how_to_apply do
     phrases = PhraseList.new(:"how_to_apply_#{application_type}")
     if general_action == 'renewing' and data_query.retain_passport?(current_location)
-      phrases << :how_to_apply_retain_passport 
+      phrases << :how_to_apply_retain_passport
+    elsif general_action == 'renewing' and data_query.retain_passport_exception?(current_location)
+      phrases << :how_to_apply_retain_passport_exception
     end
     phrases
   end
