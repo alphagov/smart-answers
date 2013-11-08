@@ -206,6 +206,32 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         end
       end
     end
+
+    context "answer replacing" do
+      setup do
+        add_response 'renewing_new'
+      end
+      should "ask if the passport is for an adult or a child" do
+        assert_current_node :child_or_adult_passport?
+      end
+      context "answer adult" do
+        should "give the result and be done" do
+          add_response 'adult'
+          assert_state_variable :application_type, 'afghanistan'
+          assert_phrase_list :fco_forms, [:adult_fco_forms]
+          assert_phrase_list :how_long_it_takes, [:how_long_afghanistan]
+          assert_phrase_list :cost, [:cost_afghanistan]
+          assert_phrase_list :how_to_apply, [:how_to_apply_afghanistan, :how_to_apply_retain_passport]
+          assert_phrase_list :making_application, [:making_application_afghanistan]
+          assert_phrase_list :getting_your_passport, [:getting_your_passport_afghanistan]
+          assert_phrase_list :helpline, [:helpline_intro, :helpline_afghanistan, :helpline_fco_webchat]
+          assert_current_node :result
+          expected_location = WorldLocation.find('afghanistan')
+          assert_state_variable :location, expected_location
+          assert_state_variable :organisation, expected_location.fco_organisation
+        end
+      end
+    end
   end # Afghanistan
 
   # Iraq (An example of ips 1 application with some conditional phrases).
