@@ -8,7 +8,7 @@ module SmartAnswer::Calculators
       setup do
         @query = PassportAndEmbassyDataQuery.new
       end
-    
+
       context "find_passport_data" do
         should "find passport data by country slug" do
           assert_equal 'afghanistan', @query.find_passport_data('afghanistan')['type']
@@ -19,7 +19,7 @@ module SmartAnswer::Calculators
 
       context "retain_passport?" do
         should "indicate whether to retain your passport when applying from the given country" do
-          assert @query.retain_passport?('afghanistan')
+          assert @query.retain_passport?('angola')
           refute @query.retain_passport?('france')
         end
       end
@@ -30,10 +30,10 @@ module SmartAnswer::Calculators
             euros_adult_32 euros_adult_48 euros_child).each do |k|
             assert @query.passport_costs.has_key?(k), "passport_costs should have key #{k}"
           end
-          assert_match /^\d,\d\d\d South African Rand/, @query.passport_costs["south_african_rand_adult_48"] 
+          assert_match /^\d,\d\d\d South African Rand/, @query.passport_costs["south_african_rand_adult_48"]
         end
       end
-      
+
     end
   end
 end

@@ -181,6 +181,11 @@ en-GB:
 
           Keep your existing passport for security and ID purposes - don’t send it with your application.
 
+        how_to_apply_retain_passport_exception: |
+          Send a photocopy of the pages of your existing passport that show your personal details, photograph and residence permit or visa.
+
+          Keep your existing passport for security and ID purposes - don’t send it with your application. This is an exception to the information in the main guidance notes.
+
         how_to_apply_retain_passport_hurricane: |
           Don’t send your passport - keep it in case you have to to evacuate in the event of a hurricane.
 
@@ -242,7 +247,7 @@ en-GB:
           You’ll have to pay a fee for your passport and a courier fee. The courier fee pays for your passport and supporting documents to be sent back to you securely.
 
         passport_courier_costs_applying_india: |
-          You’ll have to pay a fee for your passport and a courier fee of 2,000 Rupees. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+          You’ll have to pay a fee for your passport and a courier fee. The courier fee pays for your passport and supporting documents to be sent back to you securely.
 
         adult_passport_costs_india: |
           Passport type | Passport fee | Total to pay (including courier fee)
@@ -849,6 +854,8 @@ en-GB:
           Your passport and supporting documents will be delivered to the British Deputy High Commission in Lagos, Nigeria - you must collect them in person.
         getting_your_passport_burundi: |
           Your passport and supporting documents will be delivered to the British Embassy Liaison Office in Bujumbura, Burundi - you must collect them in person.
+        getting_your_passport_cambodia: |
+          The British embassy will contact you when your passport and supporting documents arrive using the contact details on your form. You must collect them in person.
         getting_your_passport_cameroon: |
           Your passport and supporting documents will be delivered to the British High Commission in Yaounde, Cameroon - you must collect them in person. 
         getting_your_passport_chad: |
@@ -1035,6 +1042,9 @@ en-GB:
 
         how_long_renewing_old_ips3: |
           Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
+
+        how_long_renewing_new_ips2: |
+          Your application will take **at least** 4 weeks.
 
         how_long_renewing_new_ips3: |
           Your application will take **at least** 4 weeks from when it’s received by Her Majesty's Passport Office in the UK.
