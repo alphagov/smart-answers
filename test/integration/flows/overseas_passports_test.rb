@@ -207,7 +207,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       end
     end
 
-    context "answer replacing" do
+    context "answer renewing" do
       setup do
         add_response 'renewing_new'
       end
