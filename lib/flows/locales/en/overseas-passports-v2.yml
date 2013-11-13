@@ -709,6 +709,17 @@ en-GB:
 
           Don’t book travel until you have a valid passport. If you need to travel more urgently, apply for an [Emergency Travel Document.](/emergency-travel-document)
 
+        how_long_renewing_new_online: |
+          Your application will take **at least** 4 weeks from when your declaration form is received by Her Majesty's Passport Office in the UK.
+
+        how_long_applying_online: |
+          Your application will take **at least** 6 weeks from when your declaration form is received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
+
+        how_long_replacing_online: |
+          Your application will take **at least** 6 weeks from when when your declaration form is received by Her Majesty's Passport Office in the UK. 
+
+          If you haven’t already reported the loss or theft, you must include form LS01 with your declaration form.
+ 
         passport_courier_costs_ips1: |
           You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent back to you securely.
 
@@ -777,6 +788,7 @@ en-GB:
         how_to_apply_online_guidance: |
           Read the [guidance notes](/government/publications/overseas-passports-guidance) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-applications-supporting-documents-guidance) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
 
+          You will need to print, sign and post your declaration form at the end.
 
           [Start your application on Her Majesty’s Passport Office website](https://passportapplication.direct.gov.uk/) 
 
@@ -1981,6 +1993,26 @@ en-GB:
           Don’t use this service any earlier - information won’t be available but you will still be charged for the call.
 
           %{helpline}
+
+      ips_application_result_online:
+        body: |
+          ## How long it takes
+
+          %{how_long_it_takes}
+
+          ## Cost
+
+          %{cost}
+
+          ## How to apply
+
+          %{how_to_apply}
+
+          ## Getting your passport
+
+          %{getting_your_passport}
+
+          %{tracking_and_receiving}
 
       ips_application_result:
         body: |
