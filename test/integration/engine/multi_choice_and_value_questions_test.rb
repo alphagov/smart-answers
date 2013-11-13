@@ -26,7 +26,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
         assert page.has_link?("Start now", :href => "/bridge-of-death/y")
       end
 
-      assert page.has_selector?("#content .article-container #test-report_a_problem")
+      assert page.has_selector?("#test-report_a_problem")
 
       click_on "Start now"
 
@@ -159,12 +159,6 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
           within('h2.result-title') { assert_page_has_content "Right, off you go." }
           assert_page_has_content "Oh! Well, thank you. Thank you very much."
         end
-      end
-
-      # The report-a-problem form doesn't currently get inserted with the AJAX version
-      # because slimmer can't run against non-html responses.
-      unless Capybara.current_driver == Capybara.javascript_driver
-        assert page.has_selector?("#content .article-container #test-report_a_problem")
       end
     end
   end # with_and_without_javascript
