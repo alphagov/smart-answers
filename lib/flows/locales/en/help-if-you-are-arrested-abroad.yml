@@ -42,15 +42,11 @@ en-GB:
         common_downloads: |
           Read more about how the FCO can help someone arrested abroad.
 
+          - [Support for British nationals](/government/publications/support-for-british-nationals-abroad-a-guide)
+          - [In prison abroad](/government/publications/arrest-or-detention)
 
-          $D
-          [Download 'Support for British nationals' (PDF, 414KB)](/government/uploads/system/uploads/attachment_data/file/35519/support-for-british-nationals-abroad.pdf "Download 'Support for British nationals' (PDF, 414KB)")
-
-          [Download 'In prison abroad' (PDF, 208KB)](/government/uploads/system/uploads/attachment_data/file/35521/in-prison-abroad.pdf "Download 'In prison abroad' (PDF, 208KB)")
-
-          [Download 'Transfers back to the UK' (PDF, 205KB)](/government/uploads/system/uploads/attachment_data/file/35522/transfers-home.pdf "Download 'Transfers back to the UK' (PDF, 205KB)")
-          $D
-
+        transfers_back_to_the_uk_download: |
+          - [Transfers back to the UK](/government/publications/arrest-or-detention)
         fco_cant_do: |
           ##What the FCO and British consulate can’t do
 

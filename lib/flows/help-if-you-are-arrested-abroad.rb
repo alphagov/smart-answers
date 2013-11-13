@@ -2,14 +2,24 @@ status :published
 
 arrested_calc = SmartAnswer::Calculators::ArrestedAbroad.new
 prisoner_packs = arrested_calc.data
+exclude_countries = %w(holy-see british-antarctic-territory the-occupied-palestinian-territories)
 
 #Q1
-country_select :which_country?, :use_legacy_data => true do
+country_select :which_country?, :exclude_countries => exclude_countries do
   save_input_as :country
 
+  calculate :location do
+    loc = WorldLocation.find(country)
+    raise InvalidResponse unless loc
+    loc
+  end
+
+  calculate :organisation do
+    location.fco_organisation
+  end
+
   calculate :country_name do
-    country_list = YAML::load( File.open( Rails.root.join('lib', 'data', 'countries.yml') ))
-    country_list.select {|c| c[:slug] == country }.first[:name]
+    location.name
   end
 
   calculate :pdf do
@@ -75,7 +85,14 @@ outcome :answer_one_generic do
   end
 
   precalculate :generic_downloads do
-    PhraseList.new(:common_downloads)
+    transfers_back_to_uk_treaty_change_countries = %(austria belgium croatia denmark finland hungary italy latvia luxembourg malta netherlands slovakia)
+
+    phrases = PhraseList.new
+    phrases << :common_downloads
+    if transfers_back_to_uk_treaty_change_countries.exclude?(country)
+      phrases << :transfers_back_to_the_uk_download
+    end
+    phrases
   end
 
   precalculate :country_downloads do

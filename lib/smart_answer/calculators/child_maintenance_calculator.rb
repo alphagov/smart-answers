@@ -70,7 +70,11 @@ module SmartAnswer::Calculators
       basic_qualifying_child_amount = (BASIC_PLUS_RATE_THRESHOLD * basic_rate_multiplier)
       additional_qualifying_child_amount = ((basic_plus_rate - BASIC_PLUS_RATE_THRESHOLD) * basic_plus_rate_multiplier)
       child_amounts_total = basic_qualifying_child_amount + additional_qualifying_child_amount
-      (child_amounts_total - (child_amounts_total * shared_care_multiplier)).round(2)
+      total = (child_amounts_total - (child_amounts_total * shared_care_multiplier))
+      if shared_care_multiplier == 0.5
+        total = total - (@number_of_children * SHARED_CARE_MAX_RELIEF_EXTRA_AMOUNT)
+      end  
+      total.round(2)
     end
     
     def reduced_rate_multiplier

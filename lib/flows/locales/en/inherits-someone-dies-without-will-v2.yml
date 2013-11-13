@@ -303,7 +303,8 @@ en-GB:
 
           They also get half of the amount left over.
 
-          The remainder goes to the parent or parents.
+          The remainder goes to the parents.
+
         next_steps: |
           %{next_step_links}
 

@@ -16,10 +16,12 @@ module SmartAnswer::Calculators
       'liberia' => 'ghana'
     }
 
-    RETAIN_PASSPORT_COUNTRIES = %w(afghanistan angola bangladesh brazil burma burundi china cuba
-                                   east-timor egypt eritrea georgia indonesia iraq laos lebanon
-                                   libya morocco nepal north-korea pakistan rwanda
-                                   sri-lanka sudan thailand timor-leste tunisia uganda yemen zambia)
+    RETAIN_PASSPORT_COUNTRIES = %w(angola brazil burundi cuba
+                                   egypt eritrea georgia iraq lebanon
+                                   libya morocco rwanda
+                                   sri-lanka sudan timor-leste tunisia uganda yemen zambia)
+
+    RETAIN_PASSPORT_COUNTRIES_EXCEPTION = %w(burma laos china thailand east-timor indonesia afghanistan nepal north-korea)
 
     RETAIN_PASSPORT_COUNTRIES_HURRICANES = %w(anguilla antigua-and-barbuda bahamas bermuda bonaire-st-eustatius-saba british-virgin-islands cayman-islands curacao dominica dominican-republic french-guiana grenada guadeloupe guyana haiti martinique mexico montserrat st-maarten st-kitts-and-nevis st-lucia st-pierre-and-miquelon st-vincent-and-the-grenadines suriname trinidad-and-tobago turks-and-caicos-islands)
 
@@ -28,7 +30,7 @@ module SmartAnswer::Calculators
       'Euros'               => [[156, 180],   [188, 212],   [99, 123]],
       'Indian Rupees'       => [[13450, 15900], [16250, 18700], [8600, 11050]],
       'New Zealand Dollars' => [["317.80", 337.69], ["371.80", 391.69], ["222.80", 242.69]],
-      'Pakistani Rupees'    => [[22400, 26790], [27040, 31430], [14260, 18650]],
+      'Pakistani Rupees'    => [[23040, 27550], [27810, 32320], [14670, 19180]],
       'Philipine peso'      => [[9216, 10872], [11124, 12780], [5868, 7524]],
       'SLL'                 => [[900000, 1135000], [1085000, 1320000], [575000, 810000]],
       'South African Rand'  => [[2112, 2440], [2549, 2877], [1345, 1673]]
@@ -50,6 +52,10 @@ module SmartAnswer::Calculators
 
     def retain_passport?(country_slug)
       RETAIN_PASSPORT_COUNTRIES.include?(country_slug)
+    end
+
+    def retain_passport_exception?(country_slug)
+      RETAIN_PASSPORT_COUNTRIES_EXCEPTION.include?(country_slug)
     end
 
     def retain_passport_hurricanes?(country_slug)

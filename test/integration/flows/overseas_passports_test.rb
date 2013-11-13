@@ -60,22 +60,22 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         context "answer born in the uk after 31 Dec 1982 with father born in UK" do
           should "give the australian result" do
             add_response 'born-in-uk-post-1982-uk-father'
-            assert_state_variable :aus_nz_checklist_variant, 'born-in-uk-post-1982-uk-father' 
-            assert_current_node :aus_nz_result 
+            assert_state_variable :aus_nz_checklist_variant, 'born-in-uk-post-1982-uk-father'
+            assert_current_node :aus_nz_result
           end
         end
         context "answer born in the uk before 1 Jan 1983 with mother born in UK" do
           should "give the australian result" do
             add_response 'born-in-uk-post-1982-uk-mother'
             assert_state_variable :aus_nz_checklist_variant, 'born-in-uk-post-1982-uk-mother'
-            assert_current_node :aus_nz_result 
+            assert_current_node :aus_nz_result
           end
         end
         context "answer born outside the uk with british father married to mother" do
           should "give the australian result" do
             add_response 'born-outside-uk-parents-married'
             assert_state_variable :aus_nz_checklist_variant, 'born-outside-uk-parents-married'
-            assert_current_node :aus_nz_result 
+            assert_current_node :aus_nz_result
           end
         end
         context "answer born outside the uk with british mother" do
@@ -170,7 +170,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end # Renewing
   end # Australia
 
-  # Afghanistan (An example of bespoke application process). 
+  # Afghanistan (An example of bespoke application process).
   context "answer Afghanistan" do
     setup do
       worldwide_api_has_organisations_for_location('afghanistan', read_fixture_file('worldwide/afghanistan_organisations.json'))
@@ -206,9 +206,35 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         end
       end
     end
+
+    context "answer renewing" do
+      setup do
+        add_response 'renewing_new'
+      end
+      should "ask if the passport is for an adult or a child" do
+        assert_current_node :child_or_adult_passport?
+      end
+      context "answer adult" do
+        should "give the result and be done" do
+          add_response 'adult'
+          assert_state_variable :application_type, 'afghanistan'
+          assert_phrase_list :fco_forms, [:adult_fco_forms]
+          assert_phrase_list :how_long_it_takes, [:how_long_afghanistan]
+          assert_phrase_list :cost, [:cost_afghanistan]
+          assert_phrase_list :how_to_apply, [:how_to_apply_afghanistan, :how_to_apply_retain_passport_exception]
+          assert_phrase_list :making_application, [:making_application_afghanistan]
+          assert_phrase_list :getting_your_passport, [:getting_your_passport_afghanistan]
+          assert_phrase_list :helpline, [:helpline_intro, :helpline_afghanistan, :helpline_fco_webchat]
+          assert_current_node :result
+          expected_location = WorldLocation.find('afghanistan')
+          assert_state_variable :location, expected_location
+          assert_state_variable :organisation, expected_location.fco_organisation
+        end
+      end
+    end
   end # Afghanistan
 
-  # Iraq (An example of ips 1 application with some conditional phrases). 
+  # Iraq (An example of ips 1 application with some conditional phrases).
   context "answer Iraq" do
     setup do
       worldwide_api_has_organisations_for_location('iraq', read_fixture_file('worldwide/iraq_organisations.json'))
@@ -254,7 +280,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         end
       end
     end
-  end # Iraq 
+  end # Iraq
 
   context "answer Benin, renewing old passport" do
     setup do
@@ -420,7 +446,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
             assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
             assert_phrase_list :send_your_application, [:send_application_ips1]
             assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
-            assert_state_variable :embassy_address, nil 
+            assert_state_variable :embassy_address, nil
             assert_state_variable :supporting_documents, 'ips_documents_group_3'
             expected_location = WorldLocation.find('albania')
             assert_state_variable :location, expected_location
@@ -661,7 +687,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_state_variable :location, expected_location
     end
   end # Iran - no application outcome
-  
+
   context "answer Syria" do
     should "give a bespoke outcome stating an application is not possible in Syria" do
       worldwide_api_has_organisations_for_location('syria', read_fixture_file('worldwide/syria_organisations.json'))

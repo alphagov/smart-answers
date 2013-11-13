@@ -104,10 +104,10 @@ date_question :dob_age? do
 
     near_pension_date = (calc.before_state_pension_date? and
                          calc.within_four_months_one_day_from_state_pension?)
-    
+
     if calc.under_20_years_old?
       :too_young
-    elsif near_pension_date 
+    elsif near_pension_date
       :near_state_pension_age
     else
       :age_result
@@ -461,6 +461,10 @@ outcome :amount_result do
 
     if calc.within_four_months_one_day_from_state_pension?
       phrases << (enough_qualifying_years ? :within_4_months_enough_qy_years : :within_4_months_not_enough_qy_years)
+      if Date.today < calc.state_pension_date - 35
+        phrases << :pension_statement
+      end
+      phrases << (enough_qualifying_years ? :within_4_months_enough_qy_years_more : :within_4_months_not_enough_qy_years_more)
       phrases << :automatic_years_phrase if auto_years_entitlement and !enough_qualifying_years
     elsif !enough_qualifying_years
       phrases << (enough_remaining_years ? :too_few_qy_enough_remaining_years : :too_few_qy_not_enough_remaining_years)
