@@ -704,8 +704,15 @@ en-GB:
         how_long_replacing_online: |
           Your application will take **at least** 6 weeks from when when your declaration form is received by Her Majesty's Passport Office in the UK. 
 
-          If you haven’t already reported the loss or theft, you must include form LS01 with your declaration form.
- 
+          If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your declaration form.
+
+        how_long_additional_time_online: |
+          Applications may take longer if:
+
+          - the IPS need to ask you for more information or documents
+          - the photographs you send are rejected
+
+          Don’t book any travel until you have a valid passport. If you need to travel more urgently, apply for an [Emergency Travel Document](/emergency-travel-document).
         passport_courier_costs_ips1: |
           You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent back to you securely.
 
@@ -771,8 +778,15 @@ en-GB:
           - any other current passports issued by other countries
           - a MasterCard, Visa, Visa Electron, Visa Debit or Maestro (UK Domestic) card - Maestro (International) cards aren’t accepted
 
-        how_to_apply_online_guidance: |
-          Read the [guidance notes](/government/publications/overseas-passports-guidance) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-applications-supporting-documents-guidance) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
+        how_to_apply_online_guidance_doc_group_1: |
+          Read the [guidance notes](/government/publications/help-completing-the-online-passport-application-from-outside-the-uk) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-applications-supporting-documents-guidance) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
+
+          You will need to print, sign and post your declaration form at the end.
+
+          [Start your application on Her Majesty’s Passport Office website](https://passportapplication.service.gov.uk/)
+
+        how_to_apply_online_guidance_doc_group_2: |
+          Read the [guidance notes](/government/publications/help-completing-the-online-passport-application-from-outside-the-uk) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-supporting-documents-group-2) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
 
           You will need to print, sign and post your declaration form at the end.
 
