@@ -393,6 +393,31 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end # Replacing
   end # Austria - IPS_application_1
 
+  context "answer Spain an example of online application" do
+    setup do
+      worldwide_api_has_organisations_for_location('spain', read_fixture_file('worldwide/spain_organisations.json'))
+      add_response 'spain'
+    end
+    should "show how to apply online" do
+      add_response 'applying'
+      add_response 'adult'
+      add_response 'united-kingdom'
+      assert_current_node :ips_application_result_online
+      assert_phrase_list :how_long_it_takes, [:how_long_applying_online, :how_long_additional_time_online]
+      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1]
+      assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance_doc_group_1]
+      assert_match /the passport numbers of both parents/, outcome_body
+    end
+    should "show how to replace your passport online" do
+      add_response 'replacing'
+      add_response 'child'
+      assert_current_node :ips_application_result_online
+      assert_phrase_list :how_long_it_takes, [:how_long_replacing_online, :how_long_additional_time_online]
+      assert_phrase_list :cost, [:passport_courier_costs_replacing_ips1, :child_passport_costs_replacing_ips1]
+      assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_replacing, :how_to_apply_online_guidance_doc_group_1]
+    end
+  end
+
   # Albania (an example of IPS application 2).
   context "answer Albania" do
     setup do
