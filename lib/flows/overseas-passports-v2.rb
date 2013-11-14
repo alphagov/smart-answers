@@ -242,7 +242,8 @@ end
 outcome :ips_application_result_online do
   precalculate :how_long_it_takes do
     action = application_action =~/applying|renewing_old/ ? 'applying' : application_action
-    PhraseList.new(:"how_long_#{action}_online")
+    PhraseList.new(:"how_long_#{action}_online",
+                    :how_long_additional_time_online)
   end
   precalculate :cost do
     if application_action == 'replacing' and ips_number == '1' and ips_docs_number == '1'
@@ -256,7 +257,7 @@ outcome :ips_application_result_online do
   precalculate :how_to_apply do
     PhraseList.new(:how_to_apply_online,
                    :"how_to_apply_online_prerequisites_#{general_action}", 
-                   :how_to_apply_online_guidance)
+                   :"how_to_apply_online_guidance_doc_group_#{ips_docs_number}")
   end
   precalculate :getting_your_passport do
     PhraseList.new(:"getting_your_passport_ips#{ips_number}")

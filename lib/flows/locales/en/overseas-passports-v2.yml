@@ -66,12 +66,7 @@ en-GB:
         how_long_replacing_fco: |
           Your application will take **at least** 6 weeks.
 
-          If you haven't already reported the loss or theft, you must include form LS01 with your passport application.
-
-
-          $D
-          [Download 'Form LS01 - Lost or stolen passport notification' (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf)
-          $D
+          If you haven't already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
         passport_courier_costs_wellington_new_zealand: |
 
         adult_passport_costs_wellington_new_zealand: |
@@ -87,7 +82,7 @@ en-GB:
           - a banker’s draft in New Zealand Dollars, payable to the ‘British High Commission’
           - Visa or Mastercard
 
-          If you're paying by card you must send a [card payment authorisation form (PDF, 198KB)](/government/uploads/system/uploads/attachment_data/file/136856/credit-card-form-12-2011.pdf) with your application. You can't pay in cash.
+          If you're paying by card you must send a [card payment authorisation form](/government/publications/passport-credit-debit-card-payment-authorisation-slip-new-zealand) with your application. You can't pay in cash.
 
         passport_courier_costs_washington_usa: |
           You’ll have to pay a fee for your passport and a courier fee of US $33. The courier fee pays for your passport and supporting documents to be sent back to you securely.
@@ -171,10 +166,10 @@ en-GB:
           Child passport | %{costs_euros_child}
 
         passport_costs_dublin_ireland: |
-          You must pay using Visa or Mastercard. Download a [card payment authorisation form (PDF,198KB)](/government/uploads/system/uploads/attachment_data/file/168042/card-payment-form.pdf) and send it with your application.
+          You must pay using Visa or Mastercard. Download a [card payment authorisation form](/government/publications/passport-credit-debit-card-payment-authorisation-slip-ireland) and send it with your application.
 
         how_to_apply_dublin_ireland: |
-          If you were born in Ireland before 1 January 1949, you must also send a [completed Form E](/government/uploads/system/uploads/attachment_data/file/181057/postie_passport_forme.pdf "Form E for British subjects born before 1 January 1949") with your application.
+          If you were born in Ireland before 1 January 1949, you must also send a [completed Form E](/government/publications/claim-by-a-citizen-of-roi-to-remain-a-british-subject) with your application.
 
         how_to_apply_retain_passport: |
           Send a photocopy of the pages of your existing passport that show your personal details, photograph and residence permit or visa.
@@ -211,7 +206,7 @@ en-GB:
         passport_costs_madrid_spain: |
           You must pay using a Visa or Mastercard.
 
-          [Download a credit card authorisation form (PDF, 51KB)](/government/uploads/system/uploads/attachment_data/file/136851/credit-card-authorisation-slip.pdf) and send it with your application.
+          [Download a credit card authorisation form](/government/publications/passport-credit-debit-card-payment-authorisation-slip-spain) and send it with your application.
 
         passport_courier_costs_hong_kong: |
           You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent securely to you.
@@ -283,11 +278,9 @@ en-GB:
           - [Child first passport](/government/publications/passport-application-first-time-child-india)
 
         adult_fco_forms: |
-          __Smart application form__ (fill in on screen, print and sign)
+          __Smart application form__
 
-          $D
-          [Download ‘Smart application form’ (PDF, 188KB)](/government/uploads/system/uploads/attachment_data/file/136841/smart-form.pdf.pdf)
-          $D
+          - [Smart application form](/government/publications/application-for-united-kingdom-passport-for-overseas-customers) (fill in on screen, print and sign)
 
           __Blank application form__
 
@@ -298,11 +291,9 @@ en-GB:
           - [Guidance notes for adult applications](/government/publications/application-for-united-kingdom-passport-for-applicants-16-and-over-notes)
 
         child_fco_forms: |
-          __Smart application form__ (fill in on screen, print and sign)
+          __Smart application form__
 
-            $D
-            [Download ‘Smart application form’ (PDF, 188KB)](/government/uploads/system/uploads/attachment_data/file/136841/smart-form.pdf.pdf)
-            $D
+          - [Smart application form](/government/publications/application-for-united-kingdom-passport-for-overseas-customers) (fill in on screen, print and sign)
 
           __Blank application form__
 
@@ -694,12 +685,7 @@ en-GB:
         how_long_replacing_ips1: |
           Your application will take **at least** 6 weeks from when your application is received by Her Majesty's Passport Office in the UK.
 
-          If you haven’t already reported the loss or theft, you must include form LS01 with your passport application.
-
-
-          $D
-          [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf)
-          $D
+          If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
 
         how_long_it_takes_ips1: |
           Applications may take longer if:
@@ -718,8 +704,15 @@ en-GB:
         how_long_replacing_online: |
           Your application will take **at least** 6 weeks from when when your declaration form is received by Her Majesty's Passport Office in the UK. 
 
-          If you haven’t already reported the loss or theft, you must include form LS01 with your declaration form.
- 
+          If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your declaration form.
+
+        how_long_additional_time_online: |
+          Applications may take longer if:
+
+          - the IPS need to ask you for more information or documents
+          - the photographs you send are rejected
+
+          Don’t book any travel until you have a valid passport. If you need to travel more urgently, apply for an [Emergency Travel Document](/emergency-travel-document).
         passport_courier_costs_ips1: |
           You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent back to you securely.
 
@@ -785,12 +778,19 @@ en-GB:
           - any other current passports issued by other countries
           - a MasterCard, Visa, Visa Electron, Visa Debit or Maestro (UK Domestic) card - Maestro (International) cards aren’t accepted
 
-        how_to_apply_online_guidance: |
-          Read the [guidance notes](/government/publications/overseas-passports-guidance) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-applications-supporting-documents-guidance) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
+        how_to_apply_online_guidance_doc_group_1: |
+          Read the [guidance notes](/government/publications/help-completing-the-online-passport-application-from-outside-the-uk) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-applications-supporting-documents-guidance) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
 
           You will need to print, sign and post your declaration form at the end.
 
-          [Start your application on Her Majesty’s Passport Office website](https://passportapplication.direct.gov.uk/) 
+          [Start your application on Her Majesty’s Passport Office website](https://passportapplication.service.gov.uk/)
+
+        how_to_apply_online_guidance_doc_group_2: |
+          Read the [guidance notes](/government/publications/help-completing-the-online-passport-application-from-outside-the-uk) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-supporting-documents-group-2) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
+
+          You will need to print, sign and post your declaration form at the end.
+
+          [Start your application on Her Majesty’s Passport Office website](https://passportapplication.service.gov.uk/)
 
         send_application_ips1: |
           ## Send your application
@@ -961,22 +961,12 @@ en-GB:
         how_long_replacing_ips2: |
           Your application will take at least **8 weeks.**
 
-          If you haven’t already reported the loss or theft, you must include form LS01 with your passport application.
-
-
-          $D
-          [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf)
-          $D
+          If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
 
         how_long_replacing_ips2_morocco: |
           Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK.
 
-          If you haven’t already reported the loss or theft, you must include form LS01 with your passport application.
-
-
-          $D
-          [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf)
-          $D
+          If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
 
         passport_courier_costs_ips2: |
           You’ll have to pay a fee for your passport and a courier fee of £24.72. The courier fee pays for your passport to be sent securely to the British embassy, high commission or consulate where you applied for you to collect.
@@ -1045,12 +1035,7 @@ en-GB:
         how_long_replacing_ips3: |
           Your application will take **at least** 6 weeks from when it's received by Her Majesty's Passport Office in the UK.
 
-          If you haven’t already reported the loss or theft, you must include form LS01 with your passport application.
-
-
-          $D
-          [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf)
-          $D
+          If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
 
         how_long_renewing_old_ips3: |
           Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
@@ -1153,12 +1138,7 @@ en-GB:
           
           Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [Emergency Travel Document](/emergency-travel-document).
 
-          If your passport has been lost or stolen and you haven’t reported it yet, include ‘Form LS01’ with your application.
-
-
-          $D
-          [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf)
-          $D
+          If your passport has been lost or stolen and you haven’t reported it yet, include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your application.
 
         cost_australia_post: |
           | Passport type | Passport fee |
@@ -1270,13 +1250,7 @@ en-GB:
 
           Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [Emergency Travel Document](/emergency-travel-document).
 
-          If your passport has been lost or stolen and you haven’t reported it yet, include 'Form LS01' with your application.
-
-
-
-          $D
-            [Download 'Form LS01 - Lost or stolen passport notification' (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf)
-          $D
+          If your passport has been lost or stolen and you haven’t reported it yet, include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your application.
 
         cost_new_zealand: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
@@ -1289,7 +1263,7 @@ en-GB:
           1. Download the application form and guidance notes. Bring the application form to your interview.
           2. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports "Passport photo requirements") or your application may be delayed.
 
-          3. Complete the [passport fees information sheet (PDF, 232KB).](/government/uploads/system/uploads/attachment_data/file/136863/nz-fee-sheet-02-12.pdf)
+          3. Complete the [passport fees information sheet](/government/publications/passport-fees-new-zealand).
 
           4. Bring your application, photos, supporting documents and passport fees sheet to your [nearest New Zealand Postshop](http://www.nzpost.co.nz/apply-renew-organise/british-passports "Find a New Zealand Postshop") to make your application.
 
@@ -1308,7 +1282,7 @@ en-GB:
         instructions_australia_post: |
           Bring 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports) or your application may be delayed.
 
-          Complete the [passport fees information sheet (PDF, 232KB)](/government/uploads/system/uploads/attachment_data/file/136862/australia-passport-fee-sheet.pdf) and bring it to your interview.
+          Complete the [passport fees information sheet](/government/publications/australia-passport-fees) and bring it to your interview.
 
           Bring the supporting documents and signed checklist you need to your interview. You must get supporting documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
 
@@ -1366,13 +1340,12 @@ en-GB:
         how_to_apply_afghanistan: ''
 
         supporting_documents_afghanistan: |
-          Application type | Supporting documents information
-          - | -
-          Adult renewal | [Download ‘Supporting documents for adult passport renewal’ (PDF, 24KB)](/government/uploads/system/uploads/attachment_data/file/136858/afghanistan-adult-renewal.pdf.pdf)
-          Child renewal | [Download ‘Supporting documents for child passport renewal’ (PDF, 24KB)](/government/uploads/system/uploads/attachment_data/file/136859/afghanistan-child-renewal.pdf.pdf)
-          First adult passport | [Download ‘Supporting documents for adult first passport, (PDF, 41KB)](/government/uploads/system/uploads/attachment_data/file/136860/afghanistan-adult-first-time-application.pdf.pdf)
-          First child passport | [Download ‘Supporting documents for first child passport (PDF, 39KB)](/government/uploads/system/uploads/attachment_data/file/136861/afghanistan-child-first-time-application.pdf.pdf)
+          __Supporting documents information__
 
+          - [Adult passport renewal](/government/publications/passport-renewal-adult-afghanistan)
+          - [Child passport renewal](/government/publications/passport-renewal-child-afghanistan)
+          - [Adult first passport](/government/publications/passport-application-first-time-adult-afghanistan)
+          - [First child passport](/government/publications/passport-application-first-time-child-afghanistan)
         making_application_afghanistan: |
           You must apply in person at the British embassy in Kabul.
 
@@ -1536,7 +1509,7 @@ en-GB:
         cost_lebanon: |
           You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
 
-          You must pay using a Visa or Mastercard - download a [card payment authorisation form](/government/uploads/system/uploads/attachment_data/file/136915/cc-author-form-beirut.doc) and include it with your application.
+          You must pay using a Visa or Mastercard - download a [card payment authorisation form](/government/publications/passport-credit-debit-card-payment-authorisation-slip-lebanon) and include it with your application.
 
           Passport type	Passport fee | Total to pay | (including courier fee)
           -|-|-
@@ -1617,16 +1590,12 @@ en-GB:
 
         how_to_apply_pakistan: ''
         supporting_documents_pakistan: |
+          __Supporting documents information__
 
-          $D
-            [Download ‘Adult passport renewal supporting documents guidance notes’ (PDF, 32KB)](/government/uploads/system/uploads/attachment_data/file/136919/pakistan-adult-renewal.pdf.pdf)
-
-            [Download ‘Child passport renewal supporting documents guidance notes’ (PDF, 37KB)](/government/uploads/system/uploads/attachment_data/file/136920/pakistan-child-renewal.pdf.pdf)
-
-            [Download ‘Adult first passport supporting documents guidance notes’ (PDF, 37KB)](/government/uploads/system/uploads/attachment_data/file/136921/pakistan-adult-first-time-apply.pdf.pdf)
-
-            [Download ‘Child first passport supporting documents guidance notes’ (PDF, 40KB)](/government/uploads/system/uploads/attachment_data/file/136922/pakistan-child-first-time-apply.pdf.pdf)
-          $D
+          - [Adult passport renewal](/government/publications/passport-renewal-guidance-adult-pakistan)
+          - [Child passport renewal](/government/publications/guidance-on-passport-renewal-child-pakistan)
+          - [Adult first passport](/government/publications/pakistan-first-time-passport-applications-for-adults)
+          - [First child passport](/government/publications/pakistan-first-time-passport-application-for-children-under-16)
 
         making_application_pakistan: |
           You can send your application British High Commission in Islamabad, preferably by secure post or courier. You must pay using a Banker’s Draft if you send your application this way.
@@ -1649,7 +1618,7 @@ en-GB:
 
         cost_philippines: ''
         how_to_apply_philippines: |
-          4. If you’re applying for a first British passport, check the [supporting documents](/government/uploads/system/uploads/attachment_data/file/136923/philippines-first-time-application.pdf.pdf "Supporting documents for first-time passport applications") you must send with your application. Supporting documents must be in English or translated into English by a professional translator.
+          4. If you’re applying for a first British passport, check the [supporting documents](/government/publications/passport-application-first-time-adult-philippines) you must send with your application. Supporting documents must be in English or translated into English by a professional translator.
 
         supporting_documents_philippines: ''
         making_application_philippines: |
@@ -1881,12 +1850,7 @@ en-GB:
 
           Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [Emergency Travel Document](/emergency-travel-document).
 
-          If your passport has been lost or stolen and you haven’t reported it yet, include ‘Form LS01’ with your application.
-
-
-          $D
-          [Download ‘Form LS01 - Lost or stolen passport notification’ (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf)
-          $D
+          If your passport has been lost or stolen and you haven’t reported it yet, include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your application.
 
           ## Cost
 
@@ -2072,13 +2036,7 @@ en-GB:
 
           Don't book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [Emergency Travel Document](/emergency-travel-document).
 
-          If your passport has been lost or stolen and you haven't reported it yet, include 'Form LS01' with your application.
-
-
-
-          $D
-            [Download 'Form LS01 - Lost or stolen passport notification' (PDF, 236KB)](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf)
-          $D
+          If your passport has been lost or stolen and you haven't reported it yet, include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your application.
 
           ## Cost
 

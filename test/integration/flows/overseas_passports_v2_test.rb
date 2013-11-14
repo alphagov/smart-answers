@@ -403,17 +403,18 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result_online
-      assert_phrase_list :how_long_it_takes, [:how_long_applying_online]
+      assert_phrase_list :how_long_it_takes, [:how_long_applying_online, :how_long_additional_time_online]
       assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1]
-      assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance]
+      assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance_doc_group_1]
       assert_match /the passport numbers of both parents/, outcome_body
     end
     should "show how to replace your passport online" do
       add_response 'replacing'
       add_response 'child'
       assert_current_node :ips_application_result_online
+      assert_phrase_list :how_long_it_takes, [:how_long_replacing_online, :how_long_additional_time_online]
       assert_phrase_list :cost, [:passport_courier_costs_replacing_ips1, :child_passport_costs_replacing_ips1]
-      assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_replacing, :how_to_apply_online_guidance]
+      assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_replacing, :how_to_apply_online_guidance_doc_group_1]
     end
   end
 
