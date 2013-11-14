@@ -96,6 +96,10 @@ multiple_choice :renewing_replacing_applying? do
     supporting_documents.split("_")[3] if is_ips_application
   end
 
+  calculate :ips_result_type do
+    passport_data['online_application'] ? :ips_application_result_online : :ips_application_result  
+  end
+
   data_query.passport_costs.each do |k,v|
     calculate "costs_#{k}".to_sym do
       v
@@ -125,7 +129,7 @@ multiple_choice :child_or_adult_passport? do
     when 'australia_post', 'new_zealand'
       :"which_best_describes_you_#{response}?"
     when Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP
-      %Q(applying renewing_old).include?(application_action) ? :country_of_birth? : :ips_application_result
+      %Q(applying renewing_old).include?(application_action) ? :country_of_birth? : ips_result_type 
     when Calculators::PassportAndEmbassyDataQuery::FCO_APPLICATIONS_REGEXP
       :fco_result
     else
@@ -150,8 +154,8 @@ country_select :country_of_birth?, :include_uk => true, :exclude_countries => ex
     case application_type
     when 'australia_post', 'new_zealand'
       :aus_nz_result
-    when Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP
-      :ips_application_result
+    when Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP 
+      ips_result_type
     when Calculators::PassportAndEmbassyDataQuery::FCO_APPLICATIONS_REGEXP
       :fco_result
     else
@@ -234,6 +238,34 @@ outcome :aus_nz_result do
   end
 end
 
+## Online IPS Application Result
+outcome :ips_application_result_online do
+  precalculate :how_long_it_takes do
+    action = application_action =~/applying|renewing_old/ ? 'applying' : application_action
+    PhraseList.new(:"how_long_#{action}_online",
+                    :how_long_additional_time_online)
+  end
+  precalculate :cost do
+    if application_action == 'replacing' and ips_number == '1' and ips_docs_number == '1'
+      PhraseList.new(:"passport_courier_costs_replacing_ips#{ips_number}",
+                     :"#{child_or_adult}_passport_costs_replacing_ips#{ips_number}")
+    else
+      PhraseList.new(:"passport_courier_costs_ips#{ips_number}",
+                     :"#{child_or_adult}_passport_costs_ips#{ips_number}")
+    end
+  end
+  precalculate :how_to_apply do
+    PhraseList.new(:how_to_apply_online,
+                   :"how_to_apply_online_prerequisites_#{general_action}", 
+                   :"how_to_apply_online_guidance_doc_group_#{ips_docs_number}")
+  end
+  precalculate :getting_your_passport do
+    PhraseList.new(:"getting_your_passport_ips#{ips_number}")
+  end
+  precalculate :tracking_and_receiving do
+    PhraseList.new(:"tracking_and_receiving_ips#{ips_number}")
+  end
+end
 
 ## IPS Application Result
 outcome :ips_application_result do
@@ -258,36 +290,35 @@ outcome :ips_application_result do
     phrases << :"how_long_it_takes_ips#{ips_number}"
     phrases
   end
+
   precalculate :cost do
-    if application_action == 'replacing' && ips_number == '1'
-      if ips_docs_number == '1' # countries with documents_group_1 have different costs
-        PhraseList.new(:"passport_courier_costs_replacing_ips#{ips_number}",
-                   :"#{child_or_adult}_passport_costs_replacing_ips#{ips_number}",
-                   :"passport_costs_ips#{ips_number}")
-      else
-        PhraseList.new(:"passport_courier_costs_ips#{ips_number}",
-                   :"#{child_or_adult}_passport_costs_ips#{ips_number}",
-                   :"passport_costs_ips#{ips_number}")
-      end
-    elsif data_query.cash_only_countries?(current_location) # IPS 2&3 countries where payment must be made in cash
-      PhraseList.new(:"passport_courier_costs_ips#{ips_number}",
-                   :"#{child_or_adult}_passport_costs_ips#{ips_number}",
-                   :"passport_costs_ips_cash")
+    if application_action == 'replacing' and ips_number == '1' and ips_docs_number == '1'
+      PhraseList.new(:"passport_courier_costs_replacing_ips#{ips_number}",
+                    :"#{child_or_adult}_passport_costs_replacing_ips#{ips_number}",
+                    :"passport_costs_ips#{ips_number}")
     else
-      PhraseList.new(:"passport_courier_costs_ips#{ips_number}",
-                   :"#{child_or_adult}_passport_costs_ips#{ips_number}",
-                   :"passport_costs_ips#{ips_number}")
+      phrases = PhraseList.new(:"passport_courier_costs_ips#{ips_number}",
+                              :"#{child_or_adult}_passport_costs_ips#{ips_number}")
+      
+      phrases << (data_query.cash_only_countries?(current_location) ? 
+                    :passport_costs_ips_cash : :"passport_costs_ips#{ips_number}")
+
+      phrases
     end
   end
 
   precalculate :how_to_apply do
-    PhraseList.new(:"how_to_apply_ips#{ips_number}",
-                   application_form.to_sym,
-                   supporting_documents.to_sym)
+    if passport_data['online_application'] 
+    else
+      PhraseList.new(:"how_to_apply_ips#{ips_number}",
+                     application_form.to_sym,
+                     supporting_documents.to_sym)
+    end
   end
+
   precalculate :send_your_application do
     phrases = PhraseList.new
-    if application_address
+    if application_address 
       phrases << :"send_application_ips#{ips_number}_#{application_address}"
     elsif %w(gaza).include?(current_location)
       phrases << :send_application_ips3_gaza
