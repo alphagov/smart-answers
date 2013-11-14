@@ -1,0 +1,17 @@
+en-GB:
+  flow:
+    what-visa-to-visit-uk:
+      title: Check what visa you need to come to the UK
+      meta:
+        description: Check visa
+      body: |
+        this is the body text
+
+
+
+
+
+
+      just_testing:
+        body: |
+          This is the outcome.
