@@ -1,7 +1,9 @@
 <% content_for :title do %><%= @presenter.title %><% end %>
-<main id="main" role="main">
-  <div id="content" <% if @presenter.started? %> class="smart-answer-questions group"<% end %>>
-    <%= render partial: "content" %>
+<main id="content" role="main">
+  <div id="dynamic-block">
+    <div <% if @presenter.started? %> class="smart-answer-questions group"<% end %>>
+      <%= render partial: "content" %>
+    </div>
   </div>
 
   <div class="meta-wrapper<% if @presenter.started? && !@presenter.finished? %> question-meta<% end %>">
