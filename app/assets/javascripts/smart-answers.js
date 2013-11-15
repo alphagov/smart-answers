@@ -12,9 +12,6 @@ $(document).ready(function() {
 
     // Don't show feedback form in questions.
     if ($form.length) {
-      $('.report-a-problem-toggle').hide();
-      $('.meta-data').hide();
-
       // events
       // get new questions on submit
       $form.live('submit', function(event) {
@@ -142,14 +139,14 @@ $(document).ready(function() {
     },
     init: function() {
       var self = this;
-      $(document).bind('smartanswerAnswer', function() { 
+      $(document).bind('smartanswerAnswer', function() {
         self.correctOffscreen();
+        $('.meta-wrapper').hide();
       });
       // Show feedback form in outcomes
       $(document).bind('smartanswerOutcome', function() {
         $('.report-a-problem-container form #url').val(window.location.href);
-        $('.report-a-problem-toggle').show();
-        $('.meta-data').show();
+        $('.meta-wrapper').show();
       });
     }
   }

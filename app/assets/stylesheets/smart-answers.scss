@@ -1,4 +1,4 @@
-.report-a-problem-toggle, .meta-data {
+.meta-wrapper {
   margin: 0 auto 1em auto;
   max-width: 60em;
 }
@@ -9,4 +9,7 @@
   form {
     max-width: 38em;
   }
+}
+.js-enabled {
+  .meta-wrapper.started { display: none; }
 }
