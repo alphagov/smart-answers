@@ -7,11 +7,79 @@ en-GB:
       body: |
         this is the body text
 
+      what_passport_do_you_have?:
+        title: What passport do you have?
+
+      purpose_of_visit?:
+        title: What are you coming to the UK to do?
+        options:
+          study: "Study"
+          work: "Work"
+          visit: "Visit"
+          transit: "Transit (on your way to somewhere else)"
+          family: "Join family"
+
+      type_of_visit?:
+        title: What sort of business are ypou planning?
+        options:
+          tourism: "Tourism, visiting friends or family"
+          business: "Business visit"
+          marriage: "To get married"
+          other: "Other"
 
 
-
-
-
-      just_testing:
+      outcome_no_visa_needed:
         body: |
-          This is the outcome.
+          This is the outcome for no visa needed.
+
+      outcome_study_y:
+        body: |
+          This is the outcome for Study Y.
+
+      outcome_study_m:
+        body: |
+          This is the outcome for Study M.
+
+      outcome_work_y:
+        body: |
+          This is the outcome for Work Y.
+
+      outcome_work_m:
+        body: |
+          This is the outcome for Work M.
+
+      outcome_transit_y:
+        body: |
+          This is the outcome for Transit Y.
+
+      outcome_transit_m:
+        body: |
+          This is the outcome for Transit M.
+
+      outcome_family_y:
+        body: |
+          This is the outcome for Family Y.
+
+      outcome_family_m:
+        body: |
+          This is the outcome for Family M.
+
+      outcome_visit_business_n:
+        body: |
+          This is the outcome for visiting friends/family or for business (N).
+
+      outcome_general_y:
+        body: |
+          This is the outcome for visiting friends or family (general Y).
+
+      outcome_business_y:
+        body: |
+          This is the outcome for visiting for business (N).
+
+      outcome_marriage:
+        body: |
+          This is the outcome for marriage.
+
+      outcome_all_visit:
+        body: |
+          This is the outcome for Other.
