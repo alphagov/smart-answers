@@ -42,7 +42,11 @@ class ReportAProblemTest < EngineIntegrationTest
         end
 
         should "have current url in report-a-problem" do
-          assert_match /\/bridge-of-death\/y\/Lancelot\/to_seek_the_holy_grail\/blue$/, page.find('#url', visible: false).value
+          url_regex = /\/bridge-of-death\/y\/Lancelot\/to_seek_the_holy_grail\/blue$/
+          wait_until do # wait for url in hidden field to be updated by javascript
+            url_regex =~ page.find('#url', visible: false).value
+          end
+          assert_match url_regex, page.find('#url', visible: false).value
         end
       end
     end
