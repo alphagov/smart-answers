@@ -1,5 +1,5 @@
 status :draft
-satisfies_need ""
+satisfies_need "2969"
 
 exclude_countries = %w(american-samoa aruba bonaire-st-eustatius-saba british-antarctic-territory british-indian-ocean-territory curacao french-guiana french-polynesia gibraltar guadeloupe holy-see martinique mayotte new-caledonia reunion st-maarten st-pierre-and-miquelon wallis-and-futuna western-sahara)
 

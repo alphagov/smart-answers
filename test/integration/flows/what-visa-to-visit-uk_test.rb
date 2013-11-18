@@ -9,12 +9,11 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(anguilla andorra yemen)
+    @location_slugs = %w(anguilla andorra south-africa yemen)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'what-visa-to-visit-uk'
   end
 
-# Q1
   should "ask what passport do you have" do
     assert_current_node :what_passport_do_you_have?
   end
@@ -242,6 +241,88 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
           add_response 'business'
         end
         should "take you to the 'business y' outcome" do
+          assert_current_node :outcome_business_y
+        end
+      end
+      context "getting married" do
+        setup do
+          add_response 'marriage'
+        end
+        should "take you to the marriage outcome" do
+          assert_current_node :outcome_marriage
+        end
+      end
+      context "other reason" do
+        setup do
+          add_response 'other'
+        end
+        should "take you to the 'other' outcome" do
+          assert_current_node :outcome_all_visit
+        end
+      end
+    end
+  end
+
+  context "choose a DATV country" do
+    setup do
+      worldwide_api_has_organisations_for_location('south-africa', read_fixture_file('worldwide/south-africa_organisations.json'))
+      add_response 'south-africa'
+    end
+    should "ask what are you coming to the UK to do" do
+      assert_current_node :purpose_of_visit?
+    end
+    context "coming to the UK to study" do
+      setup do
+        add_response 'study'
+      end
+      should "take you to the outcome Study Y" do
+        assert_current_node :outcome_study_y
+      end
+    end
+    context "coming to the UK to work" do
+      setup do
+        add_response 'work'
+      end
+      should "take you to outcome Work Y" do
+        assert_current_node :outcome_work_y
+      end
+    end
+    context "coming to the on the way somewhere else" do
+      setup do
+        add_response 'transit'
+      end
+      should "take you to outcome Transit Y" do
+        assert_current_node :outcome_transit_y
+      end
+    end
+    context "coming to join family" do
+      setup do
+        add_response 'family'
+      end
+      should "take you to outcome Family Y" do
+        assert_current_node :outcome_family_y
+      end
+    end
+    context "coming to visit" do
+      setup do
+        add_response 'visit'
+      end
+      should "ask what sort of visit you are planning" do
+        assert_current_node :type_of_visit?
+      end
+      context "visiting friends" do
+        setup do
+          add_response 'tourism'
+        end
+        should "take you to the 'general y' outcome" do
+          assert_current_node :outcome_general_y
+        end
+      end
+      context "business visit" do
+        setup do
+          add_response 'business'
+        end
+        should "take you to the 'general y' outcome" do
           assert_current_node :outcome_business_y
         end
       end
