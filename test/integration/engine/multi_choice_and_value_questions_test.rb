@@ -26,8 +26,6 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
         assert page.has_link?("Start now", :href => "/bridge-of-death/y")
       end
 
-      assert page.has_selector?("#test-report_a_problem")
-
       click_on "Start now"
 
       assert_current_url "/bridge-of-death/y"
