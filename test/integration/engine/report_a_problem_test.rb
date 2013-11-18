@@ -24,10 +24,6 @@ class ReportAProblemTest < EngineIntegrationTest
           fill_in "Name:", :with => "Lancelot"
           click_on "Next step"
         end
-
-        should "not show report-a-problem" do
-          refute page.has_selector?('.report-a-problem-toggle a'), "Report a problem link shouldn't be visible"
-        end
       end
 
       context "outcome" do
