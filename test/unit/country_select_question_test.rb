@@ -63,7 +63,5 @@ module SmartAnswer
         assert ! @question.valid_option?("fooey")
       end
     end
-
-
   end
 end
