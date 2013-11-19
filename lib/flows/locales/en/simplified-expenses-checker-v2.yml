@@ -36,14 +36,11 @@ en-GB:
         "no": "No"
 
       body: |
-        From the 2013 to 2014 tax year there are 2 ways you can calculate business expenses for vehicles, working from home, and living on your business premises. You can use [simplified expenses flat rates](/simpler-income-tax-simplified-expenses) or calculate your expenses the usual way. This tool compares what you may claim for both calculations.
+        From the 2013 to 2014 tax year there are 2 ways you can calculate business expenses for vehicles, working from home, and living on your business premises. You can use [simplified expenses](/simpler-income-tax-simplified-expenses) or calculate your expenses the usual way. This tool compares what you may be able to claim for both calculations.
 
         ## What you need to know:
 
-        - you’ll be asked to make estimates about some of your business expenses - you don’t have to give accurate amounts
-        - you have to be sole trader or business partnership to use simplified expenses
-        - Limited Companies and Limited Liability Partnerships aren’t eligible
-        - the tools doesn’t give exact figures to use in your tax return, it only provides an indication which way of calculating expenses might suit your business
+        - this tool doesn’t give exact figures to use in your tax return, it provides an indication of which way of calculating expenses might suit your business
 
 #Q1
       claimed_expenses_for_current_business?:
@@ -59,8 +56,8 @@ en-GB:
         options:
           car_or_van: Car or van (business use)
           motorcycle: Motorcycle (business use)
-          using_home_for_business: Working from home – the main purpose of the building is your home
-          live_on_business_premises: Living on your business premises - the main purpose of the building where you live is your business, eg a B&B, and you're likely to pay business rates instead of council tax
+          using_home_for_business: Working from home (the main purpose of the building is your home)
+          live_on_business_premises: Living on your business premises (the main purpose of the building where you live is your business, eg a B&B, and you're likely to pay business rates instead of council tax)
         error_message: You can’t choose both ‘working from home’ or ‘living on your business premises’ Please choose one.
 #Q3
       buying_new_vehicle?:
@@ -105,10 +102,10 @@ en-GB:
       deduct_from_premises?:
         title: How much do you expect to deduct from your business expenses this tax year for your private use of the premises?
         hint: For example a proportion of your maintenance, utility and insurance bills.
-
+#Q14
       people_live_on_premises?:
         title: How many people normally live on the business premises?
-        hint: Only count people who use it as their home, including children. If there are more people at certain times of the year, give an average.
+        hint: Include children and non-paying guests. Don't include paying guests or anyone using the premises as part of your business. Give an average if there are more people at certain times of the year.
 
       you_cant_use_result:
         body: |
@@ -125,7 +122,7 @@ en-GB:
           [Records you need to keep when self-employed](/self-employed-records)
       you_can_use_result:
         body: |
-          Based on your answers you get the following expenses estimate for this tax year.
+          Based on your answers, the expenses you can claim and deduct are listed below. There are 2 sets of results comparing simplified expenses and calculating expenses the old way.
 
           ##Simplified expenses
 
