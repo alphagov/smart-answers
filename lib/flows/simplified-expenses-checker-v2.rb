@@ -214,6 +214,8 @@ end
 
 #Q11 - hours for home work
 value_question :hours_work_home? do
+  save_input_as :aaron
+
   calculate :hours_worked_home do
     responses.last.gsub(",","").to_f
   end
@@ -228,7 +230,16 @@ value_question :hours_work_home? do
     Money.new(amount)
   end
 
-  next_node :current_claim_amount_home?
+  next_node do |response|
+    hours = response.to_i
+    if hours < 1
+      raise SmartAnswer::InvalidResponse
+    elsif hours < 25
+      :you_cant_use_result
+    else
+      :current_claim_amount_home?
+    end
+  end
 end
 
 #Q12 - how much do you claim?
