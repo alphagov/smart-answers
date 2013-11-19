@@ -4,6 +4,7 @@ module SmartAnswer
       def initialize(name, options = {}, &block)
         @exclude_countries = options.delete(:exclude_countries)
         @include_uk = options.delete(:include_uk)
+        @additional_countries = options.delete(:additional_countries)
         @use_legacy_data = options.delete(:use_legacy_data)
         super(name, options, &block)
       end
@@ -33,7 +34,10 @@ module SmartAnswer
           countries = countries.reject { |c| c.slug == 'united-kingdom' }
         end
         if @exclude_countries
-          countries = countries.reject {|c| @exclude_countries.include?(c.slug) }
+          countries = countries.reject { |c| @exclude_countries.include?(c.slug) }
+        end
+        if @additional_countries
+          countries = (countries + @additional_countries).sort{|a,b| a.name <=> b.name }
         end
         countries
       end

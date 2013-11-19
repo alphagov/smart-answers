@@ -9,7 +9,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(anguilla andorra south-africa yemen)
+    @location_slugs = %w(andorra anguilla south-africa yemen)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'what-visa-to-visit-uk'
   end

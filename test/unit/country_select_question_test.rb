@@ -33,10 +33,17 @@ module SmartAnswer
       end
 
       should "exclude Holy See and British Antartic Territory when requested" do
-        @question = Question::CountrySelect.new(:example, :exclude_countries=> %w(holy-see british-antarctic-territory))
+        @question = Question::CountrySelect.new(:example, :exclude_countries => %w(holy-see british-antarctic-territory))
         assert_equal %w(afghanistan denmark vietnam), @question.options.map(&:slug)
         assert ! @question.valid_option?('holy-see')
         assert ! @question.valid_option?('british-antarctic-territory')
+      end
+
+      should "include additional countries" do
+        @question = Question::CountrySelect.new(:example, :exclude_countries => %w(afghanistan british-antarctic-territory denmark holy-see vietnam), :additional_countries => UkbaCountry.all)
+        assert_equal %w(british-dependent-territories-citizen british-national-overseas british-overseas-citizen british-protected-person china-diplomatic-and-service-passports faroes-islands greenland hong-kong-(british-national-overseas) india-diplomatic-and-official-passports israel-(Laisse-Passer) refugee stateless-person), @question.options.map(&:slug)
+        assert ! @question.valid_option?("fooey")
+        assert ! @question.valid_option?("united-kingdom")
       end
     end
 
@@ -56,5 +63,7 @@ module SmartAnswer
         assert ! @question.valid_option?("fooey")
       end
     end
+
+
   end
 end

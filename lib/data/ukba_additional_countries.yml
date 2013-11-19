@@ -1,0 +1,25 @@
+--- 
+- :name: Greenland
+  :slug: greenland
+- :name: Faroe Islands
+  :slug: faroes-islands
+- :name: British dependent territories citizen
+  :slug: british-dependent-territories-citizen
+- :name: British national overseas
+  :slug: british-national-overseas
+- :name: British overseas citizen
+  :slug: british-overseas-citizen
+- :name: British protected person
+  :slug: british-protected-person
+- :name: China, diplomatic and service passports
+  :slug: china-diplomatic-and-service-passports
+- :name: India, diplomatic and official passports
+  :slug: india-diplomatic-and-official-passports
+- :name: Israel (Laisse Passer)
+  :slug: israel-(Laisse-Passer)
+- :name: Refugee
+  :slug: refugee
+- :name: Stateless Person
+  :slug: stateless-person
+- :name: Hong Kong (British national overseas)
+  :slug: hong-kong-(british-national-overseas)

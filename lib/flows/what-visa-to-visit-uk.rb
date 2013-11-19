@@ -1,6 +1,8 @@
 status :draft
 satisfies_need "2969"
 
+additional_countries = UkbaCountry.all
+
 exclude_countries = %w(american-samoa aruba bonaire-st-eustatius-saba british-antarctic-territory british-indian-ocean-territory curacao french-guiana french-polynesia gibraltar guadeloupe holy-see martinique mayotte new-caledonia reunion st-maarten st-pierre-and-miquelon wallis-and-futuna western-sahara)
 
 country_group_ukot = %w(anguilla bermuda british-virgin-islands falkland-islands montserrat pitcairn-island st-helena-ascension-and-tristan-da-cunha south-georgia-and-south-sandwich-islands turks-and-caicos-islands)
@@ -14,7 +16,7 @@ country_group_datv = %w(afghanistan albania algeria angola bangladesh belarus bo
 country_group_eea = %w(austria belgium bulgaria croatia cyprus czech republic denmark estonia finland france germany greece hungary iceland ireland italy latvia liechtenstein lithuania luxemburg malta netherlands norway poland portugal romania slovakia slovenia spain sweden switzerland)
 
 # Q1
-country_select :what_passport_do_you_have?, :exclude_countries => exclude_countries do
+country_select :what_passport_do_you_have?, :additional_countries => additional_countries, :exclude_countries => exclude_countries do
   save_input_as :passport_country
 
 
