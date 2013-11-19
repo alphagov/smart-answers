@@ -41,7 +41,7 @@ module SmartAnswer
 
       should "include additional countries" do
         @question = Question::CountrySelect.new(:example, :exclude_countries => %w(afghanistan british-antarctic-territory denmark holy-see vietnam), :additional_countries => UkbaCountry.all)
-        assert_equal %w(british-dependent-territories-citizen british-national-overseas british-overseas-citizen british-protected-person china-diplomatic-and-service-passports faroes-islands greenland hong-kong-(british-national-overseas) india-diplomatic-and-official-passports israel-(Laisse-Passer) refugee stateless-person), @question.options.map(&:slug)
+        assert_equal %w(british-dependent-territories-citizen british-national-overseas british-overseas-citizen british-protected-person china-diplomatic-and-service-passports cyprus-north faroe-islands greenland hong-kong-(british-national-overseas) india-diplomatic-and-official-passports israel-(Laisse-Passer) refugee stateless-person vatican-city vietnam-diplomatic-and-official-passports), @question.options.map(&:slug)
         assert ! @question.valid_option?("fooey")
         assert ! @question.valid_option?("united-kingdom")
       end

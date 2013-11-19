@@ -1,8 +1,4 @@
 --- 
-- :name: Greenland
-  :slug: greenland
-- :name: Faroe Islands
-  :slug: faroes-islands
 - :name: British dependent territories citizen
   :slug: british-dependent-territories-citizen
 - :name: British national overseas
@@ -13,6 +9,14 @@
   :slug: british-protected-person
 - :name: China, diplomatic and service passports
   :slug: china-diplomatic-and-service-passports
+- :name: Cyprus (northern part of Cyrus)
+  :slug: cyprus-north
+- :name: Faroe Islands
+  :slug: faroe-islands
+- :name: Greenland
+  :slug: greenland
+- :name: Hong Kong (British national overseas)
+  :slug: hong-kong-(british-national-overseas)
 - :name: India, diplomatic and official passports
   :slug: india-diplomatic-and-official-passports
 - :name: Israel (Laisse Passer)
@@ -21,5 +25,7 @@
   :slug: refugee
 - :name: Stateless Person
   :slug: stateless-person
-- :name: Hong Kong (British national overseas)
-  :slug: hong-kong-(british-national-overseas)
+- :name: Vatican City (Holy See Service & Emergency Passport holders)
+  :slug: vatican-city
+- :name: Vietnam, diplomatic and official passports
+  :slug: vietnam-diplomatic-and-official-passports
