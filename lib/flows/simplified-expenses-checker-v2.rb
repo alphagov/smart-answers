@@ -297,8 +297,7 @@ outcome :you_can_use_result do
     green = green_vehicle_write_off.to_f || 0
     dirty = dirty_vehicle_write_off.to_f || 0
     home = home_costs.to_f || 0
-    business = business_premises_cost.to_f || 0
-    Money.new(vehicle + green + dirty + home + business)
+    Money.new(vehicle + green + dirty + home)
   end
 
   precalculate :can_use_simple do
@@ -326,6 +325,13 @@ outcome :you_can_use_result do
     bullets
   end
 
+  precalculate :current_scheme_more_bullets do
+    bullets = PhraseList.new
+    bullets << :current_business_costs_bullet unless simple_business_costs.to_f == 0.0
+    bullets
+  end
+
+
   precalculate :capital_allowances_claimed_message do
     capital_allowance_claimed ? PhraseList.new(:cap_allow_text) : PhraseList.new
   end
@@ -336,7 +342,6 @@ outcome :you_can_use_result do
     bullets << :current_green_vehicle_write_off_bullet unless green_vehicle_write_off.to_f == 0.0
     bullets << :current_dirty_vehicle_write_off_bullet unless dirty_vehicle_write_off.to_f == 0.0
     bullets << :current_home_costs_bullet unless home_costs.to_f == 0.0
-    bullets << :current_business_costs_bullet unless business_premises_cost.to_f == 0.0
     bullets
   end
 

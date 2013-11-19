@@ -28,7 +28,7 @@ en-GB:
         current_home_costs_bullet: |
           - %{home_costs} for working from home
         current_business_costs_bullet: |
-          - %{business_premises_cost} for business premises costs
+          - %{business_premises_cost} to deduct from your total business costs - you then claim the balance
         over_van_limit: |
           The upper limit for Capital Allowance write offs for vans is £250,000.
       options:
@@ -145,6 +145,8 @@ en-GB:
           %{current_scheme_bullets}
 
           **Total:** %{current_scheme_costs}
+
+          %{current_scheme_more_bullets}
 
           %{over_van_limit_message}
 
