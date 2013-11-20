@@ -10,7 +10,9 @@ module SmartAnswer
         location4 = stub(:slug => 'vietnam', :name => 'Vietnam')
         location5 = stub(:slug => 'holy-see', :name => 'Holy See')
         location6 = stub(:slug => 'british-antarctic-territory', :name => 'British Antartic Territory')
+        location7 = stub(:slug => 'greenland', :name => 'Greenland')
         WorldLocation.stubs(:all).returns([location1, location2, location3, location4, location5, location6])
+        UkbaCountry.stubs(:all).returns([location7])
       end
 
       should "be able to list options" do
@@ -41,7 +43,7 @@ module SmartAnswer
 
       should "include additional countries" do
         @question = Question::CountrySelect.new(:example, :exclude_countries => %w(afghanistan british-antarctic-territory denmark holy-see vietnam), :additional_countries => UkbaCountry.all)
-        assert_equal %w(british-dependent-territories-citizen british-national-overseas british-overseas-citizen british-protected-person china-diplomatic-and-service-passports cyprus-north faroe-islands greenland hong-kong-(british-national-overseas) india-diplomatic-and-official-passports israel-(Laisse-Passer) refugee stateless-person vatican-city vietnam-diplomatic-and-official-passports), @question.options.map(&:slug)
+        assert_equal %w(greenland), @question.options.map(&:slug)
         assert ! @question.valid_option?("fooey")
         assert ! @question.valid_option?("united-kingdom")
       end
