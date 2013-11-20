@@ -214,7 +214,6 @@ end
 
 #Q11 - hours for home work
 value_question :hours_work_home? do
-  save_input_as :aaron
 
   calculate :hours_worked_home do
     responses.last.gsub(",","").to_f
