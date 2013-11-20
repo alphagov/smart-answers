@@ -1,0 +1,242 @@
+en-GB:
+  flow:
+    what-visa-to-visit-uk:
+      title: Check what visa you need to come to the UK
+      meta:
+        description: You may need a visa to come to the UK to visit, study or work.
+      body: |
+        You may need a visa to come to the UK to visit, study or work.
+
+      what_passport_do_you_have?:
+        title: What passport do you have?
+
+      purpose_of_visit?:
+        title: What are you coming to the UK to do?
+        options:
+          study: "Study"
+          work: "Work"
+          visit: "Visit"
+          transit: "Transit (on your way to somewhere else)"
+          family: "Join family"
+
+      type_of_visit?:
+        title: What sort of business are ypou planning?
+        options:
+          tourism: "Tourism, visiting friends or family"
+          business: "Business visit"
+          marriage: "To get married"
+          other: "Other"
+
+
+      outcome_no_visa_needed:
+        title: |
+          You won’t need a visa to come to the UK
+
+      outcome_study_y:
+        title: You’ll need a visa to come to the UK to study
+        body: |
+          The category you apply under depends on your circumstances.
+
+          ##Studying a long course
+
+          The [tier 4 category](http://www.ukba.homeoffice.gov.uk/visas-immigration/studying/adult-students/) may be suitable if you’re coming to the UK to study a degree or college course for longer than 6 months.
+
+          ##Studying a short course
+
+          You can apply for a [study visit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/student/) if you’re studying a course that is shorter than 6 months.
+
+      outcome_study_m:
+        title: You’ll most likely need a visa to come to the UK to study
+        body: |
+          The [tier 4 category](http://www.ukba.homeoffice.gov.uk/visas-immigration/studying/adult-students/) may be suitable if you’re coming to the UK to study a degree or college course for longer than 6 months.
+
+          ^You **won’t need a visa** if you're studying a short course (less than 6 months) and won’t work during your stay.^
+
+      outcome_work_y:
+        title: You’ll need a visa to come to the UK to work or do business
+        body: |
+          The category you apply under depends on your circumstances.
+
+          ##Categories
+
+          ###Exceptional talent
+
+          The [tier 1 category](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/tier1/) may be suitable if you’re an investor, entrepreneur, exceptionally talented person or a recent graduate of a UK university.
+
+          ##Highly skilled workers
+
+          The [tier 2 category](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/tier2/) may be suitable if you’re a skilled worker and you’ve been offered a permanent job
+
+          ##Temporary workers
+
+          The [tier 5 category](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/tier5/) may be suitable if you want come to the UK temporarily and either have a job offeror want to come under the youth mobility scheme.
+
+          ##Business visitor
+
+          You can also get a visa to visit the UK for business. These categories are:
+
+          - [business visitor](#)
+          - [academic visitor](#)
+          - [sports visitor](#)
+
+          ##Other categories
+
+          You can also apply as a:
+
+          - [domestic worker in a private household](#)
+          - [representative of an overseas business](#)
+          - [prospective entrepreneur](#) (visiting for up to 6 months)
+
+      outcome_work_m:
+        title: |
+          You’ll need a visa to come to the UK to work or do business (unless you're coming for a short visit
+        body: |
+          The category you apply under depends on your circumstances.
+
+          ##Categories
+
+          ###Exceptional talent
+
+          The [tier 1 category](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/tier1/) may be suitable if you’re an investor, entrepreneur, exceptionally talented person or a recent graduate of a UK university.
+
+          ##Highly skilled workers
+
+          The [tier 2 category](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/tier2/) may be suitable if you’re a skilled worker and you’ve been offered a permanent job
+
+          ##Temporary workers
+
+          The [tier 5 category](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/tier5/) may be suitable if you want come to the UK temporarily and either have a job offeror want to come under the youth mobility scheme.
+
+          ##Other categories
+
+          You can also apply as a:
+
+          - [domestic worker in a private household](#)
+          - [representative of an overseas business](#)
+          - [prospective entrepreneur](#) (visiting for up to 6 months)
+
+          ###When you don’t need a visa
+
+          You may not need a visa to come to the UK for up to 3 months if you’re a sportsperson or a creative worker. Check if you’re eligible under [Tier 5 (Temporary worker - creative and sporting)](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/tier5/creativeandsporting/) category. 
+
+          You can also visit the UK for up to 6 months without a visa if you’re visiting for business as a:
+
+          - [business visitor](#)
+          - [academic visitor](#)
+          - [sports visitor](#)
+          - [entertainer visitor](#)
+
+      outcome_transit_y:
+        title: You’ll need a visa to pass through the UK in transit
+        body: |
+          Find out more about [transit visas](http://www.ukba.homeoffice.gov.uk/visas-immigration/transitthroughtheuk/).
+
+      outcome_transit_m:
+        title: You may need a visa to pass through the UK in transit
+        body: |
+          You **won’t need a visa** if you arrive and leave the UK by plane within 24 hours. 
+
+          You’ll need a [‘landside’ transit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/transitthroughtheuk/visa-to-transit-landside/) if not.
+
+      outcome_family_y:
+        title: You’ll need a visa to come to the UK to join a member of your family
+        body: |
+          The category you apply under depends on your family member’s situation.
+
+          ##They’re settled in the UK
+
+          The ‘family of a settled person’ category may be suitable if your family member is a British citizen or they’re from outside the European Economic Area (EEA) and settled in the UK.
+
+          ##They’re working or studying in the UK
+
+          The [family of migrant workers](http://www.ukba.homeoffice.gov.uk/visas-immigration/partners-families/migrant-workers-students/) category may be suitable if they’re from outside the EEA and they’re working or studying in the UK.
+
+          ##They’re from the EEA
+
+          You’ll need a [family permit](#) to join your family for a short or long stay if they’re living in the UK.
+
+          ##You’re coming for a short visit
+
+          You should apply for a [family visitor visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/family/) if you’re coming to the UK for less than 6 months (or a family permit if your family is from the EEA).
+
+      outcome_family_m:
+        title: You may need a visa to come to the UK to join a member of your family
+        body: |
+          ^You **won’t need a visa** if you’re visiting for a short period (up to 6 months).^
+
+          The category you apply under depends on your family member’s situation.
+
+          ##They’re settled in the UK
+
+          The [‘family of a settled person’](http://www.ukba.homeoffice.gov.uk/visas-immigration/partners-families/citizens-settled/) category may be suitable if your family member is a British citizen or they’re from outside the European Economic Area (EEA) and settled in the UK.
+
+          ##They’re working or studying in the UK
+
+          The [family of migrant workers](http://www.ukba.homeoffice.gov.uk/visas-immigration/partners-families/migrant-workers-students/) category may be suitable if they’re from outside the EEA and they’re working or studying in the UK.
+
+          ##They’re from the EEA
+
+          You’ll need a [family permit](#) to join your family if they’re living in the UK.
+
+      outcome_visit_business_n:
+        title: You won’t need a visa to come to the UK
+        body: |
+          However, you should bring certain documents with you to show UK immigration officers at the border.
+
+          See which documents you should bring if you’re:
+
+          - a [general tourist](#)
+          - [visiting family](#)
+          - a [business visitor](#)
+          - [passing through the UK in transit](#)
+
+      outcome_general_y:
+        title: You’ll need a visa to come to the UK
+        body: |
+          The category you apply under depends on your circumstances.
+
+          ##General tourist
+
+          A [general visit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/general/) may be suitable if you’re visiting the UK for a holiday or to visit friends.
+
+          ##Visiting family
+
+          A [family visit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/family/) may be suitable if you plan to visit family while you’re in the UK.
+
+          ##Chinese tourist
+
+          The specific [‘ADS visa’](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/ads/) category for Chinese nationals may be suitable.
+
+          ##If you’re under 18
+
+          You’ll need a [child visit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/child/).
+
+      outcome_business_y:
+        title: You’ll need a visa to come to the UK
+        body: |
+          The categories you can come to the UK under are:
+
+          - [business visitor](#)
+          - [academic visitor](#)
+          - [sports visitor](#)
+          - [visitor undertaking paid engagements](#)
+
+          You should check the other [working visas](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/) if you’re planning to come to the UK longer than 6 months.
+
+      outcome_marriage:
+        title: You’ll need a visa to come to the UK
+        body: |
+          See the [marriage visit visa category](#) for eligibility and documents you need to provide.
+
+      outcome_all_visit:
+        title: You’ll need a visa to come to the UK
+        body: |
+          The category of visa you apply for depends whether you’re:
+
+          - [a student visitor](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/child/) (for short courses up to 6 months)
+          - [a parent of a child at school](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/parent/) in the UK
+          - [sports visitor](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/sports/) 
+          - [an entertainer](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/entertainer/)
+          - [visiting for private medical treatment](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/medical/)
+
+          See a [full list of visit visas](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/).
