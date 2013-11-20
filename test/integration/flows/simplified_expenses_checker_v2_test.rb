@@ -169,11 +169,9 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
       add_response "using_home_for_business"
     end
 
-    should "show the home costs bullet even though the cost is 0" do
-      add_response "0"
+    should "show the 'you can't use' outcome if hours worked is less than 25 hours" do
       add_response "20"
-      assert_current_node :you_can_use_result
-      assert_phrase_list :simplified_bullets, [:simple_home_costs_none_bullet]
+      assert_current_node :you_cant_use_result
     end
 
     should "show the costs bullet if home costs are > 0" do
@@ -385,7 +383,7 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
       assert_state_variable :simple_business_costs, 7800
       assert_phrase_list :simplified_bullets, []
       assert_phrase_list :simplified_more_bullets, [:simple_business_costs_bullet]
-      assert_phrase_list :current_scheme_bullets, [:current_business_costs_bullet]
+      assert_phrase_list :current_scheme_more_bullets, [:current_business_costs_bullet]
     end
   end # main result, existing business, living on premises
 
@@ -437,10 +435,11 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
       assert_state_variable :business_premises_cost, 2000
       assert_state_variable :simple_total, 240
       assert_state_variable :simple_business_costs, 6000
-      assert_state_variable :current_scheme_costs, 3000
+      assert_state_variable :current_scheme_costs, 1000
       assert_phrase_list :simplified_bullets, [:simple_motorcycle_costs_bullet]
       assert_phrase_list :simplified_more_bullets, [:simple_business_costs_bullet]
-      assert_phrase_list :current_scheme_bullets, [:current_vehicle_cost_bullet, :current_business_costs_bullet]
+      assert_phrase_list :current_scheme_bullets, [:current_vehicle_cost_bullet]
+      assert_phrase_list :current_scheme_more_bullets, [:current_business_costs_bullet]
       assert_phrase_list :capital_allowances_claimed_message, []
     end
   end # main result, existing business, motorcycle, living on premises
