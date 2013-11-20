@@ -99,7 +99,7 @@ $(document).ready(function() {
 
   // update the content (i.e. plonk in the html fragment)
   function updateContent(fragment){
-    $('.smart_answer #dynamic-block').html(fragment);
+    $('.smart_answer #js-replaceable').html(fragment);
     $.event.trigger('smartanswerAnswer');
     if ($(".outcome").length !== 0) {
       $.event.trigger('smartanswerOutcome');
@@ -112,7 +112,7 @@ $(document).ready(function() {
     }
 
     data = {
-      html_fragment: $('.smart_answer #dynamic-block').html(),
+      html_fragment: $('.smart_answer #js-replaceable').html(),
       title: "Question",
       url: window.location.toString()
     };
