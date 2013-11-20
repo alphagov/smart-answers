@@ -5,7 +5,7 @@ module SmartAnswer::Calculators
     attr_accessor :income, :number_of_other_children, :number_of_shared_care_nights
     
     OLD_SCHEME_BASE_AMOUNT = 5
-    NEW_SCHEME_BASE_AMOUNT = 5
+    NEW_SCHEME_BASE_AMOUNT = 7
     OLD_SCHEME_MINIMUM_REDUCED_BASIC = 5
     REDUCED_RATE_THRESHOLD = 100
     BASIC_PLUS_RATE_THRESHOLD = 800

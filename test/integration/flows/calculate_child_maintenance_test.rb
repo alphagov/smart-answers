@@ -135,7 +135,7 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
       context "answer 100" do
         should "give flat rate result" do
           add_response 100
-          assert_state_variable "flat_rate_amount", 5
+          assert_state_variable "flat_rate_amount", 7
           assert_current_node :flat_rate_result
         end
 
