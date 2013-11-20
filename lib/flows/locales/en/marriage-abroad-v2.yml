@@ -704,7 +704,12 @@ en-GB:
 
         consular_cni_os_fees_local_currency: |
           ^You can only pay by cash in %{ceremony_country_name}. This must be in the local currency.^
-          
+
+        consular_cni_os_fees_russia: |
+          You can pay by cash or credit card in Moscow, but not by personal cheque.
+
+          You can pay by credit card only in St Petersburg and Ekaterinburg.
+
         consular_cni_os_fees_no_cheques: |
           You can pay by cash or credit card, but not by personal cheque.
 

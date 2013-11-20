@@ -729,6 +729,8 @@ outcome :outcome_os_consular_cni do
     end
     if %w(armenia bosnia-and-herzegovina cambodia iceland kazakhstan latvia luxembourg slovenia tunisia tajikistan).include?(ceremony_country)
       phrases << :consular_cni_os_fees_local_currency
+    elsif %w(russia).include?(ceremony_country)
+      phrases << :consular_cni_os_fees_russia
     else
       phrases << :consular_cni_os_fees_no_cheques
     end
