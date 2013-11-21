@@ -76,6 +76,8 @@ country_select :country_of_ceremony?, :exclude_countries => exclude_countries do
   next_node do |response|
     if %w(ireland).include?(response)
       :partner_opposite_or_same_sex?
+    elsif %w(switzerland).include?(response)
+      :swiss_resident?
     elsif %w(france new-caledonia wallis-and-futuna).include?(response)
       :marriage_or_pacs?
     elsif %w(french-guiana french-polynesia guadeloupe martinique mayotte new-caledonia reunion st-pierre-and-miquelon).include?(response)
@@ -180,6 +182,17 @@ multiple_choice :marriage_or_pacs? do
   end
 end
 
+# Q3d
+multiple_choice :swiss_resident? do
+  option :yes
+  option :no
+
+  save_input_as :resident_of_switzerland
+
+  next_node :partner_opposite_or_same_sex?
+
+end
+
 # Q4
 multiple_choice :what_is_your_partners_nationality? do
   option :partner_british
@@ -210,6 +223,8 @@ multiple_choice :partner_opposite_or_same_sex? do
     if response == 'opposite_sex'
       if %w(ireland).include?(ceremony_country)
         :outcome_ireland
+      elsif %w(switzerland).include?(ceremony_country)
+        :outcome_switzerland
       elsif data_query.commonwealth_country?(ceremony_country) or %w(zimbabwe).include?(ceremony_country)
         :outcome_os_commonwealth
       elsif data_query.british_overseas_territories?(ceremony_country)
@@ -226,6 +241,8 @@ multiple_choice :partner_opposite_or_same_sex? do
     else
       if %w(ireland).include?(ceremony_country)
         :outcome_ireland
+      elsif %w(switzerland).include?(ceremony_country)
+        :outcome_switzerland
       elsif %w(spain).include?(ceremony_country)
         :outcome_os_consular_cni
       elsif data_query.cp_equivalent_countries?(ceremony_country)
@@ -277,6 +294,27 @@ outcome :outcome_ireland do
     else
       PhraseList.new(:outcome_ireland_same_sex)
     end
+  end
+end
+
+outcome :outcome_switzerland do
+  precalculate :switzerland_marriage_outcome do
+    phrases = PhraseList.new
+    if %w(opposite_sex).include?(sex_of_your_partner)
+      phrases << :switzerland_os_variant
+    else
+      phrases << :switzerland_ss_variant
+    end
+    if resident_of_switzerland == 'no'
+      phrases << :switzerland_not_resident
+        if %w(opposite_sex).include?(sex_of_your_partner)
+          phrases << :switzerland_os_not_resident
+        else
+          phrases << :switzerland_ss_not_resident
+        end
+      phrases << :switzerland_not_resident_two
+    end
+    phrases
   end
 end
 

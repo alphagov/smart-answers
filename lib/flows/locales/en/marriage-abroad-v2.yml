@@ -28,7 +28,7 @@ en-GB:
         clickbook_links: |
           +[data_partial:clickbooks:clickbook_data]
 
-#Marriage if resident of Isle of Man or Channel Islands
+# Marriage if resident of Isle of Man or Channel Islands
         iom_ci_os_all: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
         iom_ci_os_spain: |
@@ -49,12 +49,56 @@ en-GB:
           <rome.marriages@fco.gov.uk>  
           $C
 
-#Marriage in Ireland outcome phrases
+# Marriage in Ireland outcome phrases
         outcome_ireland_opposite_sex: |
           The General Register Office of Ireland's website explains what you need to do if you want to [get married in Ireland](http://www.groireland.ie/getting_married.htm).
         outcome_ireland_same_sex: |
           The General Register Office of Ireland's website explains what you need to do if you want to [enter into a civil partnership in Ireland](http://www.groireland.ie/civil_partnership.htm).
-#Marriage in commonwealth countries phrases
+
+# Marriage & CP in Switzerland phrases
+        switzerland_os_variant: |
+          Contact the Civil Register Office where you’re getting married to find out about local laws, including what documents you’ll need.
+        switzerland_ss_variant: |
+          Same-sex relationships in Switzerland that are recognised as civil partnerships under British law are known as 'eingetragene Partnerschaft', 'partenariat enregistré', 'unione domestica registrata' or 'partenadi registrà' ('registered partnership').
+
+          Contact the Civil Register Office where you’re entering into a civil partnership to find out about local laws, including what documents you’ll need.
+        switzerland_not_resident: |
+          [Your closest Swiss embassy](http://www.eda.admin.ch/eda/en/home/reps.html) may be able to give you advice, or put you in touch with the relevant local authorities if you don’t know who to contact.
+
+          ^You should [get legal advice](/government/publications/switzerland-list-of-lawyers) and check the [travel advice for Switzerland](/foreign-travel-advice/switzerland) before making any plans.^
+
+          ##What you need to do
+        switzerland_os_not_resident: |
+          You may be asked to provide a civil status declaration to prove you’re allowed to marry.
+        switzerland_ss_not_resident: |
+          You may be asked to provide a civil status declaration to prove you’re allowed to enter into a civil partnership.
+        switzerland_not_resident_two: |
+          If you need a civil status declaration, you can get one from the British Embassy in Berne in the language of the canton where the ceremony is taking place. It’s valid for 6 months.
+
+          [Book an appointment online](https://www.clickbook.net/sub/BRITISHCONSULATEBERN).
+
+          ##Getting your civil status declaration
+
+          You’ll need to provide supporting documents, including:
+
+          - your passport
+          - your [full birth certificate](/order-copy-birth-death-marriage-certificate) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+          - proof of residence, such as a residence certificate - check with the consulate to find out what you need
+          - equivalent documents for your partner
+
+          If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
+
+          - a [decree absolute or final order](/copy-decree-absolute-final-order)
+          - a civil partnership dissolution or annulment certificate
+          - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/) 
+
+          You’ll also need to provide evidence of nationality or residence if a divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.
+
+          %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the ceremony to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage or civil partnership certificate, or deed poll).%
+
+          You should check if your civil status declaration needs to be legalised (certified as genuine) by the local authorities in Switzerland.
+
+# Marriage in commonwealth countries phrases
         commonwealth_os_all_intro: |
           %{country_name_uppercase_prefix} is a member of the Commonwealth.
 
@@ -120,7 +164,7 @@ en-GB:
           ##Naturalisation of your partner if they move to the UK
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
-#Marriage in British overseas territories phrases
+# Marriage in British overseas territories phrases
         bot_os_ceremony_biot: |
           Access to the British Indian Ocean Territory is restricted, and it’s unlikely that marriage would be allowed there.
 
@@ -144,7 +188,7 @@ en-GB:
           ##Naturalisation of your partner if they move to the UK
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
-#Marriage in a country with consular CNI phrases
+# Marriage in a country with consular CNI phrases
         ecuador_os_consular_cni: |
           %Marriage between an Ecuadorian citizen and a foreign national is only allowed if you’ve been resident in Ecuador for at least 75 consecutive days - unless you already have a registered child with an Ecuadorian citizen.%
         uk_resident_os_consular_cni: |
@@ -716,7 +760,7 @@ en-GB:
 # France phrases
         fot_os_all: |
           %{country_name_uppercase_prefix} is an overseas department or territory of France. The rules and requirements for getting married there are similar to France.
-#Affirmation to marry phrases
+# Affirmation to marry phrases
         affirmation_os_uk_resident: |
           Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local marriage laws, including what documents you’ll need.
 
@@ -792,7 +836,7 @@ en-GB:
 
           You can pay by cash or credit card, but not by personal cheque.
 
-#No CNI or consular services phrases
+# No CNI or consular services phrases
         no_cni_os_dutch_caribbean_islands: |
           %{country_name_uppercase_prefix} is one of the Dutch Caribbean islands.
         no_cni_os_dutch_caribbean_islands_uk_resident: |
@@ -848,7 +892,7 @@ en-GB:
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
 
-#Other countries outcome phrases
+# Other countries outcome phrases
         other_countries_os_burma: |
           The British Embassy in Rangoon doesn’t register marriages of British citizens in Burma. Contact the embassy if you need further advice.
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
@@ -922,7 +966,7 @@ en-GB:
 
           You can pay by cash or credit card, but not by personal cheque.
 
-#CP in countries with CP or equivalent phrases
+# CP in countries with CP or equivalent phrases
         cp_or_equivalent_cp_argentina: |
           Same-sex relationships in Argentina that are recognised as civil partnerships under British law are known as:
 
@@ -1031,11 +1075,11 @@ en-GB:
         cp_or_equivalent_cp_cash_or_credit_card_countries: |
           You can pay by cash or credit card, but not by personal cheque.
 
-#PACS in France or French overseas territories with PACS law
+# PACS in France or French overseas territories with PACS law
         fot_cp_all: |
           %{country_name_lowercase_prefix} is an overseas department or territory of France. The rules and requirements for PACS there are similar to France.
 
-#CP in countries where no CNI is required phrases
+# CP in countries where no CNI is required phrases
         no_cni_required_cp_united-states: |
           You can get a same-sex relationship legally recognised in some states in the United States.
         no_cni_required_cp_andorra: |
@@ -1132,7 +1176,7 @@ en-GB:
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
 
           You can pay by cash or credit card, but not by personal cheque.
-#CP in commonwealth countries phrases
+# CP in commonwealth countries phrases
         commonwealth_countries_cp_australia: |
           You can get a same-sex relationship legally recognised in some states in Australia.
         commonwealth_countries_cp_canada: |
@@ -1234,7 +1278,7 @@ en-GB:
 
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
 
-#CP in countries with consular CNI (exc australia) phrases
+# CP in countries with consular CNI (exc australia) phrases
         consular_cni_cp_ceremony_not_czech_republic: |
           You may be able to register a civil partnership at the British embassy or consulate in %{country_name_lowercase_prefix}.
         consular_cni_cp_ceremony_czech_republic_partner_not_local: |
@@ -1337,6 +1381,13 @@ en-GB:
           marriage: "Marriage"
           pacs: "PACS"
 
+# Q3d
+      swiss_resident?:
+        title: Do you live in Switzerland?
+        options:
+          "yes": "Yes"
+          "no": "No"
+
 # Q4
       what_is_your_partners_nationality?:
         title: What is your partner’s nationality?
@@ -1367,6 +1418,39 @@ en-GB:
           %{ceremony_type} in Ireland
         body: |
           %{ireland_partner_sex_variant}
+
+# outcome Switzerland
+      outcome_switzerland:
+        title: |
+          %{ceremony_type} in Switzerland
+        body: |
+          %{switzerland_marriage_outcome}
+
+          ##Naturalisation of your foreign partner if they move to the UK
+
+          If your partner isn’t British, they can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
+
+          ##Depositing your certificate in the UK
+
+          You can deposit your certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK for safe-keeping after the ceremony.
+
+          This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate) in English at any time from GRO.
+
+          You can [deposit your certificate](/deposit-foreign-marriage) through the British Embassy in Berne, or through the Foreign & Commonwealth Office (FCO) in the UK.
+
+          ##Fees
+
+          Service | Fee
+          -|-
+          Issuing a civil status declaration | £65
+          Depositing a marriage or civil partnership certificate | £35
+
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of consular fees for [Switzerland](/government/publications/switzerland-consular-fees).
+
+          You can pay by cash or credit card, but not by personal cheque.
+
+          *[GRO]:General Register Office
+          *[FCO]:Foreign & Commonwealth Office
 
 # outcome Commonwealth, opposite sex
       outcome_os_commonwealth:
@@ -1618,7 +1702,6 @@ en-GB:
           - South Africa
           - Spain
           - Sweden
-          - Switzerland
           - United States (in some states)
           - Uruguay
           - Wallis and Futuna
