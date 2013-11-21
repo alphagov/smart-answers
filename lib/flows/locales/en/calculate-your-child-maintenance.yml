@@ -7,11 +7,13 @@ en-GB:
       body: |
         Use the calculator to agree on a child maintenance amount if you’re arranging it yourselves, or to get an idea of the statutory amount the government would work out for you.
 
+        Don't use the calculator if you have a ['1993 scheme' or '2003 scheme' case](/how-child-maintenance-is-worked-out/child-maintenance-before-march-2003). These are managed by the Child Support Agency (CSA).
+
         ##What you need to know:##
 
         - the calculator gives an estimate (it won't cover variations for exceptional circumstances)
         - you need information about your income
-        - if you already have a case with the Child Support Agency (CSA) and your circumstances have changed, [contact your local CSA office](/child-support-agency) - they’ll tell you if your child maintenance payments will change
+        - if you already have a case with the Child Support Agency (CSA) or the Child Maintenance Service and your circumstances have changed, [contact the office managing your case](/child-support-agency) - they’ll tell you if your child maintenance payments will change
 
         Check the [child maintenance rates](/how-child-maintenance-is-worked-out/rates-used-by-the-child-support-agency "child maintenance rates") before you use the calculator.
 
@@ -114,9 +116,9 @@ en-GB:
 
           %{nil_rate_reason}
 
-          This is an estimate. The statutory amount the [government](/child-maintenance "Child Maintenance") would calculate might be different.
+          The calculator gives an estimate. The exact amount the Child Maintenance Service would calculate might be different.
 
-          Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out "How child maintenance is worked out")
+          Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/how-the-child-maintenance-service-works-out-child-maintenance "How child maintenance is worked out")
       ## A2
       flat_rate_result:
         body: |
@@ -124,9 +126,9 @@ en-GB:
 
           This is the total weekly amount, not the amount per child.
 
-          This is an estimate. The statutory amount the [government](/child-maintenance "Child Maintenance") would calculate might be different.
+          The calculator gives an estimate. The exact amount the Child Maintenance Service would calculate might be different.
 
-          Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out "How child maintenance is worked out")
+          Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/how-the-child-maintenance-service-works-out-child-maintenance "How child maintenance is worked out")
       ## A3
       reduced_and_basic_rates_result:
         body: |
@@ -134,6 +136,6 @@ en-GB:
 
           This is the total weekly amount, not the amount per child.
 
-          This is an estimate. The amount the [government](/child-maintenance "Child Maintenance") would calculate might be different.
+          The calculator gives an estimate. The exact amount the Child Maintenance Service would calculate might be different.
 
-          Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out "How child maintenance is worked out")
+          Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/how-the-child-maintenance-service-works-out-child-maintenance "How child maintenance is worked out")
