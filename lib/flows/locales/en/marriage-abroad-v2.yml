@@ -986,8 +986,8 @@ en-GB:
           - 'união estável', or 'stable union'.
         cp_or_equivalent_cp_colombia: |
           Same-sex relationships in Colombia that are recognised as civil partnerships under British law are known as ‘unión de hecho’, or ‘common-law relationship’.
-        cp_or_equivalent_cp_czech_republic_partner_local: |
-          Same-sex relationships in the Czech Republic that are recognised as civil partnerships under British law are known as 'registrované partnerství', or ‘registered partnership’. Your partner must be a Czech citizen.
+        cp_or_equivalent_cp_czech-republic: |
+          Same-sex relationships in the Czech Republic that are recognised as civil partnerships under British law are known as 'registrované partnerství', or ‘registered partnership’.
         cp_or_equivalent_cp_denmark: |
           Same-sex relationships in Denmark that are recognised as civil partnerships under British law are known as:
 
@@ -1279,10 +1279,8 @@ en-GB:
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
 
 # CP in countries with consular CNI (exc australia) phrases
-        consular_cni_cp_ceremony_not_czech_republic: |
+        consular_cni_cp_ceremony: |
           You may be able to register a civil partnership at the British embassy or consulate in %{country_name_lowercase_prefix}.
-        consular_cni_cp_ceremony_czech_republic_partner_not_local: |
-          You may be able to register a civil partnership at the British Embassy in Prague.
         consular_cni_cp_ceremony_vietnam_partner_local: |
           %However, you can’t enter into a civil partnership with a Vietnamese national.%
         consular_cni_cp_local_partner_croatia_bulgaria: |
@@ -1657,7 +1655,6 @@ en-GB:
           - Costa Rica
           - Croatia
           - Cyprus
-          - Czech Rep (if neither partner is Czech)
           - Guatemala
           - Japan
           - Latvia
@@ -1682,7 +1679,6 @@ en-GB:
           - Brazil
           - Canada
           - Colombia
-          - Czech Republic
           - Denmark
           - Ecuador
           - Finland

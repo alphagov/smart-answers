@@ -247,12 +247,6 @@ multiple_choice :partner_opposite_or_same_sex? do
         :outcome_os_consular_cni
       elsif data_query.cp_equivalent_countries?(ceremony_country)
         :outcome_cp_cp_or_equivalent
-      elsif %w(czech-republic).include?(ceremony_country)
-        if %w(partner_local).include?(partner_nationality)
-          :outcome_cp_cp_or_equivalent
-        else
-          :outcome_cp_consular_cni
-        end
       elsif data_query.cp_cni_not_required_countries?(ceremony_country)
         :outcome_cp_no_cni
       elsif %w(australia canada new-zealand south-africa).include?(ceremony_country)
@@ -905,9 +899,6 @@ outcome :outcome_cp_cp_or_equivalent do
     if data_query.cp_equivalent_countries?(ceremony_country)
       phrases << :"cp_or_equivalent_cp_#{ceremony_country}"
     end
-    if %w(czech-republic).include?(ceremony_country) and %w(partner_local).include?(partner_nationality)
-      phrases << :cp_or_equivalent_cp_czech_republic_partner_local
-    end
     if %w(uk).include?(resident_of)
       phrases << :cp_or_equivalent_cp_uk_resident
     elsif ceremony_country == residency_country
@@ -1042,13 +1033,7 @@ end
 outcome :outcome_cp_consular_cni do
   precalculate :consular_cni_cp_outcome do
     phrases = PhraseList.new
-    if %w(czech-republic).include?(ceremony_country)
-      if %w(partner_local).exclude?(partner_nationality)
-        phrases << :consular_cni_cp_ceremony_czech_republic_partner_not_local
-      end
-    else
-      phrases << :consular_cni_cp_ceremony_not_czech_republic
-    end
+    phrases << :consular_cni_cp_ceremony
     if %w(vietnam).include?(ceremony_country)
       if %w(partner_local).include?(partner_nationality)
         phrases << :consular_cni_cp_ceremony_vietnam_partner_local
