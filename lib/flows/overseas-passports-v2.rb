@@ -280,12 +280,10 @@ outcome :ips_application_result do
       phrases << :"how_long_#{number_of_weeks}_weeks"
     elsif twelve_week_application_countries.include?(current_location) and %w(applying renewing_old).include?(application_action)
       phrases << :"how_long_applying_12_weeks"
+    elsif %w{kazakhstan kyrgyzstan}.include?(current_location)
+      phrases << :"how_long_#{current_location}"
     else
-      if %w{kazakhstan kyrgyzstan}.include?(current_location)
-        phrases << :"how_long_#{current_location}"
-      else
-        phrases << :"how_long_#{application_action}_ips#{ips_number}"
-      end
+      phrases << :"how_long_#{application_action}_ips#{ips_number}"
     end
     phrases << :"how_long_it_takes_ips#{ips_number}"
     phrases
