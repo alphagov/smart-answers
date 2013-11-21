@@ -194,6 +194,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
           assert_state_variable :application_type, 'ips_application_3'
           assert_current_node :ips_application_result
           assert_phrase_list :how_long_it_takes, [:how_long_applying_6_months, :how_long_it_takes_ips3]
+          assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card]
           expected_location = WorldLocation.find('afghanistan')
           assert_state_variable :location, expected_location
           assert_state_variable :organisation, expected_location.fco_organisation
@@ -213,6 +214,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
           add_response 'adult'
           assert_state_variable :application_type, 'ips_application_3'
           assert_current_node :ips_application_result
+          assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card]
           expected_location = WorldLocation.find('afghanistan')
           assert_state_variable :location, expected_location
           assert_state_variable :organisation, expected_location.fco_organisation
@@ -1096,6 +1098,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'adult'
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips3]
+        assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card]
         expected_location = WorldLocation.find('bangladesh')
         assert_state_variable :location, expected_location
         assert_state_variable :organisation, expected_location.fco_organisation
@@ -1107,6 +1110,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'adult'
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_16_weeks, :how_long_it_takes_ips3]
+        assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card]
         expected_location = WorldLocation.find('bangladesh')
         assert_state_variable :location, expected_location
         assert_state_variable :organisation, expected_location.fco_organisation
@@ -1119,6 +1123,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'bangladesh'
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_applying_6_months, :how_long_it_takes_ips3]
+        assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card]
         expected_location = WorldLocation.find('bangladesh')
         assert_state_variable :location, expected_location
         assert_state_variable :organisation, expected_location.fco_organisation
