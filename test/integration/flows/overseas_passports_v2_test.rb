@@ -9,7 +9,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania afghanistan andorra australia austria azerbaijan benin cameroon congo djibouti egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nigeria russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania the-occupied-palestinian-territories tunisia united-kingdom yemen zimbabwe)
+    @location_slugs = %w(albania afghanistan andorra australia austria azerbaijan bangladesh benin cameroon congo djibouti egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nigeria pakistan russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania the-occupied-palestinian-territories tunisia united-kingdom yemen zimbabwe)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports-v2'
   end
@@ -193,6 +193,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
           add_response 'afghanistan'
           assert_state_variable :application_type, 'ips_application_3'
           assert_current_node :ips_application_result
+          assert_phrase_list :how_long_it_takes, [:how_long_applying_6_months, :how_long_it_takes_ips3]
           expected_location = WorldLocation.find('afghanistan')
           assert_state_variable :location, expected_location
           assert_state_variable :organisation, expected_location.fco_organisation
@@ -558,14 +559,28 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
   end # Ireland (FCO with custom phrases)
 
   context "answer India" do
+    setup do
+      worldwide_api_has_organisations_for_location('india', read_fixture_file('worldwide/india_organisations.json'))
+      add_response 'india'
+    end
     context "applying, adult passport" do
       should "give the ips result" do
-        worldwide_api_has_organisations_for_location('india', read_fixture_file('worldwide/india_organisations.json'))
-        add_response 'india'
         add_response 'applying'
         add_response 'adult'
         add_response 'india'
         assert_current_node :ips_application_result
+        assert_phrase_list :how_long_it_takes, [:how_long_applying_16_weeks, :how_long_it_takes_ips3]
+        expected_location = WorldLocation.find('india')
+        assert_state_variable :location, expected_location
+        assert_state_variable :organisation, expected_location.fco_organisation
+      end
+    end
+    context "renewing a new adult passport" do
+      should "give the ips result" do
+        add_response 'renewing_new'
+        add_response 'adult'
+        assert_current_node :ips_application_result
+        assert_phrase_list :how_long_it_takes, [:how_long_5_weeks, :how_long_it_takes_ips3]
         expected_location = WorldLocation.find('india')
         assert_state_variable :location, expected_location
         assert_state_variable :organisation, expected_location.fco_organisation
@@ -1070,4 +1085,63 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
     end
   end # Zimbabwe
 
+  context "answer Bangladesh" do
+    setup do
+      worldwide_api_has_organisations_for_location('bangladesh', read_fixture_file('worldwide/bangladesh_organisations.json'))
+      add_response 'bangladesh'
+    end
+    context "renewing a new adult passport" do
+      should "give the ips result" do
+        add_response 'renewing_new'
+        add_response 'adult'
+        assert_current_node :ips_application_result
+        assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips3]
+        expected_location = WorldLocation.find('bangladesh')
+        assert_state_variable :location, expected_location
+        assert_state_variable :organisation, expected_location.fco_organisation
+      end
+    end
+    context "replacing a new adult passport" do
+      should "give the ips result" do
+        add_response 'replacing'
+        add_response 'adult'
+        assert_current_node :ips_application_result
+        assert_phrase_list :how_long_it_takes, [:how_long_16_weeks, :how_long_it_takes_ips3]
+        expected_location = WorldLocation.find('bangladesh')
+        assert_state_variable :location, expected_location
+        assert_state_variable :organisation, expected_location.fco_organisation
+      end
+    end
+    context "applying for a new adult passport" do
+      should "give the ips result" do
+        add_response 'applying'
+        add_response 'adult'
+        add_response 'bangladesh'
+        assert_current_node :ips_application_result
+        assert_phrase_list :how_long_it_takes, [:how_long_applying_6_months, :how_long_it_takes_ips3]
+        expected_location = WorldLocation.find('bangladesh')
+        assert_state_variable :location, expected_location
+        assert_state_variable :organisation, expected_location.fco_organisation
+      end
+    end
+  end # Bangladesh
+
+  context "answer Pakistan" do
+    setup do
+      worldwide_api_has_organisations_for_location('pakistan', read_fixture_file('worldwide/pakistan_organisations.json'))
+      add_response 'pakistan'
+    end
+    context "applying for a new adult passport" do
+      should "give the ips result" do
+        add_response 'applying'
+        add_response 'adult'
+        add_response 'pakistan'
+        assert_current_node :ips_application_result
+        assert_phrase_list :how_long_it_takes, [:how_long_applying_6_months, :how_long_it_takes_ips3]
+        expected_location = WorldLocation.find('pakistan')
+        assert_state_variable :location, expected_location
+        assert_state_variable :organisation, expected_location.fco_organisation
+      end
+    end
+  end # Pakistan
 end

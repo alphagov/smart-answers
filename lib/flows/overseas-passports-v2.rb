@@ -282,6 +282,20 @@ outcome :ips_application_result do
       phrases << :"how_long_applying_12_weeks"
     elsif %w{kazakhstan kyrgyzstan}.include?(current_location)
       phrases << :"how_long_#{current_location}"
+    elsif %w{afghanistan pakistan}.include?(current_location) and %w(applying renewing_old).include?(application_action)
+      phrases << :"how_long_applying_6_months"
+    elsif %w{india}.include?(current_location) and %w(applying renewing_old).include?(application_action)
+      phrases << :"how_long_applying_16_weeks"
+    elsif %w{india}.include?(current_location) and %w(renewing_new).include?(application_action)
+      phrases << :"how_long_5_weeks"
+    elsif %w{bangladesh}.include?(current_location)
+      if %w(applying renewing_old).include?(application_action)
+        phrases << :"how_long_applying_6_months"
+      elsif %w(renewing_new).include?(application_action)
+        phrases << :"how_long_6_weeks"
+      else
+        phrases << :"how_long_16_weeks"
+      end
     else
       phrases << :"how_long_#{application_action}_ips#{ips_number}"
     end
