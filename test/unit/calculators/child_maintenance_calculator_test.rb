@@ -94,7 +94,7 @@ module SmartAnswer::Calculators
         @calculator.number_of_shared_care_nights = 0
         assert_equal 0.235, @calculator.reduced_rate_multiplier
         assert_equal 0, @calculator.shared_care_multiplier
-        assert_equal 22, @calculator.calculate_reduced_rate_payment ##22.15 unrounded
+        assert_equal 24, @calculator.calculate_reduced_rate_payment ##22.15 unrounded
       end
     end
     
