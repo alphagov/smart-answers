@@ -352,18 +352,13 @@ end
 ## FCO Result
 outcome :fco_result do
   precalculate :how_long_it_takes do
-    if application_action == 'applying' and current_location == 'india'
-      PhraseList.new(:"how_long_applying_#{current_location}")
-    else
-      PhraseList.new(:"how_long_#{application_action}_fco")
-    end
+    PhraseList.new(:"how_long_#{application_action}_fco")
   end
 
   precalculate :cost do
     cost_type = application_type
     # All european FCO applications cost the same
     cost_type = 'fco_europe' if application_type =~ /^(dublin_ireland|madrid_spain|paris_france)$/
-    cost_type = "applying_#{current_location}" if current_location == 'india' and general_action != 'renewing'
 
     payment_methods = :"passport_costs_#{application_type}"
 
@@ -404,8 +399,6 @@ outcome :fco_result do
   precalculate :supporting_documents do
     if application_action == 'applying' and current_location == 'jordan'
       PhraseList.new(:supporting_documents_jordan_applying)
-    elsif current_location == 'india' and %w(applying renewing).include?(general_action)
-      PhraseList.new(:supporting_documents_india_applying_renewing)
     elsif current_location == 'south-africa' and general_action == 'applying'
       PhraseList.new(:supporting_documents_south_africa_applying)
     else
@@ -431,7 +424,7 @@ outcome :fco_result do
   end
   precalculate :getting_your_passport do
     location = 'fco'
-    location = current_location if %(burma cambodia congo india nepal).include?(current_location)
+    location = current_location if %(burma cambodia congo nepal).include?(current_location)
     PhraseList.new(:"getting_your_passport_#{location}")
   end
   precalculate :helpline do

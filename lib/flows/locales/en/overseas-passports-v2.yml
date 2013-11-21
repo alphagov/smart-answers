@@ -232,50 +232,8 @@ en-GB:
 
         passport_costs_indonesia: ''
 
-        how_long_applying_india: |
-          Your application will take **at least** 16 weeks. You may have to attend an interview.
-
         how_long_applying_tanzania: |
           Your application will take **at least** 12 weeks. You may have to attend an interview.
-
-        passport_courier_costs_india: |
-          You’ll have to pay a fee for your passport and a courier fee. The courier fee pays for your passport and supporting documents to be sent back to you securely.
-
-        passport_courier_costs_applying_india: |
-          You’ll have to pay a fee for your passport and a courier fee. The courier fee pays for your passport and supporting documents to be sent back to you securely.
-
-        adult_passport_costs_india: |
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | %{costs_indian_rupees_adult_32}
-          Adult jumbo 48-page passport | %{costs_indian_rupees_adult_48}
-
-        child_passport_costs_india: |
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Child passport | %{costs_indian_rupees_child}
-
-        adult_passport_costs_applying_india: |
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | %{costs_indian_rupees_adult_32}
-          Adult jumbo 48-page passport | %{costs_indian_rupees_adult_48}
-
-        child_passport_costs_applying_india: |
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Child standard 32-page passport | %{costs_indian_rupees_child}
-
-        passport_costs_india: |
-          You must pay using a Visa or Mastercard - [download a credit card authorisation form](/government/publications/passport-credit-debit-card-payment-authorisation-slip-india-new-delhi) and send it with your application.
-
-        supporting_documents_india_applying_renewing: |
-          __Supporting documents information__
-
-          - [Adult passport renewal](/government/publications/passport-renewal-adult-india)  
-          - [Child passport renewal](/government/publications/passport-renewal-child-india)  
-          - [Adult first passport](/government/publications/passport-application-first-time-adult-india)  
-          - [Child first passport](/government/publications/passport-application-first-time-child-india)
 
         adult_fco_forms: |
           __Smart application form__
@@ -305,23 +263,6 @@ en-GB:
 
         getting_your_passport_fco: |
           Your passport and supporting documents will be delivered separately by courier.
-
-          When you get your passport, check your name, date of birth and other personal details are correct.
-
-          If they’re not, send the passport back to the address above with a covering letter and evidence of what needs to be corrected (eg if your name is spelled incorrectly, provide evidence of how your name should be spelled).
-
-          If the error was made by the passport processing office, you’ll get a replacement free of charge. If the error was yours, you’ll have to pay for a replacement passport.
-
-        getting_your_passport_india: |
-          Your passport and supporting documents will be sent to you by registered post.
-
-          You can also choose to collect your passport and supporting documents in person - you’ll need to state this in the ‘Other Information’ section of the application form.
-
-          The British High Commision in New Delhi will contact you when your passport arrives using the contact details on your form. You’ll need to bring photographic ID.
-
-          You can also get someone else to collect your passport on your behalf. Send a signed letter with your application with the name of the person and their contact details. They’ll need to bring photographic ID when they collect it.
-
-          ### Mistakes on your passport
 
           When you get your passport, check your name, date of birth and other personal details are correct.
 
@@ -384,15 +325,6 @@ en-GB:
             29 Merrion Road
             Ballsbridge
             Dublin 4
-          $A
-
-        send_application_india: |
-
-          $A
-            PPT Applications
-            British High Commission
-            Shantipath, Chanakyapuri
-            New Delhi, 110021
           $A
 
         send_application_pretoria_south_africa: |
@@ -574,37 +506,6 @@ en-GB:
             Textphone: +44 1750 725 368
           $C
 
-        helpline_india: |
-
-          $C
-            **Passport Information Helpline**
-
-            +44 208 082 4744
-            Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
-          $C
-
-        helpline_afghanistan: |
-
-
-          $C
-            **Passport Information Helpline**
-
-            +44 208 082 4744
-
-            Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
-
-          $C
-
-          You can also call the British Embassy in Kabul.
-
-
-          $C
-
-            **British Embassy, Kabul**
-
-            +93 (0) 700 102 000
-
-          $C
         helpline_yemen: |
 
 
@@ -1311,97 +1212,6 @@ en-GB:
             Textphone: +44 1750 725 368
           $C
 
-
-        how_long_afghanistan: |
-          Action | Minimum time after you apply
-          - | -
-          Renew a passport | 4 weeks
-          First adult or child passports | 6 months
-          Replace a lost or stolen passport | 6 weeks
-          Change your name in a passport | 6 weeks
-
-          Applications may take longer if:
-
-          - you need to provide more information or documents
-          - your photographs are rejected
-
-          The Foreign and Commonwealth Office may ask to interview you at the British embassy in Islamabad, Pakistan.
-
-
-        cost_afghanistan: |
-          You must pay in cash using US Dollars at the British embassy in Kabul. You’ll pay a fee for your passport plus a courier fee of US $55. The courier fee pays for your passport and supporting documents to be returned.
-
-          | Passport type | Passport fee | Total to pay (including courier fee) |
-          |---------------|--------------|--------------------------------------|
-          | Adult standard 32-page passport | US $211 | US $266 |
-          | Adult jumbo 48-page passport | US $255 |US $310 |
-          | Child passport | US $134 | US $189 |
-
-        how_to_apply_afghanistan: ''
-
-        supporting_documents_afghanistan: |
-          __Supporting documents information__
-
-          - [Adult passport renewal](/government/publications/passport-renewal-adult-afghanistan)
-          - [Child passport renewal](/government/publications/passport-renewal-child-afghanistan)
-          - [Adult first passport](/government/publications/passport-application-first-time-adult-afghanistan)
-          - [First child passport](/government/publications/passport-application-first-time-child-afghanistan)
-        making_application_afghanistan: |
-          You must apply in person at the British embassy in Kabul.
-
-        getting_your_passport_afghanistan: |
-          The British embassy in Kabul will contact you when your passport arrives using the contact details on your form. You must collect it in person.
-
-        how_long_bangladesh: |
-          Action | Minimum time after you apply
-          - | -
-          Renew a passport | 6 weeks
-          First adult or child passports | 6 months
-          Replace a lost or stolen passport | 16 weeks
-          Change your name in a passport | 16 weeks
-
-          Applications may take longer if:
-
-          - you need to provide more information or documents
-          - your photographs are rejected
-          - you need to be interviewed to confirm your identity
-
-
-
-        cost_bangladesh: |
-          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
-
-          You can pay using:
-
-          - a Visa or Mastercard
-          - a banker’s draft in Bangladeshi Taka, payable to the British High Commission
-          - cash, if you apply in person at the British High Commission in Dhaka
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | £128/ 16,650 Taka | £151.01/ 19,650 Taka
-          Adult jumbo 48-page passport | £154.50/ 20,100 Taka | £177.51/ 23,100 Taka
-          Child passport | £81.50/ 10,600 Taka | £104.51/ 13,600 Taka
-
-        how_to_apply_bangladesh: |
-          4. Fill in a card payment authorisation form if you’re paying with a credit or debit card.
-
-          Download a [card payment authorisation form](/government/publications/passport-credit-debit-card-payment-authorisation-slip-bangladesh).
-
-        supporting_documents_bangladesh: |
-          __Supporting documents information__
-
-          - [Adult passport renewal](/government/publications/passport-renewal-adult-bangladesh)
-          - [Child passport renewal](/government/publications/passport-renewal-child-bangladesh)
-          - [Adult first passport](/government/publications/passport-application-first-time-adult-bangladesh)
-          - [First child passport](/government/publications/passport-application-first-time-child-bangladesh)
-
-        making_application_bangladesh: |
-          Send your application - or deliver your application in person - to the British High Commission in Dhaka.
-
-        getting_your_passport_bangladesh: |
-          The British High Commission in Dhaka will contact you when your passport arrives using the contact details on your form. You must collect it in person.
-
         how_long_nairobi_kenya_applying: |
           Your application will take at least 12 weeks. You will be asked to attend an interview.
 
@@ -1557,51 +1367,6 @@ en-GB:
         making_application_north_korea: Bring your application in person to the British embassy in Pyongyang.
         getting_your_passport_north_korea: |
           The British embassy will contact you when your passport arrives using the contact details on your form. You must collect it in person.
-
-        how_long_pakistan: |
-          Action | Minimum time after you apply
-          - | -
-          Renew a passport | 4 weeks
-          First adult or child passports | 6 months
-          Replace a lost or stolen passport | 6 weeks
-
-          Applications may take longer if:
-
-          - you need to provide more information or documents
-          - your photographs are rejected
-
-          If you’re applying for a first passport, you’ll usually be asked to attend an interview at the British High Commission in Islamabad. They will contact you to arrange the interview.
-
-          If you’re renewing or replacing a lost or stolen passport, you may be asked to attend an interview after your documents have been checked. The High Commission will contact you when they decide if they want to interview you.
-
-          For child passport applications, both parents or guardians must come with their child to the passport interview. If only one parent or guardian is in Pakistan, the parent, child and a close relative must come to the interview (eg aunt, uncle or grandparent - but not the child’s brother or sister).
-
-
-        cost_pakistan: |
-          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
-
-          You must pay using a Bank Draft payable to the ‘British High Commission Islamabad’ and endorsed ‘payable at any branch’.
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | %{costs_pakistani_rupees_adult_32} 
-          Adult jumbo 48-page passport | %{costs_pakistani_rupees_adult_48}
-          Child passport | %{costs_pakistani_rupees_child}
-
-        how_to_apply_pakistan: ''
-        supporting_documents_pakistan: |
-          __Supporting documents information__
-
-          - [Adult passport renewal](/government/publications/passport-renewal-guidance-adult-pakistan)
-          - [Child passport renewal](/government/publications/guidance-on-passport-renewal-child-pakistan)
-          - [Adult first passport](/government/publications/pakistan-first-time-passport-applications-for-adults)
-          - [First child passport](/government/publications/pakistan-first-time-passport-application-for-children-under-16)
-
-        making_application_pakistan: |
-          You can send your application British High Commission in Islamabad, preferably by secure post or courier. You must pay using a Banker’s Draft if you send your application this way.
-
-        getting_your_passport_pakistan: |
-          The British High Commission will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
         how_long_philippines: |
           Action | Minimum time after you apply

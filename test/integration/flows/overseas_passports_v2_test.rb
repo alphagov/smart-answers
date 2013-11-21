@@ -190,19 +190,12 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       context "answer adult" do
         should "give the result and be done" do
           add_response 'adult'
-          assert_state_variable :application_type, 'afghanistan'
-          assert_phrase_list :fco_forms, [:adult_fco_forms]
-          assert_phrase_list :how_long_it_takes, [:how_long_afghanistan]
-          assert_phrase_list :cost, [:cost_afghanistan]
-          assert_phrase_list :how_to_apply, [:how_to_apply_afghanistan]
-          assert_phrase_list :making_application, [:making_application_afghanistan]
-          assert_phrase_list :getting_your_passport, [:getting_your_passport_afghanistan]
-          assert_phrase_list :helpline, [:helpline_intro, :helpline_afghanistan, :helpline_fco_webchat]
-          assert_current_node :result
+          add_response 'afghanistan'
+          assert_state_variable :application_type, 'ips_application_3'
+          assert_current_node :ips_application_result
           expected_location = WorldLocation.find('afghanistan')
           assert_state_variable :location, expected_location
           assert_state_variable :organisation, expected_location.fco_organisation
-
         end
       end
     end
@@ -217,15 +210,8 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       context "answer adult" do
         should "give the result and be done" do
           add_response 'adult'
-          assert_state_variable :application_type, 'afghanistan'
-          assert_phrase_list :fco_forms, [:adult_fco_forms]
-          assert_phrase_list :how_long_it_takes, [:how_long_afghanistan]
-          assert_phrase_list :cost, [:cost_afghanistan]
-          assert_phrase_list :how_to_apply, [:how_to_apply_afghanistan, :how_to_apply_retain_passport_exception]
-          assert_phrase_list :making_application, [:making_application_afghanistan]
-          assert_phrase_list :getting_your_passport, [:getting_your_passport_afghanistan]
-          assert_phrase_list :helpline, [:helpline_intro, :helpline_afghanistan, :helpline_fco_webchat]
-          assert_current_node :result
+          assert_state_variable :application_type, 'ips_application_3'
+          assert_current_node :ips_application_result
           expected_location = WorldLocation.find('afghanistan')
           assert_state_variable :location, expected_location
           assert_state_variable :organisation, expected_location.fco_organisation
@@ -573,35 +559,19 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
 
   context "answer India" do
     context "applying, adult passport" do
-      should "give the fco result with custom phrases" do
+      should "give the ips result" do
         worldwide_api_has_organisations_for_location('india', read_fixture_file('worldwide/india_organisations.json'))
         add_response 'india'
         add_response 'applying'
         add_response 'adult'
-        assert_current_node :fco_result
-        assert_phrase_list :how_long_it_takes, [:how_long_applying_india]
-        assert_phrase_list :cost, [:passport_courier_costs_applying_india, :adult_passport_costs_applying_india, :passport_costs_india]
-        assert_phrase_list :supporting_documents, [:supporting_documents_india_applying_renewing]
-        assert_match /^[\d,]+ Indian Rupees \| [\d,]+ Indian Rupees$/, current_state.costs_indian_rupees_adult_32
+        add_response 'india'
+        assert_current_node :ips_application_result
         expected_location = WorldLocation.find('india')
         assert_state_variable :location, expected_location
         assert_state_variable :organisation, expected_location.fco_organisation
-        assert_match /New Delhi, 110021/, outcome_body
       end
     end
-    context "replacing, adult passport" do
-      should "give the fco result with custom phrases" do
-        worldwide_api_has_organisations_for_location('india', read_fixture_file('worldwide/india_organisations.json'))
-        add_response 'india'
-        add_response 'replacing'
-        add_response 'adult'
-        assert_current_node :fco_result
-        assert_phrase_list :how_long_it_takes, [:how_long_replacing_fco]
-        assert_phrase_list :cost, [:passport_courier_costs_applying_india, :adult_passport_costs_applying_india, :passport_costs_india]
-        assert_state_variable :supporting_documents, ''
-      end
-    end
-  end # India (FCO with custom phrases)
+  end # India
 
   context "answer Tanzania, replacement, adult passport" do
     should "give the fco result with custom phrases" do

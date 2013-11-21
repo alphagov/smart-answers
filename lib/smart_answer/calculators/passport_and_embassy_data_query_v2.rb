@@ -3,7 +3,7 @@ module SmartAnswer::Calculators
 
     include ActionView::Helpers::NumberHelper
 
-    FCO_APPLICATIONS_REGEXP = /^(dublin_ireland|hong_kong|india|madrid_spain|paris_france|pretoria_south_africa|washington_usa|wellington_new_zealand)$/
+    FCO_APPLICATIONS_REGEXP = /^(dublin_ireland|hong_kong|madrid_spain|paris_france|pretoria_south_africa|washington_usa|wellington_new_zealand)$/
     IPS_APPLICATIONS_REGEXP = /^ips_application_\d$/
     NO_APPLICATION_REGEXP = /^(algeria|iran|syria)$/
 
@@ -28,9 +28,7 @@ module SmartAnswer::Calculators
     PASSPORT_COSTS = {
       'Australian Dollars'  => [[282.21], [325.81], [205.81]],
       'Euros'               => [[156, 180],   [188, 212],   [99, 123]],
-      'Indian Rupees'       => [[13450, 15900], [16250, 18700], [8600, 11050]],
       'New Zealand Dollars' => [["317.80", 337.69], ["371.80", 391.69], ["222.80", 242.69]],
-      'Pakistani Rupees'    => [[23040, 27550], [27810, 32320], [14670, 19180]],
       'Philipine peso'      => [[9216, 10872], [11124, 12780], [5868, 7524]],
       'SLL'                 => [[900000, 1135000], [1085000, 1320000], [575000, 810000]],
       'South African Rand'  => [[2112, 2440], [2549, 2877], [1345, 1673]]
