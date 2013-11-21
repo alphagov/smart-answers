@@ -23,7 +23,7 @@ en-GB:
           This is because the parent paying child maintenance is receiving benefits and they have shared care of the child(ren).
         nil_rate_reason_income: |
           This is because the income of the parent paying child maintenance is too low.
-      options: 
+      options:
         "yes": "Yes"
         "no": "No"
 
@@ -35,32 +35,14 @@ en-GB:
           "2_children": "2"
           "3_children": "3 or more"
         body: |
-          Paying parents: enter the total number of children  
+          Paying parents: enter the total number of children
           Receiving parents: enter children from 1 partner only and make a separate calculation for each partner
         error_message: Please enter a number greater than 0
-      ## Q2
-      gets_benefits_old?:
+
+      ##Q2
+      gets_benefits?:
         title: Does the parent paying child maintenance get any of these benefits?
         body: |
-
-          - Income Support
-          - income-based Jobseeker’s Allowance
-          - income-related Employment and Support Allowance
-          - Pension Credit
-          - contribution-based Jobseeker’s Allowance
-          - contribution-based Employment and Support Allowance
-          - State Pension
-          - Incapacity Benefit
-          - Training Allowance
-          - Armed Forces Compensation Scheme payments
-          - War Disablement Pension
-          - Bereavement Allowance
-          - Universal Credit with no earned income
-      ##Q2a
-      gets_benefits_new?:
-        title: Does the parent paying child maintenance get any of these benefits?
-        body: |
-
           - Income Support
           - income-based Jobseeker’s Allowance
           - income-related Employment and Support Allowance
@@ -83,23 +65,18 @@ en-GB:
         hint: "In Scotland, this also includes: Skillseekers training, War Widow’s, Widower’s or Surviving Civil Partner’s Pension"
 
       ## Q3
-      net_income_of_payee?:
-        title: What is the weekly net income of the parent paying child maintenance?
-        hint: |
-          This is income after tax, National Insurance and pension contributions. Include all the paying parent’s working tax credits if their income is higher than their current partner's. Include half the working tax credits if their incomes are the same.
-        suffix_label: per week
-        error_message: Please enter a number
-      ## Q3a
       gross_income_of_payee?:
         title: What is the weekly gross income of the parent paying child maintenance?
         hint: This is income before tax and National Insurance but after pension contributions.
         suffix_label: per week
         error_message: Please enter a number
+
       ## Q4
       how_many_other_children_in_payees_household?:
         title: How many other children live in the household of the parent paying child maintenance?
         hint: Enter 0 if no children live there. Don’t count the children child maintenance has to be paid for.
         error_message: Please enter a number
+
       ## Q5
       how_many_nights_children_stay_with_payee?:
         title: How many nights a year do the children stay over with the parent paying child maintenance?
@@ -109,6 +86,7 @@ en-GB:
           "2": "104 to 155 (2 to 3 nights a week)"
           "3": "156 to 174 (approx. 3 nights a week)"
           "4": "175 or more (more than 3 nights a week)"
+
       ## A1
       nil_rate_result:
         body: |
@@ -119,6 +97,7 @@ en-GB:
           The calculator gives an estimate. The exact amount the Child Maintenance Service would calculate might be different.
 
           Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/how-the-child-maintenance-service-works-out-child-maintenance "How child maintenance is worked out")
+
       ## A2
       flat_rate_result:
         body: |
@@ -129,6 +108,7 @@ en-GB:
           The calculator gives an estimate. The exact amount the Child Maintenance Service would calculate might be different.
 
           Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/how-the-child-maintenance-service-works-out-child-maintenance "How child maintenance is worked out")
+
       ## A3
       reduced_and_basic_rates_result:
         body: |

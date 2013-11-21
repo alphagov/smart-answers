@@ -8,27 +8,26 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
   setup do
     setup_for_testing_flow 'calculate-your-child-maintenance'
   end
-  
+
   ## Q1
   should "ask how many children maintenance is paid for" do
     assert_current_node :how_many_children_paid_for?
   end
-  
+
   context "answer 0" do
     should "raise an error" do
       add_response 0
       assert_current_node_is_error
     end
   end
-  
-  # New scheme
+
   context "answer 2+ children" do
     setup do
       add_response '2_children'
     end
 
     should "ask about benefits" do
-       assert_current_node :gets_benefits_new?
+       assert_current_node :gets_benefits?
     end
 
     context "no to benefits" do
@@ -38,7 +37,7 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
       should "ask what the weekly gross income of the payee" do
         assert_current_node :gross_income_of_payee?
       end
-    
+
       context "answer 100" do
         should "give flat rate result" do
           add_response 100
@@ -65,5 +64,5 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
         end
       end
     end
-  end # new scheme
+  end
 end
