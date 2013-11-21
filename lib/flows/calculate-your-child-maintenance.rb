@@ -16,13 +16,10 @@ multiple_choice :how_many_children_paid_for? do
   ## initial filtering: 4+ children -> 2012 scheme
   ## everyone else -> 2003 scheme
   calculate :maintenance_scheme do
-    responses.last == '1_child' ? :old : :new
+    :new
   end
 
-  next_node do |response|
-    maintenance_scheme = response.to_i > 1 ? :new : :old
-    "gets_benefits_#{maintenance_scheme.to_s}?".to_sym
-  end
+  next_node :gets_benefits_new?
 end
 
 ## Q2

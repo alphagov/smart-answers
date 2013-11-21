@@ -48,8 +48,8 @@ module SmartAnswer::Calculators
       if shared_care_multiplier == 0.5
         reduced_rate_decreased = reduced_rate_decreased - (@number_of_children * SHARED_CARE_MAX_RELIEF_EXTRA_AMOUNT)
       end
-      #reduced rate can never be less than 5 pounds
-      reduced_rate_decreased > OLD_SCHEME_MINIMUM_REDUCED_BASIC ? reduced_rate_decreased : OLD_SCHEME_MINIMUM_REDUCED_BASIC
+      #reduced rate can never be less than 7 pounds
+      reduced_rate_decreased > NEW_SCHEME_BASE_AMOUNT ? reduced_rate_decreased : NEW_SCHEME_BASE_AMOUNT
     end
     
     def calculate_basic_rate_payment
@@ -60,8 +60,8 @@ module SmartAnswer::Calculators
       if shared_care_multiplier == 0.5
         basic_rate_decreased = basic_rate_decreased - (@number_of_children * SHARED_CARE_MAX_RELIEF_EXTRA_AMOUNT)
       end
-      #basic rate can never be less than 5 pounds
-      basic_rate_decreased > OLD_SCHEME_MINIMUM_REDUCED_BASIC ? basic_rate_decreased : OLD_SCHEME_MINIMUM_REDUCED_BASIC
+      #basic rate can never be less than 7 pounds
+      basic_rate_decreased > NEW_SCHEME_BASE_AMOUNT ? basic_rate_decreased : NEW_SCHEME_BASE_AMOUNT
     end
     
     #only used in the 2012 scheme
