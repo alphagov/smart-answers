@@ -573,6 +573,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_applying_16_weeks, :how_long_it_takes_ips3]
         assert_phrase_list :send_your_application, [:send_application_ips3_must_post, :send_application_embassy_address]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_india]
         expected_location = WorldLocation.find('india')
         assert_state_variable :location, expected_location
         assert_state_variable :organisation, expected_location.fco_organisation
