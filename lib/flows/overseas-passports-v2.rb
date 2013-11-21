@@ -339,6 +339,9 @@ outcome :ips_application_result do
       phrases << :"send_application_ips#{ips_number}_#{application_address}"
     elsif %w(gaza).include?(current_location)
       phrases << :send_application_ips3_gaza
+    elsif %w(bangladesh).include?(current_location)
+      phrases << :send_application_ips3_bangladesh
+      phrases << :send_application_embassy_address
     elsif general_action == 'renewing' and data_query.renewing_countries?(current_location)
       phrases << :"send_application_ips#{ips_number}" << :renewing_new_renewing_old << :send_application_embassy_address
     else

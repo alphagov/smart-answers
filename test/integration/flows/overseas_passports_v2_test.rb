@@ -1099,6 +1099,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips3]
         assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card]
+        assert_phrase_list :send_your_application, [:send_application_ips3_bangladesh, :send_application_embassy_address]
         expected_location = WorldLocation.find('bangladesh')
         assert_state_variable :location, expected_location
         assert_state_variable :organisation, expected_location.fco_organisation
