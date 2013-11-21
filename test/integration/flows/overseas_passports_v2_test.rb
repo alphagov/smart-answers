@@ -572,6 +572,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'india'
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_applying_16_weeks, :how_long_it_takes_ips3]
+        assert_phrase_list :send_your_application, [:send_application_ips3_must_post, :send_application_embassy_address]
         expected_location = WorldLocation.find('india')
         assert_state_variable :location, expected_location
         assert_state_variable :organisation, expected_location.fco_organisation
@@ -1144,6 +1145,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'pakistan'
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_applying_6_months, :how_long_it_takes_ips3]
+        assert_phrase_list :send_your_application, [:send_application_ips3_must_post, :send_application_embassy_address]
         expected_location = WorldLocation.find('pakistan')
         assert_state_variable :location, expected_location
         assert_state_variable :organisation, expected_location.fco_organisation

@@ -1006,6 +1006,14 @@ en-GB:
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
 
+        send_application_ips3_must_post: |
+          ## Making your application
+          You must post your completed form and supporting documents.
+
+          If you’re renewing a passport, you must include your current passport.
+
+          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+
         send_application_ips3_bangladesh: |
           ## Making your application
 
