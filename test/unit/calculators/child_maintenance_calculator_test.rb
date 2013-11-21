@@ -94,7 +94,15 @@ module SmartAnswer::Calculators
         @calculator.number_of_shared_care_nights = 0
         assert_equal 0.235, @calculator.reduced_rate_multiplier
         assert_equal 0, @calculator.shared_care_multiplier
-        assert_equal 24, @calculator.calculate_reduced_rate_payment ##22.15 unrounded
+        assert_equal 24, @calculator.calculate_reduced_rate_payment
+      end
+
+      should "calculate the child maintenance payment using the correct scheme and rate - reduced rate minimum of 7 pounds" do
+        @calculator = ChildMaintenanceCalculator.new(2, :new, 'no')
+        @calculator.income = 180.0
+        @calculator.number_of_other_children = 1
+        @calculator.number_of_shared_care_nights = 4
+        assert_equal 7, @calculator.calculate_maintenance_payment
       end
     end
     
@@ -235,14 +243,6 @@ module SmartAnswer::Calculators
         @calculator.number_of_other_children = 1
         @calculator.number_of_shared_care_nights = 2
         assert_equal 20, @calculator.calculate_maintenance_payment
-      end
-
-      should "calculate the child maintenance payment using the correct scheme and rate - reduced rate minimum of 5 pounds" do
-        @calculator = ChildMaintenanceCalculator.new(2, :old, 'no')
-        @calculator.income = 180.0
-        @calculator.number_of_other_children = 1
-        @calculator.number_of_shared_care_nights = 4
-        assert_equal 5, @calculator.calculate_maintenance_payment
       end
 
       should "make shared care reductions for the basic plus scheme" do
