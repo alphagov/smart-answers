@@ -20,6 +20,7 @@ andorra:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   address: belfast
+  online_application: true
 angola: 
   type: ips_application_1
   group: ips_documents_group_3
@@ -254,9 +255,10 @@ curacao:
   address: durham
 cyprus:
   type: ips_application_1
-  group: ips_documents_group_1
+  group: ips_documents_group_2
   app_form: hmpo_1_application_form
   address: belfast
+  online_application: true
 czech-republic: 
   type: ips_application_1
   group: ips_documents_group_1
@@ -382,6 +384,7 @@ greece:
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   address: belfast
+  online_application: true
 grenada: 
   type: ips_application_1
   group: ips_documents_group_2
@@ -751,6 +754,7 @@ portugal:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   address: belfast
+  online_application: true
 qatar: 
   type: ips_application_1
   group: ips_documents_group_1
