@@ -1,59 +1,32 @@
 ---
 :rates:
-  :new:
-    - :max: 4.99
-      :rate: :nil
-    - :max: 100
-      :rate: :flat
-    - :max: 199.99
-      :rate: :reduced
-    - :max: 800
-      :rate: :basic
-    - :max: 3000
-      :rate: :basic_plus
-  :old:
-    - :max: 4.99
-      :rate: :nil
-    - :max: 100
-      :rate: :flat
-    - :max: 199.99
-      :rate: :reduced
-    - :max: 2000
-      :rate: :basic
-:new_reduced_rate_multipliers:
-  - - 0.19
-    - 0.27
-    - 0.33
-  - - 0.164
-    - 0.235
-    - 0.288
-  - - 0.156
-    - 0.225
-    - 0.277
-  - - 0.152
-    - 0.219
-    - 0.269
-:old_reduced_rate_multipliers:
-  - - 0.25
-    - 0.35
-    - 0.45
-  - - 0.205
-    - 0.29
-    - 0.375
-  - - 0.19
-    - 0.27
-    - 0.35
-  - - 0.175
+  - :max: 4.99
+    :rate: :nil
+  - :max: 100
+    :rate: :flat
+  - :max: 199.99
+    :rate: :reduced
+  - :max: 800
+    :rate: :basic
+  - :max: 3000
+    :rate: :basic_plus
+:reduced_rate_multipliers:
+  - - 0.17
     - 0.25
-    - 0.325
-:new_basic_rate_multipliers:
+    - 0.31
+  - - 0.141
+    - 0.212
+    - 0.264
+  - - 0.132
+    - 0.199
+    - 0.249
+  - - 0.124
+    - 0.189
+    - 0.238
+:basic_rate_multipliers:
   - 0.12
   - 0.16
   - 0.19
-:old_basic_rate_multipliers:
-  - 0.15
-  - 0.20
-  - 0.25
 :basic_plus_rate_multipliers:
   - 0.9
   - 0.12
@@ -64,13 +37,8 @@
   - 0.286
   - 0.429
   - 0.5
-:new_relevant_other_child_reductions:
+:relevant_other_child_reductions:
   - 0
   - 0.11
   - 0.14
   - 0.16
-:old_relevant_other_child_reductions:
-  - 0
-  - 0.15
-  - 0.20
-  - 0.25
