@@ -1022,6 +1022,14 @@ en-GB:
 
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
+        send_application_ips3_afghanistan: |
+          ## Making your application
+          You must apply in person.
+
+          If you’re renewing a passport, you must bring your current passport with you when you apply, and a full colour photocopy of the entire passport (including any blank pages). 
+
+          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+
         send_application_ips3_bangladesh: |
           ## Making your application
 

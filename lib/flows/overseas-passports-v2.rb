@@ -339,8 +339,8 @@ outcome :ips_application_result do
       phrases << :"send_application_ips#{ips_number}_#{application_address}"
     elsif %w(gaza).include?(current_location)
       phrases << :send_application_ips3_gaza
-    elsif %w(bangladesh).include?(current_location)
-      phrases << :send_application_ips3_bangladesh
+    elsif %w(afghanistan bangladesh).include?(current_location)
+      phrases << :"send_application_ips3_#{current_location}"
       phrases << :send_application_embassy_address
     elsif %w(india pakistan).include?(current_location)
       phrases << :send_application_ips3_must_post
