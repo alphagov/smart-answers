@@ -309,11 +309,17 @@ outcome :ips_application_result do
                     :"#{child_or_adult}_passport_costs_replacing_ips#{ips_number}",
                     :"passport_costs_ips#{ips_number}")
     else
-      phrases = PhraseList.new(:"passport_courier_costs_ips#{ips_number}",
-                              :"#{child_or_adult}_passport_costs_ips#{ips_number}")
+      phrases = PhraseList.new
+      if current_location == 'india'
+        phrases << :"passport_courier_costs_ips3_india"
+      else
+        phrases << :"passport_courier_costs_ips#{ips_number}"
+      end
+
+      phrases << :"#{child_or_adult}_passport_costs_ips#{ips_number}"
 
       if %w(afghanistan bangladesh).include?(current_location)
-        phrases << :passport_costs_ips3_cash_or_card
+        phrases << :"passport_costs_ips3_cash_or_card_#{current_location}"
       elsif data_query.cash_only_countries?(current_location)
         phrases << :passport_costs_ips_cash
       else
