@@ -286,7 +286,7 @@ outcome :ips_application_result do
       phrases << :"how_long_applying_6_months"
     elsif %w{india}.include?(current_location) and %w(applying renewing_old).include?(application_action)
       phrases << :"how_long_applying_16_weeks"
-    elsif %w{india}.include?(current_location) and %w(renewing_new).include?(application_action)
+    elsif %w{india}.include?(current_location) and %w(renewing_new replacing).include?(application_action)
       phrases << :"how_long_5_weeks"
     elsif %w{bangladesh}.include?(current_location)
       if %w(applying renewing_old).include?(application_action)

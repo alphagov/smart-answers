@@ -615,6 +615,17 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         assert_state_variable :organisation, expected_location.fco_organisation
       end
     end
+    context "renewing a new adult passport" do
+      should "give the ips result" do
+        add_response 'replacing'
+        add_response 'adult'
+        assert_current_node :ips_application_result
+        assert_phrase_list :how_long_it_takes, [:how_long_5_weeks, :how_long_it_takes_ips3]
+        expected_location = WorldLocation.find('india')
+        assert_state_variable :location, expected_location
+        assert_state_variable :organisation, expected_location.fco_organisation
+      end
+    end
   end # India
 
   context "answer Tanzania, replacement, adult passport" do
