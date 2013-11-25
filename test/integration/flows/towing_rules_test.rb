@@ -23,42 +23,48 @@ class TowingRulesTest < ActiveSupport::TestCase
     should "ask if you have existing towing entitlements" do
       assert_current_node :existing_towing_entitlements?
     end
-    
     context "answer yes" do
-      ## A3
-      should "specify entitlement" do
+      setup do
         add_response :yes
-        assert_current_node :full_entitlement
+      end
+      ## Q2A
+      should "ask when did you get this entitlement on your licence" do
+        assert_current_node :how_long_entitlements?
+      end
+      context "answer before 19 jan 2013" do
+        ## A3
+        should "take you to car_light_vehicle_entitlement outcome" do
+          add_response :"before-19-Jan-2013"
+          assert_current_node :car_light_vehicle_entitlement
+        end
+      end
+      context "answer after 19 jan 2013" do
+        ## A4
+        should "take you to full_entitlement outcome" do
+          add_response :"after-19-Jan-2013"
+          assert_current_node :full_entitlement
+        end
       end
     end
-    
     context "answer no" do
       setup do
         add_response :no
       end
-      ## Q4
+      ## Q5
       should "ask when your licence was issued" do
         assert_current_node :date_licence_was_issued?
       end
-      
-      context "answer before jan 1997" do
-        ## A5
-        should "specify entitlement" do
-          add_response "before-jan-1997"
-          assert_current_node :car_light_vehicle_entitlement
-        end
-      end
-      context "from jan 1997" do
+      context "answer before 19 jan 2013" do
         ## A6
-        should "specify entitlement" do
-          add_response "from-jan-1997"
+        should "take you to limited_trailer_entitlement outcome" do
+          add_response "licence-issued-before-19-Jan-2013"
           assert_current_node :limited_trailer_entitlement
         end
       end
-      context "from jan 2013" do
+      context "answer after 19 jan 2013" do
         ## A7
-        should "specify entitlement" do
-          add_response "from-jan-2013"
+        should "take you to limited_trailer_entitlement_2013 outcome" do
+          add_response "licence-issued-after-19-Jan-2013"
           assert_current_node :limited_trailer_entitlement_2013
         end
       end

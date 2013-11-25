@@ -14,15 +14,20 @@ end
 
 ## Q2
 multiple_choice :existing_towing_entitlements? do
-  option :yes => :full_entitlement #A3
-  option :no => :date_licence_was_issued? #Q4
+  option :yes => :how_long_entitlements? #Q2A
+  option :no => :date_licence_was_issued? #Q5
 end
 
-## Q4
+## Q2A
+multiple_choice :how_long_entitlements? do
+  option :"before-19-Jan-2013" => :car_light_vehicle_entitlement #A3
+  option :"after-19-Jan-2013" => :full_entitlement #A4
+end
+
+## Q5
 multiple_choice :date_licence_was_issued? do
-  option "before-jan-1997" => :car_light_vehicle_entitlement #A5
-  option "from-jan-1997" => :limited_trailer_entitlement #A6
-  option "from-jan-2013" => :limited_trailer_entitlement_2013 # A7
+  option :"licence-issued-before-19-Jan-2013" => :limited_trailer_entitlement #A6
+  option :"licence-issued-after-19-Jan-2013" => :limited_trailer_entitlement_2013 #A7
 end
 
 ## Medium sized vehicles
@@ -115,8 +120,8 @@ end
 
 
 
-outcome :full_entitlement # A3
-outcome :car_light_vehicle_entitlement #A5
+outcome :car_light_vehicle_entitlement # A3
+outcome :full_entitlement #A4
 outcome :limited_trailer_entitlement #A6
 outcome :limited_trailer_entitlement_2013 # A7
 outcome :limited_conditional_trailer_entitlement_msv #A10
