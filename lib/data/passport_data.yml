@@ -1,8 +1,7 @@
 --- 
 afghanistan: 
-  type: afghanistan
+  type: ips_application_3
   group: ips_documents_group_3
-  helpline: afghanistan
   app_form: hmpo_1_application_form
 albania: 
   type: ips_application_1
@@ -21,6 +20,7 @@ andorra:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   address: belfast
+  online_application: true
 angola: 
   type: ips_application_1
   group: ips_documents_group_3
@@ -72,9 +72,8 @@ bahrain:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
 bangladesh: 
-  type: bangladesh
+  type: ips_application_3
   group: ips_documents_group_3
-  helpline: pretoria_south_africa 
   app_form: hmpo_1_application_form
 barbados: 
   type: ips_application_1
@@ -256,9 +255,10 @@ curacao:
   address: durham
 cyprus:
   type: ips_application_1
-  group: ips_documents_group_1
+  group: ips_documents_group_2
   app_form: hmpo_1_application_form
   address: belfast
+  online_application: true
 czech-republic: 
   type: ips_application_1
   group: ips_documents_group_1
@@ -384,6 +384,7 @@ greece:
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   address: belfast
+  online_application: true
 grenada: 
   type: ips_application_1
   group: ips_documents_group_2
@@ -438,7 +439,7 @@ iceland:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
 india: 
-  type: india 
+  type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
 indonesia: 
@@ -709,9 +710,8 @@ oman:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
 pakistan: 
-  type: pakistan
+  type: ips_application_3
   group: ips_documents_group_3
-  helpline: hong_kong 
   app_form: hmpo_1_application_form
 palau: 
   type: hong_kong
@@ -754,6 +754,7 @@ portugal:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   address: belfast
+  online_application: true
 qatar: 
   type: ips_application_1
   group: ips_documents_group_1
