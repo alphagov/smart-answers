@@ -14,7 +14,7 @@ en-GB:
       options:
         "no": "No"
         "yes": "Yes"
-        
+
       ## Q1
       towing_vehicle_type?:
         title: "What kind of vehicle do you want to tow with?"
@@ -32,13 +32,18 @@ en-GB:
           - C+E (towing with a large vehicle)
           - D1+E (towing with a minibus)
           - D+E (towing with a bus)
-      ## Q4
-      date_licence_was_issued?:
-        title: When did you pass your test?
+      ## Q2A
+      how_long_entitlements?:
+        title: When did you get this entitlement on your licence?
         options:
-          before-jan-1997: "Before 1 January 1997"
-          from-jan-1997: "From 1 January 1997 to 18 January 2013"
-          from-jan-2013: "From 19 January 2013"
+          before-19-Jan-2013: "Before 19 January 2013"
+          after-19-Jan-2013: "From 19 January 2013"
+      ## Q5
+      date_licence_was_issued?:
+        title: When did you pass your car driving test?
+        options:
+          licence-issued-before-19-Jan-2013: "Before 19 January 2013"
+          licence-issued-after-19-Jan-2013: "From 19 January 2013"
 
       ## Q8
       medium_sized_vehicle_licenceholder?:
@@ -99,42 +104,56 @@ en-GB:
           under-21: "Under 21"
           21-or-over: "21 or over"
       ## A3
-      full_entitlement:
-        body: |
-          You can already tow any trailers with a car as long as the weight of the fully loaded trailer isn’t more than the unladen vehicle weight.
-        next_steps: |
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
-      ## A5
       car_light_vehicle_entitlement:
         body: |
-          You can already tow trailers of any weight with a car. 
+          You can already tow trailers up to 3,500kg MAM (maximum authorised mass) with a car.
         next_steps: |
+          [Vehicle weights explained](/vehicle-weights-explained)  
           [Driving licence categories](/driving-licence-categories "Driving licence categories")
+      ## A4
+      full_entitlement:
+        body: |
+          You can already tow trailers of any weight with a car.
+
       ## A6
       limited_trailer_entitlement:
         body: |
-          You can already tow trailers up to 750kg.
+          Check if you have category B or B+E on your licence.
 
-          You can also tow heavier trailers if the fully laden trailer weight isn’t more than the unladen vehicle weight. The combined weight of trailer and vehicle can’t be more than 3,500kg. 
+          ##Category B
+
+          You can tow trailers up to 750kg MAM (maximum authorised mass).
+
+          You can also tow larger trailers if:  
+          - the combined trailer and vehicle weight isn’t more than 3,500kg  
+          - the fully-loaded trailer weight isn’t more than the unladen vehicle weight
+
+          ##Category B+E
+
+          You can tow trailers of any weight.
 
         next_steps: |
-          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
-
+          [Vehicle weights explained](/vehicle-weights-explained)  
           [Driving licence categories](/driving-licence-categories "Driving licence categories")
       ## A7
       limited_trailer_entitlement_2013:
         body: |
           You can already tow trailers up to 750kg.
 
-          You can also tow heavier trailers if the fully laden trailer weight isn’t more than the unladen vehicle weight. The combined weight of trailer and vehicle can’t be more than 3,500kg.
+          You can also tow heavier trailers if combined weight of trailer and vehicle isn’t more than 3,500kg.
 
-          ##Towing heavier combinations
-          You’ll need to apply for provisional BE entitlement and take a BE test to tow trailers over 750kg when the combined trailer and vehicle weight is more than 3,500kg.
+          ##Category BE entitlement
+
+          If you have the category BE towing with a car entitlement you can tow trailers up to 3,500kg maximum authorised mass (MAM).
 
           ###Trailers over 3,500kg
 
           You’ll need to apply for provisional C1E entitlement and take a C1E test to tow trailers weighing more than 3,500kg.
-      
+
+        next_steps: |
+          [Vehicle weights explained](/vehicle-weights-explained)  
+          [Driving licence categories](/driving-licence-categories "Driving licence categories")
+
       ## A10
       limited_conditional_trailer_entitlement_msv:
         body: |
