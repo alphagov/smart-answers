@@ -2,7 +2,8 @@ en-GB:
   flow:
     towing-rules:
       meta:
-        description: "Work out if you’re old enough or have the right kind of licence to tow a trailer from different kinds of vehicle"
+        description: |
+          Work out if you’re old enough or have the right kind of licence to tow a trailer from different kinds of vehicle
       title: "Towing: licence and age requirements"
       body: |
         Use this tool to find out if you’re old enough or have the right kind of licence to tow a trailer from different kinds of vehicle.
@@ -17,7 +18,7 @@ en-GB:
 
       ## Q1
       towing_vehicle_type?:
-        title: "What kind of vehicle do you want to tow with?"
+        title: What kind of vehicle do you want to tow with?
         options:
           car-or-light-vehicle: "Car (category B)"
           medium-sized-vehicle: "Medium-sized vehicle (category C1)"
@@ -108,8 +109,9 @@ en-GB:
         body: |
           You can already tow trailers up to 3,500kg MAM (maximum authorised mass) with a car.
         next_steps: |
-          [Vehicle weights explained](/vehicle-weights-explained)  
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
+          [Vehicle weights explained](/vehicle-weights-explained)
+
+          [Driving licence categories](/driving-licence-categories)
       ## A4
       full_entitlement:
         body: |
@@ -133,8 +135,9 @@ en-GB:
           You can tow trailers of any weight.
 
         next_steps: |
-          [Vehicle weights explained](/vehicle-weights-explained)  
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
+          [Vehicle weights explained](/vehicle-weights-explained)
+
+          [Driving licence categories](/driving-licence-categories)
       ## A7
       limited_trailer_entitlement_2013:
         body: |
@@ -151,8 +154,9 @@ en-GB:
           You’ll need to apply for provisional C1E entitlement and take a C1E test to tow trailers weighing more than 3,500kg.
 
         next_steps: |
-          [Vehicle weights explained](/vehicle-weights-explained)  
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
+          [Vehicle weights explained](/vehicle-weights-explained)
+
+          [Driving licence categories](/driving-licence-categories)
 
       ## A10
       limited_conditional_trailer_entitlement_msv:
@@ -165,9 +169,9 @@ en-GB:
 
           Once you’re 21 you’ll automatically get the full C1+E entitlement and you can tow combinations up to 12,000 kg. The fully-loaded trailer can’t weigh more than the unladen vehicle.
         next_steps: |
-          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
+          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence)
 
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
+          [Driving licence categories](/driving-licence-categories)
       ## A11
       limited_trailer_entitlement_msv:
         body: |
@@ -177,9 +181,9 @@ en-GB:
 
           This will let you can tow vehicle and trailer combinations up to 12,000 kg. The fully loaded trailer can’t weigh more than the unladen vehicle.
         next_steps: |
-          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
+          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence)
 
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
+          [Driving licence categories](/driving-licence-categories)
       ## A13
       included_entitlement_msv:
         body: |
@@ -187,7 +191,7 @@ en-GB:
 
           This means you can tow trailers weighing more than 750kg with a C1 medium-sized vehicle. The total weight of the vehicle and trailer can’t be more than 12,000kg and the fully-loaded trailer can’t weigh more than the unladen vehicle weight.
         next_steps: |
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
+          [Driving licence categories](/driving-licence-categories)
       ## A15
       full_entitlement_msv:
         body: |
@@ -195,7 +199,7 @@ en-GB:
 
           This means you can tow trailers weighing more than 750 kg. The total weight of the vehicle and trailer can’t be more than 8,250 kg and the fully-loaded trailer can’t weigh more than the unladen vehicle weight.
         next_steps: |
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
+          [Driving licence categories](/driving-licence-categories)
       ## A17
       too_young_msv:
         body: |
@@ -207,9 +211,9 @@ en-GB:
 
           *[Driver CPC]: Driver Certificate of Professional Competence
         next_steps: |
-          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
+          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence)
 
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
+          [Driving licence categories](/driving-licence-categories)
       ## A18
       apply_for_provisional_with_exceptions_msv:
         body: |
@@ -219,13 +223,13 @@ en-GB:
 
          ##Getting the C1+E entitlement at 18
 
-         There are some cases when you can get the C1+E entitlement at 18. See the [guide to Driver CPC](/driver-certificate-of-professional-competence-cpc "guide to Driver CPC") for more information.
+         There are some cases when you can get the C1+E entitlement at 18. See the [guide to Driver CPC](/driver-certificate-of-professional-competence-cpc) for more information.
 
           *[Driver CPC]: Driver Certificate of Professional Competence
         next_steps: |
-          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
+          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence)
 
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
+          [Driving licence categories](/driving-licence-categories)
       ## A19
       apply_for_provisional_msv:
         body: |
@@ -233,9 +237,9 @@ en-GB:
 
           If you want to tow heavier trailers you need to apply for provisional C1+E medium-sized vehicle entitlement then pass the C1+E test.
         next_steps: |
-          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
+          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence)
 
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
+          [Driving licence categories](/driving-licence-categories)
       ## A21
       full_cat_c_entitlement:
         body: |
@@ -251,15 +255,15 @@ en-GB:
 
           ##Driving and towing with a large vehicle at 18
 
-          There are some cases when you can drive and tow with a large vehicle at 18. See the [guide to Driver CPC](/driver-certificate-of-professional-competence-cpc "guide to Driver CPC") for more information.
+          There are some cases when you can drive and tow with a large vehicle at 18. See the [guide to Driver CPC](/driver-certificate-of-professional-competence-cpc) for more information.
 
           *[Driver CPC]: Driver Certificate of Professional Competence
         next_steps: |
-          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
+          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence)
 
-          [Driver CPC](/driver-certificate-of-professional-competence-cpc "Driver certificate of professional competence")
+          [Driver CPC](/driver-certificate-of-professional-competence-cpc)
 
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
+          [Driving licence categories](/driving-licence-categories)
       ## A24
       apply_for_provisional_lv:
         body: |
@@ -267,9 +271,9 @@ en-GB:
 
           If you want to tow heavier trailers you can apply for provisional C+E towing entitlement and pass the C+E test.
         next_steps: |
-          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
+          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence)
 
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
+          [Driving licence categories](/driving-licence-categories)
       ## A26
       full_entitlement_minibus:
         body: |
@@ -277,9 +281,9 @@ en-GB:
 
           You have the D1+E towing entitlement, which means you can drive minibuses with trailers over 750 kg.
         next_steps: |
-          [Driving a minibus](/driving-a-minibus "Driving a minibus")
+          [Driving a minibus](/driving-a-minibus)
 
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
+          [Driving licence categories](/driving-licence-categories)
       ## A28
       included_entitlement_minibus:
         body: |
@@ -287,9 +291,9 @@ en-GB:
 
           You have the D1+E towing entitlement, which means you can drive minibuses with trailers over 750 kg. The total weight of vehicle and trailer can’t be more than 12,000 kg and the fully loaded trailer can’t weigh more than the unladen vehicle.
         next_steps: |
-          [Driving a minibus](/driving-a-minibus "Driving a minibus")
+          [Driving a minibus](/driving-a-minibus)
 
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
+          [Driving licence categories](/driving-licence-categories)
       ## A30
       limited_towing_entitlement_minibus:
         body: |
@@ -297,11 +301,11 @@ en-GB:
 
           To tow heavier trailers you need to apply for the provisional D1+E towing with a minibus entitlement and then pass the D1+E test. The total weight of vehicle and trailer can’t be more than 12,000 kg and the fully loaded trailer can’t weigh more than the unladen vehicle.
         next_steps: |
-          [Driving a minibus](/driving-a-minibus "Driving a minibus")
+          [Driving a minibus](/driving-a-minibus)
 
-          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
+          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence)
 
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
+          [Driving licence categories](/driving-licence-categories)
       ## A32
       not_old_enough_minibus:
         body: |
@@ -309,16 +313,16 @@ en-GB:
 
           ##Driving and towing with a minibus at 18
 
-          In some cases you can drive and tow with a minibus at 18 if you’re taking or have passed a PCV test or Driver CPC. See the [guide to Driver CPC](/driver-certificate-of-professional-competence-cpc "guide to Driver CPC") for more information.
+          In some cases you can drive and tow with a minibus at 18 if you’re taking or have passed a PCV test or Driver CPC. See the [guide to Driver CPC](/driver-certificate-of-professional-competence-cpc) for more information.
 
           *[Driver CPC]: Driver Certificate of Professional Competence
           *[PCV]: Passenger Carrying Vehicle
         next_steps: |
-          [Driving a minibus](/driving-a-minibus "Driving a minibus")
+          [Driving a minibus](/driving-a-minibus)
 
-          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
+          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence)
 
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
+          [Driving licence categories](/driving-licence-categories)
       ## A34
       limited_overall_entitlement_minibus:
         body: |
@@ -326,19 +330,19 @@ en-GB:
 
           To tow heavier trailers you can then apply for provisional D1+E towing with a minibus entitlement then pass the D1+E test.
         next_steps: |
-          [Driving a minibus](/driving-a-minibus "Driving a minibus")
+          [Driving a minibus](/driving-a-minibus)
 
-          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
+          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence)
 
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
+          [Driving licence categories](/driving-licence-categories)
       ## A37
       full_entitlement_bus:
         body: |
           You can already tow trailers up to 750 kg. To tow heavier trailers you need to apply for provisional D+E towing with a bus entitlement then pass the D+E test.
         next_steps: |
-          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
+          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence)
 
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
+          [Driving licence categories](/driving-licence-categories)
       ## A39
       not_old_enough_bus:
         body: |
@@ -346,16 +350,16 @@ en-GB:
 
           ##Towing with a bus if you’re under 21
 
-          In some cases you can tow with a bus if you’re under 21. See the [guide to Driver CPC](/driver-certificate-of-professional-competence-cpc "guide to Driver CPC") for more information.
+          In some cases you can tow with a bus if you’re under 21. See the [guide to Driver CPC](/driver-certificate-of-professional-competence-cpc) for more information.
 
           *[Driver CPC]: Driver Certificate of Professional Competence
           *[PCV]: Passenger Carrying Vehicle
         next_steps: |
-          [Driver CPC](/driver-certificate-of-professional-competence-cpc "Driver certificate of professional competence")
+          [Driver CPC](/driver-certificate-of-professional-competence-cpc)
 
-          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
+          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence)
 
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
+          [Driving licence categories](/driving-licence-categories)
       ## A40
       apply_for_provisional_bus:
         body: |
@@ -363,8 +367,8 @@ en-GB:
 
           To tow heavier trailers you then need to pass the D+E test.
         next_steps: |
-          [Become a lorry or bus driver](/become-lorry-bus-driver/overview "Become a lorry or bus driver")
+          [Become a lorry or bus driver](/become-lorry-bus-driver/overview)
 
-          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence "Adding higher categories to your driving licence")
+          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence)
 
-          [Driving licence categories](/driving-licence-categories "Driving licence categories")
+          [Driving licence categories](/driving-licence-categories)
