@@ -109,6 +109,20 @@ module SmartAnswer::Calculators
       end
     end
 
+    context "calculate_basic_plus_rate_payment method for 1 child" do
+      setup do
+        @calculator = ChildMaintenanceCalculator.new(1, 'no')
+        @calculator.income = 1600.00
+        @calculator.number_of_other_children = 0
+        @calculator.number_of_shared_care_nights = 0
+      end
+      should "calculate at basic plus rate" do
+        assert_equal 0.12, @calculator.basic_rate_multiplier
+        assert_equal 0.09, @calculator.basic_plus_rate_multiplier
+        assert_equal 168, @calculator.calculate_basic_plus_rate_payment
+      end
+    end
+
     context "calculate_maintenance_payment method" do
       should "make shared care reductions for the basic plus scheme" do
         @calculator = ChildMaintenanceCalculator.new(3, 'no')
