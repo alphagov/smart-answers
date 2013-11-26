@@ -5,19 +5,24 @@ function browserSupportsHtml5HistoryApi() {
 $(document).ready(function() {
   //_gaq.push(['_trackEvent', 'Citizen-Format-Smartanswer', 'Load']);
   if(browserSupportsHtml5HistoryApi()) {
-    var formSelector = ".current form";
+    var formSelector = ".current form",
+        $form = $(formSelector);
+
     initializeHistory();
 
-    // events
-    // get new questions on submit
-    $(formSelector).live('submit', function(event) {
-      $('input[type=submit]', this).attr('disabled', 'disabled');
-      var form = $(this);
-      var postData = form.serializeArray();
-      reloadQuestions(form.attr('action'), postData);
-      event.preventDefault();
-      return false;
-    });
+    // Don't show feedback form in questions.
+    if ($form.length) {
+      // events
+      // get new questions on submit
+      $form.live('submit', function(event) {
+        $('input[type=submit]', this).attr('disabled', 'disabled');
+        var form = $(this);
+        var postData = form.serializeArray();
+        reloadQuestions(form.attr('action'), postData);
+        event.preventDefault();
+        return false;
+      });
+    }
 
     // we want to start over with whatever gets provided if someone clicks to change the answer
     $(".undo a").live('click', function() {
@@ -94,7 +99,7 @@ $(document).ready(function() {
 
   // update the content (i.e. plonk in the html fragment)
   function updateContent(fragment){
-    $('.smart_answer #content').html(fragment);
+    $('.smart_answer #js-replaceable').html(fragment);
     $.event.trigger('smartanswerAnswer');
     if ($(".outcome").length !== 0) {
       $.event.trigger('smartanswerOutcome');
@@ -107,7 +112,7 @@ $(document).ready(function() {
     }
 
     data = {
-      html_fragment: $('.smart_answer #content').html(),
+      html_fragment: $('.smart_answer #js-replaceable').html(),
       title: "Question",
       url: window.location.toString()
     };
@@ -133,8 +138,16 @@ $(document).ready(function() {
       }
     },
     init: function() {
-      var self = this; 
-      $(document).bind('smartanswerAnswer', function() { self.correctOffscreen() });
+      var self = this;
+      $(document).bind('smartanswerAnswer', function() {
+        self.correctOffscreen();
+        $('.meta-wrapper').hide();
+      });
+      // Show feedback form in outcomes
+      $(document).bind('smartanswerOutcome', function() {
+        $('.report-a-problem-container form #url').val(window.location.href);
+        $('.meta-wrapper').show();
+      });
     }
   }
 

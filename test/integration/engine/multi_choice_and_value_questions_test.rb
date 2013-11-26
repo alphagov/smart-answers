@@ -26,15 +26,13 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
         assert page.has_link?("Start now", :href => "/bridge-of-death/y")
       end
 
-      assert page.has_selector?("#content .article-container #test-report_a_problem")
-
       click_on "Start now"
 
       assert_current_url "/bridge-of-death/y"
 
       # This is asserting that the form URL doesn't get created with a trailing /
       # If this happens, the cache servers strip off the / and redirect.  This breaks things.
-      form = page.find(:xpath, "id('content')//form")
+      form = page.find(:xpath, "id('js-replaceable')//form")
       assert_equal "/bridge-of-death/y", form[:action]
 
       assert page.has_xpath?("//meta[@name = 'robots'][@content = 'noindex']", :visible => :all)
@@ -159,12 +157,6 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
           within('h2.result-title') { assert_page_has_content "Right, off you go." }
           assert_page_has_content "Oh! Well, thank you. Thank you very much."
         end
-      end
-
-      # The report-a-problem form doesn't currently get inserted with the AJAX version
-      # because slimmer can't run against non-html responses.
-      unless Capybara.current_driver == Capybara.javascript_driver
-        assert page.has_selector?("#content .article-container #test-report_a_problem")
       end
     end
   end # with_and_without_javascript
