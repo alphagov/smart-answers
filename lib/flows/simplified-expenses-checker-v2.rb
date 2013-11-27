@@ -282,8 +282,29 @@ end
 
 outcome :you_cant_use_result
 outcome :you_can_use_result do
-  precalculate :simple_total do
+  precalculate :simple_heading do
+    all_the_expenses = list_of_expenses
+    live_on_premises = ['live_on_business_premises']
 
+    if (all_the_expenses - live_on_premises).empty?
+      PhraseList.new(:live_on_business_premises_only_simple_costs_heading)
+    else
+      PhraseList.new(:all_schemes_simple_costs_heading)
+    end
+  end
+
+  precalculate :current_scheme_costs_heading do
+    all_the_expenses = list_of_expenses
+    live_on_premises = ['live_on_business_premises']
+
+    if (all_the_expenses - live_on_premises).empty?
+      PhraseList.new(:live_on_business_premises_only_current_costs_heading)
+    else
+      PhraseList.new(:all_schemes_current_costs_heading)
+    end
+  end
+
+  precalculate :simple_total do
     vehicle = simple_vehicle_costs.to_f || 0
     motorcycle = simple_motorcycle_costs.to_f || 0
     home = simple_home_costs.to_f || 0
