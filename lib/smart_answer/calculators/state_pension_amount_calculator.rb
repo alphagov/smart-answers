@@ -7,8 +7,8 @@ module SmartAnswer::Calculators
     attr_reader :gender, :dob, :qualifying_years, :available_years ,:starting_credits
     attr_accessor :qualifying_years
 
-    PENSION_RATES = [ 
-      { :min => Date.parse('7 April 2012'), :max => Date.parse('8 April 2013'), :amount => 107.45 }, 
+    PENSION_RATES = [
+      { :min => Date.parse('7 April 2012'), :max => Date.parse('8 April 2013'), :amount => 107.45 },
       { :min => Date.parse('7 April 2013'), :max => Date.parse('8 April 2014'), :amount => 110.15 }
     ]
 
@@ -21,7 +21,10 @@ module SmartAnswer::Calculators
     end
 
     def current_weekly_rate
-      rate = PENSION_RATES.find{ |r| r[:min] < Date.today and Date.today < r[:max]} || PENSION_RATES.last
+      rate = PENSION_RATES.find { |r|
+        r[:min] < Date.today and Date.today < r[:max]
+      } || PENSION_RATES.last
+
       rate[:amount]
     end
 
@@ -108,16 +111,15 @@ module SmartAnswer::Calculators
       Date.today < state_pension_date
     end
 
-    ## return true if today is within four months and four days from state pension date
-    def within_four_months_four_days_from_state_pension?
-      Date.today.advance(:months => 4, :days => 4) >= state_pension_date
+    def within_four_months_one_day_from_state_pension?
+      Date.today > state_pension_date.months_ago(4)
     end
 
     def under_20_years_old?
       dob > 20.years.ago
     end
-    
-    # these people always get 3 years of starting credits 
+
+    # these people always get 3 years of starting credits
     def three_year_credit_age?
       dob >= Date.parse('1959-04-06') and dob <= Date.parse('1992-04-05')
     end
@@ -133,7 +135,7 @@ module SmartAnswer::Calculators
       ( dob >= Date.parse('1957-04-06') and dob <= Date.parse('1958-04-05') ) or
       ( dob >= Date.parse('1993-04-06') and dob <= Date.parse('1994-04-05') )
     end
-    
+
     # these people get different starting credits based on when they were born and what they answer to Q10
     def credit_bands
       [
@@ -144,7 +146,6 @@ module SmartAnswer::Calculators
       ]
     end
 
-
     def calc_qualifying_years_credit(entered_num=0)
       credit_band = credit_bands.find { |c| c[:min] <= dob and c[:max] >= dob }
       if credit_band
@@ -152,16 +153,15 @@ module SmartAnswer::Calculators
         when 0
           entered_num > 0 ? 0 : 1
         when 1
-          rval = (1..2).find{ |c| c + entered_num == 2 } 
+          rval = (1..2).find{ |c| c + entered_num == 2 }
           entered_num < 2 ? rval : 0
         else
           0
         end
       else
         0
-      end  
+      end
     end
-
 
     ## this is done just to control flow
     def allocate_starting_credits
@@ -175,7 +175,7 @@ module SmartAnswer::Calculators
         @starting_credits = 0
       end
     end
-    
+
     def ni_start_date
       (dob + 19.years)
     end
@@ -203,12 +203,11 @@ module SmartAnswer::Calculators
       qual_years > 29
     end
 
-    # used for flow optimisation so users who haven't entered enough qy but will get 
+    # used for flow optimisation so users who haven't entered enough qy but will get
     # 1,2 or 3 starting credit years are sent to last question or result
     def enough_qualifying_years_and_credits?(qual_years = @qualifying_years)
       (qual_years + @starting_credits) > 29
     end
-
 
     # are there any more years users can enter based on how many years there are between today and time they were 19?
     # used in flow to test if we should ask more questions
@@ -216,10 +215,8 @@ module SmartAnswer::Calculators
       available_years_sum(qual_years) < 1
     end
 
-
     def years_can_be_entered(ay,max_num)
       (ay > max_num ? max_num : ay)
     end
-
   end
 end
