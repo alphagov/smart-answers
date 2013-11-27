@@ -74,6 +74,16 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_current_node :capital_allowance_result
       end
     end
+    context "claimed expenses before, using_home_for_business and live_on_business_premises" do
+      setup do
+        add_response "yes"
+        add_response "live_on_business_premises,motorcycle,using_home_for_business"
+      end
+
+      should "raise invalid error" do
+        assert_current_node :type_of_expense?, :error => true
+      end
+    end
   end # end tests for "can't claim because previously claimed Capital Allowance"
 
 
@@ -82,7 +92,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "car_or_van"
     end
-    
+
     context "not buying new vehicle, not claimed CA before, expect to claim 1000 pounds, expect to drive 2000 miles, (Q3, Q4, Q5, Q9, result 2)" do
       setup do
         add_response "no"
@@ -96,8 +106,10 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :vehicle_costs, 1000
         assert_state_variable :simple_vehicle_costs, 900
         assert_state_variable :current_scheme_costs, 1000
-        assert_state_variable :simple_costs, 900
+        assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
+        assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
+        assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
         assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet]
         assert_phrase_list :current_scheme_bullets, [:current_vehicle_cost_bullet]
         assert_phrase_list :capital_allowances_claimed_message, []
@@ -120,8 +132,10 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :green_vehicle_write_off, 8000
         assert_state_variable :simple_vehicle_costs, 900
         assert_state_variable :current_scheme_costs, 8000
-        assert_state_variable :simple_costs, 900
+        assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
+        assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
+        assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
         assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet]
         assert_phrase_list :current_scheme_bullets, [:current_green_vehicle_write_off_bullet]
         assert_phrase_list :capital_allowances_claimed_message, []
@@ -144,8 +158,10 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :dirty_vehicle_write_off, 1440
         assert_state_variable :simple_vehicle_costs, 900
         assert_state_variable :current_scheme_costs, 1440
-        assert_state_variable :simple_costs, 900
+        assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
+        assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
+        assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
         assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet]
         assert_phrase_list :current_scheme_bullets, [:current_dirty_vehicle_write_off_bullet]
         assert_phrase_list :capital_allowances_claimed_message, []
@@ -157,17 +173,16 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     setup do
       add_response "yes"
       add_response "using_home_for_business"
-      add_response "20"
     end
 
-    should "show the home costs bullet even though the cost is 0" do
-      add_response "0"
-      assert_current_node :you_can_use_result
-      assert_phrase_list :simplified_bullets, [:simple_home_costs_none_bullet]
+    should "show the 'you can't use' outcome if hours worked is less than 25 hours" do
+      add_response "20"
+      assert_current_node :you_cant_use_result
     end
 
     should "show the costs bullet if home costs are > 0" do
       add_response "55"
+      add_response "20"
       assert_current_node :you_can_use_result
       assert_phrase_list :simplified_bullets, [:simple_home_costs_bullet]
     end
@@ -190,8 +205,10 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :vehicle_costs, 1000
         assert_state_variable :simple_vehicle_costs, 900
         assert_state_variable :current_scheme_costs, 1000
-        assert_state_variable :simple_costs, 900
+        assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
+        assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
+        assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
         assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet]
         assert_phrase_list :current_scheme_bullets, [:current_vehicle_cost_bullet]
       end
@@ -213,8 +230,10 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :green_vehicle_write_off, 8000
         assert_state_variable :simple_vehicle_costs, 900
         assert_state_variable :current_scheme_costs, 8000
-        assert_state_variable :simple_costs, 900
+        assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
+        assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
+        assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
         assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet]
         assert_phrase_list :current_scheme_bullets, [:current_green_vehicle_write_off_bullet]
       end
@@ -236,8 +255,10 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :dirty_vehicle_write_off, 1440
         assert_state_variable :simple_vehicle_costs, 5000
         assert_state_variable :current_scheme_costs, 1440
-        assert_state_variable :simple_costs, 5000
+        assert_state_variable :simple_total, 5000
         assert_state_variable :can_use_simple, true
+        assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
+        assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
         assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet]
         assert_phrase_list :current_scheme_bullets, [:current_dirty_vehicle_write_off_bullet]
       end
@@ -259,8 +280,10 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :green_vehicle_write_off, 260000
         assert_state_variable :simple_vehicle_costs, 900
         assert_state_variable :current_scheme_costs, 260000
-        assert_state_variable :simple_costs, 900
+        assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
+        assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
+        assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
         assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet]
         assert_phrase_list :current_scheme_bullets, [:current_green_vehicle_write_off_bullet]
         assert_phrase_list :over_van_limit_message, [:over_van_limit]
@@ -287,8 +310,10 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :vehicle_costs, 1000
         assert_state_variable :simple_motorcycle_costs, 480
         assert_state_variable :current_scheme_costs, 1000
-        assert_state_variable :simple_costs, 480
+        assert_state_variable :simple_total, 480
         assert_state_variable :can_use_simple, false
+        assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
+        assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
         assert_phrase_list :simplified_bullets, [:simple_motorcycle_costs_bullet]
         assert_phrase_list :current_scheme_bullets, [:current_vehicle_cost_bullet]
         assert_phrase_list :capital_allowances_claimed_message, []
@@ -310,8 +335,10 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :green_vehicle_write_off, 8000
         assert_state_variable :simple_motorcycle_costs, 480
         assert_state_variable :current_scheme_costs, 8000
-        assert_state_variable :simple_costs, 480
+        assert_state_variable :simple_total, 480
         assert_state_variable :can_use_simple, false
+        assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
+        assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
         assert_phrase_list :simplified_bullets, [:simple_motorcycle_costs_bullet]
         assert_phrase_list :current_scheme_bullets, [:current_green_vehicle_write_off_bullet]
       end
@@ -332,8 +359,10 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :dirty_vehicle_write_off, 1440
         assert_state_variable :simple_motorcycle_costs, 480
         assert_state_variable :current_scheme_costs, 1440
-        assert_state_variable :simple_costs, 480
+        assert_state_variable :simple_total, 480
         assert_state_variable :can_use_simple, false
+        assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
+        assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
         assert_phrase_list :simplified_bullets, [:simple_motorcycle_costs_bullet]
         assert_phrase_list :current_scheme_bullets, [:current_dirty_vehicle_write_off_bullet]
       end
@@ -344,16 +373,18 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     setup do
       add_response "yes"
       add_response "using_home_for_business"
-      add_response "1000" #home_costs
       add_response "120" #simple_home_costs
+      add_response "1000" #home_costs
     end
 
     should "take you to the results" do
       assert_current_node :you_can_use_result
       assert_state_variable :home_costs, 1000
       assert_state_variable :simple_home_costs, 312
-      assert_state_variable :simple_costs, 312
+      assert_state_variable :simple_total, 312
       assert_state_variable :current_scheme_costs, 1000
+      assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
+      assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
       assert_phrase_list :simplified_bullets, [:simple_home_costs_bullet]
       assert_phrase_list :current_scheme_bullets, [:current_home_costs_bullet]
     end
@@ -370,10 +401,13 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     should "take you to the results" do
       assert_current_node :you_can_use_result
       assert_state_variable :business_premises_cost, 1000
+      assert_state_variable :simple_total, 0
       assert_state_variable :simple_business_costs, 7800
-      assert_state_variable :simple_costs, 7800
-      assert_phrase_list :simplified_bullets, [:simple_business_costs_bullet]
-      assert_phrase_list :current_scheme_bullets, [:current_business_costs_bullet]
+      assert_phrase_list :simple_heading, [:live_on_business_premises_only_simple_costs_heading]
+      assert_phrase_list :current_scheme_costs_heading, [:live_on_business_premises_only_current_costs_heading]
+      assert_phrase_list :simplified_bullets, []
+      assert_phrase_list :simplified_more_bullets, [:simple_business_costs_bullet]
+      assert_phrase_list :current_scheme_more_bullets, [:current_business_costs_bullet]
     end
   end # main result, existing business, living on premises
 
@@ -386,8 +420,8 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       add_response "10000" #green_vehicle_price
       add_response "80" #green_write_off
       add_response "2000" #simple_vehicle_costs
-      add_response "1000" #home_costs
       add_response "120" #simple_home_costs
+      add_response "1000" #home_costs
     end
 
     should "take you to the results" do
@@ -398,8 +432,10 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       assert_state_variable :simple_vehicle_costs, 900
       assert_state_variable :home_costs, 1000
       assert_state_variable :simple_home_costs, 312
-      assert_state_variable :simple_costs, 1212
+      assert_state_variable :simple_total, 1212
       assert_state_variable :current_scheme_costs, 9000
+      assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
+      assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
       assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet, :simple_home_costs_bullet]
       assert_phrase_list :current_scheme_bullets, [:current_green_vehicle_write_off_bullet, :current_home_costs_bullet]
       assert_phrase_list :over_van_limit_message, []
@@ -423,72 +459,15 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       assert_state_variable :vehicle_costs, 1000
       assert_state_variable :simple_motorcycle_costs, 240
       assert_state_variable :business_premises_cost, 2000
+      assert_state_variable :simple_total, 240
       assert_state_variable :simple_business_costs, 6000
-      assert_state_variable :simple_costs, 6240
-      assert_state_variable :current_scheme_costs, 3000
-      assert_phrase_list :simplified_bullets, [:simple_motorcycle_costs_bullet, :simple_business_costs_bullet]
-      assert_phrase_list :current_scheme_bullets, [:current_vehicle_cost_bullet, :current_business_costs_bullet]
-      assert_phrase_list :capital_allowances_claimed_message, []
-    end
-  end # main result, existing business, motorcycle, living on premises
-
-  context "main result - existing business, motorcycle, using home & living on premises, no new vehicle (Q1, Q2, Q3, Q4, Q5, Q10, Q11, Q12, Q13, Q14)" do
-    setup do
-      add_response "yes"
-      add_response "motorcycle,live_on_business_premises,using_home_for_business"
-      add_response "no"
-      add_response "no" #capital_allowance_claimed
-      add_response "1000" #vehicle_costs
-      add_response "1000" #simple_motorcycle_costs
-      add_response "1000" #home_costs
-      add_response "120" #simple_home_costs      
-      add_response "2000" #business_premises_cost
-      add_response "2" #simple_business_costs
-    end
-    should "take you to the results" do
-      assert_current_node :you_can_use_result
-      assert_state_variable :vehicle_costs, 1000
-      assert_state_variable :simple_motorcycle_costs, 240
-      assert_state_variable :home_costs, 1000
-      assert_state_variable :simple_home_costs, 312
-      assert_state_variable :business_premises_cost, 2000
-      assert_state_variable :simple_business_costs, 6000
-      assert_state_variable :simple_costs, 6552
-      assert_state_variable :current_scheme_costs, 4000
-      assert_phrase_list :simplified_bullets, [:simple_motorcycle_costs_bullet, :simple_home_costs_bullet, :simple_business_costs_bullet]
-      assert_phrase_list :current_scheme_bullets, [:current_vehicle_cost_bullet, :current_home_costs_bullet, :current_business_costs_bullet]
-      assert_phrase_list :capital_allowances_claimed_message, []
-    end
-  end # main result, existing business, motorcycle, living on premises
-
-  context "main result - existing business, motorcycle, using home & living on premises, new green vehicle (Q1, Q2, Q3, Q6, Q7, Q8, Q10, Q11, Q12, Q13, Q14)" do
-    setup do
-      add_response "yes"
-      add_response "motorcycle,live_on_business_premises,using_home_for_business"
-      add_response "yes"
-      add_response "yes" #green
-      add_response "10000" #green_vehicle_price
-      add_response "80" #green_write_off
-      add_response "1000" #simple_motorcycle_costs
-      add_response "1000" #home_costs
-      add_response "120" #simple_home_costs      
-      add_response "2000" #business_premises_cost
-      add_response "2" #simple_business_costs
-    end
-    should "take you to the results" do
-      assert_current_node :you_can_use_result
-      assert_state_variable :vehicle_is_green, true
-      assert_state_variable :green_vehicle_price, 10000
-      assert_state_variable :green_vehicle_write_off, 8000
-      assert_state_variable :simple_motorcycle_costs, 240
-      assert_state_variable :home_costs, 1000
-      assert_state_variable :simple_home_costs, 312
-      assert_state_variable :business_premises_cost, 2000
-      assert_state_variable :simple_business_costs, 6000
-      assert_state_variable :simple_costs, 6552
-      assert_state_variable :current_scheme_costs, 11000
-      assert_phrase_list :simplified_bullets, [:simple_motorcycle_costs_bullet, :simple_home_costs_bullet, :simple_business_costs_bullet]
-      assert_phrase_list :current_scheme_bullets, [:current_green_vehicle_write_off_bullet, :current_home_costs_bullet, :current_business_costs_bullet]
+      assert_state_variable :current_scheme_costs, 1000
+      assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
+      assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
+      assert_phrase_list :simplified_bullets, [:simple_motorcycle_costs_bullet]
+      assert_phrase_list :simplified_more_bullets, [:simple_business_costs_bullet]
+      assert_phrase_list :current_scheme_bullets, [:current_vehicle_cost_bullet]
+      assert_phrase_list :current_scheme_more_bullets, [:current_business_costs_bullet]
       assert_phrase_list :capital_allowances_claimed_message, []
     end
   end # main result, existing business, motorcycle, living on premises

@@ -36,10 +36,11 @@ checkbox_question :type_of_expense? do
       :you_cant_use_result
     else
       responses = response.split(",")
+      raise InvalidResponse if response =~ /live_on_business_premises.*?using_home_for_business/
       if (responses & ["car_or_van", "motorcycle"]).any?
         :buying_new_vehicle?
       elsif responses.include?("using_home_for_business")
-        :current_claim_amount_home?
+        :hours_work_home?
       elsif responses.include?("live_on_business_premises")
         :deduct_from_premises?
       end
@@ -68,9 +69,9 @@ end
 
 #Q4 - capital allowances claimed?
 # if yes => go to Result 3 if in Q2 only [car_van] and/or [motorcylce] was selected
-# 
+#
 # if yes and other expenses apart from cars and/or motorbikes selected in Q2 store as capital_allowance_claimed and add text to result (see result 2) and go to questions for other expenses, ie don’t go to Q5 & Q9
-# 
+#
 # if no go to Q5
 multiple_choice :capital_allowances? do
   option :yes
@@ -85,9 +86,9 @@ multiple_choice :capital_allowances? do
       if (list_of_expenses & %w(using_home_for_business live_on_business_premises)).any?
         if list_of_expenses.include?("using_home_for_business")
           # Q11
-          :current_claim_amount_home?
+          :hours_work_home?
         else
-          #Q 13
+          # Q13
           :deduct_from_premises?
         end
       else
@@ -186,7 +187,7 @@ value_question :drive_business_miles_car_van? do
     if list_of_expenses.include?("motorcycle")
       :drive_business_miles_motorcycle?
     elsif list_of_expenses.include?("using_home_for_business")
-      :current_claim_amount_home?
+      :hours_work_home?
     elsif list_of_expenses.include?("live_on_business_premises")
       :deduct_from_premises?
     else
@@ -202,7 +203,7 @@ value_question :drive_business_miles_motorcycle? do
   end
   next_node do
     if list_of_expenses.include?("using_home_for_business")
-      :current_claim_amount_home?
+      :hours_work_home?
     elsif list_of_expenses.include?("live_on_business_premises")
       :deduct_from_premises?
     else
@@ -211,16 +212,9 @@ value_question :drive_business_miles_motorcycle? do
   end
 end
 
-#Q11 - how much do you claim?
-money_question :current_claim_amount_home? do
-  save_input_as :home_costs
-
-  next_node :hours_work_home?
-
-end
-
-#Q12 - hours for home work
+#Q11 - hours for home work
 value_question :hours_work_home? do
+
   calculate :hours_worked_home do
     responses.last.gsub(",","").to_f
   end
@@ -235,10 +229,28 @@ value_question :hours_work_home? do
     Money.new(amount)
   end
 
+  next_node do |response|
+    hours = response.to_i
+    if hours < 1
+      raise SmartAnswer::InvalidResponse
+    elsif hours < 25
+      :you_cant_use_result
+    else
+      :current_claim_amount_home?
+    end
+  end
+end
+
+#Q12 - how much do you claim?
+money_question :current_claim_amount_home? do
+  save_input_as :home_costs
+
   next_node do
     list_of_expenses.include?("live_on_business_premises") ? :deduct_from_premises? : :you_can_use_result
   end
+
 end
+
 
 #Q13 = how much do you deduct from premises for private use?
 money_question :deduct_from_premises? do
@@ -270,14 +282,34 @@ end
 
 outcome :you_cant_use_result
 outcome :you_can_use_result do
-  precalculate :simple_costs do
+  precalculate :simple_heading do
+    all_the_expenses = list_of_expenses
+    live_on_premises = ['live_on_business_premises']
 
+    if (all_the_expenses - live_on_premises).empty?
+      PhraseList.new(:live_on_business_premises_only_simple_costs_heading)
+    else
+      PhraseList.new(:all_schemes_simple_costs_heading)
+    end
+  end
+
+  precalculate :current_scheme_costs_heading do
+    all_the_expenses = list_of_expenses
+    live_on_premises = ['live_on_business_premises']
+
+    if (all_the_expenses - live_on_premises).empty?
+      PhraseList.new(:live_on_business_premises_only_current_costs_heading)
+    else
+      PhraseList.new(:all_schemes_current_costs_heading)
+    end
+  end
+
+  precalculate :simple_total do
     vehicle = simple_vehicle_costs.to_f || 0
     motorcycle = simple_motorcycle_costs.to_f || 0
     home = simple_home_costs.to_f || 0
-    business = simple_business_costs.to_f || 0
 
-    Money.new(vehicle + motorcycle + home + business)
+    Money.new(vehicle + motorcycle + home)
   end
 
   precalculate :current_scheme_costs do
@@ -285,12 +317,11 @@ outcome :you_can_use_result do
     green = green_vehicle_write_off.to_f || 0
     dirty = dirty_vehicle_write_off.to_f || 0
     home = home_costs.to_f || 0
-    business = business_premises_cost.to_f || 0
-    Money.new(vehicle + green + dirty + home + business)
+    Money.new(vehicle + green + dirty + home)
   end
 
   precalculate :can_use_simple do
-    simple_costs > current_scheme_costs
+    simple_total > current_scheme_costs
   end
 
   precalculate :simplified_bullets do
@@ -305,9 +336,21 @@ outcome :you_can_use_result do
         bullets << :simple_home_costs_bullet
       end
     end
+    bullets
+  end
+
+  precalculate :simplified_more_bullets do
+    bullets = PhraseList.new
     bullets << :simple_business_costs_bullet unless simple_business_costs.to_f == 0.0
     bullets
   end
+
+  precalculate :current_scheme_more_bullets do
+    bullets = PhraseList.new
+    bullets << :current_business_costs_bullet unless simple_business_costs.to_f == 0.0
+    bullets
+  end
+
 
   precalculate :capital_allowances_claimed_message do
     capital_allowance_claimed ? PhraseList.new(:cap_allow_text) : PhraseList.new
@@ -319,7 +362,6 @@ outcome :you_can_use_result do
     bullets << :current_green_vehicle_write_off_bullet unless green_vehicle_write_off.to_f == 0.0
     bullets << :current_dirty_vehicle_write_off_bullet unless dirty_vehicle_write_off.to_f == 0.0
     bullets << :current_home_costs_bullet unless home_costs.to_f == 0.0
-    bullets << :current_business_costs_bullet unless business_premises_cost.to_f == 0.0
     bullets
   end
 
