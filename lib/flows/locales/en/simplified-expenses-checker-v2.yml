@@ -31,6 +31,14 @@ en-GB:
           - %{business_premises_cost} to deduct from your total business costs - you then claim the balance
         over_van_limit: |
           The upper limit for Capital Allowance write offs for vans is £250,000.
+        live_on_business_premises_only_simple_costs_heading: |
+          **Total to claim per year:**
+        all_schemes_simple_costs_heading: |
+          **Total to claim per year:** %{simple_total}
+        live_on_business_premises_only_current_costs_heading: |
+          **Total to claim per year:**
+        all_schemes_current_costs_heading: |
+          **Total to claim per year:** %{current_scheme_costs}
       options:
         "yes": "Yes"
         "no": "No"
@@ -130,7 +138,7 @@ en-GB:
 
           %{simplified_bullets}
 
-          **Total to claim per year:** %{simple_total}
+          %{simple_heading}
 
           %{simplified_more_bullets}
 
@@ -146,7 +154,7 @@ en-GB:
 
           %{current_scheme_bullets}
 
-          **Total to claim per year:** %{current_scheme_costs}
+          %{current_scheme_costs_heading}
 
           %{current_scheme_more_bullets}
 
