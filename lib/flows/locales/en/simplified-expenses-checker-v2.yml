@@ -124,7 +124,7 @@ en-GB:
           [Records you need to keep when self-employed](/self-employed-records)
       you_can_use_result:
         body: |
-          Based on your answers, the expenses you can claim and deduct are listed below. There are 2 sets of results comparing simplified expenses and calculating expenses the old way.
+          Based on your answers, the expenses you can claim and deduct are listed below. There are 2 sets of results comparing simplified expenses and calculating expenses the usual way.
 
           ##Simplified expenses
 
@@ -146,7 +146,7 @@ en-GB:
 
           %{current_scheme_bullets}
 
-          **Total:** %{current_scheme_costs}
+          **Total to claim per year:** %{current_scheme_costs}
 
           %{current_scheme_more_bullets}
 
