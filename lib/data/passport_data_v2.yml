@@ -1,134 +1,135 @@
---- 
-afghanistan: 
+---
+afghanistan:
   type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-albania: 
+albania:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-algeria: 
+algeria:
   type: algeria
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-american-samoa: 
+american-samoa:
   type: wellington_new_zealand
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-andorra: 
+andorra:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   address: belfast
   online_application: true
-angola: 
+angola:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   address: durham
-anguilla: 
+anguilla:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   address: durham
-antigua-and-barbuda: 
+antigua-and-barbuda:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   address: durham
-argentina: 
+argentina:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   address: durham
-armenia: 
+armenia:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
-aruba: 
+aruba:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   address: durham
-australia: 
+australia:
   type: australia_post
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-austria: 
+austria:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-azerbaijan: 
+azerbaijan:
   type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-bahamas: 
+bahamas:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   address: durham
-bahrain: 
+bahrain:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-bangladesh: 
+bangladesh:
   type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-barbados: 
+barbados:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   address: durham
-belarus: 
+belarus:
   type: ips_application_2
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-belgium: 
+belgium:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   address: durham
-belize: 
+belize:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   address: durham
-benin: 
+benin:
   type: ips_application_1
   group: ips_documents_group_3
   helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
-bermuda: 
+bermuda:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   address: durham
-bhutan: 
-  type: hong_kong
+bhutan:
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-bolivia: 
+  online_application: true
+bolivia:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_2_application_form
   address: durham
-bonaire-st-eustatius-saba: 
+bonaire-st-eustatius-saba:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   address: durham
-bosnia-and-herzegovina: 
+bosnia-and-herzegovina:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
-botswana: 
+botswana:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   address: durham
-brazil: 
+brazil:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
@@ -137,110 +138,111 @@ british-indian-ocean-territory:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-british-virgin-islands: 
+british-virgin-islands:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   address: durham
-brunei: 
-  type: hong_kong
+brunei:
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-bulgaria: 
+  online_application: true
+bulgaria:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
-burkina-faso: 
+burkina-faso:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   address: durham
-burma: 
+burma:
   type: hong_kong
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-burundi: 
+burundi:
   type: ips_application_1
   group: ips_documents_group_3
   helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
-cambodia: 
+cambodia:
   type: hong_kong
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-cameroon: 
+cameroon:
   type: ips_application_1
   group: ips_documents_group_3
   helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
-canada: 
+canada:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   address: durham
-cape-verde: 
+cape-verde:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   address: durham
-cayman-islands: 
+cayman-islands:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   address: durham
-central-african-republic: 
+central-african-republic:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   address: durham
-chad: 
+chad:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   address: durham
-chile: 
+chile:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   address: durham
-china: 
+china:
   type: hong_kong
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
-colombia: 
+colombia:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   address: durham
-comoros: 
+comoros:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   address: durham
-congo: 
+congo:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   address: durham
-democratic-republic-of-congo: 
+democratic-republic-of-congo:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   address: durham
-costa-rica: 
+costa-rica:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   address: durham
-cote-d-ivoire: 
+cote-d-ivoire:
   type: ips_application_1
   group: ips_documents_group_3
   helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
-croatia: 
+croatia:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
@@ -248,7 +250,7 @@ cuba:
   type: ips_application_3
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
-curacao: 
+curacao:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
@@ -259,61 +261,61 @@ cyprus:
   app_form: hmpo_1_application_form
   address: belfast
   online_application: true
-czech-republic: 
+czech-republic:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-denmark: 
+denmark:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-djibouti: 
+djibouti:
   type: ips_application_1
   group: ips_documents_group_3
   helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
-dominica: 
+dominica:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   address: durham
-dominican-republic: 
+dominican-republic:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_2_application_form
   address: durham
-ecuador: 
+ecuador:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_2_application_form
   address: durham
-egypt: 
+egypt:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   address: durham
-el-salvador: 
+el-salvador:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   address: address
-equatorial-guinea: 
+equatorial-guinea:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   address: durham
-eritrea: 
+eritrea:
   type: ips_application_1
   group: ips_documents_group_3
   helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
-estonia: 
+estonia:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-ethiopia: 
+ethiopia:
   type: ips_application_1
   group: ips_documents_group_3
   helpline: pretoria_south_africa
@@ -323,34 +325,34 @@ falkland-islands:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-fiji: 
+fiji:
   type: wellington_new_zealand
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
-finland: 
+finland:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-france: 
+france:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   address: durham
-french-guiana: 
+french-guiana:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   address: durham
-french-polynesia: 
+french-polynesia:
   type: wellington_new_zealand
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-gabon: 
+gabon:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   address: durham
-gambia: 
+gambia:
   type: ips_application_1
   group: ips_documents_group_3
   helpline: pretoria_south_africa
@@ -360,16 +362,16 @@ gaza:
   type: ips_application_3
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-georgia: 
+georgia:
   type: ips_application_2
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
-germany: 
+germany:
   type: ips_application_1
   group: ips_documents_group_1
   helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
-ghana: 
+ghana:
   type: ips_application_1
   group: ips_documents_group_3
   helpline: pretoria_south_africa
@@ -385,128 +387,130 @@ greece:
   app_form: hmpo_1_application_form
   address: belfast
   online_application: true
-grenada: 
+grenada:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   address: durham
-guadeloupe: 
+guadeloupe:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   address: durham
-guatemala: 
+guatemala:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   address: durham
-guinea: 
+guinea:
   type: ips_application_1
   group: ips_documents_group_3
   helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
-guinea-bissau: 
+guinea-bissau:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   address: durham
-guyana: 
+guyana:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_2_application_form
   address: durham
-haiti: 
+haiti:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_2_application_form
   address: durham
-honduras: 
+honduras:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   address: durham
 hong-kong:
-  type: hong_kong
+  type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
-hungary: 
+  online_application: true
+hungary:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-iceland: 
+iceland:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-india: 
+india:
   type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-indonesia: 
+indonesia:
   type: hong_kong
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
-iran: 
+iran:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-iraq: 
-  type: ips_application_1 
+iraq:
+  type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   address: durham
-ireland: 
+ireland:
   type: dublin_ireland
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-israel: 
+israel:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   address: durham
-italy: 
+italy:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   address: durham
-jamaica: 
+jamaica:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_2_application_form
   address: durham
-japan: 
-  type: hong_kong
+japan:
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
+  online_application: true
 jerusalem-or-westbank:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   address: durham
-jordan: 
-  type: ips_application_1 
+jordan:
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   address: durham
-kazakhstan: 
+kazakhstan:
   type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-kenya: 
+kenya:
   type: ips_application_1
   group: ips_documents_group_3
   helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
-kiribati: 
+kiribati:
   type: wellington_new_zealand
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-kosovo: 
+kosovo:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-kuwait: 
+kuwait:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
@@ -514,24 +518,24 @@ kyrgyzstan:
   type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-laos: 
+laos:
   type: hong_kong
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-latvia: 
+latvia:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-lebanon: 
+lebanon:
   type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-lesotho: 
+lesotho:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   address: durham
-liberia: 
+liberia:
   type: ips_application_1
   group: ips_documents_group_3
   helpline: pretoria_south_africa
@@ -541,61 +545,65 @@ libya:
   type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-liechtenstein: 
-  type: ips_application_1 
-  group: ips_documents_group_1
-  app_form: hmpo_1_application_form
-  address: durham
-lithuania: 
+liechtenstein:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-luxembourg: 
-  type: ips_application_1 
+  address: durham
+lithuania:
+  type: ips_application_1
+  group: ips_documents_group_1
+  app_form: hmpo_1_application_form
+luxembourg:
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   address: durham
-macao: 
-  type: hong_kong
+macao:
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-macedonia: 
+  online_application: true
+macedonia:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
-madagascar: 
+madagascar:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   address: durham
-malawi: 
+malawi:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   address: durham
-malaysia: 
-  type: hong_kong
+malaysia:
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-maldives: 
-  type: hong_kong
+  online_application: true
+maldives:
+  type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
-mali: 
-  type: ips_application_1 
+  online_application: true
+mali:
+  type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   address: durham
-malta: 
-  type: ips_application_1 
+malta:
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   address: durham
-marshall-islands: 
-  type: hong_kong
+marshall-islands:
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-martinique: 
+  online_application: true
+martinique:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
@@ -604,43 +612,45 @@ mauritania:
   type: ips_application_2
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-mauritius: 
+mauritius:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   address: durham
-mayotte: 
+mayotte:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   address: durham
-mexico: 
+mexico:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   address: durham
-micronesia: 
-  type: hong_kong
+micronesia:
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-moldova: 
+  online_application: true
+moldova:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-monaco: 
+monaco:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   address: durham
-mongolia: 
-  type: hong_kong
+mongolia:
+  type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-montenegro: 
+  online_application: true
+montenegro:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
-montserrat: 
+montserrat:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
@@ -649,103 +659,105 @@ morocco:
   type: ips_application_2
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-mozambique: 
+mozambique:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   address: durham
-namibia: 
+namibia:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   address: durham
-nauru: 
+nauru:
   type: wellington_new_zealand
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-nepal: 
+nepal:
   type: hong_kong
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-netherlands: 
-  type: ips_application_1 
+netherlands:
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   address: durham
-new-caledonia: 
+new-caledonia:
   type: wellington_new_zealand
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-new-zealand: 
+new-zealand:
   type: new_zealand
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-nicaragua: 
+nicaragua:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   address: durham
-niger: 
+niger:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   address: durham
-nigeria: 
+nigeria:
   type: ips_application_1
   group: ips_documents_group_3
   helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
-north-korea: 
+north-korea:
   type: north_korea
   group: ips_documents_group_3
   helpline: hong_kong
   app_form: hmpo_1_application_form
-norway: 
+norway:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-oman: 
+oman:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-pakistan: 
+pakistan:
   type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-palau: 
-  type: hong_kong
+palau:
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-panama: 
+  online_application: true
+panama:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   address: durham
-papua-new-guinea: 
+papua-new-guinea:
   type: wellington_new_zealand
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
-paraguay: 
+paraguay:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_2_application_form
   address: durham
-peru: 
+peru:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   address: durham
-philippines: 
-  type: philippines
+philippines:
+  type: ips_application_1
   group: ips_documents_group_3
   helpline: hong_kong
   app_form: hmpo_1_application_form
-pitcairn-island: 
+  online_application: true
+pitcairn-island:
   type: wellington_new_zealand
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-poland: 
+poland:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
@@ -755,88 +767,89 @@ portugal:
   app_form: hmpo_1_application_form
   address: belfast
   online_application: true
-qatar: 
+qatar:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-reunion: 
+reunion:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   address: durham
-romania: 
+romania:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
-russia: 
+russia:
   type: ips_application_2
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-rwanda: 
+rwanda:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   address: durham
-samoa: 
+samoa:
   type: wellington_new_zealand
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-san-marino: 
+san-marino:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   address: durham
-sao-tome-and-principe: 
+sao-tome-and-principe:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   address: durham
-saudi-arabia: 
+saudi-arabia:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-senegal: 
+senegal:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   address: durham
-serbia: 
+serbia:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
-seychelles: 
+seychelles:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-sierra-leone: 
+sierra-leone:
   type: ips_application_1
   group: ips_documents_group_3
   helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
-singapore: 
-  type: hong_kong
-  group: ips_documents_group_1
-  app_form: hmpo_1_application_form
-slovakia: 
+singapore:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-slovenia: 
+  online_application: true
+slovakia:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-solomon-islands: 
+slovenia:
+  type: ips_application_1
+  group: ips_documents_group_1
+  app_form: hmpo_1_application_form
+solomon-islands:
   type: wellington_new_zealand
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
-somalia: 
+somalia:
   type: ips_application_1
   group: ips_documents_group_3
   helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
-south-africa: 
+south-africa:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
@@ -846,35 +859,36 @@ south-georgia-and-south-sandwich-islands:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
 south-korea:
-  type: hong_kong
+  type: ips_application_1
   group: ips_documents_2
   app_form: hmpo_1_application_form
-south-sudan: 
+  online_application: true
+south-sudan:
   type: ips_application_1
   group: ips_documents_group_3
   helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
-spain: 
+spain:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   address: belfast
   online_application: true
-sri-lanka: 
+sri-lanka:
   type: hong_kong
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-st-helena-ascension-and-tristan-da-cunha: 
+st-helena-ascension-and-tristan-da-cunha:
   type: pretoria_south_africa
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-st-kitts-and-nevis: 
+st-kitts-and-nevis:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   address: durham
-st-lucia: 
+st-lucia:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
@@ -884,57 +898,58 @@ st-maarten:
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   address: durham
-st-pierre-and-miquelon: 
+st-pierre-and-miquelon:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   address: durham
-st-vincent-and-the-grenadines: 
+st-vincent-and-the-grenadines:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   address: durham
-sudan: 
+sudan:
   type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-suriname: 
+suriname:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   address: durham
-swaziland: 
+swaziland:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   address: durham
-sweden: 
+sweden:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-switzerland: 
+switzerland:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   address: durham
-syria: 
+syria:
   type: syria
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-taiwan: 
-  type: hong_kong
+taiwan:
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-tajikistan: 
+  online_application: true
+tajikistan:
   type: ips_application_2
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-tanzania: 
+tanzania:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   address: durham
-thailand: 
+thailand:
   type: thailand
   group: ips_documents_group_2
   helpline: hong_kong
@@ -947,52 +962,52 @@ timor-leste:
   type: hong_kong
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-togo: 
-  type: ips_application_1 
+togo:
+  type: ips_application_1
   group: ips_documents_group_3
   helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
-tonga: 
+tonga:
   type: wellington_new_zealand
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-trinidad-and-tobago: 
+trinidad-and-tobago:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_2_application_form
   address: durham
-tunisia: 
+tunisia:
   type: ips_application_2
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
-turkey: 
+turkey:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
-turkmenistan: 
+turkmenistan:
   type: ips_application_2
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-turks-and-caicos-islands: 
+turks-and-caicos-islands:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   address: durham
-tuvalu: 
+tuvalu:
   type: wellington_new_zealand
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-uganda: 
-  type: ips_application_1 
+uganda:
+  type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   address: durham
-ukraine: 
-  type: ips_application_3 
+ukraine:
+  type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-united-arab-emirates: 
+united-arab-emirates:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
@@ -1000,34 +1015,35 @@ united-kingdom:
   type:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-usa: 
+usa:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   address: durham
-uruguay: 
+uruguay:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   address: durham
-uzbekistan: 
+uzbekistan:
   type: ips_application_2
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-vanuatu: 
+vanuatu:
   type: wellington_new_zealand
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
-venezuela: 
+venezuela:
   type: ips_application_3
   group: ips_documents_group_3
   helpline: washington_usa
   app_form: hmpo_2_application_form
-vietnam: 
-  type: hong_kong
+vietnam:
+  type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-wallis-and-futuna: 
+  online_application: true
+wallis-and-futuna:
   type: wellington_new_zealand
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
@@ -1035,19 +1051,19 @@ western-sahara:
   type: ips_application_2
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-yemen: 
+yemen:
   type: ips_application_1
   group: ips_documents_group_3
   helpline: yemen
   app_form: hmpo_1_application_form
   address: durham
-zambia: 
+zambia:
   type: ips_application_1
   group: ips_documents_group_3
   helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
-zimbabwe: 
+zimbabwe:
   type: ips_application_3
   group: ips_documents_group_3
   helpline: pretoria_south_africa
