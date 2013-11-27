@@ -50,7 +50,7 @@ en-GB:
 
       # Question 2
       employee_tell_within_limit?:
-        title: Did your employee tell you they were sick and unable to come into work within 7 days of their first day of absence (or within the time limit of your own rules)?
+        title: Did your employee tell you they were sick and unable to come into work within 7 days of their first day of absence (or within your time limit)?
 
       # Question 3
       employee_work_different_days?:
@@ -59,7 +59,7 @@ en-GB:
       # Question 4
       first_sick_day?:
         title: During their most recent period of sickness, when did your employee first become sick?
-        hint: This includes non-working days and bank holidays. This is the first day of their ‘Period of Incapacity for Work’ (PIW)
+        hint: This includes non-working days and bank holidays.
 
       # Question 5
       last_sick_day?:
