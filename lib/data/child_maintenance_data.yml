@@ -1,6 +1,6 @@
 ---
 :rates:
-  - :max: 4.99
+  - :max: 6.99
     :rate: :nil
   - :max: 100
     :rate: :flat

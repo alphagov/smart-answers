@@ -7,7 +7,7 @@ module SmartAnswer::Calculators
       should "show nil rate for low income or any income and benefits and shared care > 0" do
         @calculator = ChildMaintenanceCalculator.new(4, 'no')
         @calculator.income = 5.00
-        assert_equal :flat, @calculator.rate_type
+        assert_equal :nil, @calculator.rate_type
         @calculator = ChildMaintenanceCalculator.new(4, 'yes')
         @calculator.number_of_shared_care_nights = 1
         assert_equal :nil, @calculator.rate_type
@@ -17,7 +17,7 @@ module SmartAnswer::Calculators
     context "rate_type method based on income" do
       should "give the correct rate type based on the income of the payee" do
         @calculator = ChildMaintenanceCalculator.new(3, 'no')
-        @calculator.income = 6
+        @calculator.income = 7
         assert_equal :flat, @calculator.rate_type
       end
 
