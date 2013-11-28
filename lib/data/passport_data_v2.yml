@@ -707,8 +707,8 @@ nigeria:
   app_form: hmpo_1_application_form
   address: durham
 north-korea:
-  type: north_korea
-  group: ips_documents_group_3
+  type: ips_application_3
+  group: ips_documents_group_2
   helpline: hong_kong
   app_form: hmpo_1_application_form
 norway:
@@ -950,7 +950,7 @@ tanzania:
   app_form: hmpo_1_application_form
   address: durham
 thailand:
-  type: ips_application_1
+  type: ips_application_3
   group: ips_documents_group_2
   helpline: hong_kong
   app_form: hmpo_1_application_form
