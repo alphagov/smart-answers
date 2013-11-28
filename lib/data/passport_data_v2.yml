@@ -158,7 +158,7 @@ burkina-faso:
   app_form: hmpo_1_application_form
   address: durham
 burma:
-  type: hong_kong
+  type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
 burundi:
@@ -168,7 +168,7 @@ burundi:
   app_form: hmpo_1_application_form
   address: durham
 cambodia:
-  type: hong_kong
+  type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
 cameroon:
@@ -208,7 +208,7 @@ chile:
   app_form: hmpo_2_application_form
   address: durham
 china:
-  type: hong_kong
+  type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
 colombia:
@@ -446,7 +446,7 @@ india:
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
 indonesia:
-  type: hong_kong
+  type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
 iran:
@@ -519,7 +519,7 @@ kyrgyzstan:
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
 laos:
-  type: hong_kong
+  type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
 latvia:
@@ -674,7 +674,7 @@ nauru:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
 nepal:
-  type: hong_kong
+  type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
 netherlands:
@@ -876,7 +876,7 @@ spain:
   address: belfast
   online_application: true
 sri-lanka:
-  type: hong_kong
+  type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
 st-helena-ascension-and-tristan-da-cunha:
@@ -950,7 +950,7 @@ tanzania:
   app_form: hmpo_1_application_form
   address: durham
 thailand:
-  type: thailand
+  type: ips_application_1
   group: ips_documents_group_2
   helpline: hong_kong
   app_form: hmpo_1_application_form
@@ -959,8 +959,8 @@ the-occupied-palestinian-territories:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
 timor-leste:
-  type: hong_kong
-  group: ips_documents_group_1
+  type: ips_application_1
+  group: ips_documents_group_3
   app_form: hmpo_1_application_form
 togo:
   type: ips_application_1
