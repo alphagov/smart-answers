@@ -860,7 +860,7 @@ south-georgia-and-south-sandwich-islands:
   app_form: hmpo_1_application_form
 south-korea:
   type: ips_application_1
-  group: ips_documents_2
+  group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
 south-sudan:
