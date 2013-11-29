@@ -574,6 +574,9 @@ en-GB:
         passport_costs_ips_cash: |
           You must pay in cash using local currency - the prices above will be converted according to the exchange rate when you apply.
 
+        passport_costs_ips_euros: |
+          You must pay in cash in Euros, the prices above will be converted according to the exchange rate when you apply.
+
         how_long_applying_ips1: |
           Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
 

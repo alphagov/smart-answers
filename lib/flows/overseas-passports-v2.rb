@@ -328,7 +328,11 @@ outcome :ips_application_result do
       if %w(afghanistan bangladesh).include?(current_location)
         phrases << :"passport_costs_ips3_cash_or_card_#{current_location}"
       elsif data_query.cash_only_countries?(current_location)
-        phrases << :passport_costs_ips_cash
+        if current_location == 'north-korea'
+          phrases << :passport_costs_ips_euros
+        else
+          phrases << :passport_costs_ips_cash
+        end
       else
         phrases << :"passport_costs_ips#{ips_number}"
       end
