@@ -616,6 +616,13 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       add_response 'adult'
       assert_phrase_list :how_long_it_takes, [:how_long_8_weeks_replacing, :how_long_it_takes_ips3]
     end
+
+    should "give the correct method of payment guidance" do
+      add_response 'applying'
+      add_response 'adult'
+      add_response 'united-kingdom'
+      assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips_euros]
+    end
   end # North Korea
 
   context "answer Ireland, replacement, adult passport" do
