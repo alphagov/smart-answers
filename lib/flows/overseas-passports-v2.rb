@@ -269,7 +269,6 @@ end
 
 ## IPS Application Result
 outcome :ips_application_result do
-
   precalculate :how_long_it_takes do
     eight_week_application_countries = %w(mauritania morocco western-sahara tunisia)
     twelve_week_application_countries = %w(cameroon chad djibouti eritrea ethiopia kenya somalia tanzania uganda)
@@ -295,6 +294,14 @@ outcome :ips_application_result do
         phrases << :"how_long_6_weeks"
       else
         phrases << :"how_long_16_weeks"
+      end
+    elsif %w{north-korea}.include?(current_location)
+      if %w(renewing_new).include?(application_action)
+        phrases << :"how_long_6_weeks"
+      elsif %w(renewing_old applying).include?(application_action)
+        phrases << :"how_long_8_weeks_with_interview"
+      else
+        phrases << :"how_long_8_weeks_replacing"
       end
     else
       phrases << :"how_long_#{application_action}_ips#{ips_number}"

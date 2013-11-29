@@ -9,7 +9,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania afghanistan australia austria azerbaijan bangladesh benin cameroon congo djibouti egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nigeria pakistan russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania the-occupied-palestinian-territories tunisia united-kingdom yemen zimbabwe vietnam)
+    @location_slugs = %w(albania afghanistan australia austria azerbaijan bangladesh benin cameroon congo djibouti egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nigeria north-korea pakistan russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania the-occupied-palestinian-territories tunisia united-kingdom yemen zimbabwe vietnam)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports-v2'
   end
@@ -583,6 +583,40 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       end
     end # Applying
   end # Azerbaijan - IPS_application_3
+
+  # North Korea (An example of IPS 3 application with some conditional phrases).
+  context "answer North Korea" do
+    setup do
+      worldwide_api_has_organisations_for_location('north-korea', read_fixture_file('worldwide/north-korea_organisations.json'))
+      add_response 'north-korea'
+    end
+
+    should "give the correct result when renewing new style passport" do
+      add_response 'renewing_new'
+      add_response 'adult'
+      assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips3]
+    end
+
+    should "give the correct result when renewing old style passport" do
+      add_response 'renewing_old'
+      add_response 'adult'
+      add_response 'united-kingdom'
+      assert_phrase_list :how_long_it_takes, [:how_long_8_weeks_with_interview, :how_long_it_takes_ips3]
+    end
+
+    should "give the correct result when applying for the first time" do
+      add_response 'applying'
+      add_response 'adult'
+      add_response 'united-kingdom'
+      assert_phrase_list :how_long_it_takes, [:how_long_8_weeks_with_interview, :how_long_it_takes_ips3]
+    end
+
+    should "give the correct result when replacing lost or stolen passport" do
+      add_response 'replacing'
+      add_response 'adult'
+      assert_phrase_list :how_long_it_takes, [:how_long_8_weeks_replacing, :how_long_it_takes_ips3]
+    end
+  end # North Korea
 
   context "answer Ireland, replacement, adult passport" do
     should "give the fco result with custom phrases" do
