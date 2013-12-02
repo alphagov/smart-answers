@@ -342,11 +342,18 @@ outcome :ips_application_result do
   end
 
   precalculate :how_to_apply do
+    send_colour_photocopy_countries = %w(burma china indonesia laos nepal timor-leste)
+
     if passport_data['online_application']
     else
-      PhraseList.new(:"how_to_apply_ips#{ips_number}",
-                     application_form.to_sym,
-                     supporting_documents.to_sym)
+      phrases = PhraseList.new
+      phrases <<  :"how_to_apply_ips#{ips_number}"
+      if send_colour_photocopy_countries.include?(current_location) and %w(renewing_new).include?(application_action)
+        phrases << :send_colour_photocopy_bulletpoint
+      end
+      phrases << application_form.to_sym
+      phrases << supporting_documents.to_sym
+      phrases
     end
   end
 
