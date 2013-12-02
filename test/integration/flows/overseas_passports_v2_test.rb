@@ -724,18 +724,17 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
     end
   end # Tanzania (FCO with custom phrases)
 
-  context "answer Indonesia, applying, adult passport" do
-    should "give the fco result with custom phrases" do
+  context "answer Indonesia, renewing_new, adult passport" do
+    should "give the IPS result with custom phrases" do
       worldwide_api_has_organisations_for_location('indonesia', read_fixture_file('worldwide/indonesia_organisations.json'))
       add_response 'indonesia'
-      add_response 'applying'
+      add_response 'renewing_new'
       add_response 'adult'
-      add_response 'indonesia'
       assert_current_node :ips_application_result
       assert_phrase_list :fco_forms, [:adult_fco_forms]
-      assert_phrase_list :how_long_it_takes, [:how_long_applying_ips1, :how_long_it_takes_ips1]
+      assert_phrase_list :how_long_it_takes, [:how_long_renewing_new_ips1, :how_long_it_takes_ips1]
       assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-      assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_2]
+      assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :send_colour_photocopy_bulletpoint, :hmpo_1_application_form, :ips_documents_group_2]
       assert_phrase_list :send_your_application, [:send_application_ips1]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
       assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]

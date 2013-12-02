@@ -656,6 +656,9 @@ en-GB:
           3. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports) or your application may be delayed.
           4. Check the guidance notes to find out which supporting documents you must send with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
 
+        send_colour_photocopy_bulletpoint: |
+          5. You must send a full colour photocopy of your entire current passport (every page including blank pages). Don't send your current passport with your application - you can keep it for security and ID purposes - but you can't travel with it after you've applied for a new one.
+
         how_to_apply_online: |
           You must apply and pay for your passport online.
 
@@ -1114,7 +1117,7 @@ en-GB:
 
           - you need to provide more information or documents
           - your photographs are rejected
-          
+
           Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [Emergency Travel Document](/emergency-travel-document).
 
           If your passport has been lost or stolen and you haven’t reported it yet, include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your application.
