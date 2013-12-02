@@ -317,16 +317,26 @@ outcome :ips_application_result do
                     :"passport_costs_ips#{ips_number}")
     else
       phrases = PhraseList.new
-      if current_location == 'india'
-        phrases << :"passport_courier_costs_ips3_india"
+      if %w(india).include?(current_location)
+        phrases << :passport_courier_costs_ips3_india
+      elsif %w(thailand).include?(current_location) and %w(renewing_new).include?(application_action)
+        phrases << :passport_courier_costs_ips3_thailand
       else
         phrases << :"passport_courier_costs_ips#{ips_number}"
       end
 
-      phrases << :"#{child_or_adult}_passport_costs_ips#{ips_number}"
+      if %w(thailand).include?(current_location) and %w(renewing_new).include?(application_action)
+        phrases << :"#{child_or_adult}_passport_costs_ips3_thailand"
+      else
+        phrases << :"#{child_or_adult}_passport_costs_ips#{ips_number}"
+      end
 
-      if %w(afghanistan bangladesh).include?(current_location)
-        phrases << :"passport_costs_ips3_cash_or_card_#{current_location}"
+      if %w(afghanistan bangladesh thailand).include?(current_location)
+        if %w(thailand).include?(current_location) and %w(renewing_new).include?(application_action)
+          phrases << :passport_costs_ips3
+        else
+          phrases << :"passport_costs_ips3_cash_or_card_#{current_location}"
+        end
       elsif data_query.cash_only_countries?(current_location)
         if current_location == 'north-korea'
           phrases << :passport_costs_ips_euros
@@ -342,7 +352,7 @@ outcome :ips_application_result do
   end
 
   precalculate :how_to_apply do
-    send_colour_photocopy_countries = %w(burma china indonesia laos nepal timor-leste)
+    send_colour_photocopy_countries = %w(burma china indonesia laos nepal thailand timor-leste)
 
     if passport_data['online_application']
     else
@@ -369,6 +379,8 @@ outcome :ips_application_result do
     elsif %w(india pakistan).include?(current_location)
       phrases << :send_application_ips3_must_post
       phrases << :send_application_embassy_address
+    elsif %w(thailand).include?(current_location) and %w(renewing_new).include?(application_action)
+      phrases << :send_application_ips3_thailand_renewing_new
     elsif general_action == 'renewing' and data_query.renewing_countries?(current_location)
       phrases << :"send_application_ips#{ips_number}" << :renewing_new_renewing_old << :send_application_embassy_address
     else

@@ -998,6 +998,9 @@ en-GB:
         passport_courier_costs_ips3_india: |
           You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to you direct, or to the British embassy, high commission or consulate where you applied if you wish to collect it.
 
+        passport_courier_costs_ips3_thailand: |
+          You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+
         adult_passport_costs_ips3: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
@@ -1008,6 +1011,17 @@ en-GB:
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
           | Child passport | £81.50 | £104.51 |
+
+        adult_passport_costs_ips3_thailand: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Adult standard 32-page passport | £128.00 | £147.86 |
+          | Adult jumbo 48-page passport | £154.50 | £174.36 |
+
+        child_passport_costs_ips3_thailand: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Child passport | £81.50 | £101.36 |
 
         passport_costs_ips3: |
           Fill in a [‘Paying by credit card or debit card’ form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
@@ -1025,6 +1039,11 @@ en-GB:
           You can pay in cash using local currency if you apply in person - the prices above will be converted according to the exchange rate when you apply. You can’t pay by banker’s draft.
 
           Or fill in a [paying by credit card or debit card form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
+
+          You can use Mastercard, Visa, Electron, Diners Club and JCB.
+
+        passport_costs_ips3_cash_or_card_thailand: |
+          You can pay in cash, or fill in a [payment instruction form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
 
           You can use Mastercard, Visa, Electron, Diners Club and JCB.
 
@@ -1088,6 +1107,19 @@ en-GB:
           Email: dljerusalemconsularprotect@fco.gov.uk  
           Telephone: +972 (8) 2641456
           Fax: +972 (8) 2641457
+          $A
+
+        send_application_ips3_thailand_renewing_new: |
+          Her Majesty’s Passport Office recommends you send your application using a secure delivery service or courier.
+
+
+          $A
+          Her Majesty's Passport Service 
+          OVS-L 
+          101 Old Hall Street 
+          Liverpool 
+          L3 9BP 
+          United Kingdom
           $A
 
         getting_your_passport_ips3: |
