@@ -9,7 +9,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania afghanistan australia austria azerbaijan bangladesh benin cameroon congo djibouti egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nigeria north-korea pakistan russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania the-occupied-palestinian-territories tunisia united-kingdom yemen zimbabwe vietnam)
+    @location_slugs = %w(albania afghanistan australia austria azerbaijan bangladesh benin cameroon congo djibouti egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nigeria north-korea pakistan russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia united-kingdom yemen zimbabwe vietnam)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports-v2'
   end
@@ -1231,4 +1231,39 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       end
     end
   end # Pakistan
+
+  context "answer Thailand" do
+    setup do
+      worldwide_api_has_organisations_for_location('thailand', read_fixture_file('worldwide/thailand_organisations.json'))
+      add_response 'thailand'
+    end
+    context "renewing a new adult passport" do
+      should "give the ips result" do
+        add_response 'renewing_new'
+        add_response 'adult'
+        assert_current_node :ips_application_result
+        assert_phrase_list :how_long_it_takes, [:how_long_renewing_new_ips3, :how_long_it_takes_ips3]
+        assert_phrase_list :cost, [:passport_courier_costs_ips3_thailand, :adult_passport_costs_ips3_thailand, :passport_costs_ips3]
+        assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :send_colour_photocopy_bulletpoint, :hmpo_1_application_form, :ips_documents_group_2]
+        assert_phrase_list :send_your_application, [:send_application_ips3_thailand_renewing_new]
+        expected_location = WorldLocation.find('thailand')
+        assert_state_variable :location, expected_location
+        assert_state_variable :organisation, expected_location.fco_organisation
+      end
+    end
+    context "applying for a new adult passport" do
+      should "give the ips result" do
+        add_response 'applying'
+        add_response 'adult'
+        add_response 'thailand'
+        assert_current_node :ips_application_result
+        assert_phrase_list :how_long_it_takes, [:how_long_applying_ips3, :how_long_it_takes_ips3]
+        assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card_thailand]
+        assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_2]
+        assert_phrase_list :send_your_application, [:send_application_ips3, :send_application_embassy_address]
+      end
+    end
+  end # Bangladesh
+
+
 end
