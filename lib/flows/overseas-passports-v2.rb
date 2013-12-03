@@ -150,6 +150,10 @@ country_select :country_of_birth?, :include_uk => true, :exclude_countries => ex
     responses.last == 'united-kingdom' ? supporting_documents : application_group
   end
 
+  calculate :ips_docs_number do
+    supporting_documents.split("_")[3]
+  end
+
   next_node do |response|
     case application_type
     when 'australia_post', 'new_zealand'

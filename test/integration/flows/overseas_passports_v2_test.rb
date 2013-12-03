@@ -432,7 +432,6 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
     end
   end
 
-
   context "answer Vietnam, an example of online application, doc group 3" do
     setup do
       worldwide_api_has_organisations_for_location('vietnam', read_fixture_file('worldwide/vietnam_organisations.json'))
@@ -445,6 +444,13 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       assert_phrase_list :how_long_it_takes, [:how_long_renewing_new_online, :how_long_additional_time_online]
       assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1]
       assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_renewing, :how_to_apply_online_guidance_doc_group_3]
+    end
+    should "use the document group of the country of birth - Spain (which is 1)" do
+      add_response 'applying'
+      add_response 'adult'
+      add_response 'spain'
+      assert_current_node :ips_application_result_online
+      assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance_doc_group_1]
     end
   end
 
