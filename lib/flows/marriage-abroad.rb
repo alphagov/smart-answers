@@ -20,7 +20,7 @@ country_select :country_of_ceremony?, :exclude_countries => exclude_countries do
   end
   calculate :overseas_passports_embassies do
     if organisation
-      organisation.offices_with_service 'Marriages or Civil Partnership registrations'
+      organisation.offices_with_service 'Registrations of Marriage and Civil Partnerships'
     else
       []
     end
