@@ -425,17 +425,10 @@ outcome :fco_result do
 
     payment_methods = :"passport_costs_#{application_type}"
 
-    # Indonesian first time applications have courier and cost variations.
-    if current_location == 'indonesia' and application_action == 'applying'
-      cost_type = current_location
-      payment_methods = :passport_costs_indonesia
-    end
-
     phrases = PhraseList.new(:"passport_courier_costs_#{cost_type}",
                              :"#{child_or_adult}_passport_costs_#{cost_type}",
                              payment_methods)
 
-    phrases << :passport_costs_nepal if current_location == 'nepal'
     phrases
   end
 
@@ -444,8 +437,6 @@ outcome :fco_result do
       PhraseList.new(:"how_to_apply_#{application_type}")
     elsif general_action == 'renewing' and data_query.retain_passport?(current_location)
       PhraseList.new(:how_to_apply_retain_passport)
-    elsif general_action == 'renewing' and data_query.retain_passport_exception?(current_location)
-      PhraseList.new(:how_to_apply_retain_passport_exception)
     else
       ''
     end

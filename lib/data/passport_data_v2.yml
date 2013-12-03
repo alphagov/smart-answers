@@ -709,7 +709,6 @@ nigeria:
 north-korea:
   type: ips_application_3
   group: ips_documents_group_2
-  helpline: hong_kong
   app_form: hmpo_1_application_form
 norway:
   type: ips_application_1
@@ -750,7 +749,6 @@ peru:
 philippines:
   type: ips_application_1
   group: ips_documents_group_3
-  helpline: hong_kong
   app_form: hmpo_1_application_form
   online_application: true
 pitcairn-island:
@@ -952,7 +950,6 @@ tanzania:
 thailand:
   type: ips_application_3
   group: ips_documents_group_2
-  helpline: hong_kong
   app_form: hmpo_1_application_form
 the-occupied-palestinian-territories:
   type:
