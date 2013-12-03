@@ -1024,7 +1024,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       add_response 'child'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_kazakhstan, :how_long_it_takes_ips3]
+      assert_phrase_list :how_long_it_takes, [:how_long_applying_ips3, :how_long_it_takes_ips3]
       assert_phrase_list :cost, [:passport_courier_costs_ips3, :child_passport_costs_ips3, :passport_costs_ips3]
       assert_phrase_list :send_your_application, [:send_application_ips3, :send_application_embassy_address]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
@@ -1043,7 +1043,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_kyrgyzstan, :how_long_it_takes_ips3]
+      assert_phrase_list :how_long_it_takes, [:how_long_renewing_old_ips3, :how_long_it_takes_ips3]
       assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
       assert_phrase_list :send_your_application, [:send_application_ips3, :renewing_new_renewing_old, :send_application_embassy_address]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
@@ -1073,7 +1073,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       assert_state_variable :location, expected_location
       assert_state_variable :organisation, expected_location.fco_organisation
     end
-  end # Kyrgyzstan
+  end # Nigeria
 
   context "answer Russia, applying, child passport" do
     should "give the IPS application result with custom phrases" do
@@ -1096,7 +1096,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       assert outcome_body.at_css("div.contact p a[href='https://www.gov.uk/government/world/organisations/british-embassy-moscow/office/ekaterinburg-consulate-general']")
 
     end
-  end # Kazakhstan
+  end # Russia
 
   context "answer Jamaica, replacement, adult passport" do
     should "give the ips result with custom phrase" do
