@@ -778,10 +778,12 @@ en-GB:
           Your passport and supporting documents will be delivered to the British Embassy in Luanda, Angola - you must collect them in person.
         getting_your_passport_benin: |
           Your passport and supporting documents will be delivered to the British Deputy High Commission in Lagos, Nigeria - you must collect them in person.
+        getting_your_passport_burma: |
+          Your passport and supporting documents will be delivered to the British High Commission in Rangoon - you must collect them in person.
         getting_your_passport_burundi: |
           Your passport and supporting documents will be delivered to the British Embassy Liaison Office in Bujumbura, Burundi - you must collect them in person.
         getting_your_passport_cambodia: |
-          The British embassy will contact you when your passport and supporting documents arrive using the contact details on your form. You must collect them in person.
+          Your passport and supporting documents will be delivered to the British Embassy in Phnom Penh - you must collect them in person.
         getting_your_passport_cameroon: |
           Your passport and supporting documents will be delivered to the British High Commission in Yaounde, Cameroon - you must collect them in person. 
         getting_your_passport_chad: |
@@ -802,8 +804,12 @@ en-GB:
           Your passport and supporting documents will be delivered to the British Embassy in Conakry, Guinea - you must collect them in person.
         getting_your_passport_kenya: |
           Your passport and supporting documents will be delivered to the British High Commission Nairobi, Kenya - you must collect them in person.
+        getting_your_passport_nepal: |
+          Your passport and supporting documents will be delivered to the British High Commission in Kathmandu - you must collect them in person.
         getting_your_passport_nigeria: |
           Your passport and supporting documents will be delivered to the British Deputy High Commission in Lagos, Nigeria - you must collect them in person.
+        getting_your_passport_north-korea: |
+          Your passport and supporting documents will be delivered to the British Embassy in Pyongyang - you must collect them in person.
         getting_your_passport_rwanda: |
           Your passport and supporting documents will be delivered to the British High Commission in Kigali, Rwanda - you must collect them in person.
         getting_your_passport_sierra-leone: |
@@ -838,6 +844,9 @@ en-GB:
           Your passport and supporting documents will be delivered to the British Embassy in Amman, Jordan - you must collect them in person. You must bring photo ID with you.
 
           They will contact you when your passport arrives using the contact details on your form.
+
+        getting_your_passport_thailand_apply_renew_old_replace: |
+          Your passport will be delivered separately by courier.
         tracking_and_receiving_ips1: |
           ## Track your application
 
@@ -1412,9 +1421,6 @@ en-GB:
 
         getting_your_passport_nairobi_kenya: |
           The British High Commission will contact you when your passport arrives using the contact details on your form. You must collect it in person.
-
-        getting_your_passport_burma : |
-          The British embassy will contact you when your passport and supporting documents arrive using the contact details on your form. You must collect them in person.
 
         how_long_lebanon: |
           Action | Minimum time after you apply
