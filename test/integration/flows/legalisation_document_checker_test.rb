@@ -9,13 +9,13 @@ class DocumentLegalisationCheckerTest < ActiveSupport::TestCase
     setup_for_testing_flow "legalisation-document-checker"
   end
 
-  should "ask what documents you would like legalised" do
-    assert_current_node :what_documents_do_you_want_legalised?
+  should "ask which documents you would like legalised" do
+    assert_current_node :which_documents_do_you_want_legalised?
   end
 
   should "error if nothing selected" do
     add_response 'none'
-    assert_current_node :what_documents_do_you_want_legalised?, :error => true
+    assert_current_node :which_documents_do_you_want_legalised?, :error => true
   end
 
   context "doesnt include birth_data, certificate_impediment or medical_reports" do
