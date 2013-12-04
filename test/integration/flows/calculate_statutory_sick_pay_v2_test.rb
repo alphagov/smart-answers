@@ -11,16 +11,16 @@ class CalculateStatutorySickPayV2Test < ActiveSupport::TestCase
 
   context "Already getting maternity allowance" do
     context "Getting statutory maternity pay" do
-      should "take them to outcome 1" do
+      should "go to result A1" do
         add_response "statutory_maternity_pay"
-        assert_current_node :already_getting_maternity
+        assert_current_node :already_getting_maternity # A1
       end
     end
 
     context "Getting maternity allowance" do
-      should "take them to outcome 1" do
+      should "go to result A1" do
         add_response "maternity_allowance"
-        assert_current_node :already_getting_maternity
+        assert_current_node :already_getting_maternity # A1
       end
     end
 
@@ -32,15 +32,14 @@ class CalculateStatutorySickPayV2Test < ActiveSupport::TestCase
       should "set adoption warning state variable" do
         assert_state_variable :paternity_maternity_warning, true
       end
-
-      should "take the user to Q2" do
-        assert_current_node :employee_tell_within_limit?
+      should "take you to Q2" do
+        assert_current_node :employee_tell_within_limit? # Q2
       end
 
       context "employee didn't tell employer within time limit" do
-        should "take them to answer 3" do
+        should "go to result A3" do
           add_response :no
-          assert_current_node :didnt_tell_soon_enough
+          assert_current_node :didnt_tell_soon_enough # A3
         end
       end
 
@@ -48,344 +47,477 @@ class CalculateStatutorySickPayV2Test < ActiveSupport::TestCase
         setup do
           add_response :yes
         end
+        should "take you to Q3" do
+          assert_current_node :employee_work_different_days? # Q3
+        end
 
-        should "take them to Q3" do
-          assert_current_node :employee_work_different_days?
+        context "employee works different days of the week" do
+          setup do
+            add_response :yes
+          end
+          should "go to result A4" do
+            assert_current_node :not_regular_schedule # A4
+          end
         end
 
         context "employee works regular days" do
           setup do
             add_response :no
           end
-
           should "take them to Q4" do
-            assert_current_node :first_sick_day?
+            assert_current_node :first_sick_day? # Q4
           end
 
           context "answering first sick day" do
             setup do
-              add_response "02/04/2012"
+              add_response '02/04/2013'
             end
 
             should "store response and move to Q5" do
-              assert_state_variable :sick_start_date, " 2 April 2012"
-              assert_current_node :last_sick_day?
+              assert_state_variable :sick_start_date, ' 2 April 2013'
+              assert_current_node :last_sick_day? # Q5
             end
 
             context "answering last sick day" do
-              context "last sick day is 3 days or more after first" do
+              context "last sick day is less than 3 days after first" do
                 setup do
-                  add_response "10/04/2012"
+                  add_response '04/04/2013'
                 end
-
-                should "store last sick day" do
-                  assert_state_variable :sick_end_date, "10 April 2012"
-                end
-
-                should "take user to Q6" do
-                  assert_current_node :last_payday_before_sickness?
-                end
-
-                context "last pay day before sickness" do
-                  context "enter date after sick start" do
-                    setup do
-                      add_response "11/04/2012"
-                    end
-
-                    should "raise error" do
-                      assert_current_node :last_payday_before_sickness?, :error => true
-                    end
-                  end
-
-                  context "enter date before sick start" do
-                    setup do
-                      add_response "01/04/2012"
-                    end
-
-                    should "store this date" do
-                      assert_state_variable :relevant_period_to, " 1 April 2012"
-                    end
-
-                    should "store the offset as 8 weeks earlier" do
-                      assert_state_variable :pay_day_offset, " 5 February 2012"
-                    end
-
-                    should "take user to next question" do
-                      assert_current_node :last_payday_before_offset?
-                    end
-
-                    context "answer last payday before relevant period" do
-                      context "with a valid date" do
-                        setup do
-                          add_response "01/02/2012"
-                        end
-
-                        should "calculate the relevant period as response + 1 day" do
-                          assert_state_variable :relevant_period_from, " 2 February 2012"
-                        end
-
-                        should "ask how oftern you pay the employee" do
-                          assert_current_node :how_often_pay_employee?
-                        end
-
-                        context "answer employee pay pattern" do
-                          context "monthly" do
-                            setup do
-                              add_response :monthly
-                            end
-
-                            should "calculate the monthly_pattern_payments" do
-                              assert_state_variable :monthly_pattern_payments, 2
-                              assert_current_node :on_start_date_8_weeks_paid?
-                            end
-                          end # answering Q8 pay monthly
-
-                          context "weekly" do
-                            should "take user to Q9" do
-                              add_response :weekly
-                              assert_current_node :on_start_date_8_weeks_paid?
-                            end
-                          end # answering Q8 weekly
-
-                          context "Answering Q9" do
-                            setup do
-                              add_response :monthly
-                            end
-
-                            should "take them to Q10 if they answer yes" do
-                              add_response :yes
-                              assert_current_node :total_employee_earnings?
-                            end
-
-                            should "take them to Q11 if they answer no" do
-                              add_response :no
-                              assert_current_node :employee_average_earnings?
-                            end
-
-                            context "Answering Q10" do
-                              setup do
-                                add_response :yes
-                                add_response "100"
-                              end
-
-                              should "calculate the AWE" do
-                                assert_state_variable :relevant_period_awe, 11.538461538461538, :round_dp => 6
-                              end
-
-                              should "take them to Answer 5 if value < LEL" do
-                                assert_current_node :not_earned_enough
-                              end
-                            end
-                            context "Answer no" do
-                              setup do
-                                add_response :no
-                              end
-                              should "ask the average weekly earnings over the 8 week period prior to sickness" do
-                                assert_current_node :employee_average_earnings?
-                              end
-                              context "answer less than the lower earning limit" do
-                                should "state they are not entitled to SSP" do
-                                  add_response "100"
-                                  assert_current_node :not_earned_enough
-                                end
-                              end
-                              context "answer above the lower earning limit" do
-                                setup do
-                                  add_response "200"
-                                end
-                                should "ask if the employee was sick in the past 8 weeks" do
-                                  assert_current_node :off_sick_4_days?
-                                end
-                                context "answer yes" do
-                                  setup do
-                                    add_response :yes
-                                  end
-                                  should "ask how many sick days" do
-                                    assert_current_node :how_many_days_sick?
-                                  end
-                                  context "answer 88" do
-                                    setup do
-                                      add_response "88"
-                                    end
-                                    should "ask which days they usually work" do
-                                      assert_current_node :usual_work_days?
-                                    end
-                                    context "answer Monday, Tuesday, Thursday" do
-                                      setup do
-                                        add_response "1,2,4"
-                                      end
-                                      should "state maximum entitlement has already been received" do
-                                        assert_current_node :maximum_entitlement_reached
-                                      end
-                                    end # answering usual_work_days
-                                  end # 88 previous sick days
-                                  context "answer 80 and usually work Monday Tuesday and Thursday" do
-                                    should "give the result" do
-                                      add_response "80"
-                                      add_response "1,2,4"
-                                      assert_current_node :entitled_to_sick_pay
-                                    end
-                                  end # 80 previous sick days
-                                end
-                                context "answer no" do
-                                  setup do
-                                    add_response :no
-                                  end
-                                  should "ask which days they usually work" do
-                                    assert_current_node :usual_work_days?
-                                  end
-                                end
-                              end
-                            end
-                          end # Answering Q9
-                        end # Answering Q8
-                      end
-
-                      context "Answering with invalid date" do
-                        should "raise error" do
-                          add_response "04/05/2012"
-                          assert_current_node_is_error
-                        end
-
-                      end # Answering Q8 with invalid date
-
-                    end # last payday before offset Q7
-                  end
-                end # last pay day before sickness Q6
-              end # last sick day Q5
-
-              context "last sick day is <3 days after first" do
-                should "take user to A2" do
-                  add_response "04/04/2012"
-                  assert_current_node :must_be_sick_for_4_days
+                should "take you to result A2" do
+                  assert_current_node :must_be_sick_for_4_days # A2
                 end
               end
 
-              context "last day is before first day (invalid)" do
-                should "raise error" do
-                  add_response "01/04/2012"
-                  assert_current_node_is_error
+              context "last sick day is 3 days or more after first" do
+                setup do
+                  add_response '10/04/2013'
+                end
+                should "store last sick day" do
+                  assert_state_variable :sick_end_date, '10 April 2013'
+                end
+
+                should "ask had you paid employee at least 8 weeks" do # Q5.1
+                  assert_current_node :paid_at_least_8_weeks?
+                end
+                # new 8 weeks question with three branches
+                context "answer yes, paid at least 8 weeks" do
+                  setup do
+                    add_response 'eight_weeks_more'
+                  end
+                  should "ask how often you pay employees" do # Q 5.2
+                    assert_current_node :how_often_pay_employee_pay_patterns?
+                    assert_state_variable :eight_weeks_earnings, 'eight_weeks_more'
+                  end
+
+                  context "answer weekly" do
+                    setup do
+                      add_response 'weekly'
+                    end
+                    should "ask for last payday before start sick date" do # Q6
+                      assert_current_node :last_payday_before_sickness?
+                      assert_state_variable :pay_pattern, 'weekly'
+                    end
+                    context "enter last payday before start of sickness" do
+                      setup do
+                        add_response '31/03/2013'
+                      end
+                      should "ask for last normal payday before payday offset" do # Q6.1
+                        assert_current_node :last_payday_before_offset?
+                        
+                      end
+                      context "enter last payday before offset" do
+                        setup do
+                          add_response '31/01/2013'
+                        end
+                        should "ask for total amount paid" do # Q 6.2
+                          assert_current_node :total_employee_earnings?
+                        end
+                        context "enter total amount paid between paydays" do
+                          setup do
+                            add_response '4000'
+                          end
+                          should "ask about PIW" do # Q11
+                            assert_current_node :off_sick_4_days?
+                          end
+
+                          context "answer yes" do
+                            setup do
+                              add_response :yes
+                            end
+                            should "ask for start date of linked period of sickness" do # Q11.1
+                              assert_current_node :linked_sickness_start_date?
+                            end
+                            context "enter previous sickness start date" do
+                              setup do
+                                add_response ' 1/01/2013'
+                              end
+                              should "ask how many days sick the employee had in this previous period" do # Q12
+                                assert_current_node :how_many_days_sick?
+                              end
+                              context "answer 6 days" do
+                                setup do
+                                  add_response '6'
+                                end
+                                should "ask which days of the week do they work" do # Q13
+                                  assert_current_node :usual_work_days?
+                                end
+                                context "answer weekdays" do
+                                  setup do
+                                    add_response '1,2,3,4,5'
+                                  end
+                                  should "take you to result A6" do # A6
+                                    assert_current_node :entitled_to_sick_pay
+                                  end
+                                end
+                              end
+                            end
+                          end
+                          context "answer no" do
+                            setup do
+                              add_response 'no'
+                            end
+                            should "ask which days of the week they work" do # Q13
+                              assert_current_node :usual_work_days?
+                            end
+                            context "answer weekdays" do
+                              setup do
+                                add_response '1,2,3,4,5'
+                              end
+                              should "take you to result 6 without first days (no PIW)" do
+                                assert_current_node :entitled_to_sick_pay
+                              end
+                            end
+                          end
+                        end
+                      end
+                    end
+                  end
+                end
+
+                context "answer no, employee is new and fell sick before payday" do
+                  setup do
+                    add_response 'before_payday'
+                  end
+                  should "ask how often you pay employees" do # Q 5.2
+                    assert_current_node :how_often_pay_employee_pay_patterns?
+                  end
+                  context "answer monthly" do
+                    setup do
+                      add_response 'monthly'
+                    end
+                    should "ask how much you would have paid on their first payday" do # Q7
+                      assert_current_node :pay_amount_if_not_sick?
+                    end
+                    context "answer £2000" do
+                      setup do
+                        add_response '2000'
+                      end
+                      should "ask how many days the period covers" do # Q7.1
+                        assert_current_node :contractual_days_covered_by_earnings?
+                      end
+                      context "answer 30" do
+                        setup do
+                          add_response '30'
+                        end
+                        should "ask abou PIW" do # Q11.1
+                          assert_current_node :off_sick_4_days?
+                        end
+
+                        context "answer yes" do
+                          setup do
+                            add_response 'yes'
+                          end
+                          should "ask for start date of linked sickness" do # Q11
+                            assert_current_node :linked_sickness_start_date?
+                          end
+                          context "enter previous sickness start date" do
+                            setup do
+                              add_response '12/03/2013'
+                            end
+                            should "ask how many previous sick days were taken" do # Q12
+                              assert_current_node :how_many_days_sick?
+                            end
+                            context "answer 4" do
+                              setup do
+                                add_response '4'
+                              end
+                              should "ask which days they work" do # Q13
+                                assert_current_node :usual_work_days?
+                              end
+                              context "answer three days a week" do
+                                setup do
+                                  add_response '1,2,3'
+                                end
+                                should "take you to result A6" do
+                                  assert_current_node :entitled_to_sick_pay
+                                end
+                              end
+                            end
+                          end
+                        end
+                        context "answer no" do
+                          setup do
+                            add_response 'no'
+                          end
+                          should "ask which days of the week they work" do # Q13
+                            assert_current_node :usual_work_days?
+                          end
+                          context "answer weekdays" do
+                            setup do
+                              add_response '1,2,3,4,5'
+                            end
+                            should "take you to result 6 without first days (no PIW)" do
+                              assert_current_node :entitled_to_sick_pay
+                            end
+                          end
+                        end
+                      end
+                    end
+                  end
+                end
+
+                context "answer no, paid less than 8 weeks earnings" do
+                  setup do
+                    add_response :eight_weeks_less
+                  end
+                  should "ask what total earnings before sick start date" do # Q8
+                    assert_current_node :total_earnings_before_sick_period?
+                  end
+                  context "answer £3000" do
+                    setup do
+                      add_response '3000'
+                    end
+                    should "ask how many days does this period cover" do # Q8.1
+                      assert_current_node :days_covered_by_earnings?
+                    end
+                    context "answer 35 days" do
+                      setup do
+                        add_response '35'
+                      end
+                      should "ask the PIW question" do # Q11
+                        assert_current_node :off_sick_4_days?
+                      end
+                      context "answer yes" do
+                        setup do
+                          add_response 'yes'
+                        end
+                        should "ask for start date of previous sickness" do # Q 11.1
+                          assert_current_node :linked_sickness_start_date?
+                        end
+                        context "enter previous sickness start date" do
+                          setup do
+                            add_response '24/03/2013'
+                          end
+                          should "ask how many previous sick days were taken" do # Q12
+                            assert_current_node :how_many_days_sick?
+                          end
+                          context "answer 5 days" do
+                            setup do
+                              add_response '5'
+                            end
+                            should "ask which days they work" do # Q13
+                              assert_current_node :usual_work_days?
+                            end
+                            context "answer weekdays" do
+                              setup do
+                                add_response '1,2,3,4,5'
+                              end
+                              should "take you to result A6" do
+                                assert_current_node :entitled_to_sick_pay
+                              end
+                            end
+                          end
+                        end
+                      end
+                      context "answer no" do
+                        setup do
+                          add_response 'no'
+                        end
+                        should "ask which days of the week they work" do # Q13
+                          assert_current_node :usual_work_days?
+                        end
+                        context "answer weekdays" do
+                          setup do
+                            add_response '1,2,3,4,5'
+                          end
+                          should "take you to result 6 without first days (no PIW)" do
+                            assert_current_node :entitled_to_sick_pay
+                          end
+                        end
+                      end
+                    end
+                  end
                 end
               end
             end
-          end
-        end
-
-        context "employee works weird days" do
-          should "take them to A4" do
-            add_response :yes
-            assert_current_node :not_regular_schedule
           end
         end
       end
     end
+  end
+  context "average weekly earnings is less than the LEL on sick start date" do
+    setup do
+      add_response 'none' # Q1
+      add_response 'yes' # Q2
+      add_response 'no' # Q3
+      add_response '10/06/2013' # Q4
+      add_response '20/06/2013' # Q5
+      add_response 'before_payday' # Q5.1
+      add_response 'weekly' # Q5.2
+      add_response '100' # Q7
+      add_response '7' # Q7.1
+      add_response 'no' # Q11
+    end
+    should "take you to result A5 as awe < LEL (as of 10/06/2013)" do
+      assert_state_variable :employee_average_weekly_earnings, 100
+      assert_current_node :not_earned_enough
+    end
+  end
 
-    context "tabular output for final SSP calculation" do
-      should "have the adjusted rates in place for the week crossing through 6th April" do
-        add_response :ordinary_statutory_paternity_pay
-        add_response :yes
-        add_response :no
-        add_response Date.parse("2013-01-07")
-        add_response Date.parse("2013-05-03")
-        add_response Date.parse("2012-12-31")
-        add_response Date.parse("2012-10-31")
-        add_response :monthly
-        add_response :yes
-        add_response 1600.0
-        add_response :yes
-        add_response 8
-        add_response "3,6"
+  context "no SSP payable as sickness period is < 4 days" do
+    setup do
+      add_response 'none'
+      add_response 'yes'
+      add_response 'no'
+      add_response '10/06/2013'
+      add_response '12/06/2013'
+    end
+    should "take you to result A7 - must be sick for at least 4 days in a row" do
+      assert_current_node :must_be_sick_for_4_days
+    end
+  end
 
-        assert_current_node :entitled_to_sick_pay
-        assert_state_variable :formatted_sick_pay_weekly_amounts,
-                              ["12 January 2013|£85.85",
-                               "19 January 2013|£85.85",
-                               "26 January 2013|£85.85",
-                               " 2 February 2013|£85.85",
-                               " 9 February 2013|£85.85",
-                               "16 February 2013|£85.85",
-                               "23 February 2013|£85.85",
-                               " 2 March 2013|£85.85",
-                               " 9 March 2013|£85.85",
-                               "16 March 2013|£85.85",
-                               "23 March 2013|£85.85",
-                               "30 March 2013|£85.85",
-                               " 6 April 2013|£86.28",
-                               "13 April 2013|£86.70",
-                               "20 April 2013|£86.70",
-                               "27 April 2013|£86.70",
-                               " 4 May 2013|£43.35"].join("\n")
-      end
+  context "no SSP payable as already had maximum" do
+    setup do
+      add_response 'none'
+      add_response 'yes'
+      add_response 'no'
+      add_response '10/06/2013'
+      add_response '20/06/2013'
+      add_response 'eight_weeks_more'
+      add_response 'monthly'
+      add_response '31/05/2013'
+      add_response '31/03/2013'
+      add_response '4000'
+      add_response 'yes'
+      add_response '01/01/2013'
+      add_response '183'
+      add_response '1,2,3,4,5'
+    end
+    should "take you to result A8 as already claimed > 28 weeks (max amount)" do
+      assert_current_node :maximum_entitlement_reached
+    end
+  end
 
-      should "have consistent rates for all weekly rates that are produced" do
-        add_response :ordinary_statutory_paternity_pay
-        add_response :yes
-        add_response :no
-        add_response Date.parse("2013-01-07")
-        add_response Date.parse("2013-05-03")
-        add_response Date.parse("2012-12-28")
-        add_response Date.parse("2012-10-26")
-        add_response :monthly
-        add_response :yes
-        add_response 1250.75
-        add_response :yes
-        add_response 42
-        add_response "2,3,4"
+  context "tabular output for final SSP calculation" do
+    should "have the adjusted rates in place for the week crossing through 6th April" do
+      add_response :ordinary_statutory_paternity_pay
+      add_response :yes
+      add_response :no
+      add_response Date.parse("2013-01-07")
+      add_response Date.parse("2013-05-03")
+      add_response :eight_weeks_more
+      add_response :monthly      
+      add_response Date.parse("2012-12-28")
+      add_response Date.parse("2012-10-26")
+      add_response 1600.0
+      add_response :yes
+      add_response Date.parse("2012-11-11")
+      add_response 8
+      add_response "3,6"
 
-        assert_current_node :entitled_to_sick_pay
-        assert_state_variable :formatted_sick_pay_weekly_amounts,
-                              ["12 January 2013|£85.85",
-                               "19 January 2013|£85.85",
-                               "26 January 2013|£85.85",
-                               " 2 February 2013|£85.85",
-                               " 9 February 2013|£85.85",
-                               "16 February 2013|£85.85",
-                               "23 February 2013|£85.85",
-                               " 2 March 2013|£85.85",
-                               " 9 March 2013|£85.85",
-                               "16 March 2013|£85.85",
-                               "23 March 2013|£85.85",
-                               "30 March 2013|£85.85",
-                               " 6 April 2013|£85.85",
-                               "13 April 2013|£86.70",
-                               "20 April 2013|£86.70"].join("\n")
-      end
+      assert_current_node :entitled_to_sick_pay
+      assert_state_variable :formatted_sick_pay_weekly_amounts,
+                            ["12 January 2013|£85.85",
+                             "19 January 2013|£85.85",
+                             "26 January 2013|£85.85",
+                             " 2 February 2013|£85.85",
+                             " 9 February 2013|£85.85",
+                             "16 February 2013|£85.85",
+                             "23 February 2013|£85.85",
+                             " 2 March 2013|£85.85",
+                             " 9 March 2013|£85.85",
+                             "16 March 2013|£85.85",
+                             "23 March 2013|£85.85",
+                             "30 March 2013|£85.85",
+                             " 6 April 2013|£86.28",
+                             "13 April 2013|£86.70",
+                             "20 April 2013|£86.70",
+                             "27 April 2013|£86.70",
+                             " 4 May 2013|£43.35"].join("\n")
+    end
 
-      should "show formatted weekly payment amounts with adjusted 3 days start amount" do
-        add_response :ordinary_statutory_paternity_pay
-        add_response :yes
-        add_response :no
-        add_response Date.parse("2013-01-07")
-        add_response Date.parse("2013-05-03")
-        add_response Date.parse("2012-12-31")
-        add_response Date.parse("2012-09-24")
-        add_response :irregularly
-        add_response :yes
-        add_response 3000.0
-        add_response :no
-        add_response "1,2,3,4"
+    should "have consistent rates for all weekly rates that are produced" do
+      add_response :ordinary_statutory_paternity_pay
+      add_response :yes
+      add_response :no
+      add_response Date.parse("2013-01-07")
+      add_response Date.parse("2013-05-03")
+      add_response :eight_weeks_more
+      add_response :monthly      
+      add_response Date.parse("2012-12-28")
+      add_response Date.parse("2012-10-26")
+      add_response 1250.75
+      add_response :yes
+      add_response Date.parse("2012-11-09")
+      add_response 23
+      add_response "2,3,4"
 
-        assert_current_node :entitled_to_sick_pay
-        assert_state_variable :formatted_sick_pay_weekly_amounts,
-                              ["12 January 2013|£21.47",
-                               "19 January 2013|£85.85",
-                               "26 January 2013|£85.85",
-                               " 2 February 2013|£85.85",
-                               " 9 February 2013|£85.85",
-                               "16 February 2013|£85.85",
-                               "23 February 2013|£85.85",
-                               " 2 March 2013|£85.85",
-                               " 9 March 2013|£85.85",
-                               "16 March 2013|£85.85",
-                               "23 March 2013|£85.85",
-                               "30 March 2013|£85.85",
-                               " 6 April 2013|£85.85",
-                               "13 April 2013|£86.70",
-                               "20 April 2013|£86.70",
-                               "27 April 2013|£86.70",
-                               " 4 May 2013|£86.70"].join("\n")
+      assert_current_node :entitled_to_sick_pay
+      assert_state_variable :formatted_sick_pay_weekly_amounts,
+                            ["12 January 2013|£85.85",
+                             "19 January 2013|£85.85",
+                             "26 January 2013|£85.85",
+                             " 2 February 2013|£85.85",
+                             " 9 February 2013|£85.85",
+                             "16 February 2013|£85.85",
+                             "23 February 2013|£85.85",
+                             " 2 March 2013|£85.85",
+                             " 9 March 2013|£85.85",
+                             "16 March 2013|£85.85",
+                             "23 March 2013|£85.85",
+                             "30 March 2013|£85.85",
+                             " 6 April 2013|£85.85",
+                             "13 April 2013|£86.70",
+                             "20 April 2013|£86.70",
+                             "27 April 2013|£86.70",
+                             " 4 May 2013|£86.70"].join("\n")
+    end
 
-      end
+    should "show formatted weekly payment amounts with adjusted 3 days start amount" do
+      add_response :ordinary_statutory_paternity_pay
+      add_response :yes
+      add_response :no
+      add_response Date.parse("2013-01-07")
+      add_response Date.parse("2013-05-03")
+      add_response :eight_weeks_more
+      add_response :irregularly
+      add_response Date.parse("2012-12-28")
+      add_response Date.parse("2012-10-26")
+      add_response 3000.0
+      add_response :no
+      add_response "1,2,3,4"
+
+      assert_current_node :entitled_to_sick_pay
+      assert_state_variable :formatted_sick_pay_weekly_amounts,
+                            ["12 January 2013|£21.47",
+                             "19 January 2013|£85.85",
+                             "26 January 2013|£85.85",
+                             " 2 February 2013|£85.85",
+                             " 9 February 2013|£85.85",
+                             "16 February 2013|£85.85",
+                             "23 February 2013|£85.85",
+                             " 2 March 2013|£85.85",
+                             " 9 March 2013|£85.85",
+                             "16 March 2013|£85.85",
+                             "23 March 2013|£85.85",
+                             "30 March 2013|£85.85",
+                             " 6 April 2013|£85.85",
+                             "13 April 2013|£86.70",
+                             "20 April 2013|£86.70",
+                             "27 April 2013|£86.70",
+                             " 4 May 2013|£86.70"].join("\n")
+
     end
   end
 end

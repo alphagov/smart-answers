@@ -40,7 +40,7 @@ en-GB:
         weekly: Weekly
         fortnightly: Every 2 weeks
         every_4_weeks: Every 4 weeks
-        monthly: Monthly - eg last day or friday of a month
+        monthly: Monthly - eg last day or Friday of a month
         irregularly: Irregularly
 
       # Q1
@@ -67,42 +67,62 @@ en-GB:
         hint: This can include non-working days and bank holidays
         error_message:  End date should be on or after start date
 
+      # Q5.1
+      paid_at_least_8_weeks?:
+        title: On %{sick_start_date} had you paid your employee at least 8 weeks of earnings?
+        options:
+          eight_weeks_more: "Yes, paid at least 8 weeks earnings"
+          eight_weeks_less: "No, paid less than 8 weeks earnings"
+          before_payday: "No, employee is new and fell sick before their first payday"
+
+      # Q5.2
+      how_often_pay_employee_pay_patterns?:
+        title: How often do you pay the employee?
 
       # Question 6
       last_payday_before_sickness?:
         title: What was the last normal payday before %{sick_start_date}?
         error_message: You must enter a date before %{sick_start_date}
 
-      # Question 7
+      # Question 6.1
       last_payday_before_offset?:
         title: What was the last normal payday on or before %{pay_day_offset}?
         error_message: You must enter a date on or before %{pay_day_offset}
 
-      # Question 7.4
-      how_often_pay_employee?:
-        title: How often do you pay the employee?
-
-      # Question 8
-      on_start_date_8_weeks_paid?:
-        title: On %{sick_start_date} had you paid your employee for at least 8 weeks of earnings?
-
-      # Question 9
+      # Question 6.2
       total_employee_earnings?:
         title: Enter the total amount (before deductions like Income Tax and National Insurance) of your employee’s earnings on paydays between %{relevant_period_from} and %{relevant_period_to}.
         body: |
           Different rules apply for directors of limited companies incorporated before 1 October 2009 - see page 28 of the [Employer Helpbook for Statutory Sick Pay](http://www.hmrc.gov.uk/helpsheets/e14.pdf)
         error_message: Please enter a number greater than 0
 
-      # Question 10
-      employee_average_earnings?:
-        title: What were their average weekly earnings over the 8 week period before %{sick_start_date}?
-        error_message: Please enter a number
+      # Question 7
+      pay_amount_if_not_sick?:
+        title: Enter how much you would have paid the employee on their first payday if they hadn’t been sick.
+
+      # Question 7.1
+      contractual_days_covered_by_earnings?:
+        title: How many days does the period represented by these earnings cover?
+        hint: If it’s 2 weeks and 3 days enter ‘17’.
+
+      # Question 8
+      total_earnings_before_sick_period?:
+        title: Enter the total earnings paid before %{sick_start_date}.
+
+      # Question 8.1
+      days_covered_by_earnings?:
+        title: How many days does the period represented by these earnings cover?
+        hint: If it’s 2 weeks and 3 days enter ‘17’.
 
       # Question 11
       off_sick_4_days?:
         title: Was your employee off sick within the past 8 weeks for 4 or more days (including non-working days, weekends and holidays)?
         body: |
-          These are called ‘linked Periods of Incapacity for Work (PIW)’. To check if an employee’s PIW links to a previous one, see pages 35 to 38 of the [Employer Helpbook for Statutory Sick Pay](http://www.hmrc.gov.uk/helpsheets/e14.pdf)
+          These are called ‘linked Periods of Incapacity for Work (PIW)’. To check if an employee’s PIW links to a previous one, see the [Employer Helpbook for Statutory Sick Pay](http://www.hmrc.gov.uk/helpsheets/e14.pdf)
+
+      # Question 11.1
+      linked_sickness_start_date?:
+        title: Enter the start date for this linked period of sickness.
 
       # Question 12
       how_many_days_sick?:
@@ -152,7 +172,7 @@ en-GB:
       # Answer 5
       not_earned_enough:
         body: |
-          Your employee isn’t entitled to statutory sick pay because they haven’t earned enough to qualify.
+          Your employee isn’t entitled to Statutory Sick Pay because their average weekly earnings must be at least £%{lower_earning_limit}. Their average weekly earnings are £%{employee_average_weekly_earnings}. 
 
           You must send them [form SSP1](/employers-sick-pay/eligibility-and-form-ssp1) no more than 7 days after they’ve told you they’re sick. They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance).
 
@@ -180,6 +200,7 @@ en-GB:
 
           You may be able to [recover the statutory payments](http://www.hmrc.gov.uk/payerti/employee/statutory-pay/ssp-calc.htm) you’ve paid from HM Revenue & Customs (HMRC). Your payroll software or [HMRC’s basic PAYE tools](http://www.hmrc.gov.uk/payerti/payroll/bpt/index.htm) can tell you how much you’ll get back.
 
+          *[SSP]: Statutory Sick Pay
       # Answer 7
       not_entitled_3_days_not_paid:
         body: |

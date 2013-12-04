@@ -28,7 +28,7 @@ end
 
 # Question 2
 multiple_choice :employee_tell_within_limit? do
-	option :yes => :employee_work_different_days? # Question 5
+	option :yes => :employee_work_different_days? # Question 3
 	option :no => :didnt_tell_soon_enough # Answer 3
 end
 
@@ -64,7 +64,36 @@ date_question :last_sick_day? do
       raise SmartAnswer::InvalidResponse
     end
 
-    days_sick > 3 ? :last_payday_before_sickness? : :must_be_sick_for_4_days
+    days_sick > 3 ? :paid_at_least_8_weeks? : :must_be_sick_for_4_days
+  end
+
+end
+
+# Question 5.1
+multiple_choice :paid_at_least_8_weeks? do
+  option :eight_weeks_more => :how_often_pay_employee_pay_patterns? # Question 5.2
+  option :eight_weeks_less => :total_earnings_before_sick_period? # Question 8
+  option :before_payday => :how_often_pay_employee_pay_patterns? # Question 5.2
+
+  save_input_as :eight_weeks_earnings
+end
+
+# Question 5.2
+multiple_choice :how_often_pay_employee_pay_patterns? do
+  option :weekly
+  option :fortnightly
+  option :every_4_weeks
+  option :monthly
+  option :irregularly
+
+  save_input_as :pay_pattern
+
+  next_node do
+    if eight_weeks_earnings == 'eight_weeks_more'
+      :last_payday_before_sickness? # Question 6
+    else
+      :pay_amount_if_not_sick? # Question 7
+    end
   end
 
 end
@@ -80,7 +109,6 @@ date_question :last_payday_before_sickness? do
     (Date.parse(relevant_period_to) - 8.weeks).strftime("%e %B %Y")
   end
 
-
   next_node do |response|
     payday = Date.parse(response)
     start = Date.parse(sick_start_date)
@@ -93,95 +121,112 @@ date_question :last_payday_before_sickness? do
   end
 end
 
-# Question 7
+# Question 6.1
 date_question :last_payday_before_offset? do
   # input plus 1 day = relevant_period_from
   calculate :relevant_period_from do
     (Date.parse(responses.last) + 1.day).strftime("%e %B %Y")
   end
    # You must enter a date on or before [pay_day_offset]
+
+  calculate :monthly_pattern_payments do
+    start_date = Date.parse(relevant_period_from)
+    end_date = Date.parse(relevant_period_to)
+    Calculators::StatutorySickPayCalculator.months_between(start_date, end_date)
+  end
+
   next_node do |response|
     day = Date.parse(response)
     if day > Date.parse(pay_day_offset)
       raise SmartAnswer::InvalidResponse
     end
-    :how_often_pay_employee?
+    :total_employee_earnings?
   end
 end
 
-# Question 7.4
-multiple_choice :how_often_pay_employee? do
-  option :weekly
-  option :fortnightly
-  option :every_4_weeks
-  option :monthly
-  option :irregularly
-
-  save_input_as :pay_pattern
-
-  calculate :monthly_pattern_payments do
-    start_date = Date.parse(relevant_period_from)
-    end_date = Date.parse(relevant_period_to)
-    Calculators::StatutorySickPayCalculatorV2.months_between(start_date, end_date)
-  end
-
-  next_node :on_start_date_8_weeks_paid?
-end
-
-# Question 8
-multiple_choice :on_start_date_8_weeks_paid? do
-  option :yes => :total_employee_earnings? # Question 10
-  option :no => :employee_average_earnings? # Question 11
-end
-
-# Question 9
+# Question 6.2
 money_question :total_employee_earnings? do
   save_input_as :relevant_period_pay
-  calculate :relevant_period_awe do
+
+  calculate :employee_average_weekly_earnings do
     Calculators::StatutorySickPayCalculatorV2.average_weekly_earnings(
       pay: relevant_period_pay, pay_pattern: pay_pattern, monthly_pattern_payments: monthly_pattern_payments,
       relevant_period_to: relevant_period_to, relevant_period_from: relevant_period_from)
   end
 
-  next_node do |response|
-    relevant_period_pay = Money.new(response)
-    relevant_pay_awe = Calculators::StatutorySickPayCalculatorV2.average_weekly_earnings(
-      pay: relevant_period_pay, pay_pattern: pay_pattern, monthly_pattern_payments: monthly_pattern_payments,
-      relevant_period_to: relevant_period_to, relevant_period_from: relevant_period_from)
-
-    if relevant_pay_awe < Calculators::StatutorySickPayCalculatorV2.lower_earning_limit_on(Date.parse(sick_start_date))
-      # Answer 5
-      :not_earned_enough
-    else
-      # Question 12
-      :off_sick_4_days?
-    end
-  end
-
+  next_node :off_sick_4_days?
 end
 
-# Question 10
-money_question :employee_average_earnings? do
-  next_node do |response|
-    if response < Calculators::StatutorySickPayCalculatorV2.lower_earning_limit_on(Date.parse(sick_start_date))
-       # Answer 5
-      :not_earned_enough
-    else
-      # Question 12
-      :off_sick_4_days?
-    end
-  end
+# Question 7
+money_question :pay_amount_if_not_sick? do
+  save_input_as :relevant_contractual_pay
+
+  next_node :contractual_days_covered_by_earnings?
 end
 
-# Q11
+# Question 7.1
+value_question :contractual_days_covered_by_earnings? do
+  save_input_as :contractual_earnings_days
+
+  calculate :employee_average_weekly_earnings do
+    pay = relevant_contractual_pay
+    days_worked = responses.last
+    Calculators::StatutorySickPayCalculatorV2.contractual_earnings_awe(pay, days_worked)
+  end
+  next_node :off_sick_4_days?
+end
+
+# Question 8
+money_question :total_earnings_before_sick_period? do
+  save_input_as :earnings
+
+  next_node :days_covered_by_earnings?
+end
+
+# Question 8.1
+value_question :days_covered_by_earnings? do
+
+  calculate :employee_average_weekly_earnings do
+    pay = earnings
+    number_of_weeks = (responses.last / 7)
+    days_worked = responses.last
+    Calculators::StatutorySickPayCalculatorV2.total_earnings_awe(pay, number_of_weeks, days_worked) 
+  end
+
+next_node :off_sick_4_days?
+end
+
+# Question 11
 multiple_choice :off_sick_4_days? do
-  option :yes => :how_many_days_sick?
-  option :no => :usual_work_days?
+  option :yes
+  option :no
 
-  calculate :previous_sickness do
-    responses.last == "yes"
+  next_node do |response|
+    if response == 'yes'
+      :linked_sickness_start_date?
+    else
+      if employee_average_weekly_earnings < Calculators::StatutorySickPayCalculatorV2.lower_earning_limit_on(Date.parse(sick_start_date))
+        :not_earned_enough
+      else
+        :usual_work_days?
+      end
+    end
+  end
+
+end
+
+# Question 11.1
+date_question :linked_sickness_start_date? do
+
+  next_node do |response|
+    if employee_average_weekly_earnings < Calculators::StatutorySickPayCalculatorV2.lower_earning_limit_on(Date.parse(response))
+      :not_earned_enough
+    else
+      :how_many_days_sick?
+    end
   end
 end
+
 
 # Q12
 value_question :how_many_days_sick? do
@@ -246,7 +291,11 @@ outcome :didnt_tell_soon_enough
 outcome :not_regular_schedule
 
 # Answer 5
-outcome :not_earned_enough
+outcome :not_earned_enough do
+  precalculate :lower_earning_limit do
+    Calculators::StatutorySickPayCalculatorV2.lower_earning_limit_on(Date.parse(sick_start_date))
+  end
+end
 
 # Answer 6
 outcome :entitled_to_sick_pay do

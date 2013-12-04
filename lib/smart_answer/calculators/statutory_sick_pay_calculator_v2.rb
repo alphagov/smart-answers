@@ -135,6 +135,18 @@ module SmartAnswer::Calculators
       BigDecimal.new(pay.round(10).to_s).round(2, BigDecimal::ROUND_UP).to_f
     end
 
+    def self.contractual_earnings_awe(pay, days_worked)
+      (pay / BigDecimal.new(days_worked.to_s) * 7).round(2)
+    end
+
+    def self.total_earnings_awe(pay, number_of_weeks, days_worked)
+      if %w(7 14 21 28 35 42 49 56).include?(number_of_weeks)
+        (pay / number_of_weeks).round(2)
+      else
+        (pay / BigDecimal.new(days_worked.to_s) * 7).round(2)
+      end
+    end
+
     private
     def init_normal_workdays_missed(days_of_the_week_worked)
       dates = @sick_start_date..@sick_end_date
