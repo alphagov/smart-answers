@@ -111,7 +111,7 @@ multiple_choice :parents? do
       :siblings?
     when "northern-ireland"
       if partner == "yes"
-        response == "yes" ? :outcome_63 : :siblings?
+        response == "yes" ? :outcome_63 : :siblings_including_mixed_parents?
       else
         response == "yes" ? :outcome_3 : :siblings?
       end
@@ -155,6 +155,18 @@ multiple_choice :siblings? do
         response == "yes" ? :outcome_4 : :aunts_or_uncles?
       end
     end
+  end
+end
+
+# Q61
+multiple_choice :siblings_including_mixed_parents? do
+  option :"yes"
+  option :"no"
+
+  save_input_as :siblings
+
+  next_node do |response|
+    response == "yes" ? :outcome_64 : :outcome_65
   end
 end
 
