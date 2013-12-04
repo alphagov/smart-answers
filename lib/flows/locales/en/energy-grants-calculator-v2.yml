@@ -1,0 +1,11 @@
+en-GB:
+  flow:
+    energy-grants-calculator-v2:
+      title: Find energy grants and measures to help you with heating costs
+      meta:
+        description: Financial help with heating costs, insulation, boilers, money for heating costs
+      body: |
+        Check what money and other help you can get to reduce your energy costs.
+
+      options:
+        none: "None apply"
