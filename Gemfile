@@ -3,7 +3,7 @@ source 'https://BnrJb6FZyzspBboNJzYZ@gem.fury.io/govuk/'
 
 gem 'unicorn', '4.3.1'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.16'
 
 gem 'rails-i18n'
 gem 'json'
