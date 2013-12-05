@@ -116,7 +116,7 @@ en-GB:
 
       # Question 11
       off_sick_4_days?:
-        title: Was your employee off sick within the past 8 weeks for 4 or more days (including non-working days, weekends and holidays)?
+        title: Was your employee off sick within the previous 8 weeks for 4 or more days (including non-working days, weekends and holidays)?
         body: |
           These are called ‘linked Periods of Incapacity for Work (PIW)’. To check if an employee’s PIW links to a previous one, see the [Employer Helpbook for Statutory Sick Pay](http://www.hmrc.gov.uk/helpsheets/e14.pdf)
 
