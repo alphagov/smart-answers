@@ -455,7 +455,7 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "average weekly earnings for new employees who fell sick before first payday" do
+    context "average weekly earnings for new employees who fell sick before first payday - using decimal place" do
       should "give the average weekly earnings" do
         pay = SmartAnswer::Money.new(100)
         days_worked = 10.5
@@ -464,16 +464,16 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "average weekly earnings for employees who've been paid less than 8 weeks with exact weeks pay" do
+    context "xx average weekly earnings for employees who've been paid less than 8 weeks with exact weeks pay" do
       should "give the average weekly earnings" do
-        pay = SmartAnswer::Money.new(600)
+        pay = SmartAnswer::Money.new(532)
         days_worked = 42
         awe = StatutorySickPayCalculatorV2.total_earnings_awe(pay, days_worked)
-        assert_equal 100, awe
+        assert_equal 88.67, awe.to_f
       end
     end
 
-    context "average weekly earnings for employees who've been paid less than 8 weeks with exact weeks pay" do
+    context "average weekly earnings for employees who've been paid less than 8 weeks with in-exact weeks pay" do
       should "give the average weekly earnings" do
         pay = SmartAnswer::Money.new(600)
         days_worked = 43

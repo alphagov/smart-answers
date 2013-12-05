@@ -141,7 +141,7 @@ module SmartAnswer::Calculators
 
     def self.total_earnings_awe(pay, days_worked)
       if days_worked % 7 == 0
-        (pay / number_of_weeks).round(2)
+        (pay / (days_worked / 7)).round(2)
       else
         (pay / BigDecimal.new(days_worked.to_s) * 7).round(2)
       end
