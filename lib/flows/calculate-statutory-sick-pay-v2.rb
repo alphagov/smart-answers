@@ -188,9 +188,8 @@ value_question :days_covered_by_earnings? do
 
   calculate :employee_average_weekly_earnings do
     pay = earnings
-    number_of_weeks = (responses.last / 7)
     days_worked = responses.last
-    Calculators::StatutorySickPayCalculatorV2.total_earnings_awe(pay, number_of_weeks, days_worked) 
+    Calculators::StatutorySickPayCalculatorV2.total_earnings_awe(pay, days_worked) 
   end
 
 next_node :off_sick_4_days?

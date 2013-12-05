@@ -467,9 +467,8 @@ module SmartAnswer::Calculators
     context "average weekly earnings for employees who've been paid less than 8 weeks with exact weeks pay" do
       should "give the average weekly earnings" do
         pay = SmartAnswer::Money.new(600)
-        number_of_weeks = 6
         days_worked = 42
-        awe = StatutorySickPayCalculatorV2.total_earnings_awe(pay, number_of_weeks, days_worked)
+        awe = StatutorySickPayCalculatorV2.total_earnings_awe(pay, days_worked)
         assert_equal 100, awe
       end
     end
@@ -477,9 +476,8 @@ module SmartAnswer::Calculators
     context "average weekly earnings for employees who've been paid less than 8 weeks with exact weeks pay" do
       should "give the average weekly earnings" do
         pay = SmartAnswer::Money.new(600)
-        number_of_weeks = 6
         days_worked = 43
-        awe = StatutorySickPayCalculatorV2.total_earnings_awe(pay, number_of_weeks, days_worked)
+        awe = StatutorySickPayCalculatorV2.total_earnings_awe(pay, days_worked)
         assert_equal 97.67, awe
       end
     end
