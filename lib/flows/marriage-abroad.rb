@@ -545,10 +545,14 @@ outcome :outcome_os_consular_cni do
       end
       if %w(germany italy japan spain).exclude?(ceremony_country)
         if reg_data_query.clickbook(ceremony_country)
-          if multiple_clickbooks
-            phrases << :clickbook_links
+          if %w(vietnam).include?(ceremony_country)
+            phrases << :consular_cni_os_vietnam_clickbook
           else
-            phrases << :clickbook_link
+            if multiple_clickbooks
+              phrases << :clickbook_links
+            else
+              phrases << :clickbook_link
+            end
           end
         end
         unless reg_data_query.clickbook(ceremony_country)
