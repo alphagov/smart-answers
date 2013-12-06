@@ -222,12 +222,28 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
         assert_current_node :outcome_medical_y
       end
     end
-    context "coming to the on the way somewhere else" do
+    context "coming to the UK on the way somewhere else" do
       setup do
         add_response 'transit'
       end
-      should "take you to Transit M outcome" do
-        assert_current_node :outcome_transit_m
+      should "take ask you if you're planning to leave the airport?" do
+        assert_current_node :planning_to_leave_airport?
+      end
+      context "planning to leave airport" do
+        setup do
+          add_response 'yes'
+        end
+        should "take you to the 'transit_leaving_airport' outcome" do
+          assert_current_node :outcome_transit_leaving_airport
+        end
+      end
+      context "not planning to leave airport" do
+        setup do
+          add_response 'no'
+        end
+        should "take you to outcome no visa needed" do
+          assert_current_node :outcome_no_visa_needed
+        end
       end
     end
     context "coming to join family" do
@@ -300,8 +316,24 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       setup do
         add_response 'transit'
       end
-      should "take you to outcome Transit Y" do
-        assert_current_node :outcome_transit_y
+      should "take ask you if you're planning to leave the airport?" do
+        assert_current_node :planning_to_leave_airport?
+      end
+      context "planning to leave airport" do
+        setup do
+          add_response 'yes'
+        end
+        should "take you to the 'transit_leaving_airport' outcome" do
+          assert_current_node :outcome_transit_leaving_airport
+        end
+      end
+      context "not planning to leave airport" do
+        setup do
+          add_response 'no'
+        end
+        should "take you to the 'transit_not_leaving_airport' outcome" do
+          assert_current_node :outcome_transit_not_leaving_airport
+        end
       end
     end
     context "coming to join family" do

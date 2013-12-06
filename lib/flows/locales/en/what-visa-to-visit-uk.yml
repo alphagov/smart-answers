@@ -22,14 +22,11 @@ en-GB:
           transit: "Transit (on your way to somewhere else)"
           family: "Join family for a long stay"
 
-      type_of_visit?:
-        title: What sort of business are ypou planning?
+      planning_to_leave_airport?:
+        title: Are you planning to leave the airport?
         options:
-          tourism: "Tourism, visiting friends or family"
-          business: "Business visit"
-          marriage: "To get married"
-          other: "Other"
-
+          "yes": "Yes"
+          "no": "No"
 
       outcome_no_visa_needed:
         title: |
@@ -156,17 +153,44 @@ en-GB:
           - [prospective entrepreneur](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/entrepreneur/) (visiting for up to 6 months)
           - visitor undertaking a [‘permitted paid engagement’](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/paid-engage/) (if you’ve been invited to the UK because of your expertise)
 
-      outcome_transit_y:
-        title: You’ll need a visa to pass through the UK in transit
+      outcome_transit_leaving_airport:
+        title: You’ll need a visa to pass through the UK in transit (unless you’re exempt)
         body: |
-          Find out more about [transit visas](http://www.ukba.homeoffice.gov.uk/visas-immigration/transitthroughtheuk/).
+          You should apply for a [‘landside’ transit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/transitthroughtheuk/visa-to-transit-landside/) if you’re going to pass through immigration control, but leave the UK within 48 hours.
 
-      outcome_transit_m:
-        title: You may need a visa to pass through the UK in transit
+          ##When you’re exempt
+
+          You won’t need a visa if you have any of the following:
+
+          - a plane ticket via the UK to Australia, Canada, New Zealand or the USA, and a visa for the country you're travelling to
+          -  an airline ticket to Australia, Canada, New Zealand or the USA (if you're transiting the UK no more than 6 months after the date when you last entered Australia, Canada, New Zealand or the USA with a valid entry visa for that country)
+          - a valid USA I-551 permanent resident card issued on or after 21 April 1998
+          - an expired I-551 permanent resident card issued on or after 21 April 1998, accompanied by an I-797 extension letter issued by the Bureau of Citizenship
+          - a valid Canadian permanent resident card issued on or after 28 June 2002
+          - a valid Australian or New Zealand residence visa
+          - a valid uniform format category D visa for entry to a state in the European Economic Area (EEA)
+          - a valid uniform format residence permit issued by an EEA state under Council Regulation (EC) number 1030/2002
+          - a valid UK residence card
+          - a valid EEA family permit issued by the UK government
+
+      outcome_transit_not_leaving_airport:
+        title: You’ll need a visa to pass through the UK in transit (unless you’re exempt)
         body: |
-          You **won’t need a visa** if you arrive and leave the UK by plane within 24 hours. 
+          You should apply for an [‘airside’ transit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/transitthroughtheuk/visa-transit-airside/) if you arrive on a flight but you’re not going to pass through immigration control.
+          ##When you’re exempt
 
-          You’ll need a [‘landside’ transit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/transitthroughtheuk/visa-to-transit-landside/) if not.
+          You won’t need a visa if you have any of the following:
+
+          - a plane ticket via the UK to Canada or the USA, and a visa for the country you're travelling to
+          - a Canadian or US visa and an airline ticket from that country to another country
+          - an airline ticket to Australia, Canada, New Zealand or the USA, if you’re transiting the UK no more than 6 months after the date when you last entered Australia, Canada, New Zealand or the USA with a valid entry visa for that country
+          - a valid USA I-551 permanent resident card issued on or after 21 April 1998
+          - an expired I-551 permanent resident card issued on or after 21 April 1998, accompanied by a valid I-797 extension letter issued by the Bureau of Citizenship
+          - a Canadian permanent resident card issued on or after 28 June 2002
+          - a  common format category D visa for entry to a state in the European Economic Area (EEA) or Switzerland
+          - a  common format residence permit issued by an EEA state or Switzerland under Council Regulation (EC) number 1030/2002
+          - a UK residence card
+          - an EEA family permit
 
       outcome_family_y:
         title: You’ll need a visa to join your family in the UK for a long stay

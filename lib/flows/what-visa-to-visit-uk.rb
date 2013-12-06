@@ -78,10 +78,9 @@ multiple_choice :purpose_of_visit? do
         :outcome_medical_y
       end
     when 'transit'
-      if country_group_datv.include?(passport_country)
-        :outcome_transit_y
-      elsif country_group_visa_national.include?(passport_country)
-        :outcome_transit_m
+      if country_group_datv.include?(passport_country) or
+         country_group_visa_national.include?(passport_country)
+        :planning_to_leave_airport?
       else
         :outcome_no_visa_needed
       end
@@ -95,13 +94,35 @@ multiple_choice :purpose_of_visit? do
   end
 end
 
+#Q3
+multiple_choice :planning_to_leave_airport? do
+  option :yes
+  option :no
+
+  next_node do |response|
+    case response
+    when 'yes'
+      if country_group_datv.include?(passport_country) or
+         country_group_visa_national.include?(passport_country)
+        :outcome_transit_leaving_airport
+      end
+    when 'no'
+      if country_group_datv.include?(passport_country)
+        :outcome_transit_not_leaving_airport
+      elsif country_group_visa_national.include?(passport_country)
+        :outcome_no_visa_needed
+      end
+    end
+  end
+end
+
 outcome :outcome_no_visa_needed
 outcome :outcome_study_y
 outcome :outcome_study_m
 outcome :outcome_work_y
 outcome :outcome_work_m
-outcome :outcome_transit_y
-outcome :outcome_transit_m
+outcome :outcome_transit_leaving_airport
+outcome :outcome_transit_not_leaving_airport
 outcome :outcome_family_y
 outcome :outcome_family_m
 outcome :outcome_visit_business_n
