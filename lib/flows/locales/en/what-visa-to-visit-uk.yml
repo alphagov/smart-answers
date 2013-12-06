@@ -16,6 +16,7 @@ en-GB:
           study: "Study"
           work: "Work or business"
           tourism: "Tourism, visiting friends or family"
+          school: "Visit your child at school"
           marriage: "Get married"
           transit: "Transit (on your way to somewhere else)"
           family: "Join family for a long stay"
@@ -253,11 +254,18 @@ en-GB:
         body: |
           However, you should bring certain documents with you to show UK immigration officers at the border.
 
+          See which documents you should bring if you’re:
+
           - a [tourist](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/general/)
           - [visiting family](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/family/)
           - a [visiting a child at a school](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/business/) in the UK
 
           %You may want to [apply for a visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/) if you have a criminal record or you’ve previously been refused entry into the UK.%
+
+      outcome_school_y:
+        title: You’ll need a visa to visit your child in the UK
+        body:
+          You should apply for the [visa for parents](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/parent/) visiting children at school.
 
       outcome_all_visit:
         title: You’ll need a visa to visit the UK for private medical treatment

@@ -50,6 +50,14 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
         assert_current_node :outcome_school_n
       end
     end
+    context "visiting child at school" do
+      setup do
+        add_response 'school'
+      end
+      should "take you to the 'school N' outcome" do
+        assert_current_node :outcome_school_n
+      end
+    end
     context "getting married" do
       setup do
         add_response 'marriage'
@@ -103,6 +111,14 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
     context "tourism, visiting friends or family" do
       setup do
         add_response 'tourism'
+      end
+      should "take you to the 'school N' outcome" do
+        assert_current_node :outcome_school_n
+      end
+    end
+    context "visiting child at school" do
+      setup do
+        add_response 'school'
       end
       should "take you to the 'school N' outcome" do
         assert_current_node :outcome_school_n
@@ -166,6 +182,14 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
         assert_current_node :outcome_general_y
       end
     end
+    context "visiting child at school" do
+      setup do
+        add_response 'school'
+      end
+      should "take you to the 'school Y' outcome" do
+        assert_current_node :outcome_school_y
+      end
+    end
     context "getting married" do
       setup do
         add_response 'marriage'
@@ -222,6 +246,14 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       end
       should "take you to the 'general y' outcome" do
         assert_current_node :outcome_general_y
+      end
+    end
+    context "visiting child at school" do
+      setup do
+        add_response 'school'
+      end
+      should "take you to the 'school Y' outcome" do
+        assert_current_node :outcome_school_y
       end
     end
     context "getting married" do
