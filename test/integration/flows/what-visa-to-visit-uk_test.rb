@@ -46,8 +46,8 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       setup do
         add_response 'tourism'
       end
-      should "take you to the 'general y' outcome" do
-        assert_current_node :outcome_general_y
+      should "take you to the 'school N' outcome" do
+        assert_current_node :outcome_school_n
       end
     end
     context "getting married" do
@@ -104,8 +104,8 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       setup do
         add_response 'tourism'
       end
-      should "take you to the 'visit/business' outcome" do
-        assert_current_node :outcome_visit_business_n
+      should "take you to the 'school N' outcome" do
+        assert_current_node :outcome_school_n
       end
     end
     context "getting married" do

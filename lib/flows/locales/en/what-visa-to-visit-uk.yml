@@ -248,6 +248,17 @@ en-GB:
         body: |
           You should apply for the [private medical treatment visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/medical/).
 
+      outcome_school_n:
+        title: You won’t need a visa to come to the UK
+        body: |
+          However, you should bring certain documents with you to show UK immigration officers at the border.
+
+          - a [tourist](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/general/)
+          - [visiting family](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/family/)
+          - a [visiting a child at a school](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/business/) in the UK
+
+          %You may want to [apply for a visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/) if you have a criminal record or you’ve previously been refused entry into the UK.%
+
       outcome_all_visit:
         title: You’ll need a visa to visit the UK for private medical treatment
         body: |

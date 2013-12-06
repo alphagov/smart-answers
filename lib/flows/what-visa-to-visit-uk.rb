@@ -53,8 +53,9 @@ multiple_choice :purpose_of_visit? do
         :outcome_work_m
       end
     when 'tourism'
-      if country_group_non_visa_national.include?(passport_country)
-        :outcome_visit_business_n
+      if country_group_non_visa_national.include?(passport_country) ||
+         country_group_ukot.include?(passport_country)
+        :outcome_school_n
       else
         :outcome_general_y
       end
@@ -122,4 +123,5 @@ outcome :outcome_visit_business_n
 outcome :outcome_general_y
 outcome :outcome_business_y
 outcome :outcome_marriage
+outcome :outcome_school_n
 outcome :outcome_all_visit
