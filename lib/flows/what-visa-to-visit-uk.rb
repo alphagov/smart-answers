@@ -95,35 +95,6 @@ multiple_choice :purpose_of_visit? do
   end
 end
 
-# Q3
-multiple_choice :type_of_visit? do
-  option :tourism
-  option :business
-  option :marriage
-  option :other
-
-  next_node do |response|
-    case response
-    when 'tourism'
-      if country_group_non_visa_national.include?(passport_country)
-        :outcome_visit_business_n
-      else
-        :outcome_general_y
-      end
-    when 'business'
-      if country_group_non_visa_national.include?(passport_country)
-        :outcome_visit_business_n
-      else
-        :outcome_business_y
-      end
-    when 'marriage'
-      :outcome_marriage
-    when 'other'
-      :outcome_all_visit
-    end
-  end
-end
-
 outcome :outcome_no_visa_needed
 outcome :outcome_study_y
 outcome :outcome_study_m
@@ -141,4 +112,3 @@ outcome :outcome_school_n
 outcome :outcome_school_y
 outcome :outcome_medical_y
 outcome :outcome_medical_n
-outcome :outcome_all_visit

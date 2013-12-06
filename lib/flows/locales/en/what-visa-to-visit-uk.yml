@@ -204,18 +204,6 @@ en-GB:
 
           Apply for a [family permit](http://www.ukba.homeoffice.gov.uk/eucitizens/eea-family-permit/) to join your family in the UK.
 
-      outcome_visit_business_n:
-        title: You won’t need a visa to come to the UK
-        body: |
-          However, you should bring certain documents with you to show UK immigration officers at the border.
-
-          See which documents you should bring if you’re:
-
-          - a [general tourist](#)
-          - [visiting family](#)
-          - a [business visitor](#)
-          - [passing through the UK in transit](#)
-
       outcome_general_y:
         title: You’ll need a visa to come to the UK
         body: |
@@ -232,18 +220,6 @@ en-GB:
           ##If you’re under 18
 
           Apply for a [child visit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/child/).
-
-      outcome_business_y:
-        title: You’ll need a visa to come to the UK
-        body: |
-          The categories you can come to the UK under are:
-
-          - [business visitor](#)
-          - [academic visitor](#)
-          - [sports visitor](#)
-          - [visitor undertaking paid engagements](#)
-
-          You should check the other [working visas](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/) if you’re planning to come to the UK longer than 6 months.
 
       outcome_marriage:
         title: You’ll need a visa to come to the UK
@@ -281,15 +257,3 @@ en-GB:
 
           Check which [documents you should bring](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/medical/documents/).
 
-      outcome_all_visit:
-        title: You’ll need a visa to visit the UK for private medical treatment
-        body: |
-          The category of visa you apply for depends whether you’re:
-
-          - [a student visitor](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/child/) (for short courses up to 6 months)
-          - [a parent of a child at school](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/parent/) in the UK
-          - [sports visitor](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/sports/) 
-          - [an entertainer](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/entertainer/)
-          - [visiting for private medical treatment](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/medical/)
-
-          See a [full list of visit visas](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/).
