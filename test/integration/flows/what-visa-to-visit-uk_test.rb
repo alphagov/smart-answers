@@ -66,6 +66,14 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
         assert_current_node :outcome_marriage
       end
     end
+    context "get private medical treatment" do
+      setup do
+        add_response 'medical'
+      end
+      should "take you to the 'medical_n' outcome" do
+        assert_current_node :outcome_medical_n
+      end
+    end
     context "coming to the UK on the way somewhere else" do
       setup do
         add_response 'transit'
@@ -130,6 +138,14 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       end
       should "take you to the marriage outcome" do
         assert_current_node :outcome_marriage
+      end
+    end
+    context "get private medical treatment" do
+      setup do
+        add_response 'medical'
+      end
+      should "take you to the 'medical_n' outcome" do
+        assert_current_node :outcome_medical_n
       end
     end
     context "coming to the on the way somewhere else" do
@@ -198,6 +214,14 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
         assert_current_node :outcome_marriage
       end
     end
+    context "get private medical treatment" do
+      setup do
+        add_response 'medical'
+      end
+      should "take you to the 'medical_y' outcome" do
+        assert_current_node :outcome_medical_y
+      end
+    end
     context "coming to the on the way somewhere else" do
       setup do
         add_response 'transit'
@@ -262,6 +286,14 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       end
       should "take you to the marriage outcome" do
         assert_current_node :outcome_marriage
+      end
+    end
+    context "get private medical treatment" do
+      setup do
+        add_response 'medical'
+      end
+      should "take you to the 'medical_y' outcome" do
+        assert_current_node :outcome_medical_y
       end
     end
     context "coming to the on the way somewhere else" do

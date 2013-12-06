@@ -18,6 +18,7 @@ en-GB:
           tourism: "Tourism, visiting friends or family"
           school: "Visit your child at school"
           marriage: "Get married"
+          medical: "Get private medical treatment"
           transit: "Transit (on your way to somewhere else)"
           family: "Join family for a long stay"
 
@@ -266,6 +267,19 @@ en-GB:
         title: You’ll need a visa to visit your child in the UK
         body:
           You should apply for the [visa for parents](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/parent/) visiting children at school.
+
+      outcome_medical_y:
+        title: You’ll need a visa to visit the UK for private medical treatment
+        body:
+          You should apply for the [private medical treatment visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/medical/).
+
+      outcome_medical_n:
+        title: You won’t need a visa to visit the UK
+        body:
+          However, you should bring certain documents with you to show UK immigration officers at the border.
+
+
+          Check which [documents you should bring](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/medical/documents/).
 
       outcome_all_visit:
         title: You’ll need a visa to visit the UK for private medical treatment

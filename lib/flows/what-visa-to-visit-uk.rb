@@ -36,6 +36,7 @@ multiple_choice :purpose_of_visit? do
   option :tourism
   option :school
   option :marriage
+  option :medical
   option :transit
   option :family
 
@@ -54,14 +55,14 @@ multiple_choice :purpose_of_visit? do
         :outcome_work_m
       end
     when 'tourism'
-      if country_group_non_visa_national.include?(passport_country) ||
+      if country_group_non_visa_national.include?(passport_country) or
          country_group_ukot.include?(passport_country)
         :outcome_school_n
       else
         :outcome_general_y
       end
     when 'school'
-      if country_group_non_visa_national.include?(passport_country) ||
+      if country_group_non_visa_national.include?(passport_country) or
          country_group_ukot.include?(passport_country)
         :outcome_school_n
       else
@@ -69,6 +70,13 @@ multiple_choice :purpose_of_visit? do
       end
     when 'marriage'
       :outcome_marriage
+    when 'medical'
+      if country_group_non_visa_national.include?(passport_country) or
+         country_group_ukot.include?(passport_country)
+        :outcome_medical_n
+      else
+        :outcome_medical_y
+      end
     when 'transit'
       if country_group_datv.include?(passport_country)
         :outcome_transit_y
@@ -116,8 +124,6 @@ multiple_choice :type_of_visit? do
   end
 end
 
-
-
 outcome :outcome_no_visa_needed
 outcome :outcome_study_y
 outcome :outcome_study_m
@@ -133,4 +139,6 @@ outcome :outcome_business_y
 outcome :outcome_marriage
 outcome :outcome_school_n
 outcome :outcome_school_y
+outcome :outcome_medical_y
+outcome :outcome_medical_n
 outcome :outcome_all_visit
