@@ -33,7 +33,8 @@ end
 multiple_choice :purpose_of_visit? do
   option :study
   option :work
-  option :visit
+  option :tourism
+  option :marriage
   option :transit
   option :family
 
@@ -51,8 +52,14 @@ multiple_choice :purpose_of_visit? do
       else
         :outcome_work_m
       end
-    when 'visit'
-      :type_of_visit?
+    when 'tourism'
+      if country_group_non_visa_national.include?(passport_country)
+        :outcome_visit_business_n
+      else
+        :outcome_general_y
+      end
+    when 'marriage'
+      :outcome_marriage
     when 'transit'
       if country_group_datv.include?(passport_country)
         :outcome_transit_y

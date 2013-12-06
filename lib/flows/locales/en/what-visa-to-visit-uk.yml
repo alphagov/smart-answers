@@ -14,10 +14,11 @@ en-GB:
         title: What are you coming to the UK to do?
         options:
           study: "Study"
-          work: "Work"
-          visit: "Visit"
+          work: "Work or business"
+          tourism: "Tourism, visiting friends or family"
+          marriage: "Get married"
           transit: "Transit (on your way to somewhere else)"
-          family: "Join family"
+          family: "Join family for a long stay"
 
       type_of_visit?:
         title: What sort of business are ypou planning?

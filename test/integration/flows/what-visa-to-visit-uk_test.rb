@@ -17,6 +17,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
   should "ask what passport do you have" do
     assert_current_node :what_passport_do_you_have?
   end
+
   context "choose a UKOT country" do
     setup do
       worldwide_api_has_organisations_for_location('anguilla', read_fixture_file('worldwide/anguilla_organisations.json'))
@@ -41,7 +42,23 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
         assert_current_node :outcome_work_m
       end
     end
-    context "coming to the on the way somewhere else" do
+    context "tourism, visiting friends or family" do
+      setup do
+        add_response 'tourism'
+      end
+      should "take you to the 'general y' outcome" do
+        assert_current_node :outcome_general_y
+      end
+    end
+    context "getting married" do
+      setup do
+        add_response 'marriage'
+      end
+      should "take you to the marriage outcome" do
+        assert_current_node :outcome_marriage
+      end
+    end
+    context "coming to the UK on the way somewhere else" do
       setup do
         add_response 'transit'
       end
@@ -57,48 +74,8 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
         assert_current_node :outcome_family_m
       end
     end
-    context "coming to visit" do
-      setup do
-        add_response 'visit'
-      end
-      should "ask what sort of visit you are planning" do
-        assert_current_node :type_of_visit?
-      end
-      context "visiting friends" do
-        setup do
-          add_response 'tourism'
-        end
-        should "take you to the 'general y' outcome" do
-          assert_current_node :outcome_general_y
-        end
-      end
-      context "business visit" do
-        setup do
-          add_response 'business'
-        end
-        should "take you to the 'general y' outcome" do
-          assert_current_node :outcome_business_y
-        end
-      end
-      context "getting married" do
-        setup do
-          add_response 'marriage'
-        end
-        should "take you to the marriage outcome" do
-          assert_current_node :outcome_marriage
-        end
-      end
-      context "other reason" do
-        setup do
-          add_response 'other'
-        end
-        should "take you to the 'other' outcome" do
-          assert_current_node :outcome_all_visit
-        end
-      end
-    end
   end
-  
+
   context "choose a Non-visa nationals country" do
     setup do
       worldwide_api_has_organisations_for_location('andorra', read_fixture_file('worldwide/andorra_organisations.json'))
@@ -123,6 +100,22 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
         assert_current_node :outcome_work_m
       end
     end
+    context "tourism, visiting friends or family" do
+      setup do
+        add_response 'tourism'
+      end
+      should "take you to the 'visit/business' outcome" do
+        assert_current_node :outcome_visit_business_n
+      end
+    end
+    context "getting married" do
+      setup do
+        add_response 'marriage'
+      end
+      should "take you to the marriage outcome" do
+        assert_current_node :outcome_marriage
+      end
+    end
     context "coming to the on the way somewhere else" do
       setup do
         add_response 'transit'
@@ -137,46 +130,6 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       end
       should "take you to outcome Family Y" do
         assert_current_node :outcome_family_y
-      end
-    end
-    context "coming to visit" do
-      setup do
-        add_response 'visit'
-      end
-      should "ask what sort of visit you are planning" do
-        assert_current_node :type_of_visit?
-      end
-      context "visiting friends" do
-        setup do
-          add_response 'tourism'
-        end
-        should "take you to the 'visit/business' outcome" do
-          assert_current_node :outcome_visit_business_n
-        end
-      end
-      context "business visit" do
-        setup do
-          add_response 'business'
-        end
-        should "take you to the 'visit/business' outcome" do
-          assert_current_node :outcome_visit_business_n
-        end
-      end
-      context "getting married" do
-        setup do
-          add_response 'marriage'
-        end
-        should "take you to the marriage outcome" do
-          assert_current_node :outcome_marriage
-        end
-      end
-      context "other reason" do
-        setup do
-          add_response 'other'
-        end
-        should "take you to the 'other' outcome" do
-          assert_current_node :outcome_all_visit
-        end
       end
     end
   end
@@ -205,6 +158,22 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
         assert_current_node :outcome_work_y
       end
     end
+    context "tourism, visiting friends or family" do
+      setup do
+        add_response 'tourism'
+      end
+      should "take you to the 'general y' outcome" do
+        assert_current_node :outcome_general_y
+      end
+    end
+    context "getting married" do
+      setup do
+        add_response 'marriage'
+      end
+      should "take you to the marriage outcome" do
+        assert_current_node :outcome_marriage
+      end
+    end
     context "coming to the on the way somewhere else" do
       setup do
         add_response 'transit'
@@ -219,46 +188,6 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       end
       should "take you to outcome Family Y" do
         assert_current_node :outcome_family_y
-      end
-    end
-    context "coming to visit" do
-      setup do
-        add_response 'visit'
-      end
-      should "ask what sort of visit you are planning" do
-        assert_current_node :type_of_visit?
-      end
-      context "visiting friends" do
-        setup do
-          add_response 'tourism'
-        end
-        should "take you to the 'general y' outcome" do
-          assert_current_node :outcome_general_y
-        end
-      end
-      context "business visit" do
-        setup do
-          add_response 'business'
-        end
-        should "take you to the 'business y' outcome" do
-          assert_current_node :outcome_business_y
-        end
-      end
-      context "getting married" do
-        setup do
-          add_response 'marriage'
-        end
-        should "take you to the marriage outcome" do
-          assert_current_node :outcome_marriage
-        end
-      end
-      context "other reason" do
-        setup do
-          add_response 'other'
-        end
-        should "take you to the 'other' outcome" do
-          assert_current_node :outcome_all_visit
-        end
       end
     end
   end
@@ -287,6 +216,22 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
         assert_current_node :outcome_work_y
       end
     end
+    context "tourism, visiting friends or family" do
+      setup do
+        add_response 'tourism'
+      end
+      should "take you to the 'general y' outcome" do
+        assert_current_node :outcome_general_y
+      end
+    end
+    context "getting married" do
+      setup do
+        add_response 'marriage'
+      end
+      should "take you to the marriage outcome" do
+        assert_current_node :outcome_marriage
+      end
+    end
     context "coming to the on the way somewhere else" do
       setup do
         add_response 'transit'
@@ -303,46 +248,5 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
         assert_current_node :outcome_family_y
       end
     end
-    context "coming to visit" do
-      setup do
-        add_response 'visit'
-      end
-      should "ask what sort of visit you are planning" do
-        assert_current_node :type_of_visit?
-      end
-      context "visiting friends" do
-        setup do
-          add_response 'tourism'
-        end
-        should "take you to the 'general y' outcome" do
-          assert_current_node :outcome_general_y
-        end
-      end
-      context "business visit" do
-        setup do
-          add_response 'business'
-        end
-        should "take you to the 'general y' outcome" do
-          assert_current_node :outcome_business_y
-        end
-      end
-      context "getting married" do
-        setup do
-          add_response 'marriage'
-        end
-        should "take you to the marriage outcome" do
-          assert_current_node :outcome_marriage
-        end
-      end
-      context "other reason" do
-        setup do
-          add_response 'other'
-        end
-        should "take you to the 'other' outcome" do
-          assert_current_node :outcome_all_visit
-        end
-      end
-    end
   end
-
 end
