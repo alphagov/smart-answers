@@ -21,20 +21,17 @@ module SmartAnswer::Calculators
                                    libya morocco rwanda
                                    sri-lanka sudan timor-leste tunisia uganda yemen zambia)
 
-    RETAIN_PASSPORT_COUNTRIES_EXCEPTION = %w(burma laos china thailand east-timor indonesia afghanistan nepal north-korea)
-
     RETAIN_PASSPORT_COUNTRIES_HURRICANES = %w(anguilla antigua-and-barbuda bahamas bermuda bonaire-st-eustatius-saba british-virgin-islands cayman-islands curacao dominica dominican-republic french-guiana grenada guadeloupe guyana haiti martinique mexico montserrat st-maarten st-kitts-and-nevis st-lucia st-pierre-and-miquelon st-vincent-and-the-grenadines suriname trinidad-and-tobago turks-and-caicos-islands)
 
     PASSPORT_COSTS = {
       'Australian Dollars'  => [[282.21], [325.81], [205.81]],
       'Euros'               => [[156, 180],   [188, 212],   [99, 123]],
       'New Zealand Dollars' => [["317.80", 337.69], ["371.80", 391.69], ["222.80", 242.69]],
-      'Philipine peso'      => [[9216, 10872], [11124, 12780], [5868, 7524]],
       'SLL'                 => [[900000, 1135000], [1085000, 1320000], [575000, 810000]],
       'South African Rand'  => [[2112, 2440], [2549, 2877], [1345, 1673]]
     }
 
-    CASH_ONLY_COUNTRIES = %w(cuba gaza libya mauritania morocco sudan tunisia venezuela western-sahara)
+    CASH_ONLY_COUNTRIES = %w(cuba gaza libya mauritania morocco north-korea sudan tunisia venezuela western-sahara)
 
     RENEWING_COUNTRIES = %w(azerbaijan belarus cuba georgia kazakhstan kyrgyzstan lebanon libya mauritania morocco russia sudan tajikistan tunisia turkmenistan ukraine uzbekistan western-sahara venezuela zimbabwe)
 
@@ -50,10 +47,6 @@ module SmartAnswer::Calculators
 
     def retain_passport?(country_slug)
       RETAIN_PASSPORT_COUNTRIES.include?(country_slug)
-    end
-
-    def retain_passport_exception?(country_slug)
-      RETAIN_PASSPORT_COUNTRIES_EXCEPTION.include?(country_slug)
     end
 
     def retain_passport_hurricanes?(country_slug)
