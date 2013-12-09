@@ -87,11 +87,6 @@ en-GB:
         passport_courier_costs_washington_usa: |
           You’ll have to pay a fee for your passport and a courier fee of US $33. The courier fee pays for your passport and supporting documents to be sent back to you securely.
 
-        passport_courier_costs_indonesia: |
-          You’ll have to pay a fee for your passport and a courier fee of 350,000 Indonesian Rupiah. The courier fee pays for your passport and supporting documents to be sent back to you securely.
-
-          You must pay in cash when you apply.
-
         adult_passport_costs_washington_usa: |
           | Passport type |	Passport fee |	Total to pay (including courier fee) |
           |---------------|--------------|---------------------------------------|
@@ -103,27 +98,8 @@ en-GB:
           |---------------|--------------|---------------------------------------|
           | Child passport |	US $134 |	US $167 |
 
-        adult_passport_costs_indonesia: |
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | 1,920,000 Indonesian Rupiah | 2,270,000 Indonesian Rupiah
-          Adult jumbo 48-page passport | 2,318,000 Indonesian Rupiah | 2,668,000 Indonesian Rupiah
-
-        child_passport_costs_indonesia: |
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Child standard 32-page passport | 1,223,000 Indonesian Rupiah | 1,573,000 Indonesian Rupiah
-
-        send_application_indonesia_applying: |
-          You must make your application in person.
-
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-
         passport_costs_washington_usa:
           You must pay using a Visa or Mastercard. [Download a credit card authorisation form (PDF, 64KB)](/government/uploads/system/uploads/attachment_data/file/136853/credit-card-form.pdf.pdf) and send it with your application.
-
-        passport_costs_nepal: |
-          You can get a bankers draft in Hong Kong dollars from the Standard Chartered Bank in Lazimpat.
 
         passport_courier_costs_pretoria_south_africa: ''
 
@@ -176,11 +152,6 @@ en-GB:
 
           Keep your existing passport for security and ID purposes - don’t send it with your application.
 
-        how_to_apply_retain_passport_exception: |
-          Send a photocopy of the pages of your existing passport that show your personal details, photograph and residence permit or visa.
-
-          Keep your existing passport for security and ID purposes - don’t send it with your application. This is an exception to the information in the main guidance notes.
-
         how_to_apply_retain_passport_hurricane: |
           Don’t send your passport - keep it in case you have to to evacuate in the event of a hurricane.
 
@@ -207,30 +178,6 @@ en-GB:
           You must pay using a Visa or Mastercard.
 
           [Download a credit card authorisation form](/government/publications/passport-credit-debit-card-payment-authorisation-slip-spain) and send it with your application.
-
-        passport_courier_costs_hong_kong: |
-          You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent securely to you.
-
-        adult_passport_costs_hong_kong: |
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | £128.00/HK $1,640 | £147.86/HK $1,895
-          Adult jumbo 48-page passport | £154.50/HK $1,978 | £174.36/HK $2,233
-
-        child_passport_costs_hong_kong: |
-          | Passport type | Passport fee | Total to pay (including courier fee) |
-          |---------------|--------------|--------------------------------------|
-          | Child passport | £81.50/HK $1,044 | £101.36/HK $1,299 |
-
-        passport_costs_hong_kong: |
-          You must pay using either:
-
-          - an International Banker’s Draft, payable in Hong Kong Dollars to ‘British Consulate-General Hong Kong’
-          - a Visa or Mastercard - [download a credit card authorisation form](/government/publications/passport-credit-debit-card-payment-authorisation-slip-hong-kong) and send it with your application
-
-          If you pay by card, you’ll be charged the sterling amount in Hong Kong dollars using the exchange rate on the day your application is processed.
-
-        passport_costs_indonesia: ''
 
         how_long_applying_tanzania: |
           Your application will take **at least** 12 weeks. You may have to attend an interview.
@@ -280,9 +227,6 @@ en-GB:
         getting_your_passport_djibouti: |
           Your passport and supporting documents will be delivered to you by courier.
 
-        getting_your_passport_nepal : |
-          The British Embassy in Kathmandu will contact you when your passport arrives using the contact details on your form. You must collect it in person.
-
         send_application_fco_preamble: |
           Send your application, photographs and supporting documents, ideally by courier.
 
@@ -305,16 +249,6 @@ en-GB:
             35 rue du Faubourg St Honoré
             75383 Paris Cedex 08
             France
-          $A
-
-        send_application_hong_kong: |
-
-          $A
-            British Consulate-General
-            RPPC - 5th Floor
-            1 Supreme Court Road
-            Admiralty
-            Hong Kong
           $A
 
         send_application_dublin_ireland: |
@@ -433,17 +367,6 @@ en-GB:
             Textphone: +44 1750 725 368
           $C
 
-        helpline_hong_kong: |
-
-          $C
-            __Passport Information Helpline__
-
-            +44 208 082 4744
-
-            Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call
-
-            Textphone: +44 1750 725 368
-          $C
 
         helpline_pretoria_south_africa: |
 
@@ -574,6 +497,9 @@ en-GB:
         passport_costs_ips_cash: |
           You must pay in cash using local currency - the prices above will be converted according to the exchange rate when you apply.
 
+        passport_costs_ips_euros: |
+          You must pay in cash in Euros, the prices above will be converted according to the exchange rate when you apply.
+
         how_long_applying_ips1: |
           Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
 
@@ -584,7 +510,7 @@ en-GB:
           Your application will take **at least** 4 weeks from when it’s received by Her Majesty's Passport Office in the UK.
 
         how_long_replacing_ips1: |
-          Your application will take **at least** 6 weeks from when your application is received by Her Majesty's Passport Office in the UK.
+          Your application will take **at least** 6 weeks from when it's received by Her Majesty's Passport Office in the UK.
 
           If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
 
@@ -653,6 +579,9 @@ en-GB:
           3. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports) or your application may be delayed.
           4. Check the guidance notes to find out which supporting documents you must send with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
 
+        send_colour_photocopy_bulletpoint: |
+          5. You must send a full colour photocopy of your entire current passport (every page including blank pages). Don't send your current passport with your application - you can keep it for security and ID purposes - but you can't travel with it after you've applied for a new one.
+
         how_to_apply_online: |
           You must apply and pay for your passport online.
 
@@ -688,6 +617,13 @@ en-GB:
 
         how_to_apply_online_guidance_doc_group_2: |
           Read the [guidance notes](/government/publications/help-completing-the-online-passport-application-from-outside-the-uk) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-supporting-documents-group-2) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
+
+          You will need to print, sign and post your declaration form at the end.
+
+          [Start your application on Her Majesty’s Passport Office website](https://passportapplication.service.gov.uk/)
+
+        how_to_apply_online_guidance_doc_group_3: |
+          Read the [guidance notes](/government/publications/help-completing-the-online-passport-application-from-outside-the-uk) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-supporting-documents-group-3) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
 
           You will need to print, sign and post your declaration form at the end.
 
@@ -768,7 +704,7 @@ en-GB:
         getting_your_passport_burundi: |
           Your passport and supporting documents will be delivered to the British Embassy Liaison Office in Bujumbura, Burundi - you must collect them in person.
         getting_your_passport_cambodia: |
-          The British embassy will contact you when your passport and supporting documents arrive using the contact details on your form. You must collect them in person.
+          Your passport and supporting documents will be delivered to the British Embassy in Phnom Penh - you must collect them in person.
         getting_your_passport_cameroon: |
           Your passport and supporting documents will be delivered to the British High Commission in Yaounde, Cameroon - you must collect them in person. 
         getting_your_passport_chad: |
@@ -803,11 +739,17 @@ en-GB:
           Your passport and supporting documents will be delivered to the British High Commission Kampala, Uganda - you must collect them in person.
         getting_your_passport_zambia: |
           Your passport and supporting documents will be delivered to the British High Commission in Lusaka, Zambia - you must collect them in person.
+
+        getting_your_passport_burma: |
+          Your passport and supporting documents will be delivered to the British High Commission in Rangoon - you must collect them in person.
+
+          They will contact you when your passport arrives using the contact details on your form.
+
+          You must bring your existing passport as photo ID.
         getting_your_passport_india: |
           Your passport will be returned to you by post, or you can arrange for it to be delivered to the British embassy, high commission or consulate where you applied - you must collect it in person.
 
           They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. 
-
         getting_your_passport_iraq: |
           You must collect your passport and supporting documents in person from either:
 
@@ -821,10 +763,27 @@ en-GB:
           Your passport and supporting documents will be delivered to the British Embassy in Amman, Jordan - you must collect them in person. You must bring photo ID with you.
 
           They will contact you when your passport arrives using the contact details on your form.
+        getting_your_passport_nepal: |
+          Your passport and supporting documents will be delivered to the British High Commission in Kathmandu - you must collect them in person.
+
+          They will contact you when your passport arrives using the contact details on your form.
+
+          You must bring your existing passport as photo ID.
+        getting_your_passport_north-korea: |
+          Your passport will be delivered to the British Embassy in Pyongyang - you must collect it in person.
+
+          They will contact you when your passport arrives using the contact details on your form.
+
+          You must bring your existing passport as photo ID.
         getting_your_passport_yemen: |
           Your passport and supporting documents will be delivered to the British Embassy in Amman, Jordan - you must collect them in person. You must bring photo ID with you.
 
           They will contact you when your passport arrives using the contact details on your form.
+        getting_your_passport_thailand_renew_new: |
+          Your passport and supporting documents will be returned to you by courier.
+
+        getting_your_passport_thailand_apply_renew_old_replace: |
+          Your passport will be delivered by courier.
         tracking_and_receiving_ips1: |
           ## Track your application
 
@@ -835,15 +794,12 @@ en-GB:
           **Passport Adviceline**
           +44 (0) 300 222 0000
           $C
-        
- 
+
+
         how_long_applying_ips2: |
           Your application will take at least **8 weeks.**
 
         how_long_renewing_old_ips2: |
-          Your application will take at least **8 weeks.**
-
-        how_long_8_weeks: |
           Your application will take at least **8 weeks.**
 
         how_long_4_weeks: |
@@ -858,8 +814,19 @@ en-GB:
         how_long_16_weeks: |
           Your application will take **up to** 16 weeks from when it’s received by Her Majesty's Passport Office in the UK.
 
+        how_long_8_weeks: |
+          Your application will take at least **8 weeks.**
+
+        how_long_8_weeks_with_interview:
+          Your application will take **at least** 8 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
+
+        how_long_8_weeks_replacing: |
+          Your application will take **at least** 8 weeks from when your application is received by Her Majesty's Passport Office in the UK.
+
+          If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
+
         how_long_applying_12_weeks: |
-          Your application will take **at least** 12 weeks from when it’s received by Her Majesty's Passport Service in the UK. You may have to attend an interview for a first adult passport.
+          Your application will take **at least** 12 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
 
         how_long_applying_16_weeks: |
           Your application will take **up to** 16 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
@@ -942,10 +909,6 @@ en-GB:
           +44 (0) 300 222 0000
           $C
 
-        how_long_kazakhstan: |
-          Your application will take **at least** 8 weeks.
-        how_long_kyrgyzstan: |
-          Your application will take **at least** 8 weeks.
         how_long_applying_ips3: |
           Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
 
@@ -977,6 +940,12 @@ en-GB:
         passport_courier_costs_ips3_india: |
           You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to you direct, or to the British embassy, high commission or consulate where you applied if you wish to collect it.
 
+        passport_courier_costs_ips3_thailand_apply_renew_old_replace: |
+          You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent back to you securely.
+
+        passport_courier_costs_ips3_thailand_renewing_new: |
+          You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+
         adult_passport_costs_ips3: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
@@ -987,6 +956,17 @@ en-GB:
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
           | Child passport | £81.50 | £104.51 |
+
+        adult_passport_costs_ips3_thailand_renewing_new: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Adult standard 32-page passport | £128.00 | £147.86 |
+          | Adult jumbo 48-page passport | £154.50 | £174.36 |
+
+        child_passport_costs_ips3_thailand_renewing_new: |
+          | Passport type | Passport fee | Total to pay (including courier fee) |
+          |---------------|--------------|--------------------------------------|
+          | Child passport | £81.50 | £101.36 |
 
         passport_costs_ips3: |
           Fill in a [‘Paying by credit card or debit card’ form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
@@ -1004,6 +984,13 @@ en-GB:
           You can pay in cash using local currency if you apply in person - the prices above will be converted according to the exchange rate when you apply. You can’t pay by banker’s draft.
 
           Or fill in a [paying by credit card or debit card form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
+
+          You can use Mastercard, Visa, Electron, Diners Club and JCB.
+
+        passport_costs_ips3_cash_or_card_thailand: |
+          You can pay in cash using local currency - the prices above will be converted according to the exchange rate when you apply.
+
+          Or you can fill in a [payment instruction form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
 
           You can use Mastercard, Visa, Electron, Diners Club and JCB.
 
@@ -1069,6 +1056,33 @@ en-GB:
           Fax: +972 (8) 2641457
           $A
 
+        send_application_ips3_thailand_renewing_new: |
+          ## Making your application
+          Her Majesty’s Passport Office recommends you send your application using a secure delivery service or courier.
+
+
+          $A
+          Her Majesty's Passport Office 
+          OVS-L 
+          101 Old Hall Street 
+          Liverpool 
+          L3 9BP 
+          United Kingdom
+          $A
+
+        send_application_ips3_north-korea_renewing_new: |
+          ## Making your application
+
+          You must apply in person.
+
+          You must bring photo ID with you.
+
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+
+          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
+
+          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+
         getting_your_passport_ips3: |
           Your passport will be delivered to the British embassy, high commission or consulate where you applied - you must collect it in person.
 
@@ -1096,7 +1110,7 @@ en-GB:
 
           - you need to provide more information or documents
           - your photographs are rejected
-          
+
           Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [Emergency Travel Document](/emergency-travel-document).
 
           If your passport has been lost or stolen and you haven’t reported it yet, include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your application.
@@ -1360,9 +1374,6 @@ en-GB:
         getting_your_passport_nairobi_kenya: |
           The British High Commission will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
-        getting_your_passport_burma : |
-          The British embassy will contact you when your passport and supporting documents arrive using the contact details on your form. You must collect them in person.
-
         how_long_lebanon: |
           Action | Minimum time after you apply
           - | -
@@ -1394,103 +1405,6 @@ en-GB:
         making_application_lebanon: |
           Bring your application in person to the British embassy in Beirut - you must [book an appointment.](http://www.britishembassybeirut.clickbook.net/)
         getting_your_passport_lebanon: |
-          The British embassy will contact you when your passport arrives using the contact details on your form. You must collect it in person.
-
-        how_long_north_korea: |
-          Action | Minimum time after you apply
-          - | -
-          Renew a passport | 6 weeks
-          First adult or child passports | 8 weeks
-          Replace a lost or stolen passport | 8 weeks
-
-          Applications may take longer if:
-
-          - you need to provide more information or documents
-          - your photographs are rejected
-
-
-        cost_north_korea: |
-          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
-
-          You must pay in cash using Euros.
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | %{costs_euros_adult_32} 
-          Adult jumbo 48-page passport | %{costs_euros_adult_48}
-          Child passport | %{costs_euros_child}
-
-        how_to_apply_north_korea: |
-          4. Photocopy the pages of your existing passport that show your personal details and picture and send these with your application. You must keep your existing passport for ID purposes.
-
-        supporting_documents_north_korea: ''
-        making_application_north_korea: Bring your application in person to the British embassy in Pyongyang.
-        getting_your_passport_north_korea: |
-          The British embassy will contact you when your passport arrives using the contact details on your form. You must collect it in person.
-
-        how_long_philippines: |
-          Action | Minimum time after you apply
-          - | -
-          Renew a passport | 4 weeks
-          First adult or child passports | 6 weeks
-          Replace a lost or stolen passport | 6 weeks
-
-          Applications may take longer if:
-
-          - you need to provide more information or documents
-          - your photographs are rejected
-
-
-        cost_philippines: ''
-        how_to_apply_philippines: |
-          4. If you’re applying for a first British passport, check the [supporting documents](/government/publications/passport-application-first-time-adult-philippines) you must send with your application. Supporting documents must be in English or translated into English by a professional translator.
-
-        supporting_documents_philippines: ''
-        making_application_philippines: |
-          ### Renewing a passport
-
-          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
-
-          You can pay:
-
-          - using a Visa or Mastercard - download a [card payment authorisation form](/government/uploads/system/uploads/attachment_data/file/136855/credit-card-authorisation.pdf.pdf) and include it with your application
-          - International Banker’s Draft (in Hong Kong dollars), payable to ‘British Consulate-General Hong Kong’
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | £128.00/HK $1,640 | £147.86/HK $1,895
-          Adult jumbo 48-page passport | £154.50/HK $1,978 | £174.36/HK $2,233
-          Child passport | £81.50/HK $1,044 | £101.36/HK $1,299
-
-          Send your application to the passport processing centre in Hong Kong, preferably by a one-way courier service.
-
-
-          $A
-            British Consulate-General
-            RPPC - 5th Floor
-            1 Supreme Court Road
-            Hong Kong
-          $A
-
-          ### First-time passport applications
-
-          If you’re applying for a first adult or child passport, you must bring your application in person to the British embassy.
-
-
-          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
-
-          You can pay:
-
-          - in cash
-          - by cheque, payable to ‘British embassy Manila’
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | %{costs_philipine_peso_adult_32}
-          Adult jumbo 48-page passport | %{costs_philipine_peso_adult_48}
-          Child passport | %{costs_philipine_peso_child}
-
-        getting_your_passport_philippines: |
           The British embassy will contact you when your passport arrives using the contact details on your form. You must collect it in person.
 
         how_long_sudan: |
@@ -1536,72 +1450,6 @@ en-GB:
 
         getting_your_passport_sudan: |
           Your passport and supporting documents will be delivered to the British Embassy. They will call you, using the details on your application form when they arrive. You must pick them up in person.
-
-        how_long_thailand: |
-          Action | Minimum time after you apply
-          - | -
-          Renew a passport | 4 weeks
-          First adult or child passports | 6 weeks
-          Replace a lost or stolen passport | 6 weeks
-
-          Applications may take longer if:
-
-          - you need to provide more information or documents
-          - your photographs are rejected
-
-
-        cost_thailand: |
-          ###Applying for a first passport
-
-          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
-
-          You can pay using Visa, Mastercard or cash.
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | £128/ 6,528 THB | £151.01/ 7,679 THB
-          Adult jumbo 48-page passport | £154.50/ 7,880 THB | £177.51/ 9,031 THB
-          Child passport | £81.50/ 4,157 THB | £104.51/ 5,308 THB
-
-          ###Renewing a passport
-
-          You must pay a fee for your passport, plus a courier fee for your passport and supporting documents to be returned.
-
-          You can pay using:
-
-          - Visa or Mastercard - enclose a [card authorisation form (PDF, 334KB](/government/uploads/system/uploads/attachment_data/file/136855/credit-card-authorisation.pdf.pdf) with your application.
-
-          - bankers’ draft in Hong Kong dollars, payable to ‘British Consulate-General Hong Kong’
-
-
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | £128.00/HK $1,640 | £147.86/HK $1,895
-          Adult jumbo 48-page passport | £154.50/HK $1,978 | £174.36/HK $2,233
-          Child passport | £81.50/HK $1,044 | £101.36/HK $1,299
-
-
-        how_to_apply_thailand: ''
-        supporting_documents_thailand: ''
-        making_application_thailand: |
-          ###Renewals
-
-          Send your application - preferably by one-way courier or secure post - to
-
-
-          $A
-            British Consulate-General
-            RPPC - 5th Floor
-            1 Supreme Court Road
-            Hong Kong
-          $A
-
-          ###First passport applications
-
-          You must make your application in person to the British embassy in Bangkok.
-
-        getting_your_passport_thailand: |
-          Your passport and supporting documents will be returned to you by courier.
 
         how_long_tunisia: |
           Action | Minimum time after you apply

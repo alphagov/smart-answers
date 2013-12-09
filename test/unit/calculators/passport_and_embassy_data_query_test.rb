@@ -11,9 +11,9 @@ module SmartAnswer::Calculators
 
       context "find_passport_data" do
         should "find passport data by country slug" do
-          assert_equal 'north_korea', @query.find_passport_data('north-korea')['type']
-          assert_equal 'ips_documents_group_3', @query.find_passport_data('north-korea')['group']
-          assert_equal 'hong_kong', @query.find_passport_data('north-korea')['helpline']
+          assert_equal 'algeria', @query.find_passport_data('algeria')['type']
+          assert_equal 'ips_documents_group_3', @query.find_passport_data('algeria')['group']
+          assert_equal 'hmpo_1_application_form', @query.find_passport_data('algeria')['app_form']
         end
       end
 
