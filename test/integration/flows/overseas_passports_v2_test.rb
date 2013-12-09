@@ -601,6 +601,8 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       add_response 'renewing_new'
       add_response 'adult'
       assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips3]
+      assert_phrase_list :send_your_application, [:"send_application_ips3_north-korea_renewing_new"]
+      assert_phrase_list :getting_your_passport, [:"getting_your_passport_north-korea"]
     end
 
     should "give the correct result when renewing old style passport" do
@@ -1249,10 +1251,10 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'adult'
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_renewing_new_ips3, :how_long_it_takes_ips3]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3_thailand, :adult_passport_costs_ips3_thailand, :passport_costs_ips3]
+        assert_phrase_list :cost, [:passport_courier_costs_ips3_thailand_renewing_new, :adult_passport_costs_ips3_thailand_renewing_new, :passport_costs_ips3]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :send_colour_photocopy_bulletpoint, :hmpo_1_application_form, :ips_documents_group_2]
         assert_phrase_list :send_your_application, [:send_application_ips3_thailand_renewing_new]
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_thailand_renew_new]
         expected_location = WorldLocation.find('thailand')
         assert_state_variable :location, expected_location
         assert_state_variable :organisation, expected_location.fco_organisation
@@ -1265,7 +1267,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'thailand'
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_applying_ips3, :how_long_it_takes_ips3]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card_thailand]
+        assert_phrase_list :cost, [:passport_courier_costs_ips3_thailand_apply_renew_old_replace, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card_thailand]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_2]
         assert_phrase_list :send_your_application, [:send_application_ips3, :send_application_embassy_address]
         assert_phrase_list :getting_your_passport, [:getting_your_passport_thailand_apply_renew_old_replace]

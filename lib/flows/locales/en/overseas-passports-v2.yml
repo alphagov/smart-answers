@@ -701,8 +701,6 @@ en-GB:
           Your passport and supporting documents will be delivered to the British Embassy in Luanda, Angola - you must collect them in person.
         getting_your_passport_benin: |
           Your passport and supporting documents will be delivered to the British Deputy High Commission in Lagos, Nigeria - you must collect them in person.
-        getting_your_passport_burma: |
-          Your passport and supporting documents will be delivered to the British High Commission in Rangoon - you must collect them in person.
         getting_your_passport_burundi: |
           Your passport and supporting documents will be delivered to the British Embassy Liaison Office in Bujumbura, Burundi - you must collect them in person.
         getting_your_passport_cambodia: |
@@ -727,12 +725,8 @@ en-GB:
           Your passport and supporting documents will be delivered to the British Embassy in Conakry, Guinea - you must collect them in person.
         getting_your_passport_kenya: |
           Your passport and supporting documents will be delivered to the British High Commission Nairobi, Kenya - you must collect them in person.
-        getting_your_passport_nepal: |
-          Your passport and supporting documents will be delivered to the British High Commission in Kathmandu - you must collect them in person.
         getting_your_passport_nigeria: |
           Your passport and supporting documents will be delivered to the British Deputy High Commission in Lagos, Nigeria - you must collect them in person.
-        getting_your_passport_north-korea: |
-          Your passport and supporting documents will be delivered to the British Embassy in Pyongyang - you must collect them in person.
         getting_your_passport_rwanda: |
           Your passport and supporting documents will be delivered to the British High Commission in Kigali, Rwanda - you must collect them in person.
         getting_your_passport_sierra-leone: |
@@ -745,11 +739,17 @@ en-GB:
           Your passport and supporting documents will be delivered to the British High Commission Kampala, Uganda - you must collect them in person.
         getting_your_passport_zambia: |
           Your passport and supporting documents will be delivered to the British High Commission in Lusaka, Zambia - you must collect them in person.
+
+        getting_your_passport_burma: |
+          Your passport and supporting documents will be delivered to the British High Commission in Rangoon - you must collect them in person.
+
+          They will contact you when your passport arrives using the contact details on your form.
+
+          You must bring your existing passport as photo ID.
         getting_your_passport_india: |
           Your passport will be returned to you by post, or you can arrange for it to be delivered to the British embassy, high commission or consulate where you applied - you must collect it in person.
 
           They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. 
-
         getting_your_passport_iraq: |
           You must collect your passport and supporting documents in person from either:
 
@@ -763,13 +763,27 @@ en-GB:
           Your passport and supporting documents will be delivered to the British Embassy in Amman, Jordan - you must collect them in person. You must bring photo ID with you.
 
           They will contact you when your passport arrives using the contact details on your form.
+        getting_your_passport_nepal: |
+          Your passport and supporting documents will be delivered to the British High Commission in Kathmandu - you must collect them in person.
+
+          They will contact you when your passport arrives using the contact details on your form.
+
+          You must bring your existing passport as photo ID.
+        getting_your_passport_north-korea: |
+          Your passport will be delivered to the British Embassy in Pyongyang - you must collect it in person.
+
+          They will contact you when your passport arrives using the contact details on your form.
+
+          You must bring your existing passport as photo ID.
         getting_your_passport_yemen: |
           Your passport and supporting documents will be delivered to the British Embassy in Amman, Jordan - you must collect them in person. You must bring photo ID with you.
 
           They will contact you when your passport arrives using the contact details on your form.
+        getting_your_passport_thailand_renew_new: |
+          Your passport and supporting documents will be returned to you by courier.
 
         getting_your_passport_thailand_apply_renew_old_replace: |
-          Your passport will be delivered separately by courier.
+          Your passport will be delivered by courier.
         tracking_and_receiving_ips1: |
           ## Track your application
 
@@ -926,7 +940,10 @@ en-GB:
         passport_courier_costs_ips3_india: |
           You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to you direct, or to the British embassy, high commission or consulate where you applied if you wish to collect it.
 
-        passport_courier_costs_ips3_thailand: |
+        passport_courier_costs_ips3_thailand_apply_renew_old_replace: |
+          You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent back to you securely.
+
+        passport_courier_costs_ips3_thailand_renewing_new: |
           You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent back to you securely.
 
         adult_passport_costs_ips3: |
@@ -940,13 +957,13 @@ en-GB:
           |---------------|--------------|--------------------------------------|
           | Child passport | £81.50 | £104.51 |
 
-        adult_passport_costs_ips3_thailand: |
+        adult_passport_costs_ips3_thailand_renewing_new: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
           | Adult standard 32-page passport | £128.00 | £147.86 |
           | Adult jumbo 48-page passport | £154.50 | £174.36 |
 
-        child_passport_costs_ips3_thailand: |
+        child_passport_costs_ips3_thailand_renewing_new: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
           | Child passport | £81.50 | £101.36 |
@@ -971,7 +988,9 @@ en-GB:
           You can use Mastercard, Visa, Electron, Diners Club and JCB.
 
         passport_costs_ips3_cash_or_card_thailand: |
-          You can pay in cash, or fill in a [payment instruction form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
+          You can pay in cash using local currency - the prices above will be converted according to the exchange rate when you apply.
+
+          Or you can fill in a [payment instruction form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
 
           You can use Mastercard, Visa, Electron, Diners Club and JCB.
 
@@ -1038,6 +1057,7 @@ en-GB:
           $A
 
         send_application_ips3_thailand_renewing_new: |
+          ## Making your application
           Her Majesty’s Passport Office recommends you send your application using a secure delivery service or courier.
 
 
@@ -1049,6 +1069,19 @@ en-GB:
           L3 9BP 
           United Kingdom
           $A
+
+        send_application_ips3_north-korea_renewing_new: |
+          ## Making your application
+
+          You must apply in person.
+
+          You must bring photo ID with you.
+
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+
+          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
+
+          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
         getting_your_passport_ips3: |
           Your passport will be delivered to the British embassy, high commission or consulate where you applied - you must collect it in person.
@@ -1417,9 +1450,6 @@ en-GB:
 
         getting_your_passport_sudan: |
           Your passport and supporting documents will be delivered to the British Embassy. They will call you, using the details on your application form when they arrive. You must pick them up in person.
-
-        getting_your_passport_thailand: |
-          Your passport and supporting documents will be returned to you by courier.
 
         how_long_tunisia: |
           Action | Minimum time after you apply
