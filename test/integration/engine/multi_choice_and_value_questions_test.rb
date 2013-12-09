@@ -13,7 +13,6 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
       assert page.has_no_xpath?("//meta[@name = 'robots'][@content = 'noindex']", :visible => :all)
 
       within 'h1' do
-        assert_page_has_content("Quick answer")
         assert_page_has_content("The Bridge of Death")
       end
       assert page.has_selector?("h2", :text => "Avoid the Gorge of Eternal Peril!!!")
