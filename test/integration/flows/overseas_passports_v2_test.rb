@@ -662,7 +662,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'india'
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_applying_16_weeks, :how_long_it_takes_ips3]
-        assert_phrase_list :send_your_application, [:send_application_ips3_must_post, :send_application_embassy_address]
+        assert_phrase_list :send_your_application, [:send_application_ips3_india, :send_application_ips3_must_post, :send_application_embassy_address]
         assert_phrase_list :cost, [:passport_courier_costs_ips3_india, :adult_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :getting_your_passport, [:getting_your_passport_india]
         expected_location = WorldLocation.find('india')
@@ -676,9 +676,6 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'adult'
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_5_weeks, :how_long_it_takes_ips3]
-        expected_location = WorldLocation.find('india')
-        assert_state_variable :location, expected_location
-        assert_state_variable :organisation, expected_location.fco_organisation
       end
     end
     context "renewing a new adult passport" do
@@ -687,9 +684,6 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'adult'
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_5_weeks, :how_long_it_takes_ips3]
-        expected_location = WorldLocation.find('india')
-        assert_state_variable :location, expected_location
-        assert_state_variable :organisation, expected_location.fco_organisation
       end
     end
   end # India
@@ -1232,7 +1226,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'pakistan'
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_applying_6_months, :how_long_it_takes_ips3]
-        assert_phrase_list :send_your_application, [:send_application_ips3_must_post, :send_application_embassy_address]
+        assert_phrase_list :send_your_application, [:send_application_ips3_pakistan, :send_application_ips3_must_post, :send_application_embassy_address]
         expected_location = WorldLocation.find('pakistan')
         assert_state_variable :location, expected_location
         assert_state_variable :organisation, expected_location.fco_organisation

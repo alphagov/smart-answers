@@ -1002,12 +1002,17 @@ en-GB:
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
 
         send_application_ips3_must_post: |
+          Send original supporting documents and a photocopy of each one. If you’re renewing a passport, you must also send your current passport and a full colour photocopy of the entire passport (every page including blank pages).
+
+        send_application_ips3_india: |
           ## Making your application
-          You must post your completed form and original supporting documents.
 
-          If you’re renewing a passport, you must include your current passport and a full colour photocopy of the entire passport (every page including blank pages).
+          You must post your completed form and supporting documents to the British High Commission in New Delhi.
 
-          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+        send_application_ips3_pakistan: |
+          ## Making your application
+
+          You must post your completed form and supporting documents to the British High Commission in Islamabad.
 
         send_application_ips3_afghanistan: |
           ## Making your application

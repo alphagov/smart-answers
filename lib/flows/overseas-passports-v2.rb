@@ -382,11 +382,9 @@ outcome :ips_application_result do
     elsif %w(gaza).include?(current_location)
       phrases << :send_application_ips3_gaza
     elsif %w(afghanistan bangladesh).include?(current_location)
-      phrases << :"send_application_ips3_#{current_location}"
-      phrases << :send_application_embassy_address
+      phrases << :"send_application_ips3_#{current_location}" << :send_application_embassy_address
     elsif %w(india pakistan).include?(current_location)
-      phrases << :send_application_ips3_must_post
-      phrases << :send_application_embassy_address
+      phrases << :"send_application_ips3_#{current_location}" << :send_application_ips3_must_post << :send_application_embassy_address
     elsif %w(north-korea thailand).include?(current_location) and %w(renewing_new).include?(application_action)
       phrases << :"send_application_ips3_#{current_location}_renewing_new"
     elsif general_action == 'renewing' and data_query.renewing_countries?(current_location)
