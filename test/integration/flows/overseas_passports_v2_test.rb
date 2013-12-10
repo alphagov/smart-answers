@@ -768,19 +768,19 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
   end # Malta (IPS1 with custom phrases)
 
   context "answer Italy, replacement, adult passport" do
-    should "give the fco result with custom phrases" do
+    should "give the IPS online result" do
       worldwide_api_has_organisations_for_location('italy', read_fixture_file('worldwide/italy_organisations.json'))
       add_response 'italy'
       add_response 'replacing'
       add_response 'adult'
-      assert_current_node :ips_application_result
-      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-      expected_location = WorldLocation.find('italy')
-      assert_state_variable :location, expected_location
-      assert_state_variable :organisation, expected_location.fco_organisation
-      assert_match /Millburngate House/, outcome_body
+      assert_current_node :ips_application_result_online
+      assert_phrase_list :how_long_it_takes, [:how_long_replacing_online, :how_long_additional_time_online]
+      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1]
+      assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_replacing, :how_to_apply_online_guidance_doc_group_2]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
+      assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
     end
-  end # Italy (IPS1 with custom phrases)
+  end # Italy (IPS online result)
 
   context "answer Jordan, replacement, adult passport" do
     should "give the ips1 result with custom phrases" do
@@ -957,35 +957,35 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
 
   context "answer South Africa" do
     context "applying, adult passport" do
-      should "give the fco result with custom phrases" do
+      should "give the IPS online result" do
         worldwide_api_has_organisations_for_location('south-africa', read_fixture_file('worldwide/south-africa_organisations.json'))
         add_response 'south-africa'
         add_response 'applying'
         add_response 'adult'
         add_response 'united-kingdom'
-        assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_applying_ips1, :how_long_it_takes_ips1]
-        assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-        expected_location = WorldLocation.find('south-africa')
-        assert_state_variable :location, expected_location
-        assert_state_variable :organisation, expected_location.fco_organisation
+        assert_current_node :ips_application_result_online
+        assert_phrase_list :how_long_it_takes, [:how_long_applying_online, :how_long_additional_time_online]
+        assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1]
+        assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance_doc_group_2]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
+        assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
       end
     end
     context "renewing, adult passport" do
-      should "give the fco result with custom phrases" do
+      should "give the IPS online result" do
         worldwide_api_has_organisations_for_location('south-africa', read_fixture_file('worldwide/south-africa_organisations.json'))
         add_response 'south-africa'
-        add_response 'renewing_old'
+        add_response 'renewing_new'
         add_response 'adult'
-        add_response 'united-kingdom'
-        assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_renewing_old_ips1, :how_long_it_takes_ips1]
-        assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-        assert_match /^[\d,]+ South African Rand \| [\d,]+ South African Rand$/, current_state.costs_south_african_rand_adult_32
-        assert_state_variable :supporting_documents, "ips_documents_group_2"
+        assert_current_node :ips_application_result_online
+        assert_phrase_list :how_long_it_takes, [:how_long_renewing_new_online, :how_long_additional_time_online]
+        assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1]
+        assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_renewing, :how_to_apply_online_guidance_doc_group_2]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
+        assert_phrase_list :tracking_and_receiving, [:tracking_and_receiving_ips1]
       end
     end
-  end # South Africa (FCO with custom phrases)
+  end # South Africa (IPS online application)
 
   context "answer Gaza, applying, adult passport" do
     should "give the IPS application result with custom phrases" do
