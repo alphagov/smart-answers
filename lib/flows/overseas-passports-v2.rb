@@ -338,12 +338,12 @@ outcome :ips_application_result do
       end
 
       if %w(afghanistan bangladesh).include?(current_location)
-        phrases << :"passport_costs_ips3_cash_or_card_#{current_location}"
+        phrases << :"passport_costs_ips3_cash_or_card_#{current_location}" << :passport_costs_ips3_cash_or_card
       elsif %w(thailand).include?(current_location)
         if %w(renewing_new).include?(application_action)
           phrases << :passport_costs_ips3
         else
-          phrases << :"passport_costs_ips3_cash_or_card_#{current_location}"
+          phrases << :"passport_costs_ips3_cash_or_card_#{current_location}" << :passport_costs_ips3_cash_or_card
         end
       elsif data_query.cash_only_countries?(current_location)
         if current_location == 'north-korea'

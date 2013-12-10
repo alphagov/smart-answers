@@ -194,7 +194,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
           assert_state_variable :application_type, 'ips_application_3'
           assert_current_node :ips_application_result
           assert_phrase_list :how_long_it_takes, [:how_long_applying_6_months, :how_long_it_takes_ips3]
-          assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card_afghanistan]
+          assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card_afghanistan, :passport_costs_ips3_cash_or_card]
           assert_phrase_list :send_your_application, [:send_application_ips3_afghanistan, :send_application_embassy_address]
           expected_location = WorldLocation.find('afghanistan')
           assert_state_variable :location, expected_location
@@ -215,7 +215,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
           add_response 'adult'
           assert_state_variable :application_type, 'ips_application_3'
           assert_current_node :ips_application_result
-          assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card_afghanistan]
+          assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card_afghanistan, :passport_costs_ips3_cash_or_card]
           expected_location = WorldLocation.find('afghanistan')
           assert_state_variable :location, expected_location
           assert_state_variable :organisation, expected_location.fco_organisation
@@ -1186,7 +1186,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'adult'
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips3]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card_bangladesh]
+        assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card_bangladesh, :passport_costs_ips3_cash_or_card]
         assert_phrase_list :send_your_application, [:send_application_ips3_bangladesh, :send_application_embassy_address]
         expected_location = WorldLocation.find('bangladesh')
         assert_state_variable :location, expected_location
@@ -1199,7 +1199,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'adult'
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_16_weeks, :how_long_it_takes_ips3]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card_bangladesh]
+        assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card_bangladesh, :passport_costs_ips3_cash_or_card]
         expected_location = WorldLocation.find('bangladesh')
         assert_state_variable :location, expected_location
         assert_state_variable :organisation, expected_location.fco_organisation
@@ -1212,7 +1212,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'bangladesh'
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_applying_6_months, :how_long_it_takes_ips3]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card_bangladesh]
+        assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card_bangladesh, :passport_costs_ips3_cash_or_card]
         expected_location = WorldLocation.find('bangladesh')
         assert_state_variable :location, expected_location
         assert_state_variable :organisation, expected_location.fco_organisation
@@ -1267,7 +1267,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'thailand'
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_applying_ips3, :how_long_it_takes_ips3]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3_thailand_apply_renew_old_replace, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card_thailand]
+        assert_phrase_list :cost, [:passport_courier_costs_ips3_thailand_apply_renew_old_replace, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card_thailand, :passport_costs_ips3_cash_or_card]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_2]
         assert_phrase_list :send_your_application, [:send_application_ips3, :send_application_embassy_address]
         assert_phrase_list :getting_your_passport, [:getting_your_passport_thailand_apply_renew_old_replace]
