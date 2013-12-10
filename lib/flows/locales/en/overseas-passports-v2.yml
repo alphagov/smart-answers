@@ -1014,13 +1014,22 @@ en-GB:
 
           You must post your completed form and supporting documents to the British High Commission in Islamabad.
 
-        send_application_ips3_afghanistan: |
+        send_application_ips3_afghanistan_renew_new: |
           ## Making your application
-          You must apply in person.
 
-          If you’re renewing a passport, you must bring your current passport with you when you apply, and a full colour photocopy of the entire passport (including any blank pages). 
+          You must apply in person. You must bring photo ID with you.
+
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+
+          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
 
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+        send_application_ips3_afghanistan_apply_renew_old_replace: |
+          ## Making your application
+
+          You must apply in person. You must bring photo ID with you.
+
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
 
         send_application_ips3_bangladesh: |
           ## Making your application

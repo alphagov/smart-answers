@@ -195,7 +195,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
           assert_current_node :ips_application_result
           assert_phrase_list :how_long_it_takes, [:how_long_applying_6_months, :how_long_it_takes_ips3]
           assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card_afghanistan, :passport_costs_ips3_cash_or_card]
-          assert_phrase_list :send_your_application, [:send_application_ips3_afghanistan, :send_application_embassy_address]
+          assert_phrase_list :send_your_application, [:send_application_ips3_afghanistan_apply_renew_old_replace, :send_application_embassy_address]
           expected_location = WorldLocation.find('afghanistan')
           assert_state_variable :location, expected_location
           assert_state_variable :organisation, expected_location.fco_organisation
@@ -216,9 +216,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
           assert_state_variable :application_type, 'ips_application_3'
           assert_current_node :ips_application_result
           assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card_afghanistan, :passport_costs_ips3_cash_or_card]
-          expected_location = WorldLocation.find('afghanistan')
-          assert_state_variable :location, expected_location
-          assert_state_variable :organisation, expected_location.fco_organisation
+          assert_phrase_list :send_your_application, [:send_application_ips3_afghanistan_renew_new, :send_application_embassy_address]
         end
       end
     end
