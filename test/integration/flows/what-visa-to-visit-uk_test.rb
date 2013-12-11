@@ -20,7 +20,6 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
 
   context "choose a UKOT country" do
     setup do
-      worldwide_api_has_organisations_for_location('anguilla', read_fixture_file('worldwide/anguilla_organisations.json'))
       add_response 'anguilla'
     end
     should "ask what are you coming to the UK to do" do
@@ -94,7 +93,6 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
 
   context "choose a Non-visa nationals country" do
     setup do
-      worldwide_api_has_organisations_for_location('andorra', read_fixture_file('worldwide/andorra_organisations.json'))
       add_response 'andorra'
     end
     should "ask what are you coming to the UK to do" do
@@ -168,7 +166,6 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
 
   context "choose a Visa nationals country" do
     setup do
-      worldwide_api_has_organisations_for_location('yemen', read_fixture_file('worldwide/yemen_organisations.json'))
       add_response 'yemen'
     end
     should "ask what are you coming to the UK to do" do
@@ -258,7 +255,6 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
 
   context "choose a DATV country" do
     setup do
-      worldwide_api_has_organisations_for_location('south-africa', read_fixture_file('worldwide/south-africa_organisations.json'))
       add_response 'south-africa'
     end
     should "ask what are you coming to the UK to do" do
