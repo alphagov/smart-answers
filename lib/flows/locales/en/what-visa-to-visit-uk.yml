@@ -198,7 +198,7 @@ en-GB:
           - a UK residence card
           - an EEA family permit
 
-      outcome_family_y:
+      outcome_joining_family_y:
         title: You’ll need a visa to join your family in the UK for a long stay
         body: |
           The visa you apply for depends on your family member’s situation.
@@ -215,7 +215,7 @@ en-GB:
 
           Apply for a [family permit](http://www.ukba.homeoffice.gov.uk/eucitizens/eea-family-permit/) to join your family for a short or long stay if they’re living in the UK.
 
-      outcome_family_m:
+      outcome_joining_family_m:
         title: You may need a visa to join a member of your family for a long stay
         body: |
           ^You **won’t need a visa** if you’re visiting for a short period (up to 6 months) and you won’t work or study.^

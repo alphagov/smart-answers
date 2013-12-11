@@ -94,9 +94,9 @@ multiple_choice :purpose_of_visit? do
       end
     when 'family'
       if country_group_ukot.include?(passport_country)
-        :outcome_family_m
+        :outcome_joining_family_m
       else
-        :outcome_family_y
+        :outcome_joining_family_y
       end
     end
   end
@@ -131,8 +131,8 @@ outcome :outcome_work_y
 outcome :outcome_work_m
 outcome :outcome_transit_leaving_airport
 outcome :outcome_transit_not_leaving_airport
-outcome :outcome_family_y
-outcome :outcome_family_m
+outcome :outcome_joining_family_y
+outcome :outcome_joining_family_m
 outcome :outcome_visit_business_n
 outcome :outcome_general_y do
   precalculate :if_china do

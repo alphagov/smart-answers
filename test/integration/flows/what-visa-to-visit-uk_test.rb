@@ -86,7 +86,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
         add_response 'family'
       end
       should "take you to outcome Family M" do
-        assert_current_node :outcome_family_m
+        assert_current_node :outcome_joining_family_m
       end
     end
   end
@@ -159,7 +159,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
         add_response 'family'
       end
       should "take you to outcome Family Y" do
-        assert_current_node :outcome_family_y
+        assert_current_node :outcome_joining_family_y
       end
     end
   end
@@ -248,7 +248,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
         add_response 'family'
       end
       should "take you to outcome Family Y" do
-        assert_current_node :outcome_family_y
+        assert_current_node :outcome_joining_family_y
       end
     end
   end
@@ -388,7 +388,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
         add_response 'family'
       end
       should "take you to outcome Family Y" do
-        assert_current_node :outcome_family_y
+        assert_current_node :outcome_joining_family_y
       end
     end
   end
