@@ -55,7 +55,9 @@ multiple_choice :purpose_of_visit? do
         :outcome_work_m
       end
     when 'tourism'
-      if country_group_non_visa_national.include?(passport_country) or
+      if passport_country == 'venezuela'
+        :outcome_visit_venezuela
+      elsif country_group_non_visa_national.include?(passport_country) or
          country_group_ukot.include?(passport_country)
         :outcome_school_n
       else

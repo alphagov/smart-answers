@@ -283,6 +283,16 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       should "take you to the 'general y' outcome" do
         assert_current_node :outcome_general_y
       end
+      context "Venezuelan passport" do
+        setup do
+          setup_for_testing_flow 'what-visa-to-visit-uk'
+          add_response "venezuela"
+          add_response "tourism"
+        end
+        should "take you to the 'outcome_venezuela_transit' outcome" do
+          assert_current_node :outcome_visit_venezuela
+        end
+      end
     end
     context "visiting child at school" do
       setup do
