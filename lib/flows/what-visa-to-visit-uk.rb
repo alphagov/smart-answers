@@ -84,7 +84,9 @@ multiple_choice :purpose_of_visit? do
         :outcome_medical_y
       end
     when 'transit'
-      if country_group_datv.include?(passport_country) or
+      if passport_country == 'venezuela'
+        :outcome_visit_venezuela
+      elsif country_group_datv.include?(passport_country) or
          country_group_visa_national.include?(passport_country)
         :planning_to_leave_airport?
       else
