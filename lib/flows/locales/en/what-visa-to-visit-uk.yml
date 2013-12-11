@@ -281,3 +281,15 @@ en-GB:
 
           Check which [documents you should bring](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/medical/documents/).
 
+      outcome_visit_venezuela:
+        title: You won’t need a visa if you have an ePassport
+        body: |
+          See which documents you should bring if you’re:
+
+          - a [tourist](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/general/)
+          - [visiting family](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/family/)
+          - [visiting a child at a school](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/parent/) in the UK
+          - [transiting through the UK](http://www.ukba.homeoffice.gov.uk/visas-immigration/transitthroughtheuk/)
+          - visiting for [private medical treatment](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/medical/)
+
+          %You must [apply for a visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/) if you don’t have an ePassport.%

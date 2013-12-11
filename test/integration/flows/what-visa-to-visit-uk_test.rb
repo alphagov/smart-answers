@@ -9,7 +9,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(andorra anguilla south-africa yemen)
+    @location_slugs = %w(andorra anguilla south-africa venezuela yemen)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'what-visa-to-visit-uk'
   end
@@ -310,6 +310,16 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       end
       should "take you to the 'medical_y' outcome" do
         assert_current_node :outcome_medical_y
+      end
+      context "Venezuelan passport" do
+        setup do
+          setup_for_testing_flow 'what-visa-to-visit-uk'
+          add_response "venezuela"
+          add_response "medical"
+        end
+        should "take you to the 'outcome_venezuela_transit' outcome" do
+          assert_current_node :outcome_visit_venezuela
+        end
       end
     end
     context "coming to the on the way somewhere else" do

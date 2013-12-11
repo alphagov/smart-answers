@@ -71,7 +71,9 @@ multiple_choice :purpose_of_visit? do
     when 'marriage'
       :outcome_marriage
     when 'medical'
-      if country_group_non_visa_national.include?(passport_country) or
+      if passport_country == 'venezuela'
+        :outcome_visit_venezuela
+      elsif country_group_non_visa_national.include?(passport_country) or
          country_group_ukot.include?(passport_country)
         :outcome_medical_n
       else
@@ -133,3 +135,4 @@ outcome :outcome_school_n
 outcome :outcome_school_y
 outcome :outcome_medical_y
 outcome :outcome_medical_n
+outcome :outcome_visit_venezuela
