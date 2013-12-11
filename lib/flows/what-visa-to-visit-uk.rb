@@ -134,7 +134,13 @@ outcome :outcome_transit_not_leaving_airport
 outcome :outcome_family_y
 outcome :outcome_family_m
 outcome :outcome_visit_business_n
-outcome :outcome_general_y
+outcome :outcome_general_y do
+  precalculate :if_china do
+    if passport_country == 'china'
+      PhraseList.new(:china_tour_group)
+    end
+  end
+end
 outcome :outcome_business_y
 outcome :outcome_marriage
 outcome :outcome_school_n

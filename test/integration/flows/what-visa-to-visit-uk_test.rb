@@ -9,7 +9,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(andorra anguilla south-africa venezuela yemen)
+    @location_slugs = %w(andorra china anguilla south-africa venezuela yemen)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'what-visa-to-visit-uk'
   end
@@ -282,6 +282,17 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       end
       should "take you to the 'general y' outcome" do
         assert_current_node :outcome_general_y
+      end
+      context "Chinese passport" do
+        setup do
+          setup_for_testing_flow 'what-visa-to-visit-uk'
+          add_response "china"
+          add_response "tourism"
+        end
+        should "take insert an additional phrase" do
+          assert_current_node :outcome_general_y
+          assert_phrase_list :if_china, [:china_tour_group]
+        end
       end
       context "Venezuelan passport" do
         setup do

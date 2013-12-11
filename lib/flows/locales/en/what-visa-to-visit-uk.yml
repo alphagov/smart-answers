@@ -1,6 +1,12 @@
 en-GB:
   flow:
     what-visa-to-visit-uk:
+      phrases:
+        china_tour_group: |
+          ##Travelling in a tour group
+
+          You can apply for an [‘ADS visa’](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/ads/) if you’re planning to travel to the UK as part of a tour group for less than 30 days.
+
       title: Check what visa you need to come to the UK
       meta:
         description: You may need a visa to come to the UK to visit, study or work.
@@ -232,6 +238,8 @@ en-GB:
         title: You’ll need a visa to come to the UK
         body: |
           The visa you need to apply for depends on your circumstances.
+
+          %{if_china}
 
           ##Tourism and visiting friends
 
