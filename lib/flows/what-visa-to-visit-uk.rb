@@ -9,7 +9,7 @@ country_group_ukot = %w(anguilla bermuda british-dependent-territories-citizen b
 
 country_group_non_visa_national = %w(andorra antigua-and-barbuda argentina australia bahamas barbados belize botswana brazil british-national-overseas brunei canada chile costa-rica curacao dominica timor-leste el-salvador grenada guatemala honduras hong-kong hong-kong-(british-national-overseas) israel japan kiribati south-korea macao malaysia maldives marshall-islands mauritius mexico micronesia monaco namibia nauru new-zealand nicaragua palau panama papua-new-guinea paraguay st-kitts-and-nevis st-lucia st-maarten st-vincent-and-the-grenadines samoa san-marino seychelles singapore solomon-islands taiwan tonga trinidad-and-tobago tuvalu usa uruguay vanuatu)
 
-country_group_visa_national = %w(armenia aruba azerbaijan bahrain benin bhutan bonaire-st-eustatius-saba bosnia-and-herzegovina burkina-faso cambodia cape-verde central-african-republic chad china-diplomatic-and-service-passport comoros cuba djibouti dominican-republic egypt equatorial-guinea fiji gabon georgia guyana haiti india india-diplomatic-and-official-passports indonesia israel-(Laisse-Passer) jordan kazakhstan korea kuwait kyrgyzstan laos libya madagascar mali mauritania morocco mozambique niger pakistan peru philippines qatar russia sao-tome-and-principe saudi-arabia suriname syria tajikistan thailand togo tunisia turkmenistan ukraine united-arab-emirates uzbekistan vatican-city vietnam vietnam-diplomatic-and-official-passports yemen zambia)
+country_group_visa_national = %w(armenia aruba azerbaijan bahrain benin bhutan bonaire-st-eustatius-saba bosnia-and-herzegovina burkina-faso cambodia cape-verde central-african-republic chad comoros cuba djibouti dominican-republic egypt equatorial-guinea fiji gabon georgia guyana haiti india indonesia israel-(Laisse-Passer) jordan kazakhstan korea kuwait kyrgyzstan laos libya madagascar mali mauritania morocco mozambique niger pakistan peru philippines qatar russia sao-tome-and-principe saudi-arabia suriname syria tajikistan thailand togo tunisia turkmenistan ukraine united-arab-emirates uzbekistan vatican-city vietnam yemen zambia)
 
 country_group_datv = %w(afghanistan albania algeria angola bangladesh belarus bolivia burma burundi cameroon china colombia congo democratic-republic-of-congo ecuador eritrea ethiopia gambia ghana guinea guinea-bissau india iran iraq cote-d-ivoire cyprus-north jamaica kenya kosovo lebanon lesotho liberia macedonia malawi moldova mongolia montenegro nepal nigeria oman the-occupied-palestinian-territories refugee rwanda senegal serbia sierra-leone somalia south-africa south-sudan sri-lanka stateless-person sudan swaziland tanzania turkey uganda venezuela vietnam zimbabwe)
 
@@ -33,7 +33,10 @@ end
 multiple_choice :purpose_of_visit? do
   option :study
   option :work
-  option :visit
+  option :tourism
+  option :school
+  option :marriage
+  option :medical
   option :transit
   option :family
 
@@ -51,68 +54,97 @@ multiple_choice :purpose_of_visit? do
       else
         :outcome_work_m
       end
-    when 'visit'
-      :type_of_visit?
+    when 'tourism'
+      if passport_country == 'venezuela'
+        :outcome_visit_venezuela
+      elsif country_group_non_visa_national.include?(passport_country) or
+         country_group_ukot.include?(passport_country)
+        :outcome_school_n
+      else
+        :outcome_general_y
+      end
+    when 'school'
+      if passport_country == 'venezuela'
+        :outcome_visit_venezuela
+      elsif country_group_non_visa_national.include?(passport_country) or
+         country_group_ukot.include?(passport_country)
+        :outcome_school_n
+      else
+        :outcome_school_y
+      end
+    when 'marriage'
+      :outcome_marriage
+    when 'medical'
+      if passport_country == 'venezuela'
+        :outcome_visit_venezuela
+      elsif country_group_non_visa_national.include?(passport_country) or
+         country_group_ukot.include?(passport_country)
+        :outcome_medical_n
+      else
+        :outcome_medical_y
+      end
     when 'transit'
-      if country_group_datv.include?(passport_country)
-        :outcome_transit_y
-      elsif country_group_visa_national.include?(passport_country)
-        :outcome_transit_m
+      if passport_country == 'venezuela'
+        :outcome_visit_venezuela
+      elsif country_group_datv.include?(passport_country) or
+         country_group_visa_national.include?(passport_country)
+        :planning_to_leave_airport?
       else
         :outcome_no_visa_needed
       end
     when 'family'
       if country_group_ukot.include?(passport_country)
-        :outcome_family_m
+        :outcome_joining_family_m
       else
-        :outcome_family_y
+        :outcome_joining_family_y
       end
     end
   end
 end
 
-# Q3
-multiple_choice :type_of_visit? do
-  option :tourism
-  option :business
-  option :marriage
-  option :other
+#Q3
+multiple_choice :planning_to_leave_airport? do
+  option :yes
+  option :no
 
   next_node do |response|
     case response
-    when 'tourism'
-      if country_group_non_visa_national.include?(passport_country)
-        :outcome_visit_business_n
-      else
-        :outcome_general_y
+    when 'yes'
+      if country_group_datv.include?(passport_country) or
+         country_group_visa_national.include?(passport_country)
+        :outcome_transit_leaving_airport
       end
-    when 'business'
-      if country_group_non_visa_national.include?(passport_country)
-        :outcome_visit_business_n
-      else
-        :outcome_business_y
+    when 'no'
+      if country_group_datv.include?(passport_country)
+        :outcome_transit_not_leaving_airport
+      elsif country_group_visa_national.include?(passport_country)
+        :outcome_no_visa_needed
       end
-    when 'marriage'
-      :outcome_marriage
-    when 'other'
-      :outcome_all_visit
     end
   end
 end
-
-
 
 outcome :outcome_no_visa_needed
 outcome :outcome_study_y
 outcome :outcome_study_m
 outcome :outcome_work_y
 outcome :outcome_work_m
-outcome :outcome_transit_y
-outcome :outcome_transit_m
-outcome :outcome_family_y
-outcome :outcome_family_m
+outcome :outcome_transit_leaving_airport
+outcome :outcome_transit_not_leaving_airport
+outcome :outcome_joining_family_y
+outcome :outcome_joining_family_m
 outcome :outcome_visit_business_n
-outcome :outcome_general_y
+outcome :outcome_general_y do
+  precalculate :if_china do
+    if passport_country == 'china'
+      PhraseList.new(:china_tour_group)
+    end
+  end
+end
 outcome :outcome_business_y
 outcome :outcome_marriage
-outcome :outcome_all_visit
+outcome :outcome_school_n
+outcome :outcome_school_y
+outcome :outcome_medical_y
+outcome :outcome_medical_n
+outcome :outcome_visit_venezuela
