@@ -13,7 +13,6 @@ en-GB:
 
         - which documents you can get
         - how to apply for them
-        - if you can deposit your certificate with the General Register Office (GRO) in the UK
 
         There’s a separate guide if you want to [get married or enter into a civil partnership in the UK](/marriages-civil-partnerships).
 
@@ -102,11 +101,7 @@ en-GB:
         commonwealth_os_all_intro: |
           %{country_name_uppercase_prefix} is a member of the Commonwealth.
 
-          ^You can’t deposit a copy of your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK if you get married in a Commonwealth country.^
-
           ##What you need to do
-        commonwealth_os_zimbabwe_intro: |
-          ^You can’t deposit a copy of your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK if you get married in Zimbabwe.^
         uk_resident_os_ceremony_not_zimbabwe: |
           Contact the [High Commission of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) to find out about local marriage laws, including what documents you’ll need.
 
@@ -681,52 +676,9 @@ en-GB:
           ##Naturalisation of your partner if they move to the UK
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
-        consular_cni_os_all_depositing_certificate: |
-          ##Depositing your marriage certificate in the UK
-
-          You can deposit your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK for safe-keeping after your wedding. There’s a fee for this service (see below).
-
-          This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate/) in English at any time from GRO.
-        italy_os_consular_cni_five: |
-          Check with the comune to see if they can issue a multilingual marriage certificate for you after the ceremony. If not, the certificate will have to be [translated into English](/government/publications/italy-list-of-lawyers).
-        italy_os_consular_cni_six: |
-          Check with the %{embassy_or_consulate_ceremony_country} to find out if you need to get your certificate legalised by the local authorities in %{country_name_lowercase_prefix} and [translated into English](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) first.
 
         consular_cni_os_vietnam_clickbook: |
           [Book an appointment online](http://www.bcghochiminh.clickbook.net).
-        italy_os_consular_cni_seven: |
-
-          $C
-          **British Embassy in Rome - marriages**  
-          <rome.marriages@fco.gov.uk>
-          $C
-
-        consular_cni_os_ceremony_finland: |
-          ^You’ll need to specifically request a 'Vihkimisilmoitus' from the local ‘Maistraatti’ (register office) where the marriage is registered if you want to deposit your certificate in the UK.^
-        consular_cni_os_ceremony_turkey: |
-          ^You’ll need to specifically request a ‘Formül B’ from the local ‘nüfus müdürlüğü’ (register office) if you want to deposit your certificate in the UK.^
-        consular_cni_os_ceremony_japan: |
-          ^You’ll need a special certificate (‘sho-jo’ type), also called a ‘Certificate of Acceptance of Notification of Marriage’ (‘kon-in-todoke-juri-shomeisho’), if you want to deposit your certificate in the UK. This comes in 2 sizes - make sure it’s the large version.^
-
-          Send this to the [embassy or consulate-general](https://www.gov.uk/government/world/organisations/british-embassy-tokyo#contact-us), along with:
-
-          - a completed [application form and translation template](/government/publications/deposit-marriage-form-japan)
-          - the fee depositing a marriage certificate (see below)
-          - a completed [payment authorisation slip](/government/publications/passport-credit-debit-card-payment-authorisation-slip-japan) if you’re paying by Visa or MasterCard - or if you’re paying by cash, use cash registered mail (‘Genkin Kakitome’).
-          - a photocopy of your passport (the page with your photo)
-
-          If your nationality isn’t shown as British on the marriage certificate, you’ll need to send the original of your passport with ¥700 of stamps for return postage.
-        consular_cni_os_uk_resident: |
-          ###Depositing your certificate when you’re back home
-
-          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage) through the FCO.
-
-        consular_cni_os_fees_ceremony_italy_uk_resident: |
-          ##Fees
-
-          It costs £35 to deposit a marriage certificate in Italy.
-
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Italy](/government/publications/italy-consular-fees).
 
         consular_cni_os_fees_not_italy_not_uk: |
           ##Fees
@@ -737,7 +689,6 @@ en-GB:
           Issuing a CNI, Nulla Osta or equivalent | £65
           Issuing any other consular letter or certificate in English | £45
           Issuing any other consular letter or certificate in any other language | £70
-          Depositing a marriage certificate | £35
           Administering an oath or making a declaration | £55
 
         consular_cni_os_fees_local_or_uk_resident: |
@@ -811,18 +762,6 @@ en-GB:
           ##Naturalisation of your partner if they move to the UK
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
-        affirmation_os_all_depositing_certificate: |
-          ##Depositing your marriage certificate in the UK
-
-          You can deposit your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK for safe-keeping after your wedding. There’s a fee for this service (see below).
-
-          This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate/) in English at any time from GRO.
-
-          Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in %{country_name_lowercase_prefix} and [translated into English](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) first.
-        affirmation_os_uk_resident_three: |
-          ###Depositing your certificate when you’re back home
-
-          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage) through the Foreign & Commonwealth Office (FCO).
         affirmation_os_all_fees: |
           ##Fees
 
@@ -830,7 +769,6 @@ en-GB:
           -|-
           Affirmation for freedom to marry in English | £45
           Affirmation for freedom to marry in any other language | £70
-          Depositing a marriage certificate | £35
 
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
 
@@ -863,30 +801,11 @@ en-GB:
           ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
 
           There aren’t any British consular facilities to register a marriage or get legal documents to prove you’re eligible to marry in %{country_name_lowercase_prefix}.
-        no_cni_os_all_nearest_embassy_not_taiwan: |
-          However, your nearest embassy or consulate may be able to deposit your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK for safe-keeping. There’s a fee for this service (see below).
-
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-        no_cni_os_all_depositing_certificate: |
-          ##Depositing your marriage certificate in the UK
-
-          This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate/) in English at any time from GRO.
-        no_cni_os_ceremony_usa: |
-          Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in the US first.
-        no_cni_os_ceremony_not_usa: |
-          Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in %{country_name_lowercase_prefix} and [translated into English](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) first.
-        no_cni_os_uk_resident_three: |
-          ###Depositing your certificate when you’re back home
-
-          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage) through the Foreign & Commonwealth Office (FCO).
-        no_cni_os_all_fees: |
-          ##Fees
-
-          Depositing a marriage certificate through the embassy or consulate costs £35.
 
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
 
           You can pay by cash or credit card, but not by personal cheque.
+
         no_cni_os_naturalisation: |
           ##Naturalisation of your partner if they move to the UK
 
@@ -1049,25 +968,12 @@ en-GB:
           ##Naturalisation of your partner if they move to the UK
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
-        cp_or_equivalent_all_depositing_certificate: |
-          ##Depositing your civil partnership certificate in the UK
-
-          You can deposit your marriage certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK for safe-keeping after your wedding.  There’s a fee for this service (see below).
-
-          This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate/) in English at any time from GRO.
-
-          Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in %{country_name_lowercase_prefix} and [translated into English](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) first.
-        cp_or_equivalent_cp_uk_resident_two: |
-          ###Depositing your certificate when you’re back home
-
-          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage) through the Foreign & Commonwealth Office (FCO).
         cp_or_equivalent_cp_all_fees: |
           ##Fees
 
           Service | Fee
           -|-
           Issuing a CNI or equivalent | £65
-          Depositing a civil partnership certificate | £35
 
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
         cp_or_equivalent_cp_local_currency_countries: |
@@ -1149,33 +1055,11 @@ en-GB:
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         no_cni_required_cp_all_consular_facilities: |
           There aren’t any British consular facilities to register a same-sex relationship, or get legal documents to prove you’re eligible enter into a same-sex relationship, in %{country_name_lowercase_prefix}.
-
-          However, your nearest embassy or consulate may be able to deposit your certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK for safe-keeping after the ceremony. There’s a fee for this service (see below).
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-        no_cni_required_cp_all_depositing_certifictate: |
-          ##Depositing your certificate in the UK
-
-          This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate/) in English at any time from GRO.
-        no_cni_required_cp_ceremony_us_two: |
-          Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in the US first.
-        no_cni_required_cp_ceremony_not_us: |
-          Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in %{country_name_lowercase_prefix} and [translated into English](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) first.
-        no_cni_required_cp_uk_resident_three: |
-          ###Depositing your certificate when you’re back home
-
-          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage) through the Foreign & Commonwealth Office (FCO).
         no_cni_required_cp_naturalisation: |
           ##Naturalisation of your partner if they move to the UK
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
-        no_cni_required_cp_all_fees: |
-          ##Fees
 
-          Depositing a civil partnership certificate through the embassy or consulate costs £35.
-
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
-
-          You can pay by cash or credit card, but not by personal cheque.
 # CP in commonwealth countries phrases
         commonwealth_countries_cp_australia: |
           You can get a same-sex relationship legally recognised in some states in Australia.
@@ -1249,20 +1133,8 @@ en-GB:
           As long as nobody has registered an objection after this time, the registration officer can then register your partnership any time until 3 months after the date you gave notice.
 
           You’ll need to provide two witnesses and pay a fee to register your civil partnership. You’ll need to pay an additional fee for your civil partnership certificate (see below).
-        commonwealth_countries_cp_all_depositing_cp_certificate: |
-          ##Depositing your civil partnership certificate in the UK
-
-          You can deposit your certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK for safe-keeping after your wedding.  There’s a fee for this service (see below).
-
-          This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate/) in English at any time from GRO.
-
-          Check with the embassy or consulate to find out if you need to get your certificate legalised by the local authorities in %{ceremony_country_name} and [translated into English](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) first.
         commonwealth_countries_cp_ceremony_not_australia: |
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-        commonwealth_countries_cp_uk_resident_three: |
-          ###Depositing your certificate when you’re back home
-
-          You can also [deposit your certificate when you’re back in the UK](/deposit-foreign-marriage) through the Foreign & Commonwealth Office (FCO).
         commonwealth_countries_cp_naturalisation: |
           ##Naturalisation of your partner if they move to the UK
 
@@ -1428,20 +1300,11 @@ en-GB:
 
           If your partner isn’t British, they can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
 
-          ##Depositing your certificate in the UK
-
-          You can deposit your certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK for safe-keeping after the ceremony.
-
-          This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate) in English at any time from GRO.
-
-          You can [deposit your certificate](/deposit-foreign-marriage) through the British Embassy in Berne, or through the Foreign & Commonwealth Office (FCO) in the UK.
-
           ##Fees
 
           Service | Fee
           -|-
           Issuing a civil status declaration | £65
-          Depositing a marriage or civil partnership certificate | £35
 
           You normally have to pay fees for consular services in the local currency - these are shown in the list of consular fees for [Switzerland](/government/publications/switzerland-consular-fees).
 
@@ -1519,18 +1382,6 @@ en-GB:
 
           If your partner isn’t British, they can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
 
-          ##Depositing your certificate in the UK
-
-          You can deposit your certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK for safe-keeping after your wedding.
-
-          You’ll need to get a multilingual extract of the marriage register (‘formule plurilingue d’extrait de l’acte de mariage’) from the mairie. Take or send this, along with a photocopy of your passport and the  [fee](/government/publications/france-consular-fees) to the [nearest consulate](/government/world/organisations/british-embassy-paris#contact-us) where the marriage took place.
-
-          This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate) in English at any time from GRO.
-
-          You can deposit your certificate through the British Embassy in Paris, or [through the Foreign & Commonwealth Office](/deposit-foreign-marriage) (FCO) in the UK.
-
-          *[GRO]:General Register Office
-          *[FCO]:Foreign &amp; Commonwealth Office
 #outcome country with affirmation for frredom to marry
       outcome_os_affirmation:
         title: Marriage in %{country_name_lowercase_prefix}
@@ -1603,17 +1454,6 @@ en-GB:
           ##Naturalisation of your foreign partner if they move to the UK
 
           If your partner isn’t British, they can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
-
-          ##Depositing your certificate in the UK
-
-          You can deposit your certificate at the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK for safe-keeping after your wedding.
-
-          You’ll need to get a extract of the PACS register from the tribunal. Take or send this, along with a full English translation, a photocopy of your passport and the [fee](/government/publications/france-consular-fees) to the [nearest consulate](/government/world/organisations/british-embassy-paris#contact-us) where the marriage took place.
-
-          This isn’t a legal requirement, but it does mean you’ll be able to order an official, certified [copy of your certificate](/order-copy-birth-death-marriage-certificate) in English at any time from GRO.
-
-          You can deposit your certificate through the British Embassy in Paris, or [through the Foreign & Commonwealth Office](/deposit-foreign-marriage) (FCO) in the UK.
-
 
           *[GRO]:General Register Office
           *[FCO]:Foreign &amp; Commonwealth Office

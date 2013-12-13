@@ -315,11 +315,7 @@ end
 outcome :outcome_os_commonwealth do
   precalculate :commonwealth_os_outcome do
     phrases = PhraseList.new
-    if %w(zimbabwe).exclude?(ceremony_country)
-      phrases << :commonwealth_os_all_intro
-    else
-      phrases << :commonwealth_os_zimbabwe_intro
-    end
+    phrases << :commonwealth_os_all_intro if ceremony_country != 'zimbabwe'
     if %w(zimbabwe).exclude?(ceremony_country)
       if %w(uk).include?(resident_of)
         phrases << :uk_resident_os_ceremony_not_zimbabwe
@@ -719,43 +715,7 @@ outcome :outcome_os_consular_cni do
     if %w(partner_british).exclude?(partner_nationality)
       phrases << :consular_cni_os_naturalisation
     end
-    phrases << :consular_cni_os_all_depositing_certificate
-    if %w(italy).include?(ceremony_country)
-      phrases << :italy_os_consular_cni_five
-    else
-      phrases << :italy_os_consular_cni_six
-    end
-    if ceremony_country != residency_country or %w(germany).include?(ceremony_country) and %w(italy).exclude?(ceremony_country)
-      if reg_data_query.clickbook(ceremony_country)
-        if %w(vietnam).include?(ceremony_country)
-          phrases << :consular_cni_os_vietnam_clickbook
-        else
-          if multiple_clickbooks
-            phrases << :clickbook_links
-          else
-            phrases << :clickbook_link
-          end
-        end
-      end
-      unless reg_data_query.clickbook(ceremony_country)
-        phrases << :consular_cni_os_no_clickbook_so_embassy_details
-      end
-    end
-    if %w(italy).include?(ceremony_country)
-      phrases << :italy_os_consular_cni_seven
-    elsif %w(finland).include?(ceremony_country)
-      phrases << :consular_cni_os_ceremony_finland
-    elsif %w(turkey).include?(ceremony_country)
-      phrases << :consular_cni_os_ceremony_turkey
-    elsif %w(japan).include?(ceremony_country)
-      phrases << :consular_cni_os_ceremony_japan
-    end
-    if %w(uk).include?(resident_of)
-      phrases << :consular_cni_os_uk_resident
-    end
-    if %w(italy).include?(ceremony_country) and %w(uk).include?(resident_of)
-      phrases << :consular_cni_os_fees_ceremony_italy_uk_resident
-    else
+    unless %w(italy).include?(ceremony_country) and %w(uk).include?(resident_of)
       phrases << :consular_cni_os_fees_not_italy_not_uk
       if ceremony_country == residency_country or %w(uk).include?(resident_of)
         phrases << :consular_cni_os_fees_local_or_uk_resident
@@ -804,10 +764,6 @@ outcome :outcome_os_affirmation do
     else
       phrases << :affirmation_os_partner_not_british
     end
-    phrases << :affirmation_os_all_depositing_certificate
-    if %w(uk).include?(resident_of)
-      phrases << :affirmation_os_uk_resident_three
-    end
     phrases << :affirmation_os_all_fees
     phrases
   end
@@ -835,23 +791,8 @@ outcome :outcome_os_no_cni do
       end
     end
     phrases << :no_cni_os_consular_facilities
-    if %w(taiwan).exclude?(ceremony_country)
-      phrases << :no_cni_os_all_nearest_embassy_not_taiwan
-      phrases << :no_cni_os_all_depositing_certificate
-      if %w(usa).include?(ceremony_country)
-        phrases << :no_cni_os_ceremony_usa
-      else
-        phrases << :no_cni_os_ceremony_not_usa
-      end
-      if %w(uk).include?(resident_of)
-        phrases << :no_cni_os_uk_resident_three
-      end
-      phrases << :no_cni_os_all_fees
-      if %w(partner_british).exclude?(partner_nationality)
-        phrases << :no_cni_os_naturalisation
-      end
-    else
-      ''
+    if %w(partner_british).exclude?(partner_nationality)
+      phrases << :no_cni_os_naturalisation
     end
     phrases
   end
@@ -914,10 +855,6 @@ outcome :outcome_cp_cp_or_equivalent do
     if %w(partner_british).exclude?(partner_nationality)
       phrases << :cp_or_equivalent_cp_naturalisation
     end
-    phrases << :cp_or_equivalent_all_depositing_certificate
-    if %w(uk).include?(resident_of)
-      phrases << :cp_or_equivalent_cp_uk_resident_two
-    end
     phrases << :cp_or_equivalent_cp_all_fees
     if %w(iceland luxembourg slovenia).include?(ceremony_country)
       phrases << :cp_or_equivalent_cp_local_currency_countries
@@ -968,19 +905,9 @@ outcome :outcome_cp_no_cni do
       end
     end
     phrases << :no_cni_required_cp_all_consular_facilities
-    phrases << :no_cni_required_cp_all_depositing_certifictate
-    if %w(usa).include?(ceremony_country)
-      phrases << :no_cni_required_cp_ceremony_us_two
-    else
-      phrases << :no_cni_required_cp_ceremony_not_us
-    end
-    if %w(uk).include?(resident_of)
-      phrases << :no_cni_required_cp_uk_resident_three
-    end
     if %w(partner_british).exclude?(partner_nationality)
       phrases << :no_cni_required_cp_naturalisation
     end
-    phrases << :no_cni_required_cp_all_fees
     phrases
   end
 end
@@ -1017,12 +944,8 @@ outcome :outcome_cp_commonwealth_countries do
       end
       phrases << :commonwealth_countries_cp_australia_five
     end
-    phrases << :commonwealth_countries_cp_all_depositing_cp_certificate
     if %w(australia).exclude?(ceremony_country)
       phrases << :commonwealth_countries_cp_ceremony_not_australia
-    end
-    if %w(uk).include?(resident_of)
-      phrases << :commonwealth_countries_cp_uk_resident_three
     end
     if %w(partner_british).exclude?(partner_nationality)
       phrases << :commonwealth_countries_cp_naturalisation
