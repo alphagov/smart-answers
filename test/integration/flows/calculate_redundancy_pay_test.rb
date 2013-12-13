@@ -205,6 +205,26 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
         assert_state_variable :max_amount, "13,500"
       end
     end # After Feb 2013
+
+# test for Feb 2014 before we have new rates
+    context "answer 31 Jan 2014" do
+      setup do
+        Timecop.travel("2014-01-01")
+        add_response Date.parse("2014-01-31")
+      end
+      should "ask employee age" do
+        assert_current_node :age_of_employee?
+      end
+    end
+    context "answer 20 Feb 2014" do
+      setup do
+        Timecop.travel("2014-01-01")
+        add_response Date.parse("2014-02-01")
+      end
+      should "go to no calculation outcome" do
+        assert_current_node :no_result_possible_yet
+      end
+    end
   end
 
   context "Employee" do
@@ -418,5 +438,25 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
         assert_state_variable :rate, 450
       end
     end # After Feb 2013
+
+  # test for Feb 2014 before we have new rates
+    context "answer 31 Jan 2014" do
+      setup do
+        Timecop.travel("2014-01-01")
+        add_response Date.parse("2014-01-31")
+      end
+      should "ask employee age" do
+        assert_current_node :age_of_employee?
+      end
+    end
+    context "answer 20 Feb 2014" do
+      setup do
+        Timecop.travel("2014-01-01")
+        add_response Date.parse("2014-02-01")
+      end
+      should "go to no calculation outcome" do
+        assert_current_node :no_result_possible_yet
+      end
+    end
   end
 end
