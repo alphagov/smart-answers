@@ -46,7 +46,7 @@ en-GB:
 
       # Q6
       siblings?:
-        title: Did the deceased have any brothers or sisters who had the same parents?
+        title: Did the deceased have any brothers or sisters?
 
       # Q61
       siblings_including_mixed_parents?:
