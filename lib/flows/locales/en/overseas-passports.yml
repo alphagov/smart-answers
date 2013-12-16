@@ -747,9 +747,9 @@ en-GB:
 
           You must bring your existing passport as photo ID.
         getting_your_passport_india: |
-          Your passport will be returned to you by post, or you can arrange for it to be delivered to the British embassy, high commission or consulate where you applied - you must collect it in person.
+          Your passport will be returned to you by post, or you can arrange for it to be delivered to the British High Commission in New Delhi for you to collect in person. You must specify that you want to collect it in section 8 of the application form.
 
-          They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. 
+          They will contact you using the details on your application form when your passport is ready to collect. You must bring photo ID with you.
         getting_your_passport_iraq: |
           You must collect your passport and supporting documents in person from either:
 
@@ -974,22 +974,15 @@ en-GB:
           You can use Mastercard, Visa, Electron, Diners Club and JCB.
 
         passport_costs_ips3_cash_or_card_afghanistan: |
-          You can pay in cash using local currency - the prices above will be converted according to the exchange rate when you apply.
-
-          Or fill in a [paying by credit card or debit card form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
-
-          You can use Mastercard, Visa, Electron, Diners Club and JCB.
+          You must pay in cash in US dollars - the prices above will be converted according to the exchange rate when you apply.
 
         passport_costs_ips3_cash_or_card_bangladesh: |
           You can pay in cash using local currency if you apply in person - the prices above will be converted according to the exchange rate when you apply. You can’t pay by banker’s draft.
 
-          Or fill in a [paying by credit card or debit card form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
-
-          You can use Mastercard, Visa, Electron, Diners Club and JCB.
-
         passport_costs_ips3_cash_or_card_thailand: |
           You can pay in cash using local currency - the prices above will be converted according to the exchange rate when you apply.
 
+        passport_costs_ips3_cash_or_card: |
           Or you can fill in a [payment instruction form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
 
           You can use Mastercard, Visa, Electron, Diners Club and JCB.
@@ -1009,20 +1002,34 @@ en-GB:
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
 
         send_application_ips3_must_post: |
-          ## Making your application
-          You must post your completed form and original supporting documents.
+          Send original supporting documents and a photocopy of each one. If you’re renewing a passport, you must also send your current passport and a full colour photocopy of the entire passport (every page including blank pages).
 
-          If you’re renewing a passport, you must include your current passport and a full colour photocopy of the entire passport (every page including blank pages).
+        send_application_ips3_india: |
+          ## Making your application
+
+          You must post your completed form and supporting documents to the British High Commission in New Delhi.
+
+        send_application_ips3_pakistan: |
+          ## Making your application
+
+          You must post your completed form and supporting documents to the British High Commission in Islamabad.
+
+        send_application_ips3_afghanistan_renew_new: |
+          ## Making your application
+
+          You must apply in person. You must bring photo ID with you.
+
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+
+          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
 
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
-
-        send_application_ips3_afghanistan: |
+        send_application_ips3_afghanistan_apply_renew_old_replace: |
           ## Making your application
-          You must apply in person.
 
-          If you’re renewing a passport, you must bring your current passport with you when you apply, and a full colour photocopy of the entire passport (including any blank pages). 
+          You must apply in person. You must bring photo ID with you.
 
-          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
 
         send_application_ips3_bangladesh: |
           ## Making your application
