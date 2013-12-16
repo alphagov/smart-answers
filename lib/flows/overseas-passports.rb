@@ -338,12 +338,12 @@ outcome :ips_application_result do
       end
 
       if %w(afghanistan bangladesh).include?(current_location)
-        phrases << :"passport_costs_ips3_cash_or_card_#{current_location}"
+        phrases << :"passport_costs_ips3_cash_or_card_#{current_location}" << :passport_costs_ips3_cash_or_card
       elsif %w(thailand).include?(current_location)
         if %w(renewing_new).include?(application_action)
           phrases << :passport_costs_ips3
         else
-          phrases << :"passport_costs_ips3_cash_or_card_#{current_location}"
+          phrases << :"passport_costs_ips3_cash_or_card_#{current_location}" << :passport_costs_ips3_cash_or_card
         end
       elsif data_query.cash_only_countries?(current_location)
         if current_location == 'north-korea'
@@ -381,12 +381,17 @@ outcome :ips_application_result do
       phrases << :"send_application_ips#{ips_number}_#{application_address}"
     elsif %w(gaza).include?(current_location)
       phrases << :send_application_ips3_gaza
-    elsif %w(afghanistan bangladesh).include?(current_location)
-      phrases << :"send_application_ips3_#{current_location}"
+    elsif %w(afghanistan).include?(current_location)
+      if %w(renewing_new).include?(application_action)
+        phrases << :send_application_ips3_afghanistan_renew_new
+      else
+        phrases << :send_application_ips3_afghanistan_apply_renew_old_replace
+      end
       phrases << :send_application_embassy_address
+    elsif %w(bangladesh).include?(current_location)
+      phrases << :"send_application_ips3_#{current_location}" << :send_application_embassy_address
     elsif %w(india pakistan).include?(current_location)
-      phrases << :send_application_ips3_must_post
-      phrases << :send_application_embassy_address
+      phrases << :"send_application_ips3_#{current_location}" << :send_application_ips3_must_post << :send_application_embassy_address
     elsif %w(north-korea thailand).include?(current_location) and %w(renewing_new).include?(application_action)
       phrases << :"send_application_ips3_#{current_location}_renewing_new"
     elsif general_action == 'renewing' and data_query.renewing_countries?(current_location)

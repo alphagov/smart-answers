@@ -182,6 +182,7 @@ canada:
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   address: durham
+  online_application: true
 cape-verde:
   type: ips_application_1
   group: ips_documents_group_2
@@ -338,6 +339,7 @@ france:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   address: durham
+  online_application: true
 french-guiana:
   type: ips_application_1
   group: ips_documents_group_1
@@ -371,6 +373,7 @@ germany:
   group: ips_documents_group_1
   helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
+  online_application: true
 ghana:
   type: ips_application_1
   group: ips_documents_group_3
@@ -472,6 +475,7 @@ italy:
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   address: durham
+  online_application: true
 jamaica:
   type: ips_application_1
   group: ips_documents_group_3
@@ -852,6 +856,7 @@ south-africa:
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   address: durham
+  online_application: true
 south-georgia-and-south-sandwich-islands:
   type: ips_application_1
   group: ips_documents_group_1
