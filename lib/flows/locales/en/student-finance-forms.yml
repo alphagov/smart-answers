@@ -123,6 +123,7 @@ en-GB:
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance)
+
       outcome_uk_ft_1314_continuing:
         title: Student finance – application form
         body: |
@@ -166,6 +167,7 @@ en-GB:
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance)
+
       outcome_uk_pt_1314_continuing:
         title: Student finance – application form
         body: |
@@ -183,6 +185,7 @@ en-GB:
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance)
+
       outcome_uk_pt_1314_grant:
         title: Student finance – application form
         body: |
@@ -211,13 +214,13 @@ en-GB:
           [How to apply for student finance](/apply-for-student-finance)
       outcome_uk_pt_1415_new:
         title: You can't apply yet. Forms will be available April 2014.
-      
+
       outcome_uk_pt_1415_continuing:
         title: You can't apply yet. Forms will be available early 2014.
 
       outcome_uk_pt_1415_grant:
         title: You can't apply yet. Forms will be available Summer 2014.
-      
+
       outcome_parent_partner_1314:
         title: Parents and partners - forms
         body: |
@@ -241,7 +244,7 @@ en-GB:
           [How to support an application](/apply-for-student-finance/parents-and-partners)
       outcome_parent_partner_1415:
         title: Applications aren't open yet. Forms will be available early 2014.
-      
+
       outcome_proof_identity_1314:
         title: Proof of identity
         body: |
