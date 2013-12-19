@@ -37,7 +37,7 @@ en-GB:
 
         The forms are different for students from [Scotland](http://www.saas.gov.uk), [Wales](http://www.studentfinancewales.co.uk) and [Northern Ireland.](http://www.studentfinanceni.co.uk)
 
-        For braille or alternative formats contact the helpline. If you email, include your contact details and the format needed.
+        For braille or alternative formats contact the helpline. If you email, include your contact details and the format you need.
 
 
         $C
@@ -123,6 +123,7 @@ en-GB:
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance)
+
       outcome_uk_ft_1314_continuing:
         title: Student finance – application form
         body: |
@@ -144,10 +145,44 @@ en-GB:
           [How to apply for student finance](/apply-for-student-finance)
 
       outcome_uk_ft_1415_continuing:
-        title: You can't apply yet. Forms will be available early 2014.
+        title: Student finance - application form
+        body: |
+          You should [apply online](/apply-online-for-student-finance) for help with your tuition and living costs.
+
+          If you can't apply online, use form PR1.
+
+          Academic Year | Form for new students
+          - | -
+          2014 to 2015 | [Apply online](/apply-online-for-student-finance "Apply for student finance online")
+          2014 to 2015 | [PR1 - form (PDF, 814KB)](http://www.sfengland.slc.co.uk/media/682895/sfe_pr1_form_1415_d.pdf)
+          2014 to 2015 | [PR1 - guidance notes (PDF, 556KB)](http://www.sfengland.slc.co.uk/media/682919/sfe_pr1_notes_1415_d.pdf)
+
+          ^You can apply up to 9 months after the start of your course.^
+
+          %{form_destination}
+
+        next_steps: |
+          [How to apply for student finance](/apply-for-student-finance)
 
       outcome_uk_ft_1415_new:
-        title: You can't apply yet. Forms will be available early 2014.
+        title: Student finance - application form
+        body: |
+          You should [apply online](/apply-online-for-student-finance) for help with your tuition and living costs.
+
+          If you can't apply online, use form PN1.
+
+          Academic Year | Form for new students
+          - | -
+          2014 to 2015 | [Apply online](/apply-online-for-student-finance)
+          2014 to 2015 | [PN1 - form (PDF, 801KB)](http://www.sfengland.slc.co.uk/media/682892/sfe_pn1_form_1415_d.pdf)
+          2014 to 2015 | [PN1 - guidance notes (PDF, 527KB)](http://www.sfengland.slc.co.uk/media/682916/sfe_pn1_notes_1415_d.pdf)
+
+          ^You can apply up to 9 months after the start of your course.^
+
+          %{form_destination}
+
+        next_steps: |
+          [How to apply for student finance](/apply-for-student-finance)
 
       outcome_uk_pt_1314_new:
         title: Student finance – application form
@@ -166,6 +201,7 @@ en-GB:
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance)
+
       outcome_uk_pt_1314_continuing:
         title: Student finance – application form
         body: |
@@ -183,6 +219,7 @@ en-GB:
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance)
+
       outcome_uk_pt_1314_grant:
         title: Student finance – application form
         body: |
@@ -211,13 +248,13 @@ en-GB:
           [How to apply for student finance](/apply-for-student-finance)
       outcome_uk_pt_1415_new:
         title: You can't apply yet. Forms will be available April 2014.
-      
+
       outcome_uk_pt_1415_continuing:
         title: You can't apply yet. Forms will be available early 2014.
 
       outcome_uk_pt_1415_grant:
         title: You can't apply yet. Forms will be available Summer 2014.
-      
+
       outcome_parent_partner_1314:
         title: Parents and partners - forms
         body: |
@@ -225,9 +262,9 @@ en-GB:
 
           You must send your income details for the 2011 to 2012 tax year. Do this online as part of the student's [online application](/apply-online-for-student-finance). If you can't do it online, use form PFF2.
 
-          If you think your income has dropped by 15% or more since the 2011 to 2012 tax year:
+          If you think your income has dropped by 15% or more since the 2011 to 2012 tax year you’ll need to do both of the following:
 
-          + send your 2011 to 2012 income details (as above), and
+          + submit your 2011 to 2012 income details online or using form PFF2
           + complete a CYI form (to ask for the student finance to be based on your expected 2013 to 2014 tax year income)
 
           Academic year | Form
@@ -239,9 +276,31 @@ en-GB:
 
         next_steps: |
           [How to support an application](/apply-for-student-finance/parents-and-partners)
+
       outcome_parent_partner_1415:
-        title: Applications aren't open yet. Forms will be available early 2014.
-      
+        title: Parents and partners - forms
+        body: |
+          Some student finance (eg a Maintenance Grant) is based on income.
+
+          You must send your income details for the 2012 to 2013 tax year. Do this online as part of the student's [online application](/apply-online-for-student-finance). If you can't do it online, use form PFF2.
+
+          If you think your income has dropped by 15% or more since the 2012 to 2013 tax year you’ll need to do both of the following:
+
+          + submit your 2012 to 2013 income details online or using form PFF2
+          + complete a CYI form (to ask for the student finance to be based on your expected 2014 to 2015 tax year income)
+
+          Academic year | Form
+          - | -
+          2014 to 2015 | [PFF2 - income details form (PDF, 212 KB)](http://www.sfengland.slc.co.uk/media/682907/sfe_pff2_1415_d.pdf)
+          2014 to 2015 | CYI - current tax year income details form (not available yet)
+
+          %Income means your [household income](/apply-for-student-finance/household-income).%
+
+          %{form_destination}
+
+        next_steps: |
+          [How to support an application](/apply-for-student-finance/parents-and-partners)
+
       outcome_proof_identity_1314:
         title: Proof of identity
         body: |
@@ -274,9 +333,24 @@ en-GB:
 
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance)
+
       outcome_proof_identity_1415:
-        title: Applications aren't open yet. Forms will be available early 2014.
-      
+        title: Proof of identity
+        body: |
+          To prove your identity, include your UK passport details in your application. If you forget, use the passport details form. If you don't have a passport  (or it has expired), send your birth or adoption certificate using the certificate form.
+
+          Academic year | Form
+          - | -
+          2014 to 2015 | [UK passport details form (PDF, 47KB)](http://www.sfengland.slc.co.uk/media/685458/sfe_uk_passport_details_1415_d.pdf)
+          2014 to 2015 | [Birth or adoption certificate form (PDF, 105KB)](http://www.sfengland.slc.co.uk/media/682913/sfe_birth_adopt_cert_form_1415_d.pdf)
+
+          ^Don't send your UK passport.^
+
+          %{form_destination}
+
+        next_steps: |
+          [How to apply for student finance](/apply-for-student-finance)
+
       outcome_uk_ft_change_application: |
         title: change application full-time
       outcome_uk_pt_change_application: |
@@ -316,8 +390,24 @@ en-GB:
 
         next_steps: |
           [Disabled Student's Allowances](/disabled-students-allowances-dsas)
+
       outcome_dsa_1415:
-        title: Applications aren't open yet. Forms will be available early 2014.
+        title: Disabled Students' Allowances
+        body: |
+          To apply, use one of the DSA1 forms. If you’ve applied for student finance use form 'DSA1 short'. If you’re only applying for DSAs use form 'DSA1 full'.
+
+          Academic Year | Form
+          - | -
+          2014 to 2015 | [DSA1 - short form (PDF, 128KB)](http://www.sfengland.slc.co.uk/media/682901/sfe_dsa_slim_form_1415_d.pdf)
+          2014 to 2015 | [DSA1 - full form (PDF, 642KB)](http://www.sfengland.slc.co.uk/media/682898/sfe_dsa1_form_1415_d.pdf)
+          2014 to 2015 | [DSA1 - guidance notes (PDF, 150KB)](http://www.sfengland.slc.co.uk/media/682922/sfe_dsa1_notes_1415_d.pdf)
+
+          ^Open University (OU) students apply to the OU for Disabled Students' Allowances.^
+
+          %{form_destination}
+
+        next_steps: |
+          [Disabled Student's Allowances](/disabled-students-allowances-dsas)
 
       outcome_ccg_1314:
         title: Childcare Grant
@@ -332,8 +422,20 @@ en-GB:
 
         next_steps: |
           [Childcare Grant](/childcare-grant)
+
       outcome_ccg_1415:
-        title: Applications aren't open yet. Forms will be available early 2014.
+        title: Childcare Grant
+        body: |
+          To apply, estimate your childcare costs on form CCG1 after you've completed your main student finance application.
+
+          Academic year | Form
+          - | -
+          2014 to 2015 | [CCG1 - form (PDF, 107KB)](http://www.sfengland.slc.co.uk/media/682910/sfe_ccg1_1415_d.pdf)
+
+          %{form_destination}
+
+        next_steps: |
+          [Childcare Grant](/childcare-grant)
 
       outcome_dsa_expenses:
         title: Disabled Students' Allowances – expenses
