@@ -161,6 +161,9 @@ en-GB:
 
           %{form_destination}
 
+        next_steps: |
+          [How to apply for student finance](/apply-for-student-finance)
+
       outcome_uk_ft_1415_new:
         title: Student finance - application form
         body: |
@@ -177,6 +180,9 @@ en-GB:
           ^You can apply up to 9 months after the start of your course.^
 
           %{form_destination}
+
+        next_steps: |
+          [How to apply for student finance](/apply-for-student-finance)
 
       outcome_uk_pt_1314_new:
         title: Student finance – application form
