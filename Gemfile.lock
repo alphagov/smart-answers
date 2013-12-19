@@ -100,9 +100,9 @@ GEM
       addressable (~> 2.2.6)
     libv8 (3.3.10.4)
     link_header (0.0.7)
-    lograge (0.1.2)
-      actionpack
-      activesupport
+    logstash-event (1.1.5)
+    logstasher (0.4.0)
+      logstash-event (~> 1.1.0)
     lrucache (0.1.4)
       PriorityQueue (~> 0.1.2)
     mail (2.5.4)
@@ -223,7 +223,7 @@ DEPENDENCIES
   govuk_frontend_toolkit (= 0.32.2)
   htmlentities (~> 4)
   json
-  lograge (~> 0.1.0)
+  logstasher (= 0.4.0)
   lrucache (= 0.1.4)
   mocha (= 0.13.3)
   plek (= 1.1.0)
