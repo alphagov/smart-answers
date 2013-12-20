@@ -12,9 +12,10 @@ algeria:
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
 american-samoa:
-  type: wellington_new_zealand
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
+  online_application: true
 andorra:
   type: ips_application_1
   group: ips_documents_group_1
@@ -51,9 +52,10 @@ aruba:
   app_form: hmpo_2_application_form
   address: durham
 australia:
-  type: australia_post
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
+  online_application: true
 austria:
   type: ips_application_1
   group: ips_documents_group_1
@@ -327,9 +329,10 @@ falkland-islands:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
 fiji:
-  type: wellington_new_zealand
+  type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
+  online_application: true
 finland:
   type: ips_application_1
   group: ips_documents_group_1
@@ -346,9 +349,10 @@ french-guiana:
   app_form: hmpo_2_application_form
   address: durham
 french-polynesia:
-  type: wellington_new_zealand
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
+  online_application: true
 gabon:
   type: ips_application_1
   group: ips_documents_group_3
@@ -507,9 +511,10 @@ kenya:
   app_form: hmpo_1_application_form
   address: durham
 kiribati:
-  type: wellington_new_zealand
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
+  online_application: true
 kosovo:
   type: ips_application_1
   group: ips_documents_group_3
@@ -674,9 +679,10 @@ namibia:
   app_form: hmpo_1_application_form
   address: durham
 nauru:
-  type: wellington_new_zealand
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
+  online_application: true
 nepal:
   type: ips_application_1
   group: ips_documents_group_3
@@ -687,13 +693,15 @@ netherlands:
   app_form: hmpo_1_application_form
   address: durham
 new-caledonia:
-  type: wellington_new_zealand
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
+  online_application: true
 new-zealand:
-  type: new_zealand
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
+  online_application: true
 nicaragua:
   type: ips_application_1
   group: ips_documents_group_2
@@ -737,9 +745,10 @@ panama:
   app_form: hmpo_2_application_form
   address: durham
 papua-new-guinea:
-  type: wellington_new_zealand
+  type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
+  online_application: true
 paraguay:
   type: ips_application_1
   group: ips_documents_group_3
@@ -792,9 +801,10 @@ rwanda:
   app_form: hmpo_1_application_form
   address: durham
 samoa:
-  type: wellington_new_zealand
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
+  online_application: true
 san-marino:
   type: ips_application_1
   group: ips_documents_group_1
@@ -842,9 +852,10 @@ slovenia:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
 solomon-islands:
-  type: wellington_new_zealand
+  type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
+  online_application: true
 somalia:
   type: ips_application_1
   group: ips_documents_group_3
@@ -971,9 +982,10 @@ togo:
   app_form: hmpo_1_application_form
   address: durham
 tonga:
-  type: wellington_new_zealand
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
+  online_application: true
 trinidad-and-tobago:
   type: ips_application_1
   group: ips_documents_group_3
@@ -997,9 +1009,10 @@ turks-and-caicos-islands:
   app_form: hmpo_2_application_form
   address: durham
 tuvalu:
-  type: wellington_new_zealand
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
+  online_application: true
 uganda:
   type: ips_application_1
   group: ips_documents_group_3
@@ -1032,9 +1045,10 @@ uzbekistan:
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
 vanuatu:
-  type: wellington_new_zealand
+  type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
+  online_application: true
 venezuela:
   type: ips_application_3
   group: ips_documents_group_3
@@ -1046,9 +1060,10 @@ vietnam:
   app_form: hmpo_1_application_form
   online_application: true
 wallis-and-futuna:
-  type: wellington_new_zealand
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
+  online_application: true
 western-sahara:
   type: ips_application_2
   group: ips_documents_group_3
