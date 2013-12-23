@@ -48,7 +48,7 @@ module SmartAnswer::Calculators
     private
 
     def end_of_month_after(date)
-      (date + 1.month).end_of_month
+      1.month.since(date).end_of_month
     end
   end
 end
