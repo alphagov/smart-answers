@@ -10,7 +10,7 @@ module SmartAnswer::Calculators
       @basic_pay = params[:basic_pay].to_f
       @is_apprentice = params[:is_apprentice]
       @pay_frequency = params[:pay_frequency] || 7
-      @overtime_hours = 0
+      @overtime_hours = params[:overtime_hours].to_i || 0
       @overtime_hourly_rate = 0
       @accommodation_cost = 0
       @minimum_wage_data = minimum_wage_data_for_date(@date)
@@ -18,8 +18,8 @@ module SmartAnswer::Calculators
 
     def basic_rate
       rate = @basic_pay / @basic_hours
-      if @overtime_hours > 0 and rate > @overtime_hourly_rate
-        @overtime_hourly_rate
+      if overtime_hours > 0 and overtime_hourly_rate > 0 and rate > overtime_hourly_rate
+        overtime_hourly_rate
       else
         rate
       end
@@ -42,12 +42,12 @@ module SmartAnswer::Calculators
     end
 
     def total_hours
-      (@basic_hours + @overtime_hours).round(2)
+      (@basic_hours + overtime_hours).round(2)
     end
 
     def total_overtime_pay
-      @overtime_hourly_rate = basic_hourly_rate if @overtime_hourly_rate > basic_hourly_rate
-      (@overtime_hours * @overtime_hourly_rate).round(2)
+      @overtime_hourly_rate = basic_hourly_rate if overtime_hourly_rate > basic_hourly_rate
+      (@overtime_hours * overtime_hourly_rate).round(2)
     end
 
     def total_working_pay
@@ -66,7 +66,7 @@ module SmartAnswer::Calculators
       end
     end
 
-    def total_entitlement 
+    def total_entitlement
       minimum_hourly_rate * total_hours
     end
 
@@ -135,7 +135,7 @@ module SmartAnswer::Calculators
     end
 
     protected
-    
+
     def weekly_multiplier
       (@pay_frequency.to_f / 7).round(3)
     end
