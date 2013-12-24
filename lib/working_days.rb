@@ -27,10 +27,14 @@ class WorkingDays
     date
   end
 
+  def self.workday?(date)
+    WEEKDAYS.include?(date.wday) and !bank_holidays.include?(date)
+  end
+
   private
 
   def workday?(date)
-    WEEKDAYS.include?(date.wday) and !self.class.bank_holidays.include?(date)
+    self.class.workday?(date)
   end
 
   def self.bank_holidays
@@ -51,4 +55,10 @@ Fixnum.class_eval do
     WorkingDays.new(self)
   end
   alias :working_day :working_days
+end
+
+Date.class_eval do
+  def workday?
+    WorkingDays.workday?(self)
+  end
 end
