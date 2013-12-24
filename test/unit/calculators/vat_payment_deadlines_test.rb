@@ -7,23 +7,37 @@ module SmartAnswer::Calculators
         to_return(:body => File.open(fixture_file('bank_holidays.json')))
     end
 
-    context "dates for direct-debit" do
-      setup do
-        @method = 'direct-debit'
-      end
+    context "payment dates for direct-debit and bank-giro" do
+      should "calculate last_payment_date where end of month is not a work day" do
+        ['bank-giro', 'direct-debit'].each do |pay_method|
+          calc = VatPaymentDeadlines.new(Date.parse('2013-10-31'), pay_method)
+          assert_equal Date.parse('2013-12-03'), calc.last_payment_date
 
+          calc = VatPaymentDeadlines.new(Date.parse('2014-04-30'), pay_method)
+          assert_equal Date.parse('2014-06-03'), calc.last_payment_date
+
+          calc = VatPaymentDeadlines.new(Date.parse('2014-07-31'), pay_method)
+          assert_equal Date.parse('2014-09-02'), calc.last_payment_date
+        end
+      end
+    end
+
+    context "dates for direct-debit" do
       should "calculate last_payment_date as end_of_month_after(end_date) + 7 calendar days - 3 working days" do
-        calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), @method)
+        calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), 'direct-debit')
         assert_equal Date.parse('2013-06-04'), calc.last_payment_date
       end
 
       should "calculate funds_received_by as end_of_month_after(end_date) + 7 calendar days + 3 working days where end_of_month_after(end_date) is a work day" do
-        calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), @method)
+        calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), 'direct-debit')
+        assert_equal Date.parse('2013-06-04'), calc.last_payment_date
         assert_equal Date.parse('2013-06-12'), calc.funds_received_by
+
       end
 
       should "calculate funds_received_by as end_of_month_after(end_date) + 7 calendar days + 3 working days where end_of_month_after(end_date) is not a work day" do
-        calc = VatPaymentDeadlines.new(Date.parse('2014-04-30'), @method)
+        calc = VatPaymentDeadlines.new(Date.parse('2014-04-30'), 'direct-debit')
+        assert_equal Date.parse('2014-06-03'), calc.last_payment_date
         assert_equal Date.parse('2014-06-11'), calc.funds_received_by
       end
     end
