@@ -237,12 +237,28 @@ outcome :embassy_result do
     raise InvalidResponse unless loc
     loc
   end
-  precalculate :organisation do
-    location.fco_organisation
+  precalculate :organisations do
+    if registration_country == 'united-arab-emirates'
+      location.organisations.select {|o| o.fco_sponsored? }
+    else
+      [location.fco_organisation]
+    end
   end
   precalculate :overseas_passports_embassies do
-    if organisation
-      organisation.offices_with_service 'Births and Deaths registration service'
+    if organisations
+      service_title = 'Births and Deaths registration service'
+      if registration_country == 'united-arab-emirates'
+        all_offices = []
+        organisations.each do |embassy|
+          embassy_offices = embassy.all_offices.select do |o|
+            o.services.any? { |s| s.title.include?(service_title) }
+          end
+          all_offices.concat(embassy_offices)
+        end
+        all_offices.any? ? all_offices : [organisations.first.main_office]
+      else
+        organisations.first.offices_with_service(service_title)
+      end
     else
       []
     end
