@@ -445,5 +445,42 @@ module SmartAnswer::Calculators
                      calculator.formatted_sick_pay_weekly_amounts
       end
     end
+
+    context "average weekly earnings for new employees who fell sick before first payday" do
+      should "give the average weekly earnings" do
+        pay = SmartAnswer::Money.new(100)
+        days_worked = 7
+        awe = StatutorySickPayCalculator.contractual_earnings_awe(pay, days_worked)
+        assert_equal 100, awe
+      end
+    end
+
+    context "average weekly earnings for new employees who fell sick before first payday - using decimal place" do
+      should "give the average weekly earnings" do
+        pay = SmartAnswer::Money.new(100)
+        days_worked = 10.5
+        awe = StatutorySickPayCalculator.contractual_earnings_awe(pay, days_worked)
+        assert_equal 66.67, awe
+      end
+    end
+
+    context "xx average weekly earnings for employees who've been paid less than 8 weeks with exact weeks pay" do
+      should "give the average weekly earnings" do
+        pay = SmartAnswer::Money.new(532)
+        days_worked = 42
+        awe = StatutorySickPayCalculator.total_earnings_awe(pay, days_worked)
+        assert_equal 88.67, awe.to_f
+      end
+    end
+
+    context "average weekly earnings for employees who've been paid less than 8 weeks with in-exact weeks pay" do
+      should "give the average weekly earnings" do
+        pay = SmartAnswer::Money.new(600)
+        days_worked = 43
+        awe = StatutorySickPayCalculator.total_earnings_awe(pay, days_worked)
+        assert_equal 97.67, awe
+      end
+    end
+
   end # SSP calculator
 end
