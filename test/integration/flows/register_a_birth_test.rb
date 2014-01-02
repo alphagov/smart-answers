@@ -43,9 +43,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
         should "ask where you are now and go to embassy result" do
           add_response "same_country"
           assert_current_node :embassy_result
-          expected_location = WorldLocation.find('turkey')
-          assert_state_variable :location, expected_location
-          assert_state_variable :organisation, expected_location.fco_organisation
         end
       end # not married/cp
     end # mother
@@ -66,9 +63,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'yes'
       add_response 'same_country'
       assert_state_variable :registration_country, 'spain'
-      expected_location = WorldLocation.find('spain')
-      assert_state_variable :location, expected_location
-      assert_state_variable :organisation, expected_location.fco_organisation
     end
   end # Andorra
 
@@ -77,7 +71,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       worldwide_api_has_organisations_for_location('iran', read_fixture_file('worldwide/iran_organisations.json'))
       add_response 'iran'
       assert_current_node :no_embassy_result
-      expected_location = WorldLocation.find('iran')
     end
   end # Iran
 
@@ -158,9 +151,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
               assert_state_variable :registration_country, 'ireland'
               assert_phrase_list :birth_registration_form, [:birth_registration_form]
               assert_current_node :embassy_result
-              expected_location = WorldLocation.find('ireland')
-              assert_state_variable :location, expected_location
-              assert_state_variable :organisation, expected_location.fco_organisation
             end # now in Ireland
             should "USA and get the embassy outcome" do
               worldwide_api_has_organisations_for_location('usa', read_fixture_file('worldwide/usa_organisations.json'))
@@ -175,9 +165,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
               assert_phrase_list :postal, [:postal_info, :"postal_info_usa"]
               assert_phrase_list :footnote, [:footnote_another_country]
               assert_current_node :embassy_result
-              expected_location = WorldLocation.find('usa')
-              assert_state_variable :location, expected_location
-              assert_state_variable :organisation, expected_location.fco_organisation
             end # now in USA
             should "answer Yemen and get the no embassy outcome" do
               add_response 'yemen'
@@ -206,9 +193,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_state_variable :postal_form_url, nil 
       assert_state_variable :postal, ""
       assert_phrase_list :footnote, [:footnote_exceptions] 
-      expected_location = WorldLocation.find('afghanistan')
-      assert_state_variable :location, expected_location
-      assert_state_variable :organisation, expected_location.fco_organisation
     end
   end # Afghanistan
   context "answer Pakistan" do
@@ -219,9 +203,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "in_the_uk"
       assert_current_node :embassy_result
-      expected_location = WorldLocation.find('pakistan')
-      assert_state_variable :location, expected_location
-      assert_state_variable :organisation, expected_location.fco_organisation
     end
   end # Pakistan
   context "answer Sweden" do
@@ -236,9 +217,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
       assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_sweden]
       assert_phrase_list :documents_footnote, [:docs_footnote_sweden]
-      expected_location = WorldLocation.find('sweden')
-      assert_state_variable :location, expected_location
-      assert_state_variable :organisation, expected_location.fco_organisation
     end
   end # Sweden
   context "answer Taiwan" do
@@ -254,9 +232,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :cash_only, [:cheque_only]
       assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
       assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_taiwan]
-      expected_location = WorldLocation.find('taiwan')
-      assert_state_variable :location, expected_location
-      assert_state_variable :organisation, expected_location.fco_organisation
     end
   end # Taiwan
   context "answer Taiwan now in the UK" do
@@ -294,9 +269,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
       assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
       assert_phrase_list :go_to_the_embassy, [:registering_clickbook, :registering_paternity_declaration]
-      expected_location = WorldLocation.find('belize')
-      assert_state_variable :location, expected_location
-      assert_state_variable :organisation, expected_location.fco_organisation
     end # Not married or CP
   end # Belize
   context "answer Libya" do
@@ -311,9 +283,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :fees_for_consular_services, [:consular_service_fees_libya]
       assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_libya]
       assert_phrase_list :go_to_the_embassy, [:registering_all, :registering_either_parent]
-      expected_location = WorldLocation.find('libya')
-      assert_state_variable :location, expected_location
-      assert_state_variable :organisation, expected_location.fco_organisation
     end # Not married or CP
   end # Libya
   context "answer Hong Kong" do
@@ -328,9 +297,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
       assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
       assert_phrase_list :go_to_the_embassy, [:registering_hong_kong, :registering_either_parent]
-      expected_location = WorldLocation.find('hong-kong')
-      assert_state_variable :location, expected_location
-      assert_state_variable :organisation, expected_location.fco_organisation
     end # Not married or CP
   end # Hong Kong
   context "answer barbados" do
@@ -347,9 +313,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :go_to_the_embassy, [:registering_all, :registering_either_parent]
       assert_phrase_list :cash_only, [:cash_and_card]
       assert_phrase_list :footnote, [:footnote]
-      expected_location = WorldLocation.find('barbados')
-      assert_state_variable :location, expected_location
-      assert_state_variable :organisation, expected_location.fco_organisation
     end # Not married or CP
   end # Barbados
   context "answer united arab emirates" do
@@ -365,9 +328,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :documents_you_must_provide, [:"documents_you_must_provide_united-arab-emirates"]
       assert_phrase_list :cash_only, [:cash_and_card]
       assert_phrase_list :footnote, [:footnote]
-      expected_location = WorldLocation.find('united-arab-emirates')
-      assert_state_variable :location, expected_location
-      assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /British Embassy Dubai/, outcome_body # there are two separate organisations in UAE so this tests that the correct embassy (Dubai) is returned
     end # Not married or CP
   end # UAE
   context "answer indonesia" do
@@ -385,9 +346,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :documents_you_must_provide, [:"documents_you_must_provide_all"]
       assert_phrase_list :cash_only, [:cash_and_card]
       assert_phrase_list :footnote, [:footnote]
-      expected_location = WorldLocation.find('indonesia')
-      assert_state_variable :location, expected_location
-      assert_state_variable :organisation, expected_location.fco_organisation
     end # Not married or CP
   end # Indonesia
 
@@ -403,9 +361,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'same_country'
       assert_state_variable :registration_country, "guatemala"
       assert_state_variable :registration_country_name, "Guatemala"
-      expected_location = WorldLocation.find('guatemala')
-      assert_state_variable :location, expected_location
-      assert_state_variable :organisation, expected_location.fco_organisation
     end
   end
 
@@ -420,9 +375,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'same_country'
       assert_state_variable :registration_country, "thailand"
       assert_state_variable :registration_country_name, "Thailand"
-      expected_location = WorldLocation.find('thailand')
-      assert_state_variable :location, expected_location
-      assert_state_variable :organisation, expected_location.fco_organisation
     end
   end
   context "maldives, where you have to register in sri lanka" do
@@ -436,9 +388,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'same_country'
       assert_state_variable :registration_country, "sri-lanka"
       assert_state_variable :registration_country_name, "Sri Lanka"
-      expected_location = WorldLocation.find('sri-lanka')
-      assert_state_variable :location, expected_location
-      assert_state_variable :organisation, expected_location.fco_organisation
     end
   end
   context "China" do
@@ -450,9 +399,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'same_country'
       assert_current_node :embassy_result
       assert outcome_body.at_css("ul li a[href='https://www.clickbook.net/dev/bc.nsf/sub/BritEmBeijing']")
-      expected_location = WorldLocation.find('china')
-      assert_state_variable :location, expected_location
-      assert_state_variable :organisation, expected_location.fco_organisation
     end
   end
   context "child born in grenada, parent in St kitts" do
@@ -465,9 +411,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'st-kitts-and-nevis'
       assert_current_node :embassy_result
       assert_phrase_list :birth_registration_form, [:birth_registration_form]
-      expected_location = WorldLocation.find('barbados')
-      assert_state_variable :location, expected_location
-      assert_state_variable :organisation, expected_location.fco_organisation
     end
   end
   context "child born in usa, parent in usa" do
@@ -479,9 +422,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'same_country'
       assert_current_node :embassy_result
       assert_phrase_list :birth_registration_form, [:birth_registration_form_usa]
-      expected_location = WorldLocation.find('usa')
-      assert_state_variable :location, expected_location
-      assert_state_variable :organisation, expected_location.fco_organisation
     end
   end
   # testing for delivery return form in Spain
@@ -495,9 +435,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_current_node :embassy_result
       assert_phrase_list :postal_return, [:postal_form_return]
       assert_phrase_list :birth_registration_form, [:birth_registration_form]
-      expected_location = WorldLocation.find('spain')
-      assert_state_variable :location, expected_location
-      assert_state_variable :organisation, expected_location.fco_organisation
     end
   end
 
