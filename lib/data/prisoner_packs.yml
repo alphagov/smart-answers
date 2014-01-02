@@ -30,10 +30,10 @@
   lawyer: /government/publications/australia-list-of-lawyers
 - slug: austria
   pdf: /government/publications/austria-prisoner-pack
+  lawyer: /government/publications/austria-list-of-lawyers
   benefits: /government/publications/austria-prison-pack-legal-aid-in-austria
   prison: /government/publications/austria-prison-rules
   consul: /government/publications/austria-prisoner-pack-how-the-consul-can-help-you
-  lawyer: /government/publications/austria-list-of-lawyers
 - slug: azerbaijan
   doc: /government/publications/azerbaijan-prisoner-pack
   lawyer: /government/publications/azerbaijan-list-of-lawyers-translators
@@ -140,16 +140,13 @@
       url_text: Prisoner pack for the north of Cyprus
     north_lawyer:
       link: /government/publications/cyprus-north-list-of-lawyers
-      url_text: List of lwyers for North Cyprus
+      url_text: English speaking lawyers and translators/interpreters in North Cyprus
     republic:
       link: /government/publications/cyprus-prisoner-pack
       url_text: Prisoner pack for people who have been imprisoned at Nicosia Central Prison or held on remand at a police station in the Republic of Cyprus
-    republic_police:
-      link: /government/publications/british-high-commission-cyprus-prisoner-pack
-      url_text: Police station pack for people who are detained or held on remand at a police station in the Republic of Cyprus
     republic_lawyers:
       link: /government/publications/cyprus-list-of-lawyers
-      url_text: List of lawyers for the Republic of Cyprus
+      url_text: English speaking lawyers and translators/interpreters in the Republic of Cyprus
 
 - slug: czech-republic
   pdf: /government/publications/czech-republic-prisoner-pack
@@ -497,6 +494,9 @@
 - slug: thailand
   pdf: /government/publications/thailand-prisoner-pack
   lawyer: /government/publications/thailand-list-of-lawyers
+- slug: the-occupied-palestinian-territories
+  pdf: /government/publications/the-occupied-palestinian-territories-prisoner-pack
+  lawyer: /government/publications/the-occupied-palestinian-territories-list-of-lawyers
 - slug: timor-leste
 - slug: togo
 - slug: tonga

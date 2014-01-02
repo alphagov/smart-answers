@@ -19,36 +19,30 @@ module SmartAnswer::Calculators
           assert_equal "- [Prisoner pack](/government/publications/argentina-prisoner-pack)", link
         end
 
-        should "add external tag if URL contains http" do
-          link = @calc.generate_url_for_download("kuwait", "doc", "Foo")
-          assert link.include?("{:rel=\"external\"}")
-        end
-
         should "not include external tag if URL is internal" do
           link = @calc.generate_url_for_download("israel", "pdf", "Foo")
           assert !link.include?("{:rel=\"external\"}")
         end
       end
 
-
-
       context "countries with regions" do
-        should "pull the regions out of the YML for Australia" do
-          resp = @calc.get_country_regions("australia")["new_south_wales"]
+        should "pull out regions of the YML for Cyprus" do
+          resp = @calc.get_country_regions("cyprus")
+          assert resp["north"]
+          assert resp["north_lawyer"]
+          assert resp["republic"]
+          assert resp["republic_lawyers"]
+        end
+
+        should "pull the regions out of the YML for Cyprus" do
+          resp = @calc.get_country_regions("cyprus")["north"]
           expected = {
-            "link" => "/government/publications/australia-prisoner-pack",
-            "url_text" => "Prisoner pack for New South Wales"
+            "link" => "/government/publications/cyprus-north-prisoner-pack",
+            "url_text" => "Prisoner pack for the north of Cyprus"
           }
           assert_equal expected, resp
         end
 
-        should "pull out regions of the YML for UAE" do
-          resp = @calc.get_country_regions("united-arab-emirates")
-          assert resp["abu_dhabi"]
-          assert resp["dubai_north"]
-          assert resp["police_info"]
-          assert resp["addition"]
-        end
       end
     end
   end
