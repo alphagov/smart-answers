@@ -9,11 +9,13 @@ module SmartAnswer::Calculators
 
     def last_payment_date
       case @payment_method
-      when 'direct-debit'
-        3.working_days.before(end_of_month_after(@period_end_date) + 7.days)
+      when 'direct-debit', 'bank-giro'
+        payment_date = end_of_month_after(@period_end_date) + 7.days
+        payment_date -= 1 while !payment_date.workday?
+        3.working_days.before(payment_date)
       when 'online-telephone-banking'
         end_of_month_after(@period_end_date) + 7.days
-      when 'online-debit-credit-card', 'bacs-direct-credit', 'bank-giro'
+      when 'online-debit-credit-card', 'bacs-direct-credit'
         3.working_days.before(end_of_month_after(@period_end_date) + 7.days)
       when 'chaps'
         5.working_days.after(end_of_month_after(@period_end_date))
@@ -48,7 +50,7 @@ module SmartAnswer::Calculators
     private
 
     def end_of_month_after(date)
-      (date + 1.month).end_of_month
+      1.month.since(date).end_of_month
     end
   end
 end
