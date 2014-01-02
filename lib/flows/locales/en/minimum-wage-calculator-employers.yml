@@ -9,19 +9,7 @@ en-GB:
       options:
         "yes": "Yes"
         "no": "No"
-      
-      phrases:
-        free_accommodation_exp: |
-          ## How accommodation is calculated
 
-          £%{accommodation_rate} x %{accommodation_usage} nights + £%{total_working_pay} total pay / %{total_hours} hours = £%{total_hourly_rate}
-
-        charged_accommodation_exp: |
-          ## How accommodation is calculated
-
-          s1. [rate per day charged for accommodation] x [days accommodation is provided in pay period] = [accommodation charge per pay period]  
-          s2. [total pay] - [accommodation charge per pay period] + [£4.82 offset rate x days in pay period] = [total pay]  
-          s3. [total pay] / [hours worked in pay period] = [actual pay per hour]  
       # Q1
       what_would_you_like_to_check?:
         title: "What would you like to check?"
@@ -102,13 +90,13 @@ en-GB:
       # Q6
       how_much_are_you_paid_during_pay_period?:
         title: "How much do you pay the worker in the pay period?"
-        hint: "Don’t include payments for overtime or anything extra to their pay, eg sales commission, money for clothes or goods."
+        hint: "Don’t include payments for overtime or anything extra to their pay, eg money for clothes or goods."
         suffix_label: in the pay period
         error_message: Please enter a number
       # Q6 Past
       how_much_were_you_paid_during_pay_period?:
         title: "How much did you pay the worker in the pay period?"
-        hint: "Don’t include payments for overtime or anything extra to their pay, eg sales commission, money for clothes or goods."
+        hint: "Don’t include payments for overtime or anything extra to their pay, eg money for clothes or goods."
         suffix_label: in the pay period
         error_message: Please enter a number
       # Q7
@@ -172,13 +160,11 @@ en-GB:
           You are paying the National Minimum Wage.
           $C
 
-         
-          The National Minimum Wage per hour for the worker's age | The worker's actual pay
+          The National Minimum Wage per hour for the worker’s age | The worker’s actual pay
           - | -
           £%{minimum_hourly_rate} | £%{total_hourly_rate}
 
-          
-          If the worker works overtime or you provide them with [accommodation](/national-minimum-wage-accommodation "National minimum wage: accommodation"), this has been added to the calculation.
+          If the worker works overtime or you provide them with [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
 
           This result is an estimate. If you have any questions, call the confidential helpline:
 
@@ -188,20 +174,20 @@ en-GB:
           Telephone: 0800 917 2368
           $C
 
-          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work "Minimum wage for different types of work").
+          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work).
       current_payment_below:
         body: |
           $C
           You aren't paying the National Minimum Wage.
           $C
 
-          The National Minimum Wage per hour for the worker's age | The worker's actual pay | For each pay period you owe the worker 
+          The National Minimum Wage per hour for the worker’s age | The worker’s actual pay | For each pay period you owe the worker
           - | - | -
           £%{minimum_hourly_rate} | £%{total_hourly_rate} * | £%{total_underpayment}
 
           \* This figure has been rounded to the nearest penny.
 
-          If the worker works overtime or you provide [accommodation](/national-minimum-wage-accommodation "National minimum wage: accommodation"), this has been added to the calculation.
+          If the worker works overtime or you provide [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
 
           This result is an estimate. If you have any questions, call the confidential helpline:
 
@@ -211,7 +197,7 @@ en-GB:
           Telephone: 0800 917 2368
           $C
 
-          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work "Minimum wage for different types of work").
+          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work).
 
       past_payment_above:
         body: |
@@ -221,13 +207,11 @@ en-GB:
           You don’t owe the worker any past payments.
           $C
 
-
-          The National Minimum Wage per hour at the time | The worker's actual pay
+          The National Minimum Wage per hour at the time | The worker’s actual pay
           - | -
           £%{minimum_hourly_rate} | £%{total_hourly_rate}
 
-          
-          If the worker worked overtime or you provided [accommodation](/national-minimum-wage-accommodation "National minimum wage: accommodation"), this has been added to the calculation.
+          If the worker worked overtime or you provided [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
 
           This result is an estimate. If you have any questions, call the confidential helpline:
 
@@ -236,9 +220,8 @@ en-GB:
           Pay and Work Rights Helpline
           Telephone: 0800 917 2368
           $C
-          
 
-          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work "Minimum wage for different types of work").
+          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work).
 
       past_payment_below:
         body: |
@@ -247,29 +230,28 @@ en-GB:
           $C
 
 
-          The National Minimum Wage per hour at the time | The worker's actual pay | For each pay period you owe the worker 
+          The National Minimum Wage per hour at the time | The worker’s actual pay | For each pay period you owe the worker
           - | -
           £%{minimum_hourly_rate} | £%{total_hourly_rate} * | £%{total_underpayment}
 
           \* This figure has been rounded to the nearest penny.
 
-          This calculation includes an additional amount the worker is entitled to by law for past payments. If the worker worked overtime or you provided [accommodation](/national-minimum-wage-accommodation "National minimum wage: accommodation"), this has been added to the calculation.
+          This calculation includes an additional amount the worker is entitled to by law for past payments. If the worker worked overtime or you provided [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
 
           This result is an estimate. If you have any questions, call the confidential helpline:
 
-          
+
           $C
           Pay and Work Rights Helpline
           Telephone: 0800 917 2368
           $C
-          
 
-          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work "Minimum wage for different types of work").
+          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work).
 
       does_not_apply_to_historical_apprentices:
         body: "There was no National Minimum Wage rate for apprentices before 1 October 2010. Your don't owe the worker any past payments."
 
       under_school_leaving_age:
-        body: The worker must be at least [school leaving age](/know-when-you-can-leave-school "School leaving age") to be entitled to the National Minimum Wage.
+        body: The worker must be at least [school leaving age](/know-when-you-can-leave-school) to be entitled to the National Minimum Wage.
       under_school_leaving_age_past:
-        body: The worker must have been at least [school leaving age](/know-when-you-can-leave-school "School leaving age") at the time to be entitled to the National Minimum Wage.    
+        body: The worker must have been at least [school leaving age](/know-when-you-can-leave-school) at the time to be entitled to the National Minimum Wage.    
