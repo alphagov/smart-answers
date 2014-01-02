@@ -1,8 +1,9 @@
 status :published
+satisfies_need "100220"
 
 arrested_calc = SmartAnswer::Calculators::ArrestedAbroad.new
 prisoner_packs = arrested_calc.data
-exclude_countries = %w(holy-see british-antarctic-territory the-occupied-palestinian-territories)
+exclude_countries = %w(holy-see british-antarctic-territory)
 
 #Q1
 country_select :which_country?, :exclude_countries => exclude_countries do
@@ -50,8 +51,12 @@ country_select :which_country?, :exclude_countries => exclude_countries do
     arrested_calc.generate_url_for_download(country, "consul", "Consul help available in #{country_name}")
   end
 
+  calculate :lawyer do
+    arrested_calc.generate_url_for_download(country, "lawyer", "English speaking lawyers and translators/interpreters in #{country_name}")
+  end
+
   calculate :has_extra_downloads do
-    [police, judicial, consul, prison, benefits, doc, pdf].select { |x|
+    [police, judicial, consul, prison, lawyer, benefits, doc, pdf].select { |x|
       x != ""
     }.length > 0 || arrested_calc.countries_with_regions.include?(country)
   end
