@@ -327,7 +327,7 @@ outcome :ips_application_result do
 
   precalculate :getting_your_passport do
     collect_in_person_countries = %w(angola benin burundi cambodia cameroon chad congo egypt eritrea ethiopia gambia ghana guinea jamaica kenya nigeria rwanda sierra-leone somalia south-sudan uganda zambia)
-    collect_in_person_variant_countries = %w(burma india iraq jordan nepal north-korea yemen)
+    collect_in_person_variant_countries = %w(burma india iraq jordan nepal north-korea pitcairn-island yemen)
 
     phrases = PhraseList.new
     if collect_in_person_countries.include?(current_location)

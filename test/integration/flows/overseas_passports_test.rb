@@ -9,7 +9,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania afghanistan australia austria azerbaijan bangladesh benin cameroon congo djibouti egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nigeria north-korea pakistan russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia united-kingdom yemen zimbabwe vietnam)
+    @location_slugs = %w(albania afghanistan australia austria azerbaijan bangladesh benin cameroon congo djibouti egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nigeria north-korea pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia united-kingdom yemen zimbabwe vietnam)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports'
   end
@@ -638,6 +638,22 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_match /Millburngate House/, outcome_body
     end
   end # Jordan (IPS1 with custom phrases)
+
+  context "answer Pitcairn Island, applying, adult passport" do
+    should "give the IPS application result with custom phrases" do
+      worldwide_api_has_organisations_for_location('pitcairn-island', read_fixture_file('worldwide/pitcairn-island_organisations.json'))
+      add_response 'pitcairn-island'
+      add_response 'applying'
+      add_response 'adult'
+      add_response 'united-kingdom'
+      assert_current_node :ips_application_result
+      assert_phrase_list :getting_your_passport, [:"getting_your_passport_pitcairn-island"]
+      expected_location = WorldLocation.find('pitcairn-island')
+      assert_state_variable :location, expected_location
+      assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /101 Old Hall Street/, outcome_body
+    end
+  end # Pitcairn Island (IPS1 with custom phrases)
 
   context "answer Iran" do
     should "give a bespoke outcome stating an application is not possible in Iran" do
