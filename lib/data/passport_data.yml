@@ -765,7 +765,7 @@ philippines:
   app_form: hmpo_1_application_form
   online_application: true
 pitcairn-island:
-  type: wellington_new_zealand
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
 poland:
