@@ -706,20 +706,10 @@ en-GB:
           You may be able to get benefits from the country where you’re moving to if you have been paying into that country’s social security insurance scheme.  
       answer_35:
         body: |
-          $!You can claim Attendance Allowance and Disability Living Allowance for up to 26 weeks - possibly longer if you’re going abroad for medical treatment.$!
+          You can claim Attendance Allowance and Disability Living Allowance for up to 13 weeks - or 26 weeks if it’s for medical treatment. You can claim Carer’s Allowance if you take up to 4 weeks holiday out of a 26-week period.
 
-          $!You can claim Carer’s Allowance if you take up to 4 weeks holiday out of a 26-week period.$!
+          Tell the office that deals with your benefit that you’ll be away.
 
-          Contact the Benefit Enquiry Line to let them know before you go abroad.
-
-
-          $C
-          **Benefit Enquiry Line**  
-          Telephone: 0800 88 22 00  
-          Textphone: 0800 24 33 55  
-
-          Monday to Friday, 8:30am to 6:30pm
-          $C
       answer_35b:
         body: |
           You can't claim these benefits when you move abroad.
