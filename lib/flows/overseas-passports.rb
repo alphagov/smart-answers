@@ -126,8 +126,6 @@ multiple_choice :child_or_adult_passport? do
 
   next_node do |response|
     case application_type
-    when 'australia_post', 'new_zealand'
-      :"which_best_describes_you_#{response}?"
     when Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP
       %Q(applying renewing_old).include?(application_action) ? :country_of_birth? : ips_result_type
     when Calculators::PassportAndEmbassyDataQuery::FCO_APPLICATIONS_REGEXP
@@ -156,8 +154,6 @@ country_select :country_of_birth?, :include_uk => true, :exclude_countries => ex
 
   next_node do |response|
     case application_type
-    when 'australia_post', 'new_zealand'
-      :aus_nz_result
     when Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP
       ips_result_type
     when Calculators::PassportAndEmbassyDataQuery::FCO_APPLICATIONS_REGEXP
@@ -165,80 +161,6 @@ country_select :country_of_birth?, :include_uk => true, :exclude_countries => ex
     else
       :result
     end
-  end
-end
-
-# QAUS1
-multiple_choice :which_best_describes_you_adult? do
-  option "born-in-uk-pre-1983" # 4
-  option "born-in-uk-post-1982-uk-father" # 5
-  option "born-in-uk-post-1982-uk-mother" # 6
-  option "born-outside-uk-parents-married" # 7
-  option "born-outside-uk-mother-born-in-uk" # 8
-  option "born-in-uk-post-1982-father-uk-citizen" # 9
-  option "born-in-uk-post-1982-mother-uk-citizen" # 10
-  option "born-outside-uk-father-registered-uk-citizen" # 11
-  option "born-outside-uk-mother-registered-uk-citizen" # 12
-  option "born-in-uk-post-1982-father-uk-service" # 13
-  option "born-in-uk-post-1982-mother-uk-service" # 14
-  option "married-to-uk-citizen-pre-1983-reg-pre-1988" # 15
-  option "registered-uk-citizen" # 16
-  option "woman-married-to-uk-citizen-pre-1949" # 18
-
-  save_input_as :aus_nz_checklist_variant
-
-  next_node :aus_nz_result
-end
-# QAUS1 Child specific options
-multiple_choice :which_best_describes_you_child? do
-  option "born-in-uk-post-1982-uk-father" # 5
-  option "born-in-uk-post-1982-uk-mother" # 6
-  option "born-outside-uk-parents-married" # 7
-  option "born-outside-uk-mother-born-in-uk" # 8
-  option "born-in-uk-post-1982-father-uk-citizen" # 9
-  option "born-in-uk-post-1982-mother-uk-citizen" # 10
-  option "born-in-uk-post-1982-father-uk-service" # 13
-  option "born-in-uk-post-1982-mother-uk-service" # 14
-  option "registered-uk-citizen" # 16
-  option "child-born-outside-uk-father-citizen" # 17
-
-  save_input_as :aus_nz_checklist_variant
-
-  next_node :aus_nz_result
-end
-
-## australia_post/new_zealand result.
-outcome :aus_nz_result do
-  precalculate :how_long_it_takes do
-    PhraseList.new(:"how_long_#{application_type}")
-  end
-  precalculate :cost do
-    PhraseList.new(:"cost_#{application_type}")
-  end
-  precalculate :how_to_apply do
-    PhraseList.new(:"how_to_apply_#{application_type}")
-  end
-  precalculate :how_to_apply_documents do
-    phrases = PhraseList.new(:"how_to_apply_#{child_or_adult}_#{application_type}")
-
-    if application_action == 'replacing'
-      phrases << :"aus_nz_replacing"
-    end
-    if application_action =~ /^renewing_/
-      phrases << :"aus_nz_renewing"
-    end
-
-    phrases << :"aus_nz_#{aus_nz_checklist_variant}"
-    phrases
-  end
-  precalculate :instructions do
-    PhraseList.new(:"instructions_#{application_type}")
-  end
-  precalculate :receiving_your_passport do
-    PhraseList.new(:"receiving_your_passport_#{application_type}")
-  end
-  precalculate :helpline do
-    PhraseList.new(:helpline_fco_webchat)
   end
 end
 
@@ -390,6 +312,13 @@ outcome :ips_application_result do
       phrases << :send_application_embassy_address
     elsif %w(bangladesh).include?(current_location)
       phrases << :"send_application_ips3_#{current_location}" << :send_application_embassy_address
+    elsif %w(burundi).include?(current_location)
+      if %w(renewing_new).include?(application_action)
+        phrases << :send_application_ips3_burundi_renew_new
+      else
+        phrases << :send_application_ips3_burundi_apply_renew_old_replace
+      end
+      phrases << :send_application_embassy_address
     elsif %w(india pakistan).include?(current_location)
       phrases << :"send_application_ips3_#{current_location}" << :send_application_ips3_must_post << :send_application_embassy_address
     elsif %w(north-korea thailand).include?(current_location) and %w(renewing_new).include?(application_action)
@@ -404,14 +333,23 @@ outcome :ips_application_result do
   end
 
   precalculate :getting_your_passport do
-    collect_in_person_countries = %w(angola benin burundi cambodia cameroon chad congo egypt eritrea ethiopia gambia ghana guinea jamaica kenya nigeria rwanda sierra-leone somalia south-sudan uganda zambia)
-    collect_in_person_variant_countries = %w(burma india iraq jordan nepal north-korea yemen)
+    collect_in_person_countries = %w(angola benin cambodia cameroon chad congo egypt eritrea ethiopia gambia ghana guinea jamaica kenya nigeria rwanda sierra-leone somalia south-sudan uganda zambia)
+    collect_in_person_variant_countries = %w(burma burundi india iraq jordan nepal north-korea pitcairn-island yemen)
 
     phrases = PhraseList.new
     if collect_in_person_countries.include?(current_location)
       phrases << :"getting_your_passport_#{current_location}" << :getting_your_passport_contact_and_id
     elsif collect_in_person_variant_countries.include?(current_location)
-      phrases << :"getting_your_passport_#{current_location}"
+      if %w(burundi).include?(current_location)
+        if %w(renewing_new).include?(application_action)
+          phrases << :getting_your_passport_burundi_renew_new
+        else
+          phrases << :getting_your_passport_burundi
+          phrases << :getting_your_passport_contact_and_id
+        end
+      else
+        phrases << :"getting_your_passport_#{current_location}"
+      end
     elsif %w(thailand).include?(current_location)
       if %w(renewing_new).include?(application_action)
         phrases << :getting_your_passport_thailand_renew_new

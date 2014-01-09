@@ -9,7 +9,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania afghanistan australia austria azerbaijan bangladesh benin cameroon congo djibouti egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nigeria north-korea pakistan russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia united-kingdom yemen zimbabwe vietnam)
+    @location_slugs = %w(albania afghanistan australia austria azerbaijan bangladesh benin burundi cameroon congo djibouti egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nigeria north-korea pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia united-kingdom yemen zimbabwe vietnam)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports'
   end
@@ -18,157 +18,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
   should "ask which country you are in" do
     assert_current_node :which_country_are_you_in?
   end
-  context "answer Australia" do
-    setup do
-      worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
-      add_response 'australia'
-    end
-    should "ask if you are renewing, replacing or applying for a passport" do
-      assert_current_node :renewing_replacing_applying?
-      assert_state_variable :current_location, 'australia'
-    end
-    context "answer applying" do
-      setup do
-        add_response 'applying'
-      end
-      should "ask if the passport is for an adult or a child" do
-        assert_current_node :child_or_adult_passport?
-      end
-      context "answer adult" do
-        setup do
-          add_response 'adult'
-        end
-        should "ask which best describes your situation" do
-          assert_current_node :which_best_describes_you_adult?
-        end
-        context "answer born in the uk before 1 Jan 1983" do
-          should "give the australian result" do
-            add_response 'born-in-uk-pre-1983'
-            assert_state_variable :aus_nz_checklist_variant, 'born-in-uk-pre-1983'
-            assert_current_node :aus_nz_result
-            assert_phrase_list :how_long_it_takes, [:how_long_australia_post]
-            assert_phrase_list :cost, [:cost_australia_post]
-            assert_phrase_list :how_to_apply, [:how_to_apply_australia_post]
-            assert_phrase_list :how_to_apply_documents, [:how_to_apply_adult_australia_post, "aus_nz_born-in-uk-pre-1983".to_sym]
-            assert_phrase_list :instructions, [:instructions_australia_post]
-            assert_phrase_list :helpline, [:helpline_fco_webchat]
-            expected_location = WorldLocation.find('australia')
-            assert_state_variable :location, expected_location
-            assert_state_variable :organisation, expected_location.fco_organisation
-          end
-        end
-        context "answer born in the uk after 31 Dec 1982 with father born in UK" do
-          should "give the australian result" do
-            add_response 'born-in-uk-post-1982-uk-father'
-            assert_state_variable :aus_nz_checklist_variant, 'born-in-uk-post-1982-uk-father'
-            assert_current_node :aus_nz_result
-          end
-        end
-        context "answer born in the uk before 1 Jan 1983 with mother born in UK" do
-          should "give the australian result" do
-            add_response 'born-in-uk-post-1982-uk-mother'
-            assert_state_variable :aus_nz_checklist_variant, 'born-in-uk-post-1982-uk-mother'
-            assert_current_node :aus_nz_result
-          end
-        end
-        context "answer born outside the uk with british father married to mother" do
-          should "give the australian result" do
-            add_response 'born-outside-uk-parents-married'
-            assert_state_variable :aus_nz_checklist_variant, 'born-outside-uk-parents-married'
-            assert_current_node :aus_nz_result
-          end
-        end
-        context "answer born outside the uk with british mother" do
-          should "give the australian result" do
-            add_response 'born-outside-uk-mother-born-in-uk'
-            assert_state_variable :aus_nz_checklist_variant, 'born-outside-uk-mother-born-in-uk'
-            assert_current_node :aus_nz_result
-          end
-        end
-        context "answer born in UK after 31 Dec 1983 with british citizen father" do
-          should "give the australian result" do
-            add_response 'born-in-uk-post-1982-father-uk-citizen'
-            assert_state_variable :aus_nz_checklist_variant, 'born-in-uk-post-1982-father-uk-citizen'
-            assert_current_node :aus_nz_result
-          end
-        end
-        context "answer born in UK after 31 Dec 1983 with british citizen mother" do
-          should "give the australian result" do
-            add_response 'born-in-uk-post-1982-mother-uk-citizen'
-            assert_state_variable :aus_nz_checklist_variant, 'born-in-uk-post-1982-mother-uk-citizen'
-            assert_current_node :aus_nz_result
-          end
-        end
-        context "answer born in UK after 31 Dec 1982 with father in UK service" do
-          should "give the australian result" do
-            add_response 'born-in-uk-post-1982-father-uk-service'
-            assert_state_variable :aus_nz_checklist_variant, 'born-in-uk-post-1982-father-uk-service'
-            assert_current_node :aus_nz_result
-          end
-        end
-        context "answer born in UK after 31 Dec 1982 with mother in UK service" do
-          should "give the australian result" do
-            add_response 'born-in-uk-post-1982-mother-uk-service'
-            assert_state_variable :aus_nz_checklist_variant, 'born-in-uk-post-1982-mother-uk-service'
-            assert_current_node :aus_nz_result
-          end
-        end
-        context "answer married to british citizen 1983 and registered before 1988" do
-          should "give the australian result" do
-            add_response 'married-to-uk-citizen-pre-1983-reg-pre-1988'
-            assert_state_variable :aus_nz_checklist_variant, 'married-to-uk-citizen-pre-1983-reg-pre-1988'
-            assert_current_node :aus_nz_result
-          end
-        end
-        context "answer registered as a british citizen" do
-          should "give the australian result" do
-            add_response 'registered-uk-citizen'
-            assert_state_variable :aus_nz_checklist_variant, 'registered-uk-citizen'
-            assert_current_node :aus_nz_result
-          end
-        end
-        context "answer woman married to a UK citizen before 1949" do
-          should "give the australian result" do
-            add_response 'woman-married-to-uk-citizen-pre-1949'
-            assert_state_variable :aus_nz_checklist_variant, 'woman-married-to-uk-citizen-pre-1949'
-            assert_current_node :aus_nz_result
-          end
-        end
-      end # Adult
-      context "answer child" do
-        setup do
-          add_response "child"
-        end
-        should "ask which best describes you" do
-          assert_current_node :which_best_describes_you_child?
-        end
-        should "proceed to the aus nz result" do
-          add_response 'registered-uk-citizen'
-          assert_current_node :aus_nz_result
-        end
-        should "store the correct variant" do
-          add_response 'child-born-outside-uk-father-citizen'
-          assert_state_variable :aus_nz_checklist_variant, 'child-born-outside-uk-father-citizen'
-          assert_current_node :aus_nz_result
-        end
-      end # Child
-    end # Applying
-    context "answer renewing adult passport" do
-      setup do
-        add_response 'renewing_new'
-        add_response 'adult'
-      end
-      should "ask which best describes you" do
-        assert_current_node :which_best_describes_you_adult?
-      end
-      context "answer born in the UK before 1 Dec 1983" do
-        should "should give the australian results and be done" do
-          add_response 'born-in-uk-pre-1983'
-          assert_current_node :aus_nz_result
-        end
-      end
-    end # Renewing
-  end # Australia
 
   # Afghanistan (An example of bespoke application process).
   context "answer Afghanistan" do
@@ -588,6 +437,63 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end # Applying
   end # Azerbaijan - IPS_application_3
 
+  # Burundi (An example of IPS 3 application with some conditional phrases).
+  context "answer Burundi" do
+    setup do
+      worldwide_api_has_organisations_for_location('burundi', read_fixture_file('worldwide/burundi_organisations.json'))
+      add_response 'burundi'
+    end
+
+    should "give the correct result when renewing new style passport" do
+      add_response 'renewing_new'
+      add_response 'adult'
+      assert_phrase_list :send_your_application,
+        [:send_application_ips3_burundi_renew_new, :send_application_embassy_address]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_burundi_renew_new]
+    end
+
+    should "give the correct result when renewing old style passport" do
+      add_response 'renewing_old'
+      add_response 'adult'
+      add_response 'united-kingdom'
+      assert_phrase_list :send_your_application, [
+        :send_application_ips3_burundi_apply_renew_old_replace,
+        :send_application_embassy_address
+      ]
+      assert_phrase_list :getting_your_passport, [
+        :getting_your_passport_burundi,
+        :getting_your_passport_contact_and_id
+      ]
+    end
+
+    should "give the correct result when applying for the first time" do
+      add_response 'applying'
+      add_response 'adult'
+      add_response 'united-kingdom'
+      assert_phrase_list :send_your_application, [
+        :send_application_ips3_burundi_apply_renew_old_replace,
+        :send_application_embassy_address
+      ]
+      assert_phrase_list :getting_your_passport, [
+        :getting_your_passport_burundi,
+        :getting_your_passport_contact_and_id
+      ]
+    end
+
+    should "give the correct result when replacing lost or stolen passport" do
+      add_response 'replacing'
+      add_response 'adult'
+      assert_phrase_list :send_your_application, [
+        :send_application_ips3_burundi_apply_renew_old_replace,
+        :send_application_embassy_address
+      ]
+      assert_phrase_list :getting_your_passport, [
+        :getting_your_passport_burundi,
+        :getting_your_passport_contact_and_id
+      ]
+    end
+  end # Burundi
+
   # North Korea (An example of IPS 3 application with some conditional phrases).
   context "answer North Korea" do
     setup do
@@ -789,6 +695,22 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_match /Millburngate House/, outcome_body
     end
   end # Jordan (IPS1 with custom phrases)
+
+  context "answer Pitcairn Island, applying, adult passport" do
+    should "give the IPS application result with custom phrases" do
+      worldwide_api_has_organisations_for_location('pitcairn-island', read_fixture_file('worldwide/pitcairn-island_organisations.json'))
+      add_response 'pitcairn-island'
+      add_response 'applying'
+      add_response 'adult'
+      add_response 'united-kingdom'
+      assert_current_node :ips_application_result
+      assert_phrase_list :getting_your_passport, [:"getting_your_passport_pitcairn-island"]
+      expected_location = WorldLocation.find('pitcairn-island')
+      assert_state_variable :location, expected_location
+      assert_state_variable :organisation, expected_location.fco_organisation
+      assert_match /101 Old Hall Street/, outcome_body
+    end
+  end # Pitcairn Island (IPS1 with custom phrases)
 
   context "answer Iran" do
     should "give a bespoke outcome stating an application is not possible in Iran" do
