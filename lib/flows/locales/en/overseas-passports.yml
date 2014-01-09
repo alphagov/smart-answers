@@ -703,6 +703,10 @@ en-GB:
           Your passport and supporting documents will be delivered to the British Deputy High Commission in Lagos, Nigeria - you must collect them in person.
         getting_your_passport_burundi: |
           Your passport and supporting documents will be delivered to the British Embassy Liaison Office in Bujumbura, Burundi - you must collect them in person.
+        getting_your_passport_burundi_renew_new: |
+          Your passport will be delivered to the British Embassy Liaison Office in Bujumbura, Burundi - you must collect it in person.
+
+          They will contact you - using the details on your application form - when your passport is ready to collect. You must bring your existing passport as photo ID.
         getting_your_passport_cambodia: |
           Your passport and supporting documents will be delivered to the British Embassy in Phnom Penh - you must collect them in person.
         getting_your_passport_cameroon: |
@@ -1044,6 +1048,28 @@ en-GB:
           If you apply in person, you must bring photo ID with you. Bring original supporting documents and a photocopy of each one. The original documents will be returned to you. If you’re renewing a passport, you must bring your current passport with you when you apply.
 
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+
+        send_application_ips3_burundi_renew_new: |
+          ## Making your application
+
+          You must apply in person.
+
+          You must bring photo ID with you.
+
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+
+          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
+
+          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+
+        send_application_ips3_burundi_apply_renew_old_replace: |
+          ## Making your application
+
+          You must apply in person.
+
+          You must bring photo ID with you.
+
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
 
         send_application_ips3_gaza: |
           ## Making your application

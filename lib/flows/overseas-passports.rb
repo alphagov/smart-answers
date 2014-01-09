@@ -312,6 +312,13 @@ outcome :ips_application_result do
       phrases << :send_application_embassy_address
     elsif %w(bangladesh).include?(current_location)
       phrases << :"send_application_ips3_#{current_location}" << :send_application_embassy_address
+    elsif %w(burundi).include?(current_location)
+      if %w(renewing_new).include?(application_action)
+        phrases << :send_application_ips3_burundi_renew_new
+      else
+        phrases << :send_application_ips3_burundi_apply_renew_old_replace
+      end
+      phrases << :send_application_embassy_address
     elsif %w(india pakistan).include?(current_location)
       phrases << :"send_application_ips3_#{current_location}" << :send_application_ips3_must_post << :send_application_embassy_address
     elsif %w(north-korea thailand).include?(current_location) and %w(renewing_new).include?(application_action)
@@ -326,14 +333,23 @@ outcome :ips_application_result do
   end
 
   precalculate :getting_your_passport do
-    collect_in_person_countries = %w(angola benin burundi cambodia cameroon chad congo egypt eritrea ethiopia gambia ghana guinea jamaica kenya nigeria rwanda sierra-leone somalia south-sudan uganda zambia)
-    collect_in_person_variant_countries = %w(burma india iraq jordan nepal north-korea pitcairn-island yemen)
+    collect_in_person_countries = %w(angola benin cambodia cameroon chad congo egypt eritrea ethiopia gambia ghana guinea jamaica kenya nigeria rwanda sierra-leone somalia south-sudan uganda zambia)
+    collect_in_person_variant_countries = %w(burma burundi india iraq jordan nepal north-korea pitcairn-island yemen)
 
     phrases = PhraseList.new
     if collect_in_person_countries.include?(current_location)
       phrases << :"getting_your_passport_#{current_location}" << :getting_your_passport_contact_and_id
     elsif collect_in_person_variant_countries.include?(current_location)
-      phrases << :"getting_your_passport_#{current_location}"
+      if %w(burundi).include?(current_location)
+        if %w(renewing_new).include?(application_action)
+          phrases << :getting_your_passport_burundi_renew_new
+        else
+          phrases << :getting_your_passport_burundi
+          phrases << :getting_your_passport_contact_and_id
+        end
+      else
+        phrases << :"getting_your_passport_#{current_location}"
+      end
     elsif %w(thailand).include?(current_location)
       if %w(renewing_new).include?(application_action)
         phrases << :getting_your_passport_thailand_renew_new

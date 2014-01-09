@@ -9,7 +9,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania afghanistan australia austria azerbaijan bangladesh benin cameroon congo djibouti egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nigeria north-korea pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia united-kingdom yemen zimbabwe vietnam)
+    @location_slugs = %w(albania afghanistan australia austria azerbaijan bangladesh benin burundi cameroon congo djibouti egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nigeria north-korea pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia united-kingdom yemen zimbabwe vietnam)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports'
   end
@@ -436,6 +436,63 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       end
     end # Applying
   end # Azerbaijan - IPS_application_3
+
+  # Burundi (An example of IPS 3 application with some conditional phrases).
+  context "answer Burundi" do
+    setup do
+      worldwide_api_has_organisations_for_location('burundi', read_fixture_file('worldwide/burundi_organisations.json'))
+      add_response 'burundi'
+    end
+
+    should "give the correct result when renewing new style passport" do
+      add_response 'renewing_new'
+      add_response 'adult'
+      assert_phrase_list :send_your_application,
+        [:send_application_ips3_burundi_renew_new, :send_application_embassy_address]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_burundi_renew_new]
+    end
+
+    should "give the correct result when renewing old style passport" do
+      add_response 'renewing_old'
+      add_response 'adult'
+      add_response 'united-kingdom'
+      assert_phrase_list :send_your_application, [
+        :send_application_ips3_burundi_apply_renew_old_replace,
+        :send_application_embassy_address
+      ]
+      assert_phrase_list :getting_your_passport, [
+        :getting_your_passport_burundi,
+        :getting_your_passport_contact_and_id
+      ]
+    end
+
+    should "give the correct result when applying for the first time" do
+      add_response 'applying'
+      add_response 'adult'
+      add_response 'united-kingdom'
+      assert_phrase_list :send_your_application, [
+        :send_application_ips3_burundi_apply_renew_old_replace,
+        :send_application_embassy_address
+      ]
+      assert_phrase_list :getting_your_passport, [
+        :getting_your_passport_burundi,
+        :getting_your_passport_contact_and_id
+      ]
+    end
+
+    should "give the correct result when replacing lost or stolen passport" do
+      add_response 'replacing'
+      add_response 'adult'
+      assert_phrase_list :send_your_application, [
+        :send_application_ips3_burundi_apply_renew_old_replace,
+        :send_application_embassy_address
+      ]
+      assert_phrase_list :getting_your_passport, [
+        :getting_your_passport_burundi,
+        :getting_your_passport_contact_and_id
+      ]
+    end
+  end # Burundi
 
   # North Korea (An example of IPS 3 application with some conditional phrases).
   context "answer North Korea" do
