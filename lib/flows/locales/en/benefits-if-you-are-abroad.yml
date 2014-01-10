@@ -48,9 +48,9 @@ en-GB:
         title: |
           Have you told your local Jobcentre Plus that you’re going abroad?
         body: |
-          Find contact information for [your local Jobcentre Plus.](http://los.direct.gov.uk/default.aspx?type=2&lang=en "Jobcentre Plus"){:rel="external"}
+          Find contact information for [your local Jobcentre Plus.](http://los.direct.gov.uk/default.aspx?type=2&lang=en)  
           
-          You should also tell HMRC if you’re [moving or retiring abroad.](/moving-or-retiring-abroad "Moving or retiring abroad")
+          You should also tell HMRC if you’re [moving or retiring abroad.](/moving-or-retiring-abroad)
 
           ^You should also contact the International Pension Centre about any change of bank account details.^
 
@@ -59,9 +59,9 @@ en-GB:
           **International Pension Centre**  
           **Telephone:**: + 44 191 21 87777  
           **Textphone:** + 44 191 21 87280  
-          <TVP-IPC-Customer-Care@thepensionservice.gsi.gov.uk>
-
-          Monday to Friday, 8am to 6pm
+          <TVP-IPC-Customer-Care@thepensionservice.gsi.gov.uk>   
+          Monday to Friday, 8am to 6pm   
+          [Find out about call charges](/call-charges)
           $C
 
           *[HMRC]: HM Revenue and Customs
@@ -70,9 +70,9 @@ en-GB:
         title: |
           Have you paid National Insurance contributions in the UK?
         body: |
-          If you’re moving to a country that’s in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} or has a benefits agreement with the UK, and you want to claim benefits there, you may need to have a record of how much National Insurance you’ve paid in the UK. 
+          If you’re moving to a country that’s in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries) or has a benefits agreement with the UK, and you want to claim benefits there, you may need to have a record of how much National Insurance you’ve paid in the UK. 
 
-          [Check your National Insurance record.](/national-insurance/record-check-and-change-of-circumstance "Check your contributions record")
+          [Check your National Insurance record.](/national-insurance/record-check-and-change-of-circumstance)
           
           *[EEA]:European Economic Area
       # Q3
@@ -85,7 +85,7 @@ en-GB:
       are_you_moving_to_q4:
         title: "Which country are you living in or moving to?"
         body: |
-          Check which countries are in the [EEA.](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
+          Check which countries are in the [EEA.](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries) 
 
           *[EEA]:European Economic Area
         options:
@@ -113,7 +113,7 @@ en-GB:
       are_you_moving_to_q6:
         title: "Which country are you living in or moving to?"
         body: |
-          Check which countries are in the [EEA.](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"}
+          Check which countries are in the [EEA.](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries)
 
           [EEA]: European Economic Area
         options:
@@ -126,7 +126,7 @@ en-GB:
       are_you_moving_to_q7:
         title: "Which country are you living in or moving to?"
         body: |
-          Check which countries are in the [EEA.](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
+          Check which countries are in the [EEA.](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries)
 
           [EEA]: European Economic Area
         options:
@@ -135,12 +135,12 @@ en-GB:
       already_qualify_for_wfp_in_the_uk:
         title: "Do you already qualify for Winter Fuel Payments in the UK?"
         body: |
-          [Find out if you're eligible.](/winter-fuel-payment#eligibility "Eligibility for Winter Fuel Payments")
+          [Find out if you're eligible.](/winter-fuel-payment#eligibility)
       # Q9
       are_you_moving_to_a_country_q9:
         title: "Which country are you living in or moving to?"
         body: |
-          Check which countries are in the [EEA.](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
+          Check which countries are in the [EEA.](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries)
 
           [EEA]: European Economic Area
         options:
@@ -153,7 +153,7 @@ en-GB:
       eligible_for_maternity_pay:
         title: "Are you eligible for Statutory Maternity Pay?"
         body: |
-          Find out about [your eligibility](/statutory-maternity-pay#eligibility "Eligibility for Statutory Maternity Pay").
+          Find out about [your eligibility](/statutory-maternity-pay#eligibility).
       # Q12
       employer_paying_ni:
         title: "Is your employer paying UK National Insurance contributions for you?"
@@ -161,7 +161,7 @@ en-GB:
       moving_to:
         title: "Which country are you living in or moving to?"
         body: |
-          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
+          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries) 
 
           *[EEA]: European Economic Area
         options:   
@@ -181,7 +181,7 @@ en-GB:
       are_you_moving_to_a_country_q15:
         title: "Which country are you living in or moving to?"
         body: | 
-          Check which countries are in the [EEA.](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
+          Check which countries are in the [EEA.](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries) 
 
           *[EEA]: European Economic Area
         options: 
@@ -197,7 +197,7 @@ en-GB:
       claiming_tax_credits_or_eligible:
         title: "Are you claiming tax credits, or would you be eligible if you were living in the UK?"
         body: |
-          Check your [eligibility for tax credits](/claim-tax-credits#eligibility "Tax credits eligibility"). 
+          Check your [eligibility for tax credits](/claim-tax-credits#eligibility). 
       # Q19
       you_or_partner:
         title: "Are you or your partner one of the following?"    
@@ -216,7 +216,7 @@ en-GB:
       moving_to_eea:
         title: "Where are you and your child living in or moving to?"
         body: | 
-          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
+          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries) 
 
           *[EEA]: European Economic Area
         options:
@@ -261,7 +261,7 @@ en-GB:
       are_you_moving_to_q26:
         title: "Which country are you living in or moving to?"
         body: |
-          Check which countries are in the [EEA.](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
+          Check which countries are in the [EEA.](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries) 
 
           *[EEA]: European Economic Area
         options:
@@ -274,7 +274,7 @@ en-GB:
       moving_to_eea2:
         title: "Which country are you living in or moving to?"
         body: |
-          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
+          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries)
 
           *[EEA]: European Economic Area
       # Q29
@@ -294,7 +294,7 @@ en-GB:
       moving_to_q31:
         title: "Which country are you living in or moving to?"
         body: |
-          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
+          Check which countries are in the [EEA](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries) 
 
           *[EEA]: European Economic Area
       # Q32
@@ -316,16 +316,16 @@ en-GB:
       eligible_for_the_following:
         title: "Are you eligible for any of the following?"
         body: |
-          * [Bereavement Allowance](/bereavement-allowance#eligibility "Eligibility for Bereavement Allowance")
-          * [Bereavement Payment](/bereavement-payment#eligibility "Eligibility for Bereavement Payment")
-          * [Widowed Parent's Allowance](/widowed-parents-allowance#eligibility "Widowed Parent’s Allowance")
+          * [Bereavement Allowance](/bereavement-allowance#eligibility)
+          * [Bereavement Payment](/bereavement-payment#eligibility)
+          * [Widowed Parent's Allowance](/widowed-parents-allowance#eligibility)
 
       # Q36
       are_you_moving_to_q36:
         title: "Which country are you living in or moving to?"
         body: |
 
-          Check which countries are in the [EEA.](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries "List of countries in the EEA"){:rel="external"} 
+          Check which countries are in the [EEA.](http://www.dwp.gov.uk/international/social-security-agreements/list-of-countries) 
 
           *[EEA]: European Economic Area
       # answer_1 removed as part of 11/07/13 updates.
@@ -375,16 +375,16 @@ en-GB:
           - Statutory Sick Pay
           - bereavement benefits
 
-          [Contact details for 'social security agreement' countries](http://www.dwp.gov.uk/international/further-help-and-advice/addresses-for-enquiries-about-contributions/ "Addresses for enquiries about contributions and benefits"){:rel="external"} 
+          [Contact details for 'social security agreement' countries](http://www.dwp.gov.uk/international/further-help-and-advice/addresses-for-enquiries-about-contributions/)
 
-          You can also [contact the International Pension Centre](/state-pension-if-you-retire-abroad/how-to-claim "State Pension if you retire abroad") to find out about your State Pension.
+          You can also [contact the International Pension Centre](/state-pension-if-you-retire-abroad/how-to-claim) to find out about your State Pension.
       answer_6:
         body: |
           $!You usually can’t claim UK-based benefits.$!
 
-          However, you may be able to get [tax credits if you’re a Crown servant](/tax-credits-if-moving-country-or-travelling/you-live-outside-the-uk "Tax Credits if you live outside the UK") (you work for the UK government overseas).
+          However, you may be able to get [tax credits if you’re a Crown servant](/tax-credits-if-moving-country-or-travelling/you-live-outside-the-uk) (you work for the UK government overseas).
 
-          [Contact the International Pension Centre](/state-pension-if-you-retire-abroad/how-to-claim "State Pension if you retire abroad") to find out about your State Pension.
+          [Contact the International Pension Centre](/state-pension-if-you-retire-abroad/how-to-claim) to find out about your State Pension.
 
           Ask the authorities in the country you’re living in about any benefits you might be entitled to.
       answer_7:
@@ -401,14 +401,14 @@ en-GB:
           - register at the equivalent of a Jobcentre in the country you're going to
           - follow the other country's rules on registering and looking for work
 
-          Ask your local [Jobcentre Plus](http://los.direct.gov.uk/default.aspx?type=2&lang=en "Jobcentre Plus"){:rel="external"} for more information.
+          Ask your local [Jobcentre Plus](http://los.direct.gov.uk/default.aspx?type=2&lang=en) for more information.
 
           *[JSA]: Jobseeker’s Allowance
       answer_9:
         body: |
           $!You can’t get JSA.  However, under existing agreements with the UK, you may be able to qualify for unemployment benefits in these countries.$!
 
-          [Find out more about Jobseeker's Allowance in these countries.](http://www.dwp.gov.uk/international/benefits/jobseekers-allowance/jobseekers-allowance-in-social/ "Jobseeker's Allowance in social security agreement countries"){:rel="external"}
+          [Find out more about Jobseeker's Allowance in these countries.](http://www.dwp.gov.uk/international/benefits/jobseekers-allowance/jobseekers-allowance-in-social/)
 
           *[JSA]: Jobseeker’s Allowance
       answer_10:
@@ -425,19 +425,20 @@ en-GB:
         body: |
           $!You can get Winter Fuel Payments if you have a genuine link with the UK.$!
 
-          [Email the Winter Fuel Payments team](https://www2.dwp.gov.uk/tps-directgov/en/contact-tps/winterfuel.asp "email the Winter Fuel Payments Team"){:rel="external"} or contact the helpline. 
+          [Email the Winter Fuel Payments team](https://www2.dwp.gov.uk/tps-directgov/en/contact-tps/winterfuel.asp) or contact the helpline. 
 
 
           $C
           **Winter Fuel Payments Helpline**  
           **Telephone:** 0845 915 1515  
-          **Textphone:** 0845 601 5613
+          **Textphone:** 0845 601 5613  
+          [Find out about call charges](/call-charges)
           $C
       answer_13:
         body: |
           $!You can’t get Statutory Maternity Pay.$!
 
-          You may be able to get [Maternity Allowance](/maternity-allowance "Maternity Allowance").
+          You may be able to get [Maternity Allowance](/maternity-allowance).
 
           Contact the International Pension Centre if you have any queries:
 
@@ -447,14 +448,14 @@ en-GB:
           **Telephone:**: + 44 191 21 87777  
           **Textphone:** + 44 191 21 87280  
           <TVP-IPC-Customer-Care@thepensionservice.gsi.gov.uk>
-
-          Monday to Friday, 8am to 6pm
+          Monday to Friday, 8am to 6pm  
+          [Find out about call charges](/call-charges)
           $C
       answer_14:
         body: |
           $!You can claim Statutory Maternity Pay.$!
 
-          Find out [how to claim](/statutory-maternity-pay#how-to-claim "Claim Statutory Maternity Pay").
+          Find out [how to claim](/statutory-maternity-pay#how-to-claim).
 
           Contact the International Pension Centre if you have any queries:
 
@@ -464,14 +465,14 @@ en-GB:
           **Telephone:**: + 44 191 21 87777  
           **Textphone:** + 44 191 21 87280  
           <TVP-IPC-Customer-Care@thepensionservice.gsi.gov.uk>
-
-          Monday to Friday, 8am to 6pm
+          Monday to Friday, 8am to 6pm   
+          [Find out about call charges](/call-charges)
           $C
       answer_15:
         body: |
           $!You can’t get Statutory Maternity Pay.$!
 
-          You may be able to get [Maternity Allowance](/maternity-allowance "Maternity Allowance") if you’re in one of the following countries:
+          You may be able to get [Maternity Allowance](/maternity-allowance) if you’re in one of the following countries:
 
           - Barbados
           - Israel
@@ -491,33 +492,33 @@ en-GB:
           **International Pension Centre**  
           **Telephone:**: + 44 191 21 87777  
           **Textphone:** + 44 191 21 87280  
-          <TVP-IPC-Customer-Care@thepensionservice.gsi.gov.uk>
-
+          <TVP-IPC-Customer-Care@thepensionservice.gsi.gov.uk>   
           Monday to Friday, 8am to 6pm
+          [Find out about call charges](/call-charges)
           $C
       answer_16a:
         body: |
           $!The UK has agreements in place with these countries. You may be able to get Child Benefit if you’re 
-          responsible for a [child under 16 (or 20 if they’re in approved education or training)](/child-benefit/eligibility "eligibility for Child Benefit").$!
+          responsible for a [child under 16 (or 20 if they’re in approved education or training)](/child-benefit/eligibility).$!
 
-          [Find out more.](http://www.dwp.gov.uk/international/benefits/benefits-for-children/social-security-agreement/ "Benefits for children in social security agreement countries"){:rel="external"}
+          [Find out more.](http://www.dwp.gov.uk/international/benefits/benefits-for-children/social-security-agreement/)
       answer_16b:
         body: |
           $!The UK has agreements in place with these countries. You may be able to get Child Benefit if you’re looking after a child or children under 16.$!
 
-          If you’re responsible for an eligible child whose parents have died, and you’re getting [Child Benefit](/child-benefit/eligibility "eligibility for Child Benefit") for them, you may also be able to claim [Guardian’s Allowance](/guardians-allowance "Guardian’s Allowance") if you’re in a country that has a 
-          [social security agreement with the UK for Guardian’s Allowance.](http://www.dwp.gov.uk/international/benefits/benefits-for-children-where-one/social-security-agreement/ "countries with social security agreements with the UK for Guardian’s Allowance"){:rel="external"}
+          If you’re responsible for an eligible child whose parents have died, and you’re getting [Child Benefit](/child-benefit/eligibility) for them, you may also be able to claim [Guardian’s Allowance](/guardians-allowance) if you’re in a country that has a 
+          [social security agreement with the UK for Guardian’s Allowance.](http://www.dwp.gov.uk/international/benefits/benefits-for-children-where-one/social-security-agreement/)
       answer_16c:
         body: |
-          If you’re responsible for a child whose parents have died, and you’re eligible for [Child Benefit](/child-benefit/eligibility "eligibility for Child Benefit") for them, you may be able to claim [Guardian’s Allowance](/guardians-allowance "Guardian’s Allowance") if you’re in a country that has a 
-          [social security agreement with the UK for Guardian’s Allowance.](http://www.dwp.gov.uk/international/benefits/benefits-for-children-where-one/social-security-agreement/ "countries with social security agreements with the UK for Guardian’s Allowance"){:rel="external"}
+          If you’re responsible for a child whose parents have died, and you’re eligible for [Child Benefit](/child-benefit/eligibility "eligibility for Child Benefit") for them, you may be able to claim [Guardian’s Allowance](/guardians-allowance) if you’re in a country that has a 
+          [social security agreement with the UK for Guardian’s Allowance.](http://www.dwp.gov.uk/international/benefits/benefits-for-children-where-one/social-security-agreement/)
 
           ^You can’t claim Child Benefit in Jamaica, Turkey or the USA.^    
       answer_17:
         body: |
           $!You should be able to get Child Benefit for a child or children living with you.$!
 
-          If you’re looking after a child whose parents have died, and are getting [Child Benefit](/child-benefit#how-to-claim "How to claim Child Benefit") for them, you may also be able to claim [Guardian’s Allowance](/guardians-allowance "Guardian's Allowance").
+          If you’re looking after a child whose parents have died, and are getting [Child Benefit](/child-benefit#how-to-claim) for them, you may also be able to claim [Guardian’s Allowance](/guardians-allowance).
       answer_18:
         body: |
           $!You can’t get Child Benefit unless your circumstances change.$!
@@ -526,7 +527,7 @@ en-GB:
           You can claim Statutory Sick Pay if you’re eligible for it.
         body: |
 
-          Find out if you’re [eligible](/statutory-sick-pay-ssp#eligibility "Eligibility for Statutory Sick Pay") and [how to claim](/statutory-sick-pay-ssp#how-to-claim "How to claim Statutory Sick Pay").
+          Find out if you’re [eligible](/statutory-sick-pay-ssp#eligibility) and [how to claim](/statutory-sick-pay-ssp#how-to-claim).
       answer_20:
         body: |
           $!You can’t claim Statutory Sick Pay.$!
@@ -536,7 +537,7 @@ en-GB:
         body: |
           $!You’re unlikely to get tax credits unless your circumstances change.$!
 
-          Find out who is [eligible to claim tax credits](/claim-tax-credits#eligibility "Tax credits eligibility").
+          Find out who is [eligible to claim tax credits](/claim-tax-credits#eligibility).
       answer_22:
         body: |
           $!You may be able to claim tax credits.$!
@@ -548,7 +549,8 @@ en-GB:
           **Tax Credits Helpline**  
           Telephone (if you’re in the UK): 0345 300 3900  
           Telephone (if you’re outside the UK): +44 2890 538 192  
-          Textphone: 0345 300 3909
+          Textphone: 0345 300 3909   
+          [Find out about call charges](/call-charges)
           $C
       answer_23:
         body: |
@@ -577,7 +579,8 @@ en-GB:
           **Tax Credits Helpline**  
           Telephone (if you’re in the UK): 0345 300 3900  
           Telephone (if you’re outside the UK): +44 2890 538 192  
-          Textphone: 0345 300 3909
+          Textphone: 0345 300 3909   
+          [Find out about call charges](/call-charges)
           $C
       answer_24:
         body: |
@@ -590,7 +593,8 @@ en-GB:
           **Tax Credits Helpline**  
           Telephone (if you’re in the UK): 0345 300 3900  
           Telephone (if you’re outside the UK): +44 2890 538 192  
-          Textphone: 0345 300 3909
+          Textphone: 0345 300 3909  
+          [Find out about call charges](/call-charges)
           $C
       answer_25:
         body: |
@@ -604,7 +608,8 @@ en-GB:
           **Tax Credits Helpline**  
           Telephone (if you’re in the UK): 0345 300 3900  
           Telephone (if you’re outside the UK): +44 2890 538 192  
-          Textphone: 0345 300 3909
+          Textphone: 0345 300 3909   
+          [Find out about call charges](/call-charges)
           $C
       answer_26:
         body: |
@@ -618,20 +623,21 @@ en-GB:
           **Tax Credits Helpline**  
           Telephone (if you’re in the UK): 0345 300 3900  
           Telephone (if you’re outside the UK): +44 2890 538 192  
-          Textphone: 0345 300 3909
+          Textphone: 0345 300 3909  
+          [Find out about call charges](/call-charges)
           $C
       answer_27:
         body: |
           $!You can carry on getting income-related or contribution-based ESA for up to 26 weeks.$!
 
-          Talk to your local [Jobcentre Plus](http://los.direct.gov.uk/default.aspx?type=2&lang=en "Jobcentre Plus"){:rel="external"} before you go.
+          Talk to your local [Jobcentre Plus](http://los.direct.gov.uk/default.aspx?type=2&lang=en) before you go.
 
           *[ESA]: Employment and Support Allowance
       answer_28:
         body: |
           $!You can carry on getting income-related or contribution-based ESA for up to 4 weeks.$!
 
-          Talk to your local [Jobcentre Plus](http://los.direct.gov.uk/default.aspx?type=2&lang=en "Jobcentre Plus"){:rel="external"} before you go.
+          Talk to your local [Jobcentre Plus](http://los.direct.gov.uk/default.aspx?type=2&lang=en) before you go.
 
           *[ESA]: Employment Support Allowance
       answer_29:
@@ -640,7 +646,7 @@ en-GB:
 
           You can claim if you are eligible and if you have paid enough National Insurance contributions.  
 
-          Talk to your local [Jobcentre Plus](http://los.direct.gov.uk/default.aspx?type=2&lang=en "Jobcentre Plus"){:rel="external"} or find out [how to apply](/employment-support-allowance#how-to-claim "How to claim Employment Support Allowance"). 
+          Talk to your local [Jobcentre Plus](http://los.direct.gov.uk/default.aspx?type=2&lang=en) or find out [how to apply](/employment-support-allowance#how-to-claim). 
 
           *[ESA]: Employment Support Allowance
       answer_30:
@@ -662,8 +668,8 @@ en-GB:
           **Telephone:**: + 44 191 21 87777  
           **Textphone:** + 44 191 21 87280  
           <TVP-IPC-Customer-Care@thepensionservice.gsi.gov.uk>
-
-          Monday to Friday, 8am to 6pm
+          Monday to Friday, 8am to 6pm   
+          [Find out about call charges](/call-charges)
           $C
       answer_32:
         body: |
@@ -679,8 +685,8 @@ en-GB:
           **Telephone:**: + 44 191 21 87777  
           **Textphone:** + 44 191 21 87280  
           <TVP-IPC-Customer-Care@thepensionservice.gsi.gov.uk>
-
-          Monday to Friday, 8am to 6pm
+          Monday to Friday, 8am to 6pm   
+          [Find out about call charges](/call-charges)
           $C
       answer_33:
         body: |
@@ -696,8 +702,8 @@ en-GB:
           **Telephone:**: + 44 191 21 87777  
           **Textphone:** + 44 191 21 87280  
           <TVP-IPC-Customer-Care@thepensionservice.gsi.gov.uk>
-
-          Monday to Friday, 8am to 8pm
+          Monday to Friday, 8am to 8pm   
+          [Find out about call charges](/call-charges)
           $C
       answer_34:
         body: |
@@ -762,9 +768,9 @@ en-GB:
 
           Find out how to claim:
 
-          - [Bereavement Allowance](/bereavement-allowance#how-to-claim "Claim Bereavement Allowance")
-          - [Bereavement Payment](/bereavement-payment#how-to-claim "Claim Bereavement Payment")
-          - [Widowed Parent’s Allowance](/widowed-parents-allowance#how-to-claim "Claim Widowed Parent’s Allowance")
+          - [Bereavement Allowance](/bereavement-allowance#how-to-claim)
+          - [Bereavement Payment](/bereavement-payment#how-to-claim)
+          - [Widowed Parent’s Allowance](/widowed-parents-allowance#how-to-claim)
       answer_38:
         body: |
           $!You may be able to claim bereavement benefits if you’re moving to one of the following countries:$!
@@ -784,6 +790,6 @@ en-GB:
 
           Find out how to claim:
 
-          - [Bereavement Allowance](/bereavement-allowance#how-to-claim "Claim Bereavement Allowance")
-          - [Bereavement Payment](/bereavement-payment#how-to-claim "Claim Bereavement Payment")
-          - [Widowed Parent’s Allowance](/widowed-parents-allowance#how-to-claim "Claim Widowed Parent’s Allowance")
+          - [Bereavement Allowance](/bereavement-allowance#how-to-claim)
+          - [Bereavement Payment](/bereavement-payment#how-to-claim)
+          - [Widowed Parent’s Allowance](/widowed-parents-allowance#how-to-claim)
