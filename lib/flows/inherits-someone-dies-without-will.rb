@@ -152,7 +152,7 @@ multiple_choice :siblings? do
       if partner == "yes"
         response == "yes" ? :outcome_64 : :outcome_65
       else
-        response == "yes" ? :outcome_4 : :aunts_or_uncles?
+        response == "yes" ? :outcome_4 : :grandparents?
       end
     end
   end
@@ -184,7 +184,7 @@ multiple_choice :grandparents? do
     when "scotland"
       response == "yes" ? :outcome_5 : :great_aunts_or_uncles?
     when "northern-ireland"
-      response == "yes" ? :outcome_5 : :outcome_67
+      response == "yes" ? :outcome_5 : :aunts_or_uncles?
     end
   end
 end
@@ -203,7 +203,7 @@ multiple_choice :aunts_or_uncles? do
     when "scotland"
       response == "yes" ? :outcome_6 : :grandparents?
     when "northern-ireland"
-      response == "yes" ? :outcome_6 : :grandparents?
+      response == "yes" ? :outcome_6 : :outcome_67
     end
   end
 end
