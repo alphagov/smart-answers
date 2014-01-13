@@ -27,7 +27,6 @@ multiple_choice :what_are_you_looking_for? do
     end
   end
 
-
   next_node :what_are_your_circumstances? # Q2
 end
 
@@ -45,7 +44,6 @@ checkbox_question :what_are_your_circumstances? do
   calculate :benefits_claimed do
     []
   end
-
 
   next_node do |response|
     if response =~ /permission,property,social_housing/
@@ -82,18 +80,17 @@ date_question :date_of_birth? do
     end
   end
 
-next_node do |response|
-  if circumstances.include?('benefits')
-    :which_benefits?
-  else
-    if bills_help
-      :outcome_help_with_bills # outcome 1
+  next_node do |response|
+    if circumstances.include?('benefits')
+      :which_benefits?
     else
-      :when_property_built? # Q6
+      if bills_help
+        :outcome_help_with_bills # outcome 1
+      else
+        :when_property_built? # Q6
+      end
     end
   end
-end
-
 end
 
 # Q4
@@ -164,7 +161,7 @@ checkbox_question :disabled_or_have_children? do
   calculate :incomesupp_jobseekers_2 do
     case responses.last
     when 'child_under_16','work_support_esa'
-      if circumstances.include?('social_housing') || (benefits_claimed.include?('working_tax_credit') && age_variant == :over_60)
+      if circumstances.include?('social_housing') || (benefits_claimed.include?('working_tax_credit') && age_variant != :over_60)
         nil
       else
         :incomesupp_jobseekers_2
@@ -221,8 +218,8 @@ checkbox_question :home_features_modern? do
   end
 
   next_node do
-    if measure_help
-      if circumstances.include?('property') || circumstances.include?('permission') && benefits_claimed.include?('pension_credit') || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || (benefits_claimed & %w(child_tax_credit esa)).any? || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60
+    if measure_help and (circumstances & %w(property permission)).any?
+      if (benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2
         :outcome_measures_help_and_eco_eligible
       else
         :outcome_measures_help_green_deal
@@ -231,7 +228,7 @@ checkbox_question :home_features_modern? do
       if circumstances.exclude?('benefits')
         :outcome_bills_and_measures_no_benefits
       else
-        if circumstances.include?('property') || circumstances.include?('permission') && benefits_claimed.include?('pension_credit') || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || (benefits_claimed & %w(child_tax_credit esa)).any? || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60
+        if (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
           :outcome_bills_and_measures_on_benefits_eco_eligible
         else
           :outcome_bills_and_measures_on_benefits_not_eco_eligible
@@ -257,8 +254,8 @@ checkbox_question :home_features_historic? do
   end
 
   next_node do
-    if measure_help
-      if circumstances.include?('property') || circumstances.include?('permission') && benefits_claimed.include?('pension_credit') || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || (benefits_claimed & %w(child_tax_credit esa)).any? || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60
+    if measure_help and (circumstances & %w(property permission)).any?
+      if (benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2
         :outcome_measures_help_and_eco_eligible
       else
         :outcome_measures_help_green_deal
@@ -267,7 +264,7 @@ checkbox_question :home_features_historic? do
       if circumstances.exclude?('benefits')
         :outcome_bills_and_measures_no_benefits
       else
-        if circumstances.include?('property') || circumstances.include?('permission') && benefits_claimed.include?('pension_credit') || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || (benefits_claimed & %w(child_tax_credit esa)).any? || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60
+        if (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
           :outcome_bills_and_measures_on_benefits_eco_eligible
         else
           :outcome_bills_and_measures_on_benefits_not_eco_eligible
@@ -275,7 +272,6 @@ checkbox_question :home_features_historic? do
       end
     end
   end
-
 end
 
 # Q7c
@@ -295,8 +291,8 @@ checkbox_question :home_features_older? do
   end
 
   next_node do
-    if measure_help
-      if circumstances.include?('property') || circumstances.include?('permission') && benefits_claimed.include?('pension_credit') || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || (benefits_claimed & %w(child_tax_credit esa)).any? || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60
+    if measure_help and (circumstances & %w(property permission)).any?
+      if (benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2
         :outcome_measures_help_and_eco_eligible
       else
         :outcome_measures_help_green_deal
@@ -305,7 +301,7 @@ checkbox_question :home_features_older? do
       if circumstances.exclude?('benefits')
         :outcome_bills_and_measures_no_benefits
       else
-        if circumstances.include?('property') || circumstances.include?('permission') && benefits_claimed.include?('pension_credit') || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || (benefits_claimed & %w(child_tax_credit esa)).any? || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60
+        if (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
           :outcome_bills_and_measures_on_benefits_eco_eligible
         else
           :outcome_bills_and_measures_on_benefits_not_eco_eligible
@@ -344,7 +340,7 @@ outcome :outcome_social_housing
 outcome :outcome_measures_help_and_eco_eligible do
   precalculate :title_end do
     if measure_help
-      if circumstances.include?('property') || circumstances.include?('permission') && benefits_claimed.include?('pension_credit') || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || (benefits_claimed & %w(child_tax_credit esa)).any? || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60
+      if (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
         PhraseList.new(:title_energy_supplier)
       else
         PhraseList.new(:title_might_be_eligible)
@@ -356,7 +352,7 @@ outcome :outcome_measures_help_and_eco_eligible do
   precalculate :eligibilities do
     phrases = PhraseList.new
     if measure_help || both_help
-      if circumstances.include?('property') || circumstances.include?('permission') && benefits_claimed.include?('pension_credit') || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || (benefits_claimed & %w(child_tax_credit esa)).any? || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60
+      if (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
         phrases << :a_condensing_boiler unless (features & %w(draught_proofing modern_boiler)).any?
         unless (features & %w(cavity_wall_insulation electric_heating mains_gas)).any? or ((features & %w(loft)).any? and (features & %w(cavity_wall_insulation solid_wall_insulation)).any?)
           :b_cavity_wall_insulation
@@ -371,14 +367,16 @@ outcome :outcome_measures_help_and_eco_eligible do
         phrases << :eco_affordable_warmth
         phrases << :eco_help
         phrases << :heating << :h_fan_assisted_heater << :i_warm_air_unit << :j_better_heating_controls
+        phrases << :p_heat_pump unless (features & %w(mains_gas)).any?
+        phrases << :q_biomass_boilers_heaters << :t_solar_water_heating
         phrases << :hot_water << :k_hot_water_cyclinder_jacket
         phrases << :l_cylinder_thermostat unless modern
         unless (features & %w(modern_double_glazing)).any?
           phrases << :windows_and_doors << :m_replacement_glazing << :n_secondary_glazing << :o_external_doors
         end
         phrases << :microgeneration_renewables
-        phrases << :x_green_deal
-        phrases << :y_renewal_heat
+        phrases << :w_renewal_heat
+        phrases << :smartmeters
       end
     end
     phrases
@@ -399,6 +397,8 @@ outcome :outcome_measures_help_green_deal do
     phrases << :h_fan_assisted_heater unless (features & %w(electric_heating mains_gas)).any?
     phrases << :i_warm_air_unit unless (features & %w(electric_heating mains_gas)).any?
     phrases << :j_better_heating_controls
+    phrases << :p_heat_pump unless (features & %w(mains_gas)).any?
+    phrases << :q_biomass_boilers_heaters << :t_solar_water_heating
     phrases << :hot_water << :k_hot_water_cyclinder_jacket
     phrases << :l_cylinder_thermostat unless modern or (features & %w(electric_heating mains_gas)).any?
     unless (features & %w(modern_double_glazing)).any?
@@ -408,8 +408,9 @@ outcome :outcome_measures_help_green_deal do
     if both_help
       ''
     else
-      phrases << :x_green_deal << :y_renewal_heat
+      phrases << :v_green_deal << :w_renewal_heat
     end
+    phrases << :smartmeters
     phrases
   end
 end
@@ -455,13 +456,16 @@ outcome :outcome_bills_and_measures_no_benefits do
     phrases << :h_fan_assisted_heater unless (features & %w(electric_heating mains_gas)).any?
     phrases << :i_warm_air_unit unless (features & %w(electric_heating mains_gas)).any?
     phrases << :j_better_heating_controls
+    phrases << :p_heat_pump unless (features & %w(mains_gas)).any?
+    phrases << :q_biomass_boilers_heaters << :t_solar_water_heating
     phrases << :hot_water << :k_hot_water_cyclinder_jacket
     phrases << :l_cylinder_thermostat unless modern
     unless (features & %w(modern_double_glazing)).any?
       phrases << :windows_and_doors << :m_replacement_glazing << :n_secondary_glazing << :o_external_doors
     end
     phrases << :microgeneration_renewables
-    phrases << :x_green_deal << :y_renewal_heat
+    phrases << :w_renewal_heat
+    phrases << :smartmeters
     phrases
   end
 end
@@ -508,13 +512,16 @@ outcome :outcome_bills_and_measures_on_benefits_eco_eligible do
     phrases << :h_fan_assisted_heater unless (features & %w(electric_heating mains_gas)).any?
     phrases << :i_warm_air_unit unless (features & %w(electric_heating mains_gas)).any?
     phrases << :j_better_heating_controls
+    phrases << :p_heat_pump unless (features & %w(mains_gas)).any?
+    phrases << :q_biomass_boilers_heaters << :t_solar_water_heating
     phrases << :hot_water << :k_hot_water_cyclinder_jacket
     phrases << :l_cylinder_thermostat unless modern
     unless (features & %w(modern_double_glazing)).any?
       phrases << :windows_and_doors << :m_replacement_glazing << :n_secondary_glazing << :o_external_doors
     end
     phrases << :microgeneration_renewables
-    phrases << :y_renewal_heat
+    phrases << :w_renewal_heat
+    phrases << :smartmeters
     phrases
   end
 end
@@ -561,13 +568,16 @@ outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible do
     phrases << :h_fan_assisted_heater unless (features & %w(electric_heating mains_gas)).any?
     phrases << :i_warm_air_unit unless (features & %w(electric_heating mains_gas)).any?
     phrases << :j_better_heating_controls
+    phrases << :p_heat_pump unless (features & %w(mains_gas)).any?
+    phrases << :q_biomass_boilers_heaters << :t_solar_water_heating
     phrases << :hot_water << :k_hot_water_cyclinder_jacket
     phrases << :l_cylinder_thermostat unless modern
     unless (features & %w(modern_double_glazing)).any?
       phrases << :windows_and_doors << :m_replacement_glazing << :n_secondary_glazing << :o_external_doors
     end
     phrases << :microgeneration_renewables
-    phrases << :x_green_deal << :y_renewal_heat
+    phrases << :w_renewal_heat
+    phrases << :smartmeters
     phrases
   end
 end
