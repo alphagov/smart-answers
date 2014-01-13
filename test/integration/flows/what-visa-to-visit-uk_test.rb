@@ -9,7 +9,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(andorra china anguilla south-africa venezuela yemen)
+    @location_slugs = %w(andorra china anguilla south-africa turkey venezuela yemen)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'what-visa-to-visit-uk'
   end
@@ -301,7 +301,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
           add_response "tourism"
         end
         should "take you to the 'outcome_venezuela_transit' outcome" do
-          assert_current_node :outcome_visit_venezuela
+          assert_current_node :outcome_visit_waiver
         end
       end
     end
@@ -319,7 +319,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
           add_response "school"
         end
         should "take you to the 'outcome_venezuela_transit' outcome" do
-          assert_current_node :outcome_visit_venezuela
+          assert_current_node :outcome_visit_waiver
         end
       end
     end
@@ -345,7 +345,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
           add_response "medical"
         end
         should "take you to the 'outcome_venezuela_transit' outcome" do
-          assert_current_node :outcome_visit_venezuela
+          assert_current_node :outcome_visit_waiver
         end
       end
     end
@@ -379,7 +379,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
           add_response "transit"
         end
         should "take you to the 'outcome_venezuela_transit' outcome" do
-          assert_current_node :outcome_visit_venezuela
+          assert_current_node :outcome_visit_waiver
         end
       end
     end
@@ -390,6 +390,16 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       should "take you to outcome Family Y" do
         assert_current_node :outcome_joining_family_y
       end
+    end
+  end
+  context "testing turkey phrase list" do
+    setup do
+      add_response "turkey"
+      add_response "work"
+    end
+    should "takes you to outcome_work_y" do
+      assert_current_node :outcome_work_y
+      assert_phrase_list :if_turkey, [:turkey_business_person_visa]
     end
   end
 end
