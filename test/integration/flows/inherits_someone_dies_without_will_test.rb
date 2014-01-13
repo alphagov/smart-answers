@@ -455,28 +455,28 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
           context "no-siblings" do
             setup { add_response "no" }
 
-            context "aunts-uncles" do
+            context "grandparents" do
               setup { add_response "yes" }
 
-              should "give outcome 6" do
-                assert_current_node :outcome_6 # T69
+              should "give outcome 5" do
+                assert_current_node :outcome_5 # T70
                 assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
               end
             end
 
-            context "no-aunts-uncles" do
+            context "no-grandparents" do
               setup { add_response "no" }
 
-              context "grandparents" do
+              context "aunts-uncles" do
                 setup { add_response "yes" }
 
-                should "give outcome 5" do
-                  assert_current_node :outcome_5 # T70
+                should "give outcome 6" do
+                  assert_current_node :outcome_6 # T69
                   assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
                 end
               end
 
-              context "no-grandparents" do
+              context "no-aunts-uncles" do
                 setup { add_response "no" }
 
                 should "give outcome 67" do
