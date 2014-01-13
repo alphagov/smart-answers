@@ -7,8 +7,6 @@ en-GB:
       body: |
         Get the forms, prices and application details you need if you're a British national and you want to renew or apply for a British passport from overseas.
 
-        % If you were born in or had a connection with Hong Kong and registered as a British National Overseas before 1997, [you must apply a different way.](/bno-passports "Passport applications for British National Overseas from Hong Kong") %
-
       options:
         "born-in-uk-pre-1983": "Born in the UK before 1 January 1983"
         "born-in-uk-post-1982-uk-father": "Born in the UK after 31 December 1982 with father born in UK"
