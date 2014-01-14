@@ -196,7 +196,7 @@ end
 ## IPS Application Result
 outcome :ips_application_result do
   precalculate :how_long_it_takes do
-    eight_week_application_countries = %w(mauritania morocco western-sahara tunisia)
+    eight_week_application_countries = %w(mauritania morocco tunisia western-sahara)
     twelve_week_application_countries = %w(cameroon chad djibouti eritrea ethiopia kenya somalia tanzania uganda)
 
     phrases = PhraseList.new
@@ -204,29 +204,33 @@ outcome :ips_application_result do
       number_of_weeks = application_action =~ /renewing_new|replacing/ ? 4 : 8
       phrases << :"how_long_#{number_of_weeks}_weeks"
     elsif twelve_week_application_countries.include?(current_location) and %w(applying renewing_old).include?(application_action)
-      phrases << :"how_long_applying_12_weeks"
+      phrases << :how_long_applying_12_weeks
     elsif %w{afghanistan pakistan}.include?(current_location) and %w(applying renewing_old).include?(application_action)
-      phrases << :"how_long_applying_6_months"
-    elsif %w{india}.include?(current_location) and %w(applying renewing_old).include?(application_action)
-      phrases << :"how_long_applying_16_weeks"
-    elsif %w{india}.include?(current_location) and %w(renewing_new replacing).include?(application_action)
-      phrases << :"how_long_5_weeks"
+      phrases << :how_long_applying_6_months
     elsif %w{bangladesh}.include?(current_location)
       if %w(applying renewing_old).include?(application_action)
-        phrases << :"how_long_applying_6_months"
+        phrases << :how_long_applying_6_months
       elsif %w(renewing_new).include?(application_action)
-        phrases << :"how_long_6_weeks"
+        phrases << :how_long_6_weeks
       else
-        phrases << :"how_long_16_weeks"
+        phrases << :how_long_16_weeks
       end
-    elsif %w{north-korea}.include?(current_location)
+    elsif %w(india).include?(current_location)
+      if %w(applying renewing_old).include?(application_action)
+        phrases << :how_long_applying_16_weeks
+      else
+        phrases << :how_long_5_weeks
+      end
+    elsif %w(north-korea).include?(current_location)
       if %w(renewing_new).include?(application_action)
-        phrases << :"how_long_6_weeks"
+        phrases << :how_long_6_weeks
       elsif %w(renewing_old applying).include?(application_action)
-        phrases << :"how_long_8_weeks_with_interview"
+        phrases << :how_long_8_weeks_with_interview
       else
-        phrases << :"how_long_8_weeks_replacing"
+        phrases << :how_long_8_weeks_replacing
       end
+    elsif %w(uzbekistan).include?(current_location) and %w(applying renewing_old).include?(application_action)
+      phrases << :how_long_8_weeks_with_interview
     else
       phrases << :"how_long_#{application_action}_ips#{ips_number}"
     end

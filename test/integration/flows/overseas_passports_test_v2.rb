@@ -9,7 +9,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania afghanistan australia austria azerbaijan bangladesh benin burundi cameroon congo djibouti egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nigeria north-korea pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia united-kingdom yemen zimbabwe vietnam)
+    @location_slugs = %w(albania afghanistan australia austria azerbaijan bangladesh benin burundi cameroon congo djibouti egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nigeria north-korea pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia united-kingdom uzbekistan yemen zimbabwe vietnam)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports-v2'
   end
@@ -1190,7 +1190,38 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
         assert_phrase_list :getting_your_passport, [:getting_your_passport_thailand_apply_renew_old_replace]
       end
     end
-  end # Bangladesh
+  end # Thailand
 
+  context "answer Uzbekistan" do
+    setup do
+      worldwide_api_has_organisations_for_location('uzbekistan', read_fixture_file('worldwide/uzbekistan_organisations.json'))
+      add_response 'uzbekistan'
+    end
+    context "renewing a new adult passport" do
+      should "give the ips result" do
+        add_response 'renewing_new'
+        add_response 'adult'
+        assert_current_node :ips_application_result
+        assert_phrase_list :how_long_it_takes, [:how_long_renewing_new_ips3, :how_long_it_takes_ips3]
+        assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
+        assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
+        assert_phrase_list :send_your_application, [:send_application_ips3, :renewing_new_renewing_old, :send_application_embassy_address]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
+      end
+    end
+    context "applying for a new adult passport" do
+      should "give the ips result" do
+        add_response 'applying'
+        add_response 'adult'
+        add_response 'united-kingdom'
+        assert_current_node :ips_application_result
+        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks_with_interview, :how_long_it_takes_ips3]
+        assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
+        assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
+        assert_phrase_list :send_your_application, [:send_application_ips3, :send_application_embassy_address]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
+      end
+    end
+  end # Uzbekistan
 
 end
