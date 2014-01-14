@@ -9,7 +9,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(andorra china anguilla south-africa turkey venezuela yemen)
+    @location_slugs = %w(andorra china anguilla south-africa turkey venezuela yemen oman united-arab-emirates qatar)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'what-visa-to-visit-uk'
   end
@@ -322,6 +322,18 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
           assert_current_node :outcome_visit_waiver
         end
       end
+      #ADDED BY JACK
+      context "Oman passport" do
+        setup do
+          setup_for_testing_flow 'what-visa-to-visit-uk'
+          add_response "oman"
+          add_response "school"
+        end
+        should "take you to the 'outcome_venezuela_transit' outcome" do
+          assert_current_node :outcome_visit_waiver
+        end
+      end
+      #ADDED BY JACK
     end
     context "getting married" do
       setup do
@@ -400,6 +412,16 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
     should "takes you to outcome_work_y" do
       assert_current_node :outcome_work_y
       assert_phrase_list :if_turkey, [:turkey_business_person_visa]
+    end
+  end
+    context "testing outcome visit waiver" do
+      setup do
+        add_response 'oman'
+        add_response 'medical'
+      end
+      should "take you to outcome visit waiver" do
+        assert_current_node :outcome_visit_waiver
+        assert_phrase_list :if_oman_qatar_uae, [:electronic_visa_waiver]
     end
   end
 end

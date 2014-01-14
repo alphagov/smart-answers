@@ -55,7 +55,7 @@ multiple_choice :purpose_of_visit? do
         :outcome_work_m
       end
     when 'tourism'
-      if passport_country == 'venezuela' || 'oman' || 'qatar' || 'united-arab-emirates'
+      if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
         :outcome_visit_waiver
       elsif country_group_non_visa_national.include?(passport_country) or
          country_group_ukot.include?(passport_country)
@@ -64,7 +64,7 @@ multiple_choice :purpose_of_visit? do
         :outcome_general_y
       end
     when 'school'
-      if passport_country == 'venezuela' || 'oman' || 'qatar' || 'united-arab-emirates'
+      if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
         :outcome_visit_waiver
       elsif country_group_non_visa_national.include?(passport_country) or
          country_group_ukot.include?(passport_country)
@@ -75,7 +75,7 @@ multiple_choice :purpose_of_visit? do
     when 'marriage'
       :outcome_marriage
     when 'medical'
-      if passport_country == 'venezuela' || 'oman' || 'qatar' || 'united-arab-emirates'
+      if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
         :outcome_visit_waiver
       elsif country_group_non_visa_national.include?(passport_country) or
          country_group_ukot.include?(passport_country)
@@ -156,7 +156,7 @@ outcome :outcome_medical_n
 outcome :outcome_visit_waiver do
   precalculate :if_venezuela do
     if passport_country == 'venezuela'
-      PhraseList.new(:venezuela_documents)
+      PhraseList.new(:extra_documents)
     end
   end
   precalculate :if_oman_qatar_uae do
