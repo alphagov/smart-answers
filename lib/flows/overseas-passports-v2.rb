@@ -334,7 +334,8 @@ outcome :ips_application_result do
 
   precalculate :getting_your_passport do
     collect_in_person_countries = %w(angola benin cambodia cameroon chad congo egypt eritrea ethiopia gambia ghana guinea jamaica kenya nigeria rwanda sierra-leone somalia south-sudan uganda zambia)
-    collect_in_person_variant_countries = %w(burma burundi india iraq jordan nepal north-korea pitcairn-island yemen)
+    collect_in_person_variant_countries = %w(burundi india iraq jordan pitcairn-island yemen)
+    collect_in_person_renewing_new_variant_countries = %(burma nepal north-korea)
 
     phrases = PhraseList.new
     if collect_in_person_countries.include?(current_location)
@@ -349,6 +350,13 @@ outcome :ips_application_result do
         end
       else
         phrases << :"getting_your_passport_#{current_location}"
+      end
+    elsif collect_in_person_renewing_new_variant_countries.include?(current_location)
+      phrases << :"getting_your_passport_#{current_location}" << :getting_your_passport_contact
+      if %w(renewing_new).include?(application_action)
+        phrases << :getting_your_passport_id_renew_new
+      else
+        phrases << :getting_your_passport_id_apply_renew_old_replace
       end
     elsif %w(thailand).include?(current_location)
       if %w(renewing_new).include?(application_action)

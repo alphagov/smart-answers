@@ -506,7 +506,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       add_response 'adult'
       assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips3]
       assert_phrase_list :send_your_application, [:"send_application_ips3_north-korea_renewing_new"]
-      assert_phrase_list :getting_your_passport, [:"getting_your_passport_north-korea"]
+      assert_phrase_list :getting_your_passport, [:"getting_your_passport_north-korea", :getting_your_passport_contact, :getting_your_passport_id_renew_new]
     end
 
     should "give the correct result when renewing old style passport" do
@@ -514,6 +514,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_phrase_list :how_long_it_takes, [:how_long_8_weeks_with_interview, :how_long_it_takes_ips3]
+      assert_phrase_list :getting_your_passport, [:"getting_your_passport_north-korea", :getting_your_passport_contact, :getting_your_passport_id_apply_renew_old_replace]
     end
 
     should "give the correct result when applying for the first time" do
@@ -521,12 +522,14 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_phrase_list :how_long_it_takes, [:how_long_8_weeks_with_interview, :how_long_it_takes_ips3]
+      assert_phrase_list :getting_your_passport, [:"getting_your_passport_north-korea", :getting_your_passport_contact, :getting_your_passport_id_apply_renew_old_replace]
     end
 
     should "give the correct result when replacing lost or stolen passport" do
       add_response 'replacing'
       add_response 'adult'
       assert_phrase_list :how_long_it_takes, [:how_long_8_weeks_replacing, :how_long_it_takes_ips3]
+      assert_phrase_list :getting_your_passport, [:"getting_your_passport_north-korea", :getting_your_passport_contact, :getting_your_passport_id_apply_renew_old_replace]
     end
 
     should "give the correct method of payment guidance" do
