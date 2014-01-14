@@ -6,10 +6,18 @@ en-GB:
           ##Travelling in a tour group
 
           You can apply for an [‘ADS visa’](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/ads/) if you’re planning to travel to the UK as part of a tour group for less than 30 days.
-        business_person_visa: |
+        turkey_business_person_visa: |
           ###Turkish nationals 
 
           You can apply for a [Turkish business person visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/turkish/) if you want to come and set up a business in the UK. 
+        
+        venezuela_documents: |
+          However, you should bring certain documents with you to show UK immigration officers at the border.
+        
+        electronic_visa_waiver: |
+          However, you’ll need an electronic visa waiver (EVW). 
+
+          [Apply for an EVW](https://www.visa4uk.fco.gov.uk/) online.
 
       title: Check what visa you need to come to the UK
       meta:
@@ -74,7 +82,7 @@ en-GB:
           ##Categories
 
           %{if_turkey}
-          
+
           ###Skilled workers
 
           The [skilled workers visa category](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/tier2/) may be suitable if you’re a skilled worker and you’ve been offered a job in the UK.
@@ -303,12 +311,13 @@ en-GB:
           However, you should bring certain documents with you to show UK immigration officers at the border.
 
 
-          Check which [documents you should bring](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/medical/documents/).
+          Check which [documents you should bring](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/medical/documents/)
 
       outcome_visit_waiver:
         title: You won’t need a visa
         body: |
-          However, you should bring certain documents with you to show UK immigration officers at the border.
+         
+          %{if_venezuela}
 
           See which documents you should bring if you’re:
 
@@ -319,3 +328,5 @@ en-GB:
           - visiting for [private medical treatment](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/medical/)
 
           %You must [apply for a visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/) if you don’t have an ePassport.%
+
+          %{if_oman_qatar_uae}
