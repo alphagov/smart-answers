@@ -783,17 +783,16 @@ en-GB:
           Your passport and supporting documents will be delivered separately by courier.
         getting_your_passport_thailand_apply_renew_old_replace: |
           Your passport will be delivered by courier.
-        tracking_and_receiving_ips1: |
-          ## Track your application
-
-          Call the Passport Adviceline.
-
+        contact_passport_adviceline: |
+          ##Contact the Passport Adviceline
 
           $C
-          **Passport Adviceline**
-          +44 (0) 300 222 0000
+          Telephone: +44 (0) 300 222 0000  
+          Monday to Friday, 8am to 8pm (UK time)  
+          Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)
           $C
 
+          [Find out about call charges](/call-charges)
 
         how_long_applying_ips2: |
           Your application will take at least **8 weeks.**
@@ -831,7 +830,7 @@ en-GB:
           Your application will take **up to** 16 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
 
         how_long_applying_6_months: |
-          Your application will take **up to** 6 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
+          Your application will take **at least** 6 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
 
         how_long_it_takes_ips2: |
           Applications may take longer if:
@@ -896,17 +895,6 @@ en-GB:
           Your passport will be delivered to the British embassy, high commission or consulate where you applied  - you must collect it in person. 
 
           They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
-        tracking_and_receiving_ips2: |
-
-          ## Track your application
-
-          Call the Passport Adviceline.
-
-
-          $C
-          **Passport Adviceline**
-          +44 (0) 300 222 0000
-          $C
 
         how_long_applying_ips3: |
           Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
@@ -1115,18 +1103,6 @@ en-GB:
           Your passport will be delivered to the British embassy, high commission or consulate where you applied - you must collect it in person.
 
           They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
-
-        tracking_and_receiving_ips3: |
-          ## Track your application
-
-          Call the Passport Adviceline.
-
-
-          $C
-          **Passport Adviceline**
-          +44 (0) 300 222 0000
-          $C
-
 
         how_long_nairobi_kenya_applying: |
           Your application will take at least 12 weeks. You will be asked to attend an interview.
@@ -1491,7 +1467,7 @@ en-GB:
 
           %{getting_your_passport}
 
-          %{tracking_and_receiving}
+          %{contact_passport_adviceline}
 
       ips_application_result:
         body: |
@@ -1513,7 +1489,7 @@ en-GB:
 
           %{getting_your_passport}
 
-          %{tracking_and_receiving}
+          %{contact_passport_adviceline}
 
       result:
         body: |

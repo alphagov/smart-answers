@@ -188,8 +188,8 @@ outcome :ips_application_result_online do
   precalculate :getting_your_passport do
     PhraseList.new(:"getting_your_passport_ips#{ips_number}")
   end
-  precalculate :tracking_and_receiving do
-    PhraseList.new(:"tracking_and_receiving_ips#{ips_number}")
+  precalculate :contact_passport_adviceline do
+    PhraseList.new(:contact_passport_adviceline)
   end
 end
 
@@ -372,8 +372,8 @@ outcome :ips_application_result do
       phrases << :"getting_your_passport_ips#{ips_number}"
     end
   end
-  precalculate :tracking_and_receiving do
-    PhraseList.new(:"tracking_and_receiving_ips#{ips_number}")
+  precalculate :contact_passport_adviceline do
+    PhraseList.new(:contact_passport_adviceline)
   end
 end
 
