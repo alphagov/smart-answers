@@ -322,7 +322,6 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
           assert_current_node :outcome_visit_waiver
         end
       end
-      #ADDED BY JACK
       context "Oman passport" do
         setup do
           setup_for_testing_flow 'what-visa-to-visit-uk'
@@ -333,7 +332,6 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
           assert_current_node :outcome_visit_waiver
         end
       end
-      #ADDED BY JACK
     end
     context "getting married" do
       setup do
