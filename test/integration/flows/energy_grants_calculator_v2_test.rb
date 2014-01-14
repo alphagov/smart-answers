@@ -39,7 +39,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
           end
           should "take you to help with bills outcome" do
             assert_current_node :outcome_help_with_bills # outcome 1
-            assert_phrase_list :eligibilities_bills, [:winter_fuel_payments, :cold_weather_payment, :microgeneration]
+            assert_phrase_list :eligibilities_bills, [:winter_fuel_payments, :microgeneration]
           end
         end
         context "answer over 60" do
@@ -51,7 +51,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
           end
           should "take you to help with bills outcome" do
             assert_current_node :outcome_help_with_bills # outcome 1
-            assert_phrase_list :eligibilities_bills, [:warm_home_discount, :microgeneration]
+            assert_phrase_list :eligibilities_bills, [:microgeneration]
           end
         end
         context "answer under 60" do
@@ -60,7 +60,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
           end
           should "take you to the help with bills outcome" do
             assert_current_node :outcome_help_with_bills # outcome 1
-            assert_phrase_list :eligibilities_bills, [:warm_home_discount, :microgeneration,]
+            assert_phrase_list :eligibilities_bills, [:microgeneration,]
           end
         end
       end
@@ -571,7 +571,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
       end
       should "take to help with bills outcome, winter fuel payment, no benefits" do
         assert_current_node :outcome_help_with_bills
-        assert_phrase_list :eligibilities_bills, [:winter_fuel_payments, :cold_weather_payment, :microgeneration]
+        assert_phrase_list :eligibilities_bills, [:winter_fuel_payments, :microgeneration]
       end
     end
     context "no winter fuel payment, no benefits" do
@@ -582,7 +582,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
       end
       should "take you to help with bills outcome, no winter fuel, no benefits" do
         assert_current_node :outcome_help_with_bills
-        assert_phrase_list :eligibilities_bills, [:warm_home_discount, :microgeneration]
+        assert_phrase_list :eligibilities_bills, [:microgeneration]
       end
     end
 

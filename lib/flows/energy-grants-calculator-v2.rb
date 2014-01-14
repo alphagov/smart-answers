@@ -326,9 +326,9 @@ outcome :outcome_help_with_bills do
       end
     else
       if age_variant == :winter_fuel_payment
-        phrases << :winter_fuel_payments << :cold_weather_payment << :microgeneration
+        phrases << :winter_fuel_payments << :microgeneration
       else
-        phrases << :warm_home_discount << :microgeneration
+        phrases << :microgeneration
       end
     end
     phrases

@@ -5,7 +5,14 @@ en-GB:
       meta:
         description: Financial help with heating costs, insulation, boilers, money for heating costs
       body: |
-        Check what money and other help you can get to reduce your energy costs.
+        You might be eligible for help with your energy costs or to help you make your home more energy efficient. 
+
+        You'll need to know what benefits you're on to find out about help with your heating bills.
+
+        To find out energy saving measures for your home, you'll need to know:
+
+        - what kind of energy saving measures you already have (eg, insulation or double glazing)
+        - a general idea of when your home was built
 
       phrases:
         error_property_social_housing: this is an error
@@ -27,7 +34,7 @@ en-GB:
         no_money_off: |
           - $!Unfortunately it doesn’t look like you qualify for money off your energy bill.$!
         microgeneration: |
-          - Energy efficiency, renewable heating and Microgeneration measures could reduce your bill.
+          Energy efficiency, renewable heating and Microgeneration measures could reduce your bill.
         title_might_be_eligible: you might be eligible for help with your energy bills
         title_property_might_benefit: "your property might benefit from:"
         title_energy_supplier: "you might qualify for help from your energy supplier:"
