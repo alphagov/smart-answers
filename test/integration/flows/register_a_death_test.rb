@@ -303,11 +303,9 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_current_node :embassy_result
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
         assert_state_variable :embassy_high_commission_or_consulate, "British consulate general"
-        assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
-        assert_phrase_list :clickbook, [:clickbook]
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, nil
-        assert_phrase_list :postal, [:postal_intro, :postal_registration_belgium]
+        assert_phrase_list :postal, [:post_only_pay_by_card_countries]
         expected_location = WorldLocation.find('belgium')
         assert_state_variable :location, expected_location
         assert_state_variable :organisation, expected_location.fco_organisation
@@ -323,12 +321,10 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_current_node :embassy_result
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-        assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_phrase_list :clickbook, [:clickbook]
         assert_state_variable :postal_form_url, "/government/publications/passport-credit-debit-card-payment-authorisation-slip-italy"
         assert_state_variable :postal_return_form_url, "/government/publications/registered-post-return-delivery-form-italy"
-        assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form, :postal_delivery_form]
+        assert_phrase_list :postal, [:post_only_pay_by_card_countries]
         expected_location = WorldLocation.find('italy')
         assert_state_variable :location, expected_location
         assert_state_variable :organisation, expected_location.fco_organisation
@@ -344,11 +340,10 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_current_node :embassy_result
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
         assert_state_variable :embassy_high_commission_or_consulate, "British consulate general"
-        assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
         assert_state_variable :clickbook, '' 
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, "/government/publications/passport-credit-debit-card-payment-authorisation-slip-spain" 
-        assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form, :postal_delivery_form]
+        assert_phrase_list :postal, [:post_only_pay_by_card_countries]
         assert_state_variable :current_location, "spain"
         expected_location = WorldLocation.find('spain')
         assert_state_variable :location, expected_location
@@ -542,8 +537,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_current_node :embassy_result
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy_netherlands]
         assert_state_variable :embassy_high_commission_or_consulate, "British consulate general"
-        assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
-        assert_phrase_list :clickbook, [:clickbook]
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, nil
         assert_phrase_list :cash_only, [:cash_and_card]

@@ -9,6 +9,7 @@ exclusions = %w(afghanistan cambodia central-african-republic chad comoros
                 swaziland taiwan tajikistan western-sahara)
 no_embassies = %w(iran syria yemen)
 exclude_countries = %w(holy-see british-antarctic-territory)
+modified_card_only_countries = %w(belgium netherlands czech-republic slovakia hungary poland portugal italy spain switzerland)
 
 # Q1
 multiple_choice :where_did_the_death_happen? do
@@ -193,7 +194,7 @@ outcome :embassy_result do
   end
 
   precalculate :clickbook do
-    if clickbook_data.nil?
+    if clickbook_data.nil? || modified_card_only_countries.include?(current_location)
       ''
     else
       if clickbook_data.class == Hash
@@ -219,8 +220,11 @@ outcome :embassy_result do
   end
 
   precalculate :postal do
-    if reg_data_query.post_only_countries?(current_location)
-      PhraseList.new(:"post_only_#{current_location}")
+    phrases = PhraseList.new
+    if modified_card_only_countries.include?(current_location)
+      phrases << :"post_only_pay_by_card_countries"
+    elsif reg_data_query.post_only_countries?(current_location)
+      phrases << :"post_only_#{current_location}"
     elsif reg_data_query.register_death_by_post?(current_location)
       phrases = PhraseList.new(:postal_intro)
       if postal_form_url
