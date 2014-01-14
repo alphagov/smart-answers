@@ -465,9 +465,10 @@ iraq:
   app_form: hmpo_1_application_form
   address: durham
 ireland:
-  type: dublin_ireland
+  type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
+  online_application: true
 israel:
   type: ips_application_1
   group: ips_documents_group_1
@@ -1080,7 +1081,8 @@ zambia:
   app_form: hmpo_1_application_form
   address: durham
 zimbabwe:
-  type: ips_application_3
+  type: ips_application_1
   group: ips_documents_group_3
   helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
+  address: durham
