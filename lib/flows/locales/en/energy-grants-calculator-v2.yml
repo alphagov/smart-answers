@@ -5,7 +5,14 @@ en-GB:
       meta:
         description: Financial help with heating costs, insulation, boilers, money for heating costs
       body: |
-        Check what money and other help you can get to reduce your energy costs.
+        You might be eligible for help with your energy costs or to help you make your home more energy efficient. 
+
+        You'll need to know what benefits you're on to find out about help with your heating bills.
+
+        To find out energy saving measures for your home, you'll need to know:
+
+        - what kind of energy saving measures you already have (eg, insulation or double glazing)
+        - a general idea of when your home was built
 
       phrases:
         error_property_social_housing: this is an error
@@ -27,10 +34,13 @@ en-GB:
         no_money_off: |
           - $!Unfortunately it doesn’t look like you qualify for money off your energy bill.$!
         microgeneration: |
-          - Energy efficiency, renewable heating and Microgeneration measures could reduce your bill.
+          Energy efficiency, renewable heating and Microgeneration measures could reduce your bill.
         title_might_be_eligible: you might be eligible for help with your energy bills
         title_property_might_benefit: "your property might benefit from:"
         title_energy_supplier: "you might qualify for help from your energy supplier:"
+        smartmeters: |
+          [Smart meters](/smart-meters) can help you keep track of how much energy you're using. You won't get estimated bills and won't need to take meter readings.
+
         a_condensing_boiler: "- Condensing boiler (gas or oil)"
         b_cavity_wall_insulation: "- Cavity wall insulation"
         c_solid_wall_insulation: "- Solid Wall insulation"
@@ -41,7 +51,7 @@ en-GB:
         eco_affordable_warmth: |
           Find out more about [ECO Affordable Warmth](https://www.gov.uk/energy-company-obligation) or call the Energy Saving Advice Service on 0300 123 1234 to apply.
         eco_help: |
-          You may also be able to get the following measures without having to pay all the costs up front through the Green Deal:
+          You may be able to get the following measures without having to pay all the costs up front through the Green Deal:
         property_might_benefit: "Your property might also benefit from:"
         heating: "###Heating"
         h_fan_assisted_heater: "- Fan-assisted storage heater"
@@ -54,22 +64,21 @@ en-GB:
         m_replacement_glazing: "- Replacement glazing"
         n_secondary_glazing: "- Secondary glazing"
         o_external_doors: "- High performance external doors"
+        p_heat_pump: "- Heat pump (air, ground or water source)"
+        q_biomass_boilers_heaters: "- Biomass boilers and heaters"
+        t_solar_water_heating: "- Solar water heating"
         microgeneration_renewables: |
           ###Microgeneration and renewables
-          - Air source heat pumps
-          - Biomass boilers and heaters
-          - Ground source heat pumps
           - Micro wind generation
           - Micro CHP
-          - Water source heat pumps
-          - Solar water heating
           - Solar Photovoltaics
-        x_green_deal: |
+
+        v_green_deal: |
           Under the Green Deal you could get these without having to pay all the costs up front.
 
-          Find out more about the [Green Deal](https://www.gov.uk/greendeal) or get a [Green Deal assessment](http://gdorb.decc.gov.uk/consumersearch).
-        y_renewal_heat: |
-          If your home is well insulated you could also qualify for money towards a [renewable heating system](/renewable-heat-premium-payment) and get paid for generating your own electricity.
+          ^Find out more about the [Green Deal](https://www.gov.uk/greendeal) or get a [Green Deal assessment](http://gdorb.decc.gov.uk/consumersearch).^
+        w_renewal_heat: |
+          If your home is well insulated you could also qualify for money towards a [renewable heating system](/renewable-heat-premium-payment) and get paid for [generating your own electricity](/feed-in-tariffs).
 
 # Q1
       what_are_you_looking_for?:
