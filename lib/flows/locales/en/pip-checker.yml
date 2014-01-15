@@ -16,10 +16,34 @@ en-GB:
         *[DLA]: Disability Living Allowance
       meta:
         description:
-          Personal Independence Payment (PIP) - if you get Disability Living Allowance or want to make a new claim for PIP
+          Personal Independence Payment (PIP) - if you get Disability Living Allowance (DLA) or want to make a new claim for PIP
       options:
         "no": "No"
         "yes": "Yes"
+      phrases:
+        scheme_postcodes: |
+          - CA (Carlisle) 
+          - DG (Dumfries and Galloway) 
+          - DL (Darlington) 
+          - EH (Edinburgh) 
+          - HG (Harrogate) 
+          - LA (Lancaster) 
+          - ML (Motherwell) 
+          - TD (Galashiels) 
+          - YO (York)
+        scheme_postcodes_pre_3rd_feb_2014: |
+          - DG (Dumfries and Galloway)
+          - EH (Edinburgh)
+          - TD (Galashiels)
+          - ML (Motherwell)
+
+          On 3 February 2014 the scheme will be expanded to include postcodes beginning with:
+
+          - CA (Carlisle)
+          - DL (Darlington)
+          - HG (Harrogate)
+          - LA (Lancaster)
+          - YO (York)
 
       ## Q1
       are_you_getting_dla?:
@@ -32,19 +56,21 @@ en-GB:
 
       result_1:
         body: |
-          $!The child isn't affected by Personal Independence Payment because they're under 16.$!
+          $!The child isn't affected by Personal Independence Payment (PIP) because they're under 16.$!
 
-          To qualify for Personal Independence Payment (PIP) the child must be 16 or over.
+          To qualify for PIP the child must be 16 or over.
 
           Instead of PIP, you can make a claim for [Disability Living Allowance](/disability-living-allowance-children) for the child until they turn 16.
 
+          *[PIP]: Personal Independence Payment
+
       result_2:
         body: |
-          $!You aren't affected by Personal Independence Payment because you are aged 65 or over.$!
+          $!You aren't affected by Personal Independence Payment (PIP) because you are aged 65 or over.$!
 
-          To qualify for Personal Independence Payment you must be aged 16 to 64.
+          To qualify for PIP you must be aged 16 to 64.
 
-          Instead of PIP, you can make a claim for [Attendance Allowance](/attendance-allowance "Attendance Allowance") (you won't normally qualify for Disability Living Allowance because you're 65 or over).
+          Instead of PIP, you can make a claim for [Attendance Allowance](/attendance-allowance) (you won't normally qualify for Disability Living Allowance because you're 65 or over).
 
           *[PIP]: Personal Independence Payment
 
@@ -68,48 +94,55 @@ en-GB:
 
           ##Exceptions
 
-          You'll be asked to make a claim for PIP if after 28 October 2013 you live in Wales, East Midlands, West Midlands or East Anglia and one of the following happen:
+          You’ll be invited to claim PIP if either:
 
           + there’s a change in how your condition affects you
-          + your DLA is due to end and you haven't received a renewal letter
-          
-          The scheme will be expanded on 13 January 2014 to include postcodes beginning with DG (Dumfries and Galloway), EH (Edinburgh), TD (Galashiels) and ML (Motherwell).
+          + your DLA is due to end and you haven’t received a renewal letter
 
-          On 3 February 2014 it will be expanded further to include postcodes beginning with CA (Carlisle), DL (Darlington), HG (Harrogate), LA (Lancaster) and YO (York).
+          This applies if you live in:
 
-          *[PIP]: Personal Independence Payment
+          - Wales
+          - East Midlands
+          - West Midlands
+          - East Anglia
+
+          This also applies if your postcode begins with:
+
+          %{postcodes}
+
           *[DLA]: Disability Living Allowance
+          *[PIP]: Personal Independence Payment
 
       result_5:
         body: |
           $!You can continue to claim Disability Living Allowance (DLA) for the child for now – but there are some exceptions.$!
- 
+
           ##Exceptions
 
-          They'll be invited to claim Personal Independence Payment on or shortly after they turn 16 if they live in:
+          You’ll be invited to claim Personal Independence Payment (PIP) if either:
+
+          + there’s a change in how your condition affects you
+          + your DLA is due to end and you haven’t received a renewal letter
+
+          This applies if you live in:
+
           - Wales
-          - East Midlands,
+          - East Midlands
           - West Midlands
-          - East Anglia 
+          - East Anglia
 
-          or postcodes beginning with:
-          - DG (Dumfries and Galloway)
-          - EH (Edinburgh)
-          - TD (Galashiels)
-          - ML (Motherwell).
+          This also applies if your postcode begins with:
 
-          On 3 February 2014 this list will be expanded to include postcodes beginning with CA (Carlisle), DL (Darlington), HG (Harrogate), LA (Lancaster) and YO (York).
-
-          If they live in other parts of the country, DWP will write to them shortly after they turn 16 to let them know if they’ll be invited to claim PIP or continue on DLA.
+          %{postcodes}
 
           *[DLA]: Disability Living Allowance
-          *[DWP]: Department for Work and Pensions
+          *[PIP]: Personal Independence Payment
 
       result_6:
         body: |
           $!You aren’t affected by Personal Independence Payment (PIP).$!
 
-          Because you were aged 65 or over on 8 April 2013 when PIP was introduced, you can continue to get [Disability Living Allowance](/dla-disability-living-allowance-benefit "Disability Living Allowance") for as long as you're eligible.
+          Because you were aged 65 or over on 8 April 2013 when PIP was introduced, you can continue to get [Disability Living Allowance](/dla-disability-living-allowance-benefit) for as long as you're eligible.
 
       result_7:
         body: |
@@ -120,16 +153,21 @@ en-GB:
           + what will happen to your Disability Living Allowance (DLA)
           + how you can claim PIP
 
-          ##Exceptions
-
-          You'll be asked to make a claim for PIP if after 28 October 2013 you live in Wales, East Midlands, West Midlands or East Anglia and one of the following happen:  
+                    You’ll be invited to claim PIP if either:
 
           + there’s a change in how your condition affects you
-          + your DLA is due to end and you haven't received a renewal letter
-          
-          The scheme will be expanded on 13 January 2014 to include postcodes beginning with DG (Dumfries and Galloway), EH (Edinburgh), TD (Galashiels) and ML (Motherwell).
+          + your DLA is due to end and you haven’t received a renewal letter
 
-          On 3 February 2014 it will be expanded further to include postcodes beginning with CA (Carlisle), DL (Darlington), HG (Harrogate), LA (Lancaster) and YO (York).
+          This applies if you live in:
 
-          *[PIP]: Personal Independence Payment
+          - Wales
+          - East Midlands
+          - West Midlands
+          - East Anglia
+
+          This also applies if your postcode begins with:
+
+          %{postcodes}
+
           *[DLA]: Disability Living Allowance
+          *[PIP]: Personal Independence Payment
