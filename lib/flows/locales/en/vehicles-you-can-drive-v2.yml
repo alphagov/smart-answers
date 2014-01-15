@@ -165,17 +165,18 @@ en-GB:
         body: |
           You need to be 17 before you can get a provisional licence and start learning to drive a car.
 
-          ##If you’re getting PIP
+          ##If you’re getting Personal Independence Payment (PIP)
 
-          You can get your provisional licence and take your test when you’re 16 if you’re getting, or have applied for, the enhanced rate of the mobility component of [Personal Independence Payment (PIP)](/pip).
+          You can get your provisional licence and take your test when you’re 16 if you’re getting, or have applied for, the enhanced rate of the mobility component of [PIP](/pip).
+
           *[PIP]: Personal Independence Payment
 
       ## A3
       mobility_rate_clause:
         body: |
-          ##If you’re getting PIP
+          ##If you’re getting Personal Independence Payment (PIP)
 
-          You can apply for a provisional licence and take your test when you’re 16 if you’re getting, or have applied for, the enhanced rate of the mobility component of [Personal Independence Payment (PIP)](/pip).
+          You can apply for a provisional licence and take your test when you’re 16 if you’re getting, or have applied for, the enhanced rate of the mobility component of [PIP](/pip).
 
           *[PIP]: Personal Independence Payment
 
