@@ -160,7 +160,7 @@ outcome :outcome_visit_waiver do
     end
   end
   precalculate :if_oman_qatar_uae do
-    if ['oman', 'qatar', 'united-arab-emirates'].include?(passport_country)
+    if %w(oman qatar united-arab-emirates).include?(passport_country)
       PhraseList.new(:electronic_visa_waiver)
     end
   end
