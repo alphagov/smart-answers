@@ -49,7 +49,7 @@ module SmartAnswer::Calculators
       end
       context "register_death_by_post?" do
         should "be true for countries that allow registration by post" do
-          assert @query.register_death_by_post?('belgium')
+          assert @query.register_death_by_post?('barbados')
           refute @query.register_death_by_post?('afghanistan')
         end
       end

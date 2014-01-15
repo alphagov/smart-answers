@@ -11,8 +11,8 @@ en-GB:
 
         - the person [lived in Scotland](http://www.gro-scotland.gov.uk/regscot/registering-a-death.html)
         - the person [lived in Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/death-and-bereavement/death-and-bereavement-what-to-do-when-someone-dies/registering-a-death.htm)
-     
-        If the person died on a foreign ship or aircraft, you must register the death in the country the ship or aircraft is registered in.  
+
+        If the person died on a foreign ship or aircraft, you must register the death in the country the ship or aircraft is registered in.
 
       options:
         "yes": "Yes"
@@ -78,7 +78,7 @@ en-GB:
           What you need to do
           --------
 
-          Take the medical certificate showing the cause of death (signed by a doctor) with you.  
+          Take the medical certificate showing the cause of death (signed by a doctor) with you.
 
           If available (but don't worry if not), also take the person’s:
 
@@ -169,7 +169,7 @@ en-GB:
 
           If the body’s being brought back to England or Wales (but not from Scotland, Northern Ireland, the Channel Islands or the Isle of Man) to be cremated, this must be reported to the English or Welsh coroner, who needs to issue a Certificate for Cremation (form 6).
 
-          If the body’s being brought back to England or Wales to be buried or cremated from Scotland, Northern Ireland, the Channel Islands or the Isle of Man, this must be reported to the local registrar so that a ‘Certificate of No Liability to Register’ can be issued. 
+          If the body’s being brought back to England or Wales to be buried or cremated from Scotland, Northern Ireland, the Channel Islands or the Isle of Man, this must be reported to the local registrar so that a ‘Certificate of No Liability to Register’ can be issued.
 
           ^It’s down to the person who brings the body home to contact the coroner or registrar.^
 
@@ -178,7 +178,7 @@ en-GB:
           --------
 
           You’ll get a death certificate issued by the relevant country.
-         
+
           If you want a UK death certificate as well, you can also register the death at the [nearest British embassy or consulate.](/government/world) You don’t have to do this but if you do it means the death gets registered at the General Register Office in the UK.
 
           You can’t register a death with the British authorities in the following countries:
@@ -235,7 +235,7 @@ en-GB:
           You can book an appointment at the British embassy or consulate in:
 
           +[data_partial:clickbooks:clickbook_data]
- 
+
         clickbook: |
           [Book an appointment online](%{clickbook_data})
 
@@ -267,6 +267,12 @@ en-GB:
           Post your application to the %{embassy_high_commission_or_consulate}.
 
           You must use recorded delivery or a courier. You’ll need to organise the return delivery of your documents (eg by including a pre-paid envelope or through the courier).
+        post_only_pay_by_card_countries: |
+          ##Send your registration
+
+          You can post your registration form, supporting documents and the fee to the %{embassy_high_commission_or_consulate}.  
+
+          Pay by credit or debit card - fill in the [credit card authorisation slip](%{postal_form_url}) and post it with your registration form.
 
         cash_only: |
           ^You can only pay by cash, which must be in local currency.^
@@ -339,7 +345,7 @@ en-GB:
           You can also apply to register the death with the %{embassy_high_commission_or_consulate} in %{current_location_name_lowercase_prefix}.
 
           You don’t have to do this, but it means:
-          
+
           - a British-style death certificate will be issued 
           - having the death registered at the General Register Office in the UK
 
@@ -436,7 +442,7 @@ en-GB:
             London
             SW1A 2AH
           $A
-            
+
           Your original documents will be returned within 20 working days.
 
           ^It takes up to 12 weeks for the death to be officially registered as the registration is sent to the local British embassy, consulate or high commission where the death happened.^

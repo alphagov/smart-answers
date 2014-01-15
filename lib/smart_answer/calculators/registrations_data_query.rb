@@ -15,9 +15,9 @@ module SmartAnswer::Calculators
 
     EASTERN_CARIBBEAN_COUNTRIES = %w(antigua-and-barbuda barbados dominica st-kitts-and-nevis st-vincent-and-the-grenadines)
 
-    NO_POSTAL_COUNTRIES = %w(barbados belgium costa-rica malaysia papua-new-guinea sweden tanzania thailand usa)
+    NO_POSTAL_COUNTRIES = %w(barbados costa-rica malaysia papua-new-guinea sweden tanzania thailand usa)
 
-    POST_ONLY_COUNTRIES = %w(france french-guiana french-polynesia guadeloupe martinique mayotte monaco new-caledonia reunion st-pierre-and-miquelon wallis-and-futuna united-arab-emirates)
+    POST_ONLY_COUNTRIES = %w(belgium czech-republic france french-guiana french-polynesia italy guadeloupe hungary martinique mayotte monaco new-caledonia netherlands poland portugal reunion slovakia spain st-pierre-and-miquelon switzerland wallis-and-futuna united-arab-emirates)
 
     COUNTRIES_WITH_TRADE_CULTURAL_OFFICES = %w(taiwan)
 
