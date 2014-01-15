@@ -13,7 +13,7 @@ country_group_visa_national = %w(armenia aruba azerbaijan bahrain benin bhutan b
 
 country_group_datv = %w(afghanistan albania algeria angola bangladesh belarus bolivia burma burundi cameroon china colombia congo democratic-republic-of-congo ecuador eritrea ethiopia gambia ghana guinea guinea-bissau india iran iraq cote-d-ivoire cyprus-north jamaica kenya kosovo lebanon lesotho liberia macedonia malawi moldova mongolia montenegro nepal nigeria oman the-occupied-palestinian-territories refugee rwanda senegal serbia sierra-leone somalia south-africa south-sudan sri-lanka stateless-person sudan swaziland tanzania turkey uganda venezuela vietnam zimbabwe)
 
-country_group_eea = %w(austria belgium bulgaria croatia cyprus czech republic denmark estonia finland france germany greece hungary iceland ireland italy latvia liechtenstein lithuania luxemburg malta netherlands norway poland portugal romania slovakia slovenia spain sweden switzerland)
+country_group_eea = %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia finland france germany greece hungary iceland ireland italy latvia liechtenstein lithuania luxembourg malta netherlands norway poland portugal romania slovakia slovenia spain sweden switzerland)
 
 # Q1
 country_select :what_passport_do_you_have?, :additional_countries => additional_countries, :exclude_countries => exclude_countries do
@@ -31,14 +31,14 @@ end
 
 # Q2
 multiple_choice :purpose_of_visit? do
-  option :study
-  option :work
   option :tourism
-  option :school
-  option :marriage
-  option :medical
+  option :work
+  option :study
   option :transit
   option :family
+  option :marriage
+  option :school
+  option :medical
 
   next_node do |response|
     case response
@@ -55,8 +55,8 @@ multiple_choice :purpose_of_visit? do
         :outcome_work_m
       end
     when 'tourism'
-      if passport_country == 'venezuela'
-        :outcome_visit_venezuela
+      if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
+        :outcome_visit_waiver
       elsif country_group_non_visa_national.include?(passport_country) or
          country_group_ukot.include?(passport_country)
         :outcome_school_n
@@ -64,8 +64,8 @@ multiple_choice :purpose_of_visit? do
         :outcome_general_y
       end
     when 'school'
-      if passport_country == 'venezuela'
-        :outcome_visit_venezuela
+      if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
+        :outcome_visit_waiver
       elsif country_group_non_visa_national.include?(passport_country) or
          country_group_ukot.include?(passport_country)
         :outcome_school_n
@@ -75,8 +75,8 @@ multiple_choice :purpose_of_visit? do
     when 'marriage'
       :outcome_marriage
     when 'medical'
-      if passport_country == 'venezuela'
-        :outcome_visit_venezuela
+      if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
+        :outcome_visit_waiver
       elsif country_group_non_visa_national.include?(passport_country) or
          country_group_ukot.include?(passport_country)
         :outcome_medical_n
@@ -85,7 +85,7 @@ multiple_choice :purpose_of_visit? do
       end
     when 'transit'
       if passport_country == 'venezuela'
-        :outcome_visit_venezuela
+        :outcome_visit_waiver
       elsif country_group_datv.include?(passport_country) or
          country_group_visa_national.include?(passport_country)
         :planning_to_leave_airport?
@@ -127,7 +127,13 @@ end
 outcome :outcome_no_visa_needed
 outcome :outcome_study_y
 outcome :outcome_study_m
-outcome :outcome_work_y
+outcome :outcome_work_y do
+  precalculate :if_turkey do
+    if passport_country == 'turkey'
+      PhraseList.new(:turkey_business_person_visa)
+    end
+  end
+end
 outcome :outcome_work_m
 outcome :outcome_transit_leaving_airport
 outcome :outcome_transit_not_leaving_airport
@@ -147,4 +153,16 @@ outcome :outcome_school_n
 outcome :outcome_school_y
 outcome :outcome_medical_y
 outcome :outcome_medical_n
-outcome :outcome_visit_venezuela
+outcome :outcome_visit_waiver do
+  precalculate :if_venezuela do
+    if passport_country == 'venezuela'
+      PhraseList.new(:extra_documents)
+    end
+  end
+  precalculate :if_oman_qatar_uae do
+    if %w(oman qatar united-arab-emirates).include?(passport_country)
+      PhraseList.new(:electronic_visa_waiver)
+    end
+  end
+end
+

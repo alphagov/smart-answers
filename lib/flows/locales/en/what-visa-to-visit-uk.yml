@@ -6,6 +6,18 @@ en-GB:
           ##Travelling in a tour group
 
           You can apply for an [‘ADS visa’](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/ads/) if you’re planning to travel to the UK as part of a tour group for less than 30 days.
+        turkey_business_person_visa: |
+          ###Turkish nationals 
+
+          You can apply for a [Turkish business person visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/turkish/) if you want to come and set up a business in the UK. 
+        
+        extra_documents: |
+          However, you should bring certain documents with you to show UK immigration officers at the border.
+        
+        electronic_visa_waiver: |
+          However, you’ll need an electronic visa waiver (EVW). 
+
+          [Apply for an EVW](https://www.visa4uk.fco.gov.uk/) online.
 
       title: Check what visa you need to come to the UK
       meta:
@@ -21,7 +33,7 @@ en-GB:
         options:
           study: "Study"
           work: "Work or business"
-          tourism: "Tourism, visiting friends or family"
+          tourism: "Tourism, including visiting friends or family"
           school: "Visit your child at school"
           marriage: "Get married"
           medical: "Get private medical treatment"
@@ -69,6 +81,8 @@ en-GB:
 
           ##Categories
 
+          %{if_turkey}
+
           ###Skilled workers
 
           The [skilled workers visa category](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/tier2/) may be suitable if you’re a skilled worker and you’ve been offered a job in the UK.
@@ -85,8 +99,7 @@ en-GB:
 
           ###'High value' workers
 
-          The [high value workers visa category](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/tier1/) may be suitable if you’re an investor, entrepreneur or an exceptionally talented person.
-
+          The [high value workers visa category](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/tier1/) may be suitable if you’re an investor, entrepreneur or a leader in arts or sciences.
           ###Commonwealth citizens
 
           You may be eligible for a [UK ancestry visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/uk-ancestry/) if one of your grandparents was born in the UK.
@@ -126,15 +139,14 @@ en-GB:
           The [temporary workers visa category](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/tier5/) may be suitable if you want come to the UK temporarily to work:
 
           - in sports
-          - in a creative job
-          - as a volunteer
+          - in arts or entertainment 
+          - as a volunteer 
           - in a work experience role
           - for a charity or religious organisation
 
           ###'High value' workers
 
-          The [high value workers visa category](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/tier1/) may be suitable if you’re an investor, entrepreneur or an exceptionally talented person.
-
+          The [high value workers visa category](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/tier1/) may be suitable if you’re an investor, entrepreneur or a leader in arts or sciences. 
           ###Commonwealth citizens
 
           You may be eligible for a [UK ancestry visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/uk-ancestry/) if one of your grandparents was born in the UK.
@@ -145,7 +157,6 @@ en-GB:
 
           - [domestic worker in a private household](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/othercategories/domesticworkers/)
           - [representative of an overseas business](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/othercategories/overseas-business-reps/)
-          - [contract seaman](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/othercategories/contract-seaman-employed/)
 
           ##Short visits
 
@@ -162,45 +173,58 @@ en-GB:
       outcome_transit_leaving_airport:
         title: You’ll need a visa to pass through the UK in transit (unless you’re exempt)
         body: |
-          You should apply for a [‘landside’ transit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/transitthroughtheuk/visa-to-transit-landside/) if you’re going to pass through immigration control, but leave the UK within 48 hours.
+          You should apply for a [Visitor in Transit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/transitthroughtheuk/visa-to-transit-landside/) if you’re going to pass through immigration control, but leave the UK within 48 hours.
 
           ##When you’re exempt
 
-          You won’t need a visa if you have any of the following:
+          You won’t need a visa if:
 
-          - a plane ticket via the UK to Australia, Canada, New Zealand or the USA, and a visa for the country you're travelling to
-          -  an airline ticket to Australia, Canada, New Zealand or the USA (if you're transiting the UK no more than 6 months after the date when you last entered Australia, Canada, New Zealand or the USA with a valid entry visa for that country)
-          - a valid USA I-551 permanent resident card issued on or after 21 April 1998
-          - an expired I-551 permanent resident card issued on or after 21 April 1998, accompanied by an I-797 extension letter issued by the Bureau of Citizenship
-          - a valid Canadian permanent resident card issued on or after 28 June 2002
-          - a valid Australian or New Zealand residence visa
-          - a valid uniform format category D visa for entry to a state in the European Economic Area (EEA)
-          - a valid uniform format residence permit issued by an EEA state under Council Regulation (EC) number 1030/2002
-          - a valid UK residence card
-          - a valid EEA family permit issued by the UK government
+          - you’re travelling via the UK to Australia, Canada, New Zealand or the USA and have a valid visa for that country 
+          - you’re travelling via the UK to Australia, Canada, New Zealand or the USA and it’s less than 6 months since you last entered that country with a valid entry visa 
+
+          You also won’t need one if you have a valid:
+
+          - USA green card issued on or after 21 April 1998
+          - Canadian permanent resident card issued on or after 28 June 2002
+          - Australian or New Zealand residence visa
+          - uniform format category D visa for entry to a state in the European Economic Area (EEA)
+          - uniform format residence permit issued by an EEA state
+          - UK residence card
+          - EEA family permit issued by the UK government
+
+            ^You’ll be exempt if you have an expired USA green card issued on or after 21 April 1998, but you must also have an I-797 extension letter issued by the Bureau of Citizenship.^
 
       outcome_transit_not_leaving_airport:
         title: You’ll need a visa to pass through the UK in transit (unless you’re exempt)
         body: |
-          You should apply for an [‘airside’ transit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/transitthroughtheuk/visa-transit-airside/) if you arrive on a flight but you’re not going to pass through immigration control.
+          You should apply for an [Direct Airside Transit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/transitthroughtheuk/visa-transit-airside/) if you arrive on a flight and leave again within 48 hours without passing through immigration control.
+
           ##When you’re exempt
 
-          You won’t need a visa if you have any of the following:
+          You won’t need a visa if:
 
-          - a plane ticket via the UK to Canada or the USA, and a visa for the country you're travelling to
-          - a Canadian or US visa and an airline ticket from that country to another country
-          - an airline ticket to Australia, Canada, New Zealand or the USA, if you’re transiting the UK no more than 6 months after the date when you last entered Australia, Canada, New Zealand or the USA with a valid entry visa for that country
-          - a valid USA I-551 permanent resident card issued on or after 21 April 1998
-          - an expired I-551 permanent resident card issued on or after 21 April 1998, accompanied by a valid I-797 extension letter issued by the Bureau of Citizenship
-          - a Canadian permanent resident card issued on or after 28 June 2002
-          - a  common format category D visa for entry to a state in the European Economic Area (EEA) or Switzerland
-          - a  common format residence permit issued by an EEA state or Switzerland under Council Regulation (EC) number 1030/2002
-          - a UK residence card
-          - an EEA family permit
+          - you’re travelling to Canada or the USA and have a valid visa for that country
+          - you’re travelling to Australia, Canada, New Zealand or the USA and it’s less than 6 months since you last entered that country with a valid entry visa
+          - you’re travelling from Canada or the USA to another country and have a valid visa to return
+           
+          You also won’t need a visa if you have a valid:
+
+          - USA green card issued on or after 21 April 1998
+          - Canadian permanent resident card issued on or after 28 June 2002
+          - Australian or New Zealand residence visa
+          - a common format category D visa for entry to a state in the European Economic Area (EEA) or Switzerland
+          - a common format residence permit issued by an EEA state or Switzerland
+          - UK residence card
+          - EEA family permit issued by the UK government
+
+          ^You’ll be exempt if you have an expired USA green card issued on or after 21 April 1998, but you must also have an I-797 extension letter issued by the Bureau of Citizenship.^
+
 
       outcome_joining_family_y:
-        title: You’ll need a visa to join your family in the UK for a long stay
+        title: You’ll need a visa to join your family in the UK
         body: |
+          ^If you’re visiting family for 6 months or less, you’ll need a [family visit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/family/).^
+
           The visa you apply for depends on your family member’s situation.
 
           ##They’re settled in the UK
@@ -256,8 +280,7 @@ en-GB:
       outcome_marriage:
         title: You’ll need a visa to come to the UK
         body: |
-          You should apply for the [private medical treatment visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/medical/).
-
+          See the [marriage visit visa category](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/marriage-cp/) for eligibility and documents you need to provide.
       outcome_school_n:
         title: You won’t need a visa to come to the UK
         body: |
@@ -267,7 +290,8 @@ en-GB:
 
           - a [tourist](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/general/)
           - [visiting family](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/family/)
-          - a [visiting a child at a school](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/business/) in the UK
+          - [visiting a child at a school](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/business/) in the UK
+
 
           %You may want to [apply for a visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/) if you have a criminal record or you’ve previously been refused entry into the UK.%
 
@@ -277,7 +301,7 @@ en-GB:
           You should apply for the [visa for parents](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/parent/) visiting children at school.
 
       outcome_medical_y:
-        title: You’ll need a visa to visit the UK for private medical treatment
+        title: You’ll need a visa to visit the UK
         body:
           You should apply for the [private medical treatment visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/medical/).
 
@@ -287,11 +311,14 @@ en-GB:
           However, you should bring certain documents with you to show UK immigration officers at the border.
 
 
-          Check which [documents you should bring](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/medical/documents/).
+          Check which [documents you should bring](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/medical/documents/)
 
-      outcome_visit_venezuela:
-        title: You won’t need a visa if you have an ePassport
+      outcome_visit_waiver:
+        title: You won’t need a visa
         body: |
+         
+          %{if_venezuela}
+
           See which documents you should bring if you’re:
 
           - a [tourist](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/general/)
@@ -301,3 +328,5 @@ en-GB:
           - visiting for [private medical treatment](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/medical/)
 
           %You must [apply for a visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/) if you don’t have an ePassport.%
+
+          %{if_oman_qatar_uae}
