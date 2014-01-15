@@ -8,7 +8,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan andorra australia barbados belize cameroon central-african-republic china el-salvador guatemala grenada hong-kong indonesia ireland iran laos libya maldives pakistan spain sri-lanka st-kitts-and-nevis sweden taiwan thailand turkey united-arab-emirates usa yemen)
+    @location_slugs = %w(afghanistan andorra australia barbados belize cameroon central-african-republic china el-salvador guatemala grenada hong-kong indonesia ireland iran laos libya maldives pakistan spain sri-lanka st-kitts-and-nevis sweden taiwan thailand turkey united-arab-emirates usa vietnam yemen)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-birth'
   end
@@ -437,5 +437,15 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :birth_registration_form, [:birth_registration_form]
     end
   end
-
+  context "answer Vietnam" do
+    should "give the embassy result with Vietnam conditions" do
+      worldwide_api_has_organisations_for_location('vietnam', read_fixture_file('worldwide/vietnam_organisations.json'))
+      add_response 'vietnam'
+      add_response 'father'
+      add_response 'yes'
+      add_response 'same_country'
+      assert_current_node :embassy_result
+      assert_phrase_list :postal, [:postal_form]
+    end
+  end # Vietnam
 end
