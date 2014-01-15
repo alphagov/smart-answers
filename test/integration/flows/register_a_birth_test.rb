@@ -364,17 +364,18 @@ class RegisterABirthTest < ActiveSupport::TestCase
     end
   end
 
-  context "laos, where you have to register in thailand" do
+  context "laos, no longer have to register in thailand" do
     setup do
-      worldwide_api_has_organisations_for_location('thailand', read_fixture_file('worldwide/thailand_organisations.json'))
+      worldwide_api_has_organisations_for_location('laos', read_fixture_file('worldwide/laos_organisations.json'))
       add_response "laos"
     end
-    should "calculate the registration country as Thailand" do
+    should "calculate the registration country as Laos" do
       add_response 'father'
       add_response 'yes'
       add_response 'same_country'
-      assert_state_variable :registration_country, "thailand"
-      assert_state_variable :registration_country_name, "Thailand"
+      assert_state_variable :registration_country, "laos"
+      assert_state_variable :registration_country_name, "Laos"
+      assert_phrase_list :cash_only, [:cash_only]
     end
   end
   context "maldives, where you have to register in sri lanka" do

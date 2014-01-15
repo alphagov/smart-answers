@@ -9,7 +9,7 @@ module SmartAnswer::Calculators
 
     COUNTRIES_WITH_CONSULATE_GENERALS = %(belgium brazil germany hong-kong netherlands spain turkey)
 
-    CASH_ONLY_COUNTRIES = %w(armenia bosnia-and-herzegovina botswana brunei cambodia iceland kazakhstan latvia libya luxembourg slovenia tunisia uganda)
+    CASH_ONLY_COUNTRIES = %w(armenia bosnia-and-herzegovina botswana brunei cambodia iceland kazakhstan laos latvia libya luxembourg slovenia tunisia uganda)
 
     CHEQUE_ONLY_COUNTRIES = %w(taiwan)
 
