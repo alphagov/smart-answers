@@ -8,7 +8,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan andorra australia barbados belize cameroon central-african-republic china el-salvador guatemala grenada hong-kong indonesia ireland iran laos libya maldives pakistan spain sri-lanka st-kitts-and-nevis sweden taiwan thailand turkey united-arab-emirates usa vietnam yemen)
+    @location_slugs = %w(afghanistan andorra australia barbados belize cameroon central-african-republic china el-salvador guatemala grenada hong-kong indonesia ireland iran laos libya maldives netherlands pakistan spain sri-lanka st-kitts-and-nevis sweden taiwan thailand turkey united-arab-emirates usa vietnam yemen)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-birth'
   end
@@ -449,4 +449,15 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :postal, [:postal_form]
     end
   end # Vietnam
+  context "answer Netherlands" do
+    should "go to embassy result with modified card conditional" do
+      worldwide_api_has_organisations_for_location('netherlands', read_fixture_file('worldwide/netherlands_organisations.json'))
+      add_response 'netherlands'
+      add_response 'father'
+      add_response 'yes'
+      add_response 'same_country'
+      assert_current_node :embassy_result
+      assert_phrase_list :postal, [:post_only_pay_by_card_countries]
+    end
+  end # Netherlands
 end
