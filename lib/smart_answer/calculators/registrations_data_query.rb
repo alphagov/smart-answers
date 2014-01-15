@@ -9,7 +9,7 @@ module SmartAnswer::Calculators
 
     COUNTRIES_WITH_CONSULATE_GENERALS = %(belgium brazil germany hong-kong netherlands spain turkey)
 
-    CASH_ONLY_COUNTRIES = %w(armenia bosnia-and-herzegovina botswana brunei cambodia iceland kazakhstan latvia libya luxembourg slovenia tunisia uganda)
+    CASH_ONLY_COUNTRIES = %w(armenia bosnia-and-herzegovina botswana brunei cambodia iceland kazakhstan laos latvia libya luxembourg slovenia tunisia uganda)
 
     CHEQUE_ONLY_COUNTRIES = %w(taiwan)
 
@@ -20,6 +20,8 @@ module SmartAnswer::Calculators
     POST_ONLY_COUNTRIES = %w(belgium czech-republic france french-guiana french-polynesia italy guadeloupe hungary martinique mayotte monaco new-caledonia netherlands poland portugal reunion slovakia spain st-pierre-and-miquelon switzerland wallis-and-futuna united-arab-emirates)
 
     COUNTRIES_WITH_TRADE_CULTURAL_OFFICES = %w(taiwan)
+
+    MODIFIED_CARD_ONLY_COUNTRIES = %w(belgium netherlands czech-republic slovakia hungary poland portugal italy spain switzerland)
 
     attr_reader :data
 
@@ -69,6 +71,10 @@ module SmartAnswer::Calculators
 
     def caribbean_alt_embassies?(country_slug)
       CARIBBEAN_ALT_EMBASSIES.include?(country_slug)
+    end
+
+    def modified_card_only_countries?(country_slug)
+      MODIFIED_CARD_ONLY_COUNTRIES.include?(country_slug)
     end
 
     def postal_form(country_slug)

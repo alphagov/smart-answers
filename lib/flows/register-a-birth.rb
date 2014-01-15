@@ -211,7 +211,9 @@ outcome :embassy_result do
   end
 
   precalculate :postal do
-    if reg_data_query.post_only_countries?(registration_country)
+    if reg_data_query.modified_card_only_countries?(registration_country)
+      PhraseList.new(:post_only_pay_by_card_countries)
+    elsif reg_data_query.post_only_countries?(registration_country) 
       PhraseList.new(:"post_only_#{registration_country}")
     elsif postal_form_url
       PhraseList.new(:postal_form)

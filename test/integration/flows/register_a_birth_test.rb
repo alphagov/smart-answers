@@ -8,7 +8,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan andorra australia barbados belize cameroon central-african-republic china el-salvador guatemala grenada hong-kong indonesia ireland iran laos libya maldives pakistan spain sri-lanka st-kitts-and-nevis sweden taiwan thailand turkey united-arab-emirates usa yemen)
+    @location_slugs = %w(afghanistan andorra australia barbados belize cameroon central-african-republic china el-salvador guatemala grenada hong-kong indonesia ireland iran laos libya maldives netherlands pakistan spain sri-lanka st-kitts-and-nevis sweden taiwan thailand turkey united-arab-emirates usa vietnam yemen)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-birth'
   end
@@ -364,17 +364,18 @@ class RegisterABirthTest < ActiveSupport::TestCase
     end
   end
 
-  context "laos, where you have to register in thailand" do
+  context "laos, no longer have to register in thailand" do
     setup do
-      worldwide_api_has_organisations_for_location('thailand', read_fixture_file('worldwide/thailand_organisations.json'))
+      worldwide_api_has_organisations_for_location('laos', read_fixture_file('worldwide/laos_organisations.json'))
       add_response "laos"
     end
-    should "calculate the registration country as Thailand" do
+    should "calculate the registration country as Laos" do
       add_response 'father'
       add_response 'yes'
       add_response 'same_country'
-      assert_state_variable :registration_country, "thailand"
-      assert_state_variable :registration_country_name, "Thailand"
+      assert_state_variable :registration_country, "laos"
+      assert_state_variable :registration_country_name, "Laos"
+      assert_phrase_list :cash_only, [:cash_only]
     end
   end
   context "maldives, where you have to register in sri lanka" do
@@ -437,5 +438,26 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :birth_registration_form, [:birth_registration_form]
     end
   end
-
+  context "answer Vietnam" do
+    should "give the embassy result with Vietnam conditions" do
+      worldwide_api_has_organisations_for_location('vietnam', read_fixture_file('worldwide/vietnam_organisations.json'))
+      add_response 'vietnam'
+      add_response 'father'
+      add_response 'yes'
+      add_response 'same_country'
+      assert_current_node :embassy_result
+      assert_phrase_list :postal, [:postal_form]
+    end
+  end # Vietnam
+  context "answer Netherlands" do
+    should "go to embassy result with modified card conditional" do
+      worldwide_api_has_organisations_for_location('netherlands', read_fixture_file('worldwide/netherlands_organisations.json'))
+      add_response 'netherlands'
+      add_response 'father'
+      add_response 'yes'
+      add_response 'same_country'
+      assert_current_node :embassy_result
+      assert_phrase_list :postal, [:post_only_pay_by_card_countries]
+    end
+  end # Netherlands
 end
