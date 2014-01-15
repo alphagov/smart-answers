@@ -8,7 +8,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan andorra argentina australia austria barbados belgium brazil china dominica france germany hong-kong indonesia iran italy libya malaysia morocco netherlands spain st-kitts-and-nevis sweden taiwan usa)
+    @location_slugs = %w(afghanistan andorra argentina australia austria barbados brazil china dominica france germany hong-kong indonesia iran italy libya malaysia morocco netherlands slovakia spain st-kitts-and-nevis sweden taiwan usa)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-death'
   end
@@ -293,22 +293,19 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_state_variable :organisation, expected_location.fco_organisation
       end
     end # Answer Austria
-    context "answer Belgium" do
+    context "answer Slovakia" do
       setup do
-      worldwide_api_has_organisations_for_location('belgium', read_fixture_file('worldwide/belgium_organisations.json'))
-        add_response 'belgium'
+      worldwide_api_has_organisations_for_location('slovakia', read_fixture_file('worldwide/slovakia_organisations.json'))
+        add_response 'slovakia'
         add_response 'same_country'
       end
       should "give the embassy result and be done" do
         assert_current_node :embassy_result
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
-        assert_state_variable :embassy_high_commission_or_consulate, "British consulate general"
+        assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, nil
         assert_phrase_list :postal, [:post_only_pay_by_card_countries]
-        expected_location = WorldLocation.find('belgium')
-        assert_state_variable :location, expected_location
-        assert_state_variable :organisation, expected_location.fco_organisation
       end
     end # Answer Belgium
     context "answer Italy" do
