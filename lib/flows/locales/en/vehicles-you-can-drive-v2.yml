@@ -78,7 +78,7 @@ en-GB:
         title: When was your licence issued?
         options:
           before-jan-1997: "Before 1 January 1997"
-          from-jan-1997: "From 1 January 1997"
+          from-jan-1997: "On or after 1 January 1997"
       ## Q14
       how_old_are_you_msv?:
         title: How old are you?
@@ -101,11 +101,11 @@ en-GB:
         hint: You must pass a car driving test before you can drive a minibus.
         options:
           before-jan-1997: "Before 1 January 1997"
-          from-jan-1997: "From 1 January 1997"
+          from-jan-1997: "On or after 1 January 1997"
       ## Q19
       has_licence_been_replaced_psv?:
         title: |
-          Has your licence been replaced with a short period licence (1, 2 or 3 years) for medical reasons, or have you turned 70 since you passed your car driving test?
+          Has your licence ever been replaced with a short period licence (1, 2 or 3 years) for medical reasons, or have you turned 70 since you passed your car driving test?
       ## Q20
       does_licence_show_d1_psv?:
         title: Does your licence show category D1?
@@ -160,27 +160,31 @@ en-GB:
         title: Do you already have a full category B car driving licence issued before 19 January 2013?
       ## A2
       not_old_enough:
-        title: You’re not old enough to drive a car or light vehicle yet.
+        title: You’re not old enough to drive a car yet.
+
         body: |
           You need to be 17 before you can get a provisional licence and start learning to drive a car.
 
-          If you’re getting the higher rate mobility component of Disability Living Allowance (DLA) you can get your provisional licence and take your test when you’re 16.
+          ##If you’re getting Personal Independence Payment (PIP)
 
-          *[DLA]: Disability Living Allowance
+          You can get your provisional licence and take your test when you’re 16 if you’re getting, or have applied for, the enhanced rate of the mobility component of [PIP](/pip).
+
+          *[PIP]: Personal Independence Payment
+
       ## A3
       mobility_rate_clause:
         body: |
-          If you’re getting the higher rate mobility component of Disability Living Allowance (DLA) you can apply for a provisional licence and take your test when you’re 16.
+          ##If you’re getting Personal Independence Payment (PIP)
 
-          Otherwise you’ll have to wait until you’re 17.
+          You can apply for a provisional licence and take your test when you’re 16 if you’re getting, or have applied for, the enhanced rate of the mobility component of [PIP](/pip).
 
-          *[DLA]: Disability Living Allowance
+          *[PIP]: Personal Independence Payment
+
 
         next_steps: |
 
           [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence)
 
-          [Disability Living Allowance (DLA)](/dla-disability-living-allowance-benefit)
       ## A4
       entitled_for_provisional_licence:
         body: |
@@ -523,11 +527,18 @@ en-GB:
       ## A26
       psv_entitled:
         body: |
-          You can drive minibuses, but ‘not for hire or reward’ (you may see ‘code 101’ written on your licence).
+          You can drive minibuses, but if your licence has restriction code 101 on it you can’t drive ‘for hire or reward’ ie. you can’t get paid to drive.
 
           ##Towing
 
-          You have the D1+E towing entitlement, which means you can drive minibuses with trailers over 750 kg.
+          You can drive minibuses with trailers over 750 kg if you have the D1+E towing entitlement.
+
+          ##Driving a minibus professionally
+
+          You must apply for a D1 minibus ‘entitlement’ if you want to drive minibuses professionally by filling in a [D2 application form](/dvlaforms).
+
+          You must also ask a doctor and/or optician to fill in a [D4 medical report](/government/publications/d4-medical-examination-report-vision-assessment--2). 
+
 
         next_steps: |
           [Driving a minibus](/driving-a-minibus)
@@ -560,7 +571,7 @@ en-GB:
       ## A33
       bus_apply_for_cat_b:
         body: |
-          You’ll need a full car driving licence before you can apply for provisional bus entitlement (category D) then take your test. 
+          You’ll need a full car driving licence before you can apply for provisional bus entitlement (category D) and take your test. 
 
           You must also normally be 24 or over.
 
@@ -696,19 +707,20 @@ en-GB:
         body: |
           You can’t ride a quad bike on the road.
 
-          You can apply for provisional quad bike entitlement and take a test when you’re 17. This is 16 if you’re getting Disability Living Allowance (DLA) mobility component at the higher rate.
+          You can apply for provisional quad bike entitlement and take a test when you’re 17. 
+          This is 16 if you’re getting, or have applied for, the enhanced rate of the mobility component of [Personal Independence Payment (PIP)](/pip).
 
-          ^If you get a full car licence you’ll can ride quad bikes without taking another test.^
+          ^If you get a full car licence you can ride quad bikes and trikes without taking another test.^
         next_steps: |
           [Quad bikes - the rules](/quad-bikes-the-rules)
       ## A46
       quad_disability_conditional_entitlement:
         body: |
-          You can’t ride a quad bike on the road unless you’re getting Disability Living Allowance (DLA) mobility component at the higher rate. If you’re getting this you can apply for provisional quad bike provisional entitlement and take a test.
+          You can’t ride a quad bike or trike on the road unless you’re getting the enhanced rate of the mobility component of [Personal Independence Payment (PIP)](/pip).  If you’re getting this you can apply for provisional quad bike provisional entitlement and take a test.
 
           Otherwise, you can apply for provisional quad bike entitlement and take a test when you’re 17.
 
-          ^If you get a full car licence you’ll can ride quad bikes without taking another test.^
+          ^If you get a full car licence you can ride quad bikes and trikes without taking another test.^
         next_steps: |
           [Quad bikes - the rules](/quad-bikes-the-rules)
       ## A47
@@ -716,7 +728,7 @@ en-GB:
         body: |
           You can ride quad bikes on the road. You’ll need to apply for provisional quad bike entitlement then take a test.
 
-          ^If you get a full car licence you’ll can ride quad bikes without taking another test.^
+          ^If you get a full car licence you can ride quad bikes and trikes without taking another test.^
         next_steps: |
           [Apply for your first provisional driving licence](/apply-first-provisional-driving-licence)
           
@@ -738,12 +750,20 @@ en-GB:
       ## A50
       psv_renew_entitlement:
         body: |
-          You can’t drive a minibus until you renew your entitlement. 
+          You can drive a minibus with your car licence (category B) as long as all the following apply:
+          you’re 21 or older
+          the minibus is being used for social purposes by a non-commercial body
+          you’ve had your driving licence for at least two years
+          you’re not being paid
+          the maximum weight of the minibus is 3,500kg (or 4,250kg including specialist equipment for disabled passengers, eg a wheelchair ramp)
+          you’re not towing a trailer
+          you meet the [‘Group 2’ medical standards](/government/publications/at-a-glance) if you’re over 70 - see your GP if you’re not sure you meet the standards
 
-          You must fill in a [D2 application form](/dvlaforms).
+          ##Driving a minibus professionally
+
+          You must apply for a D1 minibus ‘entitlement’ if you want to drive minibuses professionally by filling in a [D2 application form](/dvlaforms).
 
           You must also ask a doctor and/or optician to fill in a [D4 medical report](/government/publications/d4-medical-examination-report-vision-assessment--2).
-
         next_steps: |
           [Driving a minibus](/driving-a-minibus)  
           [Driving licence categories](/driving-licence-categories)
