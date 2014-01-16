@@ -119,19 +119,14 @@ en-GB:
 
           ##Exceptions
 
-          You’ll be invited to claim Personal Independence Payment (PIP) if either:
-
-          + there’s a change in how your condition affects you
-          + your DLA is due to end and you haven’t received a renewal letter
-
-          This applies if you live in:
+          The child will be invited to claim Personal Independence Payment (PIP) on or shortly after they turn 16 if they live in:
 
           - Wales
           - East Midlands
           - West Midlands
           - East Anglia
 
-          This also applies if your postcode begins with:
+          This also applies if their postcode begins with:
 
           %{postcodes}
 
