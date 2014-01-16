@@ -353,9 +353,9 @@ en-GB:
         consular_cni_os_local_resident_not_italy_germany: |
           If you need a CNI, you’ll first need to give notice of your intended marriage at your nearest British %{embassy_or_consulate_residency_country}.
 
-          ###Applying for a CNI from the consulate
+          ###Applying for a CNI from the %{embassy_or_consulate_residency_country}
 
-          You’ll need to have been resident in %{country_name_lowercase_prefix} for at least 21 days. You can then book an appointment at the consulate to give notice of your marriage. There’s a fee for this service (see below).
+          You’ll need to have been resident in %{country_name_lowercase_prefix} for at least 21 days. You can then book an appointment at the %{embassy_or_consulate_residency_country} to give notice of your marriage. There’s a fee for this service (see below).
         kazakhstan_os_local_resident: |
           If you need a CNI, you’ll first need to give notice of your intended marriage (banns) at the British Embassy Office in Almaty.
 
@@ -481,7 +481,7 @@ en-GB:
 
           - your passport
           - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
-          - proof of residence, such as a residence certificate - check with the consulate to find out what you need
+          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_residency_country} to find out what you need
           - equivalent documents for your partner
         japan_consular_cni_os_local_resident: |
           To book an appointment, complete the [marriage questionnaire](/government/publications/marriage-questionnaire-japan). Send it by email, fax or post following the instructions on the form, along with copies of the requested documents.
@@ -539,7 +539,7 @@ en-GB:
 
           The consulate will check your form and documents, and if everything’s in order they’ll send you details of how to book your appointment to give official notice of your marriage. They’ll then display your notice publicly for 21 days, and if nobody has raised an objection, they’ll issue your CNI. There’s an additional fee for this.
         consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany: |
-          The consulate will provide you with forms for your notice of marriage, and an oath or affidavit (written statement of facts) stating that you’re free to marry. You can download and fill in (but not sign) the forms in advance.
+          The %{embassy_or_consulate_residency_country} will provide you with forms for your notice of marriage, and an oath or affidavit (written statement of facts) stating that you’re free to marry. You can download and fill in (but not sign) the forms in advance.
 
 
           $D
@@ -550,7 +550,7 @@ en-GB:
         consular_cni_os_local_resident_not_germany_or_italy_or_spain: |
           ###What happens next
 
-          The consulate will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 21 days. They’ll then issue the CNI, as long as nobody has registered an objection. There’s an additional fee for this.
+          The %{embassy_or_consulate_residency_country} will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 21 days. They’ll then issue the CNI, as long as nobody has registered an objection. There’s an additional fee for this.
         consular_cni_os_local_resident_italy_two: |
           ###What happens next
 
