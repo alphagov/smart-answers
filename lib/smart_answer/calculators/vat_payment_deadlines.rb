@@ -9,7 +9,11 @@ module SmartAnswer::Calculators
 
     def last_payment_date
       case @payment_method
-      when 'direct-debit', 'bank-giro'
+      when 'direct-debit'
+        payment_date = end_of_month_after(@period_end_date) + 7.days
+        payment_date -= 1 while !payment_date.workday?
+        2.working_days.before(payment_date)
+      when 'bank-giro'
         payment_date = end_of_month_after(@period_end_date) + 7.days
         payment_date -= 1 while !payment_date.workday?
         3.working_days.before(payment_date)
