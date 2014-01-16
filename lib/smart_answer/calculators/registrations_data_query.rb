@@ -22,6 +22,8 @@ module SmartAnswer::Calculators
     COUNTRIES_WITH_TRADE_CULTURAL_OFFICES = %w(taiwan)
 
     MODIFIED_CARD_ONLY_COUNTRIES = %w(belgium netherlands czech-republic slovakia hungary poland portugal italy spain switzerland)
+    
+    CASH_AND_CARD_COUNTRIES = %w(estonia)
 
     attr_reader :data
 
@@ -67,6 +69,10 @@ module SmartAnswer::Calculators
 
     def cheque_only?(country_slug)
       CHEQUE_ONLY_COUNTRIES.include?(country_slug)
+    end
+    
+    def cash_and_card_only?(country_slug)
+      CASH_AND_CARD_COUNTRIES.include?(country_slug)
     end
 
     def caribbean_alt_embassies?(country_slug)
