@@ -199,7 +199,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         end
         should "give the embassy result and be done" do
           assert_current_node :embassy_result
-          assert_phrase_list :cash_only, [:cash_and_card]
+          assert_phrase_list :postal, [:post_only_pay_by_card_countries]
           assert_phrase_list :footnote, [:footnote]
           expected_location = WorldLocation.find('spain')
           assert_state_variable :location, expected_location
@@ -304,10 +304,10 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_state_variable :postal_form_url, nil
+        assert_state_variable :postal_form_url, "/government/publications/credit-card-authorisation-form--2"
         assert_phrase_list :postal, [:post_only_pay_by_card_countries]
       end
-    end # Answer Belgium
+    end # Answer Slovakia
     context "answer Italy" do
       setup do
       worldwide_api_has_organisations_for_location('italy', read_fixture_file('worldwide/italy_organisations.json'))
@@ -535,8 +535,8 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy_netherlands]
         assert_state_variable :embassy_high_commission_or_consulate, "British consulate general"
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_state_variable :postal_form_url, nil
-        assert_phrase_list :cash_only, [:cash_and_card]
+        assert_state_variable :postal_form_url, "/government/publications/credit-card-payment-authorisation-form-netherlands"
+        assert_phrase_list :postal, [:post_only_pay_by_card_countries]
         expected_location = WorldLocation.find('netherlands')
         assert_state_variable :location, expected_location
         assert_state_variable :organisation, expected_location.fco_organisation
@@ -557,7 +557,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_state_variable :clickbook, ''
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, nil
-        assert_phrase_list :cash_only, [:cash_and_card]
+        assert_state_variable :cash_only, ''
         assert_phrase_list :footnote, [:footnote_caribbean]
         expected_location = WorldLocation.find('barbados')
         assert_state_variable :location, expected_location
@@ -578,7 +578,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_state_variable :clickbook, ''
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, nil
-        assert_phrase_list :cash_only, [:cash_and_card]
+        assert_state_variable :cash_only, ''
         assert_phrase_list :footnote, [:footnote]
         expected_location = WorldLocation.find('malaysia')
         assert_state_variable :location, expected_location
@@ -599,7 +599,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_state_variable :clickbook, ''
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, nil
-        assert_phrase_list :cash_only, [:cash_and_card]
+        assert_state_variable :cash_only, ''
         assert_phrase_list :footnote, [:footnote]
         assert_match /British Embassy Jakarta/, outcome_body
         expected_location = WorldLocation.find('indonesia')
