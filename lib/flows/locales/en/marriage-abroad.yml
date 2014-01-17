@@ -805,6 +805,13 @@ en-GB:
 
           You can pay by cash or credit card, but not by personal cheque.
 
+        no_cni_os_consular_facilities_cote_de_ivoire: |
+          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
+
+          There aren’t any British consular facilities to register a marriage or get legal documents to prove you’re eligible to marry in %{country_name_lowercase_prefix}.
+
+          You can pay by cash or credit card, but not by personal cheque.
+
         no_cni_os_naturalisation: |
           ##Naturalisation of your partner if they move to the UK
 

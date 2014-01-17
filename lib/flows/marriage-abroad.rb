@@ -718,7 +718,9 @@ outcome :outcome_os_consular_cni do
     unless %w(italy).include?(ceremony_country) and %w(uk).include?(resident_of)
       phrases << :consular_cni_os_fees_not_italy_not_uk
       if ceremony_country == residency_country or %w(uk).include?(resident_of)
-        phrases << :consular_cni_os_fees_local_or_uk_resident
+        unless %w(cote-d-ivoire).include?(ceremony_country)
+          phrases << :consular_cni_os_fees_local_or_uk_resident
+        end
       else
         phrases << :consular_cni_os_fees_foreign_commonwealth_roi_resident
       end
@@ -790,7 +792,11 @@ outcome :outcome_os_no_cni do
         phrases << :no_cni_os_not_dutch_caribbean_other_resident
       end
     end
-    phrases << :no_cni_os_consular_facilities
+    if %w(cote-d-ivoire).include?(ceremony_country)
+      phrases << :no_cni_os_consular_facilities_cote_de_ivoire
+    else
+      phrases << :no_cni_os_consular_facilities
+    end
     if %w(partner_british).exclude?(partner_nationality)
       phrases << :no_cni_os_naturalisation
     end
