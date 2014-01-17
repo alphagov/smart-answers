@@ -41,15 +41,21 @@ en-GB:
           back_in_the_uk: "In the UK"
       phrases:
         intro_ew: |
-          $!You should register the death within 5 calendar days. You can go to any [register office](/register-offices) but it’s best to use the one in the area where the person died - otherwise the process can take longer.$!
+          You should register the death within 5 days. 
+
+          You can go to any [register office](/register-offices) but if you use the one in the area where the person died you’ll be given the documents you’ll need on the day. 
+
+          If you use a different register office the documents will be sent to the office in the area where the person died before they’re issued to you. This means you’ll usually wait a few days.
 
           ^Registering the death will take about 30 minutes - you might need to make an appointment.^
         intro_scotland: |
-          You should [register the death locally in Scotland](http://www.gro-scotland.gov.uk/regscot/registering-a-death.html).
+          You should register the death within 5 days. 
 
-          If the body’s being brought back to England or Wales to be buried or cremated, the person bringing the body back must report this to the local registrar. You must provide a certified extract from the Scottish death register - contact the register office where the death was registered to get this.
+          You can go to any [register office](/register-offices) but if you use the one in the area where the person died you’ll be given the documents you’ll need on the day. 
 
-          The local registrar will then issue a ‘Certificate of No Liability to Register’.
+          If you use a different register office the documents will be sent to the office in the area where the person died before they’re issued to you. This means you’ll usually wait a few days.
+
+          ^Registering the death will take about 30 minutes - you might need to make an appointment.^
         intro_northern_ireland: |
           You should [register the death locally in Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/death-and-bereavement/death-and-bereavement-what-to-do-when-someone-dies/registering-a-death.htm).
 
@@ -83,8 +89,12 @@ en-GB:
           If available (but don't worry if not), also take the person’s:
 
           - birth certificate
+          - Council Tax bill
+          - driving licence
           - marriage or civil partnership certificate
           - NHS medical card
+          - passport
+          - proof of address (eg utility bill) 
 
         what_you_need_to_do_unexpected: |
           What you need to do
@@ -141,7 +151,7 @@ en-GB:
           - a Certificate for Burial or Cremation (the ‘green form’) - gives permission for burial or an application for cremation
           - a Certificate of Registration of Death (form BD8) - you may need to fill this out and return it if the person was getting a State Pension or benefits (the form will come with a pre-paid envelope so you know where to send it)
 
-          You can buy extra death certificates - these will be needed for [sorting out the person’s affairs](/after-a-death/overview "what to do after someone dies").
+          You can buy extra death certificates - these will be needed for [sorting out the person’s affairs](/after-a-death/overview).
 
         documents_youll_get_ew_unexpected: |
           Documents you’ll get
@@ -149,7 +159,7 @@ en-GB:
 
           When you register a death you’ll get a Certificate of Registration of Death (form BD8). You may need to fill this out and return it if the person was getting a State Pension or benefits (the form will come with a pre-paid envelope so you know where to send it).
 
-          You can buy extra death certificates - these will be needed for [sorting out the person’s affairs](/after-a-death/overview "what to do after someone dies").
+          You can buy extra death certificates - these will be needed for [sorting out the person’s affairs](/after-a-death/overview).
 
         documents_youll_get_other_expected: |
           Documents you’ll get
@@ -338,7 +348,7 @@ en-GB:
         body: |
           $!You must register the death according to the regulations in %{current_location_name_lowercase_prefix}. You will be given a local death certificate.$!
          
-          This local death certificate will be accepted in the UK (it may need to be a [certified translation](/certifying-a-document "Certifying a document") of the document if it’s not in English). 
+          This local death certificate will be accepted in the UK (it may need to be a [certified translation](/certifying-a-document) of the document if it’s not in English). 
           
           ##Register the death with the UK authorities
           
@@ -427,6 +437,8 @@ en-GB:
           Copy of a death registration certificate | £65
 
           [Pay online](/pay-register-death-abroad) for the registration and copies of the certificate.
+
+          
 
           Alternatively, pay by postal order or bank draft made payable to ‘FCO’. Personal cheques aren’t accepted.
 
