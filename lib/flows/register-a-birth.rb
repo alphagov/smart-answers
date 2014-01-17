@@ -270,8 +270,12 @@ outcome :embassy_result do
       PhraseList.new(:cheque_only)
     elsif reg_data_query.cash_only?(registration_country)
       PhraseList.new(:cash_only)
-    else
+    elsif reg_data_query.cash_and_card_only?(current_location)
       PhraseList.new(:cash_and_card)
+    elsif reg_data_query.cash_and_card_only?(current_location)
+        PhraseList.new(:cash_and_card)
+    else
+      ''
     end
   end
   precalculate :footnote do
