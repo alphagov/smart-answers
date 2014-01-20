@@ -311,7 +311,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
       assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
       assert_phrase_list :go_to_the_embassy, [:registering_all, :registering_either_parent]
-      assert_phrase_list :cash_only, [:cash_and_card]
+      assert_state_variable :cash_only, ''
       assert_phrase_list :footnote, [:footnote]
     end # Not married or CP
   end # Barbados
@@ -326,7 +326,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_state_variable :british_national_parent, 'father'
       assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
       assert_phrase_list :documents_you_must_provide, [:"documents_you_must_provide_united-arab-emirates"]
-      assert_phrase_list :cash_only, [:cash_and_card]
+      assert_state_variable :cash_only, ''
       assert_phrase_list :footnote, [:footnote]
       assert_match /British Embassy Dubai/, outcome_body # there are two separate organisations in UAE so this tests that the correct embassy (Dubai) is returned
     end # Not married or CP
@@ -344,7 +344,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
       assert_phrase_list :embassy_result_indonesia_british_father_paternity, [:indonesia_british_father_paternity]
       assert_phrase_list :documents_you_must_provide, [:"documents_you_must_provide_all"]
-      assert_phrase_list :cash_only, [:cash_and_card]
+      assert_state_variable :cash_only, ''
       assert_phrase_list :footnote, [:footnote]
     end # Not married or CP
   end # Indonesia
