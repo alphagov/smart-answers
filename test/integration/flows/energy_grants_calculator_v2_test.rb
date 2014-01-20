@@ -450,7 +450,9 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
               end
               should "take you to bills and measures, no benefits outcome" do
                 assert_current_node :outcome_bills_and_measures_no_benefits
-                assert_phrase_list :eligibilities_bills, [:warm_home_discount, :microgeneration]
+                assert_phrase_list :eligibilities_bills, [:microgeneration]
+                #   ORIGINAL assert_phrase_list :eligibilities_bills, [:warm_home_discount, :microgeneration]
+
                 assert_phrase_list :eligibilities, [:a_condensing_boiler, :e_loft_roof_insulation, :g_under_floor_insulation, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :l_cylinder_thermostat, :microgeneration_renewables, :w_renewal_heat, :smartmeters]
               end
             end
