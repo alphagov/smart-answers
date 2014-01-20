@@ -354,6 +354,7 @@ end
 outcome :outcome_help_with_bills do
   precalculate :eligibilities_bills do
     phrases = PhraseList.new
+
     if circumstances.include?('benefits')
       if age_variant == :winter_fuel_payment
         phrases << :winter_fuel_payments

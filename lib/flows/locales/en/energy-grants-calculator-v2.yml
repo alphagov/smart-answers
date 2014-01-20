@@ -80,6 +80,7 @@ en-GB:
         w_renewal_heat: |
           If your home is well insulated you could also qualify for money towards a [renewable heating system](/renewable-heat-premium-payment) and get paid for [generating your own electricity](/feed-in-tariffs).
 
+
 # Q1
       what_are_you_looking_for?:
         title: "Are you looking for:"
@@ -193,7 +194,6 @@ en-GB:
 
 # outcome 1 help with bills
       outcome_help_with_bills:
-        title: Based on your answers you might be eligible for help with your energy bills.
         body: |
 
           %{eligibilities_bills}
@@ -205,6 +205,7 @@ en-GB:
           For some of these schemes further eligibility criteria apply. These can differ depending on your supplier.
         next_steps: |
           %{next_steps_links}
+
 
 # outcome 2 social housing
       outcome_social_housing:
