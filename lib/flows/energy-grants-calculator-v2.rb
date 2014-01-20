@@ -26,8 +26,13 @@ multiple_choice :what_are_you_looking_for? do
       ''
     end
   end
-
-  next_node :what_are_your_circumstances? # Q2
+  next_node do |response|
+    unless response.include?('help_with_fuel_bill')
+    :what_are_your_circumstances_without_bills_help? #Q2A
+    else
+    :what_are_your_circumstances? #Q2
+    end
+  end
 end
 
 # Q2
@@ -53,6 +58,41 @@ checkbox_question :what_are_your_circumstances? do
     elsif response =~ /permission,property/
       raise InvalidResponse, :error_perm_prop
     elsif response =~ /permission,social_housing/
+      raise InvalidResponse, :error_perm_house
+    elsif bills_help || both_help
+      :date_of_birth? # Q3
+    elsif measure_help
+      if response.include?('benefits')
+        :which_benefits? # Q4
+      else
+        :when_property_built? # Q6
+      end
+    end
+  end
+end
+
+# Q2A
+checkbox_question :what_are_your_circumstances_without_bills_help? do
+  option :benefits
+  option :property
+  option :permission
+
+  calculate :circumstances do
+    responses.last.split(",")
+  end
+
+  calculate :benefits_claimed do
+    []
+  end
+
+  next_node do |response|
+    if response =~ /permission,property,social_housing/
+      raise InvalidResponse, :error_perm_prop_house
+    elsif response =~ /property,social_housing/
+      raise InvalidResponse, :error_prop_house
+    elsif response =~ /permission,property/
+      raise InvalidResponse, :error_perm_prop
+    elsif response =~ /permission,social_housing_provider/
       raise InvalidResponse, :error_perm_house
     elsif bills_help || both_help
       :date_of_birth? # Q3
@@ -433,8 +473,7 @@ outcome :outcome_bills_and_measures_no_benefits do
         if age_variant == :winter_fuel_payment
           phrases << :winter_fuel_payments << :cold_weather_payment << :microgeneration
         else
-          phrases << :microgeneration
-          #  ORIGINAL        phrases << :warm_home_discount << :microgeneration
+          phrases << :warm_home_discount << :microgeneration
         end
       end
     end
