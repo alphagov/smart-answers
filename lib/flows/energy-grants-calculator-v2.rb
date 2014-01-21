@@ -86,14 +86,8 @@ checkbox_question :what_are_your_circumstances_without_bills_help? do
   end
 
   next_node do |response|
-    if response =~ /permission,property,social_housing/
-      raise InvalidResponse, :error_perm_prop_house
-    elsif response =~ /property,social_housing/
-      raise InvalidResponse, :error_prop_house
-    elsif response =~ /permission,property/
+    if response =~ /permission,property/
       raise InvalidResponse, :error_perm_prop
-    elsif response =~ /permission,social_housing_provider/
-      raise InvalidResponse, :error_perm_house
     elsif bills_help || both_help
       :date_of_birth? # Q3
     elsif measure_help
