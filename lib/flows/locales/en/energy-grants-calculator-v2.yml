@@ -35,6 +35,10 @@ en-GB:
           - $!Unfortunately it doesn’t look like you qualify for money off your energy bill.$!
         microgeneration: |
           Energy efficiency renewable heating and Microgeneration measures could reduce your bill.
+        title_help_with_bills_outcome: |
+          Based on your answers you might be eligible for help with your energy bills.
+        title_no_help_with_bills_outcome: |
+          Unfortunately it doesn’t look like you qualify for money off your energy bill.
         title_might_be_eligible: you might be eligible for help with your energy bills
         title_property_might_benefit: "your property might benefit from:"
         title_energy_supplier: "you might qualify for help from your energy supplier:"
@@ -194,8 +198,8 @@ en-GB:
 
 # outcome 1 help with bills
       outcome_help_with_bills:
+        title: %{help_with_bills_outcome_title}
         body: |
-
           %{eligibilities_bills}
 
           Under the Green Deal you could get some of these measures without having to pay all the cost upfront.

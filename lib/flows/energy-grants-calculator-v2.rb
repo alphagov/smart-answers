@@ -346,15 +346,32 @@ checkbox_question :home_features_older? do
 end
 
 outcome :outcome_help_with_bills do
+  precalculate :help_with_bills_outcome_title do
+    if age_variant == :winter_fuel_payment
+      PhraseList.new(:title_help_with_bills_outcome)
+    elsif circumstances.include?('benefits')
+      if (benefits_claimed & %w(esa child_tax_credit pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60
+        PhraseList.new(:title_help_with_bills_outcome)
+      else
+        PhraseList.new(:title_no_help_with_bills_outcome)
+      end
+    else
+      PhraseList.new(:title_no_help_with_bills_outcome)
+    end
+  end
+
   precalculate :eligibilities_bills do
     phrases = PhraseList.new
-
     if circumstances.include?('benefits')
       if age_variant == :winter_fuel_payment
         phrases << :winter_fuel_payments
       end
       if (benefits_claimed & %w(esa pension_credit)).any? || incomesupp_jobseekers_1
-        phrases << :warm_home_discount << :cold_weather_payment
+        if benefits_claimed.include?('pension_credit')
+          phrases << :warm_home_discount << :cold_weather_payment
+        else
+          phrases << :cold_weather_payment
+        end
       end
       if (benefits_claimed & %w(esa child_tax_credit pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60
         phrases << :energy_company_obligation
@@ -459,7 +476,11 @@ outcome :outcome_bills_and_measures_no_benefits do
           phrases << :winter_fuel_payments
         end
         if (benefits_claimed & %w(esa pension_credit)).any? || incomesupp_jobseekers_1
-          phrases << :warm_home_discount << :cold_weather_payment
+          if benefits_claimed.include?('pension_credit')
+            phrases << :warm_home_discount << :cold_weather_payment
+          else
+            phrases << :cold_weather_payment
+          end
         end
         if (benefits_claimed & %w(esa child_tax_credit pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60
           phrases << :energy_company_obligation
@@ -468,7 +489,7 @@ outcome :outcome_bills_and_measures_no_benefits do
         if age_variant == :winter_fuel_payment
           phrases << :winter_fuel_payments << :cold_weather_payment << :microgeneration
         else
-          phrases << :warm_home_discount << :microgeneration
+          phrases << :microgeneration
         end
       end
     end
@@ -514,7 +535,11 @@ outcome :outcome_bills_and_measures_on_benefits_eco_eligible do
           phrases << :winter_fuel_payments
         end
         if (benefits_claimed & %w(esa pension_credit)).any? || incomesupp_jobseekers_1
-          phrases << :warm_home_discount << :cold_weather_payment
+          if benefits_claimed.include?('pension_credit')
+            phrases << :warm_home_discount << :cold_weather_payment
+          else
+            phrases << :cold_weather_payment
+          end
         end
         if (benefits_claimed & %w(esa child_tax_credit pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60
           phrases << :energy_company_obligation
@@ -523,7 +548,7 @@ outcome :outcome_bills_and_measures_on_benefits_eco_eligible do
         if age_variant == :winter_fuel_payment
           phrases << :winter_fuel_payments << :cold_weather_payment << :microgeneration
         else
-          phrases << :warm_home_discount << :microgeneration
+          phrases << :microgeneration
         end
       end
     end
@@ -570,7 +595,11 @@ outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible do
           phrases << :winter_fuel_payments
         end
         if (benefits_claimed & %w(esa pension_credit)).any? || incomesupp_jobseekers_1
-          phrases << :warm_home_discount << :cold_weather_payment
+          if benefits_claimed.include?('pension_credit')
+            phrases << :warm_home_discount << :cold_weather_payment
+          else
+            phrases << :cold_weather_payment
+          end
         end
         if (benefits_claimed & %w(esa child_tax_credit pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60
           phrases << :energy_company_obligation
@@ -579,7 +608,7 @@ outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible do
         if age_variant == :winter_fuel_payment
           phrases << :winter_fuel_payments << :cold_weather_payment << :microgeneration
         else
-          phrases << :warm_home_discount << :microgeneration
+          phrases << :microgeneration
         end
       end
     end
