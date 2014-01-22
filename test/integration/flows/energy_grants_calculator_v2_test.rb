@@ -39,6 +39,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
           end
           should "take you to help with bills outcome" do
             assert_current_node :outcome_help_with_bills # outcome 1
+            assert_phrase_list :help_with_bills_outcome_title, [:title_help_with_bills_outcome]
             assert_phrase_list :eligibilities_bills, [:winter_fuel_payments, :microgeneration]
           end
         end
@@ -51,6 +52,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
           end
           should "take you to help with bills outcome" do
             assert_current_node :outcome_help_with_bills # outcome 1
+            assert_phrase_list :help_with_bills_outcome_title, [:title_no_help_with_bills_outcome]
             assert_phrase_list :eligibilities_bills, [:microgeneration]
           end
         end
@@ -60,6 +62,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
           end
           should "take you to the help with bills outcome" do
             assert_current_node :outcome_help_with_bills # outcome 1
+            assert_phrase_list :help_with_bills_outcome_title, [:title_no_help_with_bills_outcome]
             assert_phrase_list :eligibilities_bills, [:microgeneration,]
           end
         end
@@ -90,6 +93,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
             end
             should "take you to help with bills outcome" do
               assert_current_node :outcome_help_with_bills # outcome 1
+              assert_phrase_list :help_with_bills_outcome_title, [:title_help_with_bills_outcome]
             end
           end
           context "answer income support" do
@@ -106,6 +110,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
               should "take you to help with bills outcome" do
                 assert_current_node :outcome_help_with_bills # outcome 1
                 assert_state_variable 'incomesupp_jobseekers_1', :incomesupp_jobseekers_1
+                assert_phrase_list :help_with_bills_outcome_title, [:title_help_with_bills_outcome]
               end
             end
           end
@@ -123,6 +128,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
               should "take you to help with bills outcome with incomesupp_jobseekers_2" do
                 assert_current_node :outcome_help_with_bills # outcome 1
                 assert_state_variable 'incomesupp_jobseekers_2', :incomesupp_jobseekers_2
+                assert_phrase_list :help_with_bills_outcome_title, [:title_help_with_bills_outcome]
               end
             end
           end
@@ -132,6 +138,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
             end
             should "take you to the help with bills outcome" do
               assert_current_node :outcome_help_with_bills # outcome 1
+              assert_phrase_list :help_with_bills_outcome_title, [:title_help_with_bills_outcome]
             end
           end
           context "answer none of these benefits" do
@@ -140,6 +147,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
             end
             should "take you to help with bills outcome" do
               assert_current_node :outcome_help_with_bills # outcome 1
+              assert_phrase_list :help_with_bills_outcome_title, [:title_help_with_bills_outcome]
             end
           end
         end # END born before 5th July 1951
@@ -162,6 +170,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
             end
             should "take you to help with bills outcome" do
               assert_current_node :outcome_help_with_bills # outcome 1
+              assert_phrase_list :help_with_bills_outcome_title, [:title_help_with_bills_outcome]
             end
           end
           context "answer working tax credit" do
@@ -179,6 +188,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
               should "take you to help with bills outcome with incomesupp_jobseekers_2" do
                 assert_current_node :outcome_help_with_bills # outcome 1
                 assert_state_variable 'incomesupp_jobseekers_1', :incomesupp_jobseekers_1
+                assert_phrase_list :help_with_bills_outcome_title, [:title_help_with_bills_outcome]
               end
             end
           end
@@ -197,6 +207,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
             end
             should "take you to help with bills outcome" do
               assert_current_node :outcome_help_with_bills # outcome 1
+              assert_phrase_list :help_with_bills_outcome_title, [:title_help_with_bills_outcome]
             end
           end
           context "answer none of these benefits" do
@@ -205,6 +216,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
             end
             should "take you to help with bills outcome" do
               assert_current_node :outcome_help_with_bills # outcome 1
+              assert_phrase_list :help_with_bills_outcome_title, [:title_no_help_with_bills_outcome]
             end
           end
         end
@@ -216,13 +228,13 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
       setup do
         add_response :help_energy_efficiency
       end
-      should "ask what are your circumstances" do
-        assert_current_node :what_are_your_circumstances?
+      should "ask what are your circumstances without bills help" do
+        assert_current_node :what_are_your_circumstances_without_bills_help?
       end
 
-      context "choose benefits & social housing tenant" do
+      context "choose benefits" do
         setup do
-          add_response 'benefits,social_housing'
+          add_response 'benefits'
         end
         should "ask which benefits you're claiming" do
           assert_current_node :which_benefits?
@@ -385,8 +397,8 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
       setup do
         add_response :help_boiler_measure
       end
-      should "ask what are your circumstances" do
-        assert_current_node :what_are_your_circumstances?
+      should "ask what are your circumstances without bills help" do
+        assert_current_node :what_are_your_circumstances_without_bills_help?
       end
       context "choose property" do
         setup do
@@ -420,8 +432,8 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
       setup do
         add_response :all_help
       end
-      should "ask what are your circumstances" do
-        assert_current_node :what_are_your_circumstances?
+      should "ask what are your circumstances without bills help" do
+        assert_current_node :what_are_your_circumstances_without_bills_help?
       end
       context "choose permission" do
         setup do
@@ -450,7 +462,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
               end
               should "take you to bills and measures, no benefits outcome" do
                 assert_current_node :outcome_bills_and_measures_no_benefits
-                assert_phrase_list :eligibilities_bills, [:warm_home_discount, :microgeneration]
+                assert_phrase_list :eligibilities_bills, [:microgeneration]
                 assert_phrase_list :eligibilities, [:a_condensing_boiler, :e_loft_roof_insulation, :g_under_floor_insulation, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :l_cylinder_thermostat, :microgeneration_renewables, :w_renewal_heat, :smartmeters]
               end
             end
@@ -468,7 +480,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
         end
         should "take you to bills & measures, on benefits with variants" do
           assert_current_node :outcome_bills_and_measures_on_benefits_eco_eligible
-          assert_phrase_list :eligibilities_bills, [:warm_home_discount, :cold_weather_payment, :energy_company_obligation]
+          assert_phrase_list :eligibilities_bills, [:cold_weather_payment, :energy_company_obligation]
           assert_phrase_list :eligibilities, [:a_condensing_boiler, :f_room_roof_insulation, :eco_help, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :windows_and_doors, :m_replacement_glazing, :n_secondary_glazing, :o_external_doors, :microgeneration_renewables, :w_renewal_heat, :smartmeters]
         end
       end
@@ -535,6 +547,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
       end
       should "take you to help with bills outcome, winter fuel payment, benefits = pension credit" do
         assert_current_node :outcome_help_with_bills
+        assert_phrase_list :help_with_bills_outcome_title, [:title_help_with_bills_outcome]
         assert_phrase_list :eligibilities_bills, [:winter_fuel_payments, :warm_home_discount, :cold_weather_payment, :energy_company_obligation]
       end
     end
@@ -548,7 +561,8 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
       end
       should "take you to help with bills outcome, no winter fuel payment, benefit = ESA" do
         assert_current_node :outcome_help_with_bills
-        assert_phrase_list :eligibilities_bills, [:warm_home_discount, :cold_weather_payment, :energy_company_obligation]
+        assert_phrase_list :help_with_bills_outcome_title, [:title_help_with_bills_outcome]
+        assert_phrase_list :eligibilities_bills, [:cold_weather_payment, :energy_company_obligation]
       end
     end
     context "no winter fuel payment, benefits = child tax credit" do
@@ -560,6 +574,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
       end
       should "take you to help with bills outcome, no winter fuel, benefits = child tax credit" do
         assert_current_node :outcome_help_with_bills
+        assert_phrase_list :help_with_bills_outcome_title, [:title_help_with_bills_outcome]
         assert_phrase_list :eligibilities_bills, [:energy_company_obligation]
       end
     end
@@ -571,6 +586,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
       end
       should "take to help with bills outcome, winter fuel payment, no benefits" do
         assert_current_node :outcome_help_with_bills
+        assert_phrase_list :help_with_bills_outcome_title, [:title_help_with_bills_outcome]
         assert_phrase_list :eligibilities_bills, [:winter_fuel_payments, :microgeneration]
       end
     end
@@ -582,6 +598,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
       end
       should "take you to help with bills outcome, no winter fuel, no benefits" do
         assert_current_node :outcome_help_with_bills
+        assert_phrase_list :help_with_bills_outcome_title, [:title_no_help_with_bills_outcome]
         assert_phrase_list :eligibilities_bills, [:microgeneration]
       end
     end
@@ -611,6 +628,6 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
         assert_phrase_list :eligibilities, [:a_condensing_boiler, :b_cavity_wall_insulation, :c_solid_wall_insulation, :d_draught_proofing, :e_loft_roof_insulation, :g_under_floor_insulation, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :windows_and_doors, :m_replacement_glazing, :n_secondary_glazing, :o_external_doors, :microgeneration_renewables, :v_green_deal, :w_renewal_heat, :smartmeters]
       end
     end
-
+    
   end
 end
