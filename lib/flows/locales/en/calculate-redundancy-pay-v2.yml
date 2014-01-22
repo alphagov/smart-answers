@@ -1,6 +1,6 @@
 en-GB:
   flow:
-    calculate-your-redundancy-pay:
+    calculate-your-redundancy-pay-v2:
       title: Calculate your statutory redundancy pay
       meta:
         description: Calculate how much statutory redundancy you can get based on age, weekly pay and number of years in the job
@@ -68,7 +68,7 @@ en-GB:
         body: |
           You can’t calculate redundancy rates after 31 January 2014 until the new rates are set in February 2014.
 
-    calculate-employee-redundancy-pay:
+    calculate-employee-redundancy-pay-v2:
       title: "Calculate your employee's statutory redundancy pay"
       meta:
         description: Employer calculator - calculate your employee's statutory redundancy payment

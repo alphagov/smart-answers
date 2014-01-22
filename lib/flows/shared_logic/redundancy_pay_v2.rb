@@ -1,3 +1,5 @@
+status :draft
+
 date_question :date_of_redundancy? do
   from { Date.civil(Date.today.year - 1,1,1) }
   to { Date.today }

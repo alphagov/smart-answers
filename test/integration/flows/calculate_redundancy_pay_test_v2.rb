@@ -7,7 +7,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
 
   context "Employer" do
     setup do
-      setup_for_testing_flow 'calculate-employee-redundancy-pay'
+      setup_for_testing_flow 'calculate-employee-redundancy-pay-v2'
     end
 
     should "ask when the employee was made redundant" do
