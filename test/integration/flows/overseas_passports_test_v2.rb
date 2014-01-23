@@ -9,7 +9,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania afghanistan australia austria azerbaijan bangladesh benin burundi cameroon congo djibouti egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nigeria north-korea pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia united-kingdom uzbekistan yemen zimbabwe vietnam)
+    @location_slugs = %w(albania afghanistan australia austria azerbaijan bahamas bangladesh benin burundi cameroon congo djibouti egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nigeria north-korea pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia united-kingdom uzbekistan yemen zimbabwe vietnam)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports-v2'
   end
@@ -170,15 +170,13 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
           end
 
           should "give the result" do
-            assert_current_node :ips_application_result
+            assert_current_node :ips_application_result_online
             assert_phrase_list :fco_forms, [:adult_fco_forms]
-            assert_phrase_list :how_long_it_takes, [:how_long_applying_ips1, :how_long_it_takes_ips1]
-            assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_2]
-            assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-            assert_phrase_list :send_your_application, [:send_application_ips1]
+            assert_phrase_list :how_long_it_takes, [:how_long_applying_online, :how_long_additional_time_online]
+            assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance_doc_group_2]
+            assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1]
             assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
             assert_phrase_list :contact_passport_adviceline, [:contact_passport_adviceline]
-            assert_match /101 Old Hall Street/, outcome_body
           end
         end
       end
@@ -204,15 +202,13 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
         should "give the result and be done" do
           add_response 'adult'
           assert_state_variable :supporting_documents, 'ips_documents_group_1'
-          assert_current_node :ips_application_result
+          assert_current_node :ips_application_result_online
           assert_phrase_list :fco_forms, [:adult_fco_forms]
-          assert_phrase_list :how_long_it_takes, [:how_long_replacing_ips1, :how_long_it_takes_ips1]
-          assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_1]
-          assert_phrase_list :cost, [:passport_courier_costs_replacing_ips1, :adult_passport_costs_replacing_ips1, :passport_costs_ips1]
-          assert_phrase_list :send_your_application, [:send_application_ips1]
+          assert_phrase_list :how_long_it_takes, [:how_long_replacing_online, :how_long_additional_time_online]
+          assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_replacing, :how_to_apply_online_guidance_doc_group_1]
+          assert_phrase_list :cost, [:passport_courier_costs_replacing_ips1, :adult_passport_costs_replacing_ips1]
           assert_phrase_list :contact_passport_adviceline, [:contact_passport_adviceline]
           assert_state_variable :embassy_address, nil
-          assert_match /101 Old Hall Street/, outcome_body
         end
       end
     end # Replacing
@@ -318,30 +314,26 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
         context "answer Spain" do
           should "give the application result" do
             add_response "spain"
-            assert_current_node :ips_application_result
-            assert_phrase_list :how_long_it_takes, [:how_long_applying_ips1, :how_long_it_takes_ips1]
-            assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_1]
-            assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-            assert_phrase_list :send_your_application, [:send_application_ips1]
+            assert_current_node :ips_application_result_online
+            assert_phrase_list :how_long_it_takes, [:how_long_applying_online, :how_long_additional_time_online]
+            assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance_doc_group_1]
+            assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1]
             assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
             assert_phrase_list :contact_passport_adviceline, [:contact_passport_adviceline]
             assert_state_variable :embassy_address, nil
             assert_state_variable :supporting_documents, 'ips_documents_group_1'
-            assert_match /101 Old Hall Street/, outcome_body
           end
         end
         context "answer UK" do
           should "give the application result with the UK documents" do
             add_response "united-kingdom"
-            assert_current_node :ips_application_result
-            assert_phrase_list :how_long_it_takes, [:how_long_applying_ips1, :how_long_it_takes_ips1]
-            assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_3]
-            assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-            assert_phrase_list :send_your_application, [:send_application_ips1]
+            assert_current_node :ips_application_result_online
+            assert_phrase_list :how_long_it_takes, [:how_long_applying_online, :how_long_additional_time_online]
+            assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance_doc_group_3]
+            assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1]
             assert_phrase_list :contact_passport_adviceline, [:contact_passport_adviceline]
             assert_state_variable :embassy_address, nil
             assert_state_variable :supporting_documents, 'ips_documents_group_3'
-            assert_match /101 Old Hall Street/, outcome_body
           end
         end
       end
@@ -566,18 +558,16 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
   end # India
 
   context "answer Tanzania, replacement, adult passport" do
-    should "give the fco result with custom phrases" do
+    should "give the ips online result with custom phrases" do
       worldwide_api_has_organisations_for_location('tanzania', read_fixture_file('worldwide/tanzania_organisations.json'))
       add_response 'tanzania'
       add_response 'applying'
       add_response 'adult'
       add_response 'united-kingdom'
-      assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_applying_12_weeks, :how_long_it_takes_ips1]
-      assert_state_variable :application_address, 'durham'
-      assert_match /Millburngate House/, outcome_body
+      assert_current_node :ips_application_result_online
+      assert_phrase_list :how_long_it_takes, [:how_long_applying_online, :how_long_additional_time_online]
     end
-  end # Tanzania (FCO with custom phrases)
+  end # Tanzania
 
   context "answer Congo, replacement, adult passport" do
     should "give the fco result with custom phrases" do
@@ -620,9 +610,8 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       add_response 'malta'
       add_response 'replacing'
       add_response 'adult'
-      assert_current_node :ips_application_result
-      assert_phrase_list :cost, [:passport_courier_costs_replacing_ips1, :adult_passport_costs_replacing_ips1, :passport_costs_ips1]
-      assert_match /Millburngate House/, outcome_body
+      assert_current_node :ips_application_result_online
+      assert_phrase_list :cost, [:passport_courier_costs_replacing_ips1, :adult_passport_costs_replacing_ips1]
     end
   end # Malta (IPS1 with custom phrases)
 
@@ -790,12 +779,10 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       add_response 'haiti'
       add_response 'renewing_new'
       add_response 'adult'
-      assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_renewing_new_ips1, :how_long_it_takes_ips1]
-      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-      assert_phrase_list :send_your_application, [:send_application_ips1_durham]
+      assert_current_node :ips_application_result_online
+      assert_phrase_list :how_long_it_takes, [:how_long_renewing_new_online, :how_long_additional_time_online]
+      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
-      assert_match /Millburngate House/, outcome_body
     end
   end # Haiti
 
@@ -945,22 +932,6 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       assert_match /Millburngate House/, outcome_body
     end
   end # Jamaica
-
-  context "answer Djibouti, applying, adult passport" do
-    should "give the generic result with custom phrases" do
-      worldwide_api_has_organisations_for_location('kenya', read_fixture_file('worldwide/kenya_organisations.json'))
-      add_response 'djibouti'
-      add_response 'applying'
-      add_response 'adult'
-      add_response 'united-kingdom'
-      assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_applying_12_weeks, :how_long_it_takes_ips1]
-      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
-      assert_state_variable :application_address, 'durham'
-      assert_match /Millburngate House/, outcome_body
-    end
-  end # Djibouti
 
   context "answer Zimbabwe, applying, adult passport" do
     setup do
@@ -1112,5 +1083,19 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       end
     end
   end # Uzbekistan
+
+  context "answer Bahamas, applying, adult passport" do
+    should "give the IPS online outcome" do
+      worldwide_api_has_organisations_for_location('bahamas', read_fixture_file('worldwide/bahamas_organisations.json'))
+      add_response 'bahamas'
+      add_response 'applying'
+      add_response 'adult'
+      add_response 'united-kingdom'
+      assert_current_node :ips_application_result_online
+      assert_phrase_list :how_long_it_takes, [:how_long_applying_online, :how_long_additional_time_online]
+      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1]
+      assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance_doc_group_2]
+    end
+  end # Bahamas
 
 end
