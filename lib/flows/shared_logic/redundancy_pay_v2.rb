@@ -1,4 +1,3 @@
-status :draft
 
 date_question :date_of_redundancy? do
   from { Date.civil(Date.today.year - 1,1,1) }
@@ -19,7 +18,7 @@ date_question :date_of_redundancy? do
   end
   
   next_node do |response|
-    if Date.parse(response) < Date.new(2014,02,01)
+    if Date.parse(response) < Date.new(2014,04,06)
       :age_of_employee?
     else
       :no_result_possible_yet
