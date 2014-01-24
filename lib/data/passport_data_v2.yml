@@ -1051,12 +1051,12 @@ united-kingdom:
   type:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-usa:
+uruguay:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   online_application: true
-uruguay:
+usa:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form

@@ -1,4 +1,4 @@
-status :published
+status :draft
 satisfies_need 2820
 
 
@@ -168,8 +168,13 @@ end
 outcome :ips_application_result_online do
   precalculate :how_long_it_takes do
     action = application_action =~/applying|renewing_old/ ? 'applying' : application_action
-    PhraseList.new(:"how_long_#{action}_online",
+    if %w(djibouti tanzania).include?(current_location) and action == 'applying'
+      PhraseList.new(:how_long_applying_djibouti_tanzania,
                     :how_long_additional_time_online)
+    else
+      PhraseList.new(:"how_long_#{action}_online",
+                    :how_long_additional_time_online)
+    end
   end
   precalculate :cost do
     if application_action == 'replacing' and ips_number == '1' and ips_docs_number == '1'
@@ -196,12 +201,15 @@ end
 ## IPS Application Result
 outcome :ips_application_result do
   precalculate :how_long_it_takes do
-    eight_week_application_countries = %w(mauritania morocco tunisia western-sahara)
+    six_week_only_application_countries = %(belarus georgia russia tajikistan turkmenistan uzbekistan)
+    six_week_application_countries = %w(mauritania morocco tunisia western-sahara)
     twelve_week_application_countries = %w(cameroon chad djibouti eritrea ethiopia kenya somalia tanzania uganda)
 
     phrases = PhraseList.new
-    if eight_week_application_countries.include?(current_location)
-      number_of_weeks = application_action =~ /renewing_new|replacing/ ? 4 : 8
+    if six_week_only_application_countries.include?(current_location)
+      phrases << :how_long_6_weeks
+    elsif six_week_application_countries.include?(current_location)
+      number_of_weeks = application_action =~ /renewing_new/ ? 4 : 6
       phrases << :"how_long_#{number_of_weeks}_weeks"
     elsif twelve_week_application_countries.include?(current_location) and %w(applying renewing_old).include?(application_action)
       phrases << :how_long_applying_12_weeks
@@ -229,13 +237,11 @@ outcome :ips_application_result do
       else
         phrases << :how_long_8_weeks_replacing
       end
-    elsif %w(uzbekistan).include?(current_location) and %w(applying renewing_old).include?(application_action)
-      phrases << :how_long_8_weeks_with_interview
     elsif %w(zimbabwe).include?(current_location)
-      if %w(applying renewing_old).include?(application_action)
-        phrases << :how_long_applying_up_to_6_months
-      elsif %w(replacing).include?(application_action)
-        phrases << :how_long_applying_up_to_6_months_replacing
+      if %w(renewing_new).include?(application_action)
+        phrases << :"how_long_#{application_action}_ips#{ips_number}"
+      else
+        phrases << :how_long_6_weeks
       end
     else
       phrases << :"how_long_#{application_action}_ips#{ips_number}"
@@ -300,6 +306,8 @@ outcome :ips_application_result do
       phrases <<  :"how_to_apply_ips#{ips_number}"
       if send_colour_photocopy_countries.include?(current_location) and %w(renewing_new).include?(application_action)
         phrases << :send_colour_photocopy_bulletpoint
+      elsif %w(pakistan).include?(current_location)
+        phrases << :send_application_ips1_pakistan
       end
       phrases << application_form.to_sym
       phrases << supporting_documents.to_sym
@@ -343,7 +351,7 @@ outcome :ips_application_result do
   end
 
   precalculate :getting_your_passport do
-    collect_in_person_countries = %w(angola benin cambodia cameroon chad congo egypt eritrea ethiopia gambia ghana guinea jamaica kenya nigeria rwanda sierra-leone somalia south-sudan uganda zambia)
+    collect_in_person_countries = %w(angola benin cambodia cameroon chad congo egypt eritrea ethiopia gambia ghana guinea jamaica kenya nigeria rwanda sierra-leone somalia south-sudan uganda zambia zimbabwe)
     collect_in_person_variant_countries = %w(burundi india iraq jordan pitcairn-island yemen)
     collect_in_person_renewing_new_variant_countries = %(burma nepal north-korea)
 
