@@ -794,6 +794,8 @@ outcome :outcome_os_no_cni do
     end
     if %w(cote-d-ivoire).include?(ceremony_country)
       phrases << :no_cni_os_consular_facilities_cote_de_ivoire
+    elsif %w(argentina).include?(ceremony_country)
+      phrases << :no_cni_os_consular_facilities_argentina
     else
       phrases << :no_cni_os_consular_facilities
     end
