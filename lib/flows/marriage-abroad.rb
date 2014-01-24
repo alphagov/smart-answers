@@ -231,7 +231,7 @@ multiple_choice :partner_opposite_or_same_sex? do
         :outcome_os_bot
       elsif data_query.os_consular_cni_countries?(ceremony_country) or (%w(uk).include?(resident_of) and data_query.os_no_marriage_related_consular_services?(ceremony_country))
         :outcome_os_consular_cni
-      elsif %w(thailand egypt south-korea lebanon mongolia united-arab-emirates).include?(ceremony_country)
+      elsif %w(thailand egypt south-korea lebanon mongolia united-arab-emirates vietnam).include?(ceremony_country)
         :outcome_os_affirmation
       elsif data_query.os_no_consular_cni_countries?(ceremony_country) or (%w(other).include?(resident_of) and data_query.os_no_marriage_related_consular_services?(ceremony_country))
         :outcome_os_no_cni
