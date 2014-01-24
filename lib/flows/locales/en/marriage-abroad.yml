@@ -55,6 +55,12 @@ en-GB:
           The General Register Office of Ireland's website explains what you need to do if you want to [enter into a civil partnership in Ireland](http://www.groireland.ie/civil_partnership.htm).
 
 # Marriage & CP in Switzerland phrases
+
+        what_you_need_to_do_switzerland: |
+        
+          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to enter into [marriage][a civil partnership] or equivalent in Switzerland.
+
+          Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.
         switzerland_os_variant: |
           Contact the Civil Register Office where you’re getting married to find out about local laws, including what documents you’ll need.
         switzerland_ss_variant: |
@@ -968,6 +974,7 @@ en-GB:
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
         cp_or_equivalent_cp_other_resident: |
           Contact your nearest embassy or consulate of %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
+        
         cp_or_equivalent_cp_all_what_you_need_to_do: |
           ##What you need to do
 
