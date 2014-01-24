@@ -19,7 +19,7 @@ en-GB:
           Choose the kind of vehicle you want to drive from the list. If you know the [vehicle category](/driving-licence-categories) these are also shown.
         options:
           car-or-light-vehicle: "Car (category B)"
-          motorcycle: "Motorbike (categories A1, A2 & A)"
+          motorcycle: "Motorbike (categories A1, A2 and A)"
           moped: "Moped (category P or AM)"
           medium-sized-vehicle: "Medium-sized vehicles (category C1)"
           large-vehicle-or-lorry: "Large vehicles and lorries (category C)"
@@ -28,7 +28,7 @@ en-GB:
           tractor: "Agricultural tractor (category F)"
           specialist-vehicle: "Other specialist vehicles (categories G, H and K)"
           quad-bike: "Quad bikes and 4-wheeled light vehicles (category B1)"
-          trike: "Motor tricycle (categories A & A1)"
+          trike: "Motor tricycle (categories A and A1)"
 ## Q2 Cars
       how_old_are_you?:
         title: How old are you?
@@ -44,20 +44,6 @@ en-GB:
           17-18: "17 to 18"
           19-23: "19 to 23"
           24-or-over: "24 or over"
-# ## Q4 Mopeds
-#       had_mb_licence_for_more_than_2_years_17_20?:
-#         title: Have you had your motorbike licence for more than 2 years?
-# ## Q5
-#       had_mb_licence_for_more_2_years_21?:
-#         title: Have you had your licence for more than 2 years?
-# ## Q6
-#       how_old_are_you_mb_no_licence?:
-#         title: How old are you?
-#         options:
-#           under-17: "Under 17"
-#           17-20: "17 to 20"
-#           21-or-over: "21 or over"
-
 ## Q4 Mopeds
       do_you_have_a_full_driving_licence?:
         title: Do you already have a full car driving licence?
@@ -586,7 +572,7 @@ en-GB:
 ## A25
       bus_apply_for_cat_b:
         body: |
-          You’ll need a full car driving licence before you can apply for provisional bus entitlement (category D) and take your a category D test. 
+          You’ll need a full car driving licence before you can apply for provisional bus entitlement (category D) and take a category D test.
 
           You must also normally be 24 or over.
 
