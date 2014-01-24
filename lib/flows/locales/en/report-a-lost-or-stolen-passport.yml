@@ -2,7 +2,7 @@ en-GB:
   flow:
     report-a-lost-or-stolen-passport:
       meta:
-        description: Find out what you need to do if your passport has been lost or stolen and how to get a replacement
+        description: Find out what you need to do if your passport has been If you need to travel urgently, you may be able to get an [emergency travel document](/emergency-travel-document) from the Embassy, High Commission or Consulate. You will have to pay a fee. or stolen and how to get a replacement
       title: Report a lost or stolen passport
       body: |
         You must tell Her Majesty's Passport Office  as soon as possible if your passport has been lost or stolen. 
@@ -97,7 +97,7 @@ en-GB:
         body: |
           [Download form LS01 - 'Lost or stolen passport notification'](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf) 
       
-          Fill in form LS01 and take it to your nearest British embassy, high commission or consulate. Check if you need to make an appointment first.
+          Fill in form LS01 and post, fax or take it to your nearest British embassy, high commission or consulate. Check if you need to make an appointment first if you’re taking it in.
 
           %{child_advice}
 
@@ -109,6 +109,4 @@ en-GB:
 
           ##Emergency travel documents
 
-          If you need to travel urgently, you can get an [emergency travel document to return to the UK](/emergency-travel-document) from the Embassy, High Commission or Consulate.
-          
-          You will have to pay a fee.
+          If you need to travel urgently, you may be able to get an [emergency travel document](/emergency-travel-document) from the Embassy, High Commission or Consulate. You will have to pay a fee.
