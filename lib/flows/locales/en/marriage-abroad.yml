@@ -56,9 +56,14 @@ en-GB:
 
 # Marriage & CP in Switzerland phrases
 
-        what_you_need_to_do_switzerland: |
+        what_you_need_to_do_switzerland_opposite_sex: |
         
-          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to enter into [marriage][a civil partnership] or equivalent in Switzerland.
+          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to enter into marriage or equivalent in Switzerland.
+
+          Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.
+        what_you_need_to_do_switzerland_same_sex: |
+        
+          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to enter into a civil partnership or equivalent in Switzerland.
 
           Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.
         switzerland_os_variant: |
