@@ -303,12 +303,16 @@ outcome :outcome_switzerland do
       phrases << :switzerland_not_resident
         if %w(opposite_sex).include?(sex_of_your_partner)
           phrases << :switzerland_os_not_resident
-          phrases << :what_you_need_to_do_switzerland_opposite_sex
         else
           phrases << :switzerland_ss_not_resident
-          phrases << :what_you_need_to_do_switzerland_same_sex
         end
       phrases << :switzerland_not_resident_two
+    else
+        if %w(opposite_sex).include?(sex_of_your_partner)
+          phrases << :what_you_need_to_do_switzerland_opposite_sex
+        else
+          phrases << :what_you_need_to_do_switzerland_same_sex
+        end
     end
     phrases
   end

@@ -1529,9 +1529,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'same_sex'
     end
-    should "go to consular cni cp countries outcome" do
-      assert_current_node :outcome_cp_consular_cni
-      assert_phrase_list :consular_cni_cp_outcome, [:consular_cni_cp_ceremony, :consular_cni_cp_ceremony_vietnam_partner_local, :consular_cni_cp_vietnam, :consular_cni_cp_all_documents, :consular_cni_cp_partner_not_british, :consular_cni_cp_all_what_you_need_to_do, :consular_cni_cp_naturalisation, :consular_cni_cp_all_fees, :consular_cni_cp_cheque]
+    should "go to all other countries outcome" do
+      assert_current_node :outcome_cp_all_other_countries
     end
   end
 # testing for latvia, other resident, british partner
@@ -1640,41 +1639,29 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-#testing for vietnam clickbook
-  context "testing for hochinmin clickbook for marriages in Vietnam" do
-    should "give hochimin clickbook when ceremony in vietnam, resident in uk" do
+#testing for vietnam 
+  context "testing that Vietnam is now affirmation to marry outcome" do
+    should "give the outcome" do
       worldwide_api_has_organisations_for_location('vietnam', read_fixture_file('worldwide/vietnam_organisations.json'))
       add_response 'vietnam'
       add_response 'uk'
       add_response 'uk_england'
       add_response 'partner_local'
       add_response 'opposite_sex'
-      assert_current_node :outcome_os_consular_cni
-      assert_phrase_list :consular_cni_os_start, [:uk_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ceremony_not_spain_or_italy, :uk_resident_partner_not_irish_os_consular_cni_three, :consular_cni_os_uk_resident_legalisation, :consular_cni_os_uk_resident_not_italy_or_portugal]
-      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_naturalisation, :consular_cni_os_fees_not_italy_not_uk, :consular_cni_os_fees_local_or_uk_resident, :consular_cni_os_fees_no_cheques]
-    end
-    should "give hochimin clickbook when ceremony in vietnam, resident in vietnam" do
-      worldwide_api_has_organisations_for_location('vietnam', read_fixture_file('worldwide/vietnam_organisations.json'))
-      add_response 'vietnam'
-      add_response 'other'
-      add_response 'vietnam'
-      add_response 'partner_british'
-      add_response 'opposite_sex'
-      assert_current_node :outcome_os_consular_cni
-      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ceremony_not_spain_or_italy, :consular_cni_os_local_resident_not_italy_germany, :consular_cni_os_vietnam_clickbook, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany, :consular_cni_os_local_resident_not_germany_or_italy_or_spain]
-      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british, :consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_fees_not_italy_not_uk, :consular_cni_os_fees_local_or_uk_resident, :consular_cni_os_fees_no_cheques]
+      assert_current_node :outcome_os_affirmation
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_not_british, :affirmation_os_all_fees]
     end
   end
 
 #testing for switzerland variants
   context "ceremony in switzerland, resident in switzerland, partner opposite sex" do
-    should "give swiss outcome with variants" do
+    should "give swiss outcome with variants (gender variant)" do
       worldwide_api_has_organisations_for_location('switzerland', read_fixture_file('worldwide/switzerland_organisations.json'))
       add_response 'switzerland'
       add_response 'yes'
       add_response 'opposite_sex'
       assert_current_node :outcome_switzerland
-      assert_phrase_list :switzerland_marriage_outcome, [:switzerland_os_variant]
+      assert_phrase_list :switzerland_marriage_outcome, [:switzerland_os_variant, :what_you_need_to_do_switzerland_opposite_sex]
     end
   end
   context "ceremony in switzerland, resident in switzerland, partner same sex" do
@@ -1684,7 +1671,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'yes'
       add_response 'same_sex'
       assert_current_node :outcome_switzerland
-      assert_phrase_list :switzerland_marriage_outcome, [:switzerland_ss_variant]
+      assert_phrase_list :switzerland_marriage_outcome, [:switzerland_ss_variant, :what_you_need_to_do_switzerland_same_sex]
     end
   end
   context "ceremony in switzerland, not resident in switzerland, partner opposite sex" do
