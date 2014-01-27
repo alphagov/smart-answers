@@ -7,7 +7,7 @@ gem 'rails', '3.2.16'
 
 gem 'rails-i18n'
 gem 'json'
-gem 'plek', '1.1.0'
+gem 'plek', '1.7.0'
 gem 'govuk_frontend_toolkit', '0.32.2'
 gem 'aws-ses', :require => 'aws/ses' # Needed by exception_notification
 gem 'exception_notification', '2.6.1'
