@@ -798,10 +798,8 @@ outcome :outcome_os_no_cni do
         phrases << :no_cni_os_not_dutch_caribbean_other_resident
       end
     end
-    if %w(cote-d-ivoire).include?(ceremony_country)
-      phrases << :no_cni_os_consular_facilities_cote_de_ivoire
-    elsif %w(argentina).include?(ceremony_country)
-      phrases << :no_cni_os_consular_facilities_argentina
+    if %w(cote-d-ivoire argentina).include?(ceremony_country)
+      phrases << :"no_cni_os_consular_facilities_#{ceremony_country}"
     else
       phrases << :no_cni_os_consular_facilities
     end

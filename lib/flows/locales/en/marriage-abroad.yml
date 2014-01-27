@@ -908,11 +908,6 @@ en-GB:
           You can pay by cash or credit card, but not by personal cheque.
 
 # CP in countries with CP or equivalent phrases
-        cp_or_equivalent_cp_argentina: |
-          Same-sex relationships in Argentina that are recognised as civil partnerships under British law are known as:
-
-          - marriage
-          - ‘unión civil’, or ‘civil union’
         cp_or_equivalent_cp_austria: |
           Same-sex relationships in Austria that are recognised as civil partnerships under British law are known as ‘eingetragene Partnerschaft’, or ‘registered partnership’.
         cp_or_equivalent_cp_belgium: |
@@ -1009,7 +1004,12 @@ en-GB:
           %{country_name_lowercase_prefix} is an overseas department or territory of France. The rules and requirements for PACS there are similar to France.
 
 # CP in countries where no CNI is required phrases
-        no_cni_required_cp_united-states: |
+        no_cni_required_cp_argentina: |
+          Same-sex relationships in Argentina that are recognised as civil partnerships under British law are known as:
+
+          - marriage
+          - ‘unión civil’, or ‘civil union’
+        no_cni_required_cp_usa: |
           You can get a same-sex relationship legally recognised in some states in the United States.
         no_cni_required_cp_andorra: |
           Same-sex relationships in Andorra that are recognised as civil partnerships under British law are known as 'unió estable de parella', or 'stable union of pairs'.
