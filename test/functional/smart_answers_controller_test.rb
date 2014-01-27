@@ -76,6 +76,22 @@ class SmartAnswersControllerTest < ActionController::TestCase
       assert_equal "max-age=1800, public", @response.header["Cache-Control"]
     end
 
+    context "without a valid artefact" do
+      setup do
+        SmartAnswerPresenter.any_instance.stubs(:artefact).returns({})
+      end
+
+      should "still return a success response" do
+        get :show, id: "sample"
+        assert response.ok?
+      end
+
+      should "have cache headers set to 5 seconds" do
+        get :show, id: "sample"
+        assert_equal "max-age=5, public", @response.header["Cache-Control"]
+      end
+    end
+
     context "meta description in translation file" do
       should "be shown" do
         using_translation_file(fixture_file('smart_answers_controller_test/meta_description.yml')) do
