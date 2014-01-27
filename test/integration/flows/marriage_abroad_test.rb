@@ -1078,7 +1078,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go os no cni outcome" do
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_other_resident, :no_cni_os_consular_facilities_cote_de_ivoire]
+      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_other_resident, :"no_cni_os_consular_facilities_cote-d-ivoire"]
     end
   end
   
