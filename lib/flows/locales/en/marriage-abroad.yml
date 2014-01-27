@@ -107,9 +107,6 @@ en-GB:
           You should check if your civil status declaration needs to be legalised (certified as genuine) by the local authorities in Switzerland.
 
 # Marriage in commonwealth countries phrases
-        commonwealth_os_all_intro: |
-          %{country_name_uppercase_prefix} is a member of the Commonwealth.
-
           ##What you need to do
         uk_resident_os_ceremony_not_zimbabwe: |
           Contact the [High Commission of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) to find out about local marriage laws, including what documents you’ll need.
@@ -1383,7 +1380,7 @@ en-GB:
 
 
           $D
-          [Download ‘Explanatory note in lieu of a certificate of celibacy’ (PDF, 326KB)](/government/uploads/system/uploads/attachment_data/file/136840/certificat-celibat.pdf)
+          [Download ‘Explanatory note in lieu of a certificate of celibacy’](https://www.gov.uk/government/publications/france-explanatory-note-in-lieu-of-certificat-celibat)
           $D
 
           ##Naturalisation of your foreign partner if they move to the UK

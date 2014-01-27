@@ -332,7 +332,7 @@ end
 outcome :outcome_os_commonwealth do
   precalculate :commonwealth_os_outcome do
     phrases = PhraseList.new
-    phrases << :commonwealth_os_all_intro if ceremony_country != 'zimbabwe'
+
     if %w(zimbabwe).exclude?(ceremony_country)
       if %w(uk).include?(resident_of)
         phrases << :uk_resident_os_ceremony_not_zimbabwe
