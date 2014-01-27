@@ -22,6 +22,8 @@ en-GB:
       phrases:
         ceremony_type_marriage: Marriage
         ceremony_type_civil_partnership: Civil partnership
+        ceremony_type_marriage_lowercase: marriage
+        ceremony_type_civil_partnership_lowercase: civil partnership
         clickbook_link: |
           [Book an appointment online](%{clickbook_data})
         clickbook_links: |
@@ -56,16 +58,13 @@ en-GB:
 
 # Marriage & CP in Switzerland phrases
 
-        what_you_need_to_do_switzerland_opposite_sex: |
+        what_you_need_to_do_switzerland_resident_uk: |
         
-          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to enter into marriage or equivalent in Switzerland.
+          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to enter into a %{ceremony_type_lowercase} or equivalent in Switzerland.
 
           Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.
-        what_you_need_to_do_switzerland_same_sex: |
-        
-          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to enter into a civil partnership or equivalent in Switzerland.
 
-          Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.
+        
         switzerland_os_variant: |
           Contact the Civil Register Office where you’re getting married to find out about local laws, including what documents you’ll need.
         switzerland_ss_variant: |
@@ -821,7 +820,7 @@ en-GB:
           There aren’t any British consular facilities to register a marriage or get legal documents to prove you’re eligible to marry in %{country_name_lowercase_prefix}.
 
           You can pay by cash or credit card, but not by personal cheque.
-        no_cni_os_consular_facilities_cote_d_ivoire: |
+        no_cni_os_consular_facilities_cote-d-ivoire: |
           ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
 
           There aren’t any British consular facilities to register a marriage or get legal documents to prove you’re eligible to marry in %{country_name_lowercase_prefix}.

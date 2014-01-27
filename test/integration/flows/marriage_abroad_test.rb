@@ -1658,40 +1658,43 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "give swiss outcome with variants (gender variant)" do
       worldwide_api_has_organisations_for_location('switzerland', read_fixture_file('worldwide/switzerland_organisations.json'))
       add_response 'switzerland'
-      add_response 'yes'
+      add_response 'uk'
       add_response 'opposite_sex'
       assert_current_node :outcome_switzerland
-      assert_phrase_list :switzerland_marriage_outcome, [:switzerland_os_variant, :what_you_need_to_do_switzerland_opposite_sex]
+      assert_phrase_list :switzerland_marriage_outcome, [:switzerland_os_variant, :what_you_need_to_do_switzerland_resident_uk, :switzerland_not_resident, :switzerland_os_not_resident, :switzerland_not_resident_two]
     end
   end
   context "ceremony in switzerland, resident in switzerland, partner same sex" do
     should "give swiss outcome with variants" do
       worldwide_api_has_organisations_for_location('switzerland', read_fixture_file('worldwide/switzerland_organisations.json'))
       add_response 'switzerland'
-      add_response 'yes'
+      add_response 'other'
+      add_response 'switzerland'
       add_response 'same_sex'
       assert_current_node :outcome_switzerland
-      assert_phrase_list :switzerland_marriage_outcome, [:switzerland_ss_variant, :what_you_need_to_do_switzerland_same_sex]
+      assert_phrase_list :switzerland_marriage_outcome, [:switzerland_ss_variant]
     end
   end
   context "ceremony in switzerland, not resident in switzerland, partner opposite sex" do
     should "give swiss outcome with variants" do
       worldwide_api_has_organisations_for_location('switzerland', read_fixture_file('worldwide/switzerland_organisations.json'))
       add_response 'switzerland'
-      add_response 'no'
-      add_response 'opposite_sex'
+      add_response 'uk'
+      add_response 'same_sex'
       assert_current_node :outcome_switzerland
-      assert_phrase_list :switzerland_marriage_outcome, [:switzerland_os_variant, :switzerland_not_resident, :switzerland_os_not_resident, :switzerland_not_resident_two]
+      assert_phrase_list :switzerland_marriage_outcome, [:switzerland_ss_variant, :what_you_need_to_do_switzerland_resident_uk, :switzerland_not_resident, :switzerland_ss_not_resident, :switzerland_not_resident_two]
     end
   end
   context "ceremony in switzerland, not resident in switzerland, partner same sex" do
     should "give swiss outcome with variants" do
       worldwide_api_has_organisations_for_location('switzerland', read_fixture_file('worldwide/switzerland_organisations.json'))
+      worldwide_api_has_organisations_for_location('poland', read_fixture_file('worldwide/poland_organisations.json'))
       add_response 'switzerland'
-      add_response 'no'
-      add_response 'same_sex'
+      add_response 'other'
+      add_response 'poland'
+      add_response 'opposite_sex'
       assert_current_node :outcome_switzerland
-      assert_phrase_list :switzerland_marriage_outcome, [:switzerland_ss_variant, :switzerland_not_resident, :switzerland_ss_not_resident, :switzerland_not_resident_two]
+      assert_phrase_list :switzerland_marriage_outcome, [:switzerland_os_variant, :switzerland_not_resident, :switzerland_os_not_resident, :switzerland_not_resident_two]
     end
   end
 

@@ -76,8 +76,6 @@ country_select :country_of_ceremony?, :exclude_countries => exclude_countries do
   next_node do |response|
     if %w(ireland).include?(response)
       :partner_opposite_or_same_sex?
-    elsif %w(switzerland).include?(response)
-      :swiss_resident?
     elsif %w(france new-caledonia wallis-and-futuna).include?(response)
       :marriage_or_pacs?
     elsif %w(french-guiana french-polynesia guadeloupe martinique mayotte new-caledonia reunion st-pierre-and-miquelon).include?(response)
@@ -92,10 +90,22 @@ end
   
 # Q2
 multiple_choice :legal_residency? do
-  option :uk => :residency_uk?
-  option :other => :residency_nonuk?
+  option :uk 
+  option :other 
 
   save_input_as :resident_of
+  
+  next_node do |response|
+    if %w(uk).include?(response) 
+      if %(switzerland).include?(ceremony_country)
+        :partner_opposite_or_same_sex?
+      else
+        :residency_uk?
+      end
+    else
+      :residency_nonuk?
+    end
+  end
 end
 
 
@@ -165,7 +175,13 @@ country_select :residency_nonuk?, :exclude_countries => exclude_countries do
     end
   end
 
-  next_node :what_is_your_partners_nationality?  
+  next_node do |response|
+    if %w(switzerland).include?(ceremony_country)
+      :partner_opposite_or_same_sex?
+    else
+      :what_is_your_partners_nationality?  
+    end
+  end
 end
 
 # Q3c
@@ -180,17 +196,6 @@ multiple_choice :marriage_or_pacs? do
       :outcome_cp_france_pacs
     end
   end
-end
-
-# Q3d
-multiple_choice :swiss_resident? do
-  option :yes
-  option :no
-
-  save_input_as :resident_of_switzerland
-
-  next_node :partner_opposite_or_same_sex?
-
 end
 
 # Q4
@@ -216,6 +221,14 @@ multiple_choice :partner_opposite_or_same_sex? do
       PhraseList.new(:ceremony_type_marriage)
     else
       PhraseList.new(:ceremony_type_civil_partnership)
+    end
+  end
+  
+  calculate :ceremony_type_lowercase do
+    if responses.last == 'opposite_sex'
+      PhraseList.new(:ceremony_type_marriage_lowercase)
+    else
+      PhraseList.new(:ceremony_type_civil_partnership_lowercase)
     end
   end
 
@@ -299,20 +312,18 @@ outcome :outcome_switzerland do
     else
       phrases << :switzerland_ss_variant
     end
-    if resident_of_switzerland == 'no'
+    
+    unless %w(switzerland).include?(residency_country)
+      if %w(uk).include?(resident_of) 
+        phrases << :what_you_need_to_do_switzerland_resident_uk
+      end
       phrases << :switzerland_not_resident
-        if %w(opposite_sex).include?(sex_of_your_partner)
-          phrases << :switzerland_os_not_resident
-        else
-          phrases << :switzerland_ss_not_resident
-        end
+      if %w(opposite_sex).include?(sex_of_your_partner)
+        phrases << :switzerland_os_not_resident
+      else
+        phrases << :switzerland_ss_not_resident
+      end
       phrases << :switzerland_not_resident_two
-    else
-        if %w(opposite_sex).include?(sex_of_your_partner)
-          phrases << :what_you_need_to_do_switzerland_opposite_sex
-        else
-          phrases << :what_you_need_to_do_switzerland_same_sex
-        end
     end
     phrases
   end
