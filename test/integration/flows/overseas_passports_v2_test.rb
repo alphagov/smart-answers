@@ -4,7 +4,7 @@ require_relative 'flow_test_helper'
 require 'gds_api/test_helpers/worldwide'
 
 
-class OverseasPassportsTestV2 < ActiveSupport::TestCase
+class OverseasPassportsV2Test < ActiveSupport::TestCase
   include FlowTestHelper
   include GdsApi::TestHelpers::Worldwide
 
