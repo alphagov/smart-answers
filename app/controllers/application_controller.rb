@@ -23,6 +23,11 @@ protected
   end
 
   def set_expiry(duration = 30.minutes)
+    # if the artefact returned from the Content API is blank, or if
+    # the request to the Content API fails, set a very short cache so
+    # we don't cache an incomplete page for a while
+    duration = 5.seconds if @presenter.present? and @presenter.artefact.blank?
+
     unless Rails.env.development?
       expires_in(duration, :public => true)
     end
