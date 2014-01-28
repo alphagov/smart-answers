@@ -1530,7 +1530,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to all other countries outcome" do
-      assert_current_node :outcome_cp_all_other_countries
+      assert_current_node :outcome_cp_consular
+      assert_phrase_list :consular_cp_outcome, [:consular_cp_ceremony, :consular_cp_ceremony_vietnam_partner_local, :consular_cp_vietnam, :consular_cp_all_documents, :consular_cp_partner_not_british, :consular_cp_all_what_you_need_to_do, :consular_cp_naturalisation, :consular_cp_all_fees, :consular_cp_cheque]
     end
   end
 # testing for latvia, other resident, british partner
@@ -1545,8 +1546,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to consular cni cp countries outcome" do
-      assert_current_node :outcome_cp_consular_cni
-      assert_phrase_list :consular_cni_cp_outcome, [:consular_cni_cp_ceremony, :consular_cni_cp_all_contact, :consular_cni_cp_no_clickbook_so_embassy_details, :consular_cni_cp_all_documents, :consular_cni_cp_all_what_you_need_to_do, :consular_cni_cp_all_fees, :consular_cni_cp_local_currency]
+      assert_current_node :outcome_cp_consular
+      assert_phrase_list :consular_cp_outcome, [:consular_cp_ceremony, :consular_cp_all_contact, :consular_cp_no_clickbook_so_embassy_details, :consular_cp_all_documents, :consular_cp_all_what_you_need_to_do, :consular_cp_all_fees, :consular_cp_local_currency]
     end
   end
 

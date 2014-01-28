@@ -264,8 +264,8 @@ multiple_choice :partner_opposite_or_same_sex? do
         :outcome_cp_no_cni
       elsif %w(australia canada new-zealand south-africa).include?(ceremony_country)
         :outcome_cp_commonwealth_countries
-      elsif data_query.cp_consular_cni_countries?(ceremony_country)
-        :outcome_cp_consular_cni
+      elsif data_query.cp_consular_countries?(ceremony_country)
+        :outcome_cp_consular
       else
         :outcome_cp_all_other_countries
       end
@@ -980,21 +980,21 @@ outcome :outcome_cp_commonwealth_countries do
   end
 end
 
-outcome :outcome_cp_consular_cni do
-  precalculate :consular_cni_cp_outcome do
+outcome :outcome_cp_consular do
+  precalculate :consular_cp_outcome do
     phrases = PhraseList.new
-    phrases << :consular_cni_cp_ceremony
+    phrases << :consular_cp_ceremony
     if %w(vietnam).include?(ceremony_country)
       if %w(partner_local).include?(partner_nationality)
-        phrases << :consular_cni_cp_ceremony_vietnam_partner_local
+        phrases << :consular_cp_ceremony_vietnam_partner_local
       end
-      phrases << :consular_cni_cp_vietnam
+      phrases << :consular_cp_vietnam
     elsif %w(croatia bulgaria).include?(ceremony_country) and %w(partner_local).include?(partner_nationality)
-      phrases << :consular_cni_cp_local_partner_croatia_bulgaria
+      phrases << :consular_cp_local_partner_croatia_bulgaria
     elsif %w(japan).include?(ceremony_country)
-      phrases << :consular_cni_cp_japan
+      phrases << :consular_cp_japan
     else
-      phrases << :consular_cni_cp_all_contact
+      phrases << :consular_cp_all_contact
       if reg_data_query.clickbook(ceremony_country)
         if multiple_clickbooks
           phrases << :clickbook_links
@@ -1004,21 +1004,21 @@ outcome :outcome_cp_consular_cni do
       end
     end
     unless reg_data_query.clickbook(ceremony_country)
-      phrases << :consular_cni_cp_no_clickbook_so_embassy_details
+      phrases << :consular_cp_no_clickbook_so_embassy_details
     end
-    phrases << :consular_cni_cp_all_documents
+    phrases << :consular_cp_all_documents
     if %w(partner_british).exclude?(partner_nationality)
-      phrases << :consular_cni_cp_partner_not_british
+      phrases << :consular_cp_partner_not_british
     end
-    phrases << :consular_cni_cp_all_what_you_need_to_do
+    phrases << :consular_cp_all_what_you_need_to_do
     if %w(partner_british).exclude?(partner_nationality)
-      phrases << :consular_cni_cp_naturalisation
+      phrases << :consular_cp_naturalisation
     end
-    phrases << :consular_cni_cp_all_fees
+    phrases << :consular_cp_all_fees
     if %w(cambodia latvia).include?(ceremony_country)
-      phrases << :consular_cni_cp_local_currency
+      phrases << :consular_cp_local_currency
     else
-      phrases << :consular_cni_cp_cheque
+      phrases << :consular_cp_cheque
     end
     phrases
   end
