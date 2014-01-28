@@ -219,6 +219,9 @@ en-GB:
         how_long_applying_online: |
           Your application will take **at least** 6 weeks from when your declaration form is received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
 
+        how_long_applying_djibouti_tanzania: |
+          Your application will take **at least** 12 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
+
         how_long_replacing_online: |
           Your application will take **at least** 6 weeks from when when your declaration form is received by Her Majesty's Passport Office in the UK. 
 
@@ -272,6 +275,9 @@ en-GB:
 
         send_colour_photocopy_bulletpoint: |
           5. You must send a full colour photocopy of your entire current passport (every page including blank pages). Don't send your current passport with your application - you can keep it for security and ID purposes - but you can't travel with it after you've applied for a new one.
+
+        send_application_ips1_pakistan: |
+          5. You should fill in the [Applying for a passport from Pakistan form](https://www.gov.uk/government/publications/applying-for-a-passport-from-pakistan) if you are submitting supporting documents from the UK.
 
         how_to_apply_online: |
           You must apply and pay for your passport online.
@@ -438,7 +444,8 @@ en-GB:
           Your passport and supporting documents will be delivered to the British High Commission Kampala, Uganda - you must collect them in person.
         getting_your_passport_zambia: |
           Your passport and supporting documents will be delivered to the British High Commission in Lusaka, Zambia - you must collect them in person.
-
+        getting_your_passport_zimbabwe: |
+          Your passport and supporting documents will be delivered to the British Embassy in Harare - you must collect them in person.
         getting_your_passport_burundi: |
           Your passport and supporting documents will be delivered to the British Embassy Liaison Office in Bujumbura, Burundi - you must collect them in person.
         getting_your_passport_burundi_renew_new: |
@@ -528,14 +535,6 @@ en-GB:
 
         how_long_applying_at_least_6_months: |
           Your application will take **at least** 6 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
-
-        how_long_applying_up_to_6_months: |
-          Your application will take **up to** 6 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
-
-        how_long_applying_up_to_6_months_replacing: |
-          Your application will take **up to** 6 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
-
-          If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
 
         how_long_it_takes_ips2: |
           Applications may take longer if:
