@@ -32,9 +32,9 @@ en-GB:
 
           To report your lost passport you can do any of:
 
-          - [download a copy of form LS01](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf) and post the completed form to Her Majesty's Passport Office - the address is on the form
+          - [download a copy of form LS01](/government/publications/report-a-lost-or-stolen-passport-form-ls01) and post the completed form to Her Majesty's Passport Office - the address is on the form
           - get a copy of form LS01 from a Post Office that offers the [Check and Send service](/how-the-post-office-check-and-send-service-works)
-          - [ask for a callback](https://contact.homeoffice.gov.uk/contact.php?survey=1&pager=4) from Her Majesty's Passport Office 
+          - [ask for a callback](https://eforms.homeoffice.gov.uk/outreach/lost_stolen_passports.ofml) from Her Majesty's Passport Office 
 
           %{child_advice}
 
@@ -45,10 +45,12 @@ en-GB:
           Follow the same process as [renewing a passport](/renew-adult-passport), but you:
 
 
-          - must send a completed form LS01 with your application (if you’ve haven’t already reported it as lost)
+          - must send a completed form LS01 with your application (if you haven’t already reported it as lost)
           - must get your application countersigned
           - may be interviewed by Her Majesty's Passport Office to prove your identity
           - may be asked for original supporting documents (eg birth or marriage certificates) when Her Majesty's Passport Office gets your application
+          
+          ^Use the [online enquiry form](https://eforms.homeoffice.gov.uk/outreach/Passport_Enquiries.ofml) to contact Her Majesty’s Passport Office for general advice.
 
           % You can’t use the [1-day Premium service](/get-a-passport-urgently) if you’re replacing a lost passport. % 
 
@@ -71,9 +73,9 @@ en-GB:
           To report to Her Majesty's Passport Office you can do any of:
 
 
-          - [download a copy of form LS01](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf) and post the completed form to Her Majesty's Passport Office - the address is on the form
+          - [download a copy of form LS01](/government/publications/report-a-lost-or-stolen-passport-form-ls01) and post the completed form to Her Majesty's Passport Office - the address is on the form
           - get a copy of form LS01 from a Post Office that offers the [Check and Send service](/how-the-post-office-check-and-send-service-works)
-          - [ask for a callback](https://contact.homeoffice.gov.uk/contact.php?survey=1&pager=4) from Her Majesty's Passport Office 
+          - [ask for a callback](https://eforms.homeoffice.gov.uk/outreach/lost_stolen_passports.ofml) from Her Majesty's Passport Office 
 
           %{child_advice}
 
@@ -85,17 +87,19 @@ en-GB:
           Follow the same process as [renewing a passport](/renew-adult-passport), but you:
 
 
-          - must send a completed form LS01 with your application (if you’ve haven’t already reported it as stolen)
+          - must send a [completed form LS01](/government/publications/report-a-lost-or-stolen-passport-form-ls01) with your application (if you haven’t already reported it as stolen)
           - must get your application countersigned
           - may be interviewed by Her Majesty's Passport Office to prove your identity
           - may be asked for original supporting documents (eg birth or marriage certificates) when Her Majesty's Passport Office gets your application
+          
+          ^Use the [online enquiry form](https://eforms.homeoffice.gov.uk/outreach/Passport_Enquiries.ofml) to contact Her Majesty’s Passport Office for general advice.
 
           % You can’t use the [1-day Premium service](/get-a-passport-urgently) if you’re replacing a stolen passport. %
       # A3
       contact_the_embassy:
         title: You must report your lost or stolen passport
         body: |
-          [Download form LS01 - 'Lost or stolen passport notification'](http://www.direct.gov.uk/prod_consum_dg/groups/dg_digitalassets/@dg/@en/@travel/documents/digitalasset/dg_175799.pdf) 
+          [Download form LS01 - 'Lost or stolen passport notification'](/government/publications/report-a-lost-or-stolen-passport-form-ls01) 
       
           Fill in form LS01 and post, fax or take it to your nearest British embassy, high commission or consulate. Check if you need to make an appointment first if you’re taking it in.
 
