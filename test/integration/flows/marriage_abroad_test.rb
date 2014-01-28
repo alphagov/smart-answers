@@ -1649,6 +1649,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_affirmation
+      assert_state_variable :ceremony_type_lowercase, 'marriage'
       assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_not_british, :affirmation_os_all_fees]
     end
   end
@@ -1661,6 +1662,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'uk'
       add_response 'opposite_sex'
       assert_current_node :outcome_switzerland
+      assert_state_variable :ceremony_type_lowercase, 'marriage'
       assert_phrase_list :switzerland_marriage_outcome, [:switzerland_os_variant, :what_you_need_to_do_switzerland_resident_uk, :switzerland_not_resident, :switzerland_os_not_resident, :switzerland_not_resident_two]
     end
   end
@@ -1672,6 +1674,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'switzerland'
       add_response 'same_sex'
       assert_current_node :outcome_switzerland
+      assert_state_variable :ceremony_type_lowercase, 'civil partnership'
       assert_phrase_list :switzerland_marriage_outcome, [:switzerland_ss_variant]
     end
   end
@@ -1682,6 +1685,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'uk'
       add_response 'same_sex'
       assert_current_node :outcome_switzerland
+      assert_state_variable :ceremony_type_lowercase, 'civil partnership'
       assert_phrase_list :switzerland_marriage_outcome, [:switzerland_ss_variant, :what_you_need_to_do_switzerland_resident_uk, :switzerland_not_resident, :switzerland_ss_not_resident, :switzerland_not_resident_two]
     end
   end
@@ -1694,6 +1698,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'poland'
       add_response 'opposite_sex'
       assert_current_node :outcome_switzerland
+      assert_state_variable :ceremony_type_lowercase, 'marriage'
       assert_phrase_list :switzerland_marriage_outcome, [:switzerland_os_variant, :switzerland_not_resident, :switzerland_os_not_resident, :switzerland_not_resident_two]
     end
   end

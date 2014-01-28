@@ -226,9 +226,9 @@ multiple_choice :partner_opposite_or_same_sex? do
   
   calculate :ceremony_type_lowercase do
     if responses.last == 'opposite_sex'
-      PhraseList.new(:ceremony_type_marriage_lowercase)
+      "marriage"
     else
-      PhraseList.new(:ceremony_type_civil_partnership_lowercase)
+      "civil partnership"
     end
   end
 
