@@ -9,11 +9,8 @@ module SmartAnswer::Calculators
 
     ALT_EMBASSIES = {
       'benin' =>  'nigeria',
-      'djibouti' => 'kenya',
       'guinea' => 'ghana',
-      'cote-d-ivoire' => 'ghana',
-      'kyrgyzstan' => 'kazakhstan',
-      'liberia' => 'ghana'
+      'kyrgyzstan' => 'kazakhstan'
     }
 
     RETAIN_PASSPORT_COUNTRIES = %w(angola brazil burundi cuba
