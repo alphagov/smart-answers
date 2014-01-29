@@ -78,7 +78,7 @@ en-GB:
         options:
           under-18: "Under 18"
           18-20: "18 to 20"
-          21-and-over: "21 or over"
+          21-or-over: "21 or over"
 ## Q11
       do_you_have_a_full_cat_b_car_licence?:
         title: Do you have a full car driving licence?
