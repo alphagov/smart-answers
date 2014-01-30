@@ -5,16 +5,13 @@ function browserSupportsHtml5HistoryApi() {
 $(document).ready(function() {
   //_gaq.push(['_trackEvent', 'Citizen-Format-Smartanswer', 'Load']);
   if(browserSupportsHtml5HistoryApi()) {
-    var formSelector = ".current form",
-        $form = $(formSelector);
+    var formSelector = ".current form";
 
     initializeHistory();
 
-    // Don't show feedback form in questions.
-    if ($form.length) {
       // events
       // get new questions on submit
-      $form.live('submit', function(event) {
+      $(formSelector).live('submit', function(event) {
         $('input[type=submit]', this).attr('disabled', 'disabled');
         var form = $(this);
         var postData = form.serializeArray();
@@ -22,7 +19,6 @@ $(document).ready(function() {
         event.preventDefault();
         return false;
       });
-    }
 
     // we want to start over with whatever gets provided if someone clicks to change the answer
     $(".undo a").live('click', function() {
@@ -141,7 +137,7 @@ $(document).ready(function() {
       var self = this;
       $(document).bind('smartanswerAnswer', function() {
         self.correctOffscreen();
-        $('.meta-wrapper').hide();
+        $('.meta-wrapper').show();
       });
       // Show feedback form in outcomes
       $(document).bind('smartanswerOutcome', function() {

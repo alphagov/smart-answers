@@ -22,7 +22,22 @@ class ReportAProblemTest < EngineIntegrationTest
         setup do
           click_on "Start now"
           fill_in "Name:", :with => "Lancelot"
+        end
+
+        should "show report-a-problem" do
+          assert page.has_selector?('.report-a-problem-toggle a'), "Report a problem link not visible"
+        end
+      end
+
+      context "question" do
+        setup do
+          click_on "Start now"
+          fill_in "Name:", :with => "Lancelot"
           click_on "Next step"
+        end
+
+        should "show report-a-problem" do
+          assert page.has_selector?('.report-a-problem-toggle a'), "Report a problem link not visible"
         end
       end
 
