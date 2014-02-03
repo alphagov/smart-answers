@@ -206,20 +206,18 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
       end
     end # After Feb 2013
 
-# test for Feb 2014 before we have new rates
-    context "answer 31 Jan 2014" do
+# test for 5 April 2014 before we have new rates
+    context "answer 05 April 2014" do
       setup do
-        Timecop.travel("2014-01-01")
-        add_response Date.parse("2014-01-31")
+        add_response Date.parse("2014-04-05")
       end
       should "ask employee age" do
         assert_current_node :age_of_employee?
       end
     end
-    context "answer 20 Feb 2014" do
+    context "answer 06 April 2014" do
       setup do
-        Timecop.travel("2014-01-01")
-        add_response Date.parse("2014-02-01")
+        add_response Date.parse("2014-04-06")
       end
       should "go to no calculation outcome" do
         assert_current_node :no_result_possible_yet
@@ -440,19 +438,17 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
     end # After Feb 2013
 
   # test for Feb 2014 before we have new rates
-    context "answer 31 Jan 2014" do
+    context "answer 05 April 2014" do
       setup do
-        Timecop.travel("2014-01-01")
-        add_response Date.parse("2014-01-31")
+        add_response Date.parse("2014-04-05")
       end
       should "ask employee age" do
         assert_current_node :age_of_employee?
       end
     end
-    context "answer 20 Feb 2014" do
+    context "answer 06 April 2014" do
       setup do
-        Timecop.travel("2014-01-01")
-        add_response Date.parse("2014-02-01")
+        add_response Date.parse("2014-04-06")
       end
       should "go to no calculation outcome" do
         assert_current_node :no_result_possible_yet
