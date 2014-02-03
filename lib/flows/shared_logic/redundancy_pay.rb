@@ -17,7 +17,7 @@ date_question :date_of_redundancy? do
   end
   
   next_node do |response|
-    if Date.parse(response) < Date.new(2014,02,01)
+    if Date.parse(response) < Date.new(2014,04,06)
       :age_of_employee?
     else
       :no_result_possible_yet
