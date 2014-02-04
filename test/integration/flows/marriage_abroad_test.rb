@@ -8,7 +8,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(argentina anguilla armenia aruba australia austria bahamas belgium bonaire-st-eustatius-saba british-indian-ocean-territory burma canada china cote-d-ivoire cyprus czech-republic denmark egypt estonia finland france germany iran ireland italy japan jordan latvia lebanon mayotte mexico monaco nicaragua north-korea peru poland portugal russia saudi-arabia serbia south-africa spain sweden switzerland thailand turkey united-arab-emirates usa vietnam wallis-and-futuna yemen zimbabwe)
+    @location_slugs = %w(argentina anguilla armenia aruba australia austria bahamas belgium bonaire-st-eustatius-saba british-indian-ocean-territory burma canada china cote-d-ivoire cyprus czech-republic denmark egypt estonia finland france germany iran ireland italy japan jordan latvia lebanon mayotte mexico monaco nicaragua north-korea guatemala peru poland portugal russia saudi-arabia serbia south-africa spain sweden switzerland thailand turkey united-arab-emirates usa vietnam wallis-and-futuna yemen zimbabwe)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'marriage-abroad'
   end
@@ -465,10 +465,10 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 #variant for england and wales, irish partner - ceremony not italy
-  context "ceremony in peru, resident in wales, partner irish" do
+  context "ceremony in guatemala, resident in wales, partner irish" do
     setup do
-      worldwide_api_has_organisations_for_location('peru', read_fixture_file('worldwide/peru_organisations.json'))
-      add_response 'peru'
+      worldwide_api_has_organisations_for_location('guatemala', read_fixture_file('worldwide/guatemala_organisations.json'))
+      add_response 'guatemala'
       add_response 'uk'
       add_response 'uk_wales'
       add_response 'partner_irish'
@@ -481,10 +481,10 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 #variant for uk resident, ceremony not in italy
-  context "ceremony in peru, resident in wales, partner other" do
+  context "ceremony in guatemala, resident in wales, partner other" do
     setup do
-      worldwide_api_has_organisations_for_location('peru', read_fixture_file('worldwide/peru_organisations.json'))
-      add_response 'peru'
+      worldwide_api_has_organisations_for_location('guatemala', read_fixture_file('worldwide/guatemala_organisations.json'))
+      add_response 'guatemala'
       add_response 'uk'
       add_response 'uk_wales'
       add_response 'partner_other'
@@ -1703,6 +1703,26 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :switzerland_marriage_outcome, [:switzerland_os_variant, :switzerland_not_resident, :switzerland_os_not_resident, :switzerland_not_resident_two]
     end
   end
-
-
+  context "peru outcome mapped to lebanon" do
+    should "go to outcome cp all other countries" do
+      worldwide_api_has_organisations_for_location('peru', read_fixture_file('worldwide/peru_organisations.json'))
+      add_response 'peru'
+      add_response 'uk'
+      add_response 'uk_england'
+      add_response 'partner_british'
+      add_response 'same_sex'
+      assert_current_node :outcome_cp_all_other_countries
+    end
+  end
+  context "peru outcome mapped to lebanon" do
+    should "go to outcome os affirmation" do
+      worldwide_api_has_organisations_for_location('peru', read_fixture_file('worldwide/peru_organisations.json'))
+      add_response 'peru'
+      add_response 'uk'
+      add_response 'uk_england'
+      add_response 'partner_british'
+      add_response 'opposite_sex'
+      assert_current_node :outcome_os_affirmation
+    end
+  end
 end
