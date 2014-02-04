@@ -1704,7 +1704,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
   context "peru outcome mapped to lebanon" do
-    should "go to os affirmation outcome" do
+    should "go to outcome cp all other countries" do
       worldwide_api_has_organisations_for_location('peru', read_fixture_file('worldwide/peru_organisations.json'))
       add_response 'peru'
       add_response 'uk'
@@ -1712,6 +1712,17 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'same_sex'
       assert_current_node :outcome_cp_all_other_countries
+    end
+  end
+  context "peru outcome mapped to lebanon" do
+    should "go to outcome os affirmation" do
+      worldwide_api_has_organisations_for_location('peru', read_fixture_file('worldwide/peru_organisations.json'))
+      add_response 'peru'
+      add_response 'uk'
+      add_response 'uk_england'
+      add_response 'partner_british'
+      add_response 'opposite_sex'
+      assert_current_node :outcome_os_affirmation
     end
   end
 end
