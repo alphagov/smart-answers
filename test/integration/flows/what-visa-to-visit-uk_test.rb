@@ -9,7 +9,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(andorra china anguilla south-africa turkey venezuela yemen oman united-arab-emirates qatar)
+    @location_slugs = %w(andorra china croatia anguilla south-africa turkey venezuela yemen oman united-arab-emirates qatar)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'what-visa-to-visit-uk'
   end
@@ -420,6 +420,18 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       should "take you to outcome visit waiver" do
         assert_current_node :outcome_visit_waiver
         assert_phrase_list :if_oman_qatar_uae, [:electronic_visa_waiver]
+    end
+  end
+  
+
+      
+  context "testing croatia phrase list" do
+    setup do
+      add_response "croatia"
+    end
+    should "takes you to outcome_no_visa_needed with croatia phraselist" do
+      assert_current_node :outcome_no_visa_needed
+      assert_phrase_list :if_croatia, [:croatia_work_permit]
     end
   end
 end

@@ -2,6 +2,9 @@ en-GB:
   flow:
     what-visa-to-visit-uk:
       phrases:
+        croatia_work_permit: |
+          However, you may need a [work permit](http://www.ukba.homeoffice.gov.uk/eucitizens/croatia/) if you want to stay and work.
+          
         china_tour_group: |
           ##Travelling in a tour group
 
@@ -47,8 +50,9 @@ en-GB:
           "no": "No"
 
       outcome_no_visa_needed:
-        title: |
-          You won’t need a visa to come to the UK
+        title: You won’t need a visa to come to the UK
+        body: |
+          %{if_croatia}
 
       outcome_study_y:
         title: You’ll need a visa to study in the UK

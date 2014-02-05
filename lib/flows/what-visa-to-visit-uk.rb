@@ -124,7 +124,13 @@ multiple_choice :planning_to_leave_airport? do
   end
 end
 
-outcome :outcome_no_visa_needed
+outcome :outcome_no_visa_needed do
+  precalculate :if_croatia do
+    if passport_country == 'croatia'
+      PhraseList.new(:croatia_work_permit)
+    end
+  end
+end
 outcome :outcome_study_y
 outcome :outcome_study_m
 outcome :outcome_work_y do
