@@ -2,6 +2,9 @@ en-GB:
   flow:
     what-visa-to-visit-uk:
       phrases:
+        study_reason: study
+        work_reason: work
+        
         croatia_work_permit: |
           However, you may need a [work permit](http://www.ukba.homeoffice.gov.uk/eucitizens/croatia/) if you want to stay and work.
           
@@ -42,6 +45,13 @@ en-GB:
           medical: "Get private medical treatment"
           transit: "Transit (on your way to somewhere else)"
           family: "Join family for a long stay"
+
+      staying_for_how_long?:
+        title: |
+         How long are you planning to %{reason_of_staying} in the UK for?
+        options:
+          "six_months_or_less": "6 months or less"
+          "longer_than_six_months": "longer than 6 months"
 
       planning_to_leave_airport?:
         title: Are you planning to leave the airport?
