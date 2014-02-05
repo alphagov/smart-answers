@@ -1711,7 +1711,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'uk_england'
       add_response 'partner_british'
       add_response 'same_sex'
-      assert_current_node :outcome_cp_all_other_countries
+      assert_current_node :outcome_cp_consular
     end
   end
   context "peru outcome mapped to lebanon" do
