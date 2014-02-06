@@ -39,6 +39,7 @@ multiple_choice :purpose_of_visit? do
   option :marriage
   option :school
   option :medical
+  save_input_as :purpose_of_visit_answer
 
     # when 'study'
     #   if country_group_visa_national.include?(passport_country) or country_group_datv.include?(passport_country)
@@ -55,6 +56,7 @@ multiple_choice :purpose_of_visit? do
   calculate :reason_of_staying do
     if responses.last == 'study'
       PhraseList.new(:study_reason)
+      
     elsif responses.last == 'work'
       PhraseList.new(:work_reason)
     end
@@ -141,34 +143,43 @@ multiple_choice :staying_for_how_long? do
   option :six_months_or_less
   option :longer_than_six_months
   
-  # next_node do |response|
-  #   case response
-  #   when 'longer than 6 months'
-  #     if study
-  #       outcome 2 study y 
-  #     elsif work
-  #       outcome 4 work y 
-  #   when '6 months or less'
-  #     if study 
-  #       if country= visa || datv
-  #         outcome 3 study m visa needed short courses
-  #       elsif country= venezuela || oman || qatar || UAE 
-  #         outcome 12 visit outcome_visit_waiver
-  #       elsif country= non visa || UKOT 
-  #         outcome 1 no visa needed
-  #     else work 
-  #       if country= visa || datv
-  #         outcome 5 work m visa needed short courses
-  #       elsif country= venezuela || oman || qatar || UAE 
-  #         outcome 12 visit outcome_visit_waiver
-  #       elsif country= non visa || UKOT 
-  #         outcome 5.5 work N no visa needed
-  #       end
-  #     end
-  #   end
-  # end                    
+  next_node do |response|
+    case response
+    when 'longer_than_six_months'
+      if purpose_of_visit_answer == 'study'
+        :outcome_study_y #outcome 2 study y 
+      elsif purpose_of_visit_answer == 'work'
+        :outcome_work_y #outcome 4 work y 
+      end
+    when 'six_months_or_less'
+      if purpose_of_visit_answer == 'study'
+        ##if country= visa || datv 
+        if country_group_datv.include?(passport_country) || country_group_visa_national.include?(passport_country)
+          :outcome_study_m #outcome 3 study m visa needed short courses
+        ##elsif country= venezuela || oman || qatar || UAE 
+        elsif %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
+          :outcome_visit_waiver #outcome 12 visit outcome_visit_waiver
+        # elsif country= non visa || UKOT 
+        elsif country_group_ukot.include?(passport_country) || country_group_non_visa_national.include?(passport_country)
+          :outcome_no_visa_needed #outcome 1 no visa needed
+        end
+      elsif purpose_of_visit_answer == 'work' 
+        # if country= visa || datv
+        if country_group_datv.include?(passport_country) || country_group_visa_national.include?(passport_country)
+          :outcome_work_m #outcome 5 work m visa needed short courses
+        # elsif country= venezuela || oman || qatar || UAE 
+        elsif %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
+          :outcome_visit_waiver #outcome 12 visit outcome_visit_waiver
+        # elsif country= non visa || UKOT 
+        elsif country_group_ukot.include?(passport_country) || country_group_non_visa_national.include?(passport_country)
+          :outcome_work_n #outcome 5.5 work N no visa needed
+        end
+      end
+    end
+  end                    
 end
 
+outcome :outcome_work_n
 
 outcome :outcome_no_visa_needed do
   precalculate :if_croatia do
@@ -217,4 +228,7 @@ outcome :outcome_visit_waiver do
     end
   end
 end
+
+
+  
 
