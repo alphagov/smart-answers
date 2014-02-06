@@ -455,6 +455,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
         end
         should "takes you to outcome_no_visa_needed" do
           assert_current_node :outcome_no_visa_needed
+          assert_phrase_list :if_study, [:study_additional_sentence]
         end
       end
     end #end Brazil study reason

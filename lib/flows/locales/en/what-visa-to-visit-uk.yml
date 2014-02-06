@@ -2,8 +2,12 @@ en-GB:
   flow:
     what-visa-to-visit-uk:
       phrases:
+      
         study_reason: study
         work_reason: work
+        
+        if_study: |
+          However, you should bring documents with you to show at the border. See the relevant [student visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/studying/) guide to see what documents to bring.
         
         croatia_work_permit: |
           However, you may need a [work permit](http://www.ukba.homeoffice.gov.uk/eucitizens/croatia/) if you want to stay and work.
@@ -63,6 +67,8 @@ en-GB:
         title: You won’t need a visa to come to the UK
         body: |
           %{if_croatia}
+          %{if_study}
+
 
       outcome_study_y:
         title: You’ll need a visa to study in the UK
@@ -75,18 +81,15 @@ en-GB:
 
           Apply for a [child study visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/studying/child-students/) if you’re under 18.
 
-          ##Studying a short course
-
-          Apply for a [study visit](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/student/) visa if you’re studying for less than 6 months (or 11 months if you’re studying an English language course) and you won’t work during your stay.
-
-          Apply for a [child visit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/child/) if you’re under 18.
+          ^If you’re studying an English language course for less than 11 months, you can apply for a [study visit](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/student/) visa.^
 
       outcome_study_m:
-        title: You may need a visa to study in the UK - it depends on the type of course
-        body: |
-          Apply for a [study visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/studying/adult-students/) if you’re coming to the UK to study a degree or college course for longer than 6 months (or 11 months if it’s an English language course).
+        title: You’ll need a visa to study in the UK
 
-          ^You **won’t need a visa** if you're studying for less than 6 months (or 11 months if you’re studying an English language course) and won’t work during your stay.^
+        body: |
+          Apply for a [study visit](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/student/) visa if you’re studying for less than 6 months and you won’t work during your stay.
+
+          You should apply as a [child visitor](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/child/) if you’re under 18.
 
       outcome_work_y:
         title: You’ll need a visa to come to the UK to work or do business

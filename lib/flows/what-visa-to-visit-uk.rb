@@ -144,6 +144,12 @@ multiple_choice :staying_for_how_long? do
   option :six_months_or_less
   option :longer_than_six_months
   
+  calculate :if_study do
+    if purpose_of_visit_answer == 'study'
+      PhraseList.new(:study_additional_sentence)
+    end
+  end
+  
   next_node do |response|
     case response
     when 'longer_than_six_months'
@@ -187,6 +193,11 @@ outcome :outcome_no_visa_needed do
   precalculate :if_croatia do
     if passport_country == 'croatia'
       PhraseList.new(:croatia_work_permit)
+    end
+  end
+  precalculate :if_study do
+    if purpose_of_visit_answer == 'study'
+      PhraseList.new(:study_additional_sentence)
     end
   end
 end
