@@ -149,6 +149,11 @@ multiple_choice :staying_for_how_long? do
       PhraseList.new(:study_additional_sentence)
     end
   end
+  calculate :if_youth_mobility_scheme_country do
+    if %w(australia canada japan monaco new-zealand hong-kong south-korea taiwan).include?(passport_country)
+      PhraseList.new(:youth_mobility_scheme)
+    end
+  end
   
   next_node do |response|
     case response
@@ -203,7 +208,8 @@ outcome :outcome_no_visa_needed do
 end
 outcome :outcome_study_y
 outcome :outcome_study_m
-outcome :outcome_work_y 
+outcome :outcome_work_y
+
 outcome :outcome_work_m do
   precalculate :if_turkey do
     if passport_country == 'turkey'

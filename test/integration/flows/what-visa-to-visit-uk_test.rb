@@ -9,7 +9,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(armenia brazil venezuela     andorra china croatia anguilla south-africa turkey venezuela yemen oman united-arab-emirates qatar)
+    @location_slugs = %w(armenia canada venezuela     andorra china croatia anguilla south-africa turkey venezuela yemen oman united-arab-emirates qatar)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'what-visa-to-visit-uk'
   end
@@ -423,10 +423,10 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
     end
   end
   
-  #testing brazil - all groupings AND NON visa national outcome - study AND work - less AND more than 6 months
-  context "testing brazil" do
+  #testing canada - all groupings AND NON visa national outcome - study AND work - less AND more than 6 months
+  context "testing canada" do
     setup do
-      add_response "brazil"
+      add_response "canada"
     end
     should "ask reason of staying" do
       assert_current_node :purpose_of_visit?
@@ -440,7 +440,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
         assert_current_node :staying_for_how_long?
       end
     
-      context "testing Brazil/all groupings but EEA outcome - study - longer than six months" do
+      context "testing canada/all groupings but EEA outcome - study - longer than six months" do
         setup do
           add_response "longer_than_six_months"
         end
@@ -449,7 +449,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
         end
       end
       
-      context "testing Brazil/non visa national outcome- study - less or six months" do
+      context "testing canada/non visa national outcome- study - less or six months" do
         setup do
           add_response "six_months_or_less"
         end
@@ -458,7 +458,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
           assert_phrase_list :if_study, [:study_additional_sentence]
         end
       end
-    end #end Brazil study reason
+    end #end canada study reason
       
     context "testing work reason" do
       setup do
@@ -468,16 +468,17 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
         assert_current_node :staying_for_how_long?
       end
     
-      context "testing Brazil/all groupings but EEA outcome - work - longer than six months" do
+      context "testing canada/all groupings but EEA outcome - work - longer than six months" do
         setup do
           add_response "longer_than_six_months"
         end
         should "take you to outcome 2 study y" do
           assert_current_node :outcome_work_y
+          assert_phrase_list :if_youth_mobility_scheme_country, [:youth_mobility_scheme]
         end
       end
       
-      context "testing Brazil/non visa national outcome - work - less or six months" do
+      context "testing canada/non visa national outcome - work - less or six months" do
         setup do
           add_response "six_months_or_less"
         end
@@ -485,8 +486,8 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
           assert_current_node :outcome_work_n
         end
       end
-    end #end Brazil work reason
-  end #end Brazil - NON visa country
+    end #end canada work reason
+  end #end canada - NON visa country
   
   
   #testing armenia - visa national outcome - study AND work

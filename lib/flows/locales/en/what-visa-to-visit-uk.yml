@@ -8,6 +8,9 @@ en-GB:
         
         if_study: |
           However, you should bring documents with you to show at the border. See the relevant [student visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/studying/) guide to see what documents to bring.
+          
+        if_youth_mobility_scheme_country: |
+          You can apply for the [‘youth mobility scheme’ visa] if you want to live and work in the UK for up to 2 years.
         
         croatia_work_permit: |
           However, you may need a [work permit](http://www.ukba.homeoffice.gov.uk/eucitizens/croatia/) if you want to stay and work.
@@ -17,7 +20,7 @@ en-GB:
 
           You can apply for an [‘ADS visa’](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/ads/) if you’re planning to travel to the UK as part of a tour group for less than 30 days.
         turkey_business_person_visa: |
-          ###Turkish nationals 
+          ##Turkish nationals 
 
           You can apply for a [Turkish business person visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/turkish/) if you want to come and set up a business in the UK. 
         
@@ -94,51 +97,56 @@ en-GB:
       outcome_work_y:
         title: You’ll need a visa to come to the UK to work or do business
         body: |
-          The category you apply under depends on your circumstances.
+          The visa you apply for depends on your circumstances.
+
 
           ##Categories
 
           %{if_turkey}
+          
+          ##Skilled workers
 
-          ###Skilled workers
+          A ‘skilled worker’ visa may be suitable if you’ve been offered a:
 
-          The [skilled workers visa category](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/tier2/) may be suitable if you’re a skilled worker and you’ve been offered a job in the UK.
+          - [skilled job ](/tier-2-general) in the UK
+          - [role in your overseas employer’s UK branch](/tier-2-intracompany-transfer-worker-visa)
+          - [job in a religious community](/tier-2-minister-of-religion-visa)
+          - job as an [elite sportsperson or coach](/tier-2-sportsperson-worker-visa)
 
           ###Temporary workers
+          
+          %{youth_mobility_scheme}
 
-          The [temporary workers visa category](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/tier5/) may be suitable if you want come to the UK temporarily to work:
+          A ‘temporary worker’ visa may be suitable if you want work in the UK for a short time:
 
-          - in sports
-          - in a creative job
-          - as a volunteer
-          - in a work experience role
-          - for a charity or religious organisation
+          - in [sports](/tier-5-temporary-worker-creative-and-sporting-visa)
+          - in [arts or entertainment(/tier-5-temporary-worker-creative-and-sporting-visa)
+          - as a [volunteer](/tier-5-temporary-worker-charity-worker-visa)
+          - in a [work experience role](/tier-5-government-authorised-exchange)
+          - for a [charity](/tier-5-temporary-worker-charity-worker-visa)
+          - for a [religious organisation](/tier-5-religious)
+
+          You can also apply for an [international agreement](/tier-5-international-agreement) visa if you’ll be doing work covered by international law while in the UK (eg working for a foreign government or as a private servant in a diplomatic household).
 
           ###'High value' workers
 
-          The [high value workers visa category](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/tier1/) may be suitable if you’re an investor, entrepreneur or a leader in arts or sciences.
+          A ‘high value worker’ visa may be suitable if you’re:
+
+          - an [investor](/tier-1-investor)
+          - an [entrepreneur](/tier-1-entrepreneur)
+          - a [graduate entrepreneur](/tier-1-graduate-entrepreneur-visa)
+          - a [leader in arts or sciences](/tier-1-exceptional-talent)
 
           ###Commonwealth citizens
 
-          You may be eligible for a [UK ancestry visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/uk-ancestry/) if one of your grandparents was born in the UK.
+          You may be eligible for a [UK ancestry visa](/ancestry-visa) if one of your grandparents was born in the UK. 
 
-          ###Business visits
-
-          You can also get a visa to visit the UK for business for up to 6 months. These categories are:
-
-          - [business visitor](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/business/)
-          - [sports visitor](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/sports/)
-          - [entertainer](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/entertainer/)
-          - [prospective entrepreneur](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/entrepreneur/) (visiting for up to 6 months)
-          - visitor undertaking a [‘permitted paid engagement’](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/paid-engage/) (if you’ve been invited to the UK because of your expertise)
-
-          ##Other categories
+          ##Other workers
 
           You can also apply as a:
 
-          - [domestic worker in a private household](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/othercategories/domesticworkers/)
-          - [representative of an overseas business](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/othercategories/overseas-business-reps/)
-          - [contract seaman](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/othercategories/contract-seaman-employed/)
+          - [domestic worker in a private household](/domestic-workers-in-a-private-household-visa)
+          - [representative of an overseas business](/representative-overseas-business)
 
       outcome_work_m:
         title: |
