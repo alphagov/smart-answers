@@ -124,9 +124,10 @@ multiple_choice :planning_to_leave_airport? do
   next_node do |response|
     case response
     when 'yes'
-      if country_group_datv.include?(passport_country) or
-         country_group_visa_national.include?(passport_country)
+      if country_group_visa_national.include?(passport_country)
         :outcome_transit_leaving_airport
+      elsif country_group_datv.include?(passport_country) 
+         :outcome_transit_leaving_airport_datv
       end
     when 'no'
       if country_group_datv.include?(passport_country)
@@ -191,14 +192,14 @@ outcome :outcome_no_visa_needed do
 end
 outcome :outcome_study_y
 outcome :outcome_study_m
-outcome :outcome_work_y do
+outcome :outcome_work_y 
+outcome :outcome_work_m do
   precalculate :if_turkey do
     if passport_country == 'turkey'
       PhraseList.new(:turkey_business_person_visa)
     end
   end
 end
-outcome :outcome_work_m
 outcome :outcome_work_n
 outcome :outcome_transit_leaving_airport
 outcome :outcome_transit_not_leaving_airport
@@ -230,7 +231,7 @@ outcome :outcome_visit_waiver do
     end
   end
 end
-
+outcome :outcome_transit_leaving_airport_datv
 
   
 

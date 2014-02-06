@@ -226,6 +226,25 @@ en-GB:
           - EEA family permit issued by the UK government
 
             ^You’ll be exempt if you have an expired USA green card issued on or after 21 April 1998, but you must also have an I-797 extension letter issued by the Bureau of Citizenship.^
+            
+      outcome_transit_leaving_airport_datv:
+        title: You’ll need a visa to pass through the UK in transit 
+        body: |
+          You should apply for a [Visitor in Transit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/transitthroughtheuk/visa-to-transit-landside/) if you arrive on a flight and will pass through immigration control before you leave the UK.
+          
+          ##Transiting without a visa
+          You might be eligible for the ‘transit without visa concession’ if:
+          - you arrive and depart by air
+          - have a confirmed onward flight which leaves within 24 hours
+          - have the right documents for your destination (eg a visa for that country)
+          One of the following must also apply:
+          - you’re travelling to Australia, Canada, New Zealand or the USA and have a valid visa for that country
+          - you’re travelling from Australia, Canada, New Zealand or the USA and it’s less than 6 months since you last entered that country with a valid entry visa
+          - you have a valid US permanent residence card issued on or after 21 April 1998 (or an I-797 extension letter issued by the Bureau of Citizenship if it’s expired)
+          - you have a valid Canadian permanent resident card issued on or after 28 June 2002
+          - you have a valid uniform format category D visa for entry to a state in the European Economic Area (EEA)
+          - you have a valid uniform format residence permit issued by an EEA state 
+          %The ‘transit without visa concession’ is decided by the immigration officer at the border - you won’t be allowed to transit if they decide you need a visa.%
 
       outcome_transit_not_leaving_airport:
         title: You’ll need a visa to pass through the UK in transit (unless you’re exempt)

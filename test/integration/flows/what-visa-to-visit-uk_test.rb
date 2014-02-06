@@ -240,175 +240,178 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
   end
 
 #####TO BE CHANGED
-  # context "choose a DATV country" do
-  #   setup do
-  #     add_response 'south-africa'
-  #   end
-  #   should "ask what are you coming to the UK to do" do
-  #     assert_current_node :purpose_of_visit?
-  #   end
-  #   context "coming to the UK to study" do
-  #     setup do
-  #       add_response 'study'
-  #     end
-  #     should "take you to the outcome Study Y" do
-  #       assert_current_node :outcome_study_y
-  #     end
-  #   end
-  #   context "coming to the UK to work" do
-  #     setup do
-  #       add_response 'work'
-  #     end
-  #     should "take you to outcome Work Y" do
-  #       assert_current_node :outcome_work_y
-  #     end
-  #   end
-  #   context "tourism, visiting friends or family" do
-  #     setup do
-  #       add_response 'tourism'
-  #     end
-  #     should "take you to the 'general y' outcome" do
-  #       assert_current_node :outcome_general_y
-  #     end
-  #     context "Chinese passport" do
-  #       setup do
-  #         setup_for_testing_flow 'what-visa-to-visit-uk'
-  #         add_response "china"
-  #         add_response "tourism"
-  #       end
-  #       should "take insert an additional phrase" do
-  #         assert_current_node :outcome_general_y
-  #         assert_phrase_list :if_china, [:china_tour_group]
-  #       end
-  #     end
-  #     context "Venezuelan passport" do
-  #       setup do
-  #         setup_for_testing_flow 'what-visa-to-visit-uk'
-  #         add_response "venezuela"
-  #         add_response "tourism"
-  #       end
-  #       should "take you to the 'outcome_venezuela_transit' outcome" do
-  #         assert_current_node :outcome_visit_waiver
-  #       end
-  #     end
-  #   end
-  #   context "visiting child at school" do
-  #     setup do
-  #       add_response 'school'
-  #     end
-  #     should "take you to the 'school Y' outcome" do
-  #       assert_current_node :outcome_school_y
-  #     end
-  #     context "Venezuelan passport" do
-  #       setup do
-  #         setup_for_testing_flow 'what-visa-to-visit-uk'
-  #         add_response "venezuela"
-  #         add_response "school"
-  #       end
-  #       should "take you to the 'outcome_venezuela_transit' outcome" do
-  #         assert_current_node :outcome_visit_waiver
-  #       end
-  #     end
-  #     context "Oman passport" do
-  #       setup do
-  #         setup_for_testing_flow 'what-visa-to-visit-uk'
-  #         add_response "oman"
-  #         add_response "school"
-  #       end
-  #       should "take you to the 'outcome_venezuela_transit' outcome" do
-  #         assert_current_node :outcome_visit_waiver
-  #       end
-  #     end
-  #   end
-  #   context "getting married" do
-  #     setup do
-  #       add_response 'marriage'
-  #     end
-  #     should "take you to the marriage outcome" do
-  #       assert_current_node :outcome_marriage
-  #     end
-  #   end
-  #   context "get private medical treatment" do
-  #     setup do
-  #       add_response 'medical'
-  #     end
-  #     should "take you to the 'medical_y' outcome" do
-  #       assert_current_node :outcome_medical_y
-  #     end
-  #     context "Venezuelan passport" do
-  #       setup do
-  #         setup_for_testing_flow 'what-visa-to-visit-uk'
-  #         add_response "venezuela"
-  #         add_response "medical"
-  #       end
-  #       should "take you to the 'outcome_venezuela_transit' outcome" do
-  #         assert_current_node :outcome_visit_waiver
-  #       end
-  #     end
-  #   end
-  #   context "coming to the on the way somewhere else" do
-  #     setup do
-  #       add_response 'transit'
-  #     end
-  #     should "take ask you if you're planning to leave the airport?" do
-  #       assert_current_node :planning_to_leave_airport?
-  #     end
-  #     context "planning to leave airport" do
-  #       setup do
-  #         add_response 'yes'
-  #       end
-  #       should "take you to the 'transit_leaving_airport' outcome" do
-  #         assert_current_node :outcome_transit_leaving_airport
-  #       end
-  #     end
-  #     context "not planning to leave airport" do
-  #       setup do
-  #         add_response 'no'
-  #       end
-  #       should "take you to the 'transit_not_leaving_airport' outcome" do
-  #         assert_current_node :outcome_transit_not_leaving_airport
-  #       end
-  #     end
-  #     context "Venezuelan passport" do
-  #       setup do
-  #         setup_for_testing_flow 'what-visa-to-visit-uk'
-  #         add_response "venezuela"
-  #         add_response "transit"
-  #       end
-  #       should "take you to the 'outcome_venezuela_transit' outcome" do
-  #         assert_current_node :outcome_visit_waiver
-  #       end
-  #     end
-  #   end
-  #   context "coming to join family" do
-  #     setup do
-  #       add_response 'family'
-  #     end
-  #     should "take you to outcome Family Y" do
-  #       assert_current_node :outcome_joining_family_y
-  #     end
-  #   end
-  # end
-  # context "testing turkey phrase list" do
-  #   setup do
-  #     add_response "turkey"
-  #     add_response "work"
-  #   end
-  #   should "takes you to outcome_work_y" do
-  #     assert_current_node :outcome_work_y
-  #     assert_phrase_list :if_turkey, [:turkey_business_person_visa]
-  #   end
-  # end
-  #   context "testing outcome visit waiver" do
-  #     setup do
-  #       add_response 'oman'
-  #       add_response 'medical'
-  #     end
-  #     should "take you to outcome visit waiver" do
-  #       assert_current_node :outcome_visit_waiver
-  #       assert_phrase_list :if_oman_qatar_uae, [:electronic_visa_waiver]
-  #   end
-  # end
+  context "choose a DATV country" do
+    setup do
+      add_response 'south-africa'
+    end
+    should "ask what are you coming to the UK to do" do
+      assert_current_node :purpose_of_visit?
+    end
+    context "coming to the UK to study" do
+      setup do
+        add_response 'study'
+        add_response 'six_months_or_less'
+      end
+      should "take you to the outcome Study M" do
+        assert_current_node :outcome_study_m
+      end
+    end
+    context "coming to the UK to work" do
+      setup do
+        add_response 'work'
+        add_response 'six_months_or_less'
+      end
+      should "take you to outcome Work m" do
+        assert_current_node :outcome_work_m
+      end
+    end
+    context "tourism, visiting friends or family" do
+      setup do
+        add_response 'tourism'
+      end
+      should "take you to the 'general y' outcome" do
+        assert_current_node :outcome_general_y
+      end
+      context "Chinese passport" do
+        setup do
+          setup_for_testing_flow 'what-visa-to-visit-uk'
+          add_response "china"
+          add_response "tourism"
+        end
+        should "take insert an additional phrase" do
+          assert_current_node :outcome_general_y
+          assert_phrase_list :if_china, [:china_tour_group]
+        end
+      end
+      context "Venezuelan passport" do
+        setup do
+          setup_for_testing_flow 'what-visa-to-visit-uk'
+          add_response "venezuela"
+          add_response "tourism"
+        end
+        should "take you to the 'outcome_venezuela_transit' outcome" do
+          assert_current_node :outcome_visit_waiver
+        end
+      end
+    end
+    context "visiting child at school" do
+      setup do
+        add_response 'school'
+      end
+      should "take you to the 'school Y' outcome" do
+        assert_current_node :outcome_school_y
+      end
+      context "Venezuelan passport" do
+        setup do
+          setup_for_testing_flow 'what-visa-to-visit-uk'
+          add_response "venezuela"
+          add_response "school"
+        end
+        should "take you to the 'outcome_venezuela_transit' outcome" do
+          assert_current_node :outcome_visit_waiver
+        end
+      end
+      context "Oman passport" do
+        setup do
+          setup_for_testing_flow 'what-visa-to-visit-uk'
+          add_response "oman"
+          add_response "school"
+        end
+        should "take you to the 'outcome_venezuela_transit' outcome" do
+          assert_current_node :outcome_visit_waiver
+        end
+      end
+    end
+    context "getting married" do
+      setup do
+        add_response 'marriage'
+      end
+      should "take you to the marriage outcome" do
+        assert_current_node :outcome_marriage
+      end
+    end
+    context "get private medical treatment" do
+      setup do
+        add_response 'medical'
+      end
+      should "take you to the 'medical_y' outcome" do
+        assert_current_node :outcome_medical_y
+      end
+      context "Venezuelan passport" do
+        setup do
+          setup_for_testing_flow 'what-visa-to-visit-uk'
+          add_response "venezuela"
+          add_response "medical"
+        end
+        should "take you to the 'outcome_venezuela_transit' outcome" do
+          assert_current_node :outcome_visit_waiver
+        end
+      end
+    end
+    context "coming to the on the way somewhere else" do
+      setup do
+        add_response 'transit'
+      end
+      should "take ask you if you're planning to leave the airport?" do
+        assert_current_node :planning_to_leave_airport?
+      end
+      context "planning to leave airport" do
+        setup do
+          add_response 'yes'
+        end
+        should "take you to the 'transit_leaving_airport' outcome" do
+          assert_current_node :outcome_transit_leaving_airport_datv
+        end
+      end
+      context "not planning to leave airport" do
+        setup do
+          add_response 'no'
+        end
+        should "take you to the 'transit_not_leaving_airport' outcome" do
+          assert_current_node :outcome_transit_not_leaving_airport
+        end
+      end
+      context "Venezuelan passport" do
+        setup do
+          setup_for_testing_flow 'what-visa-to-visit-uk'
+          add_response "venezuela"
+          add_response "transit"
+        end
+        should "take you to the 'outcome_venezuela_transit' outcome" do
+          assert_current_node :outcome_visit_waiver
+        end
+      end
+    end
+    context "coming to join family" do
+      setup do
+        add_response 'family'
+      end
+      should "take you to outcome Family Y" do
+        assert_current_node :outcome_joining_family_y
+      end
+    end
+  end
+  context "testing turkey phrase list" do
+    setup do
+      add_response "turkey"
+      add_response "work"
+      add_response 'six_months_or_less'
+    end
+    should "takes you to outcome_work_m" do
+      assert_current_node :outcome_work_m
+      assert_phrase_list :if_turkey, [:turkey_business_person_visa]
+    end
+  end
+    context "testing outcome visit waiver" do
+      setup do
+        add_response 'oman'
+        add_response 'medical'
+      end
+      should "take you to outcome visit waiver" do
+        assert_current_node :outcome_visit_waiver
+        assert_phrase_list :if_oman_qatar_uae, [:electronic_visa_waiver]
+    end
+  end
   
   context "testing croatia phrase list" do
     setup do
