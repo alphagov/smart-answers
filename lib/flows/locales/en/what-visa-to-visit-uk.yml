@@ -184,6 +184,24 @@ en-GB:
           - [entertainer](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/entertainer/)
           - [prospective entrepreneur](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/entrepreneur/) (visiting for up to 6 months)
           - visitor undertaking a [‘permitted paid engagement’](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/paid-engage/) (if you’ve been invited to the UK because of your expertise)
+          
+      outcome_work_n:
+        title: |
+          You won’t need a visa to work or do business in the UK for up to 6 months
+        body: |
+          However, you should bring supporting documents to show at the border. 
+
+          Check what you should bring if you’re:
+
+          - a [business visitor](/business-visitor-visa)
+          - a [sports visitor](/sports-visit-visa)
+          - an [entertainer](/entertainer-visitor-visa)
+          - a [prospective entrepreneur](/prospective-entrepreneur)
+          - doing a [‘permitted paid engagement’](/permitted-paid-engagement-visa) 
+
+          You can also come to the UK for up to 3 months without a visa under the [Tier 5 (Temporary worker - Creative and Sporting)](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/tier5/creativeandsporting/) category. 
+
+          %You may want to [apply for a visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/) if you have a criminal record or you’ve previously been refused entry into the UK.%
 
       outcome_transit_leaving_airport:
         title: You’ll need a visa to pass through the UK in transit (unless you’re exempt)
