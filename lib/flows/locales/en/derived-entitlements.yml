@@ -1,0 +1,52 @@
+en-GB:
+  flow:
+    what-visa-to-visit-uk:
+      phrases:
+        phrase_test: |
+          test
+
+
+
+#start of smart answer
+      title: Your partner’s National Insurance record and your State Pension
+      meta:
+        description: You may be able to increase your State Pension based on the National Insurance record of your spouse or civil partner 
+
+      body: |
+        You might be able to increase the amount you get for your [basic State Pension](/state-pension) or [new State Pension](/new-state-pension) depending on:
+
+        - when you reach [State Pension age](/calculate-state-pension)
+        - your spouse or civil partner’s [National Insurance record](/national-insurance)
+
+        ^You’ll need to know when both you and your partner reach State Pension age to use this tool.^
+
+#start of questions
+
+#Q1
+      what_is_your_marital_status?:
+        title:  What is your marital status?
+        options:
+          married: "married or in a civil partnership"
+          will_marry_before_specific_date: "I’ll be married before 5 April 2016"
+          will_marry_on_or_after_specific_date: " I’ll be married after 6 April 2016"
+          widowed: "widowed"
+#Q2
+      when_will_you_reach_pension_age?:
+        title:  When will you reach state pension age?
+        options:
+          your_pension_age_before_specific_date: "on or before 5 April 2016"
+          your_pension_age_after_specific_date: "on or after 6 April 2016"
+
+#Q3
+      when_will_your_partner_reach_pension_age?:
+        title:  When will your civil partner or spouse reach state pension age?
+        options:
+          your_pension_age_before_specific_date: "on or before 5 April 2016"
+          your_pension_age_after_specific_date: "on or after 6 April 2016"
+
+#start of outcomes
+      outcome_1:
+        title: test test test
+        body: |
+         
+          test test test
