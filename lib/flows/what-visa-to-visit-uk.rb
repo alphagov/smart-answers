@@ -39,21 +39,22 @@ multiple_choice :purpose_of_visit? do
   option :marriage
   option :school
   option :medical
+  save_input_as :purpose_of_visit_answer
 
+  calculate :reason_of_staying do
+    if responses.last == 'study'
+      PhraseList.new(:study_reason)
+    elsif responses.last == 'work'
+      PhraseList.new(:work_reason)
+    end
+  end
+  
   next_node do |response|
     case response
     when 'study'
-      if country_group_visa_national.include?(passport_country) or country_group_datv.include?(passport_country)
-        :outcome_study_y
-      else
-        :outcome_study_m
-      end
+      :staying_for_how_long?
     when 'work'
-      if country_group_visa_national.include?(passport_country) or country_group_datv.include?(passport_country)
-        :outcome_work_y
-      else
-        :outcome_work_m
-      end
+      :staying_for_how_long?
     when 'tourism'
       if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
         :outcome_visit_waiver
@@ -110,9 +111,10 @@ multiple_choice :planning_to_leave_airport? do
   next_node do |response|
     case response
     when 'yes'
-      if country_group_datv.include?(passport_country) or
-         country_group_visa_national.include?(passport_country)
+      if country_group_visa_national.include?(passport_country)
         :outcome_transit_leaving_airport
+      elsif country_group_datv.include?(passport_country) 
+         :outcome_transit_leaving_airport_datv
       end
     when 'no'
       if country_group_datv.include?(passport_country)
@@ -124,17 +126,73 @@ multiple_choice :planning_to_leave_airport? do
   end
 end
 
-outcome :outcome_no_visa_needed
+#Q4
+multiple_choice :staying_for_how_long? do
+  option :six_months_or_less
+  option :longer_than_six_months
+
+  next_node do |response|
+    case response
+    when 'longer_than_six_months'
+      if purpose_of_visit_answer == 'study'
+        :outcome_study_y #outcome 2 study y 
+      elsif purpose_of_visit_answer == 'work'
+        :outcome_work_y #outcome 4 work y 
+      end
+    when 'six_months_or_less'
+      if purpose_of_visit_answer == 'study'
+        ##if country= venezuela || oman || qatar || UAE 
+        if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
+          :outcome_visit_waiver #outcome 12 visit outcome_visit_waiver
+        ##elsif country= visa || datv 
+        elsif country_group_datv.include?(passport_country) || country_group_visa_national.include?(passport_country) 
+          :outcome_study_m #outcome 3 study m visa needed short courses 
+        # elsif country= non visa || UKOT 
+        elsif country_group_ukot.include?(passport_country) || country_group_non_visa_national.include?(passport_country)
+          :outcome_no_visa_needed #outcome 1 no visa needed
+        end
+        
+      elsif purpose_of_visit_answer == 'work' 
+        # elsif country= venezuela || oman || qatar || UAE 
+        if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
+          :outcome_visit_waiver #outcome 12 visit outcome_visit_waiver
+        # if country= visa || datv
+        elsif country_group_datv.include?(passport_country) || country_group_visa_national.include?(passport_country)
+          :outcome_work_m #outcome 5 work m visa needed short courses
+        # elsif country= non visa || UKOT 
+        elsif country_group_ukot.include?(passport_country) || country_group_non_visa_national.include?(passport_country)
+          :outcome_work_n #outcome 5.5 work N no visa needed
+        end
+      end
+    end
+  end                    
+end
+
+outcome :outcome_no_visa_needed do
+  precalculate :no_visa_additional_sentence do
+    if %w(croatia).include?(passport_country)
+      PhraseList.new(:croatia_additional_sentence)
+    elsif purpose_of_visit_answer == 'study'
+      PhraseList.new(:study_additional_sentence)
+    end
+  end
+end
 outcome :outcome_study_y
-outcome :outcome_study_m
+outcome :outcome_study_m 
 outcome :outcome_work_y do
+  precalculate :if_youth_mobility_scheme_country do
+    if %w(australia canada japan monaco new-zealand hong-kong south-korea taiwan).include?(passport_country)
+      PhraseList.new(:youth_mobility_scheme)
+    end
+  end
   precalculate :if_turkey do
-    if passport_country == 'turkey'
+    if %w(turkey).include?(passport_country)
       PhraseList.new(:turkey_business_person_visa)
     end
   end
 end
-outcome :outcome_work_m
+outcome :outcome_work_m 
+outcome :outcome_work_n
 outcome :outcome_transit_leaving_airport
 outcome :outcome_transit_not_leaving_airport
 outcome :outcome_joining_family_y
@@ -142,7 +200,7 @@ outcome :outcome_joining_family_m
 outcome :outcome_visit_business_n
 outcome :outcome_general_y do
   precalculate :if_china do
-    if passport_country == 'china'
+    if %w(china).include?(passport_country)
       PhraseList.new(:china_tour_group)
     end
   end
@@ -155,9 +213,9 @@ outcome :outcome_medical_y
 outcome :outcome_medical_n
 outcome :outcome_visit_waiver do
   precalculate :if_venezuela do
-    if passport_country == 'venezuela'
+    if %w(venezuela).include?(passport_country)
       PhraseList.new(:extra_documents)
-    end
+    end 
   end
   precalculate :if_oman_qatar_uae do
     if %w(oman qatar united-arab-emirates).include?(passport_country)
@@ -165,4 +223,4 @@ outcome :outcome_visit_waiver do
     end
   end
 end
-
+outcome :outcome_transit_leaving_airport_datv
