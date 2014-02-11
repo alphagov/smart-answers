@@ -2,7 +2,6 @@ status :draft
 #??????
 satisfies_need "" #??????
 
-total_input = [] #used for calculating the right outcome
 
 # Q1
 multiple_choice :what_is_your_marital_status? do
@@ -11,72 +10,111 @@ multiple_choice :what_is_your_marital_status? do
   option :will_marry_on_or_after_specific_date 
   option :widowed
 
-  save_input_as :marital_status
-  
-  if :marital_status == "married" or :marital_status == "will_marry_before_specific_date"
-    total_input << :old1
-  elsif :marital_status == "will_marry_on_or_after_specific_date"
-    total_input << :new1
-  elsif :marital_status == "widow"
-    total_input << :old1 << :widow
-  end
-  
+  calculate :answers do
+    answers = []
+    if responses.last == "married" or responses.last == "will_marry_before_specific_date"
+      answers << :old1
+    elsif responses.last == "will_marry_on_or_after_specific_date"
+      answers << :new1
+    elsif responses.last == "widowed"
+      answers << :widow
+    end
+    answers
+  end  
   next_node :when_will_you_reach_pension_age?
 end
+
 
 # Q2
 multiple_choice :when_will_you_reach_pension_age? do
   option :your_pension_age_before_specific_date
   option :your_pension_age_after_specific_date
   
-  save_input_as :your_pension_age
-  
-  if :your_pension_age == "your_pension_age_before_specific_date"
-    total_input << :old2
-  elsif :your_pension_age == "your_pension_age_after_specific_date"
-    total_input << :new2
+  calculate :answers do
+    if responses.last == "your_pension_age_before_specific_date"
+      answers << :old2
+    elsif responses.last == "your_pension_age_after_specific_date"
+      answers << :new2
+    end
+    answers
   end
 
   next_node :when_will_your_partner_reach_pension_age?
 end
 
+
+#Q3
 multiple_choice :when_will_your_partner_reach_pension_age? do
   option :partner_pension_age_before_specific_date
   option :partner_pension_age_after_specific_date
-  
-  save_input_as :partner_pension_age
-  
-  if :partner_pension_age == "partner_pension_age_before_specific_date"
-    total_input << :old3
-  elsif :partner_pension_age == "partner_pension_age_after_specific_date"
-    total_input << :new3
+    
+  calculate :answers do
+    if responses.last == "partner_pension_age_before_specific_date"
+      answers << :old3
+    elsif responses.last == "partner_pension_age_after_specific_date"
+      answers << :new3
+    end
+    answers
   end
-
-  outcome_1_array = [:old1, :old2, :old3]
-  # outcome_2_array = [:old1, :old2, :old3, :widow]
-  # outcome_3_array = [:old1, :old2, :new3]
-  # outcome_4_array = [:old1, :old2, :new3, :widow]
   
-
-  # next_node do 
-  # if %w(old1).include?(total_input) && %w(old2).include?(total_input) && %w(old3).include?(total_input)
-  if total_input == outcome_1_array
-    next_node :outcome_1
-  #   elsif %w(old1).include?(total_input) && %w(old2).include?(total_input) && %w(old3).include?(total_input) && %w(widow).include?(total_input)
-  #     :outcome_2
-  #   elsif %w(old1).include?(total_input) && %w(old2).include?(total_input) && %w(new3).include?(total_input)
-  #     :outcome_3
-  #   elsif %w(old1).include?(total_input) && %w(old2).include?(total_input) && %w(new3).include?(total_input) && %w(widow).include?(total_input)
-  #     :outcome_4
-  else
-    puts total_input
-    next_node :outcome_2
-  #   end
-  end  
+  calculate :result do
+    phrases=PhraseList.new
+    
+    if answers == [:old1, :old2, :old3] || answers == [:new1, :new2, :old3] || answers == [:new1, :old2, :old3]
+      phrases << :phrase1
+    elsif answers == [:widow, :old2, :old3]
+      phrases << :phrase2
+    elsif answers == [:old1, :old2, :new3]
+      phrases << :phrase3
+    elsif answers == [:widow, :old2, :new3]
+      phrases << :phrase4
+    elsif answers == [:old1, :new2, :new3] || answers == [:new1, :new2, :new3] || answers == [:old1, :new2, :old3]
+      phrases << :phrase5
+    elsif answers == [:widow, :new2, :new3]
+    else 
+      puts 'ERROR'
+    end
+    phrases
+  end
+  
+  next_node do |response|
+    if response == 'partner_pension_age_after_specific_date' && answers == [:widow, :new2]
+      :what_is_your_gender?
+    else
+      :outcome_1
+    end
+  end
 end
 
 
+# Q4
+multiple_choice :what_is_your_gender? do
+  option :male_gender
+  option :female_gender
+  
+  calculate :answers do
+    if responses.last == "male_gender"
+      answers << :male
+    elsif responses.last == "female_gender"
+      answers << :female
+    end
+    answers
+  end
+  
+  calculate :result do
+    phrases=PhraseList.new
+    if answers == [:widow, :new2, :new3, :male]
+      phrases << :phrase7
+      puts phrases
+    elsif answers == [:widow, :new2, :old3, :woman] && answers == [:widow, :new2, :new3, :woman]
+      phrases << :phrase6
+    else 
+      puts 'ERROR'
+    end
+    phrases
+  end
+
+  next_node :outcome_1
+end
+
 outcome :outcome_1
-outcome :outcome_2
-outcome :outcome_3
-outcome :outcome_4
