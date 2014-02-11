@@ -105,7 +105,6 @@ multiple_choice :what_is_your_gender? do
     phrases=PhraseList.new
     if answers == [:widow, :new2, :new3, :male]
       phrases << :phrase7
-      puts phrases
     elsif answers == [:widow, :new2, :old3, :woman] && answers == [:widow, :new2, :new3, :woman]
       phrases << :phrase6
     else 
