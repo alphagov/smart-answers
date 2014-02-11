@@ -17,24 +17,63 @@ class DerivedEntitlementsTest < ActiveSupport::TestCase
     setup_for_testing_flow 'derived-entitlements'
   end
 
-  context "married" do
+  context "old1 - married" do
     setup { add_response "married" }
-    
     should "ask when will reach pension age" do
       assert_current_node :when_will_you_reach_pension_age?
     end
 
-    context "before specific date" do
+    context "old2 - before specific date" do
       setup { add_response "your_pension_age_before_specific_date" }
-      
       should "ask when partner will reach pension age" do
         assert_current_node :when_will_your_partner_reach_pension_age?
       end
 
-      context "before specific date" do
+      # WORKING 
+      context "old3 - before specific date" do
         setup { add_response "partner_pension_age_before_specific_date" }
         should "give outcome 1" do
           assert_current_node :outcome_1
+          # assert_phrase_list :result, [:phrase1]
+        end
+      end
+    end
+  end #end married before before
+  
+  context "widow" do
+    setup { add_response "widowed" }
+    should "ask when will reach pension age" do
+      assert_current_node :when_will_you_reach_pension_age?
+    end
+
+    context "new2 - after specific date" do
+      setup { add_response "your_pension_age_after_specific_date" }
+      should "ask when partner will reach pension age" do
+        assert_current_node :when_will_your_partner_reach_pension_age?
+      end
+
+      #WORKING 
+      # context "old3 - before specific date" do
+      #   setup { add_response "partner_pension_age_before_specific_date" }
+      #   should "give outcome 1" do
+      #     assert_current_node :outcome_1
+      #     # assert_phrase_list :result, [:phrase1]
+      #   end
+      # end
+      # WORKING 
+      context "new3 - after specific date" do
+        setup { add_response "partner_pension_age_after_specific_date" }
+        should "go to question gender" do
+          assert_current_node :what_is_your_gender?
+          # assert_phrase_list :result, [:phrase1]
+        end
+        
+        context "male" do
+          setup { add_response "male_gender"}
+          should "go to outcome 1 with phraselist 7" do
+            assert_current_node :outcome_1
+            assert_phrase_list :result, [:phrase7]
+          end
         end
       end
     end
