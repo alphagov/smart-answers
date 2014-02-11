@@ -72,13 +72,13 @@ multiple_choice :when_will_your_partner_reach_pension_age? do
       phrases << :phrase5
     elsif answers == [:widow, :new2, :new3]
     else 
-      puts 'ERROR'
+      puts 'ok'
     end
     phrases
   end
   
   next_node do |response|
-    if response == 'partner_pension_age_after_specific_date' && answers == [:widow, :new2]
+    if answers == [:widow, :new2]
       :what_is_your_gender?
     else
       :outcome_1
@@ -92,21 +92,12 @@ multiple_choice :what_is_your_gender? do
   option :male_gender
   option :female_gender
   
-  calculate :answers do
-    if responses.last == "male_gender"
-      answers << :male
-    elsif responses.last == "female_gender"
-      answers << :female
-    end
-    answers
-  end
-  
   calculate :result do
     phrases=PhraseList.new
-    if answers == [:widow, :new2, :new3, :male]
+    
+    if responses.last == "male_gender"
       phrases << :phrase7
-      puts phrases
-    elsif answers == [:widow, :new2, :old3, :woman] && answers == [:widow, :new2, :new3, :woman]
+    elsif responses.last == "female_gender"
       phrases << :phrase6
     else 
       puts 'ERROR'
