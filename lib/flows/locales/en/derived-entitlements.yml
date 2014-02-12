@@ -1,9 +1,9 @@
 en-GB:
   flow:
-    what-visa-to-visit-uk:
+    derived-entitlements:
       phrases:
         phrase_test: |
-          test
+          testone
 
 
 
@@ -41,8 +41,8 @@ en-GB:
       when_will_your_partner_reach_pension_age?:
         title:  When will your civil partner or spouse reach state pension age?
         options:
-          your_pension_age_before_specific_date: "on or before 5 April 2016"
-          your_pension_age_after_specific_date: "on or after 6 April 2016"
+          partner_pension_age_before_specific_date: "on or before 5 April 2016"
+          partner_pension_age_after_specific_date: "on or after 6 April 2016"
 
 #start of outcomes
       outcome_1:
