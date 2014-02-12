@@ -192,8 +192,8 @@ en-GB:
         title:  What is your marital status?
         options:
           married: "married or in a civil partnership"
-          will_marry_before_specific_date: "I’ll be married before 5 April 2016"
-          will_marry_on_or_after_specific_date: " I’ll be married after 6 April 2016"
+          will_marry_before_specific_date: "I’ll be married on or before 5 April 2016"
+          will_marry_on_or_after_specific_date: " I’ll be married on or after 6 April 2016"
           widowed: "widowed"
 #Q2
       when_will_you_reach_pension_age?:
@@ -209,6 +209,12 @@ en-GB:
           partner_pension_age_before_specific_date: "on or before 5 April 2016"
           partner_pension_age_after_specific_date: "on or after 6 April 2016"
 
+#Q4
+      what_is_your_gender?:
+        title:  Are you
+        options:
+          male_gender: "a man"
+          female_gender: "a woman"
 #outcomes
       final_outcome:
         title: 
