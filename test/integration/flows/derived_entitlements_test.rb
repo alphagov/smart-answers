@@ -184,8 +184,44 @@ class DerivedEntitlementsTest < ActiveSupport::TestCase
       assert_current_node :outcome_1
       assert_phrase_list :result, [:phrase5]
     end
-  end
-  #end phrase 5
-  
+  end#end phrase 5
+  #phrase 6
+  context "widow new2 old3 female_gender == phrase6" do
+    setup do
+      add_response "widowed"
+      add_response "your_pension_age_after_specific_date"
+      add_response "partner_pension_age_before_specific_date"
+      add_response "female_gender"
+    end
+    should "take you to outcome with phrase6" do
+      assert_current_node :outcome_1
+      assert_phrase_list :result, [:phrase6]
+    end
+  end 
+  context "widow new2 new3 female_gender == phrase6" do
+    setup do
+      add_response "widowed"
+      add_response "your_pension_age_after_specific_date"
+      add_response "partner_pension_age_after_specific_date"
+      add_response "female_gender"
+    end
+    should "take you to outcome with phrase6" do
+      assert_current_node :outcome_1
+      assert_phrase_list :result, [:phrase6]
+    end
+  end #end phrase6
+    #phrase 7
+  context "widow new2 new3 male_gender == phrase7" do
+    setup do
+      add_response "widowed"
+      add_response "your_pension_age_after_specific_date"
+      add_response "partner_pension_age_after_specific_date"
+      add_response "male_gender"
+    end
+    should "take you to outcome with phraselist 7" do
+      assert_current_node :outcome_1
+      assert_phrase_list :result, [:phrase7]
+    end
+  end #end phrase 7
   
 end
