@@ -24,7 +24,6 @@ multiple_choice :what_is_your_marital_status? do
   next_node :when_will_you_reach_pension_age?
 end
 
-
 # Q2
 multiple_choice :when_will_you_reach_pension_age? do
   option :your_pension_age_before_specific_date
@@ -38,10 +37,8 @@ multiple_choice :when_will_you_reach_pension_age? do
     end
     answers
   end
-
   next_node :when_will_your_partner_reach_pension_age?
 end
-
 
 #Q3
 multiple_choice :when_will_your_partner_reach_pension_age? do
@@ -57,22 +54,20 @@ multiple_choice :when_will_your_partner_reach_pension_age? do
     answers
   end
   
-  calculate :result do
+  calculate :result_phrase do
     phrases=PhraseList.new
     
     if answers == [:old1, :old2, :old3] || answers == [:new1, :new2, :old3] || answers == [:new1, :old2, :old3]
-      phrases << :phrase1
+      phrases << :current_rules_no_additional_pension
     elsif answers == [:widow, :old2, :old3]
-      phrases << :phrase2
+      phrases << :current_rules_and_additional_pension
     elsif answers == [:old1, :old2, :new3]
-      phrases << :phrase3
+      phrases << :current_rules_national_insurance_no_state_pension
     elsif answers == [:widow, :old2, :new3]
-      phrases << :phrase4
+      phrases << :current_rules_national_insurance_and_state_pension
     elsif answers == [:old1, :new2, :new3] || answers == [:new1, :new2, :new3] || answers == [:old1, :new2, :old3]
-      phrases << :phrase5
+      phrases << :married_woman_no_state_pension
     elsif answers == [:widow, :new2, :new3]
-    else 
-      puts 'ok'
     end
     phrases
   end
@@ -81,31 +76,27 @@ multiple_choice :when_will_your_partner_reach_pension_age? do
     if answers == [:widow, :new2]
       :what_is_your_gender?
     else
-      :outcome_1
+      :final_outcome
     end
   end
 end
-
 
 # Q4
 multiple_choice :what_is_your_gender? do
   option :male_gender
   option :female_gender
   
-  calculate :result do
+  calculate :result_phrase do
     phrases=PhraseList.new
     
     if responses.last == "male_gender"
-      phrases << :phrase7
+      phrases << :impossibility_to_increase_pension
     elsif responses.last == "female_gender"
-      phrases << :phrase6
-    else 
-      puts 'ERROR'
+      phrases << :married_woman_and_state_pension
     end
     phrases
   end
-
-  next_node :outcome_1
+  next_node :final_outcome
 end
 
-outcome :outcome_1
+outcome :final_outcome

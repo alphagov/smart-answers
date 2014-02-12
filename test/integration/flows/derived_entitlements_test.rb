@@ -10,8 +10,6 @@ require 'gds_api/test_helpers/worldwide'
 #??????
 class DerivedEntitlementsTest < ActiveSupport::TestCase
   include FlowTestHelper
-  # include GdsApi::TestHelpers::Worldwide
-
 
   setup do
     setup_for_testing_flow 'derived-entitlements'
@@ -32,13 +30,12 @@ class DerivedEntitlementsTest < ActiveSupport::TestCase
       # WORKING 
       context "old3 - before specific date" do
         setup { add_response "partner_pension_age_before_specific_date" }
-        should "give outcome 1" do
-          assert_current_node :outcome_1
-          # assert_phrase_list :result, [:phrase1]
+        should "go to final_outcome" do
+          assert_current_node :final_outcome
         end
       end
     end
-  end #end married before before
+  end #end married old old
   
   context "widow" do
     setup { add_response "widowed" }
@@ -52,176 +49,165 @@ class DerivedEntitlementsTest < ActiveSupport::TestCase
         assert_current_node :when_will_your_partner_reach_pension_age?
       end
 
-      #WORKING 
-      # context "old3 - before specific date" do
-      #   setup { add_response "partner_pension_age_before_specific_date" }
-      #   should "give outcome 1" do
-      #     assert_current_node :outcome_1
-      #     # assert_phrase_list :result, [:phrase1]
-      #   end
-      # end
-      # WORKING 
       context "new3 - after specific date" do
         setup { add_response "partner_pension_age_after_specific_date" }
         should "go to question gender" do
           assert_current_node :what_is_your_gender?
-          # assert_phrase_list :result, [:phrase1]
         end
         
         context "male" do
           setup { add_response "male_gender"}
-          should "go to outcome 1 with phraselist 7" do
-            assert_current_node :outcome_1
-            assert_phrase_list :result, [:phrase7]
+          should "go to final_outcome with impossibility_to_increase_pension phraselist" do
+            assert_current_node :final_outcome
+            assert_phrase_list :result_phrase , [:impossibility_to_increase_pension]
           end
         end
       end
     end
   end
-    #START OF QUICK TESTS
-    
-#phrase 1
-  context "old1 old2 old3 == phrase1" do
+  
+#START OF QUICK TESTS  
+#current_rules_no_additional_pension
+  context "old1 old2 old3 == current_rules_no_additional_pension" do
     setup do
       add_response "married"
       add_response "your_pension_age_before_specific_date"
       add_response "partner_pension_age_before_specific_date"
     end
-    should "take you to outcome with phraselist 1" do
-      assert_current_node :outcome_1
-      assert_phrase_list :result, [:phrase1]
+    should "take you to final_outcome with current_rules_no_additional_pension phraselist" do
+      assert_current_node :final_outcome
+      assert_phrase_list :result_phrase, [:current_rules_no_additional_pension]
     end
   end 
-  context "new1 new2 old3 == phrase1" do
+  context "new1 new2 old3 == current_rules_no_additional_pension" do
     setup do
       add_response "will_marry_on_or_after_specific_date"
       add_response "your_pension_age_after_specific_date"
       add_response "partner_pension_age_before_specific_date"
     end
-    should "take you to outcome with phraselist 1" do
-      assert_current_node :outcome_1
-      assert_phrase_list :result, [:phrase1]
+    should "take you to final_outcome with current_rules_no_additional_pension phraselist" do
+      assert_current_node :final_outcome
+      assert_phrase_list :result_phrase, [:current_rules_no_additional_pension]
     end
   end
-  context "new1 old2 old3 == phrase1" do
+  context "new1 old2 old3 == current_rules_no_additional_pension" do
     setup do
       add_response "will_marry_on_or_after_specific_date"
       add_response "your_pension_age_before_specific_date"
       add_response "partner_pension_age_before_specific_date"
     end
-    should "take you to outcome with phraselist 1" do
-      assert_current_node :outcome_1
-      assert_phrase_list :result, [:phrase1]
+    should "take you to final_outcome with current_rules_no_additional_pension phraselist" do
+      assert_current_node :final_outcome
+      assert_phrase_list :result_phrase, [:current_rules_no_additional_pension]
     end
   end
-  #end phrase 1
-  #phrase 2
-  context "widow old2 old3== phrase2" do
+  #end current_rules_no_additional_pension
+  #current_rules_and_additional_pension
+  context "widow old2 old3== current_rules_and_additional_pension" do
     setup do
       add_response "widowed"
       add_response "your_pension_age_before_specific_date"
       add_response "partner_pension_age_before_specific_date"
     end
-    should "take you to outcome with phraselist 2" do
-      assert_current_node :outcome_1
-      assert_phrase_list :result, [:phrase2]
+    should "take you to final_outcome with current_rules_and_additional_pension phraselist" do
+      assert_current_node :final_outcome
+      assert_phrase_list :result_phrase, [:current_rules_and_additional_pension]
     end
-  end #end phrase 2
-    #phrase 3
-  context "old1 old2 new3 == phrase3" do
+  end #end current_rules_and_additional_pension
+    #current_rules_national_insurance_no_state_pension
+  context "old1 old2 new3 == current_rules_national_insurance_no_state_pension" do
     setup do
       add_response "married"
       add_response "your_pension_age_before_specific_date"
       add_response "partner_pension_age_after_specific_date"
     end
-    should "take you to outcome with phraselist 3" do
-      assert_current_node :outcome_1
-      assert_phrase_list :result, [:phrase3]
+    should "take you to final_outcome with current_rules_national_insurance_no_state_pension" do
+      assert_current_node :final_outcome
+      assert_phrase_list :result_phrase, [:current_rules_national_insurance_no_state_pension]
     end
-  end #end phrase 3
-    #phrase 4
-  context "widow old2 new3== phrase4" do
+  end #end current_rules_national_insurance_no_state_pension
+    #current_rules_national_insurance_and_state_pension
+  context "widow old2 new3== current_rules_national_insurance_and_state_pension" do
     setup do
       add_response "widowed"
       add_response "your_pension_age_before_specific_date"
       add_response "partner_pension_age_after_specific_date"
     end
-    should "take you to outcome with phraselist 4" do
-      assert_current_node :outcome_1
-      assert_phrase_list :result, [:phrase4]
+    should "take you to final_outcome with current_rules_national_insurance_and_state_pension phraselist" do
+      assert_current_node :final_outcome
+      assert_phrase_list :result_phrase, [:current_rules_national_insurance_and_state_pension]
     end
-  end #end phrase 4
-  #phrase 5
-  context "old1 new2 new3 == phrase5" do
+  end #end current_rules_national_insurance_and_state_pension
+  #married_woman_no_state_pension
+  context "old1 new2 new3 == married_woman_no_state_pension" do
     setup do
       add_response "married"
       add_response "your_pension_age_after_specific_date"
       add_response "partner_pension_age_after_specific_date"
     end
-    should "take you to outcome with phrase5" do
-      assert_current_node :outcome_1
-      assert_phrase_list :result, [:phrase5]
+    should "take you to final_outcome with married_woman_no_state_pension" do
+      assert_current_node :final_outcome
+      assert_phrase_list :result_phrase, [:married_woman_no_state_pension]
     end
   end 
-  context "new1 new2 new3 == phrase5" do
+  context "new1 new2 new3 == married_woman_no_state_pension" do
     setup do
       add_response "will_marry_on_or_after_specific_date"
       add_response "your_pension_age_after_specific_date"
       add_response "partner_pension_age_after_specific_date"
     end
-    should "take you to outcome with phrase5" do
-      assert_current_node :outcome_1
-      assert_phrase_list :result, [:phrase5]
+    should "take you to final_outcome with married_woman_no_state_pension" do
+      assert_current_node :final_outcome
+      assert_phrase_list :result_phrase, [:married_woman_no_state_pension]
     end
   end
-  context "old1 new2 old3 == phrase5" do
+  context "old1 new2 old3 == married_woman_no_state_pension" do
     setup do
       add_response "married"
       add_response "your_pension_age_after_specific_date"
       add_response "partner_pension_age_before_specific_date"
     end
-    should "take you to outcome with phrase5" do
-      assert_current_node :outcome_1
-      assert_phrase_list :result, [:phrase5]
+    should "take you to final_outcome with married_woman_no_state_pension phraselist" do
+      assert_current_node :final_outcome
+      assert_phrase_list :result_phrase, [:married_woman_no_state_pension]
     end
-  end#end phrase 5
-  #phrase 6
-  context "widow new2 old3 female_gender == phrase6" do
+  end#end married_woman_no_state_pension
+  #married_woman_and_state_pension
+  context "widow new2 old3 female_gender == married_woman_and_state_pension" do
     setup do
       add_response "widowed"
       add_response "your_pension_age_after_specific_date"
       add_response "partner_pension_age_before_specific_date"
       add_response "female_gender"
     end
-    should "take you to outcome with phrase6" do
-      assert_current_node :outcome_1
-      assert_phrase_list :result, [:phrase6]
+    should "take you to final_outcome with married_woman_and_state_pension" do
+      assert_current_node :final_outcome
+      assert_phrase_list :result_phrase, [:married_woman_and_state_pension]
     end
   end 
-  context "widow new2 new3 female_gender == phrase6" do
+  context "widow new2 new3 female_gender == married_woman_and_state_pension" do
     setup do
       add_response "widowed"
       add_response "your_pension_age_after_specific_date"
       add_response "partner_pension_age_after_specific_date"
       add_response "female_gender"
     end
-    should "take you to outcome with phrase6" do
-      assert_current_node :outcome_1
-      assert_phrase_list :result, [:phrase6]
+    should "take you to final_outcome with married_woman_and_state_pension phraselist" do
+      assert_current_node :final_outcome
+      assert_phrase_list :result_phrase, [:married_woman_and_state_pension]
     end
-  end #end phrase6
-    #phrase 7
-  context "widow new2 new3 male_gender == phrase7" do
+  end #end married_woman_and_state_pension
+    #impossibility_to_increase_pension
+  context "widow new2 new3 male_gender == impossibility_to_increase_pension" do
     setup do
       add_response "widowed"
       add_response "your_pension_age_after_specific_date"
       add_response "partner_pension_age_after_specific_date"
       add_response "male_gender"
     end
-    should "take you to outcome with phraselist 7" do
-      assert_current_node :outcome_1
-      assert_phrase_list :result, [:phrase7]
+    should "take you to final_outcome with impossibility_to_increase_pension phraselist" do
+      assert_current_node :final_outcome
+      assert_phrase_list :result_phrase, [:impossibility_to_increase_pension]
     end
-  end #end phrase 7
-  
+  end #end impossibility_to_increase_pension
 end
