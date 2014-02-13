@@ -7,7 +7,7 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(aruba belgium greece iran syria)
+    @location_slugs = %w(aruba belgium greece iran serbia syria)
     worldwide_api_has_locations(@location_slugs)    
     setup_for_testing_flow "help-if-you-are-arrested-abroad"
   end
@@ -86,6 +86,20 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
           assert_phrase_list :country_downloads, [:specific_downloads]
         end
       end
+      
+      context "Answering Serbia" do
+        setup do
+        worldwide_api_has_organisations_for_location('serbia', read_fixture_file('worldwide/serbia_organisations.json'))
+          add_response :serbia
+        end
+
+        should "set up the country specific downloads phraselist" do
+          assert_state_variable :has_extra_downloads, true
+          assert_phrase_list :country_downloads, [:specific_downloads]
+          assert_state_variable :judicial, nil
+        end
+      end
+
 
     end # context: country with specific info
   end # context: non special case
