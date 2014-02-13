@@ -23,8 +23,8 @@ clickbook:
   hungary: http://www.britishembassyconsul.clickbook.net/
   italy: https://www.clickbook.net/dev/bc.nsf/sub/britishconsrome
   japan:
-    Tokyo: http://www.britishembassytokyo.clickbook.net/
-    Osaka: http://www.britishconsulateosak.clickbook.net/
+    Tokyo: "https://britishembassytokyo.clickbook.net/sub/britishembassytokyo#.UuqDl3d_tVo"
+    Osaka: "https://ukconsulateosaka.clickbook.net/sub/ukconsulateosaka#.UuqDc3d_tVo"
   kazakhstan: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyastana
   kuwait: https://www.clickbook.net/dev/bc.nsf/sub/britishembassykuwait
   luxembourg: http://ukinluxembourg.clickbook.net/
