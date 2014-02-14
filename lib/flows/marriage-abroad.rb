@@ -746,7 +746,7 @@ outcome :outcome_os_consular_cni do
       phrases << :consular_cni_os_fees_local_currency
     elsif %w(russia).include?(ceremony_country)
       phrases << :consular_cni_os_fees_russia
-    else
+    elsif %w(cote-d-ivoire).exclude?(ceremony_country)
       phrases << :consular_cni_os_fees_no_cheques
     end
     phrases
@@ -889,7 +889,7 @@ outcome :outcome_cp_cp_or_equivalent do
     
     if %w(iceland luxembourg slovenia).include?(ceremony_country)
       phrases << :cp_or_equivalent_cp_local_currency_countries
-    elsif %w(czech-republic).exclude?(ceremony_country)
+    elsif %w(czech-republic cote-d-ivoire).exclude?(ceremony_country)
       phrases << :cp_or_equivalent_cp_cash_or_credit_card_countries
     end
     phrases
