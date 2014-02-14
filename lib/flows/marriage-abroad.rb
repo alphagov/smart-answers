@@ -811,6 +811,8 @@ outcome :outcome_os_no_cni do
     end
     if %w(cote-d-ivoire argentina).include?(ceremony_country)
       phrases << :"no_cni_os_consular_facilities_#{ceremony_country}"
+    elsif %w(czech-republic).include?(ceremony_country)
+      phrases << :no_cni_os_consular_facilities_no_local_currency
     else
       phrases << :no_cni_os_consular_facilities
     end
@@ -878,10 +880,16 @@ outcome :outcome_cp_cp_or_equivalent do
     if %w(partner_british).exclude?(partner_nationality)
       phrases << :cp_or_equivalent_cp_naturalisation
     end
-    phrases << :cp_or_equivalent_cp_all_fees
+    
+    if %w(czech-republic).include?(ceremony_country)
+      phrases << :cp_or_equivalent_cp_all_fees_no_local_currency
+    else
+      phrases << :cp_or_equivalent_cp_all_fees
+    end
+    
     if %w(iceland luxembourg slovenia).include?(ceremony_country)
       phrases << :cp_or_equivalent_cp_local_currency_countries
-    else
+    elsif %w(czech-republic).exclude?(ceremony_country)
       phrases << :cp_or_equivalent_cp_cash_or_credit_card_countries
     end
     phrases
