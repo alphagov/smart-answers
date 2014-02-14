@@ -831,23 +831,23 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british, :consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_ceremony_belgium, :consular_cni_os_belgium_clickbook, :consular_cni_os_fees_not_italy_not_uk, :consular_cni_os_fees_foreign_commonwealth_roi_resident, :consular_cni_os_fees_no_cheques]
     end
   end
-#testing for finland variant
-  context "ceremony in finland, resident in ireland, partner other" do
-    setup do
-      worldwide_api_has_organisations_for_location('finland', read_fixture_file('worldwide/finland_organisations.json'))
-      worldwide_api_has_organisations_for_location('ireland', read_fixture_file('worldwide/ireland_organisations.json'))
-      add_response 'finland'
-      add_response 'other'
-      add_response 'ireland'
-      add_response 'partner_other'
-      add_response 'opposite_sex'
-    end
-    should "go to consular cni os outcome" do
-      assert_current_node :outcome_os_consular_cni
-      assert_phrase_list :consular_cni_os_start, [:other_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ceremony_not_spain_or_italy, :consular_cni_os_ireland_resident, :consular_cni_os_ireland_resident_two, :consular_cni_os_commonwealth_or_ireland_resident_non_british_partner, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :consular_cni_os_ireland_resident_ceremony_not_italy]
-      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_naturalisation, :consular_cni_os_fees_not_italy_not_uk, :consular_cni_os_fees_foreign_commonwealth_roi_resident, :consular_cni_os_fees_no_cheques]
-    end
-  end
+# #testing for finland variant
+#   context "ceremony in finland, resident in ireland, partner other" do
+#     setup do
+#       worldwide_api_has_organisations_for_location('finland', read_fixture_file('worldwide/finland_organisations.json'))
+#       worldwide_api_has_organisations_for_location('ireland', read_fixture_file('worldwide/ireland_organisations.json'))
+#       add_response 'finland'
+#       add_response 'other'
+#       add_response 'ireland'
+#       add_response 'partner_other'
+#       add_response 'opposite_sex'
+#     end
+#     should "go to consular cni os outcome" do
+#       assert_current_node :outcome_os_consular_cni
+#       assert_phrase_list :consular_cni_os_start, [:other_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ceremony_not_spain_or_italy, :consular_cni_os_ireland_resident, :consular_cni_os_ireland_resident_two, :consular_cni_os_commonwealth_or_ireland_resident_non_british_partner, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :consular_cni_os_ireland_resident_ceremony_not_italy]
+#       assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_naturalisation, :consular_cni_os_fees_not_italy_not_uk, :consular_cni_os_fees_foreign_commonwealth_roi_resident, :consular_cni_os_fees_no_cheques]
+#     end
+#   end
 #testing for turkey variant
   context "ceremony in turkey, resident in ireland, partner other" do
     setup do
@@ -1721,6 +1721,33 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_affirmation
+    end
+  end
+  # context "finland outcome mapped to lebanon" do
+  #   should "go to outcome os affirmation" do
+  #     worldwide_api_has_organisations_for_location('finland', read_fixture_file('worldwide/finland_organisations.json'))
+  #     add_response 'finland'
+  #     add_response 'uk'
+  #     add_response 'uk_england'
+  #     add_response 'partner_british'
+  #     add_response 'opposite_sex'
+  #     assert_current_node :outcome_os_affirmation
+  #   end
+  # end
+  
+  context "ceremony in finland, resident in poland, partner irish" do
+    setup do
+      worldwide_api_has_organisations_for_location('finland', read_fixture_file('worldwide/finland_organisations.json'))
+      worldwide_api_has_organisations_for_location('poland', read_fixture_file('worldwide/poland_organisations.json'))
+      add_response 'finland'
+      add_response 'other'
+      add_response 'poland'
+      add_response 'partner_irish'
+      add_response 'opposite_sex'
+    end
+    should "go to os affirmation outcome" do
+      assert_current_node :outcome_os_affirmation
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_other_resident, :affirmation_os_all_what_you_need_to_do, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_not_british, :affirmation_os_all_fees_euros]
     end
   end
 end

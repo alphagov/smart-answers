@@ -776,6 +776,18 @@ en-GB:
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
 
           You can pay by cash or credit card, but not by personal cheque.
+          
+        affirmation_os_all_fees_euros: |
+          ##Fees
+
+          Service | Fee
+          -|-
+          Affirmation for freedom to marry in English | £45
+          Affirmation for freedom to marry in any other language | £70
+
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
+
+          You can pay by cash (euros only) or credit card (but not Visa Electron).
 
 # No CNI or consular services phrases
         no_cni_os_dutch_caribbean_islands: |

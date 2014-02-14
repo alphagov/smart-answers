@@ -238,14 +238,14 @@ multiple_choice :partner_opposite_or_same_sex? do
         :outcome_ireland
       elsif %w(switzerland).include?(ceremony_country)
         :outcome_switzerland
+      elsif %w(thailand egypt south-korea lebanon finland mongolia peru portugal united-arab-emirates vietnam).include?(ceremony_country)
+        :outcome_os_affirmation
       elsif data_query.commonwealth_country?(ceremony_country) or %w(zimbabwe).include?(ceremony_country)
         :outcome_os_commonwealth
       elsif data_query.british_overseas_territories?(ceremony_country)
         :outcome_os_bot
       elsif data_query.os_consular_cni_countries?(ceremony_country) or (%w(uk).include?(resident_of) and data_query.os_no_marriage_related_consular_services?(ceremony_country))
         :outcome_os_consular_cni
-      elsif %w(thailand egypt south-korea lebanon mongolia peru portugal united-arab-emirates vietnam).include?(ceremony_country)
-        :outcome_os_affirmation
       elsif data_query.os_no_consular_cni_countries?(ceremony_country) or (%w(other).include?(resident_of) and data_query.os_no_marriage_related_consular_services?(ceremony_country))
         :outcome_os_no_cni
       elsif data_query.os_other_countries?(ceremony_country)
@@ -742,6 +742,7 @@ outcome :outcome_os_consular_cni do
         phrases << :consular_cni_os_fees_foreign_commonwealth_roi_resident
       end
     end
+    
     if %w(armenia bosnia-and-herzegovina cambodia iceland kazakhstan latvia luxembourg slovenia tunisia tajikistan).include?(ceremony_country)
       phrases << :consular_cni_os_fees_local_currency
     elsif %w(russia).include?(ceremony_country)
@@ -783,7 +784,11 @@ outcome :outcome_os_affirmation do
     else
       phrases << :affirmation_os_partner_not_british
     end
-    phrases << :affirmation_os_all_fees
+    if %w(finland).include?(ceremony_country)
+      phrases << :affirmation_os_all_fees_euros
+    else
+      phrases << :affirmation_os_all_fees
+    end
     phrases
   end
 end
@@ -895,7 +900,6 @@ outcome :outcome_cp_cp_or_equivalent do
     phrases
   end
 end
-
 outcome :outcome_cp_france_pacs do
   precalculate :france_pacs_law_cp_outcome do
     phrases = PhraseList.new
