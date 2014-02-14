@@ -9,7 +9,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(andorra anguilla armenia canada china croatia south-africa turkey yemen oman united-arab-emirates qatar venezuela)
+    @location_slugs = %w(andorra anguilla armenia canada china croatia mexico south-africa turkey yemen oman united-arab-emirates qatar venezuela)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'what-visa-to-visit-uk'
   end
@@ -223,8 +223,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
     end
   end
 
-#####TO BE CHANGED
-  context "choose a DATV country" do
+   context "choose a DATV country" do
     setup do
       add_response 'south-africa'
     end
@@ -477,7 +476,7 @@ end
           add_response "six_months_or_less"
         end
         should "take you to outcome 5.5 work N visa not needed" do
-          assert_current_node :outcome_work_n
+          assert_current_node :outcome_work_m
         end
       end
     end #end canada work reason
@@ -535,6 +534,19 @@ end
     end
     should "take you to outcome_visit_waiver" do
       assert_current_node :outcome_visit_waiver
+    end
+  end
+  
+  
+  
+  context "choose a Non-visa country and check for outcome_work_m" do
+    setup do
+      add_response 'mexico'
+      add_response 'work'
+      add_response 'six_months_or_less'
+    end
+      should "take you to outcome work_m" do
+        assert_current_node :outcome_work_m
     end
   end
 end
