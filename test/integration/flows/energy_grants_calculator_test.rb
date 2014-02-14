@@ -40,7 +40,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
           should "take you to help with bills outcome" do
             assert_current_node :outcome_help_with_bills # outcome 1
             assert_phrase_list :help_with_bills_outcome_title, [:title_help_with_bills_outcome]
-            assert_phrase_list :eligibilities_bills, [:winter_fuel_payments, :microgeneration]
+            assert_phrase_list :eligibilities_bills, [:winter_fuel_payments, :smartmeters, :microgeneration, :v_green_deal]
           end
         end
         context "answer over 60" do
@@ -53,7 +53,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
           should "take you to help with bills outcome" do
             assert_current_node :outcome_help_with_bills # outcome 1
             assert_phrase_list :help_with_bills_outcome_title, [:title_no_help_with_bills_outcome]
-            assert_phrase_list :eligibilities_bills, [:microgeneration]
+            assert_phrase_list :eligibilities_bills, [:smartmeters, :microgeneration, :v_green_deal]
           end
         end
         context "answer under 60" do
@@ -63,7 +63,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
           should "take you to the help with bills outcome" do
             assert_current_node :outcome_help_with_bills # outcome 1
             assert_phrase_list :help_with_bills_outcome_title, [:title_no_help_with_bills_outcome]
-            assert_phrase_list :eligibilities_bills, [:microgeneration,]
+            assert_phrase_list :eligibilities_bills, [:smartmeters, :microgeneration, :v_green_deal]
           end
         end
       end
@@ -251,17 +251,25 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             setup do
               add_response '1985-2000s'
             end
-            should "ask which of these do you have?" do
-              assert_current_node :home_features_modern?
-              assert_state_variable 'modern', :modern 
+            should "ask what type of property" do
+              assert_current_node :type_of_property?
             end
-            context "answer mains gas" do
+            context "answer house" do
               setup do
-                add_response 'mains_gas'
+                add_response 'house'
               end
-              should "take you to measures_help and eco_eligible outcome" do
-                assert_current_node :outcome_bills_and_measures_on_benefits_not_eco_eligible
-                assert_phrase_list :eligibilities, [:a_condensing_boiler, :e_loft_roof_insulation, :eco_help, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :windows_and_doors, :m_replacement_glazing , :n_secondary_glazing, :o_external_doors, :microgeneration_renewables, :w_renewal_heat, :smartmeters]
+              should "ask which of these do you have?" do
+                assert_current_node :home_features_modern?
+                assert_state_variable 'modern', true 
+              end
+              context "answer mains gas" do
+                setup do
+                  add_response 'mains_gas'
+                end
+                should "take you to measures_help and eco_eligible outcome" do
+                  assert_current_node :outcome_bills_and_measures_on_benefits_not_eco_eligible
+                  assert_phrase_list :eligibilities, [:a_condensing_boiler, :e_loft_roof_insulation, :eco_help, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :windows_and_doors, :m_replacement_glazing , :n_secondary_glazing, :o_external_doors, :microgeneration_renewables, :w_renewal_heat, :smartmeters]
+                end
               end
             end
           end
@@ -286,20 +294,28 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
               setup do
                 add_response '1940s-1984'
               end
-              should "ask what features does it have" do
-                assert_current_node :home_features_older?
-                assert_state_variable 'older', :older
+              should "ask what type of property" do
+                assert_current_node :type_of_property?
               end
-              context "answer cavity wall insulation, loft insulation, mains gas, modern boiler" do
+              context "answer house" do
                 setup do
-                  add_response 'cavity_wall_insulation,loft_insulation,mains_gas,modern_boiler'
+                  add_response 'house'
                 end
-                should "take you to measures_help and eco_eligible outcome" do
-                  assert_current_node :outcome_bills_and_measures_on_benefits_not_eco_eligible
-                  assert_phrase_list :eligibilities, [:g_under_floor_insulation, :eco_help, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :l_cylinder_thermostat, :windows_and_doors, 
-                    :m_replacement_glazing, :n_secondary_glazing, :o_external_doors, :microgeneration_renewables, :w_renewal_heat, :smartmeters]
+                should "ask what features does it have" do
+                  assert_current_node :home_features_older?
+                  assert_state_variable 'older', true
                 end
-              end
+                context "answer cavity wall insulation, loft insulation, mains gas, modern boiler" do
+                  setup do
+                    add_response 'cavity_wall_insulation,loft_insulation,mains_gas,modern_boiler'
+                  end
+                  should "take you to measures_help and eco_eligible outcome" do
+                    assert_current_node :outcome_bills_and_measures_on_benefits_not_eco_eligible
+                    assert_phrase_list :eligibilities, [:g_under_floor_insulation, :eco_help, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :l_cylinder_thermostat, :windows_and_doors, 
+                      :m_replacement_glazing, :n_secondary_glazing, :o_external_doors, :microgeneration_renewables, :w_renewal_heat, :smartmeters]
+                  end
+                end
+              end  
             end
           end
         end
@@ -322,16 +338,24 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
               setup do
                 add_response 'before-1940'
               end
-              should "ask which features your home has" do
-                assert_current_node :home_features_historic?
+              should "ask what type of property" do
+                assert_current_node :type_of_property?
               end
-              context "answer loft_insulation, mains_gas, modern_boiler, modern_double_glazing" do
-                setup do
-                  add_response 'loft_insulation,mains_gas,modern_boiler,modern_double_glazing'
+              context "answer house" do
+                setup do 
+                  add_response 'house'
                 end
-                should "take you to measure help and eco_eligible outcome with variants" do
-                  assert_current_node :outcome_bills_and_measures_on_benefits_not_eco_eligible
-                  assert_phrase_list :eligibilities, [:g_under_floor_insulation, :eco_help, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :l_cylinder_thermostat, :microgeneration_renewables, :w_renewal_heat, :smartmeters]
+                should "ask which features your home has" do
+                  assert_current_node :home_features_historic?
+                end
+                context "answer loft_insulation, mains_gas, modern_boiler, modern_double_glazing" do
+                  setup do
+                    add_response 'loft_insulation,mains_gas,modern_boiler,modern_double_glazing'
+                  end
+                  should "take you to measure help and eco_eligible outcome with variants" do
+                    assert_current_node :outcome_bills_and_measures_on_benefits_not_eco_eligible
+                    assert_phrase_list :eligibilities, [:g_under_floor_insulation, :eco_help, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :l_cylinder_thermostat, :microgeneration_renewables, :w_renewal_heat, :smartmeters]
+                  end
                 end
               end
             end
@@ -349,16 +373,24 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             setup do
               add_response '1940s-1984'
             end
-            should "ask what features your home has" do
-              assert_current_node :home_features_older?
+            should "ask what type of property" do
+              assert_current_node :type_of_property?
             end
-            context "answer electric_heating and mains_gas" do
+            context "answer house" do
               setup do
-                add_response 'electric_heating,mains_gas'
+                add_response 'house'
               end
-              should "take you to measure help & eco_eligible outcome, with electric heating & mains gas variants" do
-                assert_current_node :outcome_bills_and_measures_on_benefits_not_eco_eligible
-                assert_phrase_list :eligibilities, [:a_condensing_boiler, :e_loft_roof_insulation, :g_under_floor_insulation, :eco_help, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :l_cylinder_thermostat, :windows_and_doors, :m_replacement_glazing, :n_secondary_glazing, :o_external_doors, :microgeneration_renewables, :w_renewal_heat, :smartmeters]
+              should "ask what features your home has" do
+                assert_current_node :home_features_older?
+              end
+              context "answer electric_heating and mains_gas" do
+                setup do
+                  add_response 'electric_heating,mains_gas'
+                end
+                should "take you to measure help & eco_eligible outcome, with electric heating & mains gas variants" do
+                  assert_current_node :outcome_bills_and_measures_on_benefits_not_eco_eligible
+                  assert_phrase_list :eligibilities, [:a_condensing_boiler, :e_loft_roof_insulation, :g_under_floor_insulation, :eco_help, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :l_cylinder_thermostat, :windows_and_doors, :m_replacement_glazing, :n_secondary_glazing, :o_external_doors, :microgeneration_renewables, :w_renewal_heat, :smartmeters]
+                end
               end
             end
           end
@@ -375,17 +407,25 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             setup do
               add_response 'before-1940'
             end
-            should "ask which features your home has" do
-              assert_current_node :home_features_historic?
+            should "ask what type of property" do
+              assert_current_node :type_of_property?
             end
-            context "answer mains gas and modern boiler" do
+            context "anwer house" do
               setup do
-                add_response 'mains_gas,modern_boiler'
+                add_response 'house'
               end
-              should "take you to measures help and eco eligible outcome" do
-                assert_current_node :outcome_bills_and_measures_on_benefits_not_eco_eligible
+              should "ask which features your home has" do
+                assert_current_node :home_features_historic?
               end
-            end
+              context "answer mains gas and modern boiler" do
+                setup do
+                  add_response 'mains_gas,modern_boiler'
+                end
+                should "take you to measures help and eco eligible outcome" do
+                  assert_current_node :outcome_bills_and_measures_on_benefits_not_eco_eligible
+                end
+              end
+            end  
           end
         end
       end
@@ -411,16 +451,24 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
           setup do
             add_response '1985-2000s'
           end
-          should "ask what features your modern home has" do
-            assert_current_node :home_features_modern?
+          should "ask what type of property" do
+            assert_current_node :type_of_property?
           end
-          context "answer mains gas" do
+          context "answer house" do
             setup do
-              add_response 'mains_gas'
+              add_response 'house'
             end
-            should "take you to measure help & eco eligible outcome with mains gas variants" do
-              assert_current_node :outcome_measures_help_green_deal
-              assert_phrase_list :eligibilities, [:a_condensing_boiler, :b_cavity_wall_insulation, :c_solid_wall_insulation, :d_draught_proofing, :e_loft_roof_insulation, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :windows_and_doors, :m_replacement_glazing, :n_secondary_glazing, :o_external_doors, :microgeneration_renewables, :v_green_deal, :w_renewal_heat, :smartmeters]
+            should "ask what features your modern home has" do
+              assert_current_node :home_features_modern?
+            end
+            context "answer mains gas" do
+              setup do
+                add_response 'mains_gas'
+              end
+              should "take you to measure help & eco eligible outcome with mains gas variants" do
+                assert_current_node :outcome_measures_help_green_deal
+                assert_phrase_list :eligibilities, [:a_condensing_boiler, :b_cavity_wall_insulation, :c_solid_wall_insulation, :d_draught_proofing, :e_loft_roof_insulation, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :windows_and_doors, :m_replacement_glazing, :n_secondary_glazing, :o_external_doors, :microgeneration_renewables, :v_green_deal, :w_renewal_heat, :smartmeters]
+              end
             end
           end
         end
@@ -453,17 +501,25 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             setup do
               add_response 'before-1940'
             end
-            should "ask which home features you have" do
-              assert_current_node :home_features_historic?
+            should "ask what type of property" do
+              assert_current_node :type_of_property?
             end
-            context "answer gas and glazing" do
+            context "answer house" do
               setup do
-                add_response 'mains_gas,modern_double_glazing'
+                add_response 'house'
               end
-              should "take you to bills and measures, no benefits outcome" do
-                assert_current_node :outcome_bills_and_measures_no_benefits
-                assert_phrase_list :eligibilities_bills, [:microgeneration]
-                assert_phrase_list :eligibilities, [:a_condensing_boiler, :e_loft_roof_insulation, :g_under_floor_insulation, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :l_cylinder_thermostat, :microgeneration_renewables, :w_renewal_heat, :smartmeters]
+              should "ask which home features you have" do
+                assert_current_node :home_features_historic?
+              end
+              context "answer gas and glazing" do
+                setup do
+                  add_response 'mains_gas,modern_double_glazing'
+                end
+                should "take you to bills and measures, no benefits outcome" do
+                  assert_current_node :outcome_bills_and_measures_no_benefits
+                  assert_phrase_list :eligibilities_bills, [:microgeneration]
+                  assert_phrase_list :eligibilities, [:a_condensing_boiler, :e_loft_roof_insulation, :g_under_floor_insulation, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :l_cylinder_thermostat, :microgeneration_renewables, :w_renewal_heat, :smartmeters]
+                end
               end
             end
           end
@@ -476,6 +532,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
           add_response 'esa'
           add_response 'none'
           add_response '1985-2000s'
+          add_response 'house'
           add_response 'loft_attic_conversion,mains_gas'
         end
         should "take you to bills & measures, on benefits with variants" do
@@ -491,6 +548,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
           add_response 'income_support'
           add_response 'none'
           add_response '1940s-1984'
+          add_response 'house'
           add_response 'loft_insulation,mains_gas'
         end
         should "take you to bills & measures, on benefits, not eco" do
@@ -548,7 +606,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       should "take you to help with bills outcome, winter fuel payment, benefits = pension credit" do
         assert_current_node :outcome_help_with_bills
         assert_phrase_list :help_with_bills_outcome_title, [:title_help_with_bills_outcome]
-        assert_phrase_list :eligibilities_bills, [:winter_fuel_payments, :warm_home_discount, :cold_weather_payment, :energy_company_obligation]
+        assert_phrase_list :eligibilities_bills, [:winter_fuel_payments, :warm_home_discount, :cold_weather_payment, :energy_company_obligation, :smartmeters, :microgeneration]
       end
     end
     context "no winter fuel payment, benefits = esa" do
@@ -562,7 +620,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       should "take you to help with bills outcome, no winter fuel payment, benefit = ESA" do
         assert_current_node :outcome_help_with_bills
         assert_phrase_list :help_with_bills_outcome_title, [:title_help_with_bills_outcome]
-        assert_phrase_list :eligibilities_bills, [:cold_weather_payment, :energy_company_obligation]
+        assert_phrase_list :eligibilities_bills, [:cold_weather_payment, :energy_company_obligation, :smartmeters, :microgeneration]
       end
     end
     context "no winter fuel payment, benefits = child tax credit" do
@@ -575,7 +633,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       should "take you to help with bills outcome, no winter fuel, benefits = child tax credit" do
         assert_current_node :outcome_help_with_bills
         assert_phrase_list :help_with_bills_outcome_title, [:title_help_with_bills_outcome]
-        assert_phrase_list :eligibilities_bills, [:energy_company_obligation]
+        assert_phrase_list :eligibilities_bills, [:energy_company_obligation, :smartmeters, :microgeneration]
       end
     end
     context "winter fuel payment, no benefits" do
@@ -587,7 +645,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       should "take to help with bills outcome, winter fuel payment, no benefits" do
         assert_current_node :outcome_help_with_bills
         assert_phrase_list :help_with_bills_outcome_title, [:title_help_with_bills_outcome]
-        assert_phrase_list :eligibilities_bills, [:winter_fuel_payments, :microgeneration]
+        assert_phrase_list :eligibilities_bills, [:winter_fuel_payments, :smartmeters, :microgeneration, :v_green_deal]
       end
     end
     context "no winter fuel payment, no benefits" do
@@ -599,7 +657,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       should "take you to help with bills outcome, no winter fuel, no benefits" do
         assert_current_node :outcome_help_with_bills
         assert_phrase_list :help_with_bills_outcome_title, [:title_no_help_with_bills_outcome]
-        assert_phrase_list :eligibilities_bills, [:microgeneration]
+        assert_phrase_list :eligibilities_bills, [:smartmeters, :microgeneration, :v_green_deal]
       end
     end
 
@@ -609,6 +667,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         add_response 'help_boiler_measure'
         add_response 'property'
         add_response '1985-2000s'
+        add_response 'house'
         add_response 'none'
       end
       should "take you to the green deal outcome with these variations" do
@@ -621,6 +680,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         add_response 'help_boiler_measure'
         add_response 'permission'
         add_response 'before-1940'
+        add_response 'house'
         add_response 'mains_gas'
       end
       should "take you to green deal outcome with mains gas variants" do
@@ -628,6 +688,19 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         assert_phrase_list :eligibilities, [:a_condensing_boiler, :b_cavity_wall_insulation, :c_solid_wall_insulation, :d_draught_proofing, :e_loft_roof_insulation, :g_under_floor_insulation, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :windows_and_doors, :m_replacement_glazing, :n_secondary_glazing, :o_external_doors, :microgeneration_renewables, :v_green_deal, :w_renewal_heat, :smartmeters]
       end
     end
-    
+# test for flat, modern with mains gas and electric heating
+    context "no circumstances, mondern flat, mains gas and electricity" do
+      setup do
+        add_response 'all_help'
+        add_response 'property'
+        add_response '4/07/1980'
+        add_response '1985-2000s'
+        add_response 'flat'
+        add_response 'mains_gas,electric_heating'
+      end
+      should "take you to result 4 no help" do
+        assert_current_node :outcome_no_green_deal_no_energy_measures
+      end
+    end
   end
 end
