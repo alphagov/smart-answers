@@ -406,14 +406,10 @@ outcome :outcome_social_housing
 
 outcome :outcome_measures_help_and_eco_eligible do
   precalculate :title_end do
-    if measure_help
-      if (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
-        PhraseList.new(:title_energy_supplier)
-      else
-        PhraseList.new(:title_might_be_eligible)
-      end
+    if (measure_help && both_help) || measure_help && (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
+      PhraseList.new(:title_energy_supplier)
     else
-      PhraseList.new(:title_might_be_eligible)
+      PhraseList.new(:title_under_green_deal)
     end
   end
   precalculate :eligibilities do
@@ -442,16 +438,27 @@ outcome :outcome_measures_help_and_eco_eligible do
         unless (features & %w(modern_double_glazing)).any?
           phrases << :windows_and_doors << :m_replacement_glazing << :n_secondary_glazing << :o_external_doors
         end
-        phrases << :microgeneration_renewables
+        phrases << :r_micro_wind
+        if features.include?('mains_gas')
+          phrases << :s_micro_chp
+        end
+        phrases << :u_solar
         phrases << :w_renewal_heat
-        phrases << :smartmeters
       end
     end
+    phrases << :help_and_advice << :help_and_advice_body
     phrases
   end
 end
 
 outcome :outcome_measures_help_green_deal do
+  precalculate :title_end do
+    if measure_help
+      PhraseList.new(:title_under_green_deal)
+    else
+      PhraseList.new(:title_energy_supplier)
+    end
+  end
   precalculate :eligibilities do
     phrases = PhraseList.new
     phrases << :boilers_and_insulation
@@ -473,13 +480,15 @@ outcome :outcome_measures_help_green_deal do
     unless (features & %w(modern_double_glazing)).any?
       phrases << :windows_and_doors << :m_replacement_glazing << :n_secondary_glazing << :o_external_doors
     end
-    phrases << :microgeneration_renewables
-    if both_help
-      ''
-    else
+    phrases << :r_micro_wind
+    if features.include?('mains_gas')
+      phrases << :s_micro_chp
+    end
+    phrases << :u_solar
+    if !bills_help
       phrases << :v_green_deal << :w_renewal_heat
     end
-    phrases << :smartmeters
+    phrases << :help_and_advice << :help_and_advice_body
     phrases
   end
 end
@@ -504,14 +513,23 @@ outcome :outcome_bills_and_measures_no_benefits do
         end
       else
         if age_variant == :winter_fuel_payment
-          phrases << :winter_fuel_payments << :cold_weather_payment << :microgeneration
+          phrases << :winter_fuel_payments << :cold_weather_payment << :smartmeters
         else
-          phrases << :microgeneration
+          phrases << :smartmeters
         end
       end
     end
     phrases
   end
+  
+  precalculate :title_end do
+    if both_help && !circumstances.include?('benefits')
+      PhraseList.new(:title_under_green_deal)
+    else
+      PhraseList.new(:title_energy_supplier)
+    end
+  end
+  
   precalculate :eligibilities do
     phrases = PhraseList.new
     phrases << :boilers_and_insulation
@@ -537,9 +555,13 @@ outcome :outcome_bills_and_measures_no_benefits do
     unless (features & %w(modern_double_glazing)).any?
       phrases << :windows_and_doors << :m_replacement_glazing << :n_secondary_glazing << :o_external_doors
     end
-    phrases << :microgeneration_renewables
+    phrases << :r_micro_wind
+    if features.include?('mains_gas')
+      phrases << :s_micro_chp
+    end
+    phrases << :u_solar
     phrases << :w_renewal_heat
-    phrases << :smartmeters
+    phrases << :help_and_advice << :help_and_advice_body
     phrases
   end
 end
@@ -564,14 +586,23 @@ outcome :outcome_bills_and_measures_on_benefits_eco_eligible do
         end
       else
         if age_variant == :winter_fuel_payment
-          phrases << :winter_fuel_payments << :cold_weather_payment << :microgeneration
+          phrases << :winter_fuel_payments << :cold_weather_payment << :smartmeters
         else
-          phrases << :microgeneration
+          phrases << :smartmeters
         end
       end
     end
     phrases
   end
+  
+  precalculate :title_end do
+    if (both_help && circumstances.include?('property')) || (circumstances.include?('permission') && circumstances.include?('pension_credit')) || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || (benefits_claimed & %w(esa child_tax_credit working_tax_credit)).any?
+      PhraseList.new(:title_energy_supplier)
+    else
+      PhraseList.new(:title_under_green_deal)
+    end  
+  end
+  
   precalculate :eligibilities do
     phrases = PhraseList.new
     phrases << :boilers_and_insulation
@@ -598,9 +629,13 @@ outcome :outcome_bills_and_measures_on_benefits_eco_eligible do
     unless (features & %w(modern_double_glazing)).any?
       phrases << :windows_and_doors << :m_replacement_glazing << :n_secondary_glazing << :o_external_doors
     end
-    phrases << :microgeneration_renewables
+    phrases << :r_micro_wind
+    if features.include?('mains_gas')
+      phrases << :s_micro_chp
+    end
+    phrases << :u_solar
     phrases << :w_renewal_heat
-    phrases << :smartmeters
+    phrases << :help_and_advice << :help_and_advice_body
     phrases
   end
 end
@@ -625,14 +660,23 @@ outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible do
         end
       else
         if age_variant == :winter_fuel_payment
-          phrases << :winter_fuel_payments << :cold_weather_payment << :microgeneration
+          phrases << :winter_fuel_payments << :cold_weather_payment << :smartmeters
         else
-          phrases << :microgeneration
+          phrases << :smartmeters
         end
       end
     end
     phrases
   end
+  
+  precalculate :title_end do
+    unless both_help && age_variant == :over_60 && (benefits_claimed & %w(esa child_tax_credit working_tax_credit) || incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
+      PhraseList.new(:title_energy_supplier)
+    else
+      PhraseList.new(:title_under_green_deal)
+    end  
+  end
+  
   precalculate :eligibilities do
     phrases = PhraseList.new
     phrases << :boilers_and_insulation
@@ -659,11 +703,17 @@ outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible do
     unless (features & %w(modern_double_glazing)).any?
       phrases << :windows_and_doors << :m_replacement_glazing << :n_secondary_glazing << :o_external_doors
     end
-    phrases << :microgeneration_renewables
+    phrases << :r_micro_wind
+    if features.include?('mains_gas')
+      phrases << :s_micro_chp
+    end
+    phrases << :u_solar
     phrases << :w_renewal_heat
-    phrases << :smartmeters
+    phrases << :help_and_advice << :help_and_advice_body
     phrases
   end
 end
 
-outcome :outcome_no_green_deal_no_energy_measures
+outcome :outcome_no_green_deal_no_energy_measures do
+  PhraseList.new(:help_and_advice_body)
+end
