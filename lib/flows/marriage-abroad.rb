@@ -780,6 +780,8 @@ outcome :outcome_os_affirmation do
     end
     if %w(south-korea).include?(ceremony_country)
       phrases << :affirmation_os_all_what_you_need_to_do_south_korea
+    elsif %w(finland).include?(ceremony_country)
+      phrases << :affirmation_os_all_what_you_need_to_do_finland
     else
       phrases << :affirmation_os_all_what_you_need_to_do_two
     end
