@@ -66,10 +66,10 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
         setup do
           add_response "2012-04-01"
         end
-
-        should "return an error for filing during tax year" do
-          assert_current_node_is_error
-        end
+        # Error message removed
+        # should "return an error for filing during tax year" do
+        #   assert_current_node_is_error
+        # end
       end
 
       context "a date before filing deadline" do

@@ -82,6 +82,14 @@ module SmartAnswer::Calculators
           # band five (1000 + 5% estimated bill larger than £600)
           @calculator.estimated_bill = SmartAnswer::Money.new(13000)
           assert_equal 1650, @calculator.late_filing_penalty
+          # from 6 to 12 months, tax <=6002
+          @calculator.filing_date = "2013-10-31"
+          @calculator.estimated_bill = SmartAnswer::Money.new(10000)
+          assert_equal 1500, @calculator.late_filing_penalty
+          # from 6 to 12 months, tax >6002
+          @calculator.filing_date = "2013-10-31"
+          @calculator.estimated_bill = SmartAnswer::Money.new(1000)
+          assert_equal 1300, @calculator.late_filing_penalty
         end
 
         should "calculate interest and late payment penalty" do

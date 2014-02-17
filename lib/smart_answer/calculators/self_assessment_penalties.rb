@@ -22,7 +22,11 @@ module SmartAnswer::Calculators
       elsif overdue_filing_days <= 179
         result = (overdue_filing_days - 90) * 10 + 100
       elsif overdue_filing_days <= 364
-        result = 1000 + [300, estimated_bill.value * 0.05].max
+        if estimated_bill.value > 6002
+          result = 1000 + (estimated_bill.value * 0.05)
+        else
+          result = 1000 + [300, estimated_bill.value * 0.05].max
+        end
       else
         result = 1000 + [600, estimated_bill.value * 0.05].max
       end
