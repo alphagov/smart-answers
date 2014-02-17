@@ -8,7 +8,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(argentina anguilla armenia aruba australia austria bahamas belgium bonaire-st-eustatius-saba british-indian-ocean-territory burma canada china cote-d-ivoire cyprus czech-republic denmark egypt estonia finland france germany iran ireland italy japan jordan latvia lebanon mayotte mexico monaco nicaragua north-korea guatemala peru poland portugal russia saudi-arabia serbia south-africa spain sweden switzerland thailand turkey united-arab-emirates usa vietnam wallis-and-futuna yemen zimbabwe)
+    @location_slugs = %w(argentina anguilla armenia aruba australia austria bahamas belgium bonaire-st-eustatius-saba british-indian-ocean-territory burma canada china cote-d-ivoire cyprus czech-republic denmark egypt estonia finland france germany iran ireland italy japan jordan latvia lebanon mayotte mexico monaco nicaragua north-korea guatemala peru poland portugal russia saudi-arabia serbia south-africa south-korea spain sweden switzerland thailand turkey united-arab-emirates usa vietnam wallis-and-futuna yemen zimbabwe)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'marriage-abroad'
   end
@@ -953,7 +953,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :affirmation_os_all_what_you_need_to_do, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_british, :affirmation_os_all_fees]
     end
   end
-#testing for ceremony in korea, other resident, partner irish
+#testing for ceremony in lebanon, other resident, partner irish
   context "ceremony in lebanon, resident in poland, partner irish" do
     setup do
       worldwide_api_has_organisations_for_location('lebanon', read_fixture_file('worldwide/lebanon_organisations.json'))
@@ -1748,6 +1748,34 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
       assert_phrase_list :affirmation_os_outcome, [:affirmation_os_other_resident, :affirmation_os_all_what_you_need_to_do, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_not_british, :affirmation_os_all_fees_euros]
+    end
+  end
+  # context "testing south-korea new phraselist" do
+  #   setup do 
+  #     worldwide_api_has_organisations_for_location('south-korea', read_fixture_file('worldwide/south-korea_organisations.json'))
+  #     add_response 'south-korea'
+  #     add_response 'uk'
+  #     add_response 'uk_england'
+  #     add_response 'partner_british'
+  #     add_response 'opposite_sex'
+  #   end
+  #     should "go to outcome os affirmation" do
+  #       assert_current_node :outcome_os_affirmation
+  #       assert_phrase_list :affirmation_os_outcome, [:affirmation_os_other_resident, :affirmation_os_all_what_you_need_to_do, :affirmation_os_all_what_you_need_to_do_south_korea, :affirmation_os_partner_not_british, :affirmation_os_all_fees_euros]
+  #   end
+  # end
+  
+  
+  context "south-korea new outcome" do
+    should "go to outcome os affirmation with new korea phraselist" do
+      worldwide_api_has_organisations_for_location('south-korea', read_fixture_file('worldwide/south-korea_organisations.json'))
+      add_response 'south-korea'
+      add_response 'uk'
+      add_response 'uk_england'
+      add_response 'partner_british'
+      add_response 'opposite_sex'
+      assert_current_node :outcome_os_affirmation
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do, :affirmation_os_all_what_you_need_to_do_south_korea, :affirmation_os_partner_british, :affirmation_os_all_fees]
     end
   end
 end

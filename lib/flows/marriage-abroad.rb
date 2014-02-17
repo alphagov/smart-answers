@@ -778,7 +778,11 @@ outcome :outcome_os_affirmation do
     if %w(united-arab-emirates).include?(ceremony_country)
       phrases << :affirmation_os_uae
     end
-    phrases << :affirmation_os_all_what_you_need_to_do_two
+    if %w(south-korea).include?(ceremony_country)
+      phrases << :affirmation_os_all_what_you_need_to_do_south_korea
+    else
+      phrases << :affirmation_os_all_what_you_need_to_do_two
+    end
     if %w(partner_british).include?(partner_nationality)
       phrases << :affirmation_os_partner_british
     else
