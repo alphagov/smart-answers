@@ -66,15 +66,20 @@ multiple_choice :how_submitted? do
 end
 
 date_question :when_submitted? do
+  from { 3.year.ago(Date.today) }
+  to { 3.years.since(Date.today) }
+  
   save_input_as :filing_date
 
-  next_node do |response|
-    if Date.parse(response) < start_of_next_tax_year
-      raise SmartAnswer::InvalidResponse 
-    else
-      :when_paid?
-    end
-  end
+  next_node :when_paid?
+  # old next node with error message
+  # next_node do |response|
+  #   if Date.parse(response) < start_of_next_tax_year
+  #     raise SmartAnswer::InvalidResponse 
+  #   else
+  #     :when_paid?
+  #   end
+  # end
 end
 
 date_question :when_paid? do
