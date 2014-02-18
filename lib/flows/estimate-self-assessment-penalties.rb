@@ -140,12 +140,18 @@ money_question :how_much_tax? do
   end
 
   calculate :result_parts do
+    phrases = PhraseList.new
     if calculator.late_payment_penalty == 0
-      PhraseList.new(:result_part2_no_penalty)
-    else
-      PhraseList.new(:result_part2_penalty)
+      phrases << :result_part2_no_penalty
+    else 
+      phrases << :result_part2_penalty
     end
+    if calculator.late_filing_penalty > 365
+      phrases << :result_part_one_year_late
+    end
+    phrases
   end
+
 
   next_node :late
 end

@@ -116,7 +116,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
             calc.expects(:paid_on_time?).returns(false)
           end
 
-          should "ask how much you tax bill is" do
+          should "ask how much your tax bill is" do
             assert_current_node :how_much_tax?
           end
 
@@ -148,10 +148,22 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
               assert_phrase_list :result_parts, [:result_part2_penalty]
             end
           end
-
         end
+        #new test for new phrase
       end
     end
+  end
+  context "check new phraselist for over 365 days delay" do
+    setup do
+      add_response :"2011-12"
+      add_response :online
+      add_response "2014-10-10"
+      add_response "2015-03-03"
+      add_response "1000.00"
+    end
 
+    should "show results" do
+      assert_phrase_list :result_parts, [:result_part2_penalty, :result_part_one_year_late]
+    end
   end
 end
