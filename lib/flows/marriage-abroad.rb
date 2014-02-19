@@ -780,10 +780,17 @@ outcome :outcome_os_affirmation do
     end
     if %w(south-korea).include?(ceremony_country)
       phrases << :affirmation_os_all_what_you_need_to_do_south_korea
-    elsif %w(finland).include?(ceremony_country)
-      phrases << :affirmation_os_all_what_you_need_to_do_finland
     else
       phrases << :affirmation_os_all_what_you_need_to_do_two
+      
+      #TO FIX FOR FINLAND OUTCOME
+      # if reg_data_query.clickbook(ceremony_country)
+      #   if multiple_clickbooks
+      #     phrases << :clickbook_links
+      #   else
+      #     phrases << :clickbook_link
+      #   end
+      # end
     end
     if %w(partner_british).include?(partner_nationality)
       phrases << :affirmation_os_partner_british
@@ -891,13 +898,15 @@ outcome :outcome_cp_cp_or_equivalent do
     if %w(partner_british).exclude?(partner_nationality)
       phrases << :cp_or_equivalent_cp_naturalisation
     end
-    
-    if %w(czech-republic).include?(ceremony_country)
-      phrases << :cp_or_equivalent_cp_all_fees_no_local_currency
-    else
-      phrases << :cp_or_equivalent_cp_all_fees
+    phrases << :cp_or_equivalent_cp_all_fees
+    # if %w(czech-republic).include?(ceremony_country)
+    #   phrases << :cp_or_equivalent_cp_all_fees
+    # else
+    #   phrases << :cp_or_equivalent_cp_all_fees << :list_of_consular_fees
+    # end
+    if %w{czech-republic}.exclude?(ceremony_country)
+      phrases << :list_of_consular_fees
     end
-    
     if %w(iceland luxembourg slovenia).include?(ceremony_country)
       phrases << :pay_in_local_currency
     elsif %w(czech-republic cote-d-ivoire).exclude?(ceremony_country)
