@@ -39,7 +39,10 @@ en-GB:
       #fees
         list_of_consular_fees: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
-          
+      #others
+        get_legal_advice: |
+          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
+
 # Marriage if resident of Isle of Man or Channel Islands
         iom_ci_os_all: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
@@ -751,32 +754,20 @@ en-GB:
           ##Naturalisation of your partner if they move to the UK
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
-        affirmation_os_all_what_you_need_to_do_two: |
+
+        what_you_need_to_do_may_ask: |
           ##What you need to do
 
           You may be asked to provide an 'affirmation of freedom to marry' document to prove you’re allowed to marry.
 
-          Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
-
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-
-          ^You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.^
-
-          If you’ve been divorced or widowed, you’ll also need:
-
-          - a [decree absolute or final order](/copy-decree-absolute-final-order), or
-          - the [death certificate](/order-copy-birth-death-marriage-certificate/)
-
-          ^You’ll also need to provide evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.^
-
-          You’ll also need to provide evidence if you’ve changed your name by deed poll.
-
-        affirmation_os_all_what_you_need_to_do_south_korea: |
+        what_you_need_to_do_will_ask: |
           ##What you need to do
 
           You will be asked to provide an ‘affirmation of freedom to marry’ document to prove you’re allowed to marry.
+        appointment_for_affidavit: |
+          Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
 
-          Make an appointment at the local British embassy or consulate in South Korea to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring a filled in [affidavit of eligibility for marriage form](/government/publications/south-korea-affidavit-of-eligibility-for-marriage-form) and your passport and pay a fee.
+        affirmation_os_all_what_you_need_to_do_two: |
 
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
@@ -790,7 +781,7 @@ en-GB:
           ^You’ll also need to provide evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.^
 
           You’ll also need to provide evidence if you’ve changed your name by deed poll.
-        
+
         affirmation_os_partner_british: |
           ^Your partner will need to get an affirmation and pay the fee as well.^
         affirmation_os_partner_not_british: |
@@ -800,7 +791,6 @@ en-GB:
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
 
-       
         affirmation_os_partner_british: |
           ^Your partner will need to get an affirmation and pay the fee as well.^
         affirmation_os_partner_not_british: |
@@ -816,7 +806,6 @@ en-GB:
           -|-
           Affirmation for freedom to marry in English | £45
           Affirmation for freedom to marry in any other language | £70
-
 
 # No CNI or consular services phrases
         no_cni_os_dutch_caribbean_islands: |
@@ -841,20 +830,6 @@ en-GB:
           Contact your nearest embassy or consulate representing %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
 
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
-          
-          
-          #ORIGINAL ONE
-        no_cni_os_consular_facilities: |
-          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
-
-          There aren’t any British consular facilities to register a marriage or get legal documents to prove you’re eligible to marry in %{country_name_lowercase_prefix}.
-
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
-
-          You can pay by cash or credit card, but not by personal cheque.
-          
-        get_legal_advice: |
-          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
 
         cni_os_consular_facilities_unavailable: |
           There aren’t any British consular facilities to register a marriage or get legal documents to prove you’re eligible to marry in %{country_name_lowercase_prefix}.
@@ -1261,6 +1236,7 @@ en-GB:
           ##Naturalisation of your partner if they move to the UK
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
+        
         consular_cp_all_fees: |
           ##Fees
 
@@ -1271,11 +1247,6 @@ en-GB:
           Issuing a civil partnership certificate | £65
 
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{ceremony_country_name}](/government/publications/%{ceremony_country}-consular-fees).
-        # consular_cp_local_currency: |
-          # ^You can only pay by cash in %{country_name_lowercase_prefix}. This must be in the local currency.^
-          
-      #consular_cp_cheque: |
-        #You can pay by cash or credit card, but not by personal cheque.
 
 
 # Q1

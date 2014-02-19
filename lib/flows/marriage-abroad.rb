@@ -78,16 +78,14 @@ country_select :country_of_ceremony?, :exclude_countries => exclude_countries do
       :partner_opposite_or_same_sex?
     elsif %w(france new-caledonia wallis-and-futuna).include?(response)
       :marriage_or_pacs?
-    elsif %w(french-guiana french-polynesia guadeloupe martinique mayotte new-caledonia reunion st-pierre-and-miquelon).include?(response)
+    elsif data_query.french_overseas_territories?(response)
       :outcome_os_france_or_fot
     else
       :legal_residency?
     end
   end
-
 end
 
-  
 # Q2
 multiple_choice :legal_residency? do
   option :uk 
@@ -238,7 +236,7 @@ multiple_choice :partner_opposite_or_same_sex? do
         :outcome_ireland
       elsif %w(switzerland).include?(ceremony_country)
         :outcome_switzerland
-      elsif %w(thailand egypt south-korea lebanon finland mongolia peru portugal united-arab-emirates vietnam).include?(ceremony_country)
+      elsif data_query.os_affirmation_countries?(ceremony_country)
         :outcome_os_affirmation
       elsif data_query.commonwealth_country?(ceremony_country) or %w(zimbabwe).include?(ceremony_country)
         :outcome_os_commonwealth
@@ -779,25 +777,26 @@ outcome :outcome_os_affirmation do
       phrases << :affirmation_os_uae
     end
     if %w(south-korea).include?(ceremony_country)
-      phrases << :affirmation_os_all_what_you_need_to_do_south_korea
+      phrases << :what_you_need_to_do_will_ask 
     else
-      phrases << :affirmation_os_all_what_you_need_to_do_two
-      
-      #TO FIX FOR FINLAND OUTCOME
-      # if reg_data_query.clickbook(ceremony_country)
-      #   if multiple_clickbooks
-      #     phrases << :clickbook_links
-      #   else
-      #     phrases << :clickbook_link
-      #   end
-      # end
+      phrases << :what_you_need_to_do_may_ask 
     end
+    phrases << :appointment_for_affidavit
+    if %w(finland).include?(ceremony_country)
+      if multiple_clickbooks
+        phrases << :clickbook_links
+      else
+        phrases << :clickbook_link
+      end
+    end
+    phrases << :affirmation_os_all_what_you_need_to_do_two
+    
     if %w(partner_british).include?(partner_nationality)
       phrases << :affirmation_os_partner_british
     else
       phrases << :affirmation_os_partner_not_british
     end
-    
+
     phrases << :affirmation_os_all_fees << :list_of_consular_fees
     if %w(finland).include?(ceremony_country)
       phrases << :pay_in_euros_or_visa_electron

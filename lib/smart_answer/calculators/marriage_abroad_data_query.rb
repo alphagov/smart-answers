@@ -18,6 +18,9 @@ module SmartAnswer::Calculators
     OS_NO_MARRIAGE_CONSULAR_SERVICES = %w(afghanistan american-samoa andorra aruba benin bhutan bonaire-st-eustatius-saba burkina-faso burundi cape-verde central-african-republic chad comoros congo costa-rica cote-d-ivoire curacao djibouti equatorial-guinea eritrea gabon guinea guinea-bissau haiti hong-kong iraq israel kosovo laos liberia liechtenstein macao madagascar mali marshall-islands mauritania micronesia monaco morocco nicaragua niger palau paraguay rwanda san-marino sao-tome-and-principe south-sudan st-maarten suriname timor-leste togo western-sahara)
 
     OS_OTHER_COUNTRIES = %w(burma north-korea iran somalia syria yemen saudi-arabia)
+    
+    
+    OS_AFFIRMATION_COUNTRIES = %w(thailand egypt south-korea lebanon finland mongolia peru portugal united-arab-emirates vietnam)
 
     CP_EQUIVALENT_COUNTRIES = %w(austria belgium brazil colombia czech-republic denmark ecuador finland germany hungary iceland luxembourg netherlands norway portugal slovenia sweden)
 
@@ -87,6 +90,9 @@ module SmartAnswer::Calculators
     def countries_with_definitive_articles?(country_slug)
       COUNTRIES_WITH_DEFINITIVE_ARTICLES.include?(country_slug)
     end
-
+    
+    def os_affirmation_countries?(country_slug)
+      OS_AFFIRMATION_COUNTRIES.include?(country_slug)
+    end
   end
 end

@@ -919,7 +919,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do,:what_you_need_to_do_may_ask, :appointment_for_affidavit, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 #testing for ceremony in egypt, local resident, partner british
@@ -934,7 +934,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :affirmation_os_all_what_you_need_to_do, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :affirmation_os_all_what_you_need_to_do,:what_you_need_to_do_may_ask, :appointment_for_affidavit, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 #testing for ceremony in lebanon, other resident, partner irish
@@ -950,7 +950,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_other_resident, :affirmation_os_all_what_you_need_to_do, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_other_resident, :affirmation_os_all_what_you_need_to_do,:what_you_need_to_do_may_ask, :appointment_for_affidavit, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 #testing for ceremony in UAE, uk resident, partner other
@@ -965,7 +965,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :affirmation_os_all_what_you_need_to_do, :affirmation_os_uae, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :affirmation_os_all_what_you_need_to_do, :affirmation_os_uae,:what_you_need_to_do_may_ask, :appointment_for_affidavit, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 #tests for no cni or consular services
@@ -1622,7 +1622,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
       assert_current_node :outcome_os_affirmation
       assert_state_variable :ceremony_type_lowercase, 'marriage'
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do,:what_you_need_to_do_may_ask, :appointment_for_affidavit, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -1721,7 +1721,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_other_resident, :affirmation_os_all_what_you_need_to_do, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_in_euros_or_visa_electron]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_other_resident, :affirmation_os_all_what_you_need_to_do,:what_you_need_to_do_may_ask, :appointment_for_affidavit, :clickbook_link, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_in_euros_or_visa_electron]
     end
   end
   
@@ -1734,7 +1734,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do, :affirmation_os_all_what_you_need_to_do_south_korea, :affirmation_os_partner_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_will_ask, :appointment_for_affidavit, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 end
