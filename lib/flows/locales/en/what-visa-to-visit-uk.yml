@@ -71,7 +71,7 @@ en-GB:
           "longer_than_six_months": "longer than 6 months"
 
       planning_to_leave_airport?:
-        title: Are you planning to leave the airport?
+        title: Will you pass through UK Border Control?
         options:
           "yes": "Yes"
           "no": "No"
