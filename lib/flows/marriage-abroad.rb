@@ -736,7 +736,7 @@ outcome :outcome_os_consular_cni do
       phrases << :consular_cni_os_fees_not_italy_not_uk
       if ceremony_country == residency_country or %w(uk).include?(resident_of)
         unless %w(cote-d-ivoire).include?(ceremony_country)
-          phrases << :consular_cni_os_fees_local_or_uk_resident
+          phrases << :list_of_consular_fees
         end
       else
         phrases << :consular_cni_os_fees_foreign_commonwealth_roi_resident
@@ -744,11 +744,11 @@ outcome :outcome_os_consular_cni do
     end
     
     if %w(armenia bosnia-and-herzegovina cambodia iceland kazakhstan latvia luxembourg slovenia tunisia tajikistan).include?(ceremony_country)
-      phrases << :consular_cni_os_fees_local_currency
+      phrases << :pay_in_local_currency_ceremony_country_name
     elsif %w(russia).include?(ceremony_country)
       phrases << :consular_cni_os_fees_russia
     elsif %w(cote-d-ivoire).exclude?(ceremony_country)
-      phrases << :consular_cni_os_fees_no_cheques
+      phrases << :pay_by_cash_or_credit_card_no_cheque
     end
     phrases
   end
@@ -790,10 +790,12 @@ outcome :outcome_os_affirmation do
     else
       phrases << :affirmation_os_partner_not_british
     end
+    
+    phrases << :affirmation_os_all_fees << :list_of_consular_fees
     if %w(finland).include?(ceremony_country)
-      phrases << :affirmation_os_all_fees_euros
+      phrases << :pay_in_euros_or_visa_electron
     else
-      phrases << :affirmation_os_all_fees
+      phrases << :pay_by_cash_or_credit_card_no_cheque
     end
     phrases
   end
@@ -820,12 +822,10 @@ outcome :outcome_os_no_cni do
         phrases << :no_cni_os_not_dutch_caribbean_other_resident
       end
     end
-    if %w(cote-d-ivoire argentina).include?(ceremony_country)
-      phrases << :"no_cni_os_consular_facilities_#{ceremony_country}"
-    elsif %w(czech-republic).include?(ceremony_country)
-      phrases << :no_cni_os_consular_facilities_no_local_currency
+    if %w(czech-republic argentina cote-d-ivoire).include?(ceremony_country)
+      phrases << :get_legal_advice << :cni_os_consular_facilities_unavailable
     else
-      phrases << :no_cni_os_consular_facilities
+      phrases << :get_legal_advice << :cni_os_consular_facilities_unavailable << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque
     end
     if %w(partner_british).exclude?(partner_nationality)
       phrases << :no_cni_os_naturalisation
@@ -899,9 +899,10 @@ outcome :outcome_cp_cp_or_equivalent do
     end
     
     if %w(iceland luxembourg slovenia).include?(ceremony_country)
-      phrases << :cp_or_equivalent_cp_local_currency_countries
+      phrases << :pay_in_local_currency
     elsif %w(czech-republic cote-d-ivoire).exclude?(ceremony_country)
-      phrases << :cp_or_equivalent_cp_cash_or_credit_card_countries
+      # phrases << :cp_or_equivalent_cp_cash_or_credit_card_countries
+      phrases << :pay_by_cash_or_credit_card_no_cheque
     end
     phrases
   end
@@ -1036,9 +1037,9 @@ outcome :outcome_cp_consular do
     end
     phrases << :consular_cp_all_fees
     if %w(cambodia latvia).include?(ceremony_country)
-      phrases << :consular_cp_local_currency
+      phrases << :pay_in_local_currency
     else
-      phrases << :consular_cp_cheque
+      phrases << :pay_by_cash_or_credit_card_no_cheque
     end
     phrases
   end

@@ -26,7 +26,22 @@ en-GB:
           [Book an appointment online](%{clickbook_data})
         clickbook_links: |
           +[data_partial:clickbooks:clickbook_data]
-
+          
+#REUSABLE phrases for all outcomes
+      #paying methods
+        pay_by_cash_or_credit_card_no_cheque: |
+          You can pay by cash or credit card, but not by personal cheque.
+        pay_in_local_currency: |
+          ^You can only pay by cash in %{country_name_lowercase_prefix}. This must be in the local currency.^
+        pay_in_local_currency_ceremony_country_name: |
+          ^You can only pay by cash in %{ceremony_country_name}. This must be in the local currency.^  
+        pay_in_euros_or_visa_electron: |
+          You can pay by cash (euros only) or credit card (but not Visa Electron).
+      #fees
+        list_of_consular_fees: |
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
+          
+          
 # Marriage if resident of Isle of Man or Channel Islands
         iom_ci_os_all: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
@@ -694,22 +709,19 @@ en-GB:
           Issuing any other consular letter or certificate in any other language | £70
           Administering an oath or making a declaration | £55
 
-        consular_cni_os_fees_local_or_uk_resident: |
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
+        # consular_cni_os_fees_local_or_uk_resident: |
+        #   You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
 
         consular_cni_os_fees_foreign_commonwealth_roi_resident: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{residency_country_name_lowercase_prefix}](/government/publications/%{residency_country}-consular-fees) and [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
-
-        consular_cni_os_fees_local_currency: |
-          ^You can only pay by cash in %{ceremony_country_name}. This must be in the local currency.^
 
         consular_cni_os_fees_russia: |
           You can pay by cash or credit card in Moscow, but not by personal cheque.
 
           You can pay by credit card only in St Petersburg and Ekaterinburg.
 
-        consular_cni_os_fees_no_cheques: |
-          You can pay by cash or credit card, but not by personal cheque.
+        # consular_cni_os_fees_no_cheques: |
+        #   You can pay by cash or credit card, but not by personal cheque.
 
 # France phrases
         fot_os_all: |
@@ -832,21 +844,32 @@ en-GB:
           Affirmation for freedom to marry in English | £45
           Affirmation for freedom to marry in any other language | £70
 
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
-
-          You can pay by cash or credit card, but not by personal cheque.
           
-        affirmation_os_all_fees_euros: |
-          ##Fees
+          #ORIGINAL 
+          # affirmation_os_all_fees: |
+          # ##Fees
 
-          Service | Fee
-          -|-
-          Affirmation for freedom to marry in English | £45
-          Affirmation for freedom to marry in any other language | £70
+          # Service | Fee
+          # -|-
+          # Affirmation for freedom to marry in English | £45
+          # Affirmation for freedom to marry in any other language | £70
 
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
+          # You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
 
-          You can pay by cash (euros only) or credit card (but not Visa Electron).
+          # You can pay by cash or credit card, but not by personal cheque.
+          
+          # ORIGINAL 
+        # affirmation_os_all_fees_euros: |
+        #   ##Fees
+
+        #   Service | Fee
+        #   -|-
+        #   Affirmation for freedom to marry in English | £45
+        #   Affirmation for freedom to marry in any other language | £70
+
+        #   You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
+
+        #   You can pay by cash (euros only) or credit card (but not Visa Electron).
 
 # No CNI or consular services phrases
         no_cni_os_dutch_caribbean_islands: |
@@ -871,6 +894,9 @@ en-GB:
           Contact your nearest embassy or consulate representing %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
 
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
+          
+          
+          #ORIGINAL ONE
         no_cni_os_consular_facilities: |
           ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
 
@@ -880,21 +906,37 @@ en-GB:
 
           You can pay by cash or credit card, but not by personal cheque.
           
-        no_cni_os_consular_facilities_no_local_currency: |
+        #no_cni_os_consular_facilities will become :get_legal_advice << :no_cni_os_consular_facilities_unavailable << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque
+        get_legal_advice: |
           ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
 
+        cni_os_consular_facilities_unavailable: |
           There aren’t any British consular facilities to register a marriage or get legal documents to prove you’re eligible to marry in %{country_name_lowercase_prefix}.
 
+        
+        
+        
           
-        no_cni_os_consular_facilities_argentina: |
-          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
+      #     no_cni_os_consular_facilities_no_local_currency will become :get_legal_advice << :no_cni_os_consular_facilities_unavailable
+      # no_cni_os_consular_facilities_no_local_currency: |
+      #     ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
 
-          There aren’t any British consular facilities to register a marriage or get legal documents to prove you’re eligible to marry in %{country_name_lowercase_prefix}.
+          # There aren’t any British consular facilities to register a marriage or get legal documents to prove you’re eligible to marry in %{country_name_lowercase_prefix}.
 
-        no_cni_os_consular_facilities_cote-d-ivoire: |
-          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
+          # argentina 
+        # no_cni_os_consular_facilities_argentina: |
+        #   ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
 
-          There aren’t any British consular facilities to register a marriage or get legal documents to prove you’re eligible to marry in %{country_name_lowercase_prefix}.
+        #   There aren’t any British consular facilities to register a marriage or get legal documents to prove you’re eligible to marry in %{country_name_lowercase_prefix}.
+
+        # no_cni_os_consular_facilities_cote-d-ivoire: |
+        #   ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
+
+        #   There aren’t any British consular facilities to register a marriage or get legal documents to prove you’re eligible to marry in %{country_name_lowercase_prefix}.
+
+
+
+
 
         no_cni_os_naturalisation: |
           ##Naturalisation of your partner if they move to the UK
@@ -1055,6 +1097,7 @@ en-GB:
           ##Naturalisation of your partner if they move to the UK
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
+        
         cp_or_equivalent_cp_all_fees: |
           ##Fees
 
@@ -1071,11 +1114,6 @@ en-GB:
           -|-
           Issuing a CNI or equivalent | £65
           
-        cp_or_equivalent_cp_local_currency_countries: |
-          ^You can only pay by cash in %{country_name_lowercase_prefix}. This must be in the local currency.^
-          
-        cp_or_equivalent_cp_cash_or_credit_card_countries: |
-          You can pay by cash or credit card, but not by personal cheque.
 
 # PACS in France or French overseas territories with PACS law
         fot_cp_all: |
@@ -1321,10 +1359,11 @@ en-GB:
           Issuing a civil partnership certificate | £65
 
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{ceremony_country_name}](/government/publications/%{ceremony_country}-consular-fees).
-        consular_cp_local_currency: |
-          ^You can only pay by cash in %{country_name_lowercase_prefix}. This must be in the local currency.^
-        consular_cp_cheque: |
-          You can pay by cash or credit card, but not by personal cheque.
+        # consular_cp_local_currency: |
+          # ^You can only pay by cash in %{country_name_lowercase_prefix}. This must be in the local currency.^
+          
+      #consular_cp_cheque: |
+        #You can pay by cash or credit card, but not by personal cheque.
 
 
 # Q1
