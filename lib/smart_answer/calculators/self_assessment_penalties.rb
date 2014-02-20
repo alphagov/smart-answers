@@ -17,10 +17,10 @@ module SmartAnswer::Calculators
     def late_filing_penalty
       if overdue_filing_days <= 0
         result = 0
-      elsif overdue_filing_days <= 89
+      #elsif overdue_filing_days <= 89
+      elsif (submission_method == "online" && overdue_filing_days <= 89 )|| (submission_method == "paper" && overdue_filing_days <= 92)
         result = 100
       elsif overdue_filing_days <= 179
-        
         result = (overdue_filing_days - 89) * 10 + 100
       elsif overdue_filing_days <= 364
         if estimated_bill.value > 6002
