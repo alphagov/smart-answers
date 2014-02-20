@@ -898,18 +898,12 @@ outcome :outcome_cp_cp_or_equivalent do
       phrases << :cp_or_equivalent_cp_naturalisation
     end
     phrases << :cp_or_equivalent_cp_all_fees
-    # if %w(czech-republic).include?(ceremony_country)
-    #   phrases << :cp_or_equivalent_cp_all_fees
-    # else
-    #   phrases << :cp_or_equivalent_cp_all_fees << :list_of_consular_fees
-    # end
     if %w{czech-republic}.exclude?(ceremony_country)
       phrases << :list_of_consular_fees
     end
     if %w(iceland luxembourg slovenia).include?(ceremony_country)
       phrases << :pay_in_local_currency
     elsif %w(czech-republic cote-d-ivoire).exclude?(ceremony_country)
-      # phrases << :cp_or_equivalent_cp_cash_or_credit_card_countries
       phrases << :pay_by_cash_or_credit_card_no_cheque
     end
     phrases
