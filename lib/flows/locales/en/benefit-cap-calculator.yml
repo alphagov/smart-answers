@@ -12,6 +12,9 @@ en-GB:
         - You’ll need to know the amounts of each benefit you get to use the calculator and the number of people in your household.
 
         - Your household includes you, your partner and any children that you’re responsible for and who live with you.
+      options:
+        "yes": "Yes"
+        "no": "No"
       phrases:
         outcome_not_affected_exemptions_phrase: |
           These benefits are exempt from the benefit cap: 
@@ -38,21 +41,19 @@ en-GB:
 
           The benefits you get are added together. The total amount of benefits over your benefit cap is subtracted from your Housing Benefit:
 
-          Total amount of benefits affected by cap: £%{total_benefits}
+          **Total amount of benefits affected by cap:** £%{total_benefits}
 
           Your Housing Benefit is reduced by the amount you are over your benefit cap of £%{benefit_cap}:
 
-          Total benefits affected: £%{total_benefits}
-          
-          Minus benefit cap: £%{benefit_cap}
+          **Total benefits affected:** £%{total_benefits}  
+          **Minus benefit cap:** £%{benefit_cap}
 
-          Total over cap: £%{total_over_cap}
+          **Total over cap:** £%{total_over_cap}
 
-          Housing benefit: %{housing_benefit_amount}
-          
-          Minus total over cap: £%{total_over_cap}
+          **Housing benefit:** %{housing_benefit_amount}  
+          **Minus total over cap:** £%{total_over_cap}
 
-          New Housing Benefit amount: £%{new_housing_benefit} 
+          **New Housing Benefit amount:** £%{new_housing_benefit} 
 
           This is an estimate only. Contact the Department for Work and Pensions if you need further help.
         outcome_not_affected_less_than_cap_phrase: |
@@ -81,17 +82,11 @@ en-GB:
 # Q1
       receive_housing_benefit?:
         title: Do you receive Housing Benefit?
-        options:
-          yes: Yes
-          no: No
 
 # Q2
       working_tax_credit?:
         title: Do you qualify for Working Tax Credit?
         hint: You don't need to be getting Working Tax Credit, only qualify for it.
-        options:
-          yes: Yes
-          no: No
 
 # Q3
       receiving_exemption_benefits?:
@@ -104,9 +99,6 @@ en-GB:
           - Employment and Support Allowance (support component)
           - War Widow’s or War Widower’s Pension
           - Working Tax Credit
-        options:
-          yes: Yes
-          no: No
 
 # Q4
       receiving_non_exemption_benefits?:

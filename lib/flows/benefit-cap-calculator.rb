@@ -296,6 +296,7 @@ multiple_choice :single_couple_lone_parent? do
     else
       benefit_cap = 500
     end
+    sprintf("%.2f",benefit_cap)
   end
   
   next_node do |response|
@@ -341,12 +342,16 @@ outcome :outcome_affected_greater_than_cap do
     sprintf("%.2f",total_benefits)
   end
   
+  precalculate :housing_benefit_amount do
+    sprintf("%.2f", housing_benefit_amount)
+  end
+  
   precalculate :total_over_cap do
     sprintf("%.2f",(total_benefits.to_f - benefit_cap.to_f))
   end
   
   precalculate :new_housing_benefit do
-    sprintf("%.2f",(housing_benefit_amount - total_over_cap.to_f))
+    sprintf("%.2f",(housing_benefit_amount.to_f - total_over_cap.to_f))
   end
   
 end
