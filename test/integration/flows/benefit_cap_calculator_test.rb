@@ -29,8 +29,9 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
         
         should "go to Outcome 1" do
           assert_current_node :outcome_not_affected_exemptions
+          assert_phrase_list :outcome_phrase, [:outcome_not_affected_exemptions_phrase,:contact_details]
         end
-      end # Q2 Qualifty for working tax credit at Outcome
+      end # Q2 Qualify for working tax credit at Outcome 1
       
       ## Not qualify for working tax credit from Q3
       context "answer no" do
@@ -46,8 +47,9 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
           
           should "go to outcome 1" do
             assert_current_node :outcome_not_affected_exemptions
+            assert_phrase_list :outcome_phrase, [:outcome_not_affected_exemptions_phrase,:contact_details]
           end
-        end # Q3 receiving benefits end at Outcome
+        end # Q3 receiving benefits end at Outcome 1
         
         # not receiving exemption benefits from Q3
         context "answer no" do
@@ -101,8 +103,9 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
                     
                     should "go to outcome 3" do
                       assert_current_node :outcome_affected_greater_than_cap
+                      assert_phrase_list :outcome_phrase, [:outcome_affected_greater_than_cap_phrase,:contact_details]
                     end
-                  end #Q6 single greater than cap, at Outcome
+                  end #Q6 single greater than cap, at Outcome 3
                 end #Q5p how much for housing benefit
               end #Q5k how much for severe disablity allowance
             end #Q5f how much for guardian allowance benefit
@@ -144,8 +147,9 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
                     
                     should "go to outcome" do
                       assert_current_node :outcome_not_affected_less_than_cap
+                      assert_phrase_list :outcome_phrase, [:outcome_not_affected_less_than_cap_phrase,:contact_details]
                     end
-                  end #Q6 lone parent, under cap, at Outcome
+                  end #Q6 lone parent, under cap, at Outcome 4
                 end #Q5p how much for housing, under cap
               end #Q5j how much for maternity, under cap
             end #Q5e how much for esa, under cap
@@ -157,8 +161,9 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
             
             should "go to outcome" do
               assert_current_node :outcome_not_affected
+              assert_phrase_list :outcome_phrase, [:outcome_not_affected_phrase,:contact_details]
             end
-          end #Q4 no additional benefits at Outcome
+          end #Q4 no additional benefits at Outcome 5
         end #Q3 not receiving benefits
       end # Q2 not qualify for working tax credit
     end # Q1 Receiving housing benefit
@@ -169,7 +174,8 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
       
       should "go to Outcome 1" do
         assert_current_node :outcome_not_affected_no_housing_benefit
+        assert_phrase_list :outcome_phrase, [:outcome_not_affected_no_housing_benefit_phrase,:contact_details]
       end
-    end # Q1 not receving housing benefit at Outcome
+    end # Q1 not receving housing benefit at Outcome 2
   end # Benefit cap calculator
 end # BenefitCapCalculatorTest

@@ -189,7 +189,7 @@ end
 money_question :jsa_amount? do
   
   calculate :total_benefits do
-    total_benefits += responses.last.to_f
+    total_benefits + responses.last.to_f
   end
   
   next_node do
@@ -317,26 +317,50 @@ end
 ##OUTCOMES
 
 ## Outcome 1
-outcome :outcome_not_affected_exemptions
+outcome :outcome_not_affected_exemptions do
+  precalculate :outcome_phrase do
+    PhraseList.new(:outcome_not_affected_exemptions_phrase, :contact_details)
+  end
+end
 
 ## Outcome 2
-outcome :outcome_not_affected_no_housing_benefit
+outcome :outcome_not_affected_no_housing_benefit do
+  precalculate :outcome_phrase do
+    PhraseList.new(:outcome_not_affected_no_housing_benefit_phrase, :contact_details)
+  end
+end
 
 ## Outcome 3
 outcome :outcome_affected_greater_than_cap do
   
+  precalculate :outcome_phrase do
+    PhraseList.new(:outcome_affected_greater_than_cap_phrase, :contact_details)
+  end
+  
+  precalculate :total_benefits do
+    sprintf("%.2f",total_benefits)
+  end
+  
   precalculate :total_over_cap do
-    total_benefits - benefit_cap.to_f
+    sprintf("%.2f",(total_benefits.to_f - benefit_cap.to_f))
   end
   
   precalculate :new_housing_benefit do
-    housing_benefit_amount - total_over_cap
+    sprintf("%.2f",(housing_benefit_amount - total_over_cap.to_f))
   end
   
 end
 
 ## Outcome 4
-outcome :outcome_not_affected_less_than_cap
+outcome :outcome_not_affected_less_than_cap do
+  precalculate :outcome_phrase do
+    PhraseList.new(:outcome_not_affected_less_than_cap_phrase, :contact_details)
+  end
+end
 
 ## Outcome 5
-outcome :outcome_not_affected
+outcome :outcome_not_affected do
+  precalculate :outcome_phrase do
+    PhraseList.new(:outcome_not_affected_phrase, :contact_details)
+  end
+end
