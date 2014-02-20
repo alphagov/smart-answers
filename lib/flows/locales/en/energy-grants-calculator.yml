@@ -32,7 +32,7 @@ en-GB:
           Unfortunately it doesn’t look like you qualify for money off your energy bill. You can still get help to reduce your energy use with:
         title_might_be_eligible: you might be eligible for help with your energy bills
         title_energy_supplier: "Based on your answers you might qualify for help from your energy supplier with the following:"
-        title_under_green_deal: "Under the [Green Deal](/green-deal) you could get some of these measures without having to pay all the cost upfront:"
+        title_under_green_deal: "Under the Green Deal you could get some of these measures without having to pay all the cost upfront:"
         smartmeters: |
           [Smart meters](/smart-meters) can help you keep track of how much energy you're using. You won't get estimated bills and won't need to take meter readings.
 
@@ -67,9 +67,8 @@ en-GB:
         s_micro_chp: "- [Micro CHP](http://www.energysavingtrust.org.uk/Generating-energy/Choosing-a-renewable-technology/Micro-CHP-micro-combined-heat-and-power)"
         u_solar: "- [Solar panels](http://www.energysavingtrust.org.uk/Generating-energy/Choosing-a-renewable-technology/Solar-panels-PV)"
 
-        v_green_deal: |
-          Under the Green Deal you could get some of these measures without having to pay all the cost upfront.
-
+        v_green_deal_title: Under the Green Deal you could get some of these measures without having to pay all the cost upfront.
+        v_green_deal_body: |
           ^Find out more about the [Green Deal](https://www.gov.uk/greendeal) or get a [Green Deal assessment](http://gdorb.decc.gov.uk/consumersearch).^
         w_renewal_heat: |
           If your home is well insulated you could also qualify for money towards a [renewable heating system](/renewable-heat-premium-payment) and get paid for [generating your own electricity](/feed-in-tariffs).

@@ -396,7 +396,7 @@ outcome :outcome_help_with_bills do
     if circumstances.include?('benefits')
       phrases << :microgeneration
     elsif bills_help
-      phrases << :microgeneration << :v_green_deal
+      phrases << :microgeneration << :v_green_deal_title << :v_green_deal_body
     end
     phrases
   end
@@ -486,7 +486,8 @@ outcome :outcome_measures_help_green_deal do
     end
     phrases << :u_solar
     if !bills_help
-      phrases << :v_green_deal << :w_renewal_heat
+      phrases << :v_green_deal_title unless measure_help
+      phrases << :v_green_deal_body << :w_renewal_heat
     end
     phrases << :help_and_advice << :help_and_advice_body
     phrases

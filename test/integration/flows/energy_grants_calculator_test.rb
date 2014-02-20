@@ -40,7 +40,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
           should "take you to help with bills outcome" do
             assert_current_node :outcome_help_with_bills # outcome 1
             assert_phrase_list :help_with_bills_outcome_title, [:title_help_with_bills_outcome]
-            assert_phrase_list :eligibilities_bills, [:winter_fuel_payments, :smartmeters, :microgeneration, :v_green_deal]
+            assert_phrase_list :eligibilities_bills, [:winter_fuel_payments, :smartmeters, :microgeneration, :v_green_deal_title, :v_green_deal_body]
           end
         end
         context "answer over 60" do
@@ -53,7 +53,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
           should "take you to help with bills outcome" do
             assert_current_node :outcome_help_with_bills # outcome 1
             assert_phrase_list :help_with_bills_outcome_title, [:title_no_help_with_bills_outcome]
-            assert_phrase_list :eligibilities_bills, [:smartmeters, :microgeneration, :v_green_deal]
+            assert_phrase_list :eligibilities_bills, [:smartmeters, :microgeneration, :v_green_deal_title, :v_green_deal_body]
           end
         end
         context "answer under 60" do
@@ -63,7 +63,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
           should "take you to the help with bills outcome" do
             assert_current_node :outcome_help_with_bills # outcome 1
             assert_phrase_list :help_with_bills_outcome_title, [:title_no_help_with_bills_outcome]
-            assert_phrase_list :eligibilities_bills, [:smartmeters, :microgeneration, :v_green_deal]
+            assert_phrase_list :eligibilities_bills, [:smartmeters, :microgeneration, :v_green_deal_title, :v_green_deal_body]
           end
         end
       end
@@ -468,7 +468,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
               should "take you to measure help & eco eligible outcome with mains gas variants" do
                 assert_current_node :outcome_measures_help_green_deal
                 assert_phrase_list :title_end, [:title_under_green_deal]
-                assert_phrase_list :eligibilities, [:boilers_and_insulation, :a_condensing_boiler, :b_cavity_wall_insulation, :c_solid_wall_insulation, :d_draught_proofing, :e_loft_roof_insulation, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :windows_and_doors, :m_replacement_glazing, :n_secondary_glazing, :o_external_doors, :r_micro_wind, :s_micro_chp, :u_solar, :v_green_deal, :w_renewal_heat, :help_and_advice, :help_and_advice_body]
+                assert_phrase_list :eligibilities, [:boilers_and_insulation, :a_condensing_boiler, :b_cavity_wall_insulation, :c_solid_wall_insulation, :d_draught_proofing, :e_loft_roof_insulation, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :windows_and_doors, :m_replacement_glazing, :n_secondary_glazing, :o_external_doors, :r_micro_wind, :s_micro_chp, :u_solar, :v_green_deal_body, :w_renewal_heat, :help_and_advice, :help_and_advice_body]
               end
             end
           end
@@ -649,7 +649,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       should "take to help with bills outcome, winter fuel payment, no benefits" do
         assert_current_node :outcome_help_with_bills
         assert_phrase_list :help_with_bills_outcome_title, [:title_help_with_bills_outcome]
-        assert_phrase_list :eligibilities_bills, [:winter_fuel_payments, :smartmeters, :microgeneration, :v_green_deal]
+        assert_phrase_list :eligibilities_bills, [:winter_fuel_payments, :smartmeters, :microgeneration, :v_green_deal_title, :v_green_deal_body]
       end
     end
     context "no winter fuel payment, no benefits" do
@@ -661,7 +661,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       should "take you to help with bills outcome, no winter fuel, no benefits" do
         assert_current_node :outcome_help_with_bills
         assert_phrase_list :help_with_bills_outcome_title, [:title_no_help_with_bills_outcome]
-        assert_phrase_list :eligibilities_bills, [:smartmeters, :microgeneration, :v_green_deal]
+        assert_phrase_list :eligibilities_bills, [:smartmeters, :microgeneration, :v_green_deal_title, :v_green_deal_body]
       end
     end
 
@@ -677,7 +677,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       should "take you to the green deal outcome with these variations" do
         assert_current_node :outcome_measures_help_green_deal
         assert_phrase_list :title_end, [:title_under_green_deal]
-        assert_phrase_list :eligibilities, [:boilers_and_insulation, :a_condensing_boiler, :b_cavity_wall_insulation, :c_solid_wall_insulation, :d_draught_proofing, :e_loft_roof_insulation, :heating, :h_fan_assisted_heater, :i_warm_air_unit, :j_better_heating_controls, :p_heat_pump, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :windows_and_doors, :m_replacement_glazing, :n_secondary_glazing, :o_external_doors, :r_micro_wind, :u_solar, :v_green_deal, :w_renewal_heat, :help_and_advice, :help_and_advice_body]
+        assert_phrase_list :eligibilities, [:boilers_and_insulation, :a_condensing_boiler, :b_cavity_wall_insulation, :c_solid_wall_insulation, :d_draught_proofing, :e_loft_roof_insulation, :heating, :h_fan_assisted_heater, :i_warm_air_unit, :j_better_heating_controls, :p_heat_pump, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :windows_and_doors, :m_replacement_glazing, :n_secondary_glazing, :o_external_doors, :r_micro_wind, :u_solar, :v_green_deal_body, :w_renewal_heat, :help_and_advice, :help_and_advice_body]
       end
     end
     context "social housing, historic house, mains gas" do
@@ -691,7 +691,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       should "take you to green deal outcome with mains gas variants" do
         assert_current_node :outcome_measures_help_green_deal
         assert_phrase_list :title_end, [:title_under_green_deal]
-        assert_phrase_list :eligibilities, [:boilers_and_insulation, :a_condensing_boiler, :b_cavity_wall_insulation, :c_solid_wall_insulation, :d_draught_proofing, :e_loft_roof_insulation, :g_under_floor_insulation, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :windows_and_doors, :m_replacement_glazing, :n_secondary_glazing, :o_external_doors, :r_micro_wind, :s_micro_chp, :u_solar, :v_green_deal, :w_renewal_heat, :help_and_advice, :help_and_advice_body]
+        assert_phrase_list :eligibilities, [:boilers_and_insulation, :a_condensing_boiler, :b_cavity_wall_insulation, :c_solid_wall_insulation, :d_draught_proofing, :e_loft_roof_insulation, :g_under_floor_insulation, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :windows_and_doors, :m_replacement_glazing, :n_secondary_glazing, :o_external_doors, :r_micro_wind, :s_micro_chp, :u_solar, :v_green_deal_body, :w_renewal_heat, :help_and_advice, :help_and_advice_body]
       end
     end
 # test for flat, modern with mains gas and electric heating
