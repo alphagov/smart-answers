@@ -361,6 +361,11 @@ outcome :outcome_not_affected_less_than_cap do
   precalculate :outcome_phrase do
     PhraseList.new(:outcome_not_affected_less_than_cap_phrase, :contact_details)
   end
+  
+  precalculate :total_benefits do
+    sprintf("%.2f",total_benefits)
+  end
+  
 end
 
 ## Outcome 5

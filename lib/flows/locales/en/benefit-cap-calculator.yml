@@ -7,11 +7,11 @@ en-GB:
       body: |
         There’s a limit on the total amount of benefits that most people aged 16 to 64 can get. This is called the [benefit cap](/benefit-cap).
 
-        - This calculator gives an estimate of how much your benefit might be capped.
+        This calculator gives an estimate of how much your benefit might be capped.
 
-        - You’ll need to know the amounts of each benefit you get to use the calculator and the number of people in your household.
+        You’ll need to know the amounts of each benefit you get to use the calculator and the number of people in your household.
 
-        - Your household includes you, your partner and any children that you’re responsible for and who live with you.
+        Your household includes you, your partner and any children that you’re responsible for and who live with you.
       options:
         "yes": "Yes"
         "no": "No"
@@ -33,7 +33,7 @@ en-GB:
         outcome_not_affected_no_housing_benefit_phrase: |
           You aren’t affected by the benefit cap if you’re not claiming Housing Benefit. You might be affected by the cap if you start claiming Housing Benefit.
           
-          "Contact the Department for Work and Pensions if you need further help:"
+          Contact the Department for Work and Pensions if you need further help:
         outcome_affected_greater_than_cap_phrase: |
           This means your Housing Benefit will now be: £%{new_housing_benefit}.
           
@@ -124,83 +124,83 @@ en-GB:
 
 # Q5a
       bereavement_amount?:
-        title: How much do you or someone in your household get for Bereavement Allowance? You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week.
-        hint: You must enter the full amount you get for each benefit.
+        title: How much do you or someone in your household get for Bereavement Allowance?
+        hint: You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week. You must enter the full amount you get for each benefit.
               
 # Q5b
       carers_amount?:
-        title: How much do you or someone in your household get for Carer's Allowance? You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week.
-        hint: You must enter the full amount you get for each benefit.
+        title: How much do you or someone in your household get for Carer's Allowance? 
+        hint: You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week. You must enter the full amount you get for each benefit.
         
 # Q5c
       child_benefit_amount?:
-        title: How much do you or someone in your household get for Child Benefits? You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week.
-        hint: You must enter the full amount you get for each benefit.
+        title: How much do you or someone in your household get for Child Benefits?
+        hint: You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week. You must enter the full amount you get for each benefit.
 
 # Q5d
       child_tax_amount?:
-        title: How much do you or someone in your household get for Child Tax Credits? You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week.
-        hint: You must enter the full amount you get for each benefit.
+        title: How much do you or someone in your household get for Child Tax Credits?
+        hint: You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week. You must enter the full amount you get for each benefit.
 
 # Q5e
       esa_amount?:
-        title: How much do you or someone in your household get for Employment and Support Allowance? You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week.
-        hint: You must enter the full amount you get for each benefit.
+        title: How much do you or someone in your household get for Employment and Support Allowance?
+        hint: You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week. You must enter the full amount you get for each benefit.
 
 # Q5f
       guardian_amount?:
-        title: How much do you or someone in your household get for Guardian's Allowance? You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week.
-        hint: You must enter the full amount you get for each benefit.
+        title: How much do you or someone in your household get for Guardian's Allowance?
+        hint: You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week. You must enter the full amount you get for each benefit.
 
 # Q5g
       incapacity_amount?:
-        title: How much do you or someone in your household get for Incapacity Benefit? You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week.
-        hint: You must enter the full amount you get for each benefit.
+        title: How much do you or someone in your household get for Incapacity Benefit?
+        hint: You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week. You must enter the full amount you get for each benefit.
 
 # Q5h
       income_support_amount?:
-        title: How much do you or someone in your household get for Income Support? You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week.
-        hint: You must enter the full amount you get for each benefit.
+        title: How much do you or someone in your household get for Income Support?
+        hint: You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week. You must enter the full amount you get for each benefit.
 
 # Q5i
       jsa_amount?:
-        title: How much do you or someone in your household get for Jobseeker’s Allowance? You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week.
-        hint: You must enter the full amount you get for each benefit.
+        title: How much do you or someone in your household get for Jobseeker’s Allowance?
+        hint: You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week. You must enter the full amount you get for each benefit.
 
 # Q5j
       maternity_amount?:
-        title: How much do you or someone in your household get for Maternity Allowance? You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week.
-        hint: You must enter the full amount you get for each benefit.
+        title: How much do you or someone in your household get for Maternity Allowance?
+        hint: You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week. You must enter the full amount you get for each benefit.
 
 # Q5k
       sda_amount?:
-        title: How much do you or someone in your household get for Severe Disability Allowance? You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week.
-        hint: You must enter the full amount you get for each benefit.
+        title: How much do you or someone in your household get for Severe Disability Allowance?
+        hint: You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week. You must enter the full amount you get for each benefit.
 
 # Q5l
       widowed_mother_amount?:
-        title: How much do you or someone in your household get for Widowed Mother's Allowance? You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week.
-        hint: You must enter the full amount you get for each benefit.
+        title: How much do you or someone in your household get for Widowed Mother's Allowance?
+        hint: You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week. You must enter the full amount you get for each benefit.
 
 # Q5m
       widowed_parent_amount?:
-        title: How much do you or someone in your household get for Widowed Parent's Allowance? You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week.
-        hint: You must enter the full amount you get for each benefit.
+        title: How much do you or someone in your household get for Widowed Parent's Allowance?
+        hint: You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week. You must enter the full amount you get for each benefit.
 
 # Q5n
       widow_pension_amount?:
-        title: How much do you or someone in your household get for Widow's Pension? You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week.
-        hint: You must enter the full amount you get for each benefit.
+        title: How much do you or someone in your household get for Widow's Pension?
+        hint: You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week. You must enter the full amount you get for each benefit.
 
 # Q5o
       widows_aged_amount?:
-        title: How much do you or someone in your household get for Widow's Pension (age related)? You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week.
-        hint: You must enter the full amount you get for each benefit.
+        title: How much do you or someone in your household get for Widow's Pension (age related)?
+        hint: You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week. You must enter the full amount you get for each benefit.
 
 # Q5p
       housing_benefit_amount?:
-        title: How much do you or someone in your household get for Housing Benefit? You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week.
-        hint: You must enter the full amount you get for each benefit.
+        title: How much do you or someone in your household get for Housing Benefit?
+        hint: You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week. You must enter the full amount you get for each benefit.
 
 # Q6
       single_couple_lone_parent?:
