@@ -6,6 +6,9 @@ en-GB:
         study_reason: study
         work_reason: work
         
+        taiwan_additional_sentence: |
+          
+        
         study_additional_sentence: |
           However, you should bring documents with you to show at the border. See the relevant [student visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/studying/) guide to see what documents to bring.
           
@@ -72,9 +75,17 @@ en-GB:
 
       planning_to_leave_airport?:
         title: Will you pass through UK Border Control?
+        hint: You might pass through UK Border Control even if you don't leave the airport - eg your bags aren't checked through and you need to collect them before transferring to your outbound flight.
         options:
           "yes": "Yes"
           "no": "No"
+        
+        taiwan_passport_personal_id_number?:
+        title: Will you pass through UK Border Control?
+        options:
+          "yes": "Yes"
+          "no": "No"
+
 
       outcome_no_visa_needed:
         title: You won’t need a visa to come to the UK
@@ -209,8 +220,9 @@ en-GB:
           
           -  you arrive and depart by air  
           -  have a confirmed onward flight which leaves within 24 hours  
-          - have the correct documents for your destination (eg a visa for that country)
-          %The ‘transit without visa concession’ is decided by the immigration officer at the border - you won’t be allowed to transit if they decide you need a visa.%
+          -  have the correct documents for your destination (eg a visa for that country)
+          
+          %The ‘transit without visa concession’ is decided by the immigration officer at the border. You won’t be allowed to transit if they decide you need a visa, so you might want to apply for a transit visa before you travel.%
         
       outcome_transit_not_leaving_airport:
         title: You’ll need a visa to pass through the UK in transit (unless you’re exempt)
@@ -229,7 +241,7 @@ en-GB:
           - have a valid uniform format residence permit issued by an EEA state
 
       outcome_transit_leaving_airport_datv:
-        title: You’ll need a visa to pass through the UK in transit (unless you’re exempt)
+        title: You’ll need a visa to pass through the UK in transit
         body: |
           You should apply for a [Visitor in Transit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/transitthroughtheuk/visa-to-transit-landside/) if you arrive on a flight and will pass through immigration control before you leave the UK.
 
@@ -240,7 +252,9 @@ en-GB:
           - you arrive and depart by air  
           - have a confirmed onward flight which leaves within 24 hours  
           - have the right documents for your destination (eg a visa for that country)  
+          
           One of the following must also apply:
+          
           - you’re travelling to Australia, Canada, New Zealand or the USA and have a valid visa for that country
           - you’re travelling from Australia, Canada, New Zealand or the USA and it’s less than 6 months since you last entered that country with a valid entry visa
           - you have a valid US permanent residence card issued on or after 21 April 1998 (or an I-797 extension letter issued by the Bureau of Citizenship if it’s expired)
@@ -248,7 +262,7 @@ en-GB:
           - you have a valid uniform format category D visa for entry to a state in the European Economic Area (EEA)
           - you have a valid uniform format residence permit issued by an EEA state 
 
-          % The ‘transit without visa concession’ is decided by the immigration officer at the border - you won’t be allowed to transit if they decide you need a visa.%
+          %The ‘transit without visa concession’ is decided by the immigration officer at the border. You won’t be allowed to transit if they decide you need a visa, so you might want to apply for a transit visa before you travel.%
 
       outcome_joining_family_y:
         title: You’ll need a visa to join your family in the UK
@@ -297,7 +311,7 @@ en-GB:
 
           ##Tourism and visiting friends
 
-          Apply for a [general visit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/general/) if you’re visiting the UK for a holiday or to visit friends.
+          Apply for a [general visit visa](https://www.gov.uk/ads-visa) if you’re visiting the UK for a holiday or to visit friends.
 
           ##Visiting family
 
@@ -316,8 +330,8 @@ en-GB:
       outcome_school_n:
         title: You won’t need a visa to come to the UK
         body: |
-          However, you should bring certain documents with you to show UK immigration officers at the border.
-
+          However, you should bring the [same documents](https://www.gov.uk/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a visa, to show to officers at the UK border. 
+          
           See which documents you should bring if you’re:
 
           - a [tourist](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/general/)
@@ -340,8 +354,8 @@ en-GB:
       outcome_medical_n:
         title: You won’t need a visa to visit the UK
         body:
-          However, you should bring certain documents with you to show UK immigration officers at the border.
-
+          However, you should bring the [same documents](https://www.gov.uk/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a private medical visitor visa, to show to officers at the UK border. 
+          
           Check which [documents you should bring](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/medical/documents/)
 
       outcome_visit_waiver:

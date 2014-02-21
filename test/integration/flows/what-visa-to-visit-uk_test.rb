@@ -201,7 +201,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
           add_response 'yes'
         end
         should "take you to 'transit_leaving_airport' outcome" do
-          assert_current_node :outcome_transit_leaving_airport
+          assert_current_node :outcome_transit_leaving_airport_datv
         end
       end
       context "not planning to leave airport" do
@@ -209,7 +209,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
           add_response 'no'
         end
         should "take you to outcome no visa needed" do
-          assert_current_node :outcome_no_visa_needed
+          assert_current_node :outcome_transit_not_leaving_airport
         end
       end
     end
@@ -524,20 +524,6 @@ end
       assert_current_node :outcome_visit_waiver
     end
   end
-  
-  #testing venezuela - oman - qatar - UAE
-  context "testing venezuela special outcome - study - less or six months" do
-    setup do
-      add_response "venezuela"
-      add_response "work"
-      add_response "six_months_or_less"
-    end
-    should "take you to outcome_visit_waiver" do
-      assert_current_node :outcome_visit_waiver
-    end
-  end
-  
-  
   
   context "choose a Non-visa country and check for outcome_work_m" do
     setup do
