@@ -24,6 +24,8 @@ module SmartAnswer::Calculators
     MODIFIED_CARD_ONLY_COUNTRIES = %w(belgium netherlands czech-republic slovakia hungary poland portugal italy spain switzerland)
     
     CASH_AND_CARD_COUNTRIES = %w(estonia)
+    
+    
 
     attr_reader :data
 
