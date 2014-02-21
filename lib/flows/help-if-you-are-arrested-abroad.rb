@@ -40,9 +40,7 @@ country_select :which_country?, :exclude_countries => exclude_countries do
   end
 
   calculate :judicial do
-    if %w(serbia).exclude?(country)
-      arrested_calc.generate_url_for_download(country, "judicial", "Information on the judicial system and procedures in #{country_name}")
-    end
+    arrested_calc.generate_url_for_download(country, "judicial", "Information on the judicial system and procedures in #{country_name}")
   end
 
   calculate :police do
