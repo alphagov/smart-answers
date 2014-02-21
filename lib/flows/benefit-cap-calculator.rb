@@ -351,7 +351,11 @@ outcome :outcome_affected_greater_than_cap do
   end
   
   precalculate :new_housing_benefit do
-    sprintf("%.2f",(housing_benefit_amount.to_f - total_over_cap.to_f))
+    amount = sprintf("%.2f",(housing_benefit_amount.to_f - total_over_cap.to_f))
+    if amount < "0" 
+      amount = sprintf("%.2f",0)
+    end
+    amount
   end
   
 end
@@ -361,6 +365,11 @@ outcome :outcome_not_affected_less_than_cap do
   precalculate :outcome_phrase do
     PhraseList.new(:outcome_not_affected_less_than_cap_phrase, :contact_details)
   end
+  
+  precalculate :total_benefits do
+    sprintf("%.2f",total_benefits)
+  end
+  
 end
 
 ## Outcome 5
