@@ -9,7 +9,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(andorra anguilla armenia canada china croatia mexico south-africa turkey yemen oman united-arab-emirates qatar venezuela)
+    @location_slugs = %w(andorra anguilla armenia canada china croatia mexico south-africa turkey yemen oman united-arab-emirates qatar taiwan venezuela)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'what-visa-to-visit-uk'
   end
@@ -533,6 +533,57 @@ end
     end
       should "take you to outcome work_m" do
         assert_current_node :outcome_work_m
+    end
+  end
+  
+  context "outcome taiwan exception study and six_months_or_less" do
+    setup do
+      add_response 'taiwan'
+      add_response 'study'
+      add_response 'six_months_or_less'
+    end
+      should "take you to outcome taiwan exception" do
+        assert_current_node :outcome_taiwan_exception
+    end
+  end
+  
+  context "outcome taiwan exception tourism" do
+    setup do
+      add_response 'taiwan'
+      add_response 'tourism'
+    end
+      should "take you to outcome taiwan exception" do
+        assert_current_node :outcome_taiwan_exception
+    end
+  end
+  
+  context "outcome taiwan exception school" do
+    setup do
+      add_response 'taiwan'
+      add_response 'school'
+    end
+      should "take you to outcome taiwan exception" do
+        assert_current_node :outcome_taiwan_exception
+    end
+  end
+  
+  context "outcome taiwan exception school" do
+    setup do
+      add_response 'taiwan'
+      add_response 'medical'
+    end
+      should "take you to outcome taiwan exception" do
+        assert_current_node :outcome_taiwan_exception
+    end
+  end
+  
+  context "outcome taiwan exception school" do
+    setup do
+      add_response 'taiwan'
+      add_response 'transit'
+    end
+      should "take you to outcome taiwan exception" do
+        assert_current_node :outcome_taiwan_exception
     end
   end
 end

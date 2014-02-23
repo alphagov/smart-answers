@@ -5,10 +5,7 @@ en-GB:
       
         study_reason: study
         work_reason: work
-        
-        taiwan_additional_sentence: |
-          
-        
+
         study_additional_sentence: |
           However, you should bring documents with you to show at the border. See the relevant [student visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/studying/) guide to see what documents to bring.
           
@@ -79,7 +76,7 @@ en-GB:
         options:
           "yes": "Yes"
           "no": "No"
-        
+
         taiwan_passport_personal_id_number?:
         title: Will you pass through UK Border Control?
         options:
@@ -252,9 +249,9 @@ en-GB:
           - you arrive and depart by air  
           - have a confirmed onward flight which leaves within 24 hours  
           - have the right documents for your destination (eg a visa for that country)  
-          
+
           One of the following must also apply:
-          
+
           - you’re travelling to Australia, Canada, New Zealand or the USA and have a valid visa for that country
           - you’re travelling from Australia, Canada, New Zealand or the USA and it’s less than 6 months since you last entered that country with a valid entry visa
           - you have a valid US permanent residence card issued on or after 21 April 1998 (or an I-797 extension letter issued by the Bureau of Citizenship if it’s expired)
@@ -355,7 +352,6 @@ en-GB:
         title: You won’t need a visa to visit the UK
         body:
           However, you should bring the [same documents](https://www.gov.uk/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a private medical visitor visa, to show to officers at the UK border. 
-          
           Check which [documents you should bring](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/medical/documents/)
 
       outcome_visit_waiver:
@@ -363,4 +359,11 @@ en-GB:
          
           %{if_venezuela}
           %{if_oman_qatar_uae}
+          
+      outcome_taiwan_exception:
+        title: You won't need a visa if your passport has a personal ID number on the bio data page.
+        body:
 
+          However, you should bring the [same documents](https://www.gov.uk/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a visa, to show to officers at the UK border. 
+
+          ^If the bio data page in your passport doesn't include a personal ID number, you must [apply for a visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/).^

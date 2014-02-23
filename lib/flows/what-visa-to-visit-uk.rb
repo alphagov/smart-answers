@@ -58,6 +58,8 @@ multiple_choice :purpose_of_visit? do
     when 'tourism'
       if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
         :outcome_visit_waiver
+      elsif %w(taiwan).include?(passport_country)
+          :outcome_taiwan_exception
       elsif country_group_non_visa_national.include?(passport_country) or
          country_group_ukot.include?(passport_country)
         :outcome_school_n
@@ -67,6 +69,8 @@ multiple_choice :purpose_of_visit? do
     when 'school'
       if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
         :outcome_visit_waiver
+      elsif %w(taiwan).include?(passport_country)
+        :outcome_taiwan_exception
       elsif country_group_non_visa_national.include?(passport_country) or
          country_group_ukot.include?(passport_country)
         :outcome_school_n
@@ -78,6 +82,8 @@ multiple_choice :purpose_of_visit? do
     when 'medical'
       if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
         :outcome_visit_waiver
+      elsif %w(taiwan).include?(passport_country)
+        :outcome_taiwan_exception
       elsif country_group_non_visa_national.include?(passport_country) or
          country_group_ukot.include?(passport_country)
         :outcome_medical_n
@@ -87,6 +93,8 @@ multiple_choice :purpose_of_visit? do
     when 'transit'
       if passport_country == 'venezuela'
         :outcome_visit_waiver
+      elsif %w(taiwan).include?(passport_country)
+        :outcome_taiwan_exception
       elsif country_group_datv.include?(passport_country) or
          country_group_visa_national.include?(passport_country)
         :planning_to_leave_airport?
@@ -143,6 +151,8 @@ multiple_choice :staying_for_how_long? do
       if purpose_of_visit_answer == 'study'
         if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
           :outcome_visit_waiver #outcome 12 visit outcome_visit_waiver
+        elsif %w(taiwan).include?(passport_country)
+          :outcome_taiwan_exception
         elsif country_group_datv.include?(passport_country) || country_group_visa_national.include?(passport_country) 
           :outcome_study_m #outcome 3 study m visa needed short courses 
         elsif country_group_ukot.include?(passport_country) || country_group_non_visa_national.include?(passport_country)
@@ -150,8 +160,6 @@ multiple_choice :staying_for_how_long? do
         end
         
       elsif purpose_of_visit_answer == 'work' 
-        # if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
-        #   :outcome_visit_waiver #outcome 12 visit outcome_visit_waiver
         if country_group_datv.include?(passport_country) || country_group_visa_national.include?(passport_country) || country_group_non_visa_national.include?(passport_country)
           :outcome_work_m #outcome 5 work m visa needed short courses
         elsif country_group_ukot.include?(passport_country)
@@ -219,3 +227,4 @@ outcome :outcome_visit_waiver do
   end
 end
 outcome :outcome_transit_leaving_airport_datv
+outcome :outcome_taiwan_exception
