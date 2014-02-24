@@ -4,14 +4,14 @@ require_relative 'flow_test_helper'
 require 'gds_api/test_helpers/worldwide'
 
 
-class WhatVisaToVisitUkTest < ActiveSupport::TestCase
+class CheckUkVisaTest < ActiveSupport::TestCase
   include FlowTestHelper
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(andorra anguilla armenia canada china croatia mexico south-africa turkey yemen oman united-arab-emirates qatar venezuela)
+    @location_slugs = %w(andorra anguilla armenia canada china croatia mexico south-africa turkey yemen oman united-arab-emirates qatar taiwan venezuela)
     worldwide_api_has_locations(@location_slugs)
-    setup_for_testing_flow 'what-visa-to-visit-uk'
+    setup_for_testing_flow 'check-uk-visa'
   end
 
   should "ask what passport do you have" do
@@ -201,7 +201,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
           add_response 'yes'
         end
         should "take you to 'transit_leaving_airport' outcome" do
-          assert_current_node :outcome_transit_leaving_airport
+          assert_current_node :outcome_transit_leaving_airport_datv
         end
       end
       context "not planning to leave airport" do
@@ -209,7 +209,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
           add_response 'no'
         end
         should "take you to outcome no visa needed" do
-          assert_current_node :outcome_no_visa_needed
+          assert_current_node :outcome_transit_not_leaving_airport
         end
       end
     end
@@ -257,7 +257,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       end
       context "Chinese passport" do
         setup do
-          setup_for_testing_flow 'what-visa-to-visit-uk'
+          setup_for_testing_flow 'check-uk-visa'
           add_response "china"
           add_response "tourism"
         end
@@ -268,7 +268,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       end
       context "Venezuelan passport" do
         setup do
-          setup_for_testing_flow 'what-visa-to-visit-uk'
+          setup_for_testing_flow 'check-uk-visa'
           add_response "venezuela"
           add_response "tourism"
         end
@@ -286,7 +286,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       end
       context "Venezuelan passport" do
         setup do
-          setup_for_testing_flow 'what-visa-to-visit-uk'
+          setup_for_testing_flow 'check-uk-visa'
           add_response "venezuela"
           add_response "school"
         end
@@ -296,7 +296,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       end
       context "Oman passport" do
         setup do
-          setup_for_testing_flow 'what-visa-to-visit-uk'
+          setup_for_testing_flow 'check-uk-visa'
           add_response "oman"
           add_response "school"
         end
@@ -322,7 +322,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       end
       context "Venezuelan passport" do
         setup do
-          setup_for_testing_flow 'what-visa-to-visit-uk'
+          setup_for_testing_flow 'check-uk-visa'
           add_response "venezuela"
           add_response "medical"
         end
@@ -356,7 +356,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       end
       context "Venezuelan passport" do
         setup do
-          setup_for_testing_flow 'what-visa-to-visit-uk'
+          setup_for_testing_flow 'check-uk-visa'
           add_response "venezuela"
           add_response "transit"
         end
@@ -525,20 +525,6 @@ end
     end
   end
   
-  #testing venezuela - oman - qatar - UAE
-  context "testing venezuela special outcome - study - less or six months" do
-    setup do
-      add_response "venezuela"
-      add_response "work"
-      add_response "six_months_or_less"
-    end
-    should "take you to outcome_visit_waiver" do
-      assert_current_node :outcome_visit_waiver
-    end
-  end
-  
-  
-  
   context "choose a Non-visa country and check for outcome_work_m" do
     setup do
       add_response 'mexico'
@@ -547,6 +533,57 @@ end
     end
       should "take you to outcome work_m" do
         assert_current_node :outcome_work_m
+    end
+  end
+  
+  context "outcome taiwan exception study and six_months_or_less" do
+    setup do
+      add_response 'taiwan'
+      add_response 'study'
+      add_response 'six_months_or_less'
+    end
+      should "take you to outcome taiwan exception" do
+        assert_current_node :outcome_taiwan_exception
+    end
+  end
+  
+  context "outcome taiwan exception tourism" do
+    setup do
+      add_response 'taiwan'
+      add_response 'tourism'
+    end
+      should "take you to outcome taiwan exception" do
+        assert_current_node :outcome_taiwan_exception
+    end
+  end
+  
+  context "outcome taiwan exception school" do
+    setup do
+      add_response 'taiwan'
+      add_response 'school'
+    end
+      should "take you to outcome taiwan exception" do
+        assert_current_node :outcome_taiwan_exception
+    end
+  end
+  
+  context "outcome taiwan exception medical" do
+    setup do
+      add_response 'taiwan'
+      add_response 'medical'
+    end
+      should "take you to outcome taiwan exception" do
+        assert_current_node :outcome_taiwan_exception
+    end
+  end
+  
+  context "outcome taiwan exception transit" do
+    setup do
+      add_response 'taiwan'
+      add_response 'transit'
+    end
+      should "take you to outcome taiwan exception" do
+        assert_current_node :outcome_taiwan_exception
     end
   end
 end

@@ -5,13 +5,13 @@ additional_countries = UkbaCountry.all
 
 exclude_countries = %w(american-samoa british-antarctic-territory british-indian-ocean-territory french-guiana french-polynesia gibraltar guadeloupe holy-see martinique mayotte new-caledonia reunion st-pierre-and-miquelon wallis-and-futuna western-sahara)
 
-country_group_ukot = %w(anguilla bermuda british-dependent-territories-citizen british-overseas-citizen british-protected-person british-virgin-islands falkland-islands montserrat pitcairn-island st-helena-ascension-and-tristan-da-cunha south-georgia-and-south-sandwich-islands turks-and-caicos-islands)
+country_group_ukot = %w(anguilla bermuda british-dependent-territories-citizen british-overseas-citizen british-protected-person british-virgin-islands cayman-islands falkland-islands montserrat pitcairn-island st-helena-ascension-and-tristan-da-cunha south-georgia-and-south-sandwich-islands turks-and-caicos-islands)
 
-country_group_non_visa_national = %w(andorra antigua-and-barbuda argentina australia bahamas barbados belize botswana brazil british-national-overseas brunei canada chile costa-rica curacao dominica timor-leste el-salvador grenada guatemala honduras hong-kong hong-kong-(british-national-overseas) israel japan kiribati south-korea macao malaysia maldives marshall-islands mauritius mexico micronesia monaco namibia nauru new-zealand nicaragua palau panama papua-new-guinea paraguay st-kitts-and-nevis st-lucia st-maarten st-vincent-and-the-grenadines samoa san-marino seychelles singapore solomon-islands taiwan tonga trinidad-and-tobago tuvalu usa uruguay vanuatu)
+country_group_non_visa_national = %w(andorra antigua-and-barbuda argentina australia bahamas barbados belize botswana brazil british-national-overseas brunei canada chile costa-rica curacao dominica timor-leste el-salvador grenada guatemala honduras hong-kong hong-kong-(british-national-overseas) israel japan kiribati south-korea macao malaysia maldives marshall-islands mauritius mexico micronesia monaco namibia nauru new-zealand nicaragua palau panama papua-new-guinea paraguay st-kitts-and-nevis st-lucia st-maarten st-vincent-and-the-grenadines samoa san-marino seychelles singapore solomon-islands tonga trinidad-and-tobago tuvalu usa uruguay vanuatu vatican-city)
 
-country_group_visa_national = %w(armenia aruba azerbaijan bahrain benin bhutan bonaire-st-eustatius-saba bosnia-and-herzegovina burkina-faso cambodia cape-verde central-african-republic chad comoros cuba djibouti dominican-republic egypt equatorial-guinea fiji gabon georgia guyana haiti india indonesia israel-(Laisse-Passer) jordan kazakhstan korea kuwait kyrgyzstan laos libya madagascar mali mauritania morocco mozambique niger pakistan peru philippines qatar russia sao-tome-and-principe saudi-arabia suriname syria tajikistan thailand togo tunisia turkmenistan ukraine united-arab-emirates uzbekistan vatican-city vietnam yemen zambia)
+country_group_visa_national = %w(armenia aruba azerbaijan bahrain benin bhutan bonaire-st-eustatius-saba bosnia-and-herzegovina burkina-faso cambodia cape-verde central-african-republic chad comoros cuba djibouti dominican-republic equatorial-guinea fiji gabon georgia guyana haiti indonesia jordan kazakhstan korea kuwait kyrgyzstan laos madagascar mali mauritania morocco mozambique netherlands-antilles niger oman peru philippines qatar russia sao-tome-and-principe saudi-arabia suriname tajikistan taiwan thailand togo tunisia turkmenistan ukraine united-arab-emirates uzbekistan zambia)
 
-country_group_datv = %w(afghanistan albania algeria angola bangladesh belarus bolivia burma burundi cameroon china colombia congo democratic-republic-of-congo ecuador eritrea ethiopia gambia ghana guinea guinea-bissau india iran iraq cote-d-ivoire cyprus-north jamaica kenya kosovo lebanon lesotho liberia macedonia malawi moldova mongolia montenegro nepal nigeria oman the-occupied-palestinian-territories refugee rwanda senegal serbia sierra-leone somalia south-africa south-sudan sri-lanka stateless-person sudan swaziland tanzania turkey uganda venezuela vietnam zimbabwe)
+country_group_datv = %w(afghanistan albania algeria angola bangladesh belarus bolivia burma burundi cameroon china colombia congo democratic-republic-of-congo ecuador egypt eritrea ethiopia gambia ghana guinea guinea-bissau india iran iraq cote-d-ivoire cyprus-north jamaica kenya kosovo lebanon lesotho liberia libya macedonia malawi moldova mongolia montenegro nepal nigeria the-occupied-palestinian-territories pakistan refugee rwanda senegal serbia sierra-leone somalia south-africa south-sudan sri-lanka stateless-person sudan swaziland syria tanzania turkey uganda venezuela vietnam yemen zimbabwe)
 
 country_group_eea = %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia finland france germany greece hungary iceland ireland italy latvia liechtenstein lithuania luxembourg malta netherlands norway poland portugal romania slovakia slovenia spain sweden switzerland)
 
@@ -58,6 +58,8 @@ multiple_choice :purpose_of_visit? do
     when 'tourism'
       if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
         :outcome_visit_waiver
+      elsif %w(taiwan).include?(passport_country)
+          :outcome_taiwan_exception
       elsif country_group_non_visa_national.include?(passport_country) or
          country_group_ukot.include?(passport_country)
         :outcome_school_n
@@ -67,6 +69,8 @@ multiple_choice :purpose_of_visit? do
     when 'school'
       if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
         :outcome_visit_waiver
+      elsif %w(taiwan).include?(passport_country)
+        :outcome_taiwan_exception
       elsif country_group_non_visa_national.include?(passport_country) or
          country_group_ukot.include?(passport_country)
         :outcome_school_n
@@ -78,6 +82,8 @@ multiple_choice :purpose_of_visit? do
     when 'medical'
       if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
         :outcome_visit_waiver
+      elsif %w(taiwan).include?(passport_country)
+        :outcome_taiwan_exception
       elsif country_group_non_visa_national.include?(passport_country) or
          country_group_ukot.include?(passport_country)
         :outcome_medical_n
@@ -87,6 +93,8 @@ multiple_choice :purpose_of_visit? do
     when 'transit'
       if passport_country == 'venezuela'
         :outcome_visit_waiver
+      elsif %w(taiwan).include?(passport_country)
+        :outcome_taiwan_exception
       elsif country_group_datv.include?(passport_country) or
          country_group_visa_national.include?(passport_country)
         :planning_to_leave_airport?
@@ -143,6 +151,8 @@ multiple_choice :staying_for_how_long? do
       if purpose_of_visit_answer == 'study'
         if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
           :outcome_visit_waiver #outcome 12 visit outcome_visit_waiver
+        elsif %w(taiwan).include?(passport_country)
+          :outcome_taiwan_exception
         elsif country_group_datv.include?(passport_country) || country_group_visa_national.include?(passport_country) 
           :outcome_study_m #outcome 3 study m visa needed short courses 
         elsif country_group_ukot.include?(passport_country) || country_group_non_visa_national.include?(passport_country)
@@ -150,9 +160,7 @@ multiple_choice :staying_for_how_long? do
         end
         
       elsif purpose_of_visit_answer == 'work' 
-        if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
-          :outcome_visit_waiver #outcome 12 visit outcome_visit_waiver
-        elsif country_group_datv.include?(passport_country) || country_group_visa_national.include?(passport_country) || country_group_non_visa_national.include?(passport_country)
+        if country_group_datv.include?(passport_country) || country_group_visa_national.include?(passport_country) || country_group_non_visa_national.include?(passport_country)
           :outcome_work_m #outcome 5 work m visa needed short courses
         elsif country_group_ukot.include?(passport_country)
           :outcome_work_n #outcome 5.5 work N no visa needed
@@ -161,6 +169,7 @@ multiple_choice :staying_for_how_long? do
     end
   end                    
 end
+
 
 outcome :outcome_no_visa_needed do
   precalculate :no_visa_additional_sentence do
@@ -218,3 +227,4 @@ outcome :outcome_visit_waiver do
   end
 end
 outcome :outcome_transit_leaving_airport_datv
+outcome :outcome_taiwan_exception
