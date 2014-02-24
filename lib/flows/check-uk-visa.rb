@@ -1,4 +1,4 @@
-status :draft
+status :published
 satisfies_need "2969"
 
 additional_countries = UkbaCountry.all
