@@ -14,21 +14,48 @@ module SmartAnswer::Calculators
       (filing_date <= filing_deadline) && (payment_date <= payment_deadline)
     end
 
+    # def late_filing_penalty
+    #   if overdue_filing_days <= 0
+    #     result = 0
+    #   #elsif overdue_filing_days <= 89
+    #   elsif (submission_method == "online" && overdue_filing_days <= 89 )|| (submission_method == "paper" && overdue_filing_days <= 92)
+    #     result = 100
+    #   elsif overdue_filing_days <= 179
+    #     result = (overdue_filing_days - 89) * 10 + 100
+    #   elsif overdue_filing_days <= 364
+    #     if estimated_bill.value > 6002
+    #       result = 1000 + (estimated_bill.value * 0.05)
+    #     else
+    #       result = 1000 + [300, estimated_bill.value * 0.05].max
+    #     end
+    #   else
+    #     result = 1000 + [600, estimated_bill.value * 0.05].max
+    #   end
+    #   SmartAnswer::Money.new(result)
+    # end
+    #NEW THING
     def late_filing_penalty
-      if overdue_filing_days <= 0
-        result = 0
-      #elsif overdue_filing_days <= 89
-      elsif (submission_method == "online" && overdue_filing_days <= 89 )|| (submission_method == "paper" && overdue_filing_days <= 92)
-        result = 100
-      elsif overdue_filing_days <= 179
-        result = (overdue_filing_days - 89) * 10 + 100
-      elsif overdue_filing_days <= 364
+      if submission_method == "online"
+        if overdue_filing_days <= 89
+          result = 100
+        elsif overdue_filing_days <= 181
+          result = (overdue_filing_days - 89) * 10 + 100
+        end
+      else 
+        if overdue_filing_days <= 92
+          result = 100
+        elsif overdue_filing_days <= 181
+          result = (overdue_filing_days - 92) * 10 + 100
+        end
+      end
+      
+      if overdue_filing_days >181 && overdue_filing_days <= 364
         if estimated_bill.value > 6002
           result = 1000 + (estimated_bill.value * 0.05)
         else
           result = 1000 + [300, estimated_bill.value * 0.05].max
         end
-      else
+      elsif overdue_filing_days > 364
         result = 1000 + [600, estimated_bill.value * 0.05].max
       end
       SmartAnswer::Money.new(result)
