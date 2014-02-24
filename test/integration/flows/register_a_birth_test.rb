@@ -8,7 +8,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan andorra australia barbados belize cameroon central-african-republic china el-salvador guatemala grenada hong-kong indonesia ireland iran laos libya maldives netherlands pakistan serbia spain sri-lanka st-kitts-and-nevis sweden taiwan thailand turkey united-arab-emirates usa vietnam yemen)
+    @location_slugs = %w(afghanistan andorra australia barbados belize cameroon central-african-republic china el-salvador estonia guatemala grenada hong-kong indonesia ireland iran laos libya maldives netherlands pakistan serbia spain sri-lanka st-kitts-and-nevis sweden taiwan thailand turkey united-arab-emirates usa vietnam yemen)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-birth'
   end
@@ -460,7 +460,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :postal, [:post_only_pay_by_card_countries]
     end
   end # Netherlands
-  
     context "answer serbia" do
     should "check for clickbook and give embassy result" do
       worldwide_api_has_organisations_for_location('serbia', read_fixture_file('worldwide/serbia_organisations.json'))
@@ -473,4 +472,15 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :go_to_the_embassy, [:registering_clickbook, :registering_either_parent]
     end 
   end # Serbia
+    context "answer estonia" do
+    should "show cash, credit card or cheque condition and give embassy result" do
+      worldwide_api_has_organisations_for_location('estonia', read_fixture_file('worldwide/estonia_organisations.json'))
+      add_response "estonia"
+      add_response "mother_and_father"
+      add_response "yes"
+      add_response "same_country"
+      assert_current_node :embassy_result
+      assert_phrase_list :cash_only, [:cash_and_card]
+    end
+  end # Estonia
 end
