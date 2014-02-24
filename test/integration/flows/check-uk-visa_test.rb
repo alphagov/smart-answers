@@ -4,7 +4,7 @@ require_relative 'flow_test_helper'
 require 'gds_api/test_helpers/worldwide'
 
 
-class ChekUkVisa < ActiveSupport::TestCase
+class CheckUkVisaTest < ActiveSupport::TestCase
   include FlowTestHelper
   include GdsApi::TestHelpers::Worldwide
 
