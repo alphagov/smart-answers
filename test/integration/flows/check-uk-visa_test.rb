@@ -4,14 +4,14 @@ require_relative 'flow_test_helper'
 require 'gds_api/test_helpers/worldwide'
 
 
-class WhatVisaToVisitUkTest < ActiveSupport::TestCase
+class ChekUkVisa < ActiveSupport::TestCase
   include FlowTestHelper
   include GdsApi::TestHelpers::Worldwide
 
   setup do
     @location_slugs = %w(andorra anguilla armenia canada china croatia mexico south-africa turkey yemen oman united-arab-emirates qatar taiwan venezuela)
     worldwide_api_has_locations(@location_slugs)
-    setup_for_testing_flow 'what-visa-to-visit-uk'
+    setup_for_testing_flow 'check-uk-visa'
   end
 
   should "ask what passport do you have" do
@@ -257,7 +257,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       end
       context "Chinese passport" do
         setup do
-          setup_for_testing_flow 'what-visa-to-visit-uk'
+          setup_for_testing_flow 'check-uk-visa'
           add_response "china"
           add_response "tourism"
         end
@@ -268,7 +268,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       end
       context "Venezuelan passport" do
         setup do
-          setup_for_testing_flow 'what-visa-to-visit-uk'
+          setup_for_testing_flow 'check-uk-visa'
           add_response "venezuela"
           add_response "tourism"
         end
@@ -286,7 +286,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       end
       context "Venezuelan passport" do
         setup do
-          setup_for_testing_flow 'what-visa-to-visit-uk'
+          setup_for_testing_flow 'check-uk-visa'
           add_response "venezuela"
           add_response "school"
         end
@@ -296,7 +296,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       end
       context "Oman passport" do
         setup do
-          setup_for_testing_flow 'what-visa-to-visit-uk'
+          setup_for_testing_flow 'check-uk-visa'
           add_response "oman"
           add_response "school"
         end
@@ -322,7 +322,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       end
       context "Venezuelan passport" do
         setup do
-          setup_for_testing_flow 'what-visa-to-visit-uk'
+          setup_for_testing_flow 'check-uk-visa'
           add_response "venezuela"
           add_response "medical"
         end
@@ -356,7 +356,7 @@ class WhatVisaToVisitUkTest < ActiveSupport::TestCase
       end
       context "Venezuelan passport" do
         setup do
-          setup_for_testing_flow 'what-visa-to-visit-uk'
+          setup_for_testing_flow 'check-uk-visa'
           add_response "venezuela"
           add_response "transit"
         end
@@ -567,7 +567,7 @@ end
     end
   end
   
-  context "outcome taiwan exception school" do
+  context "outcome taiwan exception medical" do
     setup do
       add_response 'taiwan'
       add_response 'medical'
@@ -577,7 +577,7 @@ end
     end
   end
   
-  context "outcome taiwan exception school" do
+  context "outcome taiwan exception transit" do
     setup do
       add_response 'taiwan'
       add_response 'transit'
