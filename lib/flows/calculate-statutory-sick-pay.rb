@@ -40,6 +40,8 @@ end
 
 # Question 4
 date_question :first_sick_day? do
+  from { Date.new(2011, 1, 1) }
+  to { Date.today }
   calculate :sick_start_date do
     Date.parse(responses.last).strftime("%e %B %Y")
   end
@@ -50,6 +52,8 @@ end
 
 # Question 5
 date_question :last_sick_day? do
+  from { Date.new(2011, 1, 1) }
+  to { Date.today }
   calculate :sick_end_date do
     Date.parse(responses.last).strftime("%e %B %Y")
   end
@@ -100,6 +104,8 @@ end
 
 # Question 6
 date_question :last_payday_before_sickness? do
+  from { Date.new(2010, 1, 1) }
+  to { Date.today }
 
   calculate :relevant_period_to do
     Date.parse(responses.last).strftime("%e %B %Y")
@@ -123,6 +129,9 @@ end
 
 # Question 6.1
 date_question :last_payday_before_offset? do
+  from { Date.new(2010, 1, 1) }
+  to { Date.today }
+
   # input plus 1 day = relevant_period_from
   calculate :relevant_period_from do
     (Date.parse(responses.last) + 1.day).strftime("%e %B %Y")
@@ -216,6 +225,8 @@ end
 
 # Question 11.1
 date_question :linked_sickness_start_date? do
+  from { Date.new(2010, 1, 1) }
+  to { Date.today }
 
   next_node do |response|
     if employee_average_weekly_earnings < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(Date.parse(response))
