@@ -41,6 +41,24 @@ en-GB:
           + Scotland, Wales or Northern Ireland - it's usually when you turn 60
 
           [Check with your council](/find-your-local-council) as the date may be sooner.
+        ni_table: |
+          National Insurance | Your results 
+          - | - 
+          Years of contributions you already have | %{qualifying_years_total}
+          Years you can still make contributions | %{remaining_years}
+        less_than_ten: |
+          ^You need at least 10 years of National Insurance contributions to get the [new State Pension](/state-pension).^
+        too_few_qy_enough_remaining_years_a_outro: |
+          ##Get a pension statement
+          Find out how you can [get for a State Pension statement](/state-pension-statement) and when you get an estimate of your full State Pension.
+
+          ##More about the State Pension
+          Read about:
+
+          - [the new State Pension or how to top it up](/new-state-pension)
+          - [voluntary contributions](/voluntary-national-insurance-contributions)
+          -  [increasing your basic State Pension with your partner’s (or late or former partner’s) National Insurance contributions](/derived-entitlements)
+          - [State Pension if you retire abroad](/state-pension-if-you-retire-abroad)
         remaining_contributions_years_callout: |
           You still need to pay National Insurance contributions for %{remaining_contribution_years} to get the full State Pension.
         automatic_years_phrase: |
@@ -61,10 +79,6 @@ en-GB:
 
           ##Pension Credit
           If you’re on a low income, you might be eligible to claim [Pension Credit](/pension-credit).
-          
-          %{pension_credit_statement}
-          
-          %{bus_pass}
         
         state_pension_age_is_a: |
         
@@ -81,10 +95,6 @@ en-GB:
           ##Pension Credit
           If you're on a low income, you might be eligible to claim [Pension Credit](/pension-credit).
 
-          %{pension_credit_statement}
-
-          %{bus_pass}
-
         state_pension_age_was: |
 
           Your State Pension age was %{state_pension_age}.
@@ -99,14 +109,6 @@ en-GB:
 
           ##Pension Credit
           If you’re on a low income, you might be eligible to claim [Pension Credit](/pension-credit).
-
-          ##Bus pass
-          The date you qualify for a bus pass depends on if you live in:
-
-          + England - %{pension_credit_date} 
-          + Scotland, Wales or Northern Ireland - it's usually when you turn 60
-
-          [Check with your council](/find-your-local-council) as the date may be sooner.
 
         pension_statement: |
 
@@ -165,26 +167,6 @@ en-GB:
           This amount doesn’t include an [Additional State Pension](/additional-state-pension) you built up before 6 April 2016. It will change if you make more [National Insurance contributions](/national-insurance) before you reach State Pension age.
 
           How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance) you have. 
-
-          National Insurance | Your results 
-          - | - 
-          Years of contributions you already have | [result Q4 to Q9]
-          Years you can still make contributions | [remaining years]
-
-          if less than 10 years contributions:
-
-          ^You need at least 10 years of National Insurance contributions to get the [new State Pension](/state-pension).^
-
-          ##Get a pension statement
-          Find out how you can [get for a State Pension statement](/state-pension-statement) and when you get an estimate of your full State Pension.
-
-          ##More about the State Pension
-          Read about:
-
-          - [the new State Pension or how to top it up](/new-state-pension)
-          - [voluntary contributions](/voluntary-national-insurance-contributions)
-          -  [increasing your basic State Pension with your partner’s (or late or former partner’s) National Insurance contributions](/derived-entitlements)
-          - [State Pension if you retire abroad](/state-pension-if-you-retire-abroad)
 
         ## Result 2
         too_few_qy_not_enough_remaining_years: |
@@ -419,7 +401,7 @@ en-GB:
       ## Age result 3
       too_young:
         title: | 
-          You must be at least 20 years old for the calculator to work out how much [new State Pension](/new-state-pension) you’ll get.
+          You must be at least 20 years old for the calculator to work out how much new State Pension you’ll get.
         body: |
           Your State Pension age is %{state_pension_age}.
 

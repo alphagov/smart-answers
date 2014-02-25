@@ -54,15 +54,6 @@ date_question :dob_age? do
     calculator.state_pension_date(:female).strftime("%e %B %Y")
   end
 
-  # #TODO: refactor this so text lives in .yml file
-  # calculate :pension_credit_statement do
-  #   if calculator.state_pension_date(:female) > Date.today
-  #     "You may be entitled to receive Pension Credit from " + pension_credit_date + "."
-  #   else
-  #     ""
-  #   end
-  # end
-
   calculate :formatted_state_pension_date do
     state_pension_date.strftime("%e %B %Y")
   end
@@ -88,15 +79,18 @@ date_question :dob_age? do
   end
 
   calculate :state_pension_age_statement do
+    phrases = PhraseList.new
     if state_pension_date > Date.today
       if state_pension_date > Date.parse('2016-04-06')
-        PhraseList.new(:state_pension_age_is_a)
+        phrases << :state_pension_age_is_a << :pension_credit_future
       else
-        PhraseList.new(:state_pension_age_is)
+        phrases << :state_pension_age_is << :pension_credit_future
       end
     else
-      PhraseList.new(:state_pension_age_was)
+      phrases << :state_pension_age_was << :pension_credit_past
     end
+    phrases << :bus_pass
+    phrases
   end
 
   next_node do |response|
@@ -470,7 +464,7 @@ outcome :amount_result do
 
   precalculate :result_text do
     phrases = PhraseList.new
-
+    
     enough_qualifying_years = qualifying_years_total >= 30
     enough_remaining_years = remaining_years >= missing_years
     auto_years_entitlement = (Date.parse(dob) < Date.parse("6th October 1953") and (gender == "male"))
@@ -486,6 +480,12 @@ outcome :amount_result do
       if enough_remaining_years
         if calculator.state_pension_date > Date.parse('2016-04-06')
           phrases << :too_few_qy_enough_remaining_years_a
+          if qualifying_years_total > 10
+            phrases << :ni_table
+          else
+            phrases << :less_than_ten
+          end
+          phrases << :too_few_qy_enough_remaining_years_a_outro
         else
           phrases << :too_few_qy_enough_remaining_years
         end
