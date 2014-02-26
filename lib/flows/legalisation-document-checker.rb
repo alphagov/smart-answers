@@ -36,6 +36,7 @@ checkbox_question :which_documents_do_you_want_legalised? do
   option "diploma"
   option "disclosure-scotland-document"
   option "doctor-letter-medical"
+  option "driving-licence"
   option "educational-certificate-uk"
   option "export-certificate"
   option "family-division-high-court-justice-document"

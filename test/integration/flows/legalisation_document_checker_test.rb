@@ -91,4 +91,13 @@ class DocumentLegalisationCheckerTest < ActiveSupport::TestCase
     end
   end
 
+  context "driving licence" do
+    setup do
+      add_response 'driving-licence'
+    end
+
+    should "take you to the outcome for the driving licence" do
+      assert_state_variable :groups_selected, ["solicitors_notaries"]
+    end
+  end
 end
