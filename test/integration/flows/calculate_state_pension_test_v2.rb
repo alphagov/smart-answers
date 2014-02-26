@@ -125,6 +125,18 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
         assert_state_variable "formatted_state_pension_date", " 6 November 2012"
       end
     end
+    
+    context "female born on 1 July 1956" do
+      setup do
+        add_response :female
+        add_response Date.parse('1 July 1952')
+      end
+      
+      should "show result for state_pension_age_is outcome" do
+        assert_current_node :age_result
+        assert_phrase_list :state_pension_age_statement, [:state_pension_age_is, :pension_credit_future, :bus_pass]
+      end
+    end
   end # age calculation
 
   #Amount
@@ -1001,6 +1013,5 @@ class CalculateStatePensionTestV2 < ActiveSupport::TestCase
       assert_current_node :amount_result
       assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years, :automatic_years_phrase]
     end
-    
   end #amount calculation
 end #ask which calculation

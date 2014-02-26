@@ -81,8 +81,6 @@ en-GB:
           If you’re on a low income, you might be eligible to claim [Pension Credit](/pension-credit).
         
         state_pension_age_is_a: |
-        
-          You’ll reach State Pension age on %{formatted_state_pension_date}.
 
           Your State Pension age is %{state_pension_age}.
 
