@@ -1,6 +1,5 @@
 status :draft
-#??????
-satisfies_need "" #??????
+satisfies_need "100578"
 
 
 # Q1
@@ -35,9 +34,17 @@ multiple_choice :when_will_you_reach_pension_age? do
     elsif responses.last == "your_pension_age_after_specific_date"
       answers << :new2
     end
+    answers << :old3 if answers == [:widow]
     answers
   end
-  next_node :when_will_your_partner_reach_pension_age?
+  
+  next_node do
+    if answers == [:widow]
+      :what_is_your_gender?
+    else
+      :when_will_your_partner_reach_pension_age?
+    end
+  end
 end
 
 #Q3
