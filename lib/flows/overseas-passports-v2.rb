@@ -277,7 +277,7 @@ outcome :ips_application_result do
         phrases << :"#{child_or_adult}_passport_costs_ips#{ips_number}"
       end
 
-      if %w(afghanistan bangladesh).include?(current_location)
+      if %w(bangladesh).include?(current_location)
         phrases << :"passport_costs_ips3_cash_or_card_#{current_location}" << :passport_costs_ips3_cash_or_card
       elsif %w(thailand).include?(current_location)
         if %w(renewing_new).include?(application_action)
