@@ -9,7 +9,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burundi cameroon congo egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nigeria north-korea pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia turkey united-kingdom uzbekistan yemen zimbabwe vietnam)
+    @location_slugs = %w(albania afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burundi cameroon congo egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nigeria north-korea pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia turkey ukraine united-kingdom uzbekistan yemen zimbabwe vietnam)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports-v2'
   end
@@ -652,9 +652,23 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
       assert_phrase_list :getting_your_passport, [:"getting_your_passport_pitcairn-island"]
-      assert_match /101 Old Hall Street/, outcome_body
+      assert_phrase_list :send_your_application, [:"send_application_address_pitcairn-island"]
     end
   end # Pitcairn Island (IPS1 with custom phrases)
+
+  context "answer Ukraine, applying, adult passport" do
+    should "give the IPS application result with custom phrases" do
+      worldwide_api_has_organisations_for_location('ukraine', read_fixture_file('worldwide/pitcairn-island_organisations.json'))
+      add_response 'ukraine'
+      add_response 'applying'
+      add_response 'adult'
+      add_response 'united-kingdom'
+      assert_current_node :ips_application_result
+      assert_phrase_list :getting_your_passport, [:"getting_your_passport_ips3"]
+      assert_phrase_list :send_your_application, [:"send_application_address_ukraine"]
+    end
+  end # Pitcairn Island (IPS1 with custom phrases)
+
 
   context "answer Iran" do
     should "give a bespoke outcome stating an application is not possible in Iran" do

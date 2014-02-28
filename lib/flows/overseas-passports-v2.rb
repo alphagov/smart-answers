@@ -324,35 +324,38 @@ outcome :ips_application_result do
 
   precalculate :send_your_application do
     phrases = PhraseList.new
+
     if application_address
       phrases << :"send_application_ips#{ips_number}_#{application_address}"
     elsif %w(gaza).include?(current_location)
       phrases << :send_application_ips3_gaza
-    elsif %w(afghanistan).include?(current_location)
+    elsif %w(afghanistan burundi).include?(current_location)
       if %w(renewing_new).include?(application_action)
-        phrases << :send_application_ips3_afghanistan_renew_new
+        phrases << :"send_application_ips3_#{current_location}_renew_new"
       else
-        phrases << :send_application_ips3_afghanistan_apply_renew_old_replace
+        phrases << :"send_application_ips3_#{current_location}_apply_renew_old_replace"
       end
       phrases << :send_application_embassy_address
-    elsif %w(bangladesh).include?(current_location)
-      phrases << :"send_application_ips3_#{current_location}" << :send_application_embassy_address
-    elsif %w(burundi).include?(current_location)
-      if %w(renewing_new).include?(application_action)
-        phrases << :send_application_ips3_burundi_renew_new
-      else
-        phrases << :send_application_ips3_burundi_apply_renew_old_replace
-      end
+    elsif %w(bangladesh india pakistan).include?(current_location)
+      phrases << :"send_application_ips3_#{current_location}"
+      phrases << :send_application_ips3_must_post unless current_location == 'bangladesh'
       phrases << :send_application_embassy_address
-    elsif %w(india pakistan).include?(current_location)
-      phrases << :"send_application_ips3_#{current_location}" << :send_application_ips3_must_post << :send_application_embassy_address
     elsif %w(north-korea thailand).include?(current_location) and %w(renewing_new).include?(application_action)
       phrases << :"send_application_ips3_#{current_location}_renewing_new"
     elsif general_action == 'renewing' and data_query.renewing_countries?(current_location)
-      phrases << :"send_application_ips#{ips_number}" << :renewing_new_renewing_old << :send_application_embassy_address
+      if passport_data['application_office']
+        phrases << :"send_application_address_#{current_location}"
+      else
+        phrases << :"send_application_ips#{ips_number}" << :renewing_new_renewing_old
+        phrases << :send_application_embassy_address
+      end
     else
-      phrases << :"send_application_ips#{ips_number}"
-      phrases << :send_application_embassy_address if ips_number.to_i > 1
+      if passport_data['application_office']
+        phrases << :"send_application_address_#{current_location}"
+      else
+        phrases << :"send_application_ips#{ips_number}"
+        phrases << :send_application_embassy_address if ips_number.to_i > 1
+      end
     end
     phrases
   end

@@ -800,6 +800,48 @@ en-GB:
 
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
+        send_application_address_nepal: |
+
+          ## Send your application
+
+          $A
+          UK Visa Application Centre
+          4th floor, Four Square Building,
+          (Opposite Police Head Quarters),
+          Narayan Chaur, Naxal,
+          Kathmandu
+          Nepal
+          email: KathmanduHMPO@vfshelpline.com
+          Opening hours: Monday to Friday 8am to 2pm (local time)
+          $A
+
+        send_application_address_pitcairn-island: |
+
+          ## Send your application
+
+          $A
+          Pitcairn Islands Office
+          P.O. Box 105 696
+          Auckland
+          New Zealand
+          Email: admin@pitcairn.gov.pn
+          Telephone. +64 9 366 0186
+          Fax +64 9 366 0187
+          $A
+
+        send_application_address_ukraine: |
+
+          ## Send your application
+
+          $A
+          UK Visa Application Centre
+          Antem Business Centre
+          4 Hlybochyts'ka Street
+          Kyiv
+          Ukraine
+          email: enquiryHMPO@TPContact.co.uk
+          $A
+
         getting_your_passport_ips3: |
           Your passport will be delivered to the British embassy, high commission or consulate where you applied - you must collect it in person.
 
