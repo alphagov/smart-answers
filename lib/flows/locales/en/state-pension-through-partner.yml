@@ -1,7 +1,24 @@
 en-GB:
   flow:
-    derived-entitlements:
+    state-pension-through-partner:
       phrases:
+        inherit_part_pension: |
+          You can also inherit part of your partner’s [Additional State Pension](/additional-state-pension/further-information). This will also be based on the contributions to the Additional State Pension up to 6 April 2016.
+        inherit_part_protected_payment: |
+          You can also inherit part of your partner’s [protected payment](/new-state-pension/youre-married-or-in-a-civil-partnership). This will also be based on their contributions to the [Additional State Pension](/additional-state-pension) up to 6 April 2016.
+        married_woman_and_state_pension_outro: |
+          #Increase your State Pension 
+
+          You might be able to increase your State Pension amount if:
+
+          - you’re eligible for [National Insurance credits](/national-insurance-credits)  
+          - you make [voluntary National Insurance contributions](/voluntary-national-insurance-contributions)
+
+          ^You can also contribute to [workplace pension](/workplace-pensions) and [personal or private pensions](/personal-pensions-your-rights).^
+
+          You might be eligible for [Widowed Parent’s Allowance](/widowed-parents-allowance), a [Bereavement payment](/bereavement-payment) or [Bereavement Allowance](/bereavement-allowance) if you haven’t yet reached State Pension age.
+
+          ^Contact the [Pension Service](/contact-pension-service) for help and advice.^
 # Outcome 1
         current_rules_no_additional_pension: | 
           You’ll be able to increase the amount of State Pension to £66 per week if:
@@ -141,7 +158,7 @@ en-GB:
 
           ^Contact the [Pension Service](/contact-pension-service) for help and advice.^
 
-# Outcome 6 and 7??
+# Outcome 6 and 7
         married_woman_and_state_pension: |
           You might be able to increase your [State Pension](/new-state-pension) if you opted to pay the ‘Reduced Rate Election’ (also known as the Married Woman’s Stamp) within the last 35 years. You would have received the married woman’s lower basic State Pension.
 
@@ -159,21 +176,6 @@ en-GB:
           You’ll get more if your State Pension is higher under your own National Insurance contributions.
           
           You’ll get the increase when either you or your partner reach [State Pension age](/calculate-state-pension) and claim state pension, whichever is later.
-
-          You can also inherit part of your partner’s [protected payment](/new-state-pension/youre-married-or-in-a-civil-partnership). This will also be based on their contributions to the [Additional State Pension](/additional-state-pension) up to 6 April 2016.
-
-          #Increase your State Pension 
-
-          You might be able to increase your State Pension amount if:  
-
-          - you’re eligible for [National Insurance credits](/national-insurance-credits)  
-          - you make [voluntary National Insurance contributions](/voluntary-national-insurance-contributions)  
-
-          ^You can also contribute to [workplace pension](/workplace-pensions) and [personal or private pensions](/personal-pensions-your-rights).^
-
-          You might be eligible for [Widowed Parent’s Allowance](/widowed-parents-allowance), a [Bereavement payment](/bereavement-payment) or [Bereavement Allowance](/bereavement-allowance) if you haven’t yet reached State Pension age.
-
-          ^Contact the [Pension Service](/contact-pension-service) for help and advice.^
 
 # Outcome 8
         impossibility_to_increase_pension: |
