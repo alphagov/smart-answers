@@ -716,5 +716,7 @@ outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible do
 end
 
 outcome :outcome_no_green_deal_no_energy_measures do
-  PhraseList.new(:help_and_advice_body)
+  precalculate :eligibilities do
+    PhraseList.new(:help_and_advice_body)
+  end
 end
