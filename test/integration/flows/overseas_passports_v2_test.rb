@@ -339,7 +339,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       end
     end # Applying
   end # Albania - IPS_application_2
-
+  
   # Morocco (an example of IPS application 2 with custom phrases).
   context "answer Morocco" do
     setup do
@@ -907,7 +907,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       add_response 'child'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips2]
+      assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips2]
       assert_phrase_list :cost, [:passport_courier_costs_ips2, :child_passport_costs_ips2, :passport_costs_ips2]
       assert_phrase_list :send_your_application, [:send_application_ips2, :send_application_embassy_address]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_ips2]
@@ -1063,7 +1063,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
         add_response 'renewing_new'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips3]
+        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips3]
         assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
         assert_phrase_list :send_your_application, [:send_application_ips3, :renewing_new_renewing_old, :send_application_embassy_address]
@@ -1076,7 +1076,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
         add_response 'adult'
         add_response 'united-kingdom'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips3]
+        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips3]
         assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
         assert_phrase_list :send_your_application, [:send_application_ips3, :send_application_embassy_address]

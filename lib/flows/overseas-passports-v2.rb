@@ -203,13 +203,18 @@ end
 ## IPS Application Result
 outcome :ips_application_result do
   precalculate :how_long_it_takes do
-    six_week_only_application_countries = %(belarus georgia russia tajikistan turkmenistan uzbekistan)
+    # six_week_only_application_countries = %(belarus georgia russia tajikistan turkmenistan uzbekistan)
+    eight_week_only_application_countries = %(belarus georgia russia tajikistan turkmenistan uzbekistan)
+
     six_week_application_countries = %w(mauritania morocco tunisia western-sahara)
     twelve_week_application_countries = %w(cameroon chad djibouti eritrea ethiopia kenya somalia tanzania uganda)
 
     phrases = PhraseList.new
-    if six_week_only_application_countries.include?(current_location)
-      phrases << :how_long_6_weeks
+    # if six_week_only_application_countries.include?(current_location)
+    if eight_week_only_application_countries.include?(current_location)
+      phrases << :how_long_8_weeks
+    # elsif six_week_only_application_countries.include?(current_location)
+    #   phrases << :how_long_6_weeks
     elsif six_week_application_countries.include?(current_location)
       number_of_weeks = application_action =~ /renewing_new/ ? 4 : 6
       phrases << :"how_long_#{number_of_weeks}_weeks"
