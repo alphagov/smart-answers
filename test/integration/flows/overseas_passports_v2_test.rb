@@ -9,9 +9,9 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania afghanistan australia austria azerbaijan bahamas bangladesh benin burundi cameroon congo egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nigeria north-korea pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia united-kingdom uzbekistan yemen zimbabwe vietnam)
+    @location_slugs = %w(albania afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burundi cameroon congo egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nigeria north-korea pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia united-kingdom uzbekistan yemen zimbabwe vietnam)
     worldwide_api_has_locations(@location_slugs)
-    setup_for_testing_flow 'overseas-passports'
+    setup_for_testing_flow 'overseas-passports-v2'
   end
 
   ## Q1
@@ -1098,4 +1098,12 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance_doc_group_2]
     end
   end # Bahamas
+
+  context "answer british-indian-ocean-territory" do
+    should "go to apply_in_neighbouring_country outcome" do
+      worldwide_api_has_organisations_for_location('british-indian-ocean-territory', read_fixture_file('worldwide/british-indian-ocean-territory_organisations.json'))
+      add_response 'british-indian-ocean-territory'
+      assert_current_node :apply_in_neighbouring_country
+    end
+  end # british-indian-ocean-territory
 end
