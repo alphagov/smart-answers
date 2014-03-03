@@ -8,7 +8,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(argentina anguilla armenia aruba australia austria bahamas belgium bonaire-st-eustatius-saba british-indian-ocean-territory burma canada china cote-d-ivoire cyprus czech-republic denmark egypt estonia finland france germany iran ireland italy japan jordan latvia lebanon mayotte mexico monaco nicaragua north-korea guatemala peru poland portugal russia saudi-arabia serbia south-africa south-korea spain sweden switzerland thailand turkey united-arab-emirates usa vietnam wallis-and-futuna yemen zimbabwe)
+    @location_slugs = %w(argentina anguilla armenia aruba australia austria bahamas belgium bonaire-st-eustatius-saba british-indian-ocean-territory burma canada china cote-d-ivoire cyprus czech-republic denmark egypt estonia finland france germany iran ireland italy japan jordan latvia lebanon mayotte mexico monaco nicaragua north-korea guatemala peru philippines poland portugal russia saudi-arabia serbia south-africa south-korea spain sweden switzerland thailand turkey united-arab-emirates usa vietnam wallis-and-futuna yemen zimbabwe)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'marriage-abroad'
   end
@@ -919,9 +919,10 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do,:what_you_need_to_do_may_ask, :appointment_for_affidavit, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do,:what_you_need_to_do_may_ask, :appointment_for_affidavit, :affirmation_os_translation_in_local_language, :affirmation_os_divorced_or_widowed, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
+
 #testing for ceremony in egypt, local resident, partner british
   context "ceremony in egypt, resident in egypt, partner british" do
     setup do
@@ -934,7 +935,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :affirmation_os_all_what_you_need_to_do,:what_you_need_to_do_may_ask, :appointment_for_affidavit, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :affirmation_os_all_what_you_need_to_do,:what_you_need_to_do_may_ask, :appointment_for_affidavit, :affirmation_os_translation_in_local_language, :affirmation_os_divorced_or_widowed, :affirmation_os_partner_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 #testing for ceremony in lebanon, other resident, partner irish
@@ -950,7 +951,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_other_resident, :affirmation_os_all_what_you_need_to_do,:what_you_need_to_do_may_ask, :appointment_for_affidavit, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_other_resident, :affirmation_os_all_what_you_need_to_do,:what_you_need_to_do_may_ask, :appointment_for_affidavit, :affirmation_os_translation_in_local_language, :affirmation_os_divorced_or_widowed, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 #testing for ceremony in UAE, uk resident, partner other
@@ -965,7 +966,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :affirmation_os_all_what_you_need_to_do, :affirmation_os_uae,:what_you_need_to_do_may_ask, :appointment_for_affidavit, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :affirmation_os_all_what_you_need_to_do, :affirmation_os_uae,:what_you_need_to_do_may_ask, :appointment_for_affidavit, :affirmation_os_translation_in_local_language, :affirmation_os_divorced_or_widowed, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 #tests for no cni or consular services
@@ -1622,7 +1623,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
       assert_current_node :outcome_os_affirmation
       assert_state_variable :ceremony_type_lowercase, 'marriage'
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do,:what_you_need_to_do_may_ask, :appointment_for_affidavit, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do,:what_you_need_to_do_may_ask, :appointment_for_affidavit, :affirmation_os_translation_in_local_language, :affirmation_os_divorced_or_widowed, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -1721,7 +1722,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_other_resident, :affirmation_os_all_what_you_need_to_do,:what_you_need_to_do_may_ask, :appointment_for_affidavit, :clickbook_link, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_in_euros_or_visa_electron]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_other_resident, :affirmation_os_all_what_you_need_to_do,:what_you_need_to_do_may_ask, :appointment_for_affidavit, :clickbook_link, :affirmation_os_translation_in_local_language, :affirmation_os_divorced_or_widowed, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_in_euros_or_visa_electron]
     end
   end
   
@@ -1734,7 +1735,22 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_will_ask, :appointment_for_affidavit, :affirmation_os_all_what_you_need_to_do_two, :affirmation_os_partner_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_will_ask, :appointment_for_affidavit, :affirmation_os_translation_in_local_language, :affirmation_os_divorced_or_widowed, :affirmation_os_partner_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+    end
+  end
+  
+    #testing for ceremony in philippines, uk resident, partner other
+  context "ceremony in philippines, uk resident, partner other" do
+    setup do
+      worldwide_api_has_organisations_for_location('philippines', read_fixture_file('worldwide/philippines_organisations.json'))
+      add_response 'philippines'
+      add_response 'uk'
+      add_response 'uk_england'
+      add_response 'partner_local'
+      add_response 'opposite_sex'
+    end
+    should "go to os affirmation outcome" do
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do,:what_you_need_to_do_may_ask, :appointment_for_affidavit, :affirmation_os_translation_in_local_language,:affirmation_os_download_affidavit, :affirmation_os_divorced_or_widowed, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_in_cash_or_maanger_cheque]
     end
   end
 end
