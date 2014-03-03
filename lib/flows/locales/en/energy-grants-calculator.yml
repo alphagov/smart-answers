@@ -253,4 +253,4 @@ en-GB:
       outcome_no_green_deal_no_energy_measures:
         title: You don't qualify for the Green Deal or for any help with energy efficient measures for your home.
         body: |
-          %{eligibilities}
+          %{help_and_advice_body}

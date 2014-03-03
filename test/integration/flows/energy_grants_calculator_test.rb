@@ -706,7 +706,6 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       end
       should "take you to result 4 no help" do
         assert_current_node :outcome_no_green_deal_no_energy_measures
-        assert_phrase_list :eligibilities, [:help_and_advice_body]
       end
     end
   end
