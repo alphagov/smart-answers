@@ -39,6 +39,9 @@ en-GB:
       which_best_describes_you_child?:
         title: Which of the following best describes you?
       phrases:
+      
+        passport_courier_ukraine: |
+          You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect. 
         how_long_applying_fco:
           Your application will take **at least** 6 weeks. You may have to attend an interview.
         how_long_renewing_old_fco:
@@ -132,6 +135,7 @@ en-GB:
              +44 207 008 1500 at any other time
 
           $C
+          
         helpline_intro: |
           If you haven’t received your passport within the expected timescale, you can check your application’s progress by phone. You will be charged for the call.
 
@@ -141,7 +145,6 @@ en-GB:
 
           They will only call you back if your passport has been delayed or you have a genuine emergency.
 
-
           $C
 
             **Passport processing centre, Madrid**
@@ -150,8 +153,6 @@ en-GB:
           $C
         helpline_exception_yemen: |
           If you haven’t received your passport within the expected timescale, you can check your application’s progress by phone. You’ll be charged for the call.
-
-
 
           $C
           **Passport information - Yemen**
@@ -480,7 +481,9 @@ en-GB:
         getting_your_passport_burma: |
           Your passport and supporting documents will be delivered to the British High Commission in Rangoon - you must collect them in person.
         getting_your_passport_nepal: |
-          Your passport and supporting documents will be delivered to the British High Commission in Kathmandu - you must collect them in person.
+
+          Your passport will be delivered to the UK Visa Application Centre in Kathmandu - you must collect it in person.
+      
         getting_your_passport_north-korea: |
           Your passport will be delivered to the British Embassy in Pyongyang - you must collect it in person.
         getting_your_passport_thailand_renew_new: |
@@ -556,7 +559,7 @@ en-GB:
 
         passport_courier_costs_ips2: |
           You’ll have to pay a fee for your passport and a courier fee of £24.72. The courier fee pays for your passport to be sent securely to the British embassy, high commission or consulate where you applied for you to collect.
-
+          
         adult_passport_costs_ips2: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
@@ -712,6 +715,7 @@ en-GB:
           You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
 
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+                    
         send_application_ips3_afghanistan_apply_renew_old_replace: |
           ## Making your application
 
@@ -776,8 +780,7 @@ en-GB:
         send_application_ips3_thailand_renewing_new: |
           ## Making your application
           Her Majesty’s Passport Office recommends you send your application using a secure delivery service or courier.
-
-
+          
           $A
           Her Majesty's Passport Office
           OVS-L
@@ -800,9 +803,30 @@ en-GB:
 
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
-        send_application_address_nepal: |
+        making_application_nepal_renewing_new: |
+          ## Making your application
 
-          ## Send your application
+          You must apply in person. You must bring photo ID with you.
+
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+
+          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
+
+          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+          
+          You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
+          
+        making_application_nepal_lost_or_renewing_old: |
+          ## Making your application
+          
+          You must apply in person.
+
+          You must bring photo ID with you.
+
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+          You’ll need to book an appointment by email. Include your name and surname and 3 alternative dates and times. You will receive an email confirming your appointment. 
+          
+        send_application_address_nepal: |
 
           $A
           UK Visa Application Centre
@@ -829,9 +853,11 @@ en-GB:
           Fax +64 9 366 0187
           $A
 
-        send_application_address_ukraine: |
-
+        alternative_dates_and_times: |
           ## Send your application
+          You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
+          
+        send_application_address_ukraine: |
 
           $A
           UK Visa Application Centre
@@ -1071,3 +1097,4 @@ en-GB:
 
             Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)
           $C
+        

@@ -9,7 +9,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burundi cameroon congo egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nigeria north-korea pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia turkey ukraine united-kingdom uzbekistan yemen zimbabwe vietnam)
+    @location_slugs = %w(albania afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burundi cameroon congo egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nepal nigeria north-korea pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia turkey ukraine united-kingdom uzbekistan yemen zimbabwe vietnam)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports-v2'
   end
@@ -658,17 +658,39 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
 
   context "answer Ukraine, applying, adult passport" do
     should "give the IPS application result with custom phrases" do
-      worldwide_api_has_organisations_for_location('ukraine', read_fixture_file('worldwide/pitcairn-island_organisations.json'))
+      worldwide_api_has_organisations_for_location('ukraine', read_fixture_file('worldwide/ukraine_organisations.json'))
       add_response 'ukraine'
       add_response 'applying'
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
+      assert_phrase_list :cost, [:passport_courier_ukraine,:adult_passport_costs_ips3, :passport_costs_ips3]
       assert_phrase_list :getting_your_passport, [:"getting_your_passport_ips3"]
-      assert_phrase_list :send_your_application, [:"send_application_address_ukraine"]
+      assert_phrase_list :send_your_application, [:alternative_dates_and_times, :"send_application_address_ukraine"]
     end
-  end # Pitcairn Island (IPS1 with custom phrases)
-
+  end # Ukraine (IPS1 with custom phrases)
+  
+  context "answer nepal, renewing new, adult passport" do
+    should "give the IPS application result with custom phrases" do
+      worldwide_api_has_organisations_for_location('nepal', read_fixture_file('worldwide/nepal_organisations.json'))
+      add_response 'nepal'
+      add_response 'renewing_new'
+      add_response 'adult'
+      assert_current_node :ips_application_result
+      assert_phrase_list :send_your_application, [:making_application_nepal_renewing_new, :"send_application_address_nepal"]
+    end
+  end # nepal (IPS1 with custom phrases)
+  
+  context "answer nepal, lost or stolen, adult passport" do
+    should "give the IPS application result with custom phrases" do
+      worldwide_api_has_organisations_for_location('nepal', read_fixture_file('worldwide/pitcairn-island_organisations.json'))
+      add_response 'nepal'
+      add_response 'replacing'
+      add_response 'adult'
+      assert_current_node :ips_application_result
+      assert_phrase_list :send_your_application, [:making_application_nepal_lost_or_renewing_old, :"send_application_address_nepal"]
+    end
+  end # nepal (IPS1 with custom phrases)
 
   context "answer Iran" do
     should "give a bespoke outcome stating an application is not possible in Iran" do

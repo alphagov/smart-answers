@@ -210,11 +210,8 @@ outcome :ips_application_result do
     twelve_week_application_countries = %w(cameroon chad djibouti eritrea ethiopia kenya somalia tanzania uganda)
 
     phrases = PhraseList.new
-    # if six_week_only_application_countries.include?(current_location)
     if eight_week_only_application_countries.include?(current_location)
       phrases << :how_long_8_weeks
-    # elsif six_week_only_application_countries.include?(current_location)
-    #   phrases << :how_long_6_weeks
     elsif six_week_application_countries.include?(current_location)
       number_of_weeks = application_action =~ /renewing_new/ ? 4 : 6
       phrases << :"how_long_#{number_of_weeks}_weeks"
@@ -266,6 +263,8 @@ outcome :ips_application_result do
       phrases = PhraseList.new
       if %w(india).include?(current_location)
         phrases << :passport_courier_costs_ips3_india
+      elsif %w(ukraine).include?(current_location)
+        phrases << :passport_courier_ukraine
       elsif %w(thailand).include?(current_location)
         if %w(renewing_new).include?(application_action)
           phrases << :passport_courier_costs_ips3_thailand_renewing_new
@@ -325,6 +324,15 @@ outcome :ips_application_result do
   precalculate :send_your_application do
     phrases = PhraseList.new
 
+    if %w(nepal).include?(current_location)
+      if %w(renewing_new).include?(application_action)
+        phrases << :making_application_nepal_renewing_new
+      elsif %w(replacing).include?(application_action) or %w(renewing_old).include?(application_action)
+        phrases << :making_application_nepal_lost_or_renewing_old
+      end
+    elsif %w(ukraine).include?(current_location)
+      phrases << :alternative_dates_and_times
+    end
     if application_address
       phrases << :"send_application_ips#{ips_number}_#{application_address}"
     elsif %w(gaza).include?(current_location)
@@ -413,6 +421,7 @@ outcome :fco_result do
     cost_type = 'fco_europe' if application_type =~ /^(dublin_ireland|madrid_spain|paris_france)$/
 
     payment_methods = :"passport_costs_#{application_type}"
+    
 
     phrases = PhraseList.new(:"passport_courier_costs_#{cost_type}",
                              :"#{child_or_adult}_passport_costs_#{cost_type}",
