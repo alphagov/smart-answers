@@ -1,5 +1,5 @@
 ---
-acro-police-certificate: 
+acro-police-certificate:
   heading: ACRO Police Certificate
   type: ACRO Police Certificate
   group: police_disclosure
@@ -115,6 +115,10 @@ doctor-letter-medical:
   heading: Doctor’s letter (medical)
   type: doctor’s letter
   group: medical_reports
+driving-licence:
+  heading: Driving licence (copy)
+  type: driving licence
+  group: solicitors_notaries
 educational-certificate-uk:
   heading: Educational certificate (UK)
   type: educational certificate
