@@ -1,0 +1,256 @@
+en-GB:
+  flow:
+    energy-grants-calculator-v2:
+      title: Find energy grants and measures to help you with heating costs
+      meta:
+        description: Financial help with heating costs, insulation, boilers, money for heating costs
+      body: |
+        You might be eligible for help with your energy bills or to make your home more energy efficient.
+
+        To find out what energy saving measures can help, you’ll need to know:
+
+        - what kind of measures you already have (eg, insulation or double glazing)
+        - a general idea of when your home was built
+
+      phrases:
+        error_property_social_housing: this is an error
+        winter_fuel_payments: |
+          - [Winter Fuel Payments](/winter-fuel-payment/eligibility) - between £100 and £300 towards your heating bills
+        warm_home_discount: |
+          - [Warm Home Discount scheme](/the-warm-home-discount-scheme) - £%{warm_home_discount_amount} discount on your energy bills
+        cold_weather_payment: |
+          - [Cold Weather Payment](/cold-weather-payment) - £25 a week during very cold weather between November and March
+        energy_company_obligation: |
+          - You could also get help with insulation or boiler repairs under the [Energy Company Obligation](/energy-grants-calculator/y/help_boiler_measure)
+        no_money_off: |
+          - $!Unfortunately it doesn’t look like you qualify for money off your energy bill.$!
+        microgeneration: |
+          Renewable heating and Microgeneration measures could also help reduce your bill.
+        title_help_with_bills_outcome: |
+          Based on your answers you might be eligible for help with your energy bills.
+        title_no_help_with_bills_outcome: |
+          Unfortunately it doesn’t look like you qualify for money off your energy bill. You can still get help to reduce your energy use with:
+        title_might_be_eligible: you might be eligible for help with your energy bills
+        title_energy_supplier: "Based on your answers you might qualify for help from your energy supplier with the following:"
+        title_under_green_deal: "Under the Green Deal you could get some of these measures without having to pay all the cost upfront:"
+        smartmeters: |
+          [Smart meters](/smart-meters) can help you keep track of how much energy you're using. You won't get estimated bills and won't need to take meter readings.
+
+        boilers_and_insulation: "###Boilers and insulation"
+        a_condensing_boiler: "- [Condensing boiler (gas or oil)](http://www.energysavingtrust.org.uk/Heating-and-hot-water/Replacing-your-boiler)"
+        b_cavity_wall_insulation: "- [Cavity wall insulation](http://www.energysavingtrust.org.uk/Insulation/Cavity-wall-insulation)"
+        c_solid_wall_insulation: "- [Solid Wall insulation](http://www.energysavingtrust.org.uk/Insulation/Solid-wall-insulation)"
+        d_draught_proofing: "- [Draught proofing](http://www.energysavingtrust.org.uk/Insulation/Draught-proofing)"
+        e_loft_roof_insulation: "- [Loft or roof insulation](http://www.energysavingtrust.org.uk/Insulation/Roof-and-loft-insulation)"
+        f_room_roof_insulation: "- Room in roof insulation"
+        g_under_floor_insulation: "- [Under-floor insulation](http://www.energysavingtrust.org.uk/Insulation/Floor-insulation)"
+        eco_affordable_warmth: |
+          Find out more about [ECO Affordable Warmth](https://www.gov.uk/energy-company-obligation) or call the Energy Saving Advice Service on 0300 123 1234 to apply.
+        eco_help: |
+          You may be able to get the following measures without having to pay all the costs up front through the Green Deal:
+        property_might_benefit: "Your property might also benefit from:"
+        heating: "###Heating"
+        h_fan_assisted_heater: "- Fan-assisted storage heater"
+        i_warm_air_unit: "- Warm-air unit"
+        j_better_heating_controls: "- [Better heating controls](http://www.energysavingtrust.org.uk/Heating-and-hot-water/Thermostats-and-controls)"
+        hot_water: "###Hot water"
+        k_hot_water_cyclinder_jacket: "- [Hot water cylinder jacket](http://www.energysavingtrust.org.uk/Insulation/Insulating-tanks-pipes-and-radiators)"
+        l_cylinder_thermostat: "- [Cylinder thermostat](http://www.energysavingtrust.org.uk/Heating-and-hot-water/Improving-electric-systems/Thermostats-and-controls-for-electric-systems)"
+        windows_and_doors: "###Windows and doors"
+        m_replacement_glazing: "- [Replacement glazing](http://www.energysavingtrust.org.uk/Insulation/Windows)"
+        n_secondary_glazing: "- Secondary glazing"
+        o_external_doors: "- High performance external doors"
+        p_heat_pump: "- Heat pump (air, ground or water source)"
+        q_biomass_boilers_heaters: "- [Biomass boilers and heaters](http://www.energysavingtrust.org.uk/Generating-energy/Choosing-a-renewable-technology/Wood-fuelled-heating)"
+        t_solar_water_heating: "- [Solar water heating](http://www.energysavingtrust.org.uk/Generating-energy/Choosing-a-renewable-technology/Solar-water-heating)"
+        r_micro_wind: "- [Micro wind generation](http://www.energysavingtrust.org.uk/Generating-energy/Choosing-a-renewable-technology/Wind-turbines)"
+        s_micro_chp: "- [Micro CHP](http://www.energysavingtrust.org.uk/Generating-energy/Choosing-a-renewable-technology/Micro-CHP-micro-combined-heat-and-power)"
+        u_solar: "- [Solar panels](http://www.energysavingtrust.org.uk/Generating-energy/Choosing-a-renewable-technology/Solar-panels-PV)"
+
+        v_green_deal_title: Under the Green Deal you could get some of these measures without having to pay all the cost upfront.
+        v_green_deal_body: |
+          ^Find out more about the [Green Deal](https://www.gov.uk/greendeal) or get a [Green Deal assessment](http://gdorb.decc.gov.uk/consumersearch).^
+        w_renewal_heat: |
+          If your home is well insulated you could also qualify for money towards a [renewable heating system](/renewable-heat-premium-payment) and get paid for [generating your own electricity](/feed-in-tariffs).
+        help_and_advice: "###Help and advice"
+        help_and_advice_body: |
+          You can find more help on saving money on your energy bills from the Citizens Advice Bureau:
+
+          - how to [save money on your energy bill](http://www.adviceguide.org.uk/england/consumer_e/consumer_energy_and_water_supply_e/consumer_energy_supply_e/consumer_saving_money_on_energy_bills_e/saving_money_on_energy_bills.htm)
+          - understand [your energy bill](http://www.adviceguide.org.uk/england/consumer_e/consumer_energy_and_water_supply_e/consumer_energy_supply_e/consumer_energy_bills_e/consumer_understanding_your_energy_bill_e.htm)
+          - find out how to [switch energy suppliers](http://www.adviceguide.org.uk/england/consumer_e/consumer_energy_and_water_supply_e/consumer_energy_supply_e/consumer_choosing_and_switching_supplier_e/switching_gas_or_electricity_supplier.htm)
+          - make a complaint about [your energy company](http://www.adviceguide.org.uk/england/consumer_e/consumer_energy_and_water_supply_e/consumer_energy_supply_e/consumer_complaining_about_energy_companies_e.htm)
+          - find out about [energy efficient appliances](http://www.energysavingtrust.org.uk/Electricity/Products-and-appliances)
+
+
+# Q1
+      what_are_you_looking_for?:
+        title: "Are you looking for:"
+        options:
+          help_with_fuel_bill: Help with your fuel bill
+          help_energy_efficiency: Help to make your home more energy efficient
+          help_boiler_measure: Help with a new boiler, insulation or other measure
+          all_help: All of the above
+
+# Q2
+      what_are_your_circumstances?:
+        title: What are your circumstances?
+        hint: Choose all that apply to you. If none apply just click ‘Next step’.
+        error_perm_prop_house: You can't rent privately, be a social housing tenant and own your property
+        error_prop_house: You can't be a social housing tenant and own your property
+        error_perm_prop: You can't rent privately and own your property
+        error_perm_house: You can't rent privately and be a social housing tenant
+        options:
+          benefits: You’re getting benefits
+          property: You own your property
+          permission: You rent privately but have permission from the owner to install or upgrade the boiler
+          social_housing: You’re a social housing tenant
+
+# Q2A
+      what_are_your_circumstances_without_bills_help?:
+        title: What are your circumstances?
+        hint: Choose all that apply to you. If none apply just click ‘Next step’.
+        error_perm_prop: You can't rent privately and own your property
+        options:
+          benefits: You’re getting benefits
+          property: You own your property
+          permission: You rent privately but have permission from the owner to install or upgrade the boiler
+        body: |
+          Social housing tenants should talk to their social housing provider if they want to improve their energy efficiency. 
+        foot: |
+          Social housing tenants should talk to their social housing provider if they want to improve their energy efficiency.    
+
+# Q3
+      date_of_birth?:
+        title: What’s your date of birth?
+
+# Q4
+      which_benefits?:
+        title: Which of these benefits do you get?
+        hint: Choose all that apply to you. If none apply just click ‘Next step’.
+        options:
+          pension_credit: Pension Credit
+          income_support: Income Support
+          jsa: Income based Jobseeker’s Allowance
+          esa: Income-related Employment and Support Allowance (ESA)
+          child_tax_credit: Child Tax Credit - only if your income is £15,860 or less
+          working_tax_credit: Working Tax Credit - only if your income is £15,860 or less
+
+# Q5
+      disabled_or_have_children?:
+        title: Are you elderly, disabled, or do you have children?
+        hint: Choose all that apply to you. If none apply just click ‘Next step’.
+        options:
+          disabled: You or your partner are disabled.
+          disabled_child: You have a disabled child.
+          child_under_5: You have a child under 5.
+          child_under_16: You have a child under 16 or under 20 if in full-time education.
+          pensioner_premium: You (or your partner) get a ‘pensioner premium’.
+          work_support_esa: You’re in the work-related or support group of ESA. 
+
+# Q6
+      when_property_built?:
+        title: When was your property built?
+        options:
+          "1985-2000s": 1985 - 2000s
+          "1940s-1984": 1940s – 1984
+          "before-1940": Before 1940
+
+# Q7
+      type_of_property?:
+        title: What kind of property do you live in?
+        options:
+          "house": A house, terraced house or bungalow
+          "flat": A flat
+
+# Q8a
+      home_features_modern?:
+        title: "Which  of these do you have:"
+        options:
+          mains_gas: Mains gas
+          electric_heating: Electric heating
+          loft_attic_conversion: Loft or attic conversion
+          draught_proofing: Draught proofing
+
+# Q8b
+      home_features_older?:
+        title: "Which  of these do you have:"
+        options:
+          mains_gas: Mains gas
+          electric_heating: Electric heating
+          modern_double_glazing: Modern double glazing on all doors and windows (less than 10 years)
+          loft_attic_conversion: Loft or attic conversion
+          loft_insulation: Loft insulation
+          solid_wall_insulation: Solid wall insulation
+          cavity_wall_insulation: Cavity wall insulation
+          modern_boiler: Modern boiler (less than 10 years)
+          draught_proofing: Draught proofing
+
+# Q8c
+      home_features_historic?:
+        title: "Which  of these do you have:"
+        options:
+          mains_gas: Mains gas
+          electric_heating: Electric heating
+          modern_double_glazing: Modern double glazing on all doors and windows (less than 10 years)
+          loft_attic_conversion: Loft or attic conversion
+          loft_insulation: Loft insulation
+          solid_wall_insulation: Solid wall insulation
+          modern_boiler: Modern boiler (less than 10 years)
+          draught_proofing: Draught proofing
+
+
+# outcome 1 help with bills
+      outcome_help_with_bills:
+        title: %{help_with_bills_outcome_title}
+        body: |
+          %{eligibilities_bills}
+
+          See which [measures your property may qualify for](/energy-grants-calculator/y/help_energy_efficiency).
+
+          For some of these schemes further eligibility criteria apply. These can differ depending on your supplier.
+
+# outcome 2 social housing
+      outcome_social_housing:
+        title: Unfortunately it doesn’t look like you qualify for support.
+        body: |
+          Contact your housing provider to discuss ways your home could be made more energy efficient.
+
+# outcome 3a measures_help and eco_eligible
+      outcome_measures_help_and_eco_eligible:
+        title: %{title_end}
+        body: |
+          %{eligibilities}
+
+# outcome 3b measures_help and green_deal
+      outcome_measures_help_green_deal:
+        title: %{title_end}
+        body: |
+          %{eligibilities}
+
+# outcome 3c bills and measures - no benefits
+      outcome_bills_and_measures_no_benefits:
+        title: %{title_end}
+        body: |
+          %{eligibilities_bills}
+          %{eligibilities}
+
+# outcome 3d bills and measures, benefits and eco_eligible
+      outcome_bills_and_measures_on_benefits_eco_eligible:
+        title: %{title_end}
+        body: |
+          %{eligibilities_bills}
+          %{eligibilities}
+
+# outcome 3e bills and measures, no benefits but eco_eligible
+      outcome_bills_and_measures_on_benefits_not_eco_eligible:
+        title: %{title_end}
+        body: |
+          %{eligibilities_bills}
+          %{eligibilities}
+
+# outcome 4 don't qualify for green deal or help with energy efficiency
+      outcome_no_green_deal_no_energy_measures:
+        title: You don't qualify for the Green Deal or for any help with energy efficient measures for your home.
+        body: |
+          %{eligibilities}
