@@ -6,7 +6,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'energy-grants-calculator'
+    setup_for_testing_flow 'energy-grants-calculator-v2'
   end
 
   context "Energy grants calculator" do
