@@ -231,7 +231,7 @@ end
 
 
 # Q7
-checkbox_question :type_of_property? do
+multiple_choice :type_of_property? do
   option :house
   option :flat
   save_input_as :property_type
