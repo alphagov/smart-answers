@@ -1750,7 +1750,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "go to os affirmation outcome" do
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do,:what_you_need_to_do_may_ask, :appointment_for_affidavit, :affirmation_os_translation_in_local_language,:affirmation_os_download_affidavit, :affirmation_os_divorced_or_widowed, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_in_cash_or_maanger_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do,:what_you_need_to_do_may_ask, :appointment_for_affidavit, :affirmation_os_translation_in_local_language,:affirmation_os_download_affidavit, :affirmation_os_divorced_or_widowed, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_in_cash_or_manager_cheque]
     end
   end
 end
