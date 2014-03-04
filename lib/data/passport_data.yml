@@ -696,9 +696,10 @@ nauru:
   app_form: hmpo_1_application_form
   online_application: true
 nepal:
-  type: ips_application_1
+  type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
+  application_office: true
 netherlands:
   type: ips_application_1
   group: ips_documents_group_1
@@ -782,6 +783,7 @@ pitcairn-island:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
+  application_office: true
 poland:
   type: ips_application_1
   group: ips_documents_group_1
@@ -1042,6 +1044,7 @@ ukraine:
   type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
+  application_office: true
 united-arab-emirates:
   type: ips_application_1
   group: ips_documents_group_1

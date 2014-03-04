@@ -9,7 +9,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania afghanistan australia austria azerbaijan bahamas bangladesh benin burundi cameroon congo egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nigeria north-korea pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia united-kingdom uzbekistan yemen zimbabwe vietnam)
+    @location_slugs = %w(albania afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burundi cameroon congo egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nepal nigeria north-korea pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia turkey ukraine united-kingdom uzbekistan yemen zimbabwe vietnam)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports'
   end
@@ -43,7 +43,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           assert_state_variable :application_type, 'ips_application_3'
           assert_current_node :ips_application_result
           assert_phrase_list :how_long_it_takes, [:how_long_applying_at_least_6_months, :how_long_it_takes_ips3]
-          assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card_afghanistan, :passport_costs_ips3_cash_or_card]
+          assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
           assert_phrase_list :send_your_application, [:send_application_ips3_afghanistan_apply_renew_old_replace, :send_application_embassy_address]
         end
       end
@@ -61,7 +61,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           add_response 'adult'
           assert_state_variable :application_type, 'ips_application_3'
           assert_current_node :ips_application_result
-          assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card_afghanistan, :passport_costs_ips3_cash_or_card]
+          assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
           assert_phrase_list :send_your_application, [:send_application_ips3_afghanistan_renew_new, :send_application_embassy_address]
         end
       end
@@ -339,7 +339,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       end
     end # Applying
   end # Albania - IPS_application_2
-
+  
   # Morocco (an example of IPS application 2 with custom phrases).
   context "answer Morocco" do
     setup do
@@ -652,9 +652,47 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
       assert_phrase_list :getting_your_passport, [:"getting_your_passport_pitcairn-island"]
-      assert_match /101 Old Hall Street/, outcome_body
+      assert_phrase_list :send_your_application, [:"send_application_address_pitcairn-island"]
     end
   end # Pitcairn Island (IPS1 with custom phrases)
+
+  context "answer Ukraine, applying, adult passport" do
+    should "give the IPS application result with custom phrases" do
+      worldwide_api_has_organisations_for_location('ukraine', read_fixture_file('worldwide/ukraine_organisations.json'))
+      add_response 'ukraine'
+      add_response 'applying'
+      add_response 'adult'
+      add_response 'united-kingdom'
+      assert_current_node :ips_application_result
+      assert_phrase_list :cost, [:passport_courier_costs_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
+      assert_phrase_list :getting_your_passport, [:"getting_your_passport_ips3"]
+      assert_phrase_list :send_your_application, [:alternative_dates_and_times, :"send_application_address_ukraine"]
+    end
+  end # Ukraine (IPS1 with custom phrases)
+  
+  context "answer nepal, renewing new, adult passport" do
+    should "give the IPS application result with custom phrases" do
+      worldwide_api_has_organisations_for_location('nepal', read_fixture_file('worldwide/nepal_organisations.json'))
+      add_response 'nepal'
+      add_response 'renewing_new'
+      add_response 'adult'
+      assert_current_node :ips_application_result
+      assert_phrase_list :send_your_application, [:making_application_nepal_renewing_new, :"send_application_address_nepal"]
+      assert_phrase_list :cost, [:passport_courier_costs_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]    
+    end
+  end # nepal (IPS1 with custom phrases)
+  
+  context "answer nepal, lost or stolen, adult passport" do
+    should "give the IPS application result with custom phrases" do
+      worldwide_api_has_organisations_for_location('nepal', read_fixture_file('worldwide/pitcairn-island_organisations.json'))
+      add_response 'nepal'
+      add_response 'replacing'
+      add_response 'adult'
+      assert_current_node :ips_application_result
+      assert_phrase_list :send_your_application, [:making_application_nepal_lost_or_renewing_old, :"send_application_address_nepal"]
+      assert_phrase_list :cost, [:passport_courier_costs_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
+    end
+  end # nepal (IPS1 with custom phrases)
 
   context "answer Iran" do
     should "give a bespoke outcome stating an application is not possible in Iran" do
@@ -907,7 +945,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'child'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips2]
+      assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips2]
       assert_phrase_list :cost, [:passport_courier_costs_ips2, :child_passport_costs_ips2, :passport_costs_ips2]
       assert_phrase_list :send_your_application, [:send_application_ips2, :send_application_embassy_address]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_ips2]
@@ -1063,7 +1101,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'renewing_new'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips3]
+        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips3]
         assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
         assert_phrase_list :send_your_application, [:send_application_ips3, :renewing_new_renewing_old, :send_application_embassy_address]
@@ -1076,7 +1114,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'adult'
         add_response 'united-kingdom'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips3]
+        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips3]
         assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
         assert_phrase_list :send_your_application, [:send_application_ips3, :send_application_embassy_address]
@@ -1099,4 +1137,30 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
   end # Bahamas
 
+  context "answer british-indian-ocean-territory" do
+    should "go to apply_in_neighbouring_country outcome" do
+      worldwide_api_has_organisations_for_location('british-indian-ocean-territory', read_fixture_file('worldwide/british-indian-ocean-territory_organisations.json'))
+      add_response 'british-indian-ocean-territory'
+      assert_current_node :apply_in_neighbouring_country
+    end
+  end # british-indian-ocean-territory
+  
+
+  
+  context "answer turkey, doc group 1" do
+    setup do
+      worldwide_api_has_organisations_for_location('turkey', read_fixture_file('worldwide/turkey_organisations.json'))
+      add_response 'turkey'
+    end
+    should "show how to apply online" do
+      add_response 'applying'
+      add_response 'adult'
+      add_response 'united-kingdom'
+      assert_current_node :ips_application_result_online
+      assert_phrase_list :how_long_it_takes, [:how_long_applying_online, :how_long_additional_time_online]
+      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1]
+      assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance_doc_group_1]
+      assert_match /the passport numbers of both parents/, outcome_body
+    end
+  end
 end

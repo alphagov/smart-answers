@@ -132,6 +132,7 @@ en-GB:
              +44 207 008 1500 at any other time
 
           $C
+          
         helpline_intro: |
           If you haven’t received your passport within the expected timescale, you can check your application’s progress by phone. You will be charged for the call.
 
@@ -140,7 +141,6 @@ en-GB:
           If you haven’t received your passport within the expected timescales, or need to change your travel plans urgently (eg a close relative has died), you can leave a message with the passport processing centre in Madrid.
 
           They will only call you back if your passport has been delayed or you have a genuine emergency.
-
 
           $C
 
@@ -151,12 +151,10 @@ en-GB:
         helpline_exception_yemen: |
           If you haven’t received your passport within the expected timescale, you can check your application’s progress by phone. You’ll be charged for the call.
 
-
-
           $C
           **Passport information - Yemen**
-      
-          +44 208 082 4729  
+
+          +44 208 082 4729
           Monday to Friday, 24 hours a day
           $C
         helpline_: ''
@@ -165,7 +163,7 @@ en-GB:
 
           A webchat service is available. It costs a flat rate of £4 - you must pay by credit card before you start. Once you’ve paid, you’ll be given a reference number to launch your webchat. You’ll receive an email transcript of your conversation when you finish.
 
-          [Use the webchat service](https://www.synthetix.info/fco/ "Use the webchat service to chat to an advisor") 
+          [Use the webchat service](https://www.synthetix.info/fco/ "Use the webchat service to chat to an advisor")
 
         hmpo_1_application_form: |
           ^[Application form - applying for a British passport overseas](/government/publications/applying-for-a-passport-from-outside-the-uk-application-form)^
@@ -223,7 +221,7 @@ en-GB:
           Your application will take **at least** 12 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
 
         how_long_replacing_online: |
-          Your application will take **at least** 6 weeks from when when your declaration form is received by Her Majesty's Passport Office in the UK. 
+          Your application will take **at least** 6 weeks from when when your declaration form is received by Her Majesty's Passport Office in the UK.
 
           If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your declaration form.
 
@@ -292,7 +290,7 @@ en-GB:
 
         how_to_apply_online_prerequisites_renewing: |
           Before you start you need:
-           
+
           - your current passport
           - 2 identical new photos of you (or your child, if it’s a child passport application)
           - any other current passports issued by other countries
@@ -300,7 +298,7 @@ en-GB:
 
         how_to_apply_online_prerequisites_replacing: |
           Before you start you need:
-           
+
           - 2 identical new photos of you (or your child, if it’s a child passport application)
           - any other current passports issued by other countries
           - a MasterCard, Visa, Visa Electron, Visa Debit or Maestro (UK Domestic) card - Maestro (International) cards aren’t accepted
@@ -348,13 +346,13 @@ en-GB:
 
 
           $A
-            Her Majesty's Passport Office  
-            OVS-B  
-            Ground Floor  
-            Law Society House  
-            90-106 Victoria Street  
-            Belfast  
-            BT1 3GN  
+            Her Majesty's Passport Office
+            OVS-B
+            Ground Floor
+            Law Society House
+            90-106 Victoria Street
+            Belfast
+            BT1 3GN
             United Kingdom
           $A
 
@@ -363,13 +361,13 @@ en-GB:
 
           Her Majesty's Passport Office recommends you send your application using a secure delivery service or courier.
 
-          
+
           $A
-            Her Majesty's Passport Office 
-            OVS-D 
-            Millburngate House 
-            Millburngate 
-            Durham 
+            Her Majesty's Passport Office
+            OVS-D
+            Millburngate House
+            Millburngate
+            Durham
             DH97 1PA
           $A
 
@@ -378,13 +376,13 @@ en-GB:
 
           Her Majesty's Passport Office recommends you send your application using a secure delivery service or courier.
 
-          
+
           $A
-            Her Majesty's Passport Office 
-            OVS-D 
-            Millburngate House 
-            Millburngate 
-            Durham 
+            Her Majesty's Passport Office
+            OVS-D
+            Millburngate House
+            Millburngate
+            Durham
             DH97 1PA
           $A
 
@@ -407,7 +405,7 @@ en-GB:
         getting_your_passport_cambodia: |
           Your passport and supporting documents will be delivered to the British Embassy in Phnom Penh - you must collect them in person.
         getting_your_passport_cameroon: |
-          Your passport and supporting documents will be delivered to the British High Commission in Yaounde, Cameroon - you must collect them in person. 
+          Your passport and supporting documents will be delivered to the British High Commission in Yaounde, Cameroon - you must collect them in person.
         getting_your_passport_chad: |
           Your passport and supporting documents will be delivered to the British High Commission in Yaounde, Cameroon - you must collect them in person.
         getting_your_passport_congo: |
@@ -415,9 +413,9 @@ en-GB:
         getting_your_passport_djibouti: |
           Your passport and supporting documents will be delivered to you by courier.
         getting_your_passport_egypt: |
-          Your passport and supporting documents will be delivered to the British Embassy in Cairo - you must collect them in person. 
+          Your passport and supporting documents will be delivered to the British Embassy in Cairo - you must collect them in person.
         getting_your_passport_ethiopia: |
-          Your passport and supporting documents will be delivered to the British Embassy in Addis Ababa, Ethiopia - you must collect them in person. 
+          Your passport and supporting documents will be delivered to the British Embassy in Addis Ababa, Ethiopia - you must collect them in person.
         getting_your_passport_eritrea: |
           Your passport and supporting documents will be delivered to the British Embassy in Asmara, Eritrea - you must collect them in person.
         getting_your_passport_gambia: |
@@ -427,7 +425,7 @@ en-GB:
         getting_your_passport_guinea: |
           Your passport and supporting documents will be delivered to the British Embassy in Conakry, Guinea - you must collect them in person.
         getting_your_passport_jamaica: |
-          Your passport and supporting documents will be delivered to the British High Commission in Kingston - you must collect them in person. 
+          Your passport and supporting documents will be delivered to the British High Commission in Kingston - you must collect them in person.
         getting_your_passport_kenya: |
           Your passport and supporting documents will be delivered to the British High Commission Nairobi, Kenya - you must collect them in person.
         getting_your_passport_nigeria: |
@@ -437,7 +435,7 @@ en-GB:
         getting_your_passport_sierra-leone: |
           Your passport and supporting documents will be delivered to the British High Commission in Freetown, Sierra Leone - you must collect them in person.
         getting_your_passport_somalia: |
-          Your passport and supporting documents will be delivered to the British Embassy in Addis Ababa, Ethiopia - you must collect them in person. 
+          Your passport and supporting documents will be delivered to the British Embassy in Addis Ababa, Ethiopia - you must collect them in person.
         getting_your_passport_south-sudan: |
           Your passport and supporting documents will be delivered to the DHL Office in Juba, South Sudan - you must collect them in person.
         getting_your_passport_uganda: |
@@ -460,7 +458,7 @@ en-GB:
         getting_your_passport_iraq: |
           You must collect your passport and supporting documents in person from either:
 
-          - the British Embassy in Baghdad 
+          - the British Embassy in Baghdad
           - the British Consulate General in Erbil
 
           You must specify where you want them delivered in section 8 on the application form. You must bring photo ID with you
@@ -480,7 +478,9 @@ en-GB:
         getting_your_passport_burma: |
           Your passport and supporting documents will be delivered to the British High Commission in Rangoon - you must collect them in person.
         getting_your_passport_nepal: |
-          Your passport and supporting documents will be delivered to the British High Commission in Kathmandu - you must collect them in person.
+
+          Your passport will be delivered to the UK Visa Application Centre in Kathmandu - you must collect it in person.
+      
         getting_your_passport_north-korea: |
           Your passport will be delivered to the British Embassy in Pyongyang - you must collect it in person.
         getting_your_passport_thailand_renew_new: |
@@ -491,8 +491,8 @@ en-GB:
           ##Contact the Passport Adviceline
 
           $C
-          Telephone: +44 (0) 300 222 0000  
-          Monday to Friday, 8am to 8pm (UK time)  
+          Telephone: +44 (0) 300 222 0000
+          Monday to Friday, 8am to 8pm (UK time)
           Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)
           $C
 
@@ -514,10 +514,10 @@ en-GB:
           Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK.
 
         how_long_16_weeks: |
-          Your application will take **up to** 16 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+          Your application will take **at least** 16 weeks from when it’s received by Her Majesty's Passport Office in the UK.
 
         how_long_8_weeks: |
-          Your application will take at least **8 weeks.**
+          Your application will take **at least** 8 weeks from when it’s received by Her Majesty's Passport Office in the UK.
 
         how_long_8_weeks_with_interview:
           Your application will take **at least** 8 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
@@ -531,7 +531,7 @@ en-GB:
           Your application will take **at least** 12 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
 
         how_long_applying_16_weeks: |
-          Your application will take **up to** 16 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
+          Your application will take **at least** 16 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
 
         how_long_applying_at_least_6_months: |
           Your application will take **at least** 6 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
@@ -556,7 +556,7 @@ en-GB:
 
         passport_courier_costs_ips2: |
           You’ll have to pay a fee for your passport and a courier fee of £24.72. The courier fee pays for your passport to be sent securely to the British embassy, high commission or consulate where you applied for you to collect.
-
+          
         adult_passport_costs_ips2: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
@@ -596,7 +596,7 @@ en-GB:
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
 
         getting_your_passport_ips2: |
-          Your passport will be delivered to the British embassy, high commission or consulate where you applied  - you must collect it in person. 
+          Your passport will be delivered to the British embassy, high commission or consulate where you applied  - you must collect it in person.
 
           They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
 
@@ -627,6 +627,9 @@ en-GB:
 
         passport_courier_costs_ips3: |
           You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the British embassy, high commission or consulate where you applied for you to collect.
+          
+        passport_courier_costs_uk_visa: |
+          You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
 
         passport_courier_costs_ips3_india: |
           You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to you direct, or to the British embassy, high commission or consulate where you applied if you wish to collect it.
@@ -663,9 +666,6 @@ en-GB:
           Fill in a [‘Paying by credit card or debit card’ form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
 
           You can use Mastercard, Visa, Electron, Diners Club and JCB.
-
-        passport_costs_ips3_cash_or_card_afghanistan: |
-          You must pay in cash in US dollars - the prices above will be converted according to the exchange rate when you apply.
 
         passport_costs_ips3_cash_or_card_bangladesh: |
           You can pay in cash using local currency if you apply in person - the prices above will be converted according to the exchange rate when you apply. You can’t pay by banker’s draft.
@@ -715,6 +715,7 @@ en-GB:
           You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
 
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+                    
         send_application_ips3_afghanistan_apply_renew_old_replace: |
           ## Making your application
 
@@ -765,13 +766,13 @@ en-GB:
 
 
           $A
-          British Information & Services Office  
-          1st Floor, Al-Riyad Tower  
-          Jerusalem Street  
-          Al-Rimal South  
+          British Information & Services Office
+          1st Floor, Al-Riyad Tower
+          Jerusalem Street
+          Al-Rimal South
           Gaza
 
-          Email: dljerusalemconsularprotect@fco.gov.uk  
+          Email: dljerusalemconsularprotect@fco.gov.uk
           Telephone: +972 (8) 2641456
           Fax: +972 (8) 2641457
           $A
@@ -779,14 +780,13 @@ en-GB:
         send_application_ips3_thailand_renewing_new: |
           ## Making your application
           Her Majesty’s Passport Office recommends you send your application using a secure delivery service or courier.
-
-
+          
           $A
-          Her Majesty's Passport Office 
-          OVS-L 
-          101 Old Hall Street 
-          Liverpool 
-          L3 9BP 
+          Her Majesty's Passport Office
+          OVS-L
+          101 Old Hall Street
+          Liverpool
+          L3 9BP
           United Kingdom
           $A
 
@@ -802,6 +802,80 @@ en-GB:
           You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
 
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+
+        making_application_nepal_renewing_new: |
+          ## Making your application
+
+          You must apply in person. You must bring photo ID with you.
+
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+
+          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
+
+          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+          
+          You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
+          
+        making_application_nepal_lost_or_renewing_old: |
+          ## Making your application
+          
+          You must apply in person.
+
+          You must bring photo ID with you.
+
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+          You’ll need to book an appointment by email. Include your name and surname and 3 alternative dates and times. You will receive an email confirming your appointment. 
+          
+        send_application_address_nepal: |
+
+          $A
+          UK Visa Application Centre
+          4th floor, Four Square Building,
+          (Opposite Police Head Quarters),
+          Narayan Chaur, Naxal,
+          Kathmandu
+          Nepal
+          $A
+          
+          $C
+          Email: <KathmanduHMPO@vfshelpline.com>  
+          Opening hours: Monday to Friday 8am to 2pm (local time)
+          $C
+
+        send_application_address_pitcairn-island: |
+
+          ## Making your application
+
+          $A
+          Pitcairn Islands Office
+          P.O. Box 105 696
+          Auckland
+          New Zealand
+          $A
+          
+          $C
+          Email: <admin@pitcairn.gov.pn> 
+          Telephone: +64 9 366 0186  
+          Fax: +64 9 366 0187  
+          $C
+
+        alternative_dates_and_times: |
+          ## Making your application
+          You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
+          
+        send_application_address_ukraine: |
+
+          $A
+          UK Visa Application Centre
+          Antem Business Centre
+          4 Hlybochyts'ka Street
+          Kyiv
+          Ukraine
+          $A
+          
+          $C
+          Email: <enquiryHMPO@TPContact.co.uk>
+          $C
 
         getting_your_passport_ips3: |
           Your passport will be delivered to the British embassy, high commission or consulate where you applied - you must collect it in person.
@@ -1017,3 +1091,19 @@ en-GB:
       cannot_apply:
         body: |
           %{body_text}
+
+      apply_in_neighbouring_country:
+        title: You can’t apply for a British passport from South Georgia and the South Sandwich Islands.
+        body: |
+          You should apply in a neighbouring country of your choice.
+
+          ###Passport Adviceline
+
+          $C
+            Telephone: +44 (0) 300 222 0000
+
+            Monday to Friday, 8am to 8pm (UK time)
+
+            Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)
+          $C
+        
