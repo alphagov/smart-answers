@@ -36,6 +36,9 @@ en-GB:
           ^You can only pay by cash in %{ceremony_country_name}. This must be in the local currency.^  
         pay_in_euros_or_visa_electron: |
           You can pay by cash (euros only) or credit card (but not Visa Electron).
+        pay_in_cash_or_manager_cheque: |
+          You can pay in cash or with a bank manager's cheque made payable to 'British Embassy'.
+        
       #fees
         list_of_consular_fees: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
@@ -767,12 +770,19 @@ en-GB:
         appointment_for_affidavit: |
           Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
 
-        affirmation_os_all_what_you_need_to_do_two: |
+        affirmation_os_translation_in_local_language: |
 
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
           ^You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.^
+        affirmation_os_download_affidavit: |
+          The embassy will provide you with an oath or affidavit (written statement of facts) stating that you’re free to marry. You can download and fill in (but not sign) the form in advance.
+          
+          $D
+          [Download 'Affadavit for marriage' (PDF, 170.34KB)](/government/uploads/system/uploads/attachment_data/file/284905/Marriage_in_the_Philippines_leaflet_affirmation_or_affidavit_of_marital_status_Feb_2014.pdf)
+          $D
 
+        affirmation_os_divorced_or_widowed: |
           If you’ve been divorced or widowed, you’ll also need:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order), or

@@ -789,17 +789,21 @@ outcome :outcome_os_affirmation do
         phrases << :clickbook_link
       end
     end
-    phrases << :affirmation_os_all_what_you_need_to_do_two
+    phrases << :affirmation_os_translation_in_local_language
+    phrases << :affirmation_os_download_affidavit if %w(philippines).include?(ceremony_country)
+    phrases << :affirmation_os_divorced_or_widowed
     
     if %w(partner_british).include?(partner_nationality)
       phrases << :affirmation_os_partner_british
     else
       phrases << :affirmation_os_partner_not_british
     end
-
     phrases << :affirmation_os_all_fees << :list_of_consular_fees
+    
     if %w(finland).include?(ceremony_country)
       phrases << :pay_in_euros_or_visa_electron
+    elsif %w(philippines).include?(ceremony_country)
+      phrases << :pay_in_cash_or_manager_cheque
     else
       phrases << :pay_by_cash_or_credit_card_no_cheque
     end
