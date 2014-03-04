@@ -263,8 +263,8 @@ outcome :ips_application_result do
       phrases = PhraseList.new
       if %w(india).include?(current_location)
         phrases << :passport_courier_costs_ips3_india
-      elsif %w(ukraine).include?(current_location)
-        phrases << :passport_courier_ukraine
+      elsif %w(ukraine nepal).include?(current_location)
+        phrases << :passport_courier_costs_uk_visa
       elsif %w(thailand).include?(current_location)
         if %w(renewing_new).include?(application_action)
           phrases << :passport_courier_costs_ips3_thailand_renewing_new

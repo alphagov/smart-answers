@@ -39,9 +39,6 @@ en-GB:
       which_best_describes_you_child?:
         title: Which of the following best describes you?
       phrases:
-      
-        passport_courier_ukraine: |
-          You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect. 
         how_long_applying_fco:
           Your application will take **at least** 6 weeks. You may have to attend an interview.
         how_long_renewing_old_fco:
@@ -517,10 +514,10 @@ en-GB:
           Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK.
 
         how_long_16_weeks: |
-          Your application will take **up to** 16 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+          Your application will take **at least** 16 weeks from when it’s received by Her Majesty's Passport Office in the UK.
 
         how_long_8_weeks: |
-          Your application will take **up to** 8 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+          Your application will take **at least** 8 weeks from when it’s received by Her Majesty's Passport Office in the UK.
 
         how_long_8_weeks_with_interview:
           Your application will take **at least** 8 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
@@ -534,7 +531,7 @@ en-GB:
           Your application will take **at least** 12 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
 
         how_long_applying_16_weeks: |
-          Your application will take **up to** 16 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
+          Your application will take **at least** 16 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
 
         how_long_applying_at_least_6_months: |
           Your application will take **at least** 6 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
@@ -630,6 +627,9 @@ en-GB:
 
         passport_courier_costs_ips3: |
           You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the British embassy, high commission or consulate where you applied for you to collect.
+          
+        passport_courier_costs_uk_visa: |
+          You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
 
         passport_courier_costs_ips3_india: |
           You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to you direct, or to the British embassy, high commission or consulate where you applied if you wish to collect it.
@@ -835,26 +835,32 @@ en-GB:
           Narayan Chaur, Naxal,
           Kathmandu
           Nepal
-          email: KathmanduHMPO@vfshelpline.com
-          Opening hours: Monday to Friday 8am to 2pm (local time)
           $A
+          
+          $C
+          Email: <KathmanduHMPO@vfshelpline.com>  
+          Opening hours: Monday to Friday 8am to 2pm (local time)
+          $C
 
         send_application_address_pitcairn-island: |
 
-          ## Send your application
+          ## Making your application
 
           $A
           Pitcairn Islands Office
           P.O. Box 105 696
           Auckland
           New Zealand
-          Email: admin@pitcairn.gov.pn
-          Telephone. +64 9 366 0186
-          Fax +64 9 366 0187
           $A
+          
+          $C
+          Email: <admin@pitcairn.gov.pn> 
+          Telephone: +64 9 366 0186  
+          Fax: +64 9 366 0187  
+          $C
 
         alternative_dates_and_times: |
-          ## Send your application
+          ## Making your application
           You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
           
         send_application_address_ukraine: |
@@ -865,8 +871,11 @@ en-GB:
           4 Hlybochyts'ka Street
           Kyiv
           Ukraine
-          email: enquiryHMPO@TPContact.co.uk
           $A
+          
+          $C
+          Email: <enquiryHMPO@TPContact.co.uk>
+          $C
 
         getting_your_passport_ips3: |
           Your passport will be delivered to the British embassy, high commission or consulate where you applied - you must collect it in person.
