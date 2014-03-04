@@ -24,6 +24,8 @@ country_select :which_country_are_you_in?, :exclude_countries => exclude_countri
       :cannot_apply
     elsif %w(the-occupied-palestinian-territories).include?(response)
       :which_opt?
+    elsif %w(british-indian-ocean-territory south-georgia-and-south-sandwich-islands).include?(response)
+      :apply_in_neighbouring_country
     else
       :renewing_replacing_applying?
     end
@@ -201,13 +203,15 @@ end
 ## IPS Application Result
 outcome :ips_application_result do
   precalculate :how_long_it_takes do
-    six_week_only_application_countries = %(belarus georgia russia tajikistan turkmenistan uzbekistan)
+    # six_week_only_application_countries = %(belarus georgia russia tajikistan turkmenistan uzbekistan)
+    eight_week_only_application_countries = %(belarus georgia russia tajikistan turkmenistan uzbekistan)
+
     six_week_application_countries = %w(mauritania morocco tunisia western-sahara)
     twelve_week_application_countries = %w(cameroon chad djibouti eritrea ethiopia kenya somalia tanzania uganda)
 
     phrases = PhraseList.new
-    if six_week_only_application_countries.include?(current_location)
-      phrases << :how_long_6_weeks
+    if eight_week_only_application_countries.include?(current_location)
+      phrases << :how_long_8_weeks
     elsif six_week_application_countries.include?(current_location)
       number_of_weeks = application_action =~ /renewing_new/ ? 4 : 6
       phrases << :"how_long_#{number_of_weeks}_weeks"
@@ -259,6 +263,8 @@ outcome :ips_application_result do
       phrases = PhraseList.new
       if %w(india).include?(current_location)
         phrases << :passport_courier_costs_ips3_india
+      elsif %w(ukraine nepal).include?(current_location)
+        phrases << :passport_courier_costs_uk_visa
       elsif %w(thailand).include?(current_location)
         if %w(renewing_new).include?(application_action)
           phrases << :passport_courier_costs_ips3_thailand_renewing_new
@@ -275,7 +281,7 @@ outcome :ips_application_result do
         phrases << :"#{child_or_adult}_passport_costs_ips#{ips_number}"
       end
 
-      if %w(afghanistan bangladesh).include?(current_location)
+      if %w(bangladesh).include?(current_location)
         phrases << :"passport_costs_ips3_cash_or_card_#{current_location}" << :passport_costs_ips3_cash_or_card
       elsif %w(thailand).include?(current_location)
         if %w(renewing_new).include?(application_action)
@@ -317,35 +323,47 @@ outcome :ips_application_result do
 
   precalculate :send_your_application do
     phrases = PhraseList.new
+
+    if %w(nepal).include?(current_location)
+      if %w(renewing_new).include?(application_action)
+        phrases << :making_application_nepal_renewing_new
+      elsif %w(replacing).include?(application_action) or %w(renewing_old).include?(application_action)
+        phrases << :making_application_nepal_lost_or_renewing_old
+      end
+    elsif %w(ukraine).include?(current_location)
+      phrases << :alternative_dates_and_times
+    end
     if application_address
       phrases << :"send_application_ips#{ips_number}_#{application_address}"
     elsif %w(gaza).include?(current_location)
       phrases << :send_application_ips3_gaza
-    elsif %w(afghanistan).include?(current_location)
+    elsif %w(afghanistan burundi).include?(current_location)
       if %w(renewing_new).include?(application_action)
-        phrases << :send_application_ips3_afghanistan_renew_new
+        phrases << :"send_application_ips3_#{current_location}_renew_new"
       else
-        phrases << :send_application_ips3_afghanistan_apply_renew_old_replace
+        phrases << :"send_application_ips3_#{current_location}_apply_renew_old_replace"
       end
       phrases << :send_application_embassy_address
-    elsif %w(bangladesh).include?(current_location)
-      phrases << :"send_application_ips3_#{current_location}" << :send_application_embassy_address
-    elsif %w(burundi).include?(current_location)
-      if %w(renewing_new).include?(application_action)
-        phrases << :send_application_ips3_burundi_renew_new
-      else
-        phrases << :send_application_ips3_burundi_apply_renew_old_replace
-      end
+    elsif %w(bangladesh india pakistan).include?(current_location)
+      phrases << :"send_application_ips3_#{current_location}"
+      phrases << :send_application_ips3_must_post unless current_location == 'bangladesh'
       phrases << :send_application_embassy_address
-    elsif %w(india pakistan).include?(current_location)
-      phrases << :"send_application_ips3_#{current_location}" << :send_application_ips3_must_post << :send_application_embassy_address
     elsif %w(north-korea thailand).include?(current_location) and %w(renewing_new).include?(application_action)
       phrases << :"send_application_ips3_#{current_location}_renewing_new"
     elsif general_action == 'renewing' and data_query.renewing_countries?(current_location)
-      phrases << :"send_application_ips#{ips_number}" << :renewing_new_renewing_old << :send_application_embassy_address
+      if passport_data['application_office']
+        phrases << :"send_application_address_#{current_location}"
+      else
+        phrases << :"send_application_ips#{ips_number}" << :renewing_new_renewing_old
+        phrases << :send_application_embassy_address
+      end
     else
-      phrases << :"send_application_ips#{ips_number}"
-      phrases << :send_application_embassy_address if ips_number.to_i > 1
+      if passport_data['application_office']
+        phrases << :"send_application_address_#{current_location}"
+      else
+        phrases << :"send_application_ips#{ips_number}"
+        phrases << :send_application_embassy_address if ips_number.to_i > 1
+      end
     end
     phrases
   end
@@ -403,6 +421,7 @@ outcome :fco_result do
     cost_type = 'fco_europe' if application_type =~ /^(dublin_ireland|madrid_spain|paris_france)$/
 
     payment_methods = :"passport_costs_#{application_type}"
+    
 
     phrases = PhraseList.new(:"passport_courier_costs_#{cost_type}",
                              :"#{child_or_adult}_passport_costs_#{cost_type}",
@@ -538,3 +557,5 @@ outcome :cannot_apply do
     PhraseList.new(:"body_#{current_location}")
   end
 end
+
+outcome :apply_in_neighbouring_country
