@@ -39,9 +39,6 @@ en-GB:
       which_best_describes_you_child?:
         title: Which of the following best describes you?
       phrases:
-      
-        # passport_courier_ukraine: |
-        #   You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect. 
         how_long_applying_fco:
           Your application will take **at least** 6 weeks. You may have to attend an interview.
         how_long_renewing_old_fco:
