@@ -189,6 +189,15 @@ module SmartAnswer::Calculators
       # years = ((ni_start_date.month == today.month and ni_start_date.day > today.day) ? years - 1 : years)
       years
     end
+    
+    def ni_years_to_date_from_dob
+      today = Date.today
+      years = today.year - ni_start_date.year
+      if (today.month < dob.month) or (today.month == dob.month and dob.day < today.day)
+        years -= 1 
+      end
+      years
+    end
 
     def available_years_sum(qual_years = @qualifying_years)
       (@available_years - qual_years)
