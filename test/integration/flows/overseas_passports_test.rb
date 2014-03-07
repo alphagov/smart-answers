@@ -653,6 +653,8 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_current_node :ips_application_result
       assert_phrase_list :getting_your_passport, [:"getting_your_passport_pitcairn-island"]
       assert_phrase_list :send_your_application, [:"send_application_address_pitcairn-island"]
+      assert_phrase_list :cost, [:passport_courier_costs_ips3_pitcairn_island, :adult_passport_costs_ips1,
+ :passport_costs_ips1]
     end
   end # Pitcairn Island (IPS1 with custom phrases)
 
@@ -665,8 +667,21 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
       assert_phrase_list :cost, [:passport_courier_costs_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
-      assert_phrase_list :getting_your_passport, [:"getting_your_passport_ips3"]
-      assert_phrase_list :send_your_application, [:alternative_dates_and_times, :"send_application_address_ukraine"]
+      assert_phrase_list :getting_your_passport, [:"getting_your_passport_ukraine"]
+      assert_phrase_list :send_your_application, [:making_application_ukraine_lost_stolen_renewal_old_overseas_first_passport, :"send_application_address_ukraine"]
+    end
+  end # Ukraine (IPS1 with custom phrases)
+  
+  context "answer Ukraine, applying, adult passport" do
+    should "give the IPS application result with custom phrases" do
+      worldwide_api_has_organisations_for_location('ukraine', read_fixture_file('worldwide/ukraine_organisations.json'))
+      add_response 'ukraine'
+      add_response 'renewing_new'
+      add_response 'adult'
+      assert_current_node :ips_application_result
+      assert_phrase_list :cost, [:passport_courier_costs_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
+      assert_phrase_list :getting_your_passport, [:"getting_your_passport_ukraine"]
+      assert_phrase_list :send_your_application, [:making_application_ukraine_renewing_new, :"send_application_address_ukraine"]
     end
   end # Ukraine (IPS1 with custom phrases)
   
@@ -679,6 +694,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_current_node :ips_application_result
       assert_phrase_list :send_your_application, [:making_application_nepal_renewing_new, :"send_application_address_nepal"]
       assert_phrase_list :cost, [:passport_courier_costs_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]    
+      assert_state_variable :send_colour_photocopy_bulletpoint, nil
     end
   end # nepal (IPS1 with custom phrases)
   
@@ -689,8 +705,9 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'replacing'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_phrase_list :send_your_application, [:making_application_nepal_lost_or_renewing_old, :"send_application_address_nepal"]
+      assert_phrase_list :send_your_application, [:making_application_nepal_lost_stolen_renewal_old_overseas_first_passport, :"send_application_address_nepal"]
       assert_phrase_list :cost, [:passport_courier_costs_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
+      assert_state_variable :send_colour_photocopy_bulletpoint, nil
     end
   end # nepal (IPS1 with custom phrases)
 

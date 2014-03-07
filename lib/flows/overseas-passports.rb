@@ -271,6 +271,8 @@ outcome :ips_application_result do
         else
           phrases << :passport_courier_costs_ips3_thailand_apply_renew_old_replace
         end
+      elsif %w(pitcairn-island).include?(current_location)
+        phrases << :passport_courier_costs_ips3_pitcairn_island
       else
         phrases << :"passport_courier_costs_ips#{ips_number}"
       end
@@ -310,7 +312,7 @@ outcome :ips_application_result do
     else
       phrases = PhraseList.new
       phrases <<  :"how_to_apply_ips#{ips_number}"
-      if send_colour_photocopy_countries.include?(current_location) and %w(renewing_new).include?(application_action)
+      if send_colour_photocopy_countries.include?(current_location) and %w(renewing_new).include?(application_action) and not %w(nepal).include?(current_location)
         phrases << :send_colour_photocopy_bulletpoint
       elsif %w(pakistan).include?(current_location)
         phrases << :send_application_ips1_pakistan
@@ -327,11 +329,15 @@ outcome :ips_application_result do
     if %w(nepal).include?(current_location)
       if %w(renewing_new).include?(application_action)
         phrases << :making_application_nepal_renewing_new
-      elsif %w(replacing).include?(application_action) or %w(renewing_old).include?(application_action)
-        phrases << :making_application_nepal_lost_or_renewing_old
+      else
+        phrases << :making_application_nepal_lost_stolen_renewal_old_overseas_first_passport
       end
     elsif %w(ukraine).include?(current_location)
-      phrases << :alternative_dates_and_times
+      if %w(renewing_new).include?(application_action)
+        phrases << :making_application_ukraine_renewing_new
+      else
+        phrases << :making_application_ukraine_lost_stolen_renewal_old_overseas_first_passport
+      end
     end
     if application_address
       phrases << :"send_application_ips#{ips_number}_#{application_address}"
@@ -400,6 +406,8 @@ outcome :ips_application_result do
       else
         phrases << :getting_your_passport_thailand_apply_renew_old_replace
       end
+    elsif %w(ukraine).include?(current_location)
+      phrases << :"getting_your_passport_#{current_location}"
     else
       phrases << :"getting_your_passport_ips#{ips_number}"
     end
