@@ -667,10 +667,10 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
       assert_phrase_list :cost, [:passport_courier_costs_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
-      assert_phrase_list :getting_your_passport, [:"getting_your_passport_ukraine"]
-      assert_phrase_list :send_your_application, [:making_application_ukraine_lost_stolen_renewal_old_overseas_first_passport, :"send_application_address_ukraine"]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_ukraine]
+      assert_phrase_list :send_your_application, [:send_application_ips3_ukraine_apply_renew_old_replace, :send_application_address_ukraine]
     end
-  end # Ukraine (IPS1 with custom phrases)
+  end # Ukraine (IPS3 with custom phrases)
   
   context "answer Ukraine, applying, adult passport" do
     should "give the IPS application result with custom phrases" do
@@ -680,10 +680,10 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       assert_current_node :ips_application_result
       assert_phrase_list :cost, [:passport_courier_costs_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
-      assert_phrase_list :getting_your_passport, [:"getting_your_passport_ukraine"]
-      assert_phrase_list :send_your_application, [:making_application_ukraine_renewing_new, :"send_application_address_ukraine"]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_ukraine, :getting_your_passport_contact, :getting_your_passport_id_renew_new]
+      assert_phrase_list :send_your_application, [:send_application_ips3_ukraine_renew_new, :send_application_address_ukraine]
     end
-  end # Ukraine (IPS1 with custom phrases)
+  end # Ukraine (IPS3 with custom phrases)
   
   context "answer nepal, renewing new, adult passport" do
     should "give the IPS application result with custom phrases" do
@@ -692,11 +692,11 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'renewing_new'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_phrase_list :send_your_application, [:making_application_nepal_renewing_new, :"send_application_address_nepal"]
+      assert_phrase_list :send_your_application, [:send_application_ips3_nepal_renew_new, :"send_application_address_nepal"]
       assert_phrase_list :cost, [:passport_courier_costs_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]    
       assert_state_variable :send_colour_photocopy_bulletpoint, nil
     end
-  end # nepal (IPS1 with custom phrases)
+  end # nepal (IPS3 with custom phrases)
   
   context "answer nepal, lost or stolen, adult passport" do
     should "give the IPS application result with custom phrases" do
@@ -705,7 +705,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'replacing'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_phrase_list :send_your_application, [:making_application_nepal_lost_stolen_renewal_old_overseas_first_passport, :"send_application_address_nepal"]
+      assert_phrase_list :send_your_application, [:send_application_ips3_nepal_apply_renew_old_replace, :"send_application_address_nepal"]
       assert_phrase_list :cost, [:passport_courier_costs_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
       assert_state_variable :send_colour_photocopy_bulletpoint, nil
     end
