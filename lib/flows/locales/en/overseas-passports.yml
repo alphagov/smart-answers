@@ -440,6 +440,8 @@ en-GB:
           Your passport and supporting documents will be delivered to the DHL Office in Juba, South Sudan - you must collect them in person.
         getting_your_passport_uganda: |
           Your passport and supporting documents will be delivered to the British High Commission Kampala, Uganda - you must collect them in person.
+        getting_your_passport_ukraine: |
+          Your passport will be delivered to the UK Visa Application Centre where you applied - you must collect it in person.
         getting_your_passport_zambia: |
           Your passport and supporting documents will be delivered to the British High Commission in Lusaka, Zambia - you must collect them in person.
         getting_your_passport_zimbabwe: |
@@ -466,7 +468,6 @@ en-GB:
           The embassy or consulate general will contact you when your passport arrives using the contact details on your form.
         getting_your_passport_jordan: |
           Your passport and supporting documents will be delivered to the British Embassy in Amman, Jordan - you must collect them in person. You must bring photo ID with you.
-
           They will contact you when your passport arrives using the contact details on your form.
         getting_your_passport_pitcairn-island: |
           Your passport and supporting documents will be delivered to you via the Pitcairn Island Office in Auckland, New Zealand.
@@ -474,13 +475,10 @@ en-GB:
           Your passport and supporting documents will be delivered to the British Embassy in Amman, Jordan - you must collect them in person. You must bring photo ID with you.
 
           They will contact you when your passport arrives using the contact details on your form.
-
         getting_your_passport_burma: |
           Your passport and supporting documents will be delivered to the British High Commission in Rangoon - you must collect them in person.
         getting_your_passport_nepal: |
-
           Your passport will be delivered to the UK Visa Application Centre in Kathmandu - you must collect it in person.
-      
         getting_your_passport_north-korea: |
           Your passport will be delivered to the British Embassy in Pyongyang - you must collect it in person.
         getting_your_passport_thailand_renew_new: |
@@ -639,6 +637,9 @@ en-GB:
 
         passport_courier_costs_ips3_thailand_renewing_new: |
           You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+          
+        passport_courier_costs_ips3_pitcairn_island: |
+          You'll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport and supporting documents to be sent back to you securely via the Pitcairn Islands Office in Auckland.
 
         adult_passport_costs_ips3: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
@@ -715,7 +716,7 @@ en-GB:
           You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
 
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
-                    
+
         send_application_ips3_afghanistan_apply_renew_old_replace: |
           ## Making your application
 
@@ -777,6 +778,30 @@ en-GB:
           Fax: +972 (8) 2641457
           $A
 
+        send_application_ips3_nepal_renew_new: |
+          ## Making your application
+          You must apply in person.
+
+          You must bring photo ID with you.
+
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+
+          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
+
+          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+
+          You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
+
+        send_application_ips3_nepal_apply_renew_old_replace: |
+          ## Making your application
+          You must apply in person.
+
+          You must bring photo ID with you.
+
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+
+          You’ll need to book an appointment by email. Include your name and surname and 3 alternative dates and times. You will receive an email confirming your appointment.
+
         send_application_ips3_thailand_renewing_new: |
           ## Making your application
           Her Majesty’s Passport Office recommends you send your application using a secure delivery service or courier.
@@ -803,29 +828,25 @@ en-GB:
 
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
-        making_application_nepal_renewing_new: |
+        send_application_ips3_ukraine_renew_new: |
           ## Making your application
 
           You must apply in person. You must bring photo ID with you.
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
 
-          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
+          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages). You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
-          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
-          
           You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
-          
-        making_application_nepal_lost_or_renewing_old: |
+
+        send_application_ips3_ukraine_apply_renew_old_replace: |
           ## Making your application
           
-          You must apply in person.
-
-          You must bring photo ID with you.
+          You must apply in person. You must bring photo ID with you.
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
-          You’ll need to book an appointment by email. Include your name and surname and 3 alternative dates and times. You will receive an email confirming your appointment. 
-          
+
+          You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
         send_application_address_nepal: |
 
           $A
@@ -836,7 +857,7 @@ en-GB:
           Kathmandu
           Nepal
           $A
-          
+
           $C
           Email: <KathmanduHMPO@vfshelpline.com>  
           Opening hours: Monday to Friday 8am to 2pm (local time)
@@ -852,17 +873,13 @@ en-GB:
           Auckland
           New Zealand
           $A
-          
+
           $C
           Email: <admin@pitcairn.gov.pn> 
           Telephone: +64 9 366 0186  
           Fax: +64 9 366 0187  
           $C
 
-        alternative_dates_and_times: |
-          ## Making your application
-          You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
-          
         send_application_address_ukraine: |
 
           $A
@@ -1093,7 +1110,7 @@ en-GB:
           %{body_text}
 
       apply_in_neighbouring_country:
-        title: You can’t apply for a British passport from South Georgia and the South Sandwich Islands.
+        title: You can’t apply for a British passport from British Indian Ocean Territory.
         body: |
           You should apply in a neighbouring country of your choice.
 
