@@ -112,7 +112,11 @@ multiple_choice :what_year? do
             :outcome_dsa_1314_pt
           end
         else
-          :outcome_dsa_1415
+          if student_type == 'uk-part-time'
+            :outcome_dsa_1415_pt
+          else
+            :outcome_dsa_1415
+          end
         end
       elsif form_required == 'apply-ccg'
         if response == 'year-1314'
@@ -254,6 +258,7 @@ outcome :outcome_proof_identity_1415
 outcome :outcome_dsa_1314
 outcome :outcome_dsa_1314_pt
 outcome :outcome_dsa_1415
+outcome :outcome_dsa_1415_pt
 outcome :outcome_ccg_1314
 outcome :outcome_ccg_1415
 outcome :outcome_dsa_expenses
