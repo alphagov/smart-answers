@@ -62,7 +62,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
           assert_state_variable :application_type, 'ips_application_3'
           assert_current_node :ips_application_result
           assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
-          assert_phrase_list :send_your_application, [:send_application_ips3_afghanistan_renew_new, :send_application_embassy_address]
+          assert_phrase_list :send_your_application, [:send_application_ips3_afghanistan_renewing_new, :send_application_embassy_address]
         end
       end
     end
@@ -416,8 +416,8 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       add_response 'renewing_new'
       add_response 'adult'
       assert_phrase_list :send_your_application,
-        [:send_application_ips3_burundi_renew_new, :send_application_embassy_address]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_burundi_renew_new]
+        [:send_application_ips3_burundi_renewing_new, :send_application_embassy_address]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_burundi_renewing_new]
     end
 
     should "give the correct result when renewing old style passport" do
@@ -474,7 +474,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       add_response 'adult'
       assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips3]
       assert_phrase_list :send_your_application, [:"send_application_ips3_north-korea_renewing_new"]
-      assert_phrase_list :getting_your_passport, [:"getting_your_passport_north-korea", :getting_your_passport_contact, :getting_your_passport_id_renew_new]
+      assert_phrase_list :getting_your_passport, [:"getting_your_passport_north-korea", :getting_your_passport_contact, :getting_your_passport_id_renewing_new]
     end
 
     should "give the correct result when renewing old style passport" do
@@ -680,8 +680,8 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       add_response 'adult'
       assert_current_node :ips_application_result
       assert_phrase_list :cost, [:passport_courier_costs_ukraine, :adult_passport_costs_ips3, :passport_costs_ips3]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_ukraine, :getting_your_passport_contact, :getting_your_passport_id_renew_new]
-      assert_phrase_list :send_your_application, [:send_application_ips3_ukraine_renew_new, :send_application_address_ukraine]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_ukraine, :getting_your_passport_contact, :getting_your_passport_id_renewing_new]
+      assert_phrase_list :send_your_application, [:send_application_ips3_ukraine_renewing_new, :send_application_address_ukraine]
     end
   end # Ukraine (IPS3 with custom phrases)
   
@@ -692,7 +692,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       add_response 'renewing_new'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_phrase_list :send_your_application, [:send_application_ips3_nepal_renew_new, :"send_application_address_nepal"]
+      assert_phrase_list :send_your_application, [:send_application_ips3_nepal_renewing_new, :"send_application_address_nepal"]
       assert_phrase_list :cost, [:passport_courier_costs_nepal, :adult_passport_costs_ips3, :passport_costs_ips3]    
       assert_state_variable :send_colour_photocopy_bulletpoint, nil
     end
@@ -1090,7 +1090,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
         assert_phrase_list :cost, [:passport_courier_costs_ips3_thailand_renewing_new, :adult_passport_costs_ips3_thailand_renewing_new, :passport_costs_ips3]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :send_colour_photocopy_bulletpoint, :hmpo_1_application_form, :ips_documents_group_2]
         assert_phrase_list :send_your_application, [:send_application_ips3_thailand_renewing_new]
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_thailand_renew_new]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_thailand_renewing_new]
       end
     end
     context "applying for a new adult passport" do

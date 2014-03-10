@@ -394,7 +394,7 @@ en-GB:
           You must bring photo ID with you.
         getting_your_passport_contact: |
           They will contact you when your passport arrives using the contact details on your form.
-        getting_your_passport_id_renew_new: |
+        getting_your_passport_id_renewing_new: |
           You must bring your existing passport as photo ID.
         getting_your_passport_id_apply_renew_old_replace: |
           You must bring photo ID with you.
@@ -448,7 +448,7 @@ en-GB:
           Your passport and supporting documents will be delivered to the British Embassy in Harare - you must collect them in person.
         getting_your_passport_burundi: |
           Your passport and supporting documents will be delivered to the British Embassy Liaison Office in Bujumbura, Burundi - you must collect them in person.
-        getting_your_passport_burundi_renew_new: |
+        getting_your_passport_burundi_renewing_new: |
           Your passport will be delivered to the British Embassy Liaison Office in Bujumbura, Burundi - you must collect it in person.
 
           They will contact you - using the details on your application form - when your passport is ready to collect. You must bring your existing passport as photo ID.
@@ -481,7 +481,7 @@ en-GB:
           Your passport will be delivered to the UK Visa Application Centre in Kathmandu - you must collect it in person.
         getting_your_passport_north-korea: |
           Your passport will be delivered to the British Embassy in Pyongyang - you must collect it in person.
-        getting_your_passport_thailand_renew_new: |
+        getting_your_passport_thailand_renewing_new: |
           Your passport and supporting documents will be delivered separately by courier.
         getting_your_passport_thailand_apply_renew_old_replace: |
           Your passport will be delivered by courier.
@@ -497,10 +497,10 @@ en-GB:
           [Find out about call charges](/call-charges)
 
         how_long_applying_ips2: |
-          Your application will take at least **8 weeks.**
+          Your application will take **at least** 8 weeks.
 
         how_long_renewing_old_ips2: |
-          Your application will take at least **8 weeks.**
+          Your application will take **at least** 8 weeks.
 
         how_long_4_weeks: |
           Your application will take **at least** 4 weeks from when it’s received by Her Majesty's Passport Office in the UK.
@@ -543,7 +543,7 @@ en-GB:
           Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document)
 
         how_long_replacing_ips2: |
-          Your application will take at least **8 weeks.**
+          Your application will take **at least** 8 weeks.
 
           If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
 
@@ -625,9 +625,6 @@ en-GB:
 
         passport_courier_costs_ips3: |
           You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the British embassy, high commission or consulate where you applied for you to collect.
-          
-        passport_courier_costs_uk_visa: |
-          You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
           
         passport_courier_costs_ukraine: |
           You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
@@ -711,7 +708,7 @@ en-GB:
 
           You must post your completed form and supporting documents to the British High Commission in Islamabad.
 
-        send_application_ips3_afghanistan_renew_new: |
+        send_application_ips3_afghanistan_renewing_new: |
           ## Making your application
 
           You must apply in person. You must bring photo ID with you.
@@ -740,7 +737,7 @@ en-GB:
 
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
-        send_application_ips3_burundi_renew_new: |
+        send_application_ips3_burundi_renewing_new: |
           ## Making your application
 
           You must apply in person.
@@ -777,13 +774,15 @@ en-GB:
           Jerusalem Street
           Al-Rimal South
           Gaza
-
-          Email: dljerusalemconsularprotect@fco.gov.uk
-          Telephone: +972 (8) 2641456
-          Fax: +972 (8) 2641457
           $A
+          
+          $C
+          Email: <dljerusalemconsularprotect@fco.gov.uk>  
+          Telephone: +972 (8) 2641456  
+          Fax: +972 (8) 2641457  
+          $C
 
-        send_application_ips3_nepal_renew_new: |
+        send_application_ips3_nepal_renewing_new: |
           ## Making your application
           You must apply in person.
 
@@ -834,7 +833,7 @@ en-GB:
 
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
-        send_application_ips3_ukraine_renew_new: |
+        send_application_ips3_ukraine_renewing_new: |
           ## Making your application
 
           You must apply in person. You must bring photo ID with you.
