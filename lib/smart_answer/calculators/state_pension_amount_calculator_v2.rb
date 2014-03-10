@@ -193,11 +193,11 @@ module SmartAnswer::Calculators
     def ni_years_to_date_from_dob
       today = Date.today
       years = today.year - ni_start_date.year
-      if (today.month < dob.month) or (today.month == dob.month and dob.day < today.day)
-        years -= 1 
+      if (today.month < dob.month) or ((today.month == dob.month) and (today.day < dob.day))
+        years = years - 1
       end
       years
-    end
+    end  
 
     def available_years_sum(qual_years = @qualifying_years)
       (@available_years - qual_years)

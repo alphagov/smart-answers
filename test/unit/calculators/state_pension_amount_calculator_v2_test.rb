@@ -679,16 +679,53 @@ module SmartAnswer::Calculators
       end
     end
     
-    context "check ni_years_to_date_from_dob" do
+    context "check ni_years_to_date_from_dob before" do
       setup do
-        Timecop.travel("2014-03-05")
+        Timecop.travel("2014-04-01")
         @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
-          gender: "male", dob: "6 June 1958",qualifying_years: "50")
+          gender: "male", dob: "6 May 1958",qualifying_years: "50")
       end
       
-      should "Should be 36 based on birthday being after 2014-03-05" do
+      should "be 36 based on birthday not having happened yet" do
+        assert_equal 36, @calculator.ni_years_to_date_from_dob
+      end
+    end  
+    
+    context "check ni_years_to_date_from_dob after" do
+      setup do
+        Timecop.travel("2014-06-01")
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
+          gender: "male", dob: "1 May 1958", qualifying_years: "50")
+      end
+      
+      should "be 37 years based on birthday having occured" do
+        assert_equal 37, @calculator.ni_years_to_date_from_dob
+      end
+    end
+    
+    context "check ni_years_to_date_from_dob before and in same month" do
+      setup do
+        Timecop.travel("2014-04-01")
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
+          gender: "male", dob: "6 April 1958", qualifying_years: "50")
+      end
+      
+      should "be 36 years based on birthday not having happened yet" do
         assert_equal 36, @calculator.ni_years_to_date_from_dob
       end
     end
+    
+    context "check ni_years_to_date_from_dob after and in same month" do
+      setup do
+        Timecop.travel("2014-04-10")
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
+          gender: "male", dob: "6 April 1958", qualifying_years: "50")
+      end
+      
+      should "be 37 years based on birthday having occurred" do
+        assert_equal 37, @calculator.ni_years_to_date_from_dob
+      end
+    end
+    
   end
 end
