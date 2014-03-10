@@ -802,17 +802,21 @@ en-GB:
 
           You’ll need to book an appointment by email. Include your name and surname and 3 alternative dates and times. You will receive an email confirming your appointment.
 
+
+          
         send_application_ips3_thailand_renewing_new: |
           ## Making your application
-          Her Majesty’s Passport Office recommends you send your application using a secure delivery service or courier.
-          
+
+          Her Majesty's Passport Office recommends you send your application using a secure delivery service or courier.
+
+
           $A
-          Her Majesty's Passport Office
-          OVS-L
-          101 Old Hall Street
-          Liverpool
-          L3 9BP
-          United Kingdom
+            Her Majesty's Passport Office
+            OVS-L
+            101 Old Hall Street
+            Liverpool
+            L3 9BP
+            United Kingdom
           $A
 
         send_application_ips3_north-korea_renewing_new: |
