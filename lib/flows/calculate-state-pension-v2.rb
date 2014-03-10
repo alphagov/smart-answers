@@ -143,7 +143,10 @@ date_question :dob_amount? do
   calculate :available_ni_years do
     calculator.available_years
   end
-
+  
+  calculate :ni_years_to_date_from_dob do
+    calculator.ni_years_to_date_from_dob
+  end
 
   next_node do |response|
     raise InvalidResponse if Date.parse(response) > Date.today
@@ -181,10 +184,9 @@ value_question :years_paid_ni? do
     end
   end
 
-
   calculate :qualifying_years do
     ni_years = Integer(responses.last)
-    raise InvalidResponse if ni_years < 0 or ni_years > available_ni_years
+    raise InvalidResponse if ni_years < 0 or ni_years > ni_years_to_date_from_dob
     ni_years
   end
 
@@ -192,6 +194,7 @@ value_question :years_paid_ni? do
   calculate :available_ni_years do
     calculator.available_years_sum(Integer(responses.last))
   end
+  
 
   next_node do |response|
     ni = Integer(response)

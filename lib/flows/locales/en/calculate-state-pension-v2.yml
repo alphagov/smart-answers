@@ -88,7 +88,7 @@ en-GB:
 
           Once you claim your State Pension, the Pension Service will work out how much exactly you get. You need at least 10 years of National Insurance contributions or credits to get the State Pension.
 
-          ^You will claim the [new State Pension](/state-pension) when you reach your State Pension age.^
+          ^You will claim the [new State Pension](/new-state-pension) when you reach your State Pension age.^
 
           ##Pension Credit
           If you're on a low income, you might be eligible to claim [Pension Credit](/pension-credit).
@@ -145,8 +145,8 @@ en-GB:
 
           - [basic State Pension or how to top it up](/state-pension)
           - [additional State Pension](/additional-state-pension)
-          - [voluntary contributions](/voluntary-national-insurance-contributions)
-          - [increasing your basic State Pension with your partner’s (or late or former partner’s) National Insurance contributions](/state-pension/eligibility)
+          - [Class 3 voluntary contributions](/voluntary-national-insurance-contributions/who-can-pay-voluntary-contributions) 
+          - [increasing your basic State Pension with your partner’s (or late or former partner’s) National Insurance contributions](state-pension-through-partner)
           - [State Pension if you retire abroad](/state-pension-if-you-retire-abroad)
         
         too_few_qy_enough_remaining_years_a: |
@@ -196,8 +196,8 @@ en-GB:
 
           - [basic State Pension or how to top it up](/state-pension)
           - [additional State Pension](/additional-state-pension)
-          - [voluntary contributions](/voluntary-national-insurance-contributions)
-          - [increasing your basic State Pension with your partner’s (or late or former partner’s) National Insurance contributions](/state-pension/eligibility) 
+          - [Class 3 voluntary contributions](/voluntary-national-insurance-contributions/who-can-pay-voluntary-contributions) 
+          - [increasing your basic State Pension with your partner’s (or late or former partner’s) National Insurance contributions](state-pension-through-partner) 
           - [State Pension if you retire abroad](/state-pension-if-you-retire-abroad)
 
         ## Result 3
@@ -260,8 +260,8 @@ en-GB:
 
           Read about: 
 
-          - [paying voluntary National Insurance contributions](/voluntary-national-insurance-contributions)
-          - [increasing your basic State Pension with your partner’s (or late or former partner’s) National Insurance contributions](/state-pension/eligibility) 
+          - [Class 3 voluntary contributions](/voluntary-national-insurance-contributions/who-can-pay-voluntary-contributions)
+          - [increasing your basic State Pension with your partner’s (or late or former partner’s) National Insurance contributions](state-pension-through-partner)
           - [putting off claiming your State Pension](/deferring-state-pension)
           - [the Basic Pension](/state-pension)
           - [the additional State Pension](/additional-state-pension)
@@ -320,14 +320,14 @@ en-GB:
           These are the years when you paid Class 1 with your wages, Class 2 if you were self employed or Class 3 if you paid voluntary contributions. %{carer_hint_for_women} Enter 0 if you haven’t paid National Insurance contributions.
         error_message: |
           Your answer has to match the number of years you actually worked and paid National Insurance.
-          Based on your date of birth you can enter up to %{available_ni_years} years.
+          Based on your date of birth you can enter up to %{ni_years_to_date_from_dob} years.
         suffix_label: years
       ## Q5
       years_of_jsa?:
         title: "How many years from the age of 19 have you claimed unemployment, sickness or disability benefits?"
         hint: These are years you may have received credits towards your State Pension. Don’t count years you entered in question 4. Enter 0 if you’ve never claimed benefits.
         error_message: |
-          Please enter a number. Based on your previous answers you can enter up to %{available_ni_years} years.
+          Please enter a number. Based on your previous answers you can enter up to %{ni_years_to_date_from_dob} years.
         suffix_label: years
       ## Q6
       received_child_benefit?:
@@ -358,7 +358,7 @@ en-GB:
       years_of_carers_allowance?:
         title: How many years have you received Carer’s Allowance?
         hint: Enter 0 if you didn’t get any. Don’t count any years you’ve entered in the previous questions. %{carer_hint_for_women_q9}
-        error_message: Please enter a number. Based on your previous answers you can enter up to %{available_ni_years} years.
+        error_message: Please enter a number. Based on your previous answers you can enter up to %{ni_years_to_date_from_dob} years.
         suffix_label: years
       ## Q10
       years_of_work?:
@@ -390,11 +390,13 @@ en-GB:
           You can [put off claiming your State Pension](/deferring-state-pension "Deferring your State Pension") when you reach State Pension age or take a break from claiming it.
 
           ##Voluntary contributions
-          If you don’t get the full basic State Pension you might still be able to [pay voluntary National Insurance contributions](/voluntary-national-insurance-contributions).
+          You may want to claim [Class 3a voluntary National Insurance contributions](/voluntary-national-insurance-contributions/who-can-pay-voluntary-contributions) if you don’t get the full basic State Pension.
+          
+          ##Increase your State Pension based on your partner’s National Insurance record
+
+          Check if you can [increase your basic State Pension with your partner’s (or late or former partner’s) National Insurance contributions](state-pension-through-partner).
 
           More information on the [basic State Pension and how to increase it](/state-pension) and the [additional State Pension](/additional-state-pension).
-
-          This information reflects the current law. The State Pension may [change in the future](/changes-state-pension).
 
       ## Age result 3
       too_young:
@@ -405,13 +407,11 @@ en-GB:
 
           You’ll reach State Pension age on %{formatted_state_pension_date}
 
-          How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance/overview) contributions you have.
+          How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance/overview) you have.
 
-          You’ll need 30 years to get a full basic State Pension which is currently worth £%{weekly_rate} a week.
+          ^You’ll need at least 10 years to get any State Pension.^ 
 
-          More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension).
-
-          This information reflects the current law. The State Pension may [change in the future](/increase-state-pension-age).
+          Find out more information about the [new State Pension](/new-state-pension).
 
       ## Estimate result 4
       reached_state_pension_age:
@@ -439,16 +439,12 @@ en-GB:
 
           More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension).
 
-          This information reflects the current law. The State Pension may [change in the future](/increase-state-pension-age).
-
       ## Result 5
       amount_result:
         body: |
           %{result_text}
 
           %{automatic_credits}
-
-          This information reflects the current law. The State Pension may [change in the future](/changes-state-pension).
 
       ## Age result
       age_result:
@@ -457,5 +453,3 @@ en-GB:
 
         body: |
           %{state_pension_age_statement}
-
-          This information reflects the current law. The State Pension may [change in the future](/changes-state-pension).
