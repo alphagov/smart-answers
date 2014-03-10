@@ -271,6 +271,8 @@ outcome :ips_application_result do
         else
           phrases << :passport_courier_costs_ips3_thailand_apply_renew_old_replace
         end
+      elsif %w(pitcairn-island).include?(current_location)
+        phrases << :passport_courier_costs_ips3_pitcairn_island
       else
         phrases << :"passport_courier_costs_ips#{ips_number}"
       end
@@ -304,7 +306,7 @@ outcome :ips_application_result do
   end
 
   precalculate :how_to_apply do
-    send_colour_photocopy_countries = %w(burma china indonesia laos nepal thailand timor-leste)
+    send_colour_photocopy_countries = %w(burma china indonesia laos thailand timor-leste)
 
     if passport_data['online_application']
     else
@@ -323,27 +325,26 @@ outcome :ips_application_result do
 
   precalculate :send_your_application do
     phrases = PhraseList.new
-
-    if %w(nepal).include?(current_location)
-      if %w(renewing_new).include?(application_action)
-        phrases << :making_application_nepal_renewing_new
-      elsif %w(replacing).include?(application_action) or %w(renewing_old).include?(application_action)
-        phrases << :making_application_nepal_lost_or_renewing_old
-      end
-    elsif %w(ukraine).include?(current_location)
-      phrases << :alternative_dates_and_times
-    end
     if application_address
       phrases << :"send_application_ips#{ips_number}_#{application_address}"
     elsif %w(gaza).include?(current_location)
       phrases << :send_application_ips3_gaza
-    elsif %w(afghanistan burundi).include?(current_location)
+    elsif %w(afghanistan burundi nepal ukraine).include?(current_location)
       if %w(renewing_new).include?(application_action)
         phrases << :"send_application_ips3_#{current_location}_renew_new"
+        if passport_data['application_office']
+          phrases << :"send_application_address_#{current_location}"
+        else
+          phrases << :send_application_embassy_address
+        end
       else
         phrases << :"send_application_ips3_#{current_location}_apply_renew_old_replace"
+        if passport_data['application_office']
+          phrases << :"send_application_address_#{current_location}"
+        else
+          phrases << :send_application_embassy_address
+        end
       end
-      phrases << :send_application_embassy_address
     elsif %w(bangladesh india pakistan).include?(current_location)
       phrases << :"send_application_ips3_#{current_location}"
       phrases << :send_application_ips3_must_post unless current_location == 'bangladesh'
@@ -371,7 +372,7 @@ outcome :ips_application_result do
   precalculate :getting_your_passport do
     collect_in_person_countries = %w(angola benin cambodia cameroon chad congo egypt eritrea ethiopia gambia ghana guinea jamaica kenya nigeria rwanda sierra-leone somalia south-sudan uganda zambia zimbabwe)
     collect_in_person_variant_countries = %w(burundi india iraq jordan pitcairn-island yemen)
-    collect_in_person_renewing_new_variant_countries = %(burma nepal north-korea)
+    collect_in_person_renewing_new_variant_countries = %(burma nepal north-korea ukraine)
 
     phrases = PhraseList.new
     if collect_in_person_countries.include?(current_location)

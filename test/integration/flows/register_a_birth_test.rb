@@ -135,7 +135,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
             assert_state_variable :registration_country, 'spain'
             assert_current_node :fco_result
             assert_phrase_list :birth_registration_form, [:birth_registration_form]
-            assert_phrase_list :intro, [:intro]
             assert_state_variable :embassy_high_commission_or_consulate, "British consulate general"
           end
         end
@@ -241,7 +240,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "in_the_uk"
       assert_current_node :fco_result
-      assert_state_variable :intro, ''
       assert_state_variable :british_national_parent, 'mother_and_father'
     end
   end # Taiwan
@@ -252,7 +250,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "in_the_uk"
       assert_current_node :fco_result
-      assert_state_variable :intro, ''
       assert_state_variable :british_national_parent, 'mother_and_father'
     end
   end # Central African Republic

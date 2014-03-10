@@ -302,13 +302,7 @@ outcome :fco_result do
       "British embassy"
     end
   end
-  precalculate :intro do
-    if exclusions.include?(country_of_birth)
-      ''
-    else
-      PhraseList.new(:intro)
-    end
-  end
+
 end
 outcome :commonwealth_result
 outcome :no_registration_result
