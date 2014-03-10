@@ -261,42 +261,56 @@ outcome :ips_application_result do
                     :"passport_costs_ips#{ips_number}")
     else
       phrases = PhraseList.new
-      if %w(india ukraine nepal pitcairn-island).include?(current_location)
-        phrases << :"passport_courier_costs_#{current_location}"
-      elsif %w(thailand).include?(current_location)
+      
+      if %w(thailand).include?(current_location)
         if %w(renewing_new).include?(application_action)
           phrases << :passport_courier_costs_ips3_thailand_renewing_new
-        else
-          phrases << :passport_courier_costs_ips3_thailand_apply_renew_old_replace
-        end
-      else
-        phrases << :"passport_courier_costs_ips#{ips_number}"
-      end
-
-      if %w(thailand).include?(current_location) and %w(renewing_new).include?(application_action)
-        phrases << :"#{child_or_adult}_passport_costs_ips3_thailand_renewing_new"
-      else
-        phrases << :"#{child_or_adult}_passport_costs_ips#{ips_number}"
-      end
-
-      if %w(bangladesh).include?(current_location)
-        phrases << :"passport_costs_ips3_cash_or_card_#{current_location}" << :passport_costs_ips3_cash_or_card
-      elsif %w(thailand).include?(current_location)
-        if %w(renewing_new).include?(application_action)
+          phrases << :"#{child_or_adult}_passport_costs_ips3_thailand_renewing_new"
           phrases << :passport_costs_ips3
         else
-          phrases << :"passport_costs_ips3_cash_or_card_#{current_location}" << :passport_costs_ips3_cash_or_card
+          phrases << :passport_courier_costs_ips3_thailand_apply_renew_old_replace
+          phrases << :"#{child_or_adult}_passport_costs_ips#{ips_number}"
+          phrases << :"passport_costs_ips3_cash_or_card_#{current_location}" 
+          phrases << :passport_costs_ips3_cash_or_card
         end
-      elsif data_query.cash_only_countries?(current_location)
-        if current_location == 'north-korea'
-          phrases << :passport_costs_ips_euros
+      else 
+        if %w(india ukraine nepal pitcairn-island).include?(current_location)
+          phrases << :"passport_courier_costs_#{current_location}"
         else
-          phrases << :passport_costs_ips_cash
+          phrases << :"passport_courier_costs_ips#{ips_number}"
         end
-      else
-        phrases << :"passport_costs_ips#{ips_number}"
+        phrases << :"#{child_or_adult}_passport_costs_ips#{ips_number}"
+        if %w(bangladesh).include?(current_location)
+          phrases << :"passport_costs_ips3_cash_or_card_#{current_location}" 
+          phrases << :passport_costs_ips3_cash_or_card
+        elsif data_query.cash_only_countries?(current_location)
+          if current_location == 'north-korea'
+            phrases << :passport_costs_ips_euros
+          else
+            phrases << :passport_costs_ips_cash
+          end
+        else
+          phrases << :"passport_costs_ips#{ips_number}"
+        end
       end
-
+      #   phrases
+      # end
+      
+      # if not %w(thailand).include?(current_location)
+      #   phrases << :"#{child_or_adult}_passport_costs_ips#{ips_number}"
+      #   if %w(bangladesh).include?(current_location)
+      #     phrases << :"passport_costs_ips3_cash_or_card_#{current_location}" 
+      #     phrases << :passport_costs_ips3_cash_or_card
+      #   elsif data_query.cash_only_countries?(current_location)
+      #     if current_location == 'north-korea'
+      #       phrases << :passport_costs_ips_euros
+      #     else
+      #       phrases << :passport_costs_ips_cash
+      #     end
+      #   else
+      #     phrases << :"passport_costs_ips#{ips_number}"
+      #   end
+      # end
       phrases
     end
   end
