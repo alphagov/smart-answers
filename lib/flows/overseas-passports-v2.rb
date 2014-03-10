@@ -261,18 +261,14 @@ outcome :ips_application_result do
                     :"passport_costs_ips#{ips_number}")
     else
       phrases = PhraseList.new
-      if %w(india).include?(current_location)
-        phrases << :passport_courier_costs_ips3_india
-      elsif %w(ukraine nepal).include?(current_location)
-        phrases << :passport_courier_costs_uk_visa
+      if %w(india ukraine nepal pitcairn-island).include?(current_location)
+        phrases << :"passport_courier_costs_#{current_location}"
       elsif %w(thailand).include?(current_location)
         if %w(renewing_new).include?(application_action)
           phrases << :passport_courier_costs_ips3_thailand_renewing_new
         else
           phrases << :passport_courier_costs_ips3_thailand_apply_renew_old_replace
         end
-      elsif %w(pitcairn-island).include?(current_location)
-        phrases << :passport_courier_costs_ips3_pitcairn_island
       else
         phrases << :"passport_courier_costs_ips#{ips_number}"
       end

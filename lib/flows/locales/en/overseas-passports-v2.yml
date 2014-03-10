@@ -628,8 +628,13 @@ en-GB:
           
         passport_courier_costs_uk_visa: |
           You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
+          
+        passport_courier_costs_ukraine: |
+          You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
+        passport_courier_costs_nepal: |
+          You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
 
-        passport_courier_costs_ips3_india: |
+        passport_courier_costs_india: |
           You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to you direct, or to the British embassy, high commission or consulate where you applied if you wish to collect it.
 
         passport_courier_costs_ips3_thailand_apply_renew_old_replace: |
@@ -638,7 +643,7 @@ en-GB:
         passport_courier_costs_ips3_thailand_renewing_new: |
           You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent back to you securely.
           
-        passport_courier_costs_ips3_pitcairn_island: |
+        passport_courier_costs_pitcairn-island: |
           You'll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport and supporting documents to be sent back to you securely via the Pitcairn Islands Office in Auckland.
 
         adult_passport_costs_ips3: |
@@ -806,13 +811,14 @@ en-GB:
           ## Making your application
           Her Majesty’s Passport Office recommends you send your application using a secure delivery service or courier.
           
+          
           $A
-          Her Majesty's Passport Office
-          OVS-L
-          101 Old Hall Street
-          Liverpool
-          L3 9BP
-          United Kingdom
+            Her Majesty's Passport Office
+            OVS-L
+            101 Old Hall Street
+            Liverpool
+            L3 9BP
+            United Kingdom
           $A
 
         send_application_ips3_north-korea_renewing_new: |

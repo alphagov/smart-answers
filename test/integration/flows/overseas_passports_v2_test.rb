@@ -535,7 +535,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_applying_16_weeks, :how_long_it_takes_ips3]
         assert_phrase_list :send_your_application, [:send_application_ips3_india, :send_application_ips3_must_post, :send_application_embassy_address]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3_india, :adult_passport_costs_ips3, :passport_costs_ips3]
+        assert_phrase_list :cost, [:passport_courier_costs_india, :adult_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :getting_your_passport, [:getting_your_passport_india]
       end
     end
@@ -653,7 +653,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       assert_current_node :ips_application_result
       assert_phrase_list :getting_your_passport, [:"getting_your_passport_pitcairn-island"]
       assert_phrase_list :send_your_application, [:"send_application_address_pitcairn-island"]
-      assert_phrase_list :cost, [:passport_courier_costs_ips3_pitcairn_island, :adult_passport_costs_ips1,
+      assert_phrase_list :cost, [:"passport_courier_costs_pitcairn-island", :adult_passport_costs_ips1,
  :passport_costs_ips1]
     end
   end # Pitcairn Island (IPS1 with custom phrases)
@@ -666,7 +666,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :cost, [:passport_courier_costs_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
+      assert_phrase_list :cost, [:passport_courier_costs_ukraine, :adult_passport_costs_ips3, :passport_costs_ips3]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_ukraine]
       assert_phrase_list :send_your_application, [:send_application_ips3_ukraine_apply_renew_old_replace, :send_application_address_ukraine]
     end
@@ -679,7 +679,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       add_response 'renewing_new'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_phrase_list :cost, [:passport_courier_costs_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
+      assert_phrase_list :cost, [:passport_courier_costs_ukraine, :adult_passport_costs_ips3, :passport_costs_ips3]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_ukraine, :getting_your_passport_contact, :getting_your_passport_id_renew_new]
       assert_phrase_list :send_your_application, [:send_application_ips3_ukraine_renew_new, :send_application_address_ukraine]
     end
@@ -693,7 +693,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       add_response 'adult'
       assert_current_node :ips_application_result
       assert_phrase_list :send_your_application, [:send_application_ips3_nepal_renew_new, :"send_application_address_nepal"]
-      assert_phrase_list :cost, [:passport_courier_costs_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]    
+      assert_phrase_list :cost, [:passport_courier_costs_nepal, :adult_passport_costs_ips3, :passport_costs_ips3]    
       assert_state_variable :send_colour_photocopy_bulletpoint, nil
     end
   end # nepal (IPS3 with custom phrases)
@@ -706,7 +706,7 @@ class OverseasPassportsTestV2 < ActiveSupport::TestCase
       add_response 'adult'
       assert_current_node :ips_application_result
       assert_phrase_list :send_your_application, [:send_application_ips3_nepal_apply_renew_old_replace, :"send_application_address_nepal"]
-      assert_phrase_list :cost, [:passport_courier_costs_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
+      assert_phrase_list :cost, [:passport_courier_costs_nepal, :adult_passport_costs_ips3, :passport_costs_ips3]
       assert_state_variable :send_colour_photocopy_bulletpoint, nil
     end
   end # nepal (IPS1 with custom phrases)
