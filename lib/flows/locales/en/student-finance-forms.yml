@@ -408,6 +408,11 @@ en-GB:
 
         next_steps: |
           [Disabled Student's Allowances](/disabled-students-allowances-dsas)
+      
+      outcome_dsa_1415_pt:
+        title: Disabled Students’Allowances
+        body: |
+          You can't apply yet.
 
       outcome_ccg_1314:
         title: Childcare Grant

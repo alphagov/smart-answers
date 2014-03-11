@@ -1,7 +1,7 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
-class CalculateStatePensionTestV2 < ActiveSupport::TestCase
+class CalculateStatePensionV2Test < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do

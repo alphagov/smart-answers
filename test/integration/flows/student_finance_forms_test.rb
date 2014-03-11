@@ -339,6 +339,12 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
         add_response 'year-1415'
         assert_current_node :outcome_dsa_1415
       end
+      
+      should "year = 2014/15" do
+        add_response 'year-1415'
+        assert_state_variable :student_type, 'uk-part-time'
+        assert_current_node :outcome_dsa_1415_pt
+      end
     end
 
     context "claim DSA expenses" do

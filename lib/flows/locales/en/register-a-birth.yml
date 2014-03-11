@@ -313,8 +313,6 @@ en-GB:
           ^It takes about 5 working days for the birth to be officially registered - your application will be sent to the High Commission in Barbados to be registered there.^
         footnote: |
           ^It takes about 5 working days for the birth to be officially registered.^
-        intro: |
-          Your application will be sent to the %{embassy_high_commission_or_consulate} in %{registration_country_name_lowercase_prefix} to be registered there.
         birth_registration_form: |
           Download and complete the [birth registration form](/government/publications/application-to-register-an-overseas-birth).
         birth_registration_form_usa: |
@@ -365,8 +363,6 @@ en-GB:
         body: |
           $!You can apply to register the birth with the Foreign and Commonwealth Office (FCO) in the UK.$!
 
-          %{intro}
-
           %{birth_registration_form}
 
           ##Documents
@@ -393,7 +389,7 @@ en-GB:
 
           [Pay online](/pay-register-birth-abroad) for the registration and copies of the certificate.
 
-          Alternatively, Pay by postal order or bank draft made payable to ‘FCO’. Personal cheques aren’t accepted.  
+          You can also pay by a postal order or bank draft made payable to ‘FCO’. Personal cheques aren’t accepted.
 
           ##Send your registration
 
