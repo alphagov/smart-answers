@@ -193,7 +193,18 @@ module SmartAnswer::Calculators
         assert_equal @calculator.ssp_payment, 200.94
       end
     end
+    
+    context "test date in future" do
+      setup do
+        @start_date = Date.parse("4 May 2014")
+        @calculator = StatutorySickPayCalculator.new(3, @start_date, Date.parse("3 August 2014"), ['1','2','3','4','5'])
+      end
 
+      should "use ssp rate and lel for 2014-15" do
+        assert_equal StatutorySickPayCalculator.lower_earning_limit_on(@start_date), 111
+        assert_equal @calculator.daily_rate_from_weekly(@calculator.weekly_rate_on(@start_date), 5), 17.51
+      end
+    end
 
     # Tuesday to Friday
     context "test scenario 2 - T-F, 7 waiting days, cross tax years" do
@@ -330,6 +341,18 @@ module SmartAnswer::Calculators
         assert_equal @calculator.ssp_payment, 1289.45 # see spreadsheet
       end
     end
+    
+    # new test 5 - SSP spanning 2014/2015 tax year, Mon to Fri
+    context "2014/2015 scenario 5" do
+      setup do
+        @calculator = StatutorySickPayCalculator.new(10, Date.parse("10 July 2014"), Date.parse("20 July 2014"), ['1','2','3','4','5'])
+      end
+      
+      should "give correct SSP calculation" do
+        assert_equal @calculator.days_to_pay, 7
+        assert_equal @calculator.ssp_payment, 122.57
+      end
+    end
 
     context "LEL test 1" do
       setup do
@@ -361,6 +384,17 @@ module SmartAnswer::Calculators
 
       should "give correct LEL for date" do
         assert_equal @lel, 109.00
+      end
+    end
+    
+    context "LEL test 4" do
+      setup do
+        @date = Date.parse("6 April 2014")
+        @lel = StatutorySickPayCalculator.lower_earning_limit_on(@date)
+      end
+      
+      should "give correct LEL for date" do
+        assert_equal @lel, 111.00
       end
     end
 

@@ -139,10 +139,10 @@ module SmartAnswer::Calculators
           assert_equal @calculator.lower_earning_limit, 109
         end
         
-        should "return 109 for due dates after 14/07/2014" do
+        should "return 111 for due dates after 14/07/2014" do
           @due_date = Date.parse("14 July 2015")
           @calculator = MaternityPaternityCalculator.new(@due_date)
-          assert_equal @calculator.lower_earning_limit, 109
+          assert_equal @calculator.lower_earning_limit, 111
         end
         
         should "return lower_earning_limit 107" do
@@ -467,7 +467,7 @@ module SmartAnswer::Calculators
         end
         context "for 2043 rates" do
           should "give a default rate for a date in the future" do
-            assert_equal 136.78, @calculator.statutory_rate(Date.parse('6 April 2043'))
+            assert_equal 138.18, @calculator.statutory_rate(Date.parse('6 April 2043'))
           end
         end
       end

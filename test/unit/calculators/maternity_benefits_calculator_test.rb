@@ -74,8 +74,20 @@ module SmartAnswer::Calculators
           @calculator = MaternityBenefitsCalculator.new(Date.parse("14th July 2013"))
         end
 
-        should "have an smp_LEL of 135.45" do
+        should "have an smp_LEL of 109" do
           assert_equal 109, @calculator.smp_LEL
+        end
+      end
+      
+      context "after 6 April 2014" do
+        setup do
+          @calculator = MaternityBenefitsCalculator.new(Date.parse("7th April 2014"))
+        end
+        
+        should "have smp_rate and ma_rate of 138.18 and smp_LEL of 111" do
+          assert_equal 138.18, @calculator.smp_rate
+          assert_equal 138.18, @calculator.ma_rate
+          assert_equal 111, @calculator.smp_LEL
         end
       end
     end
