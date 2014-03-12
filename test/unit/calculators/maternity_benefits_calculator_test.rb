@@ -91,31 +91,6 @@ module SmartAnswer::Calculators
         end
       end
     end
-    
-    context "after 7th April 2014" do
-      setup do
-        @calculator = MaternityBenefitsCalculator.new(Date.parse("8th April 2014"))
-      end
-      
-      should "have an smp_rate of 138.18" do
-        assert_equal 138.18, @calculator.smp_rate
-      end
-      
-      should "have an ma_rate of 138.18" do
-        assert_equal 138.18, @calculator.ma_rate
-      end
-    end
-    
-    context "after 14th July 2014" do
-      setup do
-        @calculator = MaternityBenefitsCalculator.new(Date.parse("15th July 2014"))
-      end
-      
-      should "have a smp_LEL of 111" do
-        assert_equal 111, @calculator.smp_LEL
-      end
-    
-    end
 
     context "eleven_weeks" do
       should "work out earliest date maternity allowance payments can start" do

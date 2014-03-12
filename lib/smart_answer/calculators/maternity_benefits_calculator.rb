@@ -13,30 +13,30 @@ module SmartAnswer::Calculators
     def smp_rate
       if due_date_before_7th_april_2013?
         135.45
-      elsif due_date_after_6th_april_2014?
-        138.18
-      else
+      elsif due_date_before_6th_april_2014?
         136.78
+      else
+        138.18
       end
     end
 
     def ma_rate
       if due_date_before_7th_april_2013?
         135.45
-      elsif due_date_after_6th_april_2014?
-        138.18
-      else
+      elsif due_date_before_6th_april_2014?
         136.78
+      else
+        138.18
       end
     end
 
     def smp_LEL
       if due_date_before_14th_july_2013?
         107
-      elsif due_date_after_6th_april_2014?
-        111
-      else
+      elsif due_date_before_6th_april_2014?
         109
+      else
+        111
       end
     end
 
@@ -50,8 +50,8 @@ module SmartAnswer::Calculators
       @due_date < Date.parse("14th July 2013")
     end
     
-    def due_date_after_6th_april_2014?
-      @due_date > Date.parse("6th April 2014")
+    def due_date_before_6th_april_2014?
+      @due_date < Date.parse("6th April 2014")
     end
   end
 end
