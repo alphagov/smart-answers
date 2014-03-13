@@ -992,10 +992,21 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
       assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a, :less_than_ten, :too_few_qy_enough_remaining_years_a_outro]
     end # less than 10 years NI
     
-    should "show results for not enough remaining years" do
+    should "show results for not enough qualifyting but enough remaining years" do
       add_response :male
       add_response Date.parse('1 Jan 1953')
       add_response 20
+      add_response 0
+      add_response 'no'
+      add_response 0
+      assert_current_node :amount_result
+      assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a, :ni_table, :too_few_qy_enough_remaining_years_a_outro, :automatic_years_phrase]
+    end
+    
+    should "show results for not enough qualifying years and not enough remaining years" do
+      add_response :male
+      add_response Date.parse('1 Sep 1949')
+      add_response 5
       add_response 0
       add_response 'no'
       add_response 0

@@ -480,17 +480,13 @@ outcome :amount_result do
       phrases << (enough_qualifying_years ? :within_4_months_enough_qy_years_more : :within_4_months_not_enough_qy_years_more)
       phrases << :automatic_years_phrase if auto_years_entitlement and !enough_qualifying_years
     elsif calculator.state_pension_date > Date.parse('2016-04-06')
-      if enough_remaining_years
-        phrases << :too_few_qy_enough_remaining_years_a
-        if qualifying_years_total > 10
-          phrases << :ni_table
-        else
-          phrases << :less_than_ten
-        end
-        phrases << :too_few_qy_enough_remaining_years_a_outro
+      phrases << :too_few_qy_enough_remaining_years_a
+      if qualifying_years_total > 10
+        phrases << :ni_table
       else
-        phrases << :too_few_qy_not_enough_remaining_years
+        phrases << :less_than_ten
       end
+      phrases << :too_few_qy_enough_remaining_years_a_outro
       phrases << :automatic_years_phrase if auto_years_entitlement
     elsif !enough_qualifying_years
       phrases << (enough_remaining_years ? :too_few_qy_enough_remaining_years : :too_few_qy_not_enough_remaining_years)
