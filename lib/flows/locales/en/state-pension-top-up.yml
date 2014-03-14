@@ -54,7 +54,6 @@ en-GB:
         "yes": "Yes"
         "no": "No"
 
-
 #Outcome1
       outcome_result:
         title: |
@@ -63,7 +62,7 @@ en-GB:
 
           To top up your pension by £%{weekly_amount} per week, you need to make a lump sum payment of £%{rate_at_time_of_paying}.
 
-          You’ll be able to do this from 12 October 2015. 
+          You’ll be able to do this from 12 October 2015.
 
           Find out more about [topping up your State Pension](/voluntary-national-insurance-contributions).
 #outcome2
@@ -78,5 +77,4 @@ en-GB:
       outcome_age_limit_reached:
         title: | 
         body: |
-          ##You must be under 101 years old to use State Pension top up
-        
+          ##You must be under 101 years old to use State Pension top up     

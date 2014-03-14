@@ -96,11 +96,11 @@ class CalculateStatePensionTopUpTest < ActiveSupport::TestCase
   
   context "Check if a 62 years WOMAN is allowed to use the tool" do
     setup do
-      add_response Date.parse('1954-02-02')
+      add_response Date.parse('1953-02-02')
       add_response 10
       add_response Date.parse('2016-02-02')
       add_response :female
-    end
+    end 
     should "bring you to final result outcome" do
       assert_current_node :outcome_result
     end

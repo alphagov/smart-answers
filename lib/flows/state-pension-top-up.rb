@@ -79,17 +79,15 @@ multiple_choice :gender? do
 end
 
 outcome :outcome_result do
-  
   precalculate :weekly_amount do 
     sprintf("%.0f",money_wanted)
   end
   precalculate :rate_at_time_of_paying do
     money = money_wanted.to_f
+    debugger;
     total = data_query.age_and_rates(age_at_date_of_payment) * money
     sprintf("%.2f",total)
   end
-
 end
-
 outcome :outcome_age_limit_reached
 outcome :outcome_pension_age_not_reached
