@@ -12,7 +12,7 @@ date_question :dob_age? do
 	next_node do |response|
     dob = Date.parse(response)
 		if (dob < (Date.parse('2017-03-31') - 100.years))
-			:outcome_no
+			:outcome_age_limit_reached
 		elsif (dob > (Date.parse('2017-03-31') - 63.years))
       :outcome_pension_age_not_reached
     else
@@ -23,12 +23,18 @@ end
 
 money_question :how_much_extra_per_week? do
 	save_input_as :money_wanted
-
+  
+  calculate :integer_value do
+    money = responses.last.to_f
+    if (money % 1 != 0) or (money > 25 or money < 1)
+      raise SmartAnswer::InvalidResponse
+    end
+  end
 	next_node :age_when_paying?
 end
 
 date_question :age_when_paying? do
-  from { Date.parse('1 Oct 2015') }
+  from { Date.parse('12 Oct 2015') }
   to { Date.parse('31 March 2017') }
 
   save_input_as :age_at_date_of_payment
@@ -37,10 +43,10 @@ date_question :age_when_paying? do
     date_paying = Date.parse(response)
     dob = Date.parse(date_of_birth)
 
-    if date_paying < Date.parse('2015-10-01') or date_paying > Date.parse('2017-03-31')
+    if date_paying < Date.parse('2015-10-12') or date_paying > Date.parse('2017-03-31')
       raise SmartAnswer::InvalidResponse
     elsif (date_paying.year - dob.year) > 100
-      :outcome_no
+      :outcome_age_limit_reached
     else
       :gender?
     end
@@ -73,12 +79,17 @@ multiple_choice :gender? do
 end
 
 outcome :outcome_result do
-
+  
+  precalculate :weekly_amount do 
+    sprintf("%.0f",money_wanted)
+  end
   precalculate :rate_at_time_of_paying do
-    data_query.age_and_rates(age_at_date_of_payment)
+    money = money_wanted.to_f
+    total = data_query.age_and_rates(age_at_date_of_payment) * money
+    sprintf("%.2f",total)
   end
 
 end
 
-outcome :outcome_no
+outcome :outcome_age_limit_reached
 outcome :outcome_pension_age_not_reached

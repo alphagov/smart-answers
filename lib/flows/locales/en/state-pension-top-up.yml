@@ -1,43 +1,81 @@
 en-GB:
   flow:
     state-pension-top-up:
-      title: State Pension top up Calculator
+      title: State Pension top up calculator
       meta:
-        description: blah
+        description: Work out how much State Pension top ups will cost so that you can budget for your retirement
       body: |
-        Blah blah
+        Calculate how much it will cost to top up your State Pension by up to £25 per week if you are: 
+
+        - a man born before 6 April 1951
+        - a woman born before 6 April 1953
+      devolved_body: |
+        ##Topping up your State Pension
+        You can choose to top up your State Pension by £1 a week to £25 a week. You’ll be able to make a ‘Class 3A voluntary contribution’ between 12 October 2015 and April 2017.
+
+        The cost of the top up depends on how much extra pension you want to get every week, and your age when you buy the top up.
+
+        $E
+        **Example**
+        You are 68 years old in October 2015. You decide that you want to get an extra £20 per week (£1,040 a year) on top of your pension.
+
+        The cost of an extra £1 per week for a 68 year old is £827, so you multiply £827 by 20.
+
+        You’ll make a lump sum payment of £16,540.
+        $E
+
+        ###Eligibility
+        To be eligible, you must:
+
+        - be entitled to the basic or additional State Pension
+        - reach State Pension age before 6 April 2016
 
       options:
         "yes": "Yes"
         "no": "No"
-
+#Q1
       dob_age?:
-        title: When were you born?
+        title: What is your date of birth?
         hint: You can't use this calculator if you are over 100 years old.
-
+#Q2
       age_when_paying?:
-        title: When do you want to pay?
-        hint: You can only pay between 1 October 2015 and 31 March 2017
+        title: When will you pay your lump sum?
+        hint: This must be between 12 October 2015 and 1 April 2017.
         error_message: Please enter a date within this range
+#Q3
+      how_much_extra_per_week?:
+        title: How much would you like to get per week?
+        hint: Enter a number between 1 and 25.
+        error_message: Enter an amount in whole pounds between 1 and 25.
+        
+#Q4
+      gender?:
+        title: Are you a man or a woman?
+        options:
+        "yes": "Yes"
+        "no": "No"
 
+
+#Outcome1
       outcome_result:
-        title: This is the result
+        title: |
         body: |
-          yes we have a body
+          ##Results
 
-          age at date of payment = %{age_at_date_of_payment}
+          To top up your pension by £%{weekly_amount} per week, you need to make a lump sum payment of £%{rate_at_time_of_paying}.
 
+          You’ll be able to do this from 12 October 2015. 
 
-
-
-          how much it will cost as a lump sum = %{rate_at_time_of_paying}
+          Find out more about [topping up your State Pension](/voluntary-national-insurance-contributions).
+#outcome2
+      outcome_pension_age_not_reached: |
+          ##You must reach State Pension age before 6 April 2016 to use this calculator
           
-          
-      outcome_no:
-        title: You can't use this calculator if you are over 100 years old.
-      
-      outcome_pension_age_not_reached:
-        title: pension age not reached
+          You come under the [new State Pension](/new-state-pension) scheme. 
 
-
-
+#Outcome 3
+      outcome_age_limit_reached:
+        title: | 
+        body: |
+          ##You must be under 101 years old to use State Pension top up
+        
