@@ -11,9 +11,11 @@ date_question :dob_age? do
 
 	next_node do |response|
     dob = Date.parse(response)
-		if dob < (Date.today - 100.years)
+		if (dob < (Date.parse('2017-03-31') - 100.years))
 			:outcome_no
-		else
+		elsif (dob > (Date.parse('2017-03-31') - 63.years))
+      :outcome_pension_age_not_reached
+    else
 			:how_much_extra_per_week?
 		end
 	end
@@ -58,11 +60,19 @@ multiple_choice :gender? do
     age_when_paying
   end
 
-  next_node :outcome
-
+  next_node do |response|
+    
+    dob = Date.parse(date_of_birth)
+    dop = Date.parse(age_at_date_of_payment)
+    if (response == "male") and ((dop.year - dob.year) < 65)
+      :outcome_pension_age_not_reached
+    else
+      :outcome_result
+    end
+  end
 end
 
-outcome :outcome do
+outcome :outcome_result do
 
   precalculate :rate_at_time_of_paying do
     data_query.age_and_rates(age_at_date_of_payment)
@@ -71,3 +81,4 @@ outcome :outcome do
 end
 
 outcome :outcome_no
+outcome :outcome_pension_age_not_reached

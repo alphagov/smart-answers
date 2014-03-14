@@ -1,7 +1,7 @@
 en-GB:
   flow:
     state-pension-top-up:
-      title: Top Up
+      title: State Pension top up Calculator
       meta:
         description: blah
       body: |
@@ -20,7 +20,7 @@ en-GB:
         hint: You can only pay between 1 October 2015 and 31 March 2017
         error_message: Please enter a date within this range
 
-      outcome:
+      outcome_result:
         title: This is the result
         body: |
           yes we have a body
@@ -31,6 +31,13 @@ en-GB:
 
 
           how much it will cost as a lump sum = %{rate_at_time_of_paying}
+          
+          
       outcome_no:
         title: You can't use this calculator if you are over 100 years old.
+      
+      outcome_pension_age_not_reached:
+        title: pension age not reached
+
+
 
