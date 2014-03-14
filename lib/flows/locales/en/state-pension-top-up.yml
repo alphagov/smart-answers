@@ -1,0 +1,36 @@
+en-GB:
+  flow:
+    state-pension-top-up:
+      title: Top Up
+      meta:
+        description: blah
+      body: |
+        Blah blah
+
+      options:
+        "yes": "Yes"
+        "no": "No"
+
+      dob_age?:
+        title: When were you born?
+        hint: You can't use this calculator if you are over 100 years old.
+
+      age_when_paying?:
+        title: When do you want to pay?
+        hint: You can only pay between 1 October 2015 and 31 March 2017
+        error_message: Please enter a date within this range
+
+      outcome:
+        title: This is the result
+        body: |
+          yes we have a body
+
+          age at date of payment = %{age_at_date_of_payment}
+
+
+
+
+          how much it will cost as a lump sum = %{rate_at_time_of_paying}
+      outcome_no:
+        title: You can't use this calculator if you are over 100 years old.
+
