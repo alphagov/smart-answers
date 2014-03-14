@@ -30,10 +30,10 @@ money_question :how_much_extra_per_week? do
       raise SmartAnswer::InvalidResponse
     end
   end
-	next_node :age_when_paying?
+  next_node :date_of_lump_sum_payment?
 end
 
-date_question :age_when_paying? do
+date_question :date_of_lump_sum_payment? do
   from { Date.parse('12 Oct 2015') }
   to { Date.parse('31 March 2017') }
 
