@@ -253,7 +253,7 @@ outcome :ips_application_result do
   end
 
   precalculate :cost do
-    uk_visa_application_centre_countries = %w(azerbaijan nepal ukraine)
+    uk_visa_application_centre_countries = %w(algeria azerbaijan nepal ukraine)
 
     if application_action == 'replacing' and ips_number == '1' and ips_docs_number == '1'
       PhraseList.new(:"passport_courier_costs_replacing_ips#{ips_number}",
@@ -322,7 +322,7 @@ outcome :ips_application_result do
   end
 
   precalculate :send_your_application do
-    uk_visa_application_centre_countries = %w(afghanistan azerbaijan burundi nepal ukraine)
+    uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan burundi nepal ukraine)
 
     phrases = PhraseList.new
     if application_address
@@ -371,7 +371,7 @@ outcome :ips_application_result do
     collect_in_person_countries = %w(angola benin cambodia cameroon chad congo egypt eritrea ethiopia gambia ghana guinea jamaica kenya nigeria rwanda sierra-leone somalia south-sudan uganda zambia zimbabwe)
     collect_in_person_variant_countries = %w(burundi india iraq jordan pitcairn-island yemen)
     collect_in_person_renewing_new_variant_countries = %(burma nepal north-korea)
-    uk_visa_application_centre_countries = %w(azerbaijan ukraine)
+    uk_visa_application_centre_countries = %w(algeria azerbaijan ukraine)
 
     phrases = PhraseList.new
     if uk_visa_application_centre_countries.include?(current_location)

@@ -827,6 +827,19 @@ en-GB:
 
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
+        send_application_address_algeria: |
+
+          $A
+          UK Visa Application Centre
+          Des Deux Bassins Oued Romane El Achour Alger (résidence sahraoui)
+          Algiers
+          Algeria
+          $A
+
+          $C
+          Email: <hmpo.enquiry@teleperformance.com>
+          $C
+
         send_application_address_azerbaijan: |
 
           $A
@@ -893,45 +906,6 @@ en-GB:
           Your passport will be delivered to the British embassy, high commission or consulate where you applied - you must collect it in person.
 
           They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
-
-        body_algeria: |
-          ## How long it takes
-          It usually takes between **6 and 12 weeks** to get your passport.
-
-          Applications may take longer if:
-
-          - you need to provide more information or documents
-          - your photographs are rejected
-
-          Don’t book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [Emergency Travel Document](/emergency-travel-document).
-
-          If your passport has been lost or stolen and you haven’t reported it yet, include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your application.
-
-          ## Cost
-
-          You must pay in cash using Algerian Dinars at the British embassy in Algiers.
-
-          Passport type | Passport fee
-          -|-
-          Adult standard 32-page passport | DZD16,700
-          Adult jumbo 48-page passport | DZD20,100
-          Child passport | DZD10,600
-
-          ## How to apply
-
-          1. You must usually pick up an application form in person from the British embassy in Algiers. Contact the embassy for advice if this isn’t possible.
-
-          2. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports) or your application may be delayed.
-
-          3. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
-
-          4. Take your application in person to the British embassy in Algiers.
-
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-
-          ## Getting your passport
-
-          The British embassy in Algiers will contact you when your passport arrives using the contact details on your form. You must collect it in person from the embassy.
 
         body_iran: |
           You can’t apply for a British passport from Iran at this time.
