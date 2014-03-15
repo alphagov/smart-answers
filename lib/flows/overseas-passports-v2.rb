@@ -304,7 +304,7 @@ outcome :ips_application_result do
   end
 
   precalculate :how_to_apply do
-    send_colour_photocopy_countries = %w(burma china indonesia laos thailand timor-leste)
+    send_colour_photocopy_countries = %w(china indonesia laos thailand timor-leste)
 
     if passport_data['online_application']
     else
@@ -483,7 +483,7 @@ outcome :fco_result do
   end
   precalculate :getting_your_passport do
     location = 'fco'
-    location = current_location if %(burma cambodia congo nepal).include?(current_location)
+    location = current_location if %(cambodia congo nepal).include?(current_location)
     PhraseList.new(:"getting_your_passport_#{location}")
   end
   precalculate :helpline do

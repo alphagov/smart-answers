@@ -167,7 +167,7 @@ burkina-faso:
   app_form: hmpo_1_application_form
   online_application: true
 burma:
-  type: ips_application_1
+  type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
 burundi:

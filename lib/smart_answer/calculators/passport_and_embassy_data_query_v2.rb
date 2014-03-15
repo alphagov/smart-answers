@@ -30,7 +30,7 @@ module SmartAnswer::Calculators
 
     CASH_ONLY_COUNTRIES = %w(cuba gaza libya mauritania morocco north-korea sudan tunisia venezuela western-sahara)
 
-    RENEWING_COUNTRIES = %w(azerbaijan belarus cuba georgia kazakhstan kyrgyzstan lebanon libya mauritania morocco russia sudan tajikistan tunisia turkmenistan ukraine uzbekistan western-sahara venezuela zimbabwe)
+    RENEWING_COUNTRIES = %w(belarus burma cuba georgia kazakhstan kyrgyzstan lebanon libya mauritania morocco russia sudan tajikistan tunisia turkmenistan ukraine uzbekistan western-sahara venezuela zimbabwe)
 
     attr_reader :passport_data
 
