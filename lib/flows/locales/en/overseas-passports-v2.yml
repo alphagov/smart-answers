@@ -855,6 +855,69 @@ en-GB:
           Email: <hmpo.enquiry@teleperformance.com>
           $C
 
+        send_application_address_china: |
+
+          $A
+          UK Visa Application Centre
+          Beijing Inn
+          A901-919
+          A Zone
+          9th Floor
+          Building A
+          Second group
+          No 5 Dongshuijing Alley
+          Dongcheng District
+          Beijing 100010
+          $A
+
+          $C
+          Email: <beijing.HMPO@vfshelpline.com>
+          Opening hours: Monday to Friday 7:30am to 2:30pm (local time)
+          $C
+
+          $A
+          UK Visa Application Centre
+          33-B
+          HNA-Poly International Center
+          235 Minsheng Road
+          Yuzhong District
+          Chongqing
+          400010 P.R.China
+          $A
+
+          $C
+          Email: <chongqing.hmpo@vfshelpline.com>
+          Opening hours: Monday to Friday 8am to 3pm (local time)
+          $C
+
+          $A
+          UK Visa Application Centre
+          Room 215
+          Cheng Jian Mansion
+          No 189 Tiyu Rd. (West)
+          Tian He District
+          Guangzhou City 510620
+          $A
+
+          $C
+          Email: <guangzhou.hmpo@vfshelpline.com>
+          Opening hours: Monday to Friday 8am to 3pm (local time)
+          $C
+
+          $A
+          UK Visa Application Centre
+          3/F
+          Guangfa Bank Tower
+          555 Xujiahui Road
+          Huangpu District
+          Shanghai
+          $A
+
+          $C
+          Email: <shanghai.hmpo@vfshelpline.com>
+          Opening hours: Monday to Friday 8am to 3pm (local time)
+          $C
+
         send_application_address_nepal: |
 
           $A

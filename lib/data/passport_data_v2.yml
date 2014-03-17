@@ -216,9 +216,10 @@ chile:
   app_form: hmpo_2_application_form
   online_application: true
 china:
-  type: ips_application_1
+  type: ips_application_3
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
+  application_office: true
 colombia:
   type: ips_application_1
   group: ips_documents_group_2
