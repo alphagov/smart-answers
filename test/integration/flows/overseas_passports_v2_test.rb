@@ -9,7 +9,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon congo egypt greece haiti india iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nepal nigeria north-korea pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia turkey ukraine united-kingdom uzbekistan yemen zimbabwe vietnam)
+    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon congo egypt greece haiti india iran iraq ireland italy jamaica jordan kenya kyrgyzstan malta morocco nepal nigeria north-korea pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia turkey ukraine united-kingdom uzbekistan yemen zimbabwe vietnam)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports-v2'
   end
@@ -885,22 +885,6 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
     end
   end # St Helena (FCO with custom phrases)
 
-  context "answer Kyrgyzstan, renewing_old, adult passport" do
-    should "give the IPS application result with custom phrases" do
-      worldwide_api_has_organisations_for_location('kazakhstan', read_fixture_file('worldwide/kazakhstan_organisations.json'))
-      add_response 'kyrgyzstan'
-      add_response 'renewing_old'
-      add_response 'adult'
-      add_response 'united-kingdom'
-      assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_renewing_old_ips3, :how_long_it_takes_ips3]
-      assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
-      assert_phrase_list :send_your_application, [:send_application_ips3, :renewing_new_renewing_old, :send_application_embassy_address]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
-      assert_match /British Embassy Astana/, outcome_body
-    end
-  end # Kyrgyzstan
-
   context "answer Nigeria, applying, adult passport" do
     should "give the result with custom phrases" do
       worldwide_api_has_organisations_for_location('nigeria', read_fixture_file('worldwide/nigeria_organisations.json'))
@@ -1124,6 +1108,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       worldwide_api_has_organisations_for_location('british-indian-ocean-territory', read_fixture_file('worldwide/british-indian-ocean-territory_organisations.json'))
       add_response 'british-indian-ocean-territory'
       assert_current_node :apply_in_neighbouring_country
+      assert_phrase_list :title_output, [:title_output_biot]
     end
   end # british-indian-ocean-territory
 
@@ -1231,6 +1216,17 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
           :getting_your_passport_contact_and_id]
       end
     end
-  end # Burma
+  end # Cambodia
+
+  context "answer Kyrgyzstan, testing for embassy link" do
+    should "give the neighbouring country outcome" do
+      worldwide_api_has_organisations_for_location('kyrgyzstan', read_fixture_file('worldwide/kyrgyzstan_organisations.json'))
+      add_response 'kyrgyzstan'
+      assert_current_node :apply_in_neighbouring_country
+      assert_phrase_list :emergency_travel_help, [:emergency_travel_help_kyrgyzstan]
+      assert_state_variable :title_output, 'Kyrgyzstan'
+    end
+  end # Kyrgyzstan
+
 
 end

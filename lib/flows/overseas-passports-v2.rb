@@ -4,6 +4,7 @@ satisfies_need 2820
 
 data_query = Calculators::PassportAndEmbassyDataQueryV2.new
 exclude_countries = %w(holy-see british-antarctic-territory)
+apply_in_neighbouring_country_countries = %w(british-indian-ocean-territory kyrgyzstan south-georgia-and-south-sandwich-islands)
 
 
 # Q1
@@ -24,7 +25,7 @@ country_select :which_country_are_you_in?, :exclude_countries => exclude_countri
       :cannot_apply
     elsif %w(the-occupied-palestinian-territories).include?(response)
       :which_opt?
-    elsif %w(british-indian-ocean-territory south-georgia-and-south-sandwich-islands).include?(response)
+    elsif apply_in_neighbouring_country_countries.include?(response)
       :apply_in_neighbouring_country
     else
       :renewing_replacing_applying?
@@ -564,4 +565,18 @@ outcome :cannot_apply do
   end
 end
 
-outcome :apply_in_neighbouring_country
+outcome :apply_in_neighbouring_country do
+  precalculate :title_output do
+    if %w(british-indian-ocean-territory south-georgia-and-south-sandwich-islands).include?(current_location)
+      PhraseList.new(:title_output_biot)
+    else
+      location.name
+    end
+  end
+
+  precalculate :emergency_travel_help do
+    if %w(kyrgyzstan).include?(current_location)
+      PhraseList.new(:"emergency_travel_help_#{current_location}")
+    end
+  end
+end
