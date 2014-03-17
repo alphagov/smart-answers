@@ -49,18 +49,18 @@ en-GB:
         error_message: Enter an amount in whole pounds between 1 and 25.
 #Q4
       gender?:
-        title: Are you a man or a woman?
+        title: What is your gender?
         options:
-        "yes": "Yes"
-        "no": "No"
+          "male": "Male"
+          "female": "Female"
 
 #Outcome1
-      outcome_result:
-        title: |
+      outcome_qualified_for_top_up_calculations:
+        title: | 
+          Results
         body: |
-          ##Results
-
-          To top up your pension by £%{weekly_amount} per week, you need to make a lump sum payment of £%{rate_at_time_of_paying}.
+          
+          To top up your pension by £%{weekly_amount} per week, you need to make a lump sum payment of %{rate_at_time_of_paying}.
 
           You’ll be able to do this from 12 October 2015.
 
@@ -68,13 +68,13 @@ en-GB:
 #outcome2
       outcome_pension_age_not_reached: 
         title: |
+          You must reach State Pension age before 6 April 2016 to use this calculator
         body: |
-          ##You must reach State Pension age before 6 April 2016 to use this calculator
           
           You come under the [new State Pension](/new-state-pension) scheme. 
 
 #Outcome 3
       outcome_age_limit_reached:
         title: | 
-        body: |
-          ##You must be under 101 years old to use State Pension top up     
+          You must be under 101 years old to use State Pension top up
+        

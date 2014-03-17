@@ -59,8 +59,10 @@ class CalculateStatePensionTopUpTest < ActiveSupport::TestCase
             add_response :female
           end
           should "bring you to final outcome and show result" do
-            assert_current_node :outcome_result
-            assert_state_variable :rate_at_time_of_paying, "8710.00"
+            assert_current_node :outcome_qualified_for_top_up_calculations
+            assert_state_variable :rate_at_time_of_paying, 8710.0
+            assert_state_variable :age_at_date_of_payment, 66
+            assert_state_variable :weekly_amount, "10"
           end
         end
       end
@@ -94,26 +96,30 @@ class CalculateStatePensionTopUpTest < ActiveSupport::TestCase
     end
   end
   
-  context "Check if a 62 years WOMAN is allowed to use the tool" do
+  context "Check if a 63 years WOMAN is allowed to use the tool" do
     setup do
       add_response Date.parse('1953-02-02')
-      add_response 10
+      add_response 20
       add_response Date.parse('2016-02-02')
       add_response :female
     end 
     should "bring you to final result outcome" do
-      assert_current_node :outcome_result
+      assert_current_node :outcome_qualified_for_top_up_calculations
+      assert_state_variable :rate_at_time_of_paying, 18680.0
+      assert_state_variable :age_at_date_of_payment, 63
+      assert_state_variable :weekly_amount, "20"
     end
   end
   context "check if a 62 years old MAN is NOT allowed to use the tool" do
     setup do
-      add_response Date.parse('1954-02-02')
+      add_response Date.parse('1953-02-02')
       add_response 10
       add_response Date.parse('2016-02-02')
       add_response :male
     end
     should "bring you to age limit not reached outcome" do
       assert_current_node :outcome_pension_age_not_reached
+      assert_state_variable :age_at_date_of_payment, 63
     end
   end
 end

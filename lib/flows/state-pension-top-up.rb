@@ -73,20 +73,21 @@ multiple_choice :gender? do
     if (response == "male") and ((dop.year - dob.year) < 65)
       :outcome_pension_age_not_reached
     else
-      :outcome_result
+      :outcome_qualified_for_top_up_calculations
     end
   end
 end
 
-outcome :outcome_result do
+outcome :outcome_qualified_for_top_up_calculations do
   precalculate :weekly_amount do 
     sprintf("%.0f",money_wanted)
   end
   precalculate :rate_at_time_of_paying do
     money = money_wanted.to_f
-    debugger;
     total = data_query.age_and_rates(age_at_date_of_payment) * money
-    sprintf("%.2f",total)
+    
+    total_money = SmartAnswer::Money.new(total)
+    # sprintf("%.2f",total)
   end
 end
 outcome :outcome_age_limit_reached
