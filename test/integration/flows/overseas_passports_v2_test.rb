@@ -9,7 +9,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon congo egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nepal nigeria north-korea pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia turkey ukraine united-kingdom uzbekistan yemen zimbabwe vietnam)
+    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon congo egypt greece haiti india iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nepal nigeria north-korea pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia turkey ukraine united-kingdom uzbekistan yemen zimbabwe vietnam)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports-v2'
   end
@@ -584,23 +584,6 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       assert_phrase_list :contact_passport_adviceline, [:contact_passport_adviceline]
     end
   end # Congo
-
-  context "answer Indonesia, renewing_new, adult passport" do
-    should "give the IPS result with custom phrases" do
-      worldwide_api_has_organisations_for_location('indonesia', read_fixture_file('worldwide/indonesia_organisations.json'))
-      add_response 'indonesia'
-      add_response 'renewing_new'
-      add_response 'adult'
-      assert_current_node :ips_application_result
-      assert_phrase_list :fco_forms, [:adult_fco_forms]
-      assert_phrase_list :how_long_it_takes, [:how_long_renewing_new_ips1, :how_long_it_takes_ips1]
-      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-      assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :send_colour_photocopy_bulletpoint, :hmpo_1_application_form, :ips_documents_group_2]
-      assert_phrase_list :send_your_application, [:send_application_ips1]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
-      assert_phrase_list :contact_passport_adviceline, [:contact_passport_adviceline]
-    end
-  end # Indonesia
 
   context "answer Malta, replacement, adult passport" do
     should "give the fco result with custom phrases" do

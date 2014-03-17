@@ -927,6 +927,23 @@ en-GB:
           Opening hours: Monday to Friday 8am to 3pm (local time)
           $C
 
+        send_application_address_indonesia: |
+
+          $A
+          UK Visa Application Centre
+          2nd Floor,
+          Jl. Prof. Dr. Satrio Kav. 18
+          Setiabudi
+          Kuningan
+          South Jakarta
+          12940
+          Indonesia
+          $A
+
+          $C
+          Email: <JakartaHMPO@vfshelpline.com>
+          $C
+
         send_application_address_nepal: |
 
           $A
