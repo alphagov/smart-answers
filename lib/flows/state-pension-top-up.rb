@@ -87,7 +87,6 @@ outcome :outcome_qualified_for_top_up_calculations do
     total = data_query.age_and_rates(age_at_date_of_payment) * money
     
     total_money = SmartAnswer::Money.new(total)
-    # sprintf("%.2f",total)
   end
 end
 outcome :outcome_age_limit_reached

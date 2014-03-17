@@ -44,6 +44,7 @@ class CalculateStatePensionTopUpTest < ActiveSupport::TestCase
       end
       should "bring you to date_of_lump_sum_payment question" do
         assert_current_node :date_of_lump_sum_payment?
+        
       end
       
       context "correct date of payment inserted" do
