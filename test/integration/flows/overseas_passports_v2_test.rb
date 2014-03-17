@@ -9,7 +9,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cameroon congo egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nepal nigeria north-korea pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia turkey ukraine united-kingdom uzbekistan yemen zimbabwe vietnam)
+    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon congo egypt greece haiti india indonesia iran iraq ireland italy jamaica jordan kazakhstan kenya kyrgyzstan malta morocco nepal nigeria north-korea pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia turkey ukraine united-kingdom uzbekistan yemen zimbabwe vietnam)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports-v2'
   end
@@ -1237,6 +1237,31 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
         assert_phrase_list :send_your_application, [:send_application_ips3, :send_application_embassy_address]
         assert_phrase_list :getting_your_passport, [:getting_your_passport_burma, :getting_your_passport_contact, :getting_your_passport_id_apply_renew_old_replace]
+      end
+    end
+  end # Burma
+
+  context "answer Cambodia, testing getting your passport" do
+    setup do
+      worldwide_api_has_organisations_for_location('cambodia', read_fixture_file('worldwide/cambodia_organisations.json'))
+      add_response 'cambodia'
+    end
+    context "renewing a new adult passport" do
+      should "give the ips result" do
+        add_response 'renewing_new'
+        add_response 'adult'
+        assert_current_node :ips_application_result
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_cambodia_renew_new,]
+      end
+    end
+    context "applying for a new adult passport" do
+      should "give the ips result" do
+        add_response 'applying'
+        add_response 'adult'
+        add_response 'united-kingdom'
+        assert_current_node :ips_application_result
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_cambodia, 
+          :getting_your_passport_contact_and_id]
       end
     end
   end # Burma

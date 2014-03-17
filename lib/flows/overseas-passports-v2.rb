@@ -368,9 +368,9 @@ outcome :ips_application_result do
   end
 
   precalculate :getting_your_passport do
-    collect_in_person_countries = %w(angola benin cambodia cameroon chad congo egypt eritrea ethiopia gambia ghana guinea jamaica kenya nigeria rwanda sierra-leone somalia south-sudan uganda zambia zimbabwe)
-    collect_in_person_variant_countries = %w(burundi india iraq jordan pitcairn-island yemen)
-    collect_in_person_renewing_new_variant_countries = %(burma nepal north-korea)
+    collect_in_person_countries = %w(angola benin cameroon chad congo egypt eritrea ethiopia gambia ghana guinea jamaica kenya nigeria rwanda sierra-leone somalia south-sudan uganda zambia zimbabwe)
+    collect_in_person_variant_countries = %w(burundi cambodia india iraq jordan pitcairn-island yemen)
+    collect_in_person_renewing_new_variant_countries = %(burma cambodia nepal north-korea)
     uk_visa_application_centre_countries = %w(algeria azerbaijan china ukraine)
 
     phrases = PhraseList.new
@@ -384,12 +384,11 @@ outcome :ips_application_result do
     elsif collect_in_person_countries.include?(current_location)
       phrases << :"getting_your_passport_#{current_location}" << :getting_your_passport_contact_and_id
     elsif collect_in_person_variant_countries.include?(current_location)
-      if %w(burundi).include?(current_location)
+      if %w(burundi cambodia).include?(current_location)
         if %w(renewing_new).include?(application_action)
-          phrases << :getting_your_passport_burundi_renew_new
+          phrases << :"getting_your_passport_#{current_location}_renew_new"
         else
-          phrases << :getting_your_passport_burundi
-          phrases << :getting_your_passport_contact_and_id
+          phrases << :"getting_your_passport_#{current_location}" << :getting_your_passport_contact_and_id
         end
       else
         phrases << :"getting_your_passport_#{current_location}"
