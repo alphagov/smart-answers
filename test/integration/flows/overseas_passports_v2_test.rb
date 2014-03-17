@@ -885,22 +885,6 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
     end
   end # St Helena (FCO with custom phrases)
 
-  context "answer Kazakhstan, applying, child passport" do
-    should "give the IPS application result with custom phrases" do
-      worldwide_api_has_organisations_for_location('kazakhstan', read_fixture_file('worldwide/kazakhstan_organisations.json'))
-      add_response 'kazakhstan'
-      add_response 'applying'
-      add_response 'child'
-      add_response 'united-kingdom'
-      assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_applying_ips3, :how_long_it_takes_ips3]
-      assert_phrase_list :cost, [:passport_courier_costs_ips3, :child_passport_costs_ips3, :passport_costs_ips3]
-      assert_phrase_list :send_your_application, [:send_application_ips3, :send_application_embassy_address]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
-      assert_match /Astana 010000/, outcome_body
-    end
-  end # Kazakhstan
-
   context "answer Kyrgyzstan, renewing_old, adult passport" do
     should "give the IPS application result with custom phrases" do
       worldwide_api_has_organisations_for_location('kazakhstan', read_fixture_file('worldwide/kazakhstan_organisations.json'))

@@ -939,6 +939,18 @@ en-GB:
           Email: <JakartaHMPO@vfshelpline.com>
           $C
 
+        send_application_address_kazakhstan: |
+
+          $A
+          UK Visa Application Centre
+          Stolichniy centre
+          92/87, Ablai Khan str. corner
+          Kabanbai Batyr str.
+          Almalinskiy district
+          Almaty
+          Kazakhstan, 050000
+          $A
+
         send_application_address_nepal: |
 
           $A
