@@ -327,13 +327,13 @@ outcome :ips_application_result do
 
     phrases = PhraseList.new
     if application_address
-      phrases << :"send_application_ips#{ips_number}_#{application_address}"
+      phrases << :"send_application_#{application_address}"
     elsif uk_visa_application_centre_countries.include?(current_location)
       if %w(renewing_new).include?(application_action)
         if passport_data['application_office']
-          phrases << :send_application_ips3_uk_visa_renew_new << :"send_application_address_#{current_location}"
+          phrases << :send_application_uk_visa_renew_new << :"send_application_address_#{current_location}"
         else
-          phrases << :"send_application_ips3_#{current_location}_renew_new" << :send_application_embassy_address
+          phrases << :"send_application_ips#{ips_number}_#{current_location}_renew_new" << :send_application_embassy_address
         end
       else
         if passport_data['application_office']
@@ -369,8 +369,8 @@ outcome :ips_application_result do
   end
 
   precalculate :getting_your_passport do
-    collect_in_person_countries = %w(angola benin cameroon chad congo egypt eritrea ethiopia gambia ghana guinea jamaica kenya nigeria rwanda sierra-leone somalia south-sudan uganda zambia zimbabwe)
-    collect_in_person_variant_countries = %w(burundi india iraq jordan pitcairn-island yemen)
+    collect_in_person_countries = %w(angola benin cameroon chad congo eritrea ethiopia gambia ghana guinea jamaica kenya nigeria rwanda sierra-leone somalia south-sudan uganda zambia zimbabwe)
+    collect_in_person_variant_countries = %w(burundi india iraq jordan libya pitcairn-island yemen)
     collect_in_person_renewing_new_variant_countries = %(burma nepal north-korea)
     uk_visa_application_centre_countries = %w(algeria azerbaijan china georgia indonesia kazakhstan laos lebanon ukraine)
     uk_visa_application_centre_variant_countries = %w(cambodia egypt)

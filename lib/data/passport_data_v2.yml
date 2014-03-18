@@ -567,9 +567,10 @@ liberia:
   app_form: hmpo_1_application_form
   online_application: true
 libya:
-  type: ips_application_3
+  type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
+  address: belfast
 liechtenstein:
   type: ips_application_1
   group: ips_documents_group_1
