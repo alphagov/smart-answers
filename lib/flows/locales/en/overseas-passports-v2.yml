@@ -624,7 +624,10 @@ en-GB:
         passport_courier_costs_ips3: |
           You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the British embassy, high commission or consulate where you applied for you to collect.
           
-        passport_courier_costs_uk_visa: |
+        passport_courier_costs_ips2_uk_visa: |
+          You’ll have to pay a fee for your passport and a courier fee of £24.72. The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
+
+        passport_courier_costs_ips3_uk_visa: |
           You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
 
         passport_courier_costs_ips3_india: |
@@ -914,6 +917,21 @@ en-GB:
           $C
           Email: <shanghai.hmpo@vfshelpline.com>
           Opening hours: Monday to Friday 8am to 3pm (local time)
+          $C
+
+        send_application_address_georgia: |
+
+          $A
+          UK Visa Application Centre
+          Besiki Business Center
+          4 Besiki Street
+          Tbilisi
+          Georgia
+          0108
+          $A
+
+          $C
+          Email: <hmpo.enquiry@teleperformance.com>
           $C
 
         send_application_address_indonesia: |
