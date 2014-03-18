@@ -964,6 +964,18 @@ en-GB:
           Email: <hmpo.enquiry@teleperformance.com>
           $C
 
+        send_application_address_mauritania: |
+          $A
+          UK Visa Application Centre
+          12 Rue Al Koufa,
+          Av Moulay Youssed
+          Rabat
+          Morocco
+          $A
+          $C
+          Email: <hmpo.enquiry@teleperformance.com>
+          $C
+
         send_application_address_nepal: |
           $A
           UK Visa Application Centre

@@ -397,7 +397,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         assert_phrase_list :how_long_it_takes, [:how_long_replacing_ips3, :how_long_it_takes_ips3]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
         assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
-        assert_phrase_list :send_your_application, [:send_application_ips3_uk_visa_apply_renew_old_replace, :send_application_address_azerbaijan]
+        assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace, :send_application_address_azerbaijan]
         assert_phrase_list :getting_your_passport, [:getting_your_passport_uk_visa_centre, :getting_your_passport_contact_and_id]
       end
     end # Applying
@@ -686,7 +686,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       add_response 'replacing'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_phrase_list :send_your_application, [:send_application_ips3_uk_visa_apply_renew_old_replace, :"send_application_address_nepal"]
+      assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace, :"send_application_address_nepal"]
       assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
       assert_state_variable :send_colour_photocopy_bulletpoint, nil
     end
@@ -1135,7 +1135,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         assert_phrase_list :how_long_it_takes, [:how_long_applying_ips3, :how_long_it_takes_ips3]
         assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
-        assert_phrase_list :send_your_application, [:send_application_ips3_uk_visa_apply_renew_old_replace, :send_application_address_algeria]
+        assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace, :send_application_address_algeria]
         assert_phrase_list :getting_your_passport, [:getting_your_passport_uk_visa_centre, :getting_your_passport_contact_and_id]
       end
     end
