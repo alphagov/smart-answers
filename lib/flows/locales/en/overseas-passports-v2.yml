@@ -639,7 +639,7 @@ en-GB:
         passport_courier_costs_ips3_thailand_renewing_new: |
           You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent back to you securely.
           
-        passport_courier_costs_ips3_pitcairn_island: |
+        passport_courier_costs_ips3_pitcairn-island: |
           You'll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport and supporting documents to be sent back to you securely via the Pitcairn Islands Office in Auckland.
 
         adult_passport_costs_ips3: |
@@ -829,20 +829,17 @@ en-GB:
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
         send_application_address_algeria: |
-
           $A
           UK Visa Application Centre
           Des Deux Bassins Oued Romane El Achour Alger (résidence sahraoui)
           Algiers
           Algeria
           $A
-
           $C
           Email: <hmpo.enquiry@teleperformance.com>
           $C
 
         send_application_address_azerbaijan: |
-
           $A
           UK Visa Application Centre
           Demirchi Development
@@ -851,13 +848,11 @@ en-GB:
           AZ1025
           Azerbaijan
           $A
-
           $C
           Email: <hmpo.enquiry@teleperformance.com>
           $C
 
         send_application_address_china: |
-
           $A
           UK Visa Application Centre
           Beijing Inn
@@ -870,7 +865,6 @@ en-GB:
           Dongcheng District
           Beijing 100010
           $A
-
           $C
           Email: <beijing.HMPO@vfshelpline.com>
           Opening hours: Monday to Friday 7:30am to 2:30pm (local time)
@@ -885,7 +879,6 @@ en-GB:
           Chongqing
           400010 P.R.China
           $A
-
           $C
           Email: <chongqing.hmpo@vfshelpline.com>
           Opening hours: Monday to Friday 8am to 3pm (local time)
@@ -899,7 +892,6 @@ en-GB:
           Tian He District
           Guangzhou City 510620
           $A
-
           $C
           Email: <guangzhou.hmpo@vfshelpline.com>
           Opening hours: Monday to Friday 8am to 3pm (local time)
@@ -913,14 +905,12 @@ en-GB:
           Huangpu District
           Shanghai
           $A
-
           $C
           Email: <shanghai.hmpo@vfshelpline.com>
           Opening hours: Monday to Friday 8am to 3pm (local time)
           $C
 
         send_application_address_georgia: |
-
           $A
           UK Visa Application Centre
           Besiki Business Center
@@ -929,13 +919,11 @@ en-GB:
           Georgia
           0108
           $A
-
           $C
           Email: <hmpo.enquiry@teleperformance.com>
           $C
 
         send_application_address_indonesia: |
-
           $A
           UK Visa Application Centre
           2nd Floor,
@@ -946,13 +934,11 @@ en-GB:
           12940
           Indonesia
           $A
-
           $C
           Email: <JakartaHMPO@vfshelpline.com>
           $C
 
         send_application_address_kazakhstan: |
-
           $A
           UK Visa Application Centre
           Stolichniy centre
@@ -963,8 +949,19 @@ en-GB:
           Kazakhstan, 050000
           $A
 
+        send_application_address_laos: |
+          $A
+          UK Visa Application Centre
+          British Embassy
+          Rue J. Nehru
+          Saysettha District
+          Vientian
+          Laos
+          $A
+          $C
+          Email: <LaosHMPO@vfshelpline.com>
+          $C
         send_application_address_nepal: |
-
           $A
           UK Visa Application Centre
           4th floor, Four Square Building,
@@ -973,7 +970,6 @@ en-GB:
           Kathmandu
           Nepal
           $A
-
           $C
           Email: <KathmanduHMPO@vfshelpline.com>  
           Opening hours: Monday to Friday 8am to 2pm (local time)
@@ -991,13 +987,12 @@ en-GB:
           $A
 
           $C
-          Email: <admin@pitcairn.gov.pn> 
+          Email: <admin@pitcairn.gov.pn>  
           Telephone: +64 9 366 0186  
-          Fax: +64 9 366 0187  
+          Fax: +64 9 366 0187
           $C
 
         send_application_address_ukraine: |
-
           $A
           UK Visa Application Centre
           Antem Business Centre
@@ -1005,7 +1000,6 @@ en-GB:
           Kyiv
           Ukraine
           $A
-          
           $C
           Email: <enquiryHMPO@TPContact.co.uk>
           $C
