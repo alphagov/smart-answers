@@ -271,9 +271,6 @@ en-GB:
           3. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports) or your application may be delayed.
           4. Check the guidance notes to find out which supporting documents you must send with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
 
-        send_colour_photocopy_bulletpoint: |
-          5. You must send a full colour photocopy of your entire current passport (every page including blank pages). Don't send your current passport with your application - you can keep it for security and ID purposes - but you can't travel with it after you've applied for a new one.
-
         send_application_ips1_pakistan: |
           5. You should fill in the [Applying for a passport from Pakistan form](https://www.gov.uk/government/publications/applying-for-a-passport-from-pakistan) if you are submitting supporting documents from the UK.
 
@@ -726,6 +723,26 @@ en-GB:
           You must bring photo ID with you.
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+
+        send_application_ips3_timor-leste_renew_new: |
+          ## Making your application
+          You must apply in person. You must bring photo ID with you.
+
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+
+          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
+
+          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+
+          You’ll need to book an appointment to submit your application. Please telephone the British Honorary Consul in Dili on +67 077 234 273 for further information on how to do this.
+
+        send_application_ips3_timor-leste_apply_renew_old_replace: |
+          ## Making your application
+          You must apply in person.
+
+          You must bring photo ID with you. Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+
+          You’ll need to book an appointment to submit your application. Please telephone the British Honorary Consul in Dili on +67 077 234 273 for further information on how to do this.
 
         send_application_uk_visa_apply_renew_old_replace: |
           ## Making your application

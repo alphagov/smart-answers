@@ -283,15 +283,11 @@ outcome :ips_application_result do
   end
 
   precalculate :how_to_apply do
-    send_colour_photocopy_countries = %w(timor-leste)
-
     if passport_data['online_application']
     else
       phrases = PhraseList.new
       phrases <<  :"how_to_apply_ips#{ips_number}"
-      if send_colour_photocopy_countries.include?(current_location) and %w(renewing_new).include?(application_action)
-        phrases << :send_colour_photocopy_bulletpoint
-      elsif %w(pakistan).include?(current_location)
+      if %w(pakistan).include?(current_location)
         phrases << :send_application_ips1_pakistan
       end
       phrases << application_form.to_sym
@@ -301,7 +297,7 @@ outcome :ips_application_result do
   end
 
   precalculate :send_your_application do
-    uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan burundi china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand ukraine)
+    uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan burundi china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand timor-leste ukraine)
 
     phrases = PhraseList.new
     if application_address
