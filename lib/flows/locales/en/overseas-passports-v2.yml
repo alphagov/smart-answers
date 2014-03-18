@@ -961,6 +961,19 @@ en-GB:
           $C
           Email: <LaosHMPO@vfshelpline.com>
           $C
+
+        send_application_address_lebanon: |
+          $A
+          UK Visa Application Centre
+          Central Beirut District
+          Fosh St (the Souhks)
+          Beirut
+          Lebanon
+          $A
+          $C
+          Email: <hmpo.enquiry@teleperformance.com>
+          $C
+
         send_application_address_nepal: |
           $A
           UK Visa Application Centre
