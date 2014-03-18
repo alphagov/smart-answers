@@ -999,6 +999,38 @@ en-GB:
           Fax: +64 9 366 0187
           $C
 
+        send_application_address_russia: |
+          $A
+          UK Visa Application Centre
+          70, Bolshakova st
+          Ekaterinburg
+          Russia
+          $A
+          $C
+          Email: <hmpo.enquiry@teleperformance.com>
+          $C
+
+          $A
+          UK Visa Application Centre
+          Delta Plaza, 1
+          2nd Syromyatnichesky lane
+          Moscow
+          Russia
+          $A
+          $C
+          Email: <hmpo.enquiry@teleperformance.com>
+          $C
+
+          $A
+          UK Visa Application Centre
+          26, Liteyniy pr
+          St Petersburg
+          Russia
+          $A
+          $C
+          Email: <hmpo.enquiry@teleperformance.com>
+          $C
+
         send_application_address_ukraine: |
           $A
           UK Visa Application Centre

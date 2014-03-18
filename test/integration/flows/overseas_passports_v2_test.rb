@@ -9,7 +9,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon congo georgia greece haiti india iran iraq ireland italy jamaica jordan kenya kyrgyzstan malta nepal nigeria pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia turkey ukraine united-kingdom uzbekistan yemen zimbabwe vietnam)
+    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon congo georgia greece haiti india iran iraq ireland italy jamaica jordan kenya kyrgyzstan malta nepal nigeria pakistan pitcairn-island syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia turkey ukraine united-kingdom uzbekistan yemen zimbabwe vietnam)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports-v2'
   end
@@ -801,26 +801,6 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       assert_phrase_list :contact_passport_adviceline, [:contact_passport_adviceline]
     end
   end # Nigeria
-
-  context "answer Russia, applying, child passport" do
-    should "give the IPS application result with custom phrases" do
-      worldwide_api_has_organisations_for_location('russia', read_fixture_file('worldwide/russia_organisations.json'))
-      add_response 'russia'
-      add_response 'applying'
-      add_response 'child'
-      add_response 'united-kingdom'
-      assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips2]
-      assert_phrase_list :cost, [:passport_courier_costs_ips2, :child_passport_costs_ips2, :passport_costs_ips2]
-      assert_phrase_list :send_your_application, [:send_application_ips2, :send_application_embassy_address]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_ips2]
-      assert_match /British Consulate-General St Petersburg/, outcome_body
-      assert_match /15A, Gogol Street/, outcome_body
-      assert outcome_body.at_css("div.contact p a[href='https://www.gov.uk/government/world/organisations/british-embassy-moscow/office/british-consulate-general-st-petersburg']")
-      assert outcome_body.at_css("div.contact p a[href='https://www.gov.uk/government/world/organisations/british-embassy-moscow/office/ekaterinburg-consulate-general']")
-
-    end
-  end # Russia
 
   context "answer Jamaica, replacement, adult passport" do
     should "give the ips result with custom phrase" do
