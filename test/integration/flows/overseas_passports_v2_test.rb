@@ -9,7 +9,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon congo georgia greece haiti india iran iraq ireland italy jamaica jordan kenya kyrgyzstan malta nepal nigeria pakistan pitcairn-island syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania tunisia turkey ukraine united-kingdom uzbekistan yemen zimbabwe vietnam)
+    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon congo georgia greece haiti india iran iraq ireland italy jamaica jordan kenya kyrgyzstan malta nepal nigeria pakistan pitcairn-island syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania turkey ukraine united-kingdom uzbekistan yemen zimbabwe vietnam)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports-v2'
   end
@@ -673,23 +673,6 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       assert_match /Millburngate House/, outcome_body
     end
   end # Kenya (custom phrases)
-
-  context "answer Tunisia, applying, adult passport" do
-    should "give the IPS application result with custom phrases" do
-      worldwide_api_has_organisations_for_location('tunisia', read_fixture_file('worldwide/tunisia_organisations.json'))
-      add_response 'tunisia'
-      add_response 'replacing'
-      add_response 'adult'
-      assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips2]
-      assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :hmpo_1_application_form, :ips_documents_group_2]
-      assert_phrase_list :cost, [:passport_courier_costs_ips2, :adult_passport_costs_ips2, :passport_costs_ips_cash]
-      assert_phrase_list :send_your_application, [:send_application_ips2, :send_application_embassy_address]
-      assert_phrase_list :contact_passport_adviceline, [:contact_passport_adviceline]
-      assert_state_variable :supporting_documents, 'ips_documents_group_2'
-      assert_match /Rue du Lac Windermere/, outcome_body
-    end
-  end # Tunisia
 
   context "answer Yemen, applying, adult passport" do
     should "give the IPS application result with custom phrases" do

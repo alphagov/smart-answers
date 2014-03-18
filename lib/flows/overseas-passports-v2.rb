@@ -343,7 +343,7 @@ outcome :ips_application_result do
     collect_in_person_variant_countries = %w(burundi india iraq jordan libya pitcairn-island yemen)
     collect_in_person_renewing_new_variant_countries = %(burma nepal north-korea)
     uk_visa_application_centre_countries = %w(algeria azerbaijan china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco russia thailand ukraine)
-    uk_visa_application_centre_variant_countries = %w(cambodia egypt rwanda sierra-leone)
+    uk_visa_application_centre_variant_countries = %w(cambodia egypt rwanda sierra-leone tunisia)
 
     phrases = PhraseList.new
     if uk_visa_application_centre_countries.include?(current_location)

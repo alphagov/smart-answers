@@ -1027,9 +1027,10 @@ trinidad-and-tobago:
   app_form: hmpo_2_application_form
   online_application: true
 tunisia:
-  type: ips_application_2
+  type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
+  address: belfast
 turkey:
   type: ips_application_1
   group: ips_documents_group_1
