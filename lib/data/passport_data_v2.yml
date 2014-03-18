@@ -1001,6 +1001,7 @@ thailand:
   type: ips_application_3
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
+  application_office: true
 the-occupied-palestinian-territories:
   type:
   group: ips_documents_group_1
