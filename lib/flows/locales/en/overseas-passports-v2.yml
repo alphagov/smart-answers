@@ -467,8 +467,6 @@ en-GB:
           Your passport will be delivered to the British Embassy in Rangoon - you must collect it in person.
         getting_your_passport_nepal: |
           Your passport will be delivered to the UK Visa Application Centre in Kathmandu - you must collect it in person.
-        getting_your_passport_north-korea: |
-          Your passport will be delivered to the British Embassy in Pyongyang - you must collect it in person.
         getting_your_passport_thailand_renew_new: |
           Your passport and supporting documents will be delivered separately by courier.
         getting_your_passport_thailand_apply_renew_old_replace: |
@@ -800,19 +798,6 @@ en-GB:
             United Kingdom
           $A
 
-        send_application_ips3_north-korea_renewing_new: |
-          ## Making your application
-
-          You must apply in person.
-
-          You must bring photo ID with you.
-
-          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
-
-          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
-
-          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
-
         send_application_address_algeria: |
           $A
           UK Visa Application Centre
@@ -1036,6 +1021,10 @@ en-GB:
 
         emergency_travel_help_kyrgyzstan: |
           If you need help with emergency travel arrangements in Kyrgyzstan, contact the [British Embassy in Bishkek](/government/world/organisations/british-embassy-bishkek). 
+
+        emergency_travel_help_north-korea: |
+          If you need help with emergency travel arrangements in North Korea, contact the [British Embassy in Pyongyang](/government/world/organisations/british-embassy-pyonyang).
+
 
         body_iran: |
           You can’t apply for a British passport from Iran at this time.

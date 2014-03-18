@@ -4,7 +4,7 @@ satisfies_need 2820
 
 data_query = Calculators::PassportAndEmbassyDataQueryV2.new
 exclude_countries = %w(holy-see british-antarctic-territory)
-apply_in_neighbouring_country_countries = %w(british-indian-ocean-territory kyrgyzstan south-georgia-and-south-sandwich-islands)
+apply_in_neighbouring_country_countries = %w(british-indian-ocean-territory kyrgyzstan north-korea south-georgia-and-south-sandwich-islands)
 
 
 # Q1
@@ -583,7 +583,7 @@ outcome :apply_in_neighbouring_country do
   end
 
   precalculate :emergency_travel_help do
-    if %w(kyrgyzstan).include?(current_location)
+    if %w(kyrgyzstan north-korea).include?(current_location)
       PhraseList.new(:"emergency_travel_help_#{current_location}")
     end
   end

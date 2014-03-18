@@ -9,7 +9,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon congo georgia greece haiti india iran iraq ireland italy jamaica jordan kenya kyrgyzstan malta morocco nepal nigeria north-korea pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia turkey ukraine united-kingdom uzbekistan yemen zimbabwe vietnam)
+    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon congo georgia greece haiti india iran iraq ireland italy jamaica jordan kenya kyrgyzstan malta nepal nigeria pakistan pitcairn-island russia syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania thailand the-occupied-palestinian-territories tunisia turkey ukraine united-kingdom uzbekistan yemen zimbabwe vietnam)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports-v2'
   end
@@ -424,52 +424,6 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       ]
     end
   end # Burundi
-
-  # North Korea (An example of IPS 3 application with some conditional phrases).
-  context "answer North Korea" do
-    setup do
-      worldwide_api_has_organisations_for_location('north-korea', read_fixture_file('worldwide/north-korea_organisations.json'))
-      add_response 'north-korea'
-    end
-
-    should "give the correct result when renewing new style passport" do
-      add_response 'renewing_new'
-      add_response 'adult'
-      assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips3]
-      assert_phrase_list :send_your_application, [:"send_application_ips3_north-korea_renewing_new"]
-      assert_phrase_list :getting_your_passport, [:"getting_your_passport_north-korea", :getting_your_passport_contact, :getting_your_passport_id_renew_new]
-    end
-
-    should "give the correct result when renewing old style passport" do
-      add_response 'renewing_old'
-      add_response 'adult'
-      add_response 'united-kingdom'
-      assert_phrase_list :how_long_it_takes, [:how_long_8_weeks_with_interview, :how_long_it_takes_ips3]
-      assert_phrase_list :getting_your_passport, [:"getting_your_passport_north-korea", :getting_your_passport_contact, :getting_your_passport_id_apply_renew_old_replace]
-    end
-
-    should "give the correct result when applying for the first time" do
-      add_response 'applying'
-      add_response 'adult'
-      add_response 'united-kingdom'
-      assert_phrase_list :how_long_it_takes, [:how_long_8_weeks_with_interview, :how_long_it_takes_ips3]
-      assert_phrase_list :getting_your_passport, [:"getting_your_passport_north-korea", :getting_your_passport_contact, :getting_your_passport_id_apply_renew_old_replace]
-    end
-
-    should "give the correct result when replacing lost or stolen passport" do
-      add_response 'replacing'
-      add_response 'adult'
-      assert_phrase_list :how_long_it_takes, [:how_long_8_weeks_replacing, :how_long_it_takes_ips3]
-      assert_phrase_list :getting_your_passport, [:"getting_your_passport_north-korea", :getting_your_passport_contact, :getting_your_passport_id_apply_renew_old_replace]
-    end
-
-    should "give the correct method of payment guidance" do
-      add_response 'applying'
-      add_response 'adult'
-      add_response 'united-kingdom'
-      assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips_euros]
-    end
-  end # North Korea
 
   context "answer Ireland, replacement, adult passport" do
     should "give the ips online application result" do
