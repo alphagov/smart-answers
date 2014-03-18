@@ -411,8 +411,6 @@ en-GB:
           Your passport and supporting documents will be delivered to the British High Commission Nairobi, Kenya - you must collect them in person.
         getting_your_passport_nigeria: |
           Your passport and supporting documents will be delivered to the British Deputy High Commission in Lagos, Nigeria - you must collect them in person.
-        getting_your_passport_sierra-leone: |
-          Your passport and supporting documents will be delivered to the British High Commission in Freetown, Sierra Leone - you must collect them in person.
         getting_your_passport_somalia: |
           Your passport and supporting documents will be delivered to the British Embassy in Addis Ababa, Ethiopia - you must collect them in person.
         getting_your_passport_south-sudan: |
@@ -439,6 +437,8 @@ en-GB:
           Your passport and supporting documents will be delivered to the UK Visa Application Centre in Cairo - you must collect them in person.
         getting_your_passport_rwanda: |
           Your passport and supporting documents will be delivered to the UK Visa Application Centre in Kigali – you must collect them in person.
+        getting_your_passport_sierra-leone: |
+          Your passport and supporting documents will be delivered to the UK Visa Application Centre in Freetown – you must collect them in person.
         getting_your_passport_india: |
           Your passport will be returned to you by post, or you can arrange for it to be delivered to the British High Commission in New Delhi for you to collect in person. You must specify that you want to collect it in section 8 of the application form.
 
