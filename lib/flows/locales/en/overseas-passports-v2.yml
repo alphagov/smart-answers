@@ -727,27 +727,6 @@ en-GB:
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
 
-        send_application_ips3_gaza: |
-          ## Making your application
-          You must apply in person.
-
-          You must bring photo ID with you.
-
-          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
-
-
-          $A
-          British Information & Services Office
-          1st Floor, Al-Riyad Tower
-          Jerusalem Street
-          Al-Rimal South
-          Gaza
-
-          Email: dljerusalemconsularprotect@fco.gov.uk
-          Telephone: +972 (8) 2641456
-          Fax: +972 (8) 2641457
-          $A
-
         send_application_uk_visa_apply_renew_old_replace: |
           ## Making your application
           You must apply in person.
@@ -866,6 +845,17 @@ en-GB:
           $A
           $C
           Email: <JakartaHMPO@vfshelpline.com>
+          $C
+
+        send_application_address_gaza: |
+          $A
+          UK Visa Application Centre
+          Al Rasheed Street
+          Gaza
+          The Occupied Palestinian Territories
+          $A
+          $C
+          Email: <hmpo.enquiry@teleperformance.com>
           $C
 
         send_application_address_kazakhstan: |

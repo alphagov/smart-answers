@@ -9,7 +9,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon congo georgia greece haiti india iran iraq ireland italy jamaica jordan kenya kyrgyzstan malta nepal nigeria pakistan pitcairn-island syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania the-occupied-palestinian-territories tunisia turkey ukraine united-kingdom uzbekistan yemen zimbabwe vietnam)
+    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon congo georgia greece haiti india iran iraq ireland italy jamaica jordan kenya kyrgyzstan malta nepal nigeria pakistan pitcairn-island syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania tunisia turkey ukraine united-kingdom uzbekistan yemen zimbabwe vietnam)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports-v2'
   end
@@ -752,23 +752,6 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       end
     end
   end # South Africa (IPS online application)
-
-  context "answer Gaza, applying, adult passport" do
-    should "give the IPS application result with custom phrases" do
-      worldwide_api_has_organisations_for_location('the-occupied-palestinian-territories', read_fixture_file('worldwide/the-occupied-palestinian-territories_organisations.json'))
-      add_response 'the-occupied-palestinian-territories'
-      add_response 'gaza'
-      add_response 'replacing'
-      add_response 'adult'
-      assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_replacing_ips3, :how_long_it_takes_ips3]
-      assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_1]
-      assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips_cash]
-      assert_phrase_list :send_your_application, [:send_application_ips3_gaza]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
-      assert_phrase_list :contact_passport_adviceline, [:contact_passport_adviceline]
-    end
-  end # Tunisia
 
   context "answer St Helena etc, renewing old, adult passport" do
     should "give the fco result with custom phrases" do
