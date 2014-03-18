@@ -340,41 +340,6 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
     end # Applying
   end # Albania - IPS_application_2
   
-  # Morocco (an example of IPS application 2 with custom phrases).
-  context "answer Morocco" do
-    setup do
-      worldwide_api_has_organisations_for_location('morocco', read_fixture_file('worldwide/morocco_organisations.json'))
-      add_response 'morocco'
-    end
-    should "ask if you are renewing, replacing or applying for a passport" do
-      assert_current_node :renewing_replacing_applying?
-      assert_state_variable :current_location, 'morocco'
-    end
-    context "answer replacing" do
-      setup do
-        add_response 'replacing'
-      end
-      should "ask if the passport is for an adult or a child" do
-        assert_current_node :child_or_adult_passport?
-        assert_state_variable :application_type, 'ips_application_2'
-        assert_state_variable :ips_number, "2"
-      end
-      should "return morocco specific phrases given an adult" do
-        add_response 'adult'
-        assert_state_variable :supporting_documents, 'ips_documents_group_3'
-        assert_current_node :ips_application_result
-        assert_phrase_list :fco_forms, [:adult_fco_forms]
-        assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips2]
-        assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :hmpo_1_application_form, :ips_documents_group_3]
-        assert_phrase_list :cost, [:passport_courier_costs_ips2, :adult_passport_costs_ips2, :passport_costs_ips_cash]
-        assert_phrase_list :send_your_application, [:send_application_ips2, :send_application_embassy_address]
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_ips2]
-        assert_phrase_list :contact_passport_adviceline, [:contact_passport_adviceline]
-        assert_match /28 Avenue S.A.R. Sidi Mohammed/, outcome_body
-      end
-    end # Applying
-  end # Morocco - IPS_application_2
-
   # Ajerbaijan (an example of IPS application 3 and UK Visa centre).
   context "answer Azerbaijan" do
     setup do

@@ -690,6 +690,7 @@ morocco:
   type: ips_application_2
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
+  application_office: true
 mozambique:
   type: ips_application_1
   group: ips_documents_group_3

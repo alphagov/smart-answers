@@ -535,11 +535,6 @@ en-GB:
 
           If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
 
-        how_long_replacing_ips2_morocco: |
-          Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK.
-
-          If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
-
         passport_courier_costs_ips2: |
           You’ll have to pay a fee for your passport and a courier fee of £24.72. The courier fee pays for your passport to be sent securely to the British embassy, high commission or consulate where you applied for you to collect.
           
@@ -974,6 +969,18 @@ en-GB:
           $A
           $C
           Email: <hmpo.enquiry@teleperformance.com>
+          $C
+
+        send_application_address_morocco: |
+          $A
+          UK Visa Application Centre
+          12 Rue Al Koufa,
+          Av Moulay Youssed
+          Rabat
+          Morocco
+          $A
+          $C
+          Email: <enquiryHMPO@TPContact.co.uk>
           $C
 
         send_application_address_nepal: |
