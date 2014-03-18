@@ -91,10 +91,7 @@ multiple_choice :purpose_of_visit? do
         :outcome_medical_y
       end
     when 'transit'
-      # if passport_country == 'venezuela'
-      #   :outcome_visit_waiver
-      # elsif %w(taiwan).include?(passport_country)
-      #   :outcome_taiwan_exception
+
       if country_group_datv.include?(passport_country) or
          country_group_visa_national.include?(passport_country) or %w(taiwan venezuela).include?(passport_country)
         :planning_to_leave_airport?
@@ -222,22 +219,21 @@ outcome :outcome_medical_y
 outcome :outcome_medical_n
 outcome :outcome_visit_waiver do
   precalculate :if_exception do
-    if leaving_airport_answer == "yes"
-      if %w(venezuela).include?(passport_country)
-        PhraseList.new(:epassport_passing_border)
-      elsif %w(taiwan).include?(passport_country)
-        PhraseList.new(:passport_with_bio_passing_border)
+    if %w(venezuela).include?(passport_country)
+      if leaving_airport_answer == "yes"
+        PhraseList.new(:epassport_crossing_border)
+      elsif leaving_airport_answer == "no"
+        PhraseList.new(:epassport_not_crossing_border)
+      else
+        PhraseList.new(:extra_documents)
       end
-    elsif leaving_airport_answer == "no"
-      if %w(venezuela).include?(passport_country)
-        PhraseList.new(:epassport_not_passing_border)
-      elsif %w(taiwan).include?(passport_country)
-        ####OTHER PHRASE FOR TAIWAN
+    elsif %w(taiwan).include?(passport_country)
+      if leaving_airport_answer == "yes"
+        PhraseList.new(:passport_bio_crossing_border)
+      else
+        PhraseList.new(:passport_bio_not_crossing_border)
       end
-    end
-  end
-  precalculate :if_oman_qatar_uae do
-    if %w(oman qatar united-arab-emirates).include?(passport_country)
+    elsif %w(oman qatar united-arab-emirates).include?(passport_country)
       PhraseList.new(:electronic_visa_waiver)
     end
   end

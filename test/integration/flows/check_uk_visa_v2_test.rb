@@ -369,7 +369,7 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
           end
           should "take you to the visit waiver outcome with leaving airport phraselist" do
             assert_current_node :outcome_visit_waiver
-            assert_phrase_list :if_exception, [:epassport_passing_border]
+            assert_phrase_list :if_exception, [:epassport_crossing_border]
           end
         end
         context "leaving airport" do
@@ -378,7 +378,7 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
           end
           should "take you to the visit waiver outcome with NOT leaving airport phraselist" do
             assert_current_node :outcome_visit_waiver
-            assert_phrase_list :if_exception, [:epassport_not_passing_border]
+            assert_phrase_list :if_exception, [:epassport_not_crossing_border]
           end
         end
       end
@@ -420,7 +420,7 @@ end
       end
       should "take you to outcome visit waiver" do
         assert_current_node :outcome_visit_waiver
-        assert_phrase_list :if_oman_qatar_uae, [:electronic_visa_waiver]
+        assert_phrase_list :if_exception, [:electronic_visa_waiver]
     end
   end
   
@@ -594,32 +594,31 @@ end
         assert_current_node :outcome_taiwan_exception
     end
   end
+  context "outcome taiwan exception transit" do
+    setup do
+      add_response 'taiwan'
+      add_response 'transit'
+    end
+    should "take you to outcome taiwan exception" do
+      assert_current_node :planning_to_leave_airport?
+    end
+    context "leaving airport" do
+      setup do
+        add_response "yes"
+      end
+      should "take you to the visit waiver outcome with leaving airport phraselist" do
+        assert_current_node :outcome_visit_waiver
+        assert_phrase_list :if_exception, [:passport_bio_crossing_border]
+      end
+    end
+    context "leaving airport" do
+      setup do
+        add_response "no"
+      end
+      should "take you to the visit waiver outcome with NOT leaving airport phraselist" do
+        assert_current_node :outcome_visit_waiver
+        assert_phrase_list :if_exception, [:passport_bio_not_crossing_border]
+      end
+    end
+  end
 end
-#   context "outcome taiwan exception transit" do
-#     setup do
-#       add_response 'taiwan'
-#       add_response 'transit'
-#     end
-#     should "take you to outcome taiwan exception" do
-#       assert_current_node :planning_to_leave_airport?
-#     end
-#     context "leaving airport" do
-#       setup do
-#         add_response "yes"
-#       end
-#       should "take you to the visit waiver outcome with leaving airport phraselist" do
-#         assert_current_node :outcome_visit_waiver ????
-#         assert_phrase_list :if_thailand, [:epassport_passing_border]
-#       end
-#     end
-#     context "leaving airport" do
-#       setup do
-#         add_response "no"
-#       end
-#       should "take you to the visit waiver outcome with NOT leaving airport phraselist" do
-#         assert_current_node :outcome_visit_waiver ????
-#         assert_phrase_list :if_thailand, [:epassport_not_passing_border]
-#       end
-#     end
-#   end
-# end
