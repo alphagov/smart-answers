@@ -1026,6 +1026,17 @@ en-GB:
           $C
           Email: <enquiryHMPO@TPContact.co.uk>
           $C
+        send_application_address_western-sahara: |
+          $A
+          UK Visa Application Centre
+          12 Rue Al Koufa,
+          Av Moulay Youssed
+          Rabat
+          Morocco
+          $A
+          $C
+          Email: <hmpo.enquiry@teleperformance.com>
+          $C
 
         getting_your_passport_ips3: |
           Your passport will be delivered to the British embassy, high commission or consulate where you applied - you must collect it in person.

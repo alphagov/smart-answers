@@ -254,7 +254,7 @@ outcome :ips_application_result do
   end
 
   precalculate :cost do
-    uk_visa_application_centre_countries = %w(algeria azerbaijan china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand ukraine)
+    uk_visa_application_centre_countries = %w(algeria azerbaijan china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand ukraine western-sahara)
 
     if application_action == 'replacing' and ips_number == '1' and ips_docs_number == '1'
       PhraseList.new(:"passport_courier_costs_replacing_ips#{ips_number}",
@@ -297,7 +297,7 @@ outcome :ips_application_result do
   end
 
   precalculate :send_your_application do
-    uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan burundi china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand timor-leste ukraine)
+    uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan burundi china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand timor-leste ukraine western-sahara)
 
     phrases = PhraseList.new
     if application_address
@@ -342,7 +342,7 @@ outcome :ips_application_result do
     collect_in_person_countries = %w(angola benin cameroon chad congo eritrea ethiopia gambia ghana guinea jamaica kenya nigeria somalia south-sudan uganda zambia zimbabwe)
     collect_in_person_variant_countries = %w(burundi india iraq jordan libya pitcairn-island yemen)
     collect_in_person_renewing_new_variant_countries = %(burma nepal north-korea)
-    uk_visa_application_centre_countries = %w(algeria azerbaijan china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco russia thailand ukraine)
+    uk_visa_application_centre_countries = %w(algeria azerbaijan china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco russia thailand ukraine western-sahara)
     uk_visa_application_centre_variant_countries = %w(cambodia egypt rwanda sierra-leone tunisia)
 
     phrases = PhraseList.new
