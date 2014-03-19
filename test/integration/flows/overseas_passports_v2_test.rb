@@ -553,8 +553,8 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       assert_current_node :ips_application_result
       assert_phrase_list :getting_your_passport, [:"getting_your_passport_pitcairn-island"]
       assert_phrase_list :send_your_application, [:"send_application_address_pitcairn-island"]
-      assert_phrase_list :cost, [:"passport_courier_costs_ips3_pitcairn-island", :adult_passport_costs_ips1,
- :passport_costs_ips1]
+      assert_phrase_list :cost, [:"passport_courier_costs_ips3_pitcairn-island", :adult_passport_costs_ips3,
+ :passport_costs_ips3]
     end
   end # Pitcairn Island (IPS1 with custom phrases)
 

@@ -607,9 +607,9 @@ en-GB:
 
         passport_courier_costs_ips3_india: |
           You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to you direct, or to the British embassy, high commission or consulate where you applied if you wish to collect it.
-          
+
         passport_courier_costs_ips3_pitcairn-island: |
-          You'll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport and supporting documents to be sent back to you securely via the Pitcairn Islands Office in Auckland.
+          You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport and supporting documents to be sent back to you securely via the Pitcairn Islands Office in Auckland.
 
         adult_passport_costs_ips3: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
@@ -951,6 +951,8 @@ en-GB:
 
         send_application_address_pitcairn-island: |
           ## Making your application
+          Send your completed forms and supporting documents to the Pitcairn Islands Office.
+
 
           $A
           Pitcairn Islands Office
