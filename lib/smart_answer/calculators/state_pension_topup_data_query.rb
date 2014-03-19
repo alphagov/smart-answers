@@ -1,5 +1,5 @@
 module SmartAnswer::Calculators
-  class StatePensionTopUpDataQuery
+  class StatePensionTopupDataQuery
 
     attr_reader :data
 

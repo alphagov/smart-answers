@@ -1,7 +1,7 @@
 status :draft
 satisfies_need ''
 
-data_query = Calculators::StatePensionTopUpDataQuery.new()
+data_query = Calculators::StatePensionTopupDataQuery.new()
 
 date_question :dob_age? do
   from { 120.years.ago }
@@ -20,6 +20,7 @@ date_question :dob_age? do
 		end
 	end
 end
+
 
 money_question :how_much_extra_per_week? do
 	save_input_as :money_wanted

@@ -1,10 +1,10 @@
 require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
-  class StatePensionTopUpCalculatorTest < ActiveSupport::TestCase
+  class StatePensionTopupCalculatorTest < ActiveSupport::TestCase
     context "check rate for age" do
       setup do
-        @calculator = SmartAnswer::Calculators::StatePensionTopUpDataQuery.new
+        @calculator = SmartAnswer::Calculators::StatePensionTopupDataQuery.new
       end
 
       should "be 801 for age of 69" do
