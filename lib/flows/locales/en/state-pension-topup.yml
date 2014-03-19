@@ -84,7 +84,11 @@ en-GB:
           You come under the [new State Pension](/new-state-pension) scheme. 
 
 #Outcome A3
-      outcome_age_limit_reached:
+      outcome_age_limit_reached_birth:
         title: | 
-          You must be under 101 years old to use State Pension top up
-        
+          You must be under 101 years old by 12 October 2015 to use State Pension top up
+
+#Outcome A4   
+      outcome_age_limit_reached_payment:
+        title: |
+          You must be under 101 years old on %{age_at_date_of_payment} to use State Pension top up

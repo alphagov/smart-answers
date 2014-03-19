@@ -17,7 +17,7 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
       add_response Date.parse('1900-02-02')
     end
     should "bring you to age limit reached outcome" do
-      assert_current_node :outcome_age_limit_reached
+      assert_current_node :outcome_age_limit_reached_birth
     end
   end
   
@@ -121,6 +121,18 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
     should "bring you to age limit not reached outcome" do
       assert_current_node :outcome_pension_age_not_reached
       assert_state_variable :age_at_date_of_payment, 63
+    end
+  end
+  
+  context "check 13 October 1914 dob not allowed to use tool" do
+    setup do
+      add_response Date.parse('1914-10-13') # Young enough
+      add_response 10
+      add_response Date.parse('2015-10-14') # Too old at payment date
+    end
+    
+    should "go to outcome" do
+      assert_current_node :outcome_age_limit_reached_payment
     end
   end
 end
