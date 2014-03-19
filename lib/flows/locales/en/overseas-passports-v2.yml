@@ -946,11 +946,10 @@ en-GB:
           $A
           $C
           Email: <KathmanduHMPO@vfshelpline.com>  
-          Opening hours: Monday to Friday 8am to 2pm (local time)
+          Opening hours: Monday to Friday 2pm to 4pm (local time)
           $C
 
         send_application_address_pitcairn-island: |
-
           ## Making your application
 
           $A
@@ -1013,6 +1012,7 @@ en-GB:
           $C
           Email: <BangkokHMPO@vfshelpline.com>
           $C
+
         send_application_address_ukraine: |
           $A
           UK Visa Application Centre
@@ -1022,8 +1022,9 @@ en-GB:
           Ukraine
           $A
           $C
-          Email: <enquiryHMPO@TPContact.co.uk>
+          Email: <hmpo.enquiry@teleperformance.com>
           $C
+
         send_application_address_western-sahara: |
           $A
           UK Visa Application Centre
