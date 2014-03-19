@@ -493,8 +493,8 @@ end
         setup do
           add_response "six_months_or_less"
         end
-        should "take you to outcome 5.5 work N visa not needed" do
-          assert_current_node :outcome_work_m
+        should "take you to outcome 5.5 work N visa may be not needed" do
+          assert_current_node :outcome_work_n
         end
       end
     end #end canada work reason
@@ -550,7 +550,7 @@ end
       add_response 'six_months_or_less'
     end
       should "take you to outcome work_m" do
-        assert_current_node :outcome_work_m
+        assert_current_node :outcome_work_n
     end
   end
   
