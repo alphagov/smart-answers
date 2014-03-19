@@ -268,7 +268,30 @@ outcome :outcome_eu_ft_1314_new
 outcome :outcome_eu_ft_1314_continuing
 outcome :outcome_eu_pt_1314_new
 outcome :outcome_eu_pt_1314_continuing
-outcome :outcome_eu_ft_1415_new
-outcome :outcome_eu_ft_1415_continuing
+outcome :outcome_eu_ft_1415_new do
+  precalculate :outcome_eu_ft_1314_new_title do
+    if Date.today < Date.parse("2014-03-24")
+      PhraseList.new(:eu_ft_1314_new_title_pre_240314)
+    else
+      PhraseList.new(:eu_ft_1314_new_title_post_240314)
+    end
+  end
+  precalculate :outcome_eu_ft_1314_new_body do
+    if Date.today < Date.parse("2014-03-24")
+      PhraseList.new(:eu_ft_1314_new_body_pre_240314)
+    else
+      PhraseList.new(:eu_ft_1314_new_body_post_240314, :postal_address_eu)
+    end
+  end
+end
+outcome :outcome_eu_ft_1415_continuing do
+  precalculate :outcome_eu_ft_1314_continuing_body do
+    if Date.today < Date.parse("2014-03-24")
+      'March'
+    else
+      'April'
+    end
+  end
+end
 outcome :outcome_eu_pt_1415_new
 outcome :outcome_eu_pt_1415_continuing
