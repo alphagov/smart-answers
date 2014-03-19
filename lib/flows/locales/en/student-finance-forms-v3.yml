@@ -612,7 +612,9 @@ en-GB:
           [EUCO1 - form (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/722315/eu_co1_1415_d.pdf) | To update your course, name and other details
 
 
-          ^You can apply up to 9 months after the start of your course.^          
+          ^You can apply up to 9 months after the start of your course.^        
+          
+          %{form_destination}  
 
       outcome_eu_ft_1415_continuing:
         title: Applications aren't open yet.
