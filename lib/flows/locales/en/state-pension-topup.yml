@@ -5,7 +5,7 @@ en-GB:
       meta:
         description: Work out how much State Pension top ups will cost so that you can budget for your retirement
       body: |
-        From 12 October to April 2017 you’ll be able to make a one-off ‘Class 3A voluntary contribution’ to top up your State Pension by up to £25 per week.
+        From 12 October 2015 to 1 April 2017 you’ll be able to make a one-off ‘Class 3A voluntary contribution’ to top up your State Pension by up to £25 per week.
         
         Calculate how much you’ll need to to contribute. You must be:
 
@@ -40,7 +40,6 @@ en-GB:
 #Q1
       dob_age?:
         title: What is your date of birth?
-        hint: You can't use this calculator if you are over 100 years old.
         error_message: Enter your date of birth.
 #Q2
       date_of_lump_sum_payment?:

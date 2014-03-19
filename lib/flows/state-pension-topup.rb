@@ -1,10 +1,10 @@
 status :draft
-satisfies_need ''
+satisfies_need '100865'
 
 data_query = Calculators::StatePensionTopupDataQuery.new()
 
 date_question :dob_age? do
-  from { 120.years.ago }
+  from { 101.years.ago }
   to { Date.today }
 
   save_input_as :date_of_birth
