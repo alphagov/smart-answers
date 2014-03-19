@@ -463,6 +463,53 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
       end
     end
   end
+
+# tests for the 24 March updates
+  context "date is before 24 March 2014" do
+    setup do
+      Timecop.travel("2014-03-23")
+      add_response 'eu-full-time'
+      add_response 'year-1415'
+    end
+    should "ask whether you're a new or continuing student - year 1415" do
+      assert_current_node :continuing_student?
+    end
+    should "take you to the pre 24 March outcome for new eu full-time students" do
+      add_response 'new-student'
+      assert_current_node :outcome_eu_ft_1415_new
+      assert_phrase_list :outcome_eu_ft_1314_new_title, [:eu_ft_1314_new_title_pre_240314]
+      assert_phrase_list :outcome_eu_ft_1314_new_body, [:eu_ft_1314_new_body_pre_240314]
+    end
+    should "take you to the pre 24 March outcome for continuing eu full-time students" do
+      add_response 'continuing-student'
+      assert_current_node :outcome_eu_ft_1415_continuing
+      assert_state_variable :outcome_eu_ft_1314_continuing_body, 'March'
+    end
+  end
+
+  context "date is after 24 March 2014" do
+    setup do
+      Timecop.travel("2014-03-24")
+      add_response 'eu-full-time'
+      add_response 'year-1415'
+    end
+    should "ask whether you're a new or continuing student - year 1415 again" do
+      assert_current_node :continuing_student?
+    end
+    should "take you to the post 24 March outcome for new eu full-time students" do
+      add_response 'new-student'
+      assert_current_node :outcome_eu_ft_1415_new
+      assert_phrase_list :outcome_eu_ft_1314_new_title, [:eu_ft_1314_new_title_post_240314]
+      assert_phrase_list :outcome_eu_ft_1314_new_body, [:eu_ft_1314_new_body_post_240314, :postal_address_eu]
+    end
+    should "take you to the post 24 March outcome for continuing eu full-time students" do
+      add_response 'continuing-student'
+      assert_current_node :outcome_eu_ft_1415_continuing
+      assert_state_variable :outcome_eu_ft_1314_continuing_body, 'April'
+    end
+  end
+
+
 end
 
 
