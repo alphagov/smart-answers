@@ -143,9 +143,9 @@ brazil:
   app_form: hmpo_2_application_form
   online_application: true
 british-indian-ocean-territory:
-  type: ips_application_1
-  group: ips_documents_group_1
-  app_form: hmpo_1_application_form
+  type:
+  group:
+  app_form:
 british-virgin-islands:
   type: ips_application_1
   group: ips_documents_group_2
@@ -539,9 +539,9 @@ kuwait:
   app_form: hmpo_1_application_form
   online_application: true
 kyrgyzstan:
-  type: ips_application_3
-  group: ips_documents_group_3
-  app_form: hmpo_1_application_form
+  type:
+  group:
+  app_form:
 laos:
   type: ips_application_3
   group: ips_documents_group_3
@@ -744,9 +744,9 @@ nigeria:
   app_form: hmpo_1_application_form
   address: durham
 north-korea:
-  type: ips_application_3
-  group: ips_documents_group_2
-  app_form: hmpo_1_application_form
+  type:
+  group:
+  app_form:
 norway:
   type: ips_application_1
   group: ips_documents_group_1
@@ -904,9 +904,9 @@ south-africa:
   app_form: hmpo_1_application_form
   online_application: true
 south-georgia-and-south-sandwich-islands:
-  type: ips_application_1
-  group: ips_documents_group_1
-  app_form: hmpo_1_application_form
+  type:
+  group:
+  app_form:
 south-korea:
   type: ips_application_1
   group: ips_documents_group_1
