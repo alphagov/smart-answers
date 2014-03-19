@@ -1086,6 +1086,55 @@ en-GB:
             Telephone: (+44) 207 008 1500
           $C
 
+# these are still used by st-helena-and-tristan-da-cunha
+        passport_courier_costs_pretoria_south_africa: ''
+        adult_passport_costs_pretoria_south_africa: |
+          Passport type | Passport fee |  Total to pay (including courier fee)
+          -|-|-
+          Adult standard 32-page passport | %{costs_south_african_rand_adult_32}
+          Adult jumbo 48-page passport | %{costs_south_african_rand_adult_48}
+        child_passport_costs_pretoria_south_africa: |
+          Passport type | Passport fee |  Total to pay (including courier fee)
+          -|-|-
+          Child passport | %{costs_south_african_rand_child}
+        passport_costs_pretoria_south_africa: |
+          The fee includes the cost of returning your passport and supporting documents to you securely by courier.
+
+          You must pay using a Visa or Mastercard. [Download a credit card authorisation form (DOC,198KB)](http://ukinsouthafrica.fco.gov.uk/resources/en/word/doc1/countries-auth-slip)
+
+          You can't pay in cash.
+        send_application_pretoria_south_africa: |
+
+          $A
+          Postal address:
+
+          British Passport Section
+          British Consulate
+          PO Box 13611
+          Hatfield, Pretoria 0028
+          South Africa
+
+          Courier address:
+
+          British Passport Section
+          British Consulate
+          256 Glyn Street
+          Hatfield
+          Pretoria 0083
+          South Africa
+          $A
+        helpline_pretoria_south_africa: |
+
+          $C
+            __Passport Information Helpline__
+
+            +44 208 082 4743
+
+            Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call.
+
+            Textphone: +44 1750 725 368
+          $C
+
       fco_result:
         body: |
           ## How long it takes
