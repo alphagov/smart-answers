@@ -1,6 +1,6 @@
 en-GB:
   flow:
-    check-uk-visa-v:
+    check-uk-visa:
       phrases:
         study_reason: study
         work_reason: work
