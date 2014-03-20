@@ -360,8 +360,26 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           add_response "venezuela"
           add_response "transit"
         end
-        should "take you to the 'outcome_venezuela_transit' outcome" do
-          assert_current_node :outcome_visit_waiver
+        should "" do
+          assert_current_node :planning_to_leave_airport?
+        end
+        context "leaving airport" do
+          setup do
+            add_response "yes"
+          end
+          should "take you to the visit waiver outcome with leaving airport phraselist" do
+            assert_current_node :outcome_visit_waiver
+            assert_phrase_list :if_exception, [:epassport_crossing_border]
+          end
+        end
+        context "leaving airport" do
+          setup do
+            add_response "no"
+          end
+          should "take you to the visit waiver outcome with NOT leaving airport phraselist" do
+            assert_current_node :outcome_visit_waiver
+            assert_phrase_list :if_exception, [:epassport_not_crossing_border]
+          end
         end
       end
     end
@@ -402,7 +420,7 @@ end
       end
       should "take you to outcome visit waiver" do
         assert_current_node :outcome_visit_waiver
-        assert_phrase_list :if_oman_qatar_uae, [:electronic_visa_waiver]
+        assert_phrase_list :if_exception, [:electronic_visa_waiver]
     end
   end
   
@@ -475,8 +493,8 @@ end
         setup do
           add_response "six_months_or_less"
         end
-        should "take you to outcome 5.5 work N visa not needed" do
-          assert_current_node :outcome_work_m
+        should "take you to outcome 5.5 work N visa may be not needed" do
+          assert_current_node :outcome_work_n
         end
       end
     end #end canada work reason
@@ -532,7 +550,7 @@ end
       add_response 'six_months_or_less'
     end
       should "take you to outcome work_m" do
-        assert_current_node :outcome_work_m
+        assert_current_node :outcome_work_n
     end
   end
   
@@ -576,14 +594,31 @@ end
         assert_current_node :outcome_taiwan_exception
     end
   end
-  
   context "outcome taiwan exception transit" do
     setup do
       add_response 'taiwan'
       add_response 'transit'
     end
-      should "take you to outcome taiwan exception" do
-        assert_current_node :outcome_taiwan_exception
+    should "take you to outcome taiwan exception" do
+      assert_current_node :planning_to_leave_airport?
+    end
+    context "leaving airport" do
+      setup do
+        add_response "yes"
+      end
+      should "take you to the visit waiver outcome with leaving airport phraselist" do
+        assert_current_node :outcome_visit_waiver
+        assert_phrase_list :if_exception, [:passport_bio_crossing_border]
+      end
+    end
+    context "leaving airport" do
+      setup do
+        add_response "no"
+      end
+      should "take you to the visit waiver outcome with NOT leaving airport phraselist" do
+        assert_current_node :outcome_visit_waiver
+        assert_phrase_list :if_exception, [:passport_bio_not_crossing_border]
+      end
     end
   end
 end
