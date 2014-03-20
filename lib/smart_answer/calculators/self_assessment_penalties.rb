@@ -14,61 +14,45 @@ module SmartAnswer::Calculators
       (filing_date <= filing_deadline) && (payment_date <= payment_deadline)
     end
 
-    # def late_filing_penalty
-    #   if overdue_filing_days <= 0
-    #     result = 0
-    #   #elsif overdue_filing_days <= 89
-    #   elsif (submission_method == "online" && overdue_filing_days <= 89 )|| (submission_method == "paper" && overdue_filing_days <= 92)
-    #     result = 100
-    #   elsif overdue_filing_days <= 179
-    #     result = (overdue_filing_days - 89) * 10 + 100
-    #   elsif overdue_filing_days <= 364
-    #     if estimated_bill.value > 6002
-    #       result = 1000 + (estimated_bill.value * 0.05)
-    #     else
-    #       result = 1000 + [300, estimated_bill.value * 0.05].max
-    #     end
-    #   else
-    #     result = 1000 + [600, estimated_bill.value * 0.05].max
-    #   end
-    #   SmartAnswer::Money.new(result)
-    # end
-    #NEW THING
+    #NEW 
     def late_filing_penalty
       
-      leap_day = 0
-      if Date.today.leap?
-        leap_day = 1
-      else
-        leap_day = 0
-      end
+      #For future possible leap year implementation
+      # leap_day = 0
+      # if Date.today.leap?
+      #   leap_day = 1
+      # else
+      #   leap_day = 0
+      # end
       
       #Less than 6 months
       if submission_method == "online"
-        if overdue_filing_days <= 89 + leap_day
+        if overdue_filing_days <= 89
           result = 100
-        elsif overdue_filing_days <= 181 + leap_day
-          result = (overdue_filing_days - 89 + leap_day) * 10 + 100
+        elsif overdue_filing_days <= 181
+          result = (overdue_filing_days - 89 ) * 10 + 100
+          if result > 1000
+            result = 1000
+          end
         end
       else 
         if overdue_filing_days <= 92
           result = 100
-        elsif overdue_filing_days <= 181 + leap_day
+        elsif overdue_filing_days <= 181
           result = (overdue_filing_days - 92) * 10 + 100
         end
       end
       
       #More than 6 months, same for paper and online return
-      if (overdue_filing_days > 181 + leap_day) && (overdue_filing_days <= 364 + leap_day)
+      if (overdue_filing_days > 181) && (overdue_filing_days <= 365)
         if estimated_bill.value > 6002
           result = 1000 + (estimated_bill.value * 0.05)
         else
           result = 1000 + [300, estimated_bill.value * 0.05].max
         end
-      elsif overdue_filing_days > 364 + leap_day
+      elsif overdue_filing_days > 365
         result = 1000 + [600, estimated_bill.value * 0.05].max
         
-        #need to check for leap year
       end
       SmartAnswer::Money.new(result)
     end
@@ -90,17 +74,19 @@ module SmartAnswer::Calculators
       SmartAnswer::Money.new(total_owed.value + late_filing_penalty.value)
     end
 
+#new
     def late_payment_penalty
       if overdue_payment_days <= 30
         0
-      elsif overdue_payment_days <= 182
+      elsif overdue_payment_days <= 181
         SmartAnswer::Money.new(late_payment_penalty_part.round(2))
-      elsif overdue_payment_days <= 366
+      elsif overdue_payment_days <= 365
         SmartAnswer::Money.new((late_payment_penalty_part * 2).round(2))
       else
         SmartAnswer::Money.new((late_payment_penalty_part * 3).round(2))
       end
     end
+
 
     def penalty_interest(penalty_date)
       if payment_date > (penalty_date + 30)
