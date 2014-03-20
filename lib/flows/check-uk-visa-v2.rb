@@ -156,16 +156,16 @@ multiple_choice :staying_for_how_long? do
           :outcome_visit_waiver #outcome 12 visit outcome_visit_waiver
         elsif %w(taiwan).include?(passport_country)
           :outcome_taiwan_exception
-        elsif country_group_datv.include?(passport_country) || country_group_visa_national.include?(passport_country) 
+        elsif (country_group_datv + country_group_visa_national).include?(passport_country) 
           :outcome_study_m #outcome 3 study m visa needed short courses 
-        elsif country_group_ukot.include?(passport_country) || country_group_non_visa_national.include?(passport_country)
+        elsif (country_group_ukot + country_group_non_visa_national).include?(passport_country)
           :outcome_no_visa_needed #outcome 1 no visa needed
         end
         
       elsif purpose_of_visit_answer == 'work' 
-        if country_group_datv.include?(passport_country) || country_group_visa_national.include?(passport_country) || country_group_non_visa_national.include?(passport_country)
+        if (country_group_datv + country_group_visa_national).include?(passport_country) 
           :outcome_work_m #outcome 5 work m visa needed short courses
-        elsif country_group_ukot.include?(passport_country)
+        elsif (country_group_ukot + country_group_non_visa_national).include?(passport_country)
           :outcome_work_n #outcome 5.5 work N no visa needed
         end
       end
