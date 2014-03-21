@@ -104,7 +104,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
             assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
             assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_3]
             assert_phrase_list :send_your_application, [:send_application_durham]
-            assert_phrase_list :getting_your_passport, [:getting_your_passport_iraq]
+            assert_phrase_list :getting_your_passport, [:getting_your_passport_iraq, :getting_your_passport_uk_visa_where_to_collect, :getting_your_passport_id_apply_renew_old_replace]
             assert_phrase_list :contact_passport_adviceline, [:contact_passport_adviceline]
             assert_match /Millburngate House/, outcome_body
           end
@@ -686,7 +686,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_3]
       assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
       assert_phrase_list :send_your_application, [:send_application_durham]
-      assert_phrase_list :contact_passport_adviceline, [:contact_passport_adviceline]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_yemen, :getting_your_passport_uk_visa_where_to_collect, :getting_your_passport_id_apply_renew_old_replace]
       assert_match /Millburngate House/, outcome_body
     end
   end # Yemen
@@ -1016,7 +1016,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'renewing_new'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_cambodia, :getting_your_passport_uk_visa_where_to_collect, :getting_your_passport_id_renew_new]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_cambodia]
       end
     end
     context "applying for a new adult passport" do
@@ -1025,8 +1025,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'adult'
         add_response 'united-kingdom'
         assert_current_node :ips_application_result
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_cambodia, 
-          :getting_your_passport_uk_visa_where_to_collect, :getting_your_passport_id_apply_renew_old_replace]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_cambodia]
       end
     end
   end # Cambodia
