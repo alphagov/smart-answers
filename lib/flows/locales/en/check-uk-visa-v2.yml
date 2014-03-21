@@ -9,7 +9,7 @@ en-GB:
           However, you should bring documents with you to show at the border. See the relevant [student visa](/browse/visas-immigration/study-visas) guide to see what documents to bring.
           
         croatia_additional_sentence: |
-          However, you may need a [work permit](http://www.ukba.homeoffice.gov.uk/eucitizens/croatia/) if you want to stay and work.
+          However, you may need a [registration certificate](/croatian-national) if you want to stay and work.
          
         youth_mobility_scheme: |
           You can apply for the [‘youth mobility scheme’ visa](/tier-5-youth-mobility) if you want to live and work in the UK for up to 2 years.
@@ -17,11 +17,11 @@ en-GB:
         china_tour_group: |
           ##Travelling in a tour group
 
-          You can apply for an [‘ADS visa’](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/ads/) if you’re planning to travel to the UK as part of a tour group for less than 30 days.
+          You can apply for an [‘ADS visa’](/ads-visa) if you’re planning to travel to the UK as part of a tour group for less than 30 days.
         turkey_business_person_visa: |
           ###Turkish nationals 
 
-          You can apply for a [Turkish business person visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/working/turkish/) if you want to come and set up a business in the UK. 
+          You can apply for a [Turkish business person visa](/turkish-worker) if you want to come and set up a business in the UK. 
 
         electronic_visa_waiver: |
           ##You’ll need an electronic visa waiver (EVW)
@@ -31,7 +31,7 @@ en-GB:
           ##You won't need a visa if you have an ePassport.
 
           However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a visa, to show to officers at the UK border. 
-          ^ If you don't have an ePassport, you should apply for a [Visitor in Transit visa](/transit-visa).
+          ^If you don’t have an ePassport, you must [apply for a transit visa](/transit-visa).^
 
           ##Transiting without a visa
 
@@ -171,19 +171,19 @@ en-GB:
         body: |
           The visa you apply for depends on your circumstances.
 
-          Apply for a [study visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/studying/adult-students/) if you’re coming to the UK to study a degree or college course for longer than 6 months (or 11 months if it’s an English language course).
+          Apply for a [study visa](/tier-4-general-visa) if you’re coming to the UK to study a degree or college course for longer than 6 months (or 11 months if it’s an English language course).
 
-          Apply for a [child study visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/studying/child-students/) if you’re under 18.
+          Apply for a [child study visa](/child-study-visa) if you’re under 18.
 
-          ^If you’re studying an English language course for less than 11 months, you can apply for a [study visit](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/student/) visa.^
+          ^If you’re studying an English language course for less than 11 months, you can apply for a [study visit](/study-visit-visa) visa.^
 
       outcome_study_m:
         title: You’ll need a visa to study in the UK
 
         body: |
-          Apply for a [study visit](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/student/) visa if you’re studying for less than 6 months and you won’t work during your stay.
+          Apply for a [study visit](/study-visit-visa) visa if you’re studying for less than 6 months and you won’t work during your stay.
 
-          You should apply as a [child visitor](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/child/) if you’re under 18.
+          You should apply as a [child visitor](/child-visit-visa) if you’re under 18.
 
       outcome_work_y:
         title: You’ll need a visa to come to the UK to work or do business
@@ -316,7 +316,7 @@ en-GB:
       outcome_transit_leaving_airport:
         title: You’ll need a visa to pass through the UK in transit
         body: |
-          You should apply for a [Visitor in Transit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/transitthroughtheuk/visa-to-transit-landside/) if you arrive on a flight and will pass through immigration control before you leave the UK.
+          You should apply for a [Visitor in Transit visa](/transit-visa) if you arrive on a flight and will pass through immigration control before you leave the UK.
           
           ##Transiting without a visa
           You might be eligible for the ‘transit without visa concession’ if:
@@ -330,7 +330,7 @@ en-GB:
       outcome_transit_not_leaving_airport:
         title: You’ll need a visa to pass through the UK in transit (unless you’re exempt)
         body: |
-          You should apply for a [Direct Airside Transit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/transitthroughtheuk/visa-transit-airside/) if you arrive in the UK on a flight and leave again without passing through immigration control.
+          You should apply for a [Direct Airside Transit visa](/transit-visa) if you arrive in the UK on a flight and leave again without passing through immigration control.
           
           ##Exemptions
 
@@ -346,7 +346,7 @@ en-GB:
       outcome_transit_leaving_airport_datv:
         title: You’ll need a visa to pass through the UK in transit
         body: |
-          You should apply for a [Visitor in Transit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/transitthroughtheuk/visa-to-transit-landside/) if you arrive on a flight and will pass through immigration control before you leave the UK.
+          You should apply for a [Visitor in Transit visa](/transit-visa) if you arrive on a flight and will pass through immigration control before you leave the UK.
 
           ##Transiting without a visa
 
@@ -370,17 +370,17 @@ en-GB:
       outcome_joining_family_y:
         title: You’ll need a visa to join your family or partner in the UK
         body: |
-          ^If you’re visiting family or partner for 6 months or less, you’ll need a [family visit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/family/).^
+          ^If you’re visiting family or partner for 6 months or less, you’ll need a [family visit visa](/family-visit-visa).^
 
           The visa you apply for depends on your family member’s situation.
 
           ##They’re settled in the UK
 
-          Apply for a [‘family of a settled person’ visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/partners-families/citizens-settled/) if your family member or partner is a British citizen or they’re from outside the European Economic Area (EEA) and settled in the UK.
+          Apply for a [‘family of a settled person’ visa](/remain-in-uk-family) if your family member or partner is a British citizen or they’re from outside the European Economic Area (EEA) and settled in the UK.
 
           ##They’re working or studying in the UK
 
-          You may be able to apply as a ‘dependant’ of [your family member's visa category](http://www.ukba.homeoffice.gov.uk/visas-immigration/) if they're from outside the EEA and they're working or studying in the UK.
+          You may be able to apply as a ‘dependant’ of [your family member's visa category](/visas-immigration) if they're from outside the EEA and they're working or studying in the UK.
 
           ##They’re from the EEA
 
@@ -395,11 +395,11 @@ en-GB:
 
           ##They’re settled in the UK
 
-          Apply for a [‘family of a settled person’ visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/partners-families/citizens-settled/) if your family member or partner is a British citizen or they’re from outside the European Economic Area (EEA) and settled in the UK.
+          Apply for a [‘family of a settled person’ visa](/remain-in-uk-family) if your family member or partner is a British citizen or they’re from outside the European Economic Area (EEA) and settled in the UK.
 
           ##They’re working or studying in the UK
 
-          You may be able to apply as a ‘dependant’ of [your family member or partner's visa category](http://www.ukba.homeoffice.gov.uk/visas-immigration/) if they're from outside the EEA and they're working or studying in the UK.
+          You may be able to apply as a ‘dependant’ of [your family member or partner's visa category](/visas-immigration) if they're from outside the EEA and they're working or studying in the UK.
 
           ##They’re from the EEA
 
@@ -418,34 +418,35 @@ en-GB:
 
           ##Visiting family
 
-          Apply for a [family visit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/family/) if you plan to visit family or partner while you’re in the UK.
+          Apply for a  [family visit visa](/family-visit-visa). if you plan to visit family or partner while you’re in the UK.
 
           ##If you’re under 18
 
-          Apply for a [child visit visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/child/).
+          Apply for a [child visit visa](/child-visit-visa).
 
       outcome_marriage:
         title: You’ll need a visa to come to the UK
         body: |
-          Apply for a [Marriage Visitor visa](https://www.gov.uk/marriage-visa) if you and your partner are from outside the [European Economic Area (EEA)](https://www.gov.uk/eu-eea) and you don’t plan to stay in the UK longer than 6 months.
+          See the [marriage visit visa category](/marriage-visa) for eligibility and documents you need to provide if you and your partner are from outside the European Economic Area (EEA) and you don't plan to stay in the UK longer than 6 months.
 
-          If you’re getting married to a British citizen or someone settled in the UK and you plan to stay longer than 6 months, see the [joining settled family](http://www.ukba.homeoffice.gov.uk/visas-immigration/partners-families/citizens-settled/) guide.
+          If you’re getting married to a British citizen or someone settled in the UK and you plan to stay longer than 6 months, see the [joining settled family](/remain-in-uk-family) guide.
+          
       outcome_school_n:
         title: You won’t need a visa to come to the UK
         body: |
           However, you should bring the [same documents](https://www.gov.uk/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a visa, to show to officers at the UK border. 
 
-          %You may want to [apply for a visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/) if you have a criminal record or you’ve previously been refused entry into the UK.%
+          %You may want to [apply for a visa](/browse/visas-immigration/short-visit-visas) if you have a criminal record or you’ve previously been refused entry into the UK.%
 
       outcome_school_y:
         title: You’ll need a visa to visit your child in the UK
         body:
-          You should apply for the [visa for parents](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/parent/) visiting children at school.
+          You should apply for the [visa for parents](/parent-of-a-child-at-school-visa) visiting children at school.
 
       outcome_medical_y:
         title: You’ll need a visa to visit the UK
         body:
-          You should apply for the [private medical treatment visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/medical/).
+          You should apply for the [private medical treatment visa](/private-medical-treatment-visa).
 
       outcome_medical_n:
         title: You won’t need a visa to visit the UK
@@ -463,4 +464,4 @@ en-GB:
 
           However, you should bring the [same documents](https://www.gov.uk/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a visa, to show to officers at the UK border. 
 
-          ^If the bio data page in your passport doesn't include a personal ID number, you must [apply for a visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/).^
+          ^If the bio data page in your passport doesn't include a personal ID number, you must [apply for a short visit visa](/browse/visas-immigration/short-visit-visas).^
