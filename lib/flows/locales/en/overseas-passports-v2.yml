@@ -6,7 +6,8 @@ en-GB:
         description: Renew, replace or apply for an adult or child British passport if you’re living abroad or working overseas - forms, prices, how long it takes
       body: |
         Get the forms, prices and application details you need if you're a British national and you want to renew or apply for a British passport from overseas.
-
+      devolved_body: |
+        ^From 7 April 2014 the fee for applying for a UK passport from overseas will be [reduced by £45 for adults and £28.50 for children](/government/speeches/reduction-in-passport-fees-for-uk-citizens-overseas).^
       which_country_are_you_in?:
         title: Which country or territory are you in?
       which_opt?:
@@ -722,8 +723,11 @@ en-GB:
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
 
-        send_application_ips3_timor-leste_renew_new: |
+        send_application_timor-leste_intro: |
           ## Making your application
+          You must submit your passport application through the New Zealand Embassy in Dili.
+
+        send_application_ips3_timor-leste_renew_new: |
           You must apply in person. You must bring photo ID with you.
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
@@ -732,16 +736,14 @@ en-GB:
 
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
-          You’ll need to book an appointment to submit your application. Please telephone the British Honorary Consul in Dili on +67 077 234 273 for further information on how to do this.
+          You need to book an appointment - contact the embassy to arrange one.
 
         send_application_ips3_timor-leste_apply_renew_old_replace: |
-          ## Making your application
-          You must apply in person.
+          You must apply in person. You must bring photo ID with you.
 
-          You must bring photo ID with you. Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
 
-          You’ll need to book an appointment to submit your application. Please telephone the British Honorary Consul in Dili on +67 077 234 273 for further information on how to do this.
-
+          You need to book an appointment - contact the embassy to arrange one.
         send_application_uk_visa_apply_renew_old_replace: |
           ## Making your application
           You must apply in person.
@@ -1016,6 +1018,17 @@ en-GB:
           Email: <BangkokHMPO@vfshelpline.com>
           $C
 
+        send_application_address_timor-leste: |
+          $A
+          New Zealand Embassy, East Timor
+          Rua Geremias do Amaral
+          Motael
+          Dili
+          East Timor
+          $A
+          $C
+          Telephone: (+670) 331 0087
+          $C
         send_application_address_ukraine: |
           $A
           UK Visa Application Centre

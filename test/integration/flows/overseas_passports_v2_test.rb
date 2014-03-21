@@ -9,7 +9,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon congo georgia greece haiti india iran iraq ireland italy jamaica jordan kenya kyrgyzstan malta nepal nigeria pakistan pitcairn-island syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania turkey ukraine united-kingdom uzbekistan yemen zimbabwe vietnam)
+    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon congo georgia greece haiti india iran iraq ireland italy jamaica jordan kenya kyrgyzstan malta nepal nigeria pakistan pitcairn-island syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania timor-leste turkey ukraine united-kingdom uzbekistan yemen zimbabwe vietnam)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports-v2'
   end
@@ -1051,6 +1051,30 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       assert_phrase_list :cost, [:passport_courier_costs_ips2_uk_visa, :adult_passport_costs_ips2, :passport_costs_ips2]
     end
   end # Georgia
+
+  context "answer Timor-Leste, testing sending application" do
+    setup do
+      worldwide_api_has_organisations_for_location('timor-leste', read_fixture_file('worldwide/timor-leste_organisations.json'))
+      add_response 'timor-leste'
+    end
+    context "renewing a new adult passport" do
+      should "give the ips result" do
+        add_response 'renewing_new'
+        add_response 'adult'
+        assert_current_node :ips_application_result
+        assert_phrase_list :send_your_application, [:"send_application_timor-leste_intro", :"send_application_ips3_timor-leste_renew_new", :"send_application_address_timor-leste"]
+      end
+    end
+    context "applying for a new adult passport" do
+      should "give the ips result" do
+        add_response 'applying'
+        add_response 'adult'
+        add_response 'united-kingdom'
+        assert_current_node :ips_application_result
+        assert_phrase_list :send_your_application, [:"send_application_timor-leste_intro", :"send_application_ips3_timor-leste_apply_renew_old_replace", :"send_application_address_timor-leste"]
+      end
+    end
+  end # Cambodia
 
 
 end

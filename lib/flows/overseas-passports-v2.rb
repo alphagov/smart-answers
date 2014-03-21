@@ -297,7 +297,7 @@ outcome :ips_application_result do
   end
 
   precalculate :send_your_application do
-    uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan burundi china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand timor-leste ukraine western-sahara)
+    uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan burundi china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand ukraine western-sahara)
 
     phrases = PhraseList.new
     if application_address
@@ -316,6 +316,14 @@ outcome :ips_application_result do
           phrases << :"send_application_ips3_#{current_location}_apply_renew_old_replace" << :send_application_embassy_address
         end
       end
+    elsif %w(timor-leste).include?(current_location)
+      phrases << :"send_application_timor-leste_intro"
+      if %w(renewing_new).include?(application_action)
+        phrases << :"send_application_ips#{ips_number}_#{current_location}_renew_new"
+      else
+        phrases << :"send_application_ips3_#{current_location}_apply_renew_old_replace"
+      end
+      phrases << :"send_application_address_#{current_location}"
     elsif %w(bangladesh india pakistan).include?(current_location)
       phrases << :"send_application_ips3_#{current_location}"
       phrases << :send_application_ips3_must_post unless current_location == 'bangladesh'
