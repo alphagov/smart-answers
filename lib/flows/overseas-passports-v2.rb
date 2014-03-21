@@ -297,7 +297,7 @@ outcome :ips_application_result do
   end
 
   precalculate :send_your_application do
-    uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan burundi china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand timor-leste ukraine western-sahara)
+    uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan burundi china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand ukraine western-sahara)
 
     phrases = PhraseList.new
     if application_address
@@ -316,6 +316,14 @@ outcome :ips_application_result do
           phrases << :"send_application_ips3_#{current_location}_apply_renew_old_replace" << :send_application_embassy_address
         end
       end
+    elsif %w(timor-leste).include?(current_location)
+      phrases << :"send_application_timor-leste_intro"
+      if %w(renewing_new).include?(application_action)
+        phrases << :"send_application_ips#{ips_number}_#{current_location}_renew_new"
+      else
+        phrases << :"send_application_ips3_#{current_location}_apply_renew_old_replace"
+      end
+      phrases << :"send_application_address_#{current_location}"
     elsif %w(bangladesh india pakistan).include?(current_location)
       phrases << :"send_application_ips3_#{current_location}"
       phrases << :send_application_ips3_must_post unless current_location == 'bangladesh'
@@ -339,11 +347,11 @@ outcome :ips_application_result do
   end
 
   precalculate :getting_your_passport do
-    collect_in_person_countries = %w(angola benin cameroon chad congo eritrea ethiopia gambia ghana guinea jamaica kenya nigeria somalia south-sudan uganda zambia zimbabwe)
-    collect_in_person_variant_countries = %w(burundi india iraq jordan libya pitcairn-island yemen)
+    collect_in_person_countries = %w(angola benin cameroon chad congo eritrea ethiopia gambia ghana guinea jamaica kenya nigeria somalia south-sudan zambia zimbabwe)
+    collect_in_person_variant_countries = %w(burundi cambodia india jordan pitcairn-island)
     collect_in_person_renewing_new_variant_countries = %(burma nepal north-korea)
     uk_visa_application_centre_countries = %w(algeria azerbaijan china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco russia thailand ukraine western-sahara)
-    uk_visa_application_centre_variant_countries = %w(cambodia egypt rwanda sierra-leone tunisia)
+    uk_visa_application_centre_variant_countries = %w(egypt iraq libya rwanda sierra-leone tunisia uganda yemen)
 
     phrases = PhraseList.new
     if uk_visa_application_centre_countries.include?(current_location)
@@ -539,11 +547,7 @@ end
 
 outcome :apply_in_neighbouring_country do
   precalculate :title_output do
-    if %w(british-indian-ocean-territory south-georgia-and-south-sandwich-islands).include?(current_location)
-      PhraseList.new(:title_output_biot)
-    else
-      location.name
-    end
+    location.name
   end
 
   precalculate :emergency_travel_help do

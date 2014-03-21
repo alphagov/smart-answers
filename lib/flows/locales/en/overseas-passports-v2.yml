@@ -6,7 +6,8 @@ en-GB:
         description: Renew, replace or apply for an adult or child British passport if you’re living abroad or working overseas - forms, prices, how long it takes
       body: |
         Get the forms, prices and application details you need if you're a British national and you want to renew or apply for a British passport from overseas.
-
+      devolved_body: |
+        ^From 7 April 2014 the fee for applying for a UK passport from overseas will be [reduced by £45 for adults and £28.50 for children](/government/speeches/reduction-in-passport-fees-for-uk-citizens-overseas).^
       which_country_are_you_in?:
         title: Which country or territory are you in?
       which_opt?:
@@ -412,8 +413,6 @@ en-GB:
           Your passport and supporting documents will be delivered to the British Embassy in Addis Ababa, Ethiopia - you must collect them in person.
         getting_your_passport_south-sudan: |
           Your passport and supporting documents will be delivered to the DHL Office in Juba, South Sudan - you must collect them in person.
-        getting_your_passport_uganda: |
-          Your passport and supporting documents will be delivered to the British High Commission Kampala, Uganda - you must collect them in person.
         getting_your_passport_uk_visa_centre: |
           Your passport will be delivered to the UK Visa Application Centre where you applied - you must collect it in person.
         getting_your_passport_uk_visa_where_to_collect: |
@@ -430,14 +429,20 @@ en-GB:
           They will contact you - using the details on your application form - when your passport is ready to collect. You must bring your existing passport as photo ID.
         getting_your_passport_cambodia: |
           Your passport will be delivered to the UK Visa Application Centre in Phnom Penh - you must collect it in person.
+
+          They will contact you with details of where to collect your passport when it arrives, using the contact details you provided on your form.
         getting_your_passport_egypt: |
           Your passport and supporting documents will be delivered to the UK Visa Application Centre in Cairo - you must collect them in person.
+        getting_your_passport_libya: |
+          Your passport and supporting documents will be delivered to the UK Visa Application Centre in Tripoli - you must collect them in person.
         getting_your_passport_rwanda: |
           Your passport and supporting documents will be delivered to the UK Visa Application Centre in Kigali – you must collect them in person.
         getting_your_passport_sierra-leone: |
           Your passport and supporting documents will be delivered to the UK Visa Application Centre in Freetown – you must collect them in person.
         getting_your_passport_tunisia: |
-          Your passport and supporting documents will be delivered to the UK Visa Application Centre in Tunis.
+          Your passport and supporting documents will be delivered to the UK Visa Application Centre in Tunis - you must collect them in person.
+        getting_your_passport_uganda: |
+          Your passport and supporting documents will be delivered to the UK Visa Application Centre in Kampala, Uganda - you must collect them in person.
         getting_your_passport_india: |
           Your passport will be returned to you by post, or you can arrange for it to be delivered to the British High Commission in New Delhi for you to collect in person. You must specify that you want to collect it in section 8 of the application form.
 
@@ -446,19 +451,13 @@ en-GB:
           You must bring photo ID with you.
         getting_your_passport_iraq: |
           Your passport and supporting documents will be delivered to the UK Visa Application Centre in Baghdad – you must collect them in person.
-
-          They will contact you with details of where to collect your passport when it arrives, using the contact details you provided on your form.
         getting_your_passport_jordan: |
           Your passport and supporting documents will be delivered to the British Embassy in Amman, Jordan - you must collect them in person. You must bring photo ID with you.
           They will contact you when your passport arrives using the contact details on your form.
-        getting_your_passport_libya: |
-          Your passport and supporting documents will be delivered to the UK Visa Application Centre in Tripoli.
-
-          They will contact you with details of where to collect your passport when it arrives, using the contact details you provided on your form.
         getting_your_passport_pitcairn-island: |
           Your passport and supporting documents will be delivered to you via the Pitcairn Island Office in Auckland, New Zealand.
         getting_your_passport_yemen: |
-          Your passport and supporting documents will be delivered to the British Embassy in Sana'a. They will contact you with details of where to collect your passport when it arrives, using the contact details you provided on your form.
+          Your passport and supporting documents will be delivered to the British Embassy in Sana'a - you must collect them in person.
         getting_your_passport_burma: |
           Your passport will be delivered to the British Embassy in Rangoon - you must collect it in person.
         getting_your_passport_nepal: |
@@ -724,8 +723,11 @@ en-GB:
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
 
-        send_application_ips3_timor-leste_renew_new: |
+        send_application_timor-leste_intro: |
           ## Making your application
+          You must submit your passport application through the New Zealand Embassy in Dili.
+
+        send_application_ips3_timor-leste_renew_new: |
           You must apply in person. You must bring photo ID with you.
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
@@ -734,16 +736,14 @@ en-GB:
 
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
-          You’ll need to book an appointment to submit your application. Please telephone the British Honorary Consul in Dili on +67 077 234 273 for further information on how to do this.
+          You need to book an appointment - contact the embassy to arrange one.
 
         send_application_ips3_timor-leste_apply_renew_old_replace: |
-          ## Making your application
-          You must apply in person.
+          You must apply in person. You must bring photo ID with you.
 
-          You must bring photo ID with you. Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
 
-          You’ll need to book an appointment to submit your application. Please telephone the British Honorary Consul in Dili on +67 077 234 273 for further information on how to do this.
-
+          You need to book an appointment - contact the embassy to arrange one.
         send_application_uk_visa_apply_renew_old_replace: |
           ## Making your application
           You must apply in person.
@@ -885,6 +885,9 @@ en-GB:
           Almaty
           Kazakhstan, 050000
           $A
+          $C
+          Email: <hmpo.enquiry@teleperformance.com>
+          $C
 
         send_application_address_laos: |
           $A
@@ -932,7 +935,7 @@ en-GB:
           Morocco
           $A
           $C
-          Email: <enquiryHMPO@TPContact.co.uk>
+          Email: <hmpo.enquiry@teleperformance.com>
           $C
 
         send_application_address_nepal: |
@@ -1015,6 +1018,17 @@ en-GB:
           Email: <BangkokHMPO@vfshelpline.com>
           $C
 
+        send_application_address_timor-leste: |
+          $A
+          New Zealand Embassy, East Timor
+          Rua Geremias do Amaral
+          Motael
+          Dili
+          East Timor
+          $A
+          $C
+          Telephone: (+670) 331 0087
+          $C
         send_application_address_ukraine: |
           $A
           UK Visa Application Centre
