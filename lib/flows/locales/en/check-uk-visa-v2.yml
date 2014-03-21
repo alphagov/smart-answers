@@ -6,7 +6,7 @@ en-GB:
         work_reason: work
 
         study_additional_sentence: |
-          However, you should bring documents with you to show at the border. See the relevant [student visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/studying/) guide to see what documents to bring.
+          However, you should bring documents with you to show at the border. See the relevant [student visa](/browse/visas-immigration/study-visas) guide to see what documents to bring.
           
         croatia_additional_sentence: |
           However, you may need a [work permit](http://www.ukba.homeoffice.gov.uk/eucitizens/croatia/) if you want to stay and work.
@@ -450,8 +450,7 @@ en-GB:
       outcome_medical_n:
         title: You won’t need a visa to visit the UK
         body:
-          However, you should bring the [same documents](https://www.gov.uk/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a private medical visitor visa, to show to officers at the UK border. 
-          Check which [documents you should bring](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/medical/documents/)
+          However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you’d need to apply for a Private Medical Treatment Visitor visa, to show to officers at the UK border.
 
       outcome_visit_waiver:
         body: |
