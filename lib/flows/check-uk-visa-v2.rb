@@ -19,7 +19,6 @@ country_group_eea = %w(austria belgium bulgaria croatia cyprus czech-republic de
 country_select :what_passport_do_you_have?, :additional_countries => additional_countries, :exclude_countries => exclude_countries do
   save_input_as :passport_country
 
-e
   next_node do |response|
     if country_group_eea.include?(response)
   	 :outcome_no_visa_needed
@@ -141,6 +140,7 @@ end
 multiple_choice :staying_for_how_long? do
   option :six_months_or_less
   option :longer_than_six_months
+  save_input_as :period_of_staying
 
   next_node do |response|
     case response
@@ -170,7 +170,7 @@ multiple_choice :staying_for_how_long? do
         end
       end
     end
-  end                    
+  end
 end
 
 
@@ -224,8 +224,10 @@ outcome :outcome_visit_waiver do
         PhraseList.new(:epassport_crossing_border)
       elsif leaving_airport_answer == "no"
         PhraseList.new(:epassport_not_crossing_border)
+      elsif period_of_staying == "six_months_or_less" && purpose_of_visit_answer == 'study'
+        PhraseList.new(:epassport_study_reason)
       else
-        PhraseList.new(:extra_documents)
+        PhraseList.new(:epassport_general_visit_reason)
       end
     elsif %w(taiwan).include?(passport_country)
       if leaving_airport_answer == "yes"
@@ -237,6 +239,16 @@ outcome :outcome_visit_waiver do
       PhraseList.new(:electronic_visa_waiver)
     end
   end
+  precalculate :outcome_title do
+    if %w(venezuela).include?(passport_country)
+      PhraseList.new(:epassport_visa_not_needed_title)
+    elsif %w(taiwan).include?(passport_country)
+      PhraseList.new(:passport_bio_visa_not_needed_title)
+    elsif %w(oman qatar united-arab-emirates).include?(passport_country)
+      PhraseList.new(:electronic_visa_waiver_needed_title)
+    end
+  end
 end
+
 outcome :outcome_transit_leaving_airport_datv
 outcome :outcome_taiwan_exception

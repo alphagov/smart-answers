@@ -4,7 +4,16 @@ en-GB:
       phrases:
         study_reason: study
         work_reason: work
-
+        
+        #titles
+        epassport_visa_not_needed_title: |
+          You won’t need a visa if you have an ePassport
+        electronic_visa_waiver_needed_title: |
+          You’ll need an electronic visa waiver (EVW)
+        passport_bio_visa_not_needed_title: |
+          You won't need a visa if your passport has a personal ID number on the bio data page.
+        
+      #phrases
         study_additional_sentence: |
           However, you should bring documents with you to show at the border. See the relevant [student visa](/browse/visas-immigration/study-visas) guide to see what documents to bring.
           
@@ -24,13 +33,24 @@ en-GB:
           You can apply for a [Turkish business person visa](/turkish-worker) if you want to come and set up a business in the UK. 
 
         electronic_visa_waiver: |
-          ##You’ll need an electronic visa waiver (EVW)
           You must [apply for an EVW](https://www.visa4uk.fco.gov.uk/) online at least 48 hours before you travel.
+          
+        epassport_general_visit_reason: |
+          However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you’d need to apply for a visa, to show to officers at the UK border.
+          ^If you don’t have an ePassport, you must [apply for a short visit visa](/browse/visas-immigration/short-visit-visas).^
+          
+        epassport_study_reason: |
+          However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you’d need to apply for a visa, to show to officers at the UK border.
+          ^If you don’t have an ePassport, you must [apply for a Student Visitor visa](/browse/visas-immigration/study-visas).^
+          
+        epassport_not_crossing_border: |
+
+          However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you’d need to apply for a visa, to show to officers at the UK border.
+          ^If the bio data page in your passport doesn’t include a personal ID number, you must [apply for a transit visa](/transit-visa).^
 
         epassport_crossing_border: |
-          ##You won't need a visa if you have an ePassport.
 
-          However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a visa, to show to officers at the UK border. 
+          However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a visa, to show to officers at the UK border.
           ^If you don’t have an ePassport, you must [apply for a transit visa](/transit-visa).^
 
           ##Transiting without a visa
@@ -60,7 +80,6 @@ en-GB:
           %The ‘transit without visa concession’ is decided by the immigration officer at the border. You won’t be allowed to transit if they decide you need a visa, so you might want to apply for a transit visa before you travel.%
 
         extra_documents: |
-          ##You won’t need a visa if you have an ePassport
           
           You’ll need to provide supporting documents. See what you should bring if you’re:
           
@@ -72,14 +91,6 @@ en-GB:
           - [visiting to study](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/student/)
           - [visiting for business](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/business/)
           ^If you don’t have an ePassport, you must [apply for a visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/).^
-
-        epassport_not_crossing_border: |
-          ##You won't need a visa if you have an ePassport.
-
-          However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a visa, to show to officers at the UK border. 
-
-          ^ If you don't have an ePassport, you should apply for a [Direct Airside Transit Visa](/transit-visa/direct-airside-transit-visa) unless you're exempt.
-
 
           ##Exemptions
 
@@ -93,9 +104,8 @@ en-GB:
           - have a valid uniform format residence permit issued by an EEA state
 
         passport_bio_crossing_border:  |
-          ##You won't need a visa if your passport has a personal ID number on the bio data page.
 
-          However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a visa, to show to officers at the UK border. 
+          However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a visa, to show to officers at the UK border.
 
           ^ If the bio data page in your passport doesn't include a personal ID number, you should apply for a [Visitor in Transit](/transit-visa) visa.
 
@@ -112,7 +122,6 @@ en-GB:
           ^ The 'transit without visa concession' is decided by the immigration officer at the border. You won't be allowed to transit if they decide you need a visa, so you might want to apply for a transit visa before you travel.
 
         passport_bio_not_crossing_border: |
-          ##You won’t need a visa if your passport has a personal ID number on the bio data page.
 
           However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you’d need to apply for a visa, to show to officers at the UK border.
 
@@ -430,7 +439,7 @@ en-GB:
           See the [marriage visit visa category](/marriage-visa) for eligibility and documents you need to provide if you and your partner are from outside the European Economic Area (EEA) and you don't plan to stay in the UK longer than 6 months.
 
           If you’re getting married to a British citizen or someone settled in the UK and you plan to stay longer than 6 months, see the [joining settled family](/remain-in-uk-family) guide.
-          
+
       outcome_school_n:
         title: You won’t need a visa to come to the UK
         body: |
@@ -454,8 +463,9 @@ en-GB:
           However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you’d need to apply for a Private Medical Treatment Visitor visa, to show to officers at the UK border.
 
       outcome_visit_waiver:
+        title: | 
+          %{outcome_title}
         body: |
-         
           %{if_exception}
           
       outcome_taiwan_exception:
@@ -465,3 +475,6 @@ en-GB:
           However, you should bring the [same documents](https://www.gov.uk/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a visa, to show to officers at the UK border. 
 
           ^If the bio data page in your passport doesn't include a personal ID number, you must [apply for a short visit visa](/browse/visas-immigration/short-visit-visas).^
+          
+          
+        
