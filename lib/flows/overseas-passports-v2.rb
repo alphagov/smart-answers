@@ -539,11 +539,7 @@ end
 
 outcome :apply_in_neighbouring_country do
   precalculate :title_output do
-    if %w(british-indian-ocean-territory south-georgia-and-south-sandwich-islands).include?(current_location)
-      PhraseList.new(:title_output_biot)
-    else
-      location.name
-    end
+    location.name
   end
 
   precalculate :emergency_travel_help do

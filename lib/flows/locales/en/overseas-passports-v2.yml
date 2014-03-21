@@ -885,6 +885,9 @@ en-GB:
           Almaty
           Kazakhstan, 050000
           $A
+          $C
+          Email: <hmpo.enquiry@teleperformance.com>
+          $C
 
         send_application_address_laos: |
           $A
@@ -932,7 +935,7 @@ en-GB:
           Morocco
           $A
           $C
-          Email: <enquiryHMPO@TPContact.co.uk>
+          Email: <hmpo.enquiry@teleperformance.com>
           $C
 
         send_application_address_nepal: |
