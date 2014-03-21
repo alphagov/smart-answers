@@ -339,11 +339,11 @@ outcome :ips_application_result do
   end
 
   precalculate :getting_your_passport do
-    collect_in_person_countries = %w(angola benin cameroon chad congo eritrea ethiopia gambia ghana guinea jamaica kenya nigeria somalia south-sudan uganda zambia zimbabwe)
-    collect_in_person_variant_countries = %w(burundi india iraq jordan libya pitcairn-island yemen)
+    collect_in_person_countries = %w(angola benin cameroon chad congo eritrea ethiopia gambia ghana guinea jamaica kenya nigeria somalia south-sudan zambia zimbabwe)
+    collect_in_person_variant_countries = %w(burundi india iraq jordan pitcairn-island yemen)
     collect_in_person_renewing_new_variant_countries = %(burma nepal north-korea)
     uk_visa_application_centre_countries = %w(algeria azerbaijan china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco russia thailand ukraine western-sahara)
-    uk_visa_application_centre_variant_countries = %w(cambodia egypt rwanda sierra-leone tunisia)
+    uk_visa_application_centre_variant_countries = %w(cambodia egypt libya rwanda sierra-leone tunisia uganda)
 
     phrases = PhraseList.new
     if uk_visa_application_centre_countries.include?(current_location)
