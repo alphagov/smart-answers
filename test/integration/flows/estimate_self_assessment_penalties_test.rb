@@ -107,7 +107,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
       end
     end
   end
-  context "check new phraselist for over 365 days delay" do
+  context "check phraselist for over 365 days delay" do
     setup do
       add_response :"2011-12"
       add_response :online
@@ -119,6 +119,102 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     should "show results" do
       assert_phrase_list :result_parts, [:result_part2_penalty, :result_part_one_year_late]
     end
+  end
+  
+  context "online return, tax year 2012-13" do
+    setup do
+      add_response :"2011-12"
+      add_response :online
+    end
+    should "ask when bill was paid" do
+      assert_current_node :when_paid?
+    end
+#band 1
+#100£ fine (band 1)
+    context "check 100£ fine (band 1)" do
+      setup do
+        add_response ""
+        add_response ""
+        add_response "0.00"
+      end
+      should "show results" do
+        assert_phrase_list :result_parts, []
+      end
+    end
+#band 2 
+#100£ fine + 10£ per day (max 90 days, testing 1 day)(band 2)
+    context "check 100£ fine + 10£ per day (max 90 days, testing 1 day) (band 2)" do
+      setup do
+        add_response ""
+        add_response ""
+        add_response "0.00"
+      end
+      should "show results" do
+        assert_phrase_list :result_parts, []
+      end
+    end
+#band 2 
+#100£ fine + 10£ per day(max 90 days, testing 91 days)(band 2)
+    context "check 100£ fine + 10£ per day (max 90 days, testing 91 days)(band 2)" do
+      setup do
+        add_response ""
+        add_response ""
+        add_response "0.00"
+      end
+      should "show results" do
+        assert_phrase_list :result_parts, []
+      end
+    end 
+#band 3 case 1
+#300£ fine + 1000£(previous fine)(band 3), taxdue <= 6002£
+    context "300£ fine + 1000£(previous fine)(band 3), taxdue < 6002£" do
+      setup do
+        add_response ""
+        add_response ""
+        add_response "0.00"
+      end
+      should "show results" do
+        assert_phrase_list :result_parts, []
+      end
+    end 
+#band 3 case 2
+#5% fine + 1000£(previous fine)(band 3), taxdue > 6002£
+    context "5% fine + 1000£(previous fine)(band 3), taxdue > 6002£" do
+      setup do
+        add_response ""
+        add_response ""
+        add_response "10000.00"
+      end
+      should "show results" do
+        assert_phrase_list :result_parts, []
+      end
+    end 
+#band 4 case 1
+#300£ fine + 1300£(previous fine)(band 4), taxdue <= 6002£
+    context "300£ fine + 1300£(previous fine)(band 4), taxdue <= 6002£" do
+      setup do
+        add_response ""
+        add_response ""
+        add_response "0.00"
+      end
+      should "show results" do
+        assert_phrase_list :result_parts, []    
+      end
+    end
+#band 4 case 2
+#10% fine + 1000£(previous fine)(band 4), taxdue > 6002£
+    context "10% fine + 1000£(previous fine)(band 4), taxdue > 6002£" do
+      setup do
+        add_response ""
+        add_response ""
+        add_response "10000.00"
+      end
+      should "show results" do
+        assert_phrase_list :result_parts, []    
+        
+        #test also interest
+      end
+    end  
   end
 end
 
