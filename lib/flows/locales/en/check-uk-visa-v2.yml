@@ -44,12 +44,10 @@ en-GB:
           ^If you don’t have an ePassport, you must [apply for a Student Visitor visa](/browse/visas-immigration/study-visas).^
           
         epassport_not_crossing_border: |
-
           However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you’d need to apply for a visa, to show to officers at the UK border.
           ^If the bio data page in your passport doesn’t include a personal ID number, you must [apply for a transit visa](/transit-visa).^
 
         epassport_crossing_border: |
-
           However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a visa, to show to officers at the UK border.
           ^If you don’t have an ePassport, you must [apply for a transit visa](/transit-visa).^
 
@@ -79,18 +77,6 @@ en-GB:
 
           %The ‘transit without visa concession’ is decided by the immigration officer at the border. You won’t be allowed to transit if they decide you need a visa, so you might want to apply for a transit visa before you travel.%
 
-        extra_documents: |
-          
-          You’ll need to provide supporting documents. See what you should bring if you’re:
-          
-          - a [tourist](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/general/)
-          - [visiting family](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/family/)
-          - [visiting a child at a school](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/parent/) in the UK
-          - [transiting through the UK](http://www.ukba.homeoffice.gov.uk/visas-immigration/transitthroughtheuk/)
-          - visiting for [private medical treatment](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/medical/)
-          - [visiting to study](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/student/)
-          - [visiting for business](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/business/)
-          ^If you don’t have an ePassport, you must [apply for a visa](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/).^
 
           ##Exemptions
 
@@ -279,6 +265,8 @@ en-GB:
         title: |
           You may need a visa to work or do business in the UK.
         body: |
+          You may need a visa to work or do business in the UK. 
+
           Whether you need a visa depends on your circumstances.
 
           ## Business visits
@@ -286,39 +274,27 @@ en-GB:
           You don't need a visa if you're coming to the UK for activities allowed under the following visas:
 
           - a [business visitor](/business-visitor-visa)
-
           - a [sports visitor](/sports-visit-visa)
-
           - an [entertainer](/entertainer-visitor-visa)
-
           - a [prospective entrepreneur](https://www.gov.uk/prospective-entrepreneur)
-
           - a visitor doing a ['permitted paid engagement'](/permitted-paid-engagement-visa) (you must have been invited to the UK because of your expertise) - you can only stay for up to 1 month
 
           However, you should bring [supporting documents](/government/publications/visitor-visa-guide-to-supporting-documents) to show at the border.
 
           %You may want to [apply for a visa](/browse/visas-immigration/short-visit-visas) if you have a criminal record or you’ve previously been refused entry into the UK.%
 
-
           ## Temporary workers
 
           You will need a 'temporary worker' visa if you want to work in the UK for a short time:
 
           - in [sports](/tier-5-temporary-worker-creative-and-sporting-visa)
-
           - in [arts or entertainment](/tier-5-temporary-worker-creative-and-sporting-visa)
-
           - as a [volunteer](/tier-5-temporary-worker-charity-worker-visa)
-
           - in a [work experience role](/tier-5-government-authorised-exchange)
-
           - for a [charity](/tier-5-temporary-worker-charity-worker-visa)
-
           - for a [religious organisation](/tier-5-religious)
 
-
-          You can also apply for an [international agreement](/tier-5-international-agreement) visa if you'll be doing work covered by international law while in the UK (eg working for a foreign government or as a private servant in a diplomatic household).
-
+          You can also apply for an [international agreement visa](/tier-5-international-agreement) if you'll be doing work covered by international law while in the UK (eg working for a foreign government or as a private servant in a diplomatic household).
 
           ^ You won't need a visa for [qualifying work](/tier-5-temporary-worker-creative-and-sporting-visa/overview) in sports, arts or entertainment if you're coming to the UK for less than 3 months. You must bring a certificate of sponsorship and evidence of £900 savings as described in [section 3 of the visa guide](/tier-5-temporary-worker-creative-and-sporting-visa/documents-you-must-provide), to show officers at the border.
 
