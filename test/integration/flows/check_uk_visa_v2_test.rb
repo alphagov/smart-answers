@@ -4,14 +4,14 @@ require_relative 'flow_test_helper'
 require 'gds_api/test_helpers/worldwide'
 
 
-class CheckUkVisaTest < ActiveSupport::TestCase
+class CheckUkVisaV2Test < ActiveSupport::TestCase
   include FlowTestHelper
   include GdsApi::TestHelpers::Worldwide
 
   setup do
     @location_slugs = %w(andorra anguilla armenia canada china croatia mexico south-africa turkey yemen oman united-arab-emirates qatar taiwan venezuela)
     worldwide_api_has_locations(@location_slugs)
-    setup_for_testing_flow 'check-uk-visa'
+    setup_for_testing_flow 'check-uk-visa-v2'
   end
 
   should "ask what passport do you have" do
@@ -257,7 +257,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
       context "Chinese passport" do
         setup do
-          setup_for_testing_flow 'check-uk-visa'
+          setup_for_testing_flow 'check-uk-visa-v2'
           add_response "china"
           add_response "tourism"
         end
@@ -268,12 +268,13 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
       context "Venezuelan passport" do
         setup do
-          setup_for_testing_flow 'check-uk-visa'
+          setup_for_testing_flow 'check-uk-visa-v2'
           add_response "venezuela"
           add_response "tourism"
         end
         should "take you to outcome_visit_waiver outcome" do
           assert_current_node :outcome_visit_waiver
+          assert_phrase_list :if_exception, [:epassport_general_visit_reason]
         end
       end
     end
@@ -286,17 +287,18 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
       context "Venezuelan passport" do
         setup do
-          setup_for_testing_flow 'check-uk-visa'
+          setup_for_testing_flow 'check-uk-visa-v2'
           add_response "venezuela"
           add_response "school"
         end
         should "take you to outcome_visit_waiver outcome" do
           assert_current_node :outcome_visit_waiver
+          assert_phrase_list :if_exception, [:epassport_general_visit_reason]
         end
       end
       context "Oman passport" do
         setup do
-          setup_for_testing_flow 'check-uk-visa'
+          setup_for_testing_flow 'check-uk-visa-v2'
           add_response "oman"
           add_response "school"
         end
@@ -322,12 +324,13 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
       context "Venezuelan passport" do
         setup do
-          setup_for_testing_flow 'check-uk-visa'
+          setup_for_testing_flow 'check-uk-visa-v2'
           add_response "venezuela"
           add_response "medical"
         end
         should "take you to outcome_visit_waiver outcome" do
           assert_current_node :outcome_visit_waiver
+          assert_phrase_list :if_exception, [:epassport_general_visit_reason]
         end
       end
     end
@@ -356,7 +359,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
       context "Venezuelan passport" do
         setup do
-          setup_for_testing_flow 'check-uk-visa'
+          setup_for_testing_flow 'check-uk-visa-v2'
           add_response "venezuela"
           add_response "transit"
         end
@@ -370,6 +373,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           should "take you to the visit waiver outcome with leaving airport phraselist" do
             assert_current_node :outcome_visit_waiver
             assert_phrase_list :if_exception, [:epassport_crossing_border]
+            assert_phrase_list :outcome_title, [:epassport_visa_not_needed_title]
           end
         end
         context "leaving airport" do
@@ -379,6 +383,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           should "take you to the visit waiver outcome with NOT leaving airport phraselist" do
             assert_current_node :outcome_visit_waiver
             assert_phrase_list :if_exception, [:epassport_not_crossing_border]
+            assert_phrase_list :outcome_title, [:epassport_visa_not_needed_title]
           end
         end
       end
@@ -565,6 +570,19 @@ end
     end
   end
   
+  context "outcome venezuela exception study and six_months_or_less" do
+    setup do
+      add_response 'venezuela'
+      add_response 'study'
+      add_response 'six_months_or_less'
+    end
+      should "take you to outcome visit waiver with venezuela phraselist" do
+        assert_current_node :outcome_visit_waiver
+        assert_phrase_list :if_exception, [:epassport_study_reason]
+        assert_phrase_list :outcome_title, [:epassport_visa_not_needed_title]
+    end
+  end
+  
   context "outcome taiwan exception tourism" do
     setup do
       add_response 'taiwan'
@@ -609,6 +627,7 @@ end
       should "take you to the visit waiver outcome with leaving airport phraselist" do
         assert_current_node :outcome_visit_waiver
         assert_phrase_list :if_exception, [:passport_bio_crossing_border]
+        assert_phrase_list :outcome_title, [:passport_bio_visa_not_needed_title]
       end
     end
     context "leaving airport" do
@@ -618,6 +637,7 @@ end
       should "take you to the visit waiver outcome with NOT leaving airport phraselist" do
         assert_current_node :outcome_visit_waiver
         assert_phrase_list :if_exception, [:passport_bio_not_crossing_border]
+        assert_phrase_list :outcome_title, [:passport_bio_visa_not_needed_title]
       end
     end
   end

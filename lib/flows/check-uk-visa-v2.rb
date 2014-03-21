@@ -224,7 +224,7 @@ outcome :outcome_visit_waiver do
         PhraseList.new(:epassport_crossing_border)
       elsif leaving_airport_answer == "no"
         PhraseList.new(:epassport_not_crossing_border)
-      elsif period_of_staying == "six_months_or_less" && purpose_of_visit_answer == 'study'
+      elsif purpose_of_visit_answer == 'study'
         PhraseList.new(:epassport_study_reason)
       else
         PhraseList.new(:epassport_general_visit_reason)

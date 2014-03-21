@@ -292,7 +292,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         end
         should "take you to outcome_visit_waiver outcome" do
           assert_current_node :outcome_visit_waiver
-          assert_phrase_list :if_exception, [:epassport_general_visit_reason]
         end
       end
       context "Oman passport" do
