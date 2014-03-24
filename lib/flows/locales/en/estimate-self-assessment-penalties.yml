@@ -48,7 +48,7 @@ en-GB:
       when_paid?:
         title: When did you pay the bill?
         hint: If you haven’t paid yet, enter the date you expect HM Revenue & Customs to get your payment
-        error_message: Please enter a date on or after %{start_of_next_tax_year_formatted}
+        # error_message: Please enter a date on or after %{start_of_next_tax_year_formatted}
       how_much_tax?:
         title: Please enter how much your tax bill is (or an estimate if you don’t know)
         hint: This calculator is anonymous. None of your details will be passed to HM Revenue & Customs.

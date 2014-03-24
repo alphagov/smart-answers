@@ -42,20 +42,30 @@ multiple_choice :which_year? do
 
   save_input_as :tax_year
 
-  calculate :start_of_next_tax_year do
+# #why?
+#   calculate :start_of_next_tax_year do
+#     if responses.last == '2010-11'
+#       Date.new(2011, 4, 6)
+#     elsif responses.last == '2011-12'
+#       Date.new(2012, 4, 6)
+#     else
+#       Date.new(2013, 4, 6)
+#     end
+#   end
+# #why?
+#   calculate :start_of_next_tax_year_formatted do
+#     start_of_next_tax_year.strftime("%e %B %Y")
+#   end
+
+  calculate :one_year_after_start_date_for_penalties do
     if responses.last == '2010-11'
-      Date.new(2011, 4, 6)
+      Date.new(2013, 1, 31)
     elsif responses.last == '2011-12'
-      Date.new(2012, 4, 6)
+      Date.new(2014, 1, 31)
     else
-      Date.new(2013, 4, 6)
+      Date.new(2016, 1, 31)
     end
   end
-
-  calculate :start_of_next_tax_year_formatted do
-    start_of_next_tax_year.strftime("%e %B %Y")
-  end
-
   next_node :how_submitted?
 end
 
@@ -87,21 +97,22 @@ date_question :when_paid? do
   save_input_as :payment_date
 
   next_node do |response|
-    if Date.parse(response) < start_of_next_tax_year
-      raise SmartAnswer::InvalidResponse 
+    # if Date.parse(response) < start_of_next_tax_year
+    #   #why is checking for next tax year?
+    #   raise SmartAnswer::InvalidResponse 
+    # else
+    calculator = Calculators::SelfAssessmentPenalties.new(
+      :submission_method => submission_method,
+      :filing_date => filing_date,
+      :payment_date => response,
+      :dates => calculator_dates,
+      :tax_year => tax_year
+    )
+    if calculator.paid_on_time?
+      :filed_and_paid_on_time
     else
-      calculator = Calculators::SelfAssessmentPenalties.new(
-        :submission_method => submission_method,
-        :filing_date => filing_date,
-        :payment_date => response,
-        :dates => calculator_dates,
-        :tax_year => tax_year
-      )
-      if calculator.paid_on_time?
-        :filed_and_paid_on_time
-      else
-        :how_much_tax?
-      end
+      :how_much_tax?
+    # end
     end
   end
 end
@@ -147,12 +158,11 @@ money_question :how_much_tax? do
     else 
       phrases << :result_part2_penalty
     end
-    if calculator.late_filing_penalty > 365
+    if Date.parse(payment_date) >= one_year_after_start_date_for_penalties 
       phrases << :result_part_one_year_late
     end
     phrases
   end
-
 
   next_node :late
 end
