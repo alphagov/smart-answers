@@ -188,42 +188,52 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     end 
 # #band 3 case 2
 # #5% fine + 1000pounds(previous fine)(band 3), taxdue > 6002pounds
-#     context "5% fine + 1000pounds(previous fine)(band 3), taxdue > 6002pounds" do
-#       setup do
-#         add_response ""
-#         add_response ""
-#         add_response "10000.00"
-#       end
-#       should "show results" do
-#         assert_phrase_list :result_parts, []
-#       end
-#     end 
+    context "5% fine + 1000pounds(previous fine)(band 3), taxdue > 6002pounds" do
+      setup do
+        add_response "2013-08-01"
+        add_response "2013-08-01"
+        add_response "10000.00"
+      end
+      should "show results" do
+        assert_phrase_list :result_parts, [:result_part2_penalty]
+        assert_state_variable :late_filing_penalty, 1500
+        assert_state_variable :estimated_bill, 10000
+        assert_state_variable :interest, 148.77
+        assert_state_variable :late_payment_penalty, 1000
+        assert_state_variable :total_owed, 12648
+      end
+    end 
 # #band 4 case 1
-# #300pounds fine + 1300pounds(previous fine)(band 4), taxdue <= 6002pounds
-#     context "300pounds fine + 1300pounds(previous fine)(band 4), taxdue <= 6002pounds" do
-#       setup do
-#         add_response ""
-#         add_response ""
-#         add_response "0.00"
-#       end
-#       should "show results" do
-#         assert_phrase_list :result_parts, []    
-#       end
-#     end
+#300pounds fine + 1300pounds(previous fine)(band 4), taxdue <= 6002pounds
+    context "300pounds fine + 1300pounds(previous fine)(band 4), taxdue <= 6002pounds" do
+      setup do
+        add_response "2014-02-01"
+        add_response "2014-02-01"
+        add_response "0.00"
+      end
+      should "show results" do
+        assert_phrase_list :result_parts, [:result_part2_no_penalty, :result_part_one_year_late]
+        assert_state_variable :late_filing_penalty, 1600
+        assert_state_variable :total_owed, 1600
+      end
+    end
 # #band 4 case 2
 # #10% fine + 1000pounds(previous fine)(band 4), taxdue > 6002pounds
-#     context "10% fine + 1000pounds(previous fine)(band 4), taxdue > 6002pounds" do
-#       setup do
-#         add_response ""
-#         add_response ""
-#         add_response "10000.00"
-#       end
-#       should "show results" do
-#         assert_phrase_list :result_parts, []    
-        
-#         #test also interest
-#       end
-    # end  
+    context "10% fine + 1000pounds(previous fine)(band 4), taxdue > 6002pounds" do
+      setup do
+        add_response "2014-02-01"
+        add_response "2014-02-01"
+        add_response "10000.00"
+      end
+      should "show results" do
+        assert_phrase_list :result_parts, [:result_part2_penalty, :result_part_one_year_late]
+        assert_state_variable :late_filing_penalty, 2000
+        assert_state_variable :estimated_bill, 10000
+        assert_state_variable :interest, 300
+        assert_state_variable :late_payment_penalty, 1500
+        assert_state_variable :total_owed, 13800
+      end
+    end  
   end
 end
 

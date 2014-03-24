@@ -14,7 +14,6 @@ module SmartAnswer::Calculators
       (filing_date <= filing_deadline) && (payment_date <= payment_deadline)
     end
 
-    #updated
     #correct
     def late_filing_penalty
       
@@ -69,7 +68,6 @@ module SmartAnswer::Calculators
       SmartAnswer::Money.new(result)
     end
 
-#updated
   #correct
     def interest
       if overdue_payment_days <= 0
@@ -87,7 +85,6 @@ module SmartAnswer::Calculators
       SmartAnswer::Money.new(total_owed.value + late_filing_penalty.value)
     end
 
-#updated
     #correct 
     def late_payment_penalty
       if overdue_payment_days <= 30
@@ -100,7 +97,6 @@ module SmartAnswer::Calculators
         SmartAnswer::Money.new((late_payment_penalty_part * 3).round(2))
       end
     end
-
 
     def penalty_interest(penalty_date)
       if payment_date > (penalty_date + 30)
@@ -150,9 +146,9 @@ module SmartAnswer::Calculators
       Date.parse(value)
     end
     
-    #calculates interest per day, actual interest is 3% per year
+    #calculates interest per day, interest is 3% per year
     def calculate_interest(amount, number_of_days)
-      (amount * (0.03 / 365) * number_of_days).round(10)
+      (amount * (0.03 / 365) * (number_of_days - 1 )).round(10)
     end
   end
 end
