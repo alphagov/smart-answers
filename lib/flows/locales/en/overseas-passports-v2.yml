@@ -672,24 +672,6 @@ en-GB:
 
           You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
 
-        send_application_ips3_afghanistan_renew_new: |
-          ## Making your application
-
-          You must apply in person. You must bring photo ID with you.
-
-          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
-
-          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
-
-          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
-
-        send_application_ips3_afghanistan_apply_renew_old_replace: |
-          ## Making your application
-
-          You must apply in person. You must bring photo ID with you.
-
-          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
-
         send_application_ips3_bangladesh: |
           ## Making your application
 
@@ -701,7 +683,7 @@ en-GB:
 
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
-        send_application_ips3_burundi_renew_new: |
+        send_application_non_uk_visa_renew_new: |
           ## Making your application
 
           You must apply in person.
@@ -714,7 +696,7 @@ en-GB:
 
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
-        send_application_ips3_burundi_apply_renew_old_replace: |
+        send_application_non_uk_visa_apply_renew_old_replace: |
           ## Making your application
 
           You must apply in person.
@@ -866,13 +848,16 @@ en-GB:
 
         send_application_address_gaza: |
           $A
-          UK Visa Application Centre
-          Al Rasheed Street
+          British Information and Services Office
+          1st Floor, Al-Riyad Tower
+          Jerusalem Street
+          Al-Rimal South
           Gaza
-          The Occupied Palestinian Territories
           $A
           $C
-          Email: <hmpo.enquiry@teleperformance.com>
+          Email: <dljerusalemconsularprotect@fco.gov.uk>  
+          Telephone: +972 (8) 2641456  
+          Fax: +972 (8) 2641457
           $C
 
         send_application_address_kazakhstan: |

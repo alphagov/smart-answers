@@ -254,7 +254,7 @@ outcome :ips_application_result do
   end
 
   precalculate :cost do
-    uk_visa_application_centre_countries = %w(algeria azerbaijan china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand ukraine western-sahara)
+    uk_visa_application_centre_countries = %w(algeria azerbaijan china georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand ukraine western-sahara)
 
     if application_action == 'replacing' and ips_number == '1' and ips_docs_number == '1'
       PhraseList.new(:"passport_courier_costs_replacing_ips#{ips_number}",
@@ -307,13 +307,23 @@ outcome :ips_application_result do
         if passport_data['application_office']
           phrases << :send_application_uk_visa_renew_new << :"send_application_address_#{current_location}"
         else
-          phrases << :"send_application_ips#{ips_number}_#{current_location}_renew_new" << :send_application_embassy_address
+          phrases << :send_application_non_uk_visa_renew_new
+          if %w(gaza).include?(current_location)
+            phrases << :"send_application_address_#{current_location}"
+          else
+            phrases << :send_application_embassy_address
+          end
         end
       else
         if passport_data['application_office']
           phrases << :send_application_uk_visa_apply_renew_old_replace << :"send_application_address_#{current_location}"
         else
-          phrases << :"send_application_ips3_#{current_location}_apply_renew_old_replace" << :send_application_embassy_address
+          phrases << :send_application_non_uk_visa_apply_renew_old_replace
+          if %w(gaza).include?(current_location)
+            phrases << :"send_application_address_#{current_location}"
+          else
+            phrases << :send_application_embassy_address
+          end
         end
       end
     elsif %w(timor-leste).include?(current_location)
@@ -350,7 +360,7 @@ outcome :ips_application_result do
     collect_in_person_countries = %w(angola benin cameroon chad congo eritrea ethiopia gambia ghana guinea jamaica kenya nigeria somalia south-sudan zambia zimbabwe)
     collect_in_person_variant_countries = %w(burundi cambodia india jordan pitcairn-island)
     collect_in_person_renewing_new_variant_countries = %(burma nepal north-korea)
-    uk_visa_application_centre_countries = %w(algeria azerbaijan china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco russia thailand ukraine western-sahara)
+    uk_visa_application_centre_countries = %w(algeria azerbaijan china georgia indonesia kazakhstan laos lebanon mauritania morocco russia thailand ukraine western-sahara)
     uk_visa_application_centre_variant_countries = %w(egypt iraq libya rwanda sierra-leone tunisia uganda yemen)
 
     phrases = PhraseList.new

@@ -375,7 +375,6 @@ gaza:
   type: ips_application_3
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-  application_office: true
 georgia:
   type: ips_application_2
   group: ips_documents_group_2
