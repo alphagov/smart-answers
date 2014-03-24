@@ -111,8 +111,8 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     setup do
       add_response :"2011-12"
       add_response :online
-      add_response "2014-01-31"
-      add_response "2014-01-31"
+      add_response "2014-02-01"
+      add_response "2014-02-01"
       add_response "1000.00"
     end
 
