@@ -82,7 +82,6 @@ date_question :when_submitted? do
   
   calculate :filing_date_formatted do
     Date.parse(filing_date).strftime("%e %B %Y")
-    # puts Date.parse(filing_date).strftime("%e %B %Y")
   end
   
   next_node do |response|
@@ -103,7 +102,6 @@ date_question :when_paid? do
 
 
   next_node do |response|
-    puts filing_date_formatted
     if Date.parse(filing_date) > Date.parse(response)
       raise SmartAnswer::InvalidResponse 
     else

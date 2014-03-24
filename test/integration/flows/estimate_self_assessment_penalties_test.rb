@@ -62,6 +62,15 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
       should "ask when self assessment tax return was submitted" do
         assert_current_node :when_submitted?
       end
+#testing error message 1
+      context "test error if a date before range inserted" do
+        setup do
+          add_response "2013-01-01"
+        end
+        should "raise an error message" do
+          assert_current_node_is_error
+        end
+      end
       
       context "a date before filing deadline" do
         setup do
@@ -70,12 +79,22 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
         should "ask when bill was paid" do
           assert_current_node :when_paid?
         end
+#testing error message 2
 
+        context "test error message for date input before filing date" do
+          setup do
+            add_response "2013-10-09"
+          end
+          should "show filed and paid on time outcome" do
+            assert_current_node_is_error
+          end
+        end
+        
+#testing paid on time        
         context "paid on time" do
           setup do
             add_response "2013-10-11"
           end
-
           should "show filed and paid on time outcome" do
             assert_current_node :filed_and_paid_on_time
           end
