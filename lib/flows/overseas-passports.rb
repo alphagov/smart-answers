@@ -4,6 +4,7 @@ satisfies_need 2820
 
 data_query = Calculators::PassportAndEmbassyDataQuery.new
 exclude_countries = %w(holy-see british-antarctic-territory)
+apply_in_neighbouring_country_countries = %w(british-indian-ocean-territory kyrgyzstan north-korea south-georgia-and-south-sandwich-islands)
 
 
 # Q1
@@ -24,7 +25,7 @@ country_select :which_country_are_you_in?, :exclude_countries => exclude_countri
       :cannot_apply
     elsif %w(the-occupied-palestinian-territories).include?(response)
       :which_opt?
-    elsif %w(british-indian-ocean-territory south-georgia-and-south-sandwich-islands).include?(response)
+    elsif apply_in_neighbouring_country_countries.include?(response)
       :apply_in_neighbouring_country
     else
       :renewing_replacing_applying?
@@ -203,9 +204,7 @@ end
 ## IPS Application Result
 outcome :ips_application_result do
   precalculate :how_long_it_takes do
-    # six_week_only_application_countries = %(belarus georgia russia tajikistan turkmenistan uzbekistan)
-    eight_week_only_application_countries = %(belarus georgia russia tajikistan turkmenistan uzbekistan)
-
+    eight_week_only_application_countries = %w(belarus georgia russia tajikistan turkmenistan uzbekistan)
     six_week_application_countries = %w(mauritania morocco tunisia western-sahara)
     twelve_week_application_countries = %w(cameroon chad djibouti eritrea ethiopia kenya somalia tanzania uganda)
 
@@ -255,66 +254,40 @@ outcome :ips_application_result do
   end
 
   precalculate :cost do
+    uk_visa_application_centre_countries = %w(algeria azerbaijan china georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand ukraine western-sahara)
+
     if application_action == 'replacing' and ips_number == '1' and ips_docs_number == '1'
       PhraseList.new(:"passport_courier_costs_replacing_ips#{ips_number}",
                     :"#{child_or_adult}_passport_costs_replacing_ips#{ips_number}",
                     :"passport_costs_ips#{ips_number}")
     else
       phrases = PhraseList.new
-      if %w(india).include?(current_location)
-        phrases << :passport_courier_costs_ips3_india
-      elsif %w(ukraine nepal).include?(current_location)
-        phrases << :passport_courier_costs_uk_visa
-      elsif %w(thailand).include?(current_location)
-        if %w(renewing_new).include?(application_action)
-          phrases << :passport_courier_costs_ips3_thailand_renewing_new
-        else
-          phrases << :passport_courier_costs_ips3_thailand_apply_renew_old_replace
-        end
-      elsif %w(pitcairn-island).include?(current_location)
-        phrases << :passport_courier_costs_ips3_pitcairn_island
+      if uk_visa_application_centre_countries.include?(current_location)
+        phrases << :"passport_courier_costs_ips#{ips_number}_uk_visa"
+      elsif %w(india pitcairn-island).include?(current_location)
+        phrases << :"passport_courier_costs_ips3_#{current_location}"
       else
         phrases << :"passport_courier_costs_ips#{ips_number}"
       end
-
-      if %w(thailand).include?(current_location) and %w(renewing_new).include?(application_action)
-        phrases << :"#{child_or_adult}_passport_costs_ips3_thailand_renewing_new"
-      else
-        phrases << :"#{child_or_adult}_passport_costs_ips#{ips_number}"
-      end
+      phrases << :"#{child_or_adult}_passport_costs_ips#{ips_number}"
 
       if %w(bangladesh).include?(current_location)
         phrases << :"passport_costs_ips3_cash_or_card_#{current_location}" << :passport_costs_ips3_cash_or_card
-      elsif %w(thailand).include?(current_location)
-        if %w(renewing_new).include?(application_action)
-          phrases << :passport_costs_ips3
-        else
-          phrases << :"passport_costs_ips3_cash_or_card_#{current_location}" << :passport_costs_ips3_cash_or_card
-        end
       elsif data_query.cash_only_countries?(current_location)
-        if current_location == 'north-korea'
-          phrases << :passport_costs_ips_euros
-        else
-          phrases << :passport_costs_ips_cash
-        end
+        phrases << :passport_costs_ips_cash
       else
         phrases << :"passport_costs_ips#{ips_number}"
       end
-
       phrases
     end
   end
 
   precalculate :how_to_apply do
-    send_colour_photocopy_countries = %w(burma china indonesia laos thailand timor-leste)
-
     if passport_data['online_application']
     else
       phrases = PhraseList.new
       phrases <<  :"how_to_apply_ips#{ips_number}"
-      if send_colour_photocopy_countries.include?(current_location) and %w(renewing_new).include?(application_action)
-        phrases << :send_colour_photocopy_bulletpoint
-      elsif %w(pakistan).include?(current_location)
+      if %w(pakistan).include?(current_location)
         phrases << :send_application_ips1_pakistan
       end
       phrases << application_form.to_sym
@@ -324,33 +297,47 @@ outcome :ips_application_result do
   end
 
   precalculate :send_your_application do
+    uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan burundi china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand ukraine western-sahara)
+
     phrases = PhraseList.new
     if application_address
-      phrases << :"send_application_ips#{ips_number}_#{application_address}"
-    elsif %w(gaza).include?(current_location)
-      phrases << :send_application_ips3_gaza
-    elsif %w(afghanistan burundi nepal ukraine).include?(current_location)
+      phrases << :"send_application_#{application_address}"
+    elsif uk_visa_application_centre_countries.include?(current_location)
       if %w(renewing_new).include?(application_action)
-        phrases << :"send_application_ips3_#{current_location}_renew_new"
         if passport_data['application_office']
-          phrases << :"send_application_address_#{current_location}"
+          phrases << :send_application_uk_visa_renew_new << :"send_application_address_#{current_location}"
         else
-          phrases << :send_application_embassy_address
+          phrases << :send_application_non_uk_visa_renew_new
+          if %w(gaza).include?(current_location)
+            phrases << :"send_application_address_#{current_location}"
+          else
+            phrases << :send_application_embassy_address
+          end
         end
       else
-        phrases << :"send_application_ips3_#{current_location}_apply_renew_old_replace"
         if passport_data['application_office']
-          phrases << :"send_application_address_#{current_location}"
+          phrases << :send_application_uk_visa_apply_renew_old_replace << :"send_application_address_#{current_location}"
         else
-          phrases << :send_application_embassy_address
+          phrases << :send_application_non_uk_visa_apply_renew_old_replace
+          if %w(gaza).include?(current_location)
+            phrases << :"send_application_address_#{current_location}"
+          else
+            phrases << :send_application_embassy_address
+          end
         end
       end
+    elsif %w(timor-leste).include?(current_location)
+      phrases << :"send_application_timor-leste_intro"
+      if %w(renewing_new).include?(application_action)
+        phrases << :"send_application_ips#{ips_number}_#{current_location}_renew_new"
+      else
+        phrases << :"send_application_ips3_#{current_location}_apply_renew_old_replace"
+      end
+      phrases << :"send_application_address_#{current_location}"
     elsif %w(bangladesh india pakistan).include?(current_location)
       phrases << :"send_application_ips3_#{current_location}"
       phrases << :send_application_ips3_must_post unless current_location == 'bangladesh'
       phrases << :send_application_embassy_address
-    elsif %w(north-korea thailand).include?(current_location) and %w(renewing_new).include?(application_action)
-      phrases << :"send_application_ips3_#{current_location}_renewing_new"
     elsif general_action == 'renewing' and data_query.renewing_countries?(current_location)
       if passport_data['application_office']
         phrases << :"send_application_address_#{current_location}"
@@ -370,20 +357,35 @@ outcome :ips_application_result do
   end
 
   precalculate :getting_your_passport do
-    collect_in_person_countries = %w(angola benin cambodia cameroon chad congo egypt eritrea ethiopia gambia ghana guinea jamaica kenya nigeria rwanda sierra-leone somalia south-sudan uganda zambia zimbabwe)
-    collect_in_person_variant_countries = %w(burundi india iraq jordan pitcairn-island yemen)
-    collect_in_person_renewing_new_variant_countries = %(burma nepal north-korea ukraine)
+    collect_in_person_countries = %w(angola benin cameroon chad congo eritrea ethiopia gambia ghana guinea jamaica kenya nigeria somalia south-sudan zambia zimbabwe)
+    collect_in_person_variant_countries = %w(burundi cambodia india jordan pitcairn-island)
+    collect_in_person_renewing_new_variant_countries = %(burma nepal north-korea)
+    uk_visa_application_centre_countries = %w(algeria azerbaijan china georgia indonesia kazakhstan laos lebanon mauritania morocco russia thailand ukraine western-sahara)
+    uk_visa_application_centre_variant_countries = %w(egypt iraq libya rwanda sierra-leone tunisia uganda yemen)
 
     phrases = PhraseList.new
-    if collect_in_person_countries.include?(current_location)
+    if uk_visa_application_centre_countries.include?(current_location)
+      phrases << :getting_your_passport_uk_visa_centre
+      if %w(renewing_new).include?(application_action)
+        phrases << :getting_your_passport_contact << :getting_your_passport_id_renew_new
+      else
+        phrases << :getting_your_passport_contact_and_id
+      end
+    elsif uk_visa_application_centre_variant_countries.include?(current_location)
+      phrases << :"getting_your_passport_#{current_location}" << :getting_your_passport_uk_visa_where_to_collect
+      if %w(renewing_new).include?(application_action)
+        phrases << :getting_your_passport_id_renew_new
+      else
+        phrases << :getting_your_passport_id_apply_renew_old_replace
+      end
+    elsif collect_in_person_countries.include?(current_location)
       phrases << :"getting_your_passport_#{current_location}" << :getting_your_passport_contact_and_id
     elsif collect_in_person_variant_countries.include?(current_location)
       if %w(burundi).include?(current_location)
         if %w(renewing_new).include?(application_action)
-          phrases << :getting_your_passport_burundi_renew_new
+          phrases << :"getting_your_passport_#{current_location}_renew_new"
         else
-          phrases << :getting_your_passport_burundi
-          phrases << :getting_your_passport_contact_and_id
+          phrases << :"getting_your_passport_#{current_location}" << :getting_your_passport_contact_and_id
         end
       else
         phrases << :"getting_your_passport_#{current_location}"
@@ -394,12 +396,6 @@ outcome :ips_application_result do
         phrases << :getting_your_passport_id_renew_new
       else
         phrases << :getting_your_passport_id_apply_renew_old_replace
-      end
-    elsif %w(thailand).include?(current_location)
-      if %w(renewing_new).include?(application_action)
-        phrases << :getting_your_passport_thailand_renew_new
-      else
-        phrases << :getting_your_passport_thailand_apply_renew_old_replace
       end
     else
       phrases << :"getting_your_passport_ips#{ips_number}"
@@ -477,7 +473,7 @@ outcome :fco_result do
   end
   precalculate :getting_your_passport do
     location = 'fco'
-    location = current_location if %(burma cambodia congo nepal).include?(current_location)
+    location = current_location if %(cambodia congo nepal).include?(current_location)
     PhraseList.new(:"getting_your_passport_#{location}")
   end
   precalculate :helpline do
@@ -559,4 +555,14 @@ outcome :cannot_apply do
   end
 end
 
-outcome :apply_in_neighbouring_country
+outcome :apply_in_neighbouring_country do
+  precalculate :title_output do
+    location.name
+  end
+
+  precalculate :emergency_travel_help do
+    if %w(kyrgyzstan north-korea).include?(current_location)
+      PhraseList.new(:"emergency_travel_help_#{current_location}")
+    end
+  end
+end

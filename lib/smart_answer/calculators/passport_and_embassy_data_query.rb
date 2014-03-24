@@ -5,12 +5,11 @@ module SmartAnswer::Calculators
 
     FCO_APPLICATIONS_REGEXP = /^(dublin_ireland|hong_kong|madrid_spain|paris_france|pretoria_south_africa|washington_usa|wellington_new_zealand)$/
     IPS_APPLICATIONS_REGEXP = /^ips_application_\d$/
-    NO_APPLICATION_REGEXP = /^(algeria|iran|syria)$/
+    NO_APPLICATION_REGEXP = /^(iran|syria)$/
 
     ALT_EMBASSIES = {
       'benin' =>  'nigeria',
-      'guinea' => 'ghana',
-      'kyrgyzstan' => 'kazakhstan'
+      'guinea' => 'ghana'
     }
 
     RETAIN_PASSPORT_COUNTRIES = %w(angola brazil burundi cuba
@@ -28,9 +27,9 @@ module SmartAnswer::Calculators
       'South African Rand'  => [[2112, 2440], [2549, 2877], [1345, 1673]]
     }
 
-    CASH_ONLY_COUNTRIES = %w(cuba gaza libya mauritania morocco north-korea sudan tunisia venezuela western-sahara)
+    CASH_ONLY_COUNTRIES = %w(cuba sudan venezuela)
 
-    RENEWING_COUNTRIES = %w(azerbaijan belarus cuba georgia kazakhstan kyrgyzstan lebanon libya mauritania morocco russia sudan tajikistan tunisia turkmenistan ukraine uzbekistan western-sahara venezuela zimbabwe)
+    RENEWING_COUNTRIES = %w(belarus burma cuba lebanon libya russia sudan tajikistan tunisia turkmenistan uzbekistan venezuela zimbabwe)
 
     attr_reader :passport_data
 
