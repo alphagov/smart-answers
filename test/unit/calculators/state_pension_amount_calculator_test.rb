@@ -95,12 +95,38 @@ module SmartAnswer::Calculators
           assert_equal 3.67, @calculator.what_you_get
         end
       end
+      
+      should "uprate on or after 8th April 2014" do
+        Timecop.travel(Date.parse("2014-04-08")) do
+          @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+            gender: "male", dob: "1953-04-04", qualifying_years: 29)
+          assert_equal 109.33, @calculator.what_you_get
+          @calculator.qualifying_years = 28
+          assert_equal 105.56, @calculator.what_you_get
+          @calculator.qualifying_years = 27
+          assert_equal 101.79, @calculator.what_you_get
+          @calculator.qualifying_years = 26
+          assert_equal 98.02, @calculator.what_you_get
+          @calculator.qualifying_years = 15
+          assert_equal 56.55, @calculator.what_you_get
+          @calculator.qualifying_years = 10
+          assert_equal 37.70, @calculator.what_you_get
+          @calculator.qualifying_years = 5
+          assert_equal 18.85, @calculator.what_you_get
+          @calculator.qualifying_years = 4
+          assert_equal 15.08, @calculator.what_you_get
+          @calculator.qualifying_years = 2
+          assert_equal 7.54, @calculator.what_you_get
+          @calculator.qualifying_years = 1
+          assert_equal 3.77, @calculator.what_you_get
+        end
+      end
 
       should "use the last rate available" do
         Timecop.travel('2045-01-01') do
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
             gender: "male", dob: "2000-04-04", qualifying_years: 29)
-          assert_equal 110.15, @calculator.current_weekly_rate
+          assert_equal 113.1, @calculator.current_weekly_rate
         end
       end
     end
