@@ -44,7 +44,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
           assert_current_node :ips_application_result
           assert_phrase_list :how_long_it_takes, [:how_long_applying_at_least_6_months, :how_long_it_takes_ips3]
           assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
-          assert_phrase_list :send_your_application, [:send_application_ips3_afghanistan_apply_renew_old_replace, :send_application_embassy_address]
+          assert_phrase_list :send_your_application, [:send_application_non_uk_visa_apply_renew_old_replace, :send_application_embassy_address]
         end
       end
     end
@@ -62,7 +62,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
           assert_state_variable :application_type, 'ips_application_3'
           assert_current_node :ips_application_result
           assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
-          assert_phrase_list :send_your_application, [:send_application_ips3_afghanistan_renew_new, :send_application_embassy_address]
+          assert_phrase_list :send_your_application, [:send_application_non_uk_visa_renew_new, :send_application_embassy_address]
         end
       end
     end
@@ -379,7 +379,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       add_response 'renewing_new'
       add_response 'adult'
       assert_phrase_list :send_your_application,
-        [:send_application_ips3_burundi_renew_new, :send_application_embassy_address]
+        [:send_application_non_uk_visa_renew_new, :send_application_embassy_address]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_burundi_renew_new]
     end
 
@@ -388,7 +388,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_phrase_list :send_your_application, [
-        :send_application_ips3_burundi_apply_renew_old_replace,
+        :send_application_non_uk_visa_apply_renew_old_replace,
         :send_application_embassy_address
       ]
       assert_phrase_list :getting_your_passport, [
@@ -402,7 +402,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_phrase_list :send_your_application, [
-        :send_application_ips3_burundi_apply_renew_old_replace,
+        :send_application_non_uk_visa_apply_renew_old_replace,
         :send_application_embassy_address
       ]
       assert_phrase_list :getting_your_passport, [
@@ -415,7 +415,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       add_response 'replacing'
       add_response 'adult'
       assert_phrase_list :send_your_application, [
-        :send_application_ips3_burundi_apply_renew_old_replace,
+        :send_application_non_uk_visa_apply_renew_old_replace,
         :send_application_embassy_address
       ]
       assert_phrase_list :getting_your_passport, [
