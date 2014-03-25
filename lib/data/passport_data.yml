@@ -9,9 +9,10 @@ albania:
   app_form: hmpo_1_application_form
   online_application: true
 algeria:
-  type: algeria
+  type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
+  application_office: true
 american-samoa:
   type: ips_application_1
   group: ips_documents_group_1
@@ -66,6 +67,7 @@ azerbaijan:
   type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
+  application_office: true
 bahamas:
   type: ips_application_1
   group: ips_documents_group_2
@@ -141,9 +143,9 @@ brazil:
   app_form: hmpo_2_application_form
   online_application: true
 british-indian-ocean-territory:
-  type: ips_application_1
-  group: ips_documents_group_1
-  app_form: hmpo_1_application_form
+  type:
+  group:
+  app_form:
 british-virgin-islands:
   type: ips_application_1
   group: ips_documents_group_2
@@ -165,7 +167,7 @@ burkina-faso:
   app_form: hmpo_1_application_form
   online_application: true
 burma:
-  type: ips_application_1
+  type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
 burundi:
@@ -214,9 +216,10 @@ chile:
   app_form: hmpo_2_application_form
   online_application: true
 china:
-  type: ips_application_1
+  type: ips_application_3
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
+  application_office: true
 colombia:
   type: ips_application_1
   group: ips_documents_group_2
@@ -376,6 +379,7 @@ georgia:
   type: ips_application_2
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
+  application_office: true
 germany:
   type: ips_application_1
   group: ips_documents_group_1
@@ -459,9 +463,10 @@ india:
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
 indonesia:
-  type: ips_application_1
+  type: ips_application_3
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
+  application_office: true
 iran:
   type: ips_application_1
   group: ips_documents_group_3
@@ -510,6 +515,7 @@ kazakhstan:
   type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
+  application_office: true
 kenya:
   type: ips_application_1
   group: ips_documents_group_3
@@ -532,13 +538,14 @@ kuwait:
   app_form: hmpo_1_application_form
   online_application: true
 kyrgyzstan:
+  type:
+  group:
+  app_form:
+laos:
   type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
-laos:
-  type: ips_application_1
-  group: ips_documents_group_3
-  app_form: hmpo_1_application_form
+  application_office: true
 latvia:
   type: ips_application_1
   group: ips_documents_group_1
@@ -548,6 +555,7 @@ lebanon:
   type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
+  application_office: true
 lesotho:
   type: ips_application_1
   group: ips_documents_group_2
@@ -559,9 +567,10 @@ liberia:
   app_form: hmpo_1_application_form
   online_application: true
 libya:
-  type: ips_application_3
+  type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
+  address: belfast
 liechtenstein:
   type: ips_application_1
   group: ips_documents_group_1
@@ -631,6 +640,7 @@ mauritania:
   type: ips_application_2
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
+  application_office: true
 mauritius:
   type: ips_application_1
   group: ips_documents_group_3
@@ -680,6 +690,7 @@ morocco:
   type: ips_application_2
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
+  application_office: true
 mozambique:
   type: ips_application_1
   group: ips_documents_group_3
@@ -732,9 +743,9 @@ nigeria:
   app_form: hmpo_1_application_form
   address: durham
 north-korea:
-  type: ips_application_3
-  group: ips_documents_group_2
-  app_form: hmpo_1_application_form
+  type:
+  group:
+  app_form:
 norway:
   type: ips_application_1
   group: ips_documents_group_1
@@ -780,7 +791,7 @@ philippines:
   app_form: hmpo_1_application_form
   online_application: true
 pitcairn-island:
-  type: ips_application_1
+  type: ips_application_3
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   application_office: true
@@ -813,6 +824,7 @@ russia:
   type: ips_application_2
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
+  application_office: true
 rwanda:
   type: ips_application_1
   group: ips_documents_group_3
@@ -891,9 +903,9 @@ south-africa:
   app_form: hmpo_1_application_form
   online_application: true
 south-georgia-and-south-sandwich-islands:
-  type: ips_application_1
-  group: ips_documents_group_1
-  app_form: hmpo_1_application_form
+  type:
+  group:
+  app_form:
 south-korea:
   type: ips_application_1
   group: ips_documents_group_1
@@ -989,14 +1001,16 @@ thailand:
   type: ips_application_3
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
+  application_office: true
 the-occupied-palestinian-territories:
   type:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
 timor-leste:
-  type: ips_application_1
+  type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
+  application_office: true
 togo:
   type: ips_application_1
   group: ips_documents_group_3
@@ -1013,9 +1027,10 @@ trinidad-and-tobago:
   app_form: hmpo_2_application_form
   online_application: true
 tunisia:
-  type: ips_application_2
+  type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
+  address: belfast
 turkey:
   type: ips_application_1
   group: ips_documents_group_1
@@ -1092,6 +1107,7 @@ western-sahara:
   type: ips_application_2
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
+  application_office: true
 yemen:
   type: ips_application_1
   group: ips_documents_group_3
