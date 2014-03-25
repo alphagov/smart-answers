@@ -17,22 +17,6 @@ calculator_dates = {
     :"2011-12" => Date.new(2013, 1, 31),
     :"2012-13" => Date.new(2014, 1, 31)
   },
-#to be removed
-  # :penalty1date => {
-  #   :"2010-11" => Date.new(2012, 3, 2),
-  #   :"2011-12" => Date.new(2013, 3, 2),
-  #   :"2012-13" => Date.new(2014, 3, 2)
-  # },
-  # :penalty2date => {
-  #   :"2010-11" => Date.new(2012, 8, 2),
-  #   :"2011-12" => Date.new(2013, 8, 2),
-  #   :"2012-13" => Date.new(2014, 8, 2)
-  # },
-  # :penalty3date => {
-  #   :"2010-11" => Date.new(2013, 2, 2),
-  #   :"2011-12" => Date.new(2014, 2, 2),
-  #   :"2012-13" => Date.new(2015, 2, 2)
-  # }
 }
 
 multiple_choice :which_year? do
