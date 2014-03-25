@@ -3,6 +3,7 @@ satisfies_need '100865'
 
 data_query = Calculators::StatePensionTopupDataQuery.new()
 
+#Q1
 date_question :dob_age? do
   from { 101.years.ago }
   to { Date.today }
@@ -13,7 +14,7 @@ date_question :dob_age? do
     dob = Date.parse(response)
 		if (dob < (Date.parse('2015-10-12') - 101.years))
 			:outcome_age_limit_reached_birth
-		elsif (dob > (Date.parse('2017-04-01') - 63.years))
+		elsif (dob > Date.parse('1953-04-06'))
       :outcome_pension_age_not_reached
     else
 			:how_much_extra_per_week?
@@ -21,7 +22,7 @@ date_question :dob_age? do
 	end
 end
 
-
+#Q2
 money_question :how_much_extra_per_week? do
 	save_input_as :money_wanted
   
@@ -34,6 +35,7 @@ money_question :how_much_extra_per_week? do
   next_node :date_of_lump_sum_payment?
 end
 
+#Q3
 date_question :date_of_lump_sum_payment? do
   from { Date.parse('12 Oct 2015') }
   to { Date.parse('01 April 2017') }
@@ -54,6 +56,7 @@ date_question :date_of_lump_sum_payment? do
   end
 end
 
+#Q4
 multiple_choice :gender? do
   option :male
   option :female
@@ -70,8 +73,7 @@ multiple_choice :gender? do
   next_node do |response|
     
     dob = Date.parse(date_of_birth)
-    dop = Date.parse(age_at_date_of_payment)
-    if (response == "male") and ((dop.year - dob.year) < 65)
+    if (response == "male") and (dob > Date.parse('1951-04-06'))
       :outcome_pension_age_not_reached
     else
       :outcome_qualified_for_top_up_calculations
