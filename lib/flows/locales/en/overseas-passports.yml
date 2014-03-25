@@ -239,13 +239,13 @@ en-GB:
         adult_passport_costs_ips1: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Adult standard 32-page passport | £128.00 | £147.86 |
-          | Adult jumbo 48-page passport | £154.50 | £174.36 |
+          | Adult standard 32-page passport | £83.00 | £102.86 |
+          | Adult jumbo 48-page passport | £91.00 | £110.86 |
 
         child_passport_costs_ips1: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Child passport | £81.50 | £101.36 |
+          | Child passport | £53.00 | £72.86 |
 
         passport_courier_costs_replacing_ips1: |
           You’ll have to pay a fee for your passport and a courier fee of £9.70. The courier fee pays for your passport to be sent back to you securely.
@@ -253,13 +253,13 @@ en-GB:
         adult_passport_costs_replacing_ips1: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Adult standard 32-page passport | £128.00 | £137.70 |
-          | Adult jumbo 48-page passport | £154.50 | £164.20 |
+          | Adult standard 32-page passport | £83.00 | £92.70 |
+          | Adult jumbo 48-page passport | £91.00 | £100.70 |
 
         child_passport_costs_replacing_ips1: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Child passport | £81.50 | £91.20 |
+          | Child passport | £53.00 | £62.70 |
 
         passport_costs_ips1: |
           Fill in a [‘Paying by credit card or debit card’ form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
@@ -530,13 +530,13 @@ en-GB:
         adult_passport_costs_ips2: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Adult standard 32-page passport | £128.00 | £152.72 |
-          | Adult jumbo 48-page passport | £154.50 | £179.22 |
+          | Adult standard 32-page passport | £83.00 | £107.72 |
+          | Adult jumbo 48-page passport | £91.00 | £115.72 |
 
         child_passport_costs_ips2: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Child passport | £81.50 | £106.22 |
+          | Child passport | £53.00 | £77.72 |
 
         passport_costs_ips2: |
           Fill in a [‘Paying by credit card or debit card’ form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
@@ -613,13 +613,13 @@ en-GB:
         adult_passport_costs_ips3: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Adult standard 32-page passport | £128.00 | £151.01 |
-          | Adult jumbo 48-page passport | £154.50 | £177.51 |
+          | Adult standard 32-page passport | £83.00 | £106.01 |
+          | Adult jumbo 48-page passport | £91.00 | £114.01 |
 
         child_passport_costs_ips3: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Child passport | £81.50 | £104.51 |
+          | Child passport | £53.00 | £76.01 |
 
         passport_costs_ips3: |
           Fill in a [‘Paying by credit card or debit card’ form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
