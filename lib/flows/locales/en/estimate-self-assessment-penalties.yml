@@ -10,7 +10,7 @@ en-GB:
         - sending your Self Assessment tax return
         - paying your Self Assessment tax bill 
 
-        This calculator doesn’t take account of any partial payments you’ve made towards your tax bill.
+        This calculator doesn’t take account of any partial payments or penalty payments you’ve made towards your tax bill.
       phrases:
         result_part2_no_penalty: |
           | What you said your tax bill was | %{estimated_bill} |
@@ -23,7 +23,10 @@ en-GB:
           | Interest added for paying your bill late | %{interest} |
           | Penalty for paying your bill late | %{late_payment_penalty} |
           | Estimate of the total you owe | %{total_owed} |
-
+          
+        result_part_one_year_late: |
+          Your penalty can be up to 100% of your tax bill if you deliberately don’t pay it.
+          
       which_year?:
         title: For which tax year do you want the estimate?
         options: 
@@ -45,7 +48,7 @@ en-GB:
       when_paid?:
         title: When did you pay the bill?
         hint: If you haven’t paid yet, enter the date you expect HM Revenue & Customs to get your payment
-        error_message: Please enter a date on or after %{start_of_next_tax_year_formatted}
+        error_message: Please enter a date on or after %{filing_date_formatted}
       how_much_tax?:
         title: Please enter how much your tax bill is (or an estimate if you don’t know)
         hint: This calculator is anonymous. None of your details will be passed to HM Revenue & Customs.
@@ -66,3 +69,5 @@ en-GB:
           %{result_parts}
 
           These figures are estimates based on the figures you gave. The total is rounded down to the nearest pound.
+
+          ^You don’t have to pay any penalties unless you're asked to by HMRC. The amount that HMRC asks for might be different than this estimate.^

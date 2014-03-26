@@ -15,16 +15,46 @@ module SmartAnswer::Calculators
     end
 
     def late_filing_penalty
-      if overdue_filing_days <= 0
-        result = 0
-      elsif overdue_filing_days <= 90
-        result = 100
-      elsif overdue_filing_days <= 179
-        result = (overdue_filing_days - 90) * 10 + 100
-      elsif overdue_filing_days <= 364
-        result = 1000 + [300, estimated_bill.value * 0.05].max
-      else
-        result = 1000 + [600, estimated_bill.value * 0.05].max
+      
+      #Less than 6 months
+      if submission_method == "online"
+        if overdue_filing_days <= 89
+          result = 100
+        elsif overdue_filing_days <= 181
+          result = (overdue_filing_days - 89 ) * 10 + 100
+          #this fine can't be more than 1000£
+          if result > 1000
+            result = 1000
+          end
+        end
+      else 
+        if overdue_filing_days <= 92
+          result = 100
+        elsif overdue_filing_days <= 181
+          result = (overdue_filing_days - 92) * 10 + 100
+          #this fine can't be more than 1000£
+          if result > 1000
+            result = 1000
+          end
+        end
+      end
+      
+      #More than 6 months, same for paper and online return
+      if (overdue_filing_days > 181) && (overdue_filing_days <= 365)
+        #if 5% of tax due is higher than 300£ then charge 5% of tax due otherwise charge 300£
+        if estimated_bill.value > 6002
+          result = 1000 + (estimated_bill.value * 0.05)
+        else
+          result = 1000 + 300
+        end
+        #if more than 1 year
+      elsif overdue_filing_days > 365
+        # if 5% of tax due is higher than 300£ then charge 5% of tax due otherwise charge 300£ + all other fines
+        if estimated_bill.value > 6002
+          result = 1000 + (estimated_bill.value * 0.05) + (estimated_bill.value * 0.05)
+        else
+          result = 1000 + 600
+        end
       end
       SmartAnswer::Money.new(result)
     end
@@ -33,8 +63,7 @@ module SmartAnswer::Calculators
       if overdue_payment_days <= 0
         0
       else
-        penalty_interest = penalty_interest(penalty1date) + penalty_interest(penalty2date) + penalty_interest(penalty3date)
-        SmartAnswer::Money.new((calculate_interest(estimated_bill.value, overdue_payment_days) + penalty_interest).round(2))
+        SmartAnswer::Money.new(calculate_interest(estimated_bill.value, overdue_payment_days).round(2))
       end
     end
 
@@ -49,9 +78,9 @@ module SmartAnswer::Calculators
     def late_payment_penalty
       if overdue_payment_days <= 30
         0
-      elsif overdue_payment_days <= 182
+      elsif overdue_payment_days <= 181
         SmartAnswer::Money.new(late_payment_penalty_part.round(2))
-      elsif overdue_payment_days <= 366
+      elsif overdue_payment_days <= 365
         SmartAnswer::Money.new((late_payment_penalty_part * 2).round(2))
       else
         SmartAnswer::Money.new((late_payment_penalty_part * 3).round(2))
@@ -74,7 +103,7 @@ module SmartAnswer::Calculators
     def overdue_payment_days
       (payment_date - payment_deadline).to_i
     end
-
+    
     def late_payment_penalty_part
       0.05 * estimated_bill.value
     end
@@ -102,9 +131,10 @@ module SmartAnswer::Calculators
     def parse_date(value)
       Date.parse(value)
     end
-
+    
+    #interest is 3% per annum
     def calculate_interest(amount, number_of_days)
-      (amount * (0.03 / 365) * number_of_days).round(10)
+      (amount * (0.03 / 365) * (number_of_days - 1 )).round(10)
     end
   end
 end
