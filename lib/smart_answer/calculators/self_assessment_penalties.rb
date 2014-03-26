@@ -14,16 +14,7 @@ module SmartAnswer::Calculators
       (filing_date <= filing_deadline) && (payment_date <= payment_deadline)
     end
 
-    #correct
     def late_filing_penalty
-      
-      #For future possible leap year implementation
-      # leap_day = 0
-      # if Date.today.leap?
-      #   leap_day = 1
-      # else
-      #   leap_day = 0
-      # end
       
       #Less than 6 months
       if submission_method == "online"
@@ -68,7 +59,6 @@ module SmartAnswer::Calculators
       SmartAnswer::Money.new(result)
     end
 
-  #correct
     def interest
       if overdue_payment_days <= 0
         0
@@ -85,7 +75,6 @@ module SmartAnswer::Calculators
       SmartAnswer::Money.new(total_owed.value + late_filing_penalty.value)
     end
 
-    #correct 
     def late_payment_penalty
       if overdue_payment_days <= 30
         0
@@ -115,13 +104,10 @@ module SmartAnswer::Calculators
       (payment_date - payment_deadline).to_i
     end
     
-    #returns the 5% of the tax due 
-    #correct
     def late_payment_penalty_part
       0.05 * estimated_bill.value
     end
 
-    #gets the correct deadline 
     def filing_deadline
       submission_method == "online" ? dates[:online_filing_deadline][tax_year.to_sym] : dates[:offline_filing_deadline][tax_year.to_sym]
     end
@@ -146,7 +132,7 @@ module SmartAnswer::Calculators
       Date.parse(value)
     end
     
-    #calculates interest per day, interest is 3% per year
+    #interest is 3% per annum
     def calculate_interest(amount, number_of_days)
       (amount * (0.03 / 365) * (number_of_days - 1 )).round(10)
     end
