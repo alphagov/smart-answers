@@ -3,7 +3,7 @@ require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 require_relative '../../../lib/smart_answer/date_helper'
 
-class MaternityPaternityCalculatorPaternityV2Test < ActiveSupport::TestCase
+class PaternityCalculatorV2Test < ActiveSupport::TestCase
   include DateHelper
   include FlowTestHelper
 
@@ -15,9 +15,6 @@ class MaternityPaternityCalculatorPaternityV2Test < ActiveSupport::TestCase
     assert_current_node :what_type_of_leave?
   end
 
-  ##
-  ## Paternity flow
-  ##
   context "answer paternity" do
     setup { add_response :paternity }
     context "given the date is April 9th (post 4th April changes)" do
