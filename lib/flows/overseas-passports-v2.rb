@@ -381,11 +381,11 @@ outcome :ips_application_result do
     elsif collect_in_person_countries.include?(current_location)
       phrases << :"getting_your_passport_#{current_location}" << :getting_your_passport_contact_and_id
     elsif collect_in_person_variant_countries.include?(current_location)
-      if %w(burundi).include?(current_location)
+      if %w(burundi cambodia).include?(current_location)
         if %w(renewing_new).include?(application_action)
           phrases << :"getting_your_passport_#{current_location}_renew_new"
         else
-          phrases << :"getting_your_passport_#{current_location}" << :getting_your_passport_contact_and_id
+          phrases << :"getting_your_passport_#{current_location}" ##<< :getting_your_passport_contact_and_id
         end
       else
         phrases << :"getting_your_passport_#{current_location}"

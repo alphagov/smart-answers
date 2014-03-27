@@ -393,7 +393,6 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       ]
       assert_phrase_list :getting_your_passport, [
         :getting_your_passport_burundi,
-        :getting_your_passport_contact_and_id
       ]
     end
 
@@ -407,7 +406,6 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       ]
       assert_phrase_list :getting_your_passport, [
         :getting_your_passport_burundi,
-        :getting_your_passport_contact_and_id
       ]
     end
 
@@ -420,7 +418,6 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       ]
       assert_phrase_list :getting_your_passport, [
         :getting_your_passport_burundi,
-        :getting_your_passport_contact_and_id
       ]
     end
   end # Burundi
@@ -1016,7 +1013,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'renewing_new'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_cambodia]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_cambodia_renew_new]
       end
     end
     context "applying for a new adult passport" do
