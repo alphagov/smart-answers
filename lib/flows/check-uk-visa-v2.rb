@@ -249,6 +249,5 @@ outcome :outcome_visit_waiver do
     end
   end
 end
-outcome_transit_not_leaving_airport
 outcome :outcome_transit_leaving_airport_datv
 outcome :outcome_taiwan_exception
