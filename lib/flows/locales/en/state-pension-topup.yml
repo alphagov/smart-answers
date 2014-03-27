@@ -61,9 +61,7 @@ en-GB:
           Results
         body: |
           
-          To top up your pension by £%{weekly_amount} per week, you need to make a lump sum payment of %{rate_at_time_of_paying}.
-
-          You’ll be able to do this from 12 October 2015.
+          To top up your pension by £%{weekly_amount} per week, on %{date_of_payment} you'll need to make a lump sum payment of %{rate_at_time_of_paying}.
           
           Make sure you’ll get the full [basic State Pension](/state-pension-statement) before making Class 3A contributions.
 
@@ -71,7 +69,7 @@ en-GB:
 
           The contribution amount is an estimate.
 
-          Find out more about [topping up your State Pension](/government/publications/additional-state-pension-top-up#register-your-interest).
+          Find out more about [topping up your State Pension](/government/publications/additional-state-pension-top-up#register-your-interest) and register your interest.
 #outcome A2
       outcome_pension_age_not_reached: 
         title: |

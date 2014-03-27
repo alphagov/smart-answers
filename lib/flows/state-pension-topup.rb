@@ -41,6 +41,10 @@ date_question :date_of_lump_sum_payment? do
   to { Date.parse('01 April 2017') }
 
   save_input_as :age_at_date_of_payment
+  
+  calculate :date_of_payment do
+    Date.parse(responses.last)
+  end
 
   next_node do |response|
     date_paying = Date.parse(response)
@@ -83,9 +87,11 @@ end
 
 #A1
 outcome :outcome_qualified_for_top_up_calculations do
+  
   precalculate :weekly_amount do 
     sprintf("%.0f",money_wanted)
   end
+  
   precalculate :rate_at_time_of_paying do
     money = money_wanted.to_f
     total = data_query.age_and_rates(age_at_date_of_payment) * money
