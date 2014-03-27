@@ -158,7 +158,7 @@ en-GB:
           17-or-over: "17 and over"
       ## Q30
       full_cat_b_licence_trike?:
-        title: Do you already have a full category B car driving licence issued before 19 January 2013?
+        title: Do you already have a full category B car driving licence?
       ## A2
       not_old_enough:
         title: You’re not old enough to drive a car or light vehicle yet.
