@@ -387,38 +387,23 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       add_response 'renewing_old'
       add_response 'adult'
       add_response 'united-kingdom'
-      assert_phrase_list :send_your_application, [
-        :send_application_non_uk_visa_apply_renew_old_replace,
-        :send_application_embassy_address
-      ]
-      assert_phrase_list :getting_your_passport, [
-        :getting_your_passport_burundi,
-      ]
+      assert_phrase_list :send_your_application, [:send_application_non_uk_visa_apply_renew_old_replace, :send_application_embassy_address]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_burundi, :getting_your_passport_contact_and_id]
     end
 
     should "give the correct result when applying for the first time" do
       add_response 'applying'
       add_response 'adult'
       add_response 'united-kingdom'
-      assert_phrase_list :send_your_application, [
-        :send_application_non_uk_visa_apply_renew_old_replace,
-        :send_application_embassy_address
-      ]
-      assert_phrase_list :getting_your_passport, [
-        :getting_your_passport_burundi,
-      ]
+      assert_phrase_list :send_your_application, [:send_application_non_uk_visa_apply_renew_old_replace, :send_application_embassy_address]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_burundi, :getting_your_passport_contact_and_id]
     end
 
     should "give the correct result when replacing lost or stolen passport" do
       add_response 'replacing'
       add_response 'adult'
-      assert_phrase_list :send_your_application, [
-        :send_application_non_uk_visa_apply_renew_old_replace,
-        :send_application_embassy_address
-      ]
-      assert_phrase_list :getting_your_passport, [
-        :getting_your_passport_burundi,
-      ]
+      assert_phrase_list :send_your_application, [:send_application_non_uk_visa_apply_renew_old_replace, :send_application_embassy_address]
+      assert_phrase_list :getting_your_passport, [:getting_your_passport_burundi, :getting_your_passport_contact_and_id]
     end
   end # Burundi
 
@@ -1013,7 +998,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'renewing_new'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_cambodia_renew_new]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_cambodia, :getting_your_passport_uk_visa_where_to_collect, :getting_your_passport_id_renew_new]
       end
     end
     context "applying for a new adult passport" do
@@ -1022,7 +1007,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'adult'
         add_response 'united-kingdom'
         assert_current_node :ips_application_result
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_cambodia]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_cambodia, :getting_your_passport_uk_visa_where_to_collect, :getting_your_passport_id_apply_renew_old_replace]
       end
     end
   end # Cambodia
