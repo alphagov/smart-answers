@@ -195,6 +195,9 @@ value_question :years_paid_ni? do
     calculator.available_years_sum(Integer(responses.last))
   end
   
+  calculate :ni_years_to_date_from_dob do
+    calculator.ni_years_to_date_from_dob - Integer(responses.last)
+  end
 
   next_node do |response|
     ni = Integer(response)
@@ -223,6 +226,10 @@ value_question :years_of_jsa? do
 
   calculate :available_ni_years do
     calculator.available_years_sum(qualifying_years)
+  end
+  
+  calculate :ni_years_to_date_from_dob do
+    calculator.ni_years_to_date_from_dob - Integer(responses.last)
   end
 
   calculate :calc do

@@ -46,11 +46,22 @@ class StatePensionQueryV2 < Struct.new(:dob, :gender)
 
   def pension_dates_dynamic
     [
-      StatePensionDateV2.new(:female, Date.new(1890,01,01), Date.new(1950, 04, 05), 60.years.since(dob)),
-      StatePensionDateV2.new(:male, Date.new(1890,01,01), Date.new(1953, 12, 05), 65.years.since(dob)),
-      StatePensionDateV2.new(:both, Date.new(1954,10,06), Date.new(1968, 04, 05), 66.years.since(dob)),
-      StatePensionDateV2.new(:both, Date.new(1969,04,06), Date.new(1977, 04, 05), 67.years.since(dob)),
-      StatePensionDateV2.new(:both, Date.new(1978,04,06), Date.today + 1, 68.years.since(dob))
+      StatePensionDateV2.new(:female, Date.new(1890,1,1), Date.new(1950, 4, 5), 60.years.since(dob)),
+      StatePensionDateV2.new(:male, Date.new(1890,1,1), Date.new(1953, 12, 5), 65.years.since(dob)),
+      StatePensionDateV2.new(:both, Date.new(1954,10,6), Date.new(1960, 4, 5), 66.years.since(dob)),
+      StatePensionDateV2.new(:both, Date.new(1960,4,6), Date.new(1960, 5, 5), 66.years.since(dob) + 1.month),
+      StatePensionDateV2.new(:both, Date.new(1960,5,6), Date.new(1960, 6, 5), 66.years.since(dob) + 2.months),
+      StatePensionDateV2.new(:both, Date.new(1960,6,6), Date.new(1960, 7, 5), 66.years.since(dob) + 3.months),
+      StatePensionDateV2.new(:both, Date.new(1960,7,6), Date.new(1960, 8, 5), 66.years.since(dob) + 4.months),
+      StatePensionDateV2.new(:both, Date.new(1960,8,6), Date.new(1960, 9, 5), 66.years.since(dob) + 5.months),
+      StatePensionDateV2.new(:both, Date.new(1960,9,6), Date.new(1960, 10, 5), 66.years.since(dob) + 6.months),
+      StatePensionDateV2.new(:both, Date.new(1960,10,6), Date.new(1960, 11, 5), 66.years.since(dob) + 7.months),
+      StatePensionDateV2.new(:both, Date.new(1960,11,6), Date.new(1960, 12, 5), 66.years.since(dob) + 8.months),
+      StatePensionDateV2.new(:both, Date.new(1960,12,6), Date.new(1961, 1, 5), 66.years.since(dob) + 9.months),
+      StatePensionDateV2.new(:both, Date.new(1961,1,6), Date.new(1961, 2, 5), 66.years.since(dob) + 10.months),
+      StatePensionDateV2.new(:both, Date.new(1961,2,6), Date.new(1961, 3, 5), 66.years.since(dob) + 11.months),
+      StatePensionDateV2.new(:both, Date.new(1961,4,6), Date.new(1977, 4, 5), 67.years.since(dob)),
+      StatePensionDateV2.new(:both, Date.new(1978,4,6), Date.today + 1, 68.years.since(dob))
     ]
   end
 

@@ -31,8 +31,8 @@ en-GB:
         carers_allowance_women_hint_q9: Don’t count years before April 2010 when you opted for the reduced National Insurance rate for married women and widows.
         will_reach_pension_age: You’ll reach State Pension age on %{formatted_state_pension_date}.
         have_reached_pension_age: You reached State Pension age on %{formatted_state_pension_date}.
-        pension_credit_future: You may be entitled to receive Pension Credit from %{pension_credit_date}
-        pension_credit_past: You may have been entitled to receive Pension Credit from %{pension_credit_date}
+        pension_credit_future: You may be entitled to receive Pension Credit from %{pension_credit_date}.
+        pension_credit_past: You may have been entitled to receive Pension Credit from %{pension_credit_date}.
         bus_pass: |
           ##Bus pass
           The date you qualify for a bus pass depends on if you live in:
@@ -103,7 +103,7 @@ en-GB:
 
           ^You have already reached State Pension age. You can [claim your State Pension](/state-pension#how-to-claim) if you haven’t already or [defer claiming it](/deferring-state-pension "Deferring your State Pension").^
 
-          Once you claim your State Pension, the Pension Service will work out your full State Pension. This calculator gives you an estimate of your basic State Pension.
+          Once you claim your [State Pension](/state-pension), the Pension Service will work out your full State Pension.
 
           ##Pension Credit
           If you’re on a low income, you might be eligible to claim [Pension Credit](/pension-credit).
@@ -155,6 +155,8 @@ en-GB:
           $C
           The State Pension has changed. When you reach State Pension age you’ll claim the [new State Pension](/new-state-pension).
           $C
+          
+          The estimate of how much you will get is based on the current State Pension rules and will be the least amount you will get under the new State Pension rules.
 
           State Pension | Your results
           - | - 
@@ -208,9 +210,9 @@ en-GB:
           You already have enough qualifying years for the full basic State Pension of £%{weekly_rate} a week.
           $C
 
-          Your State Pension age is %{state_pension_age}
+          Your State Pension age is %{state_pension_age}.
 
-          You’ll reach State Pension age on %{formatted_state_pension_date}
+          You’ll reach State Pension age on %{formatted_state_pension_date}.
 
           [Contact the Future Pension Centre](/future-pension-centre) if you need to check how many qualifying years you have.
 
@@ -241,12 +243,12 @@ en-GB:
 
           ##Your State Pension estimate
 
-          You currently don’t have the 30 qualifying years needed to get a full basic State Pension of £110.15 per week.
+          You currently don’t have the 30 qualifying years needed to get a full basic State Pension of £113.10 per week.
 
           State Pension | Your results
           - | -
           How much per week you may get | £%{pension_amount}
-          Difference to the full basic State Pension of £110.15 | £%{pension_loss}
+          Difference to the full basic State Pension of £113.10 | £%{pension_loss}
 
           How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance) you have.
 
@@ -279,7 +281,7 @@ en-GB:
 
           ##Your State Pension estimate
 
-          You have enough qualifying years to get a full basic State Pension of £110.15 per week.
+          You have enough qualifying years to get a full basic State Pension of £113.10 per week.
 
           How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance) you have.
 
@@ -377,7 +379,7 @@ en-GB:
 
           You can now [claim your State Pension](/state-pension#how-to-claim "Claim your state pension") if you haven't already done so. You need a Government Gateway account to claim online.
 
-          Once you claim your State Pension, the Pension Service will work out your full State Pension. This calculator gives you an estimate of your basic State Pension.
+          Once you claim your State Pension, the Pension Service will work out your full State Pension.
 
           ##Pension Credit
           If you’re on a low income, you might be eligible to claim [Pension Credit](/pension-credit "Pension Credit").

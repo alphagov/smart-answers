@@ -8,8 +8,9 @@ module SmartAnswer::Calculators
     attr_accessor :qualifying_years
 
     PENSION_RATES = [
-      { :min => Date.parse('7 April 2012'), :max => Date.parse('8 April 2013'), :amount => 107.45 },
-      { :min => Date.parse('7 April 2013'), :max => Date.parse('8 April 2014'), :amount => 110.15 }
+      { :min => Date.parse('7 April 2012'), :max => Date.parse('6 April 2013'), :amount => 107.45 },
+      { :min => Date.parse('7 April 2013'), :max => Date.parse('6 April 2014'), :amount => 110.15 },
+      { :min => Date.parse('7 April 2014'), :max => Date.parse('6 April 2015'), :amount => 113.10 }
     ]
 
     def initialize(answers)
@@ -75,7 +76,6 @@ module SmartAnswer::Calculators
     end
 
     def state_pension_age
-      spd = state_pension_date
       syear = state_pension_date.year - dob.year
 
       pension_age = syear.years.since(dob)
