@@ -6,6 +6,16 @@ require 'slimmer/test'
 Capybara.default_driver = :rack_test
 
 require 'capybara/poltergeist'
+
+# This additional configuration is a protective measure while
+# we have invalid ssl certs in the preview environment, it
+# will ignore ssl errors when requesting scripts from
+# assets-origin.preview.*
+#
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, { :phantomjs_options => ['--ignore-ssl-errors=yes'] })
+end
+
 Capybara.javascript_driver = :poltergeist
 
 class ActionDispatch::IntegrationTest
