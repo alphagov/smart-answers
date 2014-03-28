@@ -63,6 +63,7 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
             assert_current_node :outcome_qualified_for_top_up_calculations
             assert_state_variable :rate_at_time_of_paying, 8710.0
             assert_state_variable :age_at_date_of_payment, 66
+            assert_state_variable :date_of_payment, Date.parse('2016-02-02')
             assert_state_variable :weekly_amount, "10"
           end
         end
