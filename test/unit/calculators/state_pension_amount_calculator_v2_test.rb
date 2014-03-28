@@ -45,7 +45,7 @@ module SmartAnswer::Calculators
       end
 
       should "be eligible for state pension on 1 March 2034" do
-        assert_equal Date.parse("2034-03-01"), @calculator.state_pension_date
+        assert_equal Date.parse("2035-03-01"), @calculator.state_pension_date
       end
 
       should "be eligible for three years of credit regardless of benefits claimed" do
@@ -538,6 +538,14 @@ module SmartAnswer::Calculators
             assert_equal 34, @calculator.years_to_pension
           end
         end
+        
+        context "uncapped remaining years test from current date" do
+          should "state the user has 4 remaining_years" do
+            @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
+                gender: "male", dob: "1952-06-07", qualifying_years: 33)
+            assert_equal 4, @calculator.years_to_pension
+          end
+        end
       end
     end
 
@@ -546,8 +554,8 @@ module SmartAnswer::Calculators
         should "be 66 years, date 2029-11-10" do
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
               gender: "male", dob: "1963-11-10", qualifying_years: nil)
-          assert_equal "66 years", @calculator.state_pension_age
-          assert_equal Date.parse("2029-11-10"), @calculator.state_pension_date
+          assert_equal "67 years", @calculator.state_pension_age
+          assert_equal Date.parse("2030-11-10"), @calculator.state_pension_date
         end
 
         should "be 68 years, 2047-04-06" do
@@ -584,8 +592,8 @@ module SmartAnswer::Calculators
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
               gender: "male", dob: "1968-02-29", qualifying_years: nil)
           # assert_equal "65 years, 10 months and 23 days", @calculator.state_pension_age
-          assert_equal "66 years, 1 day", @calculator.state_pension_age
-          assert_equal Date.parse("2034-03-01"), @calculator.state_pension_date
+          assert_equal "67 years, 1 day", @calculator.state_pension_age
+          assert_equal Date.parse("2035-03-01"), @calculator.state_pension_date
         end
 
         should "66 years, 7 months; 2035-05-06" do
@@ -750,6 +758,18 @@ module SmartAnswer::Calculators
       
       should "be 37 years based on birthday having occurred" do
         assert_equal 37, @calculator.ni_years_to_date_from_dob
+      end
+    end
+    
+    context "check correct pension age and date" do
+      setup do
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
+          gender: "male", dob: "7 June 1960", qualifying_years: "20")
+      end
+      
+      should "be 66 years 3 months and 7 September 2026" do
+        assert_equal "66 years, 3 months", @calculator.state_pension_age
+        assert_equal Date.parse("7 September 2026"), @calculator.state_pension_date
       end
     end
     

@@ -76,7 +76,6 @@ module SmartAnswer::Calculators
     end
 
     def state_pension_age
-      spd = state_pension_date
       syear = state_pension_date.year - dob.year
 
       pension_age = syear.years.since(dob)
