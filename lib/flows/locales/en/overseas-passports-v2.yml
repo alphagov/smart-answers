@@ -6,8 +6,6 @@ en-GB:
         description: Renew, replace or apply for an adult or child British passport if you’re living abroad or working overseas - forms, prices, how long it takes
       body: |
         Get the forms, prices and application details you need if you're a British national and you want to renew or apply for a British passport from overseas.
-      devolved_body: |
-        ^From 7 April 2014 the fee for applying for a UK passport from overseas will be [reduced by £45 for adults and £28.50 for children](/government/speeches/reduction-in-passport-fees-for-uk-citizens-overseas).^
       which_country_are_you_in?:
         title: Which country or territory are you in?
       which_opt?:
