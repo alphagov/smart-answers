@@ -8,6 +8,7 @@ multiple_choice :what_is_your_marital_status? do
   option :will_marry_before_specific_date
   option :will_marry_on_or_after_specific_date 
   option :widowed
+  option :divorced
 
   calculate :answers do
     answers = []
@@ -21,7 +22,19 @@ multiple_choice :what_is_your_marital_status? do
     answers
   end
   
-  next_node :when_will_you_reach_pension_age?
+  calculate :result_phrase do
+    if responses.last == "divorced"
+      PhraseList.new(:impossibility_due_to_divorce) #outcome 9
+    end
+  end
+  
+  next_node do |response|
+    if response == "divorced"
+      :final_outcome
+    else
+      :when_will_you_reach_pension_age?
+    end
+  end
 end
 
 # Q2

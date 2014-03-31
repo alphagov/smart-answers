@@ -47,7 +47,7 @@ en-GB:
 
 # Outcome 2
         current_rules_and_additional_pension: |
-          You’ll able to increase the amount of [State Pension](/state-pension) you can get if:
+          You’ll be able to increase the amount of [State Pension](/state-pension) you can get if:
 
           - you don’t qualify for any basic State Pension 
           - your State Pension is £66 or less
@@ -198,6 +198,22 @@ en-GB:
 
           ^Contact the [Pension Service](/contact-pension-service) for help and advice.^
 
+# Outcome 9
+        impossibility_due_to_divorce: |
+        
+          You can’t inherit or increase your pension based on your partner’s National Insurance contributions if: 
+
+          - you’ve divorced your partner
+          - dissolved your civil partnership
+
+          You can still increase your State Pension if:
+
+          - you’re eligible for [National Insurance credits](/national-insurance-credits)  
+          - you make [voluntary National Insurance contributions](/voluntary-national-insurance-contributions)
+
+          ^You can also contribute to [workplace pension](/workplace-pensions) and [personal or private pensions](/personal-pensions-your-rights).^
+
+          ^Contact the [Pension Service](/contact-pension-service) for help and advice.^
 
 #start of smart answer
       title: Your partner’s National Insurance record and your State Pension
@@ -211,15 +227,18 @@ en-GB:
         - your spouse or civil partner’s [National Insurance record](/national-insurance)
 
         ^You’ll need to know when both you and your partner reach State Pension age to use this tool.^
+        
+        ^You can’t increase your State Pension if you’ve divorced your partner or dissolved your civil partnership.^
 
 #Q1
       what_is_your_marital_status?:
         title:  What is your marital status?
         options:
           married: "married or in a civil partnership"
-          will_marry_before_specific_date: "I’ll be married on or before 5 April 2016"
-          will_marry_on_or_after_specific_date: " I’ll be married on or after 6 April 2016"
+          will_marry_before_specific_date: "I’ll be married or in a civil partnership before 5 April 2016"
+          will_marry_on_or_after_specific_date: "I’ll be married or in a civil partnership after 6 April 2016"
           widowed: "widowed"
+          divorced: "divorced or have dissolved your civil partnership"
 #Q2
       when_will_you_reach_pension_age?:
         title:  When will you reach state pension age?
