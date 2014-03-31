@@ -21,14 +21,19 @@ en-GB:
           ^Contact the [Pension Service](/contact-pension-service) for help and advice.^
 # Outcome 1
         current_rules_no_additional_pension: | 
-          You’ll be able to increase the amount of State Pension to £66 per week if:
+          You’ll be able to increase the amount of basic State Pension to £66 per week if 1 of the following apply:
 
           - you don’t qualify for any basic State Pension 
-          - your state pension is £66 or less  
+          - your basic State pension is £66 or less  
 
-          ^This applies to all women but only men born after 6 April 1950.^
+          ^This applies to all women married to men but men married to women, civil partners and married sex sex couples born after 6 April 1950.^
 
-          You’ll get the increase when either you or your partner reach [State Pension age](/calculate-state-pension) and claim state pension, whichever is later.
+          You can’t get the increase if:
+
+          - you’re divorced 
+          - you’ve dissolved your civil partnership.
+
+          You’ll get the increase when either you or your partner reach [State Pension age](/calculate-state-pension), whichever is later.
 
           ##Increase your State Pension 
 
@@ -39,7 +44,7 @@ en-GB:
 
           You can also contribute to [workplace pension](/workplace-pensions) and [personal or private pensions](/personal-pensions-your-rights).
           
-          #If you become widowed
+          #If you become widowed or your civil partner dies
 
           You might be eligible for [Widowed Parent’s Allowance](/widowed-parents-allowance), a [Bereavement payment](/bereavement-payment) or [Bereavement Allowance](/bereavement-allowance) if you hadn’t reached State Pension age.
 
@@ -52,11 +57,11 @@ en-GB:
           - you don’t qualify for any basic State Pension 
           - your State Pension is £66 or less
 
-          ^This applies to all women but only men born after 6 April 1950.^
+          ^This applies to all women married to men but men married to women, civil partners and married sex sex couples born after 6 April 1950.^
 
           Your State Pension can also be increased by substituting your National Insurance record for your spouse or civil partner’s.
 
-          You can also inherit part of your partner’s [protected payment](/new-state-pension/youre-married-or-in-a-civil-partnership).
+          You can also inherit part of your partner’s [Additional State Pension](/additional-state-pension).
 
           You’ll get the increases when you [claim your State Pension.](/state-pension/how-to-claim) 
 
@@ -75,15 +80,21 @@ en-GB:
 
 # Outcome 3
         current_rules_national_insurance_no_state_pension: |
-          You might be able to increase the amount of [State Pension](/state-pension) you can get if:
+          You might be able to increase the amount of [State Pension](/state-pension) you can get.
+          
+          Your spouse or civil partner must have made [National Insurance contributions](/national-insurance) up to 6 April 2016 and 1 of the following must also apply:
 
           - you don’t qualify for any basic State Pension 
-          - your state pension is £66 or less   
-          - your spouse or civil partner made [National Insurance contributions](/national-insurance) up to 6 April 2016
+          - your basic State Pension is £66 or less   
 
           ^This applies to all women but only men born after 6 April 1950.^
 
-          You’ll get the increase when you [claim your State Pension.](/state-pension/how-to-claim)  
+          You can’t get the increase if:
+
+          - you’re divorced 
+          - you’ve dissolved your civil partnership.
+
+          You’ll get the increase when your partner [claims their State Pension.](/state-pension/how-to-claim)  
 
           #Increase your State Pension 
 
@@ -94,7 +105,7 @@ en-GB:
 
           You can also contribute to [workplace pension](/workplace-pensions) and [personal or private pensions](/personal-pensions-your-rights).
           
-          #If you become widowed
+          #If you become widowed or your civil partner dies
 
           You might be eligible for [Widowed Parent’s Allowance](/widowed-parents-allowance), a [Bereavement payment](/bereavement-payment) or [Bereavement Allowance](/bereavement-allowance) if you hadn’t reached State Pension age.
 
@@ -102,19 +113,25 @@ en-GB:
 
 # Outcome 4
         current_rules_national_insurance_and_state_pension: |
-          You’ll might be able to increase the amount of [State Pension](/state-pension) you can get if:
+          You’might be able to increase the amount of [State Pension](/state-pension) you can get if:
 
-          - you don’t qualify for any basic State Pension  
-          - your state pension is £66 or less   
+          - you don’t qualify for any basic State Pension  
+          - your basic State Pension is £66 or less   
           - your spouse or civil partners made [National Insurance contributions](/national-insurance) up to 6 April 2016
 
           ^This applies to all women but only men born after 6 April 1950.^
+
+          You can’t get the increase if:
+
+          - you’re divorced 
+          - you’ve dissolved your civil partnership.
 
           Your State Pension can be increased by substituting your National Insurance record for your spouse or civil partner’s. It can only be increased based on the contributions made up to 6 April 2016.
 
           You can also inherit part of your partner’s [additional state pension](/additional-state-pension/further-information). This will also be based on the contributions to the Additional State Pension up to 6 April 2016.
 
-          You’ll get the increases when you [claim your State Pension.](/state-pension/how-to-claim)   
+          You’ll get the increases when you [claim your State Pension.](/state-pension/how-to-claim)   
+
 
           #Increase your State Pension 
 
@@ -131,7 +148,7 @@ en-GB:
 
 # Outcome 5
         married_woman_no_state_pension: |
-          You might be able to increase your [State Pension](/new-state-pension) if you’re a woman and opted to pay the ‘Reduced Rate Election’ (also known as the Married Woman’s Stamp) within the last 35 years. You would have received the married woman’s lower basic State Pension.
+          You might be able to increase your [State Pension](/new-state-pension) if you’re a woman and opted to pay the ‘Reduced Rate Election’ (also known as the Married Woman’s Stamp) before 1977. 
 
           This meant that you were relying on your husband’s state pension in retirement and: 
 
@@ -145,7 +162,7 @@ en-GB:
            - the full rate of the basic State Pension (if widowed or divorced)
           You’ll get more if your [State Pension](/new-state-pension) is higher under your own National Insurance contributions.
 
-          You’ll get the increase when either you or your partner reach [State Pension age](/calculate-state-pension) and claim state pension, whichever is later.
+          You’ll get the increase when either you or your partner reach [State Pension age](/calculate-state-pension), whichever is later.
 
           #Increase your State Pension 
 
@@ -156,7 +173,7 @@ en-GB:
 
           You can also contribute to [workplace pension](/workplace-pensions) and [personal or private pensions](/personal-pensions-your-rights).
 
-          #If you become widowed
+          #If you become widowed or your civil partner dies
 
           You might be eligible for [Widowed Parent’s Allowance](/widowed-parents-allowance), a [Bereavement payment](/bereavement-payment) or [Bereavement Allowance](/bereavement-allowance) if you hadn’t reached State Pension age.
 
@@ -164,7 +181,7 @@ en-GB:
 
 # Outcome 6 and 7
         married_woman_and_state_pension: |
-          You might be able to increase your [State Pension](/new-state-pension) if you opted to pay the ‘Reduced Rate Election’ (also known as the Married Woman’s Stamp) within the last 35 years. You would have received the married woman’s lower basic State Pension.
+          You might be able to increase your [State Pension](/new-state-pension) if you’re a woman and opted to pay the ‘Reduced Rate Election’ (also known as the Married Woman’s Stamp) before 1977. 
 
           This meant that you were relying on your husband’s state pension in retirement and: 
 
@@ -179,7 +196,7 @@ en-GB:
 
           You’ll get more if your State Pension is higher under your own National Insurance contributions.
           
-          You’ll get the increase when either you or your partner reach [State Pension age](/calculate-state-pension) and claim state pension, whichever is later.
+          You’ll get the increase when either you or your partner reach [State Pension age](/calculate-state-pension), whichever is later.
 
 # Outcome 8
         impossibility_to_increase_pension: |
@@ -193,7 +210,7 @@ en-GB:
           - you make [voluntary National Insurance contributions](/voluntary-national-insurance-contributions)
 
           ^You can also contribute to [workplace pension](/workplace-pensions) and [personal or private pensions](/personal-pensions-your-rights).^
-
+          #If you become widowed or your civil partner dies
           You might be eligible for [Widowed Parent’s Allowance](/widowed-parents-allowance), a [Bereavement payment](/bereavement-payment) or [Bereavement Allowance](/bereavement-allowance) if you haven’t yet reached State Pension age.
 
           ^Contact the [Pension Service](/contact-pension-service) for help and advice.^
@@ -248,7 +265,7 @@ en-GB:
 
 #Q3
       when_will_your_partner_reach_pension_age?:
-        title:  When will your civil partner or spouse reach state pension age?
+        title:  When will your spouse or civil partner reach state pension age?
         options:
           partner_pension_age_before_specific_date: "on or before 5 April 2016"
           partner_pension_age_after_specific_date: "on or after 6 April 2016"
