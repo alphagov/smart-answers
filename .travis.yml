@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+  - 1.9.3-p484
+env:
+  - GOVUK_APP_DOMAIN=test.gov.uk RUBYOPT="-rpsych"
+script:
+  - bundle exec rake
+bundler_args: --without=development
+branches:
+  except:
+    - release
+  notifications:
+    email: false

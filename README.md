@@ -1,6 +1,8 @@
 Smart Answers
 =============
 
+[![Build Status](https://travis-ci.org/alphagov/smart-answers.png)](https://travis-ci.org/alphagov/smart-answers)
+
 Toolkit for building smart answers. Have a look at
 [`test/unit/flow_test.rb`](smart-answers/blob/master/test/unit/flow_test.rb) for example usage.
 
