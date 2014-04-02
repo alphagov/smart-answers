@@ -96,8 +96,8 @@ module SmartAnswer::Calculators
         end
       end
       
-      should "uprate on or after 8th April 2014" do
-        Timecop.travel(Date.parse("2014-04-08")) do
+      should "uprate on or after 7th April 2014" do
+        Timecop.travel(Date.parse("2014-04-07")) do
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
             gender: "male", dob: "1953-04-04", qualifying_years: 29)
           assert_equal 109.33, @calculator.what_you_get
