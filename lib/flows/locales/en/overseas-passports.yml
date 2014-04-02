@@ -6,8 +6,6 @@ en-GB:
         description: Renew, replace or apply for an adult or child British passport if you’re living abroad or working overseas - forms, prices, how long it takes
       body: |
         Get the forms, prices and application details you need if you're a British national and you want to renew or apply for a British passport from overseas.
-      devolved_body: |
-        ^From 7 April 2014 the fee for applying for a UK passport from overseas will be [reduced by £45 for adults and £28.50 for children](/government/speeches/reduction-in-passport-fees-for-uk-citizens-overseas).^
       which_country_are_you_in?:
         title: Which country or territory are you in?
       which_opt?:
@@ -239,13 +237,13 @@ en-GB:
         adult_passport_costs_ips1: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Adult standard 32-page passport | £128.00 | £147.86 |
-          | Adult jumbo 48-page passport | £154.50 | £174.36 |
+          | Adult standard 32-page passport | £83.00 | £102.86 |
+          | Adult jumbo 48-page passport | £91.00 | £110.86 |
 
         child_passport_costs_ips1: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Child passport | £81.50 | £101.36 |
+          | Child passport | £53.00 | £72.86 |
 
         passport_courier_costs_replacing_ips1: |
           You’ll have to pay a fee for your passport and a courier fee of £9.70. The courier fee pays for your passport to be sent back to you securely.
@@ -253,13 +251,13 @@ en-GB:
         adult_passport_costs_replacing_ips1: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Adult standard 32-page passport | £128.00 | £137.70 |
-          | Adult jumbo 48-page passport | £154.50 | £164.20 |
+          | Adult standard 32-page passport | £83.00 | £92.70 |
+          | Adult jumbo 48-page passport | £91.00 | £100.70 |
 
         child_passport_costs_replacing_ips1: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Child passport | £81.50 | £91.20 |
+          | Child passport | £53.00 | £62.70 |
 
         passport_costs_ips1: |
           Fill in a [‘Paying by credit card or debit card’ form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
@@ -426,11 +424,11 @@ en-GB:
         getting_your_passport_burundi_renew_new: |
           Your passport will be delivered to the British Embassy Liaison Office in Bujumbura, Burundi - you must collect it in person.
 
-          They will contact you - using the details on your application form - when your passport is ready to collect. You must bring your existing passport as photo ID.
-        getting_your_passport_cambodia: |
-          Your passport will be delivered to the UK Visa Application Centre in Phnom Penh - you must collect it in person.
+          They will contact you - using the details on your application form - when your passport is ready to collect.
 
-          They will contact you with details of where to collect your passport when it arrives, using the contact details you provided on your form.
+          You must bring your existing passport as photo ID.
+        getting_your_passport_cambodia: |
+          Your passport and supporting documents will be delivered to the UK Visa Application Centre in Phnom Penh - you must collect them in person.
         getting_your_passport_egypt: |
           Your passport and supporting documents will be delivered to the UK Visa Application Centre in Cairo - you must collect them in person.
         getting_your_passport_libya: |
@@ -530,13 +528,13 @@ en-GB:
         adult_passport_costs_ips2: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Adult standard 32-page passport | £128.00 | £152.72 |
-          | Adult jumbo 48-page passport | £154.50 | £179.22 |
+          | Adult standard 32-page passport | £83.00 | £107.72 |
+          | Adult jumbo 48-page passport | £91.00 | £115.72 |
 
         child_passport_costs_ips2: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Child passport | £81.50 | £106.22 |
+          | Child passport | £53.00 | £77.72 |
 
         passport_costs_ips2: |
           Fill in a [‘Paying by credit card or debit card’ form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
@@ -613,13 +611,13 @@ en-GB:
         adult_passport_costs_ips3: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Adult standard 32-page passport | £128.00 | £151.01 |
-          | Adult jumbo 48-page passport | £154.50 | £177.51 |
+          | Adult standard 32-page passport | £83.00 | £106.01  |
+          | Adult jumbo 48-page passport | £91.00 | £114.01 |
 
         child_passport_costs_ips3: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
-          | Child passport | £81.50 | £104.51 |
+          | Child passport | £53.00 | £76.01 |
 
         passport_costs_ips3: |
           Fill in a [‘Paying by credit card or debit card’ form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
@@ -903,7 +901,7 @@ en-GB:
           $A
           UK Visa Application Centre
           12 Rue Al Koufa,
-          Av Moulay Youssed
+          Av Moulay Youssef
           Rabat
           Morocco
           $A
@@ -915,7 +913,7 @@ en-GB:
           $A
           UK Visa Application Centre
           12 Rue Al Koufa,
-          Av Moulay Youssed
+          Av Moulay Youssef
           Rabat
           Morocco
           $A
@@ -1030,7 +1028,7 @@ en-GB:
           $A
           UK Visa Application Centre
           12 Rue Al Koufa,
-          Av Moulay Youssed
+          Av Moulay Youssef
           Rabat
           Morocco
           $A
