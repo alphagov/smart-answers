@@ -1,6 +1,20 @@
 en-GB:
   flow:
     state-pension-through-partner:
+      title: Your partner’s National Insurance record and your State Pension
+      meta:
+        description: You may be able to increase your State Pension based on the National Insurance record of your spouse or civil partner 
+
+      body: |
+        You might be able to increase the amount you get for your [basic State Pension](/state-pension) or [new State Pension](/new-state-pension) depending on:
+
+        - when you reach [State Pension age](/calculate-state-pension)
+        - your spouse or civil partner’s [National Insurance record](/national-insurance)
+
+        ^You’ll need to know when both you and your partner reach State Pension age to use this tool.^
+
+        ^You can’t increase your State Pension if you’ve divorced your partner or dissolved your civil partnership.^
+
       phrases:
         inherit_part_pension: |
           You can also inherit part of your partner’s [Additional State Pension](/additional-state-pension/further-information). This will also be based on the contributions to the Additional State Pension up to 6 April 2016.
@@ -26,7 +40,7 @@ en-GB:
           - you don’t qualify for any basic State Pension 
           - your basic State pension is £66 or less  
 
-          ^This applies to all women married to men but men married to women, civil partners and married sex sex couples born after 6 April 1950.^
+          ^This applies to all women married to men but men married to women, civil partners and married same sex couples born after 6 April 1950.^
 
           You can’t get the increase if:
 
@@ -43,7 +57,7 @@ en-GB:
           - you make [voluntary National Insurance contributions](/voluntary-national-insurance-contributions)
 
           You can also contribute to [workplace pension](/workplace-pensions) and [personal or private pensions](/personal-pensions-your-rights).
-          
+
           #If you become widowed or your civil partner dies
 
           You might be eligible for [Widowed Parent’s Allowance](/widowed-parents-allowance), a [Bereavement payment](/bereavement-payment) or [Bereavement Allowance](/bereavement-allowance) if you hadn’t reached State Pension age.
@@ -57,7 +71,7 @@ en-GB:
           - you don’t qualify for any basic State Pension 
           - your State Pension is £66 or less
 
-          ^This applies to all women married to men but men married to women, civil partners and married sex sex couples born after 6 April 1950.^
+          ^This applies to all women married to men but men married to women, civil partners and married same sex couples born after 6 April 1950.^
 
           Your State Pension can also be increased by substituting your National Insurance record for your spouse or civil partner’s.
 
@@ -104,7 +118,7 @@ en-GB:
           - you make [voluntary National Insurance contributions](/voluntary-national-insurance-contributions)
 
           You can also contribute to [workplace pension](/workplace-pensions) and [personal or private pensions](/personal-pensions-your-rights).
-          
+
           #If you become widowed or your civil partner dies
 
           You might be eligible for [Widowed Parent’s Allowance](/widowed-parents-allowance), a [Bereavement payment](/bereavement-payment) or [Bereavement Allowance](/bereavement-allowance) if you hadn’t reached State Pension age.
@@ -131,7 +145,6 @@ en-GB:
           You can also inherit part of your partner’s [additional state pension](/additional-state-pension/further-information). This will also be based on the contributions to the Additional State Pension up to 6 April 2016.
 
           You’ll get the increases when you [claim your State Pension.](/state-pension/how-to-claim)   
-
 
           #Increase your State Pension 
 
@@ -195,7 +208,7 @@ en-GB:
            - the full rate of the basic State Pension (if widowed or divorced)
 
           You’ll get more if your State Pension is higher under your own National Insurance contributions.
-          
+
           You’ll get the increase when either you or your partner reach [State Pension age](/calculate-state-pension), whichever is later.
 
 # Outcome 8
@@ -231,21 +244,6 @@ en-GB:
           ^You can also contribute to [workplace pension](/workplace-pensions) and [personal or private pensions](/personal-pensions-your-rights).^
 
           ^Contact the [Pension Service](/contact-pension-service) for help and advice.^
-
-#start of smart answer
-      title: Your partner’s National Insurance record and your State Pension
-      meta:
-        description: You may be able to increase your State Pension based on the National Insurance record of your spouse or civil partner 
-
-      body: |
-        You might be able to increase the amount you get for your [basic State Pension](/state-pension) or [new State Pension](/new-state-pension) depending on:
-
-        - when you reach [State Pension age](/calculate-state-pension)
-        - your spouse or civil partner’s [National Insurance record](/national-insurance)
-
-        ^You’ll need to know when both you and your partner reach State Pension age to use this tool.^
-        
-        ^You can’t increase your State Pension if you’ve divorced your partner or dissolved your civil partnership.^
 
 #Q1
       what_is_your_marital_status?:
