@@ -10,7 +10,7 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
   setup do
     setup_for_testing_flow 'state-pension-through-partner'
   end
-
+  
   context "old1 - married" do
     setup { add_response "married" }
     should "ask when will reach pension age" do
@@ -23,7 +23,6 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
         assert_current_node :when_will_your_partner_reach_pension_age?
       end
 
-      # WORKING 
       context "old3 - before specific date" do
         setup { add_response "partner_pension_age_before_specific_date" }
         should "go to final_outcome" do
@@ -53,6 +52,14 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
           assert_phrase_list :result_phrase , [:impossibility_to_increase_pension]
         end
       end
+    end
+  end
+  
+  context "divorced" do
+    setup { add_response "divorced" }
+    should "bring you to divorced outcome" do
+      assert_current_node :final_outcome
+      assert_phrase_list :result_phrase , [:impossibility_due_to_divorce]
     end
   end
   
