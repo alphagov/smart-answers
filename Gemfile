@@ -9,9 +9,7 @@ gem 'rails-i18n'
 gem 'json'
 gem 'plek', '1.7.0'
 gem 'govuk_frontend_toolkit', '0.32.2'
-gem 'aws-ses', :require => 'aws/ses' # Needed by exception_notification
 gem 'airbrake', '3.1.15'
-gem 'exception_notification', '2.6.1'
 gem 'logstasher', '0.4.8'
 
 if ENV['API_DEV']
