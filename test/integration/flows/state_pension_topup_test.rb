@@ -97,7 +97,23 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
       end
     end
   end
-  
+
+  context "Female, dob 22/03/53 can reach outcome" do
+    setup do
+      add_response Date.parse('1953-03-22')
+      add_response 25
+      add_response Date.parse('2015-10-12')
+      add_response :female
+    end 
+    should "bring you to final result outcome" do
+      assert_current_node :outcome_qualified_for_top_up_calculations
+      assert_state_variable :rate_at_time_of_paying, 23350.0
+      assert_state_variable :age_at_date_of_payment, 62
+      assert_state_variable :weekly_amount, "25"
+    end
+  end
+
+
   context "Check if a 63 years WOMAN is allowed to use the tool" do
     setup do
       add_response Date.parse('1953-02-02')
