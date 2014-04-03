@@ -7,15 +7,15 @@ multiple_choice :were_you_or_your_partner_born_on_or_before_6_april_1935? do
 
 
   calculate :is_before_april_changes do
-    Date.today < Date.civil(2013, 04, 06)
+    Date.today < Date.civil(2014, 04, 06)
   end
 
   calculate :personal_allowance do
-    is_before_april_changes ? 8105 : 9440
+    is_before_april_changes ? 9440 : 10000
   end
 
   calculate :earner_limit do
-    is_before_april_changes ? 25400.0 : 26100.0
+    is_before_april_changes ? 26100.0 : 27000.0
   end
 
   calculate :age_related_allowance_chooser do
@@ -28,9 +28,9 @@ multiple_choice :were_you_or_your_partner_born_on_or_before_6_april_1935? do
 
   calculate :calculator do
     MarriedCouplesAllowanceCalculator.new(
-      maximum_mca: (is_before_april_changes ? 7705 : 7915),
-      minimum_mca: (is_before_april_changes ? 2960 : 3040),
-      income_limit: (is_before_april_changes ?  25400 : 26100),
+      maximum_mca: (is_before_april_changes ? 7915 : 8165),
+      minimum_mca: (is_before_april_changes ? 3040 : 3140),
+      income_limit: (is_before_april_changes ? 26100 : 27000),
       personal_allowance: personal_allowance,
       validate_income: false
     )
@@ -76,7 +76,7 @@ money_question :whats_the_husbands_income? do
   end
 
   next_node do |response|
-    limit = (is_before_april_changes ? 25400.0 : 26100.0)
+    limit = (is_before_april_changes ? 26100.0 : 27000.0)
     if response.to_f >= limit
       :paying_into_a_pension?
     else
@@ -93,7 +93,7 @@ money_question :whats_the_highest_earners_income? do
   end
 
   next_node do |response|
-    limit = (is_before_april_changes ? 25400.0 : 26100.0)
+    limit = (is_before_april_changes ? 26100.0 : 27000.0)
     if response.to_f >= limit
       :paying_into_a_pension?
     else
