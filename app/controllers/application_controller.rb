@@ -12,8 +12,8 @@ protected
   def error_503(e = nil); error(503, e); end
 
   def error(status_code, exception = nil)
-    if exception and Rails.application.config.middleware.detect{ |x| x.klass == ExceptionNotifier }
-      ExceptionNotifier::Notifier.exception_notification(request.env, exception).deliver
+    if exception and defined? Airbrake
+      env["airbrake.error_id"] = notify_airbrake(exception)
     end
     render :status => status_code, :text => "#{status_code} error"
   end
