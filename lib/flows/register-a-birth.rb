@@ -247,7 +247,7 @@ outcome :embassy_result do
     end
   end
   precalculate :overseas_passports_embassies do
-    if organisations
+    if organisations and organisations.any?
       service_title = 'Births and Deaths registration service'
       if registration_country == 'united-arab-emirates'
         all_offices = []
