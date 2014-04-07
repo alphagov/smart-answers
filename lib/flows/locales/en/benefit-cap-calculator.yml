@@ -8,6 +8,8 @@ en-GB:
         There’s a limit on the total amount of benefits that most people aged 16 to 64 can get. This is called the [benefit cap](/benefit-cap).
 
         This calculator gives an estimate of how much your benefit might be capped.
+        
+        ^You can't check if you're affected by the benefit cap if you're claiming [Universal Credit](/universal-credit).^
 
         You’ll need to know the amounts of each benefit you get to use the calculator and the number of people in your household.
 
@@ -26,8 +28,10 @@ en-GB:
           - Employment and Support Allowance (support component)
           - War Widow’s or War Widower’s Pension
           - Working Tax Credit
+          - Armed Forces Compensation Scheme 
+          - Armed Forces Independence Payment
 
-          You may be affected by the cap if you’re circumstances change.
+          You may be affected by the cap if your circumstances change.
           
           Contact the Department for Work and Pensions if you need further help:
         outcome_not_affected_no_housing_benefit_phrase: |
@@ -63,7 +67,7 @@ en-GB:
 
           Total amount of benefits affected by cap: £%{total_benefits}
 
-          As this amount is less than your benefit cap of £%{benefit_cap}, your benefits won’t change.
+          As this amount is lower than your benefit cap of £%{benefit_cap}, your benefits won’t change.
 
           This is an estimate only. Contact the Department for Work and Pensions if you need further help.
         outcome_not_affected_phrase: |
@@ -98,7 +102,8 @@ en-GB:
           - Personal Independence Payment
           - Employment and Support Allowance (support component)
           - War Widow’s or War Widower’s Pension
-          - Working Tax Credit
+          - Armed Forces Compensation Scheme
+          - Armed Forces Independence Payment 
 
 # Q4
       receiving_non_exemption_benefits?:
