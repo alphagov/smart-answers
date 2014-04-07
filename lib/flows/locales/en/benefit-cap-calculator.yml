@@ -19,6 +19,8 @@ en-GB:
         "no": "No"
 
       phrases:
+        housing_benefit_not_zero: |
+          Your Housing Benefit won’t be reduced to 0. You need to be getting some Housing Benefit to be eligible for other services.
         estimate_only: |
           This is an estimate only. Contact the Department for Work and Pensions if you need further help.
         
