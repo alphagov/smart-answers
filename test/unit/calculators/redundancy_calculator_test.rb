@@ -19,8 +19,18 @@ module SmartAnswer::Calculators
       end
     end
 
+    context "amounts for the redundancy date" do
+      should "vary the rate per year" do
+        assert_equal 430, RedundancyCalculator.redundancy_rate(Date.new(2013,01,01))
+        assert_equal 430, RedundancyCalculator.redundancy_rate(Date.new(2013,01,31))
+        assert_equal 450, RedundancyCalculator.redundancy_rate(Date.new(2013,02,01))
+        assert_equal 450, RedundancyCalculator.redundancy_rate(Date.new(2014,04,05))
+        assert_equal 464, RedundancyCalculator.redundancy_rate(Date.new(2014,04,06))
+        assert_equal 464, RedundancyCalculator.redundancy_rate(Date.new(Date.today.year,12,31))
+      end
+    end
     context "use correct weekly pay and number of years limits" do
-      
+
       # Aged 45, 12 years service, 350 per week
       should "be 4900" do
         @calculator = RedundancyCalculator.new(430, "45", 12, 350)
@@ -73,7 +83,7 @@ module SmartAnswer::Calculators
         assert_equal 4725, @calculator.pay
         assert_equal 10.5, @calculator.number_of_weeks_entitlement
       end
-      
+
       should "be 13.5 times the weekly pay for a 34 year old with 15 years of service" do
         @calculator = RedundancyCalculator.new(430, "34", 15, 386)
         assert_equal 5211, @calculator.pay
