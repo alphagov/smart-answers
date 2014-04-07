@@ -537,13 +537,11 @@ module SmartAnswer::Calculators
                 gender: "male", dob: "1978-11-03", qualifying_years: 13)
             assert_equal 34, @calculator.years_to_pension
           end
-        end
-        
-        context "uncapped remaining years test from current date" do
-          should "state the user has 4 remaining_years" do
+          
+          should "state the user has 5 remaining_years" do
             @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
                 gender: "male", dob: "1952-06-07", qualifying_years: 33)
-            assert_equal 4, @calculator.years_to_pension
+            assert_equal 5, @calculator.years_to_pension
           end
         end
       end

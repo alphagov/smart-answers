@@ -1014,15 +1014,20 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
       assert_phrase_list :result_text, [:too_few_qy_not_enough_remaining_years, :automatic_years_phrase]
     end
     
-    should "show results for before April 2016 with enough years" do
-      add_response :male
-      add_response Date.parse('1 Jan 1950')
-      add_response 29
-      add_response 0
-      add_response 'no'
-      add_response 0
-      assert_current_node :amount_result
-      assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years, :automatic_years_phrase]
+    context "setup a date before 2016" do
+      setup do
+       Timecop.travel('2013-07-05')
+      end
+      should "show results for before April 2016 with enough years" do
+        add_response :male
+        add_response Date.parse('1 Jan 1950')
+        add_response 29
+        add_response 0
+        add_response 'no'
+        add_response 0
+        assert_current_node :amount_result
+        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years, :automatic_years_phrase]
+      end
     end
   end #amount calculation
 end #ask which calculation
