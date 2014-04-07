@@ -335,7 +335,7 @@ end
 outcome :outcome_affected_greater_than_cap do
   
   precalculate :outcome_phrase do
-    PhraseList.new(:outcome_affected_greater_than_cap_phrase, :contact_details)
+    PhraseList.new(:outcome_affected_greater_than_cap_phrase, :estimate_only, :contact_details)
   end
   
   precalculate :total_benefits do
@@ -357,7 +357,7 @@ outcome :outcome_affected_greater_than_cap do
     end
     amount
   end
-  
+
 end
 
 ## Outcome 4

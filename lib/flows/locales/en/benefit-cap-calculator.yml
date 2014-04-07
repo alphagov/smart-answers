@@ -17,7 +17,11 @@ en-GB:
       options:
         "yes": "Yes"
         "no": "No"
+
       phrases:
+        estimate_only: |
+          This is an estimate only. Contact the Department for Work and Pensions if you need further help.
+        
         outcome_not_affected_exemptions_phrase: |
           These benefits are exempt from the benefit cap: 
 
@@ -32,34 +36,37 @@ en-GB:
           - Armed Forces Independence Payment
 
           You may be affected by the cap if your circumstances change.
-          
+        
           Contact the Department for Work and Pensions if you need further help:
         outcome_not_affected_no_housing_benefit_phrase: |
           You aren’t affected by the benefit cap if you’re not claiming Housing Benefit. You might be affected by the cap if you start claiming Housing Benefit.
           
           Contact the Department for Work and Pensions if you need further help:
         outcome_affected_greater_than_cap_phrase: |
+
+
           This means your Housing Benefit will now be: £%{new_housing_benefit}.
-          
+
           ##How this is worked out
 
           The benefits you get are added together. The total amount of benefits over your benefit cap is subtracted from your Housing Benefit:
-
-          **Total amount of benefits affected by cap:** £%{total_benefits}
+          
+          Total amount of benefits affected by cap: £%{total_benefits}
 
           Your Housing Benefit is reduced by the amount you are over your benefit cap of £%{benefit_cap}:
 
-          **Total benefits affected:** £%{total_benefits}  
-          **Minus benefit cap:** £%{benefit_cap}
+          Total benefits affected: £%{total_benefits}
+          
+          Minus benefit cap: £%{benefit_cap}
+          
+          Total over cap: £%{total_over_cap}
 
-          **Total over cap:** £%{total_over_cap}
+          Housing benefit: £%{housing_benefit_amount}
+          
+          Minus total over cap: £%{total_over_cap}
 
-          **Housing benefit:** %{housing_benefit_amount}  
-          **Minus total over cap:** £%{total_over_cap}
+          New Housing Benefit amount: £%{new_housing_benefit}
 
-          **New Housing Benefit amount:** £%{new_housing_benefit} 
-
-          This is an estimate only. Contact the Department for Work and Pensions if you need further help.
         outcome_not_affected_less_than_cap_phrase: |
           ##How this is worked out
 
