@@ -176,7 +176,7 @@ module SmartAnswer::Calculators
         dob = Date.civil(22.years.ago.year,7,6).to_s
         @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
           gender: "female", dob: dob, qualifying_years: nil)
-        assert_equal 2, @calculator.available_years
+        assert_equal 3, @calculator.available_years
       end
 
       should "return ni_years_to_date = 2" do
@@ -231,8 +231,8 @@ module SmartAnswer::Calculators
             gender: "male", dob: dob, qualifying_years: nil)
         end
 
-        should "available_years = 7" do
-          assert_equal 7, @calculator.available_years
+        should "available_years = 6" do
+          assert_equal 6, @calculator.available_years
         end
       end
 
@@ -244,9 +244,9 @@ module SmartAnswer::Calculators
             gender: "female", dob: dob, qualifying_years: 10)
         end
 
-        should "available_years = 13; available_years_sum = 3" do
-          assert_equal 13, @calculator.available_years
-          assert_equal 3, @calculator.available_years_sum
+        should "available_years = 12; available_years_sum = 3" do
+          assert_equal 12, @calculator.available_years
+          assert_equal 2, @calculator.available_years_sum
         end
 
         should "has_available_years? return true" do

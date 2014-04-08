@@ -193,7 +193,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         end
 
         should "ask for years paid ni" do
-          assert_state_variable :available_ni_years, 45
+          assert_state_variable :ni_years_to_date_from_dob, 45
           assert_current_node :years_paid_ni?
         end
       end
@@ -205,7 +205,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         end
 
         should "ask for years paid ni" do
-          assert_state_variable :available_ni_years, 25
+          assert_state_variable :ni_years_to_date_from_dob, 25
           assert_current_node :years_paid_ni?
         end
       end
@@ -253,11 +253,41 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
                 setup do
                   add_response 4
                 end
-
-                should "go to amount_result" do
-                  assert_state_variable "qualifying_years_total", 30
-                  assert_current_node :amount_result
+                
+                should "ask for years of additional benefits" do
+                  assert_current_node :years_of_caring?
                 end
+                
+                context "2 years of additional benefits" do
+                  setup do
+                    add_response 2
+                  end
+                  
+                  should "ask years of carer's allowance" do
+                    assert_current_node :years_of_carers_allowance?
+                  end
+                  
+                  context "2 years of carer's allowance" do
+                    setup do
+                      add_response 2
+                    end
+                    
+                    should "ask years of work between 16 and 19" do
+                      assert_current_node :years_of_work?
+                    end
+                    
+                    context "0 years of work between 16 and 19" do
+                      setup do
+                        add_response 0
+                      end
+                      
+                      should "go to amount_result" do
+                        assert_state_variable "qualifying_years_total", 34
+                        assert_current_node :amount_result
+                      end
+                    end
+                  end # 2 years of carer's allowance
+                end # 2 years additional benefit
               end # 4 years of child benefit
 
               should "error on text entry" do
@@ -432,11 +462,6 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
             assert_current_node_is_error
           end
 
-          should "show result if 17 years entered" do
-            add_response 17
-            assert_current_node :amount_result
-          end
-
           context "2 years of benefit" do
             setup {add_response 2}
 
@@ -454,10 +479,12 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
           add_response Date.parse('1962-03-06')
           add_response 20
           add_response 7
+          add_response "yes"
+          add_response 5
         end
 
         should "display result because of starting credits" do
-          assert_state_variable :qualifying_years_total, 30
+          assert_state_variable :qualifying_years_total, 35
           assert_current_node :amount_result
           assert_phrase_list :automatic_credits, [:automatic_credits]
         end
@@ -467,9 +494,11 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
           add_response Date.parse('1957-04-06')
           add_response 28
           add_response 1
+          add_response "no"
+          add_response 3
         end
         should "display result because of starting credits" do
-          assert_state_variable :qualifying_years_total, 30
+          assert_state_variable :qualifying_years_total, 32
           assert_current_node :amount_result
           assert_phrase_list :automatic_credits, [:automatic_credits]
         end
@@ -518,8 +547,8 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         end
 
         should "ask for number of years paid NI" do
-          assert_state_variable "remaining_years", 17
-          assert_state_variable "available_ni_years", 31
+          assert_state_variable :remaining_years, 17
+          assert_state_variable :ni_years_to_date_from_dob, 31
           assert_current_node :years_paid_ni?
         end
 
@@ -601,8 +630,18 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
               add_response :no
             end
 
-            should "go to amount_result" do
+            should "go to years_of_work" do
               assert_current_node :years_of_work?
+            end
+            
+            context "no years of work between 16 and 19" do
+              setup do
+                add_response 0
+              end
+              
+              should "go to outcome" do
+                assert_current_node :amount_result
+              end
             end
           end
 
@@ -619,9 +658,14 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         end
 
         context "enough qualifying years" do
-          should "get to amount benefit" do
+          
+          should "answer all and go to correct outcome" do
+            add_response 1
+            add_response "yes"
             add_response 5
-
+            add_response 4
+            add_response 2
+            add_response 0
             assert_current_node :amount_result
             assert_state_variable :automatic_credits, ''
           end
@@ -647,20 +691,20 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         end
 
         context "answer 0" do
-          setup {add_response 5}
+          setup {add_response 0}
 
           should "be at years_of_caring?" do
-            assert_state_variable "available_ni_years", 1
+            assert_state_variable "available_ni_years", 6
             assert_current_node :years_of_caring?
           end
 
-          should "fail on 2" do
-            add_response 2
+          should "fail on 5" do
+            add_response 5
             assert_current_node_is_error
           end
 
-          should "pass when entering 1 (go to amount_result as available_ni_years is maxed)" do
-            add_response 1
+          should "pass when entering 4 (go to amount_result as available_ni_years is maxed)" do
+            add_response 4
             assert_current_node :amount_result
           end
 
@@ -668,12 +712,12 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
             setup {add_response 0}
 
             should "go to years_of_carers_allowance" do
-              assert_state_variable "available_ni_years", 1
+              assert_state_variable "available_ni_years", 6
               assert_current_node :years_of_carers_allowance?
             end
 
-            should "fail on 2" do
-              add_response 2
+            should "fail on 17" do
+              add_response 17
               assert_current_node_is_error
             end
 
@@ -686,7 +730,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
               setup {add_response 0}
 
               should "got to years_of_work?" do
-                assert_state_variable "available_ni_years", 1
+                assert_state_variable "available_ni_years", 6
                 assert_current_node :amount_result
               end
             end
@@ -727,9 +771,9 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
           assert_current_node :years_paid_ni?
         end
 
-        context "30 years of NI" do
+        context "39 years of NI" do
           should "show the result" do
-            add_response 30
+            add_response 39
             assert_current_node :amount_result
           end
         end
@@ -745,7 +789,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
 
           context "10 years of jsa" do
             should "show the result" do
-              add_response 10
+              add_response 12
               assert_current_node :amount_result
             end
           end
@@ -840,7 +884,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
       setup do
         add_response 'female'
         add_response Date.parse('1958-05-10')
-        add_response 28
+        add_response 34
       end
 
       should "display result because of starting credits" do
@@ -852,7 +896,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
       setup do
         add_response 'male'
         add_response Date.parse('1957-11-26')
-        add_response 28
+        add_response 35
         add_response 1
       end
 
@@ -865,7 +909,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
       setup do
         add_response 'male'
         add_response Date.parse('1960-02-08')
-        add_response 20
+        add_response 25
         add_response 7
       end
 

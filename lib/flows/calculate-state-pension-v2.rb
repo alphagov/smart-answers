@@ -75,7 +75,7 @@ date_question :dob_age? do
   end
 
   calculate :available_ni_years do
-    calculator.ni_years_to_date
+    calculator.ni_years_to_date_from_dob
   end
 
   calculate :state_pension_age_statement do
@@ -138,10 +138,6 @@ date_question :dob_amount? do
 
   calculate :remaining_years do
     calculator.years_to_pension
-  end
-
-  calculate :available_ni_years do
-    calculator.available_years
   end
   
   calculate :ni_years_to_date_from_dob do
@@ -357,6 +353,10 @@ value_question :years_of_carers_allowance? do
     raise InvalidResponse if caring_years < 0 or !(calculator.has_available_years?(qy))
     qy
   end
+  
+  calculate :ni_years_to_date_from_dob do
+    calculator.ni_years_to_date_from_dob - Integer(responses.last)
+  end
 
   next_node do |response|
     caring_years = Integer(response)
@@ -377,6 +377,10 @@ value_question :years_of_work? do
   end
 
   save_input_as :years_of_work_entered
+  
+  calculate :ni_years_to_date_from_dob do
+    calculator.ni_years_to_date_from_dob - Integer(responses.last)
+  end
 
   calculate :qualifying_years do
     work_years = Integer(responses.last)

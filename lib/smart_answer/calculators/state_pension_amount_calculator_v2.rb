@@ -17,7 +17,7 @@ module SmartAnswer::Calculators
       @gender = answers[:gender].to_sym
       @dob = DateTime.parse(answers[:dob])
       @qualifying_years = answers[:qualifying_years].to_i
-      @available_years = ni_years_to_date
+      @available_years = ni_years_to_date_from_dob
       @starting_credits = allocate_starting_credits
     end
 
@@ -180,20 +180,10 @@ module SmartAnswer::Calculators
       (dob + 19.years)
     end
 
-    ## how many years does user have since the age of 19
-    def ni_years_to_date
-      today = Date.today
-      years = today.year - ni_start_date.year
-      years = ((ni_start_date.month > 4) ? years - 1 : years)
-      # NOTE: leave this code in case we need to work out by day
-      # years = ((ni_start_date.month == today.month and ni_start_date.day > today.day) ? years - 1 : years)
-      years
-    end
-    
     def ni_years_to_date_from_dob
       today = Date.today
       years = today.year - ni_start_date.year
-      if (today.month < dob.month) or ((today.month == dob.month) and (today.day < dob.day))
+      if (today.month < dob.month) || ((today.month == dob.month) && (today.day < dob.day))
         years = years - 1
       end
       years
@@ -209,13 +199,21 @@ module SmartAnswer::Calculators
 
     # enough years to get full basic state pension - used only in flow to test if we should ask more questions
     def enough_qualifying_years?(qual_years = @qualifying_years)
-      qual_years > 29
+      if state_pension_date > Date.parse('2016-04-05')
+        qual_years >= ni_years_to_date_from_dob
+      else
+        qual_years > 29
+      end
     end
 
     # used for flow optimisation so users who haven't entered enough qy but will get
     # 1,2 or 3 starting credit years are sent to last question or result
     def enough_qualifying_years_and_credits?(qual_years = @qualifying_years)
-      (qual_years + @starting_credits) > 29
+      if state_pension_date > Date.parse('2016-04-05')
+        (qual_years + @starting_credits) >= ni_years_to_date_from_dob
+      else  
+        (qual_years + @starting_credits) > 29
+      end
     end
 
     # are there any more years users can enter based on how many years there are between today and time they were 19?
