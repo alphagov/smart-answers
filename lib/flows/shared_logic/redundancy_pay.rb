@@ -1,28 +1,17 @@
 date_question :date_of_redundancy? do
   from { Date.civil(Date.today.year - 1,1,1) }
   to { Date.today }
+  calculate :rates do
+    Calculators::RedundancyCalculator.redundancy_rates(Date.parse(responses.last))
+  end
   calculate :rate do
-    if Date.parse(responses.last) < Date.new(2013,02,01)
-      430
-    else
-      450
-    end
+    rates.rate
   end
   calculate :max_amount do
-    if Date.parse(responses.last) < Date.new(2013,02,01)
-      "12,900"
-    else
-      "13,500"
-    end
+    rates.max
   end
-  
-  next_node do |response|
-    if Date.parse(response) < Date.new(2014,04,06)
-      :age_of_employee?
-    else
-      :no_result_possible_yet
-    end
-  end
+
+  next_node :age_of_employee?
 end
 
 value_question :age_of_employee? do
