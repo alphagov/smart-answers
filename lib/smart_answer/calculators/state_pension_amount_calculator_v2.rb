@@ -180,7 +180,6 @@ module SmartAnswer::Calculators
       (dob + 19.years)
     end
 
-    ## how many years does user have since the age of 19
     def ni_years_to_date_from_dob
       today = Date.today
       years = today.year - ni_start_date.year
