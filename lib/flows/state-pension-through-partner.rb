@@ -87,7 +87,7 @@ multiple_choice :when_will_your_partner_reach_pension_age? do
     phrases = PhraseList.new    
     if answers == [:old1, :old2, :old3] || answers == [:new1, :new2, :old3] || answers == [:new1, :old2, :old3]
       phrases << :current_rules_no_additional_pension #outcome 1
-    elsif answers == [:old1, :old2, :new3]
+    elsif answers == [:old1, :old2, :new3] || answers == [:new1, :old2, :new3]
       phrases << :current_rules_national_insurance_no_state_pension #outcome 3
     end
     phrases
