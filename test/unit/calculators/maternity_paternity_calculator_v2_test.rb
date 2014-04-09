@@ -175,8 +175,8 @@ module SmartAnswer::Calculators
           assert_equal @calculator.lower_earning_limit, 107
         end
 
-        should "return 109 when due between 14 July 2013 and 14 July 2014 (inclusive)" do
-          @due_date = Date.parse("14 July 2013")
+        should "return 109 when due is in 2013/2014 tax year" do
+          @due_date = Date.parse("14 November 2013")
           @calculator = MaternityPaternityCalculatorV2.new(@due_date)
           assert_equal @calculator.lower_earning_limit, 109
         end
@@ -187,22 +187,22 @@ module SmartAnswer::Calculators
           assert_equal @calculator.lower_earning_limit, 111
         end
         
-        should "return lower_earning_limit 111" do
-          @due_date = Date.parse("15 July 2014")
-          @calculator = MaternityPaternityCalculatorV2.new(@due_date)
-          assert_equal @calculator.lower_earning_limit, 111
-        end
-        
         should "return lower_earning_limit 109" do
-          @due_date = Date.parse("15 July 2013")
+          @due_date = Date.parse("15 July 2014")
           @calculator = MaternityPaternityCalculatorV2.new(@due_date)
           assert_equal @calculator.lower_earning_limit, 109
         end
         
         should "return lower_earning_limit 107" do
-          @due_date = Date.parse("15 July 2012")
+          @due_date = Date.parse("15 July 2013")
           @calculator = MaternityPaternityCalculatorV2.new(@due_date)
           assert_equal @calculator.lower_earning_limit, 107
+        end
+        
+        should "return lower_earning_limit 102" do
+          @due_date = Date.parse("15 July 2012")
+          @calculator = MaternityPaternityCalculatorV2.new(@due_date)
+          assert_equal @calculator.lower_earning_limit, 102
         end
 
         should "return lower_earning_limit 102" do
@@ -232,7 +232,7 @@ module SmartAnswer::Calculators
 
       context "specific date tests (for lower_earning_limits) for adoption" do
         should "return lower_earning_limit 107" do
-          @match_date = Date.parse("1 April 2012")
+          @match_date = Date.parse("1 September 2012")
           @calculator = MaternityPaternityCalculatorV2.new(@match_date, "adoption")
           assert_equal @calculator.lower_earning_limit, 107
         end
