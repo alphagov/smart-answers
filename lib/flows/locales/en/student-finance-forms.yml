@@ -360,11 +360,11 @@ en-GB:
       outcome_dsa_1314:
         title: Disabled Students' Allowances
         body: |
-          To apply, use one of the DSA1 forms. If you’ve applied for student finance use form 'DSA1 short'. If you’re only applying for DSAs use form 'DSA1 full'.
+          To apply, use one of the DSA1 forms. If you’ve applied for student finance use form 'DSA1 slim'. If you’re only applying for DSAs use form 'DSA1 full'.
 
           Academic Year | Form
           - | -
-          2013 to 2014 | [DSA1 - short form (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/559158/sfe_dsa_slim_1314_d.pdf)
+          2013 to 2014 | [DSA1 - slim form (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/559158/sfe_dsa_slim_1314_d.pdf)
           2013 to 2014 | [DSA1 - full form (PDF, 200KB)](http://www.sfengland.slc.co.uk/media/559155/sfe_dsa_1314_d.pdf)
           2013 to 2014 | [DSA1 - guidance notes (PDF, 150KB)](http://www.sfengland.slc.co.uk/media/559161/sfe_dsa__notes_1314_d.pdf)
 
@@ -377,11 +377,11 @@ en-GB:
       outcome_dsa_1314_pt:
         title: Disabled Students' Allowances
         body: |
-          To apply, use one of the DSA1 forms. If you’ve applied for student finance use form 'DSA1 short'. If you’re only applying for DSAs use form 'DSA1 full'.
+          To apply, use one of the DSA1 forms. If you’ve applied for student finance use form 'DSA1 slim'. If you’re only applying for DSAs use form 'DSA1 full'.
 
           Academic Year | Form
           - | -
-          2013 to 2014 | [DSA1 - short form (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/559158/sfe_dsa_slim_1314_d.pdf)
+          2013 to 2014 | [DSA1 - slim form (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/559158/sfe_dsa_slim_1314_d.pdf)
           2013 to 2014 | [DSA1 - full form (PDF, 200KB)](http://www.sfengland.slc.co.uk/media/559155/sfe_dsa_1314_d.pdf)
           2013 to 2014 | [DSA1 - guidance notes (PDF, 150KB)](http://www.sfengland.slc.co.uk/media/559161/sfe_dsa__notes_1314_d.pdf)
 
@@ -395,15 +395,13 @@ en-GB:
       outcome_dsa_1415:
         title: Disabled Students' Allowances
         body: |
-          To apply, use one of the DSA1 forms. If you’ve applied for student finance use form 'DSA1 short'. If you’re only applying for DSAs use form 'DSA1 full'.
+          To apply, use one of the DSA1 forms. If you’ve applied for student finance use form 'DSA1 slim'. If you’re only applying for DSAs use form 'DSA1 full'.
 
           Academic Year | Form
           - | -
-          2014 to 2015 | [DSA1 - short form (PDF, 128KB)](http://www.sfengland.slc.co.uk/media/682901/sfe_dsa_slim_form_1415_d.pdf)
+          2014 to 2015 | [DSA1 - slim form (PDF, 128KB)](http://www.sfengland.slc.co.uk/media/682901/sfe_dsa_slim_form_1415_d.pdf)
           2014 to 2015 | [DSA1 - full form (PDF, 642KB)](http://www.sfengland.slc.co.uk/media/682898/sfe_dsa1_form_1415_d.pdf)
           2014 to 2015 | [DSA1 - guidance notes (PDF, 150KB)](http://www.sfengland.slc.co.uk/media/682922/sfe_dsa1_notes_1415_d.pdf)
-
-          ^Open University (OU) students apply to the OU for Disabled Students' Allowances.^
 
           %{form_destination}
 
