@@ -50,6 +50,13 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
             assert_current_node :whats_your_household_income?
           end
 
+          context "household income higher than limit" do
+            should "reduce the maintenance loan amount by £1 for every £9.90 over the threshold" do
+              add_response '43875'
+              assert_state_variable :maintenance_loan_amount, 4274
+            end
+          end
+
           context "household income up to 25k" do
             setup do
               add_response '24500'

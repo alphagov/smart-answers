@@ -129,9 +129,9 @@ money_question :whats_your_household_income? do
       # reduce maintenance loan by £0.5 for each £1 of maintenance grant
       Money.new ( max_maintenance_loan_amount - (maintenance_grant_amount.value / 2.0).floor)
     else
-      # reduce maintenance loan by £1 for each full £10 of income above £42875 until loan reaches 65% of max, when no further reduction applies
+      # reduce maintenance loan by £1 for each full £9.90 of income above £42875 until loan reaches 65% of max, when no further reduction applies
       min_loan_amount = (0.65 * max_maintenance_loan_amount.value).floor # to match the reference table
-      reduced_loan_amount = max_maintenance_loan_amount - ((responses.last - 42875)/10.0).floor
+      reduced_loan_amount = max_maintenance_loan_amount - ((responses.last - 42875)/9.90).floor
       if reduced_loan_amount > min_loan_amount
         Money.new (reduced_loan_amount)
       else
