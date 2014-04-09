@@ -103,7 +103,7 @@ module SmartAnswer::Calculators
     end
 
     def lower_earning_limit_birth
-      earning_limit_rate = earning_limit_rates_birth.find { |c| c[:min] <= @due_date and c[:max] >= @due_date }
+      earning_limit_rate = earning_limit_rates_birth.find { |c| c[:min] <= @qualifying_week.last and c[:max] >= @qualifying_week.last }
       (earning_limit_rate ? earning_limit_rate[:lower_earning_limit_rate] : earning_limit_rates_birth.last[:lower_earning_limit_rate])
     end
 
@@ -118,7 +118,7 @@ module SmartAnswer::Calculators
     end
 
     def lower_earning_limit_adoption
-      earning_limit_rate = earning_limit_rates_adoption.find { |c| c[:min] <= @due_date and c[:max] >= @due_date }
+      earning_limit_rate = earning_limit_rates_adoption.find { |c| c[:min] <= @qualifying_week.last and c[:max] >= @qualifying_week.last }
       (earning_limit_rate ? earning_limit_rate[:lower_earning_limit_rate] : 107)
     end
 

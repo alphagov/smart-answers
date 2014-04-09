@@ -392,7 +392,7 @@ class PaternityCalculatorV2Test < ActiveSupport::TestCase
         end #due date 3 months from now
       end #QP0 - no
       
-      context "answer no with all latest figures" do
+      context "answer no with 2013/2014 figures" do
         should "flow though usual pay date weekly" do
           add_response "no"
           add_response "2014-05-01"
@@ -411,9 +411,34 @@ class PaternityCalculatorV2Test < ActiveSupport::TestCase
           assert_current_node :paternity_leave_and_pay
           assert_phrase_list :paternity_info, [:paternity_entitled_to_leave, :paternity_not_entitled_to_pay_intro, :must_earn_over_threshold, :paternity_not_entitled_to_pay_outro]
           assert_state_variable :relevant_period, 'Friday, 22 November 2013 and Friday, 17 January 2014'
+          assert_state_variable :to_saturday, "Saturday, 18 January 2014"
+          assert_state_variable :lower_earning_limit, '109.00'
+        end
+      end #QP0 no with 2013/2014 figures
+      
+      context "answer no with 2014/2015 figures" do
+        should "flow though usual pay date weekly" do
+          add_response "no"
+          add_response "2014-07-26"
+          add_response "2014-07-26"
+          add_response "yes"
+          add_response "yes"
+          add_response "yes"
+          add_response "yes"
+          add_response "yes"
+          add_response "22014-07-26"
+          add_response "two_weeks"
+          add_response "2014-04-06"
+          add_response "2013-04-02"
+          add_response "monthly"
+          add_response "500"
+          assert_current_node :paternity_leave_and_pay
+          assert_phrase_list :paternity_info, [:paternity_entitled_to_leave, :paternity_not_entitled_to_pay_intro, :must_earn_over_threshold, :paternity_not_entitled_to_pay_outro]
+          assert_state_variable :relevant_period, "Tuesday, 02 April 2013 and Sunday, 06 April 2014"
+          assert_state_variable :to_saturday, "Saturday, 12 April 2014"
           assert_state_variable :lower_earning_limit, '111.00'
         end
-      end #QP0 no with latest figures
+      end #QP0 no with 2014/2015 figures
     end
   end
 end
