@@ -699,7 +699,7 @@ module SmartAnswer::Calculators
                        @calculator.paydates_first_day_of_the_month
         end
       end
-      
+
       context "test for paternity pay weekly dates and pay" do
         setup do
           @due_date = Date.parse("1 May 2014")
@@ -708,7 +708,7 @@ module SmartAnswer::Calculators
           @calculator.pay_method = "weekly_starting"
           @calculator.average_weekly_earnings = '125.00'
         end
-        
+
         should "produce 2 weeks of pay dates and pay at 90% of wage" do
           paydates_and_pay =  @calculator.paydates_and_pay
           assert_equal '2014-05-07', paydates_and_pay.first[:date].to_s
@@ -717,20 +717,37 @@ module SmartAnswer::Calculators
           assert_equal 112.5, paydates_and_pay.last[:pay]
         end
       end
-      
-      context "test for paternity pay monthly dates and pay" do
+
+      context "test for paternity pay monthly dates and pay prior to uprating for 2014" do
         setup do
+          Timecop.travel('9 April 2014')
           @due_date = Date.parse("1 May 2014")
           @calculator = MaternityPaternityCalculatorV2.new(@due_date, "paternity")
           @calculator.leave_start_date = Date.parse('1 May 2014')
           @calculator.pay_method = "last_day_of_the_month"
           @calculator.average_weekly_earnings = '500.00'
         end
-        
+
         should "produce 1 week of pay dates and pay at maximum amount" do
           paydates_and_pay =  @calculator.paydates_and_pay
           assert_equal '2014-05-31', paydates_and_pay.first[:date].to_s
           assert_equal 273.56, paydates_and_pay.first[:pay]
+        end
+      end
+      context "test for paternity pay monthly dates and pay uprated for 2014" do
+        setup do
+          Timecop.travel('10 April 2014')
+          @due_date = Date.parse("1 May 2014")
+          @calculator = MaternityPaternityCalculatorV2.new(@due_date, "paternity")
+          @calculator.leave_start_date = Date.parse('1 May 2014')
+          @calculator.pay_method = "last_day_of_the_month"
+          @calculator.average_weekly_earnings = '500.00'
+        end
+
+        should "produce 1 week of pay dates and pay at maximum amount" do
+          paydates_and_pay =  @calculator.paydates_and_pay
+          assert_equal '2014-05-31', paydates_and_pay.first[:date].to_s
+          assert_equal 276.36, paydates_and_pay.first[:pay]
         end
       end
     end
