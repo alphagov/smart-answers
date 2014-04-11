@@ -8,6 +8,7 @@ namespace :version do
   CALCULATORS_PATH = File.join(File.dirname(__FILE__), '../', 'smart_answer/calculators/')
   TEST_PATH = File.join(File.dirname(__FILE__), '../../', 'test/')
   FLOWS_TEST_PATH = File.join(TEST_PATH, 'integration/flows/')
+  UNIT_TEST_PATH = File.join(TEST_PATH, 'unit/calculators/')
   LOCALES_PATH = File.join(FLOWS_PATH, "locales/en/")
 
   def raise_error(msg)
@@ -60,23 +61,29 @@ namespace :version do
       filename = class_name.underscore
       filepath = File.join(CALCULATORS_PATH,"#{filename}.rb")
       v2_filepath = File.join(CALCULATORS_PATH,"#{filename}_v2.rb")
+      test_filepath = File.join(UNIT_TEST_PATH, "#{filename}_test.rb")
+      v2_test_filepath = File.join(UNIT_TEST_PATH, "#{filename}_v2_test.rb")
 
       if publish
         FileUtils.mv(v2_filepath, filepath)
         puts "Moved #{v2_filepath} to #{filepath}"
 
-        calc_data = File.read(filepath)
-        calc_data.gsub!("#{class_name}V2", class_name)
+        FileUtils.mv(v2_test_filepath, test_filepath)
+        puts "Moved #{v2_test_filepath} to #{test_filepath}"
 
-        File.open(filepath, "w") {|file| file.puts calc_data}
+        replace_in_file(filepath, "#{class_name}V2" => class_name)
+        replace_in_file(test_filepath, "#{class_name}V2" => class_name)
+        replace_in_file(test_filepath, "#{class_name}V2Test" => "#{class_name}Test")
       else
         FileUtils.cp(filepath, v2_filepath)
         puts "Created #{v2_filepath}"
 
-        calc_data = File.read(v2_filepath)
-        calc_data.gsub!(class_name, "#{class_name}V2")
+        FileUtils.cp(test_filepath, v2_test_filepath)
+        puts "Created #{v2_test_filepath}"
 
-        File.open(v2_filepath, "w") {|file| file.puts calc_data}
+        replace_in_file(v2_filepath, class_name => "#{class_name}V2")
+        replace_in_file(v2_test_filepath, class_name => "#{class_name}V2")
+        replace_in_file(v2_test_filepath, "#{class_name}Test" => "#{class_name}V2Test")
       end
     end
   end
