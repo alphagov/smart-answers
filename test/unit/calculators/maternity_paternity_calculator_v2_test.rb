@@ -514,7 +514,11 @@ module SmartAnswer::Calculators
             assert_equal 135.45, @calculator.statutory_rate(Date.parse('6 April 2012'))
           end
         end
-        context "when uprating should start" do
+        context "correct rates for 2013/2014" do
+          setup do
+            Timecop.travel('1 Feb 2014')
+          end
+          
           should "give the correct rate for the period" do
             assert_equal 136.78, @calculator.statutory_rate(Date.parse('12 April 2013'))
           end
