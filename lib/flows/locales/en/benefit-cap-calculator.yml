@@ -117,7 +117,7 @@ en-GB:
 # Q4
       receiving_non_exemption_benefits?:
         title: "Do you or someone in your household get any of the following benefits:"
-        hint: If you do not receive any of these just click Next.
+        hint: If you do not receive any of these click Next step.
         options:
           bereavement: Bereavement Allowance
           carers: Carer's Allowance

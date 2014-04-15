@@ -61,7 +61,6 @@ checkbox_question :receiving_non_exemption_benefits? do
   option :widowed_parent
   option :widow_pension
   option :widows_aged
-  option :none_above
   
   calculate :benefit_related_questions do
     questions = responses.last.split(",").map{ |r| :"#{r}_amount?" } 
@@ -81,7 +80,7 @@ checkbox_question :receiving_non_exemption_benefits? do
   
   next_node do |response|
     first_value = response.split(",").first
-    if first_value.include?('none_above') || first_value.nil?
+    if response == "none"
       :outcome_not_affected
     else
       :"#{first_value}_amount?"

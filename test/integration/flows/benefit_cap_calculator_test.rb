@@ -157,7 +157,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
           
           # not receiving additional benefits from Q4
           context "no additional benefits selected" do
-            setup { add_response 'none_above' }
+            setup { add_response 'none' }
             
             should "go to outcome" do
               assert_current_node :outcome_not_affected
