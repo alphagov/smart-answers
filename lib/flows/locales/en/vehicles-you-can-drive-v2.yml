@@ -62,7 +62,7 @@ en-GB:
         hint: Choose no if you only have a provisional car licence.
 ## Q8
       when_was_licence_issued?:
-        title: When was your licence issued?
+        title: When did you pass your car driving test?
         options:
           before-jan-1997: "Before 1 January 1997"
           from-jan-1997: "On or after 1 January 1997"
@@ -84,7 +84,7 @@ en-GB:
         title: Do you have a full car driving licence?
 ## Q12 Minibus
       when_was_licence_issued_psv?:
-        title: When was your licence issued?
+        title: When did you pass your car driving test?
         hint: You must pass a car driving test before you can drive a minibus.
         options:
           before-jan-1997: "Before 1 January 1997"
@@ -500,9 +500,9 @@ en-GB:
 
           ##Driving a minibus professionally
 
-          You must apply for a D1 minibus ‘entitlement’ if you want to drive minibuses professionally by filling in a [D2 application form](/dvlaforms).
+          You must take a D1 minibus test if you want to drive minibuses professionally. Apply for a provisional D1 licence by filling in a [D2 application form](/dvlaforms).
 
-          You must also ask a doctor and/or optician to fill in a [D4 medical report](/government/publications/d4-medical-examination-report-vision-assessment--2).
+          You must also ask a doctor to fill in a [D4 medical report](/government/publications/d4-medical-examination-report-vision-assessment--2).
         next_steps: |
           [Driving a minibus](/driving-a-minibus)  
           [Driving licence categories](/driving-licence-categories)
@@ -517,9 +517,9 @@ en-GB:
 
           ##Driving a minibus professionally
 
-          You must apply for a D1 minibus ‘entitlement’ if you want to drive minibuses professionally by filling in a [D2 application form](/dvlaforms).
+          You must take a D1 minibus test if you want to drive minibuses professionally. Apply for a provisional D1 licence by filling in a [D2 application form](/dvlaforms).
 
-          You must also ask a doctor and/or optician to fill in a [D4 medical report](/government/publications/d4-medical-examination-report-vision-assessment--2). 
+          You must also ask a doctor to fill in a [D4 medical report](/government/publications/d4-medical-examination-report-vision-assessment--2). 
 
         next_steps: |
           [Driving a minibus](/driving-a-minibus)  
@@ -539,7 +539,7 @@ en-GB:
 
           Fill in a [D2 application form](/dvlaforms) if you don’t meet the conditions and you want to drive a minibus.
 
-          You must also ask a doctor and/or optician to fill in a [D4 medical report](/government/publications/d4-medical-examination-report-vision-assessment--2).
+          You must also ask a doctor to fill in a [D4 medical report](/government/publications/d4-medical-examination-report-vision-assessment--2).
 
         next_steps: |
           [Driving a minibus](/driving-a-minibus)  
