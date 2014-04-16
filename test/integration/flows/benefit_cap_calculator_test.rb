@@ -103,7 +103,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
                     
                     should "go to outcome 3" do
                       assert_current_node :outcome_affected_greater_than_cap
-                      assert_phrase_list :outcome_phrase, [:outcome_affected_greater_than_cap_phrase,:contact_details]
+                      assert_phrase_list :outcome_phrase, [:outcome_affected_greater_than_cap_phrase,:housing_benefit_not_zero, :estimate_only, :contact_details]
                     end
                   end #Q6 single greater than cap, at Outcome 3
                 end #Q5p how much for housing benefit
@@ -157,7 +157,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
           
           # not receiving additional benefits from Q4
           context "no additional benefits selected" do
-            setup { add_response 'none_above' }
+            setup { add_response 'none' }
             
             should "go to outcome" do
               assert_current_node :outcome_not_affected
@@ -177,5 +177,19 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
         assert_phrase_list :outcome_phrase, [:outcome_not_affected_no_housing_benefit_phrase,:contact_details]
       end
     end # Q1 not receving housing benefit at Outcome 2
+
+    context "housing benefit less than 0.5" do
+      should "show dedicate phraselist" do
+        add_response :yes
+        add_response :no
+        add_response :no
+        add_response :child_benefit
+        add_response "100"
+        add_response "400"
+        add_response :single
+        assert_current_node :outcome_affected_greater_than_cap
+        assert_phrase_list :outcome_phrase, [:outcome_affected_greater_than_cap_phrase, :estimate_only, :contact_details]
+      end
+    end
   end # Benefit cap calculator
 end # BenefitCapCalculatorTest

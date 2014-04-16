@@ -8,6 +8,8 @@ en-GB:
         There’s a limit on the total amount of benefits that most people aged 16 to 64 can get. This is called the [benefit cap](/benefit-cap).
 
         This calculator gives an estimate of how much your benefit might be capped.
+        
+        ^You can't check if you're affected by the benefit cap if you're claiming [Universal Credit](/universal-credit).^
 
         You’ll need to know the amounts of each benefit you get to use the calculator and the number of people in your household.
 
@@ -15,7 +17,13 @@ en-GB:
       options:
         "yes": "Yes"
         "no": "No"
+
       phrases:
+        housing_benefit_not_zero: |
+          Your Housing Benefit won’t be reduced to 0. You need to be getting some Housing Benefit to be eligible for other services.
+        estimate_only: |
+          This is an estimate only. Contact the Department for Work and Pensions if you need further help.
+        
         outcome_not_affected_exemptions_phrase: |
           These benefits are exempt from the benefit cap: 
 
@@ -26,36 +34,41 @@ en-GB:
           - Employment and Support Allowance (support component)
           - War Widow’s or War Widower’s Pension
           - Working Tax Credit
+          - Armed Forces Compensation Scheme 
+          - Armed Forces Independence Payment
 
-          You may be affected by the cap if you’re circumstances change.
-          
+          You may be affected by the cap if your circumstances change.
+        
           Contact the Department for Work and Pensions if you need further help:
         outcome_not_affected_no_housing_benefit_phrase: |
           You aren’t affected by the benefit cap if you’re not claiming Housing Benefit. You might be affected by the cap if you start claiming Housing Benefit.
           
           Contact the Department for Work and Pensions if you need further help:
         outcome_affected_greater_than_cap_phrase: |
+
+
           This means your Housing Benefit will now be: £%{new_housing_benefit}.
-          
+
           ##How this is worked out
 
           The benefits you get are added together. The total amount of benefits over your benefit cap is subtracted from your Housing Benefit:
-
-          **Total amount of benefits affected by cap:** £%{total_benefits}
+          
+          Total amount of benefits affected by cap: £%{total_benefits}
 
           Your Housing Benefit is reduced by the amount you are over your benefit cap of £%{benefit_cap}:
 
-          **Total benefits affected:** £%{total_benefits}  
-          **Minus benefit cap:** £%{benefit_cap}
+          Total benefits affected: £%{total_benefits}
+          
+          Minus benefit cap: £%{benefit_cap}
+          
+          Total over cap: £%{total_over_cap}
 
-          **Total over cap:** £%{total_over_cap}
+          Housing benefit: £%{housing_benefit_amount}
+          
+          Minus total over cap: £%{total_over_cap}
 
-          **Housing benefit:** %{housing_benefit_amount}  
-          **Minus total over cap:** £%{total_over_cap}
+          New Housing Benefit amount: £%{new_housing_benefit}
 
-          **New Housing Benefit amount:** £%{new_housing_benefit} 
-
-          This is an estimate only. Contact the Department for Work and Pensions if you need further help.
         outcome_not_affected_less_than_cap_phrase: |
           ##How this is worked out
 
@@ -63,7 +76,7 @@ en-GB:
 
           Total amount of benefits affected by cap: £%{total_benefits}
 
-          As this amount is less than your benefit cap of £%{benefit_cap}, your benefits won’t change.
+          As this amount is lower than your benefit cap of £%{benefit_cap}, your benefits won’t change.
 
           This is an estimate only. Contact the Department for Work and Pensions if you need further help.
         outcome_not_affected_phrase: |
@@ -98,12 +111,13 @@ en-GB:
           - Personal Independence Payment
           - Employment and Support Allowance (support component)
           - War Widow’s or War Widower’s Pension
-          - Working Tax Credit
+          - Armed Forces Compensation Scheme
+          - Armed Forces Independence Payment 
 
 # Q4
       receiving_non_exemption_benefits?:
         title: "Do you or someone in your household get any of the following benefits:"
-        hint: If you do not receive any of these just click Next.
+        hint: If you do not receive any of these click Next step.
         options:
           bereavement: Bereavement Allowance
           carers: Carer's Allowance
