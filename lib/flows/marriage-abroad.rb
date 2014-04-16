@@ -777,11 +777,20 @@ outcome :outcome_os_affirmation do
       phrases << :affirmation_os_uae
     end
     if %w(south-korea).include?(ceremony_country)
-      phrases << :what_you_need_to_do_will_ask 
+      phrases << :what_you_need_to_do_will_ask
+    elsif %w(turkey).include?(ceremony_country)
+      phrases << :what_you_need_to_do
     else
       phrases << :what_you_need_to_do_may_ask 
     end
-    phrases << :appointment_for_affidavit
+    if %w(turkey).include?(ceremony_country) and %w(uk).include?(resident_of)
+      phrases << :appointment_for_affidavit_notary
+    else
+      phrases << :appointment_for_affidavit
+      if %w(turkey).include?(ceremony_country)
+        phrases << :affirmation_appointment_book_at_following
+      end
+    end
     if %w(finland).include?(ceremony_country)
       if multiple_clickbooks
         phrases << :clickbook_links
@@ -789,15 +798,38 @@ outcome :outcome_os_affirmation do
         phrases << :clickbook_link
       end
     end
-    phrases << :affirmation_os_translation_in_local_language
-    phrases << :affirmation_os_download_affidavit if %w(philippines).include?(ceremony_country)
-    phrases << :affirmation_os_divorced_or_widowed
-    
-    if %w(partner_british).include?(partner_nationality)
-      phrases << :affirmation_os_partner_british
-    else
-      phrases << :affirmation_os_partner_not_british
+    if %w(turkey).exclude?(ceremony_country)
+      phrases << :affirmation_os_translation_in_local_language
     end
+    phrases << :affirmation_os_download_affidavit_philippines if %w(philippines).include?(ceremony_country)
+    if %w(turkey).include?(ceremony_country)
+      phrases << :affirmation_os_download_affidavit_turkey
+      if %w(turkey).include?(residency_country)
+        phrases << :affirmation_os_legalised_in_turkey
+      else
+        phrases << :affirmation_os_legalised
+      end
+    end
+    if %w(turkey).include?(ceremony_country)
+      phrases << :affirmation_os_divorced_or_widowed_turkey
+    else
+      phrases << :affirmation_os_divorced_or_widowed
+    end
+
+    if %w(turkey).include?(ceremony_country)
+      if %w(partner_british).exclude?(partner_nationality)
+        phrases << :affirmation_os_partner_not_british_turkey
+      else
+        phrases << :affirmation_os_partner
+      end
+    else
+      if %w(partner_british).exclude?(partner_nationality)
+        phrases << :affirmation_os_partner_not_british
+      else
+        phrases << :affirmation_os_partner_british
+      end
+    end
+
     phrases << :affirmation_os_all_fees << :list_of_consular_fees
     
     if %w(finland).include?(ceremony_country)

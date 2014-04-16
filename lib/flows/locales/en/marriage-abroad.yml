@@ -734,7 +734,8 @@ en-GB:
           Contact your nearest embassy or consulate of %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
 
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
-
+        affirmation_os_legalised_in_turkey: |
+          You’ll need to get your affirmation ‘legalised’ (certified as genuine) by the local authorities, this is usually done on the same day - the embassy or consulate should be able to give you advice.
         affirmation_os_uk_resident_two: |
           ^You should [get legal advice](http://www.lawsociety.org.uk/find-a-solicitor/) before making any plans.^
         affirmation_os_not_uk_resident: |
@@ -748,6 +749,17 @@ en-GB:
 
           Contact the British Embassy in the United Arab Emirates for more information.
 
+        affirmation_appointment_book_at_following: |
+          Book your appointment at one of the following:
+
+            - [British Consulate General Istanbul](https://britishcongenistanbu.clickbook.net)
+            - [British Embassy Ankara](https://britishembassyankara.clickbook.net)
+            - [British Consulate Izmir](https://britishconsulateizmi.clickbook.net)
+            - [British Vice Consulate Antalya](https://britishviceconantaly.clickbook.net)
+
+        affirmation_os_partner: |
+          ^Your partner will need to get an affirmation as well.^
+
         affirmation_os_partner_british: |
           ^Your partner will need to get an affirmation and pay the fee as well.^
 
@@ -757,7 +769,16 @@ en-GB:
           ##Naturalisation of your partner if they move to the UK
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
+        affirmation_os_partner_not_british_turkey: |
+          ^Your partner will probably need to get an equivalent document from their national authorities.^
 
+          Once the document is legalised you’ll need to have it checked at the marriage office nearest to where your marriage will take place.
+        affirmation_os_naturalisation: |
+          ##Naturalisation of your partner if they move to the UK
+
+          Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
+        what_you_need_to_do: |
+          ##What you need to do
         what_you_need_to_do_may_ask: |
           ##What you need to do
 
@@ -769,15 +790,24 @@ en-GB:
           You will be asked to provide an ‘affirmation of freedom to marry’ document to prove you’re allowed to marry.
         appointment_for_affidavit: |
           Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
-
+        appointment_for_affidavit_notary: |
+          Make an appointment with a UK [notary or commissioner of oaths](http://www.thenotariessociety.org.uk/find-a-notary) to swear an affidavit - a written statement that is used to formally declare that you’re free to marry.
         affirmation_os_translation_in_local_language: |
 
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
           ^You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.^
-        affirmation_os_download_affidavit: |
+        affirmation_os_legalised: |
+          You’ll need to get your affirmation ‘[legalised](https://www.gov.uk/get-document-legalised)’ (certified as genuine) before you travel to Turkey.
+        affirmation_os_download_affidavit_turkey: |
+          You’ll need to complete an ‘Affirmation for marriage’ form that will be used for your affidavit.  Take the completed form with you to your appointment.
+
+          $D
+          [Download 'Affadavit for marriage' (PDF, 446KB)](/government/uploads/system/uploads/attachment_data/file/293781/Affidavit_of_Marital_Status.pdf)
+          $D
+        affirmation_os_download_affidavit_philippines: |
           The embassy will provide you with an oath or affidavit (written statement of facts) stating that you’re free to marry. You can download and fill in (but not sign) the form in advance.
-          
+
           $D
           [Download 'Affadavit for marriage' (PDF, 170.34KB)](/government/uploads/system/uploads/attachment_data/file/284905/Marriage_in_the_Philippines_leaflet_affirmation_or_affidavit_of_marital_status_Feb_2014.pdf)
           $D
@@ -791,6 +821,13 @@ en-GB:
           ^You’ll also need to provide evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.^
 
           You’ll also need to provide evidence if you’ve changed your name by deed poll.
+
+        affirmation_os_divorced_or_widowed_turkey: |
+          If you’ve been divorced or widowed, you’ll need to provide:
+
+          - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
+          - evidence of nationality or residence where your divorce took place if it was outside the UK
+          - evidence if you’ve changed your name by deed poll.
 
         affirmation_os_all_fees: |
           ##Fees
