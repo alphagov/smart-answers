@@ -9,6 +9,11 @@ exclusions = %w(afghanistan cambodia central-african-republic chad comoros
                 taiwan tajikistan western-sahara)
 no_embassies = %w(iran syria yemen)
 exclude_countries = %w(holy-see british-antarctic-territory)
+oru_transitioned_countries = %w(american-samoa belgium france french-guiana french-polynesia 
+                            germany greece guadeloupe italy liechtenstein luxembourg martinique
+                            mayotte monaco netherlands portugal reunion san-marino spain
+                            st-pierre-and-miquelon switzerland united-arab-emirates usa 
+                            wallis-and-futuna)
 
 
 # Q1
@@ -36,6 +41,10 @@ country_select :country_of_birth?, :exclude_countries => exclude_countries do
     else
       PhraseList.new(:birth_registration_form)
     end
+  end
+  
+  calculate :oru_country do
+    oru_transitioned_countries.include?(responses.last)
   end
 
   next_node do |response|
@@ -105,8 +114,9 @@ multiple_choice :where_are_you_now? do
 
   next_node do |response|
     case response
-    when 'same_country' then :embassy_result
-    when 'another_country' then :which_country?
+      when ('same_country' && oru_country) then :fco_result
+      when 'same_country' then :embassy_result
+      when 'another_country' then :which_country?
     else
       if %w(niger pakistan).include?(country_of_birth)
         :embassy_result
@@ -140,6 +150,7 @@ country_select :which_country?, :exclude_countries => exclude_countries do
     end
   end
 end
+
 # Outcomes
 outcome :embassy_result do
   precalculate :embassy_high_commission_or_consulate do
@@ -288,7 +299,31 @@ outcome :embassy_result do
     end
   end
 end
+
 outcome :fco_result do
+  
+  precalculate :oru_documents_variant do
+    phrases = PhraseList.new
+    if country_of_birth == 'belgium'
+      phrases << :oru_documents_variant_belgium
+    elsif country_of_birth == 'france'
+      phrases << :oru_documents_variant_france
+    elsif country_of_birth == 'italy'
+      phrases << :oru_documents_variant_italy
+    elsif country_of_birth == 'netherlands'
+      phrases << :oru_documents_variant_netherlands
+    elsif country_of_birth == 'portugal'
+      phrases << :oru_documents_variant_portugal_a << :oru_documents_variant_portugal_b
+    elsif country_of_birth == 'spain'
+      phrases << :oru_documents_variant_spain
+    elsif country_of_birth == 'united-arab-emirates'
+      phrases << :oru_documents_variant_uae
+    else
+      phrases << :oru_documents_variant_all
+    end
+    phrases
+  end
+  
   precalculate :embassy_high_commission_or_consulate do
     if reg_data_query.has_high_commission?(registration_country)
      "British high commission"

@@ -1,21 +1,21 @@
 en-GB:
   flow:
-    register-a-birth:
+    register-a-birth-v2:
       title: Register a birth abroad
       meta:
         description: Parents must register the birth in the country where the child was born - find out if you can also register the birth in the UK
       body: |
-        You must register your child’s birth according to the regulations in the country where the child was born. They will give you a local birth certificate.
+        $!You must register your child’s birth according to the regulations in the country where the child was born. They’ll give you a local birth certificate.$!
 
-        Once you’ve done this you may be able to apply to register the birth with the UK authorities.  
-        
-        You don’t have to do this, but it means:
+        This local birth certificate should be accepted in the UK for all purposes, eg applying for a passport, registering with a school or doctor etc. You might need to have it [translated and certified](https://www.gov.uk/certifying-a-document) if it’s not in English.
+
+        Once you’ve registered locally you may also be able to apply to register the birth with the UK authorities. but it means:
 
         - you’ll get a UK-style birth certificate for the child
         - you’ll have proof that the child is a British citizen
         - the birth will be recorded with the General Register Office in the UK
 
-        ^A locally-issued birth certificate should be accepted in the UK for all purposes, eg applying for a passport, registering with a school or doctor etc. It might need to be [translated and certified](/certifying-a-document) if it's not in English.^
+        ^You can still apply to [get a UK passport for your child](/apply-renew-passport) even if you don’t register the birth in the UK.^
 
       options:
         "yes": "Yes"
@@ -317,6 +317,16 @@ en-GB:
           Download and complete the [birth registration form](/government/publications/application-to-register-an-overseas-birth).
         birth_registration_form_usa: |
           Download and complete the [birth registration form](/government/publications/usa-birth-registration-application).
+        oru_documents_variant_all: the child’s full local birth certificate, with the names of both parents
+        oru_documents_variant_belgium: your child’s full local birth certificate (‘copie d’acte’ or ‘afschrift van een akte’) with the names of both parents
+        oru_documents_variant_france: your child’s full local birth certificate (‘copie integrale acte de naissance’) with the names of both parents
+        oru_documents_variant_italy: your child’s long international birth certificate (not the standard short version) with the names of both parents
+        oru_documents_variant_netherlands: your child’s local birth certificate with an English translation
+        oru_documents_variant_portugal_a: your child’s full local birth certificate (‘assento de nascimento’) with the names of both parents
+        oru_documents_variant_portugal_b: |
+          - the hospital declaration of live birth (if the hospital’s name is not on your child’s birth certificate)
+        oru_documents_variant_spain: your child’s full local birth certificate (‘certificación literal’) with the names of both parents
+        oru_documents_variant_uae: both English and Arabic versions of your child’s local birth certificate
 
       embassy_result:
         body: |
@@ -361,60 +371,93 @@ en-GB:
 
       fco_result:
         body: |
-          $!You can apply to register the birth with the Foreign and Commonwealth Office (FCO) in the UK.$!
+          $!You must register the birth in the country where the child was born. You will be given a local birth certificate.$!
 
-          %{birth_registration_form}
+          To also register the birth in the UK:
+         
+          s1. Check that you have the right documents.
+          s2. Print out and fill in the birth registration form.
+          s3. Pay online.
+          s4. Post your documents and the form.
 
-          ##Documents
 
-          You must provide:
+          ##1. Documents
 
-          - your child’s local birth certificate
+          ^Send English translations of all foreign documents. Do not send laminated documents.^
+          
+          You must send the originals or certified copies of:
+
+          - %{oru_documents_variant}
+          - the child’s British passport if they have one
+          
+          You and the other parent must both send photocopies of:
+          
+          - the photo page of your current passport if you’re British
+          - your birth certificate or the photo page of your current passport if you aren’t British
+
+          You and the other parent must also send the originals or certified copies of:
+          
           - your British birth certificates (long version) showing details of your parents
-          - a naturalisation or registration certificate (if either of you were not born in the UK)
-          - your current British passports
-          - a copy of a passport or birth certificate (if one of you isn’t British)
-          - a marriage certificate (if you’re married)
+          - your naturalisation or registration certificate (if you weren’t born in the UK)
+          - your marriage certificate (if you’re married)
           - divorce documents (if either of you has ever been divorced)
           - a change of name document (if either of you has ever changed your name)
+          
+          British parents must also provide originals or certified copies of:
+          
+          - the birth certificates and marriage certificate of your parents if you were born after 1 January 1983, unless your British nationality is based on registration, naturalisation or your immigration status
+          - a letter from your employer if you’re in Crown or EU Community service
+          - written evidence if you were born overseas and had a parent in Crown or EU Community service overseas when you were born
+          
+          %Your application will be rejected if your documents aren’t authentic. The registration fee won’t be refunded.%
 
-          You must provide the originals and a photocopy of each document. 
+          
+          ##2. Birth registration form
 
-          ##Cost
+          Print out and fill in the [birth registration form](LINK). Read the [guide to completing the form](LINK).
+
+
+          ##3. Pay
+          
+          Pay online for the registration. This does not include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office in the UK, but only from September the year after you register.
+          
+          Once you have paid you will be given a reference number to use on your birth registration form.
           
           Service | Fee
           -|-
           Register a birth | £105
           Copy of a birth registration certificate | £65
 
+          You must also pay for your documents to be returned to you.
+          
+          Postate destination | Fee
+          -|-
+          UK | £4.50
+          Europe | £12.50
+          Rest of world | £22
+          
           [Pay online](/pay-register-birth-abroad) for the registration and copies of the certificate.
 
-          You can also pay by a postal order or bank draft made payable to ‘FCO’. Personal cheques aren’t accepted.
+          ##4. Send your registration
 
-          ##Send your registration
-
-          Post the registration form and documentation to FCO.
+          Once you have paid you can check that you have the right documents. Email scans of them to <birthregistrationenquiries@fco.gov.uk>.
+          
+          Post the registration form and documents to:
 
 
           $A
-            Foreign & Commonwealth Office
-            Rm K4.9
-            King Charles Street
-            London
-            SW1A 2AH
+            Overseas Registration Unit 
+            Foreign and Commonwealth Office 
+            PO Box 6255 
+            Milton Keynes 
+            MK10 1XX
           $A
 
-          You should pay the postage fee (if you pay online), or include 2 stamped addressed special or recorded delivery envelopes so your documents can be returned.
-
-          Your documents will be returned within 20 working days. Copies won’t be returned.
-
-          ^It takes up to 12 weeks for the birth to be officially registered (or up to 6 months for some countries, eg India, Bangladesh or the Philippines).^
-
-          ##Copies of the registration certificate
-
-          You can order copies of the registration certificate from the FCO when you register the birth.
-
-          Cheaper copies will be available from the [General Register Office](http://www.gro.gov.uk) in the UK, but not until September the year after you register.
+          ##Return of your documents
+          
+          It usually takes 5 working days for the birth to be registered in the UK, once the Overseas Registration Unit has received your form and the right documents. They’ll contact you within the 5 working days if they need more information.
+          
+          Your documents will be returned to you after the birth has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them.
 
       commonwealth_result:
         body: |
