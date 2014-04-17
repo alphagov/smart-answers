@@ -7,7 +7,7 @@ en-GB:
           ##Extra help
           You could also get:
 
-          - a £500 [Sure Start Maternity Grant](/sure-start-maternity-grant "Sure Start Maternity Grant") (usually if it’s your first child)
+          - a £500 [Sure Start Maternity Grant](/sure-start-maternity-grant) (usually if it’s your first child)
 
           - benefits while you’re not working
 
@@ -15,7 +15,7 @@ en-GB:
 
           - Child Benefit - after the baby is born
 
-          Use the [benefits adviser](/benefits-adviser "Benefits Adviser") to check what benefits or tax credits you can get.
+          Use the [benefits adviser](/benefits-adviser) to check what benefits or tax credits you can get.
 
       meta:
         description: "Estimate your Statutory Maternity Pay (SMP), Maternity Allowance or maternity benefits if you’re having a baby"
@@ -57,7 +57,15 @@ en-GB:
         title: Will you have worked at least 26 weeks between %{start_of_test_period} and %{end_of_test_period}?
         hint: This can be full or part-weeks, and the 26 weeks don't have to be in a row.
         error_message: Please choose 'yes' or 'no'
-
+      have_you_helped_partner_self_employed?:
+        title: Is your partner self-employed and have you been helping with their business?
+      have_you_been_paid_for_helping_partner?:
+        title: Have you been paid for the work you’ve been doing?
+        
+      partner_helped_for_more_than_26weeks?:
+        title: Will you have helped for at least 26 weeks between %{start_of_test_period} and %{end_of_test_period}?
+        hint: This can be full or part-weeks, and the 26 weeks don't have to be in a row.
+        
       # OUTCOME ONE
       nothing_maybe_benefits:
         title: Based on your answers, you might not get Statutory Maternity Pay or Maternity Allowance, but you could get other benefits.
@@ -65,28 +73,23 @@ en-GB:
 
           You might get one or more of the following benefits:
 
-          - Employment and Support Allowance (ESA) - for 6 weeks before the week your baby is due, up to 14 days after your baby is born
-
-          - Income Support - for 11 weeks before your due date up to 15 weeks after your baby is born (also, during your pregnancy if it means you can't work)
-
-          - Jobseeker’s Allowance - while you're able to work
+          - [Employment and Support Allowance (ESA)](/employment-support-allowance) - for 6 weeks before the week your baby is due, up to 14 days after your baby is born
+          - [Income Support](/income-support) - for 11 weeks before your due date up to 15 weeks after your baby is born (also, during your pregnancy if it means you can't work) 
+          - [Jobseeker’s Allowance](/jobseekers-allowance) - while you're able to work
 
 
 
-          ^Use the [benefits adviser](/benefits-adviser "Benefits adviser") to work out what you can get.^
+          ^Use the [benefits adviser](/benefits-adviser) to work out what you can get.^
 
           %{extra_help_phrase}
 
         next_steps: |
 
-          Read the guides to:
+          Read the guide to:
 
-            * [Employment and Support Allowance](/employment-support-allowance "Employment and Support Allowance")
-            * [Jobseeker's Allowance](/jobseekers-allowance "Jobseeker's Allowance")
-            * [Income Support](/income-support "Income Support")
-            * [Sure Start Maternity Grant](/sure-start-maternity-grant "Sure Start Maternity Grant")
-            * [Healthy Start Scheme](http://www.healthystart.nhs.uk/ "Healthy Start scheme"){:rel="external"}
-            * [Maternity Leave](/maternity-leave "Maternity Leave")
+            * [Maternity leave](/maternity-pay-leave)
+            * [Maternity Allowance](/maternity-allowance) 
+            * [Low income benefits](/benefits/jobseekers-allowance) 
 
 
       # OUTCOME TWO
@@ -104,7 +107,7 @@ en-GB:
 
           Tax and National Insurance will be deducted.
 
-          To claim SMP you must give your employer at least [28 day’s notice](/statutory-maternity-pay/how-to-claim "Giving notice").
+          To claim SMP you must give your employer at least [28 day’s notice](/statutory-maternity-pay/how-to-claim).
 
           %This is an estimate, your employer will confirm if you qualify and how much you’ll get.%
 
@@ -114,7 +117,7 @@ en-GB:
 
           * Read the guide
 
-           [Maternity Pay and Leave](/maternity-pay-leave "Maternity pay and leave")
+           [Maternity Pay and Leave](/maternity-pay-leave)
 
       # OUTCOME THREE
       you_qualify_for_maternity_allowance:
@@ -129,7 +132,7 @@ en-GB:
 
           Tax will not be deducted.
 
-          You can [claim Maternity Allowance](/maternity-allowance "Maternity Allowance") as soon as you’ve been pregnant for 26 weeks.
+          You can [claim Maternity Allowance](/maternity-allowance) as soon as you've been pregnant for 26 weeks.
 
           Usually, payments start 11 weeks before your baby is due (%{eleven_weeks}).
 
@@ -141,9 +144,19 @@ en-GB:
 
           Read the guide to:
 
-            * [Maternity Allowance](/maternity-allowance "Maternity Allowance")
-            * [Maternity Leave](/maternity-pay-leave "Maternity pay and leave")
+            * [Maternity Allowance](/maternity-allowance)
+            * [Maternity Leave](/maternity-pay-leave)
 
 
+      # OUTCOME THREE
+      lower_maternity_allowance:
+        title: Based on your answers, you might get Maternity Allowance from the government.
+        body: | 
+        
+          You can get [Maternity Allowance](/maternity-allowance) paid for up to 14 weeks. 
+          You can get £27 per week.
+          You can [claim Maternity Allowance](/maternity-allowance/how-to-claim) as soon as you’ve been pregnant for 26 weeks. 
+          Usually, payments start 11 weeks before your baby is due (%{due_date_minus_11_weeks}).
+          %This is an estimate, you must claim Maternity Allowance to find out if you qualify and what you'll get.%
 
-
+           %{extra_help_phrase}
