@@ -442,4 +442,74 @@ class CalculateYourMaternityPayV2Test < ActiveSupport::TestCase
       end # context - will not work at least 26 weeks during test period
     end # context - not employed
   end # context - qualifying week is this week
+
+  # testing for lower maternity allowance outcome
+  context "employed, baby due date July 2014" do
+    setup do
+      add_response Date.parse("Thu, 27 July 2014")
+      add_response "yes"
+    end
+    should "ask is your partner self-employed and have you been helping" do
+      assert_current_node :have_you_helped_partner_self_employed?
+    end
+    context "no, you haven't helped partner self employed" do
+      setup do
+        add_response "no"
+      end
+      should "ask you if you will work for at least 26 weeks during testing period" do
+        assert_current_node :will_you_work_at_least_26_weeks_during_test_period?
+      end
+    end
+    context "yes, you have helped your partner" do
+      setup do
+        add_response "yes"
+      end
+      should "ask you if you have been paid for helping" do
+        assert_current_node :have_you_been_paid_for_helping_partner?
+      end
+        context "yes, you have been paid for helping" do
+          setup do
+          add_response "yes"
+        end
+        should "show you that you may or cannot get benefits" do
+          assert_current_node :nothing_maybe_benefits
+        end
+      end
+      context "yes, you've been paid for helping" do
+        setup do
+          add_response 'yes'
+        end
+        should "take you to No SMP or SA outcome" do
+          assert_current_node :nothing_maybe_benefits
+        end
+      end
+
+      context "no, you haven't been paid for helping" do
+        setup do
+          add_response "no"
+        end
+        should "ask you if you helped your partner for more than 26 weeks" do
+          assert_current_node :partner_helped_for_more_than_26weeks?
+        end
+          context "no, you haven't helped for more than 26 weeks" do
+            setup do
+              add_response "no"
+            end
+          should "show you that you may or cannot get benefits" do
+            assert_current_node :nothing_maybe_benefits
+          end
+        end
+          context "yes, you have helped for more than 26 weeks" do
+            setup do
+              add_response "yes"
+            end
+          should "show you that you can get lower maternity allowance" do
+            assert_current_node :lower_maternity_allowance
+            assert_state_variable :eleven_weeks, Date.parse("Sun, 11 May 2014")
+          end
+        end
+      end
+    end
+  end
+
 end
