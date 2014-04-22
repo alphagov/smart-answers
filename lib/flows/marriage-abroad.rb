@@ -515,18 +515,15 @@ outcome :outcome_os_consular_cni do
     end
 
     if %w(uk).include?(resident_of)
-      if %w(china italy kazakhstan kyrgyzstan montenegro philippines poland portugal).exclude?(ceremony_country)
+      if %w(china italy kazakhstan kyrgyzstan montenegro poland portugal).exclude?(ceremony_country)
         phrases << :consular_cni_os_uk_resident_legalisation
       elsif %w(montenegro).include?(ceremony_country)
         phrases << :consular_cni_os_uk_resident_montenegro
       elsif %w(kazakhstan kyrgyzstan poland).include?(ceremony_country)
         phrases << :consular_cni_os_uk_resident_poland_kazak_kyrg      
       end
-      if %w(china italy philippines portugal).exclude?(ceremony_country)
+      if %w(china italy portugal).exclude?(ceremony_country)
         phrases << :consular_cni_os_uk_resident_not_italy_or_portugal
-      end
-      if %w(philippines).include?(ceremony_country)
-        phrases << :consular_cni_os_uk_resident_philippines
       end
       if %w(portugal).include?(ceremony_country)
         phrases << :consular_cni_os_uk_resident_ceremony_portugal
