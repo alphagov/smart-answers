@@ -1,6 +1,7 @@
 satisfies_need 1660
 status :published
 
+# Question 1
 date_question :when_is_your_baby_due? do
   save_input_as :due_date
   calculate :calculator do
@@ -44,11 +45,25 @@ date_question :when_is_your_baby_due? do
   next_node :are_you_employed?
 end
 
+# Question 2
 multiple_choice :are_you_employed? do
-  option :yes => :did_you_start_26_weeks_before_qualifying_week?
-  option :no => :will_you_work_at_least_26_weeks_during_test_period?
+  option :yes
+  option :no
+  
+  next_node do |response|
+    if response == 'yes'
+      if due_date >= ("2014-07-27")
+        :have_you_helped_partner_self_employed?
+      else
+        :did_you_start_26_weeks_before_qualifying_week?
+      end
+    else
+      :will_you_work_at_least_26_weeks_during_test_period?
+    end
+  end
 end
 
+# Question 3
 multiple_choice :did_you_start_26_weeks_before_qualifying_week? do
   option :yes
   option :no
@@ -70,15 +85,6 @@ multiple_choice :did_you_start_26_weeks_before_qualifying_week? do
   end
 end
 
-multiple_choice :will_you_still_be_employed_in_qualifying_week? do
-  option :yes => :how_much_do_you_earn?
-  option :no => :will_you_work_at_least_26_weeks_during_test_period?
-end
-
-# Note this is only reached for 'employed' people who
-# have worked 26 weeks for the same employer
-# 135.45 is standard weekly rate. This may change
-# 107 is the lower earnings limit. This may change
 # Question 4
 salary_question :how_much_do_you_earn? do
   weekly_salary_90 = nil
@@ -122,6 +128,18 @@ salary_question :how_much_do_you_earn? do
   end
 end
 
+#Question 5
+multiple_choice :will_you_still_be_employed_in_qualifying_week? do
+  option :yes => :how_much_do_you_earn?
+  option :no => :will_you_work_at_least_26_weeks_during_test_period?
+end
+
+# Note this is only reached for 'employed' people who
+# have worked 26 weeks for the same employer
+# 135.45 is standard weekly rate. This may change
+# 107 is the lower earnings limit. This may change
+
+# Question 6
 multiple_choice :will_you_work_at_least_26_weeks_during_test_period? do
   option :yes
   option :no
@@ -167,6 +185,24 @@ salary_question :how_much_did_you_earn_between? do
   end
 end
 
+# Question 8
+multiple_choice :have_you_helped_partner_self_employed? do 
+  option :yes => :have_you_been_paid_for_helping_partner?
+  option :no => :will_you_work_at_least_26_weeks_during_test_period?
+end
+
+# Question 9
+multiple_choice :have_you_been_paid_for_helping_partner? do
+  option :yes => :nothing_maybe_benefits
+  option :no => :partner_helped_for_more_than_26weeks?
+end
+
+# Question 10
+multiple_choice :partner_helped_for_more_than_26weeks? do
+  option :yes => :lower_maternity_allowance
+  option :no => :nothing_maybe_benefits
+end
+
 # Outcome 1
 outcome :nothing_maybe_benefits do
   precalculate :extra_help_phrase do
@@ -187,3 +223,15 @@ outcome :you_qualify_for_maternity_allowance do
     PhraseList.new(:extra_help)
   end
 end
+
+# Outcome 4
+outcome :lower_maternity_allowance do
+  precalculate :extra_help_phrase do
+    PhraseList.new(:extra_help)
+  end
+  
+  precalculate :due_date_minus_11_weeks do
+    Date.parse(due_date) - 11.weeks
+  end
+end
+
