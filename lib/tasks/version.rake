@@ -35,11 +35,13 @@ namespace :version do
   end
 
   def replace_in_file(filepath, replacements)
-    text = File.read(filepath)
-    replacements.each do |regex, replacement|
-      text.gsub!(regex, replacement)
+    if File.exists?(filepath)
+      text = File.read(filepath)
+      replacements.each do |regex, replacement|
+        text.gsub!(regex, replacement)
+      end
+      File.open(filepath, "w") {|file| file.puts text}
     end
-    File.open(filepath, "w") {|file| file.puts text}
   end
 
   def version_flow_dependencies(flow_data)
@@ -65,22 +67,26 @@ namespace :version do
       v2_test_filepath = File.join(UNIT_TEST_PATH, "#{filename}_v2_test.rb")
 
       if publish
-        FileUtils.mv(v2_filepath, filepath)
-        puts "Moved #{v2_filepath} to #{filepath}"
-
-        FileUtils.mv(v2_test_filepath, test_filepath)
-        puts "Moved #{v2_test_filepath} to #{test_filepath}"
-
+        if File.exists?(v2_filepath)
+          FileUtils.mv(v2_filepath, filepath)
+          puts "Moved #{v2_filepath} to #{filepath}"
+        end
+        if File.exists?(v2_test_filepath)
+          FileUtils.mv(v2_test_filepath, test_filepath)
+          puts "Moved #{v2_test_filepath} to #{test_filepath}"
+        end
         replace_in_file(filepath, "#{class_name}V2" => class_name)
         replace_in_file(test_filepath, "#{class_name}V2" => class_name)
         replace_in_file(test_filepath, "#{class_name}V2Test" => "#{class_name}Test")
       else
-        FileUtils.cp(filepath, v2_filepath)
-        puts "Created #{v2_filepath}"
-
-        FileUtils.cp(test_filepath, v2_test_filepath)
-        puts "Created #{v2_test_filepath}"
-
+        if File.exists?(filepath)
+          FileUtils.cp(filepath, v2_filepath)
+          puts "Created #{v2_filepath}"
+        end
+        if File.exists?(test_filepath)
+          FileUtils.cp(test_filepath, v2_test_filepath)
+          puts "Created #{v2_test_filepath}"
+        end
         replace_in_file(v2_filepath, class_name => "#{class_name}V2")
         replace_in_file(v2_test_filepath, class_name => "#{class_name}V2")
         replace_in_file(v2_test_filepath, "#{class_name}Test" => "#{class_name}V2Test")
