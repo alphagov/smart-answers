@@ -317,16 +317,41 @@ en-GB:
           Download and complete the [birth registration form](/government/publications/application-to-register-an-overseas-birth).
         birth_registration_form_usa: |
           Download and complete the [birth registration form](/government/publications/usa-birth-registration-application).
-        oru_documents_variant_all: the child’s full local birth certificate, with the names of both parents
-        oru_documents_variant_belgium: your child’s full local birth certificate (‘copie d’acte’ or ‘afschrift van een akte’) with the names of both parents
-        oru_documents_variant_france: your child’s full local birth certificate (‘copie integrale acte de naissance’) with the names of both parents
-        oru_documents_variant_italy: your child’s long international birth certificate (not the standard short version) with the names of both parents
-        oru_documents_variant_netherlands: your child’s local birth certificate with an English translation
-        oru_documents_variant_portugal_a: your child’s full local birth certificate (‘assento de nascimento’) with the names of both parents
-        oru_documents_variant_portugal_b: |
+        oru_documents: |
+          - the child’s full local birth certificate, with the names of both parents
+        oru_documents_variant_belgium: |
+          - your child’s full local birth certificate (‘copie d’acte’ or ‘afschrift van een akte’) with the names of both parents
+        oru_documents_variant_france: |
+          - your child’s full local birth certificate (‘copie integrale acte de naissance’) with the names of both parents
+        oru_documents_variant_italy: |
+          - your child’s long international birth certificate (not the standard short version) with the names of both parents
+        oru_documents_variant_netherlands: |
+          - your child’s local birth certificate with an English translation
+        oru_documents_variant_portugal: |
+          - your child’s full local birth certificate (‘assento de nascimento’) with the names of both parents
           - the hospital declaration of live birth (if the hospital’s name is not on your child’s birth certificate)
-        oru_documents_variant_spain: your child’s full local birth certificate (‘certificación literal’) with the names of both parents
-        oru_documents_variant_uae: both English and Arabic versions of your child’s local birth certificate
+        oru_documents_variant_spain: |
+          - your child’s full local birth certificate (‘certificación literal’) with the names of both parents
+        oru_documents_variant_united-arab-emirates: |
+          - both English and Arabic versions of your child’s local birth certificate
+        oru_address_uk: |
+          $A
+            Overseas Registration Unit 
+            Foreign and Commonwealth Office 
+            PO Box 6255 
+            Milton Keynes 
+            MK10 1XX
+          $A
+        oru_address_abroad: |
+          $A
+            Overseas Registration Unit
+            Foreign & Commonwealth Office
+            Hanslope Park
+            Hanslope
+            Milton Keynes
+            MK19 7BH
+            United Kingdom
+          $A
 
       embassy_result:
         body: |
@@ -369,7 +394,7 @@ en-GB:
 
           %{footnote}
 
-      fco_result:
+      oru_result:
         body: |
           $!You must register the birth in the country where the child was born. You will be given a local birth certificate.$!
 
@@ -387,7 +412,8 @@ en-GB:
           
           You must send the originals or certified copies of:
 
-          - %{oru_documents_variant}
+          %{oru_documents_variant}
+          
           - the child’s British passport if they have one
           
           You and the other parent must both send photocopies of:
@@ -414,7 +440,7 @@ en-GB:
           
           ##2. Birth registration form
 
-          Print out and fill in the [birth registration form](LINK). Read the [guide to completing the form](LINK).
+          Print out and fill in the [birth registration form](/government/publications/application-to-register-an-overseas-birth).
 
 
           ##3. Pay
@@ -436,7 +462,7 @@ en-GB:
           Europe | £12.50
           Rest of world | £22
           
-          [Pay online](/pay-register-birth-abroad) for the registration and copies of the certificate.
+          +[data_partial:button:button_data]
 
           ##4. Send your registration
 
@@ -445,13 +471,7 @@ en-GB:
           Post the registration form and documents to:
 
 
-          $A
-            Overseas Registration Unit 
-            Foreign and Commonwealth Office 
-            PO Box 6255 
-            Milton Keynes 
-            MK10 1XX
-          $A
+          %{oru_address}
 
           ##Return of your documents
           

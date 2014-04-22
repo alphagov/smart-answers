@@ -3,18 +3,18 @@ require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 require 'gds_api/test_helpers/worldwide'
 
-class RegisterABirthTest < ActiveSupport::TestCase
+class RegisterABirthV2Test < ActiveSupport::TestCase
   include FlowTestHelper
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan andorra australia barbados belize cameroon central-african-republic china el-salvador estonia guatemala grenada hong-kong indonesia ireland iran laos libya maldives netherlands pakistan serbia spain sri-lanka st-kitts-and-nevis sweden taiwan thailand turkey united-arab-emirates usa vietnam yemen)
+    @location_slugs = %w(afghanistan american-samoa andorra australia barbados belize cameroon central-african-republic china el-salvador estonia guatemala grenada hong-kong indonesia ireland iran laos libya maldives netherlands pakistan serbia spain sri-lanka st-kitts-and-nevis sweden taiwan thailand turkey united-arab-emirates usa vietnam yemen)
     worldwide_api_has_locations(@location_slugs)
-    setup_for_testing_flow 'register-a-birth'
+    setup_for_testing_flow 'register-a-birth-v2'
   end
 
   setup do
-    setup_for_testing_flow 'register-a-birth'
+    setup_for_testing_flow 'register-a-birth-v2'
   end
 
   should "ask which country the child was born in" do
@@ -130,48 +130,15 @@ class RegisterABirthTest < ActiveSupport::TestCase
           assert_current_node :where_are_you_now?
         end
         context "answer back in the UK" do
-          should "give the fco result" do
+          should "give the oru result" do
             add_response 'in_the_uk'
             assert_state_variable :registration_country, 'spain'
-            assert_current_node :fco_result
-            assert_phrase_list :birth_registration_form, [:birth_registration_form]
-            assert_state_variable :embassy_high_commission_or_consulate, "British consulate general"
+            assert_state_variable :button_data, {:text => "Pay now", :url => "https://pay-register-birth-abroad.service.gov.uk/start?country=spain"}
+            assert_current_node :oru_result
+            assert_phrase_list :oru_documents_variant, [:oru_documents_variant_spain]
+            assert_phrase_list :oru_address, [:oru_address_uk]
           end
         end
-        context "answer in another country" do
-          setup do
-            add_response "another_country"
-          end
-          context "answer which country" do
-            should "Ireland and get the commonwealth result" do 
-              worldwide_api_has_organisations_for_location('ireland', read_fixture_file('worldwide/ireland_organisations.json'))
-              add_response 'ireland'
-              assert_state_variable :another_country, true
-              assert_state_variable :registration_country, 'ireland'
-              assert_phrase_list :birth_registration_form, [:birth_registration_form]
-              assert_current_node :embassy_result
-            end # now in Ireland
-            should "USA and get the embassy outcome" do
-              worldwide_api_has_organisations_for_location('usa', read_fixture_file('worldwide/usa_organisations.json'))
-              add_response 'usa'
-              assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-              assert_state_variable :registration_country, "usa"
-              assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
-              assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-              assert_phrase_list :go_to_the_embassy, [:registering_clickbook, :registering_either_parent]
-              assert_state_variable :clickbook_data, 'http://www.britishembassydc.clickbook.net/'
-              assert_state_variable :postal_form_url, nil
-              assert_phrase_list :postal, [:postal_info, :"postal_info_usa"]
-              assert_phrase_list :footnote, [:footnote_another_country]
-              assert_current_node :embassy_result
-            end # now in USA
-            should "answer Yemen and get the no embassy outcome" do
-              add_response 'yemen'
-              assert_current_node :no_embassy_result
-              assert_state_variable :registration_country_name, "Yemen"
-            end # now in Yemen 
-          end # in another country
-        end # mother and father british citizens
       end # married
     end # Spain
   end
@@ -195,7 +162,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
     end
   end # Afghanistan
   context "answer Pakistan" do
-    should "give the embassy result" do
+    should "give the oru result" do
       worldwide_api_has_organisations_for_location('pakistan', read_fixture_file('worldwide/pakistan_organisations.json'))
       add_response "pakistan"
       add_response "father"
@@ -234,22 +201,23 @@ class RegisterABirthTest < ActiveSupport::TestCase
     end
   end # Taiwan
   context "answer Taiwan now in the UK" do
-    should "give the FCO result" do
+    should "give the ORU result" do
       add_response "taiwan"
       add_response "mother_and_father"
       add_response "yes"
       add_response "in_the_uk"
-      assert_current_node :fco_result
+      assert_state_variable :button_data, {:text => "Pay now", :url => "https://pay-register-birth-abroad.service.gov.uk/start?country=taiwan"}
+      assert_current_node :oru_result
       assert_state_variable :british_national_parent, 'mother_and_father'
     end
   end # Taiwan
   context "answer Central African Republic now in the UK" do
-    should "give the FCO result" do
+    should "give the ORU result" do
       add_response "central-african-republic"
       add_response "mother_and_father"
       add_response "yes"
       add_response "in_the_uk"
-      assert_current_node :fco_result
+      assert_current_node :oru_result
       assert_state_variable :british_national_parent, 'mother_and_father'
     end
   end # Central African Republic
@@ -319,13 +287,9 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "father"
       add_response "yes"
       add_response "same_country"
-      assert_current_node :embassy_result
+      assert_current_node :oru_result
       assert_state_variable :british_national_parent, 'father'
-      assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-      assert_phrase_list :documents_you_must_provide, [:"documents_you_must_provide_united-arab-emirates"]
-      assert_state_variable :cash_only, ''
-      assert_phrase_list :footnote, [:footnote]
-      assert_match /British Embassy Dubai/, outcome_body # there are two separate organisations in UAE so this tests that the correct embassy (Dubai) is returned
+      assert_phrase_list :oru_documents_variant, [:"oru_documents_variant_united-arab-emirates"]
     end # Not married or CP
   end # UAE
   context "answer indonesia" do
@@ -418,8 +382,9 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'father'
       add_response 'yes'
       add_response 'same_country'
-      assert_current_node :embassy_result
-      assert_phrase_list :birth_registration_form, [:birth_registration_form_usa]
+      assert_current_node :oru_result
+      assert_phrase_list :oru_documents_variant, [:oru_documents]
+      assert_phrase_list :oru_address, [:oru_address_abroad]
     end
   end
   # testing for delivery return form in Spain
@@ -430,9 +395,9 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'mother_and_father'
       add_response 'yes'
       add_response 'same_country'
-      assert_current_node :embassy_result
-      assert_phrase_list :postal_return, [:postal_form_return]
-      assert_phrase_list :birth_registration_form, [:birth_registration_form]
+      assert_current_node :oru_result
+      assert_phrase_list :oru_documents_variant, [:"oru_documents_variant_spain"]
+      assert_phrase_list :oru_address, [:oru_address_abroad]
     end
   end
   context "answer Vietnam" do
@@ -447,17 +412,18 @@ class RegisterABirthTest < ActiveSupport::TestCase
     end
   end # Vietnam
   context "answer Netherlands" do
-    should "go to embassy result with modified card conditional" do
+    should "go to oru result" do
       worldwide_api_has_organisations_for_location('netherlands', read_fixture_file('worldwide/netherlands_organisations.json'))
       add_response 'netherlands'
       add_response 'father'
       add_response 'yes'
       add_response 'same_country'
-      assert_current_node :embassy_result
-      assert_phrase_list :postal, [:post_only_pay_by_card_countries]
+      assert_current_node :oru_result
+      assert_phrase_list :oru_documents_variant, [:oru_documents_variant_netherlands]
+      assert_phrase_list :oru_address, [:oru_address_abroad]
     end
   end # Netherlands
-    context "answer serbia" do
+  context "answer serbia" do
     should "check for clickbook and give embassy result" do
       worldwide_api_has_organisations_for_location('serbia', read_fixture_file('worldwide/serbia_organisations.json'))
       add_response "serbia"
@@ -469,7 +435,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :go_to_the_embassy, [:registering_clickbook, :registering_either_parent]
     end 
   end # Serbia
-    context "answer estonia" do
+  context "answer estonia" do
     should "show cash, credit card or cheque condition and give embassy result" do
       worldwide_api_has_organisations_for_location('estonia', read_fixture_file('worldwide/estonia_organisations.json'))
       add_response "estonia"
@@ -480,4 +446,31 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :cash_only, [:cash_and_card]
     end
   end # Estonia
+  
+  context "answer united-arab-emirates" do
+    should "go to oru result" do
+      worldwide_api_has_organisations_for_location('united-arab-emirates', read_fixture_file('worldwide/united-arab-emirates_organisations.json'))
+      add_response "united-arab-emirates"
+      add_response "mother_and_father"
+      add_response "yes"
+      add_response "same_country"
+      assert_state_variable :oru_country, true
+      assert_current_node :oru_result
+      assert_phrase_list :oru_documents_variant, [:"oru_documents_variant_united-arab-emirates"]
+      assert_phrase_list :oru_address, [:oru_address_abroad]
+    end
+  end # UAE
+  
+  context "answer american-samoa" do
+    should "go to oru result" do
+      worldwide_api_has_organisations_for_location('american-samoa', read_fixture_file('worldwide/american-samoa_organisations.json'))
+      add_response "american-samoa"
+      add_response "mother_and_father"
+      add_response "yes"
+      add_response "in_the_uk"
+      assert_current_node :oru_result
+      assert_phrase_list :oru_documents_variant, [:oru_documents]
+      assert_phrase_list :oru_address, [:oru_address_uk]
+    end
+  end # american samoa
 end

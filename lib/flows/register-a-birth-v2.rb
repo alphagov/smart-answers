@@ -1,4 +1,4 @@
-status :published
+status :draft
 satisfies_need "2759"
 
 data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
@@ -9,12 +9,6 @@ exclusions = %w(afghanistan cambodia central-african-republic chad comoros
                 taiwan tajikistan western-sahara)
 no_embassies = %w(iran syria yemen)
 exclude_countries = %w(holy-see british-antarctic-territory)
-oru_transitioned_countries = %w(american-samoa belgium france french-guiana french-polynesia 
-                            germany greece guadeloupe italy liechtenstein luxembourg martinique
-                            mayotte monaco netherlands portugal reunion san-marino spain
-                            st-pierre-and-miquelon switzerland united-arab-emirates usa 
-                            wallis-and-futuna)
-
 
 # Q1
 country_select :country_of_birth?, :exclude_countries => exclude_countries do
@@ -44,7 +38,11 @@ country_select :country_of_birth?, :exclude_countries => exclude_countries do
   end
   
   calculate :oru_country do
-    oru_transitioned_countries.include?(responses.last)
+    reg_data_query.class::ORU_TRANSITIONED_COUNTRIES.include?(responses.last)
+  end
+  
+  calculate :oru_documents_variant_country do
+    reg_data_query.class::ORU_DOCUMENTS_VARIANT_COUNTRIES.include?(responses.last)
   end
 
   next_node do |response|
@@ -111,18 +109,18 @@ multiple_choice :where_are_you_now? do
   calculate :another_country do
     responses.last == 'another_country'
   end
+  
+  calculate :in_the_uk do
+    responses.last == 'in_the_uk'
+  end
 
   next_node do |response|
-    case response
-      when ('same_country' && oru_country) then :fco_result
-      when 'same_country' then :embassy_result
-      when 'another_country' then :which_country?
+    if (oru_country || response == 'in_the_uk') && !%w(nigeria pakistan).include?(country_of_birth)
+      :oru_result
+    elsif %w(nigeria pakistan).include?(country_of_birth) || response == 'same_country'
+      :embassy_result
     else
-      if %w(niger pakistan).include?(country_of_birth)
-        :embassy_result
-      else
-        :fco_result
-      end
+      :which_country?
     end
   end
 end
@@ -146,7 +144,11 @@ country_select :which_country?, :exclude_countries => exclude_countries do
     if no_embassies.include?(response)
       :no_embassy_result
     else
-      :embassy_result
+      if oru_country
+        :oru_result
+      else
+        :embassy_result
+      end
     end
   end
 end
@@ -300,45 +302,30 @@ outcome :embassy_result do
   end
 end
 
-outcome :fco_result do
+outcome :oru_result do
   
-  precalculate :oru_documents_variant do
-    phrases = PhraseList.new
-    if country_of_birth == 'belgium'
-      phrases << :oru_documents_variant_belgium
-    elsif country_of_birth == 'france'
-      phrases << :oru_documents_variant_france
-    elsif country_of_birth == 'italy'
-      phrases << :oru_documents_variant_italy
-    elsif country_of_birth == 'netherlands'
-      phrases << :oru_documents_variant_netherlands
-    elsif country_of_birth == 'portugal'
-      phrases << :oru_documents_variant_portugal_a << :oru_documents_variant_portugal_b
-    elsif country_of_birth == 'spain'
-      phrases << :oru_documents_variant_spain
-    elsif country_of_birth == 'united-arab-emirates'
-      phrases << :oru_documents_variant_uae
-    else
-      phrases << :oru_documents_variant_all
-    end
-    phrases
+  precalculate :button_data do
+    {:text => "Pay now", :url => "https://pay-register-birth-abroad.service.gov.uk/start?country=#{country_of_birth}"}
   end
   
-  precalculate :embassy_high_commission_or_consulate do
-    if reg_data_query.has_high_commission?(registration_country)
-     "British high commission"
-    elsif reg_data_query.has_consulate?(registration_country)
-      "British consulate"
-    elsif reg_data_query.has_trade_and_cultural_office?(registration_country)
-      "British Trade & Cultural Office"
-    elsif reg_data_query.has_consulate_general?(registration_country)
-      "British consulate general"
+  precalculate :oru_documents_variant do
+    if oru_documents_variant_country
+      PhraseList.new(:"oru_documents_variant_#{country_of_birth}")
     else
-      "British embassy"
+      PhraseList.new(:oru_documents)
+    end
+  end
+  
+  precalculate :oru_address do
+    if in_the_uk
+      PhraseList.new(:oru_address_uk)
+    else
+      PhraseList.new(:oru_address_abroad)
     end
   end
 
 end
+
 outcome :commonwealth_result
 outcome :no_registration_result
 outcome :no_embassy_result
