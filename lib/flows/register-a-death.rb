@@ -36,14 +36,10 @@ multiple_choice :was_death_expected? do
   calculate :death_expected do
     responses.last == 'yes'
   end
-  next_node do |response|
-    if where_death_happened == 'overseas'
-      :which_country?
-    else
-      :uk_result
-    end
-  end
+  
+  next_node :uk_result
 end
+
 # Q4
 country_select :which_country?, :exclude_countries => exclude_countries do
   save_input_as :country
@@ -90,15 +86,6 @@ country_select :which_country_are_you_in_now?, :exclude_countries => exclude_cou
   calculate :current_location_name do
     WorldLocation.all.find { |c| c.slug == current_location }.name
   end
-  calculate :current_location_name_lowercase_prefix do
-    if data_query.countries_with_definitive_articles?(current_location)
-      "the #{current_location_name}"
-    else
-      current_location_name
-    end
-  end
-
-
 
   next_node :embassy_result
 end
