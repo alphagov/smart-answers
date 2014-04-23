@@ -2,7 +2,7 @@ status :draft
 satisfies_need "2759"
 
 data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
-reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
+reg_data_query = SmartAnswer::Calculators::RegistrationsDataQueryV2.new
 exclusions = %w(afghanistan cambodia central-african-republic chad comoros
                 dominican-republic east-timor eritrea haiti kosovo laos lesotho
                 liberia madagascar montenegro paraguay samoa slovenia somalia swaziland
@@ -115,9 +115,9 @@ multiple_choice :where_are_you_now? do
   end
 
   next_node do |response|
-    if (oru_country || response == 'in_the_uk') && !%w(nigeria pakistan).include?(country_of_birth)
+    if oru_country || response == 'in_the_uk'
       :oru_result
-    elsif %w(nigeria pakistan).include?(country_of_birth) || response == 'same_country'
+    elsif response == 'same_country'
       :embassy_result
     else
       :which_country?
@@ -144,11 +144,7 @@ country_select :which_country?, :exclude_countries => exclude_countries do
     if no_embassies.include?(response)
       :no_embassy_result
     else
-      if oru_country
-        :oru_result
-      else
-        :embassy_result
-      end
+      :embassy_result
     end
   end
 end
@@ -174,7 +170,7 @@ outcome :embassy_result do
     end
   end
   precalculate :documents_you_must_provide do
-    checklist_countries = %w(bangladesh finland japan kuwait libya netherlands pakistan philippines sweden taiwan turkey united-arab-emirates)
+    checklist_countries = %w(bangladesh finland japan kuwait libya pakistan philippines sweden taiwan turkey)
     key = "documents_you_must_provide_"
     key += (checklist_countries.include?(registration_country) ? registration_country : "all")
     PhraseList.new(key.to_sym)
@@ -252,32 +248,20 @@ outcome :embassy_result do
     raise InvalidResponse unless loc
     loc
   end
+  
   precalculate :organisations do
-    if registration_country == 'united-arab-emirates'
-      location.organisations.select {|o| o.fco_sponsored? }
-    else
-      [location.fco_organisation]
-    end
+    [location.fco_organisation]
   end
+  
   precalculate :overseas_passports_embassies do
     if organisations and organisations.any?
       service_title = 'Births and Deaths registration service'
-      if registration_country == 'united-arab-emirates'
-        all_offices = []
-        organisations.each do |embassy|
-          embassy_offices = embassy.all_offices.select do |o|
-            o.services.any? { |s| s.title.include?(service_title) }
-          end
-          all_offices.concat(embassy_offices)
-        end
-        all_offices.any? ? all_offices : [organisations.first.main_office]
-      else
-        organisations.first.offices_with_service(service_title)
-      end
+      organisations.first.offices_with_service(service_title)
     else
       []
     end
   end
+  
   precalculate :cash_only do
     if reg_data_query.cheque_only?(registration_country)
       PhraseList.new(:cheque_only)

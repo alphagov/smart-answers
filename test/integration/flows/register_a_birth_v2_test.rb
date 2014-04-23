@@ -168,6 +168,16 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response "father"
       add_response "yes"
       add_response "in_the_uk"
+      assert_current_node :oru_result
+    end
+  end # Pakistan and in UK
+  context "answer Pakistan" do
+    should "give the oru result" do
+      worldwide_api_has_organisations_for_location('pakistan', read_fixture_file('worldwide/pakistan_organisations.json'))
+      add_response "pakistan"
+      add_response "father"
+      add_response "yes"
+      add_response "same_country"
       assert_current_node :embassy_result
     end
   end # Pakistan
