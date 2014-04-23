@@ -1,5 +1,5 @@
 module SmartAnswer::Calculators
-  class RegistrationsDataQuery
+  class RegistrationsDataQueryV2
 
     COMMONWEALTH_COUNTRIES = %w(anguilla australia bermuda british-indian-ocean-territory british-virgin-islands cayman-islands canada falkland-islands gibraltar ireland montserrat new-zealand pitcairn south-africa south-georgia-and-south-sandwich-islands st-helena-ascension-and-tristan-da-cunha turks-and-caicos-islands)
 
@@ -7,21 +7,21 @@ module SmartAnswer::Calculators
 
     COUNTRIES_WITH_CONSULATES = %w(china colombia israel russia turkey)
 
-    COUNTRIES_WITH_CONSULATE_GENERALS = %(belgium brazil germany hong-kong netherlands spain turkey)
+    COUNTRIES_WITH_CONSULATE_GENERALS = %(brazil hong-kong turkey)
 
-    CASH_ONLY_COUNTRIES = %w(armenia bosnia-and-herzegovina botswana brunei cambodia iceland kazakhstan laos latvia libya luxembourg slovenia tunisia uganda)
+    CASH_ONLY_COUNTRIES = %w(armenia bosnia-and-herzegovina botswana brunei cambodia iceland kazakhstan laos latvia libya slovenia tunisia uganda)
 
     CHEQUE_ONLY_COUNTRIES = %w(taiwan)
 
     EASTERN_CARIBBEAN_COUNTRIES = %w(antigua-and-barbuda barbados dominica st-kitts-and-nevis st-vincent-and-the-grenadines)
 
-    NO_POSTAL_COUNTRIES = %w(barbados costa-rica malaysia papua-new-guinea sweden tanzania thailand usa)
+    NO_POSTAL_COUNTRIES = %w(barbados costa-rica malaysia papua-new-guinea sweden tanzania thailand)
 
-    POST_ONLY_COUNTRIES = %w(belgium czech-republic france french-guiana french-polynesia italy guadeloupe hungary martinique mayotte monaco new-caledonia netherlands poland portugal reunion slovakia spain st-pierre-and-miquelon switzerland wallis-and-futuna united-arab-emirates)
+    POST_ONLY_COUNTRIES = %w(czech-republic hungary new-caledonia poland slovakia)
 
     COUNTRIES_WITH_TRADE_CULTURAL_OFFICES = %w(taiwan)
 
-    MODIFIED_CARD_ONLY_COUNTRIES = %w(belgium netherlands czech-republic slovakia hungary poland portugal italy spain switzerland)
+    MODIFIED_CARD_ONLY_COUNTRIES = %w(czech-republic slovakia hungary poland)
     
     CASH_AND_CARD_COUNTRIES = %w(estonia)
     
