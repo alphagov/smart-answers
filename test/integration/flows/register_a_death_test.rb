@@ -266,6 +266,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy or consulate"
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
         assert_phrase_list :clickbook, [:clickbooks]
+        assert_state_variable :death_country_name_lowercase_prefix, 'China'
         assert outcome_body.at_css("ul li a[href='https://www.clickbook.net/dev/bc.nsf/sub/BritEmBeijing']")
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         expected_location = WorldLocation.find('china')
@@ -362,6 +363,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, "/government/publications/passport-credit-debit-card-payment-authorisation-slip-france" 
         assert_phrase_list :postal, [:post_only_france]
+        assert_state_variable :death_country_name_lowercase_prefix, 'Spain'
         assert_state_variable :current_location_name, "France"
         assert_phrase_list :footnote, [:footnote_another_country]
         expected_location = WorldLocation.find('france')
@@ -638,7 +640,8 @@ class RegisterADeathTest < ActiveSupport::TestCase
       end  
       should "give embassy_result" do
         assert_current_node :embassy_result
-        assert_state_variable :current_location_name_lowercase_prefix, 'Egypt'
+        assert_state_variable :death_country_name_lowercase_prefix, 'Egypt'
+        assert_state_variable :current_location_name_lowercase_prefix, 'Belgium'
         assert_state_variable :current_location, 'belgium'
       end
     end # Death in Egypt user in Belgium

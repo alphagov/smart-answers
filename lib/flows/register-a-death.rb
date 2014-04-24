@@ -50,7 +50,16 @@ country_select :which_country?, :exclude_countries => exclude_countries do
   calculate :current_location_name do
     WorldLocation.all.find { |c| c.slug == current_location }.name
   end
+  
   calculate :current_location_name_lowercase_prefix do
+    if data_query.countries_with_definitive_articles?(country)
+      "the #{current_location_name}"
+    else
+      current_location_name
+    end
+  end
+  
+  calculate :death_country_name_lowercase_prefix do
     if data_query.countries_with_definitive_articles?(country)
       "the #{current_location_name}"
     else
@@ -85,6 +94,14 @@ country_select :which_country_are_you_in_now?, :exclude_countries => exclude_cou
   end
   calculate :current_location_name do
     WorldLocation.all.find { |c| c.slug == current_location }.name
+  end
+  
+  calculate :current_location_name_lowercase_prefix do
+    if data_query.countries_with_definitive_articles?(country)
+      "the #{current_location_name}"
+    else
+      current_location_name
+    end
   end
 
   next_node :embassy_result
