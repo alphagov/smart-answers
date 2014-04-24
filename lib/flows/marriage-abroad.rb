@@ -1,5 +1,5 @@
 status :published
-satisfies_need "2799"
+satisfies_need "101000"
 
 data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new

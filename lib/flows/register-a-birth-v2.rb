@@ -1,5 +1,5 @@
 status :draft
-satisfies_need "2759"
+satisfies_need "101003"
 
 data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQueryV2.new

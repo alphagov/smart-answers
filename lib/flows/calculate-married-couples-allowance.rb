@@ -1,5 +1,5 @@
 status :published
-satisfies_need 2012
+satisfies_need "101007"
 
 multiple_choice :were_you_or_your_partner_born_on_or_before_6_april_1935? do
   option :yes => :did_you_marry_or_civil_partner_before_5_december_2005?
