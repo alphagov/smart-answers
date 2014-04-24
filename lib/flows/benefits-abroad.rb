@@ -1,5 +1,5 @@
-satisfies_need "100405"
 status :draft
+satisfies_need "100405"
 
 situations = ['going_abroad','already_abroad']
 

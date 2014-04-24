@@ -1,5 +1,5 @@
 status :published
-satisfies_need '100865'
+satisfies_need "100865"
 
 data_query = Calculators::StatePensionTopupDataQuery.new()
 
