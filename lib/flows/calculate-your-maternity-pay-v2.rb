@@ -51,14 +51,14 @@ option :yes
 option :no
 
   next_node do |response|
-    if response == 'yes'
+    if response == 'no'
       if due_date >= ("2014-07-27")
         :have_you_helped_partner_self_employed?
       else
-        :did_you_start_26_weeks_before_qualifying_week?
+        :will_you_work_at_least_26_weeks_during_test_period?
       end
     else
-      :will_you_work_at_least_26_weeks_during_test_period?
+      :did_you_start_26_weeks_before_qualifying_week?
     end
   end
 end
