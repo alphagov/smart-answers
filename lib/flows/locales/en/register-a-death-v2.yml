@@ -225,6 +225,13 @@ en-GB:
           - the person’s British passport 
           - their full length British birth, naturalisation or registration certificate 
           - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
+          
+        documents_list_embassy_netherlands: |
+          - an international version of the local death certificate (not a certificate issued by a doctor)
+          - the person’s passport
+          - their full UK birth, naturalisation or registration certificate
+          - their marriage certificate, if applicable
+          - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
 
         documents_list_embassy_malaysia: |
           - a local death certificate (not a certificate issued by a doctor)
@@ -260,6 +267,18 @@ en-GB:
 
         postal_delivery_form: |
           Use the [delivery return form](%{postal_return_form_url}) to get your documents delivered back to you.
+          
+        post_only_france: |
+          ##Send your registration
+
+          Post your application to the British embassy.
+
+          Pay by credit or debit card - fill in the [credit card authorisation slip](%{postal_form_url}) and post it with your registration form.
+
+        post_only_united-arab-emirates: |
+          Post your application to the %{embassy_high_commission_or_consulate}.
+
+          You must use recorded delivery or a courier. You’ll need to organise the return delivery of your documents (eg by including a pre-paid envelope or through the courier).
 
         post_only_pay_by_card_countries: |
           ##Send your registration
@@ -288,6 +307,9 @@ en-GB:
 
         postal_registration_barbados: |
           Pay by bank draft made payable to "British High Commission".
+          
+        postal_registration_belgium: |
+          You should pay by bank transfer made payable to "British Embassy Consular Account" (ING) 310-1200800-26.
 
         postal_registration_costa-rica: |
           Pay by bankers Draft or Postal Order made payable to "Foreign and Commonwealth Office". Include a stamped addressed envelope with your registration so we can return your documents.
@@ -305,6 +327,9 @@ en-GB:
 
         postal_registration_thailand: |
           Pay by postal order or bank draft, made payable to ‘The British Embassy, Bangkok’. Cash the postal order at the Nana Post Office (there’s a  THB 200 administration fee).
+
+        postal_registration_usa: |
+          Pay by money order made payable to the ‘British Embassy Government Account’. Personal cheques aren’t accepted.
 
         footnote_caribbean: |
           ^It takes about 3 working days for the death to be officially registered - your application will be sent to the High Commission in Barbados to be registered there.^
