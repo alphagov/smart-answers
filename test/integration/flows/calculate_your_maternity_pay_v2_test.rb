@@ -447,7 +447,7 @@ class CalculateYourMaternityPayV2Test < ActiveSupport::TestCase
   context "employed, baby due date July 2014" do
     setup do
       add_response Date.parse("Thu, 27 July 2014")
-      add_response "yes"
+      add_response "no"
     end
     should "ask is your partner self-employed and have you been helping" do
       assert_current_node :have_you_helped_partner_self_employed?
