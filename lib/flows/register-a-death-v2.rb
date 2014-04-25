@@ -1,4 +1,4 @@
-satisfies_need "2189"
+satisfies_need "101006"
 status :draft
 
 data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
@@ -9,7 +9,7 @@ exclusions = %w(afghanistan cambodia central-african-republic chad comoros
                 swaziland taiwan tajikistan western-sahara)
 no_embassies = %w(iran syria yemen)
 exclude_countries = %w(holy-see british-antarctic-territory)
-modified_card_only_countries = %w(belgium netherlands czech-republic slovakia hungary poland portugal italy spain switzerland)
+modified_card_only_countries = %w(czech-republic slovakia hungary poland switzerland)
 
 # Q1
 multiple_choice :where_did_the_death_happen? do
@@ -50,12 +50,25 @@ country_select :which_country?, :exclude_countries => exclude_countries do
   calculate :current_location_name do
     WorldLocation.all.find { |c| c.slug == current_location }.name
   end
+  
   calculate :current_location_name_lowercase_prefix do
     if data_query.countries_with_definitive_articles?(country)
       "the #{current_location_name}"
     else
       current_location_name
     end
+  end
+
+  calculate :death_country_name_lowercase_prefix do
+    if data_query.countries_with_definitive_articles?(country)
+      "the #{current_location_name}"
+    else
+      current_location_name
+    end
+  end
+  
+  calculate :oru_country do
+    reg_data_query.class::ORU_TRANSITIONED_COUNTRIES.include?(responses.last)
   end
 
   next_node do |response|
@@ -70,12 +83,26 @@ country_select :which_country?, :exclude_countries => exclude_countries do
 end
 # Q5
 multiple_choice :where_are_you_now? do
-  option :same_country => :embassy_result
-  option :another_country => :which_country_are_you_in_now?
-  option :back_in_the_uk => :fco_result
+  option :same_country
+  option :another_country
+  option :in_the_uk
 
   calculate :another_country do
     responses.last == 'another_country'
+  end
+  
+  calculate :in_the_uk do
+    responses.last == 'in_the_uk'
+  end
+  
+  next_node do |response|
+    if oru_country || response == 'in_the_uk'
+      :oru_result
+    elsif response == 'same_country'
+      :embassy_result
+    else
+      :which_country_are_you_in_now?
+    end
   end
 end
 # Q6
@@ -85,6 +112,14 @@ country_select :which_country_are_you_in_now?, :exclude_countries => exclude_cou
   end
   calculate :current_location_name do
     WorldLocation.all.find { |c| c.slug == current_location }.name
+  end
+  
+  calculate :current_location_name_lowercase_prefix do
+    if data_query.countries_with_definitive_articles?(country)
+      "the #{current_location_name}"
+    else
+      current_location_name
+    end
   end
 
   next_node :embassy_result
@@ -109,22 +144,17 @@ outcome :uk_result do
   end
 end
 
-outcome :fco_result do
-  precalculate :embassy_high_commission_or_consulate do
-    if reg_data_query.has_high_commission?(current_location)
-     "British high commission"
-    elsif reg_data_query.has_consulate?(current_location)
-      "British embassy or consulate"
-    elsif reg_data_query.has_trade_and_cultural_office?(current_location)
-      "British Trade & Cultural Office"
-    elsif reg_data_query.has_consulate_general?(current_location)
-      "British consulate general"
-    else
-      "British embassy"
-    end
+outcome :oru_result do
+  precalculate :button_data do
+    {:text => "Pay now", :url => "https://pay-register-death-abroad.service.gov.uk/start?country=#{country}"}
   end
-  precalculate :registration_footnote do
-    exclusions.include?(country) ? '' : PhraseList.new(:reg_footnote)
+  
+  precalculate :oru_address do
+    if in_the_uk
+      PhraseList.new(:oru_address_uk)
+    else
+      PhraseList.new(:oru_address_abroad)
+    end
   end
 end
 
@@ -135,8 +165,6 @@ outcome :embassy_result do
       phrases << :documents_list_embassy_libya
     elsif current_location == 'sweden'
       phrases << :documents_list_embassy_sweden
-    elsif current_location == 'netherlands'
-      phrases << :documents_list_embassy_netherlands
     elsif current_location == 'malaysia'
       phrases << :documents_list_embassy_malaysia
     else
