@@ -827,7 +827,13 @@ outcome :outcome_os_affirmation do
       end
     end
 
-    phrases << :affirmation_os_all_fees << :list_of_consular_fees
+    if %w(turkey).include?(ceremony_country)
+      phrases << :turkey_affadavit_fees
+    else
+      phrases << :affirmation_os_all_fees
+    end
+
+    phrases << :list_of_consular_fees
     
     if %w(finland).include?(ceremony_country)
       phrases << :pay_in_euros_or_visa_electron
