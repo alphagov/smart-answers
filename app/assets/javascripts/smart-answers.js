@@ -22,6 +22,15 @@ $(document).ready(function() {
 
     // we want to start over with whatever gets provided if someone clicks to change the answer
     $(".undo a").live('click', function() {
+      /*
+        This is short lived tracking - to help inform a design decision, should not be permanent
+
+        * Cat/Action/Label convention is taken from GOVUK.Analytics.Trackers in static
+        * Slug extraction is based on position logic in GOVUK.Analytics.Trackers.smart_answer
+      */
+      var slug = document.URL.split('/')[3].split("#")[0].split("?")[0];
+      window._gaq && window._gaq.push(['_trackEvent', "MS_smart_answer", slug, "Change Answer"]);
+
       reloadQuestions($(this).attr("href"), "");
       return false;
     });
