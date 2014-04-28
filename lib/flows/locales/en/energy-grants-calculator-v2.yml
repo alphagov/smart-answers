@@ -156,12 +156,18 @@ en-GB:
           "1940s-1984": 1940s – 1994
           "before-1940": Before 1940
 
-# Q7
+# Q7a
       type_of_property?:
         title: What kind of property do you live in?
         options:
           "house": A house, terraced house or bungalow
           "flat": A flat
+# Q7b
+      type_of_flat?:
+        title: Is it a top-floor flat or a maisonette?
+        options:
+          "top_floor": Top-floor
+          "maisonette": Maisonette
 
 # Q8a
       home_features_modern?:
