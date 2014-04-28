@@ -1093,6 +1093,7 @@ venezuela:
   group: ips_documents_group_3
   helpline: washington_usa
   app_form: hmpo_2_application_form
+  application_office: true
 vietnam:
   type: ips_application_1
   group: ips_documents_group_3

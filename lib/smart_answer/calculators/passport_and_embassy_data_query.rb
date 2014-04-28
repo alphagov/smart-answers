@@ -27,9 +27,9 @@ module SmartAnswer::Calculators
       'South African Rand'  => [[2112, 2440], [2549, 2877], [1345, 1673]]
     }
 
-    CASH_ONLY_COUNTRIES = %w(cuba sudan venezuela)
+    CASH_ONLY_COUNTRIES = %w(cuba sudan)
 
-    RENEWING_COUNTRIES = %w(belarus burma cuba lebanon libya russia sudan tajikistan tunisia turkmenistan uzbekistan venezuela zimbabwe)
+    RENEWING_COUNTRIES = %w(belarus burma cuba lebanon libya russia sudan tajikistan tunisia turkmenistan uzbekistan zimbabwe)
 
     attr_reader :passport_data
 
