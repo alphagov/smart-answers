@@ -689,22 +689,25 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
         add_response 'mains_gas'
       end
       should "take you to green deal outcome with mains gas variants" do
+        assert_state_variable :property_type, "house"
         assert_current_node :outcome_measures_help_green_deal
         assert_phrase_list :title_end, [:title_under_green_deal]
         assert_phrase_list :eligibilities, [:boilers_and_insulation, :a_condensing_boiler, :b_cavity_wall_insulation, :c_solid_wall_insulation, :d_draught_proofing, :e_loft_roof_insulation, :g_under_floor_insulation, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :windows_and_doors, :m_replacement_glazing, :n_secondary_glazing, :o_external_doors, :r_micro_wind, :s_micro_chp, :u_solar, :v_green_deal_body, :w_renewal_heat, :help_and_advice, :help_and_advice_body]
       end
     end
 # test for flat, modern with mains gas and electric heating
-    context "no circumstances, mondern flat, mains gas and electricity" do
+    context "no circumstances, modern flat, mains gas and electricity" do
       setup do
         add_response 'all_help'
         add_response 'property'
         add_response '4/07/1980'
         add_response 'on-or-after-1995'
         add_response 'flat'
+        add_response 'top_floor'
         add_response 'mains_gas,electric_heating'
       end
       should "take you to result 4 no help" do
+        assert_state_variable :flat_type, "top_floor"
         assert_current_node :outcome_no_green_deal_no_energy_measures
         assert_phrase_list :eligibilities, [:help_and_advice_body]
       end

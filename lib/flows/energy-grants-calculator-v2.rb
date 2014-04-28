@@ -231,11 +231,32 @@ multiple_choice :when_property_built? do
 end
 
 
-# Q7
+# Q7a
 multiple_choice :type_of_property? do
   option :house
   option :flat
   save_input_as :property_type
+  
+  next_node do |response|
+    if %w(house).include?(response)
+      if modern
+        :home_features_modern?
+      elsif older
+        :home_features_older?
+      else
+        :home_features_historic?
+      end
+    else
+      :type_of_flat?
+    end
+  end
+end
+
+# Q7b
+multiple_choice :type_of_flat? do
+  option :top_floor
+  option :maisonette
+  save_input_as :flat_type
   
   next_node do
     if modern
