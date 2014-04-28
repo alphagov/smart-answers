@@ -1,13 +1,13 @@
 en-GB:
   flow:
     energy-grants-calculator-v2:
-      title: Find energy grants and measures to help you with heating costs
+      title: Find energy grants and ways to improve your energy efficiency
       meta:
         description: Financial help with heating costs, insulation, boilers, money for heating costs
       body: |
         You might be eligible for help with your energy bills or to make your home more energy efficient.
 
-        To find out what energy saving measures can help, you’ll need to know:
+        To find out what energy saving improvements can help, you’ll need to know:
 
         - what kind of measures you already have (eg, insulation or double glazing)
         - a general idea of when your home was built
@@ -89,7 +89,7 @@ en-GB:
         options:
           help_with_fuel_bill: Help with your fuel bill
           help_energy_efficiency: Help to make your home more energy efficient
-          help_boiler_measure: Help with a new boiler, insulation or other measure
+          help_boiler_measure: Help with a new boiler, insulation or other improvements
           all_help: All of the above
 
 # Q2
@@ -103,7 +103,7 @@ en-GB:
         options:
           benefits: You’re getting benefits
           property: You own your property
-          permission: You rent privately but have permission from the owner to install or upgrade the boiler
+          permission: You rent privately but have permission from the owner to make energy saving improvements (eg upgrade the boiler)
           social_housing: You’re a social housing tenant
 
 # Q2A
@@ -152,8 +152,8 @@ en-GB:
       when_property_built?:
         title: When was your property built?
         options:
-          "1985-2000s": 1985 - 2000s
-          "1940s-1984": 1940s – 1984
+          "on-or-after-1995": 1995 or newer
+          "1940s-1984": 1940s – 1994
           "before-1940": Before 1940
 
 # Q7
