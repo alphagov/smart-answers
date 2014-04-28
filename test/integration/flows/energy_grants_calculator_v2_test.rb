@@ -249,7 +249,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
           end
           context "answer modern" do
             setup do
-              add_response '1985-2000s'
+              add_response 'on-or-after-1995'
             end
             should "ask what type of property" do
               assert_current_node :type_of_property?
@@ -449,7 +449,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
         end
         context "answer modern" do
           setup do
-            add_response '1985-2000s'
+            add_response 'on-or-after-1995'
           end
           should "ask what type of property" do
             assert_current_node :type_of_property?
@@ -533,7 +533,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
           add_response '12/05/1973'
           add_response 'esa'
           add_response 'none'
-          add_response '1985-2000s'
+          add_response 'on-or-after-1995'
           add_response 'house'
           add_response 'loft_attic_conversion,mains_gas'
         end
@@ -670,7 +670,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
       setup do
         add_response 'help_boiler_measure'
         add_response 'property'
-        add_response '1985-2000s'
+        add_response 'on-or-after-1995'
         add_response 'house'
         add_response 'none'
       end
@@ -700,7 +700,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
         add_response 'all_help'
         add_response 'property'
         add_response '4/07/1980'
-        add_response '1985-2000s'
+        add_response 'on-or-after-1995'
         add_response 'flat'
         add_response 'mains_gas,electric_heating'
       end

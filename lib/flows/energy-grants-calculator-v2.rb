@@ -213,12 +213,12 @@ end
 
 # Q6
 multiple_choice :when_property_built? do
-  option :"1985-2000s"
+  option :"on-or-after-1995"
   option :"1940s-1984"
   option :"before-1940"
 
   calculate :modern do
-    %w(1985-2000s).include?(responses.last)
+    %w(on-or-after-1995).include?(responses.last)
   end
   calculate :older do
     %w(1940s-1984).include?(responses.last)
