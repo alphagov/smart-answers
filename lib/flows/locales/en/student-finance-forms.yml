@@ -248,11 +248,35 @@ en-GB:
         next_steps: |
           [How to apply for student finance](/apply-for-student-finance)
       outcome_uk_pt_1415_new:
-        title: You can't apply yet. Forms will be available April 2014.
+        title: Student finance - application form
 
+        body: |
+          You should [apply online](/apply-online-for-student-finance) for a Tuition Fee Loan. If you can't apply online, use form PTL1.
+
+          Academic Year | Form
+          - | -
+          2014 to 2015 | [Apply online](/apply-online-for-student-finance)
+          2014 to 2015 | [PTL1 - form (PDF, 237KB)](http://www.sfengland.slc.co.uk/media/710743/sfe_ptl1_1415_d.pdf)
+          2014 to 2015 | [PTL1 - guidance notes (PDF, 115KB)](http://www.sfengland.slc.co.uk/media/710755/sfe_ptl1_notes_1415_d.pdf)
+
+          ^You can apply up to 9 months after the start of your course.^
+
+          %{form_destination}
       outcome_uk_pt_1415_continuing:
-        title: You can't apply yet. Forms will be available early 2014.
+        title: Student finance - application form
 
+        body: |
+          You should [apply online](/apply-online-for-student-finance) for a Tuition Fee Loan. If you can't apply online, use form PTLC.
+
+          Academic Year | Form
+          - | -
+          2014 to 2015 | [Apply online](/apply-online-for-student-finance)
+          2014 to 2015 | [PTLC - form (PDF, 400KB)](http://www.sfengland.slc.co.uk/media/710746/sfe_ptlc_1415_d.pdf)
+          2014 to 2015 | [PTLC - guidance notes (PDF, 97KB)](http://www.sfengland.slc.co.uk/media/710758/sfe_ptlc_notes_1415_d.pdf)
+
+          ^You can apply up to 9 months after the start of your course.^
+
+          %{form_destination}
       outcome_uk_pt_1415_grant:
         title: You can't apply yet. Forms will be available Summer 2014.
 
@@ -292,8 +316,9 @@ en-GB:
 
           Academic year | Form
           - | -
-          2014 to 2015 | [PFF2 - income details form (PDF, 212 KB)](http://www.sfengland.slc.co.uk/media/682907/sfe_pff2_1415_d.pdf)
-          2014 to 2015 | CYI - current tax year income details form (available from April 2014)
+          2014 to 2015 | [PFF2 - income details form (PDF, 212KB)](http://www.sfengland.slc.co.uk/media/682907/sfe_pff2_1415_d.pdf)
+          2014 to 2015 | [CYI - current tax year income details form](http://www.sfengland.slc.co.uk/media/728027/sfe_cyi_1415_d.pdf)
+
 
           %Income means your [household income](/apply-for-student-finance/household-income).%
 
@@ -338,7 +363,7 @@ en-GB:
       outcome_proof_identity_1415:
         title: Proof of identity
         body: |
-          To prove your identity, include your UK passport details in your application. If you forget, use the passport details form. If you don't have a passport  (or it has expired), send your birth or adoption certificate using the certificate form.
+          If you haven’t included your UK passport details in your application, use the passport details form. If you don’t have a passport (or it has expired), send your birth or adoption certificate using the certificate form.
 
           Academic year | Form
           - | -
@@ -411,7 +436,15 @@ en-GB:
       outcome_dsa_1415_pt:
         title: Disabled Students’Allowances
         body: |
-          You can't apply yet.
+          To apply, use one of the DSA1 forms. If you’ve applied for student finance use form 'DSA1 slim'. If you’re only applying for DSAs use form 'DSA1 full'.
+
+          Academic Year | Form
+          - | -
+          2014 to 2015 | [DSA1 - slim form (PDF, 141KB)](http://www.sfengland.slc.co.uk/media/682901/sfe_dsa_slim_form_1415_d.pdf)
+          2014 to 2015 | [DSA1 - full form (PDF, 654KB)](http://www.sfengland.slc.co.uk/media/682898/sfe_dsa1_form_1415_d.pdf)
+          2014 to 2015 | [DSA1 - guidance notes (PDF, 85KB)](http://www.sfengland.slc.co.uk/media/682922/sfe_dsa1_notes_1415_d.pdf)
+
+          %{form_destination}
 
       outcome_ccg_1314:
         title: Childcare Grant
@@ -619,14 +652,53 @@ en-GB:
           Forms will be available April 2014.
 
       outcome_eu_pt_1415_new:
-        title: Applications aren't open yet. 
+        title: EU part-time student
         body: |
-          Forms will be available April 2014.
+          To apply for a Tuition Fee Loan use form EUPTL1.
+
+          Academic year | Form
+
+          2014 to 2015 | [EUPTL1 - form (PDF, 900KB)](http://www.sfengland.slc.co.uk/media/755091/eu_ptl1_1415_d.pdf)
+          2014 to 2015 | [EUPTL1 - guidance notes (PDF, 102KB)](http://www.sfengland.slc.co.uk/media/755095/eu_ptl1_notes_1415_d.pdf)
+
+          ##Additional information
+          You may need to include additional information on the following forms.
+
+          Form | When to use the form
+          - | -
+          [EUTFLR - form (PDF, 421KB)](http://www.sfengland.slc.co.uk/media/722318/eu_tlrf_1415_d.pdf) | To change the amount of loan you want to apply for
+          [Evidence factsheet (PDF, 468KB)](http://www.sfengland.slc.co.uk/media/722312/eu_evidence_factsheet_d.pdf) | List of evidence to send with your application - eg proof of identity or income
+          [Certifier checklist (PDF, 75KB)](http://www.sfengland.slc.co.uk/media/560159/eu_certifier_checklist_1314_d.pdf) | Get the person who verifies your evidence to sign this form
+          [EUCO1 - form (PDF, 483KB)](http://www.sfengland.slc.co.uk/media/722315/eu_co1_1415_d.pdf) | To update your course, name and other details
+
+
+          ^You can apply up to 9 months after the start of your course.^
+
+          %{form_destination}
 
       outcome_eu_pt_1415_continuing:
-        title: Applications aren't open yet.
+        title: EU part-time student
         body: |
-          Forms will be available:
+          If you started your course on or after 1 September 2012 you may be eligible for for a Tuition Fee Loan. Apply using form EUPTLC.
 
-          - April 2014 if you started your course **on or after** 1st September 2012
-          - Summer 2014 if you started your course **before** 1st September 2012
+          Academic year | Form
+          - | -
+          2014 to 2015 | [EUPTLC - form (PDF, 133KB)](http://www.sfengland.slc.co.uk/media/755099/eu_ptlc_1415_d.pdf)
+          2014 to 2015 | [EUPTLC - guidance notes (PDF, 96KB)](http://www.sfengland.slc.co.uk/media/755103/eu_ptlc_notes_1415_d.pdf)
+
+          If you started your course before 1 September 2012 you may be eligible for a Tuition Fee Grant. Forms will be available summer 2014.
+
+          ##Additional information
+          You may need to include additional information on the following forms.
+
+          Form | When to use the form
+          - | -
+          [EUTFLR - form (PDF, 421KB)](http://www.sfengland.slc.co.uk/media/722318/eu_tlrf_1415_d.pdf) | To change the amount of loan you want to apply for
+          [Evidence factsheet (PDF, 468KB)](http://www.sfengland.slc.co.uk/media/722312/eu_evidence_factsheet_d.pdf) | List of evidence to send with your application - eg proof of identity or income
+          [Certifier checklist (PDF, 75KB)](http://www.sfengland.slc.co.uk/media/560159/eu_certifier_checklist_1314_d.pdf) | Get the person who verifies your evidence to sign this form
+          [EUCO1 - form (PDF, 483KB)](http://www.sfengland.slc.co.uk/media/722315/eu_co1_1415_d.pdf) | To update your course, name and other details
+
+
+          ^You can apply up to 9 months after the start of your course.^
+
+          %{form_destination}
