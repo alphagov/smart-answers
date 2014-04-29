@@ -9,7 +9,7 @@ en-GB:
 
         This local birth certificate should be accepted in the UK for all purposes, eg applying for a passport, registering with a school or doctor etc. You might need to have it [translated and certified](https://www.gov.uk/certifying-a-document) if it’s not in English.
 
-        Once you’ve registered locally you may also be able to apply to register the birth with the UK authorities. but it means:
+        Once you’ve registered locally you may also be able to apply to register the birth with the UK authorities. You don't need to do this but it means:
 
         - you’ll get a UK-style birth certificate for the child
         - you’ll have proof that the child is a British citizen
@@ -314,7 +314,7 @@ en-GB:
         footnote: |
           ^It takes about 5 working days for the birth to be officially registered.^
         birth_registration_form: |
-          Download and complete the [birth registration form](/government/publications/application-to-register-an-overseas-birth).
+          Download and complete the [birth registration form](/government/publications/application-to-register-an-overseas-birth-b).
         birth_registration_form_usa: |
           Download and complete the [birth registration form](/government/publications/usa-birth-registration-application).
         oru_documents: |
@@ -406,7 +406,7 @@ en-GB:
           s4. Post your documents and the form.
 
 
-          ##1. Documents
+          ##1. Check your documents
 
           ^Send English translations of all foreign documents. Do not send laminated documents.^
           
@@ -438,14 +438,16 @@ en-GB:
           %Your application will be rejected if your documents aren’t authentic. The registration fee won’t be refunded.%
 
           
-          ##2. Birth registration form
+          ##2. Fill in the birth registration form
 
-          Print out and fill in the [birth registration form](/government/publications/application-to-register-an-overseas-birth).
+          Print out and fill in the [birth registration form](/government/publications/birth-registration-application-version-a).
 
 
           ##3. Pay
           
-          Pay online for the registration. This does not include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office in the UK, but only from September the year after you register.
+          You should pay online for the registration. Email <birthregistrationenquiries@fco.gov.uk> if you are unable to pay online.
+          
+          The registration fee does not include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office in the UK, but only from September the year after you register.
           
           Once you have paid you will be given a reference number to use on your birth registration form.
           
@@ -456,7 +458,7 @@ en-GB:
 
           You must also pay for your documents to be returned to you.
           
-          Postate destination | Fee
+          Postage destination | Fee
           -|-
           UK | £4.50
           Europe | £12.50
