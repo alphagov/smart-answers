@@ -285,6 +285,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
                   assert_state_variable :l_cylinder_thermostat, nil
                   assert_state_variable :n_secondary_glazing, nil
                   assert_state_variable :o_external_doors, nil
+                  assert_state_variable :p_heat_pump, nil
                   assert_state_variable :q_biomass_boilers_heaters, nil
                   assert_state_variable :r_micro_wind, nil
                   assert_state_variable :s_micro_chp, nil
@@ -292,7 +293,6 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
                   assert_state_variable :u_solar, nil
                   assert_state_variable :v_green_deal_body, nil
                   assert_state_variable :v_green_deal_title, nil
-                  
                   
                 end
               end
@@ -339,6 +339,33 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
                     assert_phrase_list :eligibilities, [:boilers_and_insulation, :g_under_floor_insulation, :eco_help, :heating, :j_better_heating_controls, :hot_water, :windows_and_doors, 
                       :m_replacement_glazing, :w_renewal_heat, :help_and_advice, :help_and_advice_body]
                       
+                    assert_state_variable :b_cavity_wall_insulation, nil
+                    assert_state_variable :c_solid_wall_insulation, nil
+                    assert_state_variable :h_fan_assisted_heater, nil
+                    assert_state_variable :i_warm_air_unit, nil
+                    assert_state_variable :k_hot_water_cyclinder_jacket, nil
+                    assert_state_variable :l_cylinder_thermostat, nil
+                    assert_state_variable :n_secondary_glazing, nil
+                    assert_state_variable :o_external_doors, nil
+                    assert_state_variable :q_biomass_boilers_heaters, nil
+                    assert_state_variable :r_micro_wind, nil
+                    assert_state_variable :s_micro_chp, nil
+                    assert_state_variable :t_solar_water_heating, nil
+                    assert_state_variable :u_solar, nil
+                    assert_state_variable :v_green_deal_body, nil
+                    assert_state_variable :v_green_deal_title, nil
+                  end
+                end
+                
+                context "answer cavity wall insulation, loft insulation, mains gas, modern boiler" do
+                  setup do
+                    add_response 'cavity_wall_insulation,loft_insulation,modern_boiler'
+                  end
+                  should "take you to measures_help and eco_eligible outcome" do
+                    assert_current_node :outcome_bills_and_measures_on_benefits_not_eco_eligible
+                    assert_phrase_list :eligibilities, [:boilers_and_insulation,:b_cavity_wall_insulation, :c_solid_wall_insulation, :d_draught_proofing, :g_under_floor_insulation, :eco_help, :heating, :j_better_heating_controls, :p_heat_pump, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :windows_and_doors, :m_replacement_glazing, :w_renewal_heat, :help_and_advice, :help_and_advice_body]
+                      
+
                     assert_state_variable :h_fan_assisted_heater, nil
                     assert_state_variable :i_warm_air_unit, nil
                     assert_state_variable :k_hot_water_cyclinder_jacket, nil
@@ -399,6 +426,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
                     assert_state_variable :i_warm_air_unit, nil
                     assert_state_variable :k_hot_water_cyclinder_jacket, nil
                     assert_state_variable :l_cylinder_thermostat, nil
+                    assert_state_variable :m_replacement_glazing, nil
                     assert_state_variable :n_secondary_glazing, nil
                     assert_state_variable :o_external_doors, nil
                     assert_state_variable :p_heat_pump, nil
@@ -445,6 +473,9 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
                   assert_current_node :outcome_bills_and_measures_on_benefits_not_eco_eligible
                   assert_phrase_list :eligibilities, [:boilers_and_insulation, :a_condensing_boiler, :e_loft_roof_insulation, :g_under_floor_insulation, :eco_help, :heating, :j_better_heating_controls, :hot_water, :windows_and_doors, :m_replacement_glazing, :w_renewal_heat, :help_and_advice, :help_and_advice_body]
                   
+                  assert_state_variable :b_cavity_wall_insulation, nil
+                  assert_state_variable :c_solid_wall_insulation, nil
+                  assert_state_variable :d_draught_proofing, nil
                   assert_state_variable :h_fan_assisted_heater, nil
                   assert_state_variable :i_warm_air_unit, nil
                   assert_state_variable :k_hot_water_cyclinder_jacket, nil
@@ -497,8 +528,41 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
             end  
           end
         end
+        
+        context "answer none" do
+          setup do
+            add_response 'none'
+          end
+          should "ask when property built" do
+            assert_current_node :when_property_built?
+          end
+          context "answer before 1940" do
+            setup do
+              add_response 'before-1940'
+            end
+            should "ask what type of property" do
+              assert_current_node :type_of_property?
+            end
+            context "anwer house" do
+              setup do
+                add_response 'house'
+              end
+              should "ask which features your home has" do
+                assert_current_node :home_features_historic?
+              end
+              context "answer modern boiler" do
+                setup do
+                  add_response 'modern_boiler'
+                end
+                should "take you to measures help and eco eligible outcome" do
+                  assert_current_node :outcome_bills_and_measures_on_benefits_not_eco_eligible
+                  assert_phrase_list :eligibilities, [:boilers_and_insulation,:b_cavity_wall_insulation, :c_solid_wall_insulation, :d_draught_proofing, :e_loft_roof_insulation, :g_under_floor_insulation, :eco_help, :heating, :j_better_heating_controls, :p_heat_pump, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :windows_and_doors, :m_replacement_glazing, :w_renewal_heat, :help_and_advice, :help_and_advice_body]
+                end
+              end
+            end  
+          end
+        end
       end
-
     end
 
 # help with a new boiler or other measures (measure_help)
@@ -648,6 +712,39 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
           assert_state_variable :n_secondary_glazing, nil
           assert_state_variable :o_external_doors, nil
           assert_state_variable :p_heat_pump, nil
+          assert_state_variable :q_biomass_boilers_heaters, nil
+          assert_state_variable :r_micro_wind, nil
+          assert_state_variable :s_micro_chp, nil
+          assert_state_variable :t_solar_water_heating, nil
+          assert_state_variable :u_solar, nil
+          assert_state_variable :v_green_deal_body, nil
+          assert_state_variable :v_green_deal_title, nil
+        end
+      end
+      context "answer benefits, under 60, working tax credit, child under 5, older house, loft conversion" do
+        setup do
+          add_response 'benefits,property'
+          add_response '12/05/1973'
+          add_response 'esa'
+          add_response 'none'
+          add_response 'on-or-after-1995'
+          add_response 'house'
+          add_response 'loft_attic_conversion'
+        end
+        should "take you to bills & measures, on benefits with variants" do
+          assert_current_node :outcome_bills_and_measures_on_benefits_eco_eligible
+          assert_phrase_list :eligibilities_bills, [:cold_weather_payment, :energy_company_obligation]
+          assert_phrase_list :title_end, [:title_energy_supplier]
+          assert_phrase_list :eligibilities, [:boilers_and_insulation, :a_condensing_boiler, :d_draught_proofing, :f_room_roof_insulation, :eco_help, :heating, :j_better_heating_controls, :p_heat_pump, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :windows_and_doors, :m_replacement_glazing, :w_renewal_heat, :help_and_advice, :help_and_advice_body]
+          
+          assert_state_variable :h_fan_assisted_heater, nil
+          assert_state_variable :i_warm_air_unit, nil
+          assert_state_variable :k_hot_water_cyclinder_jacket, nil
+          assert_state_variable :l_cylinder_thermostat, nil
+          assert_state_variable :n_secondary_glazing, nil
+          assert_state_variable :o_external_doors, nil
+          assert_state_variable :p_heat_pump, nil
+          assert_state_variable :q_biomass_boilers_heaters, nil
           assert_state_variable :r_micro_wind, nil
           assert_state_variable :s_micro_chp, nil
           assert_state_variable :t_solar_water_heating, nil
@@ -881,6 +978,101 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
         assert_state_variable :flat_type, "top_floor"
         assert_current_node :outcome_no_green_deal_no_energy_measures
         assert_phrase_list :eligibilities, [:help_and_advice_body]
+      end
+    end
+    
+    
+    # test for measure_help green deal outcomes with top floor flat with loft attic conversion
+    context "circumstances = none, modern house, no features" do
+      setup do
+        add_response 'help_boiler_measure'
+        add_response 'property'
+        add_response 'before-1940'
+        add_response 'flat'
+        add_response 'top_floor'
+        add_response 'loft_attic_conversion'
+
+      end
+      should "take you to the green deal outcome with these variations" do
+        assert_state_variable :property_type, "flat"
+        assert_current_node :outcome_measures_help_green_deal
+        assert_phrase_list :title_end, [:title_under_green_deal]
+        assert_phrase_list :eligibilities, [:boilers_and_insulation, :a_condensing_boiler, :b_cavity_wall_insulation, :c_solid_wall_insulation, :d_draught_proofing, :heating, :j_better_heating_controls, :p_heat_pump, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :windows_and_doors, :m_replacement_glazing, :w_renewal_heat, :help_and_advice, :help_and_advice_body]
+        
+        assert_state_variable :e_loft_roof_insulation, nil
+        assert_state_variable :h_fan_assisted_heater, nil
+        assert_state_variable :i_warm_air_unit, nil
+        assert_state_variable :k_hot_water_cyclinder_jacket, nil
+        assert_state_variable :l_cylinder_thermostat, nil
+        assert_state_variable :n_secondary_glazing, nil
+        assert_state_variable :o_external_doors, nil
+        assert_state_variable :r_micro_wind, nil
+        assert_state_variable :s_micro_chp, nil
+        assert_state_variable :u_solar, nil
+        assert_state_variable :v_green_deal_body, nil
+        assert_state_variable :v_green_deal_title, nil
+      end
+    end
+    # test for measure_help green deal outcomes with top floor flat with loft attic conversion
+    context "circumstances = none, modern house, no features" do
+      setup do
+        add_response 'help_boiler_measure'
+        add_response 'property'
+        add_response 'before-1940'
+        add_response 'flat'
+        add_response 'maisonette'
+        add_response 'loft_attic_conversion'
+      end
+      should "take you to the green deal outcome with these variations" do
+        assert_state_variable :property_type, "flat"
+        assert_current_node :outcome_measures_help_green_deal
+        assert_phrase_list :title_end, [:title_under_green_deal]
+        assert_phrase_list :eligibilities, [:boilers_and_insulation, :a_condensing_boiler, :b_cavity_wall_insulation, :c_solid_wall_insulation, :d_draught_proofing,:f_room_roof_insulation, :g_under_floor_insulation, :heating, :j_better_heating_controls, :p_heat_pump, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :windows_and_doors, :m_replacement_glazing, :w_renewal_heat, :help_and_advice, :help_and_advice_body]
+        
+        
+        assert_state_variable :e_loft_roof_insulation, nil
+        assert_state_variable :h_fan_assisted_heater, nil
+        assert_state_variable :i_warm_air_unit, nil
+        assert_state_variable :k_hot_water_cyclinder_jacket, nil
+        assert_state_variable :l_cylinder_thermostat, nil
+        assert_state_variable :n_secondary_glazing, nil
+        assert_state_variable :o_external_doors, nil
+        assert_state_variable :r_micro_wind, nil
+        assert_state_variable :s_micro_chp, nil
+        assert_state_variable :u_solar, nil
+        assert_state_variable :v_green_deal_body, nil
+        assert_state_variable :v_green_deal_title, nil
+      end
+    end
+    
+    context "modern, draught proofing and modern boiler" do
+      setup do
+        add_response 'help_boiler_measure'
+        add_response 'permission'
+        add_response 'before-1940'
+        add_response 'house'
+        add_response 'mains_gas'
+      end
+      should "take you to green deal outcome with mains gas variants" do
+        assert_state_variable :property_type, "house"
+        assert_current_node :outcome_measures_help_green_deal
+        assert_phrase_list :title_end, [:title_under_green_deal]
+        assert_phrase_list :eligibilities, [:boilers_and_insulation, :a_condensing_boiler, :b_cavity_wall_insulation, :c_solid_wall_insulation, :d_draught_proofing, :e_loft_roof_insulation, :g_under_floor_insulation, :heating, :j_better_heating_controls, :hot_water, :windows_and_doors, :m_replacement_glazing, :w_renewal_heat, :help_and_advice, :help_and_advice_body]
+        
+        assert_state_variable :h_fan_assisted_heater, nil
+        assert_state_variable :i_warm_air_unit, nil
+        assert_state_variable :k_hot_water_cyclinder_jacket, nil
+        assert_state_variable :l_cylinder_thermostat, nil
+        assert_state_variable :n_secondary_glazing, nil
+        assert_state_variable :o_external_doors, nil
+        assert_state_variable :p_heat_pump, nil
+        assert_state_variable :q_biomass_boilers_heaters, nil
+        assert_state_variable :r_micro_wind, nil
+        assert_state_variable :s_micro_chp, nil
+        assert_state_variable :u_solar, nil
+        assert_state_variable :v_green_deal_body, nil
+        assert_state_variable :v_green_deal_title, nil
+
       end
     end
   end
