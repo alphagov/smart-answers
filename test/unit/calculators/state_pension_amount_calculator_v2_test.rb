@@ -770,6 +770,5 @@ module SmartAnswer::Calculators
         assert_equal Date.parse("7 September 2026"), @calculator.state_pension_date
       end
     end
-    
   end
 end
