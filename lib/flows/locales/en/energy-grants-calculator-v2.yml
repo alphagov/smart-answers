@@ -32,12 +32,13 @@ en-GB:
           Unfortunately it doesn’t look like you qualify for money off your energy bill. You can still get help to reduce your energy use with:
         title_might_be_eligible: you might be eligible for help with your energy bills
         title_energy_supplier: "Based on your answers you might qualify for help from your energy supplier with the following:"
-        title_under_green_deal: "Under the Green Deal you could get some of these measures without having to pay all the cost upfront:"
+        title_under_green_deal: "Under the Green Deal you could get some of these improvements without having to pay all the cost upfront:"
+        title_already_energy_efficient: "Your home is probably already quite energy efficient but you could still benefit from:"
         smartmeters: |
           [Smart meters](/smart-meters) can help you keep track of how much energy you're using. You won't get estimated bills and won't need to take meter readings.
 
         boilers_and_insulation: "###Boilers and insulation"
-        a_condensing_boiler: "- [Condensing boiler (gas or oil)](http://www.energysavingtrust.org.uk/Heating-and-hot-water/Replacing-your-boiler)"
+        a_condensing_boiler: "- [A new Boiler](http://www.energysavingtrust.org.uk/Heating-and-hot-water/Replacing-your-boiler)(high efficiency or oil condensing boiler)"
         b_cavity_wall_insulation: "- [Cavity wall insulation](http://www.energysavingtrust.org.uk/Insulation/Cavity-wall-insulation)"
         c_solid_wall_insulation: "- [Solid Wall insulation](http://www.energysavingtrust.org.uk/Insulation/Solid-wall-insulation)"
         d_draught_proofing: "- [Draught proofing](http://www.energysavingtrust.org.uk/Insulation/Draught-proofing)"
@@ -47,14 +48,14 @@ en-GB:
         eco_affordable_warmth: |
           Find out more about [ECO Affordable Warmth](https://www.gov.uk/energy-company-obligation) or call the Energy Saving Advice Service on 0300 123 1234 to apply.
         eco_help: |
-          You may also be able to get some of the following measures without having to pay all the costs up front through the Green Deal:
+          You may also be able to get some of the following improvements without having to pay all the costs up front through the Green Deal:
         property_might_benefit: "Your property might also benefit from:"
         heating: "###Heating"
-        j_better_heating_controls: "- [Better heating controls](http://www.energysavingtrust.org.uk/Heating-and-hot-water/Thermostats-and-controls)"
+        j_better_heating_controls: "- Better heating controls (eg room thermostats)"
         hot_water: "###Hot water"
         windows_and_doors: "###Windows and doors"
-        m_replacement_glazing: "- [Replacement glazing](http://www.energysavingtrust.org.uk/Insulation/Windows)"
-        p_heat_pump: "- Heat pump (air, ground or water source)"
+        m_replacement_glazing: "- Double glazing (or secondary glazing for listed properties)"
+        p_heat_pump: "- Heat pump (air or ground source)"
         q_biomass_boilers_heaters: "- [Biomass boilers and heaters](http://www.energysavingtrust.org.uk/Generating-energy/Choosing-a-renewable-technology/Wood-fuelled-heating)"
         t_solar_water_heating: "- [Solar water heating](http://www.energysavingtrust.org.uk/Generating-energy/Choosing-a-renewable-technology/Solar-water-heating)"
         w_renewal_heat: |
