@@ -682,11 +682,9 @@ outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible do
     phrases = PhraseList.new
     phrases << :boilers_and_insulation
     phrases << :a_condensing_boiler unless (features & %w(modern_boiler)).any?
-    unless (features & %w(cavity_wall_insulation mains_gas)).any?
-      :b_cavity_wall_insulation
-    end
-    unless (features & %w(mains_gas solid_wall_insulation)).any?
-      :c_solid_wall_insulation
+    if !(features & %w(mains_gas)).any?
+      phrases << :b_cavity_wall_insulation
+      phrases << :c_solid_wall_insulation
     end
     phrases << :d_draught_proofing unless (features & %w(draught_proofing mains_gas)).any?
     phrases << :e_loft_roof_insulation unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat'
