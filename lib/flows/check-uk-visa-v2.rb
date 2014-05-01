@@ -55,7 +55,7 @@ multiple_choice :purpose_of_visit? do
     when 'work'
       :staying_for_how_long?
     when 'tourism'
-      if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
+      if %w(oman qatar united-arab-emirates).include?(passport_country)
         :outcome_visit_waiver
       elsif %w(taiwan).include?(passport_country)
           :outcome_taiwan_exception
@@ -66,7 +66,7 @@ multiple_choice :purpose_of_visit? do
         :outcome_general_y
       end
     when 'school'
-      if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
+      if %w(oman qatar united-arab-emirates).include?(passport_country)
         :outcome_visit_waiver
       elsif %w(taiwan).include?(passport_country)
         :outcome_taiwan_exception
@@ -90,7 +90,6 @@ multiple_choice :purpose_of_visit? do
         :outcome_medical_y
       end
     when 'transit'
-
       if country_group_datv.include?(passport_country) or
          country_group_visa_national.include?(passport_country) or %w(taiwan venezuela).include?(passport_country)
         :planning_to_leave_airport?
@@ -226,7 +225,7 @@ outcome :outcome_visit_waiver do
         PhraseList.new(:epassport_not_crossing_border)
       elsif purpose_of_visit_answer == 'study'
         PhraseList.new(:epassport_study_reason)
-      else
+      elsif purpose_of_visit_answer != ('school' || 'tourism')
         PhraseList.new(:epassport_general_visit_reason)
       end
     elsif %w(taiwan).include?(passport_country)
