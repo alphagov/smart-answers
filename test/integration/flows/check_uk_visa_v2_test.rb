@@ -266,17 +266,6 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
           assert_phrase_list :if_china, [:china_tour_group]
         end
       end
-      context "Venezuelan passport" do
-        setup do
-          setup_for_testing_flow 'check-uk-visa-v2'
-          add_response "venezuela"
-          add_response "tourism"
-        end
-        should "take you to outcome_visit_waiver outcome" do
-          assert_current_node :outcome_visit_waiver
-          assert_phrase_list :if_exception, [:epassport_general_visit_reason]
-        end
-      end
     end
     context "visiting child at school" do
       setup do
@@ -284,17 +273,6 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
       end
       should "take you to school_y outcome" do
         assert_current_node :outcome_school_y
-      end
-      context "Venezuelan passport" do
-        setup do
-          setup_for_testing_flow 'check-uk-visa-v2'
-          add_response "venezuela"
-          add_response "school"
-        end
-        should "take you to outcome_visit_waiver outcome" do
-          assert_current_node :outcome_visit_waiver
-          assert_phrase_list :if_exception, [:epassport_general_visit_reason]
-        end
       end
       context "Oman passport" do
         setup do
@@ -638,6 +616,29 @@ end
         assert_current_node :outcome_visit_waiver
         assert_phrase_list :if_exception, [:passport_bio_not_crossing_border]
         assert_phrase_list :outcome_title, [:passport_bio_visa_not_needed_title]
+      end
+    end
+  end
+  context "outcome venezuela exception transit" do
+    setup do
+      add_response 'venezuela'
+    end
+    context "coming to the UK to visit child at school" do
+      setup do
+        add_response 'school'
+      end
+      should "take you to school outcome without personalised phraselist" do
+        assert_current_node :outcome_school_y
+        assert_state_variable :if_exception, nil
+      end
+    end
+    context "coming to the UK for tourism" do
+      setup do
+        add_response 'tourism'
+      end
+      should "take you to tourism outcome without personalised phraselist" do
+        assert_current_node :outcome_general_y
+        assert_state_variable :if_exception, nil
       end
     end
   end
