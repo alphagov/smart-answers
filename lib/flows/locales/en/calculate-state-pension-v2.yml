@@ -366,7 +366,7 @@ en-GB:
       years_of_work?:
         title: How many years between age 16 and 19 were you working and paying National Insurance Contributions, or receiving National Insurance credits?
         hint: You might have been eligible for credits if you were getting unemployment, sickness, or disability benefits. You may have got credits if you were in full time education (not higher education) or approved training and you were born before 6 April 1959.
-        error_message: Please enter a number. You can enter between 0 and %{years_you_can_enter}.
+        error_message: Please enter a number. You can enter between 0 and 3.
         suffix_label: years
 
 
