@@ -24,13 +24,15 @@ multiple_choice :what_is_your_marital_status? do
   
   calculate :result_phrase do
     if responses.last == "divorced"
-      PhraseList.new(:impossibility_due_to_divorce) #outcome 9
+      phrases = PhraseList.new
+      phrases << :impossibility_due_to_divorce << :increase_retirement_income #outcome 9
+      phrases
     end
   end
   
   next_node do |response|
     if response == "divorced"
-      :final_outcome
+      :what_is_your_gender?
     else
       :when_will_you_reach_pension_age?
     end
@@ -54,7 +56,9 @@ multiple_choice :when_will_you_reach_pension_age? do
   
   calculate :result_phrase do
     if responses.first == "widowed" and responses.last == "your_pension_age_before_specific_date"
-      PhraseList.new(:current_rules_and_additional_pension) #outcome 2
+      phrases = PhraseList.new
+      phrases << :current_rules_and_additional_pension << :increase_retirement_income #outcome 2
+      phrases
     end
   end
   
@@ -90,6 +94,7 @@ multiple_choice :when_will_your_partner_reach_pension_age? do
     elsif answers == [:old1, :old2, :new3] || answers == [:new1, :old2, :new3]
       phrases << :current_rules_national_insurance_no_state_pension #outcome 3
     end
+    phrases << :increase_retirement_income
     phrases
   end
   
@@ -112,16 +117,21 @@ multiple_choice :what_is_your_gender? do
   calculate :result_phrase do
     phrases = PhraseList.new
     if responses.last == "male_gender"
-      phrases << :impossibility_to_increase_pension #outcome 8
+      if responses.first == "divorced"
+        phrases << :impossibility_due_to_divorce #outcome 9
+      else
+        phrases << :impossibility_to_increase_pension #outcome 8
+      end
     else
-      if responses.first == "widowed"
-        #outcome 6
-        phrases << :married_woman_and_state_pension << :inherit_part_pension 
-        phrases << :married_woman_and_state_pension_outro 
+      if responses.first == "divorced"
+        phrases << :age_dependent_pension #outcome 10
+      elsif responses.first == "widowed"
+        phrases << :married_woman_and_state_pension #outcome 6 and 7 intro
       else
         phrases << :married_woman_no_state_pension #outcome 5
       end
     end
+    phrases << :increase_retirement_income
     phrases
   end
   next_node :final_outcome
