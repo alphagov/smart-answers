@@ -1063,14 +1063,14 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
     
     should "show results for not enough qualifying years and not enough remaining years" do
       add_response :male
-      add_response Date.parse('1 Sep 1949')
+      add_response Date.parse('1 Sep 1950')
       add_response 5
       add_response 0
       add_response 'no'
       add_response 0
       assert_current_node :amount_result
       assert_phrase_list :result_text, [:too_few_qy_not_enough_remaining_years, :automatic_years_phrase]
-    end
+    end 
     
     context "Timecop date set to 30 April 2014" do
       setup do
