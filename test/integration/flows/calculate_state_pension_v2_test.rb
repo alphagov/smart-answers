@@ -1073,7 +1073,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
       assert_state_variable :enough_qualifying_years, nil
     end
     
-    should "blah" do
+    should "show results form additional HMRC test case" do
       add_response :female
       add_response Date.parse('6 April 1958')
       add_response 31
