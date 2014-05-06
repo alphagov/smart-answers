@@ -152,11 +152,10 @@ en-GB:
       outcome_22:
         title: The husband, wife or civil partner keeps all the assets (including property) up to £450,000, and all the personal possessions, whatever their value.
         body: |
-          They also get half of the amount left over.
+          They also get half the amount left over.
 
-          The remainder is shared between the surviving parents
-
-          If a brother or sister has already died, their children (the deceased’s nieces and nephews) inherit.
+          The remainder is divided between the surviving siblings.
+          
         next_steps: |
           %{next_step_links}
 

@@ -5,9 +5,9 @@ additional_countries = UkbaCountry.all
 
 exclude_countries = %w(american-samoa british-antarctic-territory british-indian-ocean-territory french-guiana french-polynesia gibraltar guadeloupe holy-see martinique mayotte new-caledonia reunion st-pierre-and-miquelon wallis-and-futuna western-sahara)
 
-country_group_ukot = %w(anguilla bermuda british-dependent-territories-citizen british-overseas-citizen british-protected-person british-virgin-islands cayman-islands falkland-islands montserrat pitcairn-island st-helena-ascension-and-tristan-da-cunha south-georgia-and-south-sandwich-islands turks-and-caicos-islands)
+country_group_ukot = %w(anguilla bermuda british-dependent-territories-citizen british-overseas-citizen british-protected-person british-virgin-islands cayman-islands falkland-islands montserrat st-helena-ascension-and-tristan-da-cunha south-georgia-and-south-sandwich-islands turks-and-caicos-islands)
 
-country_group_non_visa_national = %w(andorra antigua-and-barbuda argentina aruba australia bahamas barbados belize bonaire-st-eustatius-saba botswana brazil british-national-overseas brunei canada chile costa-rica curacao dominica timor-leste el-salvador grenada guatemala honduras hong-kong hong-kong-(british-national-overseas) israel japan kiribati south-korea macao malaysia maldives marshall-islands mauritius mexico micronesia monaco namibia nauru new-zealand nicaragua palau panama papua-new-guinea paraguay st-kitts-and-nevis st-lucia st-maarten st-vincent-and-the-grenadines samoa san-marino seychelles singapore solomon-islands tonga trinidad-and-tobago tuvalu usa uruguay vanuatu vatican-city)
+country_group_non_visa_national = %w(andorra antigua-and-barbuda argentina aruba australia bahamas barbados belize bonaire-st-eustatius-saba botswana brazil british-national-overseas brunei canada chile costa-rica curacao dominica timor-leste el-salvador grenada guatemala honduras hong-kong hong-kong-(british-national-overseas) israel japan kiribati south-korea macao malaysia maldives marshall-islands mauritius mexico micronesia monaco namibia nauru new-zealand nicaragua palau panama papua-new-guinea paraguay pitcairn-island st-kitts-and-nevis st-lucia st-maarten st-vincent-and-the-grenadines samoa san-marino seychelles singapore solomon-islands tonga trinidad-and-tobago tuvalu usa uruguay vanuatu vatican-city)
 
 country_group_visa_national = %w(armenia azerbaijan bahrain benin bhutan bosnia-and-herzegovina burkina-faso cambodia cape-verde central-african-republic chad comoros cuba djibouti dominican-republic equatorial-guinea fiji gabon georgia guyana haiti indonesia jordan kazakhstan north-korea kuwait kyrgyzstan laos madagascar mali mauritania morocco mozambique niger oman peru philippines qatar russia sao-tome-and-principe saudi-arabia suriname tajikistan taiwan thailand togo tunisia turkmenistan ukraine united-arab-emirates uzbekistan zambia)
 
@@ -18,7 +18,6 @@ country_group_eea = %w(austria belgium bulgaria croatia cyprus czech-republic de
 # Q1
 country_select :what_passport_do_you_have?, :additional_countries => additional_countries, :exclude_countries => exclude_countries do
   save_input_as :passport_country
-
 
   next_node do |response|
     if country_group_eea.include?(response)
@@ -56,7 +55,7 @@ multiple_choice :purpose_of_visit? do
     when 'work'
       :staying_for_how_long?
     when 'tourism'
-      if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
+      if %w(oman qatar united-arab-emirates).include?(passport_country)
         :outcome_visit_waiver
       elsif %w(taiwan).include?(passport_country)
           :outcome_taiwan_exception
@@ -67,7 +66,7 @@ multiple_choice :purpose_of_visit? do
         :outcome_general_y
       end
     when 'school'
-      if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
+      if %w(oman qatar united-arab-emirates).include?(passport_country)
         :outcome_visit_waiver
       elsif %w(taiwan).include?(passport_country)
         :outcome_taiwan_exception
@@ -80,7 +79,7 @@ multiple_choice :purpose_of_visit? do
     when 'marriage'
       :outcome_marriage
     when 'medical'
-      if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
+      if %w(oman qatar united-arab-emirates).include?(passport_country)
         :outcome_visit_waiver
       elsif %w(taiwan).include?(passport_country)
         :outcome_taiwan_exception
@@ -91,7 +90,6 @@ multiple_choice :purpose_of_visit? do
         :outcome_medical_y
       end
     when 'transit'
-
       if country_group_datv.include?(passport_country) or
          country_group_visa_national.include?(passport_country) or %w(taiwan venezuela).include?(passport_country)
         :planning_to_leave_airport?
@@ -141,6 +139,7 @@ end
 multiple_choice :staying_for_how_long? do
   option :six_months_or_less
   option :longer_than_six_months
+  save_input_as :period_of_staying
 
   next_node do |response|
     case response
@@ -152,7 +151,7 @@ multiple_choice :staying_for_how_long? do
       end
     when 'six_months_or_less'
       if purpose_of_visit_answer == 'study'
-        if %w(venezuela oman qatar united-arab-emirates).include?(passport_country)
+        if %w(oman qatar united-arab-emirates).include?(passport_country)
           :outcome_visit_waiver #outcome 12 visit outcome_visit_waiver
         elsif %w(taiwan).include?(passport_country)
           :outcome_taiwan_exception
@@ -170,7 +169,7 @@ multiple_choice :staying_for_how_long? do
         end
       end
     end
-  end                    
+  end
 end
 
 
@@ -224,8 +223,6 @@ outcome :outcome_visit_waiver do
         PhraseList.new(:epassport_crossing_border)
       elsif leaving_airport_answer == "no"
         PhraseList.new(:epassport_not_crossing_border)
-      else
-        PhraseList.new(:extra_documents)
       end
     elsif %w(taiwan).include?(passport_country)
       if leaving_airport_answer == "yes"
@@ -235,6 +232,15 @@ outcome :outcome_visit_waiver do
       end
     elsif %w(oman qatar united-arab-emirates).include?(passport_country)
       PhraseList.new(:electronic_visa_waiver)
+    end
+  end
+  precalculate :outcome_title do
+    if %w(venezuela).include?(passport_country)
+      PhraseList.new(:epassport_visa_not_needed_title)
+    elsif %w(taiwan).include?(passport_country)
+      PhraseList.new(:passport_bio_visa_not_needed_title)
+    elsif %w(oman qatar united-arab-emirates).include?(passport_country)
+      PhraseList.new(:electronic_visa_waiver_needed_title)
     end
   end
 end
