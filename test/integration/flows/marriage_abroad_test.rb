@@ -980,7 +980,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do, :appointment_for_affidavit_notary, :affirmation_os_download_affidavit_turkey, :affirmation_os_legalised, :affirmation_os_divorced_or_widowed_turkey, :affirmation_os_partner_not_british_turkey, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do, :appointment_for_affidavit_notary, :affirmation_os_download_affidavit_turkey, :affirmation_os_legalised, :affirmation_os_divorced_or_widowed_turkey, :affirmation_os_partner_not_british_turkey, :turkey_affadavit_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 #testing for ceremony in Turkey, local resident, partner other
@@ -995,7 +995,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome,[:affirmation_os_local_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do, :appointment_for_affidavit, :affirmation_appointment_book_at_following, :affirmation_os_download_affidavit_turkey, :affirmation_os_legalised_in_turkey, :affirmation_os_divorced_or_widowed_turkey, :affirmation_os_partner_not_british_turkey, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :affirmation_os_outcome,[:affirmation_os_local_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do, :appointment_for_affidavit, :affirmation_appointment_book_at_following, :affirmation_os_download_affidavit_turkey, :affirmation_os_legalised_in_turkey, :affirmation_os_divorced_or_widowed_turkey, :affirmation_os_partner_not_british_turkey, :turkey_affadavit_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 

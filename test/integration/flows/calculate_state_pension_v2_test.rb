@@ -481,9 +481,11 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
           add_response 7
           add_response "yes"
           add_response 5
+          add_response 0
+          add_response 0
         end
 
-        should "display result because of starting credits" do
+        should "display result including starting credits" do
           assert_state_variable :qualifying_years_total, 35
           assert_current_node :amount_result
           assert_phrase_list :automatic_credits, [:automatic_credits]
@@ -555,6 +557,8 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         context "30 years of NI" do
           should "show the result" do
             add_response 30
+            add_response 0 # unemployment
+            add_response 'no' # claimed benefits
             assert_current_node :amount_result
           end
         end
@@ -703,8 +707,9 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
             assert_current_node_is_error
           end
 
-          should "pass when entering 4 (go to amount_result as available_ni_years is maxed)" do
+          should "pass when entering 4" do
             add_response 4
+            add_response 2
             assert_current_node :amount_result
           end
 
@@ -771,9 +776,10 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
           assert_current_node :years_paid_ni?
         end
 
-        context "39 years of NI" do
+        context "39 years of NI and no years worked 16 - 19" do
           should "show the result" do
             add_response 39
+            add_response 0 # 16 - 19 years worked
             assert_current_node :amount_result
           end
         end
@@ -787,9 +793,10 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
             assert_current_node :years_of_jsa?
           end
 
-          context "10 years of jsa" do
+          context "10 years of jsa and no 16 - 19 years worked" do
             should "show the result" do
               add_response 12
+              add_response 0 # 16 - 19 years worked
               assert_current_node :amount_result
             end
           end
@@ -870,10 +877,11 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         setup do
           add_response Date.parse('1964-12-06')
           add_response 27
+          add_response 3 # unemployment, sickeness
         end
 
-        should "display result because of starting credits" do
-          assert_state_variable :qualifying_years_total, 30
+        should "add starting credits and go to results" do
+          assert_state_variable :qualifying_years_total, 33
           assert_current_node :amount_result
         end
       end
@@ -885,9 +893,12 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         add_response 'female'
         add_response Date.parse('1958-05-10')
         add_response 34
+        add_response 0 # unemployment, sickness
+        add_response 'no' # child benefit
+        add_response 0 # 16 - 19 working years
       end
 
-      should "display result because of starting credits" do
+      should "gets starting credits and through to result" do
         assert_current_node :amount_result
       end
     end
@@ -897,10 +908,12 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         add_response 'male'
         add_response Date.parse('1957-11-26')
         add_response 35
-        add_response 1
+        add_response 1 # unemployment, sickness
+        add_response 'no' # child benefit
+        add_response 3 # 16 - 19 working years
       end
 
-      should "display result because of starting credits" do
+      should "gets starting credits and through to result" do
         assert_current_node :amount_result
       end
     end
@@ -910,10 +923,11 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         add_response 'male'
         add_response Date.parse('1960-02-08')
         add_response 25
-        add_response 7
+        add_response 7 # unemployment, sickness
+        add_response 'no' # child benefit
       end
 
-      should "display result because of starting credits" do
+      should "gets starting credits and through to result" do
         assert_current_node :amount_result
       end
     end
@@ -1049,14 +1063,74 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
     
     should "show results for not enough qualifying years and not enough remaining years" do
       add_response :male
-      add_response Date.parse('1 Sep 1949')
+      add_response (Date.today - 64.years)
       add_response 5
       add_response 0
       add_response 'no'
       add_response 0
       assert_current_node :amount_result
       assert_phrase_list :result_text, [:too_few_qy_not_enough_remaining_years, :automatic_years_phrase]
+      assert_state_variable :enough_qualifying_years, nil
     end
+    
+    context "Timecop date set to 30 April 2014" do
+      setup do
+        Timecop.travel('2014-04-30')
+      end
+      
+      should "show results for male and 44 available years" do
+        add_response :male
+        add_response Date.parse('6 April 1951')
+        add_response 33
+        add_response 4 # unemployment, sickness
+        add_response 'no' # child benefit
+        add_response 2 # 16 - 19 working years
+        assert_current_node :amount_result
+        assert_state_variable :qualifying_years_total, 39
+        assert_state_variable :remaining_years, 2
+        assert_phrase_list :result_text, [:you_get_full_state_pension, :automatic_years_phrase]
+      end
+      
+      should "show results for female and 40 available years" do
+        add_response :female
+        add_response Date.parse('12 November 1954')
+        add_response 38
+        add_response 1 # unemployment, sickness
+        add_response 'yes' # child benefit
+        add_response 1 # years of benefit
+        add_response 2 # 16 - 19 work
+        assert_current_node :amount_result
+        assert_state_variable :qualifying_years_total, 42
+        assert_state_variable :remaining_years, 6
+        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a, :ni_table, :too_few_qy_enough_remaining_years_a_outro]
+      end
+      
+      should "show results for female and 29 available years" do
+        add_response :female
+        add_response Date.parse('6 December 1965')
+        add_response 25
+        add_response 4 # unemployment, sickness
+        assert_current_node :amount_result
+        assert_state_variable :qualifying_years_total, 32
+        assert_state_variable :remaining_years, 18
+        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a, :ni_table, :too_few_qy_enough_remaining_years_a_outro]
+      end
+      
+      should "show results for male and 35 available years" do
+        add_response :male
+        add_response Date.parse('8 February 1960')
+        add_response 24
+        add_response 1 # unemployment, sickness
+        add_response 'yes' # child benefit
+        add_response 1 # years of benefit
+        add_response 1 # years or caring
+        add_response 1 # carer's allowance
+        assert_current_node :amount_result
+        assert_state_variable :qualifying_years_total, 31
+        assert_state_variable :remaining_years, 11
+        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a, :ni_table, :too_few_qy_enough_remaining_years_a_outro]
+      end
+    end # end timecop 30-04-2014
     
     context "setup a date before 2016" do
       setup do

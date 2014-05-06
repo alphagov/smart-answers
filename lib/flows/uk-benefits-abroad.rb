@@ -1,5 +1,5 @@
-satisfies_need "392"
 status :draft
+satisfies_need "100490"
 
 exclude_countries = %w(holy-see british-antarctic-territory)
 situations = ['going_abroad','already_abroad']

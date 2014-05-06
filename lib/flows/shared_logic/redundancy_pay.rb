@@ -1,5 +1,5 @@
 date_question :date_of_redundancy? do
-  from { Date.civil(Date.today.year - 1,1,1) }
+  from { Date.civil(2012,1,1) }
   to { Date.today }
   calculate :rates do
     Calculators::RedundancyCalculator.redundancy_rates(Date.parse(responses.last))

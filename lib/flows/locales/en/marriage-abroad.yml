@@ -800,16 +800,16 @@ en-GB:
         affirmation_os_legalised: |
           You’ll need to get your affirmation ‘[legalised](https://www.gov.uk/get-document-legalised)’ (certified as genuine) before you travel to Turkey.
         affirmation_os_download_affidavit_turkey: |
-          You’ll need to complete an ‘Affirmation for marriage’ form that will be used for your affidavit.  Take the completed form with you to your appointment.
+          You’ll need to complete an ‘Affadavit for marriage’ form that will be used for your affidavit.  Take the completed form with you to your appointment.
 
           $D
-          [Download 'Affadavit for marriage' (PDF, 446KB)](/government/uploads/system/uploads/attachment_data/file/293781/Affidavit_of_Marital_Status.pdf)
+          [Download 'Affadavit for Marriage' (PDF, 446KB)](/government/uploads/system/uploads/attachment_data/file/293781/Affidavit_of_Marital_Status.pdf)
           $D
         affirmation_os_download_affidavit_philippines: |
           The embassy will provide you with an oath or affidavit (written statement of facts) stating that you’re free to marry. You can download and fill in (but not sign) the form in advance.
 
           $D
-          [Download 'Affadavit for marriage' (PDF, 170.34KB)](/government/uploads/system/uploads/attachment_data/file/284905/Marriage_in_the_Philippines_leaflet_affirmation_or_affidavit_of_marital_status_Feb_2014.pdf)
+          [Download 'Affadavit for Marriage' (PDF, 170.34KB)](/government/uploads/system/uploads/attachment_data/file/284905/Marriage_in_the_Philippines_leaflet_affirmation_or_affidavit_of_marital_status_Feb_2014.pdf)
           $D
 
         affirmation_os_divorced_or_widowed: |
@@ -828,6 +828,13 @@ en-GB:
           - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
           - evidence of nationality or residence where your divorce took place if it was outside the UK
           - evidence if you’ve changed your name by deed poll.
+
+        turkey_affadavit_fees: |
+          ##Fees
+
+          Service | Fee
+          -|-
+          Affadavit for Marriage | £55
 
         affirmation_os_all_fees: |
           ##Fees

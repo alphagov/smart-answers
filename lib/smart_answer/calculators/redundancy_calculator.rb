@@ -5,7 +5,7 @@ module SmartAnswer::Calculators
   class RedundancyCalculator
 
     AMOUNTS = [
-      OpenStruct.new(:start_date => Date.new(2013,01,01), :end_date => Date.new(2013,01,31), :max => "12,900", :rate => 430),
+      OpenStruct.new(:start_date => Date.new(2012,01,01), :end_date => Date.new(2013,01,31), :max => "12,900", :rate => 430),
       OpenStruct.new(:start_date => Date.new(2013,02,01), :end_date => Date.new(2014,04,05), :max => "13,500", :rate => 450),
       OpenStruct.new(:start_date => Date.new(2014,04,06), :end_date => Date.new(Date.today.year, 12, 31), :max => "13,920", :rate => 464)
     ]

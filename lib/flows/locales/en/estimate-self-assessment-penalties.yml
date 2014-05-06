@@ -10,7 +10,14 @@ en-GB:
         - sending your Self Assessment tax return
         - paying your Self Assessment tax bill 
 
-        This calculator doesn’t take account of any partial payments or penalty payments you’ve made towards your tax bill.
+        ^You can only calculate penalties for the current tax year.^
+
+        This calculator doesn’t take account of any:
+
+        - partial payments or penalty payments you’ve made towards your tax bill
+        - any outstanding interest or penalties for previous tax years
+        - any credit you have from previous tax years
+
       phrases:
         result_part2_no_penalty: |
           | What you said your tax bill was | %{estimated_bill} |

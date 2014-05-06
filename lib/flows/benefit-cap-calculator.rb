@@ -1,4 +1,5 @@
 status :draft
+satisfies_need "100696"
 
 # Q1
 multiple_choice :receive_housing_benefit? do

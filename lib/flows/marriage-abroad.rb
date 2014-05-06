@@ -1,5 +1,5 @@
 status :published
-satisfies_need "2799"
+satisfies_need "101000"
 
 data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
@@ -515,18 +515,15 @@ outcome :outcome_os_consular_cni do
     end
 
     if %w(uk).include?(resident_of)
-      if %w(china italy kazakhstan kyrgyzstan montenegro philippines poland portugal).exclude?(ceremony_country)
+      if %w(china italy kazakhstan kyrgyzstan montenegro poland portugal).exclude?(ceremony_country)
         phrases << :consular_cni_os_uk_resident_legalisation
       elsif %w(montenegro).include?(ceremony_country)
         phrases << :consular_cni_os_uk_resident_montenegro
       elsif %w(kazakhstan kyrgyzstan poland).include?(ceremony_country)
         phrases << :consular_cni_os_uk_resident_poland_kazak_kyrg      
       end
-      if %w(china italy philippines portugal).exclude?(ceremony_country)
+      if %w(china italy portugal).exclude?(ceremony_country)
         phrases << :consular_cni_os_uk_resident_not_italy_or_portugal
-      end
-      if %w(philippines).include?(ceremony_country)
-        phrases << :consular_cni_os_uk_resident_philippines
       end
       if %w(portugal).include?(ceremony_country)
         phrases << :consular_cni_os_uk_resident_ceremony_portugal
@@ -830,7 +827,13 @@ outcome :outcome_os_affirmation do
       end
     end
 
-    phrases << :affirmation_os_all_fees << :list_of_consular_fees
+    if %w(turkey).include?(ceremony_country)
+      phrases << :turkey_affadavit_fees
+    else
+      phrases << :affirmation_os_all_fees
+    end
+
+    phrases << :list_of_consular_fees
     
     if %w(finland).include?(ceremony_country)
       phrases << :pay_in_euros_or_visa_electron

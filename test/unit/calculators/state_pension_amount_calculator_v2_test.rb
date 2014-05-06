@@ -190,7 +190,7 @@ module SmartAnswer::Calculators
     context "test available years functions" do
       context "male born 26 years and one month plus, no qualifying_years" do
         setup do
-          dob = 1.month.since(Date.new(26.years.ago.year,4,6)).to_s
+          dob =  (Date.today - (26.years - 1.month)).to_s
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
             gender: "male", dob: dob, qualifying_years: nil)
         end
@@ -770,6 +770,5 @@ module SmartAnswer::Calculators
         assert_equal Date.parse("7 September 2026"), @calculator.state_pension_date
       end
     end
-    
   end
 end

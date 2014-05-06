@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 status :published
-satisfies_need "564"
+satisfies_need "100245"
 
 # Q1
 multiple_choice :which_calculation? do
@@ -371,7 +371,7 @@ value_question :years_of_work? do
   save_input_as :years_of_work_entered
 
   calculate :qualifying_years do
-    work_years = Integer(responses.last)
+    work_years = responses.last.to_i
     qy = (work_years + qualifying_years)
     raise InvalidResponse if (work_years < 0 or work_years > 3)
     qy

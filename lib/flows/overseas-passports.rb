@@ -1,5 +1,5 @@
 status :published
-satisfies_need 2820
+satisfies_need "100131"
 
 
 data_query = Calculators::PassportAndEmbassyDataQuery.new
@@ -254,7 +254,8 @@ outcome :ips_application_result do
   end
 
   precalculate :cost do
-    uk_visa_application_centre_countries = %w(algeria azerbaijan china georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand ukraine western-sahara)
+    uk_visa_application_centre_countries = %w(algeria azerbaijan china georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand ukraine venezuela western-sahara)
+    pay_at_appointment_countries = %(venezuela)
 
     if application_action == 'replacing' and ips_number == '1' and ips_docs_number == '1'
       PhraseList.new(:"passport_courier_costs_replacing_ips#{ips_number}",
@@ -275,6 +276,8 @@ outcome :ips_application_result do
         phrases << :"passport_costs_ips3_cash_or_card_#{current_location}" << :passport_costs_ips3_cash_or_card
       elsif data_query.cash_only_countries?(current_location)
         phrases << :passport_costs_ips_cash
+      elsif pay_at_appointment_countries.include?(current_location)
+        phrases << :passport_costs_pay_at_appointment
       else
         phrases << :"passport_costs_ips#{ips_number}"
       end
@@ -360,7 +363,7 @@ outcome :ips_application_result do
     collect_in_person_countries = %w(angola benin cameroon chad congo eritrea ethiopia gambia ghana guinea jamaica kenya nigeria somalia south-sudan zambia zimbabwe)
     collect_in_person_variant_countries = %w(burundi india jordan pitcairn-island)
     collect_in_person_renewing_new_variant_countries = %(burma nepal north-korea)
-    uk_visa_application_centre_countries = %w(algeria azerbaijan china georgia indonesia kazakhstan laos lebanon mauritania morocco russia thailand ukraine western-sahara)
+    uk_visa_application_centre_countries = %w(algeria azerbaijan china georgia indonesia kazakhstan laos lebanon mauritania morocco russia thailand ukraine venezuela western-sahara)
     uk_visa_application_centre_variant_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda yemen)
 
     phrases = PhraseList.new
