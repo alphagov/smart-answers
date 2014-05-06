@@ -105,7 +105,7 @@ multiple_choice :parents? do
       if partner == "yes"
         response == "yes" ? :siblings? : :outcome_1
       else
-        response == "yes" ? :outcome_3 : :siblings?
+        response == "yes" ? :outcome_21 : :siblings?
       end
     when "scotland"
       :siblings?
@@ -132,7 +132,7 @@ multiple_choice :siblings? do
       if partner == "yes"
         response == "yes" ? :outcome_22 : :outcome_21
       else
-        response == "yes" ? :outcome_4 : :half_siblings?
+        response == "yes" ? :outcome_22 : :outcome_1
       end
     when "scotland"
       if partner == "yes"
