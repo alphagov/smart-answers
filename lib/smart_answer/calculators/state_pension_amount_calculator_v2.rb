@@ -199,21 +199,13 @@ module SmartAnswer::Calculators
 
     # enough years to get full basic state pension - used only in flow to test if we should ask more questions
     def enough_qualifying_years?(qual_years = @qualifying_years)
-      if state_pension_date > Date.parse('2016-04-05')
-        qual_years >= ni_years_to_date_from_dob
-      else
-        qual_years > 29
-      end
+      qual_years > 29
     end
 
     # used for flow optimisation so users who haven't entered enough qy but will get
     # 1,2 or 3 starting credit years are sent to last question or result
     def enough_qualifying_years_and_credits?(qual_years = @qualifying_years)
-      if state_pension_date > Date.parse('2016-04-05')
-        (qual_years + @starting_credits) >= ni_years_to_date_from_dob
-      else  
-        (qual_years + @starting_credits) > 29
-      end
+      (qual_years + @starting_credits) > 29
     end
 
     # are there any more years users can enter based on how many years there are between today and time they were 19?
