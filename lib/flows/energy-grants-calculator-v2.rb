@@ -213,12 +213,12 @@ end
 
 # Q6
 multiple_choice :when_property_built? do
-  option :"1985-2000s"
+  option :"on-or-after-1995"
   option :"1940s-1984"
   option :"before-1940"
 
   calculate :modern do
-    %w(1985-2000s).include?(responses.last)
+    %w(on-or-after-1995).include?(responses.last)
   end
   calculate :older do
     %w(1940s-1984).include?(responses.last)
@@ -231,11 +231,32 @@ multiple_choice :when_property_built? do
 end
 
 
-# Q7
+# Q7a
 multiple_choice :type_of_property? do
   option :house
   option :flat
   save_input_as :property_type
+  
+  next_node do |response|
+    if %w(house).include?(response)
+      if modern
+        :home_features_modern?
+      elsif older
+        :home_features_older?
+      else
+        :home_features_historic?
+      end
+    else
+      :type_of_flat?
+    end
+  end
+end
+
+# Q7b
+multiple_choice :type_of_flat? do
+  option :top_floor
+  option :maisonette
+  save_input_as :flat_type
   
   next_node do
     if modern
@@ -394,10 +415,8 @@ outcome :outcome_help_with_bills do
       end
     end
     phrases << :smartmeters
-    if circumstances.include?('benefits')
+    if circumstances.include?('benefits') or bills_help
       phrases << :microgeneration
-    elsif bills_help
-      phrases << :microgeneration << :v_green_deal_title << :v_green_deal_body
     end
     phrases
   end
@@ -418,32 +437,27 @@ outcome :outcome_measures_help_and_eco_eligible do
     phrases << :boilers_and_insulation
     if measure_help || both_help
       if (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
-        phrases << :a_condensing_boiler unless (features & %w(draught_proofing modern_boiler)).any?
-        unless (features & %w(cavity_wall_insulation electric_heating mains_gas)).any? or ((features & %w(loft)).any? and (features & %w(cavity_wall_insulation solid_wall_insulation)).any?)
+        phrases << :a_condensing_boiler unless (features & %w(modern_boiler)).any?
+        unless (features & %w(cavity_wall_insulation mains_gas)).any?
           :b_cavity_wall_insulation
         end
-        unless (features & %w(electric_heating mains_gas solid_wall_insulation)).any? or ((features & %w(loft)).any? and (features & %w(cavity_wall_insulation solid_wall_insulation)).any?)
+        unless (features & %w(mains_gas solid_wall_insulation)).any? or ((features & %w(loft)).any? and (features & %w(cavity_wall_insulation solid_wall_insulation)).any?)
           :c_solid_wall_insulation
         end
-        phrases << :d_draught_proofing unless (features & %w(draught_proofing electric_heating mains_gas)).any?
+        phrases << :d_draught_proofing unless (features & %w(draught_proofing mains_gas)).any?
         phrases << :e_loft_roof_insulation unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat'
-        phrases << :f_room_roof_insulation if (features & %w(loft_attic_conversion)).any? || property_type == 'flat'
-        phrases << :g_under_floor_insulation unless modern
+        phrases << :f_room_roof_insulation if (features & %w(loft_attic_conversion)).any? || property_type == 'flat' || flat_type != "top_floor"
+        phrases << :g_under_floor_insulation unless modern || flat_type != "top_floor"
         phrases << :eco_affordable_warmth
         phrases << :eco_help
-        phrases << :heating << :h_fan_assisted_heater << :i_warm_air_unit << :j_better_heating_controls
-        phrases << :p_heat_pump unless (features & %w(mains_gas)).any?
-        phrases << :q_biomass_boilers_heaters << :t_solar_water_heating
-        phrases << :hot_water << :k_hot_water_cyclinder_jacket
-        phrases << :l_cylinder_thermostat unless modern
+        phrases << :heating << :j_better_heating_controls
+        if !(features & %w(mains_gas)).any?
+          phrases << :p_heat_pump << :q_biomass_boilers_heaters << :t_solar_water_heating
+        end
+        phrases << :hot_water 
         unless (features & %w(modern_double_glazing)).any?
-          phrases << :windows_and_doors << :m_replacement_glazing << :n_secondary_glazing << :o_external_doors
+          phrases << :windows_and_doors << :m_replacement_glazing
         end
-        phrases << :r_micro_wind
-        if features.include?('mains_gas')
-          phrases << :s_micro_chp
-        end
-        phrases << :u_solar
         phrases << :w_renewal_heat
       end
     end
@@ -464,31 +478,26 @@ outcome :outcome_measures_help_green_deal do
     phrases = PhraseList.new
     phrases << :boilers_and_insulation
     phrases << :a_condensing_boiler unless (features & %w(modern_boiler)).any?
-    phrases << :b_cavity_wall_insulation unless (features & %w(cavity_wall_insulation)).any?
-    phrases << :c_solid_wall_insulation unless (features & %w(solid_wall_insulation)).any?
+    phrases << :b_cavity_wall_insulation 
+    phrases << :c_solid_wall_insulation
     phrases << :d_draught_proofing unless (features & %w(draught_proofing)).any?
     phrases << :e_loft_roof_insulation unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat'
-    phrases << :f_room_roof_insulation if (features & %w(loft_attic_conversion)).any? || property_type == 'flat'
-    phrases << :g_under_floor_insulation unless modern
+    if flat_type != "top_floor"
+      phrases << :f_room_roof_insulation if (features & %w(loft_attic_conversion)).any? || property_type == 'flat'
+      phrases << :g_under_floor_insulation unless modern
+    end
     phrases << :heating
-    phrases << :h_fan_assisted_heater unless (features & %w(electric_heating mains_gas)).any?
-    phrases << :i_warm_air_unit unless (features & %w(electric_heating mains_gas)).any?
     phrases << :j_better_heating_controls
-    phrases << :p_heat_pump unless (features & %w(mains_gas)).any?
-    phrases << :q_biomass_boilers_heaters << :t_solar_water_heating
-    phrases << :hot_water << :k_hot_water_cyclinder_jacket
-    phrases << :l_cylinder_thermostat unless modern or (features & %w(electric_heating mains_gas)).any?
+    if !(features & %w(mains_gas)).any?
+      phrases << :p_heat_pump << :q_biomass_boilers_heaters << :t_solar_water_heating
+    end
+    phrases << :hot_water
     unless (features & %w(modern_double_glazing)).any?
-      phrases << :windows_and_doors << :m_replacement_glazing << :n_secondary_glazing << :o_external_doors
+      phrases << :windows_and_doors << :m_replacement_glazing
     end
-    phrases << :r_micro_wind
-    if features.include?('mains_gas')
-      phrases << :s_micro_chp
-    end
-    phrases << :u_solar
+
     if !bills_help
-      phrases << :v_green_deal_title unless measure_help
-      phrases << :v_green_deal_body << :w_renewal_heat
+      phrases << :w_renewal_heat
     end
     phrases << :help_and_advice << :help_and_advice_body
     phrases
@@ -536,32 +545,27 @@ outcome :outcome_bills_and_measures_no_benefits do
     phrases = PhraseList.new
     phrases << :boilers_and_insulation
     phrases << :a_condensing_boiler unless (features & %w(modern_boiler)).any?
-    unless (features & %w(cavity_wall_insulation electric_heating mains_gas)).any? or ((features & %w(loft)).any? and (features & %w(cavity_wall_insulation solid_wall_insulation)).any?)
+    unless (features & %w(mains_gas)).any?
       :b_cavity_wall_insulation
     end
-    unless (features & %w(electric_heating mains_gas solid_wall_insulation)).any? or ((features & %w(loft)).any? and (features & %w(cavity_wall_insulation solid_wall_insulation)).any?)
+    unless (features & %w(mains_gas solid_wall_insulation)).any?
       :c_solid_wall_insulation
     end
-    phrases << :d_draught_proofing unless (features & %w(draught_proofing electric_heating mains_gas)).any?
+    phrases << :d_draught_proofing unless (features & %w(draught_proofing mains_gas)).any?
     phrases << :e_loft_roof_insulation unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat'
-    phrases << :f_room_roof_insulation if (features & %w(loft_attic_conversion)).any? || property_type == 'flat'
-    phrases << :g_under_floor_insulation unless modern
+    if flat_type != "top_floor"
+      phrases << :f_room_roof_insulation if (features & %w(loft_attic_conversion)).any? || property_type == 'flat'
+      phrases << :g_under_floor_insulation unless modern
+    end
     phrases << :heating
-    phrases << :h_fan_assisted_heater unless (features & %w(electric_heating mains_gas)).any?
-    phrases << :i_warm_air_unit unless (features & %w(electric_heating mains_gas)).any?
     phrases << :j_better_heating_controls
-    phrases << :p_heat_pump unless (features & %w(mains_gas)).any?
-    phrases << :q_biomass_boilers_heaters << :t_solar_water_heating
-    phrases << :hot_water << :k_hot_water_cyclinder_jacket
-    phrases << :l_cylinder_thermostat unless modern
+    if !(features & %w(mains_gas)).any?
+      phrases << :p_heat_pump << :q_biomass_boilers_heaters << :t_solar_water_heating
+    end
+    phrases << :hot_water
     unless (features & %w(modern_double_glazing)).any?
-      phrases << :windows_and_doors << :m_replacement_glazing << :n_secondary_glazing << :o_external_doors
+      phrases << :windows_and_doors << :m_replacement_glazing
     end
-    phrases << :r_micro_wind
-    if features.include?('mains_gas')
-      phrases << :s_micro_chp
-    end
-    phrases << :u_solar
     phrases << :w_renewal_heat
     phrases << :help_and_advice << :help_and_advice_body
     phrases
@@ -609,33 +613,28 @@ outcome :outcome_bills_and_measures_on_benefits_eco_eligible do
     phrases = PhraseList.new
     phrases << :boilers_and_insulation
     phrases << :a_condensing_boiler unless (features & %w(modern_boiler)).any?
-    unless (features & %w(cavity_wall_insulation electric_heating mains_gas)).any? or ((features & %w(loft)).any? and (features & %w(cavity_wall_insulation solid_wall_insulation)).any?)
+    unless (features & %w(cavity_wall_insulation mains_gas)).any?
       :b_cavity_wall_insulation
     end
-    unless (features & %w(electric_heating mains_gas solid_wall_insulation)).any? or ((features & %w(loft)).any? and (features & %w(cavity_wall_insulation solid_wall_insulation)).any?)
+    unless (features & %w(mains_gas solid_wall_insulation)).any?
       :c_solid_wall_insulation
     end
-    phrases << :d_draught_proofing unless (features & %w(draught_proofing electric_heating mains_gas)).any?
+    phrases << :d_draught_proofing unless (features & %w(draught_proofing mains_gas)).any?
     phrases << :e_loft_roof_insulation unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat'
-    phrases << :f_room_roof_insulation if (features & %w(loft_attic_conversion)).any? || property_type == 'flat'
-    phrases << :g_under_floor_insulation unless modern
+    if flat_type != "top_floor"
+      phrases << :f_room_roof_insulation if (features & %w(loft_attic_conversion)).any? || property_type == 'flat'
+      phrases << :g_under_floor_insulation unless modern
+    end
     phrases << :eco_help
     phrases << :heating
-    phrases << :h_fan_assisted_heater unless (features & %w(electric_heating mains_gas)).any?
-    phrases << :i_warm_air_unit unless (features & %w(electric_heating mains_gas)).any?
     phrases << :j_better_heating_controls
-    phrases << :p_heat_pump unless (features & %w(mains_gas)).any?
-    phrases << :q_biomass_boilers_heaters << :t_solar_water_heating
-    phrases << :hot_water << :k_hot_water_cyclinder_jacket
-    phrases << :l_cylinder_thermostat unless modern
+    if !(features & %w(mains_gas)).any?
+      phrases << :p_heat_pump << :q_biomass_boilers_heaters << :t_solar_water_heating
+    end
+    phrases << :hot_water
     unless (features & %w(modern_double_glazing)).any?
-      phrases << :windows_and_doors << :m_replacement_glazing << :n_secondary_glazing << :o_external_doors
+      phrases << :windows_and_doors << :m_replacement_glazing
     end
-    phrases << :r_micro_wind
-    if features.include?('mains_gas')
-      phrases << :s_micro_chp
-    end
-    phrases << :u_solar
     phrases << :w_renewal_heat
     phrases << :help_and_advice << :help_and_advice_body
     phrases
@@ -683,33 +682,26 @@ outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible do
     phrases = PhraseList.new
     phrases << :boilers_and_insulation
     phrases << :a_condensing_boiler unless (features & %w(modern_boiler)).any?
-    unless (features & %w(cavity_wall_insulation electric_heating mains_gas)).any? or ((features & %w(loft)).any? and (features & %w(cavity_wall_insulation solid_wall_insulation)).any?)
-      :b_cavity_wall_insulation
+    if !(features & %w(mains_gas)).any?
+      phrases << :b_cavity_wall_insulation
+      phrases << :c_solid_wall_insulation
     end
-    unless (features & %w(electric_heating mains_gas solid_wall_insulation)).any? or ((features & %w(loft)).any? and (features & %w(cavity_wall_insulation solid_wall_insulation)).any?)
-      :c_solid_wall_insulation
-    end
-    phrases << :d_draught_proofing unless (features & %w(draught_proofing electric_heating mains_gas)).any?
+    phrases << :d_draught_proofing unless (features & %w(draught_proofing mains_gas)).any?
     phrases << :e_loft_roof_insulation unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat'
-    phrases << :f_room_roof_insulation if (features & %w(loft_attic_conversion)).any? || property_type == 'flat'
-    phrases << :g_under_floor_insulation unless modern
+    if flat_type != "top_floor"
+      phrases << :f_room_roof_insulation if (features & %w(loft_attic_conversion)).any? || property_type == 'flat'
+      phrases << :g_under_floor_insulation unless modern
+    end
     phrases << :eco_help
     phrases << :heating
-    phrases << :h_fan_assisted_heater unless (features & %w(electric_heating mains_gas)).any?
-    phrases << :i_warm_air_unit unless (features & %w(electric_heating mains_gas)).any?
     phrases << :j_better_heating_controls
-    phrases << :p_heat_pump unless (features & %w(mains_gas)).any?
-    phrases << :q_biomass_boilers_heaters << :t_solar_water_heating
-    phrases << :hot_water << :k_hot_water_cyclinder_jacket
-    phrases << :l_cylinder_thermostat unless modern
+    if !(features & %w(mains_gas)).any?
+      phrases << :p_heat_pump << :q_biomass_boilers_heaters << :t_solar_water_heating
+    end
+    phrases << :hot_water
     unless (features & %w(modern_double_glazing)).any?
-      phrases << :windows_and_doors << :m_replacement_glazing << :n_secondary_glazing << :o_external_doors
+      phrases << :windows_and_doors << :m_replacement_glazing
     end
-    phrases << :r_micro_wind
-    if features.include?('mains_gas')
-      phrases << :s_micro_chp
-    end
-    phrases << :u_solar
     phrases << :w_renewal_heat
     phrases << :help_and_advice << :help_and_advice_body
     phrases

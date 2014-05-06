@@ -199,7 +199,7 @@ value_question :years_paid_ni? do
   end
   
   calculate :ni_years_to_date_from_dob do
-    calculator.ni_years_to_date_from_dob - Integer(responses.last)
+    ni_years_to_date_from_dob - responses.last.to_i
   end
 
   next_node do |response|
@@ -232,7 +232,7 @@ value_question :years_of_jsa? do
   end
   
   calculate :ni_years_to_date_from_dob do
-    calculator.ni_years_to_date_from_dob - Integer(responses.last)
+    ni_years_to_date_from_dob - responses.last.to_i
   end
 
   calculate :calc do
@@ -261,6 +261,10 @@ end
 multiple_choice :received_child_benefit? do
   option :yes
   option :no
+  
+  calculate :ni_years_to_date_from_dob do
+    ni_years_to_date_from_dob
+  end
 
   next_node do |response|
     if response == "yes"
@@ -276,6 +280,10 @@ value_question :years_of_benefit? do
 
   precalculate :years_you_can_enter do
     calculator.years_can_be_entered(available_ni_years,22)
+  end
+  
+  calculate :ni_years_to_date_from_dob do
+    ni_years_to_date_from_dob - responses.last.to_i
   end
 
   calculate :qualifying_years do
@@ -334,6 +342,10 @@ value_question :years_of_caring? do
   calculate :available_ni_years do
     calculator.available_years_sum(qualifying_years)
   end
+  
+  calculate :ni_years_to_date_from_dob do
+    ni_years_to_date_from_dob - responses.last.to_i
+  end
 
   next_node do |response|
     caring_years = Integer(response)
@@ -362,13 +374,13 @@ value_question :years_of_carers_allowance? do
   end
   
   calculate :ni_years_to_date_from_dob do
-    calculator.ni_years_to_date_from_dob - Integer(responses.last)
+    ni_years_to_date_from_dob - responses.last.to_i
   end
 
   next_node do |response|
     caring_years = Integer(response)
     ni = (qualifying_years + caring_years)
-    if calculator.enough_qualifying_years_and_credits?(ni) || calculator.three_year_credit_age?
+    if calculator.three_year_credit_age? || (old_state_pension && calculator.enough_qualifying_years_and_credits?(ni))
       :amount_result
     else
       :years_of_work?
@@ -493,7 +505,7 @@ outcome :amount_result do
       end
       phrases << (enough_qualifying_years ? :within_4_months_enough_qy_years_more : :within_4_months_not_enough_qy_years_more)
       phrases << :automatic_years_phrase if auto_years_entitlement and !enough_qualifying_years
-    elsif calculator.state_pension_date > Date.parse('2016-04-06')
+    elsif calculator.state_pension_date >= Date.parse('2016-04-06')
       phrases << :too_few_qy_enough_remaining_years_a
       if qualifying_years_total > 10
         phrases << :ni_table
