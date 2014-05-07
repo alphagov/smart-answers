@@ -1073,6 +1073,19 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
       assert_state_variable :enough_qualifying_years, nil
     end
     
+    should "show results form additional HMRC test case" do
+      add_response :female
+      add_response Date.parse('6 April 1958')
+      add_response 31
+      add_response 0
+      add_response 'yes'
+      add_response 5
+      add_response 0
+      add_response 0
+      add_response 3
+      assert_current_node :amount_result
+    end
+    
     context "Timecop date set to 30 April 2014" do
       setup do
         Timecop.travel('2014-04-30')
@@ -1088,7 +1101,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         assert_current_node :amount_result
         assert_state_variable :qualifying_years_total, 39
         assert_state_variable :remaining_years, 2
-        assert_phrase_list :result_text, [:you_get_full_state_pension, :automatic_years_phrase]
+        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a, :ni_table, :too_few_qy_enough_remaining_years_a_outro, :automatic_years_phrase]
       end
       
       should "show results for female and 40 available years" do
