@@ -516,5 +516,11 @@ module SmartAnswer::Calculators
       end
     end
 
+    context "when the last working day of the sick period is a Sunday" do
+      should "calculate the sick period including the Sunday" do
+        calc = StatutorySickPayCalculator.new(0, Date.parse("24 October 2013"), Date.parse("27 October 2013"), ['0','1','3','4','5','6'])
+        assert_equal 14.45, calc.ssp_payment
+      end
+    end
   end # SSP calculator
 end
