@@ -128,6 +128,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
     
     context "female born on 1 July 1956" do
       setup do
+        Timecop.travel('2014-05-06')
         add_response :female
         add_response Date.parse('1 July 1952')
       end
