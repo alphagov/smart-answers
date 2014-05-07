@@ -109,8 +109,12 @@ module SmartAnswer::Calculators
     end
 
     def sick_pay_weekly_dates
-      last_saturday = @sick_end_date.end_of_week - 1
-      (@sick_start_date..last_saturday).select { |day| day.wday == 6 }
+      if @sick_end_date.sunday?
+        ssp_week_end = @sick_end_date + 6
+      else
+        ssp_week_end = @sick_end_date.end_of_week - 1
+      end
+      (@sick_start_date..ssp_week_end).select { |day| day.wday == 6 }
     end
 
     def formatted_sick_pay_weekly_amounts
