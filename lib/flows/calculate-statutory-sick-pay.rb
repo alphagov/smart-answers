@@ -7,16 +7,17 @@ checkbox_question :is_your_employee_getting? do
   option :maternity_allowance
   option :ordinary_statutory_paternity_pay
   option :statutory_adoption_pay
+  option :additional_statutory_paternity_pay
 
   calculate :employee_not_entitled_pdf do
     # this avoids lots of content duplication in the YML
     PhraseList.new(:ssp_link)
   end
   calculate :paternity_maternity_warning do
-    (responses.last.split(",") & %w{ordinary_statutory_paternity_pay statutory_adoption_pay}).any?
+    (responses.last.split(",") & %w{ordinary_statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay}).any?
   end
   next_node do |response|
-    if (response.split(",") & %w{ordinary_statutory_paternity_pay statutory_adoption_pay none}).any?
+    if (response.split(",") & %w{ordinary_statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay none}).any?
       # Question 2
       :employee_tell_within_limit?
     else
@@ -28,14 +29,14 @@ end
 
 # Question 2
 multiple_choice :employee_tell_within_limit? do
-	option :yes => :employee_work_different_days? # Question 3
-	option :no => :didnt_tell_soon_enough # Answer 3
+    option :yes => :employee_work_different_days? # Question 3
+    option :no => :didnt_tell_soon_enough # Answer 3
 end
 
 # Question 3
 multiple_choice :employee_work_different_days? do
-	option :yes => :not_regular_schedule # Answer 4
-	option :no => :first_sick_day? # Question 4
+    option :yes => :not_regular_schedule # Answer 4
+    option :no => :first_sick_day? # Question 4
 end
 
 # Question 4
@@ -330,4 +331,3 @@ end
 
 # Answer 8
 outcome :maximum_entitlement_reached
-
