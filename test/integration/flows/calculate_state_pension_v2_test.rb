@@ -126,7 +126,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
       end
     end
     
-    context "female born on 1 July 1956" do
+    context "female born on 1 July 1956, timecop day before near_state_pension_age" do
       setup do
         Timecop.travel('2014-05-06')
         add_response :female
@@ -522,6 +522,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
 
     context "female" do
       setup do
+        Timecop.travel('2014-05-06')
         add_response :female
       end
 
@@ -605,6 +606,9 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
       end
 
       context "born between 1959-04-06 or 1992-04-05, not enough qualifying years, no child benefit" do
+        setup do
+          Timecop.travel('2014-05-06')
+        end
         should "return amount_result" do
           add_response Date.parse("8th October 1960")
           add_response 25   # ni years
@@ -617,6 +621,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
 
       context "born after 6/10/1953 and 25 years of taxed income" do
         setup do
+          Timecop.travel('2014-05-06')
           add_response Date.parse("8th October 1953")
           add_response 25
         end
@@ -663,7 +668,9 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         end
 
         context "enough qualifying years" do
-          
+          setup do
+            Timecop.travel('2014-05-06')
+          end
           should "answer all and go to correct outcome" do
             add_response 1
             add_response "yes"
@@ -679,6 +686,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
 
       context "(testing from years_of_benefit) age 40, NI = 5, JSA = 5, cb = yes " do
         setup do
+          Timecop.travel('2014-05-06')
           add_response Date.civil(40.years.ago.year,4,7)
           add_response 10
           add_response 5
@@ -746,6 +754,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
 
       context "(testing from years_of_work) born in '58, NI = 20, JSA = 7, cb = no " do
         setup do
+          Timecop.travel('2014-05-06')
           add_response Date.parse("5th May 1958")
           add_response 20
           add_response 7
@@ -816,6 +825,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
 
       context "answer born Jan 1st 1970" do
         setup do
+          Timecop.travel('2014-05-06')
           add_response Date.parse('1970-01-01')
           add_response 20
           add_response 0
@@ -830,6 +840,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
 
       context "answer born Jan 1st 1959" do
         setup do
+          Timecop.travel('2014-05-06')
           add_response Date.parse('1959-01-01')
           add_response 20
           add_response 4
@@ -847,6 +858,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
       end
       context "answer born December 1st 1957" do
         setup do
+          Timecop.travel('2014-05-06')
           add_response Date.parse('1957-12-01')
           add_response 20
           add_response 0
@@ -867,7 +879,6 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         end
 
         should "return 5" do
-          # add_response 0
           assert_state_variable "available_ni_years", 5
           assert_state_variable "years_you_can_enter", 5
           assert_current_node :years_of_benefit?
@@ -876,6 +887,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
 
       context "starting credits test 2" do
         setup do
+          Timecop.travel('2014-05-06')
           add_response Date.parse('1964-12-06')
           add_response 27
           add_response 3 # unemployment, sickeness
@@ -891,6 +903,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
 
     context "testing flow optimisation - at least 2 SC years" do
       setup do
+        Timecop.travel('2014-05-06')
         add_response 'female'
         add_response Date.parse('1958-05-10')
         add_response 34
@@ -906,6 +919,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
 
     context "testing flow optimisation - at least 1 SC year" do
       setup do
+        Timecop.travel('2014-05-06')
         add_response 'male'
         add_response Date.parse('1957-11-26')
         add_response 35
@@ -921,6 +935,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
 
     context "testing flow optimisation - 3 SC years" do
       setup do
+        Timecop.travel('2014-05-06')
         add_response 'male'
         add_response Date.parse('1960-02-08')
         add_response 25
@@ -1041,50 +1056,56 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
       end
     end
     
-    should "should show results for less than ten years NI" do
-      add_response :male
-      add_response Date.parse('1 Jan 1978')
-      add_response 5
-      add_response 0
-      add_response 'no'
-      assert_current_node :amount_result
-      assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a, :less_than_ten, :too_few_qy_enough_remaining_years_a_outro]
-    end # less than 10 years NI
-    
-    should "show results for not enough qualifyting but enough remaining years" do
-      add_response :male
-      add_response Date.parse('1 Jan 1953')
-      add_response 20
-      add_response 0
-      add_response 'no'
-      add_response 0
-      assert_current_node :amount_result
-      assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a, :ni_table, :too_few_qy_enough_remaining_years_a_outro, :automatic_years_phrase]
-    end
-    
-    should "show results for not enough qualifying years and not enough remaining years" do
-      add_response :male
-      add_response (Date.today - 64.years)
-      add_response 5
-      add_response 0
-      add_response 'no'
-      add_response 0
-      assert_current_node :amount_result
-      assert_phrase_list :result_text, [:too_few_qy_not_enough_remaining_years, :automatic_years_phrase]
-      assert_state_variable :enough_qualifying_years, nil
-    end
-    
-    should "show results form additional HMRC test case" do
-      add_response :female
-      add_response Date.parse('6 April 1958')
-      add_response 31
-      add_response 0
-      add_response 'yes'
-      add_response 5
-      add_response 0
-      add_response 0
-      add_response 3
-      assert_current_node :amount_result
+    context "set timecop for tests" do
+      setup do
+        Timecop.travel('2014-05-06')
+      end
+      
+      should "should show results for less than ten years NI" do
+        add_response :male
+        add_response Date.parse('1 Jan 1978')
+        add_response 5
+        add_response 0
+        add_response 'no'
+        assert_current_node :amount_result
+        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a, :less_than_ten, :too_few_qy_enough_remaining_years_a_outro]
+      end # less than 10 years NI
+      
+      should "show results for not enough qualifyting but enough remaining years" do
+        add_response :male
+        add_response Date.parse('1 Jan 1953')
+        add_response 20
+        add_response 0
+        add_response 'no'
+        add_response 0
+        assert_current_node :amount_result
+        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a, :ni_table, :too_few_qy_enough_remaining_years_a_outro, :automatic_years_phrase]
+      end
+      
+      should "show results for not enough qualifying years and not enough remaining years" do
+        add_response :male
+        add_response (Date.today - 64.years)
+        add_response 5
+        add_response 0
+        add_response 'no'
+        add_response 0
+        assert_current_node :amount_result
+        assert_phrase_list :result_text, [:too_few_qy_not_enough_remaining_years, :automatic_years_phrase]
+        assert_state_variable :enough_qualifying_years, nil
+      end
+      
+      should "show results form additional HMRC test case" do
+        add_response :female
+        add_response Date.parse('6 April 1958')
+        add_response 31
+        add_response 0
+        add_response 'yes'
+        add_response 5
+        add_response 0
+        add_response 0
+        add_response 3
+        assert_current_node :amount_result
+      end
     end
     
     context "Timecop date set to 30 April 2014" do
