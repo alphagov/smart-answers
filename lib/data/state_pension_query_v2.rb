@@ -60,7 +60,7 @@ class StatePensionQueryV2 < Struct.new(:dob, :gender)
       StatePensionDateV2.new(:both, Date.new(1960,12,6), Date.new(1961, 1, 5), 66.years.since(dob) + 9.months),
       StatePensionDateV2.new(:both, Date.new(1961,1,6), Date.new(1961, 2, 5), 66.years.since(dob) + 10.months),
       StatePensionDateV2.new(:both, Date.new(1961,2,6), Date.new(1961, 3, 5), 66.years.since(dob) + 11.months),
-      StatePensionDateV2.new(:both, Date.new(1961,4,6), Date.new(1977, 4, 5), 67.years.since(dob)),
+      StatePensionDateV2.new(:both, Date.new(1961,3,6), Date.new(1977, 4, 5), 67.years.since(dob)),
       StatePensionDateV2.new(:both, Date.new(1978,4,6), Date.today + 1, 68.years.since(dob))
     ]
   end

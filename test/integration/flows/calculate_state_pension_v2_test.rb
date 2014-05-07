@@ -138,6 +138,18 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         assert_phrase_list :state_pension_age_statement, [:state_pension_age_is, :pension_credit_future, :bus_pass]
       end
     end
+    
+    context "additional coverage for birthdate 6 March 1961" do
+      setup do 
+        Timecop.travel('2014-05-07')
+      end
+      should "go to correct outcome" do
+        add_response :male
+        add_response Date.parse('6 March 1961')
+        assert_current_node :age_result
+        assert_phrase_list :state_pension_age_statement, [:state_pension_age_is_a, :pension_credit_future, :bus_pass]
+      end
+    end
   end # age calculation
 
   #Amount
