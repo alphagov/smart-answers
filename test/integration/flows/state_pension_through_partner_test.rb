@@ -79,15 +79,16 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       assert_phrase_list :result_phrase, [:current_rules_no_additional_pension, :increase_retirement_income]
     end
   end 
-  context "new1 new2 old3 == current_rules_no_additional_pension" do
+  context "new1 new2 old3, female == married_woman_no_state_pension" do
     setup do
       add_response "will_marry_on_or_after_specific_date"
       add_response "your_pension_age_after_specific_date"
       add_response "partner_pension_age_before_specific_date"
+      add_response "female_gender"
     end
     should "take you to final_outcome with current_rules_no_additional_pension phraselist" do
       assert_current_node :final_outcome
-      assert_phrase_list :result_phrase, [:current_rules_no_additional_pension, :increase_retirement_income]
+      assert_phrase_list :result_phrase, [:married_woman_no_state_pension, :increase_retirement_income]
     end
   end
   context "new1 old2 old3 == current_rules_no_additional_pension" do
@@ -208,4 +209,16 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       assert_phrase_list :result_phrase, [:age_dependent_pension, :increase_retirement_income]
     end
   end # end testing for outcome 10
+  context "new1 new2 old3 female go to current_rules_and_additional_pension" do
+    setup do
+      add_response "will_marry_on_or_after_specific_date"
+      add_response "your_pension_age_after_specific_date"
+      add_response "partner_pension_age_before_specific_date"
+      add_response "female_gender"
+    end
+    should "take user to outcome married_woman_no_state_pension" do
+      assert_current_node :final_outcome
+      assert_phrase_list :result_phrase, [:married_woman_no_state_pension, :increase_retirement_income]
+    end
+  end
 end
