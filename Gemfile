@@ -48,6 +48,11 @@ group :test do
   gem 'timecop'
 end
 
+group :development do
+  gem 'parser'
+  gem 'pry'
+end
+
 group :assets do
   gem 'sass-rails', '3.2.3'
   gem 'therubyracer', '~> 0.12.1'
