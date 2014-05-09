@@ -150,6 +150,60 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         assert_phrase_list :state_pension_age_statement, [:state_pension_age_is_a, :pension_credit_future, :bus_pass]
       end
     end
+    
+    context "test correct state pension age" do
+      setup do
+        Timecop.travel('2014-05-08')
+      end
+      should "show state pension age of 60 years" do
+        add_response :female
+        add_response Date.parse('23 April 1949')
+        assert_current_node :age_result
+        assert_state_variable :state_pension_age, "60 years"
+      end
+      
+      should "show state pension age of 65 years" do
+        add_response :male
+        add_response Date.parse('23 April 1951')
+        assert_current_node :age_result
+        assert_state_variable :state_pension_age, "65 years"
+      end
+      
+      should "show state pension age of 66 years" do
+        add_response :male
+        add_response Date.parse('23 October 1954')
+        assert_current_node :age_result
+        assert_state_variable :state_pension_age, "66 years"
+      end
+      
+      should "show state pension age of 66 years, 1 month" do
+        add_response :male
+        add_response Date.parse('23 April 1960')
+        assert_current_node :age_result
+        assert_state_variable :state_pension_age, "66 years, 1 month"
+      end
+      
+      should "show state pension age of 66 years, 10 month" do
+        add_response :male
+        add_response Date.parse('23 January 1961')
+        assert_current_node :age_result
+        assert_state_variable :state_pension_age, "66 years, 10 months"
+      end
+      
+      should "show state pension age of 67" do
+        add_response :male
+        add_response Date.parse('23 March 1969')
+        assert_current_node :age_result
+        assert_state_variable :state_pension_age, "67 years"
+      end
+      
+      should "show state pension age of 68" do
+        add_response :male
+        add_response Date.parse('23 March 1978')
+        assert_current_node :age_result
+        assert_state_variable :state_pension_age, "68 years"
+      end
+    end 
   end # age calculation
 
   #Amount
@@ -357,7 +411,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
                         assert_state_variable "state_pension_age", "65 years"
                         assert_state_variable "remaining_years", 5
                         assert_state_variable "pension_loss", "14.69"
-                        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a, :ni_table, :too_few_qy_enough_remaining_years_a_outro, :automatic_years_phrase]
+                        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a_intro,:ten_and_greater, :too_few_qy_enough_remaining_years_a, :automatic_years_phrase]
                         assert_state_variable "state_pension_date", Date.parse("2018 Oct 4th")
                         assert_current_node :amount_result
                       end
@@ -1080,7 +1134,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         add_response 0
         add_response 'no'
         assert_current_node :amount_result
-        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a, :less_than_ten, :too_few_qy_enough_remaining_years_a_outro]
+        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a_intro, :less_than_ten, :too_few_qy_enough_remaining_years_a]
       end # less than 10 years NI
       
       should "show results for not enough qualifyting but enough remaining years" do
@@ -1091,7 +1145,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         add_response 'no'
         add_response 0
         assert_current_node :amount_result
-        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a, :ni_table, :too_few_qy_enough_remaining_years_a_outro, :automatic_years_phrase]
+        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a_intro, :ten_and_greater, :too_few_qy_enough_remaining_years_a, :automatic_years_phrase]
       end
       
       should "show results for not enough qualifying years and not enough remaining years" do
@@ -1135,7 +1189,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         assert_current_node :amount_result
         assert_state_variable :qualifying_years_total, 39
         assert_state_variable :remaining_years, 2
-        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a, :ni_table, :too_few_qy_enough_remaining_years_a_outro, :automatic_years_phrase]
+        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a_intro, :ten_and_greater, :too_few_qy_enough_remaining_years_a, :automatic_years_phrase]
       end
       
       should "show results for female and 40 available years" do
@@ -1149,7 +1203,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         assert_current_node :amount_result
         assert_state_variable :qualifying_years_total, 42
         assert_state_variable :remaining_years, 6
-        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a, :ni_table, :too_few_qy_enough_remaining_years_a_outro]
+        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a_intro, :ten_and_greater, :too_few_qy_enough_remaining_years_a]
       end
       
       should "show results for female and 29 available years" do
@@ -1160,7 +1214,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         assert_current_node :amount_result
         assert_state_variable :qualifying_years_total, 32
         assert_state_variable :remaining_years, 18
-        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a, :ni_table, :too_few_qy_enough_remaining_years_a_outro]
+        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a_intro, :ten_and_greater, :too_few_qy_enough_remaining_years_a]
       end
       
       should "show results for male and 35 available years" do
@@ -1175,7 +1229,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         assert_current_node :amount_result
         assert_state_variable :qualifying_years_total, 31
         assert_state_variable :remaining_years, 11
-        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a, :ni_table, :too_few_qy_enough_remaining_years_a_outro]
+        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a_intro, :ten_and_greater, :too_few_qy_enough_remaining_years_a]
       end
     end # end timecop 30-04-2014
     
