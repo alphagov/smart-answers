@@ -35,10 +35,11 @@ module SmartAnswer
       assert new_state.frozen?
     end
 
-    test "Next node can be overridden by block" do
+    test "Next node can be overriden by block" do
       q = Question::MultipleChoice.new(:example) do
         option :yes => :fred
-        next_node(:baz) { :baz }
+        next_node { :baz }
+        permitted_next_nodes(:baz)
       end
 
       new_state = q.transition(State.new(:example), :yes)
