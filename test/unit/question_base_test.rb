@@ -112,6 +112,26 @@ class QuestionBaseTest < ActiveSupport::TestCase
     assert new_state.frozen?
   end
 
+  test "Can perform next_node_calculation which is evaluated before next_node" do
+    q = SmartAnswer::Question::Base.new(:favourite_colour?) do
+      next_node_calculation :complementary_colour do |response|
+        response == :red ? :green : :red
+      end
+      next_node_calculation :blah do
+        "blah"
+      end
+      next_node_if(:done) {
+        complementary_colour == :green
+      }
+      next_node(:shouldnt_go_here)
+    end
+    initial_state = SmartAnswer::State.new(q.name)
+    new_state = q.transition(initial_state, :red)
+    assert_equal :green, new_state.complementary_colour
+    assert_equal "blah", new_state.blah
+    assert_equal :done, new_state.current_node
+  end
+
   test "conditional next node can be specified using next_node_if passing a block" do
     q = SmartAnswer::Question::Base.new(:example) {
       next_node_if(:bar) { true }
@@ -205,36 +225,4 @@ class QuestionBaseTest < ActiveSupport::TestCase
     end
   end
 
-  test "can construct conditional next node clauses by nesting predicate condition declarations" do
-    q = SmartAnswer::Question::Base.new(:example) {
-      on_condition(->(response) { false } ) do
-        next_node(:skipped)
-      end
-      on_condition(->(response) { true } ) do
-        next_node_if(:a) {|r| r == 'a' }
-        next_node_if(:b, ->(r) { r == 'b' })
-        on_condition(->(r) {r == 'c'}) do
-          next_node(:c)
-        end
-      end
-      next_node(:d)
-    }
-    initial_state = SmartAnswer::State.new(q.name)
-    assert_equal :a, q.next_node_for(initial_state, 'a')
-    assert_equal :b, q.next_node_for(initial_state, 'b')
-    assert_equal :c, q.next_node_for(initial_state, 'c')
-    assert_equal :d, q.next_node_for(initial_state, 'd')
-  end
-
-  test "can validate response" do
-    q = SmartAnswer::Question::Base.new(:example) {
-      validate { |response| response == :red }
-      next_node(:next)
-    }
-    initial_state = SmartAnswer::State.new(q.name)
-    assert_raises SmartAnswer::InvalidResponse do
-      q.next_node_for(initial_state, :blue)
-    end
-    assert_equal :next, q.next_node_for(initial_state, :red)
-  end
 end

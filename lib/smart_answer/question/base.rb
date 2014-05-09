@@ -49,8 +49,11 @@ module SmartAnswer
 
       def transition(current_state, raw_input)
         input = parse_input(raw_input)
-        next_node = next_node_for(current_state, input)
-        new_state = current_state.transition_to(next_node, input) do |state|
+        new_state = @next_node_calculations.inject(current_state.dup) do |new_state, calculation|
+          calculation.evaluate(new_state, input)
+        end
+        next_node = next_node_for(new_state, input)
+        new_state = new_state.transition_to(next_node, input) do |state|
           state.save_input_as @save_input_as if @save_input_as
         end
         @calculations.each do |calculation|
