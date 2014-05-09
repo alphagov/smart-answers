@@ -101,19 +101,19 @@ class ICSRendererTest < ActiveSupport::TestCase
     end
 
     should "return the mtime of the REVISION file" do
-      File.expects(:mtime).with(Rails.root.join("REVISION")).returns(Time.parse('2012-04-06 14:53:54'))
+      File.expects(:mtime).with(Rails.root.join("REVISION")).returns(Time.zone.parse('2012-04-06 14:53:54 +00:00'))
       assert_equal "20120406T145354Z", @r.dtstamp
     end
 
     should "return now if the file doesn't exist" do
-      Timecop.freeze(Time.parse('2012-11-27 16:13:27')) do
+      Timecop.freeze(Time.zone.parse('2012-11-27 16:13:27 +00:00')) do
         File.expects(:mtime).with(Rails.root.join("REVISION")).raises(Errno::ENOENT)
         assert_equal "20121127T161327Z", @r.dtstamp
       end
     end
 
     should "cache the result" do
-      File.expects(:mtime).with(Rails.root.join("REVISION")).once.returns(Time.parse('2012-04-06 14:53:54'))
+      File.expects(:mtime).with(Rails.root.join("REVISION")).once.returns(Time.zone.parse('2012-04-06 14:53:54 +00:00'))
       @r.dtstamp
       assert_equal "20120406T145354Z", @r.dtstamp
     end
