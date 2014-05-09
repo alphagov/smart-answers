@@ -4,6 +4,7 @@ module SmartAnswer
 
       def initialize(name, options = {}, &block)
         @save_input_as = nil
+        @validations ||= []
         @next_node_function_chain ||= []
         @default_next_node_function ||= lambda {|_|}
         @permitted_next_nodes = []
@@ -27,11 +28,16 @@ module SmartAnswer
         @permitted_next_nodes << next_node
       end
 
+      def validate(message = nil, &block)
+        @validations << [message, block]
+      end
+
       def permitted_next_nodes(*args)
         @permitted_next_nodes += args
       end
 
       def next_node_for(current_state, input)
+        validate!(current_state, input)
         next_node = next_node_from_function_chain(current_state, input) || next_node_from_default_function(current_state, input)
         raise "Next node undefined (#{current_state.current_node}(#{input}))" unless next_node
         next_node
@@ -88,6 +94,18 @@ module SmartAnswer
     private
       def permitted_next_node?(next_node)
         @permitted_next_nodes.include?(next_node)
+      end
+
+      def validate!(current_state, input)
+        @validations.each do |message, predicate|
+          if !current_state.instance_exec(input, &predicate)
+            if message
+              raise InvalidResponse, message
+            else
+              raise InvalidResponse
+            end
+          end
+        end
       end
 
       def next_node_from_function_chain(current_state, input)
