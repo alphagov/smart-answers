@@ -731,7 +731,11 @@ outcome :outcome_os_consular_cni do
       phrases << :consular_cni_os_fees_not_italy_not_uk
       if ceremony_country == residency_country or %w(uk).include?(resident_of)
         unless %w(cote-d-ivoire).include?(ceremony_country)
-          phrases << :list_of_consular_fees
+          if %w(monaco).include?(ceremony_country)
+            phrases << :list_of_consular_fees_france
+          else
+            phrases << :list_of_consular_fees
+          end
         end
       else
         phrases << :consular_cni_os_fees_foreign_commonwealth_roi_resident
@@ -832,9 +836,12 @@ outcome :outcome_os_affirmation do
     else
       phrases << :affirmation_os_all_fees
     end
+    if %w(monaco).include?(ceremony_country)
+      phrases << :list_of_consular_fees_france
+    else
+      phrases << :list_of_consular_fees
+    end
 
-    phrases << :list_of_consular_fees
-    
     if %w(finland).include?(ceremony_country)
       phrases << :pay_in_euros_or_visa_electron
     elsif %w(philippines).include?(ceremony_country)
@@ -870,7 +877,13 @@ outcome :outcome_os_no_cni do
     if %w(czech-republic argentina cote-d-ivoire).include?(ceremony_country)
       phrases << :get_legal_advice << :cni_os_consular_facilities_unavailable
     else
-      phrases << :get_legal_advice << :cni_os_consular_facilities_unavailable << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque
+      phrases << :get_legal_advice << :cni_os_consular_facilities_unavailable 
+      if %w(monaco).include?(ceremony_country)
+        phrases << :list_of_consular_fees_france
+      else
+        phrases << :list_of_consular_fees
+      end
+      phrases << :pay_by_cash_or_credit_card_no_cheque
     end
     if %w(partner_british).exclude?(partner_nationality)
       phrases << :no_cni_os_naturalisation
@@ -937,8 +950,12 @@ outcome :outcome_cp_cp_or_equivalent do
       phrases << :cp_or_equivalent_cp_naturalisation
     end
     phrases << :cp_or_equivalent_cp_all_fees
-    if %w{czech-republic}.exclude?(ceremony_country)
-      phrases << :list_of_consular_fees
+    unless %w{czech-republic}.include?(ceremony_country)
+      if %w(monaco).include?(ceremony_country)
+        phrases << :list_of_consular_fees_france
+      else
+        phrases << :list_of_consular_fees
+      end
     end
     if %w(iceland luxembourg slovenia).include?(ceremony_country)
       phrases << :pay_in_local_currency
