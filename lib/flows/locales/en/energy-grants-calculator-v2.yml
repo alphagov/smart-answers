@@ -14,7 +14,6 @@ en-GB:
 
       phrases:
         error_property_social_housing: this is an error
-
         #eligibilities_bills options
         winter_fuel_payments: |
           - [Winter Fuel Payments](/winter-fuel-payment/eligibility) - between £100 and £300 towards your heating bills
@@ -29,8 +28,7 @@ en-GB:
         microgeneration: |
           Renewable heating and Microgeneration measures could also help reduce your bill.
         smartmeters: |
-          [Smart meters](/smart-meters) can help you keep track of how much energy you're using. You won't get estimated bills and won't need to take meter readings.
-          
+          [Smart meters](/smart-meters) can help you keep track of how much energy you're using. You won't get estimated bills and won't need to take meter readings.  
       #titles 
         title_help_with_bills_outcome: |
           Based on your answers you might be eligible for help with your energy bills.
@@ -40,9 +38,8 @@ en-GB:
         title_energy_supplier: "Based on your answers you might qualify for help from your energy supplier with the following:"
         title_under_green_deal: "Under the Green Deal you could get some of these improvements without having to pay all the cost upfront:"
         title_already_energy_efficient: "Your home is probably already quite energy efficient but you could still benefit from:"
-
-      #eligibilities options
-        opt_boilers_and_insulation: "###Boilers and insulation"
+      #eligibilities options and headers 
+        header_boilers_and_insulation: "###Boilers and insulation"
         opt_condensing_boiler: "- [A new Boiler](http://www.energysavingtrust.org.uk/Heating-and-hot-water/Replacing-your-boiler)(high efficiency or oil condensing boiler)"
         opt_cavity_wall_insulation: "- [Cavity wall insulation](http://www.energysavingtrust.org.uk/Insulation/Cavity-wall-insulation)"
         opt_solid_wall_insulation: "- [Solid Wall insulation](http://www.energysavingtrust.org.uk/Insulation/Solid-wall-insulation)"
@@ -55,17 +52,16 @@ en-GB:
         opt_eco_help: |
           You may also be able to get some of the following improvements without having to pay all the costs up front through the Green Deal:
         opt_property_might_benefit: "Your property might also benefit from:"
-        opt_heating: "###Heating"
+        header_heating: "###Heating"
         opt_better_heating_controls: "- Better heating controls (eg room thermostats)"
-        opt_hot_water: "###Hot water"
-        opt_windows_and_doors: "###Windows and doors"
+        header_hot_water: "###Hot water"
+        header_windows_and_doors: "###Windows and doors"
         opt_replacement_glazing: "- Double glazing (or secondary glazing for listed properties)"
         opt_heat_pump: "- Heat pump (air or ground source)"
         opt_biomass_boilers_heaters: "- [Biomass boilers and heaters](http://www.energysavingtrust.org.uk/Generating-energy/Choosing-a-renewable-technology/Wood-fuelled-heating)"
         opt_solar_water_heating: "- [Solar water heating](http://www.energysavingtrust.org.uk/Generating-energy/Choosing-a-renewable-technology/Solar-water-heating)"
         opt_renewal_heat: |
           If your home is well insulated you could also qualify for money towards a [renewable heating system](/renewable-heat-premium-payment) and get paid for [generating your own electricity](/feed-in-tariffs).
-        
       #help and advice
         help_and_advice: "###Help and advice"
         help_and_advice_body: |
@@ -77,7 +73,6 @@ en-GB:
           - make a complaint about [your energy company](http://www.adviceguide.org.uk/england/consumer_e/consumer_energy_and_water_supply_e/consumer_energy_supply_e/consumer_complaining_about_energy_companies_e.htm)
           - find out about [energy efficient appliances](http://www.energysavingtrust.org.uk/Electricity/Products-and-appliances)
           - visit an [energy-efficient home near you](http://www.greenopenhomes.net/search)
-
 
 # Q1
       what_are_you_looking_for?:
