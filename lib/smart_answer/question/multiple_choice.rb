@@ -9,7 +9,10 @@ module SmartAnswer
 
       def option(transitions, options = {})
         if transitions.is_a?(Hash)
-          transitions.each_pair { |option, next_node| @transitions[option.to_s] = next_node }
+          transitions.each_pair do |option, next_node|
+            @transitions[option.to_s] = next_node
+            @permitted_next_nodes << next_node
+          end
         else
           [*transitions].each { |option| @transitions[option.to_s] = nil }
         end

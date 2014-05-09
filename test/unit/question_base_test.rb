@@ -33,9 +33,10 @@ class QuestionBaseTest < ActiveSupport::TestCase
     assert_equal :done, new_state.current_node
   end
 
-  test "Can define next_node by giving a block" do
+  test "Can define next_node by giving a block, provided that next node is declared" do
     q = SmartAnswer::Question::Base.new(:example) {
       next_node { :done_done }
+      permitted_next_nodes(:done_done)
     }
     initial_state = SmartAnswer::State.new(q.name)
     new_state = q.transition(initial_state, :anything)
@@ -47,6 +48,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
       next_node do
         colour == 'red' ? :was_red : :wasnt_red
       end
+      permitted_next_nodes(:was_red, :wasnt_red)
     }
     initial_state = SmartAnswer::State.new(q.name)
     initial_state.colour = 'red'
@@ -57,16 +59,16 @@ class QuestionBaseTest < ActiveSupport::TestCase
   test "next_node block is passed input" do
     input_was = nil
     q = SmartAnswer::Question::Base.new(:example) {
-      next_node do |input|
+      next_node(:done) do |input|
         input_was = input
         :done
       end
+      permitted_next_nodes(:done)
     }
     initial_state = SmartAnswer::State.new(q.name)
     new_state = q.transition(initial_state, 'something')
     assert_equal 'something', input_was
   end
-
 
   test "Input can be saved into the state" do
     q = SmartAnswer::Question::Base.new(:favourite_colour?) do

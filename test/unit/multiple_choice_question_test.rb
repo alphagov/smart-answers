@@ -38,7 +38,7 @@ module SmartAnswer
     test "Next node can be overridden by block" do
       q = Question::MultipleChoice.new(:example) do
         option :yes => :fred
-        next_node { :baz }
+        next_node(:baz) { :baz }
       end
 
       new_state = q.transition(State.new(:example), :yes)

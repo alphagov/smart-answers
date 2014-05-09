@@ -5,6 +5,7 @@ module SmartAnswer
       def initialize(name, options = {}, &block)
         @save_input_as = nil
         @next_node_function ||= lambda {|_|}
+        @permitted_next_nodes = []
         super
       end
 
@@ -13,9 +14,14 @@ module SmartAnswer
           @next_node_function = block
         elsif args.count == 1
           @next_node_function = lambda { |_input| args.first }
+          @permitted_next_nodes << args.first
         else
           raise ArgumentError
         end
+      end
+
+      def permitted_next_nodes(*args)
+        @permitted_next_nodes += args
       end
 
       def next_node_for(current_state, input)
@@ -49,6 +55,11 @@ module SmartAnswer
 
       def question?
         true
+      end
+
+    private
+      def permitted_next_node?(next_node)
+        @permitted_next_nodes.include?(next_node)
       end
     end
   end
