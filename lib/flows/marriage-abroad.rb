@@ -5,6 +5,7 @@ data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
 exclude_countries = %w(holy-see british-antarctic-territory the-occupied-palestinian-territories)
 
+
 # Q1
 country_select :country_of_ceremony?, :exclude_countries => exclude_countries do
   save_input_as :ceremony_country
@@ -874,10 +875,8 @@ outcome :outcome_os_no_cni do
         phrases << :no_cni_os_not_dutch_caribbean_other_resident
       end
     end
-    if %w(czech-republic argentina cote-d-ivoire).include?(ceremony_country)
-      phrases << :get_legal_advice << :cni_os_consular_facilities_unavailable
-    else
-      phrases << :get_legal_advice << :cni_os_consular_facilities_unavailable 
+    phrases << :get_legal_advice << :cni_os_consular_facilities_unavailable
+    unless data_query.countries_without_consular_facilities?(ceremony_country)
       if %w(monaco).include?(ceremony_country)
         phrases << :list_of_consular_fees_france
       else
