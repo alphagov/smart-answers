@@ -27,7 +27,7 @@ en-GB:
           +[data_partial:clickbooks:clickbook_data]
           
 #Reusable phrases for all outcomes
-      #paying methods
+      #payment methods
         pay_by_cash_or_credit_card_no_cheque: |
           You can pay by cash or credit card, but not by personal cheque.
         pay_in_local_currency: |
@@ -42,12 +42,24 @@ en-GB:
       #fees
         list_of_consular_fees: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
+        list_of_consular_fees_france: |
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/france-consular-fees).
       #others
         get_legal_advice: |
           ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
+        
+        contact_local_authorities: |
+          Contact the relevant local authorities to find out about local marriage laws, including what documents you’ll need.
+        
+        partner_naturalisation_in_uk: |
+          ##Naturalisation of your partner if they move to the UK
+
+          Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
+
 
 # Marriage if resident of Isle of Man or Channel Islands
         iom_ci_os_all: |
+        
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
         iom_ci_os_spain: |
           %There are certain legal restrictions if neither of you is resident in Spain. You should check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re planning to get married to find out if this is allowed.%
@@ -716,10 +728,8 @@ en-GB:
 
         consular_cni_os_fees_russia: |
           You can pay by cash or credit card in Moscow, but not by personal cheque.
-
           You can pay by credit card only in St Petersburg and Ekaterinburg.
-
-
+          
 # France phrases
         fot_os_all: |
           %{country_name_uppercase_prefix} is an overseas department or territory of France. The rules and requirements for getting married there are similar to France.
@@ -783,7 +793,7 @@ en-GB:
           ##What you need to do
 
           You may be asked to provide an 'affirmation of freedom to marry' document to prove you’re allowed to marry.
-
+          
         what_you_need_to_do_will_ask: |
           ##What you need to do
 
@@ -1225,7 +1235,7 @@ en-GB:
 
           - [Tokyo](https://britishembassytokyo.clickbook.net/sub/britishembassytokyo) (if you live in Eastern Japan)
           - [Osaka](https://ukconsulateosaka.clickbook.net/sub/ukconsulateosaka) (if you live in Western Japan)
-          
+
           ###What documents you’ll need
 
           You’ll need proof that you’ve been resident in the area covered by the embassy or consulate for at least 7 days, like an employer’s letter, passport or a bank statement.
@@ -1350,6 +1360,12 @@ en-GB:
         title:
         body: |
           %{iom_ci_os_outcome}
+# outcome Netherlands
+      outcome_netherlands:
+        title: |
+          %{ceremony_type} in Netherlands
+        body: |
+          %{netherlands_phraselist}
 
 # outcome Ireland
       outcome_ireland:
