@@ -2,28 +2,27 @@ module SmartAnswer
   module Question
     class MultipleChoice < Base
       def initialize(name, options = {}, &block)
-        transitions = @transitions = {}
-        next_node { |input| transitions[input.to_s] }
+        @permitted_options = []
         super
       end
 
       def option(transitions, options = {})
         if transitions.is_a?(Hash)
           transitions.each_pair do |option, next_node|
-            @transitions[option.to_s] = next_node
-            @permitted_next_nodes << next_node
+            @permitted_options << option.to_s
+            next_node_if(next_node) { |response| response.to_s == option.to_s }
           end
         else
-          [*transitions].each { |option| @transitions[option.to_s] = nil }
+          [*transitions].each { |option| @permitted_options << option.to_s }
         end
       end
 
       def options
-        @transitions.keys
+        @permitted_options
       end
 
       def valid_option?(option)
-        @transitions.has_key?(option.to_s)
+        options.include?(option.to_s)
       end
 
       def parse_input(raw_input)

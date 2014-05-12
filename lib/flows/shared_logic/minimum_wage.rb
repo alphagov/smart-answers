@@ -33,9 +33,9 @@ end
 # Q2 Past
 multiple_choice :were_you_an_apprentice? do
   save_input_as :was_apprentice
-  option "no" => :how_old_were_you?
-  option "apprentice_under_19" => :how_often_did_you_get_paid?
-  option "apprentice_over_19" => :how_often_did_you_get_paid?
+  option "no"
+  option "apprentice_under_19"
+  option "apprentice_over_19"
 
   next_node do |response|
     case response
