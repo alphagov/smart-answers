@@ -32,7 +32,7 @@ en-GB:
         will_reach_pension_age: You’ll reach State Pension age on %{formatted_state_pension_date}.
         have_reached_pension_age: You reached State Pension age on %{formatted_state_pension_date}.
         pension_credit_future: You may be entitled to receive Pension Credit from %{pension_credit_date}.
-        pension_credit_past: You may have been entitled to receive Pension Credit from %{pension_credit_date}.
+        pension_credit_past: You reached the Pension Credit qualifying age on %{pension_credit_date}.
         bus_pass: |
           ##Bus pass
           The date you qualify for a bus pass depends on if you live in:
@@ -57,7 +57,7 @@ en-GB:
 
           You should get your pension claim pack in %{formatted_pension_pack_date}.
 
-          Once you claim your State Pension, the Pension Service will work out your full State Pension. This calculator gives you an estimate of your basic State Pension.
+          Once you claim your State Pension, the Pension Service will work out your full State Pension.
 
           ##Pension Credit
           If you’re on a low income, you might be eligible to claim [Pension Credit](/pension-credit).
@@ -68,7 +68,7 @@ en-GB:
 
           You should get your pension claim pack in %{formatted_pension_pack_date}. 
 
-          Once you claim your State Pension, the Pension Service will work out how much exactly you get. You need at least 10 years of National Insurance contributions or credits to get the State Pension.
+          Once you claim your State Pension, the Pension Service will work out your full State Pension.
 
           ^The State Pension has changed. You will claim the [new State Pension](/new-state-pension) when you reach your State Pension age.^
 
@@ -150,7 +150,7 @@ en-GB:
           When you’ll reach State Pension age | %{formatted_state_pension_date}
           How much per week you may get | £%{pension_amount}
           
-          The State Pension age is regularly reviewed.
+          The State Pension age is regularly reviewed and may change in the future.
 
           This estimate doesn’t include an [Additional State Pension](/additional-state-pension) you built up before 6 April 2016. It may change if you make more [National Insurance contributions](/national-insurance) before you reach State Pension age.
 
@@ -413,7 +413,7 @@ en-GB:
 
           You’ll reach State Pension age on %{formatted_state_pension_date}
           
-          The State Pension age is regularly reviewed.
+          The State Pension age is regularly reviewed and may change in the future.
 
           How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance/overview) you have.
 

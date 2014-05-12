@@ -74,20 +74,38 @@ module SmartAnswer::Calculators
     def state_pension_date(sp_gender = gender)
       StatePensionQueryV2.find(dob, sp_gender)
     end
-
-    def state_pension_age
-      year_month = pension_date_from_dob_diff
-      if StatePensionQueryV2.has_month_offset?(dob)
-        year_month[0] -= 1 if year_month[0] > 66
-        "#{year_month[0]} years, #{year_month[1]} #{year_month[1] > 1 ? "month".pluralize : "month"}"
-      else
-        "#{year_month[0]} years"
-      end 
-    end
     
-    def pension_date_from_dob_diff
-      months = (state_pension_date.year * 12 + state_pension_date.month) - (dob.year * 12 + dob.month)
-      [(months.to_f / 12).round, months % 12]
+    def state_pension_age
+      spd = state_pension_date
+      syear = state_pension_date.year - dob.year
+
+      pension_age = syear.years.since(dob)
+      years = syear
+
+      if pension_age > state_pension_date
+        pension_age = 1.year.ago(pension_age)
+        years -= 1
+      end
+
+      month_and_day = friendly_time_diff(pension_age, state_pension_date)
+      month_and_day = month_and_day.empty? ? month_and_day : ", " + month_and_day
+      "#{pluralize(years, 'year')}#{month_and_day}"
+    end
+
+    def friendly_time_diff(from_time, to_time)
+      from_time = from_time.to_time if from_time.respond_to?(:to_time)
+      to_time = to_time.to_time if to_time.respond_to?(:to_time)
+      components = []
+
+      %w(year month day).map do |interval|
+        distance_in_seconds = (to_time.to_i - from_time.to_i).round(1)
+        delta = (distance_in_seconds / 1.send(interval)).floor
+        delta -= 1 if from_time + delta.send(interval) > to_time
+        from_time += delta.send(interval)
+        components << pluralize(delta, interval) if distance_in_seconds >= 1.send(interval)
+      end
+
+      components.join(", ")
     end
 
     def before_state_pension_date?

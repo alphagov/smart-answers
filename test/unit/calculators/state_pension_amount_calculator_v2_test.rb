@@ -583,14 +583,14 @@ module SmartAnswer::Calculators
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
               gender: "male", dob: "1977-05-05", qualifying_years: nil)
           assert_equal Date.parse("2044-05-06"), @calculator.state_pension_date
-          assert_equal "67 years", @calculator.state_pension_age
+          assert_equal "67 years, 1 day", @calculator.state_pension_age
         end
 
         should "67 years; dob: 1968-02-29; pension date: 2034-03-01 " do
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
               gender: "male", dob: "1968-02-29", qualifying_years: nil)
           # assert_equal "65 years, 10 months and 23 days", @calculator.state_pension_age
-          assert_equal "67 years", @calculator.state_pension_age
+          assert_equal "67 years, 1 day", @calculator.state_pension_age
           assert_equal Date.parse("2035-03-01"), @calculator.state_pension_date
         end
 
@@ -612,7 +612,7 @@ module SmartAnswer::Calculators
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
               gender: "male", dob: "1968-11-06", qualifying_years: nil)
           assert_equal "67 years", @calculator.state_pension_age
-          assert_equal Date.parse("2035-07-06"), @calculator.state_pension_date
+          assert_equal Date.parse("2035-11-06"), @calculator.state_pension_date
         end
       end
 
@@ -768,6 +768,18 @@ module SmartAnswer::Calculators
       should "be 66 years 3 months and 7 September 2026" do
         assert_equal "66 years, 3 months", @calculator.state_pension_age
         assert_equal Date.parse("7 September 2026"), @calculator.state_pension_date
+      end
+    end
+    
+    context "check additional state pension age" do
+      setup do 
+        Timecop.travel("2014-04-10")
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
+          gender: "male", dob: "23 March 1969", qualifying_years: "0")
+      end
+      
+      should "be 67 years" do
+        assert_equal "67 years", @calculator.state_pension_age
       end
     end
   end
