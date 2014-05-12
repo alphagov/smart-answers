@@ -236,7 +236,9 @@ multiple_choice :partner_opposite_or_same_sex? do
       :"outcome_#{ceremony_country}"
     else
       if response == 'opposite_sex'
-        if data_query.os_affirmation_countries?(ceremony_country)
+        if %w(indonesia).include?(ceremony_country)
+          :"outcome_os_#{ceremony_country}"
+        elsif data_query.os_affirmation_countries?(ceremony_country)
           :outcome_os_affirmation
         elsif data_query.commonwealth_country?(ceremony_country) or %w(zimbabwe).include?(ceremony_country)
           :outcome_os_commonwealth
@@ -332,6 +334,14 @@ outcome :outcome_netherlands do
   end
 end
 
+outcome :outcome_os_indonesia do 
+  precalculate :indonesia_os_phraselist do 
+    phrases = PhraseList.new
+    phrases << :appointment_for_affidavit << :complete_affidavit << :download_affidavit << :documents_for_divorced_or_widowed << :partner_affirmation_needed
+    phrases << :fee_table_english_otherLanguage_affirmation
+    phrases
+  end
+end
 
 outcome :outcome_os_commonwealth do
   precalculate :commonwealth_os_outcome do
@@ -579,7 +589,7 @@ outcome :outcome_os_consular_cni do
       elsif %w(italy).include?(ceremony_country)
         phrases << :consular_cni_os_foreign_resident_ceremony_country_italy
       end
-      if %w(germany).exclude?(ceremony_country)
+      unless %w(germany).include?(ceremony_country)
         phrases << :consular_cni_os_foreign_resident_ceremony_country_not_germany
       end
     end
@@ -805,7 +815,7 @@ outcome :outcome_os_affirmation do
     end
     phrases << :affirmation_os_download_affidavit_philippines if %w(philippines).include?(ceremony_country)
     if %w(turkey).include?(ceremony_country)
-      phrases << :affirmation_os_download_affidavit_turkey
+      phrases << :complete_affidavit << :download_affidavit
       if %w(turkey).include?(residency_country)
         phrases << :affirmation_os_legalised_in_turkey
       else
@@ -813,7 +823,7 @@ outcome :outcome_os_affirmation do
       end
     end
     if %w(turkey).include?(ceremony_country)
-      phrases << :affirmation_os_divorced_or_widowed_turkey
+      phrases << :documents_for_divorced_or_widowed
     else
       phrases << :affirmation_os_divorced_or_widowed
     end
