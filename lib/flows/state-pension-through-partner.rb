@@ -22,14 +22,6 @@ multiple_choice :what_is_your_marital_status? do
     answers
   end
   
-  calculate :result_phrase do
-    if responses.last == "divorced"
-      phrases = PhraseList.new
-      phrases << :impossibility_due_to_divorce << :increase_retirement_income #outcome 9
-      phrases
-    end
-  end
-  
   next_node do |response|
     if response == "divorced"
       :what_is_your_gender?
@@ -124,7 +116,7 @@ multiple_choice :what_is_your_gender? do
       if responses.first == "divorced"
         phrases << :age_dependent_pension #outcome 10
       elsif responses.first == "widowed"
-        phrases << :married_woman_and_state_pension #outcome 6 and 7 intro
+        phrases << :married_woman_and_state_pension #outcome 6
       else
         phrases << :married_woman_no_state_pension #outcome 5
       end
