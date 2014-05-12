@@ -205,4 +205,24 @@ class QuestionBaseTest < ActiveSupport::TestCase
     end
   end
 
+  test "can construct conditional next node clauses by nesting predicate condition declarations" do
+    q = SmartAnswer::Question::Base.new(:example) {
+      on_condition(->(response) { false } ) do
+        next_node(:skipped)
+      end
+      on_condition(->(response) { true } ) do
+        next_node_if(:a) {|r| r == 'a' }
+        next_node_if(:b, ->(r) { r == 'b' })
+        on_condition(->(r) {r == 'c'}) do
+          next_node(:c)
+        end
+      end
+      next_node(:d)
+    }
+    initial_state = SmartAnswer::State.new(q.name)
+    assert_equal :a, q.next_node_for(initial_state, 'a')
+    assert_equal :b, q.next_node_for(initial_state, 'b')
+    assert_equal :c, q.next_node_for(initial_state, 'c')
+    assert_equal :d, q.next_node_for(initial_state, 'd')
+  end
 end

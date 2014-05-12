@@ -7,6 +7,7 @@ module SmartAnswer
         @next_node_function_chain ||= []
         @default_next_node_function ||= lambda {|_|}
         @permitted_next_nodes = []
+        @predicate_stack = []
         super
       end
 
@@ -14,8 +15,7 @@ module SmartAnswer
         if block_given?
           @default_next_node_function = block
         elsif next_node
-          @next_node_function_chain << [next_node, lambda { |_| true }]
-          @permitted_next_nodes << next_node
+          next_node_if(next_node, lambda { |_| true })
         else
           raise ArgumentError
         end
@@ -23,7 +23,7 @@ module SmartAnswer
 
       def next_node_if(next_node, *predicates, &block)
         predicates << block if block_given?
-        @next_node_function_chain << [next_node, *predicates]
+        @next_node_function_chain << [next_node, *(@predicate_stack + predicates)]
         @permitted_next_nodes << next_node
       end
 
@@ -51,6 +51,26 @@ module SmartAnswer
           new_state = calculation.evaluate(new_state)
         end
         new_state
+      end
+
+      # Within an #on_condition block, all #next_node and #next_node_if
+      # clauses must additionally satisfy the given predicate. Nesting of
+      # #on_condition blocks is permitted.
+      #
+      # Example:
+      #
+      # on_condition(->(r) {r == 'tourism'}) do
+      #   next_node_if(:outcome_visit_waiver) { %w(oman qatar united-arab-emirates).include?(passport_country) }
+      #   next_node_if(:outcome_taiwan_exception) { %w(taiwan).include?(passport_country) }
+      #   next_node_if(:outcome_school_n) do
+      #     country_group_non_visa_national.include?(passport_country) or country_group_ukot.include?(passport_country))
+      #   end
+      #   next_node(:outcome_general_y)
+      # end
+      def on_condition(predicate, &block)
+        @predicate_stack << predicate
+        instance_eval(&block)
+        @predicate_stack.pop
       end
 
       def parse_input(raw_input)
