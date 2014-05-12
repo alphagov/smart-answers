@@ -17,6 +17,10 @@ module SmartAnswer
         @countries ||= load_countries
       end
 
+      def country_in(countries)
+        ->(response) { countries.include?(response) }
+      end
+
       def valid_option?(option)
         options.map{|v| v.slug}.include? (option.to_s)
       end
