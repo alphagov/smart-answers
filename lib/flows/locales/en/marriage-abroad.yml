@@ -89,6 +89,13 @@ en-GB:
           Issuing any other consular letter or certificate in English | £45
           Issuing any other consular letter or certificate in any other language | £70
           Affirmation for marriage | £55
+          
+        fee_table_affirmation: |
+          ##Fees
+
+          Service | Fee
+          -|-
+          Affirmation for marriage | £55
 
       #other phrases
         get_legal_advice: |
@@ -447,14 +454,7 @@ en-GB:
           ###Applying for a CNI from the consulate
 
           You’ll normally need to have been resident in Kazakhstan for at least 21 days. You can then book an appointment at the consulate to give notice of your marriage. There’s a fee for this service (see below).
-        russia_os_local_resident: |
-          If you need a CNI, you’ll first need to give notice of your intended marriage at your nearest British %{embassy_or_consulate_residency_country}.
-
-          ###Applying for a CNI from the consulate
-
-          You’ll need to have been resident in the Russian Federation for at least 21 days. You can then book an appointment at the consulate in the district you’re resident in, to give notice of your marriage.
-
-          Email <RussiaConsular@fco.gov.uk> to find your local consulate.
+        
         consular_cni_os_no_clickbook_so_embassy_details: |
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         consular_cni_os_local_resident_italy: |
@@ -736,7 +736,6 @@ en-GB:
 
           Download instructions in English and Spanish on what the declaration needs to include.
 
-
           $D
           [Download ‘Marital status declaration instructions in English’ (PDF, 363KB)](/government/uploads/system/uploads/attachment_data/file/136832/marital-status-declaration-instruction-en.pdf)
           [Download ‘Declaración de estado civil instrucciones en Español’ (PDF, 236KB)](/government/uploads/system/uploads/attachment_data/file/136833/marital-status-declaration-instruction-sp.pdf)
@@ -774,14 +773,9 @@ en-GB:
           Issuing any other consular letter or certificate in any other language | £70
           Administering an oath or making a declaration | £55
 
-
         consular_cni_os_fees_foreign_commonwealth_roi_resident: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{residency_country_name_lowercase_prefix}](/government/publications/%{residency_country}-consular-fees) and [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
 
-        consular_cni_os_fees_russia: |
-          You can pay by cash or credit card in Moscow, but not by personal cheque.
-          You can pay by credit card only in St Petersburg and Ekaterinburg.
-          
 # France phrases
         fot_os_all: |
           %{country_name_uppercase_prefix} is an overseas department or territory of France. The rules and requirements for getting married there are similar to France.
@@ -859,13 +853,6 @@ en-GB:
           ^You’ll also need to provide evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.^
 
           You’ll also need to provide evidence if you’ve changed your name by deed poll.
-
-        turkey_affadavit_fees: |
-          ##Fees
-
-          Service | Fee
-          -|-
-          Affadavit for Marriage | £55
 
         affirmation_os_all_fees: |
           ##Fees
@@ -1401,6 +1388,22 @@ en-GB:
           Marriage in Indonesia
         body: |
           %{indonesia_os_phraselist}
+# outcome Russia - Opposite sex
+      outcome_os_russia:
+        title: |
+          Marriage in Russia
+        body: |
+          Applying for a CNI from the consulate
+
+          You’ll need to have been resident in the Russian Federation for at least 21 days. You can then book an appointment at the consulate in the district you’re resident in, to give notice of your marriage.
+          
+          Email RussiaConsular@fco.gov.uk to find your local consulate or to book an appointment at Ekaterinburg.
+          
+          Book your appointment at one of the following:
+
+            - [British Embassy Moscow](https://www.clickbook.net/dev/bc.nsf/sub/RussiaConsular)
+            - [British  Consulate St Petersburg](https://stpetersburgconsular.clickbook.net/sub/stpetersburgconsular)
+          
 
 # outcome Switzerland
       outcome_switzerland:

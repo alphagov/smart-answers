@@ -236,7 +236,7 @@ multiple_choice :partner_opposite_or_same_sex? do
       :"outcome_#{ceremony_country}"
     else
       if response == 'opposite_sex'
-        if %w(indonesia).include?(ceremony_country)
+        if %w(indonesia russia).include?(ceremony_country)
           :"outcome_os_#{ceremony_country}"
         elsif data_query.os_affirmation_countries?(ceremony_country)
           :outcome_os_affirmation
@@ -337,11 +337,12 @@ end
 outcome :outcome_os_indonesia do 
   precalculate :indonesia_os_phraselist do 
     phrases = PhraseList.new
-    phrases << :appointment_for_affidavit << :complete_affidavit << :download_affidavit << :documents_for_divorced_or_widowed << :partner_affirmation_needed
-    phrases << :fee_table_english_otherLanguage_affirmation
+    phrases << :appointment_for_affidavit << :complete_affidavit << :download_affidavit << :documents_for_divorced_or_widowed << :partner_affirmation_needed << :fee_table_english_otherLanguage_affirmation
     phrases
   end
 end
+
+outcome :outcome_os_russia
 
 outcome :outcome_os_commonwealth do
   precalculate :commonwealth_os_outcome do
@@ -554,14 +555,10 @@ outcome :outcome_os_consular_cni do
     end
 
     if ceremony_country == residency_country
-      if %w(germany italy kazakhstan russia).exclude?(ceremony_country)
+      if %w(germany italy kazakhstan).exclude?(ceremony_country)
         phrases << :consular_cni_os_local_resident_not_italy_germany
       end
-      if %w(kazakhstan).include?(ceremony_country)
-        phrases << :kazakhstan_os_local_resident
-      elsif %w(russia).include?(ceremony_country)
-        phrases << :"russia_os_local_resident"
-      end
+      phrases << :kazakhstan_os_local_resident if %w(kazakhstan).include?(ceremony_country)
       if %w(germany italy japan spain).exclude?(ceremony_country)
         if reg_data_query.clickbook(ceremony_country)
           if %w(vietnam).include?(ceremony_country)
@@ -755,8 +752,6 @@ outcome :outcome_os_consular_cni do
     
     if %w(armenia bosnia-and-herzegovina cambodia iceland kazakhstan latvia luxembourg slovenia tunisia tajikistan).include?(ceremony_country)
       phrases << :pay_in_local_currency_ceremony_country_name
-    elsif %w(russia).include?(ceremony_country)
-      phrases << :consular_cni_os_fees_russia
     elsif %w(cote-d-ivoire).exclude?(ceremony_country)
       phrases << :pay_by_cash_or_credit_card_no_cheque
     end
@@ -842,8 +837,8 @@ outcome :outcome_os_affirmation do
       end
     end
 
-    if %w(turkey).include?(ceremony_country)
-      phrases << :turkey_affadavit_fees
+    if %w(turkey vietnam thailand south-korea).include?(ceremony_country)
+      phrases << :fee_table_affirmation
     else
       phrases << :affirmation_os_all_fees
     end
@@ -1102,7 +1097,11 @@ outcome :outcome_cp_consular do
     if %w(partner_british).exclude?(partner_nationality)
       phrases << :consular_cp_naturalisation
     end
-    phrases << :consular_cp_all_fees
+    if %w(vietnam thailand south-korea).include?(ceremony_country)
+      phrases << :fee_table_affirmation
+    else
+      phrases << :consular_cp_all_fees
+    end
     if %w(cambodia latvia).include?(ceremony_country)
       phrases << :pay_in_local_currency
     else
