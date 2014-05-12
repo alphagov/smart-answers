@@ -96,5 +96,37 @@ module SmartAnswer
         assert_equal [], @question.to_response('none')
       end
     end
+
+    context "response_has_all_of predicate" do
+      setup do
+        @question = Question::Checkbox.new(:something) do
+          option :red
+          option :blue
+          option :green
+        end
+      end
+
+      should "be a callable" do
+        assert @question.response_has_all_of(%w{red}).respond_to?(:call)
+      end
+
+      should "return true if all responses met" do
+        predicate = @question.response_has_all_of(%w{red green})
+        refute predicate.call('')
+        refute predicate.call('red')
+        refute predicate.call('blue')
+        refute predicate.call('green')
+        refute predicate.call('red,blue')
+        assert predicate.call('red,green')
+        refute predicate.call('blue,green')
+        assert predicate.call('red,blue,green')
+      end
+
+      should "always be true if empty requirements" do
+        predicate = @question.response_has_all_of([])
+        assert predicate.call('')
+        assert predicate.call('red')
+      end
+    end
   end
 end

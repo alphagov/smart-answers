@@ -38,6 +38,10 @@ module SmartAnswer
       def response_is_one_of(accepted_responses)
         ->(response) { (response.split(",") & accepted_responses).any? }
       end
+
+      def response_has_all_of(required_responses)
+        ->(response) { (response.split(",") & required_responses).size == required_responses.size }
+      end
     end
   end
 end
