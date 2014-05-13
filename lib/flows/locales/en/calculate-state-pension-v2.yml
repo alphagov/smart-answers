@@ -9,7 +9,7 @@ en-GB:
       devolved_body: |
         ##What you need to know:
 
-        This calculator gives an estimate of your basic State pension and information about the [new State Pension](/new-state-pension) if you reach State Pension age after 6 April 2016.
+        This calculator gives an estimate of your basic State pension and information about the [new State Pension](/new-state-pension) if you reach State Pension age on or after 6 April 2016.
 
         It doesn’t estimate any [Additional State Pension.](/additional-state-pension)
 
@@ -33,6 +33,7 @@ en-GB:
         have_reached_pension_age: You reached State Pension age on %{formatted_state_pension_date}.
         pension_credit_future: You may be entitled to receive Pension Credit from %{pension_credit_date}.
         pension_credit_past: You reached the Pension Credit qualifying age on %{pension_credit_date}.
+        pension_age_review: The State Pension age is regularly reviewed and may change in the future. This may also affect Pension Credit.
         bus_pass: |
           ##Bus pass
           The date you qualify for a bus pass depends on if you live in:
@@ -104,7 +105,7 @@ en-GB:
           You currently don’t have the 30 qualifying years needed to get a full basic State Pension but you may have enough years before your State Pension age to get the further years needed.
           $C
 
-          State Pension | Your results
+          Basic State Pension | Your results
           - | -
           Your State Pension age | %{state_pension_age}
           When you’ll reach State Pension age | %{formatted_state_pension_date}
@@ -136,15 +137,15 @@ en-GB:
 
 
           $C
-          The State Pension has changed. When you reach State Pension age you’ll claim the [new State Pension](/new-state-pension). This is an estimate of your basic State Pension under the current rules.
+          The State Pension changed on 6 April 2016. When you reach State Pension age you’ll claim the [new State Pension](/new-state-pension). This is an estimate of your basic State Pension under the current rules.
           $C
           
         ten_and_greater: |
-          The estimate of how much you will get is based on the current basic State Pension rules and will be the least amount you will get under the new State Pension rules.
+          This will be the least amount you will get under the new State Pension rules.
         less_than_ten: |
-          ^You don’t have the 10 years of National Insurance contributions you need to get the [new State Pension](/state-pension/eligibility).^
+          ^You don’t have the 10 years of National Insurance contributions you need to get any [new State Pension](/state-pension/eligibility).^
         too_few_qy_enough_remaining_years_a: |
-          State Pension | Your results
+          Basic State Pension | Your results
           - | - 
           Your State Pension age | %{state_pension_age}
           When you’ll reach State Pension age | %{formatted_state_pension_date}
@@ -152,7 +153,7 @@ en-GB:
           
           The State Pension age is regularly reviewed and may change in the future.
 
-          This estimate doesn’t include an [Additional State Pension](/additional-state-pension) you built up before 6 April 2016. It may change if you make more [National Insurance contributions](/national-insurance) before you reach State Pension age.
+          This estimate doesn’t include any [Additional State Pension](/additional-state-pension) you may have before 6 April 2016. It may change if you make more [National Insurance contributions](/national-insurance) before you reach State Pension age.
 
           How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance) you have.
           
@@ -162,12 +163,12 @@ en-GB:
           Years you can still make contributions | %{remaining_years}
   
           ##Get a pension statement
-          Find out how you can [get for a State Pension statement](/state-pension-statement) and when you get an estimate of your full State Pension.
+          Find out how you can [get a State Pension statement](/state-pension-statement).
 
           ##More about the State Pension
           Read about:
 
-          - [the new State Pension or how to top it up](/new-state-pension)
+          - [the new State Pension](/new-state-pension)
           - [voluntary contributions](/voluntary-national-insurance-contributions)
           -  [increasing your basic State Pension with your partner’s (or late or former partner’s) National Insurance contributions](/state-pension-through-partner)
           - [State Pension if you retire abroad](/state-pension-if-you-retire-abroad)
@@ -180,7 +181,7 @@ en-GB:
           You currently don’t have the 30 qualifying years needed to get a full basic State Pension of £%{weekly_rate}. You don’t have enough years before your State Pension age to get the further years needed.
           $C
 
-          State Pension | Your results
+          Basic State Pension | Your results
           - | -
           Your State Pension age | %{state_pension_age}
           When you’ll reach State Pension age | %{formatted_state_pension_date}
@@ -249,7 +250,7 @@ en-GB:
 
           You currently don’t have the 30 qualifying years needed to get a full basic State Pension of £113.10 per week.
 
-          State Pension | Your results
+          Basic State Pension | Your results
           - | -
           How much per week you may get | £%{pension_amount}
           Difference to the full basic State Pension of £113.10 | £%{pension_loss}
@@ -396,7 +397,9 @@ en-GB:
           You can [put off claiming your State Pension](/deferring-state-pension "Deferring your State Pension") when you reach State Pension age or take a break from claiming it.
 
           ##Voluntary contributions
-          You may want to claim [Class 3a voluntary National Insurance contributions](/voluntary-national-insurance-contributions/who-can-pay-voluntary-contributions) if you don’t get the full basic State Pension.
+          If you don’t get the full basic State Pension you might still be able to [pay voluntary National Insurance contributions](/voluntary-national-insurance-contributions) to fill gaps in your National Insurance record.
+          
+          You may also be able to top up your Additional State Pension (up to £25 a week) by paying [Class 3A contributions](/state-pension-topup).
           
           ##Increase your State Pension based on your partner’s National Insurance record
 
@@ -443,7 +446,9 @@ en-GB:
           If you're on a low income, you might be eligible to claim [Pension Credit](/pension-credit).
 
           ##Voluntary contributions
-          If you don’t get the full basic State Pension you might still be able to [pay voluntary National Insurance contributions](/voluntary-national-insurance-contributions).
+          If you don’t get the full basic State Pension you might still be able to [pay voluntary National Insurance contributions](/voluntary-national-insurance-contributions) to fill in gaps in your National Insurance record.
+          
+          You may also be able to top up your Additional State Pension (up to £25 a week) by paying [Class 3A contributions](/state-pension-topup).
 
           More information on the [basic State Pension](/state-pension) and the [additional State Pension](/additional-state-pension).
 

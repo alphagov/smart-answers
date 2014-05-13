@@ -46,7 +46,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
           assert_phrase_list :pension_credit_statement, [:pension_credit_past, :bus_pass]
           assert_state_variable :state_pension_date, Date.parse("05 Dec 2018")
           assert_state_variable :pension_credit_date, Date.parse("06 Nov 2018").strftime("%e %B %Y")
-          assert_phrase_list :state_pension_age_statement, [:state_pension_age_is_a, :pension_credit_future, :bus_pass]
+          assert_phrase_list :state_pension_age_statement, [:state_pension_age_is_a, :pension_credit_future, :pension_age_review, :bus_pass]
         end
       end
 
@@ -147,7 +147,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         add_response :male
         add_response Date.parse('6 March 1961')
         assert_current_node :age_result
-        assert_phrase_list :state_pension_age_statement, [:state_pension_age_is_a, :pension_credit_future, :bus_pass]
+        assert_phrase_list :state_pension_age_statement, [:state_pension_age_is_a, :pension_credit_future, :pension_age_review, :bus_pass]
       end
     end
     

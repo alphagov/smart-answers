@@ -87,6 +87,7 @@ date_question :dob_age? do
     if state_pension_date > Date.today
       if state_pension_date >= Date.parse('2016-04-06')
         phrases << :state_pension_age_is_a << :pension_credit_future
+        phrases << :pension_age_review
       else
         phrases << :state_pension_age_is << :pension_credit_future
       end
