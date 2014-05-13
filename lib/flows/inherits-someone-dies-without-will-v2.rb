@@ -103,7 +103,7 @@ multiple_choice :parents? do
     case region
     when "england-and-wales"
       if partner == "yes"
-        response == "yes" ? :siblings? : :outcome_1
+        response == "yes" ? :outcome_21 : :siblings?
       else
         response == "yes" ? :outcome_3 : :siblings?
       end
@@ -130,7 +130,7 @@ multiple_choice :siblings? do
     case region
     when "england-and-wales"
       if partner == "yes"
-        response == "yes" ? :outcome_22 : :outcome_21
+        response == "yes" ? :outcome_22 : :outcome_1
       else
         response == "yes" ? :outcome_4 : :half_siblings?
       end
