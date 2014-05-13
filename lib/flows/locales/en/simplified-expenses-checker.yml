@@ -3,7 +3,7 @@ en-GB:
     simplified-expenses-checker:
       title: Check if simplified expenses works for your business
       meta:
-        description: Compare expenses you can claim for vehicles, working from home and business premises when calculating them in different ways
+        description: Find out if simplified expenses suits your business. Compare what expenses you can claim using simplified expenses with what you can claim by working out the actual costs.
       phrases:
         simple_vehicle_costs_bullet: |
           - %{simple_vehicle_costs} to claim for cars and vans
@@ -18,7 +18,7 @@ en-GB:
         cap_allow_text: |
           You can’t use simplified expenses for your vehicle because you’ve already claimed Capital Allowances for it.
 
-          You have to continue to calculate your vehicle expenses the usual way.
+          You have to continue to calculate your vehicle expenses by working out the actual costs.
         current_vehicle_cost_bullet: |
           - %{vehicle_costs} for cars and vans and motorcycles
         current_green_vehicle_write_off_bullet: |
@@ -44,13 +44,14 @@ en-GB:
         "no": "No"
 
       body: |
-        From the 2013 to 2014 tax year there are 2 ways you can calculate business expenses for vehicles, working from home, and living on your business premises. You can use [simplified expenses](/simpler-income-tax-simplified-expenses) or calculate your expenses the usual way. This tool compares what you may be able to claim for both calculations.
+        If you are a sole trader or partnership there are now 2 ways you can calculate business expenses for vehicles, working from home, and living on your business premises. You can use [simplified expenses](/simpler-income-tax-simplified-expenses) or calculate your expenses by working out the actual costs. 
+        
+        Use this checker to work out which method is best for you.
 
         ## What you need to know:
         - you’ll be asked to make estimates about some of your business expenses - you don’t have to give accurate amounts
-        - you have to be sole trader or business partnership to use simplified expenses
-        - Limited Companies and Limited Liability Partnerships aren’t eligible
-        - this tool doesn’t give exact figures to use in your tax return, it provides an indication of which way of calculating expenses might suit your business
+        - this checker doesn’t give exact figures to use in your tax return, it gives you an idea of which way of calculating your expenses might be best for you
+        - Limited Companies aren’t eligible
 
 #Q1
       claimed_expenses_for_current_business?:
@@ -71,23 +72,22 @@ en-GB:
         error_message: You can’t choose both ‘working from home’ or ‘living on your business premises’ Please choose one.
 #Q3
       buying_new_vehicle?:
-        title: Are you buying a new vehicle this tax year that you expect to use for your business?
-        hint: Only vans, cars, or motorcycles.
+        title: Are you buying a new car, van or motorbike this tax year that you expect to use for your business?
 #Q4
       capital_allowances?:
-        title: Have you claimed Capital Allowances for your existing vehicle before?
+        title: Have you claimed Capital Allowances for your existing car, van or motorbike before?
 #Q5
       how_much_expect_to_claim?:
         title: |
-          How much do you expect to claim as business expenses for running and maintaining your vehicle over the tax year?
+          How much do you expect to claim as business expenses for running and maintaining your car, van or motorbike over the tax year?
         hint: Only include the business proportion of costs for your main vehicle, eg fuel, servicing, repairs and insurance.
 #Q6
       is_vehicle_green?:
         title: Is the vehicle you're buying green, ie a low emission vehicle?
 #Q7
       price_of_vehicle?:
-        title: How much is the vehicle you’re buying?
-        hint: Only vans, cars, motorcycles. Include VAT unless your business is VAT registered.
+        title: How much is the car, van or motorbike you’re buying?
+        hint: Include VAT unless your business is VAT registered.
 #Q8
       vehicle_business_use_time?:
         title: How much of your driving time do you expect to be for business use?
@@ -111,7 +111,7 @@ en-GB:
 #Q13
       deduct_from_premises?:
         title: How much do you expect to deduct from your business expenses this tax year for your private use of the premises?
-        hint: For example a proportion of your maintenance, utility and insurance bills.
+        hint: For example, a proportion of your maintenance, utility and insurance bills.
 #Q14
       people_live_on_premises?:
         title: How many people normally live on the business premises?
@@ -121,18 +121,12 @@ en-GB:
         body: |
           Your circumstances mean that you can’t use [simplified expenses](/simpler-income-tax-simplified-expenses).
 
-          The flat rate simplified expenses are only available for:
-
-          - business use of vehicles
-          - business use of your home (eg if you’re working from home)
-          - private use of your business premises (eg guesthouses and B&Bs)
-
-          All other expenses you must be [calculated the usual way](http://www.hmrc.gov.uk/incometax/relief-self-emp.htm) when sending your [Self Assessment tax return](/self-assessment-tax-returns).
+          You have to calculate your business expenses by [working out the actual costs](/expenses-if-youre-self-employed) when sending your [Self Assessment tax return](/self-assessment-tax-returns).
 
           [Records you need to keep when self-employed](/self-employed-records)
       you_can_use_result:
         body: |
-          Based on your answers, the expenses you can claim and deduct are listed below. There are 2 sets of results comparing simplified expenses and calculating expenses the usual way.
+          Based on your answers, the expenses you can claim and deduct are listed below. There are 2 sets of results comparing simplified expenses and calculating expenses by working out the actual costs.
 
           ##Simplified expenses
 
@@ -145,12 +139,14 @@ en-GB:
           %{capital_allowances_claimed_message}
 
           ###What to do for your tax return
+          
+          Use the simplified expenses flat rates to work out your business expenses.
 
-          Using [flat rate simplified expenses](/simpler-income-tax-simplified-expenses/overview) when calculating your taxable profit you don’t have to work out the split between private and business use.
+          Multiply the flat rates with the [miles you drove](/simpler-income-tax-simplified-expenses/vehicles-), [hours you work from home](/simpler-income-tax-simplified-expenses/business-use-of-your-home) or the [number of people who live on your business premises](/simpler-income-tax-simplified-expenses/private-use-of-business-premises).
+          
+          [Self Assessment tax returns](/self-assessment-tax-returns) in a new paragraph after 'business premises'
 
-          Instead you just multiply the flat rates with the [miles you drove](/simpler-income-tax-simplified-expenses/vehicles-), [hours you use your home for business](/simpler-income-tax-simplified-expenses/business-use-of-your-home) or the [number of people who live on your business premises](/simpler-income-tax-simplified-expenses/private-use-of-business-premises).
-
-          ##Calculating expenses the usual way
+          ##Calculating expenses by working out the actual costs
 
           %{current_scheme_bullets}
 
