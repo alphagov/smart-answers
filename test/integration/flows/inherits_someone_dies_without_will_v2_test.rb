@@ -42,31 +42,28 @@ class InheritsSomeoneDiesWithoutWillV2Test < ActiveSupport::TestCase
           context "no-parents" do
             setup { add_response "no" }
 
-            should "give outcome 1" do
-              assert_current_node :outcome_1 # T22
-              assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
+            context "no-siblings" do
+              setup { add_response "no" }
+              should "give outcome 1" do
+                assert_current_node :outcome_1 # T22
+                assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
+              end
+            end
+            context "siblings" do
+              setup { add_response "yes" }
+              should "give outcome 22" do
+                assert_current_node :outcome_22 # T22
+                assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
+              end
             end
           end
 
           context "parents" do
             setup { add_response "yes" }
 
-            context "no-siblings" do
-              setup { add_response "no" }
-
-              should "give outcome 21" do
-                assert_current_node :outcome_21 # T23
-                assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
-              end
-            end
-
-            context "siblings" do
-              setup { add_response "yes" }
-
-              should "give outcome 22" do
-                assert_current_node :outcome_22 # T24
-                assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
-              end
+            should "give outcome 21" do
+              assert_current_node :outcome_21 # T23
+              assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
             end
           end
         end
