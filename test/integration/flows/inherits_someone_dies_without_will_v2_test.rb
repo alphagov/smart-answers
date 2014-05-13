@@ -91,8 +91,8 @@ class InheritsSomeoneDiesWithoutWillV2Test < ActiveSupport::TestCase
         context "parents" do
           setup { add_response "yes" }
 
-          should "give outcome 21" do
-            assert_current_node :outcome_21 # T26
+          should "give outcome 3" do
+            assert_current_node :outcome_3 # T26
             assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
           end
         end
@@ -103,18 +103,70 @@ class InheritsSomeoneDiesWithoutWillV2Test < ActiveSupport::TestCase
           context "siblings" do
             setup { add_response "yes" }
 
-            should "give outcome 22" do
-              assert_current_node :outcome_22 # T27
+            should "give outcome 4" do
+              assert_current_node :outcome_4 # T27
               assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
             end
           end
 
           context "no-siblings" do
             setup { add_response "no" }
-            
-            should "give outcome 1" do
-              assert_current_node :outcome_1 # T27
-              assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
+
+            context "half-siblings" do
+              setup { add_response "yes" }
+
+              should "give outcome 23" do
+                assert_current_node :outcome_23 # T28
+                assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
+              end
+            end
+
+            context "no-half-siblings" do
+              setup { add_response "no" }
+
+              context "grandparents" do
+                setup { add_response "yes" }
+
+                should "give outcome 5" do
+                  assert_current_node :outcome_5 # T29
+                  assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
+                end
+              end
+
+              context "no-grandparents" do
+                setup { add_response "no" }
+
+                context "aunts-uncles" do
+                  setup { add_response "yes" }
+
+                  should "give outcome 6" do
+                    assert_current_node :outcome_6 # T30
+                    assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
+                  end
+                end
+
+                context "no-aunts-uncles" do
+                  setup { add_response "no" }
+
+                  context "half-aunts-uncles" do
+                    setup { add_response "yes" }
+
+                    should "give outcome 24" do
+                      assert_current_node :outcome_24 # T31
+                      assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
+                    end
+                  end
+
+                  context "no-half-aunts-uncles" do
+                    setup { add_response "no" }
+
+                    should "give outcome 25" do
+                      assert_current_node :outcome_25 # T32
+                      assert_phrase_list :next_step_links, [:ownerless_link]
+                    end
+                  end
+                end
+              end
             end
           end
         end
