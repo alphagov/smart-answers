@@ -38,6 +38,8 @@ module SmartAnswer::Calculators
       "st-helena-ascension-and-tristan-da-cunha" => "St Helena, Ascension and Tristan da Cunha", 
       "usa" => "the USA"
     }
+    
+    COUNTRIES_WITHOUT_CONSULAR_FACILITIES = %w(aruba slovakia curacao bonaire-st-eustatius-saba st-maarten taiwan czech-republic argentina cote-d-ivoire)
 
     def commonwealth_country?(country_slug)
       COMMONWEALTH_COUNTRIES.include?(country_slug)
@@ -93,6 +95,10 @@ module SmartAnswer::Calculators
     
     def os_affirmation_countries?(country_slug)
       OS_AFFIRMATION_COUNTRIES.include?(country_slug)
+    end
+    
+    def countries_without_consular_facilities?(country_slug)
+      COUNTRIES_WITHOUT_CONSULAR_FACILITIES.include?(country_slug)
     end
   end
 end

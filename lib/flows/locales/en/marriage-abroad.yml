@@ -27,7 +27,7 @@ en-GB:
           +[data_partial:clickbooks:clickbook_data]
           
 #Reusable phrases for all outcomes
-      #paying methods
+      #payment methods
         pay_by_cash_or_credit_card_no_cheque: |
           You can pay by cash or credit card, but not by personal cheque.
         pay_in_local_currency: |
@@ -42,12 +42,83 @@ en-GB:
       #fees
         list_of_consular_fees: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
-      #others
+        list_of_consular_fees_france: |
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/france-consular-fees).
+          
+      #what you need to do phrases
+        what_you_need_to_do: |
+          ##What you need to do
+        what_you_need_to_do_may_ask: |
+          ##What you need to do
+
+          You may be asked to provide an 'affirmation of freedom to marry' document to prove you’re allowed to marry.
+
+        what_you_need_to_do_will_ask: |
+          ##What you need to do
+
+          You will be asked to provide an ‘affirmation of freedom to marry’ document to prove you’re allowed to marry.
+
+      #affidavit phrases
+        complete_affidavit: |
+          You’ll need to complete an ‘Affidavit for marriage’ form that will be used for your affidavit.  Take the completed form with you to your appointment.
+        download_affidavit: |
+          $D
+          [Download 'Affadavit for Marriage' (PDF, 446KB)](/government/uploads/system/uploads/attachment_data/file/293781/Affidavit_of_Marital_Status.pdf)
+          $D
+          
+        appointment_for_affidavit: |
+          Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
+        appointment_for_affidavit_notary: |
+          Make an appointment with a UK [notary or commissioner of oaths](http://www.thenotariessociety.org.uk/find-a-notary) to swear an affidavit - a written statement that is used to formally declare that you’re free to marry.
+        
+      #partner affirmation phrases
+        partner_affirmation_needed: |
+          ^Your partner will need to get an affirmation as well.^
+          
+        affirmation_os_translation_in_local_language: |
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
+
+          ^You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.^
+  
+      #fee tables
+        fee_table_english_otherLanguage_affirmation: |
+          ##Fees
+
+          Service | Fee
+          -|-
+          Issuing any other consular letter or certificate in English | £45
+          Issuing any other consular letter or certificate in any other language | £70
+          Affirmation for marriage | £55
+          
+        fee_table_affirmation: |
+          ##Fees
+
+          Service | Fee
+          -|-
+          Affirmation for marriage | £55
+
+      #other phrases
         get_legal_advice: |
           ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
+        
+        contact_local_authorities: |
+          Contact the relevant local authorities to find out about local marriage laws, including what documents you’ll need.
+        
+        partner_naturalisation_in_uk: |
+          ##Naturalisation of your partner if they move to the UK
+
+          Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
+
+        documents_for_divorced_or_widowed: |
+          If you’ve been divorced or widowed, you’ll need to provide:
+
+          - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
+          - evidence of nationality or residence where your divorce took place if it was outside the UK
+          - evidence if you’ve changed your name by deed poll.
 
 # Marriage if resident of Isle of Man or Channel Islands
         iom_ci_os_all: |
+        
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
         iom_ci_os_spain: |
           %There are certain legal restrictions if neither of you is resident in Spain. You should check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re planning to get married to find out if this is allowed.%
@@ -383,14 +454,7 @@ en-GB:
           ###Applying for a CNI from the consulate
 
           You’ll normally need to have been resident in Kazakhstan for at least 21 days. You can then book an appointment at the consulate to give notice of your marriage. There’s a fee for this service (see below).
-        russia_os_local_resident: |
-          If you need a CNI, you’ll first need to give notice of your intended marriage at your nearest British %{embassy_or_consulate_residency_country}.
-
-          ###Applying for a CNI from the consulate
-
-          You’ll need to have been resident in the Russian Federation for at least 21 days. You can then book an appointment at the consulate in the district you’re resident in, to give notice of your marriage.
-
-          Email <RussiaConsular@fco.gov.uk> to find your local consulate.
+        
         consular_cni_os_no_clickbook_so_embassy_details: |
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         consular_cni_os_local_resident_italy: |
@@ -672,7 +736,6 @@ en-GB:
 
           Download instructions in English and Spanish on what the declaration needs to include.
 
-
           $D
           [Download ‘Marital status declaration instructions in English’ (PDF, 363KB)](/government/uploads/system/uploads/attachment_data/file/136832/marital-status-declaration-instruction-en.pdf)
           [Download ‘Declaración de estado civil instrucciones en Español’ (PDF, 236KB)](/government/uploads/system/uploads/attachment_data/file/136833/marital-status-declaration-instruction-sp.pdf)
@@ -710,15 +773,8 @@ en-GB:
           Issuing any other consular letter or certificate in any other language | £70
           Administering an oath or making a declaration | £55
 
-
         consular_cni_os_fees_foreign_commonwealth_roi_resident: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{residency_country_name_lowercase_prefix}](/government/publications/%{residency_country}-consular-fees) and [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
-
-        consular_cni_os_fees_russia: |
-          You can pay by cash or credit card in Moscow, but not by personal cheque.
-
-          You can pay by credit card only in St Petersburg and Ekaterinburg.
-
 
 # France phrases
         fot_os_all: |
@@ -777,34 +833,10 @@ en-GB:
           ##Naturalisation of your partner if they move to the UK
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
-        what_you_need_to_do: |
-          ##What you need to do
-        what_you_need_to_do_may_ask: |
-          ##What you need to do
-
-          You may be asked to provide an 'affirmation of freedom to marry' document to prove you’re allowed to marry.
-
-        what_you_need_to_do_will_ask: |
-          ##What you need to do
-
-          You will be asked to provide an ‘affirmation of freedom to marry’ document to prove you’re allowed to marry.
-        appointment_for_affidavit: |
-          Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
-        appointment_for_affidavit_notary: |
-          Make an appointment with a UK [notary or commissioner of oaths](http://www.thenotariessociety.org.uk/find-a-notary) to swear an affidavit - a written statement that is used to formally declare that you’re free to marry.
-        affirmation_os_translation_in_local_language: |
-
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-
-          ^You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.^
+        
         affirmation_os_legalised: |
           You’ll need to get your affirmation ‘[legalised](https://www.gov.uk/get-document-legalised)’ (certified as genuine) before you travel to Turkey.
-        affirmation_os_download_affidavit_turkey: |
-          You’ll need to complete an ‘Affadavit for marriage’ form that will be used for your affidavit.  Take the completed form with you to your appointment.
-
-          $D
-          [Download 'Affadavit for Marriage' (PDF, 446KB)](/government/uploads/system/uploads/attachment_data/file/293781/Affidavit_of_Marital_Status.pdf)
-          $D
+        
         affirmation_os_download_affidavit_philippines: |
           The embassy will provide you with an oath or affidavit (written statement of facts) stating that you’re free to marry. You can download and fill in (but not sign) the form in advance.
 
@@ -821,20 +853,6 @@ en-GB:
           ^You’ll also need to provide evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.^
 
           You’ll also need to provide evidence if you’ve changed your name by deed poll.
-
-        affirmation_os_divorced_or_widowed_turkey: |
-          If you’ve been divorced or widowed, you’ll need to provide:
-
-          - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
-          - evidence of nationality or residence where your divorce took place if it was outside the UK
-          - evidence if you’ve changed your name by deed poll.
-
-        turkey_affadavit_fees: |
-          ##Fees
-
-          Service | Fee
-          -|-
-          Affadavit for Marriage | £55
 
         affirmation_os_all_fees: |
           ##Fees
@@ -1225,7 +1243,7 @@ en-GB:
 
           - [Tokyo](https://britishembassytokyo.clickbook.net/sub/britishembassytokyo) (if you live in Eastern Japan)
           - [Osaka](https://ukconsulateosaka.clickbook.net/sub/ukconsulateosaka) (if you live in Western Japan)
-          
+
           ###What documents you’ll need
 
           You’ll need proof that you’ve been resident in the area covered by the embassy or consulate for at least 7 days, like an employer’s letter, passport or a bank statement.
@@ -1350,6 +1368,12 @@ en-GB:
         title:
         body: |
           %{iom_ci_os_outcome}
+# outcome Netherlands
+      outcome_netherlands:
+        title: |
+          %{ceremony_type} in Netherlands
+        body: |
+          %{netherlands_phraselist}
 
 # outcome Ireland
       outcome_ireland:
@@ -1357,6 +1381,27 @@ en-GB:
           %{ceremony_type} in Ireland
         body: |
           %{ireland_partner_sex_variant}
+          
+# outcome Indonesia - Opposite sex
+      outcome_os_indonesia:
+        title: |
+          Marriage in Indonesia
+        body: |
+          %{indonesia_os_phraselist}
+# outcome Russia - Opposite sex
+      outcome_os_russia:
+        title: |
+          Marriage in Russia
+        body: |
+          Applying for a CNI from the consulate
+          
+          You’ll need to have been resident in the Russian Federation for at least 21 days. You can then book an appointment at the consulate in the district you’re resident in, to give notice of your marriage.
+          
+          Email <RussiaConsular@fco.gov.uk> to find out where your local consulate is.
+         
+          Book an appointment online at the [British Embassy Moscow](https://www.clickbook.net/dev/bc.nsf/sub/RussiaConsular) or the [British Consulate St Petersburg](https://stpetersburgconsular.clickbook.net/sub/stpetersburgconsular).
+          
+          Email <RussiaConsular@fco.gov.uk> to book an appointment at the British Consulate Ekaterinburg.
 
 # outcome Switzerland
       outcome_switzerland:
