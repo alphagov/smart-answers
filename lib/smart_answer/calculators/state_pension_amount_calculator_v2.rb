@@ -2,7 +2,7 @@ require "data/state_pension_query_v2"
 
 module SmartAnswer::Calculators
   class StatePensionAmountCalculatorV2
-    include ActionView::Helpers::TextHelper
+    include FriendlyTimeDiff
 
     attr_reader :gender, :dob, :qualifying_years, :available_years ,:starting_credits
     attr_accessor :qualifying_years
@@ -74,20 +74,22 @@ module SmartAnswer::Calculators
     def state_pension_date(sp_gender = gender)
       StatePensionQueryV2.find(dob, sp_gender)
     end
-
-    def state_pension_age
-      year_month = pension_date_from_dob_diff
-      if StatePensionQueryV2.has_month_offset?(dob)
-        year_month[0] -= 1 if year_month[0] > 66
-        "#{year_month[0]} years, #{year_month[1]} #{year_month[1] > 1 ? "month".pluralize : "month"}"
-      else
-        "#{year_month[0]} years"
-      end 
-    end
     
-    def pension_date_from_dob_diff
-      months = (state_pension_date.year * 12 + state_pension_date.month) - (dob.year * 12 + dob.month)
-      [(months.to_f / 12).round, months % 12]
+    def state_pension_age
+      spd = state_pension_date
+      syear = state_pension_date.year - dob.year
+
+      pension_age = syear.years.since(dob)
+      years = syear
+
+      if pension_age > state_pension_date
+        pension_age = 1.year.ago(pension_age)
+        years -= 1
+      end
+
+      month_and_day = friendly_time_diff(pension_age, state_pension_date)
+      month_and_day = month_and_day.empty? ? month_and_day : ", " + month_and_day
+      "#{pluralize(years, 'year')}#{month_and_day}"
     end
 
     def before_state_pension_date?
@@ -170,7 +172,7 @@ module SmartAnswer::Calculators
         years = years - 1
       end
       years
-    end  
+    end
 
     def available_years_sum(qual_years = @qualifying_years)
       (@available_years - qual_years)

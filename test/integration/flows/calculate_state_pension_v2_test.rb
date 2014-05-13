@@ -46,7 +46,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
           assert_phrase_list :pension_credit_statement, [:pension_credit_past, :bus_pass]
           assert_state_variable :state_pension_date, Date.parse("05 Dec 2018")
           assert_state_variable :pension_credit_date, Date.parse("06 Nov 2018").strftime("%e %B %Y")
-          assert_phrase_list :state_pension_age_statement, [:state_pension_age_is_a, :pension_credit_future, :bus_pass]
+          assert_phrase_list :state_pension_age_statement, [:state_pension_age_is_a, :pension_credit_future, :pension_age_review, :bus_pass]
         end
       end
 
@@ -147,7 +147,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         add_response :male
         add_response Date.parse('6 March 1961')
         assert_current_node :age_result
-        assert_phrase_list :state_pension_age_statement, [:state_pension_age_is_a, :pension_credit_future, :bus_pass]
+        assert_phrase_list :state_pension_age_statement, [:state_pension_age_is_a, :pension_credit_future, :pension_age_review, :bus_pass]
       end
     end
     
@@ -201,7 +201,21 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         add_response :male
         add_response Date.parse('23 March 1978')
         assert_current_node :age_result
-        assert_state_variable :state_pension_age, "68 years"
+        assert_state_variable :state_pension_age, "67 years, 11 months, 11 days"
+      end
+      
+      should "should show 67 years old as state pension age" do
+        add_response :female
+        add_response Date.parse('1968-04-07')
+        assert_current_node :age_result
+        assert_state_variable :state_pension_age, "67 years"
+      end
+      
+      should "should also show 67 years old" do
+        add_response :male
+        add_response Date.parse('1969-03-07')
+        assert_current_node :age_result
+        assert_state_variable :state_pension_age, "67 years"
       end
     end 
   end # age calculation
@@ -1230,6 +1244,19 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         assert_state_variable :qualifying_years_total, 31
         assert_state_variable :remaining_years, 11
         assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a_intro, :ten_and_greater, :too_few_qy_enough_remaining_years_a]
+      end
+      
+      should "show 67 years state_pension_age" do
+        add_response :male
+        add_response Date.parse('23 March 1969')
+        add_response 0
+        add_response 0 # unemployment, sickness
+        add_response 'yes' # child benefit
+        add_response 14 # years of benefit
+        add_response 3 # years or caring
+        add_response 3 # carer's allowance
+        assert_current_node :amount_result
+        assert_state_variable :state_pension_age, "67 years"
       end
     end # end timecop 30-04-2014
     

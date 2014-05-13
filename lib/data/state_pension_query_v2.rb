@@ -61,12 +61,8 @@ class StatePensionQueryV2 < Struct.new(:dob, :gender)
       StatePensionDateV2.new(:both, Date.new(1961,1,6), Date.new(1961, 2, 5), 66.years.since(dob) + 10.months),
       StatePensionDateV2.new(:both, Date.new(1961,2,6), Date.new(1961, 3, 5), 66.years.since(dob) + 11.months),
       StatePensionDateV2.new(:both, Date.new(1961,3,6), Date.new(1977, 4, 5), 67.years.since(dob)),
-      StatePensionDateV2.new(:both, Date.new(1977,4,6), Date.today + 1, 68.years.since(dob))
+      StatePensionDateV2.new(:both, Date.new(1978,4,6), Date.today + 1, 68.years.since(dob))
     ]
-  end
-  
-  def self.has_month_offset?(dob) 
-    dob >= Date.new(1960,4,6) and dob <= Date.new(1961,3,5)
   end
 
   def pension_dates_static
