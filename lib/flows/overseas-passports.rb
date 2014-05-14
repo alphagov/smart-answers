@@ -300,7 +300,7 @@ outcome :ips_application_result do
   end
 
   precalculate :send_your_application do
-    uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan burundi china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand ukraine western-sahara)
+    uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan burundi china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand ukraine western-sahara venezuela)
 
     phrases = PhraseList.new
     if application_address
