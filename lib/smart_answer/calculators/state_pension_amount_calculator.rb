@@ -8,16 +8,16 @@ module SmartAnswer::Calculators
     attr_accessor :qualifying_years
 
     PENSION_RATES = [
-      { :min => Date.parse('7 April 2012'), :max => Date.parse('8 April 2013'), :amount => 107.45 },
-      { :min => Date.parse('7 April 2013'), :max => Date.parse('7 April 2014'), :amount => 110.15 },
-      { :min => Date.parse('6 April 2014'), :max => Date.parse('7 April 2015'), :amount => 113.10 }
+      { :min => Date.parse('7 April 2012'), :max => Date.parse('6 April 2013'), :amount => 107.45 },
+      { :min => Date.parse('7 April 2013'), :max => Date.parse('6 April 2014'), :amount => 110.15 },
+      { :min => Date.parse('7 April 2014'), :max => Date.parse('6 April 2015'), :amount => 113.10 }
     ]
 
     def initialize(answers)
       @gender = answers[:gender].to_sym
       @dob = DateTime.parse(answers[:dob])
       @qualifying_years = answers[:qualifying_years].to_i
-      @available_years = ni_years_to_date
+      @available_years = ni_years_to_date_from_dob
       @starting_credits = allocate_starting_credits
     end
 
@@ -74,11 +74,11 @@ module SmartAnswer::Calculators
     def state_pension_date(sp_gender = gender)
       StatePensionQuery.find(dob, sp_gender)
     end
-
+    
     def state_pension_age
       friendly_time_diff(dob, state_pension_date)
     end
-
+    
     def before_state_pension_date?
       Date.today < state_pension_date
     end
@@ -152,13 +152,12 @@ module SmartAnswer::Calculators
       (dob + 19.years)
     end
 
-    ## how many years does user have since the age of 19
-    def ni_years_to_date
+    def ni_years_to_date_from_dob
       today = Date.today
       years = today.year - ni_start_date.year
-      years = ((ni_start_date.month > 4) ? years - 1 : years)
-      # NOTE: leave this code in case we need to work out by day
-      # years = ((ni_start_date.month == today.month and ni_start_date.day > today.day) ? years - 1 : years)
+      if (today.month < dob.month) || ((today.month == dob.month) && (today.day < dob.day))
+        years = years - 1
+      end
       years
     end
 
