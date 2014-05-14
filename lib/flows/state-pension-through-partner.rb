@@ -1,4 +1,4 @@
-status :draft
+status :published
 satisfies_need "100578"
 
 ### This will need updating before 6th April 2016 ###
