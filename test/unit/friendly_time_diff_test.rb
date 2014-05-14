@@ -48,4 +48,17 @@ class FriendlyTimeDiffTest < MiniTest::Unit::TestCase
     diff = friendly_time_diff(from, Date.parse("2008-01-02"))
     assert_equal "1 day", diff
   end
+  
+  should "avoid edge cases with dates at the end of the month" do
+    assert_equal "9 months", friendly_time_diff(Date.parse('1960-12-30'), Date.parse("1961-09-30"))
+  end
+
+  should "avoid year rounding errors" do
+    assert_equal "11 months, 29 days", friendly_time_diff(Date.parse('1960-12-31'), Date.parse("1961-12-29"))
+  end
+  
+  should "avoid edge cases for 29th feb" do
+    assert_equal "4 years", friendly_time_diff(Date.parse('2004-02-29'), Date.parse("2008-02-29"))
+    assert_equal "4 years, 1 day", friendly_time_diff(Date.parse('2004-02-29'), Date.parse("2008-03-01"))
+  end
 end

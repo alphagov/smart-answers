@@ -76,22 +76,9 @@ module SmartAnswer::Calculators
     end
     
     def state_pension_age
-      spd = state_pension_date
-      syear = state_pension_date.year - dob.year
-
-      pension_age = syear.years.since(dob)
-      years = syear
-
-      if pension_age > state_pension_date
-        pension_age = 1.year.ago(pension_age)
-        years -= 1
-      end
-
-      month_and_day = friendly_time_diff(pension_age, state_pension_date)
-      month_and_day = month_and_day.empty? ? month_and_day : ", " + month_and_day
-      "#{pluralize(years, 'year')}#{month_and_day}"
+      friendly_time_diff(dob, state_pension_date)
     end
-
+    
     def before_state_pension_date?
       Date.today < state_pension_date
     end
