@@ -1069,7 +1069,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'adult'
         assert_current_node :ips_application_result
         assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_pay_at_appointment]
-        assert_phrase_list :send_your_application, [:send_application_address_venezuela]
+        assert_phrase_list :send_your_application, [:send_application_venezuela_renew_new, :send_application_address_venezuela]
         assert_phrase_list :getting_your_passport, [:getting_your_passport_uk_visa_centre, :getting_your_passport_contact, :getting_your_passport_id_renew_new]
       end
     end
@@ -1080,7 +1080,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'united-kingdom'
         assert_current_node :ips_application_result
         assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_pay_at_appointment]
-        assert_phrase_list :send_your_application, [:send_application_address_venezuela]
+        assert_phrase_list :send_your_application, [:send_application_venezuela_renew_old_replace, :send_application_address_venezuela]
         assert_phrase_list :getting_your_passport, [:getting_your_passport_uk_visa_centre, :getting_your_passport_contact_and_id]
       end
     end
