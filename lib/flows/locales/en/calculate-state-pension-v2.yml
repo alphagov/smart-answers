@@ -5,7 +5,7 @@ en-GB:
       meta:
         description: Work out your State Pension age and Pension Credit qualifying age or estimate how much basic State Pension you may get
       body: |
-        Calculate when you’ll reach State Pension age or Pension Credit qualifying age and how much you may get in today’s money for your State Pension.
+        Calculate when you’ll reach State Pension age or Pension Credit qualifying age and how much you may get in today’s money for your basic State Pension.
       devolved_body: |
         ##What you need to know:
 
@@ -31,7 +31,7 @@ en-GB:
         carers_allowance_women_hint_q9: Don’t count years before April 2010 when you opted for the reduced National Insurance rate for married women and widows.
         will_reach_pension_age: You’ll reach State Pension age on %{formatted_state_pension_date}.
         have_reached_pension_age: You reached State Pension age on %{formatted_state_pension_date}.
-        pension_credit_future: You may be entitled to receive Pension Credit from %{pension_credit_date}.
+        pension_credit_future: You'll reach the Pension Credit qualifying age on %{pension_credit_date}.
         pension_credit_past: You reached the Pension Credit qualifying age on %{pension_credit_date}.
         pension_age_review: The State Pension age is regularly reviewed and may change in the future. This may also affect Pension Credit.
         bus_pass: |
@@ -84,7 +84,7 @@ en-GB:
 
           Contact the Pension Service on 0800 731 7898 if you haven't received it.
 
-          ^You have already reached State Pension age. You can [claim your State Pension](/state-pension#how-to-claim) if you haven’t already or [defer claiming it](/deferring-state-pension "Deferring your State Pension").^
+          ^You've already reached State Pension age. You can [claim your State Pension](/state-pension#how-to-claim) if you haven’t already or [defer claiming it](/deferring-state-pension "Deferring your State Pension").^
 
           Once you claim your [State Pension](/state-pension), the Pension Service will work out your full State Pension.
 
@@ -131,19 +131,21 @@ en-GB:
           - [Class 3 voluntary contributions](/voluntary-national-insurance-contributions/who-can-pay-voluntary-contributions) 
           - [increasing your basic State Pension with your partner’s (or late or former partner’s) National Insurance contributions](/state-pension-through-partner)
           - [State Pension if you retire abroad](/state-pension-if-you-retire-abroad)
+          
+          You may also be able to top up your Additional State Pension (up to £25 a week) by paying [Class 3A contributions](/state-pension-topup).
         
         ##Estimate Result 1a
         too_few_qy_enough_remaining_years_a_intro: |
 
 
           $C
-          The State Pension changed on 6 April 2016. When you reach State Pension age you’ll claim the [new State Pension](/new-state-pension). This is an estimate of your basic State Pension under the current rules.
+          The State Pension will change on 6 April 2016. When you reach State Pension age you’ll claim the [new State Pension](/new-state-pension). This is an estimate of your basic State Pension under the current rules.
           $C
           
         ten_and_greater: |
           This will be the least amount you will get under the new State Pension rules.
         less_than_ten: |
-          ^You don’t have the 10 years of National Insurance contributions you need to get any [new State Pension](/state-pension/eligibility).^
+          ^You may not qualify for the [new State Pension](/new-state-pension/eligibility). Under the new State Pension rules you need at least 10 years of National Insurance contributions.^
         too_few_qy_enough_remaining_years_a: |
           Basic State Pension | Your results
           - | - 
@@ -206,6 +208,8 @@ en-GB:
           - [Class 3 voluntary contributions](/voluntary-national-insurance-contributions/who-can-pay-voluntary-contributions) 
           - [increasing your basic State Pension with your partner’s (or late or former partner’s) National Insurance contributions](/state-pension-through-partner) 
           - [State Pension if you retire abroad](/state-pension-if-you-retire-abroad)
+          
+          You may also be able to top up your Additional State Pension (up to £25 a week) by paying [Class 3A contributions](/state-pension-topup).
 
         ## Result 3
         you_get_full_state_pension: |
@@ -235,6 +239,8 @@ en-GB:
           - [additional State Pension](/additional-state-pension)
           - [State Pension if you retire abroad](/state-pension-if-you-retire-abroad)
           - [National Insurance contributions](/national-insurance)
+          
+          You may also be able to top up your Additional State Pension (up to £25 a week) by paying [Class 3A contributions](/state-pension-topup).
 
 
         within_4_months_not_enough_qy_years: |
@@ -273,6 +279,8 @@ en-GB:
           - [the Basic Pension](/state-pension)
           - [the additional State Pension](/additional-state-pension)
           - [State Pension if you retire abroad](/state-pension-if-you-retire-abroad)
+          
+          You may also be able to top up your Additional State Pension (up to £25 a week) by paying [Class 3A contributions](/state-pension-topup).
 
         ## Result 6
         within_4_months_enough_qy_years: |
@@ -299,6 +307,8 @@ en-GB:
           - [the Basic Pension](/state-pension)
           - [the additional State Pension](/additional-state-pension)
           - [State Pension if you retire abroad](/state-pension-if-you-retire-abroad)
+          
+          You may also be able to top up your Additional State Pension (up to £25 a week) by paying [Class 3A contributions](/state-pension-topup).
 
       ## Q1
       which_calculation?:
