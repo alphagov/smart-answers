@@ -303,7 +303,14 @@ outcome :ips_application_result do
     uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan burundi china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand ukraine western-sahara)
 
     phrases = PhraseList.new
-    if application_address
+    if %w(venezuela).include?(current_location)
+      if %w(renewing_new).include?(application_action)
+        phrases << :send_application_venezuela_renew_new
+      else
+        phrases << :send_application_venezuela_renew_old_replace
+      end
+      phrases << :"send_application_address_#{current_location}"
+    elsif application_address
       phrases << :"send_application_#{application_address}"
     elsif uk_visa_application_centre_countries.include?(current_location)
       if %w(renewing_new).include?(application_action)
