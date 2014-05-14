@@ -31,6 +31,13 @@ module SmartAnswer
       def to_response(input)
         input.split(',').reject {|v| v == NONE_OPTION }
       end
+
+      # Returns a predicate function which when given a response
+      # returns a boolean indicating whether the response was one
+      # of the accepted responses.
+      def response_is_one_of(accepted_responses)
+        ->(response) { (response.split(",") & accepted_responses).any? }
+      end
     end
   end
 end
