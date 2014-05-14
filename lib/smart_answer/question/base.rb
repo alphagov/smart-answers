@@ -82,6 +82,10 @@ module SmartAnswer
         @predicate_stack.pop
       end
 
+      def responded_with(acceptable_responses)
+        ->(response) { [*acceptable_responses].include?(response.to_s) }
+      end
+
       def parse_input(raw_input)
         raw_input
       end
