@@ -5,6 +5,27 @@ require 'flow_auditor'
 if ARGV.count == 1
   FlowAuditor.new(ARGV[0]).audit
 else
-  $stderr.puts "USAGE: flow_audit <filename>"
+  $stderr.puts <<END_USAGE
+USAGE: flow_audit <path/to/my_flow.rb>
+
+The flow auditor scans the given flow file using the ruby parser. It checks
+for old-style next_node blocks which return a symbol and attempts to determine
+the possible next nodes by looking for the possible symbols returned by its
+block.
+
+For each old style next_node block it will print out the file and line number
+of the invocation, a list of the undeclared next node symbols, and a sample
+invocation of the permitted_next_nodes function to declare them.
+
+e.g.
+
+$ ./bin/flow_audit lib/flows/register-a-birth.rb
+lib/flows/register-a-birth.rb:15:1
+  country_select(country_of_birth?)
+  Missing: no_embassy_result, commonwealth_result, who_has_british_nationality?
+
+permitted_next_nodes(:no_embassy_result, :commonwealth_result, :who_has_british_nationality?)
+
+END_USAGE
   exit(1)
 end
