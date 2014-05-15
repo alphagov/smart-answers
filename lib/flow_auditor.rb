@@ -1,5 +1,4 @@
 require 'parser/current'
-require 'pry'
 
 class FlowAuditor
   def initialize(filename)
@@ -36,13 +35,6 @@ class FlowAuditor
           puts "permitted_next_nodes(:#{(possible_next_nodes).join(', :')})"
           puts ""
         end
-        # nodes << {
-        #   q_type: q_type,
-        #   node_name: node_name,
-        #   possible_next_nodes: possible_next_nodes,
-        #   permitted_next_nodes: permitted_next_nodes,
-        #   location: tree.location
-        # }
         throw :stop_recursion
       end
     end
@@ -85,22 +77,6 @@ private
       block.call(tree, stack)
     end
   end
-
-  # def dump_next_nodes_with_blocks(parse_tree)
-  #   return unless parse_tree.respond_to?(:type)
-
-  #   if parse_tree.type == :block && is_next_node_invocation?(parse_tree.children.first)
-  #     puts parse_tree.location.expression
-  #     @possible_next_nodes = extract_possible_next_nodes(parse_tree.children[2])
-  #   elsif invocation_of_permitted_next_nodes?(parse_tree)
-  #     declared_next_nodes = parse_tree.children[2..-1].map {|c| c.respond_to?(:type) && c.type == :sym && c.children.first }.compact
-  #     missing = @possible_next_nodes - declared_next_nodes
-  #     puts "possible_next_nodes(:#{missing.join(', :')})" if missing.any?
-  #     puts "\n"
-  #   else
-  #     parse_tree.children.each {|tree| dump_next_nodes_with_blocks(tree)}
-  #   end
-  # end
 
   def is_next_node_invocation?(tree)
     tree.type == :send && tree.children == [nil, :next_node]
