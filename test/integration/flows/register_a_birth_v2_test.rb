@@ -137,6 +137,8 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
             assert_current_node :oru_result
             assert_phrase_list :oru_documents_variant, [:oru_documents_variant_spain]
             assert_phrase_list :oru_address, [:oru_address_uk]
+            assert_phrase_list :translator_link, [:approved_translator_link]
+            assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
           end
         end
       end # married
@@ -300,6 +302,8 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_current_node :oru_result
       assert_state_variable :british_national_parent, 'father'
       assert_phrase_list :oru_documents_variant, [:"oru_documents_variant_united-arab-emirates"]
+      assert_phrase_list :translator_link, [:approved_translator_link]
+      assert_state_variable :translator_link_url, "/government/publications/united-arab-emirates-list-of-lawyers"
     end # Not married or CP
   end # UAE
   context "answer indonesia" do
@@ -395,6 +399,8 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_current_node :oru_result
       assert_phrase_list :oru_documents_variant, [:oru_documents]
       assert_phrase_list :oru_address, [:oru_address_abroad]
+      assert_phrase_list :translator_link, [:no_translator_link]
+      assert_state_variable :translator_link_url, nil
     end
   end
   # testing for delivery return form in Spain
@@ -408,6 +414,8 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_current_node :oru_result
       assert_phrase_list :oru_documents_variant, [:"oru_documents_variant_spain"]
       assert_phrase_list :oru_address, [:oru_address_abroad]
+      assert_phrase_list :translator_link, [:approved_translator_link]
+      assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
     end
   end
   context "answer Vietnam" do
@@ -431,6 +439,8 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_current_node :oru_result
       assert_phrase_list :oru_documents_variant, [:oru_documents_variant_netherlands]
       assert_phrase_list :oru_address, [:oru_address_abroad]
+      assert_phrase_list :translator_link, [:approved_translator_link]
+      assert_state_variable :translator_link_url, "/government/publications/netherlands-list-of-lawyers"
     end
   end # Netherlands
   context "answer serbia" do
@@ -468,6 +478,8 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_current_node :oru_result
       assert_phrase_list :oru_documents_variant, [:"oru_documents_variant_united-arab-emirates"]
       assert_phrase_list :oru_address, [:oru_address_abroad]
+      assert_phrase_list :translator_link, [:approved_translator_link]
+      assert_state_variable :translator_link_url, "/government/publications/united-arab-emirates-list-of-lawyers"
     end
   end # UAE
   
@@ -481,6 +493,8 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_current_node :oru_result
       assert_phrase_list :oru_documents_variant, [:oru_documents]
       assert_phrase_list :oru_address, [:oru_address_uk]
+      assert_phrase_list :translator_link, [:no_translator_link]
+      assert_state_variable :translator_link_url, nil
     end
   end # american samoa
 end

@@ -146,6 +146,19 @@ postal_form:
   spain: /government/publications/passport-credit-debit-card-payment-authorisation-slip-spain
   switzerland: /government/publications/passport-credit-debit-card-payment-authorisation-slip-switzerland
   vietnam: /government/publications/creditdebit-card-payment-authorisation-slip-vietnam
+translator_links:
+  andorra: /government/publications/spain-list-of-lawyers
+  belgium: /government/publications/belgium-list-of-lawyers
+  germany: /government/publications/germany-list-of-lawyers
+  greece: /government/publications/greece-list-of-lawyers
+  italy: /government/publications/italy-list-of-lawyers
+  luxembourg: /government/publications/british-embassy-luxembourg-translators
+  netherlands: /government/publications/netherlands-list-of-lawyers
+  portugal: /government/publications/portugal-list-of-lawyers
+  san-marino: /government/publications/italy-list-of-lawyers
+  spain: /government/publications/spain-list-of-lawyers
+  switzerland: /government/publications/switzerland-list-of-lawyers
+  united-arab-emirates: /government/publications/united-arab-emirates-list-of-lawyers
 death:
   registration_forms:
     brazil: /government/publications/brazil-death-registration-form
