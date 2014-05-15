@@ -200,6 +200,8 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         should "give the embassy result and be done" do
           assert_current_node :oru_result
           assert_phrase_list :oru_address, [:oru_address_abroad]
+          assert_phrase_list :translator_link, [:approved_translator_link]
+          assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
         end
       end # Answer embassy
       context "answer ORU office in the uk" do
@@ -209,6 +211,8 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         should "give the ORU result and be done" do
           assert_current_node :oru_result
           assert_phrase_list :oru_address, [:oru_address_uk]
+          assert_phrase_list :translator_link, [:approved_translator_link]
+          assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
         end
       end # Answer ORU
     end # Answer Spain
@@ -228,6 +232,8 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         end
         should "give the ORU result and be done" do
           assert_current_node :oru_result
+          assert_phrase_list :translator_link, [:no_translator_link]
+          assert_state_variable :translator_link_url, nil
         end
       end # Answer ORU
     end # Morocco
@@ -314,6 +320,8 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         assert_current_node :oru_result
         assert_phrase_list :oru_address, [:oru_address_abroad]
         assert_state_variable :button_data, {:text => "Pay now", :url => "https://pay-register-death-abroad.service.gov.uk/start?country=italy"}
+        assert_phrase_list :translator_link, [:approved_translator_link]
+        assert_state_variable :translator_link_url, "/government/publications/italy-list-of-lawyers"
       end
     end # Answer Italy
     context "death occurred in Andorra" do
@@ -326,6 +334,8 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         assert_current_node :oru_result
         assert_phrase_list :oru_address, [:oru_address_abroad]
         assert_state_variable :button_data, {:text => "Pay now", :url => "https://pay-register-death-abroad.service.gov.uk/start?country=andorra"}
+        assert_phrase_list :translator_link, [:approved_translator_link]
+        assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
       end
     end # Answer Andorra
     context "death occurred in Andorra, but they are now in France" do
@@ -338,6 +348,8 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         assert_current_node :oru_result
         assert_phrase_list :oru_address, [:oru_address_abroad]
         assert_state_variable :button_data, {:text => "Pay now", :url => "https://pay-register-death-abroad.service.gov.uk/start?country=andorra"}
+        assert_phrase_list :translator_link, [:approved_translator_link]
+        assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
       end
     end # Answer Andorra, now in France 
     context "answer Afghanistan" do
@@ -364,7 +376,9 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
           add_response 'in_the_uk'
           assert_current_node :oru_result
           assert_state_variable :button_data, {:text => "Pay now", :url => "https://pay-register-death-abroad.service.gov.uk/start?country=afghanistan"}  
-          assert_phrase_list :oru_address, [:oru_address_uk]    
+          assert_phrase_list :oru_address, [:oru_address_uk]
+          assert_phrase_list :translator_link, [:no_translator_link]
+          assert_state_variable :translator_link_url, nil   
         end
       end
     end # Answer Afghanistan
@@ -465,6 +479,8 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         assert_current_node :oru_result
         assert_phrase_list :oru_address, [:oru_address_abroad]
         assert_state_variable :button_data, {:text => "Pay now", :url => "https://pay-register-death-abroad.service.gov.uk/start?country=germany"}
+        assert_phrase_list :translator_link, [:approved_translator_link]
+        assert_state_variable :translator_link_url, "/government/publications/germany-list-of-lawyers"
       end
     end # Answer Germany
     context "answer USA" do
@@ -477,6 +493,8 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         assert_current_node :oru_result
         assert_phrase_list :oru_address, [:oru_address_abroad]
         assert_state_variable :button_data, {:text => "Pay now", :url => "https://pay-register-death-abroad.service.gov.uk/start?country=usa"}
+        assert_phrase_list :translator_link, [:no_translator_link]
+        assert_state_variable :translator_link_url, nil
       end
     end # Answer USA
     context "answer Netherlands" do
@@ -489,6 +507,8 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         assert_current_node :oru_result
         assert_phrase_list :oru_address, [:oru_address_abroad]
         assert_state_variable :button_data, {:text => "Pay now", :url => "https://pay-register-death-abroad.service.gov.uk/start?country=netherlands"}
+        assert_phrase_list :translator_link, [:approved_translator_link]
+        assert_state_variable :translator_link_url, "/government/publications/netherlands-list-of-lawyers"
       end
     end # Answer Netherlands
     context "answer death in dominica, user in st kitts" do

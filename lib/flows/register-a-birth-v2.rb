@@ -300,6 +300,18 @@ outcome :oru_result do
     end
   end
   
+  precalculate :translator_link_url do
+    reg_data_query.translator_link(country_of_birth)
+  end
+  
+  precalculate :translator_link do
+    if translator_link_url
+      PhraseList.new(:approved_translator_link)
+    else
+      PhraseList.new(:no_translator_link)
+    end
+  end
+  
   precalculate :oru_address do
     if in_the_uk
       PhraseList.new(:oru_address_uk)
