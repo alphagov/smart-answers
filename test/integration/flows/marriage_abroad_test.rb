@@ -1815,7 +1815,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_indonesia
-      assert_phrase_list :indonesia_os_phraselist, [:appointment_for_affidavit, :complete_affidavit, :download_affidavit, :documents_for_divorced_or_widowed, :partner_affidavit_needed, :fee_table_english_other_language_affirmation]
+      assert_phrase_list :indonesia_os_phraselist, [:appointment_for_affidavit, :complete_affidavit_with_download_link, :documents_for_divorced_or_widowed, :partner_affidavit_needed, :fee_table_english_other_language_affidavit]
     end
   end
 end
