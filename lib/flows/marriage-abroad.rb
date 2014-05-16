@@ -337,7 +337,7 @@ end
 outcome :outcome_os_indonesia do 
   precalculate :indonesia_os_phraselist do 
     phrases = PhraseList.new
-    phrases << :appointment_for_affidavit << :complete_affidavit << :download_affidavit << :documents_for_divorced_or_widowed << :partner_affidavit_needed << :fee_table_english_other_language_affirmation
+    phrases << :appointment_for_affidavit << :complete_affidavit_with_download_link << :documents_for_divorced_or_widowed << :partner_affidavit_needed << :fee_table_english_other_language_affidavit
     phrases
   end
 end

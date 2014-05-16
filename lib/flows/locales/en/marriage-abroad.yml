@@ -61,6 +61,10 @@ en-GB:
       #affidavit phrases
         complete_affidavit: |
           You’ll need to complete an ‘Affidavit for marriage’ form that will be used for your affidavit.  Take the completed form with you to your appointment.
+          
+        complete_affidavit_with_download_link: |
+          You’ll need to complete an [‘Affidavit for marriage’ form](/government/publications/marriage-in-%{country_name_lowercase_prefix}) that will be used for your affidavit. Take the completed form with you to your appointment.
+          
         download_affidavit: |
           $D
           [Download 'Affadavit for Marriage' (PDF, 446KB)](/government/uploads/system/uploads/attachment_data/file/293781/Affidavit_of_Marital_Status.pdf)
@@ -82,14 +86,14 @@ en-GB:
           ^You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.^
   
       #fee tables
-        fee_table_english_other_language_affirmation: |
+        fee_table_english_other_language_affidavit: |
           ##Fees
 
           Service | Fee
           -|-
           Issuing any other consular letter or certificate in English | £45
           Issuing any other consular letter or certificate in any other language | £70
-          Affirmation for marriage | £55
+          Affidavit for marriage | £55
           
         fee_table_affirmation: |
           ##Fees
