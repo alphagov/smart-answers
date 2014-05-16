@@ -4,7 +4,7 @@ en-GB:
       phrases:
         study_reason: study
         work_reason: work
-        
+
         #titles
         epassport_visa_not_needed_title: |
           You won’t need a visa if you have an ePassport
@@ -125,13 +125,13 @@ en-GB:
         title: What are you coming to the UK to do?
         options:
           study: "Study"
-          work: "Work or business"
+          work: "Work, academic visit or business"
           tourism: "Tourism, including visiting friends or family"
           school: "Visit your child at school"
           marriage: "Get married"
           medical: "Get private medical treatment"
           transit: "Transit (on your way to somewhere else)"
-          family: "Join family for a long stay"
+          family: "Join partner or family for a long stay"
 
       staying_for_how_long?:
         title: |
@@ -232,15 +232,15 @@ en-GB:
 
       outcome_work_m:
         title: |
-          You’ll need a visa to work or do business in the UK
+          You'll need a visa to work, do business or academic research in the UK
         body: |
-          What visa you need depends on your circumstances.
+          The visa you need to apply for depends on your circumstances
 
           ##Business visits
 
           You can apply for a visa as:
 
-          - a [business visitor](/business-visitor-visa)
+          - a [business or academic visitor](/business-visitor-visa) - eg if you’re coming to the UK for conferences, meetings, training or academic research
           - a [sports visitor](/sports-visit-visa)
           - an [entertainer](/entertainer-visitor-visa)
           - a [prospective entrepreneur](/prospective-entrepreneur)
@@ -248,7 +248,7 @@ en-GB:
 
           ##Temporary workers
 
-          A ‘temporary worker’ visa may be suitable if you want work in the UK for a short time:
+          A temporary worker visa may be suitable if you want work in the UK for a short time:
 
           - in [sports](/tier-5-temporary-worker-creative-and-sporting-visa)
           - in [arts or entertainment](/tier-5-temporary-worker-creative-and-sporting-visa)
@@ -270,7 +270,7 @@ en-GB:
 
           You don't need a visa if you're coming to the UK for activities allowed under the following visas:
 
-          - a [business visitor](/business-visitor-visa)
+          - a [business or academic visitor](/business-visitor-visa) - eg if you’re coming to the UK for conferences, meetings, training or academic research
           - a [sports visitor](/sports-visit-visa)
           - an [entertainer](/entertainer-visitor-visa)
           - a [prospective entrepreneur](https://www.gov.uk/prospective-entrepreneur)
@@ -282,7 +282,7 @@ en-GB:
 
           ## Temporary workers
 
-          You will need a 'temporary worker' visa if you want to work in the UK for a short time:
+          You will need a temporary worker visa if you want to work in the UK for a short time:
 
           - in [sports](/tier-5-temporary-worker-creative-and-sporting-visa)
           - in [arts or entertainment](/tier-5-temporary-worker-creative-and-sporting-visa)
@@ -357,9 +357,11 @@ en-GB:
           The visa you apply for depends on your family member’s situation.
 
           ##They’re settled in the UK
+          
+          Apply for a [‘family of a settled person’ visa](/remain-in-uk-family) if your family member or partner is either:
 
-          Apply for a [‘family of a settled person’ visa](/remain-in-uk-family) if your family member or partner is a British citizen or they’re from outside the European Economic Area (EEA) and settled in the UK.
-
+          - a British citizen
+          - from outside the European Economic Area (EEA) and settled in the UK
           ##They’re working or studying in the UK
 
           You may be able to apply as a ‘dependant’ of [your family member's visa category](/visas-immigration) if they're from outside the EEA and they're working or studying in the UK.
@@ -367,7 +369,8 @@ en-GB:
           ##They’re from the EEA
 
           Apply for a [family permit](/family-permit) to join your family or partner for a short or long stay if they’re living in the UK.
-
+          
+          
       outcome_joining_family_m:
         title: You may need a visa to join a member of your family or partner for a long stay
         body: |
@@ -376,8 +379,11 @@ en-GB:
           The visa you apply for depends on your family member or partner’s situation.
 
           ##They’re settled in the UK
+          
+          Apply for a [‘family of a settled person’ visa](/remain-in-uk-family) if your family member or partner is either:
 
-          Apply for a [‘family of a settled person’ visa](/remain-in-uk-family) if your family member or partner is a British citizen or they’re from outside the European Economic Area (EEA) and settled in the UK.
+          - a British citizen
+          - from outside the European Economic Area (EEA) and settled in the UK
 
           ##They’re working or studying in the UK
 
@@ -387,6 +393,26 @@ en-GB:
 
           Apply for a [family permit](/family-permit) to join your family or partner in the UK.
 
+      outcome_joining_family_nvn:
+        title: You’ll need a visa to join your family or partner in the UK for a long stay
+        body: |
+          ^You don’t need a visa f you’re visiting family or a partner for 6 months or less.^
+
+          The visa you apply for depends on your family member’s situation.
+
+          ##They’re settled in the UK
+
+          Apply for a [‘family of a settled person’ visa](/remain-in-uk-family) if your family member or partner is a British citizen or they’re from outside the European Economic Area (EEA) and settled in the UK.
+
+          ##They’re working or studying in the UK
+
+          You may be able to apply as a ‘dependant’ of [your family member's visa category](/visas-immigration) if they're from outside the EEA and they're working or studying in the UK.
+
+
+          ##They’re from the EEA
+
+          Apply for a [family permit](/family-permit) to join your family or partner for a short or long stay if they’re living in the UK.
+        
       outcome_general_y:
         title: You’ll need a visa to come to the UK
         body: |
@@ -400,7 +426,7 @@ en-GB:
 
           ##Visiting family
 
-          Apply for a  [family visit visa](/family-visit-visa). if you plan to visit family or partner while you’re in the UK.
+          Apply for a [family visit visa](/family-visit-visa) if you plan to visit your family or partner (eg spouse) while you’re in the UK.
 
           ##If you’re under 18
 
@@ -409,9 +435,9 @@ en-GB:
       outcome_marriage:
         title: You’ll need a visa to come to the UK
         body: |
-          See the [marriage visit visa category](/marriage-visa) for eligibility and documents you need to provide if you and your partner are from outside the European Economic Area (EEA) and you don't plan to stay in the UK longer than 6 months.
+          Apply for a [Marriage Visitor visa](/marriage-visa) if you and your partner don't plan to stay in the UK longer than 6 months.
 
-          If you’re getting married to a British citizen or someone settled in the UK and you plan to stay longer than 6 months, see the [joining settled family](/remain-in-uk-family) guide.
+          Apply for a [family of a settled person visa](/join-family-in-uk) if your partner is already in the UK and you plan to stay longer than 6 months. If your partner was in the UK before settling or becoming a British citizen, you may have to [apply as a ‘dependant’ (partner)](/remain-in-uk-family/exceptions) in their original visa category.
 
       outcome_school_n:
         title: You won’t need a visa to come to the UK
@@ -449,5 +475,7 @@ en-GB:
 
           ^If the bio data page in your passport doesn't include a personal ID number, you must [apply for a short visit visa](/browse/visas-immigration/short-visit-visas).^
           
+
+        
           
         
