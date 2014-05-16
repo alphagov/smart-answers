@@ -67,6 +67,7 @@ multiple_choice :purpose_of_visit? do
 
   on_condition(responded_with('family')) do
     next_node_if(:outcome_joining_family_m) { country_group_ukot.include?(passport_country) }
+    next_node_if(:outcome_joining_family_nvn) { country_group_non_visa_national.include?(passport_country) }
     next_node(:outcome_joining_family_y)
   end
 end
@@ -147,6 +148,7 @@ outcome :outcome_transit_leaving_airport
 outcome :outcome_transit_not_leaving_airport
 outcome :outcome_joining_family_y
 outcome :outcome_joining_family_m
+outcome :outcome_joining_family_nvn
 outcome :outcome_visit_business_n
 outcome :outcome_general_y do
   precalculate :if_china do
