@@ -73,6 +73,31 @@ module SmartAnswer::Calculators
           assert_equal "spain", @query.registration_country_slug('spain')
         end
       end
+      
+      context "oru transition countries" do
+        should "be true for Wallis and Fortuna" do
+          assert SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('wallis-and-futuna')
+          refute SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('grenada')
+        end
+        
+        should "be true for Martinique" do
+          assert SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('martinique')
+          refute SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('ireland')
+        end
+      end
+      
+      context "oru document variant countries" do
+        should "be true for Netherlands" do
+          assert SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('netherlands')
+          refute SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('cambodia')
+        end
+        
+        should "be true for Belgium" do
+          assert SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('belgium')
+          refute SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('dominica')
+        end
+      end
+      
     end
   end
 end

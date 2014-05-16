@@ -103,10 +103,6 @@ module SmartAnswer::Calculators
     def registration_country_slug(country_slug)
       data['registration_country'][country_slug] || country_slug
     end
-    
-    def translator_link(country_slug)
-      data['translator_links'][country_slug]
-    end
 
     def self.registration_data
       @embassy_data ||= YAML.load_file(Rails.root.join("lib", "data", "registrations.yml"))

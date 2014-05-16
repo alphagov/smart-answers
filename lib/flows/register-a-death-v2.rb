@@ -3,6 +3,7 @@ status :draft
 
 data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQueryV2.new
+translator_query = SmartAnswer::Calculators::TranslatorLinks.new
 exclusions = %w(afghanistan cambodia central-african-republic chad comoros
                 dominican-republic east-timor eritrea haiti kosovo laos lesotho
                 liberia madagascar montenegro paraguay samoa slovenia somalia
@@ -19,6 +20,7 @@ multiple_choice :where_did_the_death_happen? do
   option :northern_ireland => :did_the_person_die_at_home_hospital?
   option :overseas => :which_country?
 end
+
 # Q2
 multiple_choice :did_the_person_die_at_home_hospital? do
   option :at_home_hospital
@@ -26,8 +28,9 @@ multiple_choice :did_the_person_die_at_home_hospital? do
   calculate :died_at_home_hospital do
     responses.last == 'at_home_hospital'
   end
-  next_node :was_death_expected?
+  next_node(:was_death_expected?)
 end
+
 # Q3
 multiple_choice :was_death_expected? do
   option :yes
@@ -37,7 +40,7 @@ multiple_choice :was_death_expected? do
     responses.last == 'yes'
   end
   
-  next_node :uk_result
+  next_node(:uk_result)
 end
 
 # Q4
@@ -66,21 +69,12 @@ country_select :which_country?, :exclude_countries => exclude_countries do
       current_location_name
     end
   end
-  
-  calculate :oru_country do
-    reg_data_query.class::ORU_TRANSITIONED_COUNTRIES.include?(responses.last)
-  end
 
-  next_node do |response|
-    if reg_data_query.commonwealth_country?(response)
-      :commonwealth_result
-    elsif no_embassies.include?(response)
-      :no_embassy_result
-    else
-      :where_are_you_now?
-    end
-  end
+  next_node_if(:commonwealth_result) { |response| reg_data_query.commonwealth_country?(response) }
+  next_node_if(:no_embassy_result) { |response| no_embassies.include?(response) }
+  next_node(:where_are_you_now?)
 end
+
 # Q5
 multiple_choice :where_are_you_now? do
   option :same_country
@@ -95,16 +89,13 @@ multiple_choice :where_are_you_now? do
     responses.last == 'in_the_uk'
   end
   
-  next_node do |response|
-    if oru_country || response == 'in_the_uk'
-      :oru_result
-    elsif response == 'same_country'
-      :embassy_result
-    else
-      :which_country_are_you_in_now?
-    end
+  next_node_if(:oru_result) do |response|
+    reg_data_query.class::ORU_TRANSITIONED_COUNTRIES.include?(country) || response == 'in_the_uk'
   end
+  next_node_if(:embassy_result) { |response| response == 'same_country' }
+  next_node(:which_country_are_you_in_now?)
 end
+
 # Q6
 country_select :which_country_are_you_in_now?, :exclude_countries => exclude_countries do
   calculate :current_location do
@@ -122,7 +113,7 @@ country_select :which_country_are_you_in_now?, :exclude_countries => exclude_cou
     end
   end
 
-  next_node :embassy_result
+  next_node(:embassy_result)
 end
 
 outcome :commonwealth_result
@@ -150,7 +141,7 @@ outcome :oru_result do
   end
   
   precalculate :translator_link_url do
-    reg_data_query.translator_link(country)
+    translator_query.translator_link(country)
   end
   
   precalculate :translator_link do

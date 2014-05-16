@@ -3,6 +3,7 @@ satisfies_need "101003"
 
 data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQueryV2.new
+translator_query = SmartAnswer::Calculators::TranslatorLinks.new
 exclusions = %w(afghanistan cambodia central-african-republic chad comoros
                 dominican-republic east-timor eritrea haiti kosovo laos lesotho
                 liberia madagascar montenegro paraguay samoa slovenia somalia swaziland
@@ -36,25 +37,12 @@ country_select :country_of_birth?, :exclude_countries => exclude_countries do
       PhraseList.new(:birth_registration_form)
     end
   end
-  
-  calculate :oru_country do
-    reg_data_query.class::ORU_TRANSITIONED_COUNTRIES.include?(responses.last)
-  end
-  
-  calculate :oru_documents_variant_country do
-    reg_data_query.class::ORU_DOCUMENTS_VARIANT_COUNTRIES.include?(responses.last)
-  end
 
-  next_node do |response|
-    if no_embassies.include?(response)
-      :no_embassy_result
-    elsif reg_data_query.commonwealth_country?(response)
-      :commonwealth_result
-    else
-      :who_has_british_nationality?
-    end
-  end
+  next_node_if(:no_embassy_result) { |response| no_embassies.include?(response) }
+  next_node_if(:commonwealth_result) { |response| reg_data_query.commonwealth_country?(response) }
+  next_node(:who_has_british_nationality?)
 end
+
 # Q2
 multiple_choice :who_has_british_nationality? do
   option :mother => :married_couple_or_civil_partnership?
@@ -69,8 +57,8 @@ multiple_choice :who_has_british_nationality? do
       responses.last
     end
   end
-
 end
+
 # Q3
 multiple_choice :married_couple_or_civil_partnership? do
   option :yes
@@ -79,27 +67,20 @@ multiple_choice :married_couple_or_civil_partnership? do
   calculate :paternity_declaration do
     responses.last == 'no'
   end
-
-  next_node do |response|
-    if response == 'no' and british_national_parent == 'father'
-      :childs_date_of_birth?
-    else
-      :where_are_you_now?
-    end
-  end
+  
+  next_node_if(:childs_date_of_birth?) { |response| response == 'no' and british_national_parent == 'father' }
+  next_node(:where_are_you_now?)
 end
+
 # Q4
 date_question :childs_date_of_birth? do
   from { Date.today }
   to { 50.years.ago(Date.today) }
-  next_node do |response|
-    if Date.new(2006,07,01) > Date.parse(response)
-      :homeoffice_result
-    else
-      :where_are_you_now?
-    end
-  end
+  
+  next_node_if(:homeoffice_result) { |response| Date.new(2006,07,01) > Date.parse(response) }
+  next_node(:where_are_you_now?)
 end
+
 # Q5
 multiple_choice :where_are_you_now? do
   option :same_country
@@ -114,16 +95,13 @@ multiple_choice :where_are_you_now? do
     responses.last == 'in_the_uk'
   end
 
-  next_node do |response|
-    if oru_country || response == 'in_the_uk'
-      :oru_result
-    elsif response == 'same_country'
-      :embassy_result
-    else
-      :which_country?
-    end
+  next_node_if(:oru_result) do |response|
+    reg_data_query.class::ORU_TRANSITIONED_COUNTRIES.include?(country_of_birth) || response == 'in_the_uk'
   end
+  next_node_if(:embassy_result) { |response| response == 'same_country' }
+  next_node(:which_country?)
 end
+
 # Q6
 country_select :which_country?, :exclude_countries => exclude_countries do
   calculate :registration_country do
@@ -139,14 +117,9 @@ country_select :which_country?, :exclude_countries => exclude_countries do
       registration_country_name
     end
   end
-
-  next_node do |response|
-    if no_embassies.include?(response)
-      :no_embassy_result
-    else
-      :embassy_result
-    end
-  end
+  
+  next_node_if(:no_embassy_result) { |response| no_embassies.include?(response) }
+  next_node(:embassy_result)
 end
 
 # Outcomes
@@ -293,7 +266,7 @@ outcome :oru_result do
   end
   
   precalculate :oru_documents_variant do
-    if oru_documents_variant_country
+    if reg_data_query.class::ORU_DOCUMENTS_VARIANT_COUNTRIES.include?(country_of_birth)
       PhraseList.new(:"oru_documents_variant_#{country_of_birth}")
     else
       PhraseList.new(:oru_documents)
@@ -301,7 +274,7 @@ outcome :oru_result do
   end
   
   precalculate :translator_link_url do
-    reg_data_query.translator_link(country_of_birth)
+    translator_query.translator_link(country_of_birth)
   end
   
   precalculate :translator_link do

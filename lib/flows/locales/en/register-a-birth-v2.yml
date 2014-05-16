@@ -316,7 +316,7 @@ en-GB:
           Download and complete the [birth registration form](/government/publications/application-to-register-an-overseas-birth-b).
         birth_registration_form_usa: |
           Download and complete the [birth registration form](/government/publications/usa-birth-registration-application).
-        approved_translator_link: Use an [approved translator](%{translator_link_url}) and include their name and address with your application. 
+        approved_translator_link: Use an [approved translator](%{translator_link_url}) and include their name and address with your application
         no_translator_link: Use a professional translator and include their name and address with your application
         oru_documents: |
           - the child’s full local birth certificate - it must have both parents' names
