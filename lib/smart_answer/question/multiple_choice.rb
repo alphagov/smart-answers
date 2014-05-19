@@ -1,6 +1,8 @@
 module SmartAnswer
   module Question
     class MultipleChoice < Base
+      attr_reader :permitted_options
+
       def initialize(name, options = {}, &block)
         @permitted_options = []
         super
@@ -10,7 +12,7 @@ module SmartAnswer
         if transitions.is_a?(Hash)
           transitions.each_pair do |option, next_node|
             @permitted_options << option.to_s
-            next_node_if(next_node) { |response| response.to_s == option.to_s }
+            next_node_if(next_node, responded_with(option.to_s))
           end
         else
           [*transitions].each { |option| @permitted_options << option.to_s }

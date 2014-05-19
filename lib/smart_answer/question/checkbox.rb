@@ -2,6 +2,8 @@ module SmartAnswer
   module Question
     class Checkbox < Base
       NONE_OPTION = 'none'
+      attr_reader :options
+
       def initialize(name, options = {}, &block)
         @options = []
         super
@@ -36,11 +38,11 @@ module SmartAnswer
       # returns a boolean indicating whether the response was one
       # of the accepted responses.
       def response_is_one_of(accepted_responses)
-        ->(response) { (response.split(",") & accepted_responses).any? }
+        SmartAnswer::Predicate::ResponseIsOneOf.new(accepted_responses)
       end
 
       def response_has_all_of(required_responses)
-        ->(response) { (response.split(",") & required_responses).size == required_responses.size }
+        SmartAnswer::Predicate::ResponseHasAllOf.new(required_responses)
       end
     end
   end
