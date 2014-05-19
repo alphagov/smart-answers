@@ -33,6 +33,19 @@ class SmartAnswersController < ApplicationController
     set_expiry
   end
 
+  def visualise
+    respond_to do |format|
+      format.html {
+        @graph_data = GraphPresenter.new(@smart_answer).to_hash
+        set_slimmer_headers skip: true
+        render layout: true
+      }
+      format.gv {
+        render text: GraphvizPresenter.new(@smart_answer).to_gv
+      }
+    end
+  end
+
 private
   def json_request?
     request.format == Mime::JSON
@@ -48,8 +61,8 @@ private
 
   def find_smart_answer
     @name = params[:id].to_sym
-    smart_answer = flow_registry.find(@name.to_s)
-    @presenter = SmartAnswerPresenter.new(request, smart_answer)
+    @smart_answer = flow_registry.find(@name.to_s)
+    @presenter = SmartAnswerPresenter.new(request, @smart_answer)
   end
 
   def flow_registry
