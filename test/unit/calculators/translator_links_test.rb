@@ -35,12 +35,9 @@ module SmartAnswer::Calculators
         end
       end
       
-      context "refutations should abound" do
+      context "refutation should abound" do
         should "not return anything for specified countries" do
-          refute @data.links['usa']
-          refute @data.links['afghanistan']
           refute @data.links['pitcairn']
-          refute @data.links['seychelles']
         end
       end     
     end
