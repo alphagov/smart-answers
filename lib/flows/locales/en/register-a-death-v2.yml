@@ -341,7 +341,7 @@ en-GB:
           ^It takes about 3 working days for the death to be officially registered.^
         reg_footnote: |
          Your application will be sent to the %{embassy_high_commission_or_consulate} in %{death_country_name_lowercase_prefix} to be registered there.
-        approved_translator_link: Use an [approved translator](%{translator_link_url}) and include their name and address with your application. 
+        approved_translator_link: Use an [approved translator](%{translator_link_url}) and include their name and address with your application 
         no_translator_link: Use a professional translator and include their name and address with your application
         oru_address_uk: |
           $A

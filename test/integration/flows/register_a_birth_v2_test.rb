@@ -474,7 +474,6 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response "mother_and_father"
       add_response "yes"
       add_response "same_country"
-      assert_state_variable :oru_country, true
       assert_current_node :oru_result
       assert_phrase_list :oru_documents_variant, [:"oru_documents_variant_united-arab-emirates"]
       assert_phrase_list :oru_address, [:oru_address_abroad]
