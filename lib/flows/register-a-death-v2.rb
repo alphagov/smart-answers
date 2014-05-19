@@ -141,7 +141,7 @@ outcome :oru_result do
   end
   
   precalculate :translator_link_url do
-    translator_query.links[country.to_s]
+    translator_query.links[country]
   end
   
   precalculate :translator_link do
