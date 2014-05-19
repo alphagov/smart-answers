@@ -1607,7 +1607,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :iom_ci_os_outcome, [:iom_ci_os_all, :iom_ci_os_resident_of_ci, :iom_ci_os_ceremony_italy]
     end
   end
-#testing for china
+#testing for china living outside uk
   context "ceremony in china, resident in china" do
     should "render multiple clickbooks" do
       worldwide_api_has_organisations_for_location('china', read_fixture_file('worldwide/china_organisations.json'))
@@ -1618,7 +1618,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
       assert outcome_body.at_css("ul li a[href='https://www.clickbook.net/dev/bc.nsf/sub/BritEmBeijing']")
       assert_current_node :outcome_os_consular_cni
-      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ceremony_not_spain_or_italy, :consular_cni_os_china_local_resident, :consular_cni_os_local_resident_not_italy_germany, :clickbook_links, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany, :consular_cni_os_local_resident_not_germany_or_italy_or_spain]
+      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ceremony_not_spain_or_italy, :consular_cni_os_china_local_resident, :consular_cni_os_local_resident_not_italy_germany, :clickbook_links, :list_of_documents_to_provide_passport_proof_of_residence_for_both, :consular_cni_os_not_uk_resident_ceremony_not_germany, :evidence_of_nationality_or_residence_china, :consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany, :consular_cni_os_local_resident_not_germany_or_italy_or_spain]
       assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_china_partner_local, :consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_naturalisation, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
