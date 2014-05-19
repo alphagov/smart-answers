@@ -101,7 +101,7 @@ $(document).ready(function() {
     function layout() {
         var cells = buildGraphFromAdjacencyList(adjacencyList['labels'], adjacencyList['adjacencyList']);
         graph.resetCells(cells);
-        joint.layout.DirectedGraph.layout(graph, { setLinkVertices: false, rankDir: 'LR' });
+        joint.layout.DirectedGraph.layout(graph, { setLinkVertices: false, rankDir: 'LR', rankSep: 100 });
     }
     layout();
     var padding = 400;
