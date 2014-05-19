@@ -612,12 +612,10 @@ outcome :outcome_os_consular_cni do
     if %w(china).include?(ceremony_country) and resident_of == "other"
       phrases << :list_of_documents_to_provide_passport_proof_of_residence_for_both
     else
-      if %w(partner_british).include?(partner_nationality)
-        if data_query.commonwealth_country?(residency_country) or %w(ireland).include?(residency_country) and ceremony_country != residency_country and %w(germany).exclude?(ceremony_country)
+      if data_query.commonwealth_country?(residency_country) or %w(ireland).include?(residency_country) and ceremony_country != residency_country and %w(germany).exclude?(ceremony_country)
+        if %w(partner_british).include?(partner_nationality)
           phrases << :consular_cni_os_commonwealth_or_ireland_resident_british_partner
-        end
-      else
-        if data_query.commonwealth_country?(residency_country) or %w(ireland).include?(residency_country) and ceremony_country != residency_country and %w(germany).exclude?(ceremony_country)
+        else
           phrases << :consular_cni_os_commonwealth_or_ireland_resident_non_british_partner
         end
       end
@@ -653,7 +651,7 @@ outcome :outcome_os_consular_cni do
       if %(china).include?(ceremony_country)
         phrases << :evidence_of_nationality_or_residence_china
       elsif %(germany spain).exclude?(ceremony_country)
-      phrases << :consular_cni_os_other_resident_ceremony_not_germany_or_spain
+        phrases << :consular_cni_os_other_resident_ceremony_not_germany_or_spain
       end
     end
     if ceremony_country == residency_country and %w(spain).include?(ceremony_country)
