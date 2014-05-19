@@ -82,7 +82,7 @@ multiple_choice :how_often_pay_employee_pay_patterns? do
 
   save_input_as :pay_pattern
 
-  next_node_if(:last_payday_before_sickness?) { eight_weeks_earnings == 'eight_weeks_more' }  # Question 6
+  next_node_if(:last_payday_before_sickness?, variable_matches(:eight_weeks_earnings, 'eight_weeks_more'))  # Question 6
   next_node(:pay_amount_if_not_sick?) # Question 7
 end
 
@@ -184,10 +184,9 @@ end
 
 # Question 11
 multiple_choice :off_sick_4_days? do
-  option :yes
+  option :yes => :linked_sickness_start_date?
   option :no
 
-  next_node_if(:linked_sickness_start_date?) { |response| response == 'yes' }
   next_node_if(:not_earned_enough) do
     employee_average_weekly_earnings < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(Date.parse(sick_start_date))
   end

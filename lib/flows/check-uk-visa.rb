@@ -5,21 +5,44 @@ additional_countries = UkbaCountry.all
 
 exclude_countries = %w(american-samoa british-antarctic-territory british-indian-ocean-territory french-guiana french-polynesia gibraltar guadeloupe holy-see martinique mayotte new-caledonia reunion st-pierre-and-miquelon wallis-and-futuna western-sahara)
 
-country_group_ukot = %w(anguilla bermuda british-dependent-territories-citizen british-overseas-citizen british-protected-person british-virgin-islands cayman-islands falkland-islands montserrat st-helena-ascension-and-tristan-da-cunha south-georgia-and-south-sandwich-islands turks-and-caicos-islands)
+country_group_ukot = SmartAnswer::Predicate::VariableMatches.new(:passport_country,
+  %w(anguilla bermuda british-dependent-territories-citizen british-overseas-citizen british-protected-person british-virgin-islands cayman-islands falkland-islands montserrat st-helena-ascension-and-tristan-da-cunha south-georgia-and-south-sandwich-islands turks-and-caicos-islands),
+  "UK Overseas territory"
+)
 
-country_group_non_visa_national = %w(andorra antigua-and-barbuda argentina aruba australia bahamas barbados belize bonaire-st-eustatius-saba botswana brazil british-national-overseas brunei canada chile costa-rica curacao dominica timor-leste el-salvador grenada guatemala honduras hong-kong hong-kong-(british-national-overseas) israel japan kiribati south-korea macao malaysia maldives marshall-islands mauritius mexico micronesia monaco namibia nauru new-zealand nicaragua palau panama papua-new-guinea paraguay pitcairn-island st-kitts-and-nevis st-lucia st-maarten st-vincent-and-the-grenadines samoa san-marino seychelles singapore solomon-islands tonga trinidad-and-tobago tuvalu usa uruguay vanuatu vatican-city)
+country_group_non_visa_national = SmartAnswer::Predicate::VariableMatches.new(:passport_country,
+  %w(andorra antigua-and-barbuda argentina aruba australia bahamas barbados belize bonaire-st-eustatius-saba botswana brazil british-national-overseas brunei canada chile costa-rica curacao dominica timor-leste el-salvador grenada guatemala honduras hong-kong hong-kong-(british-national-overseas) israel japan kiribati south-korea macao malaysia maldives marshall-islands mauritius mexico micronesia monaco namibia nauru new-zealand nicaragua palau panama papua-new-guinea paraguay pitcairn-island st-kitts-and-nevis st-lucia st-maarten st-vincent-and-the-grenadines samoa san-marino seychelles singapore solomon-islands tonga trinidad-and-tobago tuvalu usa uruguay vanuatu vatican-city),
+  "non-visa national"
+)
 
-country_group_visa_national = %w(armenia azerbaijan bahrain benin bhutan bosnia-and-herzegovina burkina-faso cambodia cape-verde central-african-republic chad comoros cuba djibouti dominican-republic equatorial-guinea fiji gabon georgia guyana haiti indonesia jordan kazakhstan north-korea kuwait kyrgyzstan laos madagascar mali mauritania morocco mozambique niger oman peru philippines qatar russia sao-tome-and-principe saudi-arabia suriname tajikistan taiwan thailand togo tunisia turkmenistan ukraine united-arab-emirates uzbekistan zambia)
+country_group_visa_national = SmartAnswer::Predicate::VariableMatches.new(:passport_country,
+  %w(armenia azerbaijan bahrain benin bhutan bosnia-and-herzegovina burkina-faso cambodia cape-verde central-african-republic chad comoros cuba djibouti dominican-republic equatorial-guinea fiji gabon georgia guyana haiti indonesia jordan kazakhstan north-korea kuwait kyrgyzstan laos madagascar mali mauritania morocco mozambique niger oman peru philippines qatar russia sao-tome-and-principe saudi-arabia suriname tajikistan taiwan thailand togo tunisia turkmenistan ukraine united-arab-emirates uzbekistan zambia),
+  "visa national"
+)
 
-country_group_datv = %w(afghanistan albania algeria angola bangladesh belarus bolivia burma burundi cameroon china colombia congo cyprus-north democratic-republic-of-congo ecuador egypt eritrea ethiopia gambia ghana guinea guinea-bissau india iran iraq cote-d-ivoire jamaica kenya kosovo lebanon lesotho liberia libya macedonia malawi moldova mongolia montenegro nepal nigeria the-occupied-palestinian-territories pakistan rwanda senegal serbia sierra-leone somalia south-africa south-sudan sri-lanka sudan swaziland syria tanzania turkey uganda venezuela vietnam yemen zimbabwe)
+country_group_datv = SmartAnswer::Predicate::VariableMatches.new(:passport_country,
+  %w(afghanistan albania algeria angola bangladesh belarus bolivia burma burundi cameroon china colombia congo cyprus-north democratic-republic-of-congo ecuador egypt eritrea ethiopia gambia ghana guinea guinea-bissau india iran iraq cote-d-ivoire jamaica kenya kosovo lebanon lesotho liberia libya macedonia malawi moldova mongolia montenegro nepal nigeria the-occupied-palestinian-territories pakistan rwanda senegal serbia sierra-leone somalia south-africa south-sudan sri-lanka sudan swaziland syria tanzania turkey uganda venezuela vietnam yemen zimbabwe),
+  "direct airside transit visa country"
+)
 
-country_group_eea = %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia finland france germany greece hungary iceland ireland italy latvia liechtenstein lithuania luxembourg malta netherlands norway poland portugal romania slovakia slovenia spain sweden switzerland)
+country_group_taiwan_venezuela = SmartAnswer::Predicate::VariableMatches.new(:passport_country,
+  %w(taiwan venezuela),
+  "direct airside transit visa country"
+)
+
+responded_with_eea_country = SmartAnswer::Predicate::RespondedWith.new(
+  %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia finland france germany greece hungary iceland ireland italy latvia liechtenstein lithuania luxembourg malta netherlands norway poland portugal romania slovakia slovenia spain sweden switzerland),
+  "EEA Country"
+)
+
+visiting_for_study = SmartAnswer::Predicate::VariableMatches.new(:purpose_of_visit, "study")
+visiting_for_work = SmartAnswer::Predicate::VariableMatches.new(:purpose_of_visit, "work")
 
 # Q1
 country_select :what_passport_do_you_have?, :additional_countries => additional_countries, :exclude_countries => exclude_countries do
   save_input_as :passport_country
 
-  next_node_if(:outcome_no_visa_needed, country_in(country_group_eea))
+  next_node_if(:outcome_no_visa_needed, responded_with_eea_country)
   next_node(:purpose_of_visit?)
 end
 
@@ -33,7 +56,7 @@ multiple_choice :purpose_of_visit? do
   option :marriage
   option :school
   option :medical
-  save_input_as :purpose_of_visit_answer
+  save_input_as :purpose_of_visit
 
   calculate :reason_of_staying do
     if responses.last == 'study'
@@ -44,11 +67,11 @@ multiple_choice :purpose_of_visit? do
   end
 
   on_condition(responded_with(%w{tourism school medical})) do
-    next_node_if(:outcome_visit_waiver) { %w(oman qatar united-arab-emirates).include?(passport_country) }
-    next_node_if(:outcome_taiwan_exception) { passport_country == 'taiwan' }
+    next_node_if(:outcome_visit_waiver, variable_matches(:passport_country, %w(oman qatar united-arab-emirates)))
+    next_node_if(:outcome_taiwan_exception, variable_matches(:passport_country, 'taiwan'))
   end
 
-  on_condition(->(_) { country_group_non_visa_national.include?(passport_country) or country_group_ukot.include?(passport_country) }) do
+  on_condition(country_group_non_visa_national + country_group_ukot) do
     next_node_if(:outcome_school_n, responded_with(%w{tourism school}))
     next_node_if(:outcome_medical_n, responded_with('medical'))
   end
@@ -58,15 +81,12 @@ multiple_choice :purpose_of_visit? do
   next_node_if(:outcome_medical_y, responded_with('medical'))
 
   on_condition(responded_with('transit')) do
-    next_node_if(:planning_to_leave_airport?) do
-      country_group_datv.include?(passport_country) or
-         country_group_visa_national.include?(passport_country) or %w(taiwan venezuela).include?(passport_country)
-    end
+    next_node_if(:planning_to_leave_airport?, country_group_datv + country_group_visa_national + country_group_taiwan_venezuela)
     next_node(:outcome_no_visa_needed)
   end
 
   on_condition(responded_with('family')) do
-    next_node_if(:outcome_joining_family_m) { country_group_ukot.include?(passport_country) }
+    next_node_if(:outcome_joining_family_m, country_group_ukot)
     next_node(:outcome_joining_family_y)
   end
 end
@@ -77,14 +97,14 @@ multiple_choice :planning_to_leave_airport? do
   option :no
   save_input_as :leaving_airport_answer
 
-  next_node_if(:outcome_visit_waiver) { %w(venezuela taiwan).include?(passport_country) }
+  next_node_if(:outcome_visit_waiver, country_group_taiwan_venezuela)
   on_condition(responded_with('yes')) do
-    next_node_if(:outcome_transit_leaving_airport) { country_group_visa_national.include?(passport_country) }
-    next_node_if(:outcome_transit_leaving_airport_datv) { country_group_datv.include?(passport_country) }
+    next_node_if(:outcome_transit_leaving_airport, country_group_visa_national)
+    next_node_if(:outcome_transit_leaving_airport_datv, country_group_datv)
   end
   on_condition(responded_with('no')) do
-    next_node_if(:outcome_transit_not_leaving_airport) { country_group_datv.include?(passport_country) }
-    next_node_if(:outcome_no_visa_needed) { country_group_visa_national.include?(passport_country) }
+    next_node_if(:outcome_transit_not_leaving_airport, country_group_datv)
+    next_node_if(:outcome_no_visa_needed, country_group_visa_national)
   end
 end
 
@@ -95,24 +115,24 @@ multiple_choice :staying_for_how_long? do
   save_input_as :period_of_staying
 
   on_condition(responded_with('longer_than_six_months')) do
-    next_node_if(:outcome_study_y) { purpose_of_visit_answer == 'study' } #outcome 2 study y
-    next_node_if(:outcome_work_y) { purpose_of_visit_answer == 'work' } #outcome 4 work y
+    next_node_if(:outcome_study_y, visiting_for_study) #outcome 2 study y
+    next_node_if(:outcome_work_y, visiting_for_work) #outcome 4 work y
   end
   on_condition(responded_with('six_months_or_less')) do
-    on_condition(->(_) { purpose_of_visit_answer == 'study' }) do
+    on_condition(visiting_for_study) do
       #outcome 12 visit outcome_visit_waiver
-      next_node_if(:outcome_visit_waiver) { %w(oman qatar united-arab-emirates).include?(passport_country) }
-      next_node_if(:outcome_taiwan_exception) { %w(taiwan).include?(passport_country) }
+      next_node_if(:outcome_visit_waiver, variable_matches(:passport_country, %w(oman qatar united-arab-emirates)))
+      next_node_if(:outcome_taiwan_exception, variable_matches(:passport_country, %w(taiwan)))
       #outcome 3 study m visa needed short courses
-      next_node_if(:outcome_study_m) { (country_group_datv + country_group_visa_national).include?(passport_country) }
+      next_node_if(:outcome_study_m, country_group_datv + country_group_visa_national)
       #outcome 1 no visa needed
-      next_node_if(:outcome_no_visa_needed) { (country_group_ukot + country_group_non_visa_national).include?(passport_country) }
+      next_node_if(:outcome_no_visa_needed, country_group_ukot + country_group_non_visa_national)
     end
-    on_condition(->(_) { purpose_of_visit_answer == 'work' }) do
+    on_condition(visiting_for_work) do
       # outcome 5 work m visa needed short courses
-      next_node_if(:outcome_work_m) { (country_group_datv + country_group_visa_national).include?(passport_country) }
+      next_node_if(:outcome_work_m, country_group_datv + country_group_visa_national)
       #outcome 5.5 work N no visa needed
-      next_node_if(:outcome_work_n) { (country_group_ukot + country_group_non_visa_national).include?(passport_country) }
+      next_node_if(:outcome_work_n, country_group_ukot + country_group_non_visa_national)
     end
   end
 end
@@ -122,7 +142,7 @@ outcome :outcome_no_visa_needed do
   precalculate :no_visa_additional_sentence do
     if %w(croatia).include?(passport_country)
       PhraseList.new(:croatia_additional_sentence)
-    elsif purpose_of_visit_answer == 'study'
+    elsif purpose_of_visit == 'study'
       PhraseList.new(:study_additional_sentence)
     end
   end
