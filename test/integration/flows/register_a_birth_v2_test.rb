@@ -63,6 +63,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response 'yes'
       add_response 'same_country'
       assert_state_variable :registration_country, 'spain'
+      assert_phrase_list :oru_documents_variant, [:oru_documents_variant_andorra]
     end
   end # Andorra
 
@@ -293,7 +294,21 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
     end # Not married or CP
   end # Barbados
   context "answer united arab emirates" do
-    should "give the embassy result" do
+    should "give the oru result and not married phrase" do
+      worldwide_api_has_organisations_for_location('united-arab-emirates', read_fixture_file('worldwide/united-arab-emirates_organisations.json'))
+      add_response "united-arab-emirates"
+      add_response "mother_and_father"
+      add_response "no"
+      add_response "same_country"
+      assert_current_node :oru_result
+      assert_state_variable :british_national_parent, 'mother_and_father'
+      assert_phrase_list :oru_documents_variant, [:oru_documents_variant_uae_not_married]
+      assert_phrase_list :translator_link, [:approved_translator_link]
+      assert_state_variable :translator_link_url, "/government/publications/united-arab-emirates-list-of-lawyers"
+      assert_state_variable :country_of_birth, "united-arab-emirates"
+      assert_state_variable :paternity_declaration, true
+    end # Not married or CP
+    should "give the oru result" do
       worldwide_api_has_organisations_for_location('united-arab-emirates', read_fixture_file('worldwide/united-arab-emirates_organisations.json'))
       add_response "united-arab-emirates"
       add_response "father"
@@ -304,7 +319,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_phrase_list :oru_documents_variant, [:"oru_documents_variant_united-arab-emirates"]
       assert_phrase_list :translator_link, [:approved_translator_link]
       assert_state_variable :translator_link_url, "/government/publications/united-arab-emirates-list-of-lawyers"
-    end # Not married or CP
+    end
   end # UAE
   context "answer indonesia" do
     should "give the embassy result" do
@@ -397,7 +412,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response 'yes'
       add_response 'same_country'
       assert_current_node :oru_result
-      assert_phrase_list :oru_documents_variant, [:oru_documents]
+      assert_phrase_list :oru_documents_variant, [:oru_documents_variant_usa]
       assert_phrase_list :oru_address, [:oru_address_abroad]
       assert_phrase_list :translator_link, [:no_translator_link]
       assert_state_variable :translator_link_url, nil

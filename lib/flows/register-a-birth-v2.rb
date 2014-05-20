@@ -260,14 +260,20 @@ outcome :embassy_result do
 end
 
 outcome :oru_result do
-  
+
   precalculate :button_data do
     {:text => "Pay now", :url => "https://pay-register-birth-abroad.service.gov.uk/start?country=#{country_of_birth}"}
   end
   
   precalculate :oru_documents_variant do
     if reg_data_query.class::ORU_DOCUMENTS_VARIANT_COUNTRIES.include?(country_of_birth)
-      PhraseList.new(:"oru_documents_variant_#{country_of_birth}")
+      phrases = PhraseList.new
+      if country_of_birth == 'united-arab-emirates' && paternity_declaration
+        phrases << :oru_documents_variant_uae_not_married
+      else
+        phrases << :"oru_documents_variant_#{country_of_birth}"
+      end
+      phrases
     else
       PhraseList.new(:oru_documents)
     end

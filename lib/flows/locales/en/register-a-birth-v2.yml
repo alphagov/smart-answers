@@ -337,8 +337,13 @@ en-GB:
           - the hospital declaration of live birth (if the hospital’s name is not on your child’s birth certificate)
         oru_documents_variant_spain: |
           - the child’s full local birth certificate (‘certificación literal’) - it must have both parents’ names
+       
         oru_documents_variant_united-arab-emirates: |
           - both English and Arabic versions of your child’s full local birth certificate, attested by the Ministry of Foreign Affairs
+
+        oru_documents_variant_uae_not_married: |
+          - both English and Arabic versions of your child’s full local birth certificate, attested by the Ministry of Foreign Affairs (email <birthregistrationenquiries@fco.gov.uk> if the local authorities will not provide a birth certificate)
+
         oru_documents_variant_usa: |
           - the child’s full local birth certificate - it must have both parents’ names
           - hospital, medical or insurance records naming the parents as the birth parents (if the birth was registered more than three months after it took place)
@@ -418,7 +423,7 @@ en-GB:
 
           ^Send English translations of all foreign documents. %{translator_link}. Don't send laminated documents.^
           
-          You must send the originals or certified copies of:
+          You must send the original copies of:
 
           %{oru_documents_variant}
           
