@@ -5,17 +5,16 @@ en-GB:
       meta:
         description: Parents must register the birth in the country where the child was born - find out if you can also register the birth in the UK
       body: |
-        You must register your child’s birth according to the regulations in the country where the child was born. They will give you a local birth certificate.
+        $!You must register your child’s birth according to the regulations in the country where the child was born. They’ll give you a local birth certificate.$!
 
-        Once you’ve done this you may be able to apply to register the birth with the UK authorities.  
-        
-        You don’t have to do this, but it means:
+        This local birth certificate should be accepted in the UK, eg when you apply for a passport or register with a school or doctor. You might need to have it [translated and certified](/certifying-a-document) if it’s not in English.
 
-        - you’ll get a UK-style birth certificate for the child
-        - you’ll have proof that the child is a British citizen
-        - the birth will be recorded with the General Register Office in the UK
+        Once you’ve registered locally you may also be able to register the birth with the UK authorities. You don't need to do this but it means:
 
-        ^A locally-issued birth certificate should be accepted in the UK for all purposes, eg applying for a passport, registering with a school or doctor etc. It might need to be [translated and certified](/certifying-a-document) if it's not in English.^
+        - the birth will be recorded with the General Register Offices or at the National Records Office of Scotland
+        - you can order a consular birth registration certificate
+
+        ^You can still [apply for a UK passport for your child](/apply-renew-passport) even if you don’t register the birth in the UK.^
 
       options:
         "yes": "Yes"
