@@ -27,7 +27,7 @@ module SmartAnswer::Calculators
     
     ORU_TRANSITIONED_COUNTRIES = %w(american-samoa andorra belgium france french-guiana french-polynesia germany greece guadeloupe italy liechtenstein luxembourg martinique mayotte monaco netherlands portugal reunion san-marino spain st-pierre-and-miquelon switzerland united-arab-emirates usa wallis-and-futuna)
     
-    ORU_DOCUMENTS_VARIANT_COUNTRIES = %w(belgium france italy netherlands portugal spain united-arab-emirates)
+    ORU_DOCUMENTS_VARIANT_COUNTRIES = %w(andorra belgium france italy monaco netherlands portugal spain united-arab-emirates usa)
     
 
     attr_reader :data
