@@ -51,7 +51,7 @@ en-GB:
         ## What you need to know:
         - you’ll be asked to make estimates about some of your business expenses - you don’t have to give accurate amounts
         - this checker doesn’t give exact figures to use in your tax return, it gives you an idea of which way of calculating your expenses might be best for you
-        - limited Companies aren’t eligible
+        - limited companies aren’t eligible
 
 #Q1
       claimed_expenses_for_current_business?:
@@ -72,21 +72,21 @@ en-GB:
         error_message: You can’t choose both ‘working from home’ or ‘living on your business premises’ Please choose one.
 #Q3
       buying_new_vehicle?:
-        title: Are you buying a new car, van or motorbike this tax year that you expect to use for your business?
+        title: Are you buying a new car, van or motorcycle this tax year that you expect to use for your business?
 #Q4
       capital_allowances?:
-        title: Have you claimed Capital Allowances for your existing car, van or motorbike before?
+        title: Have you claimed Capital Allowances for your existing car, van or motorcycle before?
 #Q5
       how_much_expect_to_claim?:
         title: |
-          How much do you expect to claim as business expenses for running and maintaining your car, van or motorbike over the tax year?
+          How much do you expect to claim as business expenses for running and maintaining your car, van or motorcycle over the tax year?
         hint: Only include the business proportion of costs for your main vehicle, eg fuel, servicing, repairs and insurance.
 #Q6
       is_vehicle_green?:
         title: Is the vehicle you're buying green, ie a low emission vehicle?
 #Q7
       price_of_vehicle?:
-        title: How much is the car, van or motorbike you’re buying?
+        title: How much is the car, van or motorcycle you’re buying?
         hint: Include VAT unless your business is VAT registered.
 #Q8
       vehicle_business_use_time?:
