@@ -1,11 +1,23 @@
 status :published
 satisfies_need "100131"
 
-
 data_query = Calculators::PassportAndEmbassyDataQuery.new
 exclude_countries = %w(holy-see british-antarctic-territory)
 apply_in_neighbouring_country_countries = %w(british-indian-ocean-territory kyrgyzstan north-korea south-georgia-and-south-sandwich-islands)
-
+countries_application_times = {
+      "afghanistan" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "6_months", "applying" => "6_months", "replacing"=> "14_weeks"
+      },
+      "australia" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      },
+      "austria" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      },
+      "bahrain" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      }
+    }
 
 # Q1
 country_select :which_country_are_you_in?, :exclude_countries => exclude_countries do
@@ -170,15 +182,19 @@ end
 ## Online IPS Application Result
 outcome :ips_application_result_online do
   precalculate :how_long_it_takes do
+    phrases = PhraseList.new
     action = application_action =~/applying|renewing_old/ ? 'applying' : application_action
-    if %w(djibouti tanzania).include?(current_location) and action == 'applying'
-      PhraseList.new(:how_long_applying_djibouti_tanzania,
-                    :how_long_additional_time_online)
+    
+    if countries_application_times.has_key?(current_location)
+      weeks = countries_application_times[current_location][application_action]
+      phrases << :"how_long_#{weeks}" << :"how_long_additional_info_#{action}" << :how_long_additional_time_online
+    elsif %w(djibouti tanzania).include?(current_location) and action == 'applying'
+      phrases << :how_long_applying_djibouti_tanzania << :how_long_additional_time_online
     else
-      PhraseList.new(:"how_long_#{action}_online",
-                    :how_long_additional_time_online)
+      phrases << :"how_long_#{action}_online" << :how_long_additional_time_online
     end
   end
+  
   precalculate :cost do
     if application_action == 'replacing' and ips_number == '1' and ips_docs_number == '1'
       PhraseList.new(:"passport_courier_costs_replacing_ips#{ips_number}",
@@ -207,16 +223,25 @@ outcome :ips_application_result do
     eight_week_only_application_countries = %w(belarus georgia russia tajikistan turkmenistan uzbekistan)
     six_week_application_countries = %w(mauritania morocco tunisia western-sahara)
     twelve_week_application_countries = %w(cameroon chad djibouti eritrea ethiopia kenya somalia tanzania uganda)
+    
+    
 
     phrases = PhraseList.new
-    if eight_week_only_application_countries.include?(current_location)
+    
+    if countries_application_times.has_key?(current_location)
+      weeks = countries_application_times[current_location][application_action]
+      phrases << :"how_long_#{weeks}"
+    elsif eight_week_only_application_countries.include?(current_location)
       phrases << :how_long_8_weeks
     elsif six_week_application_countries.include?(current_location)
-      number_of_weeks = application_action =~ /renewing_new/ ? 4 : 6
-      phrases << :"how_long_#{number_of_weeks}_weeks"
+      if %w(renewing_new).include?(application_action)
+        phrases << :how_long_4_weeks
+      else 
+        phrases << :how_long_6_weeks
+      end
     elsif twelve_week_application_countries.include?(current_location) and %w(applying renewing_old).include?(application_action)
       phrases << :how_long_applying_12_weeks
-    elsif %w{afghanistan pakistan}.include?(current_location) and %w(applying renewing_old).include?(application_action)
+    elsif %w{pakistan}.include?(current_location) and %w(applying renewing_old).include?(application_action)
       phrases << :how_long_applying_at_least_6_months
     elsif %w{bangladesh}.include?(current_location)
       if %w(applying renewing_old).include?(application_action)

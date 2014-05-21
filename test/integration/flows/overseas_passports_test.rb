@@ -42,7 +42,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           add_response 'afghanistan'
           assert_state_variable :application_type, 'ips_application_3'
           assert_current_node :ips_application_result
-          assert_phrase_list :how_long_it_takes, [:how_long_applying_at_least_6_months, :how_long_it_takes_ips3]
+          assert_phrase_list :how_long_it_takes, [:how_long_6_months, :how_long_it_takes_ips3]
           assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
           assert_phrase_list :send_your_application, [:send_application_non_uk_visa_apply_renew_old_replace, :send_application_embassy_address]
         end
@@ -61,8 +61,26 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           add_response 'adult'
           assert_state_variable :application_type, 'ips_application_3'
           assert_current_node :ips_application_result
+          assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips3]
           assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
           assert_phrase_list :send_your_application, [:send_application_non_uk_visa_renew_new, :send_application_embassy_address]
+        end
+      end
+    end
+    
+    context "answer lost or stolen" do
+      setup do
+        add_response 'replacing'
+      end
+      should "ask if the passport is for an adult or a child" do
+        assert_current_node :child_or_adult_passport?
+      end
+      context "answer adult" do
+        should "give the result and be done" do
+          add_response 'adult'
+          assert_state_variable :application_type, 'ips_application_3'
+          assert_current_node :ips_application_result
+          assert_phrase_list :how_long_it_takes, [:how_long_14_weeks, :how_long_it_takes_ips3]
         end
       end
     end
@@ -172,7 +190,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           should "give the result" do
             assert_current_node :ips_application_result_online
             assert_phrase_list :fco_forms, [:adult_fco_forms]
-            assert_phrase_list :how_long_it_takes, [:how_long_applying_online, :how_long_additional_time_online]
+            assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_additional_info_applying, :how_long_additional_time_online]
             assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance_doc_group_2]
             assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1]
             assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
@@ -204,7 +222,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           assert_state_variable :supporting_documents, 'ips_documents_group_1'
           assert_current_node :ips_application_result_online
           assert_phrase_list :fco_forms, [:adult_fco_forms]
-          assert_phrase_list :how_long_it_takes, [:how_long_replacing_online, :how_long_additional_time_online]
+          assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_additional_info_replacing, :how_long_additional_time_online]
           assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_replacing, :how_to_apply_online_guidance_doc_group_1]
           assert_phrase_list :cost, [:passport_courier_costs_replacing_ips1, :adult_passport_costs_replacing_ips1]
           assert_phrase_list :contact_passport_adviceline, [:contact_passport_adviceline]
@@ -1085,5 +1103,43 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       end
     end
   end # Venezuela
-
+  context "answer australia, test time phrase" do
+    setup do
+      worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
+      add_response 'australia'
+    end
+    context "renewing a new adult passport" do
+      should "be 6 weeks" do
+        add_response 'renewing_new'
+        add_response 'adult'
+        assert_current_node :ips_application_result_online
+        assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_additional_info_renewing_new, :how_long_additional_time_online]
+      end
+    end
+    context "renewing an old adult passport" do
+      should "be 8 weeks" do
+        add_response 'renewing_old'
+        add_response 'adult'
+        add_response 'afghanistan'
+        assert_current_node :ips_application_result_online
+        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_additional_info_applying, :how_long_additional_time_online]
+      end
+    end
+    context "renewing a new adult passport" do
+      should "be 8 weeks" do
+        add_response 'applying'
+        add_response 'adult'
+        assert_current_node :ips_application_result_online
+        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_additional_time_online]
+      end
+    end
+    context "renewing a new adult passport" do
+      should "be 8 weeks" do
+        add_response 'replacing'
+        add_response 'adult'
+        assert_current_node :ips_application_result_online
+        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_additional_info_replacing, :how_long_additional_time_online]
+      end
+    end
+  end
 end

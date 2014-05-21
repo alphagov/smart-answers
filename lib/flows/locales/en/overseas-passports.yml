@@ -15,7 +15,7 @@ en-GB:
           jerusalem-or-westbank: "Jerusalem and the West Bank"
       which_bot?:
         title: Where are you?
-        options:
+      options:
           st-helena: "St Helena"
           ascension-island: "Ascension Island"
           tristan-da-cunha: "Tristan da Cunha"
@@ -218,6 +218,7 @@ en-GB:
 
         how_long_applying_djibouti_tanzania: |
           Your application will take **at least** 12 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
+        
 
         how_long_replacing_online: |
           Your application will take **at least** 6 weeks from when when your declaration form is received by Her Majesty's Passport Office in the UK.
@@ -465,7 +466,7 @@ en-GB:
 
           $C
           Telephone: +44 (0) 300 222 0000  
-          Monday to Friday, 8am to 8pm (UK time)  
+          Monday to Friday, 8am to 8pm (UK time)
           Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)
           $C
 
@@ -479,18 +480,18 @@ en-GB:
 
         how_long_4_weeks: |
           Your application will take **at least** 4 weeks from when it’s received by Her Majesty's Passport Office in the UK.
-
         how_long_5_weeks: |
           Your application will take **at least** 5 weeks from when it’s received by Her Majesty's Passport Office in the UK.
-
         how_long_6_weeks: |
           Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK.
-
-        how_long_16_weeks: |
-          Your application will take **at least** 16 weeks from when it’s received by Her Majesty's Passport Office in the UK.
-
         how_long_8_weeks: |
           Your application will take **at least** 8 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+        how_long_14_weeks: |
+          Your application will take **at least** 14 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+        how_long_16_weeks: |
+          Your application will take **at least** 16 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+        how_long_6_months: |
+          Your application will take **at least** 6 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
 
         how_long_8_weeks_with_interview:
           Your application will take **at least** 8 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
@@ -502,13 +503,23 @@ en-GB:
 
         how_long_applying_12_weeks: |
           Your application will take **at least** 12 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
-
+        
         how_long_applying_16_weeks: |
           Your application will take **at least** 16 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
 
         how_long_applying_at_least_6_months: |
           Your application will take **at least** 6 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
+          
+        how_long_additional_info_applying: |
+          You may have to attend an interview for a first adult passport.
 
+        how_long_additional_info_replacing: |
+          If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your declaration form.
+          
+        how_long_additional_info_renewing_old: |
+          You may have to attend an interview for a first adult passport.
+        how_long_additional_info_renewing_new: |
+          You may have to attend an interview for a first adult passport.
         how_long_it_takes_ips2: |
           Applications may take longer if:
 
