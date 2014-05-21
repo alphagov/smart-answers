@@ -1,4 +1,4 @@
-status :draft
+status :published
 satisfies_need "100696"
 
 # Q1
