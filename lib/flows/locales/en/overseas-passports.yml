@@ -490,8 +490,12 @@ en-GB:
           Your application will take **at least** 14 weeks from when it’s received by Her Majesty's Passport Office in the UK.
         how_long_16_weeks: |
           Your application will take **at least** 16 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+        how_long_18_weeks: |
+          Your application will take **at least** 18 weeks from when it’s received by Her Majesty's Passport Office in the UK.
         how_long_6_months: |
           Your application will take **at least** 6 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
+        how_long_8_months: |
+          Your application will take **at least** 8 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
 
         how_long_8_weeks_with_interview:
           Your application will take **at least** 8 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.

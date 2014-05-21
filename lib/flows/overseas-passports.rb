@@ -16,6 +16,42 @@ countries_application_times = {
       },
       "bahrain" => {
         "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      },
+      "bangladesh" => {
+        "renewing_new" => "8_weeks", "renewing_old" => "8_months", "applying" => "8_months", "replacing"=> "18_weeks"
+      },
+      "barbados" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      },
+      "belgium" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      },
+      "brasil" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      },
+      "canada" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "10_weeks", "applying" => "10_weeks", "replacing"=> "10_weeks"
+      },
+      "china" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      },
+      "denmark" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      },
+      "egypt" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "12_weeks", "applying" => "12_weeks", "replacing"=> "8_weeks"
+      },
+      "ethiopia" => {
+        "renewing_new" => "8_weeks", "renewing_old" => "12_weeks", "applying" => "12_weeks", "replacing"=> "10_weeks"
+      },
+      "finland" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      },
+      "france" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      },
+      "germany" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
       }
     }
 
@@ -243,14 +279,6 @@ outcome :ips_application_result do
       phrases << :how_long_applying_12_weeks
     elsif %w{pakistan}.include?(current_location) and %w(applying renewing_old).include?(application_action)
       phrases << :how_long_applying_at_least_6_months
-    elsif %w{bangladesh}.include?(current_location)
-      if %w(applying renewing_old).include?(application_action)
-        phrases << :how_long_applying_at_least_6_months
-      elsif %w(renewing_new).include?(application_action)
-        phrases << :how_long_6_weeks
-      else
-        phrases << :how_long_16_weeks
-      end
     elsif %w(india).include?(current_location)
       if %w(applying renewing_old).include?(application_action)
         phrases << :how_long_applying_16_weeks
