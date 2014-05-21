@@ -9,7 +9,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon china congo georgia greece haiti india iran iraq ireland italy jamaica jordan kenya kyrgyzstan malta nepal nigeria pakistan pitcairn-island syria south-africa spain st-helena-ascension-and-tristan-da-cunha tanzania timor-leste turkey ukraine united-kingdom uzbekistan yemen zimbabwe venezuela vietnam)
+    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon china congo georgia greece haiti india iran iraq ireland italy jamaica jordan kenya kyrgyzstan malta nepal nigeria pakistan pitcairn-island saudi-arabia syria south-africa spain sri-lanka st-helena-ascension-and-tristan-da-cunha tanzania timor-leste turkey ukraine united-kingdom uzbekistan yemen zimbabwe venezuela vietnam)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports'
   end
@@ -242,7 +242,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result_online
-      assert_phrase_list :how_long_it_takes, [:how_long_applying_online, :how_long_additional_time_online]
+      assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_additional_info_applying, :how_long_additional_time_online]
       assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1]
       assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance_doc_group_1]
       assert_match /the passport numbers of both parents/, outcome_body
@@ -251,7 +251,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'replacing'
       add_response 'child'
       assert_current_node :ips_application_result_online
-      assert_phrase_list :how_long_it_takes, [:how_long_replacing_online, :how_long_additional_time_online]
+      assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_additional_info_replacing, :how_long_additional_time_online]
       assert_phrase_list :cost, [:passport_courier_costs_replacing_ips1, :child_passport_costs_replacing_ips1]
       assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_replacing, :how_to_apply_online_guidance_doc_group_1]
     end
@@ -758,7 +758,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
       assert_phrase_list :fco_forms, [:adult_fco_forms_nigeria]
-      assert_phrase_list :how_long_it_takes, [:how_long_applying_ips1, :how_long_it_takes_ips1]
+      assert_phrase_list :how_long_it_takes, [:how_long_14_weeks, :how_long_it_takes_ips1]
       assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
       assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_3]
       assert_phrase_list :send_your_application, [:send_application_durham]
@@ -862,7 +862,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'adult'
         add_response 'pakistan'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_applying_at_least_6_months, :how_long_it_takes_ips3]
+        assert_phrase_list :how_long_it_takes, [:how_long_6_months, :how_long_it_takes_ips3]
         assert_phrase_list :send_your_application, [:send_application_ips3_pakistan, :send_application_ips3_must_post, :send_application_embassy_address]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :send_application_ips1_pakistan, :hmpo_1_application_form, :ips_documents_group_3]
       end
@@ -1122,7 +1122,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'adult'
         add_response 'afghanistan'
         assert_current_node :ips_application_result_online
-        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_additional_info_applying, :how_long_additional_time_online]
+        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_additional_info_renewing_old, :how_long_additional_time_online]
       end
     end
     context "applying for an adult passport" do
@@ -1181,6 +1181,88 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'adult'
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips3]
+      end
+    end
+  end
+#sri-lanka
+  context "answer sri-lanka, test time phrase" do
+    setup do
+      worldwide_api_has_organisations_for_location('sri-lanka', read_fixture_file('worldwide/sri-lanka_organisations.json'))
+      add_response 'sri-lanka'
+    end
+    context "renewing a new adult passport" do
+      should "be 6 weeks" do
+        add_response 'renewing_new'
+        add_response 'adult'
+        assert_current_node :ips_application_result
+        assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips1]
+      end
+    end
+    context "renewing an old adult passport" do
+      should "be 12 weeks" do
+        add_response 'renewing_old'
+        add_response 'adult'
+        add_response 'afghanistan'
+        assert_current_node :ips_application_result
+        assert_phrase_list :how_long_it_takes, [:how_long_12_weeks, :how_long_it_takes_ips1]
+      end
+    end
+    context "applying for an adult passport" do
+      should "be 12 weeks" do
+        add_response 'applying'
+        add_response 'adult'
+        add_response 'afghanistan'
+        assert_current_node :ips_application_result
+        assert_phrase_list :how_long_it_takes, [:how_long_12_weeks, :how_long_it_takes_ips1]
+      end
+    end
+    context "replacing an adult passport" do
+      should "be 8 weeks" do
+        add_response 'replacing'
+        add_response 'adult'
+        assert_current_node :ips_application_result
+        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips1]
+      end
+    end
+  end
+#saudi-arabia
+  context "answer saudi-arabia, test time phrase" do
+    setup do
+      worldwide_api_has_organisations_for_location('saudi-arabia', read_fixture_file('worldwide/saudi-arabia_organisations.json'))
+      add_response 'saudi-arabia'
+    end
+    context "renewing a new adult passport" do
+      should "be 6 weeks" do
+        add_response 'renewing_new'
+        add_response 'adult'
+        assert_current_node :ips_application_result_online
+        assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_additional_info_renewing_new, :how_long_additional_time_online]
+      end
+    end
+    context "renewing an old adult passport" do
+      should "be 8 weeks" do
+        add_response 'renewing_old'
+        add_response 'adult'
+        add_response 'afghanistan'
+        assert_current_node :ips_application_result_online
+        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_additional_info_renewing_old, :how_long_additional_time_online]
+      end
+    end
+    context "applying for an adult passport" do
+      should "be 8 weeks" do
+        add_response 'applying'
+        add_response 'adult'
+        add_response 'afghanistan'
+        assert_current_node :ips_application_result_online
+        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_additional_info_applying, :how_long_additional_time_online]
+      end
+    end
+    context "replacing an adult passport" do
+      should "be 8 weeks" do
+        add_response 'replacing'
+        add_response 'adult'
+        assert_current_node :ips_application_result_online
+        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_additional_info_replacing, :how_long_additional_time_online]
       end
     end
   end

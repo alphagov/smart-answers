@@ -95,6 +95,57 @@ countries_application_times = {
       "libya" => {
         "renewing_new" => "6_weeks", "renewing_old" => "12_weeks", "applying" => "12_weeks", "replacing"=> "8_weeks"
       },
+      "malawi" => {
+        "renewing_new" => "8_weeks", "renewing_old" => "14_weeks", "applying" => "14_weeks", "replacing"=> "10_weeks"
+      },
+      "malaysia" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      },
+      "netherlands" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      },
+      "new-zealand" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      },
+      "nigeria" => {
+        "renewing_new" => "8_weeks", "renewing_old" => "14_weeks", "applying" => "14_weeks", "replacing"=> "10_weeks"
+      },
+      "norway" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      },
+      "pakistan" => {
+        "renewing_new" => "8_weeks", "renewing_old" => "6_months", "applying" => "6_months", "replacing"=> "14_weeks"
+      },
+      "philippines" => {
+        "renewing_new" => "8_weeks", "renewing_old" => "16_weeks", "applying" => "16_weeks", "replacing"=> "10_weeks"
+      },
+      "portugal" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      },
+      "qatar" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      },
+      "russia" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "10_weeks", "applying" => "10_weeks", "replacing"=> "8_weeks"
+      },
+      "saudi-arabia" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      },
+      "spain" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      },
+      "sri-lanka" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "12_weeks", "applying" => "12_weeks", "replacing"=> "8_weeks"
+      },
+      "sudan" => {
+        "renewing_new" => "8_weeks", "renewing_old" => "12_weeks", "applying" => "12_weeks", "replacing"=> "10_weeks"
+      },
+      "sweden" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      },
+      "switzerland" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      },
     }
 
 # Q1
@@ -265,13 +316,13 @@ outcome :ips_application_result_online do
     
     if countries_application_times.has_key?(current_location)
       weeks = countries_application_times[current_location][application_action]
-      phrases << :"how_long_#{weeks}" << :"how_long_additional_info_#{action}" << :how_long_additional_time_online
+      phrases << :"how_long_#{weeks}" << :"how_long_additional_info_#{application_action}" << :how_long_additional_time_online
     elsif %w(djibouti tanzania).include?(current_location) and action == 'applying'
       phrases << :how_long_applying_djibouti_tanzania << :how_long_additional_time_online
     else
       phrases << :"how_long_#{action}_online" << :how_long_additional_time_online
     end
-  end
+  end 
   
   precalculate :cost do
     if application_action == 'replacing' and ips_number == '1' and ips_docs_number == '1'
@@ -319,8 +370,6 @@ outcome :ips_application_result do
       end
     elsif twelve_week_application_countries.include?(current_location) and %w(applying renewing_old).include?(application_action)
       phrases << :how_long_applying_12_weeks
-    elsif %w{pakistan}.include?(current_location) and %w(applying renewing_old).include?(application_action)
-      phrases << :how_long_applying_at_least_6_months
     elsif %w(north-korea).include?(current_location)
       if %w(renewing_new).include?(application_action)
         phrases << :how_long_6_weeks
