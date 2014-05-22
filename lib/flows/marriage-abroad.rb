@@ -236,7 +236,7 @@ multiple_choice :partner_opposite_or_same_sex? do
       :"outcome_#{ceremony_country}"
     else
       if response == 'opposite_sex'
-        if %w(indonesia russia).include?(ceremony_country)
+        if %w(indonesia).include?(ceremony_country)
           :"outcome_os_#{ceremony_country}"
         elsif data_query.os_affirmation_countries?(ceremony_country)
           :outcome_os_affirmation
@@ -341,8 +341,6 @@ outcome :outcome_os_indonesia do
     phrases
   end
 end
-
-outcome :outcome_os_russia
 
 outcome :outcome_os_commonwealth do
   precalculate :commonwealth_os_outcome do
@@ -555,11 +553,13 @@ outcome :outcome_os_consular_cni do
     end
 
     if ceremony_country == residency_country
-      if %w(germany italy kazakhstan).exclude?(ceremony_country)
+      if %w(germany italy kazakhstan russia).exclude?(ceremony_country)
         phrases << :consular_cni_os_local_resident_not_italy_germany
       end
-      phrases << :kazakhstan_os_local_resident if %w(kazakhstan).include?(ceremony_country)
-      if %w(germany italy japan spain).exclude?(ceremony_country)
+      if %w(kazakhstan russia).include?(ceremony_country)
+        phrases << :"#{ceremony_country}_os_local_resident"
+      end
+      if %w(germany italy japan russia spain).exclude?(ceremony_country)
         if reg_data_query.clickbook(ceremony_country)
           if %w(vietnam).include?(ceremony_country)
             phrases << :consular_cni_os_vietnam_clickbook
@@ -759,6 +759,8 @@ outcome :outcome_os_consular_cni do
     unless data_query.countries_without_consular_facilities?(ceremony_country)
       if %w(armenia bosnia-and-herzegovina cambodia iceland kazakhstan latvia luxembourg slovenia tunisia tajikistan).include?(ceremony_country)
         phrases << :pay_in_local_currency_ceremony_country_name
+      elsif %w(russia).include?(ceremony_country)
+        phrases << :consular_cni_os_fees_russia
       elsif %w(cote-d-ivoire).exclude?(ceremony_country)
         phrases << :pay_by_cash_or_credit_card_no_cheque
       end
