@@ -4,184 +4,6 @@ satisfies_need "100131"
 data_query = Calculators::PassportAndEmbassyDataQuery.new
 exclude_countries = %w(holy-see british-antarctic-territory)
 apply_in_neighbouring_country_countries = %w(british-indian-ocean-territory kyrgyzstan north-korea south-georgia-and-south-sandwich-islands)
-countries_application_times = {
-      "afghanistan" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "6_months", "applying" => "6_months", "replacing"=> "14_weeks"
-      },
-      "australia" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "austria" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "bahrain" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "bangladesh" => {
-        "renewing_new" => "8_weeks", "renewing_old" => "8_months", "applying" => "8_months", "replacing"=> "18_weeks"
-      },
-      "barbados" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "belgium" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "brasil" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "canada" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "10_weeks", "applying" => "10_weeks", "replacing"=> "10_weeks"
-      },
-      "china" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "denmark" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "egypt" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "12_weeks", "applying" => "12_weeks", "replacing"=> "8_weeks"
-      },
-      "ethiopia" => {
-        "renewing_new" => "8_weeks", "renewing_old" => "12_weeks", "applying" => "12_weeks", "replacing"=> "10_weeks"
-      },
-      "finland" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "france" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "germany" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "ghana" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "12_weeks", "applying" => "12_weeks", "replacing"=> "8_weeks"
-      },
-      "greece" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "hong-kong" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "india" => {
-        "renewing_new" => "8_weeks", "renewing_old" => "16_weeks", "applying" => "16_weeks", "replacing"=> "10_weeks"
-      },
-      "indonesia" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "iraq" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "12_weeks", "applying" => "12_weeks", "replacing"=> "8_weeks"
-      },
-      "ireland" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "israel" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "italy" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "jamaica" => {
-        "renewing_new" => "8_weeks", "renewing_old" => "12_weeks", "applying" => "12_weeks", "replacing"=> "10_weeks"
-      },
-      "japan" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "kenya" => {
-        "renewing_new" => "8_weeks", "renewing_old" => "12_weeks", "applying" => "12_weeks", "replacing"=> "10_weeks"
-      },
-      "lebanon" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "12_weeks", "applying" => "12_weeks", "replacing"=> "8_weeks"
-      },
-      "libya" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "12_weeks", "applying" => "12_weeks", "replacing"=> "8_weeks"
-      },
-      "malawi" => {
-        "renewing_new" => "8_weeks", "renewing_old" => "14_weeks", "applying" => "14_weeks", "replacing"=> "10_weeks"
-      },
-      "malaysia" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "netherlands" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "new-zealand" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "nigeria" => {
-        "renewing_new" => "8_weeks", "renewing_old" => "14_weeks", "applying" => "14_weeks", "replacing"=> "10_weeks"
-      },
-      "norway" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "pakistan" => {
-        "renewing_new" => "8_weeks", "renewing_old" => "6_months", "applying" => "6_months", "replacing"=> "14_weeks"
-      },
-      "philippines" => {
-        "renewing_new" => "8_weeks", "renewing_old" => "16_weeks", "applying" => "16_weeks", "replacing"=> "10_weeks"
-      },
-      "portugal" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "qatar" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "russia" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "10_weeks", "applying" => "10_weeks", "replacing"=> "8_weeks"
-      },
-      "saudi-arabia" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "spain" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "sri-lanka" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "12_weeks", "applying" => "12_weeks", "replacing"=> "8_weeks"
-      },
-      "sudan" => {
-        "renewing_new" => "8_weeks", "renewing_old" => "12_weeks", "applying" => "12_weeks", "replacing"=> "10_weeks"
-      },
-      "sweden" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "switzerland" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "thailand" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      #test
-      "trinidad-and-tobago" => {
-        "renewing_new" => "8_weeks", "renewing_old" => "12_weeks", "applying" => "12_weeks", "replacing"=> "10_weeks"
-      },
-      "turkey" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      #test
-      "united-arab-emirates" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
-      },
-      "uganda" => {
-        "renewing_new" => "8_weeks", "renewing_old" => "12_weeks", "applying" => "12_weeks", "replacing"=> "12_weeks"
-      },
-      #test
-      "usa" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "10_weeks", "applying" => "10_weeks", "replacing"=> "10_weeks"
-      },
-      "venezuela" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "10_weeks", "applying" => "10_weeks", "replacing"=> "8_weeks"
-      },
-      "vietnam" => {
-        "renewing_new" => "6_weeks", "renewing_old" => "16_weeks", "applying" => "16_weeks", "replacing"=> "12_weeks"
-      },
-      #tested
-      "zambia" => {
-        "renewing_new" => "8_weeks", "renewing_old" => "5_months", "applying" => "5_months", "replacing"=> "14_weeks"
-      },
-      #tested
-      "zimbabwe" => {
-        "renewing_new" => "8_weeks", "renewing_old" => "18_weeks", "applying" => "18_weeks", "replacing"=> "12_weeks"
-      },
-    }
 
 # Q1
 country_select :which_country_are_you_in?, :exclude_countries => exclude_countries do
@@ -349,9 +171,9 @@ outcome :ips_application_result_online do
     phrases = PhraseList.new
     action = application_action =~/applying|renewing_old/ ? 'applying' : application_action
     
-    if countries_application_times.has_key?(current_location)
-      weeks = countries_application_times[current_location][application_action]
-      phrases << :"how_long_#{weeks}" << :"how_long_additional_info_#{application_action}" << :how_long_additional_time_online
+    if passport_data.has_key?(application_action)
+      time = passport_data[application_action]
+      phrases << :"how_long_#{time}" << :"how_long_additional_info_#{application_action}" << :how_long_additional_time_online
     elsif %w(djibouti tanzania).include?(current_location) and action == 'applying'
       phrases << :how_long_applying_djibouti_tanzania << :how_long_additional_time_online
     else
@@ -390,8 +212,8 @@ outcome :ips_application_result do
     
     phrases = PhraseList.new
     
-    if countries_application_times.has_key?(current_location)
-      time = countries_application_times[current_location][application_action]
+    if passport_data.has_key?(application_action)
+      time = passport_data[application_action]
       phrases << :"how_long_#{time}"
     elsif eight_week_only_application_countries.include?(current_location)
       phrases << :how_long_8_weeks
