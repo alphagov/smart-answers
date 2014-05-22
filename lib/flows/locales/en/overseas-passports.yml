@@ -15,7 +15,7 @@ en-GB:
           jerusalem-or-westbank: "Jerusalem and the West Bank"
       which_bot?:
         title: Where are you?
-        options:
+      options:
           st-helena: "St Helena"
           ascension-island: "Ascension Island"
           tristan-da-cunha: "Tristan da Cunha"
@@ -202,14 +202,6 @@ en-GB:
 
           If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
 
-        how_long_it_takes_ips1: |
-          Applications may take longer if:
-
-          - Her Majesty's Passport Office needs to ask you for more information or documents
-          - the photographs you send are rejected
-
-          Don’t book travel until you have a valid passport. If you need to travel more urgently, apply for an [Emergency Travel Document.](/emergency-travel-document)
-
         how_long_renewing_new_online: |
           Your application will take **at least** 4 weeks from when your declaration form is received by Her Majesty's Passport Office in the UK.
 
@@ -218,6 +210,7 @@ en-GB:
 
         how_long_applying_djibouti_tanzania: |
           Your application will take **at least** 12 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
+        
 
         how_long_replacing_online: |
           Your application will take **at least** 6 weeks from when when your declaration form is received by Her Majesty's Passport Office in the UK.
@@ -465,7 +458,7 @@ en-GB:
 
           $C
           Telephone: +44 (0) 300 222 0000  
-          Monday to Friday, 8am to 8pm (UK time)  
+          Monday to Friday, 8am to 8pm (UK time)
           Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)
           $C
 
@@ -479,18 +472,26 @@ en-GB:
 
         how_long_4_weeks: |
           Your application will take **at least** 4 weeks from when it’s received by Her Majesty's Passport Office in the UK.
-
         how_long_5_weeks: |
           Your application will take **at least** 5 weeks from when it’s received by Her Majesty's Passport Office in the UK.
-
         how_long_6_weeks: |
           Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK.
-
-        how_long_16_weeks: |
-          Your application will take **at least** 16 weeks from when it’s received by Her Majesty's Passport Office in the UK.
-
         how_long_8_weeks: |
           Your application will take **at least** 8 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+        how_long_10_weeks: |
+          Your application will take **at least** 10 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+        how_long_14_weeks: |
+          Your application will take **at least** 14 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+        how_long_16_weeks: |
+          Your application will take **at least** 16 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+        how_long_18_weeks: |
+          Your application will take **at least** 18 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+        how_long_5_months: |
+          Your application will take **at least** 5 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
+        how_long_6_months: |
+          Your application will take **at least** 6 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
+        how_long_8_months: |
+          Your application will take **at least** 8 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
 
         how_long_8_weeks_with_interview:
           Your application will take **at least** 8 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
@@ -502,14 +503,41 @@ en-GB:
 
         how_long_applying_12_weeks: |
           Your application will take **at least** 12 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
-
+        
         how_long_applying_16_weeks: |
           Your application will take **at least** 16 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
 
         how_long_applying_at_least_6_months: |
           Your application will take **at least** 6 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
+          
+        how_long_additional_info_applying: |
+          You may have to attend an interview for a first adult passport.
+
+        how_long_additional_info_replacing: |
+          If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your declaration form.
+          
+        how_long_additional_info_renewing_old: |
+          You may have to attend an interview for a first adult passport.
+        how_long_additional_info_renewing_new: |
+          You may have to attend an interview for a first adult passport.
+          
+        how_long_it_takes_ips1: |
+          Applications may take longer if:
+
+          - Her Majesty's Passport Office needs to ask you for more information or documents
+          - the photographs you send are rejected
+
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, apply for an [Emergency Travel Document.](/emergency-travel-document)
 
         how_long_it_takes_ips2: |
+          Applications may take longer if:
+
+          - Her Majesty's Passport Office needs to ask you for more information or documents
+          - the photographs you send are rejected
+
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document)
+
+        how_long_it_takes_ips3: |
           Applications may take longer if:
 
           - Her Majesty's Passport Office needs to ask you for more information or documents
@@ -585,13 +613,6 @@ en-GB:
         how_long_renewing_new_ips3: |
           Your application will take **at least** 4 weeks from when it’s received by Her Majesty's Passport Office in the UK.
 
-        how_long_it_takes_ips3: |
-          Applications may take longer if:
-
-          - Her Majesty's Passport Office needs to ask you for more information or documents
-          - the photographs you send are rejected
-
-          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document)
 
         passport_courier_costs_ips3: |
           You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the British embassy, high commission or consulate where you applied for you to collect.
