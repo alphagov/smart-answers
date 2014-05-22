@@ -115,6 +115,10 @@ belarus:
   type: ips_application_2
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
+  renewing_new: 8_weeks
+  renewing_old: 8_weeks
+  applying: 8_weeks
+  replacing: 8_weeks
 belgium:
   type: ips_application_1
   group: ips_documents_group_1
@@ -440,6 +444,10 @@ georgia:
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   application_office: true
+  renewing_new: 8_weeks
+  renewing_old: 8_weeks
+  applying: 8_weeks
+  replacing: 8_weeks
 germany:
   type: ips_application_1
   group: ips_documents_group_1
@@ -886,6 +894,10 @@ north-korea:
   type: ips_application_3
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
+  renewing_new: 6_weeks
+  renewing_old: 8_weeks
+  applying: 8_weeks
+  replacing: 8_weeks
 norway:
   type: ips_application_1
   group: ips_documents_group_1
@@ -1180,6 +1192,10 @@ tajikistan:
   type: ips_application_2
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
+  renewing_new: 8_weeks
+  renewing_old: 8_weeks
+  applying: 8_weeks
+  replacing: 8_weeks
 tanzania:
   type: ips_application_1
   group: ips_documents_group_3
@@ -1240,6 +1256,10 @@ turkmenistan:
   type: ips_application_2
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
+  renewing_new: 8_weeks
+  renewing_old: 8_weeks
+  applying: 8_weeks
+  replacing: 8_weeks
 turks-and-caicos-islands:
   type: ips_application_1
   group: ips_documents_group_1
@@ -1295,6 +1315,10 @@ uzbekistan:
   type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
+  renewing_new: 8_weeks
+  renewing_old: 8_weeks
+  applying: 8_weeks
+  replacing: 8_weeks
 vanuatu:
   type: ips_application_1
   group: ips_documents_group_2
