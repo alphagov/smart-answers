@@ -481,7 +481,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result_online
-      assert_phrase_list :how_long_it_takes, [:how_long_applying_djibouti_tanzania, :how_long_additional_time_online]
+      assert_phrase_list :how_long_it_takes, [:how_long_12_weeks, :how_long_additional_info_applying, :how_long_additional_time_online]
     end
   end # Tanzania
 

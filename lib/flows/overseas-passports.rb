@@ -173,12 +173,11 @@ outcome :ips_application_result_online do
     
     if passport_data.has_key?(application_action)
       time = passport_data[application_action]
-      phrases << :"how_long_#{time}" << :"how_long_additional_info_#{application_action}" << :how_long_additional_time_online
-    elsif %w(djibouti tanzania).include?(current_location) and action == 'applying'
-      phrases << :how_long_applying_djibouti_tanzania << :how_long_additional_time_online
+      phrases << :"how_long_#{time}" << :"how_long_additional_info_#{application_action}"
     else
-      phrases << :"how_long_#{action}_online" << :how_long_additional_time_online
+      phrases << :"how_long_#{action}_online"
     end
+    phrases << :how_long_additional_time_online
   end 
   
   precalculate :cost do

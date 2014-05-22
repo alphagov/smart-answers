@@ -221,6 +221,10 @@ cameroon:
   helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
+  renewing_new: 4_weeks
+  renewing_old: 12_weeks
+  applying: 12_weeks
+  replacing: 6_weeks
 canada:
   type: ips_application_1
   group: ips_documents_group_1
@@ -250,6 +254,10 @@ chad:
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   address: durham
+  renewing_new: 4_weeks
+  renewing_old: 12_weeks
+  applying: 12_weeks
+  replacing: 6_weeks
 chile:
   type: ips_application_1
   group: ips_documents_group_1
@@ -332,6 +340,10 @@ djibouti:
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   online_application: true
+  renewing_new: 4_weeks
+  renewing_old: 12_weeks
+  applying: 12_weeks
+  replacing: 6_weeks
 dominica:
   type: ips_application_1
   group: ips_documents_group_2
@@ -372,6 +384,10 @@ eritrea:
   helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
+  renewing_new: 4_weeks
+  renewing_old: 12_weeks
+  applying: 12_weeks
+  replacing: 6_weeks
 estonia:
   type: ips_application_1
   group: ips_documents_group_1
@@ -777,6 +793,10 @@ mauritania:
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   application_office: true
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 mauritius:
   type: ips_application_1
   group: ips_documents_group_3
@@ -827,6 +847,10 @@ morocco:
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   application_office: true
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 mozambique:
   type: ips_application_1
   group: ips_documents_group_3
@@ -894,10 +918,6 @@ north-korea:
   type: ips_application_3
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
 norway:
   type: ips_application_1
   group: ips_documents_group_1
@@ -1077,6 +1097,10 @@ somalia:
   helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
+  renewing_new: 4_weeks
+  renewing_old: 12_weeks
+  applying: 12_weeks
+  replacing: 6_weeks
 south-africa:
   type: ips_application_1
   group: ips_documents_group_2
@@ -1201,6 +1225,10 @@ tanzania:
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   online_application: true
+  renewing_new: 4_weeks
+  renewing_old: 12_weeks
+  applying: 12_weeks
+  replacing: 6_weeks
 thailand:
   type: ips_application_3
   group: ips_documents_group_2
@@ -1243,6 +1271,10 @@ tunisia:
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   address: belfast
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 turkey:
   type: ips_application_1
   group: ips_documents_group_1
@@ -1353,6 +1385,10 @@ western-sahara:
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   application_office: true
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 yemen:
   type: ips_application_1
   group: ips_documents_group_3
