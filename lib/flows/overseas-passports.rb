@@ -146,6 +146,41 @@ countries_application_times = {
       "switzerland" => {
         "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
       },
+      "thailand" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      },
+      #test
+      "trinidad-and-tobago" => {
+        "renewing_new" => "8_weeks", "renewing_old" => "12_weeks", "applying" => "12_weeks", "replacing"=> "10_weeks"
+      },
+      "turkey" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      },
+      #test
+      "united-arab-emirates" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "8_weeks", "applying" => "8_weeks", "replacing"=> "8_weeks"
+      },
+      "uganda" => {
+        "renewing_new" => "8_weeks", "renewing_old" => "12_weeks", "applying" => "12_weeks", "replacing"=> "12_weeks"
+      },
+      #test
+      "usa" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "10_weeks", "applying" => "10_weeks", "replacing"=> "10_weeks"
+      },
+      "venezuela" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "10_weeks", "applying" => "10_weeks", "replacing"=> "8_weeks"
+      },
+      "vietnam" => {
+        "renewing_new" => "6_weeks", "renewing_old" => "16_weeks", "applying" => "16_weeks", "replacing"=> "12_weeks"
+      },
+      #tested
+      "zambia" => {
+        "renewing_new" => "8_weeks", "renewing_old" => "5_months", "applying" => "5_months", "replacing"=> "14_weeks"
+      },
+      #tested
+      "zimbabwe" => {
+        "renewing_new" => "8_weeks", "renewing_old" => "18_weeks", "applying" => "18_weeks", "replacing"=> "12_weeks"
+      },
     }
 
 # Q1
@@ -353,8 +388,6 @@ outcome :ips_application_result do
     six_week_application_countries = %w(mauritania morocco tunisia western-sahara)
     twelve_week_application_countries = %w(cameroon chad djibouti eritrea ethiopia kenya somalia tanzania uganda)
     
-    
-
     phrases = PhraseList.new
     
     if countries_application_times.has_key?(current_location)
@@ -377,12 +410,6 @@ outcome :ips_application_result do
         phrases << :how_long_8_weeks_with_interview
       else
         phrases << :how_long_8_weeks_replacing
-      end
-    elsif %w(zimbabwe).include?(current_location)
-      if %w(renewing_new).include?(application_action)
-        phrases << :"how_long_#{application_action}_ips#{ips_number}"
-      else
-        phrases << :how_long_6_weeks
       end
     else
       phrases << :"how_long_#{application_action}_ips#{ips_number}"
