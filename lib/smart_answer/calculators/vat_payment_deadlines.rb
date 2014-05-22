@@ -22,7 +22,9 @@ module SmartAnswer::Calculators
       when 'online-debit-credit-card', 'bacs-direct-credit'
         3.working_days.before(end_of_month_after(@period_end_date) + 7.days)
       when 'chaps'
-        5.working_days.after(end_of_month_after(@period_end_date))
+        payment_date = end_of_month_after(@period_end_date) + 7.days
+        payment_date -= 1 while !payment_date.workday?
+        payment_date
       when 'cheque'
         6.working_days.before(0.working_days.before(end_of_month_after(@period_end_date)))
       else
