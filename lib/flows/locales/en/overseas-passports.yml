@@ -6,6 +6,7 @@ en-GB:
         description: Renew, replace or apply for an adult or child British passport if you’re living abroad or working overseas - forms, prices, how long it takes
       body: |
         Get the forms, prices and application details you need if you're a British national and you want to renew or apply for a British passport from overseas.
+
       which_country_are_you_in?:
         title: Which country or territory are you in?
       which_opt?:
@@ -13,12 +14,6 @@ en-GB:
         options:
           gaza: "Gaza"
           jerusalem-or-westbank: "Jerusalem and the West Bank"
-      which_bot?:
-        title: Where are you?
-      options:
-          st-helena: "St Helena"
-          ascension-island: "Ascension Island"
-          tristan-da-cunha: "Tristan da Cunha"
       renewing_replacing_applying?:
         title: Are you renewing, replacing or applying for a first passport?
         options:
@@ -207,11 +202,7 @@ en-GB:
 
         how_long_applying_online: |
           Your application will take **at least** 6 weeks from when your declaration form is received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
-
-        how_long_applying_djibouti_tanzania: |
-          Your application will take **at least** 12 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
         
-
         how_long_replacing_online: |
           Your application will take **at least** 6 weeks from when when your declaration form is received by Her Majesty's Passport Office in the UK.
 
@@ -480,6 +471,8 @@ en-GB:
           Your application will take **at least** 8 weeks from when it’s received by Her Majesty's Passport Office in the UK.
         how_long_10_weeks: |
           Your application will take **at least** 10 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+        how_long_12_weeks: |
+          Your application will take **at least** 12 weeks from when it’s received by Her Majesty's Passport Office in the UK.
         how_long_14_weeks: |
           Your application will take **at least** 14 weeks from when it’s received by Her Majesty's Passport Office in the UK.
         how_long_16_weeks: |
@@ -492,9 +485,8 @@ en-GB:
           Your application will take **at least** 6 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
         how_long_8_months: |
           Your application will take **at least** 8 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
-
-        how_long_8_weeks_with_interview:
-          Your application will take **at least** 8 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
+        report_loss_or_theft: |
+          If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
 
         how_long_8_weeks_replacing: |
           Your application will take **at least** 8 weeks from when your application is received by Her Majesty's Passport Office in the UK.
@@ -612,7 +604,6 @@ en-GB:
 
         how_long_renewing_new_ips3: |
           Your application will take **at least** 4 weeks from when it’s received by Her Majesty's Passport Office in the UK.
-
 
         passport_courier_costs_ips3: |
           You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the British embassy, high commission or consulate where you applied for you to collect.

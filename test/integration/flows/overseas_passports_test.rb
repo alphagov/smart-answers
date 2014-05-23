@@ -80,7 +80,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           add_response 'adult'
           assert_state_variable :application_type, 'ips_application_3'
           assert_current_node :ips_application_result
-          assert_phrase_list :how_long_it_takes, [:how_long_14_weeks, :how_long_it_takes_ips3]
+          assert_phrase_list :how_long_it_takes, [:how_long_14_weeks,:report_loss_or_theft, :how_long_it_takes_ips3]
         end
       end
     end
@@ -142,7 +142,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     should "give the result with alternative embassy details" do
       assert_current_node :ips_application_result
       assert_phrase_list :fco_forms, [:adult_fco_forms]
-      assert_phrase_list :how_long_it_takes, [:how_long_renewing_old_ips1, :how_long_it_takes_ips1]
+      assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips1]
       assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
       assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_3]
       assert_phrase_list :send_your_application, [:send_application_durham]
@@ -332,7 +332,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           should "give the application result" do
             add_response "spain"
             assert_current_node :ips_application_result_online
-            assert_phrase_list :how_long_it_takes, [:how_long_applying_online, :how_long_additional_time_online]
+            assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_additional_info_applying, :how_long_additional_time_online]
             assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance_doc_group_1]
             assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1]
             assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
@@ -345,7 +345,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           should "give the application result with the UK documents" do
             add_response "united-kingdom"
             assert_current_node :ips_application_result_online
-            assert_phrase_list :how_long_it_takes, [:how_long_applying_online, :how_long_additional_time_online]
+            assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_additional_info_applying, :how_long_additional_time_online]
             assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance_doc_group_3]
             assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1]
             assert_phrase_list :contact_passport_adviceline, [:contact_passport_adviceline]
@@ -376,7 +376,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       end
       should "give the IPS application result" do
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_replacing_ips3, :how_long_it_takes_ips3]
+        assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :report_loss_or_theft, :how_long_it_takes_ips3]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
         assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace, :send_application_address_azerbaijan]
@@ -468,7 +468,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'replacing'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_10_weeks, :how_long_it_takes_ips3]
+        assert_phrase_list :how_long_it_takes, [:how_long_10_weeks, :report_loss_or_theft, :how_long_it_takes_ips3]
       end
     end
   end # India
@@ -494,7 +494,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
       assert_phrase_list :fco_forms, [:adult_fco_forms]
-      assert_phrase_list :how_long_it_takes, [:how_long_applying_ips1, :how_long_it_takes_ips1]
+      assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips1]
       assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
       assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_3]
       assert_phrase_list :send_your_application, [:send_application_durham]
@@ -681,7 +681,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_applying_ips1, :how_long_it_takes_ips1]
+      assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips1]
       assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_3]
       assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
       assert_phrase_list :send_your_application, [:send_application_durham]
@@ -697,7 +697,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'renewing_new'
       add_response 'adult'
       assert_current_node :ips_application_result_online
-      assert_phrase_list :how_long_it_takes, [:how_long_renewing_new_online, :how_long_additional_time_online]
+      assert_phrase_list :how_long_it_takes, [:how_long_4_weeks, :how_long_additional_info_renewing_new, :how_long_additional_time_online]
       assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
     end
@@ -712,7 +712,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'adult'
         add_response 'united-kingdom'
         assert_current_node :ips_application_result_online
-        assert_phrase_list :how_long_it_takes, [:how_long_applying_online, :how_long_additional_time_online]
+        assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_additional_info_applying, :how_long_additional_time_online]
         assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1]
         assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance_doc_group_2]
         assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
@@ -726,7 +726,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'renewing_new'
         add_response 'adult'
         assert_current_node :ips_application_result_online
-        assert_phrase_list :how_long_it_takes, [:how_long_renewing_new_online, :how_long_additional_time_online]
+        assert_phrase_list :how_long_it_takes, [:how_long_4_weeks, :how_long_additional_info_renewing_new, :how_long_additional_time_online]
         assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1]
         assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_renewing, :how_to_apply_online_guidance_doc_group_2]
         assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
@@ -774,7 +774,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'replacing'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_10_weeks, :how_long_it_takes_ips1]
+      assert_phrase_list :how_long_it_takes, [:how_long_10_weeks, :report_loss_or_theft, :how_long_it_takes_ips1]
       assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_2_application_form, :ips_documents_group_3]
       assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
       assert_match /Millburngate House/, outcome_body
@@ -808,7 +808,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'replacing'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_12_weeks, :how_long_it_takes_ips1]
+      assert_phrase_list :how_long_it_takes, [:how_long_12_weeks, :report_loss_or_theft, :how_long_it_takes_ips1]
       assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
       assert_phrase_list :send_your_application, [:send_application_durham]
       assert_phrase_list :getting_your_passport, [:getting_your_passport_zimbabwe, :getting_your_passport_contact_and_id]
@@ -835,7 +835,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'replacing'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_18_weeks, :how_long_it_takes_ips3]
+        assert_phrase_list :how_long_it_takes, [:how_long_18_weeks, :report_loss_or_theft, :how_long_it_takes_ips3]
         assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card_bangladesh, :passport_costs_ips3_cash_or_card]
       end
     end
@@ -909,7 +909,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result_online
-      assert_phrase_list :how_long_it_takes, [:how_long_applying_online, :how_long_additional_time_online]
+      assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_additional_info_applying, :how_long_additional_time_online]
       assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1]
       assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance_doc_group_2]
     end
@@ -951,7 +951,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'renewing_new'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_renewing_new_ips3, :how_long_it_takes_ips3]
+        assert_phrase_list :how_long_it_takes, [:how_long_4_weeks, :how_long_it_takes_ips3]
         assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
         assert_phrase_list :send_your_application, [:send_application_uk_visa_renew_new, :send_application_address_algeria]
@@ -964,7 +964,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'adult'
         add_response 'united-kingdom'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_applying_ips3, :how_long_it_takes_ips3]
+        assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips3]
         assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
         assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace, :send_application_address_algeria]
@@ -983,7 +983,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'renewing_new'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_renewing_new_ips3, :how_long_it_takes_ips3]
+        assert_phrase_list :how_long_it_takes, [:how_long_4_weeks, :how_long_it_takes_ips3]
         assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
         assert_phrase_list :send_your_application, [:send_application_ips3, :renewing_new_renewing_old, :send_application_embassy_address]
@@ -996,7 +996,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'adult'
         add_response 'united-kingdom'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_applying_ips3, :how_long_it_takes_ips3]
+        assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips3]
         assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
         assert_phrase_list :send_your_application, [:send_application_ips3, :send_application_embassy_address]

@@ -211,6 +211,7 @@ outcome :ips_application_result do
     if passport_data.has_key?(application_action)
       time = passport_data[application_action]
       phrases << :"how_long_#{time}"
+      phrases << :report_loss_or_theft if application_action == "replacing"
     else
       phrases << :"how_long_#{application_action}_ips#{ips_number}"
     end
