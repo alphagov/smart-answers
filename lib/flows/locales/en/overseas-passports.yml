@@ -33,16 +33,8 @@ en-GB:
       which_best_describes_you_child?:
         title: Which of the following best describes you?
       phrases:
-        how_long_applying_fco:
-          Your application will take **at least** 6 weeks. You may have to attend an interview.
-        how_long_renewing_old_fco:
-          Your application will take **at least** 6 weeks. You may have to attend an interview.
-        how_long_renewing_new_fco:
-          Renewing a British passport takes **at least** 4 weeks.
-        how_long_replacing_fco: |
-          Your application will take **at least** 6 weeks.
-
-          If you haven't already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
+        you_may_have_to_attend_an_interview: |
+          You may have to attend an interview.
 
         supporting_documents_south_africa_applying: |
           ^[Supporting documents for adults born in the UK](/government/publications/british-passport-adult-supporting-documentation)^
@@ -182,31 +174,6 @@ en-GB:
 
         passport_costs_ips_euros: |
           You must pay in cash in Euros, the prices above will be converted according to the exchange rate when you apply.
-
-        how_long_applying_ips1: |
-          Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
-
-        how_long_renewing_old_ips1: |
-          Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
-
-        how_long_renewing_new_ips1: |
-          Your application will take **at least** 4 weeks from when it’s received by Her Majesty's Passport Office in the UK.
-
-        how_long_replacing_ips1: |
-          Your application will take **at least** 6 weeks from when it's received by Her Majesty's Passport Office in the UK.
-
-          If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
-
-        how_long_renewing_new_online: |
-          Your application will take **at least** 4 weeks from when your declaration form is received by Her Majesty's Passport Office in the UK.
-
-        how_long_applying_online: |
-          Your application will take **at least** 6 weeks from when your declaration form is received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
-        
-        how_long_replacing_online: |
-          Your application will take **at least** 6 weeks from when when your declaration form is received by Her Majesty's Passport Office in the UK.
-
-          If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your declaration form.
 
         how_long_additional_time_online: |
           Applications may take longer if:
@@ -455,12 +422,6 @@ en-GB:
 
           [Find out about call charges](/call-charges)
 
-        how_long_applying_ips2: |
-          Your application will take at least **8 weeks.**
-
-        how_long_renewing_old_ips2: |
-          Your application will take at least **8 weeks.**
-
         how_long_4_weeks: |
           Your application will take **at least** 4 weeks from when it’s received by Her Majesty's Passport Office in the UK.
         how_long_5_weeks: |
@@ -488,20 +449,6 @@ en-GB:
         report_loss_or_theft: |
           If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
 
-        how_long_8_weeks_replacing: |
-          Your application will take **at least** 8 weeks from when your application is received by Her Majesty's Passport Office in the UK.
-
-          If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
-
-        how_long_applying_12_weeks: |
-          Your application will take **at least** 12 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
-        
-        how_long_applying_16_weeks: |
-          Your application will take **at least** 16 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
-
-        how_long_applying_at_least_6_months: |
-          Your application will take **at least** 6 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
-          
         how_long_additional_info_applying: |
           You may have to attend an interview for a first adult passport.
 
@@ -536,11 +483,6 @@ en-GB:
           - the photographs you send are rejected
 
           Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document)
-
-        how_long_replacing_ips2: |
-          Your application will take at least **8 weeks.**
-
-          If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
 
         passport_courier_costs_ips2: |
           You’ll have to pay a fee for your passport and a courier fee of £24.72. The courier fee pays for your passport to be sent securely to the British embassy, high commission or consulate where you applied for you to collect.
@@ -587,23 +529,6 @@ en-GB:
           Your passport will be delivered to the British embassy, high commission or consulate where you applied  - you must collect it in person.
 
           They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
-
-        how_long_applying_ips3: |
-          Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
-
-        how_long_replacing_ips3: |
-          Your application will take **at least** 6 weeks from when it's received by Her Majesty's Passport Office in the UK.
-
-          If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
-
-        how_long_renewing_old_ips3: |
-          Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
-
-        how_long_renewing_new_ips2: |
-          Your application will take **at least** 4 weeks.
-
-        how_long_renewing_new_ips3: |
-          Your application will take **at least** 4 weeks from when it’s received by Her Majesty's Passport Office in the UK.
 
         passport_courier_costs_ips3: |
           You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the British embassy, high commission or consulate where you applied for you to collect.

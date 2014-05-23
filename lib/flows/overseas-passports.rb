@@ -168,16 +168,11 @@ end
 ## Online IPS Application Result
 outcome :ips_application_result_online do
   precalculate :how_long_it_takes do
-    phrases = PhraseList.new
-    action = application_action =~/applying|renewing_old/ ? 'applying' : application_action
     
-    if passport_data.has_key?(application_action)
-      time = passport_data[application_action]
-      phrases << :"how_long_#{time}" << :"how_long_additional_info_#{application_action}"
-    else
-      phrases << :"how_long_#{action}_online"
-    end
-    phrases << :how_long_additional_time_online
+    time = passport_data[application_action]
+    PhraseList.new(:"how_long_#{time}",
+                   :"how_long_additional_info_#{application_action}", 
+                   :how_long_additional_time_online)
   end 
   
   precalculate :cost do
@@ -206,15 +201,10 @@ end
 outcome :ips_application_result do
   precalculate :how_long_it_takes do
     
-    phrases = PhraseList.new
-        
-    if passport_data.has_key?(application_action)
-      time = passport_data[application_action]
-      phrases << :"how_long_#{time}"
-      phrases << :report_loss_or_theft if application_action == "replacing"
-    else
-      phrases << :"how_long_#{application_action}_ips#{ips_number}"
-    end
+    phrases = PhraseList.new 
+    time = passport_data[application_action]
+    phrases << :"how_long_#{time}"
+    phrases << :report_loss_or_theft if application_action == "replacing"
     phrases << :"how_long_it_takes_ips#{ips_number}"
     phrases
   end
@@ -378,17 +368,21 @@ end
 ## FCO Result
 outcome :fco_result do
   precalculate :how_long_it_takes do
-    PhraseList.new(:"how_long_#{application_action}_fco")
+    # PhraseList.new(:"how_long_#{application_action}_fco")
+    
+    
+    phrases = PhraseList.new 
+    time = passport_data[application_action]
+    phrases << :"how_long_#{time}"
+    phrases << :you_may_have_to_attend_an_interview if %w(renewing_old applying).include?(application_action)
+    phrases << :report_loss_or_theft if application_action == "replacing"
+    phrases
   end
-
+  
   precalculate :cost do
     cost_type = application_type
-    # All european FCO applications cost the same
-    cost_type = 'fco_europe' if application_type =~ /^(dublin_ireland|madrid_spain|paris_france)$/
-
     payment_methods = :"passport_costs_#{application_type}"
     
-
     phrases = PhraseList.new(:"passport_courier_costs_#{cost_type}",
                              :"#{child_or_adult}_passport_costs_#{cost_type}",
                              payment_methods)
@@ -397,9 +391,7 @@ outcome :fco_result do
   end
 
   precalculate :how_to_apply_supplement do
-    if application_type == 'dublin_ireland'
-      PhraseList.new(:"how_to_apply_#{application_type}")
-    elsif general_action == 'renewing' and data_query.retain_passport?(current_location)
+    if general_action == 'renewing' and data_query.retain_passport?(current_location)
       PhraseList.new(:how_to_apply_retain_passport)
     else
       ''
@@ -498,9 +490,7 @@ outcome :result do
     else
       phrases << :helpline_intro << :"helpline_#{passport_data['helpline']}"
     end
-    unless %w{madrid_spain paris_france}.include?(application_type)
-      phrases << :helpline_fco_webchat
-    end
+    phrases << :helpline_fco_webchat
     phrases
   end
 end

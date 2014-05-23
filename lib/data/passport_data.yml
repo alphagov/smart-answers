@@ -1674,6 +1674,10 @@ st-helena-ascension-and-tristan-da-cunha:
   type: pretoria_south_africa
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 st-kitts-and-nevis:
   type: ips_application_1
   group: ips_documents_group_2
