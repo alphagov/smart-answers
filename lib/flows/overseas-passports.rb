@@ -106,6 +106,10 @@ multiple_choice :renewing_replacing_applying? do
       v
     end
   end
+  
+  calculate :waiting_time do 
+    passport_data[application_action]
+  end
 
   next_node :child_or_adult_passport?
 end
@@ -168,17 +172,9 @@ end
 ## Online IPS Application Result
 outcome :ips_application_result_online do
   precalculate :how_long_it_takes do
-    phrases = PhraseList.new
-    action = application_action =~/applying|renewing_old/ ? 'applying' : application_action
-    
-    if passport_data.has_key?(application_action)
-      time = passport_data[application_action]
-      phrases << :"how_long_#{time}" << :"how_long_additional_info_#{application_action}" << :how_long_additional_time_online
-    elsif %w(djibouti tanzania).include?(current_location) and action == 'applying'
-      phrases << :how_long_applying_djibouti_tanzania << :how_long_additional_time_online
-    else
-      phrases << :"how_long_#{action}_online" << :how_long_additional_time_online
-    end
+    PhraseList.new(:"how_long_#{waiting_time}",
+                   :"how_long_additional_info_#{application_action}", 
+                   :how_long_additional_time_online)
   end 
   
   precalculate :cost do
@@ -206,36 +202,9 @@ end
 ## IPS Application Result
 outcome :ips_application_result do
   precalculate :how_long_it_takes do
-    eight_week_only_application_countries = %w(belarus georgia russia tajikistan turkmenistan uzbekistan)
-    six_week_application_countries = %w(mauritania morocco tunisia western-sahara)
-    twelve_week_application_countries = %w(cameroon chad djibouti eritrea ethiopia kenya somalia tanzania uganda)
-    
-    phrases = PhraseList.new
-    
-    if passport_data.has_key?(application_action)
-      time = passport_data[application_action]
-      phrases << :"how_long_#{time}"
-    elsif eight_week_only_application_countries.include?(current_location)
-      phrases << :how_long_8_weeks
-    elsif six_week_application_countries.include?(current_location)
-      if %w(renewing_new).include?(application_action)
-        phrases << :how_long_4_weeks
-      else 
-        phrases << :how_long_6_weeks
-      end
-    elsif twelve_week_application_countries.include?(current_location) and %w(applying renewing_old).include?(application_action)
-      phrases << :how_long_applying_12_weeks
-    elsif %w(north-korea).include?(current_location)
-      if %w(renewing_new).include?(application_action)
-        phrases << :how_long_6_weeks
-      elsif %w(renewing_old applying).include?(application_action)
-        phrases << :how_long_8_weeks_with_interview
-      else
-        phrases << :how_long_8_weeks_replacing
-      end
-    else
-      phrases << :"how_long_#{application_action}_ips#{ips_number}"
-    end
+    phrases = PhraseList.new 
+    phrases << :"how_long_#{waiting_time}"
+    phrases << :report_loss_or_theft if application_action == "replacing"
     phrases << :"how_long_it_takes_ips#{ips_number}"
     phrases
   end
@@ -399,17 +368,17 @@ end
 ## FCO Result
 outcome :fco_result do
   precalculate :how_long_it_takes do
-    PhraseList.new(:"how_long_#{application_action}_fco")
+    phrases = PhraseList.new 
+    phrases << :"how_long_#{waiting_time}"
+    phrases << :you_may_have_to_attend_an_interview if %w(renewing_old applying).include?(application_action)
+    phrases << :report_loss_or_theft if application_action == "replacing"
+    phrases
   end
-
+  
   precalculate :cost do
     cost_type = application_type
-    # All european FCO applications cost the same
-    cost_type = 'fco_europe' if application_type =~ /^(dublin_ireland|madrid_spain|paris_france)$/
-
     payment_methods = :"passport_costs_#{application_type}"
     
-
     phrases = PhraseList.new(:"passport_courier_costs_#{cost_type}",
                              :"#{child_or_adult}_passport_costs_#{cost_type}",
                              payment_methods)
@@ -418,9 +387,7 @@ outcome :fco_result do
   end
 
   precalculate :how_to_apply_supplement do
-    if application_type == 'dublin_ireland'
-      PhraseList.new(:"how_to_apply_#{application_type}")
-    elsif general_action == 'renewing' and data_query.retain_passport?(current_location)
+    if general_action == 'renewing' and data_query.retain_passport?(current_location)
       PhraseList.new(:how_to_apply_retain_passport)
     else
       ''
@@ -467,11 +434,7 @@ outcome :fco_result do
     PhraseList.new(:"getting_your_passport_#{location}")
   end
   precalculate :helpline do
-    phrases = PhraseList.new(:"helpline_#{application_type}")
-    unless %w{madrid_spain paris_france}.include?(application_type)
-      phrases << :helpline_fco_webchat
-    end
-    phrases
+    PhraseList.new(:"helpline_#{application_type}", :helpline_fco_webchat) 
   end
 end
 
@@ -519,9 +482,7 @@ outcome :result do
     else
       phrases << :helpline_intro << :"helpline_#{passport_data['helpline']}"
     end
-    unless %w{madrid_spain paris_france}.include?(application_type)
-      phrases << :helpline_fco_webchat
-    end
+    phrases << :helpline_fco_webchat
     phrases
   end
 end
