@@ -106,6 +106,10 @@ multiple_choice :renewing_replacing_applying? do
       v
     end
   end
+  
+  calculate :waiting_time do 
+    passport_data[application_action]
+  end
 
   next_node :child_or_adult_passport?
 end
@@ -168,9 +172,7 @@ end
 ## Online IPS Application Result
 outcome :ips_application_result_online do
   precalculate :how_long_it_takes do
-    
-    time = passport_data[application_action]
-    PhraseList.new(:"how_long_#{time}",
+    PhraseList.new(:"how_long_#{waiting_time}",
                    :"how_long_additional_info_#{application_action}", 
                    :how_long_additional_time_online)
   end 
@@ -200,10 +202,8 @@ end
 ## IPS Application Result
 outcome :ips_application_result do
   precalculate :how_long_it_takes do
-    
     phrases = PhraseList.new 
-    time = passport_data[application_action]
-    phrases << :"how_long_#{time}"
+    phrases << :"how_long_#{waiting_time}"
     phrases << :report_loss_or_theft if application_action == "replacing"
     phrases << :"how_long_it_takes_ips#{ips_number}"
     phrases
@@ -368,12 +368,8 @@ end
 ## FCO Result
 outcome :fco_result do
   precalculate :how_long_it_takes do
-    # PhraseList.new(:"how_long_#{application_action}_fco")
-    
-    
     phrases = PhraseList.new 
-    time = passport_data[application_action]
-    phrases << :"how_long_#{time}"
+    phrases << :"how_long_#{waiting_time}"
     phrases << :you_may_have_to_attend_an_interview if %w(renewing_old applying).include?(application_action)
     phrases << :report_loss_or_theft if application_action == "replacing"
     phrases
@@ -438,11 +434,7 @@ outcome :fco_result do
     PhraseList.new(:"getting_your_passport_#{location}")
   end
   precalculate :helpline do
-    phrases = PhraseList.new(:"helpline_#{application_type}")
-    unless %w{madrid_spain paris_france}.include?(application_type)
-      phrases << :helpline_fco_webchat
-    end
-    phrases
+    PhraseList.new(:"helpline_#{application_type}", :helpline_fco_webchat) 
   end
 end
 
