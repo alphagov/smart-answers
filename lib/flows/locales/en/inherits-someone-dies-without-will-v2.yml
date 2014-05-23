@@ -146,6 +146,8 @@ en-GB:
           They also get half of the amount left over.
 
           The remainder goes to the parent or parents.
+          
+          If a son or daughter has already died, their children will inherit in their parent’s place.
         next_steps: |
           %{next_step_links}
 
