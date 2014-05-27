@@ -51,7 +51,14 @@ module SmartAnswers
     config.assets.prefix = "smartanswers"
 
     # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-    config.assets.precompile += %w( smart-answers.js joint.js joint.css dagre.js visualise.js)
+    config.assets.precompile += %w(
+      smart-answers.js
+      joint.js
+      joint.layout.DirectedGraph.js
+      joint.css
+      dagre.js
+      visualise.js
+    )
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
