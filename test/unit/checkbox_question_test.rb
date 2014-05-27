@@ -97,35 +97,17 @@ module SmartAnswer
       end
     end
 
-    context "response_has_all_of predicate" do
+    context "predicate helper functions" do
       setup do
-        @question = Question::Checkbox.new(:something) do
-          option :red
-          option :blue
-          option :green
-        end
+        @question = Question::Checkbox.new(:something)
       end
 
-      should "be a callable" do
-        assert @question.response_has_all_of(%w{red}).respond_to?(:call)
+      should "define response_has_all_of" do
+        assert @question.response_has_all_of([]).is_a?(SmartAnswer::Predicate::ResponseHasAllOf)
       end
 
-      should "return true if all responses met" do
-        predicate = @question.response_has_all_of(%w{red green})
-        refute predicate.call('')
-        refute predicate.call('red')
-        refute predicate.call('blue')
-        refute predicate.call('green')
-        refute predicate.call('red,blue')
-        assert predicate.call('red,green')
-        refute predicate.call('blue,green')
-        assert predicate.call('red,blue,green')
-      end
-
-      should "always be true if empty requirements" do
-        predicate = @question.response_has_all_of([])
-        assert predicate.call('')
-        assert predicate.call('red')
+      should "define response_is_one_of" do
+        assert @question.response_is_one_of([]).is_a?(SmartAnswer::Predicate::ResponseIsOneOf)
       end
     end
   end

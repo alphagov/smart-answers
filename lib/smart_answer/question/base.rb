@@ -1,6 +1,7 @@
 module SmartAnswer
   module Question
     class Base < Node
+      attr_reader :next_node_function_chain
 
       def initialize(name, options = {}, &block)
         @save_input_as = nil
@@ -16,7 +17,7 @@ module SmartAnswer
         if block_given?
           @default_next_node_function = block
         elsif next_node
-          next_node_if(next_node, lambda { |_| true })
+          next_node_if(next_node)
         else
           raise ArgumentError
         end
@@ -24,7 +25,7 @@ module SmartAnswer
 
       def next_node_if(next_node, *predicates, &block)
         predicates << block if block_given?
-        @next_node_function_chain << [next_node, *(@predicate_stack + predicates)]
+        @next_node_function_chain << [next_node, normalize_predicates(@predicate_stack + predicates)]
         @permitted_next_nodes << next_node
       end
 
@@ -83,7 +84,11 @@ module SmartAnswer
       end
 
       def responded_with(acceptable_responses)
-        ->(response) { [*acceptable_responses].include?(response.to_s) }
+        SmartAnswer::Predicate::RespondedWith.new(acceptable_responses)
+      end
+
+      def variable_matches(variable_name, acceptable_responses)
+        SmartAnswer::Predicate::VariableMatches.new(variable_name, acceptable_responses)
       end
 
       def parse_input(raw_input)
@@ -115,10 +120,20 @@ module SmartAnswer
         end
       end
 
+      def normalize_predicates(predicates)
+        predicates.map do |predicate|
+          if predicate.is_a?(SmartAnswer::Predicate::Base)
+            predicate
+          else
+            SmartAnswer::Predicate::Callable.new(predicate)
+          end
+        end
+      end
+
       def next_node_from_function_chain(current_state, input)
-        found = @next_node_function_chain.find do |(_, *predicates)|
+        found = @next_node_function_chain.find do |(_, predicates)|
           predicates.all? do |predicate|
-            current_state.instance_exec(input, &predicate)
+            predicate.call(current_state, input)
           end
         end
         found && found.first

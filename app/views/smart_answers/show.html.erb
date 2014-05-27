@@ -1,4 +1,7 @@
 <% content_for :title do %><%= @presenter.title %><% end %>
+<% content_for :head do %>
+<%= javascript_include_tag "smart-answers", defer: true %>
+<% end %>
 <main id="content" role="main">
   <div id="js-replaceable" <% if @presenter.started? %> class="smart-answer-questions group"<% end %>>
     <%= render partial: "content" %>

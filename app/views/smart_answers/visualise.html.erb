@@ -1,0 +1,28 @@
+<% content_for :title do %><%= @presenter.title %><% end %>
+<% content_for :head do %>
+<%= javascript_include_tag 'joint' %>
+<%= javascript_include_tag 'joint.layout.DirectedGraph' %>
+<%= javascript_include_tag 'dagre' %>
+<%= javascript_include_tag 'visualise' %>
+<%= stylesheet_link_tag 'joint' %>
+<% end %>
+<script defer="false">
+  var adjacencyList = <%= JSON.pretty_generate(@graph_data).html_safe %>;
+</script>
+<main id="content" role="main">
+  <div >
+    <header class="page-header group">
+      <div>
+        <h1>
+          Visualisation of '<%= @presenter.title %>'
+        </h1>
+      </div>
+    </header>
+    <div class="step current">
+
+      <div id="paper" style="background-color: #f0f0f0; position: relative"></div>
+
+    </div>
+  </div>
+
+</main>
