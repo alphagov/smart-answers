@@ -71,7 +71,7 @@ multiple_choice :purpose_of_visit? do
     next_node_if(:outcome_taiwan_exception, variable_matches(:passport_country, 'taiwan'))
   end
 
-  on_condition(country_group_non_visa_national + country_group_ukot) do
+  on_condition(country_group_non_visa_national | country_group_ukot) do
     next_node_if(:outcome_school_n, responded_with(%w{tourism school}))
     next_node_if(:outcome_medical_n, responded_with('medical'))
   end
@@ -81,7 +81,7 @@ multiple_choice :purpose_of_visit? do
   next_node_if(:outcome_medical_y, responded_with('medical'))
 
   on_condition(responded_with('transit')) do
-    next_node_if(:planning_to_leave_airport?, country_group_datv + country_group_visa_national + country_group_taiwan_venezuela)
+    next_node_if(:planning_to_leave_airport?, country_group_datv | country_group_visa_national | country_group_taiwan_venezuela)
     next_node(:outcome_no_visa_needed)
   end
 
@@ -124,15 +124,15 @@ multiple_choice :staying_for_how_long? do
       next_node_if(:outcome_visit_waiver, variable_matches(:passport_country, %w(oman qatar united-arab-emirates)))
       next_node_if(:outcome_taiwan_exception, variable_matches(:passport_country, %w(taiwan)))
       #outcome 3 study m visa needed short courses
-      next_node_if(:outcome_study_m, country_group_datv + country_group_visa_national)
+      next_node_if(:outcome_study_m, country_group_datv | country_group_visa_national)
       #outcome 1 no visa needed
-      next_node_if(:outcome_no_visa_needed, country_group_ukot + country_group_non_visa_national)
+      next_node_if(:outcome_no_visa_needed, country_group_ukot | country_group_non_visa_national)
     end
     on_condition(visiting_for_work) do
       # outcome 5 work m visa needed short courses
-      next_node_if(:outcome_work_m, country_group_datv + country_group_visa_national)
+      next_node_if(:outcome_work_m, country_group_datv | country_group_visa_national)
       #outcome 5.5 work N no visa needed
-      next_node_if(:outcome_work_n, country_group_ukot + country_group_non_visa_national)
+      next_node_if(:outcome_work_n, country_group_ukot | country_group_non_visa_national)
     end
   end
 end

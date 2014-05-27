@@ -23,7 +23,7 @@ module SmartAnswer
           self.match_description + " | " + other.match_description)
       end
 
-      alias_method :+, :or
+      alias_method :|, :or
 
       def match_description
         @match_description || "{ #{@acceptable_responses.join(" | ")} }"

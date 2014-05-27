@@ -89,6 +89,21 @@ module SmartAnswer
         should "make label from options" do
           assert_equal "my_var == { a | b }", @predicate.label
         end
+
+        should "combine using | operator" do
+          p1 = VariableMatches.new(:my_var, %w{a}, "is a")
+          p2 = VariableMatches.new(:my_var, %w{b}, "is b")
+          p3 = p1 | p2
+
+          @state.my_var = 'a'
+          assert p3.call(@state, '')
+          @state.my_var = 'b'
+          assert p3.call(@state, '')
+          @state.my_var = 'c'
+          refute p3.call(@state, '')
+
+          assert_equal "my_var == is a | is b", p3.label
+        end
       end
     end
   end
