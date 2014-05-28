@@ -40,6 +40,10 @@ module SmartAnswer::Calculators
       COMMONWEALTH_COUNTRIES.include?(country_slug)
     end
 
+    def responded_with_commonwealth_country?
+      SmartAnswer::Predicate::RespondedWith.new(COMMONWEALTH_COUNTRIES, "commonwealth country")
+    end
+
     def clickbook(country_slug)
       data['clickbook'][country_slug]
     end
