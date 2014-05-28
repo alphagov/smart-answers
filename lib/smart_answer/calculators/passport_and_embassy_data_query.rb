@@ -1,11 +1,26 @@
 module SmartAnswer::Calculators
   class PassportAndEmbassyDataQuery
+    def ineligible_country?
+      SmartAnswer::Predicate::RespondedWith.new(%w{iran syria})
+    end
+
+    def apply_in_neighbouring_countries?
+      SmartAnswer::Predicate::RespondedWith.new(
+        %w(british-indian-ocean-territory kyrgyzstan north-korea south-georgia-and-south-sandwich-islands)
+      )
+    end
+
+    def ips_application?
+      SmartAnswer::Predicate::VariableMatches.new(:application_type,
+        %w{ips_application_1 ips_application_2 ips_application_3},
+        "IPS")
+    end
+
+    def fco_application?
+      SmartAnswer::Predicate::VariableMatches.new(:application_type, %w{pretoria_south_africa})
+    end
 
     include ActionView::Helpers::NumberHelper
-
-    FCO_APPLICATIONS_REGEXP = /^(pretoria_south_africa)$/
-    IPS_APPLICATIONS_REGEXP = /^ips_application_\d$/
-    NO_APPLICATION_REGEXP = /^(iran|syria)$/
 
     ALT_EMBASSIES = {
       'benin' =>  'nigeria',
@@ -65,6 +80,7 @@ module SmartAnswer::Calculators
         end
       end
     end
+
     def self.passport_data
       @passport_data ||= YAML.load_file(Rails.root.join("lib", "data", "passport_data.yml"))
     end
