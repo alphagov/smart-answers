@@ -138,18 +138,10 @@ date_question :payday_eight_weeks? do
     calculator.formatted_relevant_period
   end
 
-  next_node do |response|
-    case payday_exit
-    when 'maternity'
-      :pay_frequency?
-    when 'paternity'
-      :employees_average_weekly_earnings_paternity?
-    when 'paternity_adoption'
-      :padoption_employee_avg_weekly_earnings?
-    when 'adoption'
-      :adoption_employees_average_weekly_earnings?
-    end
-  end
+  next_node_if(:pay_frequency?, variable_matches(:payday_exit, 'maternity'))
+  next_node_if(:employees_average_weekly_earnings_paternity?, variable_matches(:payday_exit, 'paternity'))
+  next_node_if(:padoption_employee_avg_weekly_earnings?, variable_matches(:payday_exit, 'paternity_adoption'))
+  next_node_if(:adoption_employees_average_weekly_earnings?, variable_matches(:payday_exit, 'adoption'))
 end
 
 ## QM5.4
@@ -181,17 +173,11 @@ multiple_choice :how_do_you_want_the_smp_calculated? do
 
   save_input_as :smp_calculation_method
 
-  next_node do |response|
-    if response == "usual_paydates"
-      if pay_pattern == "monthly"
-        :when_in_the_month_is_the_employee_paid?
-      else
-        :when_is_your_employees_next_pay_day?
-      end
-    else
-      :maternity_leave_and_pay_result
-    end
+  on_condition(responded_with("usual_paydates")) do
+    next_node_if(:when_in_the_month_is_the_employee_paid?, variable_matches(:pay_pattern, "monthly"))
+    next_node(:when_is_your_employees_next_pay_day?)
   end
+  next_node(:maternity_leave_and_pay_result)
 end
 
 ## QM8
