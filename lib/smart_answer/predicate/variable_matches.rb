@@ -13,21 +13,20 @@ module SmartAnswer
         @acceptable_responses.include?(state.send(@variable_name))
       end
 
+      def match_description
+        @match_description || "{ #{@acceptable_responses.join(" | ")} }"
+      end
+
       def or(other)
-        if other.variable_name != self.variable_name
-          raise "Can't perform variable match OR on different variables " +
-            "#{other.variable_name}, #{self.variable_name}"
+        if other.is_a?(VariableMatches) && other.variable_name == self.variable_name
+          super(other, "#{@variable_name} == #{self.match_description} | #{other.match_description}")
+        else
+          super
         end
-        SmartAnswer::Predicate::VariableMatches.new(variable_name,
-          self.acceptable_responses + other.acceptable_responses,
-          self.match_description + " | " + other.match_description)
       end
 
       alias_method :|, :or
 
-      def match_description
-        @match_description || "{ #{@acceptable_responses.join(" | ")} }"
-      end
 
       def label
         "#{@variable_name} == #{match_description}"
