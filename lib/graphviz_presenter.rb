@@ -17,15 +17,39 @@ class GraphvizPresenter < GraphPresenter
 
   def label_lines
     labels.map do |name, label|
-      %Q{#{normalize_name(name)} [label="#{escape(label)}" shape=box]}
+      attrs = {
+        label: escape(label),
+        shape: "box"
+      }
+      if is_first?(name)
+        attrs.merge!(
+          color: "gold1",
+          style: "filled"
+        )
+      elsif is_outcome?(name)
+        attrs.merge!(
+          color: "aquamarine",
+          style: "filled"
+        )
+      end
+      attribute_clause = attrs.map {|k,v| "#{k}=\"#{v}\""}.join(' ')
+      %Q{#{normalize_name(name)} [#{attribute_clause}]}
     end
+  end
+
+  def is_first?(node_name)
+    @flow.questions.first.name == node_name
+  end
+
+  def is_outcome?(node_name)
+    @flow.outcomes.map(&:name).include?(node_name)
   end
 
   def edge_lines
     adjacency_list.map do |name, exits|
-      exits.map do |nextnode, predicate|
+      exits.map do |nextnode, label|
         next unless nextnode
-        %Q{#{normalize_name(name)}->#{normalize_name(nextnode)} [label="#{''}"];}
+        %Q{#{normalize_name(name)}->#{normalize_name(nextnode)} [label="#{label}"];}
       end
     end.flatten
   end
