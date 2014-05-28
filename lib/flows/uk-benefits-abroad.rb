@@ -3,6 +3,8 @@ satisfies_need "100490"
 
 exclude_countries = %w(holy-see british-antarctic-territory)
 situations = ['going_abroad','already_abroad']
+going_abroad = SmartAnswer::Predicate::VariableMatches.new(:going_or_already_abroad, 'going_abroad', nil, 'going abroad')
+already_abroad = SmartAnswer::Predicate::VariableMatches.new(:going_or_already_abroad, 'already_abroad', nil, 'already abroad')
 responded_with_eea_country = SmartAnswer::Predicate::RespondedWith.new(
   %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia
     finland france germany gibraltar greece hungary iceland ireland italy
@@ -79,12 +81,12 @@ multiple_choice :which_benefit? do
 
   save_input_as :benefit
 
-  on_condition(variable_matches(:going_or_already_abroad, 'going_abroad')) do
+  on_condition(going_abroad) do
     next_node_if(:jsa_how_long_abroad?, responded_with('jsa'))
     next_node_if(:pension_going_abroad_outcome, responded_with('pension'))
     next_node_if(:is_how_long_abroad?, responded_with('income_support'))
   end
-  on_condition(variable_matches(:going_or_already_abroad, 'already_abroad')) do
+  on_condition(already_abroad) do
     next_node_if(:channel_islands?, responded_with('jsa'))
     next_node_if(:pension_already_abroad_outcome, responded_with('pension'))
     next_node_if(:is_already_abroad_outcome, responded_with('income_support'))
@@ -119,7 +121,7 @@ multiple_choice :channel_islands? do
     next_node_if(:which_country_bereavement_benefits?, variable_matches(:benefit, 'bereavement_benefits'))
   end
   on_condition(responded_with('guernsey_jersey')) do
-    on_condition(variable_matches(:going_or_already_abroad, 'going_abroad')) do
+    on_condition(going_abroad) do
       next_node_if(:jsa_social_security_going_abroad_outcome, variable_matches(:benefit, 'jsa'))
       next_node_if(:iidb_going_abroad_ss_outcome, variable_matches(:benefit, 'iidb'))
       next_node_if(:bb_going_abroad_ss_outcome, variable_matches(:benefit, 'bereavement_benefits'))
@@ -148,12 +150,12 @@ country_select :which_country_jsa?, exclude_countries: exclude_countries do
     WorldLocation.all.find { |c| c.slug == country }.name
   end
 
-  on_condition(variable_matches(:going_or_already_abroad, 'already_abroad')) do
+  on_condition(already_abroad) do
     next_node_if(:jsa_eea_already_abroad_outcome, responded_with_eea_country) # A3 or A4
     next_node_if(:jsa_social_security_already_abroad_outcome, social_security_countries_jsa) # A5 or A6
   end
 
-  on_condition(variable_matches(:going_or_already_abroad, 'going_abroad')) do
+  on_condition(going_abroad) do
     next_node_if(:jsa_eea_going_abroad_outcome, responded_with_eea_country) # A3 or A4
     next_node_if(:jsa_social_security_going_abroad_outcome, social_security_countries_jsa) # A5 or A6
   end
@@ -205,7 +207,7 @@ multiple_choice :employer_paying_ni? do
   option :no
 
   on_condition(variable_matches(:country, countries_of_former_yugoslavia + %w(barbados guernsey_jersey israel turkey))) do
-    on_condition(variable_matches(:going_or_already_abroad, 'already_abroad')) do
+    on_condition(already_abroad) do
       next_node(:maternity_benefits_social_security_already_abroad_outcome) # A14 or A15
     end
     next_node_if(:maternity_benefits_social_security_going_abroad_outcome) # A14 or A15
@@ -231,7 +233,7 @@ country_select :which_country_child_benefit?, exclude_countries: exclude_countri
 
   next_node_if(:do_either_of_the_following_apply?, responded_with_eea_country) # Q10
   on_condition(responded_with_former_yugoslavia) do
-    next_node_if(:child_benefit_fy_going_abroad_outcome) { going_or_already_abroad == 'going_abroad'} # A17
+    next_node_if(:child_benefit_fy_going_abroad_outcome, going_abroad) # A17
     next_node(:child_benefit_fy_already_abroad_outcome) # A18
   end
   next_node_if(:child_benefit_ss_outcome, responded_with(%w(barbados canada israel mauritius new-zealand))) # A19
@@ -270,11 +272,11 @@ multiple_choice :working_for_uk_employer_ssp? do
   option :yes
   option :no
 
-  on_condition(variable_matches(:going_or_already_abroad, 'going_abroad')) do
+  on_condition(going_abroad) do
     next_node_if(:ssp_going_abroad_entitled_outcome, responded_with('yes')) # A23
     next_node(:ssp_going_abroad_not_entitled_outcome) # A25
   end
-  on_condition(variable_matches(:going_or_already_abroad, 'already_abroad')) do
+  on_condition(already_abroad) do
     next_node_if(:ssp_already_abroad_entitled_outcome, responded_with('yes')) # A24
     next_node(:ssp_already_abroad_not_entitled_outcome) # A26
   end
@@ -285,11 +287,11 @@ multiple_choice :employer_paying_ni_ssp? do
   option :yes
   option :no
 
-  on_condition(variable_matches(:going_or_already_abroad, 'going_abroad')) do
+  on_condition(going_abroad) do
     next_node_if(:ssp_going_abroad_entitled_outcome, responded_with('yes')) # A23
     next_node(:ssp_going_abroad_not_entitled_outcome) # A25
   end
-  on_condition(variable_matches(:going_or_already_abroad, 'already_abroad')) do
+  on_condition(already_abroad) do
     next_node_if(:ssp_already_abroad_entitled_outcome, responded_with('yes')) # A24
     next_node(:ssp_already_abroad_not_entitled_outcome) # A26
   end
@@ -353,11 +355,11 @@ multiple_choice :esa_how_long_abroad? do
   option :esa_under_a_year_other
   option :esa_more_than_a_year
 
-  on_condition(variable_matches(:going_or_already_abroad, 'going_abroad')) do
+  on_condition(going_abroad) do
     next_node_if(:esa_going_abroad_under_a_year_medical_outcome, responded_with('esa_under_a_year_medical'))
     next_node_if(:esa_going_abroad_under_a_year_other_outcome, responded_with('esa_under_a_year_other'))
   end
-  on_condition(variable_matches(:going_or_already_abroad, 'already_abroad')) do
+  on_condition(already_abroad) do
     next_node_if(:esa_already_abroad_under_a_year_medical_outcome, responded_with('esa_under_a_year_medical'))
     next_node_if(:esa_already_abroad_under_a_year_other_outcome, responded_with('esa_under_a_year_other'))
   end
@@ -380,11 +382,11 @@ country_select :which_country_esa?, exclude_countries: exclude_countries do
     WorldLocation.all.find { |c| c.slug == country }.name
   end
 
-  on_condition(variable_matches(:going_or_already_abroad, 'going_abroad')) do
+  on_condition(going_abroad) do
     next_node_if(:esa_going_abroad_eea_outcome, responded_with_eea_country) # A37
     next_node(:esa_going_abroad_other_outcome) # A39
   end
-  on_condition(variable_matches(:going_or_already_abroad, 'already_abroad')) do
+  on_condition(already_abroad) do
     next_node_if(:esa_already_abroad_eea_outcome, responded_with_eea_country) # A38
     next_node(:esa_already_abroad_other_outcome) # A40
   end
@@ -412,12 +414,12 @@ country_select :which_country_iidb?, exclude_countries: exclude_countries do
     WorldLocation.all.find { |c| c.slug == country }.name
   end
 
-  on_condition(variable_matches(:going_or_already_abroad, 'going_abroad')) do
+  on_condition(going_abroad) do
     next_node_if(:iidb_going_abroad_eea_outcome, responded_with_eea_country) # A42
     next_node_if(:iidb_going_abroad_ss_outcome, social_security_countries_iidb) # A44
     next_node(:iidb_going_abroad_other_outcome) # A46
   end
-  on_condition(variable_matches(:going_or_already_abroad, 'already_abroad')) do
+  on_condition(already_abroad) do
     next_node_if(:iidb_already_abroad_eea_outcome, responded_with_eea_country) # A43
     next_node_if(:iidb_already_abroad_ss_outcome, social_security_countries_iidb) # A45
     next_node(:iidb_already_abroad_other_outcome) # A47
@@ -429,7 +431,7 @@ multiple_choice :db_how_long_abroad? do
   option :temporary
   option :permanent => :which_country_disability_benefits? # Q25
 
-  next_node_if(:db_going_abroad_temporary_outcome) { going_or_already_abroad == 'going_abroad' } # A48
+  next_node_if(:db_going_abroad_temporary_outcome, going_abroad) # A48
   next_node(:db_already_abroad_temporary_outcome) # A49
 end
 
@@ -450,7 +452,7 @@ country_select :which_country_disability_benefits?, exclude_countries: exclude_c
   end
 
   next_node_if(:db_claiming_benefits?, responded_with_eea_country)
-  next_node_if(:db_going_abroad_other_outcome) { going_or_already_abroad == 'going_abroad' } # A50
+  next_node_if(:db_going_abroad_other_outcome, going_abroad) # A50
   next_node(:db_already_abroad_other_outcome) # A51
 end
 
@@ -459,11 +461,11 @@ multiple_choice :db_claiming_benefits? do
   option :yes
   option :no
 
-  on_condition(variable_matches(:going_or_already_abroad, 'going_abroad')) do
+  on_condition(going_abroad) do
     next_node_if(:db_going_abroad_eea_outcome, responded_with('yes')) # A52
     next_node(:db_going_abroad_other_outcome) # A50
   end
-  on_condition(variable_matches(:going_or_already_abroad, 'already_abroad')) do
+  on_condition(already_abroad) do
     next_node_if(:db_already_abroad_eea_outcome, responded_with('yes')) # A53
     next_node(:db_already_abroad_other_outcome) # A51
   end
@@ -485,12 +487,12 @@ country_select :which_country_bereavement_benefits?, exclude_countries: exclude_
     WorldLocation.all.find { |c| c.slug == country }.name
   end
 
-  on_condition(variable_matches(:going_or_already_abroad, 'going_abroad')) do
+  on_condition(going_abroad) do
     next_node_if(:bb_going_abroad_eea_outcome, responded_with_eea_country) # A54
     next_node_if(:bb_going_abroad_ss_outcome, social_security_countries_bereavement_benefits) # A56
     next_node(:bb_going_abroad_other_outcome) # A58
   end
-  on_condition(variable_matches(:going_or_already_abroad, 'already_abroad')) do
+  on_condition(already_abroad) do
     next_node_if(:bb_already_abroad_eea_outcome, responded_with_eea_country) # A55
     next_node_if(:bb_already_abroad_ss_outcome, social_security_countries_bereavement_benefits) # A57
     next_node(:bb_already_abroad_other_outcome) # A59
