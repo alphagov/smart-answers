@@ -49,7 +49,7 @@ private
     when SmartAnswer::Question::Base
       text << word_wrap(node_title(node))
     when SmartAnswer::Outcome
-      text << word_wrap(node_title(node).empty? ? node.name.to_s : node_title(node))
+      text << word_wrap(node_title(node).empty? ? first_line_of_body(node) : node_title(node))
     else
       text << "Unknown node type"
     end
@@ -88,6 +88,10 @@ private
     end
   rescue I18n::MissingTranslationData
     ""
+  end
+
+  def first_line_of_body(node)
+    node_body(node).split("\n\n").first
   end
 
   def translate_option(node, option)
